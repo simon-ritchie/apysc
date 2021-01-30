@@ -18,7 +18,7 @@ $ docker run -it --name action_py_script -v <your host workspace dir>:/mnt/actio
 e.g.,
 
 ```
-$ docker run -it --name action_py_script -v /d/workspace/github/action-py-script/src:/mnt/action-py-script -t action_py_script:0.1.1 bash
+$ docker run -it --name action_py_script -v /d/workspace/github/action-py-script:/mnt/action-py-script -t action_py_script:0.1.1 bash
 ```
 
 ### Start Stopping Docker Container
@@ -35,4 +35,12 @@ docker container exec -it action_py_script bash
 docker container stop action_py_script
 docker container rm action_py_script
 
+```
+
+## Testing
+
+### Run Overall Tests
+
+```
+$ pytest --cov=./apyscript tests/ -v -s
 ```

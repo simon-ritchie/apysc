@@ -1,2 +1,0 @@
-"""Stage (canvas) implementation.
-"""

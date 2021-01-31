@@ -1,6 +1,6 @@
 import pytest
 
-from apyscript.stage import stage
+from apyscript.display import stage
 
 
 def test__hello() -> None:

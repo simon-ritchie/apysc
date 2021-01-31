@@ -30,6 +30,7 @@ class Stage:
         file_util.empty_expression_dir()
         self._stage_width = stage_width
         self._stage_height = stage_height
+        self._validate_stage_size()
         background_color = color_util.complement_hex_color(
             hex_color_code=background_color)
         self._background_color = background_color
@@ -57,6 +58,7 @@ class Stage:
             Stage width to set.
         """
         self._stage_width = stage_width
+        self._validate_stage_size()
 
     @property
     def stage_height(self) -> int:
@@ -81,6 +83,7 @@ class Stage:
             Stage height to set.
         """
         self._stage_height = stage_height
+        self._validate_stage_size()
 
 
     def _validate_stage_size(self) -> None:
@@ -102,4 +105,13 @@ class Stage:
             err_msg=(
                 'Stage height is set non-integer value: '
                 f'{self.stage_height}'))
-        pass
+        size_util.validate_size_is_greater_than_zero(
+            size=self.stage_width,
+            err_msg=(
+                'Stage width can not be set less than or equal to zero: '
+                f'{self.stage_width}'))
+        size_util.validate_size_is_greater_than_zero(
+            size=self.stage_height,
+            err_msg=(
+                'Stage height can not be set less than or equal to zero: '
+                f'{self.stage_height}'))

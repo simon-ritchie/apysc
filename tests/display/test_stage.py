@@ -40,3 +40,24 @@ class TestStage:
 
         stage.stage_height = 400
         assert stage.stage_height == 400
+
+    def test__validate_stage_size(self) -> None:
+        testing_helper.assert_raises(
+            expected_error_class=ValueError,
+            func_or_method=Stage,
+            kwargs={'stage_width': '100px', 'stage_height': 100})
+
+        testing_helper.assert_raises(
+            expected_error_class=ValueError,
+            func_or_method=Stage,
+            kwargs={'stage_width': 100, 'stage_height': '100px'})
+
+        testing_helper.assert_raises(
+            expected_error_class=ValueError,
+            func_or_method=Stage,
+            kwargs={'stage_width': 0, 'stage_height': 100})
+
+        testing_helper.assert_raises(
+            expected_error_class=ValueError,
+            func_or_method=Stage,
+            kwargs={'stage_width': 100, 'stage_height': 0})

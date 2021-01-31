@@ -7,3 +7,4 @@ RUN pip install pytest==6.2.2
 RUN pip install twine==3.2.0
 RUN pip install pytest-cov==2.11.1
 RUN pip install pytest-parallel==0.1.0
+RUN pip install retrying==1.3.3

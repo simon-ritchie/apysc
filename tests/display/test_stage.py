@@ -1,6 +1,8 @@
 import os
 from typing import Any, Dict
 
+from retrying import retry
+
 from apyscript.display import stage
 from apyscript.display.stage import Stage
 from apyscript.expression import file_util
@@ -47,6 +49,7 @@ class TestStage:
         stage.stage_height = 500.5 # type: ignore
         assert stage.stage_height == 500
 
+    @retry(stop_max_attempt_number=5, wait_fixed=300)
     def test__validate_stage_size(self) -> None:
         testing_helper.assert_raises(
             expected_error_class=ValueError,

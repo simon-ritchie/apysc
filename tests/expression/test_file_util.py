@@ -1,5 +1,7 @@
 import os
 
+from retrying import retry
+
 from apyscript.expression import file_util
 
 
@@ -16,6 +18,7 @@ def test_empty_expression_dir() -> None:
     assert os.path.exists(file_util.EXPRESSION_ROOT_DIR)
 
 
+@retry(stop_max_attempt_number=5, wait_fixed=300)
 def test_append_expression() -> None:
     file_util.empty_expression_dir()
 

@@ -80,3 +80,16 @@ class Stage:
             Stage height to set.
         """
         self._stage_height = stage_height
+
+
+    def _validate_stage_size(self) -> None:
+        """
+        Check that current stage width and height is valid value.
+
+        Raises
+        ------
+        ValueError
+            - If non-integer value specified.
+            - If width or height is less than or equal to zero.
+        """
+        pass

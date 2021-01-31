@@ -87,12 +87,14 @@ class TestStage:
         stage: Stage = Stage(
             stage_width=100, stage_height=200,
             background_color='#333333',
-            add_to='#line-graph')
+            add_to='#line-graph',
+            stage_elem_id='line-graph-stage')
         expression: str = stage._make_constructor_expression()
         expected_str: str = (
             '<script type="text/javascript">'
             '\n$(document).ready(function() {'
-            '\n    var html = \'<div style="width: 100px;'
+            '\n    var html = \'<div id="line-graph-stage"'
+            ' style="width: 100px;'
             ' height: 200px; background-color: #333333;"></div>\';'
             '\n    $("#line-graph").append(html);'
             '\n});'

@@ -1,6 +1,4 @@
-- Add `add_to` option to Stage constructor.
-- Add `stage_id` option to Stage Constructor.
-- Apply `stage_id` attribute to constructor expression.
+- Apply `stage_elem_id` attribute to constructor expression.
 - Add autoflake library.
 - Add autopep8 library.
 - Add isort library.
@@ -10,3 +8,6 @@
 - Add implementation of removing first character #.
   - Apply that to `complement_hex_color`.
   - Apply that to Stage constructor (`stage_elem_id` option).
+- implement `_append_expression_constructor_expression` method.
+- Add implementation of saving overall html from expression.
+- Add getter interface of `stage_elem_id` to stage.

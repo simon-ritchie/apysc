@@ -2,7 +2,7 @@
 """
 
 from string import hexdigits
-from typing import Tuple
+from typing import List, Tuple
 
 
 def complement_hex_color(hex_color_code: str) -> str:
@@ -22,7 +22,30 @@ def complement_hex_color(hex_color_code: str) -> str:
     """
     hex_color_code = hex_color_code.replace('#', '')
     _validate_hex_color_code_format(hex_color_code=hex_color_code)
+    char_len: int = len(hex_color_code)
+    if char_len == 1:
+        hex_color_code = _fill_one_digit_hex_color_code(
+            hex_color_code=hex_color_code)
     pass
+
+
+def _fill_one_digit_hex_color_code(hex_color_code: str) -> str:
+    """
+    Fill 1 digit hexadecimal color code until it becomes 6 digits.
+
+    Parameters
+    ----------
+    hex_color_code : str
+        One digit hexadecimal color code (not including '#').
+        e.g., 'a', '0'
+
+    Returns
+    -------
+    filled_color_code : str
+        Result color code. e.g., '00000a', '000000'
+    """
+    filled_color_code: str = hex_color_code.zfill(6)
+    return filled_color_code
 
 
 def _validate_hex_color_code_format(hex_color_code: str) -> None:

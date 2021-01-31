@@ -33,3 +33,10 @@ class TestStage:
 
         stage.stage_width = 600
         assert stage.stage_width == 600
+
+    def test_stage_height(self) -> None:
+        stage: Stage = Stage(stage_height=300)
+        assert stage.stage_height == 300
+
+        stage.stage_height = 400
+        assert stage.stage_height == 400

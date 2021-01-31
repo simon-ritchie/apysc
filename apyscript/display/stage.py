@@ -56,3 +56,27 @@ class Stage:
             Stage width to set.
         """
         self._stage_width = stage_width
+
+    @property
+    def stage_height(self) -> int:
+        """
+        Get this stage's height.
+
+        Returns
+        -------
+        stage_height : int
+            This stage's height.
+        """
+        return self._stage_height
+
+    @stage_height.setter
+    def stage_height(self, stage_height: int) -> None:
+        """
+        Set this stage's height.
+
+        Parameters
+        ----------
+        stage_height : int
+            Stage height to set.
+        """
+        self._stage_height = stage_height

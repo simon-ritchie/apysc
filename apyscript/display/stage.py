@@ -174,6 +174,19 @@ $(document).ready(function() {{
         self._stage_height = stage_height
         self._validate_stage_size()
 
+    @property
+    def stage_elem_id(self) -> str:
+        """
+        Get stage's html element id.
+
+        Returns
+        -------
+        stage_elem_id : str
+            Stage's html element id (not including class or id symbol).
+            e.g., 'line-graph'
+        """
+        return self._stage_elem_id
+
     def _validate_stage_size(self) -> None:
         """
         Check that current stage width and height is valid value.

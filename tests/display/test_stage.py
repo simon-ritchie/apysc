@@ -9,7 +9,7 @@ from tests import testing_helper
 
 class TestStage:
 
-    def test___init__(self):
+    def test___init__(self) -> None:
         test_scope_file_path: str = file_util.get_scope_file_path_from_scope(
             scope='test')
         testing_helper.make_blank_file(file_path=test_scope_file_path)

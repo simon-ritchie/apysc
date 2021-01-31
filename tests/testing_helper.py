@@ -2,7 +2,9 @@
 """
 
 import os
-from typing import Any, Dict
+from typing import Any, Callable, Dict, Optional
+
+import pytest
 
 
 def make_blank_file(file_path: str) -> None:
@@ -51,3 +53,29 @@ def assert_attrs(expected_attrs: Dict[str, Any], any_obj: Any) -> None:
             f'\nAttribute value: {attr_val}'
             f'\nExpected value: {expected_value}'
         )
+
+
+def assert_raises(
+        expected_error_class: type, func_or_method: Callable,
+        kwargs: Optional[Dict[str, Any]] = None) -> None:
+    """
+    Check that specified callable will raise exception.
+
+    Parameters
+    ----------
+    expected_error_class : type
+        Expected error class, for instance, ValueError, Exception, etc.
+    func_or_method : callable
+        Target function or method.
+    kwargs : dict, optional
+        Keyword arguments to pass to the function or method.
+
+    Raises
+    ------
+    AssertionError
+        If specified error not be raised.
+    """
+    if kwargs is None:
+        kwargs = {}
+    with pytest.raises(expected_error_class):  # type: ignore
+        func_or_method(**kwargs)

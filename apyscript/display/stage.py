@@ -2,6 +2,7 @@
 """
 
 from apyscript.expression import file_util
+from apyscript.color import color_util
 
 
 class Stage:
@@ -28,4 +29,6 @@ class Stage:
         file_util.empty_expression_dir()
         self._stage_width = stage_width
         self._stage_height = stage_height
+        background_color = color_util.complement_hex_color(
+            hex_color_code=background_color)
         self._background_color = background_color

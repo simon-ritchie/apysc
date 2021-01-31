@@ -5,7 +5,7 @@ from typing import Optional
 from datetime import datetime
 import random
 
-from apyscript.expression import file_util as expression_file_util
+from apyscript.expression import expression_file_util
 from apyscript.color import color_util
 from apyscript.geom import size_util
 from apyscript.geom import converter

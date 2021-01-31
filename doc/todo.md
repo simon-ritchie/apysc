@@ -6,9 +6,13 @@
 - Add pyright library.
 - Add command to apply each lints.
 - Add implementation of saving overall html from expression.
-- Add getter interface of `stage_elem_id` to stage.
 - Add build script for PyPI.
 - Append PyPI document to `how to develop`
 - Upload initial version to PyPI.
   - Also upload to TestPyPI.
 - Make test project and test this library (use installed package via pip).
+- Add file helper module.
+- Add directory empty interface.
+  - Apply this implementation to stage constructor.
+- Rename file_util to expression_file_util.
+  - Also rename test module.

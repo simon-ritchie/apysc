@@ -2,6 +2,7 @@ import os
 from typing import Any, Dict
 
 from retrying import retry
+import pytest
 
 from apyscript.display import stage
 from apyscript.display.stage import Stage
@@ -11,6 +12,7 @@ from tests import testing_helper
 
 class TestStage:
 
+    @retry(stop_max_attempt_number=5, wait_fixed=300)
     def test___init__(self) -> None:
         test_scope_file_path: str = file_util.get_scope_file_path_from_scope(
             scope='test')
@@ -39,6 +41,9 @@ class TestStage:
         stage.stage_width = 700.5  # type: ignore
         assert stage.stage_width == 700
 
+        with pytest.raises(ValueError):  # type: ignore
+            stage.stage_width = '10px'  # type: ignore
+
     def test_stage_height(self) -> None:
         stage: Stage = Stage(stage_height=300)
         assert stage.stage_height == 300
@@ -48,6 +53,9 @@ class TestStage:
 
         stage.stage_height = 500.5 # type: ignore
         assert stage.stage_height == 500
+
+        with pytest.raises(ValueError): # type: ignore
+            stage.stage_height = '10px' # type: ignore
 
     @retry(stop_max_attempt_number=5, wait_fixed=300)
     def test__validate_stage_size(self) -> None:

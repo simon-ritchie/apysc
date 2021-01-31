@@ -32,3 +32,27 @@ class Stage:
         background_color = color_util.complement_hex_color(
             hex_color_code=background_color)
         self._background_color = background_color
+
+    @property
+    def stage_width(self) -> int:
+        """
+        Get this stage's width.
+
+        Returns
+        -------
+        stage_width : int
+            This stage's width.
+        """
+        return self._stage_width
+
+    @stage_width.setter
+    def stage_width(self, stage_width: int) -> None:
+        """
+        Set this stage's width.
+
+        Parameters
+        ----------
+        stage_width : int
+            Stage width to set.
+        """
+        self._stage_width = stage_width

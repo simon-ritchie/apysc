@@ -27,3 +27,9 @@ class TestStage:
         testing_helper.assert_attrs(
             expected_attrs=expected_attrs, any_obj=stage)
 
+    def test_stage_width(self) -> None:
+        stage: Stage = Stage(stage_width=500)
+        assert stage.stage_width == 500
+
+        stage.stage_width = 600
+        assert stage.stage_width == 600

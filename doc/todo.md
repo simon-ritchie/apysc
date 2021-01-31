@@ -1,0 +1,2 @@
+- Add size (width and height) validation to stage.py.
+- Fix README of `create js file` to `create html and js file`.

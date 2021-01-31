@@ -42,5 +42,5 @@ docker container rm action_py_script
 ### Run Overall Tests
 
 ```
-$ pytest --cov=./apyscript tests/ -v -s
+$ pytest --cov=./apyscript tests/ -v -s --workers auto
 ```

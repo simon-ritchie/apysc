@@ -27,17 +27,12 @@ def test_append_expression() -> None:
     file_util.append_expression(
         expression=expected_expression_2,
         scope=file_util.ROOT_SCOPE)
-    root_scope_file_path:str = os.path.join(
-        file_util.EXPRESSION_ROOT_DIR,
-        f'{file_util.ROOT_SCOPE}.html',
-    )
+    root_scope_file_path:str = file_util.get_scope_file_path_from_scope()
     with open(root_scope_file_path, 'r') as f:
         scope_txt: str = f.read()
     expected_str: str = (
         f'{expected_expression_1}\n{expected_expression_2}\n'
     )
-    print(scope_txt)
-    print(expected_str)
     assert scope_txt == expected_str
 
     file_util.empty_expression_dir()

@@ -21,7 +21,8 @@ class TestStage:
             stage_width=500,
             stage_height=300,
             background_color='#000000',
-            add_to='#line-graph')
+            add_to='#line-graph',
+            stage_elem_id='line-graph-stage')
         assert not os.path.exists(test_scope_file_path)
 
         expected_attrs: Dict[str, Any] = {
@@ -29,6 +30,7 @@ class TestStage:
             '_stage_height': 300,
             '_background_color': '#000000',
             '_add_to': '#line-graph',
+            '_stage_elem_id': 'line-graph-stage',
         }
         testing_helper.assert_attrs(
             expected_attrs=expected_attrs, any_obj=stage)

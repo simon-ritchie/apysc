@@ -3,6 +3,7 @@
 
 from apyscript.expression import file_util
 from apyscript.color import color_util
+from apyscript.geom import size_util
 
 
 class Stage:
@@ -92,4 +93,13 @@ class Stage:
             - If non-integer value specified.
             - If width or height is less than or equal to zero.
         """
+        size_util.validate_size_is_int(
+            size=self.stage_width,
+            err_msg=(
+                f'Stage width is set non-integer value: {self.stage_width}'))
+        size_util.validate_size_is_int(
+            size=self.stage_height,
+            err_msg=(
+                'Stage height is set non-integer value: '
+                f'{self.stage_height}'))
         pass

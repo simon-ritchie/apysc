@@ -1,1 +1,1 @@
-- Add test pattern of stage width and stage height.
+- Add `add_to` option to Stage constructor.

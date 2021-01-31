@@ -12,10 +12,12 @@ class Stage:
     _stage_width: int
     _stage_height: int
     _background_color: str
+    _add_to: str
 
     def __init__(
             self, stage_width: int = 300, stage_height: int = 185,
-            background_color: str = '#ffffff') -> None:
+            background_color: str = '#ffffff',
+            add_to: str = 'body') -> None:
         """
         Create Stage (canvas) instance.
 
@@ -27,6 +29,10 @@ class Stage:
             Stage height
         background_color : str, default '#ffffff'
             Hexadecimal background color string.
+        add_to : str, default 'body'
+            Specification of element to add stage.
+            Unique tag (e.g., 'body') or ID selector
+            (e.g., '#any-unique-elem') is acceptable.
         """
         file_util.empty_expression_dir()
         self._stage_width = stage_width
@@ -35,6 +41,7 @@ class Stage:
         background_color = color_util.complement_hex_color(
             hex_color_code=background_color)
         self._background_color = background_color
+        self._add_to = add_to
 
     @property
     def stage_width(self) -> int:

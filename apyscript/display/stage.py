@@ -5,6 +5,7 @@ from apyscript.expression import file_util
 from apyscript.color import color_util
 from apyscript.geom import size_util
 from apyscript.geom import converter
+from apyscript.expression import file_util
 
 
 class Stage:
@@ -42,6 +43,36 @@ class Stage:
             hex_color_code=background_color)
         self._background_color = background_color
         self._add_to = add_to
+        self._append_expression_constructor_expression()
+
+    def _append_expression_constructor_expression(self) -> None:
+        """
+        Append stage constructor expression to file.
+        """
+        expression: str = self._make_constructor_expression()
+        pass
+
+    def _make_constructor_expression(self) -> str:
+        """
+        Make a stage constructor expression string.
+
+        Returns
+        -------
+        expression : str
+            Result expression.
+        """
+        style: str = (
+            f'width: {self.stage_width}px;'
+            f' height: {self.stage_height}px;'
+            f' background-color: {self._background_color};'
+
+        )
+        expression: str = f"""<script type="text/javascript">
+$(document).ready(function() {{
+    var html = '<div style="{style}"></div>';
+    $("{self._add_to}").append(html);
+}});"""
+        return expression
 
     @property
     def stage_width(self) -> int:
@@ -94,7 +125,6 @@ class Stage:
         stage_height = converter.to_int_from_float(int_or_float=stage_height)
         self._stage_height = stage_height
         self._validate_stage_size()
-
 
     def _validate_stage_size(self) -> None:
         """

@@ -1,1 +1,3 @@
 - Add `add_to` option to Stage constructor.
+- Add `stage_id` option to Stage Constructor.
+- Apply `stage_id` attribute to constructor expression.

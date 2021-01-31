@@ -80,3 +80,19 @@ class TestStage:
             expected_error_class=ValueError,
             func_or_method=Stage,
             kwargs={'stage_width': 100, 'stage_height': 0})
+
+    def test__make_constructor_expression(self) -> None:
+        stage: Stage = Stage(
+            stage_width=100, stage_height=200,
+            background_color='#333333',
+            add_to='#line-graph')
+        expression: str = stage._make_constructor_expression()
+        expected_str: str = (
+            '<script type="text/javascript">'
+            '\n$(document).ready(function() {'
+            '\n    var html = \'<div style="width: 100px;'
+            ' height: 200px; background-color: #333333;"></div>\';'
+            '\n    $("#line-graph").append(html);'
+            '\n});'
+        )
+        assert expression == expected_str

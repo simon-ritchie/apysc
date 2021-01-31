@@ -11,8 +11,5 @@
 - Upload initial version to PyPI.
   - Also upload to TestPyPI.
 - Make test project and test this library (use installed package via pip).
-- Add file helper module.
-- Add directory empty interface.
-  - Apply this implementation to stage constructor.
 - Rename file_util to expression_file_util.
   - Also rename test module.

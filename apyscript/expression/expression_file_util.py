@@ -5,14 +5,15 @@ import os
 import shutil
 from typing import Optional
 
+from apyscript.file import file_util
+
 EXPRESSION_ROOT_DIR: str = '../.apyscript_expression/'
 
 
 def empty_expression_dir() -> None:
     """Remove expression directory (EXPRESSION_ROOT_DIR) to initialize.
     """
-    shutil.rmtree(EXPRESSION_ROOT_DIR, ignore_errors=True)
-    os.makedirs(EXPRESSION_ROOT_DIR, exist_ok=True)
+    file_util.empty_directory(directory_path=EXPRESSION_ROOT_DIR)
 
 
 ROOT_SCOPE: str = 'root'

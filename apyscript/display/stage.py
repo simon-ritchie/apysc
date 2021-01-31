@@ -1,7 +1,7 @@
 """Stage (canvas) implementation.
 """
 
-from apyscript.expression import expression_file
+from apyscript.expression import file_util
 
 
 class Stage:
@@ -10,4 +10,4 @@ class Stage:
         """
         Stage (canvas) class.
         """
-        expression_file.empty_expression_dir()
+        file_util.empty_expression_dir()

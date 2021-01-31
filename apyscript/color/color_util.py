@@ -4,6 +4,8 @@
 from string import hexdigits
 from typing import List, Tuple
 
+from apyscript.html import html_util
+
 
 def complement_hex_color(hex_color_code: str) -> str:
     """
@@ -20,7 +22,8 @@ def complement_hex_color(hex_color_code: str) -> str:
     complemented_hex_color_code : str
         Result hex color code. e.g., '#ff0000', '#666666, '#000000'
     """
-    hex_color_code = hex_color_code.replace('#', '')
+    hex_color_code = html_util.remove_first_selector_symbol_char(
+        str_val=hex_color_code)
     _validate_hex_color_code_format(hex_color_code=hex_color_code)
     char_len: int = len(hex_color_code)
     if char_len == 1:

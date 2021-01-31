@@ -4,9 +4,12 @@
 - Add flake8 library.
 - Add numdoclint library.
 - Add pyright library.
-- Add implementation of removing first character #.
-  - Apply that to `complement_hex_color`.
-  - Apply that to Stage constructor (`stage_elem_id` option).
+- Add command to apply each lints.
 - implement `_append_expression_constructor_expression` method.
 - Add implementation of saving overall html from expression.
 - Add getter interface of `stage_elem_id` to stage.
+- Add build script for PyPI.
+- Append PyPI document to `how to develop`
+- Upload initial version to PyPI.
+  - Also upload to TestPyPI.
+- Make test project and test this library (use installed package via pip).

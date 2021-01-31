@@ -9,6 +9,7 @@ from apyscript.expression import file_util
 from apyscript.color import color_util
 from apyscript.geom import size_util
 from apyscript.geom import converter
+from apyscript.html import html_util
 
 
 class Stage:
@@ -53,6 +54,8 @@ class Stage:
         self._add_to = add_to
         self._stage_elem_id = self._create_stage_elem_id_if_none(
             stage_elem_id=stage_elem_id)
+        self._stage_elem_id = html_util.remove_first_selector_symbol_char(
+            str_val=self._stage_elem_id)
         self._append_expression_constructor_expression()
 
     def _create_stage_elem_id_if_none(

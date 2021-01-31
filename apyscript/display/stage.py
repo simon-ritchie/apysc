@@ -1,6 +1,13 @@
 """Stage (canvas) implementation.
 """
 
+from apyscript.expression import expression_file
 
-def _hello() -> None:
-    print("Hello ActionPyScript!")
+
+class Stage:
+
+    def __init__(self):
+        """
+        Stage (canvas) class.
+        """
+        expression_file.empty_expression_dir()

@@ -29,7 +29,9 @@ def complement_hex_color(hex_color_code: str) -> str:
     elif char_len == 3:
         hex_color_code = _fill_three_digit_hex_color_code(
             hex_color_code=hex_color_code)
-    pass
+    hex_color_code = hex_color_code.lower()
+    hex_color_code = f'#{hex_color_code}'
+    return hex_color_code
 
 
 def _fill_three_digit_hex_color_code(hex_color_code: str) -> str:

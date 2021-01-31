@@ -26,7 +26,31 @@ def complement_hex_color(hex_color_code: str) -> str:
     if char_len == 1:
         hex_color_code = _fill_one_digit_hex_color_code(
             hex_color_code=hex_color_code)
+    elif char_len == 3:
+        hex_color_code = _fill_three_digit_hex_color_code(
+            hex_color_code=hex_color_code)
     pass
+
+
+def _fill_three_digit_hex_color_code(hex_color_code: str) -> str:
+    """
+    Fill 3 digits hexadecimal color code until it becomes 6 digits.
+
+    Parameters
+    ----------
+    hex_color_code : str
+        One digit hexadecimal color code (not including '#').
+        e.g., 'aaa', 'fff'
+
+    Returns
+    -------
+    filled_color_code : str
+        Result color code. e.g., 'aaaaaa', 'ffffff'
+    """
+    filled_color_code: str = ''
+    for char in hex_color_code:
+        filled_color_code += char * 2
+    return filled_color_code
 
 
 def _fill_one_digit_hex_color_code(hex_color_code: str) -> str:

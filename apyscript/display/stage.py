@@ -1,11 +1,14 @@
 """Stage (canvas) implementation.
 """
 
+from typing import Optional
+from datetime import datetime
+import random
+
 from apyscript.expression import file_util
 from apyscript.color import color_util
 from apyscript.geom import size_util
 from apyscript.geom import converter
-from apyscript.expression import file_util
 
 
 class Stage:
@@ -14,11 +17,13 @@ class Stage:
     _stage_height: int
     _background_color: str
     _add_to: str
+    _stage_elem_id: str
 
     def __init__(
             self, stage_width: int = 300, stage_height: int = 185,
             background_color: str = '#ffffff',
-            add_to: str = 'body') -> None:
+            add_to: str = 'body',
+            stage_elem_id: Optional[str] = None) -> None:
         """
         Create Stage (canvas) instance.
 
@@ -34,6 +39,9 @@ class Stage:
             Specification of element to add stage.
             Unique tag (e.g., 'body') or ID selector
             (e.g., '#any-unique-elem') is acceptable.
+        stage_elem_id : str or None, optional
+            ID attribute set to stage html element (e.g., 'line-graph').
+            If None is set, random integer will be applied.
         """
         file_util.empty_expression_dir()
         self._stage_width = stage_width
@@ -43,7 +51,33 @@ class Stage:
             hex_color_code=background_color)
         self._background_color = background_color
         self._add_to = add_to
+        self._stage_elem_id = self._create_stage_elem_id_if_none(
+            stage_elem_id=stage_elem_id)
         self._append_expression_constructor_expression()
+
+    def _create_stage_elem_id_if_none(
+            self, stage_elem_id: Optional[str]) -> str:
+        """
+        Create random stage element id if specified id is None.
+
+        Parameters
+        ----------
+        stage_elem_id : str or None
+            Specified stage element id.
+
+        Returns
+        -------
+        result_id : str
+            If specified id is not None, then unchanged argument value
+            will be returned.
+            Otherwise, random integer string will be returned.
+        """
+        if stage_elem_id is not None:
+            return stage_elem_id
+        now_timestamp: int = int(datetime.now().timestamp() * 1000)
+        random_int: int = random.randint(1000000, 10000000)
+        result_id: str = f'{now_timestamp}{random_int}'
+        return result_id
 
     def _append_expression_constructor_expression(self) -> None:
         """

@@ -1,3 +1,12 @@
 - Add `add_to` option to Stage constructor.
 - Add `stage_id` option to Stage Constructor.
 - Apply `stage_id` attribute to constructor expression.
+- Add autoflake library.
+- Add autopep8 library.
+- Add isort library.
+- Add flake8 library.
+- Add numdoclint library.
+- Add pyright library.
+- Add implementation of removing first character #.
+  - Apply that to `complement_hex_color`.
+  - Apply that to Stage constructor (`stage_elem_id` option).

@@ -96,3 +96,16 @@ class TestStage:
             '\n});'
         )
         assert expression == expected_str
+
+    def test__create_stage_elem_id_if_none(self) -> None:
+        stage: Stage = Stage()
+        result_id: str = stage._create_stage_elem_id_if_none(
+            stage_elem_id='line-graph')
+        assert result_id == 'line-graph'
+
+        result_id_1: str = stage._create_stage_elem_id_if_none(
+            stage_elem_id=None)
+        assert result_id_1.isdigit()
+        result_id_2: str = stage._create_stage_elem_id_if_none(
+            stage_elem_id=None)
+        assert result_id_1 != result_id_2

@@ -48,6 +48,7 @@ class TestStage:
         with pytest.raises(ValueError):  # type: ignore
             stage.stage_width = '10px'  # type: ignore
 
+    @retry(stop_max_attempt_number=5, wait_fixed=300)
     def test_stage_height(self) -> None:
         stage: Stage = Stage(stage_height=300)
         assert stage.stage_height == 300

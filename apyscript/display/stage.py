@@ -99,7 +99,6 @@ class Stage:
             f'width: {self.stage_width}px;'
             f' height: {self.stage_height}px;'
             f' background-color: {self._background_color};'
-
         )
         expression: str = f"""<script type="text/javascript">
 $(document).ready(function() {{

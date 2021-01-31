@@ -1,4 +1,3 @@
-- Apply `stage_elem_id` attribute to constructor expression.
 - Add autoflake library.
 - Add autopep8 library.
 - Add isort library.

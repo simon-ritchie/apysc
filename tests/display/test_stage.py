@@ -34,12 +34,18 @@ class TestStage:
         stage.stage_width = 600
         assert stage.stage_width == 600
 
+        stage.stage_width = 700.5  # type: ignore
+        assert stage.stage_width == 700
+
     def test_stage_height(self) -> None:
         stage: Stage = Stage(stage_height=300)
         assert stage.stage_height == 300
 
         stage.stage_height = 400
         assert stage.stage_height == 400
+
+        stage.stage_height = 500.5 # type: ignore
+        assert stage.stage_height == 500
 
     def test__validate_stage_size(self) -> None:
         testing_helper.assert_raises(

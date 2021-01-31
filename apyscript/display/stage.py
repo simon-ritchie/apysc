@@ -4,6 +4,7 @@
 from apyscript.expression import file_util
 from apyscript.color import color_util
 from apyscript.geom import size_util
+from apyscript.geom import converter
 
 
 class Stage:
@@ -57,6 +58,7 @@ class Stage:
         stage_width : int
             Stage width to set.
         """
+        stage_width = converter.to_int_from_float(int_or_float=stage_width)
         self._stage_width = stage_width
         self._validate_stage_size()
 
@@ -82,6 +84,7 @@ class Stage:
         stage_height : int
             Stage height to set.
         """
+        stage_height = converter.to_int_from_float(int_or_float=stage_height)
         self._stage_height = stage_height
         self._validate_stage_size()
 

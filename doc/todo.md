@@ -1,4 +1,3 @@
-- Fix README of `create js file` to `create html and js file`.
 - Add interface of casting to integer to geom.
 - Add retrying library to Dockerfile.
 - Add retrying setting to test_file_util.

@@ -5,7 +5,8 @@
 - Add numdoclint library.
 - Add pyright library.
 - Add command to apply each lints.
-- implement `_append_expression_constructor_expression` method.
+- Implement `_append_expression_constructor_expression` method.
+- Apply _make_constructor_expression implementation to `test__make_constructor_expression`
 - Add implementation of saving overall html from expression.
 - Add getter interface of `stage_elem_id` to stage.
 - Add build script for PyPI.

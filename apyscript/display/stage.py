@@ -5,7 +5,7 @@ from typing import Optional
 from datetime import datetime
 import random
 
-from apyscript.expression import file_util
+from apyscript.expression import file_util as expression_file_util
 from apyscript.color import color_util
 from apyscript.geom import size_util
 from apyscript.geom import converter
@@ -44,7 +44,7 @@ class Stage:
             ID attribute set to stage html element (e.g., 'line-graph').
             If None is set, random integer will be applied.
         """
-        file_util.empty_expression_dir()
+        expression_file_util.empty_expression_dir()
         self._stage_width = stage_width
         self._stage_height = stage_height
         self._validate_stage_size()
@@ -87,7 +87,7 @@ class Stage:
         Append stage constructor expression to file.
         """
         expression: str = self._make_constructor_expression()
-        pass
+        expression_file_util.append_expression(expression=expression)
 
     def _make_constructor_expression(self) -> str:
         """
@@ -98,17 +98,29 @@ class Stage:
         expression : str
             Result expression.
         """
-        style: str = (
-            f'width: {self.stage_width}px;'
-            f' height: {self.stage_height}px;'
-            f' background-color: {self._background_color};'
-        )
+        style: str = self._make_style_str()
         expression: str = f"""<script type="text/javascript">
 $(document).ready(function() {{
     var html = '<div id="{self._stage_elem_id}" style="{style}"></div>';
     $("{self._add_to}").append(html);
 }});"""
         return expression
+
+    def _make_style_str(self) -> str:
+        """
+        Make a stage's style string.
+
+        Returns
+        -------
+        style : str
+            Result style string (width, height, etc).
+        """
+        style: str = (
+            f'width: {self.stage_width}px;'
+            f' height: {self.stage_height}px;'
+            f' background-color: {self._background_color};'
+        )
+        return style
 
     @property
     def stage_width(self) -> int:

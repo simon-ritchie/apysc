@@ -91,12 +91,12 @@ class TestStage:
             add_to='#line-graph',
             stage_elem_id='line-graph-stage')
         expression: str = stage._make_constructor_expression()
+        style:str = stage._make_style_str()
         expected_str: str = (
             '<script type="text/javascript">'
             '\n$(document).ready(function() {'
             '\n    var html = \'<div id="line-graph-stage"'
-            ' style="width: 100px;'
-            ' height: 200px; background-color: #333333;"></div>\';'
+            f' style="{style}"></div>\';'
             '\n    $("#line-graph").append(html);'
             '\n});'
         )
@@ -114,3 +114,22 @@ class TestStage:
         result_id_2: str = stage._create_stage_elem_id_if_none(
             stage_elem_id=None)
         assert result_id_1 != result_id_2
+
+    def test__make_style_str(self) -> None:
+        stage: Stage = Stage(
+            stage_width=200, stage_height=300, background_color='#333')
+        style: str = stage._make_style_str()
+        expected_style: str = (
+            'width: 200px; height: 300px; background-color: #333333;'
+        )
+        assert style == expected_style
+
+    def test__append_expression_constructor_expression(self) -> None:
+        stage: Stage = Stage()
+        expected_expression: str = stage._make_constructor_expression()
+        expected_expression = expected_expression.strip()
+        scope_file_path: str = file_util.get_scope_file_path_from_scope()
+        with open(scope_file_path, 'r') as f:
+            saved_expression: str = f.read()
+        saved_expression = saved_expression.strip()
+        assert saved_expression == expected_expression

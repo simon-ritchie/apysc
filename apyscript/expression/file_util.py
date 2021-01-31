@@ -5,7 +5,7 @@ import os
 import shutil
 from typing import Optional
 
-EXPRESSION_ROOT_DIR: str = './.apyscript_expression/'
+EXPRESSION_ROOT_DIR: str = '../.apyscript_expression/'
 
 
 def empty_expression_dir() -> None:

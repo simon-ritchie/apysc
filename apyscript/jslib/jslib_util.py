@@ -3,6 +3,7 @@
 
 import os
 import sys
+import shutil
 from typing import List
 from types import ModuleType
 
@@ -41,3 +42,37 @@ def get_jslib_abs_dir_path() -> str:
     this_module: ModuleType = sys.modules[__name__]
     jslib_abs_dir_path: str = os.path.dirname(this_module.__file__)
     return jslib_abs_dir_path
+
+
+def export_jslib_to_specified_dir(
+        dest_dir_path: str, jslib_name: str) -> str:
+    """
+    Export JavaScript library to specified directory.
+
+    Parameters
+    ----------
+    dest_dir_path : str
+        Directory path to export JavaScript library file.
+    jslib_name : str
+        JavaScript file name to export.
+
+    Returns
+    -------
+    dest_file_path : str
+        Exported Javascript library's file path.
+
+    Raises
+    ------
+    FileNotFoundError
+        If specified JavaScript file is not found.
+    """
+    os.makedirs(dest_dir_path, exist_ok=True)
+    dir_path: str = get_jslib_abs_dir_path()
+    src_file_path: str = os.path.join(dir_path, jslib_name)
+    if not os.path.isfile(src_file_path):
+        raise FileNotFoundError(
+            'Specified JavaScript library file is not found: '
+            f'{src_file_path}')
+    dest_file_path: str = os.path.join(dest_dir_path, jslib_name)
+    shutil.copyfile(src_file_path, dest_file_path)
+    return dest_file_path

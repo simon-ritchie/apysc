@@ -6,10 +6,10 @@
 - Add pyright library.
 - Add command to apply each lints.
 - Add implementation of saving overall html from expression.
+  - `save_expressions_overall_html`
+  - Use file_utils's empty interface.
 - Add build script for PyPI.
 - Append PyPI document to `how to develop`
 - Upload initial version to PyPI.
   - Also upload to TestPyPI.
 - Make test project and test this library (use installed package via pip).
-- Rename file_util to expression_file_util.
-  - Also rename test module.

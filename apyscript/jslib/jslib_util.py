@@ -18,8 +18,7 @@ def get_jslib_file_names() -> List[str]:
         directory.
         e.g., ['jquery.min.js', 'svg.min.js']
     """
-    this_module: ModuleType = sys.modules[__name__]
-    this_modules_dir_path: str = os.path.dirname(this_module.__file__)
+    this_modules_dir_path: str = get_jslib_abs_dir_path()
     jslib_file_names: List[str] = []
     file_names: List[str] = os.listdir(this_modules_dir_path)
     for file_name in file_names:
@@ -27,3 +26,18 @@ def get_jslib_file_names() -> List[str]:
             continue
         jslib_file_names.append(file_name)
     return jslib_file_names
+
+
+def get_jslib_abs_dir_path() -> str:
+    """
+    Get a Javascript library's absolute directory path.
+
+    Returns
+    -------
+    jslib_abs_dir_path : str
+        Javascript library's absolute directory path.
+        This module's directory will be set.
+    """
+    this_module: ModuleType = sys.modules[__name__]
+    jslib_abs_dir_path: str = os.path.dirname(this_module.__file__)
+    return jslib_abs_dir_path

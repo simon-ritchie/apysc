@@ -86,6 +86,7 @@ class TestStage:
             func_or_method=Stage,
             kwargs={'stage_width': 100, 'stage_height': 0})
 
+    @retry(stop_max_attempt_number=5, wait_fixed=300)
     def test__make_constructor_expression(self) -> None:
         stage: Stage = Stage(
             stage_width=100, stage_height=200,
@@ -104,6 +105,7 @@ class TestStage:
         )
         assert expression == expected_str
 
+    @retry(stop_max_attempt_number=5, wait_fixed=300)
     def test__create_stage_elem_id_if_none(self) -> None:
         stage: Stage = Stage()
         result_id: str = stage._create_stage_elem_id_if_none(
@@ -138,6 +140,7 @@ class TestStage:
         saved_expression = saved_expression.strip()
         assert saved_expression == expected_expression
 
+    @retry(stop_max_attempt_number=5, wait_fixed=300)
     def test_stage_elem_id(self) -> None:
         stage: Stage = Stage(stage_elem_id='#line-graph')
         assert stage.stage_elem_id == 'line-graph'

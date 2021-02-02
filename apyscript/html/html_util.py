@@ -43,7 +43,8 @@ def add_html_to_str(
         Html appended string.
     """
     result: str = dest_html
-    result += '\n'
+    if result != '':
+        result += '\n'
     result += ' ' * (indent_num * 2)
     result += to_append_html
     return result

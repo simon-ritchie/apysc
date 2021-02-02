@@ -25,3 +25,9 @@ def test_add_html_to_str() -> None:
         '\n  <body>'
     )
     assert result == expected_str
+
+    result = html_util.add_html_to_str(
+        to_append_html='<html>',
+        dest_html='',
+        indent_num=0)
+    assert result == '<html>'

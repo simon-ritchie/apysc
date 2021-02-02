@@ -7,9 +7,9 @@
 - Add command to apply each lints.
 - Add implementation of saving overall html from expression.
   - `save_expressions_overall_html`
-  - Use file_utils's empty interface.
 - Add build script for PyPI.
 - Append PyPI document to `how to develop`
 - Upload initial version to PyPI.
   - Also upload to TestPyPI.
 - Make test project and test this library (use installed package via pip).
+- Next time, restart coding at `test__export_js_libs`.

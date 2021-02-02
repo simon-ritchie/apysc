@@ -1,8 +1,11 @@
 import os
+from typing import List
 
 from retrying import retry
 
 from apyscript.expression import expression_file_util
+from apyscript.display.stage import Stage
+from tests import testing_helper
 
 
 def test_empty_expression_dir() -> None:
@@ -60,3 +63,19 @@ def test_get_scope_file_path_from_scope() -> None:
     )
     assert scope_file_path == expected_file_path
 
+
+@retry(stop_max_attempt_number=5, wait_fixed=300)
+def test_get_expression_file_paths() -> None:
+    Stage()
+    test_text_file_path: str =os.path.join(
+        expression_file_util.EXPRESSION_ROOT_DIR,
+        'test_expression_file_util.txt',
+    )
+    testing_helper.make_blank_file(
+        file_path=test_text_file_path)
+    expression_file_paths: List[str] = \
+        expression_file_util.get_expression_file_paths()
+
+    assert test_text_file_path not in expression_file_paths
+    for expression_file_path in expression_file_paths:
+        assert expression_file_path.endswith('.html')

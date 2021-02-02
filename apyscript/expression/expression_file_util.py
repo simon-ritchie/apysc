@@ -3,7 +3,7 @@
 
 import os
 import shutil
-from typing import Optional
+from typing import List, Optional
 
 from apyscript.file import file_util
 
@@ -55,3 +55,22 @@ def get_scope_file_path_from_scope(scope: Optional[str] = None) -> str:
         scope += '.html'
     scope_file_path: str = os.path.join(EXPRESSION_ROOT_DIR, scope)
     return scope_file_path
+
+
+def get_expression_file_paths() -> List[str]:
+    """
+    Get existing expression file paths.
+
+    Returns
+    -------
+    expression_file_paths : list of str
+        Existing expression file paths.
+    """
+    expression_file_paths: List[str] = []
+    file_names: List[str] = os.listdir(EXPRESSION_ROOT_DIR)
+    for file_name in file_names:
+        if not file_name.endswith('.html'):
+            continue
+        file_path: str = os.path.join(EXPRESSION_ROOT_DIR, file_name)
+        expression_file_paths.append(file_path)
+    return expression_file_paths

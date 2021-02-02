@@ -15,8 +15,8 @@ def test_remove_first_selector_symbol_char() -> None:
     assert str_val == 'line-graph'
 
 
-def test_add_html_to_str() -> None:
-    result: str = html_util.add_html_to_str(
+def test_append_html_to_str() -> None:
+    result: str = html_util.append_html_to_str(
         to_append_html='<body>',
         dest_html='<html>',
         indent_num=1)
@@ -26,7 +26,7 @@ def test_add_html_to_str() -> None:
     )
     assert result == expected_str
 
-    result = html_util.add_html_to_str(
+    result = html_util.append_html_to_str(
         to_append_html='<html>',
         dest_html='',
         indent_num=0)

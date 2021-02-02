@@ -4,6 +4,8 @@
 from typing import List
 from apyscript.file import file_util
 from apyscript.jslib import jslib_util
+from apyscript.html import html_util
+from apyscript.expression import expression_file_util
 
 
 def save_expressions_overall_html(dest_dir_path: str) -> None:
@@ -21,6 +23,27 @@ def save_expressions_overall_html(dest_dir_path: str) -> None:
     """
     file_util.empty_directory(directory_path=dest_dir_path)
     _ = _export_js_libs(dest_dir_path=dest_dir_path)
+    html_str: str = html_util.append_html_to_str(
+        to_append_html='<html>', dest_html='', indent_num=0)
+    html_str = _append_head_to_html_str(html_str=html_str)
+    pass
+
+
+def _append_head_to_html_str(html_str: str) -> str:
+    """
+    Append head tab section to specified html string.
+
+    Parameters
+    ----------
+    html_str : str
+        Target HTML string.
+
+    Returns
+    -------
+    html_str : str
+        HTML string after appended.
+    """
+    # html_str = html_util.append_html_to_str(to_append_html='')
     pass
 
 

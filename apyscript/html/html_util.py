@@ -21,7 +21,7 @@ def remove_first_selector_symbol_char(str_val: str) -> str:
     return str_val
 
 
-def add_html_to_str(
+def append_html_to_str(
         to_append_html: str, dest_html: str, indent_num: int) -> str:
     """
     Add html string to another string with line break and specified
@@ -30,7 +30,7 @@ def add_html_to_str(
     Parameters
     ----------
     to_append_html : str
-        Html string to append.
+        HTML string to append.
     dest_html : str
         `to_append_html` will be appended to this string.
     indent_num : int
@@ -40,7 +40,7 @@ def add_html_to_str(
     Returns
     -------
     result : str
-        Html appended string.
+        HTML appended string.
     """
     result: str = dest_html
     if result != '':

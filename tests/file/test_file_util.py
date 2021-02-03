@@ -19,3 +19,11 @@ def test_empty_directory() -> None:
     assert os.path.isdir(tmp_dir_path)
 
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
+
+
+def test_read_txt() -> None:
+    tmp_file_path: str = '../tmp_apyscript_test_file_util.txt'
+    with open(tmp_file_path, 'w') as f:
+        f.write('To be, or not to be, that is the question.')
+    txt: str = file_util.read_txt(file_path=tmp_file_path)
+    assert txt == 'To be, or not to be, that is the question.'

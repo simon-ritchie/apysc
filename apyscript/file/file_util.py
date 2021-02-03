@@ -18,3 +18,22 @@ def empty_directory(directory_path: str) -> None:
     if os.path.isdir(directory_path):
         shutil.rmtree(directory_path, ignore_errors=True)
     os.makedirs(directory_path, exist_ok=True)
+
+
+def read_txt(file_path: str) -> str:
+    """
+    Read specified file's text.
+
+    Parameters
+    ----------
+    file_path : str
+        File path to read.
+
+    Returns
+    -------
+    txt : str
+        Target file's text.
+    """
+    with open(file_path, 'r') as f:
+        txt: str = f.read()
+    return txt

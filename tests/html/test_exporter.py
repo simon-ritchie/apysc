@@ -2,7 +2,11 @@ import os
 import shutil
 from typing import List
 
+from retrying import retry
+
 from apyscript.html import exporter
+from apyscript.display.stage import Stage
+from apyscript.display import stage
 
 
 def test__export_js_libs() -> None:
@@ -37,3 +41,13 @@ def test__append_head_to_html_str() -> None:
 
     expected_str = '</head>'
     assert html_str.endswith(expected_str)
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=300)
+def test__append_each_expression_to_html_str() -> None:
+    html_str: str = '<html>\n<body>'
+    stage: Stage = Stage()
+    html_str = exporter._append_each_expression_to_html_str(
+        html_str=html_str)
+    expected_expresion: str = stage._make_constructor_expression()
+    assert expected_expresion in html_str

@@ -2,6 +2,7 @@
 """
 
 from typing import List
+
 from apyscript.file import file_util
 from apyscript.jslib import jslib_util
 from apyscript.html import html_util
@@ -26,7 +27,36 @@ def save_expressions_overall_html(dest_dir_path: str) -> None:
     html_str: str = html_util.append_html_to_str(
         to_append_html='<html>', dest_html='', indent_num=0)
     html_str = _append_head_to_html_str(html_str=html_str)
+    html_str = html_util.append_html_to_str(
+        to_append_html='<body>', dest_html=html_str, indent_num=0)
+    html_str = html_util.append_html_to_str(
+        to_append_html='</body>', dest_html=html_str, indent_num=0)
+    html_str = _append_each_expression_to_html_str(html_str=html_str)
+    html_str = html_util.append_html_to_str(
+        to_append_html='</html>', dest_html=html_str, indent_num=0)
     pass
+
+
+def _append_each_expression_to_html_str(html_str: str) -> str:
+    """
+    Append each expression strings to a specified HTML string.
+
+    Parameters
+    ----------
+    html_str : str
+        Target HTML string.
+
+    Returns
+    -------
+    html_str : str
+        HTML string after appended each expressions.
+    """
+    expression_file_paths: List[str] = \
+        expression_file_util.get_expression_file_paths()
+    for expression_file_path in expression_file_paths:
+        expression: str = file_util.read_txt(file_path=expression_file_path)
+        html_str += f'\n{expression}'
+    return html_str
 
 
 def _append_head_to_html_str(html_str: str) -> str:

@@ -19,3 +19,21 @@ def test__export_js_libs() -> None:
     assert expected_file_path in saved_js_file_paths
 
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
+
+
+def test__append_head_to_html_str() -> None:
+    html_str: str = '<html>'
+    html_str = exporter._append_head_to_html_str(html_str=html_str)
+
+    expected_str: str = '<html>\n<head>\n'
+    assert html_str.startswith(expected_str)
+
+    expected_str = '  <meta charset="utf-8">'
+    assert expected_str in html_str
+
+    expected_str = \
+        '  <script type="text/javascript" src="./jquery.min.js"></script>'
+    assert expected_str in html_str
+
+    expected_str = '</head>'
+    assert html_str.endswith(expected_str)

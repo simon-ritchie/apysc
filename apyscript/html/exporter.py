@@ -31,7 +31,7 @@ def save_expressions_overall_html(dest_dir_path: str) -> None:
 
 def _append_head_to_html_str(html_str: str) -> str:
     """
-    Append head tab section to specified html string.
+    Append head tag section to specified html string.
 
     Parameters
     ----------
@@ -43,8 +43,21 @@ def _append_head_to_html_str(html_str: str) -> str:
     html_str : str
         HTML string after appended.
     """
-    # html_str = html_util.append_html_to_str(to_append_html='')
-    pass
+    html_str = html_util.append_html_to_str(
+        to_append_html='<head>', dest_html=html_str, indent_num=0)
+    html_str = html_util.append_html_to_str(
+        to_append_html='<meta charset="utf-8">',
+        dest_html=html_str, indent_num=1)
+    jslib_file_names: List[str] = jslib_util.get_jslib_file_names()
+    for jslib_file_name in jslib_file_names:
+        html_str = html_util.append_html_to_str(
+            to_append_html=(
+                '<script type="text/javascript" '
+                f'src="./{jslib_file_name}"></script>'),
+            dest_html=html_str, indent_num=1)
+    html_str = html_util.append_html_to_str(
+        to_append_html='</head>', dest_html=html_str, indent_num=0)
+    return html_str
 
 
 def _export_js_libs(dest_dir_path: str) -> List[str]:

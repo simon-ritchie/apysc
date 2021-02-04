@@ -37,10 +37,10 @@ def save_expressions_overall_html(dest_dir_path: str) -> None:
     html_str = _append_head_to_html_str(html_str=html_str)
     html_str = html_util.append_html_to_str(
         to_append_html='<body>', dest_html=html_str, indent_num=0)
-    html_str = html_util.append_html_to_str(
-        to_append_html='</body>', dest_html=html_str, indent_num=0)
     user_info_logger.info(msg='Reading each expression files...')
     html_str = _append_each_expression_to_html_str(html_str=html_str)
+    html_str = html_util.append_html_to_str(
+        to_append_html='</body>', dest_html=html_str, indent_num=0)
     html_str = html_util.append_html_to_str(
         to_append_html='</html>', dest_html=html_str, indent_num=0)
     user_info_logger.info(msg='HTML saving started...')

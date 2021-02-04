@@ -52,3 +52,17 @@ def save_plain_txt(txt: str, file_path: str) -> None:
     """
     with open(file_path, 'w') as f:
         f.write(txt)
+
+
+def remove_file_if_exists(file_path: str) -> None:
+    """
+    Remove specified file if exists.
+
+    Parameters
+    ----------
+    file_path : str
+        File path to remove.
+    """
+    if not os.path.isfile(file_path):
+        return
+    os.remove(file_path)

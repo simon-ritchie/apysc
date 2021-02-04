@@ -38,3 +38,12 @@ def test_save_plain_txt() -> None:
     txt: str = file_util.read_txt(file_path=tmp_file_path)
     assert txt == 'To be, or not to be, that is the question.'
     os.remove(tmp_file_path)
+
+
+def test_remove_file_if_exists() -> None:
+    tmp_file_path: str = '../tmp_apyscript_test_file_util.txt'
+    file_util.save_plain_txt(
+        txt='To be, or not to be, that is the question.',
+        file_path=tmp_file_path)
+    file_util.remove_file_if_exists(file_path=tmp_file_path)
+    assert not os.path.exists(tmp_file_path)

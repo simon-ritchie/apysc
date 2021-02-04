@@ -2,6 +2,7 @@
 """
 
 from typing import List
+import os
 
 from apyscript.file import file_util
 from apyscript.jslib import jslib_util
@@ -34,6 +35,28 @@ def save_expressions_overall_html(dest_dir_path: str) -> None:
     html_str = _append_each_expression_to_html_str(html_str=html_str)
     html_str = html_util.append_html_to_str(
         to_append_html='</html>', dest_html=html_str, indent_num=0)
+    _save_html(
+        html_str=html_str, dir_path=dest_dir_path, file_name='index.html')
+    pass
+
+
+def _save_html(
+        html_str: str, dir_path: str, file_name: str) -> None:
+    """
+    Save HTML string to file.
+
+    Parameters
+    ----------
+    html_str : str
+        HTML String to save.
+    dir_path : str
+        Destination directory path to save html.
+    file_name : str
+        HTML file name. e.g., 'index.html'
+    """
+    os.makedirs(dir_path, exist_ok=True)
+    file_path: str = os.path.join(dir_path, file_name)
+    
     pass
 
 

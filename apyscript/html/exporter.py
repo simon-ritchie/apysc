@@ -1,6 +1,8 @@
 """Expression exporting interface implementation.
 """
 
+from logging import Logger
+
 from typing import List
 import os
 
@@ -8,6 +10,9 @@ from apyscript.file import file_util
 from apyscript.jslib import jslib_util
 from apyscript.html import html_util
 from apyscript.expression import expression_file_util
+from apyscript.logging import loggers
+
+user_info_logger: Logger = loggers.get_user_info_logger()
 
 
 def save_expressions_overall_html(dest_dir_path: str) -> None:
@@ -23,7 +28,9 @@ def save_expressions_overall_html(dest_dir_path: str) -> None:
     dest_dir_path : str
         Destination directory path to save each html and js files.
     """
+    user_info_logger.info(msg='Overall exporting started...')
     file_util.empty_directory(directory_path=dest_dir_path)
+    user_info_logger.info(msg='JavaScript libraries exporting...')
     _ = _export_js_libs(dest_dir_path=dest_dir_path)
     html_str: str = html_util.append_html_to_str(
         to_append_html='<html>', dest_html='', indent_num=0)
@@ -32,12 +39,16 @@ def save_expressions_overall_html(dest_dir_path: str) -> None:
         to_append_html='<body>', dest_html=html_str, indent_num=0)
     html_str = html_util.append_html_to_str(
         to_append_html='</body>', dest_html=html_str, indent_num=0)
+    user_info_logger.info(msg='Reading each expression files...')
     html_str = _append_each_expression_to_html_str(html_str=html_str)
     html_str = html_util.append_html_to_str(
         to_append_html='</html>', dest_html=html_str, indent_num=0)
+    user_info_logger.info(msg='HTML saving started...')
     _save_html(
         html_str=html_str, dir_path=dest_dir_path, file_name='index.html')
-    pass
+    file_path: str = os.path.join(dest_dir_path, 'index.html')
+    user_info_logger.info(
+        msg=f'All files were exported! \nFile path is : {file_path}')
 
 
 def _save_html(
@@ -56,8 +67,7 @@ def _save_html(
     """
     os.makedirs(dir_path, exist_ok=True)
     file_path: str = os.path.join(dir_path, file_name)
-    
-    pass
+    file_util.save_plain_txt(txt=html_str, file_path=file_path)
 
 
 def _append_each_expression_to_html_str(html_str: str) -> str:

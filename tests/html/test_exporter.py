@@ -1,3 +1,4 @@
+from apyscript.file import file_util
 import os
 import shutil
 from typing import List
@@ -51,3 +52,17 @@ def test__append_each_expression_to_html_str() -> None:
         html_str=html_str)
     expected_expresion: str = stage._make_constructor_expression()
     assert expected_expresion in html_str
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=300)
+def test_save_expressions_overall_html() -> None:
+    tmp_dir_path: str = '../.tmp_action_py_script_test_exporter/'
+    shutil.rmtree(tmp_dir_path, ignore_errors=True)
+    Stage()
+    exporter.save_expressions_overall_html(dest_dir_path=tmp_dir_path)
+    expected_index_file_path: str = os.path.join(tmp_dir_path, 'index.html')
+    assert os.path.isfile(expected_index_file_path)
+    html_str: str = file_util.read_txt(file_path=expected_index_file_path)
+    print(html_str)
+
+    shutil.rmtree(tmp_dir_path, ignore_errors=True)

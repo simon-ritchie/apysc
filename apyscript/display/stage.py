@@ -101,9 +101,10 @@ class Stage:
         style: str = self._make_style_str()
         expression: str = f"""<script type="text/javascript">
 $(document).ready(function() {{
-    var html = '<div id="{self._stage_elem_id}" style="{style}"></div>';
-    $("{self._add_to}").append(html);
-}});"""
+  var html = '<div id="{self._stage_elem_id}" style="{style}"></div>';
+  $("{self._add_to}").append(html);
+}});
+</script>"""
         return expression
 
     def _make_style_str(self) -> str:

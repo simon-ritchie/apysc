@@ -27,3 +27,14 @@ def test_read_txt() -> None:
         f.write('To be, or not to be, that is the question.')
     txt: str = file_util.read_txt(file_path=tmp_file_path)
     assert txt == 'To be, or not to be, that is the question.'
+    os.remove(tmp_file_path)
+
+
+def test_save_plain_txt() -> None:
+    tmp_file_path: str = '../tmp_apyscript_test_file_util.txt'
+    file_util.save_plain_txt(
+        txt='To be, or not to be, that is the question.',
+        file_path=tmp_file_path)
+    txt: str = file_util.read_txt(file_path=tmp_file_path)
+    assert txt == 'To be, or not to be, that is the question.'
+    os.remove(tmp_file_path)

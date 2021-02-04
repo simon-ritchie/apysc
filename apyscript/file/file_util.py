@@ -37,3 +37,18 @@ def read_txt(file_path: str) -> str:
     with open(file_path, 'r') as f:
         txt: str = f.read()
     return txt
+
+
+def save_plain_txt(txt: str, file_path: str) -> None:
+    """
+    Save plain text string to file.
+
+    Parameters
+    ----------
+    txt : str
+        Plain text string to save.
+    file_path : str
+        Destination file path.
+    """
+    with open(file_path, 'w') as f:
+        f.write(txt)

@@ -12,4 +12,4 @@
 - Upload initial version to PyPI.
   - Also upload to TestPyPI.
 - Make test project and test this library (use installed package via pip).
-- Next time, restart coding at `_append_head_to_html_str`.
+- Next time, restart coding at `save_expressions_overall_html`.

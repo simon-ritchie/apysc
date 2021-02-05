@@ -12,4 +12,5 @@
 - Upload initial version to PyPI.
   - Also upload to TestPyPI.
 - Make test project and test this library (use installed package via pip).
+- Add command line interface for exporting.
 - Next time, restart coding at `save_expressions_overall_html`.

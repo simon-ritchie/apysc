@@ -53,6 +53,7 @@ def assert_attrs(expected_attrs: Dict[str, Any], any_obj: Any) -> None:
             f'\nAttribute value: {attr_val}'
             f'\nExpected value: {expected_value}'
         )
+        assert attr_val == expected_value, msg
 
 
 def assert_raises(

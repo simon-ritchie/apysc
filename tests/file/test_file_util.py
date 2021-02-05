@@ -1,6 +1,8 @@
 import os
 import shutil
 
+from retrying import retry
+
 from apyscript.file import file_util
 from tests import testing_helper
 
@@ -40,6 +42,7 @@ def test_save_plain_txt() -> None:
     os.remove(tmp_file_path)
 
 
+@retry(stop_max_attempt_number=5, wait_fixed=300)
 def test_remove_file_if_exists() -> None:
     tmp_file_path: str = '../tmp_apyscript_test_file_util.txt'
     file_util.save_plain_txt(
@@ -47,3 +50,5 @@ def test_remove_file_if_exists() -> None:
         file_path=tmp_file_path)
     file_util.remove_file_if_exists(file_path=tmp_file_path)
     assert not os.path.exists(tmp_file_path)
+
+    file_util.remove_file_if_exists(file_path=tmp_file_path)

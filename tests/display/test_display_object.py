@@ -18,3 +18,11 @@ class TestDisplayObject:
                 '_stage_cls': Stage,
             },
             any_obj=display_object)
+
+    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    def test_add_child(self) -> None:
+        stage: Stage = Stage()
+        display_object: DisplayObject = DisplayObject(stage=stage)
+        child: DisplayObject = DisplayObject(stage=stage)
+        display_object.add_child(child=child)
+        assert display_object._childs == [child]

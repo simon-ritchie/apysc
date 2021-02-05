@@ -1,7 +1,7 @@
 """Stage (canvas) implementation.
 """
 
-from typing import Optional
+from typing import List, Optional
 from datetime import datetime
 import random
 
@@ -10,15 +10,17 @@ from apyscript.color import color_util
 from apyscript.geom import size_util
 from apyscript.geom import converter
 from apyscript.html import html_util
+from apyscript.display.display_object import DisplayObject, ChildBase
 
 
-class Stage:
+class Stage(ChildBase):
 
     _stage_width: int
     _stage_height: int
     _background_color: str
     _add_to: str
     _stage_elem_id: str
+    _childs: List[DisplayObject]
 
     def __init__(
             self, stage_width: int = 300, stage_height: int = 185,
@@ -57,6 +59,7 @@ class Stage:
         self._stage_elem_id = html_util.remove_first_selector_symbol_char(
             str_val=self._stage_elem_id)
         self._append_expression_constructor_expression()
+        self._childs = []
 
     def _create_stage_elem_id_if_none(
             self, stage_elem_id: Optional[str]) -> str:
@@ -217,3 +220,14 @@ $(document).ready(function() {{
             err_msg=(
                 'Stage height can not be set less than or equal to zero: '
                 f'{self.stage_height}'))
+
+    def add_child(self, child: DisplayObject) -> None:
+        """
+        Add display object child to stage.
+
+        Parameters
+        ----------
+        child : DisplayObject
+            Child object to add.
+        """
+        self._childs.append(child)

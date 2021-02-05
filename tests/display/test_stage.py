@@ -7,6 +7,7 @@ import pytest
 from apyscript.display import stage
 from apyscript.display.stage import Stage
 from apyscript.expression import expression_file_util
+from apyscript.display.display_object import DisplayObject
 from tests import testing_helper
 
 
@@ -32,6 +33,7 @@ class TestStage:
             '_background_color': '#000000',
             '_add_to': '#line-graph',
             '_stage_elem_id': 'line-graph-stage',
+            '_childs': [],
         }
         testing_helper.assert_attrs(
             expected_attrs=expected_attrs, any_obj=stage)
@@ -145,3 +147,10 @@ class TestStage:
     def test_stage_elem_id(self) -> None:
         stage: Stage = Stage(stage_elem_id='#line-graph')
         assert stage.stage_elem_id == 'line-graph'
+
+    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    def test_add_child(self) -> None:
+        stage: Stage = Stage()
+        display_object: DisplayObject = DisplayObject(stage=stage)
+        stage.add_child(child=display_object)
+        assert stage._childs == [display_object]

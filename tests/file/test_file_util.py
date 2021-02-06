@@ -41,6 +41,15 @@ def test_save_plain_txt() -> None:
     assert txt == 'To be, or not to be, that is the question.'
     os.remove(tmp_file_path)
 
+    tmp_dir_path: str = '../tmp_apyscript_test_file_util/'
+    tmp_file_path: str = os.path.join(tmp_dir_path, 'test.txt')
+    shutil.rmtree(tmp_dir_path, ignore_errors=True)
+    file_util.save_plain_txt(
+        txt='To be, or not to be, that is the question.',
+        file_path=tmp_file_path)
+    assert os.path.isfile(tmp_file_path)
+    shutil.rmtree(tmp_dir_path, ignore_errors=True)
+
 
 @retry(stop_max_attempt_number=5, wait_fixed=300)
 def test_remove_file_if_exists() -> None:

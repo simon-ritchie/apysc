@@ -51,6 +51,9 @@ def save_plain_txt(txt: str, file_path: str) -> None:
     file_path : str
         Destination file path.
     """
+    dir_path: str = get_abs_directory_path_from_file_path(
+        file_path=file_path)
+    os.makedirs(dir_path, exist_ok=True)
     with open(file_path, 'w') as f:
         f.write(txt)
 

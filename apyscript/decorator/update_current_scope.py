@@ -24,12 +24,41 @@ def update_current_scope(module: ModuleType) -> Callable:
     """
 
     def decorator_func(func: Callable) -> Callable:
+        """
+        Decorator function to return wrapped callable.
+
+        Parameters
+        ----------
+        func : Callable
+            Function to wrap.
+
+        Returns
+        -------
+        result : Callable
+            Wrapped callable.
+        """
 
         @wraps(func)
         def inner_decorator_func(*args, **kwargs) -> Any:
+            """
+            Decorator function to handle specified function's call.
+
+            Parameters
+            ----------
+            *args : list
+                Any arguments.
+            **kwargs : dict
+                Any keyword arguments.
+
+            Returns
+            -------
+            result : *
+                Any returned value to be got from function's call.
+            """
             scope_name: str = _make_scope_name_from_module_and_func_name(
                 module_name=module.__name__,
                 func_name=func.__name__)
+            expression_scope.update_current_scope(scope_name=scope_name)
             result: Any = func(*args, **kwargs)
             return result
 
@@ -54,10 +83,10 @@ def _make_scope_name_from_module_and_func_name(
     Returns
     -------
     scope_name : str
-        Scope name that module name's comma replaced by double underscore
+        Scope name that module name's comma replaced by triple underscore
         and also concatenated function name.
-        e.g., 'any__module__name__function_name'.
+        e.g., 'any___module___name___function_name'.
     """
-    module_name = module_name.replace('.', '__')
-    scope_name: str = f'{module_name}__{func_name}'
+    module_name = module_name.replace('.', '___')
+    scope_name: str = f'{module_name}___{func_name}'
     return scope_name

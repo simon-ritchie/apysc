@@ -90,7 +90,8 @@ class Stage(ChildBase):
         Append stage constructor expression to file.
         """
         expression: str = self._make_constructor_expression()
-        expression_file_util.append_expression(expression=expression)
+        expression_file_util.append_expression_to_current_scope(
+            expression=expression)
 
     def _make_constructor_expression(self) -> str:
         """

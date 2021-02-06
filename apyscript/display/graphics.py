@@ -69,7 +69,9 @@ class Graphics:
         height : int
             Rectangle height.
         """
-        pass
+        rectangle: Rectangle = Rectangle(
+            parent=self, x=x, y=y, width=width, height=height)
+        self._graphics.append(rectangle)
 
 
 class Rectangle(_GraphicBase):

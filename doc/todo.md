@@ -17,5 +17,5 @@
 - Add auto build system (like a Django web server).
 - Add project making command (like a `cargo new` command).
 - Next time, restart coding at `Sprite`.
-- Add implementation to make directory to `save_plain_txt`.
 - Add decorator implementation to update current scope name.
+- Add test implementation of `test_update_current_scope`.

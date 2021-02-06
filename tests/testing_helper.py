@@ -2,7 +2,7 @@
 """
 
 import os
-from typing import Any, Callable, Dict, Optional
+from typing import Any, Callable, Dict, Optional, Type
 
 import pytest
 
@@ -23,6 +23,22 @@ def make_blank_file(file_path: str) -> None:
         f.write(file_path)
 
 
+def _assert_has_attr(any_obj: Any, attr_name: str) -> None:
+    """
+    Check object has specified attribute.
+
+    Parameters
+    ----------
+    any_obj : *
+        Any object to check.
+    """
+    msg: str = (
+        'Expected attribute not exists.'
+        f'\nAttribute name: {attr_name}'
+    )
+    assert hasattr(any_obj, attr_name), msg
+
+
 def assert_attrs(expected_attrs: Dict[str, Any], any_obj: Any) -> None:
     """
     Check a specified object's attributes.
@@ -37,23 +53,49 @@ def assert_attrs(expected_attrs: Dict[str, Any], any_obj: Any) -> None:
     Raises
     ------
     AssertionError
-        If expected attribute value not exists.
+        If expected attribute value not exists or different.
     """
     for attr_name, expected_value in expected_attrs.items():
-        msg: str = (
-            'Expected attribute not exists.'
-            f'\nAttribute name: {attr_name}'
-        )
-        assert hasattr(any_obj, attr_name), msg
+        _assert_has_attr(any_obj=any_obj, attr_name=attr_name)
 
         attr_val: Any = getattr(any_obj, attr_name)
-        msg = (
+        msg: str = (
             'Attribute value is different from expected value.'
             f'\nAttribute name: {attr_name}'
             f'\nAttribute value: {attr_val}'
             f'\nExpected value: {expected_value}'
         )
         assert attr_val == expected_value, msg
+
+
+def assert_attrs_type(
+        expected_types: Dict[str, Type], any_obj: Any) -> None:
+    """
+    Check a specified object's attribute types.
+
+    Parameters
+    ----------
+    expected_types : dict
+        A dict that has attribute names in key and expected types in value.
+    any_obj : *
+        Any object to check.
+
+    Raises
+    ------
+    AssertionError
+        If any attribute type different from expected type.
+    """
+    for attr_name, expected_type in expected_types.items():
+        _assert_has_attr(any_obj=any_obj, attr_name=attr_name)
+
+        attr_val: Any = getattr(any_obj, attr_name)
+        msg: str = (
+            'Attribute type is different from expected type.'
+            f'\nAttribute name: {attr_name}'
+            f'\nAttribute type: {type(attr_val)}'
+            f'\nExpected type: {expected_type}'
+        )
+        assert isinstance(attr_val, expected_type), msg
 
 
 def assert_raises(

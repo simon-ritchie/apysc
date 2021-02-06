@@ -20,7 +20,7 @@ class Sprite(DisplayObject):
             Stage instance to link this object.
         """
         super(Sprite, self).__init__(stage=stage)
-        self.graphics = Graphics()
+        self.graphics = Graphics(parent=self)
 
     def add_child(self, child: DisplayObject) -> None:
         """

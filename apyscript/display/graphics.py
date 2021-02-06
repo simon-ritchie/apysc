@@ -3,16 +3,19 @@
 
 from typing import Optional
 from apyscript.color import color_util
+from apyscript.display.display_object import DisplayObject
 
 
 class Graphics:
 
     _fill_color: Optional[str]
+    parent: DisplayObject
 
-    def __init__(self) -> None:
+    def __init__(self, parent: DisplayObject) -> None:
         """
         Create a object that has each vector graphics interface.
         """
+        self.parent = parent
 
     def begin_fill(self, color: str) -> None:
         """

@@ -5,7 +5,7 @@ from typing import List
 
 from retrying import retry
 
-from apyscript.html import exporter
+from apyscript.html import exporter, html_util
 from apyscript.display.stage import Stage
 from apyscript.display import stage
 
@@ -51,6 +51,8 @@ def test__append_each_expression_to_html_str() -> None:
     html_str = exporter._append_each_expression_to_html_str(
         html_str=html_str)
     expected_expresion: str = stage._make_constructor_expression()
+    expected_expresion = html_util.append_indent_to_each_line(
+        html=expected_expresion, indent_num=1)
     assert expected_expresion in html_str
 
 
@@ -66,6 +68,8 @@ def test_save_expressions_overall_html() -> None:
     assert html_str.startswith('<html>\n<head>')
     assert html_str.endswith('</body>\n</html>')
     expected_expresion: str = stage._make_constructor_expression()
+    expected_expresion = html_util.append_indent_to_each_line(
+        html=expected_expresion, indent_num=1)
     assert expected_expresion in html_str
 
     shutil.rmtree(tmp_dir_path, ignore_errors=True)

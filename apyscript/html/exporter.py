@@ -88,6 +88,8 @@ def _append_each_expression_to_html_str(html_str: str) -> str:
         expression_file_util.get_expression_file_paths()
     for expression_file_path in expression_file_paths:
         expression: str = file_util.read_txt(file_path=expression_file_path)
+        expression = html_util.append_indent_to_each_line(
+            html=expression, indent_num=1)
         html_str += f'\n{expression}'
     return html_str
 

@@ -31,3 +31,17 @@ def test_append_html_to_str() -> None:
         dest_html='',
         indent_num=0)
     assert result == '<html>'
+
+
+def test_append_indent_to_each_line() -> None:
+    html: str = (
+        '<html>'
+        '\n</html>'
+    )
+    result_html: str = html_util.append_indent_to_each_line(
+        html=html, indent_num=1)
+    expected_html: str = (
+        '  <html>'
+        '\n  </html>'
+    )
+    assert result_html == expected_html

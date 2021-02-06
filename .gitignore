@@ -3,3 +3,4 @@
 /tmp/*
 /.coverage*
 /.apyscript_expression/*
+test_output

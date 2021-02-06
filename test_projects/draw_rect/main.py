@@ -11,6 +11,7 @@ from apyscript.display.stage import Stage
 from apyscript.html import exporter
 from apyscript.file import file_util
 from apyscript.display.sprite import Sprite
+from apyscript.decorator.update_current_scope import update_current_scope
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -20,6 +21,7 @@ _DEST_DIR_PATH: str = os.path.join(
 )
 
 
+@update_current_scope(module=this_module)
 def main() -> None:
     """
     Entry point of this test project.

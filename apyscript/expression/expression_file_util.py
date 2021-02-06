@@ -6,6 +6,7 @@ import shutil
 from typing import List, Optional
 
 from apyscript.file import file_util
+from apyscript.expression import expression_scope
 
 EXPRESSION_ROOT_DIR: str = '../.apyscript_expression/'
 CURRENT_SCOPE_FILE_PATH: str = os.path.join(
@@ -33,8 +34,24 @@ def append_expression(expression: str, scope: Optional[str] = None) -> None:
         Target scope name. If skipped, this will be root scope.
     """
     scope_file_path: str = get_scope_file_path_from_scope(scope=scope)
+    dir_path: str = file_util.get_abs_directory_path_from_file_path(
+        file_path=scope_file_path)
+    os.makedirs(dir_path, exist_ok=True)
     with open(scope_file_path, 'a') as f:
         f.write(f'{expression}\n')
+
+
+def append_expression_to_current_scope(expression: str) -> None:
+    """
+    Append html and js expression to current scope's file.
+
+    Parameters
+    ----------
+    expression : str
+        HTML and js Expression string.
+    """
+    scope: str = expression_scope.get_current_scope()
+    append_expression(expression=expression, scope=scope)
 
 
 def get_scope_file_path_from_scope(scope: Optional[str] = None) -> str:

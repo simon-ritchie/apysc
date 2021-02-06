@@ -16,6 +16,7 @@
 - Add validation to add_child that raises if not DisplayObject specified to argument.
 - Add auto build system (like a Django web server).
 - Add project making command (like a `cargo new` command).
-- Next time, restart coding at `Sprite`.
 - Add decorator implementation to update current scope name.
-- Add test implementation of `test_update_current_scope`.
+- Drop root scope related implementations.
+- Insert js function by scope name.
+- Next time, restart coding at `test_append_expression_to_current_scope`.

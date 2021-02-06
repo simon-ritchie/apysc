@@ -1,3 +1,4 @@
+from apyscript.file import file_util
 import os
 from typing import List
 
@@ -5,6 +6,7 @@ from retrying import retry
 
 from apyscript.expression import expression_file_util
 from apyscript.display.stage import Stage
+from apyscript.expression import expression_scope
 from tests import testing_helper
 
 
@@ -79,3 +81,15 @@ def test_get_expression_file_paths() -> None:
     assert test_text_file_path not in expression_file_paths
     for expression_file_path in expression_file_paths:
         assert expression_file_path.endswith('.html')
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=300)
+def test_append_expression_to_current_scope() -> None:
+    expression_scope.update_current_scope(
+        scope_name='test___scope')
+    expression_file_util.append_expression_to_current_scope(
+        expression='<body></body>')
+    scope_file_path: str = expression_file_util.\
+        get_scope_file_path_from_scope(scope='test___scope')
+    expression: str = file_util.read_txt(file_path=scope_file_path)
+    assert expression.strip() == '<body></body>'

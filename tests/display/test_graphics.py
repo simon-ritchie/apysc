@@ -92,3 +92,11 @@ class Test_GraphicBase:
             parent=sprite.graphics, x=100, y=200)
         graphic_base.x = 300
         assert graphic_base.x == 300
+
+    def test_y(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        graphic_base: _GraphicBase = _GraphicBase(
+            parent=sprite.graphics, x=100, y=200)
+        graphic_base.y = 400
+        assert graphic_base.y == 400

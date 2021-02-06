@@ -25,3 +25,11 @@ def test_get_scope_name_from_file_path() -> None:
     scope_name: str = expression_scope.get_scope_name_from_file_path(
         expression_file_path='any__scope___name.html')
     assert scope_name == 'any__scope___name'
+
+
+def test__get_scope_wrapper_function_head() -> None:
+    scope_wrapper_function_head: str = \
+        expression_scope._get_scope_wrapper_function_head(
+            scope_name='any___scope___name')
+    expected: str = 'function any___scope___name() {'
+    assert scope_wrapper_function_head == expected

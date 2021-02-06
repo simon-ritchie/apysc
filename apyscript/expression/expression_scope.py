@@ -60,6 +60,24 @@ def get_scope_name_from_file_path(expression_file_path: str) -> str:
     return scope_name
 
 
+def _get_scope_wrapper_function_head(scope_name: str) -> str:
+    """
+    Get a scope wrapper function's head.
+
+    Parameters
+    ----------
+    scope_name : str
+        Target scope name.
+
+    Returns
+    -------
+    scope_wrapper_function_head : str
+        Scope wrapper function's head. e.g., `function <scope_name>() {`
+    """
+    scope_wrapper_function_head: str = f'function {scope_name}() {{'
+    return scope_wrapper_function_head
+
+
 def append_scope_wrapper_func_to_expression(
         expression: str, scope_name: str) -> str:
     """
@@ -84,5 +102,6 @@ def append_scope_wrapper_func_to_expression(
             result_expression += '\n'
         result_expression += each_line
         if html_util.is_script_start_tag_line(line=each_line):
-            pass
+            function_head: str = _get_scope_wrapper_function_head(
+                scope_name=scope_name)
     return result_expression

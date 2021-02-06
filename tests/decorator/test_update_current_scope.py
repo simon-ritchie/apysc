@@ -1,6 +1,8 @@
 import sys
 from types import ModuleType
 
+from retrying import retry
+
 from apyscript.decorator import \
     update_current_scope as update_current_scope_mod
 from apyscript.decorator.update_current_scope import update_current_scope
@@ -36,6 +38,7 @@ def any_func(x: int) -> int:
     return x * 2
 
 
+@retry(stop_max_attempt_number=5, wait_fixed=300)
 def test_update_current_scope() -> None:
     y: int = any_func(x=100)
     assert y == 200

@@ -19,3 +19,4 @@
 - Next time, restart coding at `Sprite`.
 - Add helper interface to get file's directory path.
 - Add implementation to make directory to `save_plain_txt`.
+- Add decorator implementation to update current scope name.

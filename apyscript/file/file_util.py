@@ -69,6 +69,25 @@ def remove_file_if_exists(file_path: str) -> None:
     os.remove(file_path)
 
 
+def get_abs_directory_path_from_file_path(file_path: str) -> str:
+    """
+    Get an absolute directory path of specified file.
+
+    Parameters
+    ----------
+    file_path : str
+        Target file path.
+
+    Returns
+    -------
+    dir_path : str
+        An absolute directory path.
+    """
+    dir_path: str = os.path.dirname(file_path)
+    dir_path += '/'
+    return dir_path
+
+
 def get_abs_module_dir_path(module: ModuleType) -> str:
     """
     Get a specified module's abosulute directory path.

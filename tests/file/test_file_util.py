@@ -59,3 +59,9 @@ def test_get_abs_module_dir_path() -> None:
         module=file_util)
     expected_dir_path: str = '/mnt/action-py-script/apyscript/file/'
     assert abs_module_dir_path == expected_dir_path
+
+
+def test_get_abs_directory_path_from_file_path() -> None:
+    dir_path: str = file_util.get_abs_directory_path_from_file_path(
+        file_path='any/dir/path.txt')
+    assert dir_path == 'any/dir/'

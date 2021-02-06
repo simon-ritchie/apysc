@@ -11,17 +11,20 @@ class _GraphicBase:
     _x: int
     _y :int
 
-    def __init__(self, x: int, y: int) -> None:
+    def __init__(self, parent, x: int, y: int) -> None:
         """
         Vector graphic base class.
 
         Parameters
         ----------
+        parent : Graphics
+            Graphics instance to link this graphic.
         x : int
             X position.
         y : int
             Y position.
         """
+        self.parent: Graphics = parent
         self._x = x
         self._y = y
 
@@ -94,7 +97,6 @@ class Rectangle(_GraphicBase):
         height : int
             Rectangle height.
         """
-        super(Rectangle, self).__init__(x=x, y=y)
-        self.parent = parent
+        super(Rectangle, self).__init__(parent=parent, x=x, y=y)
         self.width = width
         self.height = height

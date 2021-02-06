@@ -1,6 +1,6 @@
 from retrying import retry
 
-from apyscript.display.graphics import Graphics
+from apyscript.display.graphics import Graphics, Rectangle
 from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
 from tests import testing_helper
@@ -35,3 +35,23 @@ class TestGraphics:
                 '_fill_color': '#00aaff',
             },
             any_obj=graphics)
+
+
+class TestRectangle:
+
+    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    def test___init__(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        rectangle: Rectangle = Rectangle(
+            parent=sprite.graphics,
+            x=100, y=200, width=300, height=400)
+        testing_helper.assert_attrs(
+            expected_attrs={
+                'parent': sprite.graphics,
+                '_x': 100,
+                '_y': 200,
+                'width': 300,
+                'height': 400,
+            },
+            any_obj=rectangle)

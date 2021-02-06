@@ -24,11 +24,14 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    stage: Stage = Stage(background_color='#111')
+    stage: Stage = Stage(
+        background_color='#111',
+        stage_width=500, stage_height=300)
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
     sprite: Sprite = Sprite(stage=stage)
     sprite.graphics.begin_fill(color='#00aaff')
+    sprite.graphics.draw_rect(x=50, y=100, width=150, height=100)
     stage.add_child(child=sprite)
 
 

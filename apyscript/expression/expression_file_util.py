@@ -8,6 +8,8 @@ from typing import List, Optional
 from apyscript.file import file_util
 
 EXPRESSION_ROOT_DIR: str = '../.apyscript_expression/'
+CURRENT_SCOPE_FILE_PATH: str = os.path.join(
+    EXPRESSION_ROOT_DIR, 'current_scope.txt')
 
 
 def empty_expression_dir() -> None:

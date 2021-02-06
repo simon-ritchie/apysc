@@ -17,3 +17,5 @@
 - Add auto build system (like a Django web server).
 - Add project making command (like a `cargo new` command).
 - Next time, restart coding at `Sprite`.
+- Add helper interface to get file's directory path.
+- Add implementation to make directory to `save_plain_txt`.

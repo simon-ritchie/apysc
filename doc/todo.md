@@ -14,4 +14,4 @@
 - Make test project and test this library (use installed package via pip).
 - Add command line interface for exporting.
 - Add validation to add_child that raises if not DisplayObject specified to argument.
-- Next time, restart coding at `save_expressions_overall_html`.
+- Next time, restart coding at `Sprite`.

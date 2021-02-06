@@ -1,7 +1,10 @@
 """HTML and js expression's scope implementation.
 """
 
+from apyscript.html import html_util
 import os
+import re
+from typing import List
 
 from apyscript.expression import expression_file_util
 from apyscript.file import file_util
@@ -71,7 +74,15 @@ def append_scope_wrapper_func_to_expression(
 
     Returns
     -------
-    expression : str
+    result_expression : str
         HTML string After appended wrapper function.
     """
-    pass
+    each_lines: List[str] = expression.splitlines()
+    result_expression: str = ''
+    for each_line in each_lines:
+        if result_expression != '':
+            result_expression += '\n'
+        result_expression += each_line
+        if html_util.is_script_start_tag_line(line=each_line):
+            pass
+    return result_expression

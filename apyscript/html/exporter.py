@@ -90,9 +90,11 @@ def _append_each_expression_to_html_str(html_str: str) -> str:
         expression: str = file_util.read_txt(file_path=expression_file_path)
         expression = html_util.append_indent_to_each_line(
             html=expression, indent_num=1)
-        # expression = expression_scope.append_scope_wrapper_func_to_expression(
-        #     expression=expression,
-        #     expression_file_name=os.path.basename(expression_file_path))
+        scope_name: str = expression_scope.get_scope_name_from_file_path(
+            expression_file_path=expression_file_path)
+        expression = expression_scope.append_scope_wrapper_func_to_expression(
+            expression=expression,
+            scope_name=scope_name)
         html_str += f'\n{expression}'
     return html_str
 

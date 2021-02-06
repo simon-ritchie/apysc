@@ -1,8 +1,8 @@
 """HTML related implementations.
 """
 
-
-from typing import List
+import re
+from typing import List, Optional
 
 
 def remove_first_selector_symbol_char(str_val: str) -> str:
@@ -79,3 +79,32 @@ def append_indent_to_each_line(html: str, indent_num: int) -> str:
         result_html += ' ' * space_num
         result_html += line
     return result_html
+
+
+def is_script_start_tag_line(line: str) -> bool:
+    """
+    Get a boolean whether the specified line contains script start
+    tag (`<script ...>`).
+
+    Notes
+    -----
+    External js script tag will not be target.
+
+    Parameters
+    ----------
+    line : str
+        Target line string.
+
+    Returns
+    -------
+    result : bool
+        If specified line contains script start tag, then True
+        will be set.
+    """
+    match: Optional[re.Match] = re.search(
+        pattern=r'<script ', string=line)
+    if match is None:
+        return False
+    if 'src=' in line:
+        return False
+    return True

@@ -10,6 +10,7 @@ from apyscript.display.stage import Stage
 from apyscript.display import stage
 
 
+@retry(stop_max_attempt_number=5, wait_fixed=300)
 def test__export_js_libs() -> None:
     tmp_dir_path: str = '../.tmp_action_py_script_test_exporter/'
     shutil.rmtree(tmp_dir_path, ignore_errors=True)

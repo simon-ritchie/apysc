@@ -3,6 +3,7 @@
 
 import shutil
 import os
+from types import ModuleType
 
 
 def empty_directory(directory_path: str) -> None:
@@ -66,3 +67,22 @@ def remove_file_if_exists(file_path: str) -> None:
     if not os.path.isfile(file_path):
         return
     os.remove(file_path)
+
+
+def get_abs_module_dir_path(module: ModuleType) -> str:
+    """
+    Get a specified module's abosulute directory path.
+
+    Parameters
+    ----------
+    module : ModuleType
+        Target module.
+
+    Returns
+    -------
+    abs_module_dir_path : str
+        Specified module's abosulute directory path.
+    """
+    abs_module_dir_path: str = os.path.dirname(module.__file__)
+    abs_module_dir_path += '/'
+    return abs_module_dir_path

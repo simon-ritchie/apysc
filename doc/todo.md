@@ -14,4 +14,6 @@
 - Make test project and test this library (use installed package via pip).
 - Add command line interface for exporting.
 - Add validation to add_child that raises if not DisplayObject specified to argument.
+- Add auto build system (like a Django web server).
+- Add project making command (like a `cargo new` command).
 - Next time, restart coding at `Sprite`.

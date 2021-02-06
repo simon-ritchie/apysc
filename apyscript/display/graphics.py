@@ -28,6 +28,30 @@ class _GraphicBase:
         self._x = x
         self._y = y
 
+    @property
+    def x(self) -> int:
+        """
+        Get x position.
+
+        Returns
+        -------
+        x : int
+            X position.
+        """
+        return self._x
+
+    @x.setter
+    def x(self, value: int) -> None:
+        """
+        Update x position.
+
+        Parameters
+        ----------
+        value : int
+            X potision value.
+        """
+        self._x = value
+
 
 class Graphics:
 

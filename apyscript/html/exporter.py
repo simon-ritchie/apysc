@@ -9,7 +9,7 @@ import os
 from apyscript.file import file_util
 from apyscript.jslib import jslib_util
 from apyscript.html import html_util
-from apyscript.expression import expression_file_util
+from apyscript.expression import expression_file_util, expression_scope
 from apyscript.logging import loggers
 
 user_info_logger: Logger = loggers.get_user_info_logger()
@@ -90,6 +90,9 @@ def _append_each_expression_to_html_str(html_str: str) -> str:
         expression: str = file_util.read_txt(file_path=expression_file_path)
         expression = html_util.append_indent_to_each_line(
             html=expression, indent_num=1)
+        # expression = expression_scope.append_scope_wrapper_func_to_expression(
+        #     expression=expression,
+        #     expression_file_name=os.path.basename(expression_file_path))
         html_str += f'\n{expression}'
     return html_str
 

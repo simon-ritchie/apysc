@@ -20,3 +20,4 @@
 - Drop root scope related implementations.
 - Insert js function by scope name.
 - Next time, restart coding at `test_append_expression_to_current_scope`.
+- Adjust `_append_each_expression_to_html_str`'s test.

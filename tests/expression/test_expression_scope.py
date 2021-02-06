@@ -19,3 +19,9 @@ def test_get_current_scope() -> None:
         file_path=expression_file_util.CURRENT_SCOPE_FILE_PATH)
     current_scope = expression_scope.get_current_scope()
     assert current_scope == expression_file_util.ROOT_SCOPE
+
+
+def test_get_scope_name_from_file_path() -> None:
+    scope_name: str = expression_scope.get_scope_name_from_file_path(
+        expression_file_path='any__scope___name.html')
+    assert scope_name == 'any__scope___name'

@@ -1,4 +1,4 @@
-from typing import List, Tuple
+from typing import Dict, List, Tuple
 from apyscript.html import html_util
 from apyscript.html.html_util import _ScriptLineUtil
 
@@ -79,6 +79,19 @@ def test_is_script_end_tag_line() -> None:
 
 class Test_ScriptLineUtil:
 
+    _TEST_HTML: str = (
+        '<html>'
+        '\n<script type="text/javascript">'
+        '\nconsole.log('
+        '\n  "Hello apyscript!");'
+        '\n</script>'
+        '\n<span>It is not in the stars to hold our destiny.</span>'
+        '\n<script type="text/javascript">'
+        '\nconsole.log("Hello apyscript!");'
+        '\n</script>'
+        '\n</html>'
+    )
+
     def test___init__(self) -> None:
         html: str = '<html>\n</html>'
         script_line_util: _ScriptLineUtil = _ScriptLineUtil(
@@ -86,26 +99,34 @@ class Test_ScriptLineUtil:
         testing_helper.assert_attrs(
             expected_attrs={
                 'html': html,
+                'script_line_ranges': [],
             },
             any_obj=script_line_util,
         )
 
     def test__set_script_line_ranges(self) -> None:
-        html: str = (
-            '<html>'
-            '\n<script type="text/javascript">'
-            '\nconsole.log('
-            '\n  "Hello apyscript!");'
-            '\n</script>'
-            '\n<span>It is not in the stars to hold our destiny.</span>'
-            '\n<script type="text/javascript">'
-            '\nconsole.log("Hello apyscript!");'
-            '\n</script>'
-            '\n</html>'
-        )
-        script_line_util: _ScriptLineUtil = _ScriptLineUtil(html=html)
+        script_line_util: _ScriptLineUtil = _ScriptLineUtil(
+            html=self._TEST_HTML)
         expected: List[Tuple[int, int]] = [
             (3, 4),
             (8, 8),
         ]
         assert script_line_util.script_line_ranges == expected
+
+    def test_is_script_line(self) -> None:
+        script_line_util: _ScriptLineUtil = _ScriptLineUtil(
+            html=self._TEST_HTML)
+
+        expected_values: Dict[int, bool] = {
+            2: False,
+            3: True,
+            4: True,
+            5: False,
+            7: False,
+            8: True,
+            9: False,
+        }
+        for line_number, expected in expected_values.items():
+            result: bool = script_line_util.is_script_line(
+                line_number=line_number)
+            assert result == expected

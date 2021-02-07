@@ -115,6 +115,27 @@ class _ScriptLineUtil:
                 self.script_line_ranges.append(
                     (start_line_num, end_line_num))
 
+    def is_script_line(self, line_number: int) -> bool:
+        """
+        Get a boolean value whether specified line number is script line
+        or not.
+
+        Parameters
+        ----------
+        line_number : int
+            Target line number (start at 1, not 0).
+
+        Returns
+        -------
+        result : bool
+            If the target line is script line, then True will be set.
+        """
+        for script_line_start, script_line_end in self.script_line_ranges:
+            if (script_line_start <= line_number
+                    and line_number <= script_line_end):
+                return True
+        return False
+
 
 def is_script_start_tag_line(line: str) -> bool:
     """

@@ -33,3 +33,28 @@ def test__get_scope_wrapper_function_head() -> None:
             scope_name='any___scope___name')
     expected: str = 'function any___scope___name() {'
     assert scope_wrapper_function_head == expected
+
+
+def test_append_scope_wrapper_func_to_expression() -> None:
+    expression: str = (
+        '<html>'
+        '\n<script type="text/javascript" src="jquery.min.js"></script>'
+        '\n<script type="text/javascript">'
+        '\n  console.log("Hello apyscript!");'
+        '\n</script>'
+        '\n</html>'
+    )
+    result_expression: str = expression_scope.\
+        append_scope_wrapper_func_to_expression(
+            expression=expression, scope_name='any___scope___name')
+    expected: str = (
+        '<html>'
+        '\n<script type="text/javascript" src="jquery.min.js"></script>'
+        '\n<script type="text/javascript">'
+        '\nfunction any___scope___name() {'
+        '\n  console.log("Hello apyscript!");'
+        '\n}'
+        '\n</script>'
+        '\n</html>'
+    )
+    assert result_expression == expected

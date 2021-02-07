@@ -70,4 +70,4 @@ def test_is_script_end_tag_line() -> None:
     assert not result
 
     result = html_util.is_script_end_tag_line(line='</script>')
-    assert not result
+    assert result

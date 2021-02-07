@@ -1,6 +1,6 @@
 from apyscript.file import file_util
 import os
-from typing import List
+from typing import Dict, List
 
 from retrying import retry
 
@@ -93,3 +93,15 @@ def test_append_expression_to_current_scope() -> None:
         get_scope_file_path_from_scope(scope='test___scope')
     expression: str = file_util.read_txt(file_path=scope_file_path)
     assert expression.strip() == '<body></body>'
+
+
+def test__get_maintaining_files_txt() -> None:
+    CURRENT_SCOPE_FILE_PATH: str = \
+        expression_file_util.CURRENT_SCOPE_FILE_PATH
+    expected: str = 'To be, or not to be, that is the question.'
+    file_util.save_plain_txt(
+        txt=expected,
+        file_path=CURRENT_SCOPE_FILE_PATH)
+    maintaining_files_txt: Dict[str, str] = expression_file_util.\
+        _get_maintaining_files_txt()
+    assert maintaining_files_txt[CURRENT_SCOPE_FILE_PATH] == expected

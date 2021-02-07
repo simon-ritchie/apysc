@@ -3,7 +3,7 @@
 
 import os
 import shutil
-from typing import List, Optional
+from typing import Dict, List, Optional
 
 from apyscript.file import file_util
 from apyscript.expression import expression_scope
@@ -12,11 +12,37 @@ EXPRESSION_ROOT_DIR: str = '../.apyscript_expression/'
 CURRENT_SCOPE_FILE_PATH: str = os.path.join(
     EXPRESSION_ROOT_DIR, 'current_scope.txt')
 
+MAINTAINING_FILE_PATHS: List[str] = [
+    CURRENT_SCOPE_FILE_PATH,
+]
+
 
 def empty_expression_dir() -> None:
-    """Remove expression directory (EXPRESSION_ROOT_DIR) to initialize.
     """
+    Remove expression directory (EXPRESSION_ROOT_DIR) to initialize.
+
+    Notes
+    -----
+    Files that contained in MAINTAINING_FILE_PATHS will not be removed.
+    """
+    maintaining_files_txt: Dict[str, str] = _get_maintaining_files_txt()
     file_util.empty_directory(directory_path=EXPRESSION_ROOT_DIR)
+
+
+def _get_maintaining_files_txt() -> Dict[str, str]:
+    """
+    Get maintaining files (not remove at empty function) text.
+
+    Returns
+    -------
+    maintaining_files_txt : dict
+        Dict value that has file paths to key and files's text in value.
+    """
+    maintaining_files_txt: Dict[str, str] = {}
+    for file_path in MAINTAINING_FILE_PATHS:
+        txt: str = file_util.read_txt(file_path=file_path)
+        maintaining_files_txt[file_path] = txt
+    return maintaining_files_txt
 
 
 ROOT_SCOPE: str = 'root'

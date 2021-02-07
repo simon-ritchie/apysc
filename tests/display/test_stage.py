@@ -119,7 +119,8 @@ class TestStage:
 
         result_id_1: str = stage._create_stage_elem_id_if_none(
             stage_elem_id=None)
-        assert result_id_1.isdigit()
+        assert result_id_1.startswith('stage_')
+        assert result_id_1.replace('stage_', '').isdigit()
         result_id_2: str = stage._create_stage_elem_id_if_none(
             stage_elem_id=None)
         assert result_id_1 != result_id_2

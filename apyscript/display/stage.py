@@ -82,7 +82,7 @@ class Stage(ChildBase):
             return stage_elem_id
         now_timestamp: int = int(datetime.now().timestamp() * 1000)
         random_int: int = random.randint(1000000, 10000000)
-        result_id: str = f'{now_timestamp}{random_int}'
+        result_id: str = f'stage_{now_timestamp}{random_int}'
         return result_id
 
     def _append_expression_constructor_expression(self) -> None:

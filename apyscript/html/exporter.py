@@ -41,6 +41,7 @@ def save_expressions_overall_html(dest_dir_path: str) -> None:
     html_str = _append_each_expression_to_html_str(html_str=html_str)
     html_str = html_util.append_html_to_str(
         to_append_html='</body>', dest_html=html_str, indent_num=0)
+    html_str = _append_each_scope_function_call(html_str=html_str)
     html_str = html_util.append_html_to_str(
         to_append_html='</html>', dest_html=html_str, indent_num=0)
     user_info_logger.info(msg='HTML saving started...')
@@ -49,6 +50,30 @@ def save_expressions_overall_html(dest_dir_path: str) -> None:
     file_path: str = os.path.join(dest_dir_path, 'index.html')
     user_info_logger.info(
         msg=f'All files were exported! \nFile path is : {file_path}')
+
+
+def _append_each_scope_function_call(html_str: str) -> str:
+    """
+    Append each scope function call script to html string.
+
+    Parameters
+    ----------
+    html_str : str
+        Target HTML string.
+
+    Returns
+    -------
+    html_str : str
+        After appended html string.
+    """
+    scope_history: List[str] = expression_scope.get_scope_history()
+    if not scope_history:
+        return html_str
+    html_str += '\n<script type="text/javascript">'
+    for scope_name in scope_history:
+        html_str += f'\n  {scope_name}();'
+    html_str += '\n</script>'
+    return html_str
 
 
 def _save_html(

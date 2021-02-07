@@ -135,7 +135,7 @@ class TestStage:
         assert style == expected_style
 
     @retry(stop_max_attempt_number=5, wait_fixed=300)
-    def test__append_expression_constructor_expression(self) -> None:
+    def test__append_constructor_expression(self) -> None:
         stage: Stage = Stage()
         expected_expression: str = stage._make_constructor_expression()
         expected_expression = expected_expression.strip()

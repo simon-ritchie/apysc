@@ -58,7 +58,7 @@ class Stage(ChildBase):
             stage_elem_id=stage_elem_id)
         self._stage_elem_id = html_util.remove_first_selector_symbol_char(
             str_val=self._stage_elem_id)
-        self._append_expression_constructor_expression()
+        self._append_constructor_expression()
         self._childs = []
 
     def _create_stage_elem_id_if_none(
@@ -85,7 +85,7 @@ class Stage(ChildBase):
         result_id: str = f'stage_{now_timestamp}{random_int}'
         return result_id
 
-    def _append_expression_constructor_expression(self) -> None:
+    def _append_constructor_expression(self) -> None:
         """
         Append stage constructor expression to file.
         """

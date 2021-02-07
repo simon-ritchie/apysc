@@ -40,13 +40,21 @@ def test_append_html_to_str() -> None:
 def test_append_indent_to_each_script_line() -> None:
     html: str = (
         '<html>'
+        '\n<script type="text/javascript">'
+        '\nconsole.log("Hello!");'
+        '\nconsole.log("World!");'
+        '\n</script>'
         '\n</html>'
     )
     result_html: str = html_util.append_indent_to_each_script_line(
         html=html, indent_num=1)
     expected_html: str = (
-        '  <html>'
-        '\n  </html>'
+        '<html>'
+        '\n<script type="text/javascript">'
+        '\n  console.log("Hello!");'
+        '\n  console.log("World!");'
+        '\n</script>'
+        '\n</html>'
     )
     assert result_html == expected_html
 

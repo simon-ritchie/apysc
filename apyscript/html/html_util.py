@@ -57,6 +57,14 @@ def append_indent_to_each_script_line(html: str, indent_num: int) -> str:
     """
     Append indentation spaces to each script lines of specified html.
 
+    e.g., if the html is following string, then only `console.log` line
+    will be added indentation.
+    <html>
+    <script type="text/javascript">
+    console.log('Hello!');
+    </script>
+    </html>
+
     Parameters
     ----------
     html : str
@@ -73,10 +81,12 @@ def append_indent_to_each_script_line(html: str, indent_num: int) -> str:
     space_num: int = indent_num * 2
     each_lines: List[str] = html.splitlines()
     result_html: str = ''
-    for line in each_lines:
+    script_line_util: _ScriptLineUtil = _ScriptLineUtil(html=html)
+    for i, line in enumerate(each_lines):
         if result_html != '':
             result_html += '\n'
-        result_html += ' ' * space_num
+        if script_line_util.is_script_line(line_number=i + 1):
+            result_html += ' ' * space_num
         result_html += line
     return result_html
 

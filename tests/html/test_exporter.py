@@ -65,7 +65,7 @@ def test_save_expressions_overall_html() -> None:
     assert os.path.isfile(expected_index_file_path)
     html_str: str = file_util.read_txt(file_path=expected_index_file_path)
     assert html_str.startswith('<html>\n<head>')
-    assert html_str.endswith('</body>\n</html>')
+    assert html_str.endswith('\n</html>')
     assert 'id="test_stage"' in html_str
 
     shutil.rmtree(tmp_dir_path, ignore_errors=True)

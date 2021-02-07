@@ -100,9 +100,9 @@ class TestStage:
         expected_str: str = (
             '<script type="text/javascript">'
             '\n$(document).ready(function() {'
-            '\n  var html = \'<div id="line-graph-stage"'
+            '\n  var stage_html = \'<div id="line-graph-stage"'
             f' style="{style}"></div>\';'
-            '\n  $("#line-graph").append(html);'
+            '\n  $("#line-graph").append(stage_html);'
             '\n});'
             '\n</script>'
         )

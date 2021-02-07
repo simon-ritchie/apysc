@@ -16,10 +16,8 @@
 - Add validation to add_child that raises if not DisplayObject specified to argument.
 - Add auto build system (like a Django web server).
 - Add project making command (like a `cargo new` command).
-- Add decorator implementation to update current scope name.
-- Drop root scope related implementations.
-- Insert js function by scope name.
-- Adjust `_append_each_expression_to_html_str`'s test.
-- Rename `append_indent_to_each_line` to `append_indent_to_each_script_line` and change to skip not script line.
 - Next time, restart coding at `is_script_end_tag_line`.
-  - Then adjust `test_append_scope_wrapper_func_to_expression`.
+- Rename `append_indent_to_each_line` to `append_indent_to_each_script_line` and change to skip not script line.
+- Save history of updating scope.
+  - Then add each functions call to output.
+  - Reset history when scope value of module name is `__main__` and function name is main.

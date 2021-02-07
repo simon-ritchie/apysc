@@ -53,9 +53,9 @@ def append_html_to_str(
     return result
 
 
-def append_indent_to_each_line(html: str, indent_num: int) -> str:
+def append_indent_to_each_script_line(html: str, indent_num: int) -> str:
     """
-    Append indentation spaces to each lines of specified html.
+    Append indentation spaces to each script lines of specified html.
 
     Parameters
     ----------

@@ -58,3 +58,19 @@ def test_append_scope_wrapper_func_to_expression() -> None:
         '\n</html>'
     )
     assert result_expression == expected
+
+
+def test__save_scope_history() -> None:
+    file_util.remove_file_if_exists(
+        file_path=expression_file_util.SCOPE_HISTORY_FILE_PATH)
+    expression_scope._save_scope_history(
+        scope_name='any___scope___name___1')
+    expression_scope._save_scope_history(
+        scope_name='any___scope___name___2')
+    scope_history: str = file_util.read_txt(
+        file_path=expression_file_util.SCOPE_HISTORY_FILE_PATH)
+    expected: str = 'any___scope___name___1,any___scope___name___2,'
+    assert scope_history == expected
+
+    file_util.remove_file_if_exists(
+        file_path=expression_file_util.SCOPE_HISTORY_FILE_PATH)

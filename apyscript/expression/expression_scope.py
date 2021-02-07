@@ -22,6 +22,20 @@ def update_current_scope(scope_name: str) -> None:
     file_util.save_plain_txt(
         txt=scope_name,
         file_path=expression_file_util.CURRENT_SCOPE_FILE_PATH)
+    _save_scope_history(scope_name=scope_name)
+
+
+def _save_scope_history(scope_name: str) -> None:
+    """
+    Save scope updating history to file.
+
+    Parameters
+    ----------
+    scope_name : str
+        Scope name value to bo specified updating function.
+    """
+    with open(expression_file_util.SCOPE_HISTORY_FILE_PATH, 'a') as f:
+        f.write(f'{scope_name},')
 
 
 def get_current_scope() -> str:

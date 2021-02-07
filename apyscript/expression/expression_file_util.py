@@ -11,9 +11,12 @@ from apyscript.expression import expression_scope
 EXPRESSION_ROOT_DIR: str = '../.apyscript_expression/'
 CURRENT_SCOPE_FILE_PATH: str = os.path.join(
     EXPRESSION_ROOT_DIR, 'current_scope.txt')
+SCOPE_HISTORY_FILE_PATH: str = os.path.join(
+    EXPRESSION_ROOT_DIR, 'scope_history.txt')
 
 MAINTAINING_FILE_PATHS: List[str] = [
     CURRENT_SCOPE_FILE_PATH,
+    SCOPE_HISTORY_FILE_PATH,
 ]
 
 

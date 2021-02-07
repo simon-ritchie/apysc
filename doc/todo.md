@@ -16,7 +16,6 @@
 - Add validation to add_child that raises if not DisplayObject specified to argument.
 - Add auto build system (like a Django web server).
 - Add project making command (like a `cargo new` command).
-- Rename `append_indent_to_each_line` to `append_indent_to_each_script_line` and change to skip not script line.
 - Save history of updating scope.
   - Then add each functions call to output.
   - Reset history when scope value of module name is `__main__` and function name is main.

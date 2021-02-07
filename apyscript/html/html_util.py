@@ -89,6 +89,7 @@ def is_script_start_tag_line(line: str) -> bool:
     Notes
     -----
     External js script tag will not be target.
+    e.g., `<script type="text/javascript" src="any_script.js"></script>`
 
     Parameters
     ----------
@@ -103,6 +104,30 @@ def is_script_start_tag_line(line: str) -> bool:
     """
     match: Optional[re.Match] = re.search(
         pattern=r'<script ', string=line)
+    if match is None:
+        return False
+    if 'src=' in line:
+        return False
+    return True
+
+
+def is_script_end_tag_line(line: str) -> bool:
+    """
+    Get a boolean whether the specified line contains script end
+    tag (`</script>`).
+
+    Notes
+    -----
+    External js script tag will not be target.
+    e.g., `<script type="text/javascript" src="any_script.js"></script>`
+
+    Parameters
+    ----------
+    line : str
+        Target line string.
+    """
+    match: Optional[re.Match] = re.search(
+        pattern=r'</script>', string=line)
     if match is None:
         return False
     if 'src=' in line:

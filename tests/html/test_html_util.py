@@ -59,3 +59,15 @@ def test_is_script_start_tag_line() -> None:
     result = html_util.is_script_start_tag_line(
         line='<script type="text/javascript">')
     assert result
+
+
+def test_is_script_end_tag_line() -> None:
+    result: bool = html_util.is_script_end_tag_line(line='<html>')
+    assert not result
+
+    result = html_util.is_script_end_tag_line(
+        line='<script src="jquery.min.js"></script>')
+    assert not result
+
+    result = html_util.is_script_end_tag_line(line='</script>')
+    assert not result

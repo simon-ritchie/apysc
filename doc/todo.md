@@ -16,5 +16,5 @@
 - Add validation to add_child that raises if not DisplayObject specified to argument.
 - Add auto build system (like a Django web server).
 - Add project making command (like a `cargo new` command).
-- Change html variable name to stage_html
+- Add stage variable using SVG().
 - Next time, restart coding at `test_is_script_line`.

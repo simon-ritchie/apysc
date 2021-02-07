@@ -103,6 +103,8 @@ class TestStage:
             '\n  var stage_html = \'<div id="line-graph-stage"'
             f' style="{style}"></div>\';'
             '\n  $("#line-graph").append(stage_html);'
+            '\n  var stage = SVG().addTo("#line-graph-stage").size('
+            '\n    100, 200);'
             '\n});'
             '\n</script>'
         )

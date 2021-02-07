@@ -105,3 +105,7 @@ def test__get_maintaining_files_txt() -> None:
     maintaining_files_txt: Dict[str, str] = expression_file_util.\
         _get_maintaining_files_txt()
     assert maintaining_files_txt[CURRENT_SCOPE_FILE_PATH] == expected
+
+    os.remove(CURRENT_SCOPE_FILE_PATH)
+    maintaining_files_txt = expression_file_util._get_maintaining_files_txt()
+    assert CURRENT_SCOPE_FILE_PATH not in maintaining_files_txt

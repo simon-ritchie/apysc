@@ -40,6 +40,8 @@ def _get_maintaining_files_txt() -> Dict[str, str]:
     """
     maintaining_files_txt: Dict[str, str] = {}
     for file_path in MAINTAINING_FILE_PATHS:
+        if not os.path.isfile(file_path):
+            continue
         txt: str = file_util.read_txt(file_path=file_path)
         maintaining_files_txt[file_path] = txt
     return maintaining_files_txt

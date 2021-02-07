@@ -2,7 +2,7 @@
 """
 
 import re
-from typing import List, Optional
+from typing import List, Optional, Tuple
 
 
 def remove_first_selector_symbol_char(str_val: str) -> str:
@@ -79,6 +79,41 @@ def append_indent_to_each_script_line(html: str, indent_num: int) -> str:
         result_html += ' ' * space_num
         result_html += line
     return result_html
+
+
+class _ScriptLineUtil:
+
+    html: str
+    script_line_ranges: List[Tuple[int, int]]
+
+    def __init__(self, html: str) -> None:
+        """
+        The class for HTML's script line utility.
+
+        Parameters
+        ----------
+        html : str
+            Target HTML string.
+        """
+        self.html = html
+        self._set_script_line_ranges()
+
+    def _set_script_line_ranges(self) -> None:
+        """
+        Set each script start and end line numbers.
+        """
+        self.script_line_ranges = []
+        each_lines: List[str] = self.html.splitlines()
+        start_line_num: int = 0
+        for i, line in enumerate(each_lines):
+            line_number: int = i + 1
+            if is_script_start_tag_line(line=line):
+                start_line_num = line_number + 1
+                continue
+            if is_script_end_tag_line(line=line):
+                end_line_num: int = line_number - 1
+                self.script_line_ranges.append(
+                    (start_line_num, end_line_num))
 
 
 def is_script_start_tag_line(line: str) -> bool:

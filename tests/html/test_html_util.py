@@ -1,4 +1,8 @@
+from typing import List, Tuple
 from apyscript.html import html_util
+from apyscript.html.html_util import _ScriptLineUtil
+
+from tests import testing_helper
 
 
 def test_remove_first_selector_symbol_char() -> None:
@@ -71,3 +75,37 @@ def test_is_script_end_tag_line() -> None:
 
     result = html_util.is_script_end_tag_line(line='</script>')
     assert result
+
+
+class Test_ScriptLineUtil:
+
+    def test___init__(self) -> None:
+        html: str = '<html>\n</html>'
+        script_line_util: _ScriptLineUtil = _ScriptLineUtil(
+            html=html)
+        testing_helper.assert_attrs(
+            expected_attrs={
+                'html': html,
+            },
+            any_obj=script_line_util,
+        )
+
+    def test__set_script_line_ranges(self) -> None:
+        html: str = (
+            '<html>'
+            '\n<script type="text/javascript">'
+            '\nconsole.log('
+            '\n  "Hello apyscript!");'
+            '\n</script>'
+            '\n<span>It is not in the stars to hold our destiny.</span>'
+            '\n<script type="text/javascript">'
+            '\nconsole.log("Hello apyscript!");'
+            '\n</script>'
+            '\n</html>'
+        )
+        script_line_util: _ScriptLineUtil = _ScriptLineUtil(html=html)
+        expected: List[Tuple[int, int]] = [
+            (3, 4),
+            (8, 8),
+        ]
+        assert script_line_util.script_line_ranges == expected

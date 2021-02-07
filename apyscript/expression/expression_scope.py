@@ -19,10 +19,30 @@ def update_current_scope(scope_name: str) -> None:
     scope_name : str
         Scope name value to set.
     """
+    _reset_scope_history_if_scope_is_main_entry_point(
+        scope_name=scope_name)
     file_util.save_plain_txt(
         txt=scope_name,
         file_path=expression_file_util.CURRENT_SCOPE_FILE_PATH)
     _save_scope_history(scope_name=scope_name)
+
+
+def _reset_scope_history_if_scope_is_main_entry_point(
+        scope_name: str) -> None:
+    """
+    Reset (remove) scope history file if specified scope is main
+    entry point (The case of module name is `__main__` and function
+    name is `main`).
+
+    Parameters
+    ----------
+    scope_name : str
+        Specified scope name.
+    """
+    if scope_name != '__main_____main':
+        return
+    file_util.remove_file_if_exists(
+        file_path=expression_file_util.SCOPE_HISTORY_FILE_PATH)
 
 
 def _save_scope_history(scope_name: str) -> None:

@@ -1,6 +1,8 @@
+import os
 from apyscript.expression import expression_scope
 from apyscript.expression import expression_file_util
 from apyscript.file import file_util
+from tests import testing_helper
 
 
 def test_update_current_scope() -> None:
@@ -74,3 +76,15 @@ def test__save_scope_history() -> None:
 
     file_util.remove_file_if_exists(
         file_path=expression_file_util.SCOPE_HISTORY_FILE_PATH)
+
+
+def test__reset_scope_history_if_scope_is_main_entry_point() -> None:
+    testing_helper.make_blank_file(
+        file_path=expression_file_util.SCOPE_HISTORY_FILE_PATH)
+    expression_scope._reset_scope_history_if_scope_is_main_entry_point(
+        scope_name='any___scope___name')
+    assert os.path.exists(expression_file_util.SCOPE_HISTORY_FILE_PATH)
+
+    expression_scope._reset_scope_history_if_scope_is_main_entry_point(
+        scope_name='__main_____main')
+    assert not os.path.exists(expression_file_util.SCOPE_HISTORY_FILE_PATH)

@@ -27,6 +27,21 @@ def empty_expression_dir() -> None:
     """
     maintaining_files_txt: Dict[str, str] = _get_maintaining_files_txt()
     file_util.empty_directory(directory_path=EXPRESSION_ROOT_DIR)
+    _restore_maintaining_files(maintaining_files_txt=maintaining_files_txt)
+
+
+def _restore_maintaining_files(
+        maintaining_files_txt: Dict[str, str]) -> None:
+    """
+    Restore txt files that contained in MAINTAINING_FILE_PATHS.
+
+    Parameters
+    ----------
+    maintaining_files_txt : dict
+        Dict value that has file paths in key and files's text in value.
+    """
+    for file_path, text in maintaining_files_txt.items():
+        file_util.save_plain_txt(txt=text, file_path=file_path)
 
 
 def _get_maintaining_files_txt() -> Dict[str, str]:
@@ -36,7 +51,7 @@ def _get_maintaining_files_txt() -> Dict[str, str]:
     Returns
     -------
     maintaining_files_txt : dict
-        Dict value that has file paths to key and files's text in value.
+        Dict value that has file paths in key and files's text in value.
     """
     maintaining_files_txt: Dict[str, str] = {}
     for file_path in MAINTAINING_FILE_PATHS:

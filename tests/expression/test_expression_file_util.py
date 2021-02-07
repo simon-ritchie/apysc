@@ -109,3 +109,14 @@ def test__get_maintaining_files_txt() -> None:
     os.remove(CURRENT_SCOPE_FILE_PATH)
     maintaining_files_txt = expression_file_util._get_maintaining_files_txt()
     assert CURRENT_SCOPE_FILE_PATH not in maintaining_files_txt
+
+
+def test__restore_maintaining_files() -> None:
+    test_file_path: str = '../.tmp_test_expression_file_util.txt'
+    file_util.remove_file_if_exists(file_path=test_file_path)
+    expression_file_util._restore_maintaining_files(
+        maintaining_files_txt={
+            test_file_path: 'To be, or not to be, that is the question.'
+        })
+    text: str = file_util.read_txt(file_path=test_file_path)
+    assert text == 'To be, or not to be, that is the question.'

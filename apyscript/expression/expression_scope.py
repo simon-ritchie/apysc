@@ -27,6 +27,24 @@ def update_current_scope(scope_name: str) -> None:
     _save_scope_history(scope_name=scope_name)
 
 
+def get_scope_history() -> List[str]:
+    """
+    Get a scope name history.
+
+    Returns
+    -------
+    scope_history : list of str
+        Scope name's list. Oldest one will be set to first.
+    """
+    if not os.path.isfile(expression_file_util.SCOPE_HISTORY_FILE_PATH):
+        return []
+    history_txt: str = file_util.read_txt(
+        file_path=expression_file_util.SCOPE_HISTORY_FILE_PATH)
+    history_txt = history_txt.strip(',')
+    scope_history: List[str] = history_txt.split(',')
+    return scope_history
+
+
 def _reset_scope_history_if_scope_is_main_entry_point(
         scope_name: str) -> None:
     """

@@ -62,10 +62,10 @@ class Stage(ChildBase):
         self._add_to = add_to
         self._stage_elem_id = self._create_stage_elem_id_if_none(
             stage_elem_id=stage_elem_id)
+        self._save_stage_elem_id_to_expression_file()
         self._stage_elem_id = html_util.remove_first_selector_symbol_char(
             str_val=self._stage_elem_id)
         self._append_constructor_expression()
-        self._save_stage_elem_id_to_expression_file()
         self._childs = []
 
     def _save_stage_elem_id_to_expression_file(self) -> None:
@@ -122,7 +122,7 @@ class Stage(ChildBase):
 $(document).ready(function() {{
   var stage_html = '<div id="{self._stage_elem_id}" style="{style}"></div>';
   $("{self._add_to}").append(stage_html);
-  var stage = SVG().addTo("#{self._stage_elem_id}").size(
+  var {get_stage_variable_name()} = SVG().addTo("#{self._stage_elem_id}").size(
     {self.stage_width}, {self.stage_height});
 }});
 </script>"""
@@ -266,3 +266,18 @@ def get_stage_element_id() -> str:
     stage_elem_id: str = file_util.read_txt(
         file_path=_STAGE_ELEM_ID_FILE_PATH)
     return stage_elem_id
+
+
+def get_stage_variable_name() -> str:
+    """
+    Get current stage's global variable name.
+
+    Returns
+    -------
+    stage_variable_name : str
+        Current stage's js global variable name. If stage is not
+        instantiated yet, blank string will be set.
+    """
+    stage_elem_id: str = get_stage_element_id()
+    stage_variable_name: str = stage_elem_id.replace('-', '_')
+    return stage_variable_name

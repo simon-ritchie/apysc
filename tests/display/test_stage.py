@@ -8,6 +8,7 @@ import pytest
 from apyscript.display import stage
 from apyscript.display.stage import Stage, _STAGE_ELEM_ID_FILE_PATH
 from apyscript.expression import expression_file_util
+from apyscript.expression import expression_scope
 from apyscript.display.display_object import DisplayObject
 from tests import testing_helper
 
@@ -95,16 +96,16 @@ class TestStage:
             stage_width=100, stage_height=200,
             background_color='#333333',
             add_to='#line-graph',
-            stage_elem_id='line-graph-stage')
+            stage_elem_id='line-graph')
         expression: str = stage._make_constructor_expression()
         style:str = stage._make_style_str()
         expected_str: str = (
             '<script type="text/javascript">'
             '\n$(document).ready(function() {'
-            '\n  var stage_html = \'<div id="line-graph-stage"'
+            '\n  var stage_html = \'<div id="line-graph"'
             f' style="{style}"></div>\';'
             '\n  $("#line-graph").append(stage_html);'
-            '\n  var stage = SVG().addTo("#line-graph-stage").size('
+            '\n  var line_graph = SVG().addTo("#line-graph").size('
             '\n    100, 200);'
             '\n});'
             '\n</script>'
@@ -140,8 +141,10 @@ class TestStage:
         stage: Stage = Stage()
         expected_expression: str = stage._make_constructor_expression()
         expected_expression = expected_expression.strip()
+        current_scope: str = expression_scope.get_current_scope()
         scope_file_path: str = \
-            expression_file_util.get_scope_file_path_from_scope()
+            expression_file_util.get_scope_file_path_from_scope(
+                scope=current_scope)
         with open(scope_file_path, 'r') as f:
             saved_expression: str = f.read()
         saved_expression = saved_expression.strip()
@@ -176,3 +179,10 @@ def test_get_stage_element_id() -> None:
     Stage(stage_elem_id='line-graph')
     stage_elem_id = stage.get_stage_element_id()
     assert stage_elem_id == 'line-graph'
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=300)
+def test_get_stage_variable_name() -> None:
+    Stage(stage_elem_id='line-graph')
+    stage_variable_name: str = stage.get_stage_variable_name()
+    assert stage_variable_name == 'line_graph'

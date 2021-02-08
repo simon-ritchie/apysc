@@ -22,4 +22,3 @@
     - Use type_util.
     - Skip if `self` is Sprite subclass instance.
 - Change stage variable to local to global.
-  - Save stage element id to file.

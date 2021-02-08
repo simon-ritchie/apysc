@@ -249,3 +249,20 @@ $(document).ready(function() {{
             Child object to add.
         """
         self._childs.append(child)
+
+
+def get_stage_element_id() -> str:
+    """
+    Get current stage's element id.
+
+    Returns
+    -------
+    stage_elem_id : str
+        Current stage's element id. If stage is not instantiated yet,
+        blank string will be set.
+    """
+    if not os.path.isfile(_STAGE_ELEM_ID_FILE_PATH):
+        return ''
+    stage_elem_id: str = file_util.read_txt(
+        file_path=_STAGE_ELEM_ID_FILE_PATH)
+    return stage_elem_id

@@ -165,3 +165,14 @@ class TestStage:
         stage_elem_id: str = file_util.read_txt(
             file_path=_STAGE_ELEM_ID_FILE_PATH)
         assert stage_elem_id == 'line-graph'
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=300)
+def test_get_stage_element_id() -> None:
+    file_util.remove_file_if_exists(file_path=_STAGE_ELEM_ID_FILE_PATH)
+    stage_elem_id: str = stage.get_stage_element_id()
+    assert stage_elem_id == ''
+
+    Stage(stage_elem_id='line-graph')
+    stage_elem_id = stage.get_stage_element_id()
+    assert stage_elem_id == 'line-graph'

@@ -100,7 +100,7 @@ def _append_each_scope_function_call(html_str: str) -> str:
         return html_str
     html_str += '\n<script type="text/javascript">'
     for scope_name in scope_history:
-        html_str += f'\n  {scope_name}();'
+        html_str += f'\n{scope_name}();'
     html_str += '\n</script>'
     return html_str
 

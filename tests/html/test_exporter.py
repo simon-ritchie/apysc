@@ -91,3 +91,18 @@ def test__append_each_scope_function_call() -> None:
         '\n</script>'
     )
     assert html_str == expected
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=300)
+def test__append_stage_global_variable_to_html() -> None:
+    Stage(stage_elem_id='test_stage')
+    html_str: str = '<html>'
+    html_str = exporter._append_stage_global_variable_to_html(
+        html_str=html_str)
+    expected: str = (
+        '<html>'
+        '\n<script type="text/javascript">'
+        '\nvar test_stage;'
+        '\n</script>'
+    )
+    assert html_str == expected

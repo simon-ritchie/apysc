@@ -11,6 +11,8 @@ from apyscript.jslib import jslib_util
 from apyscript.html import html_util
 from apyscript.expression import expression_file_util, expression_scope
 from apyscript.logging import loggers
+from apyscript.html import html_const
+from apyscript.display.stage import get_stage_element_id
 
 user_info_logger: Logger = loggers.get_user_info_logger()
 
@@ -37,6 +39,7 @@ def save_expressions_overall_html(dest_dir_path: str) -> None:
     html_str = _append_head_to_html_str(html_str=html_str)
     html_str = html_util.append_html_to_str(
         to_append_html='<body>', dest_html=html_str, indent_num=0)
+    html_str = _append_stage_global_variable_to_html(html_str=html_str)
     user_info_logger.info(msg='Reading each expression files...')
     html_str = _append_each_expression_to_html_str(html_str=html_str)
     html_str = html_util.append_html_to_str(
@@ -50,6 +53,32 @@ def save_expressions_overall_html(dest_dir_path: str) -> None:
     file_path: str = os.path.join(dest_dir_path, 'index.html')
     user_info_logger.info(
         msg=f'All files were exported! \nFile path is : {file_path}')
+
+
+def _append_stage_global_variable_to_html(html_str: str) -> str:
+    """
+    Append stage's global variable to html string.
+
+    Parameters
+    ----------
+    html_str : str
+        Target HTML string.
+
+    Returns
+    -------
+    html_str : str
+        After appended HTML string.
+    """
+    html_str = html_util.append_html_to_str(
+        to_append_html=html_const.SCRIPT_START_TAG,
+        dest_html=html_str, indent_num=0)
+    html_str = html_util.append_html_to_str(
+        to_append_html=f'var {get_stage_element_id()};',
+        dest_html=html_str, indent_num=0)
+    html_str = html_util.append_html_to_str(
+        to_append_html=html_const.SCRIPT_END_TAG,
+        dest_html=html_str, indent_num=0)
+    return html_str
 
 
 def _append_each_scope_function_call(html_str: str) -> str:

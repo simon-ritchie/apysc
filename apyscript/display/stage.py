@@ -122,7 +122,7 @@ class Stage(ChildBase):
 $(document).ready(function() {{
   var stage_html = '<div id="{self._stage_elem_id}" style="{style}"></div>';
   $("{self._add_to}").append(stage_html);
-  var {get_stage_variable_name()} = SVG().addTo("#{self._stage_elem_id}").size(
+  {get_stage_variable_name()} = SVG().addTo("#{self._stage_elem_id}").size(
     {self.stage_width}, {self.stage_height});
 }});
 </script>"""

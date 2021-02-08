@@ -96,16 +96,16 @@ class TestStage:
             stage_width=100, stage_height=200,
             background_color='#333333',
             add_to='#line-graph',
-            stage_elem_id='line-graph')
+            stage_elem_id='line-graph-stage')
         expression: str = stage._make_constructor_expression()
         style:str = stage._make_style_str()
         expected_str: str = (
             '<script type="text/javascript">'
             '\n$(document).ready(function() {'
-            '\n  var stage_html = \'<div id="line-graph"'
+            '\n  var stage_html = \'<div id="line-graph-stage"'
             f' style="{style}"></div>\';'
             '\n  $("#line-graph").append(stage_html);'
-            '\n  var line_graph = SVG().addTo("#line-graph").size('
+            '\n  line_graph_stage = SVG().addTo("#line-graph-stage").size('
             '\n    100, 200);'
             '\n});'
             '\n</script>'

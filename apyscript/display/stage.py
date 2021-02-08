@@ -1,6 +1,8 @@
 """Stage (canvas) implementation.
 """
 
+from apyscript.file import file_util
+import os
 from typing import List, Optional
 from datetime import datetime
 import random
@@ -11,6 +13,10 @@ from apyscript.geom import size_util
 from apyscript.geom import converter
 from apyscript.html import html_util
 from apyscript.display.display_object import DisplayObject, ChildBase
+
+_STAGE_ELEM_ID_FILE_PATH: str = os.path.join(
+    expression_file_util.EXPRESSION_ROOT_DIR, 'stage_elem_id.txt',
+)
 
 
 class Stage(ChildBase):
@@ -59,7 +65,16 @@ class Stage(ChildBase):
         self._stage_elem_id = html_util.remove_first_selector_symbol_char(
             str_val=self._stage_elem_id)
         self._append_constructor_expression()
+        self._save_stage_elem_id_to_expression_file()
         self._childs = []
+
+    def _save_stage_elem_id_to_expression_file(self) -> None:
+        """
+        Save stage element id to expression directory's file.
+        """
+        file_util.save_plain_txt(
+            txt=self._stage_elem_id,
+            file_path=_STAGE_ELEM_ID_FILE_PATH)
 
     def _create_stage_elem_id_if_none(
             self, stage_elem_id: Optional[str]) -> str:

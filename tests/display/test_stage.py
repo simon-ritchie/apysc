@@ -1,3 +1,4 @@
+from apyscript.file import file_util
 import os
 from typing import Any, Dict
 
@@ -5,7 +6,7 @@ from retrying import retry
 import pytest
 
 from apyscript.display import stage
-from apyscript.display.stage import Stage
+from apyscript.display.stage import Stage, _STAGE_ELEM_ID_FILE_PATH
 from apyscript.expression import expression_file_util
 from apyscript.display.display_object import DisplayObject
 from tests import testing_helper
@@ -157,3 +158,10 @@ class TestStage:
         display_object: DisplayObject = DisplayObject(stage=stage)
         stage.add_child(child=display_object)
         assert stage._childs == [display_object]
+
+    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    def test__save_stage_elem_id_to_expression_file(self) -> None:
+        Stage(stage_elem_id='line-graph')
+        stage_elem_id: str = file_util.read_txt(
+            file_path=_STAGE_ELEM_ID_FILE_PATH)
+        assert stage_elem_id == 'line-graph'

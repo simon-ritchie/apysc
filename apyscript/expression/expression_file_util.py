@@ -1,4 +1,16 @@
 """The implementation of manipulating HTL and js expression files.
+
+Mainly following interfaces are defined:
+
+- empty_expression_dir : Remove expression directory
+    (EXPRESSION_ROOT_DIR) to initialize.
+- append_expression : Append html and js expression to specified
+    scope's file.
+- append_expression_to_current_scope : Append html and js
+    expression to current scope's file.
+- get_scope_file_path_from_scope : Get scope file path from
+    specified scope string.
+- get_expression_file_paths : Get existing expression file paths.
 """
 
 import os

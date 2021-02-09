@@ -26,18 +26,23 @@ class Sprite(DisplayObject):
         self.graphics = Graphics(parent=self)
         self._append_constructor_expression()
 
-    def _append_constructor_expression(self) -> None:
+    def _append_constructor_expression(self) -> bool:
         """
         Append Sprite constructor expression to current scope.
 
         Notes
         -----
         Expression not to be added if instance is Sprite subclass.
+
+        Returns
+        -------
+        appended : bool
+            If expression appended, then True will be set.
         """
         is_same_class_instance: bool = type_util.is_same_class_instance(
             cls=Sprite, instance=self)
         if not is_same_class_instance:
-            return
+            return False
         stage_variable_name: str = get_stage_variable_name()
         expression: str = (
             f'{html_const.SCRIPT_START_TAG}'
@@ -46,6 +51,7 @@ class Sprite(DisplayObject):
         )
         expression_file_util.append_expression_to_current_scope(
             expression=expression)
+        return True
 
     def add_child(self, child: DisplayObject) -> None:
         """

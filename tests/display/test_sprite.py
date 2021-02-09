@@ -50,3 +50,10 @@ class TestSprite:
         )
         assert expression.strip() == expected
         file_util.remove_file_if_exists(file_path=scope_file_path)
+
+        class SubClass(Sprite):
+            pass
+
+        subclass_instance: SubClass = SubClass(stage=stage)
+        appended: bool = subclass_instance._append_constructor_expression()
+        assert not appended

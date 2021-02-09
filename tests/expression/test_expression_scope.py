@@ -1,5 +1,8 @@
 import os
 from typing import List
+
+from retrying import retry
+
 from apyscript.expression import expression_scope
 from apyscript.expression import expression_file_util
 from apyscript.file import file_util
@@ -63,6 +66,7 @@ def test_append_scope_wrapper_func_to_expression() -> None:
     assert result_expression == expected
 
 
+@retry(stop_max_attempt_number=5, wait_fixed=300)
 def test__save_scope_history() -> None:
     file_util.remove_file_if_exists(
         file_path=expression_file_util.SCOPE_HISTORY_FILE_PATH)

@@ -2,7 +2,7 @@
 """
 
 from apyscript.display.display_object import DisplayObject
-from apyscript.display.stage import Stage
+from apyscript.display.stage import Stage, get_stage_variable_name
 from apyscript.display.graphics import Graphics
 from apyscript.type import type_util
 from apyscript.html import html_const
@@ -38,13 +38,14 @@ class Sprite(DisplayObject):
             cls=Sprite, instance=self)
         if not is_same_class_instance:
             return
+        stage_variable_name: str = get_stage_variable_name()
         expression: str = (
             f'{html_const.SCRIPT_START_TAG}'
-            f'\nsprite = '
+            f'\nvar sprite = {stage_variable_name}.group();'
             f'\n{html_const.SCRIPT_END_TAG}'
         )
-        # expression_file_util.append_expression_to_current_scope(
-        #     expression=)
+        expression_file_util.append_expression_to_current_scope(
+            expression=expression)
 
     def add_child(self, child: DisplayObject) -> None:
         """

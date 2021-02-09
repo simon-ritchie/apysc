@@ -17,8 +17,7 @@
 - Add auto build system (like a Django web server).
 - Add project making command (like a `cargo new` command).
 - Implement Sprite expressions.
-- Next time, restart coding at `Sprite.__init__`.
-  - Add expression if `self` is Sprite class.
-    - Use type_util.
-    - Skip if `self` is Sprite subclass instance.
-- Change stage variable to local to global.
+- Next time, restart coding at `_append_constructor_expression`.
+  - Refer to global stage variable.
+- Add name attribute to Sprite class.
+  - Change constructor expression's variable name from sprite.

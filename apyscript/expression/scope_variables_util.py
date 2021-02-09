@@ -30,6 +30,28 @@ def get_current_scope_next_variable_name(type_name: str) -> str:
     pass
 
 
+def _get_current_scope_next_variable_num(type_name: str) -> int:
+    """
+    Get current scope's next variable number.
+
+    Parameters
+    ----------
+    type_name : str
+        Any type name, e.g., `sprite`.
+
+    Returns
+    -------
+    next_variable_num : int
+        Next variable number (start from 1).
+    """
+    variable_names: List[str] = _read_current_scope_variable_names(
+        type_name= type_name)
+    if not variable_names:
+        return 1
+    last_num: int = int(variable_names[-1].split('_')[-1])
+    return last_num + 1
+
+
 def _read_current_scope_variable_names(type_name: str) -> List[str]:
     """
     Read current scope's variable names from file.

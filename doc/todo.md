@@ -17,7 +17,5 @@
 - Add auto build system (like a Django web server).
 - Add project making command (like a `cargo new` command).
 - Implement Sprite expressions.
-- Next time, restart coding at `_append_constructor_expression`.
-  - Refer to global stage variable.
 - Add name attribute to Sprite class.
   - Change constructor expression's variable name from sprite.

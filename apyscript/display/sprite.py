@@ -13,7 +13,6 @@ from apyscript.expression import scope_variables_util
 class Sprite(DisplayObject):
 
     graphics: Graphics
-    _variable_name: str
 
     def __init__(self, stage: Stage) -> None:
         """
@@ -24,35 +23,12 @@ class Sprite(DisplayObject):
         stage : Stage
             Stage instance to link this object.
         """
-        super(Sprite, self).__init__(stage=stage)
-        self.graphics = Graphics(parent=self)
-        self._variable_name = scope_variables_util.\
+        variable_name: str = scope_variables_util.\
             get_current_scope_next_variable_name(type_name='sprite')
+        super(Sprite, self).__init__(
+            stage=stage, variable_name=variable_name)
+        self.graphics = Graphics(parent=self)
         self._append_constructor_expression()
-
-    @property
-    def variable_name(self) -> str:
-        """
-        Get a js variable name of this instance.
-
-        Returns
-        -------
-        variable_name : str
-            A js variable name of this instance.
-        """
-        return self._variable_name
-
-    @variable_name.setter
-    def variable_name(self, variable_name: str) -> None:
-        """
-        Set a js variable name of this instance.
-
-        Parameters
-        ----------
-        variable_name : str
-            Variable name to set.
-        """
-        self._variable_name = variable_name
 
     def _append_constructor_expression(self) -> bool:
         """

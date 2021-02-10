@@ -158,7 +158,8 @@ class TestStage:
     @retry(stop_max_attempt_number=5, wait_fixed=300)
     def test_add_child(self) -> None:
         stage: Stage = Stage()
-        display_object: DisplayObject = DisplayObject(stage=stage)
+        display_object: DisplayObject = DisplayObject(
+            stage=stage, variable_name='test_display_object_1')
         stage.add_child(child=display_object)
         assert stage._childs == [display_object]
 

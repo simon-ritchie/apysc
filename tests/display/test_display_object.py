@@ -11,7 +11,8 @@ class TestDisplayObject:
     @retry(stop_max_attempt_number=5, wait_fixed=300)
     def test___init__(self) -> None:
         stage: Stage = Stage()
-        display_object: DisplayObject = DisplayObject(stage=stage)
+        display_object: DisplayObject = DisplayObject(
+            stage=stage, variable_name='test_display_object')
         testing_helper.assert_attrs(
             expected_attrs={
                 'stage': stage,
@@ -22,7 +23,17 @@ class TestDisplayObject:
     @retry(stop_max_attempt_number=5, wait_fixed=300)
     def test_add_child(self) -> None:
         stage: Stage = Stage()
-        display_object: DisplayObject = DisplayObject(stage=stage)
-        child: DisplayObject = DisplayObject(stage=stage)
+        display_object: DisplayObject = DisplayObject(
+            stage=stage, variable_name='test_display_object_1')
+        child: DisplayObject = DisplayObject(
+            stage=stage, variable_name='test_display_object_2')
         display_object.add_child(child=child)
         assert display_object._childs == [child]
+
+    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    def test_variable_name(self) -> None:
+        stage: Stage = Stage()
+        display_object: DisplayObject = DisplayObject(
+            stage=stage, variable_name='test_display_object_1')
+        display_object.variable_name = 'test_display_object_2'
+        assert display_object.variable_name == 'test_display_object_2'

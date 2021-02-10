@@ -19,3 +19,4 @@
 - Implement Sprite expressions.
 - Add name attribute to Sprite class.
   - Change constructor expression's variable name from sprite.
+- Next time, restart coding at `get_current_scope_next_variable_name` and `_save_next_variable_name_to_current_scope_file`

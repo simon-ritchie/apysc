@@ -58,6 +58,24 @@ def save_plain_txt(txt: str, file_path: str) -> None:
         f.write(txt)
 
 
+def append_plain_txt(txt: str, file_path) -> None:
+    """
+    Append plain text string to file.
+
+    Parameters
+    ----------
+    txt : str
+        Plain text string to append.
+    file_path : str
+        Destination file path.
+    """
+    dir_path: str = get_abs_directory_path_from_file_path(
+        file_path=file_path)
+    os.makedirs(dir_path, exist_ok=True)
+    with open(file_path, 'a') as f:
+        f.write(txt)
+
+
 def remove_file_if_exists(file_path: str) -> None:
     """
     Remove specified file if exists.

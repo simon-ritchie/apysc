@@ -33,6 +33,9 @@ class DisplayObject(ChildBase):
         ----------
         stage : Stage
             Stage instance to link this object.
+        variable_name : str
+            Variable name of this instance. This will be used to
+            js expression.
         """
         from apyscript.display.stage import Stage
         self._stage_cls: Type[Stage] = Stage

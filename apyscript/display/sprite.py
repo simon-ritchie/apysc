@@ -1,6 +1,7 @@
 """Implementations for Sprite class.
 """
 
+from typing import Optional
 from apyscript.display.display_object import DisplayObject
 from apyscript.display.stage import Stage, get_stage_variable_name
 from apyscript.display.graphics import Graphics
@@ -14,7 +15,9 @@ class Sprite(DisplayObject):
 
     graphics: Graphics
 
-    def __init__(self, stage: Stage) -> None:
+    def __init__(
+            self, stage: Stage,
+            variable_name: Optional[str] = None) -> None:
         """
         Basic display object that can be parent.
 
@@ -22,9 +25,14 @@ class Sprite(DisplayObject):
         ----------
         stage : Stage
             Stage instance to link this object.
+        variable_name : str or None, default None
+            Variable name of this instance. This will be used to
+            js expression. It is not necessary to specify any
+            string except when Sprite subclass will be instantiated.
         """
-        variable_name: str = scope_variables_util.\
-            get_current_scope_next_variable_name(type_name='sprite')
+        if variable_name is None:
+            variable_name = scope_variables_util.\
+                get_current_scope_next_variable_name(type_name='sprite')
         super(Sprite, self).__init__(
             stage=stage, variable_name=variable_name)
         self.graphics = Graphics(parent=self)

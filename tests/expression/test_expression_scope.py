@@ -84,6 +84,7 @@ def test__save_scope_history() -> None:
         file_path=expression_file_util.SCOPE_HISTORY_FILE_PATH)
 
 
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test__reset_scope_history_if_scope_is_main_entry_point() -> None:
     testing_helper.make_blank_file(
         file_path=expression_file_util.SCOPE_HISTORY_FILE_PATH)

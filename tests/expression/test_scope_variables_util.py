@@ -60,6 +60,7 @@ def test__make_variable_name() -> None:
     assert variable_name == 'sprite_3'
 
 
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test__save_next_variable_name_to_current_scope_file() -> None:
     expression_scope.update_current_scope(
         scope_name='test_scope_variables_util')

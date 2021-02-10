@@ -18,11 +18,10 @@
 - Add project making command (like a `cargo new` command).
 - Add variable name interface ABC and inherit by `DisplayObject` and `_GraphicBase`.
 - Add implementation of `_append_draw_rect_expression`.
-- Add each tests of `VariableNameInterface`.
+- Add each tests of `AddChildInterface`.
 - Move `add_child` interface to dedicated class.
   - Inherit at `Stage` and `Sprite` class.
   - Remove `add_child` interface from DisplayObject.
 - Add package of `validation`.
   - Add validations to each base class and function's arguments.
-- Add package of `converter`.
-  - Remove `geom` package.
+- Remove ChildBase class.

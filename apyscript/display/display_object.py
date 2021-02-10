@@ -4,26 +4,11 @@
 """
 
 from typing import List, Type
-from abc import ABC, abstractmethod
 
 from apyscript.display.variable_name_interface import VariableNameInterface
 
 
-class ChildBase(ABC):
-
-    @abstractmethod
-    def add_child(self, child) -> None:
-        """
-        Add display object child to this object.
-
-        Parameters
-        ----------
-        child : DisplayObject
-            Child object to add.
-        """
-
-
-class DisplayObject(ChildBase, VariableNameInterface):
+class DisplayObject(VariableNameInterface):
 
     def __init__(self, stage, variable_name: str) -> None:
         """

@@ -12,14 +12,15 @@ from apyscript.color import color_util
 from apyscript.validation import size_validation
 from apyscript.converter import cast
 from apyscript.html import html_util
-from apyscript.display.display_object import DisplayObject, ChildBase
+from apyscript.display.display_object import DisplayObject
+from apyscript.display.add_child_interface import AddChildInterface
 
 _STAGE_ELEM_ID_FILE_PATH: str = os.path.join(
     expression_file_util.EXPRESSION_ROOT_DIR, 'stage_elem_id.txt',
 )
 
 
-class Stage(ChildBase):
+class Stage(AddChildInterface):
 
     _stage_width: int
     _stage_height: int
@@ -238,17 +239,6 @@ $(document).ready(function() {{
             err_msg=(
                 'Stage height can not be set less than or equal to zero: '
                 f'{self.stage_height}'))
-
-    def add_child(self, child: DisplayObject) -> None:
-        """
-        Add display object child to stage.
-
-        Parameters
-        ----------
-        child : DisplayObject
-            Child object to add.
-        """
-        self._childs.append(child)
 
 
 def get_stage_element_id() -> str:

@@ -5,13 +5,14 @@ from typing import Optional
 from apyscript.display.display_object import DisplayObject
 from apyscript.display.stage import Stage, get_stage_variable_name
 from apyscript.display.graphics import Graphics
+from apyscript.display.add_child_interface import AddChildInterface
 from apyscript.type import type_util
 from apyscript.html import html_const
 from apyscript.expression import expression_file_util
 from apyscript.expression import scope_variables_util
 
 
-class Sprite(DisplayObject):
+class Sprite(DisplayObject, AddChildInterface):
 
     graphics: Graphics
 
@@ -64,14 +65,3 @@ class Sprite(DisplayObject):
         expression_file_util.append_expression_to_current_scope(
             expression=expression)
         return True
-
-    def add_child(self, child: DisplayObject) -> None:
-        """
-        Add display object child to this object.
-
-        Parameters
-        ----------
-        child : DisplayObject
-            Child object to add.
-        """
-        super(Sprite, self).add_child(child)

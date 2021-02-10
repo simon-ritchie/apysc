@@ -14,6 +14,7 @@ from apyscript.converter import cast
 from apyscript.html import html_util
 from apyscript.display.display_object import DisplayObject
 from apyscript.display.add_child_interface import AddChildInterface
+from apyscript.validation import string_validation
 
 _STAGE_ELEM_ID_FILE_PATH: str = os.path.join(
     expression_file_util.EXPRESSION_ROOT_DIR, 'stage_elem_id.txt',
@@ -60,9 +61,12 @@ class Stage(AddChildInterface):
         background_color = color_util.complement_hex_color(
             hex_color_code=background_color)
         self._background_color = background_color
+        string_validation.validate_not_empty_string(string=add_to)
         self._add_to = add_to
         self._stage_elem_id = self._create_stage_elem_id_if_none(
             stage_elem_id=stage_elem_id)
+        string_validation.validate_not_empty_string(
+            string=self._stage_elem_id)
         self._save_stage_elem_id_to_expression_file()
         self._stage_elem_id = html_util.remove_first_selector_symbol_char(
             str_val=self._stage_elem_id)

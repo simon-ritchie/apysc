@@ -32,6 +32,7 @@ def test__read_current_scope_variable_names() -> None:
     file_util.remove_file_if_exists(file_path=file_path)
 
 
+@retry(stop_max_attempt_number=5, wait_fixed=300)
 def test__get_current_scope_next_variable_num() -> None:
     expression_scope.update_current_scope(
         scope_name='test_scope_variables_util')

@@ -57,3 +57,10 @@ class TestSprite:
         subclass_instance: SubClass = SubClass(stage=stage)
         appended: bool = subclass_instance._append_constructor_expression()
         assert not appended
+
+    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    def test_variable_name(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        sprite.variable_name = 'sprite_2'
+        assert sprite.variable_name == 'sprite_2'

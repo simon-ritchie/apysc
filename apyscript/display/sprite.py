@@ -15,7 +15,6 @@ from apyscript.expression import scope_variables_util
 class Sprite(DisplayObject, AddChildInterface):
 
     graphics: Graphics
-    _childs: List[DisplayObject]
 
     def __init__(
             self, stage: Stage,

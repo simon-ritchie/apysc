@@ -9,7 +9,7 @@ import random
 
 from apyscript.expression import expression_file_util
 from apyscript.color import color_util
-from apyscript.geom import size_util
+from apyscript.validation import size_validation
 from apyscript.geom import converter
 from apyscript.html import html_util
 from apyscript.display.display_object import DisplayObject, ChildBase
@@ -219,21 +219,21 @@ $(document).ready(function() {{
             - If non-integer value specified.
             - If width or height is less than or equal to zero.
         """
-        size_util.validate_size_is_int(
+        size_validation.validate_size_is_int(
             size=self.stage_width,
             err_msg=(
                 f'Stage width is set non-integer value: {self.stage_width}'))
-        size_util.validate_size_is_int(
+        size_validation.validate_size_is_int(
             size=self.stage_height,
             err_msg=(
                 'Stage height is set non-integer value: '
                 f'{self.stage_height}'))
-        size_util.validate_size_is_greater_than_zero(
+        size_validation.validate_size_is_greater_than_zero(
             size=self.stage_width,
             err_msg=(
                 'Stage width can not be set less than or equal to zero: '
                 f'{self.stage_width}'))
-        size_util.validate_size_is_greater_than_zero(
+        size_validation.validate_size_is_greater_than_zero(
             size=self.stage_height,
             err_msg=(
                 'Stage height can not be set less than or equal to zero: '

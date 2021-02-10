@@ -24,8 +24,6 @@
   - Remove `add_child` interface from DisplayObject.
 - Add package of `validation`.
   - Add validations to each base class and function's arguments.
-  - Move `_validate_hex_color_code_format` to `color_validation` module.
-  - Rename `size_util` to `size_validation`
 - Add package of `calc`.
   - Move `convert` to this package.
   - Remove `geom` package.

@@ -95,6 +95,7 @@ def test__reset_scope_history_if_scope_is_main_entry_point() -> None:
     assert not os.path.exists(expression_file_util.SCOPE_HISTORY_FILE_PATH)
 
 
+@retry(stop_max_attempt_number=5, wait_fixed=300)
 def test_get_scope_history() -> None:
     file_util.remove_file_if_exists(
         file_path=expression_file_util.SCOPE_HISTORY_FILE_PATH)

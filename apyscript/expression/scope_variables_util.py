@@ -13,6 +13,11 @@ def get_current_scope_next_variable_name(type_name: str) -> str:
     """
     Get current scope's next variable name of specified type name.
 
+    Notes
+    -----
+    If call this function multiple times, then returned number will be
+    increased.
+
     Parameters
     ----------
     type_name : str
@@ -27,7 +32,32 @@ def get_current_scope_next_variable_name(type_name: str) -> str:
     variable_name : str
         Current scope's next variable name.
     """
-    pass
+    next_variable_num: int = _get_current_scope_next_variable_num(
+        type_name=type_name)
+    variable_name = _make_variable_name(
+        type_name=type_name, variable_num=next_variable_num)
+    _save_next_variable_name_to_current_scope_file(type_name=type_name)
+    return variable_name
+
+
+def _make_variable_name(type_name: str, variable_num: int) -> str:
+    """
+    Make variable name from type name and variable num.
+
+    Parameters
+    ----------
+    type_name : str
+        Any type name, e.g., `sprite`.
+    variable_num : int
+        Target variable number (start from 1).
+
+    Returns
+    -------
+    variable_name : str
+        Variable name that concatenated type name and variable number.
+    """
+    variable_name: str = f'{type_name}_{variable_num}'
+    return variable_name
 
 
 def _get_current_scope_next_variable_num(type_name: str) -> int:
@@ -78,7 +108,22 @@ def _read_current_scope_variable_names(type_name: str) -> List[str]:
 
 
 def _save_next_variable_name_to_current_scope_file(type_name: str) -> None:
-    pass
+    """
+    Save current scope's next variable name to file.
+
+    Parameters
+    ----------
+    type_name : str
+        Any type name, e.g., `sprite`.
+    """
+    file_path: str = get_current_scope_variable_names_file_path(
+        type_name=type_name)
+    next_variable_num: int = _get_current_scope_next_variable_num(
+        type_name=type_name)
+    variable_name: str = _make_variable_name(
+        type_name=type_name, variable_num=next_variable_num)
+    file_util.append_plain_txt(
+        txt=f'{variable_name},', file_path=file_path)
 
 
 def get_current_scope_variable_names_file_path(type_name: str) -> str:

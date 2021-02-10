@@ -49,3 +49,47 @@ def test__get_current_scope_next_variable_num() -> None:
     assert next_variable_num == 3
 
     file_util.remove_file_if_exists(file_path=file_path)
+
+
+def test__make_variable_name() -> None:
+    variable_name: str = scope_variables_util._make_variable_name(
+        type_name='sprite', variable_num=3)
+    assert variable_name == 'sprite_3'
+
+
+def test__save_next_variable_name_to_current_scope_file() -> None:
+    expression_scope.update_current_scope(
+        scope_name='test_scope_variables_util')
+    file_path: str = scope_variables_util.\
+        get_current_scope_variable_names_file_path(type_name='sprite')
+    file_util.remove_file_if_exists(file_path=file_path)
+    scope_variables_util._save_next_variable_name_to_current_scope_file(
+        type_name='sprite')
+    next_variable_num: int = scope_variables_util.\
+        _get_current_scope_next_variable_num(type_name='sprite')
+    assert next_variable_num == 2
+    scope_variables_util._save_next_variable_name_to_current_scope_file(
+        type_name='sprite')
+    next_variable_num = scope_variables_util.\
+        _get_current_scope_next_variable_num(type_name='sprite')
+    assert next_variable_num == 3
+
+    file_util.remove_file_if_exists(file_path=file_path)
+
+
+def test_get_current_scope_next_variable_name() -> None:
+    expression_scope.update_current_scope(
+        scope_name='test_scope_variables_util')
+    file_path: str = scope_variables_util.\
+        get_current_scope_variable_names_file_path(type_name='sprite')
+    file_util.remove_file_if_exists(file_path=file_path)
+
+    variable_name: str = scope_variables_util.\
+        get_current_scope_next_variable_name(type_name='sprite')
+    assert variable_name == 'sprite_1'
+
+    variable_name: str = scope_variables_util.\
+        get_current_scope_next_variable_name(type_name='sprite')
+    assert variable_name == 'sprite_2'
+
+    file_util.remove_file_if_exists(file_path=file_path)

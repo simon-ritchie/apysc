@@ -45,7 +45,7 @@ class TestSprite:
         expression: str = file_util.read_txt(file_path=scope_file_path)
         expected: str = (
             '<script type="text/javascript">'
-            f'\nvar sprite = {stage_variable_name}.group();'
+            f'\nvar {sprite.variable_name} = {stage_variable_name}.group();'
             '\n</script>'
         )
         assert expression.strip() == expected

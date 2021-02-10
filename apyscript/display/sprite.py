@@ -1,7 +1,7 @@
 """Implementations for Sprite class.
 """
 
-from typing import Optional
+from typing import List, Optional
 from apyscript.display.display_object import DisplayObject
 from apyscript.display.stage import Stage, get_stage_variable_name
 from apyscript.display.graphics import Graphics
@@ -15,6 +15,7 @@ from apyscript.expression import scope_variables_util
 class Sprite(DisplayObject, AddChildInterface):
 
     graphics: Graphics
+    _childs: List[DisplayObject]
 
     def __init__(
             self, stage: Stage,
@@ -34,6 +35,7 @@ class Sprite(DisplayObject, AddChildInterface):
         if variable_name is None:
             variable_name = scope_variables_util.\
                 get_current_scope_next_variable_name(type_name='sprite')
+        self._childs = []
         super(Sprite, self).__init__(
             stage=stage, variable_name=variable_name)
         self.graphics = Graphics(parent=self)

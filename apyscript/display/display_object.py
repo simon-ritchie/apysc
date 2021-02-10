@@ -1,5 +1,3 @@
-# -*- coding: future_annotations -*-
-
 """Implementations for DisplayObject class.
 """
 
@@ -25,16 +23,4 @@ class DisplayObject(VariableNameInterface):
         from apyscript.display.stage import Stage
         self._stage_cls: Type[Stage] = Stage
         self.stage: Stage = stage
-        self._childs: List[DisplayObject] = []
         self._variable_name = variable_name
-
-    def add_child(self, child) -> None:
-        """
-        Add display object child to this object.
-
-        Parameters
-        ----------
-        child : DisplayObject
-            Child object to add.
-        """
-        self._childs.append(child)

@@ -20,8 +20,6 @@
 - Add implementation of `_append_draw_rect_expression`.
 - Add each tests of `AddChildInterface`.
 - Move `add_child` interface to dedicated class.
-  - Inherit at `Stage` and `Sprite` class.
   - Remove `add_child` interface from DisplayObject.
 - Add package of `validation`.
   - Add validations to each base class and function's arguments.
-- Remove ChildBase class.

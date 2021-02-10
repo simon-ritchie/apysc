@@ -1,6 +1,5 @@
 from retrying import retry
 
-from apyscript.display import display_object
 from apyscript.display.display_object import DisplayObject
 from apyscript.display.stage import Stage
 from tests import testing_helper
@@ -19,16 +18,6 @@ class TestDisplayObject:
                 '_stage_cls': Stage,
             },
             any_obj=display_object)
-
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
-    def test_add_child(self) -> None:
-        stage: Stage = Stage()
-        display_object: DisplayObject = DisplayObject(
-            stage=stage, variable_name='test_display_object_1')
-        child: DisplayObject = DisplayObject(
-            stage=stage, variable_name='test_display_object_2')
-        display_object.add_child(child=child)
-        assert display_object._childs == [child]
 
     @retry(stop_max_attempt_number=5, wait_fixed=300)
     def test_variable_name(self) -> None:

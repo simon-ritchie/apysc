@@ -1,3 +1,5 @@
+from random import randint
+
 from retrying import retry
 
 from apyscript.display.graphics import Graphics, Rectangle, _GraphicBase
@@ -8,7 +10,7 @@ from tests import testing_helper
 
 class TestGraphics:
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test___init__(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -19,7 +21,7 @@ class TestGraphics:
             },
             any_obj=graphics)
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_begin_fill(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -36,7 +38,7 @@ class TestGraphics:
             },
             any_obj=graphics)
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_draw_rect(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -56,7 +58,7 @@ class TestGraphics:
 
 class TestRectangle:
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test___init__(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -76,7 +78,7 @@ class TestRectangle:
 
 class Test_GraphicBase:
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test___init__(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -91,7 +93,7 @@ class Test_GraphicBase:
             },
             any_obj=graphic_base)
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_x(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -101,7 +103,7 @@ class Test_GraphicBase:
         graphic_base.x = 300
         assert graphic_base.x == 300
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_y(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -111,7 +113,7 @@ class Test_GraphicBase:
         graphic_base.y = 400
         assert graphic_base.y == 400
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_variable_name(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)

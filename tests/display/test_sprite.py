@@ -1,6 +1,7 @@
-from apyscript.file import file_util
+from random import randint
 from retrying import retry
 
+from apyscript.file import file_util
 from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage, get_stage_variable_name
 from apyscript.display.graphics import Graphics
@@ -10,7 +11,7 @@ from tests import testing_helper
 
 class TestSprite:
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test___init__(self):
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -32,7 +33,7 @@ class TestSprite:
         parent_sprite.add_child(child=child_sprite)
         assert parent_sprite._childs == [child_sprite]
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test__append_constructor_expression(self) -> None:
         stage: Stage = Stage()
         stage_variable_name: str = get_stage_variable_name()

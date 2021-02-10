@@ -1,13 +1,15 @@
 from typing import List
-from apyscript.file import file_util
+from random import randint
+
 from retrying import retry
 
+from apyscript.file import file_util
 from apyscript.expression import scope_variables_util
 from apyscript.expression import expression_file_util
 from apyscript.expression import expression_scope
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=300)
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test_get_current_scope_variable_names_file_path() -> None:
     expression_scope.update_current_scope(
         scope_name='test_scope_variables_util')
@@ -32,7 +34,7 @@ def test__read_current_scope_variable_names() -> None:
     file_util.remove_file_if_exists(file_path=file_path)
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=300)
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test__get_current_scope_next_variable_num() -> None:
     expression_scope.update_current_scope(
         scope_name='test_scope_variables_util')

@@ -1,5 +1,6 @@
 import os
 import shutil
+from random import randint
 
 from retrying import retry
 
@@ -51,7 +52,7 @@ def test_save_plain_txt() -> None:
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=300)
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test_remove_file_if_exists() -> None:
     tmp_file_path: str = '../tmp_apyscript_test_file_util.txt'
     file_util.save_plain_txt(

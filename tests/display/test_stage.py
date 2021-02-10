@@ -1,6 +1,7 @@
 from apyscript.file import file_util
 import os
 from typing import Any, Dict
+from random import randint
 
 from retrying import retry
 import pytest
@@ -15,7 +16,7 @@ from tests import testing_helper
 
 class TestStage:
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test___init__(self) -> None:
         test_scope_file_path: str = \
             expression_file_util.get_scope_file_path_from_scope(
@@ -40,7 +41,7 @@ class TestStage:
         testing_helper.assert_attrs(
             expected_attrs=expected_attrs, any_obj=stage)
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_stage_width(self) -> None:
         stage: Stage = Stage(stage_width=500)
         assert stage.stage_width == 500
@@ -54,7 +55,7 @@ class TestStage:
         with pytest.raises(ValueError):  # type: ignore
             stage.stage_width = '10px'  # type: ignore
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_stage_height(self) -> None:
         stage: Stage = Stage(stage_height=300)
         assert stage.stage_height == 300
@@ -68,7 +69,7 @@ class TestStage:
         with pytest.raises(ValueError): # type: ignore
             stage.stage_height = '10px' # type: ignore
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test__validate_stage_size(self) -> None:
         testing_helper.assert_raises(
             expected_error_class=ValueError,
@@ -90,7 +91,7 @@ class TestStage:
             func_or_method=Stage,
             kwargs={'stage_width': 100, 'stage_height': 0})
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test__make_constructor_expression(self) -> None:
         stage: Stage = Stage(
             stage_width=100, stage_height=200,
@@ -112,7 +113,7 @@ class TestStage:
         )
         assert expression == expected_str
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test__create_stage_elem_id_if_none(self) -> None:
         stage: Stage = Stage()
         result_id: str = stage._create_stage_elem_id_if_none(
@@ -136,7 +137,7 @@ class TestStage:
         )
         assert style == expected_style
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test__append_constructor_expression(self) -> None:
         stage: Stage = Stage()
         expected_expression: str = stage._make_constructor_expression()
@@ -150,12 +151,12 @@ class TestStage:
         saved_expression = saved_expression.strip()
         assert saved_expression == expected_expression
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_stage_elem_id(self) -> None:
         stage: Stage = Stage(stage_elem_id='#line-graph')
         assert stage.stage_elem_id == 'line-graph'
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_add_child(self) -> None:
         stage: Stage = Stage()
         display_object: DisplayObject = DisplayObject(
@@ -163,7 +164,7 @@ class TestStage:
         stage.add_child(child=display_object)
         assert stage._childs == [display_object]
 
-    @retry(stop_max_attempt_number=5, wait_fixed=300)
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test__save_stage_elem_id_to_expression_file(self) -> None:
         Stage(stage_elem_id='line-graph')
         stage_elem_id: str = file_util.read_txt(
@@ -171,7 +172,7 @@ class TestStage:
         assert stage_elem_id == 'line-graph'
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=300)
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test_get_stage_element_id() -> None:
     file_util.remove_file_if_exists(file_path=_STAGE_ELEM_ID_FILE_PATH)
     stage_elem_id: str = stage.get_stage_element_id()
@@ -182,7 +183,7 @@ def test_get_stage_element_id() -> None:
     assert stage_elem_id == 'line-graph'
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=300)
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test_get_stage_variable_name() -> None:
     Stage(stage_elem_id='line-graph')
     stage_variable_name: str = stage.get_stage_variable_name()

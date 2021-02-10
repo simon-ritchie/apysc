@@ -6,6 +6,8 @@
 from typing import List, Type
 from abc import ABC, abstractmethod
 
+from apyscript.display.variable_name_interface import VariableNameInterface
+
 
 class ChildBase(ABC):
 
@@ -21,9 +23,7 @@ class ChildBase(ABC):
         """
 
 
-class DisplayObject(ChildBase):
-
-    _variable_name: str
+class DisplayObject(ChildBase, VariableNameInterface):
 
     def __init__(self, stage, variable_name: str) -> None:
         """
@@ -53,27 +53,3 @@ class DisplayObject(ChildBase):
             Child object to add.
         """
         self._childs.append(child)
-
-    @property
-    def variable_name(self) -> str:
-        """
-        Get a js variable name of this instance.
-
-        Returns
-        -------
-        variable_name : str
-            A js variable name of this instance.
-        """
-        return self._variable_name
-
-    @variable_name.setter
-    def variable_name(self, variable_name: str) -> None:
-        """
-        Set a js variable name of this instance.
-
-        Parameters
-        ----------
-        variable_name : str
-            Variable name to set.
-        """
-        self._variable_name = variable_name

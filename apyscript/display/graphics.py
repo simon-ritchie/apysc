@@ -4,14 +4,19 @@
 from typing import List, Optional
 from apyscript.color import color_util
 from apyscript.display.display_object import DisplayObject
+from apyscript.expression import scope_variables_util
+from apyscript.expression import expression_file_util
+from apyscript.display.variable_name_interface import VariableNameInterface
 
 
-class _GraphicBase:
+class _GraphicBase(VariableNameInterface):
 
     _x: int
     _y :int
+    _variable_name: str
 
-    def __init__(self, parent, x: int, y: int) -> None:
+    def __init__(
+            self, parent, x: int, y: int, variable_name: str) -> None:
         """
         Vector graphic base class.
 
@@ -23,10 +28,15 @@ class _GraphicBase:
             X position.
         y : int
             Y position.
+        variable_name : str
+            Variable name of this instance. This will be used to
+            js expression.
         """
         self.parent: Graphics = parent
         self._x = x
         self._y = y
+        self._variable_name = variable_name
+
 
     @property
     def x(self) -> int:
@@ -81,13 +91,18 @@ class Graphics:
 
     _fill_color: Optional[str] = None
     _graphics: List[_GraphicBase]
-    parent: DisplayObject
 
-    def __init__(self, parent: DisplayObject) -> None:
+    def __init__(self, parent) -> None:
         """
         Create a object that has each vector graphics interface.
+
+        Parameters
+        ----------
+        parent : Sprite
+            This instance's parent instance.
         """
-        self.parent = parent
+        from apyscript.display.sprite import Sprite
+        self.parent: Sprite = parent
         self._graphics = []
 
     def begin_fill(self, color: str) -> None:
@@ -120,6 +135,7 @@ class Graphics:
         rectangle: Rectangle = Rectangle(
             parent=self, x=x, y=y, width=width, height=height)
         self._graphics.append(rectangle)
+        _append_draw_rect_expression(rectangle=rectangle)
 
 
 class Rectangle(_GraphicBase):
@@ -147,6 +163,25 @@ class Rectangle(_GraphicBase):
         height : int
             Rectangle height.
         """
-        super(Rectangle, self).__init__(parent=parent, x=x, y=y)
+        variable_name: str = scope_variables_util.\
+            get_current_scope_next_variable_name(type_name='rectangle')
+        super(Rectangle, self).__init__(
+            parent=parent, x=x, y=y, variable_name=variable_name)
         self.width = width
         self.height = height
+
+
+def _append_draw_rect_expression(rectangle: Rectangle) -> None:
+    """
+    Append Graphics's draw_rect interface expression to the file
+    of current scope.
+
+    Parameters
+    ----------
+    rectangle : Rectanble
+        Created rectangle instance.
+    """
+    from apyscript.display.sprite import Sprite
+    graphics: Graphics = rectangle.parent
+    sprite: Sprite = graphics.parent
+    pass

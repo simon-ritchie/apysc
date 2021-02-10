@@ -1,4 +1,4 @@
-"""Size's (width or height) common utility implementation.
+"""Size's (width or height) common validation implementation.
 """
 
 

@@ -1,4 +1,4 @@
-"""Implementation of common geometry conversion.
+"""Implementation of common cast conversion.
 """
 
 

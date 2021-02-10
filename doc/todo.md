@@ -24,6 +24,5 @@
   - Remove `add_child` interface from DisplayObject.
 - Add package of `validation`.
   - Add validations to each base class and function's arguments.
-- Add package of `calc`.
-  - Move `convert` to this package.
+- Add package of `converter`.
   - Remove `geom` package.

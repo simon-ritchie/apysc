@@ -10,7 +10,7 @@ import random
 from apyscript.expression import expression_file_util
 from apyscript.color import color_util
 from apyscript.validation import size_validation
-from apyscript.geom import converter
+from apyscript.converter import cast
 from apyscript.html import html_util
 from apyscript.display.display_object import DisplayObject, ChildBase
 
@@ -166,7 +166,7 @@ $(document).ready(function() {{
         stage_width : int
             Stage width to set.
         """
-        stage_width = converter.to_int_from_float(int_or_float=stage_width)
+        stage_width = cast.to_int_from_float(int_or_float=stage_width)
         self._stage_width = stage_width
         self._validate_stage_size()
 
@@ -192,7 +192,7 @@ $(document).ready(function() {{
         stage_height : int
             Stage height to set.
         """
-        stage_height = converter.to_int_from_float(int_or_float=stage_height)
+        stage_height = cast.to_int_from_float(int_or_float=stage_height)
         self._stage_height = stage_height
         self._validate_stage_size()
 

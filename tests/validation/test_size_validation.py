@@ -19,6 +19,8 @@ def test_validate_size_is_greater_than_zero() -> None:
         size=1,
         err_msg='Specified width is less than or equal to zero.')
 
+    size_validation.validate_size_is_greater_than_zero(size=10)
+
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         func_or_method=size_validation.validate_size_is_greater_than_zero,

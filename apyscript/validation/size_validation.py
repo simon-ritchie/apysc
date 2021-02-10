@@ -2,6 +2,9 @@
 """
 
 
+from typing import Optional
+
+
 def validate_size_is_int(size: int, err_msg: str) -> None:
     """
     Check that whether size is integer or not.
@@ -23,7 +26,8 @@ def validate_size_is_int(size: int, err_msg: str) -> None:
     raise ValueError(err_msg)
 
 
-def validate_size_is_greater_than_zero(size: int, err_msg: str) -> None:
+def validate_size_is_greater_than_zero(
+        size: int, err_msg: Optional[str] = None) -> None:
     """
     Check that whether size is greater than zero or not.
 
@@ -31,7 +35,7 @@ def validate_size_is_greater_than_zero(size: int, err_msg: str) -> None:
     ----------
     size : int
         Target size (width or height) value.
-    err_msg : str
+    err_msg : str or None, default None
         The error message that display at error raised.
 
     Raises
@@ -41,4 +45,8 @@ def validate_size_is_greater_than_zero(size: int, err_msg: str) -> None:
     """
     if size > 0:
         return
+    if err_msg is None:
+        err_msg = (
+            f'Specified size is not greater than zero: {size}'
+        )
     raise ValueError(err_msg)

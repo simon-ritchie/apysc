@@ -18,6 +18,5 @@
 - Add project making command (like a `cargo new` command).
 - Add variable name interface ABC and inherit by `DisplayObject` and `_GraphicBase`.
 - Add implementation of `_append_draw_rect_expression`.
-- Add each tests of `AddChildInterface`.
 - Add package of `validation`.
   - Add validations to each base class and function's arguments.

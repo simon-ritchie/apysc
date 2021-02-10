@@ -20,4 +20,3 @@
 - Add implementation of `_append_draw_rect_expression`.
 - Add package of `validation`.
   - Add validations to each base class and function's arguments.
-- Adjust `wait_fixed` to random integer.

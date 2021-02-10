@@ -1,10 +1,10 @@
 """Color related implementations.
 """
 
-from string import hexdigits
 from typing import List, Tuple
 
 from apyscript.html import html_util
+from apyscript.validation import color_validation
 
 
 def complement_hex_color(hex_color_code: str) -> str:
@@ -24,7 +24,8 @@ def complement_hex_color(hex_color_code: str) -> str:
     """
     hex_color_code = html_util.remove_first_selector_symbol_char(
         str_val=hex_color_code)
-    _validate_hex_color_code_format(hex_color_code=hex_color_code)
+    color_validation.validate_hex_color_code_format(
+        hex_color_code=hex_color_code)
     char_len: int = len(hex_color_code)
     if char_len == 1:
         hex_color_code = _fill_one_digit_hex_color_code(
@@ -75,40 +76,3 @@ def _fill_one_digit_hex_color_code(hex_color_code: str) -> str:
     """
     filled_color_code: str = hex_color_code.zfill(6)
     return filled_color_code
-
-
-def _validate_hex_color_code_format(hex_color_code: str) -> None:
-    """
-    Validate a specified hexadecimal color code's format.
-
-    Parameters
-    ----------
-    hex_color_code : str
-        Hexadecimal color code (not including '#').
-        e.g., 'ff0000', '666', '0'
-
-    Raises
-    ------
-    ValueError
-        If invalid hex color code specified.
-    """
-    if not isinstance(hex_color_code, str):
-        raise ValueError(
-            'Hex color code only supports str type, specified: '
-            f'{type(hex_color_code)}')
-
-    char_len: int = len(hex_color_code)
-    expected_char_lengths: Tuple[int, int, int] = (1, 3, 6)
-    if char_len not in expected_char_lengths:
-        raise ValueError(
-            'Not supported hex color code number of digits is specified.'
-            f'\nSupported number of digits are: {expected_char_lengths}'
-            f'\nSpecified: {hex_color_code} ({char_len} digits)')
-
-    for char in hex_color_code:
-        if char in hexdigits:
-            continue
-        raise ValueError(
-            'Invalid hexadecimal character is specified.'
-            f'\nTarget character: {char}'
-            f'\nSupported characters: {hexdigits}')

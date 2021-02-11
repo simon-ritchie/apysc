@@ -25,7 +25,4 @@
 - Replace `append_expression` function's append implementation by `file_util`.
 - Add `expression_scope` module's each interface description to header docstring.
 - Add `html_util` module's each interface description to header docstring.
-- Add `$(document).ready` function wrapper to each scope function call.
-- Add test of `_merge_script_section`.
-- Add test pattern of `append_expression` (for `_merge_script_section` implementation).
 - Apply `x` and `y` values to Rectangle's expression.

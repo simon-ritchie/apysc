@@ -1,4 +1,18 @@
 """HTML related implementations.
+
+Mainly following interfaces are defined:
+
+- remove_first_selector_symbol_char : Remove first selector
+    symbol (`.` or `#`) from string.
+- append_html_to_str : Add html string to another string with line
+    break and specified number's indentation.
+- append_indent_to_each_script_line : Append indentation spaces to
+    each script lines of specified html.
+- ScriptLineUtil : The class for HTML's script line utility.
+- is_script_start_tag_line : Get a boolean whether the specified
+    line contains script start tag (`<script ...>`).
+- is_script_end_tag_line : Get a boolean whether the specified line
+    contains script end tag (`</script>`).
 """
 
 import re

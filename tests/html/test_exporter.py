@@ -88,8 +88,10 @@ def test__append_each_scope_function_call() -> None:
     expected: str = (
         '<html>'
         '\n<script type="text/javascript">'
-        '\n__main_____main();'
-        '\nany___scope___name();'
+        '\n$(document).ready(function() {'
+        '\n  __main_____main();'
+        '\n  any___scope___name();'
+        '\n});'
         '\n</script>'
     )
     assert html_str == expected

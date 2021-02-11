@@ -98,10 +98,16 @@ def _append_each_scope_function_call(html_str: str) -> str:
     scope_history: List[str] = expression_scope.get_scope_history()
     if not scope_history:
         return html_str
-    html_str += '\n<script type="text/javascript">'
+    html_str += (
+        '\n<script type="text/javascript">'
+        '\n$(document).ready(function() {'
+    )
     for scope_name in scope_history:
-        html_str += f'\n{scope_name}();'
-    html_str += '\n</script>'
+        html_str += f'\n  {scope_name}();'
+    html_str += (
+        '\n});'
+        '\n</script>'
+    )
     return html_str
 
 

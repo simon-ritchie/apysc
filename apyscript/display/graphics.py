@@ -7,6 +7,8 @@ from apyscript.display.display_object import DisplayObject
 from apyscript.expression import scope_variables_util
 from apyscript.expression import expression_file_util
 from apyscript.validation import digit_validation
+from apyscript.validation import string_validation
+from apyscript.validation import size_validation
 from apyscript.display.variable_name_interface import VariableNameInterface
 
 
@@ -34,8 +36,11 @@ class _GraphicBase(VariableNameInterface):
             js expression.
         """
         self.parent: Graphics = parent
+        digit_validation.validate_integer(integer=x)
+        digit_validation.validate_integer(integer=y)
         self._x = x
         self._y = y
+        string_validation.validate_not_empty_string(string=variable_name)
         self._variable_name = variable_name
 
 
@@ -61,6 +66,7 @@ class _GraphicBase(VariableNameInterface):
         value : int
             X potision value.
         """
+        digit_validation.validate_integer(integer=value)
         self._x = value
 
     @property
@@ -85,6 +91,7 @@ class _GraphicBase(VariableNameInterface):
         value : int
             Y position value.
         """
+        digit_validation.validate_integer(integer=value)
         self._y = value
 
 

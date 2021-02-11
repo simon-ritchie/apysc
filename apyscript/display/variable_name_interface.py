@@ -30,5 +30,5 @@ class VariableNameInterface:
         variable_name : str
             Variable name to set.
         """
-        string_validation.validate_string_type(string=variable_name)
+        string_validation.validate_not_empty_string(string=variable_name)
         self._variable_name = variable_name

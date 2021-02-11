@@ -13,6 +13,8 @@ from apyscript.validation import display_validation
 from apyscript.display.variable_name_interface import VariableNameInterface
 from apyscript.display.x_interface import XInterface
 from apyscript.display.y_interface import YInterface
+from apyscript.display.width_interface import WidthInterface
+from apyscript.display.height_interface import HeightInterface
 
 
 class _GraphicBase(VariableNameInterface, XInterface, YInterface):
@@ -98,11 +100,9 @@ class Graphics:
         _append_draw_rect_expression(rectangle=rectangle)
 
 
-class Rectangle(_GraphicBase):
+class Rectangle(_GraphicBase, WidthInterface, HeightInterface):
 
     parent: Graphics
-    width: int
-    height: int
 
     def __init__(
             self, parent: Graphics,

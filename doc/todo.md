@@ -21,8 +21,14 @@
 - Add validation to check line color and fill color are not both empty.
 - Move `width` interface from `Rectangle` to `WidthInterface`.
   - Add property method and validation.
+  - Add type cast from `float` to `int`.
 - Move `height` interface from `Rectangle` to `HeightInterface`.
   - Add property method and validation.
-- Move `x` interface from `PositionInterface` to `XInterface`
-- Move `y` interface from `PositionInterface` to `YInterface`
-- Drop `PointInterface`.
+  - Add type cast from `float` to `int`.
+- Replace `stage_width` interface by `WidthInterface`
+- Replace `stage_height` interface by `HeightInterface`
+- Add Inheritance of `ABC` to following interface and force to initialize each values.
+  - `XInterfece`.
+  - `YInterface`.
+  - `WidthInterfece`.
+  - `HeightInterface`.

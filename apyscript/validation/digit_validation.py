@@ -11,7 +11,7 @@ def validate_digit(digits: Union[int, float]) -> None:
     Parameters
     ----------
     digits : int or float
-        Digits value to validate.
+        Digits value to check.
 
     Raises
     ------
@@ -23,3 +23,23 @@ def validate_digit(digits: Union[int, float]) -> None:
     raise ValueError(
         f'Specified value is not iteger or float type: {digits}'
         f'({type(digits)})')
+
+
+def validate_integer(integer: int) -> None:
+    """
+    Validate specified value is integer.
+
+    Parameters
+    ----------
+    integer : int
+        Integer value to check.
+
+    Raises
+    ------
+    ValueError
+        If specified value is not integer.
+    """
+    if isinstance(integer, int):
+        return
+    raise ValueError(
+        f'Specified value is not integer: {integer}({type(integer)})')

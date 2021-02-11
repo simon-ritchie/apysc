@@ -6,6 +6,7 @@ from apyscript.color import color_util
 from apyscript.display.display_object import DisplayObject
 from apyscript.expression import scope_variables_util
 from apyscript.expression import expression_file_util
+from apyscript.validation import digit_validation
 from apyscript.display.variable_name_interface import VariableNameInterface
 
 

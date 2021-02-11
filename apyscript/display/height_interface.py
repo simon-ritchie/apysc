@@ -24,5 +24,6 @@ class HeightInterface:
     @height.setter
     def height(self, value: int) -> None:
         value = cast.to_int_from_float(int_or_float=value)
+        size_validation.validate_size_is_int(size=value)
         size_validation.validate_size_is_gte_zero(size=value)
         self._height = value

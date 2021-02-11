@@ -11,10 +11,11 @@ from apyscript.validation import string_validation
 from apyscript.validation import size_validation
 from apyscript.validation import display_validation
 from apyscript.display.variable_name_interface import VariableNameInterface
-from apyscript.display.point_interface import PointInterface
+from apyscript.display.x_interface import XInterface
+from apyscript.display.y_interface import YInterface
 
 
-class _GraphicBase(VariableNameInterface, PointInterface):
+class _GraphicBase(VariableNameInterface, XInterface, YInterface):
 
     _variable_name: str
 

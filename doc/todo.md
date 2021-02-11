@@ -18,5 +18,11 @@
 - Add project making command (like a `cargo new` command).
 - Add implementation of `_append_draw_rect_expression`.
 - Add line style setting to `Graphics` interface.
-- Move `x` and `y` attribute implementation to `PositionInterface` from `_GraphicBase`.
 - Add validation to check line color and fill color are not both empty.
+- Move `width` interface from `Rectangle` to `WidthInterface`.
+  - Add property method and validation.
+- Move `height` interface from `Rectangle` to `HeightInterface`.
+  - Add property method and validation.
+- Move `x` interface from `PositionInterface` to `XInterface`
+- Move `y` interface from `PositionInterface` to `YInterface`
+- Drop `PointInterface`.

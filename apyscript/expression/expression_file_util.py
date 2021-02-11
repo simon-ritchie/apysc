@@ -13,6 +13,7 @@ Mainly following interfaces are defined:
 - get_expression_file_paths : Get existing expression file paths.
 - get_current_scope_expression_file_path : Get current scope's
     expression file path.
+- get_current_scope_expression : Get current scope's expression string.
 - remove_current_scope_expression_file : Remove current scope's
     expression file.
 """
@@ -163,12 +164,30 @@ def get_current_scope_expression_file_path() -> str:
 
     Returns
     -------
-    is_test : bool/object/str/int/etc
-        Current scope
+    file_path : str
+        Current scope's expression file path.
     """
     current_scope: str = expression_scope.get_current_scope()
     file_path: str = get_scope_file_path_from_scope(scope=current_scope)
     return file_path
+
+
+def get_current_scope_expression() -> str:
+    """
+    Get current scope's expression string from file.
+
+    Returns
+    -------
+    current_scope_expression : str
+        Current scope's expression string.
+    """
+    file_path: str = get_current_scope_expression_file_path()
+    if not os.path.isfile(file_path):
+        return ''
+    current_scope_expression: str = file_util.read_txt(
+        file_path=file_path)
+    current_scope_expression = current_scope_expression.strip()
+    return current_scope_expression
 
 
 def remove_current_scope_expression_file() -> None:

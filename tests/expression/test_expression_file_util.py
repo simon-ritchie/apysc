@@ -148,3 +148,16 @@ def test_get_current_scope_expression_file_path() -> None:
         'test_expression_file_util.html'
     )
     assert file_path == expected
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+def test_get_current_scope_expression() -> None:
+    expression_scope.update_current_scope(
+        scope_name='test_expression_file_util')
+    expression_file_util.remove_current_scope_expression_file()
+    expression_file_util.append_expression_to_current_scope(
+        '<body></body>'
+    )
+    expression: str = expression_file_util.get_current_scope_expression()
+    assert expression == '<body></body>'
+    expression_file_util.remove_current_scope_expression_file()

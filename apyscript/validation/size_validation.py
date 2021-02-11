@@ -26,7 +26,7 @@ def validate_size_is_int(size: int, err_msg: str) -> None:
     raise ValueError(err_msg)
 
 
-def validate_size_is_greater_than_zero(
+def validate_size_is_gt_zero(
         size: int, err_msg: Optional[str] = None) -> None:
     """
     Check that whether size is greater than zero or not.

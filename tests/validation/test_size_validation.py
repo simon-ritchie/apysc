@@ -14,19 +14,19 @@ def test_validate_size_is_int() -> None:
             'err_msg': 'Specified width is not integer value.'})
 
 
-def test_validate_size_is_greater_than_zero() -> None:
-    size_validation.validate_size_is_greater_than_zero(
+def test_validate_size_is_gt_zero() -> None:
+    size_validation.validate_size_is_gt_zero(
         size=1,
         err_msg='Specified width is less than or equal to zero.')
 
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=size_validation.validate_size_is_greater_than_zero,
+        func_or_method=size_validation.validate_size_is_gt_zero,
         kwargs={'size': 0})
 
     testing_helper.assert_raises(
         expected_error_class=ValueError,
-        func_or_method=size_validation.validate_size_is_greater_than_zero,
+        func_or_method=size_validation.validate_size_is_gt_zero,
         kwargs={
             'size': 0 ,
             'err_msg': 'Specified width is less than or equal to zero.'})

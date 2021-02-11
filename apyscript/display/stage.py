@@ -233,12 +233,12 @@ $(document).ready(function() {{
             err_msg=(
                 'Stage height is set non-integer value: '
                 f'{self.stage_height}'))
-        size_validation.validate_size_is_greater_than_zero(
+        size_validation.validate_size_is_gt_zero(
             size=self.stage_width,
             err_msg=(
                 'Stage width can not be set less than or equal to zero: '
                 f'{self.stage_width}'))
-        size_validation.validate_size_is_greater_than_zero(
+        size_validation.validate_size_is_gt_zero(
             size=self.stage_height,
             err_msg=(
                 'Stage height can not be set less than or equal to zero: '

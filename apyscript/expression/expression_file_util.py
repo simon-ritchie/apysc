@@ -11,6 +11,10 @@ Mainly following interfaces are defined:
 - get_scope_file_path_from_scope : Get scope file path from
     specified scope string.
 - get_expression_file_paths : Get existing expression file paths.
+- get_current_scope_expression_file_path : Get current scope's
+    expression file path.
+- remove_current_scope_expression_file : Remove current scope's
+    expression file.
 """
 
 import os
@@ -151,3 +155,25 @@ def get_expression_file_paths() -> List[str]:
         file_path: str = os.path.join(EXPRESSION_ROOT_DIR, file_name)
         expression_file_paths.append(file_path)
     return expression_file_paths
+
+
+def get_current_scope_expression_file_path() -> str:
+    """
+    Get current scope's expression file path.
+
+    Returns
+    -------
+    is_test : bool/object/str/int/etc
+        Current scope
+    """
+    current_scope: str = expression_scope.get_current_scope()
+    file_path: str = get_scope_file_path_from_scope(scope=current_scope)
+    return file_path
+
+
+def remove_current_scope_expression_file() -> None:
+    """
+    Remove current scope's expression file.
+    """
+    file_path: str = get_current_scope_expression_file_path()
+    file_util.remove_file_if_exists(file_path=file_path)

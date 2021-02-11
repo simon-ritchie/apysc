@@ -122,3 +122,29 @@ def test__restore_maintaining_files() -> None:
         })
     text: str = file_util.read_txt(file_path=test_file_path)
     assert text == 'To be, or not to be, that is the question.'
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+def test_remove_current_scope_expression_file() -> None:
+    expression_scope.update_current_scope(
+        scope_name='test_expression_file_util')
+    file_path: str = expression_file_util.\
+        get_current_scope_expression_file_path()
+    expression_file_util.append_expression_to_current_scope(
+        expression='<body></body>')
+    assert os.path.isfile(file_path)
+    expression_file_util.remove_current_scope_expression_file()
+    assert not os.path.exists(file_path)
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+def test_get_current_scope_expression_file_path() -> None:
+    expression_scope.update_current_scope(
+        scope_name='test_expression_file_util')
+    file_path: str = expression_file_util.\
+        get_current_scope_expression_file_path()
+    expected: str = os.path.join(
+        expression_file_util.EXPRESSION_ROOT_DIR,
+        'test_expression_file_util.html'
+    )
+    assert file_path == expected

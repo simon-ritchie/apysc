@@ -19,3 +19,8 @@
 - Add implementation of `_append_draw_rect_expression`.
 - Add line style setting to `Graphics` interface.
 - Add validation to check line color and fill color are not both empty.
+- Move `_fill_color` and `begin_fill` to `FillColorInterface`.
+  - Add getter interface.
+  - Replace `Graphics` interface by it.
+- Replace `append_expression` function's append implementation by `file_util`.
+- Add `expression_scope` module's each interface description to header docstring.

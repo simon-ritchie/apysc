@@ -2,7 +2,6 @@
 """
 
 from typing import List, Optional
-from apyscript.color import color_util
 from apyscript.display.display_object import DisplayObject
 from apyscript.expression import scope_variables_util
 from apyscript.expression import expression_file_util
@@ -16,6 +15,7 @@ from apyscript.display.y_interface import YInterface
 from apyscript.display.width_interface import WidthInterface
 from apyscript.display.height_interface import HeightInterface
 from apyscript.display.stage import get_stage_variable_name
+from apyscript.display.fill_color_interface import FillColorInterface
 from apyscript.html import html_const
 
 
@@ -50,9 +50,8 @@ class _GraphicBase(VariableNameInterface, XInterface, YInterface):
         self._variable_name = variable_name
 
 
-class Graphics:
+class Graphics(FillColorInterface):
 
-    _fill_color: Optional[str] = None
     _graphics: List[_GraphicBase]
 
     def __init__(self, parent) -> None:
@@ -68,18 +67,6 @@ class Graphics:
         display_validation.validate_sprite(sprite=parent)
         self.parent: Sprite = parent
         self._graphics = []
-
-    def begin_fill(self, color: str) -> None:
-        """
-        Set single color value for fill.
-
-        Parameters
-        ----------
-        color : str
-            Hexadecimal color string. e.g., '#00aaff'
-        """
-        color = color_util.complement_hex_color(hex_color_code=color)
-        self._fill_color = color
 
     def draw_rect(self, x: int, y: int, width: int, height: int) -> None:
         """

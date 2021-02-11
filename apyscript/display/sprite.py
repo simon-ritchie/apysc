@@ -66,3 +66,22 @@ class Sprite(DisplayObject, AddChildInterface):
         expression_file_util.append_expression_to_current_scope(
             expression=expression)
         return True
+
+    def make_add_child_expression(self, child_variable_name: str) -> str:
+        """
+        Make add child expression string.
+
+        Parameters
+        ----------
+        child_variable_name : str
+            Child variable name.
+
+        Returns
+        -------
+        expression : str
+            Created expression string.
+        """
+        expression: str = (
+            f'{self.variable_name}.add({child_variable_name});'
+        )
+        return expression

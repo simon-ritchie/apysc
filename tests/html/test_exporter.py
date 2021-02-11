@@ -1,3 +1,4 @@
+from random import randint
 from apyscript.file import file_util
 import os
 import shutil
@@ -71,6 +72,7 @@ def test_save_expressions_overall_html() -> None:
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
 
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test__append_each_scope_function_call() -> None:
     file_util.remove_file_if_exists(
         file_path=expression_file_util.SCOPE_HISTORY_FILE_PATH)

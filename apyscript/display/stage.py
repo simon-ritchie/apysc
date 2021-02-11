@@ -17,6 +17,7 @@ from apyscript.display.add_child_interface import AddChildInterface
 from apyscript.validation import string_validation
 from apyscript.display.width_interface import WidthInterface
 from apyscript.display.height_interface import HeightInterface
+from apyscript.html import html_const
 
 _STAGE_ELEM_ID_FILE_PATH: str = os.path.join(
     expression_file_util.EXPRESSION_ROOT_DIR, 'stage_elem_id.txt',
@@ -122,14 +123,12 @@ class Stage(AddChildInterface, WidthInterface, HeightInterface):
             Result expression.
         """
         style: str = self._make_style_str()
-        expression: str = f"""<script type="text/javascript">
-$(document).ready(function() {{
-  var stage_html = '<div id="{self._stage_elem_id}" style="{style}"></div>';
-  $("{self._add_to}").append(stage_html);
-  {get_stage_variable_name()} = SVG().addTo("#{self._stage_elem_id}").size(
-    {self.width}, {self.height});
-}});
-</script>"""
+        expression: str = f"""{html_const.SCRIPT_START_TAG}
+var stage_html = '<div id="{self._stage_elem_id}" style="{style}"></div>';
+$("{self._add_to}").append(stage_html);
+{get_stage_variable_name()} = SVG().addTo("#{self._stage_elem_id}").size(
+  {self.width}, {self.height});
+{html_const.SCRIPT_END_TAG}"""
         return expression
 
     def _make_style_str(self) -> str:

@@ -1,6 +1,8 @@
 """Implementation of VariableNameInterface class.
 """
 
+from apyscript.validation import string_validation
+
 
 class VariableNameInterface:
 
@@ -28,4 +30,5 @@ class VariableNameInterface:
         variable_name : str
             Variable name to set.
         """
+        string_validation.validate_string_type(string=variable_name)
         self._variable_name = variable_name

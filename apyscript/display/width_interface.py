@@ -2,6 +2,7 @@
 """
 
 from apyscript.validation import size_validation
+from apyscript.converter import cast
 
 
 class WidthInterface:
@@ -30,5 +31,6 @@ class WidthInterface:
         value : int
             Width value to set.
         """
+        value = cast.to_int_from_float(int_or_float=value)
         size_validation.validate_size_is_gte_zero(size=value)
         self._width = value

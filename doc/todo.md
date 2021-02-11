@@ -19,7 +19,3 @@
 - Add line style setting to `Graphics` interface.
 - Add validation to check line color and fill color are not both empty.
 - Apply `x` and `y` values to Rectangle's expression.
-- Move `_GraphicBase` class to `graphic_base.py` module and rename it to public.
-  - Move tests also.
-- Move `Rectangle` class to `rectangle.py` module.
-  - Move tests also.

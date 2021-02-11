@@ -13,6 +13,11 @@ def test_validate_size_is_int() -> None:
             'size': '100px',
             'err_msg': 'Specified width is not integer value.'})
 
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=size_validation.validate_size_is_int,
+        kwargs={'size': '100px'})
+
 
 def test_validate_size_is_gt_zero() -> None:
     size_validation.validate_size_is_gt_zero(

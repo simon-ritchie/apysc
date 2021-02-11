@@ -10,6 +10,7 @@ from apyscript.file import file_util
 from tests import testing_helper
 
 
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test_update_current_scope() -> None:
     expression_scope.update_current_scope(scope_name='main__main')
     current_scope: str = file_util.read_txt(

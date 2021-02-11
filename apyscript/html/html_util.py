@@ -81,7 +81,7 @@ def append_indent_to_each_script_line(html: str, indent_num: int) -> str:
     space_num: int = indent_num * 2
     each_lines: List[str] = html.splitlines()
     result_html: str = ''
-    script_line_util: _ScriptLineUtil = _ScriptLineUtil(html=html)
+    script_line_util: ScriptLineUtil = ScriptLineUtil(html=html)
     for i, line in enumerate(each_lines):
         if result_html != '':
             result_html += '\n'
@@ -91,7 +91,7 @@ def append_indent_to_each_script_line(html: str, indent_num: int) -> str:
     return result_html
 
 
-class _ScriptLineUtil:
+class ScriptLineUtil:
 
     html: str
     script_line_ranges: List[Tuple[int, int]]

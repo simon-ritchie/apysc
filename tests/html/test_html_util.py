@@ -1,6 +1,6 @@
 from typing import Dict, List, Tuple
 from apyscript.html import html_util
-from apyscript.html.html_util import _ScriptLineUtil
+from apyscript.html.html_util import ScriptLineUtil
 
 from tests import testing_helper
 
@@ -85,7 +85,7 @@ def test_is_script_end_tag_line() -> None:
     assert result
 
 
-class Test_ScriptLineUtil:
+class TestScriptLineUtil:
 
     _TEST_HTML: str = (
         '<html>'
@@ -102,7 +102,7 @@ class Test_ScriptLineUtil:
 
     def test___init__(self) -> None:
         html: str = '<html>\n</html>'
-        script_line_util: _ScriptLineUtil = _ScriptLineUtil(
+        script_line_util: ScriptLineUtil = ScriptLineUtil(
             html=html)
         testing_helper.assert_attrs(
             expected_attrs={
@@ -113,7 +113,7 @@ class Test_ScriptLineUtil:
         )
 
     def test__set_script_line_ranges(self) -> None:
-        script_line_util: _ScriptLineUtil = _ScriptLineUtil(
+        script_line_util: ScriptLineUtil = ScriptLineUtil(
             html=self._TEST_HTML)
         expected: List[Tuple[int, int]] = [
             (3, 4),
@@ -122,7 +122,7 @@ class Test_ScriptLineUtil:
         assert script_line_util.script_line_ranges == expected
 
     def test_is_script_line(self) -> None:
-        script_line_util: _ScriptLineUtil = _ScriptLineUtil(
+        script_line_util: ScriptLineUtil = ScriptLineUtil(
             html=self._TEST_HTML)
 
         expected_values: Dict[int, bool] = {

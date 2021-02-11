@@ -22,3 +22,16 @@ class FillColorInterface:
         """
         color = color_util.complement_hex_color(hex_color_code=color)
         self._fill_color = color
+
+    @property
+    def fill_color(self) -> Optional[str]:
+        """
+        Get current fill color.
+
+        Parameters
+        ----------
+        fill_color : str
+            Current fill color (hexadecimal string, e.g., '#00aaff').
+            If not be set, None will be returned.
+        """
+        return self._fill_color

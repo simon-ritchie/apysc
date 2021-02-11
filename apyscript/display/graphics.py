@@ -175,6 +175,8 @@ class Rectangle(_GraphicBase):
             get_current_scope_next_variable_name(type_name='rectangle')
         super(Rectangle, self).__init__(
             parent=parent, x=x, y=y, variable_name=variable_name)
+        size_validation.validate_size_is_gte_zero(size=width)
+        size_validation.validate_size_is_gte_zero(size=height)
         self.width = width
         self.height = height
 

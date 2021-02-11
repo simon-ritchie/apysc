@@ -50,3 +50,29 @@ def validate_size_is_gt_zero(
             f'Specified size is not greater than zero: {size}'
         )
     raise ValueError(err_msg)
+
+
+def validate_size_is_gte_zero(
+        size: int, err_msg: Optional[str] = None) -> None:
+    """
+    Check that whether size is greater than or equal to zero or not.
+
+    Parameters
+    ----------
+    size : int
+        Target size (width or height) value.
+    err_msg : str or None, default None
+        The error message that display at error raised.
+
+    Raises
+    ------
+    ValueError
+        If size is less than zero.
+    """
+    if size >= 0:
+        return
+    if err_msg is None:
+        err_msg = (
+            f'Specified size is not greater than or equal to zero: {size}'
+        )
+    raise ValueError(err_msg)

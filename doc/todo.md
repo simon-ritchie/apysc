@@ -24,5 +24,4 @@
   - Replace `Graphics` interface by it.
 - Replace `append_expression` function's append implementation by `file_util`.
 - Add `expression_scope` module's each interface description to header docstring.
-- Add `html_util` module's each interface description to header docstring.
 - Apply `x` and `y` values to Rectangle's expression.

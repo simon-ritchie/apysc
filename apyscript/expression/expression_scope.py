@@ -1,4 +1,14 @@
 """HTML and js expression's scope implementation.
+
+Mainly following interfaces are defined:
+
+- update_current_scope : Update expression's current scope name.
+- get_scope_history : Get a scope name history.
+- get_current_scope : Get expression's current scope name.
+- get_scope_name_from_file_path : Get a scope name from expression's
+    file path.
+- append_scope_wrapper_func_to_expression : Append js function
+    wrapper to expression's each <script> tag section.
 """
 
 from apyscript.html import html_util

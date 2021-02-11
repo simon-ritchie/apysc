@@ -168,14 +168,12 @@ def test__append_draw_rect_expression() -> None:
     stage_variable_name: str = get_stage_variable_name()
     expression: str = expression_file_util.get_current_scope_expression()
     expected: str = (
-        '<script type="text/javascript">'
         f'\nvar {rect_name} = {stage_variable_name}'
         '\n  .rect(300, 400)'
         '\n  .attr({'
         '\n    fill: "#333333",'
         '\n  });'
         f'\n{sprite_name}.add({rect_name});'
-        '\n</script>'
     )
     assert expected in expression
     expression_file_util.remove_current_scope_expression_file()

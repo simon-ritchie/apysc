@@ -24,6 +24,8 @@ from typing import Dict, List, Optional
 
 from apyscript.file import file_util
 from apyscript.expression import expression_scope
+from apyscript.html.html_util import ScriptLineUtil
+from apyscript.html import html_const
 
 EXPRESSION_ROOT_DIR: str = '../.apyscript_expression/'
 CURRENT_SCOPE_FILE_PATH: str = os.path.join(
@@ -102,6 +104,45 @@ def append_expression(expression: str, scope: Optional[str] = None) -> None:
     os.makedirs(dir_path, exist_ok=True)
     with open(scope_file_path, 'a') as f:
         f.write(f'{expression}\n')
+    _merge_script_section(scope_file_path=scope_file_path)
+
+
+def _merge_script_section(scope_file_path: str) -> None:
+    """
+    Merge specified scope expression's script section (If there are
+    multiple script tag in same scope file, then they will be merged).
+
+    Parameters
+    ----------
+    scope_file_path : str
+        Target scope's file path.
+    """
+    result_expression: str = ''
+    current_expression: str = file_util.read_txt(file_path=scope_file_path)
+    current_exp_lines: List[str] = current_expression.splitlines()
+    script_line_util: ScriptLineUtil = ScriptLineUtil(
+        html=current_expression)
+    script_strings: str = ''
+    for i, current_exp_line in enumerate(current_exp_lines):
+        if current_exp_line == html_const.SCRIPT_START_TAG:
+            continue
+        if current_exp_line == html_const.SCRIPT_END_TAG:
+            continue
+        line_num: int = i + 1
+        if script_line_util.is_script_line(line_number=line_num):
+            if current_exp_line == '':
+                continue
+            script_strings += f'{current_exp_line}\n'
+            continue
+        result_expression += f'{current_exp_line}\n'
+    if script_strings != '':
+        result_expression += (
+            f'{html_const.SCRIPT_START_TAG}\n'
+            f'{script_strings}'
+            f'{html_const.SCRIPT_END_TAG}\n'
+        )
+    file_util.save_plain_txt(
+        txt=result_expression, file_path=scope_file_path)
 
 
 def append_expression_to_current_scope(expression: str) -> None:

@@ -1,3 +1,4 @@
+from apyscript.html import html_const
 from random import randint
 from apyscript.file import file_util
 import os
@@ -29,13 +30,22 @@ def test_empty_expression_dir() -> None:
 def test_append_expression() -> None:
     expression_file_util.empty_expression_dir()
 
-    expected_expression_1: str = (
-        '<script>console.log("test")</script>'
-    )
-    expected_expression_2: str = '<span>test</span>'
+    expected_expression_1: str = '<body>'
     expression_file_util.append_expression(expression=expected_expression_1)
+    expected_expression_2: str = '<span>test</span>'
     expression_file_util.append_expression(
         expression=expected_expression_2,
+        scope=expression_file_util.ROOT_SCOPE)
+    expected_expression_3: str = (
+        f'{html_const.SCRIPT_START_TAG}'
+        '\nconsole.log("Hello ");'
+        f'\n{html_const.SCRIPT_END_TAG}'
+        f'\n{html_const.SCRIPT_START_TAG}'
+        '\nconsole.log("World!");'
+        f'\n{html_const.SCRIPT_END_TAG}'
+    )
+    expression_file_util.append_expression(
+        expression=expected_expression_3,
         scope=expression_file_util.ROOT_SCOPE)
     root_scope_file_path: str = \
         expression_file_util.get_scope_file_path_from_scope()
@@ -44,7 +54,12 @@ def test_append_expression() -> None:
     expected_str: str = (
         f'{expected_expression_1}\n{expected_expression_2}\n'
     )
-    assert scope_txt == expected_str
+    assert scope_txt.startswith(expected_str)
+    expected_str = (
+        '\nconsole.log("Hello ");'
+        '\nconsole.log("World!");'
+    )
+    assert expected_str in scope_txt
 
     expression_file_util.empty_expression_dir()
 
@@ -160,4 +175,41 @@ def test_get_current_scope_expression() -> None:
     )
     expression: str = expression_file_util.get_current_scope_expression()
     assert expression == '<body></body>'
+    expression_file_util.remove_current_scope_expression_file()
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+def test__merge_script_section() -> None:
+    expression_scope.update_current_scope(
+        scope_name='test_expression_file_util')
+    expression_file_util.remove_current_scope_expression_file()
+    expression_file_util.append_expression_to_current_scope(
+        '<body>'
+        f'\n{html_const.SCRIPT_START_TAG}'
+        '\nconsole.log("Hello ");'
+        '\n'
+        f'{html_const.SCRIPT_END_TAG}'
+        '\n</body>'
+    )
+    expression_file_util.append_expression_to_current_scope(
+        f'{html_const.SCRIPT_START_TAG}'
+        '\nconsole.log("World!");'
+        '\n'
+        f'{html_const.SCRIPT_END_TAG}'
+    )
+    file_path: str = expression_file_util.\
+        get_current_scope_expression_file_path()
+    expression_file_util._merge_script_section(
+        scope_file_path=file_path)
+    expression: str = expression_file_util.get_current_scope_expression()
+    expected: str = (
+        '<body>'
+        '\n</body>'
+        f'\n{html_const.SCRIPT_START_TAG}'
+        '\nconsole.log("Hello ");'
+        '\nconsole.log("World!");'
+        f'\n{html_const.SCRIPT_END_TAG}'
+    )
+    assert expression == expected
+
     expression_file_util.remove_current_scope_expression_file()

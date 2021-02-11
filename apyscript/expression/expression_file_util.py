@@ -102,8 +102,8 @@ def append_expression(expression: str, scope: Optional[str] = None) -> None:
     dir_path: str = file_util.get_abs_directory_path_from_file_path(
         file_path=scope_file_path)
     os.makedirs(dir_path, exist_ok=True)
-    with open(scope_file_path, 'a') as f:
-        f.write(f'{expression}\n')
+    file_util.append_plain_txt(
+        txt=f'{expression}\n', file_path=scope_file_path)
     _merge_script_section(scope_file_path=scope_file_path)
 
 

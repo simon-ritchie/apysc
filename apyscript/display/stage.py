@@ -15,16 +15,16 @@ from apyscript.html import html_util
 from apyscript.display.display_object import DisplayObject
 from apyscript.display.add_child_interface import AddChildInterface
 from apyscript.validation import string_validation
+from apyscript.display.width_interface import WidthInterface
+from apyscript.display.height_interface import HeightInterface
 
 _STAGE_ELEM_ID_FILE_PATH: str = os.path.join(
     expression_file_util.EXPRESSION_ROOT_DIR, 'stage_elem_id.txt',
 )
 
 
-class Stage(AddChildInterface):
+class Stage(AddChildInterface, WidthInterface, HeightInterface):
 
-    _stage_width: int
-    _stage_height: int
     _background_color: str
     _add_to: str
     _stage_elem_id: str
@@ -55,9 +55,8 @@ class Stage(AddChildInterface):
             If None is set, random integer will be applied.
         """
         expression_file_util.empty_expression_dir()
-        self._stage_width = stage_width
-        self._stage_height = stage_height
-        self._validate_stage_size()
+        self.width = stage_width
+        self.height = stage_height
         background_color = color_util.complement_hex_color(
             hex_color_code=background_color)
         self._background_color = background_color
@@ -128,7 +127,7 @@ $(document).ready(function() {{
   var stage_html = '<div id="{self._stage_elem_id}" style="{style}"></div>';
   $("{self._add_to}").append(stage_html);
   {get_stage_variable_name()} = SVG().addTo("#{self._stage_elem_id}").size(
-    {self.stage_width}, {self.stage_height});
+    {self.width}, {self.height});
 }});
 </script>"""
         return expression
@@ -143,63 +142,11 @@ $(document).ready(function() {{
             Result style string (width, height, etc).
         """
         style: str = (
-            f'width: {self.stage_width}px;'
-            f' height: {self.stage_height}px;'
+            f'width: {self.width}px;'
+            f' height: {self.height}px;'
             f' background-color: {self._background_color};'
         )
         return style
-
-    @property
-    def stage_width(self) -> int:
-        """
-        Get this stage's width.
-
-        Returns
-        -------
-        stage_width : int
-            This stage's width.
-        """
-        return self._stage_width
-
-    @stage_width.setter
-    def stage_width(self, stage_width: int) -> None:
-        """
-        Set this stage's width.
-
-        Parameters
-        ----------
-        stage_width : int
-            Stage width to set.
-        """
-        stage_width = cast.to_int_from_float(int_or_float=stage_width)
-        self._stage_width = stage_width
-        self._validate_stage_size()
-
-    @property
-    def stage_height(self) -> int:
-        """
-        Get this stage's height.
-
-        Returns
-        -------
-        stage_height : int
-            This stage's height.
-        """
-        return self._stage_height
-
-    @stage_height.setter
-    def stage_height(self, stage_height: int) -> None:
-        """
-        Set this stage's height.
-
-        Parameters
-        ----------
-        stage_height : int
-            Stage height to set.
-        """
-        stage_height = cast.to_int_from_float(int_or_float=stage_height)
-        self._stage_height = stage_height
-        self._validate_stage_size()
 
     @property
     def stage_elem_id(self) -> str:
@@ -213,36 +160,6 @@ $(document).ready(function() {{
             e.g., 'line-graph'
         """
         return self._stage_elem_id
-
-    def _validate_stage_size(self) -> None:
-        """
-        Check that current stage width and height is valid value.
-
-        Raises
-        ------
-        ValueError
-            - If non-integer value specified.
-            - If width or height is less than or equal to zero.
-        """
-        size_validation.validate_size_is_int(
-            size=self.stage_width,
-            err_msg=(
-                f'Stage width is set non-integer value: {self.stage_width}'))
-        size_validation.validate_size_is_int(
-            size=self.stage_height,
-            err_msg=(
-                'Stage height is set non-integer value: '
-                f'{self.stage_height}'))
-        size_validation.validate_size_is_gt_zero(
-            size=self.stage_width,
-            err_msg=(
-                'Stage width can not be set less than or equal to zero: '
-                f'{self.stage_width}'))
-        size_validation.validate_size_is_gt_zero(
-            size=self.stage_height,
-            err_msg=(
-                'Stage height can not be set less than or equal to zero: '
-                f'{self.stage_height}'))
 
 
 def get_stage_element_id() -> str:

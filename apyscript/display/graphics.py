@@ -1,58 +1,23 @@
 """Implementations for Graphics class.
 """
 
-from typing import List, Optional
-from apyscript.display.display_object import DisplayObject
+from typing import List
+
 from apyscript.expression import scope_variables_util
 from apyscript.expression import expression_file_util
-from apyscript.validation import digit_validation
-from apyscript.validation import string_validation
 from apyscript.validation import size_validation
 from apyscript.validation import display_validation
-from apyscript.display.variable_name_interface import VariableNameInterface
-from apyscript.display.x_interface import XInterface
-from apyscript.display.y_interface import YInterface
 from apyscript.display.width_interface import WidthInterface
 from apyscript.display.height_interface import HeightInterface
 from apyscript.display.stage import get_stage_variable_name
 from apyscript.display.fill_color_interface import FillColorInterface
 from apyscript.html import html_const
-
-
-class _GraphicBase(VariableNameInterface, XInterface, YInterface):
-
-    _variable_name: str
-
-    def __init__(
-            self, parent, x: int, y: int, variable_name: str) -> None:
-        """
-        Vector graphic base class.
-
-        Parameters
-        ----------
-        parent : Graphics
-            Graphics instance to link this graphic.
-        x : int
-            X position.
-        y : int
-            Y position.
-        variable_name : str
-            Variable name of this instance. This will be used to
-            js expression.
-        """
-        display_validation.validate_graphics(graphics=parent)
-        self.parent: Graphics = parent
-        digit_validation.validate_integer(integer=x)
-        digit_validation.validate_integer(integer=y)
-        self._x = x
-        self._y = y
-        string_validation.validate_not_empty_string(string=variable_name)
-        self._variable_name = variable_name
+from apyscript.display.graphic_base import GraphicBase
 
 
 class Graphics(FillColorInterface):
 
-    _graphics: List[_GraphicBase]
+    _graphics: List[GraphicBase]
 
     def __init__(self, parent) -> None:
         """
@@ -89,7 +54,7 @@ class Graphics(FillColorInterface):
         _append_draw_rect_expression(rectangle=rectangle)
 
 
-class Rectangle(_GraphicBase, WidthInterface, HeightInterface):
+class Rectangle(GraphicBase, WidthInterface, HeightInterface):
 
     parent: Graphics
 

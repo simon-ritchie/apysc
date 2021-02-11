@@ -16,10 +16,10 @@
 - Add validation to add_child that raises if not DisplayObject specified to argument.
 - Add auto build system (like a Django web server).
 - Add project making command (like a `cargo new` command).
-- Add implementation of `_append_draw_rect_expression`.
 - Add line style setting to `Graphics` interface.
 - Add validation to check line color and fill color are not both empty.
-- Move `_fill_color` and `begin_fill` from `Graphics` class to `FillColorInterface`.
-  - Add getter interface.
-  - Replace `Graphics` interface by it.
 - Apply `x` and `y` values to Rectangle's expression.
+- Move `_GraphicBase` class to `graphic_base.py` module and rename it to public.
+  - Move tests also.
+- Move `Rectangle` class to `rectangle.py` module.
+  - Move tests also.

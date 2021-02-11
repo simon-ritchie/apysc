@@ -112,6 +112,7 @@ class Graphics:
             This instance's parent instance.
         """
         from apyscript.display.sprite import Sprite
+        display_validation.validate_sprite(sprite=parent)
         self.parent: Sprite = parent
         self._graphics = []
 

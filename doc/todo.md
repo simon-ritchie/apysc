@@ -20,7 +20,7 @@
 - Add implementation of `_append_draw_rect_expression`.
 - Add package of `validation`.
   - Add validations to each base class and function's arguments.
-- Add `parent` validation to `_GraphicBase` constructor.
 - Add `parent` validation to `Graphics` constructor.
 - Add line style setting to `Graphics` interface.
+- Move `x` and `y` attribute implementation to `PositionInterface` from `_GraphicBase`.
 - Add validation to check line color and fill color are not both empty.

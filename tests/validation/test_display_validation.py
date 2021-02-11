@@ -46,3 +46,15 @@ def test_validate_graphics() -> None:
         expected_error_class=ValueError,
         func_or_method=display_validation.validate_graphics,
         kwargs={'graphics': sprite})
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+def test_validate_sprite() -> None:
+    stage: Stage = Stage()
+    sprite: Sprite = Sprite(stage=stage)
+    display_validation.validate_sprite(sprite=sprite)
+
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=display_validation.validate_sprite,
+        kwargs={'sprite': stage})

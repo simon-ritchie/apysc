@@ -47,6 +47,27 @@ def validate_display_object(display_object):
         f'{type(display_object)}')
 
 
+def validate_sprite(sprite) -> None:
+    """
+    Validate specified instance is Sprite type.
+
+    Parameters
+    ----------
+    sprite : Sprite
+        Sprite instance to check.
+
+    Raises
+    ------
+    ValueError
+        If specified instance is not Sprite type.
+    """
+    from apyscript.display.sprite import Sprite
+    if isinstance(sprite, Sprite):
+        return
+    raise ValueError(
+        f'Specified instance is not Sprite type: {type(sprite)}')
+
+
 def validate_graphics(graphics):
     """
     Validate specified instance is Graphics type.

@@ -34,3 +34,15 @@ def test_validate_display_object() -> None:
     display_object: DisplayObject = DisplayObject(
         stage=stage, variable_name='test_display_object')
     display_validation.validate_display_object(display_object=display_object)
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+def test_validate_graphics() -> None:
+    stage: Stage = Stage()
+    sprite: Sprite = Sprite(stage=stage)
+    display_validation.validate_graphics(graphics=sprite.graphics)
+
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=display_validation.validate_graphics,
+        kwargs={'graphics': sprite})

@@ -9,6 +9,7 @@ from apyscript.expression import expression_file_util
 from apyscript.validation import digit_validation
 from apyscript.validation import string_validation
 from apyscript.validation import size_validation
+from apyscript.validation import display_validation
 from apyscript.display.variable_name_interface import VariableNameInterface
 
 
@@ -35,6 +36,7 @@ class _GraphicBase(VariableNameInterface):
             Variable name of this instance. This will be used to
             js expression.
         """
+        display_validation.validate_graphics(graphics=parent)
         self.parent: Graphics = parent
         digit_validation.validate_integer(integer=x)
         digit_validation.validate_integer(integer=y)

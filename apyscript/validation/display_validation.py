@@ -45,3 +45,24 @@ def validate_display_object(display_object):
     raise ValueError(
         'Specified instance is not DisplayObject or it\'s subclass type: '
         f'{type(display_object)}')
+
+
+def validate_graphics(graphics):
+    """
+    Validate specified instance is Graphics type.
+
+    Parameters
+    ----------
+    graphics : Graphics
+        Graphics instance to check.
+
+    Raises
+    ------
+    ValueError
+        If specified instance is not Graphics type.
+    """
+    from apyscript.display.graphics import Graphics
+    if isinstance(graphics, Graphics):
+        return
+    raise ValueError(
+        f'Specified instance is not Graphics type: {type(graphics)}')

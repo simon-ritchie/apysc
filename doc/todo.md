@@ -22,4 +22,5 @@
   - Add validations to each base class and function's arguments.
 - Add `parent` validation to `_GraphicBase` constructor.
 - Add `parent` validation to `Graphics` constructor.
-- Rename `validate_size_is_greater_than_zero` to `validate_size_is_gt_zero`
+- Add line style setting to `Graphics` interface.
+- Add validation to check line color and fill color are not both empty.

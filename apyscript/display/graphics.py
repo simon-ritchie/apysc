@@ -145,6 +145,8 @@ def _append_draw_rect_expression(rectangle: Rectangle) -> None:
     rectangle : Rectanble
         Created rectangle instance.
     """
+    from apyscript.display.sprite import Sprite
+    sprite: Sprite = rectangle.parent.parent
     variable_name: str = rectangle.variable_name
     stage_variable_name: str = get_stage_variable_name()
     expression: str = (
@@ -154,6 +156,9 @@ def _append_draw_rect_expression(rectangle: Rectangle) -> None:
     )
     attrs_str: str = _make_rect_attrs_expression(rectangle=rectangle)
     expression += f'{attrs_str};'
+    add_child_exp: str = sprite.make_add_child_expression(
+        child_variable_name=rectangle.variable_name)
+    expression += f'\n{add_child_exp}'
     expression += f'\n{html_const.SCRIPT_END_TAG}'
     expression_file_util.append_expression_to_current_scope(
         expression=expression)

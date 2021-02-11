@@ -163,6 +163,7 @@ def test__append_draw_rect_expression() -> None:
     sprite: Sprite = Sprite(stage=stage)
     sprite.graphics.begin_fill(color='#333')
     sprite.graphics.draw_rect(x=100, y=200, width=300, height=400)
+    sprite_name: str = sprite.variable_name
     rect_name: str = sprite.graphics._graphics[0].variable_name
     stage_variable_name: str = get_stage_variable_name()
     expression: str = expression_file_util.get_current_scope_expression()
@@ -173,6 +174,7 @@ def test__append_draw_rect_expression() -> None:
         '\n  .attr({'
         '\n    fill: "#333333",'
         '\n  });'
+        f'\n{sprite_name}.add({rect_name});'
         '\n</script>'
     )
     assert expected in expression

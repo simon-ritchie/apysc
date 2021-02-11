@@ -42,5 +42,11 @@ docker container rm action_py_script
 ### Run Overall Tests
 
 ```
-$ pytest --cov=./apyscript tests/ -v -s --workers auto
+$ pytest --cov=./apyscript tests/ -v -s --workers auto --lf
+```
+
+If you want to check coverage missed statement, add `--cov-report term-missing` option:
+
+```
+$ pytest --cov=./apyscript tests/ -v -s --workers auto --lf --cov-report term-missing
 ```

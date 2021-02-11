@@ -177,6 +177,9 @@ def test_get_current_scope_expression() -> None:
     assert expression == '<body></body>'
     expression_file_util.remove_current_scope_expression_file()
 
+    expression = expression_file_util.get_current_scope_expression()
+    assert expression == ''
+
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test__merge_script_section() -> None:
@@ -187,6 +190,7 @@ def test__merge_script_section() -> None:
         '<body>'
         f'\n{html_const.SCRIPT_START_TAG}'
         '\nconsole.log("Hello ");'
+        '\n'
         '\n'
         f'{html_const.SCRIPT_END_TAG}'
         '\n</body>'

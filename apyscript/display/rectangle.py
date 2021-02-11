@@ -91,6 +91,10 @@ def _make_rect_attrs_expression(rectangle: Rectangle) -> str:
         rect_attrs_expression += (
             f'\n    fill: "{graphics._fill_color}",'
         )
+    rect_attrs_expression += (
+        f'\n    x: {rectangle.x},'
+        f'\n    y: {rectangle.y},'
+    )
     rect_attrs_expression += '\n  })'
     return rect_attrs_expression
 

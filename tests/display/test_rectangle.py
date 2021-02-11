@@ -43,6 +43,8 @@ def test__make_rect_attrs_expression() -> None:
         rectangle=rectangle_)
     expected: str = (
         '\n  .attr({'
+        '\n    x: 100,'
+        '\n    y: 200,'
         '\n  })'
     )
     assert rect_attrs_expression == expected
@@ -53,6 +55,8 @@ def test__make_rect_attrs_expression() -> None:
     expected = (
         '\n  .attr({'
         '\n    fill: "#333333",'
+        '\n    x: 100,'
+        '\n    y: 200,'
         '\n  })'
     )
     assert rect_attrs_expression == expected
@@ -75,6 +79,8 @@ def test_append_draw_rect_expression() -> None:
         '\n  .rect(300, 400)'
         '\n  .attr({'
         '\n    fill: "#333333",'
+        '\n    x: 100,'
+        '\n    y: 200,'
         '\n  });'
         f'\n{sprite_name}.add({rect_name});'
     )

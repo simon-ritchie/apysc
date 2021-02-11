@@ -1,3 +1,4 @@
+from random import randint
 from apyscript.file import file_util
 import os
 from typing import Dict, List
@@ -10,6 +11,7 @@ from apyscript.expression import expression_scope
 from tests import testing_helper
 
 
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test_empty_expression_dir() -> None:
     os.makedirs(expression_file_util.EXPRESSION_ROOT_DIR, exist_ok=True)
     test_file_path: str = os.path.join(

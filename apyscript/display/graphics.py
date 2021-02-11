@@ -11,12 +11,11 @@ from apyscript.validation import string_validation
 from apyscript.validation import size_validation
 from apyscript.validation import display_validation
 from apyscript.display.variable_name_interface import VariableNameInterface
+from apyscript.display.point_interface import PointInterface
 
 
-class _GraphicBase(VariableNameInterface):
+class _GraphicBase(VariableNameInterface, PointInterface):
 
-    _x: int
-    _y :int
     _variable_name: str
 
     def __init__(
@@ -44,57 +43,6 @@ class _GraphicBase(VariableNameInterface):
         self._y = y
         string_validation.validate_not_empty_string(string=variable_name)
         self._variable_name = variable_name
-
-
-    @property
-    def x(self) -> int:
-        """
-        Get x position.
-
-        Returns
-        -------
-        x : int
-            X position.
-        """
-        return self._x
-
-    @x.setter
-    def x(self, value: int) -> None:
-        """
-        Update x position.
-
-        Parameters
-        ----------
-        value : int
-            X potision value.
-        """
-        digit_validation.validate_integer(integer=value)
-        self._x = value
-
-    @property
-    def y(self) -> int:
-        """
-        Get y position.
-
-        Returns
-        -------
-        y : int
-            Y position.
-        """
-        return self._y
-
-    @y.setter
-    def y(self, value: int) -> None:
-        """
-        Update y position.
-
-        Parameters
-        ----------
-        value : int
-            Y position value.
-        """
-        digit_validation.validate_integer(integer=value)
-        self._y = value
 
 
 class Graphics:

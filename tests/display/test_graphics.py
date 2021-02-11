@@ -2,9 +2,12 @@ from random import randint
 
 from retrying import retry
 
+from apyscript.display import graphics
 from apyscript.display.graphics import Graphics, Rectangle, _GraphicBase
 from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
+from apyscript.display.stage import get_stage_variable_name
+from apyscript.expression import expression_scope, expression_file_util
 from tests import testing_helper
 
 
@@ -123,3 +126,54 @@ class Test_GraphicBase:
         assert graphic_base.variable_name == 'test_graphic_1'
         graphic_base.variable_name = 'test_graphic_2'
         assert graphic_base.variable_name == 'test_graphic_2'
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+def test__make_rect_attrs_expression() -> None:
+    stage: Stage = Stage()
+    sprite: Sprite = Sprite(stage=stage)
+    rectangle: Rectangle = Rectangle(
+        parent=sprite.graphics,
+        x=100, y=200,
+        width=150, height=50)
+    rect_attrs_expression: str = graphics._make_rect_attrs_expression(
+        rectangle=rectangle)
+    expected: str = (
+        '\n  .attr({'
+        '\n  })'
+    )
+    assert rect_attrs_expression == expected
+
+    sprite.graphics.begin_fill(color='#333')
+    rect_attrs_expression = graphics._make_rect_attrs_expression(
+        rectangle=rectangle)
+    expected = (
+        '\n  .attr({'
+        '\n    fill: "#333333",'
+        '\n  })'
+    )
+    assert rect_attrs_expression == expected
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+def test__append_draw_rect_expression() -> None:
+    stage: Stage = Stage()
+    expression_scope.update_current_scope(scope_name='test_graphics')
+    expression_file_util.remove_current_scope_expression_file()
+    sprite: Sprite = Sprite(stage=stage)
+    sprite.graphics.begin_fill(color='#333')
+    sprite.graphics.draw_rect(x=100, y=200, width=300, height=400)
+    rect_name: str = sprite.graphics._graphics[0].variable_name
+    stage_variable_name: str = get_stage_variable_name()
+    expression: str = expression_file_util.get_current_scope_expression()
+    expected: str = (
+        '<script type="text/javascript">'
+        f'\nvar {rect_name} = {stage_variable_name}'
+        '\n  .rect(300, 400)'
+        '\n  .attr({'
+        '\n    fill: "#333333",'
+        '\n  });'
+        '\n</script>'
+    )
+    assert expected in expression
+    expression_file_util.remove_current_scope_expression_file()

@@ -15,6 +15,8 @@ from apyscript.display.x_interface import XInterface
 from apyscript.display.y_interface import YInterface
 from apyscript.display.width_interface import WidthInterface
 from apyscript.display.height_interface import HeightInterface
+from apyscript.display.stage import get_stage_variable_name
+from apyscript.html import html_const
 
 
 class _GraphicBase(VariableNameInterface, XInterface, YInterface):
@@ -143,7 +145,39 @@ def _append_draw_rect_expression(rectangle: Rectangle) -> None:
     rectangle : Rectanble
         Created rectangle instance.
     """
-    from apyscript.display.sprite import Sprite
+    variable_name: str = rectangle.variable_name
+    stage_variable_name: str = get_stage_variable_name()
+    expression: str = (
+        f'{html_const.SCRIPT_START_TAG}'
+        f'\nvar {variable_name} = {stage_variable_name}'
+        f'\n  .rect({rectangle.width}, {rectangle.height})'
+    )
+    attrs_str: str = _make_rect_attrs_expression(rectangle=rectangle)
+    expression += f'{attrs_str};'
+    expression += f'\n{html_const.SCRIPT_END_TAG}'
+    expression_file_util.append_expression_to_current_scope(
+        expression=expression)
+
+
+def _make_rect_attrs_expression(rectangle: Rectangle) -> str:
+    """
+    Make rectangle attributes expression string.
+
+    Parameters
+    ----------
+    rectangle : Rectangle
+        Target rectangle instance.
+
+    Returns
+    -------
+    rect_attrs_expression : str
+        Rectangle attributes expression string.
+    """
     graphics: Graphics = rectangle.parent
-    sprite: Sprite = graphics.parent
-    pass
+    rect_attrs_expression: str = '\n  .attr({'
+    if graphics._fill_color is not None:
+        rect_attrs_expression += (
+            f'\n    fill: "{graphics._fill_color}",'
+        )
+    rect_attrs_expression += '\n  })'
+    return rect_attrs_expression

@@ -2,14 +2,16 @@
 """
 
 from typing import Optional
-from apyscript.display.display_object import DisplayObject
-from apyscript.display.stage import Stage, get_stage_variable_name
-from apyscript.display.graphics import Graphics
+
 from apyscript.display.add_child_interface import AddChildInterface
-from apyscript.type import type_util
-from apyscript.html import html_const
+from apyscript.display.display_object import DisplayObject
+from apyscript.display.graphics import Graphics
+from apyscript.display.stage import Stage
+from apyscript.display.stage import get_stage_variable_name
 from apyscript.expression import expression_file_util
 from apyscript.expression import scope_variables_util
+from apyscript.html import html_const
+from apyscript.type import type_util
 
 
 class Sprite(DisplayObject, AddChildInterface):

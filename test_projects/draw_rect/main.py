@@ -2,16 +2,17 @@
 """
 
 import sys
+
 sys.path.append('./')
 
 import os
 from types import ModuleType
 
-from apyscript.display.stage import Stage
-from apyscript.html import exporter
-from apyscript.file import file_util
-from apyscript.display.sprite import Sprite
 from apyscript.decorator.update_current_scope import update_current_scope
+from apyscript.display.sprite import Sprite
+from apyscript.display.stage import Stage
+from apyscript.file import file_util
+from apyscript.html import exporter
 
 this_module: ModuleType = sys.modules[__name__]
 

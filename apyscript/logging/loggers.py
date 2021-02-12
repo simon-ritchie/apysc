@@ -2,8 +2,10 @@
 """
 
 from logging import INFO
-from logging import getLogger, Logger, Formatter, StreamHandler
-
+from logging import Formatter
+from logging import Logger
+from logging import StreamHandler
+from logging import getLogger
 
 _LOGGER_NAME_USER_INFO: str = 'user_info'
 

@@ -1,12 +1,12 @@
-from typing import List
 from random import randint
+from typing import List
 
 from retrying import retry
 
-from apyscript.file import file_util
-from apyscript.expression import scope_variables_util
 from apyscript.expression import expression_file_util
 from apyscript.expression import expression_scope
+from apyscript.expression import scope_variables_util
+from apyscript.file import file_util
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))

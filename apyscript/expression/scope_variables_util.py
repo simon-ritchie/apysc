@@ -5,7 +5,8 @@ related interface.
 import os
 from typing import List
 
-from apyscript.expression import expression_file_util, expression_scope
+from apyscript.expression import expression_file_util
+from apyscript.expression import expression_scope
 from apyscript.file import file_util
 
 

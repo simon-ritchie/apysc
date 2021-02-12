@@ -2,7 +2,8 @@ from random import randint
 
 from retrying import retry
 
-from apyscript.display.graphics import Graphics, Rectangle
+from apyscript.display.graphics import Graphics
+from apyscript.display.graphics import Rectangle
 from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
 from tests import testing_helper

@@ -1,11 +1,14 @@
 from random import randint
+
 from retrying import retry
 
-from apyscript.file import file_util
-from apyscript.display.sprite import Sprite
-from apyscript.display.stage import Stage, get_stage_variable_name
 from apyscript.display.graphics import Graphics
-from apyscript.expression import expression_file_util, expression_scope
+from apyscript.display.sprite import Sprite
+from apyscript.display.stage import Stage
+from apyscript.display.stage import get_stage_variable_name
+from apyscript.expression import expression_file_util
+from apyscript.expression import expression_scope
+from apyscript.file import file_util
 from tests import testing_helper
 
 

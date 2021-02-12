@@ -1,14 +1,15 @@
-from apyscript.html import html_const
-from random import randint
-from apyscript.file import file_util
 import os
-from typing import Dict, List
+from random import randint
+from typing import Dict
+from typing import List
 
 from retrying import retry
 
-from apyscript.expression import expression_file_util
 from apyscript.display.stage import Stage
+from apyscript.expression import expression_file_util
 from apyscript.expression import expression_scope
+from apyscript.file import file_util
+from apyscript.html import html_const
 from tests import testing_helper
 
 

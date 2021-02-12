@@ -2,13 +2,13 @@
 """
 
 from apyscript.display.graphic_base import GraphicBase
-from apyscript.display.width_interface import WidthInterface
 from apyscript.display.height_interface import HeightInterface
-from apyscript.expression import scope_variables_util
-from apyscript.validation import size_validation
 from apyscript.display.stage import get_stage_variable_name
-from apyscript.html import html_const
+from apyscript.display.width_interface import WidthInterface
 from apyscript.expression import expression_file_util
+from apyscript.expression import scope_variables_util
+from apyscript.html import html_const
+from apyscript.validation import size_validation
 
 
 class Rectangle(GraphicBase, WidthInterface, HeightInterface):

@@ -1,6 +1,8 @@
 import os
-from typing import Any, Dict, List
 import shutil
+from typing import Any
+from typing import Dict
+from typing import List
 
 from apyscript.jslib import jslib_util
 from tests import testing_helper

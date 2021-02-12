@@ -1,18 +1,18 @@
 """Expression exporting interface implementation.
 """
 
-from logging import Logger
-
-from typing import List
 import os
+from logging import Logger
+from typing import List
 
-from apyscript.file import file_util
-from apyscript.jslib import jslib_util
-from apyscript.html import html_util
-from apyscript.expression import expression_file_util, expression_scope
-from apyscript.logging import loggers
-from apyscript.html import html_const
 from apyscript.display.stage import get_stage_element_id
+from apyscript.expression import expression_file_util
+from apyscript.expression import expression_scope
+from apyscript.file import file_util
+from apyscript.html import html_const
+from apyscript.html import html_util
+from apyscript.jslib import jslib_util
+from apyscript.logging import loggers
 
 user_info_logger: Logger = loggers.get_user_info_logger()
 

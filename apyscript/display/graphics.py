@@ -3,11 +3,11 @@
 
 from typing import List
 
-from apyscript.validation import display_validation
 from apyscript.display.fill_color_interface import FillColorInterface
 from apyscript.display.graphic_base import GraphicBase
 from apyscript.display.rectangle import Rectangle
 from apyscript.display.rectangle import append_draw_rect_expression
+from apyscript.validation import display_validation
 
 
 class Graphics(FillColorInterface):

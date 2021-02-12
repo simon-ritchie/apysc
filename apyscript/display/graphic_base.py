@@ -4,8 +4,8 @@
 from apyscript.display.variable_name_interface import VariableNameInterface
 from apyscript.display.x_interface import XInterface
 from apyscript.display.y_interface import YInterface
-from apyscript.validation import display_validation
 from apyscript.validation import digit_validation
+from apyscript.validation import display_validation
 from apyscript.validation import string_validation
 
 

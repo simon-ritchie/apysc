@@ -3,8 +3,8 @@ from random import randint
 from retrying import retry
 
 from apyscript.display.add_child_interface import AddChildInterface
-from apyscript.display.stage import Stage
 from apyscript.display.sprite import Sprite
+from apyscript.display.stage import Stage
 
 
 class TestAddChildInterface:

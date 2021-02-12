@@ -1,7 +1,8 @@
 """Type related common implementations.
 """
 
-from typing import Any, Type
+from typing import Any
+from typing import Type
 
 
 def is_same_class_instance(cls: Type, instance: Any):

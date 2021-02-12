@@ -1,9 +1,10 @@
 """Decorator implementation to update current expression's scope.
 """
 
-from typing import Any, Callable
-from types import ModuleType
 from functools import wraps
+from types import ModuleType
+from typing import Any
+from typing import Callable
 
 from apyscript.expression import expression_scope
 

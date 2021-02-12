@@ -1,23 +1,24 @@
 """Stage (canvas) implementation.
 """
 
-from apyscript.file import file_util
 import os
-from typing import List, Optional
-from datetime import datetime
 import random
+from datetime import datetime
+from typing import List
+from typing import Optional
 
-from apyscript.expression import expression_file_util
 from apyscript.color import color_util
-from apyscript.validation import size_validation
 from apyscript.converter import cast
-from apyscript.html import html_util
-from apyscript.display.display_object import DisplayObject
 from apyscript.display.add_child_interface import AddChildInterface
-from apyscript.validation import string_validation
-from apyscript.display.width_interface import WidthInterface
+from apyscript.display.display_object import DisplayObject
 from apyscript.display.height_interface import HeightInterface
+from apyscript.display.width_interface import WidthInterface
+from apyscript.expression import expression_file_util
+from apyscript.file import file_util
 from apyscript.html import html_const
+from apyscript.html import html_util
+from apyscript.validation import size_validation
+from apyscript.validation import string_validation
 
 _STAGE_ELEM_ID_FILE_PATH: str = os.path.join(
     expression_file_util.EXPRESSION_ROOT_DIR, 'stage_elem_id.txt',

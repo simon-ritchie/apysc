@@ -1,8 +1,8 @@
 """Class implementation for height.
 """
 
-from apyscript.validation import size_validation
 from apyscript.converter import cast
+from apyscript.validation import size_validation
 
 
 class HeightInterface:

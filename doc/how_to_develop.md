@@ -62,5 +62,5 @@ $ autoflake --in-place --remove-unused-variables -r .
 ### isort
 
 ```
-$ isort --force_single_line .
+$ isort --force-single-line-imports .
 ```

@@ -1,8 +1,8 @@
 """Files' common utilities implementation.
 """
 
-import shutil
 import os
+import shutil
 from types import ModuleType
 
 

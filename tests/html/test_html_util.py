@@ -1,7 +1,9 @@
-from typing import Dict, List, Tuple
+from typing import Dict
+from typing import List
+from typing import Tuple
+
 from apyscript.html import html_util
 from apyscript.html.html_util import ScriptLineUtil
-
 from tests import testing_helper
 
 

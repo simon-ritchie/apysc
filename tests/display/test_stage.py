@@ -1,16 +1,18 @@
-from apyscript.file import file_util
 import os
-from typing import Any, Dict
 from random import randint
+from typing import Any
+from typing import Dict
 
-from retrying import retry
 import pytest
+from retrying import retry
 
 from apyscript.display import stage
-from apyscript.display.stage import Stage, _STAGE_ELEM_ID_FILE_PATH
+from apyscript.display.display_object import DisplayObject
+from apyscript.display.stage import _STAGE_ELEM_ID_FILE_PATH
+from apyscript.display.stage import Stage
 from apyscript.expression import expression_file_util
 from apyscript.expression import expression_scope
-from apyscript.display.display_object import DisplayObject
+from apyscript.file import file_util
 from tests import testing_helper
 
 

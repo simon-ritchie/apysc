@@ -11,12 +11,12 @@ Mainly following interfaces are defined:
     wrapper to expression's each <script> tag section.
 """
 
-from apyscript.html import html_util
 import os
 from typing import List
 
 from apyscript.expression import expression_file_util
 from apyscript.file import file_util
+from apyscript.html import html_util
 
 
 def update_current_scope(scope_name: str) -> None:

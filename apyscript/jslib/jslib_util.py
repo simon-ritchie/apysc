@@ -2,10 +2,10 @@
 """
 
 import os
-import sys
 import shutil
-from typing import List
+import sys
 from types import ModuleType
+from typing import List
 
 
 def get_jslib_file_names() -> List[str]:

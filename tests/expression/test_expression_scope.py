@@ -1,11 +1,11 @@
 import os
-from typing import List
 from random import randint
+from typing import List
 
 from retrying import retry
 
-from apyscript.expression import expression_scope
 from apyscript.expression import expression_file_util
+from apyscript.expression import expression_scope
 from apyscript.file import file_util
 from tests import testing_helper
 

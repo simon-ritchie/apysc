@@ -2,6 +2,7 @@
 """
 
 from typing import List
+
 from apyscript.display.display_object import DisplayObject
 from apyscript.validation import display_validation
 

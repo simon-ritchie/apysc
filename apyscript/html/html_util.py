@@ -16,7 +16,9 @@ Mainly following interfaces are defined:
 """
 
 import re
-from typing import List, Optional, Tuple
+from typing import List
+from typing import Optional
+from typing import Tuple
 
 
 def remove_first_selector_symbol_char(str_val: str) -> str:

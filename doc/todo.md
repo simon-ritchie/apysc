@@ -1,4 +1,3 @@
-- Add isort library.
 - Add autopep8 library.
 - Add flake8 library.
 - Add numdoclint library.

@@ -11,3 +11,4 @@ RUN pip install retrying==1.3.3
 RUN pip install future-annotations==1.0.0
 RUN pip install autoflake==1.4
 RUN pip install isort==5.7.0
+RUN pip install autopep8==1.5.5

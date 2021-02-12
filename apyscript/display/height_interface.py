@@ -14,8 +14,8 @@ class HeightInterface:
         """
         Get this instance's height.
 
-        Parameters
-        ----------
+        Returns
+        -------
         height : int
             This instance's height.
         """

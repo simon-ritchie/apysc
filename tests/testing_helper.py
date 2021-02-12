@@ -35,6 +35,8 @@ def _assert_has_attr(any_obj: Any, attr_name: str) -> None:
     ----------
     any_obj : *
         Any object to check.
+    attr_name : str
+        Expected attribute name.
     """
     msg: str = (
         'Expected attribute not exists.'

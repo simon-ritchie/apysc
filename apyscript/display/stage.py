@@ -122,12 +122,16 @@ class Stage(AddChildInterface, WidthInterface, HeightInterface):
             Result expression.
         """
         style: str = self._make_style_str()
-        expression: str = f"""{html_const.SCRIPT_START_TAG}
-var stage_html = '<div id="{self._stage_elem_id}" style="{style}"></div>';
-$("{self._add_to}").append(stage_html);
-{get_stage_variable_name()} = SVG().addTo("#{self._stage_elem_id}").size(
-  {self.width}, {self.height});
-{html_const.SCRIPT_END_TAG}"""
+        expression: str = (
+            f'{html_const.SCRIPT_START_TAG}'
+            f'\nvar stage_html = \'<div id="{self._stage_elem_id}" '
+            f'style="{style}"></div>\';'
+            f'\n$("{self._add_to}").append(stage_html);'
+            f'\n{get_stage_variable_name()} = SVG()'
+            f'.addTo("#{self._stage_elem_id}").size('
+            f'\n  {self.width}, {self.height});'
+            f'{html_const.SCRIPT_END_TAG}'
+        )
         return expression
 
     def _make_style_str(self) -> str:

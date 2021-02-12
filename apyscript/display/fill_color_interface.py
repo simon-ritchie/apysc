@@ -28,8 +28,8 @@ class FillColorInterface:
         """
         Get current fill color.
 
-        Parameters
-        ----------
+        Returns
+        -------
         fill_color : str
             Current fill color (hexadecimal string, e.g., '#00aaff').
             If not be set, None will be returned.

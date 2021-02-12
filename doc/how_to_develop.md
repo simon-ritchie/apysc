@@ -76,3 +76,9 @@ $ autopep8 --in-place --aggressive --aggressive -r --ignore=E402 .
 ```
 $ flake8 --ignore E402,W503 ./
 ```
+
+### numdoclint
+
+```
+$ numdoclint -p ./ -r
+```

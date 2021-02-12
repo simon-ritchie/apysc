@@ -5,7 +5,7 @@ from typing import Any
 from typing import Type
 
 
-def is_same_class_instance(cls: Type, instance: Any):
+def is_same_class_instance(class: Type, instance: Any):
     """
     Get a boolean value whether specified class and instance's class
     are same or not.
@@ -17,7 +17,7 @@ def is_same_class_instance(cls: Type, instance: Any):
 
     Parameters
     ----------
-    cls : Type
+    class : Type
         Expected class.
     instance : *
         Intance to check it's class.
@@ -29,6 +29,6 @@ def is_same_class_instance(cls: Type, instance: Any):
         will be set.
     """
     instance_type: Type = type(instance)
-    if instance_type == cls:
+    if instance_type == class:
         return True
     return False

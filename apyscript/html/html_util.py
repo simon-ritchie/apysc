@@ -207,6 +207,12 @@ def is_script_end_tag_line(line: str) -> bool:
     ----------
     line : str
         Target line string.
+
+    Returns
+    -------
+    result : bool
+        If specified line contains script end tag, then True
+        will be set.
     """
     match: Optional[re.Match] = re.search(
         pattern=r'</script>', string=line)

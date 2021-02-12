@@ -56,7 +56,7 @@ class Sprite(DisplayObject, AddChildInterface):
             If expression appended, then True will be set.
         """
         is_same_class_instance: bool = type_util.is_same_class_instance(
-            cls=Sprite, instance=self)
+            class=Sprite, instance=self)
         if not is_same_class_instance:
             return False
         stage_variable_name: str = get_stage_variable_name()

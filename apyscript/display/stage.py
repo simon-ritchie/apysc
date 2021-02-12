@@ -130,7 +130,7 @@ class Stage(AddChildInterface, WidthInterface, HeightInterface):
             f'\n{get_stage_variable_name()} = SVG()'
             f'.addTo("#{self._stage_elem_id}").size('
             f'\n  {self.width}, {self.height});'
-            f'{html_const.SCRIPT_END_TAG}'
+            f'\n{html_const.SCRIPT_END_TAG}'
         )
         return expression
 

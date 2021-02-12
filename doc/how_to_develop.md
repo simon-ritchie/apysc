@@ -68,5 +68,11 @@ $ isort --force-single-line-imports .
 ### autopep8
 
 ```
-$ autopep8 --in-place --aggressive --aggressive -r --ignore errors E402 .
+$ autopep8 --in-place --aggressive --aggressive -r --ignore=E402 .
+```
+
+### flake8
+
+```
+$ flake8 --ignore E402 ./
 ```

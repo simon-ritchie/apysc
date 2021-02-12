@@ -5,13 +5,11 @@ from typing import List
 
 from retrying import retry
 
-from apyscript.display import stage
 from apyscript.display.stage import Stage
 from apyscript.expression import expression_file_util
 from apyscript.expression import expression_scope
 from apyscript.file import file_util
 from apyscript.html import exporter
-from apyscript.html import html_util
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=300)

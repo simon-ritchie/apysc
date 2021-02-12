@@ -8,7 +8,6 @@ from typing import List
 from typing import Optional
 
 from apyscript.color import color_util
-from apyscript.converter import cast
 from apyscript.display.add_child_interface import AddChildInterface
 from apyscript.display.display_object import DisplayObject
 from apyscript.display.height_interface import HeightInterface
@@ -17,7 +16,6 @@ from apyscript.expression import expression_file_util
 from apyscript.file import file_util
 from apyscript.html import html_const
 from apyscript.html import html_util
-from apyscript.validation import size_validation
 from apyscript.validation import string_validation
 
 _STAGE_ELEM_ID_FILE_PATH: str = os.path.join(

@@ -56,7 +56,7 @@ $ pytest --cov=./apyscript tests/ -v -s --workers auto --lf --cov-report term-mi
 ### autoflake
 
 ```
-$ autoflake --in-place --remove-unused-variables -r .
+$ autoflake --in-place --remove-unused-variables --remove-all-unused-imports -r .
 ```
 
 ### isort

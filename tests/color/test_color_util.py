@@ -1,4 +1,3 @@
-import pytest
 
 from apyscript.color import color_util
 

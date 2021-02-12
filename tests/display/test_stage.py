@@ -3,7 +3,6 @@ from random import randint
 from typing import Any
 from typing import Dict
 
-import pytest
 from retrying import retry
 
 from apyscript.display import stage

@@ -1,6 +1,6 @@
 - Add autoflake library.
-- Add autopep8 library.
 - Add isort library.
+- Add autopep8 library.
 - Add flake8 library.
 - Add numdoclint library.
 - Add pyright library.
@@ -18,4 +18,4 @@
 - Add project making command (like a `cargo new` command).
 - Add line style setting to `Graphics` interface.
 - Add validation to check line color and fill color are not both empty.
-- Apply `x` and `y` values to Rectangle's expression.
+- Next time, restart working at installing autoflake.

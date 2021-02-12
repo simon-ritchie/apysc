@@ -97,4 +97,3 @@ def _make_rect_attrs_expression(rectangle: Rectangle) -> str:
     )
     rect_attrs_expression += '\n  })'
     return rect_attrs_expression
-

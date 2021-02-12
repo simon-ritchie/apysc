@@ -1,9 +1,8 @@
-- Add autoflake library.
 - Add isort library.
 - Add autopep8 library.
 - Add flake8 library.
 - Add numdoclint library.
-- Add pyright library.
+- Add mypy library.
 - Add command to apply each lints.
 - Add implementation of saving overall html from expression.
   - `save_expressions_overall_html`

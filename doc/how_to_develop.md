@@ -50,3 +50,17 @@ If you want to check coverage missed statement, add `--cov-report term-missing` 
 ```
 $ pytest --cov=./apyscript tests/ -v -s --workers auto --lf --cov-report term-missing
 ```
+
+## Apply Lints
+
+### autoflake
+
+```
+$ autoflake --in-place --remove-unused-variables -r .
+```
+
+### isort
+
+```
+$ isort --force_single_line .
+```

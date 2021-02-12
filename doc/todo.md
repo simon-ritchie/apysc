@@ -1,4 +1,3 @@
-- Add numdoclint library.
 - Add mypy library.
 - Add command to apply each lints.
 - Add implementation of saving overall html from expression.

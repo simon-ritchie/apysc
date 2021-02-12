@@ -82,3 +82,9 @@ $ flake8 --ignore E402,W503 ./
 ```
 $ numdoclint -p ./ -r
 ```
+
+### mypy
+
+```
+$ mypy --ignore-missing-imports --follow-imports skip --disallow-untyped-calls --disallow-untyped-defs --strict-optional --strict-equality ./
+```

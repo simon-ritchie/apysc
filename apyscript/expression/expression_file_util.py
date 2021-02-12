@@ -19,7 +19,6 @@ Mainly following interfaces are defined:
 """
 
 import os
-import shutil
 from typing import Dict, List, Optional
 
 from apyscript.file import file_util

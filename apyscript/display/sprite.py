@@ -1,7 +1,7 @@
 """Implementations for Sprite class.
 """
 
-from typing import List, Optional
+from typing import Optional
 from apyscript.display.display_object import DisplayObject
 from apyscript.display.stage import Stage, get_stage_variable_name
 from apyscript.display.graphics import Graphics

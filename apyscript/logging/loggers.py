@@ -1,7 +1,6 @@
 """Definitions and interface for loggers.
 """
 
-import logging
 from logging import INFO
 from logging import getLogger, Logger, Formatter, StreamHandler
 

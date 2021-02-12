@@ -1,7 +1,6 @@
 """Color related implementations.
 """
 
-from typing import List, Tuple
 
 from apyscript.html import html_util
 from apyscript.validation import color_validation

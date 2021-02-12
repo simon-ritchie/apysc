@@ -13,7 +13,6 @@ Mainly following interfaces are defined:
 
 from apyscript.html import html_util
 import os
-import re
 from typing import List
 
 from apyscript.expression import expression_file_util

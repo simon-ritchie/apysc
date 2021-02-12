@@ -1,7 +1,7 @@
 """Implementations for DisplayObject class.
 """
 
-from typing import List, Type
+from typing import Type
 
 from apyscript.display.variable_name_interface import VariableNameInterface
 from apyscript.validation import display_validation

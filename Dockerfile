@@ -14,3 +14,4 @@ RUN pip install autoflake==1.4
 RUN pip install isort==5.7.0
 RUN pip install autopep8==1.5.5
 RUN pip install flake8==3.8.4
+RUN pip install numdoclint==0.1.3

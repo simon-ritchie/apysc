@@ -1,5 +1,3 @@
-- Add autopep8 library.
-- Add flake8 library.
 - Add numdoclint library.
 - Add mypy library.
 - Add command to apply each lints.

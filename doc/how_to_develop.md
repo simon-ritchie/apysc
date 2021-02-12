@@ -64,3 +64,9 @@ $ autoflake --in-place --remove-unused-variables -r .
 ```
 $ isort --force-single-line-imports .
 ```
+
+### autopep8
+
+```
+$ autopep8 --in-place --aggressive --aggressive -r --ignore errors E402 .
+```

@@ -87,7 +87,7 @@ def test_get_scope_file_path_from_scope() -> None:
 @retry(stop_max_attempt_number=5, wait_fixed=300)
 def test_get_expression_file_paths() -> None:
     Stage()
-    test_text_file_path: str =os.path.join(
+    test_text_file_path: str = os.path.join(
         expression_file_util.EXPRESSION_ROOT_DIR,
         'test_expression_file_util.txt',
     )

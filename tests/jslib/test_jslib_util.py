@@ -42,4 +42,3 @@ def test_export_jslib_to_specified_dir() -> None:
         kwargs=kwargs)
 
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
-

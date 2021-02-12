@@ -76,7 +76,7 @@ def _get_current_scope_next_variable_num(type_name: str) -> int:
         Next variable number (start from 1).
     """
     variable_names: List[str] = _read_current_scope_variable_names(
-        type_name= type_name)
+        type_name=type_name)
     if not variable_names:
         return 1
     last_num: int = int(variable_names[-1].split('_')[-1])

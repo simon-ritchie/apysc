@@ -51,7 +51,7 @@ class TestStage:
             add_to='#line-graph',
             stage_elem_id='line-graph-stage')
         expression: str = stage._make_constructor_expression()
-        style:str = stage._make_style_str()
+        style: str = stage._make_style_str()
         expected_str: str = (
             '<script type="text/javascript">'
             '\nvar stage_html = \'<div id="line-graph-stage"'

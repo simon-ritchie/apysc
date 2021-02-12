@@ -33,7 +33,7 @@ def test_validate_size_is_gt_zero() -> None:
         expected_error_class=ValueError,
         func_or_method=size_validation.validate_size_is_gt_zero,
         kwargs={
-            'size': 0 ,
+            'size': 0,
             'err_msg': 'Specified width is less than or equal to zero.'})
 
 

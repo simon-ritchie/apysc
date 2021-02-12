@@ -32,4 +32,3 @@ def get_user_info_logger() -> Logger:
     stream_handler.setFormatter(fmt=formatter)
     logger.addHandler(stream_handler)
     return logger
-

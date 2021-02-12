@@ -43,7 +43,7 @@ class TestSprite:
         stage_variable_name: str = get_stage_variable_name()
         expression_scope.update_current_scope(
             scope_name='test_sprite')
-        scope_file_path: str =  expression_file_util.\
+        scope_file_path: str = expression_file_util.\
             get_scope_file_path_from_scope(scope='test_sprite')
         file_util.remove_file_if_exists(file_path=scope_file_path)
         sprite: Sprite = Sprite(stage=stage)

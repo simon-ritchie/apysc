@@ -41,3 +41,18 @@ def test_append_x_expression() -> None:
     assert expression == (
         '.attr({'
         '\n  x: 100,')
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+def test_append_y_expression() -> None:
+    stage: Stage = Stage()
+    sprite: Sprite = Sprite(stage=stage)
+    rectangle: Rectangle = Rectangle(
+        parent=sprite.graphics,
+        x=100, y=200, width=300, height=400)
+    expression: str = '.attr({'
+    expression = graphics_expression.append_y_expression(
+        graphic=rectangle, expression=expression, indent_num=1)
+    assert expression == (
+        '.attr({'
+        '\n  y: 200,')

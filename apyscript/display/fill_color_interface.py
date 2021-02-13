@@ -22,7 +22,7 @@ class FillColorInterface:
         color : str
             Hexadecimal color string. e.g., '#00aaff'
         alpha : float, default 1.0
-            Color opacity(0.0 to 1.0).
+            Color opacity (0.0 to 1.0).
         """
         color = color_util.complement_hex_color(hex_color_code=color)
         self._fill_color = color

@@ -3,5 +3,6 @@
 - Add project making command (like a `cargo new` command).
 - Add line style setting to `Graphics` interface.
 - Add validation to check line color and fill color are not both empty.
-- Apply fill alpha to `draw_rect` expression.
-- Update numdoclint.
+- Add `validate_num` to `begin_fill` interface of `alpha` argument.
+- Add int to float cast interface to cast module.
+  - Apply it to `begin_fill` and `line_style` interface.

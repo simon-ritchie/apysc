@@ -21,6 +21,8 @@ from typing import Match
 from typing import Optional
 from typing import Tuple
 
+from apyscript.string import indent_util
+
 
 def remove_first_selector_symbol_char(str_val: str) -> str:
     """
@@ -65,7 +67,7 @@ def append_html_to_str(
     result: str = dest_html
     if result != '':
         result += '\n'
-    result += ' ' * (indent_num * 2)
+    result += indent_util.make_spaces_for_html(indent_num=indent_num)
     result += to_append_html
     return result
 
@@ -95,7 +97,6 @@ def append_indent_to_each_script_line(html: str, indent_num: int) -> str:
     result_html : str
         Indentation added html string.
     """
-    space_num: int = indent_num * 2
     each_lines: List[str] = html.splitlines()
     result_html: str = ''
     script_line_util: ScriptLineUtil = ScriptLineUtil(html=html)
@@ -103,7 +104,8 @@ def append_indent_to_each_script_line(html: str, indent_num: int) -> str:
         if result_html != '':
             result_html += '\n'
         if script_line_util.is_script_line(line_number=i + 1):
-            result_html += ' ' * space_num
+            result_html += indent_util.make_spaces_for_html(
+                indent_num=indent_num)
         result_html += line
     return result_html
 

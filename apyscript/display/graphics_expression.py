@@ -3,6 +3,7 @@
 
 from apyscript.display.graphics import Graphics
 from apyscript.display.graphic_base import GraphicBase
+from apyscript.string import indent_util
 
 
 def append_fill_expression(
@@ -26,7 +27,7 @@ def append_fill_expression(
     """
     if graphics.fill_color is None:
         return expression
-    spaces: str = ' ' * (indent_num * 2)
+    spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
         f'\n{spaces}fill: "{graphics.fill_color}",'
     )
@@ -52,7 +53,7 @@ def append_x_expression(
     expression : str
         After appended expression string.
     """
-    spaces: str = ' ' * (indent_num * 2)
+    spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
         f'\n{spaces}x: {graphic.x},'
     )
@@ -78,7 +79,7 @@ def append_y_expression(
     expression : str
         After appended expression string.
     """
-    spaces: str = ' ' * (indent_num * 2)
+    spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
         f'\n{spaces}y: {graphic.y},'
     )

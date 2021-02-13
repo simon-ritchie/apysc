@@ -5,7 +5,7 @@ from typing import Any
 from typing import Type
 
 
-def is_same_class_instance(class_: Type, instance: Any):
+def is_same_class_instance(class_: Type, instance: Any) -> bool:
     """
     Get a boolean value whether specified class and instance's class
     are same or not.

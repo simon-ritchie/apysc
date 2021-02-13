@@ -92,7 +92,7 @@ def test_get_current_scope_next_variable_name() -> None:
         get_current_scope_next_variable_name(type_name='sprite')
     assert variable_name == 'sprite_1'
 
-    variable_name: str = scope_variables_util.\
+    variable_name = scope_variables_util.\
         get_current_scope_next_variable_name(type_name='sprite')
     assert variable_name == 'sprite_2'
 

@@ -1,6 +1,7 @@
 """Implementations of Rectangle class and other interfaces.
 """
 
+from typing import Any
 from apyscript.display.graphic_base import GraphicBase
 from apyscript.display.height_interface import HeightInterface
 from apyscript.display.stage import get_stage_variable_name
@@ -14,7 +15,8 @@ from apyscript.validation import size_validation
 class Rectangle(GraphicBase, WidthInterface, HeightInterface):
 
     def __init__(
-            self, parent, x: int, y: int, width: int, height: int) -> None:
+            self, parent: Any, x: int, y: int, width: int,
+            height: int) -> None:
         """
         Create a rectangle vector graphic.
 

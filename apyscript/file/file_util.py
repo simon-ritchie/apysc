@@ -58,7 +58,7 @@ def save_plain_txt(txt: str, file_path: str) -> None:
         f.write(txt)
 
 
-def append_plain_txt(txt: str, file_path) -> None:
+def append_plain_txt(txt: str, file_path: str) -> None:
     """
     Append plain text string to file.
 

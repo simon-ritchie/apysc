@@ -16,6 +16,7 @@ Mainly following interfaces are defined:
 """
 
 import re
+from typing import Match
 from typing import List
 from typing import Optional
 from typing import Tuple
@@ -184,7 +185,7 @@ def is_script_start_tag_line(line: str) -> bool:
         If specified line contains script start tag, then True
         will be set.
     """
-    match: Optional[re.Match] = re.search(
+    match: Optional[Match] = re.search(
         pattern=r'<script ', string=line)
     if match is None:
         return False
@@ -214,7 +215,7 @@ def is_script_end_tag_line(line: str) -> bool:
         If specified line contains script end tag, then True
         will be set.
     """
-    match: Optional[re.Match] = re.search(
+    match: Optional[Match] = re.search(
         pattern=r'</script>', string=line)
     if match is None:
         return False

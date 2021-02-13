@@ -1,7 +1,7 @@
 """Implementations for Graphics class.
 """
 
-from typing import List
+from typing import Any, List
 
 from apyscript.display.fill_color_interface import FillColorInterface
 from apyscript.display.graphic_base import GraphicBase
@@ -14,7 +14,7 @@ class Graphics(FillColorInterface):
 
     _graphics: List[GraphicBase]
 
-    def __init__(self, parent) -> None:
+    def __init__(self, parent: Any) -> None:
         """
         Create a object that has each vector graphics interface.
 

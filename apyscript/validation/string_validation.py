@@ -2,7 +2,7 @@
 """
 
 
-def validate_string_type(string: str):
+def validate_string_type(string: str) -> None:
     """
     Validate specified string's type is str.
 

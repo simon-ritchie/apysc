@@ -15,7 +15,7 @@ from tests import testing_helper
 class TestSprite:
 
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
-    def test___init__(self):
+    def test___init__(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
         testing_helper.assert_attrs(
@@ -30,7 +30,7 @@ class TestSprite:
             any_obj=sprite)
 
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
-    def test_add_child(self):
+    def test_add_child(self) -> None:
         stage: Stage = Stage()
         parent_sprite: Sprite = Sprite(stage=stage)
         child_sprite: Sprite = Sprite(stage=stage)

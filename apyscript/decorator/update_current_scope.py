@@ -40,7 +40,7 @@ def update_current_scope(module: ModuleType) -> Callable:
         """
 
         @wraps(func)
-        def inner_decorator_func(*args, **kwargs) -> Any:
+        def inner_decorator_func(*args: list, **kwargs: dict) -> Any:
             """
             Decorator function to handle specified function's call.
 

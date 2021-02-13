@@ -1,6 +1,7 @@
 """Class implementation for graphic base class.
 """
 
+from typing import Any
 from apyscript.display.variable_name_interface import VariableNameInterface
 from apyscript.display.x_interface import XInterface
 from apyscript.display.y_interface import YInterface
@@ -14,7 +15,7 @@ class GraphicBase(VariableNameInterface, XInterface, YInterface):
     _variable_name: str
 
     def __init__(
-            self, parent, x: int, y: int, variable_name: str) -> None:
+            self, parent: Any, x: int, y: int, variable_name: str) -> None:
         """
         Vector graphic base class.
 

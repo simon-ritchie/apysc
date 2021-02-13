@@ -2,7 +2,10 @@
 """
 
 
-def validate_stage(stage):
+from typing import Any
+
+
+def validate_stage(stage: Any) -> None:
     """
     Validate whether the specified instance is Stage type or not.
 
@@ -23,7 +26,7 @@ def validate_stage(stage):
         f'Specified instance is not Stage type: {type(stage)}')
 
 
-def validate_display_object(display_object):
+def validate_display_object(display_object: Any) -> None:
     """
     Validate specified instance is DisplayObject type or it's subclass
     type (e.g., Sprite).
@@ -47,7 +50,7 @@ def validate_display_object(display_object):
         f'{type(display_object)}')
 
 
-def validate_sprite(sprite) -> None:
+def validate_sprite(sprite: Any) -> None:
     """
     Validate specified instance is Sprite type.
 
@@ -68,7 +71,7 @@ def validate_sprite(sprite) -> None:
         f'Specified instance is not Sprite type: {type(sprite)}')
 
 
-def validate_graphics(graphics):
+def validate_graphics(graphics: Any) -> None:
     """
     Validate specified instance is Graphics type.
 

@@ -1,7 +1,7 @@
 """Implementations for DisplayObject class.
 """
 
-from typing import Type
+from typing import Any, Type
 
 from apyscript.display.variable_name_interface import VariableNameInterface
 from apyscript.validation import display_validation
@@ -10,7 +10,7 @@ from apyscript.validation import string_validation
 
 class DisplayObject(VariableNameInterface):
 
-    def __init__(self, stage, variable_name: str) -> None:
+    def __init__(self, stage: Any, variable_name: str) -> None:
         """
         Display object class for common interface.
 

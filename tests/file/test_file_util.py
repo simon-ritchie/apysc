@@ -43,7 +43,7 @@ def test_save_plain_txt() -> None:
     os.remove(tmp_file_path)
 
     tmp_dir_path: str = '../tmp_apyscript_test_file_util/'
-    tmp_file_path: str = os.path.join(tmp_dir_path, 'test.txt')
+    tmp_file_path = os.path.join(tmp_dir_path, 'test.txt')
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
     file_util.save_plain_txt(
         txt='To be, or not to be, that is the question.',

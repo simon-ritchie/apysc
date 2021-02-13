@@ -13,4 +13,4 @@
 - Add project making command (like a `cargo new` command).
 - Add line style setting to `Graphics` interface.
 - Add validation to check line color and fill color are not both empty.
-- Next time, restart working at installing autoflake.
+- Next time, restart working at fixing mypy's result.

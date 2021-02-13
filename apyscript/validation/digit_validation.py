@@ -4,7 +4,7 @@
 from typing import Union
 
 
-def validate_digit(digits: Union[int, float]) -> None:
+def validate_digit(digit: Union[int, float]) -> None:
     """
     Validate specified value is integer or float type.
 
@@ -18,11 +18,11 @@ def validate_digit(digits: Union[int, float]) -> None:
     ValueError
         If specified value is not integer and float value.
     """
-    if isinstance(digits, (int, float)):
+    if isinstance(digit, (int, float)):
         return
     raise ValueError(
-        f'Specified value is not iteger or float type: {digits}'
-        f'({type(digits)})')
+        f'Specified value is not iteger or float type: {digit}'
+        f'({type(digit)})')
 
 
 def validate_integer(integer: int) -> None:

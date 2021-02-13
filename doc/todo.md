@@ -5,8 +5,5 @@
 - Add validation to check line color and fill color are not both empty.
 - Apply fill alpha to `draw_rect` expression.
 - Split implementation of `_make_rect_attrs_expression` to `graphics_expression`.
-- Add string package and `indent_util` module.
-  - Implement `make_spaces_from_indent_num`.
-    - Apply it to `graphics_expression` and other spaces implementations.
 - Add `validate_digit_is_gt_zero` in `digit_validation`.
   - Apply it to `indent_util` module.

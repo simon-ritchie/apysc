@@ -3,12 +3,12 @@ from tests import testing_helper
 
 
 def test_validate_digit() -> None:
-    digit_validation.validate_digit(digits=100)
-    digit_validation.validate_digit(digits=100.5)
+    digit_validation.validate_digit(digit=100)
+    digit_validation.validate_digit(digit=100.5)
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         func_or_method=digit_validation.validate_digit,
-        kwargs={'digits': 'Hello!'})
+        kwargs={'digit': 'Hello!'})
 
 
 def test_validate_integer() -> None:

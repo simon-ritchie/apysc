@@ -4,10 +4,14 @@ Command example:
 $ python build.py
 """
 
-from datetime import datetime
+from logging import Logger
 import subprocess as sp
 import shutil
 from typing import List
+
+from apyscript.logging import loggers
+
+logger: Logger = loggers.get_info_logger()
 
 
 def _run_command(command: str) -> None:
@@ -22,7 +26,7 @@ def _run_command(command: str) -> None:
     Exception
         If the command return code is not 0.
     """
-    print(datetime.now(), f'Command started: {command}')
+    logger.info(f'Command started: {command}')
     popen = sp.Popen(
         command, shell=True, stdout=sp.PIPE, stderr=sp.STDOUT)
     stdout_bytes: bytes = popen.communicate()[0]
@@ -30,7 +34,7 @@ def _run_command(command: str) -> None:
         stdout: str = stdout_bytes.decode('utf-8')
     except Exception:
         stdout = stdout_bytes.decode('sjis')
-    print(datetime.now(), stdout)
+    logger.info(stdout)
     if popen.returncode == 0:
         return
     raise Exception(f'Command failed: {popen.returncode}')
@@ -56,13 +60,13 @@ def _main() -> None:
     """
     _remove_build_dirs()
 
-    command: str = 'poetry run python setup.py sdist'
+    command: str = 'python setup.py sdist'
     _run_command(command=command)
 
-    command = 'poetry run python setup.py bdist_wheel'
+    command = 'python setup.py bdist_wheel'
     _run_command(command=command)
 
-    print(datetime.now(), 'Build completed!')
+    logger.info('Build completed!')
 
 
 if __name__ == "__main__":

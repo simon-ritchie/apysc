@@ -88,3 +88,11 @@ $ numdoclint -p ./ -r
 ```
 $ mypy --ignore-missing-imports --follow-imports skip --disallow-untyped-calls --disallow-untyped-defs --strict-optional --strict-equality ./
 ```
+
+## PyPI
+
+Build project for PyPI:
+
+```
+$ python build.py
+```

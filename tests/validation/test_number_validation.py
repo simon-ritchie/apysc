@@ -25,3 +25,12 @@ def test_validate_num_is_gt_zero() -> None:
         expected_error_class=ValueError,
         func_or_method=number_validation.validate_num_is_gt_zero,
         kwargs={'num': 0})
+
+
+def test_validate_num_is_gte_zero() -> None:
+    number_validation.validate_num_is_gte_zero(num=0)
+    number_validation.validate_num_is_gte_zero(num=1)
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=number_validation.validate_num_is_gte_zero,
+        kwargs={'num': -0.1})

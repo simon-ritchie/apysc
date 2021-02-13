@@ -62,3 +62,22 @@ def validate_num_is_gt_zero(num: Union[int, float]) -> None:
     if num > 0:
         return
     raise ValueError(f'Specified values is less than or equal to zero: {num}')
+
+
+def validate_num_is_gte_zero(num: Union[int, float]) -> None:
+    """
+    Validate specified value is greater than or equal to zero.
+
+    Parameters
+    ----------
+    num : int or float
+        Number value to check.
+
+    Raises
+    ------
+    ValueError
+        If specified value is less than zero.
+    """
+    if num >= 0:
+        return
+    raise ValueError(f'Specified values is less than zero: {num}')

@@ -1,7 +1,7 @@
 """Class implementation for x position.
 """
 
-from apyscript.validation import digit_validation
+from apyscript.validation import number_validation
 
 
 class XInterface:
@@ -30,5 +30,5 @@ class XInterface:
         value : int
             X potision value.
         """
-        digit_validation.validate_integer(integer=value)
+        number_validation.validate_integer(integer=value)
         self._x = value

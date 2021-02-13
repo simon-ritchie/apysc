@@ -113,6 +113,7 @@ def test_append_expression_to_current_scope() -> None:
     assert expression.strip() == '<body></body>'
 
 
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test__get_maintaining_files_txt() -> None:
     CURRENT_SCOPE_FILE_PATH: str = \
         expression_file_util.CURRENT_SCOPE_FILE_PATH

@@ -1,7 +1,7 @@
 """Class implementation for y position.
 """
 
-from apyscript.validation import digit_validation
+from apyscript.validation import number_validation
 
 
 class YInterface:
@@ -30,5 +30,5 @@ class YInterface:
         value : int
             Y position value.
         """
-        digit_validation.validate_integer(integer=value)
+        number_validation.validate_integer(integer=value)
         self._y = value

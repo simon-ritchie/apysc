@@ -1,4 +1,4 @@
-"""Digit validation implementations.
+"""Number validation implementations.
 """
 
 from typing import Union

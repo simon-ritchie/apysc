@@ -50,12 +50,13 @@ def test__make_rect_attrs_expression() -> None:
     )
     assert rect_attrs_expression == expected
 
-    sprite.graphics.begin_fill(color='#333')
+    sprite.graphics.begin_fill(color='#333', alpha=0.5)
     rect_attrs_expression = rectangle._make_rect_attrs_expression(
         rectangle=rectangle_)
     expected = (
         '\n  .attr({'
         '\n    fill: "#333333",'
+        '\n    "fill-opacity": 0.5,'
         '\n    x: 100,'
         '\n    y: 200,'
         '\n  })'
@@ -69,7 +70,7 @@ def test_append_draw_rect_expression() -> None:
     expression_scope.update_current_scope(scope_name='test_graphics')
     expression_file_util.remove_current_scope_expression_file()
     sprite: Sprite = Sprite(stage=stage)
-    sprite.graphics.begin_fill(color='#333')
+    sprite.graphics.begin_fill(color='#333', alpha=0.5)
     sprite.graphics.draw_rect(x=100, y=200, width=300, height=400)
     sprite_name: str = sprite.variable_name
     rect_name: str = sprite.graphics._graphics[0].variable_name
@@ -80,6 +81,7 @@ def test_append_draw_rect_expression() -> None:
         '\n  .rect(300, 400)'
         '\n  .attr({'
         '\n    fill: "#333333",'
+        '\n    "fill-opacity": 0.5,'
         '\n    x: 100,'
         '\n    y: 200,'
         '\n  });'

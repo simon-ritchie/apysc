@@ -13,7 +13,7 @@ from apyscript.display.rectangle import Rectangle
 def test_append_fill_expression() -> None:
     stage: Stage = Stage()
     sprite: Sprite = Sprite(stage=stage)
-    graphics: Graphics = Graphics(parent=sprite)
+    graphics: Graphics = sprite.graphics
     expression: str = '.attr({'
     expression = graphics_expression.append_fill_expression(
         graphics=graphics, expression=expression, indent_num=1)
@@ -56,3 +56,21 @@ def test_append_y_expression() -> None:
     assert expression == (
         '.attr({'
         '\n  y: 200,')
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+def test_append_fill_opacity_expression() -> None:
+    stage: Stage = Stage()
+    sprite: Sprite = Sprite(stage=stage)
+    graphics: Graphics = sprite.graphics
+    expression: str = '.attr({'
+    expression = graphics_expression.append_fill_opacity_expression(
+        graphics=graphics, expression=expression, indent_num=1)
+    assert expression == '.attr({'
+
+    graphics.begin_fill(color='#333', alpha=0.5)
+    expression = graphics_expression.append_fill_opacity_expression(
+        graphics=graphics, expression=expression, indent_num=1)
+    assert expression == (
+        '.attr({'
+        '\n  "fill-opacity": 0.5,')

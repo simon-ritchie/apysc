@@ -40,3 +40,23 @@ def validate_hex_color_code_format(hex_color_code: str) -> None:
             'Invalid hexadecimal character is specified.'
             f'\nTarget character: {char}'
             f'\nSupported characters: {hexdigits}')
+
+
+def validate_alpha_range(alpha: float) -> None:
+    """
+    Validate specified alpha (opacity) value's range.
+
+    Parameters
+    ----------
+    alpha : float
+        Opacity value to check.
+
+    Raises
+    ------
+    ValueError
+        If specified opacity is out of 0.0 to 1.0 range.
+    """
+    if alpha < 0.0:
+        raise ValueError('Can\'t specify alpha value less than 0.0.')
+    if alpha > 1.0:
+        raise ValueError('Can\'t specify alpha value greater than 1.0')

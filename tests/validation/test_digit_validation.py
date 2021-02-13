@@ -17,3 +17,11 @@ def test_validate_integer() -> None:
         expected_error_class=ValueError,
         func_or_method=digit_validation.validate_integer,
         kwargs={'integer': 10.5})
+
+
+def test_validate_num_is_gt_zero() -> None:
+    digit_validation.validate_num_is_gt_zero(num=1)
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=digit_validation.validate_num_is_gt_zero,
+        kwargs={'num': 0})

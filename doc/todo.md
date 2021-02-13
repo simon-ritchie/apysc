@@ -7,3 +7,4 @@
 - Split implementation of `_make_rect_attrs_expression` to `graphics_expression`.
 - Add `validate_digit_is_gt_zero` in `digit_validation`.
   - Apply it to `indent_util` module.
+- Rename `digit_validation` to `number_validation`.

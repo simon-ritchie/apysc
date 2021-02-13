@@ -11,7 +11,7 @@ def validate_num(num: Union[int, float]) -> None:
     Parameters
     ----------
     num : int or float
-        Digits value to check.
+        Number value to check.
 
     Raises
     ------
@@ -43,3 +43,22 @@ def validate_integer(integer: int) -> None:
         return
     raise ValueError(
         f'Specified value is not integer: {integer}({type(integer)})')
+
+
+def validate_num_is_gt_zero(num: Union[int, float]) -> None:
+    """
+    Validate specified value is greater than zero.
+
+    Parameters
+    ----------
+    num : int or float
+        Number value to check.
+
+    Raises
+    ------
+    ValueError
+        If specified value is less than or equal to zero.
+    """
+    if num > 0:
+        return
+    raise ValueError(f'Specified values is less than or equal to zero: {num}')

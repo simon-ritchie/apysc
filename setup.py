@@ -1,7 +1,8 @@
 """The module that implements PyPI settings.
 """
 
-from setuptools import find_packages, setup
+from setuptools import find_packages
+from setuptools import setup
 
 from apyscript import __version__
 

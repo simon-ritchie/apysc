@@ -4,9 +4,9 @@ Command example:
 $ python build.py
 """
 
-from logging import Logger
-import subprocess as sp
 import shutil
+import subprocess as sp
+from logging import Logger
 from typing import List
 
 from apyscript.logging import loggers

@@ -96,3 +96,9 @@ Build project for PyPI:
 ```
 $ python build.py
 ```
+
+Upload to PyPI:
+
+```
+$ twine upload dist/*
+```

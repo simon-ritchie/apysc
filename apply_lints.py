@@ -43,7 +43,8 @@ lint_commands: List[LintCommand] = [
         'command':
         'mypy --ignore-missing-imports --follow-imports skip '
         '--disallow-untyped-calls --disallow-untyped-defs '
-        '--strict-optional --strict-equality ./',
+        '--strict-optional --strict-equality ./apyscript/ '
+        './tests/ ./test_projects/',
         'lint_name': 'mypy',
     },
 ]

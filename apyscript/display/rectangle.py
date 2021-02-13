@@ -88,12 +88,11 @@ def _make_rect_attrs_expression(rectangle: Rectangle) -> str:
         Rectangle attributes expression string.
     """
     from apyscript.display.graphics import Graphics
+    from apyscript.display import graphics_expression
     graphics: Graphics = rectangle.parent
     rect_attrs_expression: str = '\n  .attr({'
-    if graphics._fill_color is not None:
-        rect_attrs_expression += (
-            f'\n    fill: "{graphics._fill_color}",'
-        )
+    rect_attrs_expression = graphics_expression.append_fill_expression(
+        graphics=graphics, expression=rect_attrs_expression, indent_num=2)
     rect_attrs_expression += (
         f'\n    x: {rectangle.x},'
         f'\n    y: {rectangle.y},'

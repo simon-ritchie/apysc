@@ -3,6 +3,5 @@
 - Add project making command (like a `cargo new` command).
 - Add line style setting to `Graphics` interface.
 - Add validation to check line color and fill color are not both empty.
-- Add alpha validation.
-  - Apply it to `begin_fill`.
 - Apply fill alpha to `draw_rect` expression.
+- Split implementation of `_make_rect_attrs_expression` to `graphics_expression`.

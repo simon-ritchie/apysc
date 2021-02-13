@@ -107,6 +107,10 @@ def _make_rect_attrs_expression(rectangle: Rectangle) -> str:
         graphics_expression.append_stroke_width_expression(
             graphics=graphics, expression=rect_attrs_expression,
             indent_num=INDENT_NUM)
+    rect_attrs_expression = \
+        graphics_expression.append_stroke_opacity_expression(
+            graphics=graphics, expression=rect_attrs_expression,
+            indent_num=INDENT_NUM)
     rect_attrs_expression = graphics_expression.append_x_expression(
         graphic=rectangle, expression=rect_attrs_expression,
         indent_num=INDENT_NUM)

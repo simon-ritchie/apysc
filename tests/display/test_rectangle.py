@@ -74,6 +74,7 @@ def test__make_rect_attrs_expression() -> None:
         '\n  .attr({'
         '\n    stroke: "#666666",'
         '\n    "stroke-width": 2,'
+        '\n    "stroke-opacity": 0.3,'
         '\n    x: 100,'
         '\n    y: 200,'
         '\n  })'

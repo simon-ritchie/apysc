@@ -15,3 +15,9 @@ class TestLineStyleInterface:
                 '_line_alpha': 0.5,
             },
             any_obj=line_style_interface)
+
+    def test_line_color(self) -> None:
+        line_style_interface: LineStyleInterface = LineStyleInterface()
+        line_style_interface.line_style(
+            color='#333', thickness=3, alpha=0.5)
+        assert line_style_interface.line_color == '#333333'

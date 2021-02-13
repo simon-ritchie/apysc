@@ -37,3 +37,16 @@ class LineStyleInterface:
         number_validation.validate_num(num=alpha)
         color_validation.validate_alpha_range(alpha=alpha)
         self._line_alpha = alpha
+
+    @property
+    def line_color(self) -> Optional[str]:
+        """
+        Get current line color.
+
+        Returns
+        -------
+        line_color : str or None
+            Current line color (hexadecimal string, e.g., '#00aaff').
+            If not be set, None will be returned.
+        """
+        return self._line_color

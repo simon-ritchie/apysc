@@ -36,7 +36,7 @@ class FillColorInterface:
 
         Returns
         -------
-        fill_color : str
+        fill_color : str or None
             Current fill color (hexadecimal string, e.g., '#00aaff').
             If not be set, None will be returned.
         """
@@ -49,7 +49,7 @@ class FillColorInterface:
 
         Returns
         -------
-        fill_alpha : float
+        fill_alpha : float or None
             Current fill color opacity (0.0 to 1.0).
             If not be set, None will be returned.
         """

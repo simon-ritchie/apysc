@@ -4,3 +4,4 @@
 - Add line style setting to `Graphics` interface.
 - Add validation to check line color and fill color are not both empty.
 - Apply fill alpha to `draw_rect` expression.
+- Update numdoclint.

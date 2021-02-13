@@ -37,7 +37,7 @@ def append_fill_expression(
 def append_fill_opacity_expression(
         graphics: Graphics, expression: str, indent_num: int) -> str:
     """
-    Append fill opacity expression to specified expression's string.'
+    Append fill opacity expression to specified expression's string.
 
     Parameters
     ----------

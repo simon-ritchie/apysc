@@ -1,4 +1,7 @@
 """Test project for draw_rect interface.
+
+Command example:
+$ python test_projects/draw_rect/main.py
 """
 
 import sys
@@ -34,6 +37,9 @@ def main() -> None:
     sprite.graphics.begin_fill(color='#00aaff')
     sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
     stage.add_child(child=sprite)
+
+    sprite.graphics.begin_fill(color='#00aaff', alpha=0.5)
+    sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)

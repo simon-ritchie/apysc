@@ -7,13 +7,12 @@ from logging import Logger
 from logging import StreamHandler
 from logging import getLogger
 
-_LOGGER_NAME_USER_INFO: str = 'user_info'
+_LOGGER_NAME_INFO: str = 'user_info'
 
 
-def get_user_info_logger() -> Logger:
+def get_info_logger() -> Logger:
     """
-    Get information logger used when user is manipulating
-    (e.g., export command).
+    Get information logger.
 
     Returns
     -------
@@ -22,7 +21,7 @@ def get_user_info_logger() -> Logger:
         - Level: INFO
         - Format: `%Y-%m-%d %H:%M:%S. <message>`
     """
-    logger: Logger = getLogger(_LOGGER_NAME_USER_INFO)
+    logger: Logger = getLogger(_LOGGER_NAME_INFO)
     logger.setLevel(level=INFO)
 
     stream_handler: StreamHandler = StreamHandler()

@@ -1,7 +1,4 @@
-- Add mypy library.
 - Add command to apply each lints.
-- Add implementation of saving overall html from expression.
-  - `save_expressions_overall_html`
 - Add build script for PyPI.
 - Append PyPI document to `how to develop`
 - Upload initial version to PyPI.
@@ -13,4 +10,4 @@
 - Add project making command (like a `cargo new` command).
 - Add line style setting to `Graphics` interface.
 - Add validation to check line color and fill color are not both empty.
-- Next time, restart working at fixing mypy's result.
+- Rename `get_user_info_logger` to `get_info_logger`.

@@ -1,7 +1,8 @@
 """Implementations for Graphics class.
 """
 
-from typing import Any, List
+from typing import Any
+from typing import List
 
 from apyscript.display.fill_color_interface import FillColorInterface
 from apyscript.display.graphic_base import GraphicBase

@@ -16,8 +16,8 @@ Mainly following interfaces are defined:
 """
 
 import re
-from typing import Match
 from typing import List
+from typing import Match
 from typing import Optional
 from typing import Tuple
 

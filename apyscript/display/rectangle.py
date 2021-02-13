@@ -2,6 +2,7 @@
 """
 
 from typing import Any
+
 from apyscript.display.graphic_base import GraphicBase
 from apyscript.display.height_interface import HeightInterface
 from apyscript.display.stage import get_stage_variable_name

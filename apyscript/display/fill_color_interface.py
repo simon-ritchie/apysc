@@ -5,6 +5,7 @@
 from typing import Optional
 
 from apyscript.color import color_util
+from apyscript.validation import color_validation
 
 
 class FillColorInterface:
@@ -25,6 +26,7 @@ class FillColorInterface:
         """
         color = color_util.complement_hex_color(hex_color_code=color)
         self._fill_color = color
+        color_validation.validate_alpha_range(alpha=alpha)
         self._fill_alpha = alpha
 
     @property

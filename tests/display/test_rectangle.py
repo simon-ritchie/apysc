@@ -73,6 +73,7 @@ def test__make_rect_attrs_expression() -> None:
     expected = (
         '\n  .attr({'
         '\n    stroke: "#666666",'
+        '\n    "stroke-width": 2,'
         '\n    x: 100,'
         '\n    y: 200,'
         '\n  })'

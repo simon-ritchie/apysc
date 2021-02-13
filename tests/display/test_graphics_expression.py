@@ -93,3 +93,22 @@ def test_append_stroke_expression() -> None:
         '.attr({'
         '\n  stroke: "#666666",'
     )
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+def test_append_stroke_width_expression() -> None:
+    stage: Stage = Stage()
+    sprite: Sprite = Sprite(stage=stage)
+    graphics: Graphics = sprite.graphics
+    expression: str = '.attr({'
+    expression = graphics_expression.append_stroke_expression(
+        graphics=graphics, expression=expression, indent_num=1)
+    assert expression == '.attr({'
+
+    graphics.line_style(color='#666', thickness=3)
+    expression = graphics_expression.append_stroke_width_expression(
+        graphics=graphics, expression=expression, indent_num=1)
+    assert expression == (
+        '.attr({'
+        '\n  "stroke-width": 3,'
+    )

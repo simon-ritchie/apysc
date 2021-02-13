@@ -140,3 +140,31 @@ def append_stroke_expression(
         f'\n{spaces}stroke: "{graphics.line_color}",'
     )
     return expression
+
+
+def append_stroke_width_expression(
+        graphics: Graphics, expression: str, indent_num: int) -> str:
+    """
+    Append stroke width expression to specified expression's string.
+
+    Parameters
+    ----------
+    graphics : Graphics
+        Target Graphics instance.
+    expression : str
+        Expression string to be appended stroke width expression.
+    indent_num : int
+        Indentation number.
+
+    Returns
+    -------
+    expression : str
+        After appended expression string.
+    """
+    if graphics.line_thickness is None:
+        return expression
+    spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
+    expression += (
+        f'\n{spaces}"stroke-width": {graphics.line_thickness},'
+    )
+    return expression

@@ -50,3 +50,15 @@ class LineStyleInterface:
             If not be set, None will be returned.
         """
         return self._line_color
+
+    @property
+    def line_thickness(self) -> Optional[int]:
+        """
+        Get current line thickness.
+
+        Returns
+        -------
+        line_thickness : int or None
+            Current line thickness.
+        """
+        return self._line_thickness

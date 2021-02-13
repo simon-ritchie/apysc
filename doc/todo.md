@@ -1,4 +1,3 @@
-- Add command to apply each lints.
 - Add build script for PyPI.
 - Append PyPI document to `how to develop`
 - Upload initial version to PyPI.

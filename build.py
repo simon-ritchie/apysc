@@ -17,10 +17,12 @@ logger: Logger = loggers.get_info_logger()
 def _run_command(command: str) -> None:
     """
     Run the specified command.
+
     Parameters
     ----------
     command : str
         The command string.
+
     Raises
     ------
     Exception

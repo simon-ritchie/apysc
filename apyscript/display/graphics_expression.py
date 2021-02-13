@@ -1,8 +1,8 @@
 """Graphics class related expression implementations.
 """
 
-from apyscript.display.graphics import Graphics
 from apyscript.display.graphic_base import GraphicBase
+from apyscript.display.graphics import Graphics
 from apyscript.string import indent_util
 
 

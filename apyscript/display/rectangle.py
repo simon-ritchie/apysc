@@ -87,8 +87,8 @@ def _make_rect_attrs_expression(rectangle: Rectangle) -> str:
     rect_attrs_expression : str
         Rectangle attributes expression string.
     """
-    from apyscript.display.graphics import Graphics
     from apyscript.display import graphics_expression
+    from apyscript.display.graphics import Graphics
     graphics: Graphics = rectangle.parent
     INDENT_NUM: int = 2
     rect_attrs_expression: str = '\n  .attr({'

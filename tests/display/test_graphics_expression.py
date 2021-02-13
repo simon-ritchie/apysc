@@ -3,10 +3,10 @@ from random import randint
 from retrying import retry
 
 from apyscript.display import graphics_expression
-from apyscript.display.sprite import Sprite
-from apyscript.display.stage import Stage
 from apyscript.display.graphics import Graphics
 from apyscript.display.rectangle import Rectangle
+from apyscript.display.sprite import Sprite
+from apyscript.display.stage import Stage
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))

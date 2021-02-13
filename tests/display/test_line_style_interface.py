@@ -27,3 +27,9 @@ class TestLineStyleInterface:
         line_style_interface.line_style(
             color='#333', thickness=3, alpha=0.5)
         assert line_style_interface.line_thickness == 3
+
+    def test_line_alpha(self) -> None:
+        line_style_interface: LineStyleInterface = LineStyleInterface()
+        line_style_interface.line_style(
+            color='#333', thickness=3, alpha=0.5)
+        assert line_style_interface.line_alpha == 0.5

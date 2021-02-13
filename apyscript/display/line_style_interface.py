@@ -62,3 +62,16 @@ class LineStyleInterface:
             Current line thickness.
         """
         return self._line_thickness
+
+    @property
+    def line_alpha(self) -> Optional[float]:
+        """
+        Get current line color opacity.
+
+        Returns
+        -------
+        line_alpha : float or None
+            Current line opacity (0.0 to 1.0).
+            If not be set, None will be returned.
+        """
+        return self._line_alpha

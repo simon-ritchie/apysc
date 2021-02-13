@@ -86,7 +86,7 @@ $ numdoclint -p ./ -r
 ### mypy
 
 ```
-$ mypy --ignore-missing-imports --follow-imports skip --disallow-untyped-calls --disallow-untyped-defs --strict-optional --strict-equality ./
+$ mypy --ignore-missing-imports --follow-imports skip --disallow-untyped-calls --disallow-untyped-defs --strict-optional --strict-equality ./apyscript/ ./tests/ ./test_projects/
 ```
 
 ## PyPI

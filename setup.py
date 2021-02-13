@@ -26,7 +26,8 @@ setup(
     maintainer_email='',
     description=_DESCRIPTION,
     long_description=_LONG_DESCRIPTION,
-    packages=find_packages(),
+    packages=find_packages(
+        exclude=('tests', 'tests.*', 'test_projects', 'test_projects.*')),
     install_requires=[
         'typing-extensions',
     ],

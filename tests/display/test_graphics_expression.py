@@ -74,3 +74,22 @@ def test_append_fill_opacity_expression() -> None:
     assert expression == (
         '.attr({'
         '\n  "fill-opacity": 0.5,')
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+def test_append_stroke_expression() -> None:
+    stage: Stage = Stage()
+    sprite: Sprite = Sprite(stage=stage)
+    graphics: Graphics = sprite.graphics
+    expression: str = '.attr({'
+    expression = graphics_expression.append_stroke_expression(
+        graphics=graphics, expression=expression, indent_num=1)
+    assert expression == '.attr({'
+
+    graphics.line_style(color='#666')
+    expression = graphics_expression.append_stroke_expression(
+        graphics=graphics, expression=expression, indent_num=1)
+    assert expression == (
+        '.attr({'
+        '\n  stroke: "#666666",'
+    )

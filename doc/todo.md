@@ -6,3 +6,4 @@
 - Add `validate_num` to `begin_fill` interface of `alpha` argument.
 - Add int to float cast interface to cast module.
   - Apply it to `begin_fill` and `line_style` interface.
+- Add fill_color, fill_alpha, line_color, line_thickness, line_alpha attribute to Rectangle class.

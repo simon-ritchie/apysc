@@ -13,7 +13,8 @@ from apyscript.html import html_const
 from apyscript.validation import size_validation
 
 
-class Rectangle(GraphicBase, WidthInterface, HeightInterface):
+class Rectangle(
+        GraphicBase, WidthInterface, HeightInterface):
 
     def __init__(
             self, parent: Any, x: int, y: int, width: int,
@@ -99,11 +100,15 @@ def _make_rect_attrs_expression(rectangle: Rectangle) -> str:
         graphics_expression.append_fill_opacity_expression(
             graphics=graphics, expression=rect_attrs_expression,
             indent_num=INDENT_NUM)
+    rect_attrs_expression = graphics_expression.append_stroke_expression(
+        graphics=graphics, expression=rect_attrs_expression,
+        indent_num=INDENT_NUM)
     rect_attrs_expression = graphics_expression.append_x_expression(
         graphic=rectangle, expression=rect_attrs_expression,
         indent_num=INDENT_NUM)
     rect_attrs_expression = graphics_expression.append_y_expression(
         graphic=rectangle, expression=rect_attrs_expression,
         indent_num=INDENT_NUM)
+
     rect_attrs_expression += '\n  })'
     return rect_attrs_expression

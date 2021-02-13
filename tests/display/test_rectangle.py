@@ -63,6 +63,22 @@ def test__make_rect_attrs_expression() -> None:
     )
     assert rect_attrs_expression == expected
 
+    sprite = Sprite(stage=stage)
+    sprite.graphics.line_style(color='#666', thickness=2, alpha=0.3)
+    rectangle_ = Rectangle(
+        parent=sprite.graphics,
+        x=100, y=200, width=150, height=50)
+    rect_attrs_expression = rectangle._make_rect_attrs_expression(
+        rectangle=rectangle_)
+    expected = (
+        '\n  .attr({'
+        '\n    stroke: "#666666",'
+        '\n    x: 100,'
+        '\n    y: 200,'
+        '\n  })'
+    )
+    assert rect_attrs_expression == expected
+
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test_append_draw_rect_expression() -> None:

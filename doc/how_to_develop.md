@@ -53,6 +53,12 @@ $ pytest --cov=./apyscript tests/ -v -s --workers auto --lf --cov-report term-mi
 
 ## Apply Lints
 
+### Run All Lints
+
+```
+$ python apply_lints.py
+```
+
 ### autoflake
 
 ```

@@ -32,7 +32,7 @@ def main() -> None:
     """
     stage: Stage = Stage(
         background_color='#111',
-        stage_width=500, stage_height=300)
+        stage_width=700, stage_height=500)
     sprite: Sprite = Sprite(stage=stage)
     sprite.graphics.begin_fill(color='#00aaff')
     sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
@@ -40,6 +40,10 @@ def main() -> None:
 
     sprite.graphics.begin_fill(color='#00aaff', alpha=0.5)
     sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
+
+    sprite.graphics.begin_fill(color='#00aaff')
+    sprite.graphics.line_style(color='#fff', thickness=3, alpha=0.7)
+    sprite.graphics.draw_rect(x=250, y=50, width=50, height=50)
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)

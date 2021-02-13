@@ -20,7 +20,7 @@ _LONG_DESCRIPTION: str = (
 )
 
 setup(
-    name='ActionPyScript',
+    name='actionpyscript',
     version=__version__,
     url='https://github.com/simon-ritchie/action-py-script',
     maintainer='simon-ritchie',

@@ -2,6 +2,7 @@
 """
 
 from apyscript.display.graphics import Graphics
+from apyscript.display.graphic_base import GraphicBase
 
 
 def append_fill_expression(
@@ -28,5 +29,31 @@ def append_fill_expression(
     spaces: str = ' ' * (indent_num * 2)
     expression += (
         f'\n{spaces}fill: "{graphics.fill_color}",'
+    )
+    return expression
+
+
+def append_x_expression(
+        graphic: GraphicBase, expression: str, indent_num: int) -> str:
+    """
+    Append x position expression to specified expression's string.
+
+    Parameters
+    ----------
+    graphic : GraphicBase
+        Target graphic instance, for example, Rectangle.
+    expression : str
+        Expression string to be appended x position expression.
+    indent_num : int
+        Indentation number.
+
+    Returns
+    -------
+    expression : str
+        After appended expression string.
+    """
+    spaces: str = ' ' * (indent_num * 2)
+    expression += (
+        f'\n{spaces}x: {graphic.x},'
     )
     return expression

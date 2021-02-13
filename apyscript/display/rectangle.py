@@ -90,11 +90,15 @@ def _make_rect_attrs_expression(rectangle: Rectangle) -> str:
     from apyscript.display.graphics import Graphics
     from apyscript.display import graphics_expression
     graphics: Graphics = rectangle.parent
+    INDENT_NUM: int = 2
     rect_attrs_expression: str = '\n  .attr({'
     rect_attrs_expression = graphics_expression.append_fill_expression(
-        graphics=graphics, expression=rect_attrs_expression, indent_num=2)
+        graphics=graphics, expression=rect_attrs_expression,
+        indent_num=INDENT_NUM)
+    rect_attrs_expression = graphics_expression.append_x_expression(
+        graphic=rectangle, expression=rect_attrs_expression,
+        indent_num=INDENT_NUM)
     rect_attrs_expression += (
-        f'\n    x: {rectangle.x},'
         f'\n    y: {rectangle.y},'
     )
     rect_attrs_expression += '\n  })'

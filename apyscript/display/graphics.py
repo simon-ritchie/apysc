@@ -54,7 +54,7 @@ class Graphics(BiginFillInterface, LineStyleInterface):
         rectangle: Rectangle = Rectangle(
             parent=self, x=x, y=y, width=width, height=height,
             fill_color=self.fill_color, fill_alpha=self.fill_alpha,
-            line_color=self.line_color)
+            line_color=self.line_color, line_thickness=self.line_thickness)
         self._graphics.append(rectangle)
         append_draw_rect_expression(rectangle=rectangle)
         return rectangle

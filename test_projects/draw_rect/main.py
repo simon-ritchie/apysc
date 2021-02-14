@@ -85,6 +85,11 @@ def main() -> None:
         x=50, y=150, width=50, height=50)
     rectangle.line_color = '#f0a'
 
+    # Test for rectangle line thickness update.
+    rectangle = sprite.graphics.draw_rect(
+        x=150, y=150, width=50, height=50)
+    rectangle.line_thickness = 1
+
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 

@@ -36,6 +36,32 @@ class LineThicknessInterface(VariableNameInterface):
         value : int
             Line thickness to set.
         """
+        self.update_line_thickness_and_skip_appending_exp(value=value)
+        self._append_line_thickness_update_expression()
+
+    def _append_line_thickness_update_expression(self) -> None:
+        """
+        Append line thickness update expression to current scope.
+        """
+        expression: str = (
+            f'{self.variable_name}.attr({{"stroke-width": '
+            f'{self.line_thickness}}});'
+        )
+        expression = html_util.wrap_expression_by_script_tag(
+            expression=expression)
+        expression_file_util.append_expression_to_current_scope(
+            expression=expression)
+
+    def update_line_thickness_and_skip_appending_exp(
+            self, value: int) -> None:
+        """
+        Update line thickness and skip appending expression to file.
+
+        Parameters
+        ----------
+        value : int
+            LKine thickness to set.
+        """
         number_validation.validate_integer(integer=value)
         number_validation.validate_num_is_gte_zero(num=value)
         self._line_thickness = value

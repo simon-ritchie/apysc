@@ -21,7 +21,7 @@ class TestRectangle:
         rectangle: Rectangle = Rectangle(
             parent=sprite.graphics,
             x=100, y=200, width=300, height=400, fill_color='#333',
-            fill_alpha=0.75, line_color='#aaa')
+            fill_alpha=0.75, line_color='#aaa', line_thickness=3)
         testing_helper.assert_attrs(
             expected_attrs={
                 'parent': sprite.graphics,
@@ -32,6 +32,7 @@ class TestRectangle:
                 '_fill_color': '#333333',
                 '_fill_alpha': 0.75,
                 '_line_color': '#aaaaaa',
+                '_line_thickness': 3,
             },
             any_obj=rectangle)
 

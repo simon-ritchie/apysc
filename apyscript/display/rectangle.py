@@ -7,6 +7,7 @@ from typing import Optional
 from apyscript.display.fill_color_interface import FillColorInterface
 from apyscript.display.fill_alpha_interface import FillAlphaInterface
 from apyscript.display.line_color_interface import LineColorInterface
+from apyscript.display.line_thickness_interface import LineThicknessInterface
 from apyscript.display.graphic_base import GraphicBase
 from apyscript.display.height_interface import HeightInterface
 from apyscript.display.stage import get_stage_variable_name
@@ -19,13 +20,14 @@ from apyscript.validation import size_validation
 
 class Rectangle(
         GraphicBase, WidthInterface, HeightInterface, FillColorInterface,
-        FillAlphaInterface, LineColorInterface):
+        FillAlphaInterface, LineColorInterface, LineThicknessInterface):
 
     def __init__(
             self, parent: Any, x: int, y: int, width: int,
             height: int, fill_color: Optional[str] = None,
             fill_alpha: Optional[float] = None,
-            line_color: Optional[str] = None) -> None:
+            line_color: Optional[str] = None,
+            line_thickness: Optional[int] = None) -> None:
         """
         Create a rectangle vector graphic.
 
@@ -47,6 +49,8 @@ class Rectangle(
             Fill opacity (0.0 to 1.0).
         line_color : str or None, default None
             Line color (hexadecimal string, e.g., '#00aaff').
+        line_thickness : str or None, default None
+            Line thickness (width).
         """
         variable_name: str = scope_variables_util.\
             get_current_scope_next_variable_name(type_name='rectangle')
@@ -62,6 +66,9 @@ class Rectangle(
             self.update_fill_alpha_and_skip_appending_exp(value=fill_alpha)
         if line_color is not None:
             self.update_line_color_and_skip_appending_exp(value=line_color)
+        if line_thickness is not None:
+            self.update_line_thickness_and_skip_appending_exp(
+                value=line_thickness)
 
 
 def append_draw_rect_expression(rectangle: Rectangle) -> None:

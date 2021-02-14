@@ -70,6 +70,11 @@ def main() -> None:
         x=700, y=50, width=50, height=50)
     rectangle.height = 100
 
+    # Test for rectangle fill color update.
+    rectangle = sprite.graphics.draw_rect(
+        x=800, y=50, width=50, height=50)
+    rectangle.fill_color = '#f0a'
+
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 

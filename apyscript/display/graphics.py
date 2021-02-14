@@ -52,7 +52,8 @@ class Graphics(BiginFillInterface, LineStyleInterface):
             Created rectangle.
         """
         rectangle: Rectangle = Rectangle(
-            parent=self, x=x, y=y, width=width, height=height)
+            parent=self, x=x, y=y, width=width, height=height,
+            fill_color=self.fill_color)
         self._graphics.append(rectangle)
         append_draw_rect_expression(rectangle=rectangle)
         return rectangle

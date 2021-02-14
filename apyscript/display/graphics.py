@@ -4,7 +4,7 @@
 from typing import Any
 from typing import List
 
-from apyscript.display.fill_color_interface import FillColorInterface
+from apyscript.display.begin_fill_interface import BiginFillInterface
 from apyscript.display.line_style_interface import LineStyleInterface
 from apyscript.display.graphic_base import GraphicBase
 from apyscript.display.rectangle import Rectangle
@@ -12,7 +12,7 @@ from apyscript.display.rectangle import append_draw_rect_expression
 from apyscript.validation import display_validation
 
 
-class Graphics(FillColorInterface, LineStyleInterface):
+class Graphics(BiginFillInterface, LineStyleInterface):
 
     _graphics: List[GraphicBase]
 

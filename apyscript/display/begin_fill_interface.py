@@ -1,4 +1,4 @@
-"""Class implementation for fill color related interface.
+"""Class implementation for begin_fill method related interface.
 """
 
 
@@ -8,7 +8,7 @@ from apyscript.color import color_util
 from apyscript.validation import color_validation
 
 
-class FillColorInterface:
+class BiginFillInterface:
 
     _fill_color: Optional[str] = None
     _fill_alpha: Optional[float] = None

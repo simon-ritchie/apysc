@@ -33,7 +33,7 @@ def main() -> None:
     """
     stage: Stage = Stage(
         background_color='#111',
-        stage_width=700, stage_height=500)
+        stage_width=1000, stage_height=500)
 
     # Basic functional test case.
     sprite: Sprite = Sprite(stage=stage)
@@ -59,6 +59,16 @@ def main() -> None:
     rectangle = sprite.graphics.draw_rect(
         x=450, y=0, width=50, height=50)
     rectangle.y = 50
+
+    # Test for rectangle width update.
+    rectangle = sprite.graphics.draw_rect(
+        x=550, y=50, width=50, height=50)
+    rectangle.width = 100
+
+    # Test for rectangle height update.
+    rectangle = sprite.graphics.draw_rect(
+        x=700, y=50, width=50, height=50)
+    rectangle.height = 100
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)

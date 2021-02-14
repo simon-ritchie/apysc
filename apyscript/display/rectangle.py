@@ -42,7 +42,7 @@ class Rectangle(
         size_validation.validate_size_is_gte_zero(size=width)
         size_validation.validate_size_is_gte_zero(size=height)
         self.update_width_and_skip_appending_exp(value=width)
-        self.height = height
+        self.update_height_and_skip_appending_exp(value=height)
 
 
 def append_draw_rect_expression(rectangle: Rectangle) -> None:

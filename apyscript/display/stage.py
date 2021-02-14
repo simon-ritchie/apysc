@@ -31,7 +31,6 @@ class Stage(
     _background_color: str
     _add_to: str
     _stage_elem_id: str
-    _stage_height: int
     _childs: List[DisplayObject]
 
     def __init__(
@@ -68,7 +67,7 @@ class Stage(
             str_val=self._stage_elem_id)
         self.variable_name = get_stage_variable_name()
         self.update_width_and_skip_appending_exp(value=stage_width)
-        self._stage_height = stage_height
+        self.update_height_and_skip_appending_exp(value=stage_height)
 
         background_color = color_util.complement_hex_color(
             hex_color_code=background_color)
@@ -76,7 +75,6 @@ class Stage(
         string_validation.validate_not_empty_string(string=add_to)
         self._add_to = add_to
         self._append_constructor_expression()
-        self.height = stage_height
         self._childs = []
 
     def _save_stage_elem_id_to_expression_file(self) -> None:
@@ -136,7 +134,7 @@ class Stage(
             f'\n$("{self._add_to}").append(stage_html);'
             f'\n{get_stage_variable_name()} = SVG()'
             f'.addTo("#{self._stage_elem_id}").size('
-            f'\n  {self.width}, {self._stage_height});'
+            f'\n  {self.width}, {self.height});'
             f'\n{html_const.SCRIPT_END_TAG}'
         )
         return expression
@@ -152,7 +150,7 @@ class Stage(
         """
         style: str = (
             f'width: {self.width}px;'
-            f' height: {self._stage_height}px;'
+            f' height: {self.height}px;'
             f' background-color: {self._background_color};'
         )
         return style

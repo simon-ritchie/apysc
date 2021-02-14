@@ -38,6 +38,30 @@ class FillAlphaInterface(VariableNameInterface):
         value : float
             Fill opacity to set.
         """
+        self.update_fill_alpha_and_skip_appending_exp(value=value)
+        self._append_fill_alpha_update_expression()
+
+    def _append_fill_alpha_update_expression(self) -> None:
+        """
+        Append fill alpha updating expression to current scope.
+        """
+        expression: str = (
+            f'{self.variable_name}.fill({{opacity: {self.fill_alpha}}});'
+        )
+        expression = html_util.wrap_expression_by_script_tag(
+            expression=expression)
+        expression_file_util.append_expression_to_current_scope(
+            expression=expression)
+
+    def update_fill_alpha_and_skip_appending_exp(self, value: float) -> None:
+        """
+        Update fill opacity and skip appending expression to file.
+
+        Parameters
+        ----------
+        value : float
+            Fill opacity to set.
+        """
         number_validation.validate_num(num=value)
         color_validation.validate_alpha_range(alpha=value)
         self._fill_alpha = value

@@ -75,6 +75,11 @@ def main() -> None:
         x=800, y=50, width=50, height=50)
     rectangle.fill_color = '#f0a'
 
+    # Test for rectangle fill alpha update.
+    rectangle = sprite.graphics.draw_rect(
+        x=900, y=50, width=50, height=50)
+    rectangle.fill_alpha = 0.5
+
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 

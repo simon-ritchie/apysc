@@ -5,6 +5,7 @@ from typing import Any
 from typing import Optional
 
 from apyscript.display.fill_color_interface import FillColorInterface
+from apyscript.display.fill_alpha_interface import FillAlphaInterface
 from apyscript.display.graphic_base import GraphicBase
 from apyscript.display.height_interface import HeightInterface
 from apyscript.display.stage import get_stage_variable_name
@@ -16,11 +17,13 @@ from apyscript.validation import size_validation
 
 
 class Rectangle(
-        GraphicBase, WidthInterface, HeightInterface, FillColorInterface):
+        GraphicBase, WidthInterface, HeightInterface, FillColorInterface,
+        FillAlphaInterface):
 
     def __init__(
             self, parent: Any, x: int, y: int, width: int,
-            height: int, fill_color: Optional[str] = None) -> None:
+            height: int, fill_color: Optional[str] = None,
+            fill_alpha: Optional[float] = None) -> None:
         """
         Create a rectangle vector graphic.
 
@@ -38,6 +41,8 @@ class Rectangle(
             Rectangle height.
         fill_color : str or None, default None
             Fill color (hexadecimal string, e.g., '#00aaff').
+        fill_alpha : float or None, default None
+            Fill opacity (0.0 to 1.0).
         """
         variable_name: str = scope_variables_util.\
             get_current_scope_next_variable_name(type_name='rectangle')
@@ -49,6 +54,8 @@ class Rectangle(
         self.update_height_and_skip_appending_exp(value=height)
         if fill_color is not None:
             self.update_fill_color_and_skip_appending_exp(value=fill_color)
+        if fill_alpha is not None:
+            self.update_fill_alpha_and_skip_appending_exp(value=fill_alpha)
 
 
 def append_draw_rect_expression(rectangle: Rectangle) -> None:

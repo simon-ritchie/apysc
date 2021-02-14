@@ -2,10 +2,11 @@
 """
 
 from typing import Optional
+
+from apyscript.color import color_util
 from apyscript.display.variable_name_interface import VariableNameInterface
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
-from apyscript.color import color_util
 
 
 class FillColorInterface(VariableNameInterface):

@@ -23,7 +23,7 @@ class TestHeightInterface:
         height_interface.height = 300
         expression: str = expression_file_util.get_current_scope_expression()
         expected: str = (
-            f'test_height_interface.height(300);'
+            'test_height_interface.height(300);'
         )
         expected = html_util.wrap_expression_by_script_tag(
             expression=expected)

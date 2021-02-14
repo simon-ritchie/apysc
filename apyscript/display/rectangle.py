@@ -1,13 +1,14 @@
 """Implementations of Rectangle class and other interfaces.
 """
 
-from typing import Any, Optional
+from typing import Any
+from typing import Optional
 
+from apyscript.display.fill_color_interface import FillColorInterface
 from apyscript.display.graphic_base import GraphicBase
 from apyscript.display.height_interface import HeightInterface
 from apyscript.display.stage import get_stage_variable_name
 from apyscript.display.width_interface import WidthInterface
-from apyscript.display.fill_color_interface import FillColorInterface
 from apyscript.expression import expression_file_util
 from apyscript.expression import scope_variables_util
 from apyscript.html import html_const

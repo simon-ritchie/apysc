@@ -11,8 +11,8 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apyscript.display.rectangle import Rectangle
 from apyscript.decorator.update_current_scope import update_current_scope
+from apyscript.display.rectangle import Rectangle
 from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
 from apyscript.file import file_util

@@ -1,10 +1,10 @@
 """Class implementation for x position interface.
 """
 
-from apyscript.validation import number_validation
 from apyscript.display.variable_name_interface import VariableNameInterface
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
+from apyscript.validation import number_validation
 
 
 class XInterface(VariableNameInterface):

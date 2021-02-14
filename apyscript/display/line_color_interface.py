@@ -36,5 +36,29 @@ class LineColorInterface(VariableNameInterface):
         value : str
             Line color to set.
         """
+        self.update_line_color_and_skip_appending_exp(value=value)
+        self._append_line_color_update_expression()
+
+    def _append_line_color_update_expression(self) -> None:
+        """
+        Append line color updating expression to current scope.
+        """
+        expression: str = (
+            f'{self.variable_name}.stroke("{self.line_color}");'
+        )
+        expression = html_util.wrap_expression_by_script_tag(
+            expression=expression)
+        expression_file_util.append_expression_to_current_scope(
+            expression=expression)
+
+    def update_line_color_and_skip_appending_exp(self, value: str) -> None:
+        """
+        Update line color and skip appending expression to file.
+
+        Parameters
+        ----------
+        value : str
+            Line color to set.
+        """
         value = color_util.complement_hex_color(hex_color_code=value)
         self._line_color = value

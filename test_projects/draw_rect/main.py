@@ -55,6 +55,11 @@ def main() -> None:
         x=0, y=50, width=50, height=50)
     rectangle.x = 350
 
+    # Test for rectangle y position update.
+    rectangle = sprite.graphics.draw_rect(
+        x=450, y=0, width=50, height=50)
+    rectangle.y = 50
+
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 

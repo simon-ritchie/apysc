@@ -3,6 +3,8 @@
 
 from apyscript.validation import number_validation
 from apyscript.display.variable_name_interface import VariableNameInterface
+from apyscript.expression import expression_file_util
+from apyscript.html import html_util
 
 
 class YInterface(VariableNameInterface):
@@ -33,3 +35,16 @@ class YInterface(VariableNameInterface):
         """
         number_validation.validate_integer(integer=value)
         self._y = value
+        self._append_y_update_expression()
+
+    def _append_y_update_expression(self) -> None:
+        """
+        Append y position updating expression to current scope.
+        """
+        expression: str = (
+            f'{self.variable_name}.y({self.y});'
+        )
+        expression = html_util.wrap_expression_by_script_tag(
+            expression=expression)
+        expression_file_util.append_expression_to_current_scope(
+            expression=expression)

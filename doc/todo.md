@@ -14,6 +14,3 @@
   - Add `LineAlphaInterface`.
 - Add expression saving implementation to `XInterface`, `YInterface`, `WidthInterface`, and `HeightInterface`'s setter method.
   - Inherit `VariableNameInterface` at each interface.
-  - Remove `VariableNameInterface` inheritance from `GraphicBase`.
-- Add script tag wrap helper interface.
-  - Apply it to `_append_x_update_expression`.

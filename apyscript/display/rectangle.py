@@ -8,6 +8,7 @@ from apyscript.display.fill_color_interface import FillColorInterface
 from apyscript.display.fill_alpha_interface import FillAlphaInterface
 from apyscript.display.line_color_interface import LineColorInterface
 from apyscript.display.line_thickness_interface import LineThicknessInterface
+from apyscript.display.line_alpha_interface import LineAlphaInterface
 from apyscript.display.graphic_base import GraphicBase
 from apyscript.display.height_interface import HeightInterface
 from apyscript.display.stage import get_stage_variable_name
@@ -20,14 +21,16 @@ from apyscript.validation import size_validation
 
 class Rectangle(
         GraphicBase, WidthInterface, HeightInterface, FillColorInterface,
-        FillAlphaInterface, LineColorInterface, LineThicknessInterface):
+        FillAlphaInterface, LineColorInterface, LineThicknessInterface,
+        LineAlphaInterface):
 
     def __init__(
             self, parent: Any, x: int, y: int, width: int,
             height: int, fill_color: Optional[str] = None,
             fill_alpha: Optional[float] = None,
             line_color: Optional[str] = None,
-            line_thickness: Optional[int] = None) -> None:
+            line_thickness: Optional[int] = None,
+            line_alpha: Optional[float] = None) -> None:
         """
         Create a rectangle vector graphic.
 
@@ -51,6 +54,8 @@ class Rectangle(
             Line color (hexadecimal string, e.g., '#00aaff').
         line_thickness : str or None, default None
             Line thickness (width).
+        line_alpha : float or None, default None
+            Line opacity (0.0 to 1.0).
         """
         variable_name: str = scope_variables_util.\
             get_current_scope_next_variable_name(type_name='rectangle')
@@ -69,6 +74,8 @@ class Rectangle(
         if line_thickness is not None:
             self.update_line_thickness_and_skip_appending_exp(
                 value=line_thickness)
+        if line_alpha is not None:
+            self.update_line_alpha_and_skip_appending_exp(value=line_alpha)
 
 
 def append_draw_rect_expression(rectangle: Rectangle) -> None:

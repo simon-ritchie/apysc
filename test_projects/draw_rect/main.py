@@ -90,6 +90,11 @@ def main() -> None:
         x=150, y=150, width=50, height=50)
     rectangle.line_thickness = 1
 
+    # Test for rectangle line alpha update.
+    rectangle = sprite.graphics.draw_rect(
+        x=250, y=150, width=50, height=50)
+    rectangle.line_alpha = 1.0
+
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 

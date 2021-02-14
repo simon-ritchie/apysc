@@ -30,7 +30,8 @@ class Graphics(BiginFillInterface, LineStyleInterface):
         self.parent: Sprite = parent
         self._graphics = []
 
-    def draw_rect(self, x: int, y: int, width: int, height: int) -> None:
+    def draw_rect(
+            self, x: int, y: int, width: int, height: int) -> Rectangle:
         """
         Draw rectangle vector graphics.
 
@@ -44,8 +45,14 @@ class Graphics(BiginFillInterface, LineStyleInterface):
             Rectangle width.
         height : int
             Rectangle height.
+
+        Returns
+        -------
+        rectangle : Rectangle
+            Created rectangle.
         """
         rectangle: Rectangle = Rectangle(
             parent=self, x=x, y=y, width=width, height=height)
         self._graphics.append(rectangle)
         append_draw_rect_expression(rectangle=rectangle)
+        return rectangle

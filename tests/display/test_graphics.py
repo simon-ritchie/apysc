@@ -44,7 +44,8 @@ class TestGraphics:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
         graphics: Graphics = Graphics(parent=sprite)
-        graphics.draw_rect(x=100, y=200, width=300, height=400)
+        rectangle: Rectangle = graphics.draw_rect(
+            x=100, y=200, width=300, height=400)
         assert len(graphics._graphics) == 1
         testing_helper.assert_attrs(
             expected_attrs={
@@ -55,3 +56,4 @@ class TestGraphics:
             },
             any_obj=graphics._graphics[0])
         assert isinstance(graphics._graphics[0], Rectangle)
+        assert rectangle == graphics._graphics[0]

@@ -2,9 +2,10 @@
 """
 
 from apyscript.validation import number_validation
+from apyscript.display.variable_name_interface import VariableNameInterface
 
 
-class YInterface:
+class YInterface(VariableNameInterface):
 
     _y: int
 

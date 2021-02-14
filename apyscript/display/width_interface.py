@@ -3,9 +3,12 @@
 
 from apyscript.converter import cast
 from apyscript.validation import size_validation
+from apyscript.display.variable_name_interface import VariableNameInterface
+from apyscript.expression import expression_file_util
+from apyscript.html import html_util
 
 
-class WidthInterface:
+class WidthInterface(VariableNameInterface):
 
     _width: int
 
@@ -25,6 +28,30 @@ class WidthInterface:
     def width(self, value: int) -> None:
         """
         Update this instance's width.
+
+        Parameters
+        ----------
+        value : int
+            Width value to set.
+        """
+        self.update_width_and_skip_appending_exp(value=value)
+        self._append_width_update_expression()
+
+    def _append_width_update_expression(self) -> None:
+        """
+        Append width updating expression to current scope.
+        """
+        expression: str = (
+            f'{self.variable_name}.width({self.width});'
+        )
+        expression = html_util.wrap_expression_by_script_tag(
+            expression=expression)
+        expression_file_util.append_expression_to_current_scope(
+            expression=expression)
+
+    def update_width_and_skip_appending_exp(self, value: int) -> None:
+        """
+        Update width value and skip appending expression to file.
 
         Parameters
         ----------

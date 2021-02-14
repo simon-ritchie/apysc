@@ -17,17 +17,21 @@ from apyscript.file import file_util
 from apyscript.html import html_const
 from apyscript.html import html_util
 from apyscript.validation import string_validation
+from apyscript.display.variable_name_interface import VariableNameInterface
 
 _STAGE_ELEM_ID_FILE_PATH: str = os.path.join(
     expression_file_util.EXPRESSION_ROOT_DIR, 'stage_elem_id.txt',
 )
 
 
-class Stage(AddChildInterface, WidthInterface, HeightInterface):
+class Stage(
+        AddChildInterface, WidthInterface, HeightInterface,
+        VariableNameInterface):
 
     _background_color: str
     _add_to: str
     _stage_elem_id: str
+    _stage_height: int
     _childs: List[DisplayObject]
 
     def __init__(
@@ -55,13 +59,6 @@ class Stage(AddChildInterface, WidthInterface, HeightInterface):
             If None is set, random integer will be applied.
         """
         expression_file_util.empty_expression_dir()
-        self.width = stage_width
-        self.height = stage_height
-        background_color = color_util.complement_hex_color(
-            hex_color_code=background_color)
-        self._background_color = background_color
-        string_validation.validate_not_empty_string(string=add_to)
-        self._add_to = add_to
         self._stage_elem_id = self._create_stage_elem_id_if_none(
             stage_elem_id=stage_elem_id)
         string_validation.validate_not_empty_string(
@@ -69,7 +66,17 @@ class Stage(AddChildInterface, WidthInterface, HeightInterface):
         self._save_stage_elem_id_to_expression_file()
         self._stage_elem_id = html_util.remove_first_selector_symbol_char(
             str_val=self._stage_elem_id)
+        self.variable_name = get_stage_variable_name()
+        self.update_width_and_skip_appending_exp(value=stage_width)
+        self._stage_height = stage_height
+
+        background_color = color_util.complement_hex_color(
+            hex_color_code=background_color)
+        self._background_color = background_color
+        string_validation.validate_not_empty_string(string=add_to)
+        self._add_to = add_to
         self._append_constructor_expression()
+        self.height = stage_height
         self._childs = []
 
     def _save_stage_elem_id_to_expression_file(self) -> None:
@@ -129,7 +136,7 @@ class Stage(AddChildInterface, WidthInterface, HeightInterface):
             f'\n$("{self._add_to}").append(stage_html);'
             f'\n{get_stage_variable_name()} = SVG()'
             f'.addTo("#{self._stage_elem_id}").size('
-            f'\n  {self.width}, {self.height});'
+            f'\n  {self.width}, {self._stage_height});'
             f'\n{html_const.SCRIPT_END_TAG}'
         )
         return expression
@@ -145,7 +152,7 @@ class Stage(AddChildInterface, WidthInterface, HeightInterface):
         """
         style: str = (
             f'width: {self.width}px;'
-            f' height: {self.height}px;'
+            f' height: {self._stage_height}px;'
             f' background-color: {self._background_color};'
         )
         return style

@@ -14,3 +14,7 @@
   - Add `LineAlphaInterface`.
 - Add expression saving implementation to `XInterface`, `YInterface`, `WidthInterface`, and `HeightInterface`'s setter method.
   - Inherit `VariableNameInterface` at each interface.
+- Add docstring and test to `update_width_and_skip_appending_exp`.
+- Add docstring and test to `update_height_and_skip_appending_exp`.
+  - Replace `_stage_height` by it.
+  - Replace `Rectangle`'s constructor by it.

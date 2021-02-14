@@ -1,6 +1,5 @@
 - Add command line interface for exporting.
 - Add project making command (like a `cargo new` command).
 - Add fill_color, fill_alpha, line_color, line_thickness, line_alpha attribute to Rectangle class.
-  - Add `LineColorInterface`.
   - Add `LineThicknessInterface`.
   - Add `LineAlphaInterface`.

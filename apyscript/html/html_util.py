@@ -13,6 +13,8 @@ Mainly following interfaces are defined:
     line contains script start tag (`<script ...>`).
 - is_script_end_tag_line : Get a boolean whether the specified line
     contains script end tag (`</script>`).
+- wrap_expression_by_script_tag : Wrap an expression string by
+    script start and end tag.
 """
 
 import re
@@ -22,6 +24,7 @@ from typing import Optional
 from typing import Tuple
 
 from apyscript.string import indent_util
+from apyscript.html import html_const
 
 
 def remove_first_selector_symbol_char(str_val: str) -> str:
@@ -224,3 +227,25 @@ def is_script_end_tag_line(line: str) -> bool:
     if 'src=' in line:
         return False
     return True
+
+
+def wrap_expression_by_script_tag(expression: str) -> str:
+    """
+    Wrap an expression string by script start and end tag.
+
+    Parameters
+    ----------
+    expression : str
+        An expression to wrap.
+
+    Returns
+    -------
+    expression : str
+        Wrapped expression string.
+    """
+    expression = (
+        f'{html_const.SCRIPT_START_TAG}'
+        f'\n{expression}'
+        f'\n{html_const.SCRIPT_END_TAG}'
+    )
+    return expression

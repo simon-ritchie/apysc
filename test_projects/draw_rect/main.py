@@ -11,6 +11,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
+from apyscript.display.rectangle import Rectangle
 from apyscript.decorator.update_current_scope import update_current_scope
 from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
@@ -48,6 +49,11 @@ def main() -> None:
     sprite.graphics.begin_fill(color='#00aaff')
     sprite.graphics.line_style(color='#fff', thickness=3, alpha=0.7)
     sprite.graphics.draw_rect(x=250, y=50, width=50, height=50)
+
+    # Test for rectangle x position update.
+    rectangle: Rectangle = sprite.graphics.draw_rect(
+        x=0, y=50, width=50, height=50)
+    rectangle.x = 350
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)

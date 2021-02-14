@@ -140,3 +140,14 @@ class TestScriptLineUtil:
             result: bool = script_line_util.is_script_line(
                 line_number=line_number)
             assert result == expected
+
+
+def test_wrap_expression_by_script_tag() -> None:
+    expression: str = 'console.log("Hello!");'
+    expression = html_util.wrap_expression_by_script_tag(
+        expression=expression)
+    assert expression == (
+        '<script type="text/javascript">'
+        '\nconsole.log("Hello!");'
+        '\n</script>'
+    )

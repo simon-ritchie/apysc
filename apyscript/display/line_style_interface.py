@@ -6,6 +6,7 @@ from typing import Optional
 from apyscript.color import color_util
 from apyscript.validation import color_validation
 from apyscript.validation import number_validation
+from apyscript.converter import cast
 
 
 class LineStyleInterface:
@@ -35,6 +36,7 @@ class LineStyleInterface:
         number_validation.validate_num_is_gt_zero(num=thickness)
         self._line_thickness = thickness
         number_validation.validate_num(num=alpha)
+        alpha = cast.to_float_from_int(int_or_float=alpha)
         color_validation.validate_alpha_range(alpha=alpha)
         self._line_alpha = alpha
 

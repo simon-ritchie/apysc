@@ -6,6 +6,8 @@ from typing import Optional
 
 from apyscript.color import color_util
 from apyscript.validation import color_validation
+from apyscript.validation import number_validation
+from apyscript.converter import cast
 
 
 class BiginFillInterface:
@@ -26,6 +28,8 @@ class BiginFillInterface:
         """
         color = color_util.complement_hex_color(hex_color_code=color)
         self._fill_color = color
+        number_validation.validate_num(num=alpha)
+        alpha = cast.to_float_from_int(int_or_float=alpha)
         color_validation.validate_alpha_range(alpha=alpha)
         self._fill_alpha = alpha
 

@@ -12,5 +12,3 @@
   - Add `LineColorInterface`.
   - Add `LineThicknessInterface`.
   - Add `LineAlphaInterface`.
-- Add expression saving implementation to `XInterface`, `YInterface`, `WidthInterface`, and `HeightInterface`'s setter method.
-  - Inherit `VariableNameInterface` at each interface.

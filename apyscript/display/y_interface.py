@@ -1,4 +1,4 @@
-"""Class implementation for y position.
+"""Class implementation for y position interface.
 """
 
 from apyscript.validation import number_validation

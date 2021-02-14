@@ -1,4 +1,4 @@
-"""Class implementation for witdth.
+"""Class implementation for witdth interface.
 """
 
 from apyscript.converter import cast

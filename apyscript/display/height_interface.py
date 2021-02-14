@@ -1,4 +1,4 @@
-"""Class implementation for height.
+"""Class implementation for height interface.
 """
 
 from apyscript.converter import cast

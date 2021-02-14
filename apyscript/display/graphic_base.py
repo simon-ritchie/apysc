@@ -3,7 +3,6 @@
 
 from typing import Any
 
-from apyscript.display.variable_name_interface import VariableNameInterface
 from apyscript.display.x_interface import XInterface
 from apyscript.display.y_interface import YInterface
 from apyscript.validation import display_validation
@@ -11,7 +10,7 @@ from apyscript.validation import number_validation
 from apyscript.validation import string_validation
 
 
-class GraphicBase(VariableNameInterface, XInterface, YInterface):
+class GraphicBase(XInterface, YInterface):
 
     _variable_name: str
 

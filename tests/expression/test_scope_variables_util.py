@@ -20,6 +20,7 @@ def test_get_current_scope_variable_names_file_path() -> None:
     assert file_path.endswith('_sprite.txt')
 
 
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test__read_current_scope_variable_names() -> None:
     expression_scope.update_current_scope(
         scope_name='test_scope_variables_util')

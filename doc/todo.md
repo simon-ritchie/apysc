@@ -5,9 +5,8 @@
 - Add validation to check line color and fill color are not both empty.
 - Add `validate_num` to `begin_fill` interface of `alpha` argument.
 - Add int to float cast interface to cast module.
-  - Apply it to `begin_fill` and `line_style` interface.
+  - Apply it to `begin_fill`, `line_style`, and `fill_alpha` interface.
 - Add fill_color, fill_alpha, line_color, line_thickness, line_alpha attribute to Rectangle class.
-  - Add `FillColorInterface`.
   - Add `FillAlphaInterface`.
   - Add `LineColorInterface`.
   - Add `LineThicknessInterface`.

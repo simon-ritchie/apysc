@@ -4,6 +4,7 @@ from retrying import retry
 
 from apyscript.display.x_interface import XInterface
 from apyscript.expression import expression_file_util
+from apyscript.html import html_util
 
 
 class TestXInterface:
@@ -22,4 +23,6 @@ class TestXInterface:
         x_interface.x = 200
         expression: str = expression_file_util.get_current_scope_expression()
         expected: str = 'test_x_interface.x(200);'
+        expected = html_util.wrap_expression_by_script_tag(
+            expression=expected)
         assert expected in expression

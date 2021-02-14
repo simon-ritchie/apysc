@@ -18,8 +18,8 @@ class LineThicknessInterface(VariableNameInterface):
         """
         Get this instance's line thickness.
 
-        Parameters
-        ----------
+        Returns
+        -------
         line_thickness : int or None
             Current line thickness.
             If not be set, None will be returned.

@@ -22,7 +22,7 @@ class TestFillAlphaInterface:
         expression_file_util.remove_current_scope_expression_file()
         fill_alpha_interface.fill_alpha = 0.3
         expression: str = expression_file_util.get_current_scope_expression()
-        expected: str = f'test_fill_alpha_interface.fill({{opacity: 0.3}});'
+        expected: str = 'test_fill_alpha_interface.fill({opacity: 0.3});'
         expected = html_util.wrap_expression_by_script_tag(
             expression=expected)
         assert expected in expression

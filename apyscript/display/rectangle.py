@@ -4,13 +4,13 @@
 from typing import Any
 from typing import Optional
 
-from apyscript.display.fill_color_interface import FillColorInterface
 from apyscript.display.fill_alpha_interface import FillAlphaInterface
-from apyscript.display.line_color_interface import LineColorInterface
-from apyscript.display.line_thickness_interface import LineThicknessInterface
-from apyscript.display.line_alpha_interface import LineAlphaInterface
+from apyscript.display.fill_color_interface import FillColorInterface
 from apyscript.display.graphic_base import GraphicBase
 from apyscript.display.height_interface import HeightInterface
+from apyscript.display.line_alpha_interface import LineAlphaInterface
+from apyscript.display.line_color_interface import LineColorInterface
+from apyscript.display.line_thickness_interface import LineThicknessInterface
 from apyscript.display.stage import get_stage_variable_name
 from apyscript.display.width_interface import WidthInterface
 from apyscript.expression import expression_file_util

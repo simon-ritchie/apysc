@@ -1,6 +1,4 @@
-from random import randint
 
-from retrying import retry
 
 from apyscript.display.line_color_interface import LineColorInterface
 from apyscript.expression import expression_file_util

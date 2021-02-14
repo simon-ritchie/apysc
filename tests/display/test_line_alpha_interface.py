@@ -1,10 +1,8 @@
-from random import randint
 
-from retrying import retry
 
+from apyscript.display.line_alpha_interface import LineAlphaInterface
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
-from apyscript.display.line_alpha_interface import LineAlphaInterface
 
 
 class TestLineAlphaInterface:

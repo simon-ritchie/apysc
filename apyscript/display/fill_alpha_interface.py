@@ -3,11 +3,10 @@
 
 from typing import Optional
 
-from apyscript.color import color_util
+from apyscript.converter import cast
 from apyscript.display.variable_name_interface import VariableNameInterface
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
-from apyscript.converter import cast
 from apyscript.validation import color_validation
 from apyscript.validation import number_validation
 

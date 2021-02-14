@@ -1,10 +1,6 @@
-from apyscript.html import html_util
-from random import randint
-
-from retrying import retry
-
-from apyscript.expression import expression_file_util
 from apyscript.display.line_thickness_interface import LineThicknessInterface
+from apyscript.expression import expression_file_util
+from apyscript.html import html_util
 
 
 class TestLineThicknessInterface:

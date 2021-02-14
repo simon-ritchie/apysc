@@ -9,6 +9,7 @@ from apyscript.html import html_util
 
 class TestYInterface:
 
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_y(self) -> None:
         y_interface: YInterface = YInterface()
         y_interface.variable_name = 'test_y_interface'

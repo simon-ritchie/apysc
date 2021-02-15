@@ -2,4 +2,4 @@
 - Add project making command (like a `cargo new` command).
 - Add fill_color, fill_alpha, line_color, line_thickness, line_alpha attribute to Rectangle class.
   - Add `LineAlphaInterface`.
-- Rename `_append_each_scope_function_call` to `_append_entry_point_scope_function_call`.
+

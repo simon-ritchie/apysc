@@ -44,7 +44,7 @@ def save_expressions_overall_html(dest_dir_path: str) -> None:
     html_str = _append_each_expression_to_html_str(html_str=html_str)
     html_str = html_util.append_html_to_str(
         to_append_html='</body>', dest_html=html_str, indent_num=0)
-    html_str = _append_each_scope_function_call(html_str=html_str)
+    html_str = _append_entry_point_scope_function_call(html_str=html_str)
     html_str = html_util.append_html_to_str(
         to_append_html='</html>', dest_html=html_str, indent_num=0)
     info_logger.info(msg='HTML saving started...')
@@ -81,9 +81,9 @@ def _append_stage_global_variable_to_html(html_str: str) -> str:
     return html_str
 
 
-def _append_each_scope_function_call(html_str: str) -> str:
+def _append_entry_point_scope_function_call(html_str: str) -> str:
     """
-    Append each scope function call script to html string.
+    Append entry point function call script to html string.
 
     Parameters
     ----------
@@ -102,8 +102,8 @@ def _append_each_scope_function_call(html_str: str) -> str:
         '\n<script type="text/javascript">'
         '\n$(document).ready(function() {'
     )
-    for scope_name in scope_history:
-        html_str += f'\n  {scope_name}();'
+    first_scope_name: str = scope_history[0]
+    html_str += f'\n  {first_scope_name}();'
     html_str += (
         '\n});'
         '\n</script>'

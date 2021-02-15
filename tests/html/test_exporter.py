@@ -73,24 +73,25 @@ def test_save_expressions_overall_html() -> None:
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
-def test__append_each_scope_function_call() -> None:
+def test__append_entry_point_scope_function_call() -> None:
     file_util.remove_file_if_exists(
         file_path=expression_file_util.SCOPE_HISTORY_FILE_PATH)
     html_str: str = '<html>'
-    html_str = exporter._append_each_scope_function_call(html_str=html_str)
+    html_str = exporter._append_entry_point_scope_function_call(
+        html_str=html_str)
     assert html_str == '<html>'
 
     expression_scope.update_current_scope(
         scope_name='__main_____main')
     expression_scope.update_current_scope(
         scope_name='any___scope___name')
-    html_str = exporter._append_each_scope_function_call(html_str=html_str)
+    html_str = exporter._append_entry_point_scope_function_call(
+        html_str=html_str)
     expected: str = (
         '<html>'
         '\n<script type="text/javascript">'
         '\n$(document).ready(function() {'
         '\n  __main_____main();'
-        '\n  any___scope___name();'
         '\n});'
         '\n</script>'
     )

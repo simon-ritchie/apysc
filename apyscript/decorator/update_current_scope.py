@@ -10,6 +10,24 @@ from apyscript.expression import expression_scope
 from apyscript.validation import expression_arg_validation
 
 
+class _ScopeReverter:
+
+    _pre_scope: str = ''
+
+    def __init__(self) -> None:
+        """
+        Class to revert scope when function's call ended.
+        """
+        self._pre_scope = expression_scope.get_current_scope()
+
+    def revert(self) -> None:
+        """
+        Revert current scope to pre-scope.
+        """
+        expression_scope.update_current_scope(
+            scope_name=self._pre_scope)
+
+
 def update_current_scope(module: ModuleType) -> Callable:
     """
     Decorator function to update current expression's scope name.
@@ -60,11 +78,13 @@ def update_current_scope(module: ModuleType) -> Callable:
             expression_arg_validation.validate_acceptable_arg_types(
                 args=args,  # type: ignore
                 kwargs=kwargs)
+            scope_reverter: _ScopeReverter = _ScopeReverter()
             scope_name: str = _make_scope_name_from_module_and_func_name(
                 module_name=module.__name__,
                 func_name=func.__name__)
             expression_scope.update_current_scope(scope_name=scope_name)
             result: Any = func(*args, **kwargs)
+            scope_reverter.revert()
             return result
 
         return inner_decorator_func

@@ -7,6 +7,7 @@ from typing import Any
 from typing import Callable
 
 from apyscript.expression import expression_scope
+from apyscript.validation import expression_arg_validation
 
 
 def update_current_scope(module: ModuleType) -> Callable:
@@ -56,6 +57,9 @@ def update_current_scope(module: ModuleType) -> Callable:
             result : *
                 Any returned value to be got from function's call.
             """
+            expression_arg_validation.validate_acceptable_arg_types(
+                args=args,  # type: ignore
+                kwargs=kwargs)
             scope_name: str = _make_scope_name_from_module_and_func_name(
                 module_name=module.__name__,
                 func_name=func.__name__)

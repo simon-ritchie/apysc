@@ -9,6 +9,7 @@ from apyscript.html import html_util
 
 class TestFillAlphaInterface:
 
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_fill_alpha(self) -> None:
         fill_alpha_interface: FillAlphaInterface = FillAlphaInterface()
         fill_alpha_interface.variable_name = 'test_fill_alpha_interface'

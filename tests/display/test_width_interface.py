@@ -1,3 +1,7 @@
+from random import randint
+
+from retrying import retry
+
 from apyscript.display.width_interface import WidthInterface
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
@@ -11,6 +15,7 @@ class TestWidthInterface:
         width_interface.width = 100
         assert width_interface.width == 100
 
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test__append_width_update_expression(self) -> None:
         width_interface: WidthInterface = WidthInterface()
         width_interface.variable_name = 'test_width_interface'
@@ -22,6 +27,7 @@ class TestWidthInterface:
             expression=expected)
         assert expected in expression
 
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_update_width_and_skip_appending_exp(self) -> None:
         width_interface: WidthInterface = WidthInterface()
         width_interface.variable_name = 'test_width_interface'

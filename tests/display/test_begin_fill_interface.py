@@ -1,8 +1,13 @@
+from random import randint
+
+from retrying import retry
+
 from apyscript.display.begin_fill_interface import BiginFillInterface
 
 
 class TestBiginFillInterface:
 
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_begin_fill(self) -> None:
         begin_fill_interface: BiginFillInterface = BiginFillInterface()
         begin_fill_interface.begin_fill(color='#333')
@@ -12,11 +17,13 @@ class TestBiginFillInterface:
         begin_fill_interface.begin_fill(color='#333', alpha=0.5)
         assert begin_fill_interface.fill_alpha == 0.5
 
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_fill_color(self) -> None:
         begin_fill_interface: BiginFillInterface = BiginFillInterface()
         begin_fill_interface.begin_fill(color='#333')
         assert begin_fill_interface.fill_color == '#333333'
 
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_fill_alpha(self) -> None:
         begin_fill_interface: BiginFillInterface = BiginFillInterface()
         begin_fill_interface.begin_fill(color='#333', alpha=0.2)

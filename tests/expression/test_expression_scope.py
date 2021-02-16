@@ -18,6 +18,7 @@ def test_update_current_scope() -> None:
     assert current_scope == 'main__main'
 
 
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test_get_current_scope() -> None:
     expression_scope.update_current_scope(' main__main')
     current_scope: str = expression_scope.get_current_scope()

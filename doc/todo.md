@@ -2,4 +2,5 @@
 - Add project making command (like a `cargo new` command).
 - Add fill_color, fill_alpha, line_color, line_thickness, line_alpha attribute to Rectangle class.
   - Add `LineAlphaInterface`.
-
+- Next time, restart coding at `_validate_kwargs`.
+- Revert scope to pre-scope at decorator's function call ended.

@@ -52,3 +52,30 @@ def test__validate_kwargs() -> None:
     stage: Stage = Stage()
     expression_arg_validation._validate_kwargs(
         kwargs={'a': stage}, acceptable_arg_types=acceptable_arg_types)
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+def test_validate_acceptable_arg_types() -> None:
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=expression_arg_validation.
+        validate_acceptable_arg_types,
+        kwargs={
+            'args': [100],
+            'kwargs': {},
+        }
+    )
+
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=expression_arg_validation.
+        validate_acceptable_arg_types,
+        kwargs={
+            'args': [],
+            'kwargs': {'a': 100},
+        }
+    )
+
+    stage: Stage = Stage()
+    expression_arg_validation.validate_acceptable_arg_types(
+        args=[stage], kwargs={'a': stage})

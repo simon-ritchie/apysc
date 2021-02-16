@@ -31,7 +31,6 @@ def validate_acceptable_arg_types(args: list, kwargs: dict) -> None:
     _validate_args(args=args, acceptable_arg_types=acceptable_arg_types)
     _validate_kwargs(
         kwargs=kwargs, acceptable_arg_types=acceptable_arg_types)
-    pass
 
 
 def _validate_args(args: list, acceptable_arg_types: List[Type]) -> None:

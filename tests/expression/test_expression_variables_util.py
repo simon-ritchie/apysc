@@ -36,20 +36,20 @@ def test__read_current_scope_variable_names() -> None:
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
-def test__get_current_scope_next_variable_num() -> None:
+def test__get_next_variable_num() -> None:
     expression_scope.update_current_scope(
         scope_name='test_expression_variables_util')
     file_path: str = expression_variables_util.\
         get_current_scope_variable_names_file_path(type_name='sprite')
     file_util.remove_file_if_exists(file_path=file_path)
     next_variable_num: int = expression_variables_util.\
-        _get_current_scope_next_variable_num(type_name='sprite')
+        _get_next_variable_num(type_name='sprite')
     assert next_variable_num == 1
 
     file_util.save_plain_txt(
         txt='sprite_1,sprite_2,', file_path=file_path)
     next_variable_num = expression_variables_util.\
-        _get_current_scope_next_variable_num(type_name='sprite')
+        _get_next_variable_num(type_name='sprite')
     assert next_variable_num == 3
 
     file_util.remove_file_if_exists(file_path=file_path)
@@ -71,12 +71,12 @@ def test__save_next_variable_name_to_current_scope_file() -> None:
     expression_variables_util._save_next_variable_name_to_current_scope_file(
         type_name='sprite')
     next_variable_num: int = expression_variables_util.\
-        _get_current_scope_next_variable_num(type_name='sprite')
+        _get_next_variable_num(type_name='sprite')
     assert next_variable_num == 2
     expression_variables_util._save_next_variable_name_to_current_scope_file(
         type_name='sprite')
     next_variable_num = expression_variables_util.\
-        _get_current_scope_next_variable_num(type_name='sprite')
+        _get_next_variable_num(type_name='sprite')
     assert next_variable_num == 3
 
     file_util.remove_file_if_exists(file_path=file_path)

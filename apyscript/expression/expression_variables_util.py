@@ -33,7 +33,7 @@ def get_next_variable_name(type_name: str) -> str:
     variable_name : str
         Next variable name.
     """
-    next_variable_num: int = _get_current_scope_next_variable_num(
+    next_variable_num: int = _get_next_variable_num(
         type_name=type_name)
     variable_name = _make_variable_name(
         type_name=type_name, variable_num=next_variable_num)
@@ -61,9 +61,9 @@ def _make_variable_name(type_name: str, variable_num: int) -> str:
     return variable_name
 
 
-def _get_current_scope_next_variable_num(type_name: str) -> int:
+def _get_next_variable_num(type_name: str) -> int:
     """
-    Get current scope's next variable number.
+    Get a next variable number.
 
     Parameters
     ----------
@@ -119,7 +119,7 @@ def _save_next_variable_name_to_current_scope_file(type_name: str) -> None:
     """
     file_path: str = get_current_scope_variable_names_file_path(
         type_name=type_name)
-    next_variable_num: int = _get_current_scope_next_variable_num(
+    next_variable_num: int = _get_next_variable_num(
         type_name=type_name)
     variable_name: str = _make_variable_name(
         type_name=type_name, variable_num=next_variable_num)

@@ -7,3 +7,4 @@ test_output
 /build
 /dist
 /actionpyscript.egg-info
+/doc/memo.md

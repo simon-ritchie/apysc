@@ -14,7 +14,7 @@ from apyscript.display.line_thickness_interface import LineThicknessInterface
 from apyscript.display.stage import get_stage_variable_name
 from apyscript.display.width_interface import WidthInterface
 from apyscript.expression import expression_file_util
-from apyscript.expression import scope_variables_util
+from apyscript.expression import expression_variables_util
 from apyscript.html import html_const
 from apyscript.validation import size_validation
 
@@ -57,7 +57,7 @@ class Rectangle(
         line_alpha : float or None, default None
             Line opacity (0.0 to 1.0).
         """
-        variable_name: str = scope_variables_util.\
+        variable_name: str = expression_variables_util.\
             get_current_scope_next_variable_name(type_name='rectangle')
         super(Rectangle, self).__init__(
             parent=parent, x=x, y=y, variable_name=variable_name)

@@ -9,7 +9,7 @@ from apyscript.display.graphics import Graphics
 from apyscript.display.stage import Stage
 from apyscript.display.stage import get_stage_variable_name
 from apyscript.expression import expression_file_util
-from apyscript.expression import scope_variables_util
+from apyscript.expression import expression_variables_util
 from apyscript.html import html_const
 from apyscript.type import type_util
 
@@ -34,7 +34,7 @@ class Sprite(DisplayObject, AddChildInterface):
             string except when Sprite subclass will be instantiated.
         """
         if variable_name is None:
-            variable_name = scope_variables_util.\
+            variable_name = expression_variables_util.\
                 get_current_scope_next_variable_name(type_name='sprite')
         self._childs = []
         super(Sprite, self).__init__(

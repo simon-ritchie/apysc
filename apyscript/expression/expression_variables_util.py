@@ -37,7 +37,7 @@ def get_next_variable_name(type_name: str) -> str:
         type_name=type_name)
     variable_name = _make_variable_name(
         type_name=type_name, variable_num=next_variable_num)
-    _save_next_variable_name_to_current_scope_file(type_name=type_name)
+    _save_next_variable_name_to_file(type_name=type_name)
     return variable_name
 
 
@@ -108,9 +108,9 @@ def _read_variable_names(type_name: str) -> List[str]:
     return variable_names
 
 
-def _save_next_variable_name_to_current_scope_file(type_name: str) -> None:
+def _save_next_variable_name_to_file(type_name: str) -> None:
     """
-    Save current scope's next variable name to file.
+    Save next variable's name to file.
 
     Parameters
     ----------

@@ -62,18 +62,18 @@ def test__make_variable_name() -> None:
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
-def test__save_next_variable_name_to_current_scope_file() -> None:
+def test__save_next_variable_name_to_file() -> None:
     expression_scope.update_current_scope(
         scope_name='test_expression_variables_util')
     file_path: str = expression_variables_util.\
         get_current_scope_variable_names_file_path(type_name='sprite')
     file_util.remove_file_if_exists(file_path=file_path)
-    expression_variables_util._save_next_variable_name_to_current_scope_file(
+    expression_variables_util._save_next_variable_name_to_file(
         type_name='sprite')
     next_variable_num: int = expression_variables_util.\
         _get_next_variable_num(type_name='sprite')
     assert next_variable_num == 2
-    expression_variables_util._save_next_variable_name_to_current_scope_file(
+    expression_variables_util._save_next_variable_name_to_file(
         type_name='sprite')
     next_variable_num = expression_variables_util.\
         _get_next_variable_num(type_name='sprite')

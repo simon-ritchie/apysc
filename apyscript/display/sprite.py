@@ -35,7 +35,7 @@ class Sprite(DisplayObject, AddChildInterface):
         """
         if variable_name is None:
             variable_name = expression_variables_util.\
-                get_current_scope_next_variable_name(type_name='sprite')
+                get_next_variable_name(type_name='sprite')
         self._childs = []
         super(Sprite, self).__init__(
             stage=stage, variable_name=variable_name)

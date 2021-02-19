@@ -82,7 +82,7 @@ def test__save_next_variable_name_to_current_scope_file() -> None:
     file_util.remove_file_if_exists(file_path=file_path)
 
 
-def test_get_current_scope_next_variable_name() -> None:
+def test_get_next_variable_name() -> None:
     expression_scope.update_current_scope(
         scope_name='test_expression_variables_util')
     file_path: str = expression_variables_util.\
@@ -90,11 +90,11 @@ def test_get_current_scope_next_variable_name() -> None:
     file_util.remove_file_if_exists(file_path=file_path)
 
     variable_name: str = expression_variables_util.\
-        get_current_scope_next_variable_name(type_name='sprite')
+        get_next_variable_name(type_name='sprite')
     assert variable_name == 'sprite_1'
 
     variable_name = expression_variables_util.\
-        get_current_scope_next_variable_name(type_name='sprite')
+        get_next_variable_name(type_name='sprite')
     assert variable_name == 'sprite_2'
 
     file_util.remove_file_if_exists(file_path=file_path)

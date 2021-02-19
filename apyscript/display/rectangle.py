@@ -58,7 +58,7 @@ class Rectangle(
             Line opacity (0.0 to 1.0).
         """
         variable_name: str = expression_variables_util.\
-            get_current_scope_next_variable_name(type_name='rectangle')
+            get_next_variable_name(type_name='rectangle')
         super(Rectangle, self).__init__(
             parent=parent, x=x, y=y, variable_name=variable_name)
         size_validation.validate_size_is_gte_zero(size=width)

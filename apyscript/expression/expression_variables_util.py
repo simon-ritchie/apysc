@@ -10,9 +10,9 @@ from apyscript.expression import expression_scope
 from apyscript.file import file_util
 
 
-def get_current_scope_next_variable_name(type_name: str) -> str:
+def get_next_variable_name(type_name: str) -> str:
     """
-    Get current scope's next variable name of specified type name.
+    Get next variable name of specified type name.
 
     Notes
     -----
@@ -31,7 +31,7 @@ def get_current_scope_next_variable_name(type_name: str) -> str:
     Returns
     -------
     variable_name : str
-        Current scope's next variable name.
+        Next variable name.
     """
     next_variable_num: int = _get_current_scope_next_variable_num(
         type_name=type_name)

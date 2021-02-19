@@ -75,7 +75,7 @@ def _get_next_variable_num(type_name: str) -> int:
     next_variable_num : int
         Next variable number (start from 1).
     """
-    variable_names: List[str] = _read_current_scope_variable_names(
+    variable_names: List[str] = _read_variable_names(
         type_name=type_name)
     if not variable_names:
         return 1
@@ -83,9 +83,9 @@ def _get_next_variable_num(type_name: str) -> int:
     return last_num + 1
 
 
-def _read_current_scope_variable_names(type_name: str) -> List[str]:
+def _read_variable_names(type_name: str) -> List[str]:
     """
-    Read current scope's variable names from file.
+    Read variable names from file.
 
     Parameters
     ----------

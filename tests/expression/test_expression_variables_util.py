@@ -21,7 +21,7 @@ def test_get_current_scope_variable_names_file_path() -> None:
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
-def test__read_current_scope_variable_names() -> None:
+def test__read_variable_names() -> None:
     expression_scope.update_current_scope(
         scope_name='test_expression_variables_util')
     file_path: str = expression_variables_util.\
@@ -29,7 +29,7 @@ def test__read_current_scope_variable_names() -> None:
     file_util.save_plain_txt(
         txt='sprite_1,sprite_2,sprite_3,', file_path=file_path)
     variable_names: List[str] = expression_variables_util.\
-        _read_current_scope_variable_names(type_name='sprite')
+        _read_variable_names(type_name='sprite')
     assert variable_names == ['sprite_1', 'sprite_2', 'sprite_3']
 
     file_util.remove_file_if_exists(file_path=file_path)

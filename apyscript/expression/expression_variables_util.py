@@ -98,7 +98,7 @@ def _read_variable_names(type_name: str) -> List[str]:
         Target type name's variable names.
         e.g., if type name is sprite, `['sprite_1', 'sprite_2', ...]`.
     """
-    file_path: str = get_current_scope_variable_names_file_path(
+    file_path: str = get_variable_names_file_path(
         type_name=type_name)
     if not os.path.isfile(file_path):
         return []
@@ -117,7 +117,7 @@ def _save_next_variable_name_to_file(type_name: str) -> None:
     type_name : str
         Any type name, e.g., `sprite`.
     """
-    file_path: str = get_current_scope_variable_names_file_path(
+    file_path: str = get_variable_names_file_path(
         type_name=type_name)
     next_variable_num: int = _get_next_variable_num(
         type_name=type_name)
@@ -127,9 +127,9 @@ def _save_next_variable_name_to_file(type_name: str) -> None:
         txt=f'{variable_name},', file_path=file_path)
 
 
-def get_current_scope_variable_names_file_path(type_name: str) -> str:
+def get_variable_names_file_path(type_name: str) -> str:
     """
-    Get current scope's file path of saving variable names.
+    Get a file path of saving variable names.
 
     Parameters
     ----------

@@ -10,11 +10,11 @@ from apyscript.file import file_util
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
-def test_get_current_scope_variable_names_file_path() -> None:
+def test_get_variable_names_file_path() -> None:
     expression_scope.update_current_scope(
         scope_name='test_expression_variables_util')
     file_path: str = expression_variables_util.\
-        get_current_scope_variable_names_file_path(type_name='sprite')
+        get_variable_names_file_path(type_name='sprite')
     assert file_path.startswith(expression_file_util.EXPRESSION_ROOT_DIR)
     assert '_test_expression_variables_util_' in file_path
     assert file_path.endswith('_sprite.txt')
@@ -25,7 +25,7 @@ def test__read_variable_names() -> None:
     expression_scope.update_current_scope(
         scope_name='test_expression_variables_util')
     file_path: str = expression_variables_util.\
-        get_current_scope_variable_names_file_path(type_name='sprite')
+        get_variable_names_file_path(type_name='sprite')
     file_util.save_plain_txt(
         txt='sprite_1,sprite_2,sprite_3,', file_path=file_path)
     variable_names: List[str] = expression_variables_util.\
@@ -40,7 +40,7 @@ def test__get_next_variable_num() -> None:
     expression_scope.update_current_scope(
         scope_name='test_expression_variables_util')
     file_path: str = expression_variables_util.\
-        get_current_scope_variable_names_file_path(type_name='sprite')
+        get_variable_names_file_path(type_name='sprite')
     file_util.remove_file_if_exists(file_path=file_path)
     next_variable_num: int = expression_variables_util.\
         _get_next_variable_num(type_name='sprite')
@@ -66,7 +66,7 @@ def test__save_next_variable_name_to_file() -> None:
     expression_scope.update_current_scope(
         scope_name='test_expression_variables_util')
     file_path: str = expression_variables_util.\
-        get_current_scope_variable_names_file_path(type_name='sprite')
+        get_variable_names_file_path(type_name='sprite')
     file_util.remove_file_if_exists(file_path=file_path)
     expression_variables_util._save_next_variable_name_to_file(
         type_name='sprite')
@@ -86,7 +86,7 @@ def test_get_next_variable_name() -> None:
     expression_scope.update_current_scope(
         scope_name='test_expression_variables_util')
     file_path: str = expression_variables_util.\
-        get_current_scope_variable_names_file_path(type_name='sprite')
+        get_variable_names_file_path(type_name='sprite')
     file_util.remove_file_if_exists(file_path=file_path)
 
     variable_name: str = expression_variables_util.\

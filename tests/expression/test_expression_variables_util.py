@@ -11,13 +11,10 @@ from apyscript.file import file_util
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test_get_variable_names_file_path() -> None:
-    expression_scope.update_current_scope(
-        scope_name='test_expression_variables_util')
     file_path: str = expression_variables_util.\
         get_variable_names_file_path(type_name='sprite')
     assert file_path.startswith(expression_file_util.EXPRESSION_ROOT_DIR)
-    assert '_test_expression_variables_util_' in file_path
-    assert file_path.endswith('_sprite.txt')
+    assert file_path.endswith('variables_sprite.txt')
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))

@@ -6,7 +6,6 @@ import os
 from typing import List
 
 from apyscript.expression import expression_file_util
-from apyscript.expression import expression_scope
 from apyscript.file import file_util
 
 
@@ -141,9 +140,8 @@ def get_variable_names_file_path(type_name: str) -> str:
     file_path : str
         Specified type name's target file path.
     """
-    current_scope: str = expression_scope.get_current_scope()
     file_path: str = os.path.join(
         expression_file_util.EXPRESSION_ROOT_DIR,
-        f'scope_variables_{current_scope}_{type_name}.txt',
+        f'variables_{type_name}.txt',
     )
     return file_path

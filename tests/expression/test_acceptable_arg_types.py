@@ -15,4 +15,3 @@ def test_acceptable_arg_types_have_variable_name_interface() -> None:
     arg_types: List[Type] = acceptable_arg_types.get_acceptable_arg_types()
     for arg_type in arg_types:
         assert issubclass(arg_type, VariableNameInterface)
-        print(arg_type)

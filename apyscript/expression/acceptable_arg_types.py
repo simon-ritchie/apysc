@@ -4,8 +4,10 @@
 
 from typing import List, Type
 
+from apyscript.display.variable_name_interface import VariableNameInterface
 
-def get_acceptable_arg_types() -> List[Type]:
+
+def get_acceptable_arg_types() -> List[Type[VariableNameInterface]]:
     """
     Get expression callable's acceptable argument types.
 

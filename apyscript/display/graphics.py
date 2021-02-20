@@ -1,7 +1,7 @@
 """Implementations for Graphics class.
 """
 
-from typing import Any
+from typing import Any, Optional
 from typing import List
 
 from apyscript.display.begin_fill_interface import BiginFillInterface
@@ -10,13 +10,16 @@ from apyscript.display.line_style_interface import LineStyleInterface
 from apyscript.display.rectangle import Rectangle
 from apyscript.display.rectangle import append_draw_rect_expression
 from apyscript.validation import display_validation
+from apyscript.display.variable_name_interface import VariableNameInterface
+from apyscript.expression import expression_variables_util
 
 
-class Graphics(BiginFillInterface, LineStyleInterface):
+class Graphics(BiginFillInterface, LineStyleInterface, VariableNameInterface):
 
     _graphics: List[GraphicBase]
 
-    def __init__(self, parent: Any) -> None:
+    def __init__(
+            self, parent: Any, variable_name: Optional[str] = None) -> None:
         """
         Create a object that has each vector graphics interface.
 
@@ -29,6 +32,10 @@ class Graphics(BiginFillInterface, LineStyleInterface):
         display_validation.validate_sprite(sprite=parent)
         self.parent: Sprite = parent
         self._graphics = []
+        if variable_name is None:
+            variable_name = expression_variables_util.get_next_variable_name(
+                type_name='graphics')
+        self.variable_name = variable_name
 
     def draw_rect(
             self, x: int, y: int, width: int, height: int) -> Rectangle:

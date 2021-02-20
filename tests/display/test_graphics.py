@@ -21,6 +21,8 @@ class TestGraphics:
                 'parent': sprite,
             },
             any_obj=graphics)
+        assert isinstance(graphics.variable_name, str)
+        assert graphics.variable_name != ''
 
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_begin_fill(self) -> None:

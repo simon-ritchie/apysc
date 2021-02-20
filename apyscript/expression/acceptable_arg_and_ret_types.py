@@ -1,4 +1,16 @@
 """Definition of callable's acceptable arguments and return value(s).
+
+Following interfaces are defined:
+
+- get_common_acceptable_types
+    Get argument and return value(s) common acceptable types.
+- get_acceptable_arg_types
+    Get expression callable's acceptable argument types.
+- get_acceptable_return_val_types
+    Get expression callable's acceptable return value(s) types.
+- is_acceptable_return_val_tuple
+    Get boolean value whether specified values in tuple are all
+    acceptable types.
 """
 
 

@@ -24,3 +24,10 @@ def test_get_common_acceptable_types() -> None:
         acceptable_arg_and_ret_types.get_common_acceptable_types()
     assert Stage in acceptable_types
     assert DisplayObject in acceptable_types
+
+
+def test_get_acceptable_return_val_types() -> None:
+    return_val_types: List[Type] = acceptable_arg_and_ret_types.\
+        get_acceptable_return_val_types()
+    assert tuple in return_val_types
+    assert Stage in return_val_types

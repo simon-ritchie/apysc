@@ -48,5 +48,24 @@ def get_acceptable_arg_types() -> List[Type[VariableNameInterface]]:
     arg_types : list of type
         Acceptable argument types.
     """
-    arg_types: List[Type] = get_common_acceptable_types()
+    arg_types: List[Type[VariableNameInterface]] = \
+        get_common_acceptable_types()
     return arg_types
+
+
+def get_acceptable_return_val_types() -> List[Type]:
+    """
+    Get expression callable's acceptable return value(s) types.
+
+    Notes
+    -----
+    To avoid recursive import, each modules are imported in
+    this function (not on top-level scope).
+
+    Returns
+    -------
+    return_val_types : list of type
+        Acceptable return value(s) types.
+    """
+    return_val_types: List[Type] = [tuple, *get_common_acceptable_types()]
+    return return_val_types

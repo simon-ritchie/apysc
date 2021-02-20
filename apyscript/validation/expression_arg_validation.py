@@ -1,7 +1,14 @@
 """Validation module for expression callable's argument.
+
+Mainly following interfaces are defined:
+
+- validate_acceptable_arg_types
+    Validate expression callable's argument types.
+- validate_default_values_not_exist
+    Validate specified function's arguments have no default value.
 """
 
-from typing import Any, List, Type
+from typing import Any, Callable, List, Type
 from apyscript.expression.acceptable_arg_types import get_acceptable_arg_types
 
 _ACCEPTABLE_TYPES_ERR_MSG: str = (
@@ -31,6 +38,10 @@ def validate_acceptable_arg_types(args: list, kwargs: dict) -> None:
     _validate_args(args=args, acceptable_arg_types=acceptable_arg_types)
     _validate_kwargs(
         kwargs=kwargs, acceptable_arg_types=acceptable_arg_types)
+
+
+def validate_default_values_not_exist(func: Callable) -> None:
+    pass
 
 
 def _validate_args(args: list, acceptable_arg_types: List[Type]) -> None:

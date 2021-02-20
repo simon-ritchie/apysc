@@ -69,3 +69,29 @@ def get_acceptable_return_val_types() -> List[Type]:
     """
     return_val_types: List[Type] = [tuple, *get_common_acceptable_types()]
     return return_val_types
+
+
+def is_acceptable_return_val_tuple(
+        return_val_tuple: tuple) -> bool:
+    """
+    Get boolean value whether specified values in tuple are all
+    acceptable types.
+
+    Parameters
+    ----------
+    return_val_tuple : tuple
+        Tuple value to check.
+
+    Returns
+    -------
+    result : bool
+        If specified values in tuple are all acceptable types,
+        True will be set.
+    """
+    acceptable_types: List[Type[VariableNameInterface]] = \
+        get_common_acceptable_types()
+    for type_ in return_val_tuple:
+        if type_ in acceptable_types:
+            continue
+        return False
+    return True

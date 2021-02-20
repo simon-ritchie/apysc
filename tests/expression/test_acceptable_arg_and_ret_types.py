@@ -31,3 +31,14 @@ def test_get_acceptable_return_val_types() -> None:
         get_acceptable_return_val_types()
     assert tuple in return_val_types
     assert Stage in return_val_types
+
+
+def test_is_acceptable_return_val_tuple() -> None:
+    result: bool = acceptable_arg_and_ret_types.\
+        is_acceptable_return_val_tuple(
+            return_val_tuple=(int, Stage))
+    assert not result
+
+    result = acceptable_arg_and_ret_types.is_acceptable_return_val_tuple(
+        return_val_tuple=(Stage, DisplayObject))
+    assert result

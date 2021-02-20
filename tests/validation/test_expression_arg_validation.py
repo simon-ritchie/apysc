@@ -79,3 +79,22 @@ def test_validate_acceptable_arg_types() -> None:
     stage: Stage = Stage()
     expression_arg_validation.validate_acceptable_arg_types(
         args=[stage], kwargs={'a': stage})
+
+
+def test_validate_default_values_not_exist() -> None:
+
+    def _test_func_1(a: int, b: str) -> None:
+        ...
+
+    expression_arg_validation.validate_default_values_not_exist(
+        func=_test_func_1)
+
+    def _test_func_2(a: int, b: str = '') -> None:
+        ...
+
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=expression_arg_validation.
+        validate_default_values_not_exist,
+        kwargs={'func': _test_func_2},
+    )

@@ -37,16 +37,22 @@ def get_function_call_expression(
             func=func, args=args, kwargs=kwargs)
     expression: str = ''
     arg_var_name: str
+    return_var_name: str
     expression, arg_var_name = _append_args_expression_to_str(
         expression=expression, args_dict=args_dict)
-    expression = _append_func_call_expression_to_str(
+    expression, return_var_name = _append_func_call_expression_to_str(
         expression=expression, arg_var_name=arg_var_name,
         func=func)
     pass
 
 
+ARG_VAR_TYPE_NAME: str = 'arg_dict'
+RETURN_VAR_TYPE_NAME: str = 'return_dict'
+
+
 def _append_func_call_expression_to_str(
-        expression: str, arg_var_name: str, func: Callable) -> str:
+        expression: str, arg_var_name: str,
+        func: Callable) -> Tuple[str, str]:
     """
     Append function call js expression to string.
 
@@ -63,14 +69,15 @@ def _append_func_call_expression_to_str(
     -------
     expression : str
         After appending expression string.
+    return_var_name : str
+        Return variable (js Object) name to be used in expression.
     """
+    return_var_name: str = expression_variables_util.get_next_variable_name(
+        type_name=RETURN_VAR_TYPE_NAME)
     expression += (
-        f'{func.__name__}({arg_var_name});\n'
+        f'var {return_var_name} = {func.__name__}({arg_var_name});\n'
     )
-    return expression
-
-
-ARG_VAR_TYPE_NAME: str = 'arg_dict'
+    return expression, return_var_name
 
 
 def _append_args_expression_to_str(
@@ -92,7 +99,7 @@ def _append_args_expression_to_str(
     expression : str
         After appending expression string.
     arg_var_name : str
-        Argument name (js Object) to be used in expression.
+        Argument variable (js Object) name to be used in expression.
     """
     arg_var_name: str = expression_variables_util.get_next_variable_name(
         type_name=ARG_VAR_TYPE_NAME)

@@ -28,3 +28,19 @@ def test__append_args_expression_to_str() -> None:
     )
     assert expression == expected
     assert arg_var_name == f'{callable_expression.ARG_VAR_TYPE_NAME}_1'
+
+
+def test__append_func_call_expression_to_str() -> None:
+
+    def _test_func() -> None:
+        ...
+
+    expression: str = callable_expression._append_func_call_expression_to_str(
+        expression='\n',
+        arg_var_name='arg_dict_1',
+        func=_test_func,
+    )
+    expected: str = (
+        '\n_test_func(arg_dict_1);\n'
+    )
+    assert expected == expression

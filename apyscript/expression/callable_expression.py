@@ -39,7 +39,35 @@ def get_function_call_expression(
     arg_var_name: str
     expression, arg_var_name = _append_args_expression_to_str(
         expression=expression, args_dict=args_dict)
+    expression = _append_func_call_expression_to_str(
+        expression=expression, arg_var_name=arg_var_name,
+        func=func)
     pass
+
+
+def _append_func_call_expression_to_str(
+        expression: str, arg_var_name: str, func: Callable) -> str:
+    """
+    Append function call js expression to string.
+
+    Parameters
+    ----------
+    expression : str
+        String to be appended expression.
+    arg_var_name : str
+        Dict (js Object) argument variable name.
+    func: Callable
+        Target function (or method).
+
+    Returns
+    -------
+    expression : str
+        After appending expression string.
+    """
+    expression += (
+        f'{func.__name__}({arg_var_name});\n'
+    )
+    return expression
 
 
 ARG_VAR_TYPE_NAME: str = 'arg_dict'

@@ -9,7 +9,10 @@ Mainly following interfaces are defined:
 """
 
 from typing import Any, Callable, Dict, List, Type
-from apyscript.expression.acceptable_arg_types import get_acceptable_arg_types
+from apyscript.expression.acceptable_arg_and_ret_types import \
+    get_acceptable_arg_types, get_acceptable_return_val_types
+from apyscript.expression.acceptable_arg_and_ret_types import \
+    is_acceptable_return_val_tuple, get_common_acceptable_types
 from apyscript.callable import callable_util
 
 _ACCEPTABLE_TYPES_ERR_MSG: str = (
@@ -113,6 +116,9 @@ def _is_acceptable_arg(arg: Any, acceptable_types: List[Type]) -> bool:
     arg_type: Type = type(arg)
     if arg_type in acceptable_types:
         return True
+    for acceptable_type in acceptable_types:
+        if issubclass(arg_type, acceptable_type):
+            return True
     return False
 
 
@@ -142,3 +148,66 @@ def _validate_kwargs(kwargs: dict, acceptable_arg_types: List[Type]) -> None:
             f'\n\nArgument name: {arg_name}'
             f'\nArgument type: {type(arg_value)}'
             f'\nArgument value: {arg_value}')
+
+
+def _is_acceptable_return_val(
+        return_val: Any, acceptable_types: List[Type]) -> bool:
+    """
+    Get a boolean value whether specified return value's type is
+    acceptable or not.
+
+    Parameters
+    ----------
+    return_val : *
+        Any return value.
+    acceptable_types : list of types
+        Expression callable's acceptable return value types.
+
+    Returns
+    -------
+    result : bool
+        If acceptable, True will be set.
+    """
+    return_val_type: Type = type(return_val)
+    if return_val_type in acceptable_types:
+        return True
+    for acceptable_type in acceptable_types:
+        if issubclass(return_val_type, acceptable_type):
+            return True
+    return False
+
+
+def validate_acceptable_return_types(returned_val: Any) -> None:
+    """
+    Validate expression callable's return value(s) types.
+
+    Parameters
+    ----------
+    returned_val : *
+        Return value(s) that obtained by function call.
+
+    Raises
+    ------
+    ValueError
+        If not acceptable return value(s) type is specified.
+    """
+    acceptable_types: List[Type] = get_acceptable_return_val_types()
+    is_acceptable_return_val: bool = _is_acceptable_return_val(
+        return_val=returned_val,
+        acceptable_types=acceptable_types)
+    if not is_acceptable_return_val:
+        raise ValueError(
+            'Return value\'s type is not acceptable.'
+            f'\nAcceptable types: {acceptable_types}'
+            f'\nReturn value\'s type: {type(returned_val)}')
+    if not isinstance(returned_val, tuple):
+        return
+    if is_acceptable_return_val_tuple(return_val_tuple=returned_val):
+        return
+    acceptable_types = get_common_acceptable_types()
+    tuple_vals_types: List[Type] = [
+        type(tuple_value) for tuple_value in returned_val]
+    raise ValueError(
+        'Return value in tuple\'s type is not acceptable.'
+        f'\nAcceptable types: {acceptable_types}'
+        f'\nTuple values types: {tuple_vals_types}')

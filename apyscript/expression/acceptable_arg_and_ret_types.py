@@ -102,8 +102,16 @@ def is_acceptable_return_val_tuple(
     """
     acceptable_types: List[Type[VariableNameInterface]] = \
         get_common_acceptable_types()
-    for type_ in return_val_tuple:
+    for return_val in return_val_tuple:
+        type_: Type = type(return_val)
         if type_ in acceptable_types:
+            continue
+        is_subclass: bool = False
+        for acceptable_type in acceptable_types:
+            if issubclass(type_, acceptable_type):
+                is_subclass = True
+                break
+        if is_subclass:
             continue
         return False
     return True

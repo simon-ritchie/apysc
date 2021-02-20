@@ -1,7 +1,11 @@
+from random import randint
 from typing import List, Type
+
+from retrying import retry
+
 from apyscript.expression import acceptable_arg_and_ret_types
 from apyscript.display.stage import Stage
-from apyscript.display.sprite import DisplayObject
+from apyscript.display.sprite import DisplayObject, Sprite
 from apyscript.display.variable_name_interface import VariableNameInterface
 
 
@@ -33,12 +37,15 @@ def test_get_acceptable_return_val_types() -> None:
     assert Stage in return_val_types
 
 
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test_is_acceptable_return_val_tuple() -> None:
+    stage: Stage = Stage()
     result: bool = acceptable_arg_and_ret_types.\
         is_acceptable_return_val_tuple(
-            return_val_tuple=(int, Stage))
+            return_val_tuple=(100, stage))
     assert not result
 
+    sprite: Sprite = Sprite(stage=stage)
     result = acceptable_arg_and_ret_types.is_acceptable_return_val_tuple(
-        return_val_tuple=(Stage, DisplayObject))
+        return_val_tuple=(stage, sprite))
     assert result

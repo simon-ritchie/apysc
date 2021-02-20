@@ -11,7 +11,8 @@ from apyscript.expression import expression_variables_util
 
 
 def get_function_call_expression(
-        func: Callable, args: list, kwargs: dict) -> str:
+        func: Callable, args: list, kwargs: dict,
+        returned_val: Any) -> str:
     """
     Get a function call js expression.
 
@@ -23,6 +24,8 @@ def get_function_call_expression(
         Positional arguments to be specified target function.
     kwargs : dict
         Keyword arguments to be specified target function.
+    returned_val : *
+        Returned value(s).
 
     Returns
     -------
@@ -32,6 +35,8 @@ def get_function_call_expression(
     expression_arg_validation.validate_acceptable_arg_types(
         args=args, kwargs=kwargs)
     expression_arg_validation.validate_default_values_not_exist(func=func)
+    expression_arg_validation.validate_acceptable_return_types(
+        returned_val=returned_val)
     args_dict: Dict[str, VariableNameInterface] = callable_util.\
         get_name_and_arg_value_dict_from_args(
             func=func, args=args, kwargs=kwargs)

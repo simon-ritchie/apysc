@@ -22,8 +22,8 @@ def test__append_args_expression_to_str() -> None:
             })
     expected: str = (
         f'var {callable_expression.ARG_VAR_TYPE_NAME}_1 = {{'
-        f'\n  "sprite": {sprite.variable_name}'
-        f'\n  "stage": {stage.variable_name}'
+        f'\n  "sprite": {sprite.variable_name},'
+        f'\n  "stage": {stage.variable_name},'
         '\n};\n'
     )
     assert expression == expected

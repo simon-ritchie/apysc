@@ -115,6 +115,6 @@ def _append_args_expression_to_str(
         type_name=ARG_VAR_TYPE_NAME)
     expression += f'var {arg_var_name} = {{'
     for arg_name, arg_value in args_dict.items():
-        expression += f'\n  "{arg_name}": {arg_value.variable_name}'
+        expression += f'\n  "{arg_name}": {arg_value.variable_name},'
     expression += '\n};\n'
     return expression, arg_var_name

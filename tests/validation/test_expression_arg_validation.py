@@ -1,3 +1,4 @@
+from apyscript.display.display_object import DisplayObject
 from random import randint
 from typing import List, Type
 
@@ -29,7 +30,7 @@ def test__validate_args() -> None:
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test__is_acceptable_arg() -> None:
-    acceptable_arg_types: List[Type] = [Stage, Sprite]
+    acceptable_arg_types: List[Type] = [Stage, DisplayObject]
     result: bool = expression_arg_validation._is_acceptable_arg(
         arg=100, acceptable_types=acceptable_arg_types)
     assert not result

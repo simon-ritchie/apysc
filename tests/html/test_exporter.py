@@ -100,3 +100,11 @@ def test__append_stage_global_variable_to_html() -> None:
         '\n</script>'
     )
     assert html_str == expected
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+def test_get_entry_point_func_name() -> None:
+    stage: Stage = Stage()
+    entry_point_func_name: str = exporter.get_entry_point_func_name()
+    expected: str = f'main_{stage.variable_name}'
+    assert entry_point_func_name == expected

@@ -81,6 +81,14 @@ def _append_stage_global_variable_to_html(html_str: str) -> str:
 
 
 def get_entry_point_func_name() -> str:
+    """
+    Get an entry point function name.
+
+    Returns
+    -------
+    entry_point_func_name : str
+        An entry point function name.
+    """
     stage_variable_name: str = get_stage_variable_name()
     entry_point_func_name: str = f'main_{stage_variable_name}'
     return entry_point_func_name

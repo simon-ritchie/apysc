@@ -135,7 +135,9 @@ def _get_scope_wrapper_function_head(scope_name: str) -> str:
     scope_wrapper_function_head : str
         Scope wrapper function's head. e.g., `function <scope_name>() {`
     """
-    scope_wrapper_function_head: str = f'function {scope_name}() {{'
+    scope_wrapper_function_head: str = (
+        f'function {scope_name}(arg_dict) {{'
+    )
     return scope_wrapper_function_head
 
 

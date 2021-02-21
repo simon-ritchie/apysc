@@ -8,22 +8,14 @@ import sys
 
 sys.path.append('./')
 
-import os
 from types import ModuleType
 
 from apyscript.decorator.update_current_scope import update_current_scope
 from apyscript.display.rectangle import Rectangle
 from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
-from apyscript.file import file_util
-from apyscript.html import exporter
 
 this_module: ModuleType = sys.modules[__name__]
-
-_DEST_DIR_PATH: str = os.path.join(
-    file_util.get_abs_module_dir_path(module=this_module),
-    'test_output/'
-)
 
 
 @update_current_scope(module=this_module)
@@ -95,8 +87,16 @@ def main() -> None:
         x=250, y=150, width=50, height=50)
     rectangle.line_alpha = 1.0
 
-    exporter.save_expressions_overall_html(
-        dest_dir_path=_DEST_DIR_PATH)
+    _another_func(stage=stage, sprite=sprite)
+
+    sprite.graphics.draw_rect(
+        x=450, y=150, width=50, height=50)
+
+
+def _another_func(stage: Stage, sprite: Sprite) -> None:
+    sprite.graphics.begin_fill(color='#f0a')
+    sprite.graphics.draw_rect(x=350, y=150, width=50, height=50)
+    stage.add_child(child=sprite)
 
 
 if __name__ == '__main__':

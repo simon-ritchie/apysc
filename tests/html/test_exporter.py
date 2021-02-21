@@ -6,8 +6,6 @@ from typing import List
 from retrying import retry
 
 from apyscript.display.stage import Stage
-from apyscript.expression import expression_file_util
-from apyscript.expression import expression_scope
 from apyscript.file import file_util
 from apyscript.html import exporter
 
@@ -48,10 +46,10 @@ def test__append_head_to_html_str() -> None:
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=300)
-def test__append_each_expression_to_html_str() -> None:
+def test__append_expression_to_html_str() -> None:
     html_str: str = '<html>\n<body>'
     Stage(stage_elem_id='test_stage')
-    html_str = exporter._append_each_expression_to_html_str(
+    html_str = exporter._append_expression_to_html_str(
         html_str=html_str)
     assert 'id="test_stage"' in html_str
 
@@ -73,25 +71,16 @@ def test_save_expressions_overall_html() -> None:
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
-def test__append_entry_point_scope_function_call() -> None:
-    file_util.remove_file_if_exists(
-        file_path=expression_file_util.SCOPE_HISTORY_FILE_PATH)
+def test__append_entry_point_function_call() -> None:
+    stage: Stage = Stage()
     html_str: str = '<html>'
-    html_str = exporter._append_entry_point_scope_function_call(
-        html_str=html_str)
-    assert html_str == '<html>'
-
-    expression_scope.update_current_scope(
-        scope_name='__main_____main')
-    expression_scope.update_current_scope(
-        scope_name='any___scope___name')
-    html_str = exporter._append_entry_point_scope_function_call(
+    html_str = exporter._append_entry_point_function_call(
         html_str=html_str)
     expected: str = (
         '<html>'
         '\n<script type="text/javascript">'
         '\n$(document).ready(function() {'
-        '\n  __main_____main();'
+        f'\n  main_{stage.variable_name}();'
         '\n});'
         '\n</script>'
     )

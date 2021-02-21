@@ -10,7 +10,6 @@ from apyscript.display.display_object import DisplayObject
 from apyscript.display.stage import _STAGE_ELEM_ID_FILE_PATH
 from apyscript.display.stage import Stage
 from apyscript.expression import expression_file_util
-from apyscript.expression import expression_scope
 from apyscript.file import file_util
 from tests import testing_helper
 
@@ -19,18 +18,12 @@ class TestStage:
 
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test___init__(self) -> None:
-        test_scope_file_path: str = \
-            expression_file_util.get_scope_file_path_from_scope(
-                scope='test')
-        testing_helper.make_blank_file(file_path=test_scope_file_path)
         stage: Stage = Stage(
             stage_width=500,
             stage_height=300,
             background_color='#000000',
             add_to='#line-graph',
             stage_elem_id='line-graph-stage')
-        assert not os.path.exists(test_scope_file_path)
-
         expected_attrs: Dict[str, Any] = {
             'width': 500,
             'height': 300,
@@ -91,11 +84,7 @@ class TestStage:
         stage: Stage = Stage()
         expected_expression: str = stage._make_constructor_expression()
         expected_expression = expected_expression.strip()
-        current_scope: str = expression_scope.get_current_scope()
-        scope_file_path: str = \
-            expression_file_util.get_scope_file_path_from_scope(
-                scope=current_scope)
-        with open(scope_file_path, 'r') as f:
+        with open(expression_file_util.EXPRESSION_FILE_PATH, 'r') as f:
             saved_expression: str = f.read()
         saved_expression = saved_expression.strip()
         assert saved_expression == expected_expression

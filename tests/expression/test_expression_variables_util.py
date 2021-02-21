@@ -4,7 +4,6 @@ from typing import List
 from retrying import retry
 
 from apyscript.expression import expression_file_util
-from apyscript.expression import expression_scope
 from apyscript.expression import expression_variables_util
 from apyscript.file import file_util
 
@@ -19,8 +18,6 @@ def test_get_variable_names_file_path() -> None:
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test__read_variable_names() -> None:
-    expression_scope.update_current_scope(
-        scope_name='test_expression_variables_util')
     file_path: str = expression_variables_util.\
         get_variable_names_file_path(type_name='sprite')
     file_util.save_plain_txt(
@@ -34,8 +31,6 @@ def test__read_variable_names() -> None:
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test__get_next_variable_num() -> None:
-    expression_scope.update_current_scope(
-        scope_name='test_expression_variables_util')
     file_path: str = expression_variables_util.\
         get_variable_names_file_path(type_name='sprite')
     file_util.remove_file_if_exists(file_path=file_path)
@@ -60,8 +55,6 @@ def test__make_variable_name() -> None:
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test__save_next_variable_name_to_file() -> None:
-    expression_scope.update_current_scope(
-        scope_name='test_expression_variables_util')
     file_path: str = expression_variables_util.\
         get_variable_names_file_path(type_name='sprite')
     file_util.remove_file_if_exists(file_path=file_path)
@@ -80,8 +73,6 @@ def test__save_next_variable_name_to_file() -> None:
 
 
 def test_get_next_variable_name() -> None:
-    expression_scope.update_current_scope(
-        scope_name='test_expression_variables_util')
     file_path: str = expression_variables_util.\
         get_variable_names_file_path(type_name='sprite')
     file_util.remove_file_if_exists(file_path=file_path)

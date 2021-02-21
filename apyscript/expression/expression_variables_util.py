@@ -1,4 +1,4 @@
-"""Implementations to manipulate each scopes variable name
+"""Implementations to manipulate expression variable name
 related interface.
 """
 

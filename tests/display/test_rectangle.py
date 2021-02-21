@@ -8,7 +8,6 @@ from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
 from apyscript.display.stage import get_stage_variable_name
 from apyscript.expression import expression_file_util
-from apyscript.expression import expression_scope
 from tests import testing_helper
 
 
@@ -92,15 +91,13 @@ def test__make_rect_attrs_expression() -> None:
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test_append_draw_rect_expression() -> None:
     stage: Stage = Stage()
-    expression_scope.update_current_scope(scope_name='test_graphics')
-    expression_file_util.remove_current_scope_expression_file()
     sprite: Sprite = Sprite(stage=stage)
     sprite.graphics.begin_fill(color='#333', alpha=0.5)
     sprite.graphics.draw_rect(x=100, y=200, width=300, height=400)
     sprite_name: str = sprite.variable_name
     rect_name: str = sprite.graphics._graphics[0].variable_name
     stage_variable_name: str = get_stage_variable_name()
-    expression: str = expression_file_util.get_current_scope_expression()
+    expression: str = expression_file_util.get_current_expression()
     expected: str = (
         f'\nvar {rect_name} = {stage_variable_name}'
         '\n  .rect(300, 400)'
@@ -113,4 +110,4 @@ def test_append_draw_rect_expression() -> None:
         f'\n{sprite_name}.add({rect_name});'
     )
     assert expected in expression
-    expression_file_util.remove_current_scope_expression_file()
+    expression_file_util.remove_expression_file()

@@ -7,7 +7,6 @@ from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
 from apyscript.display.stage import get_stage_variable_name
 from apyscript.expression import expression_file_util
-from apyscript.expression import expression_scope
 from apyscript.file import file_util
 from tests import testing_helper
 
@@ -41,20 +40,19 @@ class TestSprite:
     def test__append_constructor_expression(self) -> None:
         stage: Stage = Stage()
         stage_variable_name: str = get_stage_variable_name()
-        expression_scope.update_current_scope(
-            scope_name='test_sprite')
-        scope_file_path: str = expression_file_util.\
-            get_scope_file_path_from_scope(scope='test_sprite')
-        file_util.remove_file_if_exists(file_path=scope_file_path)
+        file_util.remove_file_if_exists(
+            file_path=expression_file_util.EXPRESSION_FILE_PATH)
         sprite: Sprite = Sprite(stage=stage)
-        expression: str = file_util.read_txt(file_path=scope_file_path)
+        expression: str = file_util.read_txt(
+            file_path=expression_file_util.EXPRESSION_FILE_PATH)
         expected: str = (
             '<script type="text/javascript">'
             f'\nvar {sprite.variable_name} = {stage_variable_name}.group();'
             '\n</script>'
         )
         assert expression.strip() == expected
-        file_util.remove_file_if_exists(file_path=scope_file_path)
+        file_util.remove_file_if_exists(
+            file_path=expression_file_util.EXPRESSION_FILE_PATH)
 
         class SubClass(Sprite):
             pass

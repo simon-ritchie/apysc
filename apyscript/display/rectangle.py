@@ -80,8 +80,7 @@ class Rectangle(
 
 def append_draw_rect_expression(rectangle: Rectangle) -> None:
     """
-    Append Graphics's draw_rect interface expression to the file
-    of current scope.
+    Append Graphics's draw_rect interface expression to the file.
 
     Parameters
     ----------
@@ -103,7 +102,7 @@ def append_draw_rect_expression(rectangle: Rectangle) -> None:
         child_variable_name=rectangle.variable_name)
     expression += f'\n{add_child_exp}'
     expression += f'\n{html_const.SCRIPT_END_TAG}'
-    expression_file_util.append_expression_to_current_scope(
+    expression_file_util.append_expression(
         expression=expression)
 
 

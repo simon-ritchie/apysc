@@ -18,9 +18,9 @@ class TestLineThicknessInterface:
             LineThicknessInterface()
         line_thickness_interface.variable_name = \
             'test_line_thickness_interface'
-        expression_file_util.remove_current_scope_expression_file()
+        expression_file_util.remove_expression_file()
         line_thickness_interface.line_thickness = 2
-        expression: str = expression_file_util.get_current_scope_expression()
+        expression: str = expression_file_util.get_current_expression()
         expected: str = (
             'test_line_thickness_interface.attr({"stroke-width": 2});')
         expected = html_util.wrap_expression_by_script_tag(
@@ -32,9 +32,9 @@ class TestLineThicknessInterface:
             LineThicknessInterface()
         line_thickness_interface.variable_name = \
             'test_line_thickness_interface'
-        expression_file_util.remove_current_scope_expression_file()
+        expression_file_util.remove_expression_file()
         line_thickness_interface.update_line_thickness_and_skip_appending_exp(
             value=5)
         assert line_thickness_interface.line_thickness == 5
-        expression: str = expression_file_util.get_current_scope_expression()
+        expression: str = expression_file_util.get_current_expression()
         assert expression == ''

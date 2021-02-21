@@ -41,7 +41,7 @@ class LineThicknessInterface(VariableNameInterface):
 
     def _append_line_thickness_update_expression(self) -> None:
         """
-        Append line thickness update expression to current scope.
+        Append line thickness update expression.
         """
         expression: str = (
             f'{self.variable_name}.attr({{"stroke-width": '
@@ -49,7 +49,7 @@ class LineThicknessInterface(VariableNameInterface):
         )
         expression = html_util.wrap_expression_by_script_tag(
             expression=expression)
-        expression_file_util.append_expression_to_current_scope(
+        expression_file_util.append_expression(
             expression=expression)
 
     def update_line_thickness_and_skip_appending_exp(

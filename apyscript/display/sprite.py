@@ -44,7 +44,7 @@ class Sprite(DisplayObject, AddChildInterface):
 
     def _append_constructor_expression(self) -> bool:
         """
-        Append Sprite constructor expression to current scope.
+        Append Sprite constructor expression.
 
         Notes
         -----
@@ -65,7 +65,7 @@ class Sprite(DisplayObject, AddChildInterface):
             f'\nvar {self.variable_name} = {stage_variable_name}.group();'
             f'\n{html_const.SCRIPT_END_TAG}'
         )
-        expression_file_util.append_expression_to_current_scope(
+        expression_file_util.append_expression(
             expression=expression)
         return True
 

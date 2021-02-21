@@ -41,14 +41,14 @@ class LineColorInterface(VariableNameInterface):
 
     def _append_line_color_update_expression(self) -> None:
         """
-        Append line color updating expression to current scope.
+        Append line color updating expression.
         """
         expression: str = (
             f'{self.variable_name}.stroke("{self.line_color}");'
         )
         expression = html_util.wrap_expression_by_script_tag(
             expression=expression)
-        expression_file_util.append_expression_to_current_scope(
+        expression_file_util.append_expression(
             expression=expression)
 
     def update_line_color_and_skip_appending_exp(self, value: str) -> None:

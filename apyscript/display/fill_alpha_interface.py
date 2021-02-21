@@ -43,14 +43,14 @@ class FillAlphaInterface(VariableNameInterface):
 
     def _append_fill_alpha_update_expression(self) -> None:
         """
-        Append fill alpha updating expression to current scope.
+        Append fill alpha updating expression.
         """
         expression: str = (
             f'{self.variable_name}.fill({{opacity: {self.fill_alpha}}});'
         )
         expression = html_util.wrap_expression_by_script_tag(
             expression=expression)
-        expression_file_util.append_expression_to_current_scope(
+        expression_file_util.append_expression(
             expression=expression)
 
     def update_fill_alpha_and_skip_appending_exp(self, value: float) -> None:

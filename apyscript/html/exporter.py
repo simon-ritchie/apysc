@@ -5,9 +5,8 @@ import os
 from logging import Logger
 from typing import List
 
-from apyscript.display.stage import get_stage_element_id
+from apyscript.display.stage import get_stage_element_id, get_stage_variable_name
 from apyscript.expression import expression_file_util
-from apyscript.expression import expression_scope
 from apyscript.file import file_util
 from apyscript.html import html_const
 from apyscript.html import html_util
@@ -41,10 +40,10 @@ def save_expressions_overall_html(dest_dir_path: str) -> None:
         to_append_html='<body>', dest_html=html_str, indent_num=0)
     html_str = _append_stage_global_variable_to_html(html_str=html_str)
     info_logger.info(msg='Reading each expression files...')
-    html_str = _append_each_expression_to_html_str(html_str=html_str)
+    html_str = _append_expression_to_html_str(html_str=html_str)
     html_str = html_util.append_html_to_str(
         to_append_html='</body>', dest_html=html_str, indent_num=0)
-    html_str = _append_entry_point_scope_function_call(html_str=html_str)
+    html_str = _append_entry_point_function_call(html_str=html_str)
     html_str = html_util.append_html_to_str(
         to_append_html='</html>', dest_html=html_str, indent_num=0)
     info_logger.info(msg='HTML saving started...')
@@ -81,7 +80,13 @@ def _append_stage_global_variable_to_html(html_str: str) -> str:
     return html_str
 
 
-def _append_entry_point_scope_function_call(html_str: str) -> str:
+def get_entry_point_func_name() -> str:
+    stage_variable_name: str = get_stage_variable_name()
+    entry_point_func_name: str = f'main_{stage_variable_name}'
+    return entry_point_func_name
+
+
+def _append_entry_point_function_call(html_str: str) -> str:
     """
     Append entry point function call script to html string.
 
@@ -95,15 +100,12 @@ def _append_entry_point_scope_function_call(html_str: str) -> str:
     html_str : str
         After appended html string.
     """
-    scope_history: List[str] = expression_scope.get_scope_history()
-    if not scope_history:
-        return html_str
     html_str += (
         '\n<script type="text/javascript">'
         '\n$(document).ready(function() {'
     )
-    first_scope_name: str = scope_history[0]
-    html_str += f'\n  {first_scope_name}();'
+    entry_point_func_name: str = get_entry_point_func_name()
+    html_str += f'\n  {entry_point_func_name}();'
     html_str += (
         '\n});'
         '\n</script>'
@@ -130,9 +132,9 @@ def _save_html(
     file_util.save_plain_txt(txt=html_str, file_path=file_path)
 
 
-def _append_each_expression_to_html_str(html_str: str) -> str:
+def _append_expression_to_html_str(html_str: str) -> str:
     """
-    Append each expression strings to a specified HTML string.
+    Append expression strings to a specified HTML string.
 
     Parameters
     ----------
@@ -142,20 +144,13 @@ def _append_each_expression_to_html_str(html_str: str) -> str:
     Returns
     -------
     html_str : str
-        HTML string after appended each expressions.
+        HTML string after appended expressions.
     """
-    expression_file_paths: List[str] = \
-        expression_file_util.get_expression_file_paths()
-    for expression_file_path in expression_file_paths:
-        expression: str = file_util.read_txt(file_path=expression_file_path)
-        expression = html_util.append_indent_to_each_script_line(
-            html=expression, indent_num=1)
-        scope_name: str = expression_scope.get_scope_name_from_file_path(
-            expression_file_path=expression_file_path)
-        expression = expression_scope.append_scope_wrapper_func_to_expression(
-            expression=expression,
-            scope_name=scope_name)
-        html_str += f'\n{expression}'
+    expression: str = file_util.read_txt(
+        file_path=expression_file_util.EXPRESSION_FILE_PATH)
+    expression = html_util.append_indent_to_each_script_line(
+        html=expression, indent_num=1)
+    html_str += f'\n{expression}'
     return html_str
 
 

@@ -39,14 +39,14 @@ class WidthInterface(VariableNameInterface):
 
     def _append_width_update_expression(self) -> None:
         """
-        Append width updating expression to current scope.
+        Append width updating expression.
         """
         expression: str = (
             f'{self.variable_name}.width({self.width});'
         )
         expression = html_util.wrap_expression_by_script_tag(
             expression=expression)
-        expression_file_util.append_expression_to_current_scope(
+        expression_file_util.append_expression(
             expression=expression)
 
     def update_width_and_skip_appending_exp(self, value: int) -> None:

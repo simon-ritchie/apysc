@@ -42,14 +42,14 @@ class LineAlphaInterface(VariableNameInterface):
 
     def _append_line_alpha_update_expression(self) -> None:
         """
-        Append line alpha updating expression to current scope.
+        Append line alpha updating expression.
         """
         expression: str = (
             f'{self.variable_name}.stroke({{opacity: {self.line_alpha}}});'
         )
         expression = html_util.wrap_expression_by_script_tag(
             expression=expression)
-        expression_file_util.append_expression_to_current_scope(
+        expression_file_util.append_expression(
             expression=expression)
 
     def update_line_alpha_and_skip_appending_exp(self, value: float) -> None:

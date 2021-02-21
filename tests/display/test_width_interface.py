@@ -19,9 +19,9 @@ class TestWidthInterface:
     def test__append_width_update_expression(self) -> None:
         width_interface: WidthInterface = WidthInterface()
         width_interface.variable_name = 'test_width_interface'
-        expression_file_util.remove_current_scope_expression_file()
+        expression_file_util.remove_expression_file()
         width_interface.width = 200
-        expression: str = expression_file_util.get_current_scope_expression()
+        expression: str = expression_file_util.get_current_expression()
         expected: str = 'test_width_interface.width(200);'
         expected = html_util.wrap_expression_by_script_tag(
             expression=expected)
@@ -31,8 +31,8 @@ class TestWidthInterface:
     def test_update_width_and_skip_appending_exp(self) -> None:
         width_interface: WidthInterface = WidthInterface()
         width_interface.variable_name = 'test_width_interface'
-        expression_file_util.remove_current_scope_expression_file()
+        expression_file_util.remove_expression_file()
         width_interface.update_width_and_skip_appending_exp(value=300)
         assert width_interface.width == 300
-        expression: str = expression_file_util.get_current_scope_expression()
+        expression: str = expression_file_util.get_current_expression()
         assert expression == ''

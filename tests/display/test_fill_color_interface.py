@@ -19,9 +19,9 @@ class TestFillColorInterface:
     def test__append_fill_color_update_expression(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
-        expression_file_util.remove_current_scope_expression_file()
+        expression_file_util.remove_expression_file()
         fill_color_interface.fill_color = '#666'
-        expression: str = expression_file_util.get_current_scope_expression()
+        expression: str = expression_file_util.get_current_expression()
         expected: str = 'test_fill_color_interface.fill("#666666");'
         expected = html_util.wrap_expression_by_script_tag(
             expression=expected)
@@ -31,9 +31,9 @@ class TestFillColorInterface:
     def test_update_fill_color_and_skip_appending_exp(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
-        expression_file_util.remove_current_scope_expression_file()
+        expression_file_util.remove_expression_file()
         fill_color_interface.update_fill_color_and_skip_appending_exp(
             value='#333')
         assert fill_color_interface.fill_color == '#333333'
-        expression: str = expression_file_util.get_current_scope_expression()
+        expression: str = expression_file_util.get_current_expression()
         assert expression == ''

@@ -132,6 +132,10 @@ def test__is_acceptable_return_val() -> None:
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
 def test_validate_acceptable_return_types() -> None:
+
+    expression_arg_validation.validate_acceptable_return_types(
+        returned_val=None)
+
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         func_or_method=expression_arg_validation.

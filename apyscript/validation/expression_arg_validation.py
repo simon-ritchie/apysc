@@ -191,6 +191,8 @@ def validate_acceptable_return_types(returned_val: Any) -> None:
     ValueError
         If not acceptable return value(s) type is specified.
     """
+    if returned_val is None:
+        return
     acceptable_types: List[Type] = get_acceptable_return_val_types()
     is_acceptable_return_val: bool = _is_acceptable_return_val(
         return_val=returned_val,

@@ -32,18 +32,15 @@ def test__append_args_expression_to_str() -> None:
 
 def test__append_func_call_expression_to_str() -> None:
 
-    def _test_func() -> None:
-        ...
-
     expression: str
     return_var_name: str
     expression, return_var_name = callable_expression.\
         _append_func_call_expression_to_str(
+            scope_name='__main___test_func',
             expression='\n',
             arg_var_name='arg_dict_1',
-            func=_test_func,
         )
     expected: str = (
-        f'\nvar {return_var_name} = _test_func(arg_dict_1);\n'
+        f'\nvar {return_var_name} = __main___test_func(arg_dict_1);\n'
     )
     assert expected == expression

@@ -8,16 +8,19 @@ from apyscript.validation import expression_arg_validation
 from apyscript.callable import callable_util
 from apyscript.display.variable_name_interface import VariableNameInterface
 from apyscript.expression import expression_variables_util
+from apyscript.html import html_util
 
 
 def get_function_call_expression(
-        func: Callable, args: list, kwargs: dict,
+        scope_name: str, func: Callable, args: list, kwargs: dict,
         returned_val: Any) -> str:
     """
     Get a function call js expression.
 
     Parameters
     ----------
+    scope_name : str
+        Target function (or method)'s scope name.
     func : Callable
         Target function or method.
     args : list
@@ -46,9 +49,11 @@ def get_function_call_expression(
     expression, arg_var_name = _append_args_expression_to_str(
         expression=expression, args_dict=args_dict)
     expression, return_var_name = _append_func_call_expression_to_str(
-        expression=expression, arg_var_name=arg_var_name,
-        func=func)
-    pass
+        scope_name=scope_name, expression=expression,
+        arg_var_name=arg_var_name)
+    expression = html_util.wrap_expression_by_script_tag(
+        expression=expression)
+    return expression
 
 
 ARG_VAR_TYPE_NAME: str = 'arg_dict'
@@ -56,19 +61,19 @@ RETURN_VAR_TYPE_NAME: str = 'return_dict'
 
 
 def _append_func_call_expression_to_str(
-        expression: str, arg_var_name: str,
-        func: Callable) -> Tuple[str, str]:
+        scope_name: str, expression: str,
+        arg_var_name: str) -> Tuple[str, str]:
     """
     Append function call js expression to string.
 
     Parameters
     ----------
+    scope_name : str
+        Target function (or method)'s scope name.
     expression : str
         String to be appended expression.
     arg_var_name : str
         Dict (js Object) argument variable name.
-    func: Callable
-        Target function (or method).
 
     Returns
     -------
@@ -80,7 +85,7 @@ def _append_func_call_expression_to_str(
     return_var_name: str = expression_variables_util.get_next_variable_name(
         type_name=RETURN_VAR_TYPE_NAME)
     expression += (
-        f'var {return_var_name} = {func.__name__}({arg_var_name});\n'
+        f'var {return_var_name} = {scope_name}({arg_var_name});\n'
     )
     return expression, return_var_name
 

@@ -102,6 +102,16 @@ def main() -> None:
 
 
 def _another_func(stage: Stage, sprite: Sprite) -> None:
+    """
+    Another function to test expression and arguments behavior.
+
+    Parameters
+    ----------
+    stage : Stage
+        Stage instance.
+    sprite : Sprite
+        Sprite instance.
+    """
     sprite.graphics.begin_fill(color='#f0a')
     sprite.graphics.draw_rect(x=350, y=150, width=50, height=50)
     stage.add_child(child=sprite)

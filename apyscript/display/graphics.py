@@ -6,18 +6,18 @@ from typing import List
 from typing import Optional
 
 from apyscript.display.begin_fill_interface import BiginFillInterface
-from apyscript.display.graphic_base import GraphicBase
 from apyscript.display.line_style_interface import LineStyleInterface
 from apyscript.display.rectangle import Rectangle
 from apyscript.display.rectangle import append_draw_rect_expression
 from apyscript.display.variable_name_interface import VariableNameInterface
 from apyscript.expression import expression_variables_util
 from apyscript.validation import display_validation
+from apyscript.display.graphics_clear_interface import GraphicsClearInterface
 
 
-class Graphics(BiginFillInterface, LineStyleInterface, VariableNameInterface):
-
-    _graphics: List[GraphicBase]
+class Graphics(
+        BiginFillInterface, LineStyleInterface, VariableNameInterface,
+        GraphicsClearInterface):
 
     def __init__(
             self, parent: Any, variable_name: Optional[str] = None) -> None:

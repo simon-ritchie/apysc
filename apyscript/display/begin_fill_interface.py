@@ -1,4 +1,8 @@
 """Class implementation for begin_fill method related interface.
+
+See Also
+--------
+- graphics_clear_interface
 """
 
 

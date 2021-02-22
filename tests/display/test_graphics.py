@@ -59,3 +59,13 @@ class TestGraphics:
             any_obj=graphics._graphics[0])
         assert isinstance(graphics._graphics[0], Rectangle)
         assert rectangle == graphics._graphics[0]
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test_clear(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        sprite.graphics.begin_fill(color='#333')
+        sprite.graphics.draw_rect(x=50, y=50, width=100, height=100)
+        assert len(sprite.graphics._graphics) == 1
+        sprite.graphics.clear()
+        assert len(sprite.graphics._graphics) == 0

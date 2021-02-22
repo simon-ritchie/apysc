@@ -37,7 +37,7 @@ lint_commands: List[LintCommand] = [
         'command': 'flake8 --ignore E402,W503 ./',
         'lint_name': 'flake8',
     }, {
-        'command': 'numdoclint -p ./ -r',
+        'command': 'numdoclint -p ./ -r -f test,sample,_test,_sample',
         'lint_name': 'numdoclint',
     }, {
         'command':

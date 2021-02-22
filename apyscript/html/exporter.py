@@ -5,7 +5,8 @@ import os
 from logging import Logger
 from typing import List
 
-from apyscript.display.stage import get_stage_element_id, get_stage_variable_name
+from apyscript.display.stage import get_stage_element_id
+from apyscript.display.stage import get_stage_variable_name
 from apyscript.expression import expression_file_util
 from apyscript.file import file_util
 from apyscript.html import html_const

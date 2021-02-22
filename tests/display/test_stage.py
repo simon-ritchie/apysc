@@ -1,4 +1,3 @@
-import os
 from random import randint
 from typing import Any
 from typing import Dict

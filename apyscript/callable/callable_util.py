@@ -2,8 +2,11 @@
 """
 
 import inspect
-from inspect import Signature, Parameter
-from typing import Any, Callable, Dict
+from inspect import Parameter
+from inspect import Signature
+from typing import Any
+from typing import Callable
+from typing import Dict
 
 empty = inspect.Signature.empty
 
@@ -70,6 +73,8 @@ def get_name_and_arg_value_dict_from_args(
         Target function (or method).
     args : list
         Specified positional arguments.
+    kwargs : dict
+        Specified keyword arguments.
 
     Returns
     -------

@@ -1,15 +1,10 @@
 import os
 from random import randint
-from typing import Dict
-from typing import List
 
 from retrying import retry
 
-from apyscript.display.stage import Stage
 from apyscript.expression import expression_file_util
-from apyscript.file import file_util
 from apyscript.html import html_const
-from tests import testing_helper
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))

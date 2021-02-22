@@ -24,6 +24,7 @@ _DEST_DIR_PATH: str = os.path.join(
     'test_output/'
 )
 
+
 def main() -> None:
     """
     Entry point of this test project.

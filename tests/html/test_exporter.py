@@ -48,10 +48,11 @@ def test__append_head_to_html_str() -> None:
 @retry(stop_max_attempt_number=5, wait_fixed=300)
 def test__append_expression_to_html_str() -> None:
     html_str: str = '<html>\n<body>'
-    Stage(stage_elem_id='test_stage')
+    stage: Stage = Stage(stage_elem_id='test_stage')
     html_str = exporter._append_expression_to_html_str(
         html_str=html_str)
     assert 'id="test_stage"' in html_str
+    assert f'function main_{stage.variable_name}() {{' in html_str
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=300)

@@ -158,6 +158,16 @@ def _append_expression_to_html_str(html_str: str) -> str:
         file_path=expression_file_util.EXPRESSION_FILE_PATH)
     expression = html_util.append_indent_to_each_script_line(
         html=expression, indent_num=1)
+    entry_point_func_name: str = get_entry_point_func_name()
+    expression = expression.replace(
+        f'{html_const.SCRIPT_START_TAG}',
+        f'{html_const.SCRIPT_START_TAG}'
+        f'\nfunction {entry_point_func_name}() {{',
+        1)
+    expression = expression.replace(
+        f'{html_const.SCRIPT_END_TAG}',
+        f'}}\n{html_const.SCRIPT_END_TAG}')
+
     html_str += f'\n{expression}'
     return html_str
 

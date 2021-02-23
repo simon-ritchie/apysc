@@ -1,6 +1,7 @@
 """`trace` (console.log expression) interface implementations
 """
 
+from typing import Any
 from typing import List
 
 from apyscript.display.variable_name_interface import VariableNameInterface
@@ -8,7 +9,7 @@ from apyscript.expression import expression_file_util
 from apyscript.html import html_util
 
 
-def trace(*args) -> None:
+def trace(*args: Any) -> None:
     """
     Display arguments information to console. This function will
     save js `console.log` expression.

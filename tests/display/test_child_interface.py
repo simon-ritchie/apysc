@@ -45,3 +45,15 @@ class TestChildInterface:
             expected_error_class=ValueError,
             func_or_method=stage.remove_child,
             kwargs={'child': sprite})
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test__append_expression_of_remove_child(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        stage.add_child(child=sprite)
+        stage.remove_child(child=sprite)
+        expected: str = (
+            f'{stage.variable_name}.removeElement({sprite.variable_name});'
+        )
+        expression: str = expression_file_util.get_current_expression()
+        assert expected in expression

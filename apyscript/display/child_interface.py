@@ -61,8 +61,27 @@ class ChildInterface:
             if child_ != child:
                 continue
             self._childs.remove(child)
+            self._append_expression_of_remove_child(child=child)
             return
         raise ValueError(
             'Specified child not found in this instance\'s child list.'
             f'\nChild type: {type(child)}'
             f'\nChild variable name: {child.variable_name}')
+
+    def _append_expression_of_remove_child(self, child: DisplayObject) -> None:
+        """
+        Append expression of remove_child (removeElement) to file.
+
+        Parameters
+        ----------
+        child : DisplayObject
+            Child object to remove.
+        """
+        parent_name: str = child.parent.variable_name
+        child_name: str = child.variable_name
+        expression: str = (
+            f'{parent_name}.removeElement({child_name});'
+        )
+        expression = html_util.wrap_expression_by_script_tag(
+            expression=expression)
+        expression_file_util.append_expression(expression=expression)

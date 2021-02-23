@@ -57,9 +57,9 @@ class TestGraphics:
                 'width': 300,
                 'height': 400,
             },
-            any_obj=graphics._childs[0])
-        assert isinstance(graphics._childs[0], Rectangle)
-        assert rectangle == graphics._childs[0]
+            any_obj=graphics.get_child_at(index=0))
+        assert isinstance(graphics.get_child_at(index=0), Rectangle)
+        assert rectangle == graphics.get_child_at(index=0)
 
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_clear(self) -> None:

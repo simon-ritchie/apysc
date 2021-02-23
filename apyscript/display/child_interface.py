@@ -62,7 +62,7 @@ class ChildInterface:
                 continue
             self._childs.remove(child)
             self._append_expression_of_remove_child(child=child)
-            self.parent = None
+            child.parent = None
             return
         raise ValueError(
             'Specified child not found in this instance\'s child list.'

@@ -1,8 +1,8 @@
-from apyscript.display.display_object import DisplayObject
 from random import randint
 
 from retrying import retry
 
+from apyscript.display.display_object import DisplayObject
 from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
 from apyscript.expression import expression_file_util

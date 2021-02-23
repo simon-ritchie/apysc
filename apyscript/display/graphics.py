@@ -2,20 +2,19 @@
 """
 
 from typing import Any
-from typing import List
 from typing import Optional
 
 from apyscript.display.begin_fill_interface import BiginFillInterface
+from apyscript.display.child_interface import ChildInterface
+from apyscript.display.graphics_clear_interface import GraphicsClearInterface
 from apyscript.display.line_style_interface import LineStyleInterface
 from apyscript.display.rectangle import Rectangle
 from apyscript.display.rectangle import append_draw_rect_expression
 from apyscript.display.variable_name_interface import VariableNameInterface
-from apyscript.expression import expression_variables_util
-from apyscript.validation import display_validation
-from apyscript.display.graphics_clear_interface import GraphicsClearInterface
 from apyscript.expression import expression_file_util
-from apyscript.display.child_interface import ChildInterface
+from apyscript.expression import expression_variables_util
 from apyscript.html import html_util
+from apyscript.validation import display_validation
 
 
 class Graphics(
@@ -23,7 +22,8 @@ class Graphics(
         GraphicsClearInterface, ChildInterface):
 
     def __init__(
-            self, parent: Any, variable_name: Optional[str] = None) -> None:
+            self, parent: Any,
+            variable_name: Optional[str] = None) -> None:
         """
         Create a object that has each vector graphics interface.
 
@@ -31,6 +31,9 @@ class Graphics(
         ----------
         parent : Sprite
             This instance's parent instance.
+        variable_name : str or None, default None
+            Variable name to set. Specified only when subclass
+            instantiation.
         """
         from apyscript.display.sprite import Sprite
         display_validation.validate_sprite(sprite=parent)

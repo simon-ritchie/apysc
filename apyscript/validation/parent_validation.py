@@ -1,7 +1,8 @@
 """Parent related validation interfaces.
 """
 
-from typing import Any, Optional
+from typing import Any
+from typing import Optional
 
 
 def validate_parent_instance(parent: Optional[Any]) -> None:

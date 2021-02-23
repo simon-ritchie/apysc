@@ -40,7 +40,7 @@ class TestChildInterface:
         stage.add_child(child=sprite)
         stage.remove_child(child=sprite)
         assert stage._childs == []
-        assert sprite.parent == None
+        assert sprite.parent is None
 
         testing_helper.assert_raises(
             expected_error_class=ValueError,

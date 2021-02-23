@@ -87,8 +87,6 @@ def append_draw_rect_expression(rectangle: Rectangle) -> None:
     rectangle : Rectanble
         Created rectangle instance.
     """
-    from apyscript.display.sprite import Sprite
-    sprite: Sprite = rectangle.parent.parent
     variable_name: str = rectangle.variable_name
     stage_variable_name: str = get_stage_variable_name()
     expression: str = (

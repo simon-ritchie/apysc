@@ -4,6 +4,7 @@ Command example:
 $ python apply_lints.py
 """
 
+import shutil
 import subprocess as sp
 from logging import Logger
 from typing import List
@@ -53,6 +54,7 @@ lint_commands: List[LintCommand] = [
 def _main() -> None:
     """Entry point of this command.
     """
+    shutil.rmtree('./build/', ignore_errors=True)
     for lint_command in lint_commands:
         _run_lint_command(lint_command=lint_command)
 

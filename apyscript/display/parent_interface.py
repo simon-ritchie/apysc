@@ -1,7 +1,8 @@
 """Class implementation for parent related interface.
 """
 
-from typing import Any, Optional
+from typing import Any
+from typing import Optional
 
 from apyscript.validation import parent_validation
 

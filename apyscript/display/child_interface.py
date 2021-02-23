@@ -4,9 +4,9 @@
 from typing import List
 
 from apyscript.display.display_object import DisplayObject
-from apyscript.validation import display_validation
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
+from apyscript.validation import display_validation
 
 
 class ChildInterface:
@@ -36,8 +36,10 @@ class ChildInterface:
         child : DisplayObject
             Child object to add.
         """
+        parent_name: str = child.parent.variable_name  # type: ignore
+        child_name: str = child.variable_name
         expression: str = (
-            f'{child.parent.variable_name}.add({child.variable_name});'
+            f'{parent_name}.add({child_name});'
         )
         expression = html_util.wrap_expression_by_script_tag(
             expression=expression)
@@ -78,7 +80,7 @@ class ChildInterface:
         child : DisplayObject
             Child object to remove.
         """
-        parent_name: str = child.parent.variable_name
+        parent_name: str = child.parent.variable_name  # type: ignore
         child_name: str = child.variable_name
         expression: str = (
             f'{parent_name}.removeElement({child_name});'

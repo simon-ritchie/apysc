@@ -1,12 +1,11 @@
 from random import randint
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 from retrying import retry
 
-from apyscript.display.graphics_clear_interface import GraphicsClearInterface
-from apyscript.display.stage import Stage
 from apyscript.display.sprite import Sprite
-from apyscript.display.rectangle import Rectangle
+from apyscript.display.stage import Stage
 from tests import testing_helper
 
 

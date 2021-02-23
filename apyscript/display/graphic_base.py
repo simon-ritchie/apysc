@@ -3,11 +3,10 @@
 
 from typing import Any
 
-
+from apyscript.display.display_object import DisplayObject
 from apyscript.validation import display_validation
 from apyscript.validation import number_validation
 from apyscript.validation import string_validation
-from apyscript.display.display_object import DisplayObject
 
 
 class GraphicBase(DisplayObject):

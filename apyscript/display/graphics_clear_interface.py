@@ -2,8 +2,9 @@
 """
 
 
-from typing import List, Optional
-from apyscript.display.graphic_base import GraphicBase
+from typing import List
+from typing import Optional
+
 from apyscript.display.display_object import DisplayObject
 
 
@@ -16,7 +17,6 @@ class GraphicsClearInterface:
     _line_alpha: Optional[float] = None
     _childs: List[DisplayObject]
 
-
     def clear(self) -> None:
         """
         Clear all graphics and reset fill and line settings.
@@ -28,4 +28,3 @@ class GraphicsClearInterface:
         self._line_alpha = None
         while self._childs:
             self._childs[0].remove_from_parent()
-

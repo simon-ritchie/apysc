@@ -60,3 +60,13 @@ class TestChildInterface:
         )
         expression: str = expression_file_util.get_current_expression()
         assert expected in expression
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test_contains(self) -> None:
+        stage: Stage = Stage()
+        sprite_1: Sprite = Sprite(stage=stage)
+        stage.add_child(child=sprite_1)
+        assert stage.contains(child=sprite_1)
+
+        sprite_2: Sprite = Sprite(stage=stage)
+        assert not stage.contains(child=sprite_2)

@@ -88,3 +88,24 @@ class ChildInterface:
         expression = html_util.wrap_expression_by_script_tag(
             expression=expression)
         expression_file_util.append_expression(expression=expression)
+
+    def contains(self, child: DisplayObject) -> bool:
+        """
+        Get a boolean whether this instance contains specified child.
+
+        Parameters
+        ----------
+        child : DisplayObject
+            Child instance to check.
+
+        Returns
+        -------
+        result : bool
+            If this instance contains specified child, True will
+            be set.
+        """
+        try:
+            self._childs.index(child)
+        except ValueError:
+            return False
+        return True

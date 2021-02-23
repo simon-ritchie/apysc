@@ -86,7 +86,7 @@ $ flake8 --ignore E402,W503 ./
 ### numdoclint
 
 ```
-$ numdoclint -p ./ -r
+$ numdoclint -p ./ -r -f test,sample,_test,_sample
 ```
 
 ### mypy

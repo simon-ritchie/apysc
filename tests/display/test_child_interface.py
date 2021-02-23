@@ -36,16 +36,18 @@ class TestChildInterface:
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_remove_child(self) -> None:
         stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
-        stage.add_child(child=sprite)
-        stage.remove_child(child=sprite)
-        assert stage._childs == []
-        assert sprite.parent is None
+        sprite_1: Sprite = Sprite(stage=stage)
+        stage.add_child(child=sprite_1)
+        sprite_2: Sprite = Sprite(stage=stage)
+        stage.add_child(child=sprite_2)
+        stage.remove_child(child=sprite_2)
+        assert stage._childs == [sprite_1]
+        assert sprite_2.parent is None
 
         testing_helper.assert_raises(
             expected_error_class=ValueError,
             func_or_method=stage.remove_child,
-            kwargs={'child': sprite})
+            kwargs={'child': sprite_2})
 
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test__append_expression_of_remove_child(self) -> None:

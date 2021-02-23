@@ -48,6 +48,10 @@ class TestSprite:
         expected: str = (
             '<script type="text/javascript">'
             f'\nvar {sprite.variable_name} = {stage_variable_name}.group();'
+            f'\nvar {sprite.graphics.variable_name} = '
+            f'{stage_variable_name}.group();'
+            f'\n{sprite.variable_name}'
+            f'.add({sprite.graphics.variable_name});'
             '\n</script>'
         )
         assert expression.strip() == expected

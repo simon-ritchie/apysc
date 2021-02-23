@@ -1,7 +1,7 @@
-"""Test project for `remove_child` interface.
+"""Test project for `trace` interface.
 
 Command example:
-$ python test_projects/remove_child/main.py
+$ python test_projects/trace/main.py
 """
 
 import sys
@@ -11,9 +11,9 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
 from apyscript.file import file_util
+from apyscript.logging.trace import trace
 from apyscript.html import exporter
 
 this_module: ModuleType = sys.modules[__name__]
@@ -30,18 +30,8 @@ def main() -> None:
     """
     stage: Stage = Stage(
         background_color='#111',
-        stage_width=1000, stage_height=500)
-
-    sprite_1: Sprite = Sprite(stage=stage)
-    sprite_1.graphics.begin_fill(color='#666')
-    sprite_1.graphics.draw_rect(x=50, y=50, width=100, height=100)
-    stage.add_child(sprite_1)
-
-    sprite_2: Sprite = Sprite(stage=stage)
-    sprite_2.graphics.begin_fill(color='#666')
-    sprite_2.graphics.draw_rect(x=150, y=50, width=100, height=100)
-    stage.add_child(sprite_2)
-    stage.remove_child(child=sprite_2)
+        stage_width=100, stage_height=100)
+    trace(stage, 100, "Hello!")
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)

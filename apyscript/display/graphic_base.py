@@ -8,9 +8,10 @@ from apyscript.display.y_interface import YInterface
 from apyscript.validation import display_validation
 from apyscript.validation import number_validation
 from apyscript.validation import string_validation
+from apyscript.display.parent_interface import ParentInterface
 
 
-class GraphicBase(XInterface, YInterface):
+class GraphicBase(XInterface, YInterface, ParentInterface):
 
     _variable_name: str
 

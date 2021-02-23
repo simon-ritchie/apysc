@@ -7,9 +7,10 @@ from typing import Type
 from apyscript.display.variable_name_interface import VariableNameInterface
 from apyscript.validation import display_validation
 from apyscript.validation import string_validation
+from apyscript.display.parent_interface import ParentInterface
 
 
-class DisplayObject(VariableNameInterface):
+class DisplayObject(VariableNameInterface, ParentInterface):
 
     def __init__(self, stage: Any, variable_name: str) -> None:
         """

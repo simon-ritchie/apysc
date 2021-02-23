@@ -121,3 +121,30 @@ class ChildInterface:
             Current children number.
         """
         return len(self._childs)
+
+    def get_child_at(self, index: int) -> DisplayObject:
+        """
+        Get child at specified index.
+
+        Parameters
+        ----------
+        index : int
+            Child's index (start from 0).
+
+        Returns
+        -------
+        child : DisplayObject
+            Target index child instance.
+
+        Raises
+        ------
+        ValueError
+            If specified index is out of range.
+        """
+        if index >= self.num_children:
+            raise ValueError(
+                'Specified child index is out of range.'
+                f'\nCurrent Child number: {self.num_children}'
+                f'\nSpecified index: {index}')
+        child: DisplayObject = self._childs[index]
+        return child

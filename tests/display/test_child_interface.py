@@ -1,3 +1,4 @@
+from apyscript.display.display_object import DisplayObject
 from random import randint
 
 from retrying import retry
@@ -81,3 +82,16 @@ class TestChildInterface:
         sprite_2: Sprite = Sprite(stage=stage)
         stage.add_child(child=sprite_2)
         assert stage.num_children == 2
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test_get_child_at(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        stage.add_child(child=sprite)
+        child: DisplayObject = stage.get_child_at(index=0)
+        assert child == sprite
+
+        testing_helper.assert_raises(
+            expected_error_class=ValueError,
+            func_or_method=stage.get_child_at,
+            kwargs={'index': 1})

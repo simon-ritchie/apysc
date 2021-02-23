@@ -26,3 +26,6 @@ class GraphicsClearInterface:
         self._line_color = None
         self._line_thickness = None
         self._line_alpha = None
+        while self._childs:
+            self._childs[0].remove_from_parent()
+

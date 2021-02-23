@@ -14,15 +14,10 @@ class TestGraphicsClearInterface:
 
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_clear(self) -> None:
-        graphics_clear_interface: GraphicsClearInterface = \
-            GraphicsClearInterface()
-        graphics_clear_interface._fill_color = '#000000'
-        graphics_clear_interface._fill_alpha = 0.5
-        graphics_clear_interface._line_thickness = 2
-        graphics_clear_interface._line_alpha = 0.3
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
-        sprite.graphics.begin_fill(color='#000000')
+        sprite.graphics.begin_fill(color='#000')
+        sprite.graphics.line_style(color='#aaa')
 
         expected_attrs: Dict[str, Any] = {
             '_fill_color': None,
@@ -31,7 +26,8 @@ class TestGraphicsClearInterface:
             '_line_thickness': None,
             '_line_alpha': None,
         }
-        graphics_clear_interface.clear()
+        sprite.graphics.clear()
         testing_helper.assert_attrs(
             expected_attrs=expected_attrs,
-            any_obj=graphics_clear_interface)
+            any_obj=sprite.graphics)
+        assert len(sprite.graphics._childs) == 0

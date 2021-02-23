@@ -1,4 +1,4 @@
-"""Class implementation for add_child interface.
+"""Class implementation for child related interface.
 """
 
 from typing import List
@@ -7,7 +7,7 @@ from apyscript.display.display_object import DisplayObject
 from apyscript.validation import display_validation
 
 
-class AddChildInterface:
+class ChildInterface:
 
     _childs: List[DisplayObject]
 

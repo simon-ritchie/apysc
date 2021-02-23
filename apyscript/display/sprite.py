@@ -3,7 +3,7 @@
 
 from typing import Optional
 
-from apyscript.display.add_child_interface import AddChildInterface
+from apyscript.display.child_interface import ChildInterface
 from apyscript.display.display_object import DisplayObject
 from apyscript.display.graphics import Graphics
 from apyscript.display.stage import Stage
@@ -14,7 +14,7 @@ from apyscript.html import html_const
 from apyscript.type import type_util
 
 
-class Sprite(DisplayObject, AddChildInterface):
+class Sprite(DisplayObject, ChildInterface):
 
     graphics: Graphics
 

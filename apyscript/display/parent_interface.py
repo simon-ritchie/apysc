@@ -41,7 +41,7 @@ class ParentInterface:
         Raises
         ------
         ValueError
-            If specified instance is not None and hasn't
-            `AddChildInterface` and `RemoveChildInterface` interfaces.
+            If specified instance is not None and hasn't `ChildInterface`
+            interfaces.
         """
         self._parent = value

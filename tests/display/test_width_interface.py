@@ -9,6 +9,7 @@ from apyscript.html import html_util
 
 class TestWidthInterface:
 
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_width(self) -> None:
         width_interface: WidthInterface = WidthInterface()
         width_interface.variable_name = 'test_width_interface'

@@ -8,7 +8,7 @@ from typing import List
 from typing import Optional
 
 from apyscript.color import color_util
-from apyscript.display.add_child_interface import AddChildInterface
+from apyscript.display.child_interface import ChildInterface
 from apyscript.display.display_object import DisplayObject
 from apyscript.display.height_interface import HeightInterface
 from apyscript.display.variable_name_interface import VariableNameInterface
@@ -25,7 +25,7 @@ _STAGE_ELEM_ID_FILE_PATH: str = os.path.join(
 
 
 class Stage(
-        AddChildInterface, WidthInterface, HeightInterface,
+        ChildInterface, WidthInterface, HeightInterface,
         VariableNameInterface):
 
     _background_color: str

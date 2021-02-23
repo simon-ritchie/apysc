@@ -1,3 +1,4 @@
+from apyscript.expression import expression_file_util
 from random import randint
 
 from retrying import retry
@@ -69,3 +70,15 @@ class TestGraphics:
         assert len(sprite.graphics._graphics) == 1
         sprite.graphics.clear()
         assert len(sprite.graphics._graphics) == 0
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test__append_constructor_expression(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'var {sprite.graphics.variable_name} = '
+            f'{stage.variable_name}.group();'
+            f'\n{sprite.variable_name}.add({sprite.graphics.variable_name});'
+        )
+        assert expected in expression

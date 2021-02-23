@@ -98,9 +98,6 @@ def append_draw_rect_expression(rectangle: Rectangle) -> None:
     )
     attrs_str: str = _make_rect_attrs_expression(rectangle=rectangle)
     expression += f'{attrs_str};'
-    add_child_exp: str = sprite.make_add_child_expression(
-        child_variable_name=rectangle.variable_name)
-    expression += f'\n{add_child_exp}'
     expression += f'\n{html_const.SCRIPT_END_TAG}'
     expression_file_util.append_expression(
         expression=expression)

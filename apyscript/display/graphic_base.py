@@ -3,15 +3,14 @@
 
 from typing import Any
 
-from apyscript.display.x_interface import XInterface
-from apyscript.display.y_interface import YInterface
+
 from apyscript.validation import display_validation
 from apyscript.validation import number_validation
 from apyscript.validation import string_validation
-from apyscript.display.parent_interface import ParentInterface
+from apyscript.display.display_object import DisplayObject
 
 
-class GraphicBase(XInterface, YInterface, ParentInterface):
+class GraphicBase(DisplayObject):
 
     _variable_name: str
 

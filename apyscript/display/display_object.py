@@ -4,13 +4,15 @@
 from typing import Any
 from typing import Type
 
-from apyscript.display.variable_name_interface import VariableNameInterface
 from apyscript.validation import display_validation
 from apyscript.validation import string_validation
 from apyscript.display.parent_interface import ParentInterface
+from apyscript.display.x_interface import XInterface
+from apyscript.display.y_interface import YInterface
 
 
-class DisplayObject(VariableNameInterface, ParentInterface):
+class DisplayObject(
+        XInterface, YInterface, ParentInterface):
 
     def __init__(self, stage: Any, variable_name: str) -> None:
         """

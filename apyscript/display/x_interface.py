@@ -9,7 +9,7 @@ from apyscript.validation import number_validation
 
 class XInterface(VariableNameInterface):
 
-    _x: int
+    _x: int = 0
 
     @property
     def x(self) -> int:

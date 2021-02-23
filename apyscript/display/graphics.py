@@ -13,11 +13,14 @@ from apyscript.display.variable_name_interface import VariableNameInterface
 from apyscript.expression import expression_variables_util
 from apyscript.validation import display_validation
 from apyscript.display.graphics_clear_interface import GraphicsClearInterface
+from apyscript.expression import expression_file_util
+from apyscript.display.child_interface import ChildInterface
+from apyscript.html import html_util
 
 
 class Graphics(
         BiginFillInterface, LineStyleInterface, VariableNameInterface,
-        GraphicsClearInterface):
+        GraphicsClearInterface, ChildInterface):
 
     def __init__(
             self, parent: Any, variable_name: Optional[str] = None) -> None:
@@ -37,6 +40,22 @@ class Graphics(
             variable_name = expression_variables_util.get_next_variable_name(
                 type_name='graphics')
         self.variable_name = variable_name
+        self._childs = []
+        self._append_constructor_expression()
+
+    def _append_constructor_expression(self) -> None:
+        """
+        Append constructor expression to file.
+        """
+        stage_name: str = self.parent.stage.variable_name
+        parent_name: str = self.parent.variable_name
+        expression: str = (
+            f'var {self.variable_name} = {stage_name}.group();'
+            f'\n{parent_name}.add({self.variable_name});'
+        )
+        expression = html_util.wrap_expression_by_script_tag(
+            expression=expression)
+        expression_file_util.append_expression(expression=expression)
 
     def draw_rect(
             self, x: int, y: int, width: int, height: int) -> Rectangle:
@@ -66,4 +85,5 @@ class Graphics(
             line_alpha=self.line_alpha)
         self._graphics.append(rectangle)
         append_draw_rect_expression(rectangle=rectangle)
+        self.add_child(child=rectangle)
         return rectangle

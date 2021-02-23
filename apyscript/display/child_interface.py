@@ -109,3 +109,15 @@ class ChildInterface:
         except ValueError:
             return False
         return True
+
+    @property
+    def num_children(self) -> int:
+        """
+        Get a current children number.
+
+        Returns
+        -------
+        num_children : int
+            Current children number.
+        """
+        return len(self._childs)

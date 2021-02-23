@@ -70,3 +70,14 @@ class TestChildInterface:
 
         sprite_2: Sprite = Sprite(stage=stage)
         assert not stage.contains(child=sprite_2)
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test_num_children(self) -> None:
+        stage: Stage = Stage()
+        assert stage.num_children == 0
+        sprite_1: Sprite = Sprite(stage=stage)
+        stage.add_child(child=sprite_1)
+        assert stage.num_children == 1
+        sprite_2: Sprite = Sprite(stage=stage)
+        stage.add_child(child=sprite_2)
+        assert stage.num_children == 2

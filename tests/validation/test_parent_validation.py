@@ -1,8 +1,8 @@
-from apyscript.display.sprite import Sprite
 from random import randint
 
 from retrying import retry
 
+from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
 from apyscript.validation import parent_validation
 from tests import testing_helper

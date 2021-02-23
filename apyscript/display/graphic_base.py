@@ -20,6 +20,8 @@ class GraphicBase(DisplayObject):
 
         Parameters
         ----------
+        parent : Graphics
+            Parent `Graphics` instance.
         x : int
             X position.
         y : int

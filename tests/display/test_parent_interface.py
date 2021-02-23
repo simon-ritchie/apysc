@@ -3,7 +3,6 @@ from random import randint
 import pytest
 from retrying import retry
 
-from apyscript.display.parent_interface import ParentInterface
 from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
 from tests import testing_helper

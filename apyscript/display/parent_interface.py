@@ -3,6 +3,8 @@
 
 from typing import Any, Optional
 
+from apyscript.validation import parent_validation
+
 
 class ParentInterface:
 
@@ -44,4 +46,5 @@ class ParentInterface:
             If specified instance is not None and hasn't `ChildInterface`
             interfaces.
         """
+        parent_validation.validate_parent_instance(parent=value)
         self._parent = value

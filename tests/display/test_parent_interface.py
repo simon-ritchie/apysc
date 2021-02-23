@@ -1,6 +1,7 @@
 from random import randint
 
 from retrying import retry
+import pytest
 
 from apyscript.display.parent_interface import ParentInterface
 from apyscript.display.stage import Stage
@@ -16,3 +17,6 @@ class TestParentInterface:
         sprite: Sprite = Sprite(stage=stage)
         parent_interface.parent = sprite
         assert parent_interface.parent == sprite
+
+        with pytest.raises(ValueError):  # type: ignore
+            parent_interface.parent = 100

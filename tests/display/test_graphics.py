@@ -49,7 +49,7 @@ class TestGraphics:
         graphics: Graphics = Graphics(parent=sprite)
         rectangle: Rectangle = graphics.draw_rect(
             x=100, y=200, width=300, height=400)
-        assert len(graphics._childs) == 1
+        assert graphics.num_children == 1
         testing_helper.assert_attrs(
             expected_attrs={
                 '_x': 100,
@@ -67,9 +67,9 @@ class TestGraphics:
         sprite: Sprite = Sprite(stage=stage)
         sprite.graphics.begin_fill(color='#333')
         sprite.graphics.draw_rect(x=50, y=50, width=100, height=100)
-        assert len(sprite.graphics._childs) == 1
+        assert sprite.graphics.num_children == 1
         sprite.graphics.clear()
-        assert len(sprite.graphics._childs) == 0
+        assert sprite.graphics.num_children == 0
 
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test__append_constructor_expression(self) -> None:

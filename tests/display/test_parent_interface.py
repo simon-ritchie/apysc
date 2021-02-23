@@ -26,7 +26,7 @@ class TestParentInterface:
         sprite: Sprite = Sprite(stage=stage)
         stage.add_child(child=sprite)
         sprite.remove_from_parent()
-        assert len(stage._childs) == 0
+        assert stage.num_children == 0
 
         testing_helper.assert_raises(
             expected_error_class=ValueError,

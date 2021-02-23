@@ -9,6 +9,7 @@ from apyscript.html import html_util
 
 class TestFillColorInterface:
 
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_fill_color(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'

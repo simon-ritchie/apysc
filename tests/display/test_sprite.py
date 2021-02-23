@@ -60,12 +60,3 @@ class TestSprite:
         subclass_instance: SubClass = SubClass(stage=stage)
         appended: bool = subclass_instance._append_constructor_expression()
         assert not appended
-
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
-    def test_make_add_child_expression(self) -> None:
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
-        expression: str = sprite.make_add_child_expression(
-            child_variable_name='rectangle_1')
-        expected: str = f'{sprite.variable_name}.add(rectangle_1);'
-        assert expression == expected

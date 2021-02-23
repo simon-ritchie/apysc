@@ -39,8 +39,8 @@ class Sprite(DisplayObject, ChildInterface):
         self._childs = []
         super(Sprite, self).__init__(
             stage=stage, variable_name=variable_name)
-        self.graphics = Graphics(parent=self)
         self._append_constructor_expression()
+        self.graphics = Graphics(parent=self)
 
     def _append_constructor_expression(self) -> bool:
         """
@@ -68,22 +68,3 @@ class Sprite(DisplayObject, ChildInterface):
         expression_file_util.append_expression(
             expression=expression)
         return True
-
-    def make_add_child_expression(self, child_variable_name: str) -> str:
-        """
-        Make add child expression string.
-
-        Parameters
-        ----------
-        child_variable_name : str
-            Child variable name.
-
-        Returns
-        -------
-        expression : str
-            Created expression string.
-        """
-        expression: str = (
-            f'{self.variable_name}.add({child_variable_name});'
-        )
-        return expression

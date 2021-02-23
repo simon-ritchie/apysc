@@ -12,7 +12,6 @@ import os
 from types import ModuleType
 
 from apyscript.file import file_util
-from apyscript.display.rectangle import Rectangle
 from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
 from apyscript.html import exporter

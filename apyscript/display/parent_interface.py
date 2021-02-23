@@ -48,3 +48,21 @@ class ParentInterface:
         """
         parent_validation.validate_parent_instance(parent=value)
         self._parent = value
+
+    def remove_from_parent(self) -> None:
+        """
+        Remove this instance from parent.
+
+        Raises
+        ------
+        ValueError
+            If this instance is not added to any parent.
+        """
+        if self._parent is None:
+            raise ValueError(
+                'This instance is not added to any parent.')
+        from apyscript.display.child_interface import ChildInterface
+        from apyscript.display.display_object import DisplayObject
+        parent: ChildInterface = self._parent
+        child: DisplayObject = self  # type: ignore
+        parent.remove_child(child=child)

@@ -4,6 +4,7 @@
 
 from typing import List, Optional
 from apyscript.display.graphic_base import GraphicBase
+from apyscript.display.display_object import DisplayObject
 
 
 class GraphicsClearInterface:
@@ -13,7 +14,7 @@ class GraphicsClearInterface:
     _line_color: Optional[str] = None
     _line_thickness: Optional[int] = None
     _line_alpha: Optional[float] = None
-    _graphics: List[GraphicBase]
+    _childs: List[DisplayObject]
 
 
     def clear(self) -> None:
@@ -25,4 +26,3 @@ class GraphicsClearInterface:
         self._line_color = None
         self._line_thickness = None
         self._line_alpha = None
-        self._graphics = []

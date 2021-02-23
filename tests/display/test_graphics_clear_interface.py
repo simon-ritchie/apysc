@@ -23,9 +23,6 @@ class TestGraphicsClearInterface:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
         sprite.graphics.begin_fill(color='#000000')
-        rectangle: Rectangle = sprite.graphics.draw_rect(
-            x=50, y=50, width=100, height=100)
-        graphics_clear_interface._graphics = [rectangle]
 
         expected_attrs: Dict[str, Any] = {
             '_fill_color': None,
@@ -33,7 +30,6 @@ class TestGraphicsClearInterface:
             '_line_color': None,
             '_line_thickness': None,
             '_line_alpha': None,
-            '_graphics': [],
         }
         graphics_clear_interface.clear()
         testing_helper.assert_attrs(

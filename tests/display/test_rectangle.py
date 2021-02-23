@@ -95,7 +95,7 @@ def test_append_draw_rect_expression() -> None:
     sprite.graphics.begin_fill(color='#333', alpha=0.5)
     sprite.graphics.draw_rect(x=100, y=200, width=300, height=400)
     graphics_name: str = sprite.graphics.variable_name
-    rect_name: str = sprite.graphics._graphics[0].variable_name
+    rect_name: str = sprite.graphics._childs[0].variable_name
     stage_variable_name: str = get_stage_variable_name()
     expression: str = expression_file_util.get_current_expression()
     expected: str = (

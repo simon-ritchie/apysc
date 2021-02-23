@@ -35,7 +35,6 @@ class Graphics(
         from apyscript.display.sprite import Sprite
         display_validation.validate_sprite(sprite=parent)
         self.parent: Sprite = parent
-        self._graphics = []
         if variable_name is None:
             variable_name = expression_variables_util.get_next_variable_name(
                 type_name='graphics')
@@ -83,7 +82,6 @@ class Graphics(
             fill_color=self.fill_color, fill_alpha=self.fill_alpha,
             line_color=self.line_color, line_thickness=self.line_thickness,
             line_alpha=self.line_alpha)
-        self._graphics.append(rectangle)
         append_draw_rect_expression(rectangle=rectangle)
         self.add_child(child=rectangle)
         return rectangle

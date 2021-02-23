@@ -1,4 +1,4 @@
-from apyscript.display.variable_name_interface import VariableNameInterface
+from apyscript.type.variable_name_interface import VariableNameInterface
 
 
 class TestVariableNameInterface:

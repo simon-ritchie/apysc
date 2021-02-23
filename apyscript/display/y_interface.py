@@ -1,7 +1,7 @@
 """Class implementation for y position interface.
 """
 
-from apyscript.display.variable_name_interface import VariableNameInterface
+from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
 from apyscript.validation import number_validation

@@ -112,6 +112,21 @@ class NumberValueInterface(VariableNameInterface):
             expression=expression)
         expression_file_util.append_expression(expression=expression)
 
+    def copy(self) -> Any:
+        """
+        Make a deep copy of this instance.
+
+        Returns
+        -------
+        result : NumberValueInterface
+            Copied instance.
+        """
+        result: NumberValueInterface = deepcopy(self)
+        result.variable_name = \
+            expression_variables_util.get_next_variable_name(
+                type_name=self.type_name)
+        return result
+
     def __add__(self, other: Union[int, float, Any]) -> Any:
         """
         Method for addition.
@@ -120,6 +135,11 @@ class NumberValueInterface(VariableNameInterface):
         ----------
         other : int or float or Int or Number
             Other value to add.
+
+        Returns
+        -------
+        result : NumberValueInterface
+            Addition result value.
         """
         if isinstance(other, NumberValueInterface):
             value: Union[int, float, Any] = self._value + other.value

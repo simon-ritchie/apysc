@@ -67,3 +67,8 @@ class TestNumber:
             f'{number_2.variable_name} = {number_1.variable_name};'
         )
         assert expected in expression
+
+    def test___add__(self) -> None:
+        number_1: Number = Number(value=10.5)
+        number_2: Number = number_1 + 20.6
+        assert number_2.value == 31.1

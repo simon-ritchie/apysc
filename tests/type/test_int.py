@@ -58,3 +58,9 @@ class TestInt:
         expected = (
             f'{int_val_2.variable_name} = {int_val_1.variable_name};'
         )
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test___add__(self) -> None:
+        int_1: Int = Int(value=10)
+        int_2: Int = int_1 + 10.5
+        assert int_2.value == 20

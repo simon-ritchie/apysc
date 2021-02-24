@@ -1,4 +1,10 @@
 """Type related common implementations.
+
+Mainly following interface is defined:
+
+- is_same_class_instance
+    Get a boolean value whether specified class and instance's class
+    are same or not.
 """
 
 from typing import Any

@@ -12,13 +12,20 @@ class TestInt:
 
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test___init__(self) -> None:
-        int_val: Int = Int(value=100.5)
-        assert int_val.value == 100
-        assert int_val.variable_name.startswith('int_')
+        int_val_1: Int = Int(value=100.5)
+        assert int_val_1.value == 100
+        assert int_val_1.variable_name.startswith('int_')
 
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'var {int_val.variable_name} = 100;'
+            f'var {int_val_1.variable_name} = 100;'
+        )
+        assert expected in expression
+
+        int_val_2: Int = Int(value=int_val_1)
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'var {int_val_2.variable_name} = {int_val_1.variable_name};'
         )
         assert expected in expression
 

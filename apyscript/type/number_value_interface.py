@@ -10,13 +10,13 @@ from apyscript.html import html_util
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import number_validation
 from apyscript.expression import expression_variables_util
+from apyscript.type.type_name_interface import TypeNameInterface
 
 
-class NumberValueInterface(VariableNameInterface):
+class NumberValueInterface(VariableNameInterface, TypeNameInterface):
 
     _initial_value: Union[int, float, Any]
     _value: Union[int, float]
-    _type_name: str
 
     def __init__(
             self, value: Union[int, float, Any], type_name: str) -> None:
@@ -38,13 +38,6 @@ class NumberValueInterface(VariableNameInterface):
             value_ = value
         self._value = value_
         self._type_name = type_name
-
-    @property
-    def type_name(self) -> str:
-        """
-        This instance expression's type name.
-        """
-        return self._type_name
 
     def append_constructor_expression(self) -> None:
         """

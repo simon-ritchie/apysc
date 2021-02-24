@@ -1,11 +1,12 @@
 """Class implementation of integer.
 """
 
-from typing import Any, Union
+from typing import Any
+from typing import Union
 
-from apyscript.type.number_value_interface import NumberValueInterface
 from apyscript.converter import cast
 from apyscript.expression import expression_variables_util
+from apyscript.type.number_value_interface import NumberValueInterface
 from apyscript.validation import number_validation
 
 

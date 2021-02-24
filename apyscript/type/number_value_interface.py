@@ -1,11 +1,13 @@
 """Class implementation for number value interface.
 """
 
-from typing import Any, Union
-from apyscript.type.variable_name_interface import VariableNameInterface
-from apyscript.validation import number_validation
+from typing import Any
+from typing import Union
+
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
+from apyscript.type.variable_name_interface import VariableNameInterface
+from apyscript.validation import number_validation
 
 
 class NumberValueInterface(VariableNameInterface):

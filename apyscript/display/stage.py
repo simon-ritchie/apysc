@@ -11,12 +11,12 @@ from apyscript.color import color_util
 from apyscript.display.child_interface import ChildInterface
 from apyscript.display.display_object import DisplayObject
 from apyscript.display.height_interface import HeightInterface
-from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.display.width_interface import WidthInterface
 from apyscript.expression import expression_file_util
 from apyscript.file import file_util
 from apyscript.html import html_const
 from apyscript.html import html_util
+from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import string_validation
 
 _STAGE_ELEM_ID_FILE_PATH: str = os.path.join(

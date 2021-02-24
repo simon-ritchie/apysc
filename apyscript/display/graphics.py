@@ -10,10 +10,10 @@ from apyscript.display.graphics_clear_interface import GraphicsClearInterface
 from apyscript.display.line_style_interface import LineStyleInterface
 from apyscript.display.rectangle import Rectangle
 from apyscript.display.rectangle import append_draw_rect_expression
-from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.expression import expression_file_util
 from apyscript.expression import expression_variables_util
 from apyscript.html import html_util
+from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import display_validation
 
 

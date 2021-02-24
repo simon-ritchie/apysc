@@ -3,8 +3,8 @@ from random import randint
 import pytest
 from retrying import retry
 
-from apyscript.type.int import Int
 from apyscript.expression import expression_file_util
+from apyscript.type.int import Int
 from tests import testing_helper
 
 
@@ -47,4 +47,4 @@ class TestInt:
         assert expected in expression
 
         with pytest.raises(ValueError):  # type: ignore
-            int_val.value = 'Hello!'
+            int_val.value = 'Hello!'  # type: ignore

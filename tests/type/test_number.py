@@ -1,8 +1,8 @@
 import pytest
 
-from apyscript.type.number import Number
-from apyscript.type import type_util
 from apyscript.expression import expression_file_util
+from apyscript.type import type_util
+from apyscript.type.number import Number
 from tests import testing_helper
 
 
@@ -50,4 +50,4 @@ class TestNumber:
         assert expected in expression
 
         with pytest.raises(ValueError):  # type: ignore
-            number.value = 'Hello!'
+            number.value = 'Hello!'  # type: ignore

@@ -3,10 +3,9 @@ from random import randint
 import pytest
 from retrying import retry
 
+from apyscript.expression import expression_file_util
 from apyscript.type.number_value_interface import NumberValueInterface
 from tests import testing_helper
-from apyscript.expression import expression_file_util
-from apyscript.type.int import Int
 
 
 class TestNumberValueInterface:
@@ -41,7 +40,7 @@ class TestNumberValueInterface:
         assert interface.value == 200
 
         with pytest.raises(ValueError):  # type: ignore
-            interface.value = 'Hello!'
+            interface.value = 'Hello!'  # type: ignore
 
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_append_constructor_expression(self) -> None:
@@ -59,7 +58,7 @@ class TestNumberValueInterface:
         interface_2.variable_name = 'test_number_value_interface_2'
         interface_2.append_constructor_expression()
         expression = expression_file_util.get_current_expression()
-        expected: str = (
+        expected = (
             'var test_number_value_interface_2 = '
             'test_number_value_interface_1'
         )

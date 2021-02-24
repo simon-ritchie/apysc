@@ -1,7 +1,8 @@
 """Number validation implementations.
 """
 
-from typing import Any, Union
+from typing import Any
+from typing import Union
 
 
 def validate_num(num: Union[int, float, Any]) -> None:

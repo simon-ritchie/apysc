@@ -1,5 +1,5 @@
-from apyscript.validation import number_validation
 from apyscript.type.int import Int
+from apyscript.validation import number_validation
 from tests import testing_helper
 
 

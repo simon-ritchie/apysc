@@ -12,6 +12,7 @@ from tests import testing_helper
 class TestNumber:
 
     expression_file_util.remove_expression_file()
+
     def test___init__(self) -> None:
         expression_file_util.remove_expression_file()
         number_1: Number = Number(value=100)

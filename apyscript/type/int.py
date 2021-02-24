@@ -31,7 +31,7 @@ class Int(NumberValueInterface):
         self.append_constructor_expression()
 
     @property
-    def value(self) -> int:
+    def value(self) -> Union[int, float, Any]:
         """
         Get current integer value.
 

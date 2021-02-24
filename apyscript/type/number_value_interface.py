@@ -48,7 +48,7 @@ class NumberValueInterface(VariableNameInterface):
         expression_file_util.append_expression(expression=expression)
 
     @property
-    def value(self) -> Union[int, float]:
+    def value(self) -> Union[int, float, Any]:
         """
         Get current number value.
 

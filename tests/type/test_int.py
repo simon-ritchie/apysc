@@ -53,7 +53,7 @@ class TestInt:
 
         int_val_2: Int = Int(value=100)
         int_val_2.value = int_val_1
-        assert int_val_2.value == 200
+        assert int_val_2.value == 200  # type: ignore
         expression = expression_file_util.get_current_expression()
         expected = (
             f'{int_val_2.variable_name} = {int_val_1.variable_name};'

@@ -23,6 +23,8 @@ class Int(NumberValueInterface):
         """
         self.variable_name = expression_variables_util.get_next_variable_name(
             type_name='int')
+        if isinstance(value, NumberValueInterface):
+            value.value = cast.to_int_from_float(int_or_float=value.value)
         super(Int, self).__init__(value=value)
         self._value = cast.to_int_from_float(int_or_float=self.value)
         self.append_constructor_expression()
@@ -42,18 +44,22 @@ class Int(NumberValueInterface):
     @value.setter
     def value(
             self,
-            value_: Union[int, float, Any]) -> None:  # type: ignore
+            value: Union[int, float, Any]) -> None:  # type: ignore
         """
         Set integer value.
 
         Parameters
         ----------
-        value_ : int or float or Int or Number
+        value : int or float or Int or Number
             Any integer value to set. If float or Number value is
             specified, that value will be cast to integer.
         """
-        number_validation.validate_num(num=value_)
-        if isinstance(value_, NumberValueInterface):
-            value_ = value_._value
+        number_validation.validate_num(num=value)
+        if isinstance(value, NumberValueInterface):
+            value._value = cast.to_int_from_float(int_or_float=value._value)
+            value_ = value._value
+        else:
+            value = cast.to_int_from_float(int_or_float=value)
+            value_ = value
         self._value = value_
-        self._value = cast.to_int_from_float(int_or_float=self.value)
+        self.append_value_setter_expression(value=value)

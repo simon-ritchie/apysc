@@ -42,5 +42,12 @@ class TestNumber:
         assert type_util.is_same_class_instance(
             class_=float, instance=number.value)
 
+        number.value = 300.5
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{number.variable_name} = 300.5;'
+        )
+        assert expected in expression
+
         with pytest.raises(ValueError):  # type: ignore
             number.value = 'Hello!'

@@ -58,16 +58,40 @@ class NumberValueInterface(VariableNameInterface):
         return self._value
 
     @value.setter
-    def value(self, value_: Union[int, float, Any]) -> None:
+    def value(self, value: Union[int, float, Any]) -> None:
         """
         Set number value.
 
         Parameters
         ----------
-        value_ : int or float or Int or Number
+        value : int or float or Int or Number
             Any number value to set.
         """
-        number_validation.validate_num(num=value_)
-        if isinstance(value_, NumberValueInterface):
-            value_ = value_._value
+        number_validation.validate_num(num=value)
+        if isinstance(value, NumberValueInterface):
+            value_ = value._value
+        else:
+            value_ = value
         self._value = value_
+        self.append_value_setter_expression(value=value)
+
+    def append_value_setter_expression(
+            self, value: Union[int, float, Any]) -> None:
+        """
+        Append value's setter expresion to file.
+
+        Parameters
+        ----------
+        value : int or float or Int or Number
+            Any number value to set.
+        """
+        if isinstance(value, NumberValueInterface):
+            right_value: Union[str, int, float] = value.variable_name
+        else:
+            right_value = value
+        expression: str = (
+            f'{self.variable_name} = {right_value};'
+        )
+        expression = html_util.wrap_expression_by_script_tag(
+            expression=expression)
+        expression_file_util.append_expression(expression=expression)

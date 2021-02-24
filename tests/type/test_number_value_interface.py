@@ -36,6 +36,7 @@ class TestNumberValueInterface:
 
     def test_value(self) -> None:
         interface: NumberValueInterface = NumberValueInterface(value=100)
+        interface.variable_name = 'test_number_value_interface'
         interface.value = 200
         assert interface.value == 200
 
@@ -61,5 +62,25 @@ class TestNumberValueInterface:
         expected: str = (
             'var test_number_value_interface_2 = '
             'test_number_value_interface_1'
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test_append_value_setter_expression(self) -> None:
+        interface_1: NumberValueInterface = NumberValueInterface(value=100)
+        interface_1.variable_name = 'test_number_value_interface_1'
+        interface_1.value = 200
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface_1.variable_name} = 200;'
+        )
+        assert expected in expression
+
+        interface_2: NumberValueInterface = NumberValueInterface(
+            value=interface_1)
+        interface_2.variable_name = 'test_number_value_interface_2'
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{interface_2.variable_name} = {interface_1.variable_name};'
         )
         assert expected in expression

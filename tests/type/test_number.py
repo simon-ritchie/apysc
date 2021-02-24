@@ -1,4 +1,7 @@
+from random import randint
+
 import pytest
+from retrying import retry
 
 from apyscript.expression import expression_file_util
 from apyscript.type import type_util
@@ -8,7 +11,9 @@ from tests import testing_helper
 
 class TestNumber:
 
+    expression_file_util.remove_expression_file()
     def test___init__(self) -> None:
+        expression_file_util.remove_expression_file()
         number_1: Number = Number(value=100)
         assert number_1.value == 100.0
         assert type_util.is_same_class_instance(
@@ -33,21 +38,31 @@ class TestNumber:
             func_or_method=Number,
             kwargs={'value': 'Hello!'})
 
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_value(self) -> None:
-        number: Number = Number(value=100.5)
-        number.value = 200.5
-        assert number.value == 200.5
+        expression_file_util.remove_expression_file()
+        number_1: Number = Number(value=100.5)
+        number_1.value = 200.5
+        assert number_1.value == 200.5
 
-        number.value = 200
+        number_1.value = 200
         assert type_util.is_same_class_instance(
-            class_=float, instance=number.value)
+            class_=float, instance=number_1.value)
 
-        number.value = 300.5
+        number_1.value = 300.5
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'{number.variable_name} = 300.5;'
+            f'{number_1.variable_name} = 300.5;'
         )
         assert expected in expression
 
         with pytest.raises(ValueError):  # type: ignore
-            number.value = 'Hello!'  # type: ignore
+            number_1.value = 'Hello!'  # type: ignore
+
+        number_2: Number = Number(value=400.5)
+        number_2.value = number_1
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{number_2.variable_name} = {number_1.variable_name};'
+        )
+        assert expected in expression

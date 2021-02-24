@@ -34,6 +34,7 @@ class TestNumberValueInterface:
             kwargs={'value': 'Hello!'})
 
     def test_value(self) -> None:
+        expression_file_util.remove_expression_file()
         interface: NumberValueInterface = NumberValueInterface(value=100)
         interface.variable_name = 'test_number_value_interface'
         interface.value = 200
@@ -44,6 +45,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_append_constructor_expression(self) -> None:
+        expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(value=100)
         interface_1.variable_name = 'test_number_value_interface_1'
         interface_1.append_constructor_expression()
@@ -66,6 +68,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_append_value_setter_expression(self) -> None:
+        expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(value=100)
         interface_1.variable_name = 'test_number_value_interface_1'
         interface_1.value = 200
@@ -76,8 +79,9 @@ class TestNumberValueInterface:
         assert expected in expression
 
         interface_2: NumberValueInterface = NumberValueInterface(
-            value=interface_1)
+            value=100)
         interface_2.variable_name = 'test_number_value_interface_2'
+        interface_2.value = interface_1
         expression = expression_file_util.get_current_expression()
         expected = (
             f'{interface_2.variable_name} = {interface_1.variable_name};'

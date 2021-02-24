@@ -1,6 +1,7 @@
 """Class implementation for number value interface.
 """
 
+from apyscript.type.variable_name_interface import VariableNameInterface
 from typing import Any
 from typing import Union
 from copy import deepcopy
@@ -122,9 +123,32 @@ class NumberValueInterface(CopyInterface):
             value: Union[int, float, Any] = self._value + other.value
         else:
             value = self._value + other
-        result: NumberValueInterface = deepcopy(self)
+        result: NumberValueInterface = self._copy()
         result.value = value
-        result.variable_name = \
-            expression_variables_util.get_next_variable_name(
-                type_name=self.type_name)
+        self._append_addition_expression(result=result, other=other)
         return result
+
+    def _append_addition_expression(
+            self, result: VariableNameInterface,
+            other: Union[int, float, Any]) -> None:
+        """
+        Append addition expression to file.
+
+        Parameters
+        ----------
+        result : NumberValueInterface
+            Addition result value.
+        other : int or float or Int or Number
+            Other value to add.
+        """
+        if isinstance(other, NumberValueInterface):
+            right_value: Union[int, float, str] = other.variable_name
+        else:
+            right_value = other
+        expression: str = (
+            f'var {result.variable_name} = '
+            f'{self.variable_name} + {right_value};'
+        )
+        expression = html_util.wrap_expression_by_script_tag(
+            expression=expression)
+        expression_file_util.append_expression(expression=expression)

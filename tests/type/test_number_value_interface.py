@@ -116,8 +116,30 @@ class TestNumberValueInterface:
     def test__copy(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
-        interface_1.variable_name = 'test_interface_1'
+        interface_1.variable_name = 'test_interface_0'
         interface_2: NumberValueInterface = interface_1._copy()
         assert interface_1.value == interface_2.value
         assert interface_1.variable_name != interface_2.variable_name
         assert interface_2.variable_name.startswith('test_interface')
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test__append_addition_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=10, type_name='test_interface')
+        interface_1.variable_name = 'test_interface_0'
+        interface_2: NumberValueInterface = interface_1 + 10
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'var {interface_2.variable_name} = '
+            f'{interface_1.variable_name} + 10;'
+        )
+        assert expected in expression
+
+        interface_3: NumberValueInterface = interface_1 + interface_2
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'var {interface_3.variable_name} = '
+            f'{interface_1.variable_name} + {interface_2.variable_name};'
+        )
+        assert expected in expression

@@ -25,6 +25,7 @@ class Int(NumberValueInterface):
             type_name='int')
         super(Int, self).__init__(value=value)
         self._value = cast.to_int_from_float(int_or_float=self.value)
+        self.append_constructor_expression()
 
     @property
     def value(self) -> int:

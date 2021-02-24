@@ -4,6 +4,8 @@
 from typing import Any, Union
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import number_validation
+from apyscript.expression import expression_file_util
+from apyscript.html import html_util
 
 
 class NumberValueInterface(VariableNameInterface):
@@ -21,6 +23,17 @@ class NumberValueInterface(VariableNameInterface):
         """
         number_validation.validate_num(num=value)
         self._value = value
+
+    def append_constructor_expression(self) -> None:
+        """
+        Append current value's constructor expression to file.
+        """
+        expression: str = (
+            f'var {self.variable_name} = {self.value};'
+        )
+        expression = html_util.wrap_expression_by_script_tag(
+            expression=expression)
+        expression_file_util.append_expression(expression=expression)
 
     @property
     def value(self) -> Union[int, float]:

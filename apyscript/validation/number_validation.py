@@ -1,10 +1,10 @@
 """Number validation implementations.
 """
 
-from typing import Union
+from typing import Any, Union
 
 
-def validate_num(num: Union[int, float]) -> None:
+def validate_num(num: Union[int, float, Any]) -> None:
     """
     Validate specified value is integer or float type.
 
@@ -18,7 +18,8 @@ def validate_num(num: Union[int, float]) -> None:
     ValueError
         If specified value is not integer and float value.
     """
-    if isinstance(num, (int, float)):
+    from apyscript.type.number_value_interface import NumberValueInterface
+    if isinstance(num, (int, float, NumberValueInterface)):
         return
     raise ValueError(
         f'Specified value is not iteger or float type: {num}'

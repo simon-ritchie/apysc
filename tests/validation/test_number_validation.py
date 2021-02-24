@@ -1,10 +1,12 @@
 from apyscript.validation import number_validation
+from apyscript.type.int import Int
 from tests import testing_helper
 
 
 def test_validate_num() -> None:
     number_validation.validate_num(num=100)
     number_validation.validate_num(num=100.5)
+    number_validation.validate_num(num=Int(value=100))
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         func_or_method=number_validation.validate_num,

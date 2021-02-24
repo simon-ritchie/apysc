@@ -76,13 +76,28 @@ class NumberValueInterface(CopyInterface):
         value : int or float or Int or Number
             Any number value to set.
         """
+        self.set_value_and_skip_expression_appending(value=value)
+        if isinstance(value, NumberValueInterface):
+            self.append_value_setter_expression(value=value)
+        else:
+            self.append_value_setter_expression(value=self._value)
+
+    def set_value_and_skip_expression_appending(
+            self, value: Union[int, float, Any]) -> None:
+        """
+        Update value attribute and skip expression appending.
+
+        Parameters
+        ----------
+        value : int or float or Int or Number
+            Any number value to set.
+        """
         number_validation.validate_num(num=value)
         if isinstance(value, NumberValueInterface):
             value_ = value._value
         else:
             value_ = value
         self._value = value_
-        self.append_value_setter_expression(value=value)
 
     def append_value_setter_expression(
             self, value: Union[int, float, Any]) -> None:
@@ -124,7 +139,7 @@ class NumberValueInterface(CopyInterface):
         else:
             value = self._value + other
         result: NumberValueInterface = self._copy()
-        result.value = value
+        result.set_value_and_skip_expression_appending(value=value)
         self._append_addition_expression(result=result, other=other)
         return result
 

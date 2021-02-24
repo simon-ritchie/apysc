@@ -64,3 +64,23 @@ class TestInt:
         int_1: Int = Int(value=10)
         int_2: Int = int_1 + 10.5
         assert int_2.value == 20
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test_set_value_and_skip_expression_appending(self) -> None:
+        expression_file_util.remove_expression_file()
+        int_1: Int = Int(value=10)
+        int_1.set_value_and_skip_expression_appending(value=20.5)
+        assert int_1.value == 20
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{int_1.variable_name} = 20;'
+        )
+        assert expected not in expression
+
+        int_2: Int = Int(value=30)
+        int_2.set_value_and_skip_expression_appending(value=int_1)
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{int_2.variable_name} = {int_1.variable_name};'
+        )
+        assert expected not in expression

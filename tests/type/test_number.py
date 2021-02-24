@@ -72,3 +72,24 @@ class TestNumber:
         number_1: Number = Number(value=10.5)
         number_2: Number = number_1 + 20.6
         assert number_2.value == 31.1
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test_set_value_and_skip_expression_appending(self) -> None:
+        expression_file_util.remove_expression_file()
+        number_1: Number = Number(value=10.5)
+        number_1.set_value_and_skip_expression_appending(value=20.5)
+        assert number_1.value == 20.5
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{number_1.variable_name} = 20.5;'
+        )
+        assert expected not in expression
+
+        number_2: Number = Number(value=30.5)
+        number_2.set_value_and_skip_expression_appending(value=number_1)
+        assert number_2.value == 20.5
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{number_2.variable_name} = {number_1.variable_name};'
+        )
+        assert expected not in expression

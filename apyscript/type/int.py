@@ -31,30 +31,16 @@ class Int(NumberValueInterface):
         self._value = cast.to_int_from_float(int_or_float=self.value)
         self.append_constructor_expression()
 
-    @property
-    def value(self) -> Union[int, float, Any]:
+    def set_value_and_skip_expression_appending(
+            self, value: Union[int, float, Any]) -> None:
         """
-        Get current integer value.
-
-        Returns
-        -------
-        value : int
-            Current number value.
-        """
-        return super(Int, self).value  # type: ignore
-
-    @value.setter
-    def value(
-            self,
-            value: Union[int, float, Any]) -> None:  # type: ignore
-        """
-        Set integer value.
+        Update value attribute and skip expression appending.
 
         Parameters
         ----------
         value : int or float or Int or Number
-            Any integer value to set. If float or Number value is
-            specified, that value will be cast to integer.
+            Any number value to set. If float or Number value is specified,
+            that value will be cast to integer.
         """
         number_validation.validate_num(num=value)
         if isinstance(value, NumberValueInterface):
@@ -64,4 +50,3 @@ class Int(NumberValueInterface):
             value = cast.to_int_from_float(int_or_float=value)
             value_ = value
         self._value = value_
-        self.append_value_setter_expression(value=value)

@@ -7,13 +7,12 @@ from copy import deepcopy
 
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
-from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import number_validation
 from apyscript.expression import expression_variables_util
-from apyscript.type.type_name_interface import TypeNameInterface
+from apyscript.type.copy_interface import CopyInterface
 
 
-class NumberValueInterface(VariableNameInterface, TypeNameInterface):
+class NumberValueInterface(CopyInterface):
 
     _initial_value: Union[int, float, Any]
     _value: Union[int, float]
@@ -104,21 +103,6 @@ class NumberValueInterface(VariableNameInterface, TypeNameInterface):
         expression = html_util.wrap_expression_by_script_tag(
             expression=expression)
         expression_file_util.append_expression(expression=expression)
-
-    def copy(self) -> Any:
-        """
-        Make a deep copy of this instance.
-
-        Returns
-        -------
-        result : NumberValueInterface
-            Copied instance.
-        """
-        result: NumberValueInterface = deepcopy(self)
-        result.variable_name = \
-            expression_variables_util.get_next_variable_name(
-                type_name=self.type_name)
-        return result
 
     def __add__(self, other: Union[int, float, Any]) -> Any:
         """

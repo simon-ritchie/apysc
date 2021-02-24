@@ -113,10 +113,11 @@ class TestNumberValueInterface:
         assert interface_3.variable_name != interface_2.variable_name
 
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
-    def test_copy(self) -> None:
+    def test__copy(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_1.variable_name = 'test_interface_1'
-        interface_2: NumberValueInterface = interface_1.copy()
+        interface_2: NumberValueInterface = interface_1._copy()
         assert interface_1.value == interface_2.value
         assert interface_1.variable_name != interface_2.variable_name
+        assert interface_2.variable_name.startswith('test_interface')

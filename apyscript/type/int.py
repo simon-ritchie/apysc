@@ -21,10 +21,10 @@ class Int(NumberValueInterface):
             Initial integer value. If float or Number value is specified,
             that value will be cast to integer.
         """
-        super(Int, self).__init__(value=value)
-        self._value = cast.to_int_from_float(int_or_float=self.value)
         self.variable_name = expression_variables_util.get_next_variable_name(
             type_name='int')
+        super(Int, self).__init__(value=value)
+        self._value = cast.to_int_from_float(int_or_float=self.value)
 
     @property
     def value(self) -> int:

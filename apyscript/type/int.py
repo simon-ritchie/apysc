@@ -22,11 +22,12 @@ class Int(NumberValueInterface):
             Initial integer value. If float or Number value is specified,
             that value will be cast to integer.
         """
+        type_name: str = 'int'
         self.variable_name = expression_variables_util.get_next_variable_name(
-            type_name='int')
+            type_name=type_name)
         if isinstance(value, NumberValueInterface):
             value.value = cast.to_int_from_float(int_or_float=value.value)
-        super(Int, self).__init__(value=value)
+        super(Int, self).__init__(value=value, type_name=type_name)
         self._value = cast.to_int_from_float(int_or_float=self.value)
         self.append_constructor_expression()
 

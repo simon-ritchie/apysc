@@ -3,19 +3,23 @@
 
 from typing import Any
 from typing import Union
+from copy import deepcopy
 
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import number_validation
+from apyscript.expression import expression_variables_util
 
 
 class NumberValueInterface(VariableNameInterface):
 
     _initial_value: Union[int, float, Any]
     _value: Union[int, float]
+    _type_name: str
 
-    def __init__(self, value: Union[int, float, Any]) -> None:
+    def __init__(
+            self, value: Union[int, float, Any], type_name: str) -> None:
         """
         Class for number value interface.
 
@@ -23,6 +27,8 @@ class NumberValueInterface(VariableNameInterface):
         ----------
         value : int or float or Int or Number
             Initial number value.
+        type_name : str
+            This instance expression's type name (e.g., int, number).
         """
         number_validation.validate_num(num=value)
         self._initial_value = value
@@ -31,6 +37,14 @@ class NumberValueInterface(VariableNameInterface):
         else:
             value_ = value
         self._value = value_
+        self._type_name = type_name
+
+    @property
+    def type_name(self) -> str:
+        """
+        This instance expression's type name.
+        """
+        return self._type_name
 
     def append_constructor_expression(self) -> None:
         """
@@ -97,3 +111,23 @@ class NumberValueInterface(VariableNameInterface):
         expression = html_util.wrap_expression_by_script_tag(
             expression=expression)
         expression_file_util.append_expression(expression=expression)
+
+    def __add__(self, other: Union[int, float, Any]) -> Any:
+        """
+        Method for addition.
+
+        Parameters
+        ----------
+        other : int or float or Int or Number
+            Other value to add.
+        """
+        if isinstance(other, NumberValueInterface):
+            value: Union[int, float, Any] = self._value + other.value
+        else:
+            value = self._value + other
+        result: NumberValueInterface = deepcopy(self)
+        result.value = value
+        result.variable_name = \
+            expression_variables_util.get_next_variable_name(
+                type_name=self.type_name)
+        return result

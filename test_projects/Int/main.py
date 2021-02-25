@@ -40,6 +40,12 @@ def main() -> None:
     int_3: Int = int_1 + int_2
     trace('int_3 expected: 40, actual:', int_3)
 
+    int_4: Int = Int(40) - 10
+    trace('int_4 expected: 30, actual:', int_4)
+
+    int_5: Int = int_4 - int_1
+    trace('int_5 expected: 20, actual:', int_5)
+
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

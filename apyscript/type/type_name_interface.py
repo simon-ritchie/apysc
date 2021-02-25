@@ -9,6 +9,11 @@ class TypeNameInterface:
     @property
     def type_name(self) -> str:
         """
-        This instance expression's type name.
+        Get this instance expression's type name.
+
+        Returns
+        -------
+        type_name : str
+            This instance expression's type name.
         """
         return self._type_name

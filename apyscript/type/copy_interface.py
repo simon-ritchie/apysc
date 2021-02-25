@@ -4,9 +4,9 @@
 from copy import deepcopy
 from typing import Any
 
+from apyscript.expression import expression_variables_util
 from apyscript.type.type_name_interface import TypeNameInterface
 from apyscript.type.variable_name_interface import VariableNameInterface
-from apyscript.expression import expression_variables_util
 
 
 class CopyInterface(TypeNameInterface, VariableNameInterface):

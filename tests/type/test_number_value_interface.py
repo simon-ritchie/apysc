@@ -1,4 +1,5 @@
 from random import randint
+from typing import Union
 
 import pytest
 from retrying import retry
@@ -199,5 +200,52 @@ class TestNumberValueInterface:
         expected = (
             f'{interface_3.variable_name} = {interface_1.variable_name} '
             f'- {interface_2.variable_name};'
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test__get_arithmetic_expression_right_value(self) -> None:
+        interface: NumberValueInterface = NumberValueInterface(
+            value=20, type_name='test_interface')
+        other: NumberValueInterface = NumberValueInterface(
+            value=10, type_name='test_interface')
+        other.variable_name = 'test_interface_0'
+        right_value: Union[int, float, str] = interface.\
+            _get_arithmetic_expression_right_value(other=other)
+        assert right_value == 'test_interface_0'
+
+        right_value = interface._get_arithmetic_expression_right_value(
+            other=10)
+        assert right_value == 10
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test___mul__(self) -> None:
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=20, type_name='test_interface')
+        interface_1.variable_name = 'test_interface_0'
+        interface_2: NumberValueInterface = interface_1 * 3
+        assert interface_2.value == 60
+
+        interface_3: NumberValueInterface = interface_1 * interface_2
+        assert interface_3.value == 1200
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test__append_multiplication_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=20, type_name='test_interface')
+        interface_1.variable_name = 'test_interface_0'
+        interface_2: NumberValueInterface = interface_1 * 3
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface_2.variable_name} = {interface_1.variable_name} * 3;'
+        )
+        assert expected in expression
+
+        interface_3: NumberValueInterface = interface_1 * interface_2
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{interface_3.variable_name} = {interface_1.variable_name}'
+            f' * {interface_2.variable_name};'
         )
         assert expected in expression

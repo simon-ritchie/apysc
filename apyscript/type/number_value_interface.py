@@ -118,6 +118,28 @@ class NumberValueInterface(CopyInterface):
             expression=expression)
         expression_file_util.append_expression(expression=expression)
 
+    def _get_arithmetic_expression_right_value(
+            self, other: Any) -> Union[int, float, str]:
+        """
+        Get a arithmetic expression's right value (e.g., variable name,
+        actual integer, or float value).
+
+        Parameters
+        ----------
+        other : int or float or NumberValueInterface
+            Other value of arithmetic expression.
+
+        Returns
+        -------
+        right_value : int or float or str
+            If other is instance of NumberValueInterface,
+            then variable name will be set. Otherwise, int or float
+            value will be set.
+        """
+        if isinstance(other, NumberValueInterface):
+            return other.variable_name
+        return other  # type: ignore
+
     def __add__(self, other: Union[int, float, Any]) -> Any:
         """
         Method for addition.
@@ -154,10 +176,8 @@ class NumberValueInterface(CopyInterface):
         other : int or float or NumberValueInterface
             Other value to add.
         """
-        if isinstance(other, NumberValueInterface):
-            right_value: Union[int, float, str] = other.variable_name
-        else:
-            right_value = other
+        right_value: Union[int, float, str] = \
+            self._get_arithmetic_expression_right_value(other=other)
         expression: str = (
             f'var {result.variable_name} = '
             f'{self.variable_name} + {right_value};'
@@ -202,13 +222,57 @@ class NumberValueInterface(CopyInterface):
         other : int or float or NumberValueInterface
             Other value to subtract.
         """
-        if isinstance(other, NumberValueInterface):
-            right_value: Union[int, float, str] = other.variable_name
-        else:
-            right_value = other
+        right_value: Union[int, float, str] = \
+            self._get_arithmetic_expression_right_value(other=other)
         expression: str = (
             f'var {result.variable_name} = '
             f'{self.variable_name} - {right_value};'
+        )
+        expression = html_util.wrap_expression_by_script_tag(
+            expression=expression)
+        expression_file_util.append_expression(expression=expression)
+
+    def __mul__(self, other: Union[int, float, Any]) -> Any:
+        """
+        Method for multiplication.
+
+        Parameters
+        ----------
+        other : int or float or NumberValueInterface
+            Other value to multiply.
+
+        Returns
+        -------
+        result : NumberValueInterface
+            Multiplication result value.
+        """
+        if isinstance(other, NumberValueInterface):
+            value: Union[int, float, Any] = self._value * other.value
+        else:
+            value = self._value * other
+        result: NumberValueInterface = self._copy()
+        result.set_value_and_skip_expression_appending(value=value)
+        self._append_multiplication_expression(result=result, other=other)
+        return result
+
+    def _append_multiplication_expression(
+            self, result: VariableNameInterface,
+            other: Union[int, float, Any]) -> None:
+        """
+        Append multiplication expression to file.
+
+        Parameters
+        ----------
+        result : NumberValueInterface
+            Multiplication result value.
+        other : int or float or NumberValueInterface
+            Other value to multiply.
+        """
+        right_value: Union[int, float, str] = \
+            self._get_arithmetic_expression_right_value(other=other)
+        expression: str = (
+            f'var {result.variable_name} = '
+            f'{self.variable_name} * {right_value};'
         )
         expression = html_util.wrap_expression_by_script_tag(
             expression=expression)

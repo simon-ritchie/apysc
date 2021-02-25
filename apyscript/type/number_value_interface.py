@@ -23,7 +23,7 @@ class NumberValueInterface(CopyInterface):
 
         Parameters
         ----------
-        value : int or float or Int or Number
+        value : int or float or NumberValueInterface
             Initial number value.
         type_name : str
             This instance expression's type name (e.g., int, number).
@@ -71,7 +71,7 @@ class NumberValueInterface(CopyInterface):
 
         Parameters
         ----------
-        value : int or float or Int or Number
+        value : int or float or NumberValueInterface
             Any number value to set.
         """
         self.set_value_and_skip_expression_appending(value=value)
@@ -87,7 +87,7 @@ class NumberValueInterface(CopyInterface):
 
         Parameters
         ----------
-        value : int or float or Int or Number
+        value : int or float or NumberValueInterface
             Any number value to set.
         """
         number_validation.validate_num(num=value)
@@ -104,7 +104,7 @@ class NumberValueInterface(CopyInterface):
 
         Parameters
         ----------
-        value : int or float or Int or Number
+        value : int or float or NumberValueInterface
             Any number value to set.
         """
         if isinstance(value, NumberValueInterface):
@@ -124,7 +124,7 @@ class NumberValueInterface(CopyInterface):
 
         Parameters
         ----------
-        other : int or float or Int or Number
+        other : int or float or NumberValueInterface
             Other value to add.
 
         Returns
@@ -151,7 +151,7 @@ class NumberValueInterface(CopyInterface):
         ----------
         result : NumberValueInterface
             Addition result value.
-        other : int or float or Int or Number
+        other : int or float or NumberValueInterface
             Other value to add.
         """
         if isinstance(other, NumberValueInterface):
@@ -161,6 +161,54 @@ class NumberValueInterface(CopyInterface):
         expression: str = (
             f'var {result.variable_name} = '
             f'{self.variable_name} + {right_value};'
+        )
+        expression = html_util.wrap_expression_by_script_tag(
+            expression=expression)
+        expression_file_util.append_expression(expression=expression)
+
+    def __sub__(self, other: Union[int, float, Any]) -> Any:
+        """
+        Method for subtraction.
+
+        Parameters
+        ----------
+        other : int or float or NumberValueInterface
+            Other value to subtract.
+
+        Returns
+        -------
+        result : NumberValueInterface
+            Subtraction result value.
+        """
+        if isinstance(other, NumberValueInterface):
+            value: Union[int, float, Any] = self._value - other.value
+        else:
+            value = self._value - other
+        result: NumberValueInterface = self._copy()
+        result.set_value_and_skip_expression_appending(value=value)
+        self._append_subtraction_expression(result=result, other=other)
+        return result
+
+    def _append_subtraction_expression(
+            self, result: VariableNameInterface,
+            other: Union[int, float, Any]) -> None:
+        """
+        Append subtraction expression to file.
+
+        Parameters
+        ----------
+        result : NumberValueInterface
+            Subtraction result value.
+        other : int or float or NumberValueInterface
+            Other value to subtract.
+        """
+        if isinstance(other, NumberValueInterface):
+            right_value: Union[int, float, str] = other.variable_name
+        else:
+            right_value = other
+        expression: str = (
+            f'var {result.variable_name} = '
+            f'{self.variable_name} - {right_value};'
         )
         expression = html_util.wrap_expression_by_script_tag(
             expression=expression)

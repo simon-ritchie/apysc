@@ -169,3 +169,35 @@ class TestNumberValueInterface:
             f'{interface_2.variable_name} = {interface_1.variable_name};'
         )
         assert expected not in expression
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test___sub__(self) -> None:
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=20, type_name='test_interface')
+        interface_1.variable_name = 'test_interface_0'
+        interface_2: NumberValueInterface = interface_1 - 15
+        assert interface_2.value == 5
+
+        interface_3: NumberValueInterface = interface_1 - interface_2
+        assert interface_3.value == 15
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test__append_subtraction_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=20, type_name='test_interface')
+        interface_1.variable_name = 'test_interface_0'
+        interface_2: NumberValueInterface = interface_1 - 15
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface_2.variable_name} = {interface_1.variable_name} - 15;'
+        )
+        assert expected in expression
+
+        interface_3: NumberValueInterface = interface_1 - interface_2
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{interface_3.variable_name} = {interface_1.variable_name} '
+            f'- {interface_2.variable_name};'
+        )
+        assert expected in expression

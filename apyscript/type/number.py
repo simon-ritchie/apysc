@@ -25,8 +25,6 @@ class Number(NumberValueInterface):
         type_name: str = 'number'
         self.variable_name = expression_variables_util.get_next_variable_name(
             type_name=type_name)
-        if isinstance(value, NumberValueInterface):
-            value.value = cast.to_float_from_int(int_or_float=value.value)
         super(Number, self).__init__(value=value, type_name=type_name)
         self._value = cast.to_float_from_int(int_or_float=self.value)
         self.append_constructor_expression()

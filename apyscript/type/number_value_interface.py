@@ -182,9 +182,8 @@ class NumberValueInterface(CopyInterface):
             f'var {result.variable_name} = '
             f'{self.variable_name} + {right_value};'
         )
-        expression = html_util.wrap_expression_by_script_tag(
+        expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
-        expression_file_util.append_expression(expression=expression)
 
     def __sub__(self, other: Union[int, float, Any]) -> Any:
         """
@@ -228,9 +227,8 @@ class NumberValueInterface(CopyInterface):
             f'var {result.variable_name} = '
             f'{self.variable_name} - {right_value};'
         )
-        expression = html_util.wrap_expression_by_script_tag(
+        expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
-        expression_file_util.append_expression(expression=expression)
 
     def __mul__(self, other: Union[int, float, Any]) -> Any:
         """
@@ -274,6 +272,51 @@ class NumberValueInterface(CopyInterface):
             f'var {result.variable_name} = '
             f'{self.variable_name} * {right_value};'
         )
-        expression = html_util.wrap_expression_by_script_tag(
+        expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
-        expression_file_util.append_expression(expression=expression)
+
+    def __truediv__(self, other: Union[int, float, Any]) -> Any:
+        """
+        Method for true division (return floating point number).
+
+        Parameters
+        ----------
+        other : int or float or NumberValueInterface
+            Other value for true division.
+
+        Returns
+        -------
+        result : Number
+            True division result value.
+        """
+        from apyscript.type.number import Number
+        result: Number = Number(value=self)
+        if isinstance(other, NumberValueInterface):
+            value: Union[int, float, Any] = result._value / other.value
+        else:
+            value = result._value / other
+        result.set_value_and_skip_expression_appending(value=value)
+        self._append_true_divition_expression(result=result, other=other)
+        return result
+
+    def _append_true_divition_expression(
+            self, result: VariableNameInterface,
+            other: Union[int, float, Any]) -> None:
+        """
+        Append true division expression to file.
+
+        Parameters
+        ----------
+        result : NumberValueInterface
+            True division result value.
+        other : int or float or NumberValueInterface
+            Other value for true division.
+        """
+        right_value: Union[int, float, str] = \
+            self._get_arithmetic_expression_right_value(other=other)
+        expression: str = (
+            f'{result.variable_name} = {result.variable_name} / '
+            f'{right_value};'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)

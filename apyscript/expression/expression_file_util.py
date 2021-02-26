@@ -5,6 +5,8 @@ Mainly following interfaces are defined:
 - empty_expression_dir : Remove expression directory
     (EXPRESSION_ROOT_DIR) to initialize.
 - append_expression : Append html and js expression to file.
+- wrap_by_script_tag_and_append_expression : Wrap an expression
+    string by script tags and append it's expression to file.
 - get_current_expression : Get current expression string.
 - remove_expression_file : Remove expression file.
 """
@@ -13,7 +15,7 @@ import os
 from typing import List
 
 from apyscript.file import file_util
-from apyscript.html import html_const
+from apyscript.html import html_const, html_util
 from apyscript.html.html_util import ScriptLineUtil
 
 EXPRESSION_ROOT_DIR: str = '../.apyscript_expression/'
@@ -43,6 +45,21 @@ def append_expression(expression: str) -> None:
     file_util.append_plain_txt(
         txt=f'{expression}\n', file_path=EXPRESSION_FILE_PATH)
     _merge_script_section()
+
+
+def wrap_by_script_tag_and_append_expression(expression: str) -> None:
+    """
+    Wrap an expression string by script tags and append it's
+    expression to file (helper function of `append_expression`).
+
+    Parameters
+    ----------
+    expression : str
+        HTML and js Expression string.
+    """
+    expression = html_util.wrap_expression_by_script_tag(
+        expression=expression)
+    append_expression(expression=expression)
 
 
 def _merge_script_section() -> None:

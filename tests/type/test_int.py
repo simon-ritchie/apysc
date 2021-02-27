@@ -84,3 +84,14 @@ class TestInt:
             f'{int_2.variable_name} = {int_1.variable_name};'
         )
         assert expected not in expression
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test__append_cast_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        int_val: Int = Int(value=100.5)
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{int_val.variable_name} = '
+            f'parseInt({int_val.variable_name}, 10);'
+        )
+        assert expected in expression

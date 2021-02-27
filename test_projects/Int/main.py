@@ -53,6 +53,12 @@ def main() -> None:
     number_2: Number = int_1 / int_3
     trace('number_2 expected: 0.25, actual:', number_2)
 
+    int_6: Int = Int(30.5)
+    trace('int_6 expected: 30, actual:', int_6)
+
+    int_7: Int = Int(Number(60.5))
+    trace('int_7 expected: 60, actual:', int_7)
+
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

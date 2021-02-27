@@ -6,6 +6,7 @@ from typing import Union
 
 from apyscript.converter import cast
 from apyscript.expression import expression_variables_util
+from apyscript.expression import expression_file_util
 from apyscript.type.number_value_interface import NumberValueInterface
 from apyscript.validation import number_validation
 
@@ -28,6 +29,18 @@ class Int(NumberValueInterface):
         super(Int, self).__init__(value=value, type_name=type_name)
         self._value = cast.to_int_from_float(int_or_float=self.value)
         self.append_constructor_expression()
+        self._append_cast_expression()
+
+    def _append_cast_expression(self) -> None:
+        """
+        Append integer cast (parseInt) expression to file.
+        """
+        expression: str = (
+            f'{self.variable_name} = parseInt({self.variable_name}, 10);'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)
+
 
     def set_value_and_skip_expression_appending(
             self, value: Union[int, float, Any]) -> None:

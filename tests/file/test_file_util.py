@@ -68,7 +68,7 @@ def test_remove_file_if_exists() -> None:
 def test_get_abs_module_dir_path() -> None:
     abs_module_dir_path: str = file_util.get_abs_module_dir_path(
         module=file_util)
-    expected_dir_path: str = '/mnt/action-py-script/apyscript/file/'
+    expected_dir_path: str = '/mnt/apyscript/apyscript/file/'
     assert abs_module_dir_path == expected_dir_path
 
 

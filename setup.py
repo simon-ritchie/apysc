@@ -7,22 +7,22 @@ from setuptools import setup
 from apyscript import __version__
 
 _DESCRIPTION: str = (
-    'ActionPyScript is a Python\'s frontend library to create '
+    'apyscript is a Python\'s frontend library to create '
     'html and js file, that has a ActionScript 3 (as3)-like interface.'
 )
 
 _LONG_DESCRIPTION: str = (
-    'ActionPyScript is a Python\'s frontend library to '
+    'apyscript is a Python\'s frontend library to '
     'create html and js file, that has a ActionScript 3 '
     '(as3)-like interface.'
     ' For more details, please see Github repository:'
-    ' https://github.com/simon-ritchie/action-py-script'
+    ' https://github.com/simon-ritchie/apyscript'
 )
 
 setup(
-    name='actionpyscript',
+    name='apyscript',
     version=__version__,
-    url='https://github.com/simon-ritchie/action-py-script',
+    url='https://github.com/simon-ritchie/apyscript',
     maintainer='simon-ritchie',
     maintainer_email='',
     description=_DESCRIPTION,

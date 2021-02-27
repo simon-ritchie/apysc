@@ -15,7 +15,8 @@ import os
 from typing import List
 
 from apyscript.file import file_util
-from apyscript.html import html_const, html_util
+from apyscript.html import html_const
+from apyscript.html import html_util
 from apyscript.html.html_util import ScriptLineUtil
 
 EXPRESSION_ROOT_DIR: str = '../.apyscript_expression/'

@@ -1,6 +1,6 @@
 # Please don't bundle each RUN command for the sake of shorten build time.
 FROM python:3.6.12-buster
-ARG WORKDIR="/mnt/action-py-script/"
+ARG WORKDIR="/mnt/apyscript/"
 RUN mkdir ${WORKDIR}
 WORKDIR "${WORKDIR}"
 RUN pip install typing-extensions==3.7.4.3

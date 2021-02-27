@@ -12,7 +12,7 @@ from apyscript.html import exporter
 
 @retry(stop_max_attempt_number=5, wait_fixed=300)
 def test__export_js_libs() -> None:
-    tmp_dir_path: str = '../.tmp_action_py_script_test_exporter/'
+    tmp_dir_path: str = '../.tmp_apyscript_test_exporter/'
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
     saved_js_file_paths: List[str] = exporter._export_js_libs(
@@ -57,7 +57,7 @@ def test__append_expression_to_html_str() -> None:
 
 @retry(stop_max_attempt_number=5, wait_fixed=300)
 def test_save_expressions_overall_html() -> None:
-    tmp_dir_path: str = '../.tmp_action_py_script_test_exporter/'
+    tmp_dir_path: str = '../.tmp_apyscript_test_exporter/'
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
     Stage(stage_elem_id='test_stage')
     exporter.save_expressions_overall_html(dest_dir_path=tmp_dir_path)

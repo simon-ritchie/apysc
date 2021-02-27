@@ -422,3 +422,21 @@ class TestNumberValueInterface:
         assert interface_1 < interface_2
         assert not interface_1 < 10
         assert not interface_1 < interface_3
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test___le__(self) -> None:
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=10, type_name='test_interface')
+        interface_2: NumberValueInterface = NumberValueInterface(
+            value=10, type_name='test_interface')
+        interface_3: NumberValueInterface = NumberValueInterface(
+            value=11, type_name='test_interface')
+        interface_4: NumberValueInterface = NumberValueInterface(
+            value=9, type_name='test_interface')
+
+        assert interface_1 <= 10
+        assert interface_1 <= 11
+        assert interface_1 <= interface_2
+        assert interface_1 <= interface_3
+        assert not interface_1 <= 9
+        assert not interface_1 <= interface_4

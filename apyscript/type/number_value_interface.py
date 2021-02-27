@@ -484,3 +484,23 @@ class NumberValueInterface(CopyInterface):
         if isinstance(other, NumberValueInterface):
             return self.value < other.value
         return self.value < other
+
+    def __le__(self, other: Any) -> bool:
+        """
+        Less than equal comparison method.
+
+        Parameters
+        ----------
+        other : *
+            Other value to compare. Builtin types, Int,
+            and Number class instances are acceptable.
+
+        Returns
+        -------
+        result : bool
+            If this value is less than or equal to a specified value,
+            then True will be returned.
+        """
+        if isinstance(other, NumberValueInterface):
+            return self.value <= other.value
+        return self.value <= other

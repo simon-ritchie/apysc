@@ -5,11 +5,11 @@ from typing import Any
 from typing import Union
 
 from apyscript.converter import cast
-from apyscript.expression import expression_variables_util
 from apyscript.expression import expression_file_util
+from apyscript.expression import expression_variables_util
+from apyscript.type import type_util
 from apyscript.type.number_value_interface import NumberValueInterface
 from apyscript.validation import number_validation
-from apyscript.type import type_util
 
 
 class Int(NumberValueInterface):
@@ -39,6 +39,12 @@ class Int(NumberValueInterface):
             self, is_number_specified: bool) -> None:
         """
         Append integer cast (parseInt) expression to file.
+
+        Parameters
+        ----------
+        is_number_specified : bool
+            Boolean value whether a specified value is Number
+            instance or not.
         """
         if not is_number_specified:
             return
@@ -47,7 +53,6 @@ class Int(NumberValueInterface):
         )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
-
 
     def set_value_and_skip_expression_appending(
             self, value: Union[int, float, Any]) -> None:

@@ -5,9 +5,9 @@ import pytest
 from retrying import retry
 
 from apyscript.expression import expression_file_util
-from apyscript.type.number_value_interface import NumberValueInterface
 from apyscript.type.int import Int
 from apyscript.type.number import Number
+from apyscript.type.number_value_interface import NumberValueInterface
 from tests import testing_helper
 
 

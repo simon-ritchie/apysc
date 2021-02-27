@@ -1,4 +1,3 @@
-from apyscript.type.number import Number
 from random import randint
 
 import pytest
@@ -6,6 +5,7 @@ from retrying import retry
 
 from apyscript.expression import expression_file_util
 from apyscript.type.int import Int
+from apyscript.type.number import Number
 from tests import testing_helper
 
 
@@ -99,12 +99,12 @@ class TestInt:
 
         expression_file_util.remove_expression_file()
         int_val = Int(value=100)
-        expression: str = expression_file_util.get_current_expression()
+        expression = expression_file_util.get_current_expression()
         assert 'parseInt' not in expression
 
         expression_file_util.remove_expression_file()
         int_val = Int(value=100.5)
-        expression: str = expression_file_util.get_current_expression()
+        expression = expression_file_util.get_current_expression()
         assert 'parseInt' not in expression
         expected = f'{int_val.variable_name} = 100;'
         assert expected in expression

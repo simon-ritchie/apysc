@@ -1,6 +1,6 @@
 from apyscript.type import type_util
-from apyscript.type.number import Number
 from apyscript.type.int import Int
+from apyscript.type.number import Number
 
 
 def test_is_same_class_instance() -> None:

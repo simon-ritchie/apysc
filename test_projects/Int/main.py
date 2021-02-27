@@ -77,6 +77,10 @@ def main() -> None:
     int_12 *= 3
     trace('int_12 expected: 30, actual:', int_12)
 
+    int_13: Int = Int(10)
+    int_13 /= 4
+    trace('int_13 expected: 2.5, actual:', int_13)
+
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

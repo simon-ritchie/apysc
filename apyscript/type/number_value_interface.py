@@ -417,3 +417,20 @@ class NumberValueInterface(CopyInterface):
         """
         result: NumberValueInterface = self * other
         return result
+
+    def __itruediv__(self, other: Union[int, float, Any]) -> Any:
+        """
+        Method for incremental true division.
+
+        Parameters
+        ----------
+        other : int or float or NumberValueInterface
+            Other value for incremental true division.
+
+        Returns
+        -------
+        result : NumberValueInterface
+            Incremental true division result value.
+        """
+        result: NumberValueInterface = self / other
+        return result

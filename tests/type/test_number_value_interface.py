@@ -370,3 +370,17 @@ class TestNumberValueInterface:
             f'{interface_1.variable_name} = test_interface_0 * 3;'
         )
         assert expected in expression
+
+    def test___itruediv__(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=10, type_name='test_interface')
+        interface_1.variable_name = 'test_interface_0'
+        interface_1 /= 4
+        assert interface_1.value == 2.5
+
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface_1.variable_name} = {interface_1.variable_name} / 4;'
+        )
+        assert expected in expression

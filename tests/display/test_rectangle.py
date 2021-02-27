@@ -1,3 +1,4 @@
+from apyscript.type.number import Number
 from random import randint
 
 from retrying import retry
@@ -36,6 +37,11 @@ class TestRectangle:
                 '_line_alpha': 0.3,
             },
             any_obj=rectangle)
+
+        rectanble = Rectangle(
+            parent=sprite.graphics, x=100, y=200, width=300, height=400,
+            fill_alpha=Number(value=0.5))
+        assert rectanble._fill_alpha == 0.5
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))

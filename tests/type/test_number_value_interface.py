@@ -384,3 +384,8 @@ class TestNumberValueInterface:
             f'{interface_1.variable_name} = {interface_1.variable_name} / 4;'
         )
         assert expected in expression
+
+    def test___str__(self) -> None:
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=10, type_name='test_interface')
+        assert str(interface_1) == '10'

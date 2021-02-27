@@ -434,3 +434,14 @@ class NumberValueInterface(CopyInterface):
         """
         result: NumberValueInterface = self / other
         return result
+
+    def __str__(self) -> str:
+        """
+        String cast method.
+
+        Returns
+        -------
+        string : str
+            Casted value string.
+        """
+        return str(self.value)

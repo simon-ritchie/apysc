@@ -1,7 +1,7 @@
 """Implementations of Rectangle class and other interfaces.
 """
 
-from typing import Any
+from typing import Any, Union
 from typing import Optional
 
 from apyscript.display.fill_alpha_interface import FillAlphaInterface
@@ -17,6 +17,7 @@ from apyscript.expression import expression_file_util
 from apyscript.expression import expression_variables_util
 from apyscript.html import html_const
 from apyscript.validation import size_validation
+from apyscript.type.number import Number
 
 
 class Rectangle(
@@ -27,7 +28,7 @@ class Rectangle(
     def __init__(
             self, parent: Any, x: int, y: int, width: int,
             height: int, fill_color: Optional[str] = None,
-            fill_alpha: Optional[float] = None,
+            fill_alpha: Optional[Union[float, Number]] = None,
             line_color: Optional[str] = None,
             line_thickness: Optional[int] = None,
             line_alpha: Optional[float] = None) -> None:
@@ -48,7 +49,7 @@ class Rectangle(
             Rectangle height.
         fill_color : str or None, default None
             Fill color (hexadecimal string, e.g., '#00aaff').
-        fill_alpha : float or None, default None
+        fill_alpha : float or Number or None, default None
             Fill opacity (0.0 to 1.0).
         line_color : str or None, default None
             Line color (hexadecimal string, e.g., '#00aaff').

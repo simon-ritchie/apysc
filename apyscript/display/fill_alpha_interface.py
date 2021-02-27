@@ -1,7 +1,8 @@
 """Class implementation for fill alpha interface.
 """
 
-from typing import Optional
+from apyscript.type.number import Number
+from typing import Optional, Union
 
 from apyscript.converter import cast
 from apyscript.expression import expression_file_util
@@ -53,7 +54,8 @@ class FillAlphaInterface(VariableNameInterface):
         expression_file_util.append_expression(
             expression=expression)
 
-    def update_fill_alpha_and_skip_appending_exp(self, value: float) -> None:
+    def update_fill_alpha_and_skip_appending_exp(
+            self, value: Union[float, Number]) -> None:
         """
         Update fill opacity and skip appending expression to file.
 
@@ -63,6 +65,9 @@ class FillAlphaInterface(VariableNameInterface):
             Fill opacity to set.
         """
         number_validation.validate_num(num=value)
-        value = cast.to_float_from_int(int_or_float=value)
+        if not isinstance(value, Number):
+            value = cast.to_float_from_int(int_or_float=value)
+        else:
+            value = value.value
         color_validation.validate_alpha_range(alpha=value)
         self._fill_alpha = value

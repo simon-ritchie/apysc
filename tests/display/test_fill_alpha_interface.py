@@ -1,3 +1,4 @@
+from apyscript.type.number import Number
 from random import randint
 
 from retrying import retry
@@ -38,3 +39,7 @@ class TestFillAlphaInterface:
         assert fill_alpha_interface.fill_alpha == 0.25
         expression: str = expression_file_util.get_current_expression()
         assert expression == ''
+
+        fill_alpha_interface.update_fill_alpha_and_skip_appending_exp(
+            value=Number(value=0.5))
+        assert fill_alpha_interface.fill_alpha == 0.5

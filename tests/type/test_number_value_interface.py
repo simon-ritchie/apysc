@@ -441,7 +441,6 @@ class TestNumberValueInterface:
         assert not interface_1 <= 9
         assert not interface_1 <= interface_4
 
-
     def test___gt__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')

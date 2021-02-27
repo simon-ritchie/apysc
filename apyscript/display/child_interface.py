@@ -6,8 +6,8 @@ from typing import List
 from apyscript.display.display_object import DisplayObject
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
-from apyscript.validation import display_validation
 from apyscript.type.int import Int
+from apyscript.validation import display_validation
 
 
 class ChildInterface:

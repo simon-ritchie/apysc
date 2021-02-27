@@ -1,4 +1,3 @@
-from apyscript.type.number import Number
 from random import randint
 
 from retrying import retry
@@ -6,6 +5,7 @@ from retrying import retry
 from apyscript.display.fill_alpha_interface import FillAlphaInterface
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
+from apyscript.type.number import Number
 
 
 class TestFillAlphaInterface:

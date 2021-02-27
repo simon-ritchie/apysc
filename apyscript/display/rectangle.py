@@ -1,8 +1,9 @@
 """Implementations of Rectangle class and other interfaces.
 """
 
-from typing import Any, Union
+from typing import Any
 from typing import Optional
+from typing import Union
 
 from apyscript.display.fill_alpha_interface import FillAlphaInterface
 from apyscript.display.fill_color_interface import FillColorInterface
@@ -16,8 +17,8 @@ from apyscript.display.width_interface import WidthInterface
 from apyscript.expression import expression_file_util
 from apyscript.expression import expression_variables_util
 from apyscript.html import html_const
-from apyscript.validation import size_validation
 from apyscript.type.number import Number
+from apyscript.validation import size_validation
 
 
 class Rectangle(

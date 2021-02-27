@@ -6,12 +6,13 @@ from typing import List
 from typing import Optional
 
 from apyscript.display.display_object import DisplayObject
+from apyscript.type.number import Number
 
 
 class GraphicsClearInterface:
 
     _fill_color: Optional[str] = None
-    _fill_alpha: Optional[float] = None
+    _fill_alpha: Optional[Number] = None
     _line_color: Optional[str] = None
     _line_thickness: Optional[int] = None
     _line_alpha: Optional[float] = None

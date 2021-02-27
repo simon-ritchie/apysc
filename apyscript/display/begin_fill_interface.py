@@ -6,13 +6,14 @@ See Also
 """
 
 
-from typing import Optional, Union
+from typing import Optional
+from typing import Union
 
 from apyscript.color import color_util
 from apyscript.converter import cast
+from apyscript.type.number import Number
 from apyscript.validation import color_validation
 from apyscript.validation import number_validation
-from apyscript.type.number import Number
 
 
 class BiginFillInterface:

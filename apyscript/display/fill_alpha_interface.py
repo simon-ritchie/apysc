@@ -1,12 +1,13 @@
 """Class implementation for fill alpha interface.
 """
 
-from apyscript.type.number import Number
-from typing import Optional, Union
+from typing import Optional
+from typing import Union
 
 from apyscript.converter import cast
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
+from apyscript.type.number import Number
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import color_validation
 from apyscript.validation import number_validation

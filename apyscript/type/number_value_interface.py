@@ -296,10 +296,10 @@ class NumberValueInterface(CopyInterface):
         else:
             value = result._value / other
         result.set_value_and_skip_expression_appending(value=value)
-        self._append_true_divition_expression(result=result, other=other)
+        self._append_true_division_expression(result=result, other=other)
         return result
 
-    def _append_true_divition_expression(
+    def _append_true_division_expression(
             self, result: VariableNameInterface,
             other: Union[int, float, Any]) -> None:
         """
@@ -317,6 +317,52 @@ class NumberValueInterface(CopyInterface):
         expression: str = (
             f'{result.variable_name} = {result.variable_name} / '
             f'{right_value};'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)
+
+    def __floordiv__(self, other: Union[int, float, Any]) -> Any:
+        """
+        Method for floor division (return integer).
+
+        Parameters
+        ----------
+        other : int or float or NumberValueInterface
+            Other value for floor division.
+
+        Returns
+        -------
+        result : Int
+            Floor division result value.
+        """
+        from apyscript.type.int import Int
+        result: Int = Int(value=self)
+        if isinstance(other, NumberValueInterface):
+            value: Union[int, float, Any] = self._value // other.value
+        else:
+            value = self._value // other
+        result.set_value_and_skip_expression_appending(value=value)
+        self._append_floor_division_expression(result=result, other=other)
+        return result
+
+    def _append_floor_division_expression(
+            self, result: VariableNameInterface,
+            other: Union[int, float, Any]) -> None:
+        """
+        Append floor division expression to file.
+
+        Parameters
+        ----------
+        result : NumberValueInterface
+            Floor division result value.
+        other : int or float or NumberValueInterface
+            Other value for floor division.
+        """
+        right_value: Union[int, float, str] = \
+            self._get_arithmetic_expression_right_value(other=other)
+        expression: str = (
+            f'{result.variable_name} = '
+            f'parseInt({result.variable_name} / {right_value});'
         )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)

@@ -16,6 +16,7 @@ from apyscript.file import file_util
 from apyscript.html import exporter
 from apyscript.logging.trace import trace
 from apyscript.type.number import Number
+from apyscript.type.int import Int
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -50,6 +51,12 @@ def main() -> None:
 
     number_7: Number = number_6 / Number(value=10)
     trace('number_7 expected: 0.25, actual:', number_7)
+
+    int_1: Int = Number(10.5) // 3
+    trace('int_1 expected: 3, actual:', int_1)
+
+    int_2: Int = Number(10.5) // Number(3.1)
+    trace('int_2 expected: 3, actual:', int_2)
 
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 

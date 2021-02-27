@@ -504,3 +504,23 @@ class NumberValueInterface(CopyInterface):
         if isinstance(other, NumberValueInterface):
             return self.value <= other.value
         return self.value <= other
+
+    def __gt__(self, other: Any) -> bool:
+        """
+        Greater than comparison method.
+
+        Parameters
+        ----------
+        other : *
+            Other value to compare. Builtin types, Int,
+            and Number class instances are acceptable.
+
+        Returns
+        -------
+        result : bool
+            If this value is greater than a specified value, then
+            True will be returned.
+        """
+        if isinstance(other, NumberValueInterface):
+            return self.value > other.value
+        return self.value > other

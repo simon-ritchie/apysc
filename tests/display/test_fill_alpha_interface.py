@@ -24,9 +24,8 @@ class TestFillAlphaInterface:
         expression_file_util.remove_expression_file()
         fill_alpha_interface.fill_alpha = 0.3
         expression: str = expression_file_util.get_current_expression()
-        expected: str = 'test_fill_alpha_interface.fill({opacity: 0.3});'
-        expected = html_util.wrap_expression_by_script_tag(
-            expression=expected)
+        expected: str = (
+            f'{fill_alpha_interface.variable_name}.fill({{opacity: 0.3}});')
         assert expected in expression
 
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))

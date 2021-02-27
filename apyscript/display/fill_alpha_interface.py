@@ -1,6 +1,7 @@
 """Class implementation for fill alpha interface.
 """
 
+from apyscript.type.number_value_interface import NumberValueInterface
 from typing import Optional
 from typing import Union
 
@@ -15,31 +16,34 @@ from apyscript.validation import number_validation
 
 class FillAlphaInterface(VariableNameInterface):
 
-    _fill_alpha: Optional[float] = None
+    _fill_alpha: Optional[Union[float, Number]] = None
 
     @property
-    def fill_alpha(self) -> Optional[float]:
+    def fill_alpha(self) -> Optional[Union[float, Number]]:
         """
         Get this instance's fill opacity.
 
         Returns
         -------
-        fill_alpha : float or None
+        fill_alpha : Number or None
             Current fill opacity (0.0 to 1.0).
             If not be set, None will be returned.
         """
         return self._fill_alpha
 
     @fill_alpha.setter
-    def fill_alpha(self, value: float) -> None:
+    def fill_alpha(
+            self, value: Union[float, Number]) -> None:
         """
         Update this instance's fill opacity.
 
         Parameters
         ----------
-        value : float
+        value : float or Number
             Fill opacity to set.
         """
+        if not isinstance(value, NumberValueInterface):
+            value = Number(value=value)
         self.update_fill_alpha_and_skip_appending_exp(value=value)
         self._append_fill_alpha_update_expression()
 
@@ -62,7 +66,7 @@ class FillAlphaInterface(VariableNameInterface):
 
         Parameters
         ----------
-        value : float
+        value : float or Number
             Fill opacity to set.
         """
         number_validation.validate_num(num=value)

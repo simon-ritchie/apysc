@@ -1,7 +1,8 @@
 """Test project for `trace` interface.
 
-Command example:
+Command examples:
 $ python test_projects/trace/main.py
+$ python trace/main.py
 """
 
 import sys

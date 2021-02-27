@@ -1,7 +1,8 @@
 """Test project for `Int` class.
 
-Command example:
+Command examples:
 $ python test_projects/Int/main.py
+$ python Int/main.py
 """
 
 import sys

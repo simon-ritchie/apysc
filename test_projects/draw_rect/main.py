@@ -1,7 +1,8 @@
 """Test project for draw_rect interface.
 
-Command example:
+Command examples:
 $ python test_projects/draw_rect/main.py
+$ python draw_rect/main.py
 """
 
 import sys

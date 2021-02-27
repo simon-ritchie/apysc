@@ -2,7 +2,7 @@
 """
 
 from apyscript.type.number_value_interface import NumberValueInterface
-from typing import Optional
+from typing import Any, Optional
 from typing import Union
 
 from apyscript.converter import cast
@@ -17,10 +17,10 @@ from apyscript.type import value_util
 
 class FillAlphaInterface(VariableNameInterface):
 
-    _fill_alpha: Optional[Union[float, Number]] = None
+    _fill_alpha: Optional[Number] = None
 
     @property
-    def fill_alpha(self) -> Optional[Union[float, Number]]:
+    def fill_alpha(self) -> Optional[Number]:
         """
         Get this instance's fill opacity.
 
@@ -30,11 +30,11 @@ class FillAlphaInterface(VariableNameInterface):
             Current fill opacity (0.0 to 1.0).
             If not be set, None will be returned.
         """
-        return self._fill_alpha
+        return value_util.get_copy(value=self._fill_alpha)
 
     @fill_alpha.setter
     def fill_alpha(
-            self, value: Union[float, Number]) -> None:
+            self, value: Any) -> None:
         """
         Update this instance's fill opacity.
 
@@ -53,7 +53,7 @@ class FillAlphaInterface(VariableNameInterface):
         Append fill alpha updating expression.
         """
         value_str: str = value_util.get_value_str_for_expression(
-            value=self.fill_alpha)
+            value=self._fill_alpha)
         expression: str = (
             f'{self.variable_name}.fill({{opacity: {value_str}}});'
         )
@@ -63,7 +63,7 @@ class FillAlphaInterface(VariableNameInterface):
             expression=expression)
 
     def update_fill_alpha_and_skip_appending_exp(
-            self, value: Union[float, Number]) -> None:
+            self, value: Any) -> None:
         """
         Update fill opacity and skip appending expression to file.
 

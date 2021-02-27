@@ -1,3 +1,4 @@
+from apyscript.type.int import Int
 from random import randint
 
 from retrying import retry
@@ -17,6 +18,10 @@ class TestYInterface:
         y_interface.y = 200
         assert y_interface.y == 200
 
+        y: Int = y_interface.y
+        assert y == y_interface._y
+        assert y.variable_name != y_interface.y.variable_name
+
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test__append_y_update_expression(self) -> None:
         y_interface: YInterface = YInterface()
@@ -25,6 +30,6 @@ class TestYInterface:
         y_interface.y = 300
         expression: str = expression_file_util.get_current_expression()
         value_str: str = value_util.get_value_str_for_expression(
-            value=y_interface.y)
+            value=y_interface._y)
         expected: str = f'test_y_interface.y({value_str});'
         assert expected in expression

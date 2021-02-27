@@ -2,7 +2,7 @@
 """
 
 from apyscript.type.number_value_interface import NumberValueInterface
-from typing import Union
+from typing import Any, Union
 from apyscript.expression import expression_file_util
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import number_validation
@@ -12,10 +12,10 @@ from apyscript.type import value_util
 
 class XInterface(VariableNameInterface):
 
-    _x: Union[int, Int] = Int(value=0)
+    _x: Int = Int(value=0)
 
     @property
-    def x(self) -> Union[int, Int]:
+    def x(self) -> Int:
         """
         Get x position.
 
@@ -24,10 +24,10 @@ class XInterface(VariableNameInterface):
         x : Int
             X position.
         """
-        return self._x
+        return value_util.get_copy(value=self._x)
 
     @x.setter
-    def x(self, value: Union[int, Int]) -> None:
+    def x(self, value: Any) -> None:
         """
         Update x position.
 
@@ -39,7 +39,7 @@ class XInterface(VariableNameInterface):
         if not isinstance(value, NumberValueInterface):
             number_validation.validate_integer(integer=value)
             value = Int(value=value)
-        self._x = value
+        self._x = value  # type: ignore
         self._append_x_update_expression()
 
     def _append_x_update_expression(self) -> None:
@@ -47,7 +47,7 @@ class XInterface(VariableNameInterface):
         Append x position updating expression.
         """
         value_str: str = value_util.get_value_str_for_expression(
-            value=self.x)
+            value=self._x)
         expression: str = (
             f'{self.variable_name}.x({value_str});'
         )

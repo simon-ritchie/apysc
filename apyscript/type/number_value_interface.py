@@ -9,6 +9,7 @@ from apyscript.html import html_util
 from apyscript.type.copy_interface import CopyInterface
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import number_validation
+from apyscript.type.value_util import get_value_str_for_expression
 
 
 class NumberValueInterface(CopyInterface):
@@ -118,28 +119,6 @@ class NumberValueInterface(CopyInterface):
             expression=expression)
         expression_file_util.append_expression(expression=expression)
 
-    def _get_arithmetic_expression_right_value(
-            self, other: Any) -> Union[int, float, str]:
-        """
-        Get a arithmetic expression's right value (e.g., variable name,
-        actual integer, or float value).
-
-        Parameters
-        ----------
-        other : int or float or NumberValueInterface
-            Other value of arithmetic expression.
-
-        Returns
-        -------
-        right_value : int or float or str
-            If other is instance of NumberValueInterface,
-            then variable name will be set. Otherwise, int or float
-            value will be set.
-        """
-        if isinstance(other, NumberValueInterface):
-            return other.variable_name
-        return other  # type: ignore
-
     def __add__(self, other: Union[int, float, Any]) -> Any:
         """
         Method for addition.
@@ -176,8 +155,7 @@ class NumberValueInterface(CopyInterface):
         other : int or float or NumberValueInterface
             Other value to add.
         """
-        right_value: Union[int, float, str] = \
-            self._get_arithmetic_expression_right_value(other=other)
+        right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'var {result.variable_name} = '
             f'{self.variable_name} + {right_value};'
@@ -221,8 +199,7 @@ class NumberValueInterface(CopyInterface):
         other : int or float or NumberValueInterface
             Other value to subtract.
         """
-        right_value: Union[int, float, str] = \
-            self._get_arithmetic_expression_right_value(other=other)
+        right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'var {result.variable_name} = '
             f'{self.variable_name} - {right_value};'
@@ -266,8 +243,7 @@ class NumberValueInterface(CopyInterface):
         other : int or float or NumberValueInterface
             Other value to multiply.
         """
-        right_value: Union[int, float, str] = \
-            self._get_arithmetic_expression_right_value(other=other)
+        right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'var {result.variable_name} = '
             f'{self.variable_name} * {right_value};'
@@ -312,8 +288,7 @@ class NumberValueInterface(CopyInterface):
         other : int or float or NumberValueInterface
             Other value for true division.
         """
-        right_value: Union[int, float, str] = \
-            self._get_arithmetic_expression_right_value(other=other)
+        right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'{result.variable_name} = {result.variable_name} / '
             f'{right_value};'
@@ -358,8 +333,7 @@ class NumberValueInterface(CopyInterface):
         other : int or float or NumberValueInterface
             Other value for floor division.
         """
-        right_value: Union[int, float, str] = \
-            self._get_arithmetic_expression_right_value(other=other)
+        right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'{result.variable_name} = '
             f'parseInt({result.variable_name} / {right_value});'

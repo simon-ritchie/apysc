@@ -7,6 +7,7 @@ from apyscript.expression import expression_file_util
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import number_validation
 from apyscript.type.int import Int
+from apyscript.type import value_util
 
 
 class XInterface(VariableNameInterface):
@@ -45,8 +46,10 @@ class XInterface(VariableNameInterface):
         """
         Append x position updating expression.
         """
+        value_str: str = value_util.get_value_str_for_expression(
+            value=self.x)
         expression: str = (
-            f'{self.variable_name}.x({self.x});'
+            f'{self.variable_name}.x({value_str});'
         )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)

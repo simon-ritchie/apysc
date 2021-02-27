@@ -206,21 +206,6 @@ class TestNumberValueInterface:
         assert expected in expression
 
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
-    def test__get_arithmetic_expression_right_value(self) -> None:
-        interface: NumberValueInterface = NumberValueInterface(
-            value=20, type_name='test_interface')
-        other: NumberValueInterface = NumberValueInterface(
-            value=10, type_name='test_interface')
-        other.variable_name = 'test_interface_0'
-        right_value: Union[int, float, str] = interface.\
-            _get_arithmetic_expression_right_value(other=other)
-        assert right_value == 'test_interface_0'
-
-        right_value = interface._get_arithmetic_expression_right_value(
-            other=10)
-        assert right_value == 10
-
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test___mul__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=20, type_name='test_interface')

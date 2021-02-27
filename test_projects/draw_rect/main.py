@@ -17,6 +17,7 @@ from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
 from apyscript.file import file_util
 from apyscript.html import exporter
+from apyscript.type.number import Number
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -98,6 +99,12 @@ def main() -> None:
 
     sprite.graphics.draw_rect(
         x=450, y=150, width=50, height=50)
+
+    # Test for rectangle fill alpha update with Number.
+    number_1: Number = Number(0.725)
+    rectangle = sprite.graphics.draw_rect(
+        x=550, y=150, width=50, height=50)
+    rectangle.fill_alpha = number_1
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)

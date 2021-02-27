@@ -12,6 +12,7 @@ from apyscript.type.number import Number
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import color_validation
 from apyscript.validation import number_validation
+from apyscript.type import value_util
 
 
 class FillAlphaInterface(VariableNameInterface):
@@ -51,8 +52,10 @@ class FillAlphaInterface(VariableNameInterface):
         """
         Append fill alpha updating expression.
         """
+        value_str: str = value_util.get_value_str_for_expression(
+            value=self.fill_alpha)
         expression: str = (
-            f'{self.variable_name}.fill({{opacity: {self.fill_alpha}}});'
+            f'{self.variable_name}.fill({{opacity: {value_str}}});'
         )
         expression = html_util.wrap_expression_by_script_tag(
             expression=expression)
@@ -72,7 +75,7 @@ class FillAlphaInterface(VariableNameInterface):
         number_validation.validate_num(num=value)
         if not isinstance(value, Number):
             value = cast.to_float_from_int(int_or_float=value)
-        else:
-            value = value.value
-        color_validation.validate_alpha_range(alpha=value)
+            color_validation.validate_alpha_range(alpha=value)
+            value = Number(value=value)
+        color_validation.validate_alpha_range(alpha=value.value)
         self._fill_alpha = value

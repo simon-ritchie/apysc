@@ -16,7 +16,7 @@ class Int(NumberValueInterface):
 
     def __init__(self, value: Union[int, float, Any]) -> None:
         """
-        Integer class for this library.
+        Integer class for apyscript library.
 
         Parameters
         ----------

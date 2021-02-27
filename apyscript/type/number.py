@@ -14,7 +14,7 @@ class Number(NumberValueInterface):
 
     def __init__(self, value: Union[int, float, Any]) -> None:
         """
-        Floating point number class for this library.
+        Floating point number class for apyscript library.
 
         Parameters
         ----------

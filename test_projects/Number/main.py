@@ -66,6 +66,10 @@ def main() -> None:
     number_9 -= 3.2
     trace('number_9 expected: 7.3, actual:', number_9)
 
+    number_10: Number = Number(value=10.5)
+    number_10 *= 3
+    trace('number_10 expected: 31.5, actual:', number_10)
+
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

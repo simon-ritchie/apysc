@@ -400,3 +400,20 @@ class NumberValueInterface(CopyInterface):
         """
         result: NumberValueInterface = self - other
         return result
+
+    def __imul__(self, other: Union[int, float, Any]) -> Any:
+        """
+        Method for incremental multiplication.
+
+        Parameters
+        ----------
+        other : int or float or NumberValueInterface
+            Other value for incremental multiplication.
+
+        Returns
+        -------
+        result : NumberValueInterface
+            Incremental multiplication result value.
+        """
+        result: NumberValueInterface = self * other
+        return result

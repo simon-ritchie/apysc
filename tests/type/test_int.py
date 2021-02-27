@@ -1,3 +1,4 @@
+from apyscript.type.number import Number
 from random import randint
 
 import pytest
@@ -88,7 +89,7 @@ class TestInt:
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test__append_cast_expression(self) -> None:
         expression_file_util.remove_expression_file()
-        int_val: Int = Int(value=100.5)
+        int_val: Int = Int(value=Number(value=100.5))
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{int_val.variable_name} = '
@@ -100,3 +101,10 @@ class TestInt:
         int_val = Int(value=100)
         expression: str = expression_file_util.get_current_expression()
         assert 'parseInt' not in expression
+
+        expression_file_util.remove_expression_file()
+        int_val = Int(value=100.5)
+        expression: str = expression_file_util.get_current_expression()
+        assert 'parseInt' not in expression
+        expected = f'{int_val.variable_name} = 100;'
+        assert expected in expression

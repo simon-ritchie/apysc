@@ -24,7 +24,7 @@ class Int(NumberValueInterface):
             Initial integer value. If float or Number value is specified,
             that value will be cast to integer.
         """
-        is_float_or_number_specified: bool = type_util.is_float_or_number(
+        is_number_specified: bool = type_util.is_number(
             value=value)
         type_name: str = 'int'
         self.variable_name = expression_variables_util.get_next_variable_name(
@@ -33,14 +33,14 @@ class Int(NumberValueInterface):
         self._value = cast.to_int_from_float(int_or_float=self.value)
         self.append_constructor_expression()
         self._append_cast_expression(
-            is_float_or_number_specified=is_float_or_number_specified)
+            is_number_specified=is_number_specified)
 
     def _append_cast_expression(
-            self, is_float_or_number_specified: bool) -> None:
+            self, is_number_specified: bool) -> None:
         """
         Append integer cast (parseInt) expression to file.
         """
-        if not is_float_or_number_specified:
+        if not is_number_specified:
             return
         expression: str = (
             f'{self.variable_name} = parseInt({self.variable_name}, 10);'

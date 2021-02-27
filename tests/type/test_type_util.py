@@ -1,4 +1,6 @@
 from apyscript.type import type_util
+from apyscript.type.number import Number
+from apyscript.type.int import Int
 
 
 def test_is_same_class_instance() -> None:
@@ -7,3 +9,17 @@ def test_is_same_class_instance() -> None:
 
     result = type_util.is_same_class_instance(class_=int, instance=1)
     assert result
+
+
+def test_is_float_or_number() -> None:
+    result: bool = type_util.is_float_or_number(value=100.5)
+    assert result
+
+    result = type_util.is_float_or_number(value=Number(value=10.5))
+    assert result
+
+    result = type_util.is_float_or_number(value=100)
+    assert not result
+
+    result = type_util.is_float_or_number(value=Int(value=10))
+    assert not result

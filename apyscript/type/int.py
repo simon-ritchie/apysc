@@ -9,6 +9,7 @@ from apyscript.expression import expression_variables_util
 from apyscript.expression import expression_file_util
 from apyscript.type.number_value_interface import NumberValueInterface
 from apyscript.validation import number_validation
+from apyscript.type import type_util
 
 
 class Int(NumberValueInterface):
@@ -23,18 +24,24 @@ class Int(NumberValueInterface):
             Initial integer value. If float or Number value is specified,
             that value will be cast to integer.
         """
+        is_float_or_number_specified: bool = type_util.is_float_or_number(
+            value=value)
         type_name: str = 'int'
         self.variable_name = expression_variables_util.get_next_variable_name(
             type_name=type_name)
         super(Int, self).__init__(value=value, type_name=type_name)
         self._value = cast.to_int_from_float(int_or_float=self.value)
         self.append_constructor_expression()
-        self._append_cast_expression()
+        self._append_cast_expression(
+            is_float_or_number_specified=is_float_or_number_specified)
 
-    def _append_cast_expression(self) -> None:
+    def _append_cast_expression(
+            self, is_float_or_number_specified: bool) -> None:
         """
         Append integer cast (parseInt) expression to file.
         """
+        if not is_float_or_number_specified:
+            return
         expression: str = (
             f'{self.variable_name} = parseInt({self.variable_name}, 10);'
         )

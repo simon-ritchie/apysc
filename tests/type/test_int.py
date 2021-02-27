@@ -95,3 +95,8 @@ class TestInt:
             f'parseInt({int_val.variable_name}, 10);'
         )
         assert expected in expression
+
+        expression_file_util.remove_expression_file()
+        int_val = Int(value=100)
+        expression: str = expression_file_util.get_current_expression()
+        assert 'parseInt' not in expression

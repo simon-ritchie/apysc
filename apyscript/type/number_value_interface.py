@@ -383,3 +383,20 @@ class NumberValueInterface(CopyInterface):
         """
         result: NumberValueInterface = self + other
         return result
+
+    def __isub__(self, other: Union[int, float, Any]) -> Any:
+        """
+        Method for incremental subtraction.
+
+        Parameters
+        ----------
+        other : int or float or NumberValueInterface
+            Other value for incremental subtraction.
+
+        Returns
+        -------
+        result : NumberValueInterface
+            Incremental subtraction result value.
+        """
+        result: NumberValueInterface = self - other
+        return result

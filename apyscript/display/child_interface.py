@@ -7,6 +7,7 @@ from apyscript.display.display_object import DisplayObject
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
 from apyscript.validation import display_validation
+from apyscript.type.int import Int
 
 
 class ChildInterface:
@@ -111,7 +112,7 @@ class ChildInterface:
         return True
 
     @property
-    def num_children(self) -> int:
+    def num_children(self) -> Int:
         """
         Get a current children number.
 
@@ -120,7 +121,8 @@ class ChildInterface:
         num_children : int
             Current children number.
         """
-        return len(self._childs)
+        num_children: Int = Int(value=len(self._childs))
+        return num_children
 
     def get_child_at(self, index: int) -> DisplayObject:
         """

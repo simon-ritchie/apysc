@@ -445,3 +445,22 @@ class NumberValueInterface(CopyInterface):
             Casted value string.
         """
         return str(self.value)
+
+    def __eq__(self, other: Any) -> bool:
+        """
+        Equal comparison method.
+
+        Parameters
+        ----------
+        other : *
+            Other value to compare. Builtin types, Int,
+            and Number class instances are acceptable.
+
+        Returns
+        -------
+        result : bool
+            If specified value is same amount, True will be returned.
+        """
+        if isinstance(other, NumberValueInterface):
+            return self.value == other.value
+        return self.value == other

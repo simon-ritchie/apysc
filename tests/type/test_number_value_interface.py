@@ -329,6 +329,7 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test___iadd__(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -343,6 +344,7 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test___isub__(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -357,6 +359,7 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test___imul__(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -371,6 +374,7 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test___itruediv__(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -385,7 +389,22 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test___str__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         assert str(interface_1) == '10'
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test___eq__(self) -> None:
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=10, type_name='test_interface')
+        interface_2: NumberValueInterface = NumberValueInterface(
+            value=10, type_name='test_interface')
+        interface_3: NumberValueInterface = NumberValueInterface(
+            value=11, type_name='test_interface')
+
+        assert interface_1 == 10
+        assert interface_1 == interface_2
+        assert interface_1 != 11
+        assert interface_1 != interface_3

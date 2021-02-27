@@ -24,6 +24,4 @@ class TestYInterface:
         y_interface.y = 300
         expression: str = expression_file_util.get_current_expression()
         expected: str = 'test_y_interface.y(300);'
-        expected = html_util.wrap_expression_by_script_tag(
-            expression=expected)
         assert expected in expression

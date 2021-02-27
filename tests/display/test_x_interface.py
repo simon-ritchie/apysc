@@ -23,6 +23,4 @@ class TestXInterface:
         x_interface.x = 200
         expression: str = expression_file_util.get_current_expression()
         expected: str = 'test_x_interface.x(200);'
-        expected = html_util.wrap_expression_by_script_tag(
-            expression=expected)
         assert expected in expression

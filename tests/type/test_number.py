@@ -13,6 +13,7 @@ class TestNumber:
 
     expression_file_util.remove_expression_file()
 
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test___init__(self) -> None:
         expression_file_util.remove_expression_file()
         number_1: Number = Number(value=100)

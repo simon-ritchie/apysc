@@ -10,3 +10,10 @@ def test_get_value_str_for_expression() -> None:
 
     value_str = value_util.get_value_str_for_expression(value=10)
     assert value_str == '10'
+
+
+def test_get_copy() -> None:
+    int_val: Int = Int(value=10)
+    copied_val: Int = value_util.get_copy(value=int_val)
+    assert int_val == copied_val
+    assert int_val.variable_name != copied_val.variable_name

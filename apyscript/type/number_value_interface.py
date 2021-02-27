@@ -366,3 +366,20 @@ class NumberValueInterface(CopyInterface):
         )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    def __iadd__(self, other: Union[int, float, Any]) -> Any:
+        """
+        Method for incremental addition.
+
+        Parameters
+        ----------
+        other : int or float or NumberValueInterface
+            Other value for incremental addition.
+
+        Returns
+        -------
+        result : NumberValueInterface
+            Incremental addition result value.
+        """
+        result: NumberValueInterface = self + other
+        return result

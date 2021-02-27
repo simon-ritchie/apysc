@@ -65,6 +65,10 @@ def main() -> None:
     int_9: Int = Int(10) // Int(3)
     trace('int_9 expected: 3, actual:', int_9)
 
+    int_10: Int = Int(10)
+    int_10 += 5
+    trace('int_10 expected: 15, actual:', int_10)
+
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

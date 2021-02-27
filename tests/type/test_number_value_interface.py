@@ -328,3 +328,17 @@ class TestNumberValueInterface:
             f'{interface_3.variable_name} / {interface_2.variable_name});'
         )
         assert expected in expression
+
+    def test___iadd__(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=10, type_name='test_interface')
+        interface_1.variable_name = 'test_interface_0'
+        interface_1 += 5
+        assert interface_1.value == 15
+
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface_1.variable_name} = test_interface_0 + 5;'
+        )
+        assert expected in expression

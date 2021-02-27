@@ -58,6 +58,10 @@ def main() -> None:
     int_2: Int = Number(10.5) // Number(3.1)
     trace('int_2 expected: 3, actual:', int_2)
 
+    number_8: Number = Number(value=10.5)
+    number_8 += 3.3
+    trace('number_8 expected: 13.8, actual:', number_8)
+
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

@@ -3,16 +3,19 @@
 
 
 from typing import Optional
+from typing import Union
+
+from apyscript.type.int import Int
 
 
 def validate_size_is_int(
-        size: int, err_msg: Optional[str] = None) -> None:
+        size: Union[int, Int], err_msg: Optional[str] = None) -> None:
     """
     Check that whether size is integer or not.
 
     Parameters
     ----------
-    size : int
+    size : int or Int
         Target size (width or height) value.
     err_msg : str or None, default None
         The error message that display at error raised.
@@ -22,7 +25,7 @@ def validate_size_is_int(
     ValueError
         If not integer value is specified.
     """
-    if isinstance(size, int):
+    if isinstance(size, (int, Int)):
         return
     if err_msg is None:
         err_msg = (
@@ -32,13 +35,13 @@ def validate_size_is_int(
 
 
 def validate_size_is_gt_zero(
-        size: int, err_msg: Optional[str] = None) -> None:
+        size: Union[int, Int], err_msg: Optional[str] = None) -> None:
     """
     Check that whether size is greater than zero or not.
 
     Parameters
     ----------
-    size : int
+    size : int or Int
         Target size (width or height) value.
     err_msg : str or None, default None
         The error message that display at error raised.
@@ -58,13 +61,13 @@ def validate_size_is_gt_zero(
 
 
 def validate_size_is_gte_zero(
-        size: int, err_msg: Optional[str] = None) -> None:
+        size: Union[int, Int], err_msg: Optional[str] = None) -> None:
     """
     Check that whether size is greater than or equal to zero or not.
 
     Parameters
     ----------
-    size : int
+    size : int or Int
         Target size (width or height) value.
     err_msg : str or None, default None
         The error message that display at error raised.

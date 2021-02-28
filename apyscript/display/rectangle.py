@@ -31,8 +31,9 @@ class Rectangle(
             self, parent: Any,
             x: Union[int, Int],
             y: Union[int, Int],
-            width: int,
-            height: int, fill_color: Optional[str] = None,
+            width: Union[int, Int],
+            height: Union[int, Int],
+            fill_color: Optional[str] = None,
             fill_alpha: Union[float, Number] = 1.0,
             line_color: Optional[str] = None,
             line_thickness: Union[int, Int] = 1,
@@ -48,9 +49,9 @@ class Rectangle(
             X position to start drawing.
         y : int or Int
             Y position to start drawing.
-        width : int
+        width : int or Int
             Rectangle width.
-        height : int
+        height : int or Int
             Rectangle height.
         fill_color : str or None, default None
             Fill color (hexadecimal string, e.g., '#00aaff').
@@ -72,8 +73,8 @@ class Rectangle(
             variable_name=variable_name)
         size_validation.validate_size_is_gte_zero(size=width)
         size_validation.validate_size_is_gte_zero(size=height)
-        self.update_width_and_skip_appending_exp(value=width)
-        self.update_height_and_skip_appending_exp(value=height)
+        self.update_width_and_skip_appending_exp(value=Int(width))
+        self.update_height_and_skip_appending_exp(value=Int(height))
         if fill_color is not None:
             self.update_fill_color_and_skip_appending_exp(value=fill_color)
         self.update_fill_alpha_and_skip_appending_exp(value=fill_alpha)

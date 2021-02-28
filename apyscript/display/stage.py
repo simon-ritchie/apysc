@@ -16,6 +16,7 @@ from apyscript.expression import expression_file_util
 from apyscript.file import file_util
 from apyscript.html import html_const
 from apyscript.html import html_util
+from apyscript.type.int import Int
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import string_validation
 
@@ -66,8 +67,8 @@ class Stage(
         self._stage_elem_id = html_util.remove_first_selector_symbol_char(
             str_val=self._stage_elem_id)
         self.variable_name = get_stage_variable_name()
-        self.update_width_and_skip_appending_exp(value=stage_width)
-        self.update_height_and_skip_appending_exp(value=stage_height)
+        self.update_width_and_skip_appending_exp(value=Int(stage_width))
+        self.update_height_and_skip_appending_exp(value=Int(stage_height))
 
         background_color = color_util.complement_hex_color(
             hex_color_code=background_color)

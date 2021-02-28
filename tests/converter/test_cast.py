@@ -1,20 +1,30 @@
 from apyscript.converter import cast
+from apyscript.type.int import Int
+from apyscript.type.number import Number
 
 
 def test_to_int_from_float() -> None:
-    int_val: int = cast.to_int_from_float(int_or_float=100)
-    assert isinstance(int_val, int)
-    assert int_val == 100
+    int_val_1: int = cast.to_int_from_float(int_or_float=100)
+    assert isinstance(int_val_1, int)
+    assert int_val_1 == 100
 
-    int_val = cast.to_int_from_float(int_or_float=200.5)
-    assert isinstance(int_val, int)
-    assert int_val == 200
+    int_val_2: int = cast.to_int_from_float(int_or_float=200.5)
+    assert isinstance(int_val_2, int)
+    assert int_val_2 == 200
+
+    int_val_3: Int = cast.to_int_from_float(int_or_float=Number(10.5))
+    assert isinstance(int_val_3, Int)
+    assert int_val_3 == 10
 
 
 def test_to_float_from_int() -> None:
-    float_val: float = cast.to_float_from_int(int_or_float=100)
-    assert isinstance(float_val, float)
-    assert float_val == 100.0
+    float_val_1: float = cast.to_float_from_int(int_or_float=100)
+    assert isinstance(float_val_1, float)
+    assert float_val_1 == 100.0
 
-    float_val = cast.to_float_from_int(int_or_float=100.5)
-    assert float_val == 100.5
+    float_val_2: float = cast.to_float_from_int(int_or_float=100.5)
+    assert float_val_2 == 100.5
+
+    number_val_1: Number = cast.to_float_from_int(int_or_float=Int(10))
+    assert isinstance(number_val_1, Number)
+    assert number_val_1 == 10.0

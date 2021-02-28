@@ -4,34 +4,36 @@
 from apyscript.converter import cast
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
+from apyscript.type import value_util
+from apyscript.type.int import Int
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import size_validation
 
 
 class WidthInterface(VariableNameInterface):
 
-    _width: int
+    _width: Int
 
     @property
-    def width(self) -> int:
+    def width(self) -> Int:
         """
         Get this instance's width.
 
         Returns
         -------
-        width : int
+        width : Int
             This instance's width.
         """
-        return self._width
+        return value_util.get_copy(value=self._width)
 
     @width.setter
-    def width(self, value: int) -> None:
+    def width(self, value: Int) -> None:
         """
         Update this instance's width.
 
         Parameters
         ----------
-        value : int
+        value : Int
             Width value to set.
         """
         self.update_width_and_skip_appending_exp(value=value)
@@ -49,13 +51,13 @@ class WidthInterface(VariableNameInterface):
         expression_file_util.append_expression(
             expression=expression)
 
-    def update_width_and_skip_appending_exp(self, value: int) -> None:
+    def update_width_and_skip_appending_exp(self, value: Int) -> None:
         """
         Update width value and skip appending expression to file.
 
         Parameters
         ----------
-        value : int
+        value : Int
             Width value to set.
         """
         value = cast.to_int_from_float(int_or_float=value)

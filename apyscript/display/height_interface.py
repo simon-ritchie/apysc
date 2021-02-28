@@ -4,28 +4,30 @@
 from apyscript.converter import cast
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
+from apyscript.type import value_util
+from apyscript.type.int import Int
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import size_validation
 
 
 class HeightInterface(VariableNameInterface):
 
-    _height: int
+    _height: Int
 
     @property
-    def height(self) -> int:
+    def height(self) -> Int:
         """
         Get this instance's height.
 
         Returns
         -------
-        height : int
+        height : Int
             This instance's height.
         """
-        return self._height
+        return value_util.get_copy(value=self._height)
 
     @height.setter
-    def height(self, value: int) -> None:
+    def height(self, value: Int) -> None:
         """
         Update this instance's height.
 
@@ -49,13 +51,13 @@ class HeightInterface(VariableNameInterface):
         expression_file_util.append_expression(
             expression=expression)
 
-    def update_height_and_skip_appending_exp(self, value: int) -> None:
+    def update_height_and_skip_appending_exp(self, value: Int) -> None:
         """
         Update height value and skip appending expression to file.
 
         Parameters
         ----------
-        value : int
+        value : Int
             Height value to set.
         """
         value = cast.to_int_from_float(int_or_float=value)

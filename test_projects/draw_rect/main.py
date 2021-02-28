@@ -65,12 +65,12 @@ def main() -> None:
     # Test for rectangle width update.
     rectangle = sprite.graphics.draw_rect(
         x=550, y=50, width=50, height=50)
-    rectangle.width = 100
+    rectangle.width = Int(100)
 
     # Test for rectangle height update.
     rectangle = sprite.graphics.draw_rect(
         x=700, y=50, width=50, height=50)
-    rectangle.height = 100
+    rectangle.height = Int(100)
 
     # Test for rectangle fill color update.
     rectangle = sprite.graphics.draw_rect(

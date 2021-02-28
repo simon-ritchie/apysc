@@ -18,9 +18,9 @@ class TestFillAlphaInterface:
         assert fill_alpha_interface.fill_alpha == 0.5
 
         fill_alpha: Number = fill_alpha_interface.fill_alpha
+        fill_alpha_name: str = fill_alpha.variable_name
         assert (
-            fill_alpha.variable_name !=
-            fill_alpha_interface._fill_alpha.variable_name)
+            fill_alpha_name != fill_alpha_interface._fill_alpha.variable_name)
 
         fill_alpha_interface.fill_alpha = 0.25  # type: ignore
         assert fill_alpha_interface.fill_alpha == 0.25

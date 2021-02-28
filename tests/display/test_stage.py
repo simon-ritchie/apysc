@@ -86,7 +86,8 @@ class TestStage:
         with open(expression_file_util.EXPRESSION_FILE_PATH, 'r') as f:
             saved_expression: str = f.read()
         saved_expression = saved_expression.strip()
-        assert saved_expression == expected_expression
+        for expected_expression_line in expected_expression.splitlines():
+            assert expected_expression_line in saved_expression
 
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test_stage_elem_id(self) -> None:

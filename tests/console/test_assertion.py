@@ -55,3 +55,18 @@ def test_assert_not_equal() -> None:
         f'console.assert(11 !== {int_1.variable_name}, "Invalid condition.");'
     )
     assert expected in expression
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+def test__get_expected_and_actual_strs() -> None:
+    int_1: Int = Int(10)
+    int_2: Int = Int(20)
+    expected_str, actual_str = assertion._get_expected_and_actual_strs(
+        expected=int_1, actual=int_2)
+    assert expected_str == int_1.variable_name
+    assert actual_str == int_2.variable_name
+
+    expected_str, actual_str = assertion._get_expected_and_actual_strs(
+        expected='Hello', actual='World!')
+    assert expected_str == '"Hello"'
+    assert actual_str == '"World!"'

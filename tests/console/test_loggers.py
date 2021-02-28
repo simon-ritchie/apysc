@@ -1,6 +1,6 @@
 from logging import INFO
 
-from apyscript.logging import loggers
+from apyscript.console import loggers
 
 
 def test_get_info_logger() -> None:

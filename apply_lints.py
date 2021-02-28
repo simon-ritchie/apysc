@@ -11,7 +11,7 @@ from typing import List
 
 from typing_extensions import TypedDict
 
-from apyscript.logging import loggers
+from apyscript.console import loggers
 
 logger: Logger = loggers.get_info_logger()
 

@@ -15,7 +15,7 @@ from types import ModuleType
 from apyscript.display.stage import Stage
 from apyscript.file import file_util
 from apyscript.html import exporter
-from apyscript.logging.trace import trace
+from apyscript.console.trace import trace
 
 this_module: ModuleType = sys.modules[__name__]
 

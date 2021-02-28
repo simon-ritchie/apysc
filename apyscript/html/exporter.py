@@ -12,7 +12,7 @@ from apyscript.file import file_util
 from apyscript.html import html_const
 from apyscript.html import html_util
 from apyscript.jslib import jslib_util
-from apyscript.logging import loggers
+from apyscript.console import loggers
 
 info_logger: Logger = loggers.get_info_logger()
 

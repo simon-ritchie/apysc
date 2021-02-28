@@ -4,7 +4,7 @@ from retrying import retry
 
 from apyscript.display.stage import Stage
 from apyscript.expression import expression_file_util
-from apyscript.logging import trace
+from apyscript.console import trace
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))

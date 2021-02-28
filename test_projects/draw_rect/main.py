@@ -19,6 +19,7 @@ from apyscript.file import file_util
 from apyscript.html import exporter
 from apyscript.type.int import Int
 from apyscript.type.number import Number
+from apyscript.console.assertion import assert_equal
 
 this_module: ModuleType = sys.modules[__name__]
 

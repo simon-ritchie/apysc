@@ -18,6 +18,7 @@ from apyscript.html import exporter
 from apyscript.console.trace import trace
 from apyscript.type.int import Int
 from apyscript.type.number import Number
+from apyscript.console.assertion import assert_equal
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -33,47 +34,47 @@ def main() -> None:
     _: Stage = Stage(background_color='#333')
 
     number_1: Number = Number(value=10.5)
-    trace('number_1 expected: 10.5, actual:', number_1)
+    assert_equal(expected=10.5, actual=number_1)
 
     number_2: Number = number_1 + 20.6
-    trace('number_2 expected: 31.1, actual:', number_2)
+    assert_equal(expected=31.1, actual=number_2)
 
     number_3: Number = number_1 + number_2
-    trace('number_3 expected: 41.6, actual:', number_3)
+    assert_equal(expected=41.6, actual=number_3)
 
     number_4: Number = Number(value=30.5) - 10.2
-    trace('number_4 expected: 20.3, actual:', number_4)
+    assert_equal(expected=20.3, actual=number_4)
 
     number_5: Number = number_4 - number_1
-    trace('number_5 expected: 9.8, actual:', number_5)
+    assert_equal(expected=9.8, actual=number_5)
 
     number_6: Number = Number(value=10) / 4
-    trace('number_6 expected: 2.5, actual:', number_6)
+    assert_equal(expected=2.5, actual=number_6)
 
     number_7: Number = number_6 / Number(value=10)
-    trace('number_7 expected: 0.25, actual:', number_7)
+    assert_equal(expected=0.25, actual=number_7)
 
     int_1: Int = Number(10.5) // 3
-    trace('int_1 expected: 3, actual:', int_1)
+    assert_equal(expected=3, actual=int_1)
 
     int_2: Int = Number(10.5) // Number(3.1)
-    trace('int_2 expected: 3, actual:', int_2)
+    assert_equal(expected=3, actual=int_2)
 
     number_8: Number = Number(value=10.5)
     number_8 += 3.3
-    trace('number_8 expected: 13.8, actual:', number_8)
+    assert_equal(expected=13.8, actual=number_8)
 
     number_9: Number = Number(value=10.5)
     number_9 -= 3.2
-    trace('number_9 expected: 7.3, actual:', number_9)
+    assert_equal(expected=7.3, actual=number_9)
 
     number_10: Number = Number(value=10.5)
     number_10 *= 3
-    trace('number_10 expected: 31.5, actual:', number_10)
+    assert_equal(expected=31.5, actual=number_10)
 
     number_11: Number = Number(value=10.6)
     number_11 /= 2
-    trace('number_11 expected: 5.3, actual:', number_11)
+    assert_equal(expected=5.3, actual=number_11)
 
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 

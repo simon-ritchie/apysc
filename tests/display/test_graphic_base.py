@@ -16,7 +16,7 @@ class TestGraphicBase:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
         graphic_base: GraphicBase = GraphicBase(
-            parent=sprite.graphics, x=100, y=200,
+            parent=sprite.graphics, x=Int(100), y=Int(200),
             variable_name='test_graphic')
         testing_helper.assert_attrs(
             expected_attrs={
@@ -31,7 +31,7 @@ class TestGraphicBase:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
         graphic_base: GraphicBase = GraphicBase(
-            parent=sprite.graphics, x=100, y=200,
+            parent=sprite.graphics, x=Int(100), y=Int(200),
             variable_name='test_graphic')
         graphic_base.x = Int(300)
         assert graphic_base.x == 300
@@ -41,7 +41,7 @@ class TestGraphicBase:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
         graphic_base: GraphicBase = GraphicBase(
-            parent=sprite.graphics, x=100, y=200,
+            parent=sprite.graphics, x=Int(100), y=Int(200),
             variable_name='test_graphic')
         graphic_base.y = Int(400)
         assert graphic_base.y == 400
@@ -51,7 +51,7 @@ class TestGraphicBase:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
         graphic_base: GraphicBase = GraphicBase(
-            parent=sprite.graphics, x=100, y=200,
+            parent=sprite.graphics, x=Int(100), y=Int(200),
             variable_name='test_graphic_1')
         assert graphic_base.variable_name == 'test_graphic_1'
         graphic_base.variable_name = 'test_graphic_2'

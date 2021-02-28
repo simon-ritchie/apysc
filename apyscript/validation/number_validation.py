@@ -5,13 +5,14 @@ from typing import Any
 from typing import Union
 
 
-def validate_num(num: Union[int, float, Any]) -> None:
+def validate_num(
+        num: Union[int, float, Any]) -> None:
     """
     Validate specified value is integer or float type.
 
     Parameters
     ----------
-    num : int or float
+    num : int or float or Int or Number
         Number value to check.
 
     Raises
@@ -20,20 +21,22 @@ def validate_num(num: Union[int, float, Any]) -> None:
         If specified value is not integer and float value.
     """
     from apyscript.type.number_value_interface import NumberValueInterface
-    if isinstance(num, (int, float, NumberValueInterface)):
+    if isinstance(
+            num,
+            (int, float, NumberValueInterface)):
         return
     raise ValueError(
         f'Specified value is not iteger or float type: {num}'
         f'({type(num)})')
 
 
-def validate_integer(integer: int) -> None:
+def validate_integer(integer: Union[int, Any]) -> None:
     """
     Validate specified value is integer.
 
     Parameters
     ----------
-    integer : int
+    integer : int or Int
         Integer value to check.
 
     Raises
@@ -41,7 +44,8 @@ def validate_integer(integer: int) -> None:
     ValueError
         If specified value is not integer.
     """
-    if isinstance(integer, int):
+    from apyscript.type.int import Int
+    if isinstance(integer, (int, Int)):
         return
     raise ValueError(
         f'Specified value is not integer: {integer}({type(integer)})')

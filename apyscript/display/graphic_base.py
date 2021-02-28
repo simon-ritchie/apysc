@@ -15,7 +15,7 @@ class GraphicBase(DisplayObject):
     _variable_name: str
 
     def __init__(
-            self, parent: Any, x: int, y: int, variable_name: str) -> None:
+            self, parent: Any, x: Int, y: Int, variable_name: str) -> None:
         """
         Vector graphic base class.
 
@@ -36,7 +36,7 @@ class GraphicBase(DisplayObject):
         self.parent_graphics: Graphics = parent
         number_validation.validate_integer(integer=x)
         number_validation.validate_integer(integer=y)
-        self._x = Int(x)
-        self._y = Int(y)
+        self._x = x
+        self._y = y
         string_validation.validate_not_empty_string(string=variable_name)
         self._variable_name = variable_name

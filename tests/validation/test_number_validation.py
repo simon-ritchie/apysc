@@ -15,6 +15,7 @@ def test_validate_num() -> None:
 
 def test_validate_integer() -> None:
     number_validation.validate_integer(integer=10)
+    number_validation.validate_integer(integer=Int(10))
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         func_or_method=number_validation.validate_integer,

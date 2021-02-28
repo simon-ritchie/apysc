@@ -17,6 +17,7 @@ from apyscript.display.width_interface import WidthInterface
 from apyscript.expression import expression_file_util
 from apyscript.expression import expression_variables_util
 from apyscript.html import html_const
+from apyscript.type.int import Int
 from apyscript.type.number import Number
 from apyscript.validation import size_validation
 
@@ -27,7 +28,10 @@ class Rectangle(
         LineAlphaInterface):
 
     def __init__(
-            self, parent: Any, x: int, y: int, width: int,
+            self, parent: Any,
+            x: Union[int, Int],
+            y: Union[int, Int],
+            width: int,
             height: int, fill_color: Optional[str] = None,
             fill_alpha: Optional[Union[float, Number]] = None,
             line_color: Optional[str] = None,
@@ -62,7 +66,10 @@ class Rectangle(
         variable_name: str = expression_variables_util.\
             get_next_variable_name(type_name='rectangle')
         super(Rectangle, self).__init__(
-            parent=parent, x=x, y=y, variable_name=variable_name)
+            parent=parent,
+            x=Int(x),
+            y=Int(y),
+            variable_name=variable_name)
         size_validation.validate_size_is_gte_zero(size=width)
         size_validation.validate_size_is_gte_zero(size=height)
         self.update_width_and_skip_appending_exp(value=width)

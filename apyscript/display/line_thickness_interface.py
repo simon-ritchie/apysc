@@ -11,7 +11,7 @@ from apyscript.validation import number_validation
 
 class LineThicknessInterface(VariableNameInterface):
 
-    _line_thickness: Int = Int(1)
+    _line_thickness: Int
 
     @property
     def line_thickness(self) -> Int:

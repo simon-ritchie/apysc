@@ -185,8 +185,6 @@ def append_stroke_opacity_expression(
     expression : str
         After appended expression string.
     """
-    if graphics.line_alpha is None:
-        return expression
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
         f'\n{spaces}"stroke-opacity": {graphics.line_alpha},'

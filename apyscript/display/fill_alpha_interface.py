@@ -17,7 +17,7 @@ from apyscript.validation import number_validation
 
 class FillAlphaInterface(VariableNameInterface):
 
-    _fill_alpha: Number = Number(1.0)
+    _fill_alpha: Number
 
     @property
     def fill_alpha(self) -> Optional[Number]:

@@ -13,6 +13,8 @@ from apyscript.display.rectangle import append_draw_rect_expression
 from apyscript.expression import expression_file_util
 from apyscript.expression import expression_variables_util
 from apyscript.html import html_util
+from apyscript.type.int import Int
+from apyscript.type.number import Number
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import display_validation
 
@@ -42,6 +44,9 @@ class Graphics(
             variable_name = expression_variables_util.get_next_variable_name(
                 type_name='graphics')
         self.variable_name = variable_name
+        self._fill_alpha = Number(1.0)
+        self._line_alpha = Number(1.0)
+        self._line_thickness = Int(1.0)
         self._childs = []
         self._append_constructor_expression()
 

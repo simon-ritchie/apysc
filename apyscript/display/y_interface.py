@@ -11,7 +11,7 @@ from apyscript.validation import number_validation
 
 class YInterface(VariableNameInterface):
 
-    _y: Int = Int(value=0)
+    _y: Int
 
     @property
     def y(self) -> Int:

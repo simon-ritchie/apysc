@@ -13,7 +13,7 @@ from apyscript.validation import number_validation
 
 class LineAlphaInterface(VariableNameInterface):
 
-    _line_alpha: Number = Number(1.0)
+    _line_alpha: Number
 
     @property
     def line_alpha(self) -> Number:

@@ -22,7 +22,7 @@ class LineStyleInterface:
 
     _line_color: Optional[str] = None
     _line_thickness: Int
-    _line_alpha: Number = Number(1.0)
+    _line_alpha: Number
 
     def line_style(
             self, color: str,

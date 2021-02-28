@@ -1,4 +1,5 @@
 from random import randint
+from typing import List
 
 from retrying import retry
 
@@ -45,16 +46,15 @@ class TestSprite:
         sprite: Sprite = Sprite(stage=stage)
         expression: str = file_util.read_txt(
             file_path=expression_file_util.EXPRESSION_FILE_PATH)
-        expected: str = (
-            '<script type="text/javascript">'
-            f'\nvar {sprite.variable_name} = {stage_variable_name}.group();'
-            f'\nvar {sprite.graphics.variable_name} = '
-            f'{stage_variable_name}.group();'
-            f'\n{sprite.variable_name}'
+        expected_strs: List[str] = [
+            f'\nvar {sprite.variable_name} = {stage_variable_name}.group();',
+            f'\nvar {sprite.graphics.variable_name} = ',
+            f'{stage_variable_name}.group();',
+            f'\n{sprite.variable_name}',
             f'.add({sprite.graphics.variable_name});'
-            '\n</script>'
-        )
-        assert expression.strip() == expected
+        ]
+        for expected_str in expected_strs:
+            assert expected_str in expression
         file_util.remove_file_if_exists(
             file_path=expression_file_util.EXPRESSION_FILE_PATH)
 

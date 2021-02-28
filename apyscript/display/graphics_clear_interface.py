@@ -13,10 +13,10 @@ from apyscript.type.number import Number
 class GraphicsClearInterface:
 
     _fill_color: Optional[str] = None
-    _fill_alpha: Number = Number(1.0)
+    _fill_alpha: Number
     _line_color: Optional[str] = None
     _line_thickness: Int = Int(1)
-    _line_alpha: Number = Number(1.0)
+    _line_alpha: Number
     _childs: List[DisplayObject]
 
     def clear(self) -> None:

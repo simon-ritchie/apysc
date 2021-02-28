@@ -64,10 +64,6 @@ def test_append_fill_opacity_expression() -> None:
     sprite: Sprite = Sprite(stage=stage)
     graphics: Graphics = sprite.graphics
     expression: str = '.attr({'
-    expression = graphics_expression.append_fill_opacity_expression(
-        graphics=graphics, expression=expression, indent_num=1)
-    assert expression == '.attr({'
-
     graphics.begin_fill(color='#333', alpha=0.5)
     expression = graphics_expression.append_fill_opacity_expression(
         graphics=graphics, expression=expression, indent_num=1)

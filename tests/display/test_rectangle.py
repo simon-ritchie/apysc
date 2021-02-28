@@ -56,6 +56,7 @@ def test__make_rect_attrs_expression() -> None:
         rectangle=rectangle_)
     expected: str = (
         '\n  .attr({'
+        '\n    "fill-opacity": 1.0,'
         '\n    x: 100,'
         '\n    y: 200,'
         '\n  })'
@@ -84,6 +85,7 @@ def test__make_rect_attrs_expression() -> None:
         rectangle=rectangle_)
     expected = (
         '\n  .attr({'
+        '\n    "fill-opacity": 1.0,'
         '\n    stroke: "#666666",'
         '\n    "stroke-width": 2,'
         '\n    "stroke-opacity": 0.3,'

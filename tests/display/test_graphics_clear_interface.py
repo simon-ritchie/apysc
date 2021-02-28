@@ -20,7 +20,7 @@ class TestGraphicsClearInterface:
 
         expected_attrs: Dict[str, Any] = {
             '_fill_color': None,
-            '_fill_alpha': None,
+            '_fill_alpha': 1.0,
             '_line_color': None,
             '_line_thickness': None,
             '_line_alpha': None,

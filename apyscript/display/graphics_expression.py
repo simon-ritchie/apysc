@@ -53,8 +53,6 @@ def append_fill_opacity_expression(
     expression : str
         After appended expression string.
     """
-    if graphics.fill_alpha is None:
-        return expression
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
         f'\n{spaces}"fill-opacity": {graphics.fill_alpha},'

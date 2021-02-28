@@ -19,7 +19,7 @@ from apyscript.validation import number_validation
 class BiginFillInterface:
 
     _fill_color: Optional[str] = None
-    _fill_alpha: Optional[Number] = None
+    _fill_alpha: Number = Number(1.0)
 
     def begin_fill(
             self, color: str,
@@ -58,14 +58,13 @@ class BiginFillInterface:
         return self._fill_color
 
     @property
-    def fill_alpha(self) -> Optional[Number]:
+    def fill_alpha(self) -> Number:
         """
         Get current fill color opacity.
 
         Returns
         -------
-        fill_alpha : Number or None
+        fill_alpha : Number
             Current fill color opacity (0.0 to 1.0).
-            If not be set, None will be returned.
         """
         return self._fill_alpha

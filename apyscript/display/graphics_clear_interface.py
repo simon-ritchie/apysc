@@ -12,7 +12,7 @@ from apyscript.type.number import Number
 class GraphicsClearInterface:
 
     _fill_color: Optional[str] = None
-    _fill_alpha: Optional[Number] = None
+    _fill_alpha: Number = Number(1.0)
     _line_color: Optional[str] = None
     _line_thickness: Optional[int] = None
     _line_alpha: Optional[float] = None
@@ -23,7 +23,7 @@ class GraphicsClearInterface:
         Clear all graphics and reset fill and line settings.
         """
         self._fill_color = None
-        self._fill_alpha = None
+        self._fill_alpha = Number(1.0)
         self._line_color = None
         self._line_thickness = None
         self._line_alpha = None

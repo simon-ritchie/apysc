@@ -23,8 +23,6 @@ class TestLineThicknessInterface:
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             'test_line_thickness_interface.attr({"stroke-width": 2});')
-        expected = html_util.wrap_expression_by_script_tag(
-            expression=expected)
         assert expected in expression
 
     def test_update_line_thickness_and_skip_appending_exp(self) -> None:

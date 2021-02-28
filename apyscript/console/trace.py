@@ -25,7 +25,8 @@ def trace(*args: Any) -> None:
         if isinstance(arg, VariableNameInterface):
             arg_strs.append(f'{arg.variable_name}')
             continue
-        arg_strs.append(f'"{str(arg)}"')
+        arg = repr(arg)[1:-1]
+        arg_strs.append(f'"{arg}"')
     expression += ', '.join(arg_strs)
     expression += ');'
     expression = html_util.wrap_expression_by_script_tag(

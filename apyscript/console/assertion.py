@@ -27,13 +27,15 @@ def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
         info += f'Expected variable name: {expected.variable_name}'
     if isinstance(actual, VariableNameInterface):
         if info != '':
-            info += f'\nActual variable name: {actual.variable_name}'
+            info += '\n'
+        info += f'Actual variable name: {actual.variable_name}'
     trace(info, '\nExpected:', expected, 'actual:', actual)
 
     expected_str: str = value_util.get_value_str_for_expression(
         value=expected)
     actual_str: str = value_util.get_value_str_for_expression(value=actual)
 
+    msg = repr(msg)[1:-1]
     expression: str = (
         f'console.assert({expected_str} === {actual_str}, "{msg}");'
     )

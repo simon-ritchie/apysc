@@ -3,6 +3,7 @@
 
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
+from apyscript.type import value_util
 from apyscript.type.int import Int
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import number_validation
@@ -22,7 +23,7 @@ class LineThicknessInterface(VariableNameInterface):
         line_thickness : Int
             Current line thickness.
         """
-        return self._line_thickness._copy()
+        return value_util.get_copy(value=self._line_thickness)
 
     @line_thickness.setter
     def line_thickness(self, value: Int) -> None:

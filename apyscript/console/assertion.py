@@ -6,6 +6,7 @@ from typing import Any
 from apyscript.expression import expression_file_util
 from apyscript.console.trace import trace
 from apyscript.type import value_util
+from apyscript.string import string_util
 
 
 def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
@@ -35,7 +36,7 @@ def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
         value=expected)
     actual_str: str = value_util.get_value_str_for_expression(value=actual)
 
-    msg = repr(msg)[1:-1]
+    msg = string_util.escape_str(string=msg)
     expression: str = (
         f'console.assert({expected_str} === {actual_str}, "{msg}");'
     )

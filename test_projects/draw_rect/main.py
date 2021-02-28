@@ -111,18 +111,24 @@ def main() -> None:
     # Test for each attribute values are immutable.
     rectangle.fill_alpha = Number(0.5)
     fill_alpha: Number = rectangle.fill_alpha
-    fill_alpha = Number(0.25)
+    fill_alpha += 0.2
     assert_not_equal(expected=fill_alpha, actual=rectangle.fill_alpha)
 
     rectangle.x = Int(550)
     x: Int = rectangle.x
-    x = Int(200)
+    x += 100
     assert_not_equal(expected=x, actual=rectangle.x)
 
     rectangle.y = Int(150)
     y: Int = rectangle.y
-    y = Int(200)
+    y += 100
     assert_not_equal(expected=y, actual=rectangle.y)
+
+    rectangle.line_thickness = Int(2)
+    line_thickness: Int = rectangle.line_thickness
+    line_thickness += 1
+    assert_not_equal(
+        expected=line_thickness, actual=rectangle.line_thickness)
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)

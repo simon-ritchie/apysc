@@ -22,7 +22,7 @@ class LineThicknessInterface(VariableNameInterface):
         line_thickness : Int
             Current line thickness.
         """
-        return self._line_thickness
+        return self._line_thickness._copy()
 
     @line_thickness.setter
     def line_thickness(self, value: Int) -> None:

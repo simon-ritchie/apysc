@@ -20,6 +20,9 @@ class TestXInterface:
         assert x == x_interface._x
         assert x.variable_name != x_interface._x.variable_name
 
+        x_interface.x = 200  # type: ignore
+        assert x_interface.x == 200
+
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test__append_x_update_expression(self) -> None:
         x_interface = XInterface()

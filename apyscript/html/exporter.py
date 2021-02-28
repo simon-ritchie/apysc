@@ -5,6 +5,7 @@ import os
 from logging import Logger
 from typing import List
 
+from apyscript.console import loggers
 from apyscript.display.stage import get_stage_element_id
 from apyscript.display.stage import get_stage_variable_name
 from apyscript.expression import expression_file_util
@@ -12,7 +13,6 @@ from apyscript.file import file_util
 from apyscript.html import html_const
 from apyscript.html import html_util
 from apyscript.jslib import jslib_util
-from apyscript.logging import loggers
 
 info_logger: Logger = loggers.get_info_logger()
 

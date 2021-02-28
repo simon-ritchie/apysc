@@ -12,10 +12,10 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
+from apyscript.console.trace import trace
 from apyscript.display.stage import Stage
 from apyscript.file import file_util
 from apyscript.html import exporter
-from apyscript.logging.trace import trace
 
 this_module: ModuleType = sys.modules[__name__]
 

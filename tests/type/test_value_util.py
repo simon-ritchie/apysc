@@ -14,6 +14,9 @@ def test_get_value_str_for_expression() -> None:
 
 def test_get_copy() -> None:
     int_val: Int = Int(value=10)
-    copied_val: Int = value_util.get_copy(value=int_val)
-    assert int_val == copied_val
-    assert int_val.variable_name != copied_val.variable_name
+    copied_val_1: Int = value_util.get_copy(value=int_val)
+    assert int_val == copied_val_1
+    assert int_val.variable_name != copied_val_1.variable_name
+
+    copied_val_2: int = value_util.get_copy(value=100)
+    assert copied_val_2 == 100

@@ -22,6 +22,9 @@ class TestFillAlphaInterface:
             fill_alpha.variable_name !=
             fill_alpha_interface._fill_alpha.variable_name)
 
+        fill_alpha_interface.fill_alpha = 0.25  # type: ignore
+        assert fill_alpha_interface.fill_alpha == 0.25
+
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test__append_fill_alpha_update_expression(self) -> None:
         fill_alpha_interface: FillAlphaInterface = FillAlphaInterface()

@@ -6,6 +6,7 @@ from typing import List
 
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
+from apyscript.string import string_util
 from apyscript.type.variable_name_interface import VariableNameInterface
 
 
@@ -25,7 +26,8 @@ def trace(*args: Any) -> None:
         if isinstance(arg, VariableNameInterface):
             arg_strs.append(f'{arg.variable_name}')
             continue
-        arg_strs.append(f'"{str(arg)}"')
+        arg = string_util.escape_str(string=str(arg))
+        arg_strs.append(f'"{arg}"')
     expression += ', '.join(arg_strs)
     expression += ');'
     expression = html_util.wrap_expression_by_script_tag(

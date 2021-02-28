@@ -21,6 +21,9 @@ class TestYInterface:
         assert y == y_interface._y
         assert y.variable_name != y_interface.y.variable_name
 
+        y_interface.y = 300  # type: ignore
+        assert y_interface.y == 300
+
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
     def test__append_y_update_expression(self) -> None:
         y_interface: YInterface = YInterface()

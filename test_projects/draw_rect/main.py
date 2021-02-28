@@ -7,8 +7,6 @@ $ python draw_rect/main.py
 
 import sys
 
-from apyscript.type.int import Int
-
 sys.path.append('./')
 
 import os
@@ -19,6 +17,7 @@ from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
 from apyscript.file import file_util
 from apyscript.html import exporter
+from apyscript.type.int import Int
 from apyscript.type.number import Number
 
 this_module: ModuleType = sys.modules[__name__]

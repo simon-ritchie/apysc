@@ -2,7 +2,9 @@
 """
 
 from string import hexdigits
+from typing import Any
 from typing import Tuple
+from typing import Union
 
 
 def validate_hex_color_code_format(hex_color_code: str) -> None:
@@ -42,13 +44,13 @@ def validate_hex_color_code_format(hex_color_code: str) -> None:
             f'\nSupported characters: {hexdigits}')
 
 
-def validate_alpha_range(alpha: float) -> None:
+def validate_alpha_range(alpha: Union[float, Any]) -> None:
     """
     Validate specified alpha (opacity) value's range.
 
     Parameters
     ----------
-    alpha : float
+    alpha : float or Number
         Opacity value to check.
 
     Raises
@@ -57,6 +59,8 @@ def validate_alpha_range(alpha: float) -> None:
         If specified opacity is out of 0.0 to 1.0 range.
     """
     if alpha < 0.0:
-        raise ValueError('Can\'t specify alpha value less than 0.0.')
+        raise ValueError(
+            f'Can\'t specify alpha value less than 0.0: {alpha}')
     if alpha > 1.0:
-        raise ValueError('Can\'t specify alpha value greater than 1.0')
+        raise ValueError(
+            f'Can\'t specify alpha value greater than 1.0: {alpha}')

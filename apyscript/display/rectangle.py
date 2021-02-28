@@ -33,10 +33,10 @@ class Rectangle(
             y: Union[int, Int],
             width: int,
             height: int, fill_color: Optional[str] = None,
-            fill_alpha: Optional[Union[float, Number]] = None,
+            fill_alpha: Union[float, Number] = 1.0,
             line_color: Optional[str] = None,
             line_thickness: Union[int, Int] = 1,
-            line_alpha: Optional[float] = None) -> None:
+            line_alpha: Union[float, Number] = 1.0) -> None:
         """
         Create a rectangle vector graphic.
 
@@ -54,13 +54,13 @@ class Rectangle(
             Rectangle height.
         fill_color : str or None, default None
             Fill color (hexadecimal string, e.g., '#00aaff').
-        fill_alpha : float or Number or None, default None
+        fill_alpha : float or Number, default 1.0
             Fill opacity (0.0 to 1.0).
         line_color : str or None, default None
             Line color (hexadecimal string, e.g., '#00aaff').
         line_thickness : int or Int, default 1
             Line thickness (width).
-        line_alpha : float or None, default None
+        line_alpha : float or Number, default 1.0
             Line opacity (0.0 to 1.0).
         """
         variable_name: str = expression_variables_util.\
@@ -76,15 +76,13 @@ class Rectangle(
         self.update_height_and_skip_appending_exp(value=height)
         if fill_color is not None:
             self.update_fill_color_and_skip_appending_exp(value=fill_color)
-        if fill_alpha is not None:
-            self.update_fill_alpha_and_skip_appending_exp(value=fill_alpha)
+        self.update_fill_alpha_and_skip_appending_exp(value=fill_alpha)
         if line_color is not None:
             self.update_line_color_and_skip_appending_exp(value=line_color)
-        if line_thickness is not None:
-            self.update_line_thickness_and_skip_appending_exp(
-                value=Int(line_thickness))
-        if line_alpha is not None:
-            self.update_line_alpha_and_skip_appending_exp(value=line_alpha)
+        self.update_line_thickness_and_skip_appending_exp(
+            value=Int(line_thickness))
+        self.update_line_alpha_and_skip_appending_exp(
+            value=Number(line_alpha))
 
 
 def append_draw_rect_expression(rectangle: Rectangle) -> None:

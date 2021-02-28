@@ -95,7 +95,7 @@ def main() -> None:
     # Test for rectangle line alpha update.
     rectangle = sprite.graphics.draw_rect(
         x=250, y=150, width=50, height=50)
-    rectangle.line_alpha = 1.0
+    rectangle.line_alpha = Number(1.0)
 
     _another_func(stage=stage, sprite=sprite)
 
@@ -129,6 +129,11 @@ def main() -> None:
     line_thickness += 1
     assert_not_equal(
         expected=line_thickness, actual=rectangle.line_thickness)
+
+    rectangle.line_alpha = Number(0.5)
+    line_alpha: Number = rectangle.line_alpha
+    line_alpha += 0.2
+    assert_not_equal(expected=line_alpha, actual=rectangle.line_alpha)
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)

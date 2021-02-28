@@ -10,7 +10,10 @@ from typing import Union
 
 from apyscript.color import color_util
 from apyscript.converter import cast
+from apyscript.type import value_util
 from apyscript.type.int import Int
+from apyscript.type.number import Number
+from apyscript.type.number_value_interface import NumberValueInterface
 from apyscript.validation import color_validation
 from apyscript.validation import number_validation
 
@@ -19,12 +22,12 @@ class LineStyleInterface:
 
     _line_color: Optional[str] = None
     _line_thickness: Int
-    _line_alpha: Optional[float] = None
+    _line_alpha: Number = Number(1.0)
 
     def line_style(
             self, color: str,
             thickness: Union[int, Int] = 1,
-            alpha: float = 1.0) -> None:
+            alpha: Union[float, Number] = 1.0) -> None:
         """
         Set line style values.
 
@@ -34,7 +37,7 @@ class LineStyleInterface:
             Hexadecimal color string. e.g., '#00aaff'
         thickness : int or Int, default 1
             Line thickness (minimum value is 1).
-        alpha : float, default 1.0
+        alpha : float or Number, default 1.0
             Line color opacity (0.0 to 1.0).
         """
         color = color_util.complement_hex_color(hex_color_code=color)
@@ -43,7 +46,9 @@ class LineStyleInterface:
         number_validation.validate_num_is_gt_zero(num=thickness)
         self._line_thickness = Int(thickness)
         number_validation.validate_num(num=alpha)
-        alpha = cast.to_float_from_int(int_or_float=alpha)
+        if not isinstance(alpha, NumberValueInterface):
+            alpha = cast.to_float_from_int(int_or_float=alpha)
+            alpha = Number(alpha)
         color_validation.validate_alpha_range(alpha=alpha)
         self._line_alpha = alpha
 
@@ -73,14 +78,14 @@ class LineStyleInterface:
         return self._line_thickness
 
     @property
-    def line_alpha(self) -> Optional[float]:
+    def line_alpha(self) -> Number:
         """
         Get current line color opacity.
 
         Returns
         -------
-        line_alpha : float or None
+        line_alpha : Number
             Current line opacity (0.0 to 1.0).
             If not be set, None will be returned.
         """
-        return self._line_alpha
+        return value_util.get_copy(value=self._line_alpha)

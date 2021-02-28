@@ -16,7 +16,7 @@ class GraphicsClearInterface:
     _fill_alpha: Number = Number(1.0)
     _line_color: Optional[str] = None
     _line_thickness: Int = Int(1)
-    _line_alpha: Optional[float] = None
+    _line_alpha: Number = Number(1.0)
     _childs: List[DisplayObject]
 
     def clear(self) -> None:
@@ -27,6 +27,6 @@ class GraphicsClearInterface:
         self._fill_alpha = Number(1.0)
         self._line_color = None
         self._line_thickness = Int(1)
-        self._line_alpha = None
+        self._line_alpha = Number(1.0)
         while self._childs:
             self._childs[0].remove_from_parent()

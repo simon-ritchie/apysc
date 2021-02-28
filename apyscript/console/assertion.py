@@ -11,7 +11,7 @@ from apyscript.string import string_util
 
 def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
     """
-    Assertion interface for equal condition.
+    JavaScript assertion interface for equal condition.
 
     Parameters
     ----------
@@ -19,7 +19,7 @@ def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
         Expected value.
     actual : *
         Actual value.
-    msg : str
+    msg : str, optional
         Message to display when assertion failed.
     """
     _trace_info(
@@ -32,6 +32,33 @@ def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
     msg = string_util.escape_str(string=msg)
     expression: str = (
         f'console.assert({expected_str} === {actual_str}, "{msg}");'
+    )
+    expression_file_util.wrap_by_script_tag_and_append_expression(
+        expression=expression)
+
+
+def assert_not_equal(expected: Any, actual: Any, msg: str = '') -> None:
+    """
+    JavaScript assertion interface for not equal condition.
+
+    Parameters
+    ----------
+    expected : *
+        Expected value.
+    actual : *
+        Actual value.
+    msg : str, optional
+        Message to display when assertion failed.
+    """
+    _trace_info(
+        interface_label='assert_not_equal', expected=expected, actual=actual)
+    expected_str: str = value_util.get_value_str_for_expression(
+        value=expected)
+    actual_str: str = value_util.get_value_str_for_expression(value=actual)
+
+    msg = string_util.escape_str(string=msg)
+    expression: str = (
+        f'console.assert({expected_str} !== {actual_str}, "{msg}");'
     )
     expression_file_util.wrap_by_script_tag_and_append_expression(
         expression=expression)

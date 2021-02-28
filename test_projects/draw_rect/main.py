@@ -7,6 +7,8 @@ $ python draw_rect/main.py
 
 import sys
 
+from apyscript.type.int import Int
+
 sys.path.append('./')
 
 import os
@@ -53,12 +55,12 @@ def main() -> None:
     # Test for rectangle x position update.
     rectangle: Rectangle = sprite.graphics.draw_rect(
         x=0, y=50, width=50, height=50)
-    rectangle.x = 350
+    rectangle.x = Int(350)
 
     # Test for rectangle y position update.
     rectangle = sprite.graphics.draw_rect(
         x=450, y=0, width=50, height=50)
-    rectangle.y = 50
+    rectangle.y = Int(50)
 
     # Test for rectangle width update.
     rectangle = sprite.graphics.draw_rect(
@@ -78,7 +80,7 @@ def main() -> None:
     # Test for rectangle fill alpha update.
     rectangle = sprite.graphics.draw_rect(
         x=900, y=50, width=50, height=50)
-    rectangle.fill_alpha = 0.5
+    rectangle.fill_alpha = Number(0.5)
 
     # Test for rectangle line color update.
     rectangle = sprite.graphics.draw_rect(

@@ -1,23 +1,23 @@
 """Class implementation for fill alpha interface.
 """
 
-from apyscript.type.number_value_interface import NumberValueInterface
-from typing import Any, Optional
-from typing import Union
+from typing import Any
+from typing import Optional
 
 from apyscript.converter import cast
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
+from apyscript.type import value_util
 from apyscript.type.number import Number
+from apyscript.type.number_value_interface import NumberValueInterface
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import color_validation
 from apyscript.validation import number_validation
-from apyscript.type import value_util
 
 
 class FillAlphaInterface(VariableNameInterface):
 
-    _fill_alpha: Optional[Number] = None
+    _fill_alpha: Number = Number(1.0)
 
     @property
     def fill_alpha(self) -> Optional[Number]:
@@ -34,7 +34,7 @@ class FillAlphaInterface(VariableNameInterface):
 
     @fill_alpha.setter
     def fill_alpha(
-            self, value: Any) -> None:
+            self, value: Number) -> None:
         """
         Update this instance's fill opacity.
 

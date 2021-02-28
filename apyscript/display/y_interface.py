@@ -1,13 +1,12 @@
 """Class implementation for y position interface.
 """
 
-from apyscript.type.number_value_interface import NumberValueInterface
-from apyscript.type.int import Int
-from typing import Any, Union
 from apyscript.expression import expression_file_util
+from apyscript.type import value_util
+from apyscript.type.int import Int
+from apyscript.type.number_value_interface import NumberValueInterface
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import number_validation
-from apyscript.type import value_util
 
 
 class YInterface(VariableNameInterface):
@@ -27,7 +26,7 @@ class YInterface(VariableNameInterface):
         return value_util.get_copy(value=self._y)
 
     @y.setter
-    def y(self, value: Any) -> None:
+    def y(self, value: Int) -> None:
         """
         Update y position.
 
@@ -39,7 +38,7 @@ class YInterface(VariableNameInterface):
         if not isinstance(value, NumberValueInterface):
             number_validation.validate_integer(integer=value)
             value = Int(value=value)
-        self._y = value  # type: ignore
+        self._y = value
         self._append_y_update_expression()
 
     def _append_y_update_expression(self) -> None:

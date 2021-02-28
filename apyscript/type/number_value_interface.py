@@ -7,9 +7,9 @@ from typing import Union
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
 from apyscript.type.copy_interface import CopyInterface
+from apyscript.type.value_util import get_value_str_for_expression
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import number_validation
-from apyscript.type.value_util import get_value_str_for_expression
 
 
 class NumberValueInterface(CopyInterface):

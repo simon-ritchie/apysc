@@ -4,6 +4,7 @@
 from typing import Any
 
 from apyscript.display.display_object import DisplayObject
+from apyscript.type.int import Int
 from apyscript.validation import display_validation
 from apyscript.validation import number_validation
 from apyscript.validation import string_validation
@@ -35,7 +36,7 @@ class GraphicBase(DisplayObject):
         self.parent_graphics: Graphics = parent
         number_validation.validate_integer(integer=x)
         number_validation.validate_integer(integer=y)
-        self._x = x
-        self._y = y
+        self._x = Int(x)
+        self._y = Int(y)
         string_validation.validate_not_empty_string(string=variable_name)
         self._variable_name = variable_name

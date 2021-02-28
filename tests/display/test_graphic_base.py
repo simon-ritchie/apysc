@@ -5,6 +5,7 @@ from retrying import retry
 from apyscript.display.graphic_base import GraphicBase
 from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
+from apyscript.type.int import Int
 from tests import testing_helper
 
 
@@ -32,7 +33,7 @@ class TestGraphicBase:
         graphic_base: GraphicBase = GraphicBase(
             parent=sprite.graphics, x=100, y=200,
             variable_name='test_graphic')
-        graphic_base.x = 300
+        graphic_base.x = Int(300)
         assert graphic_base.x == 300
 
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
@@ -42,7 +43,7 @@ class TestGraphicBase:
         graphic_base: GraphicBase = GraphicBase(
             parent=sprite.graphics, x=100, y=200,
             variable_name='test_graphic')
-        graphic_base.y = 400
+        graphic_base.y = Int(400)
         assert graphic_base.y == 400
 
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))

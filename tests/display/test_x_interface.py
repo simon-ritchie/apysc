@@ -4,7 +4,6 @@ from retrying import retry
 
 from apyscript.display.x_interface import XInterface
 from apyscript.expression import expression_file_util
-from apyscript.html import html_util
 from apyscript.type import value_util
 from apyscript.type.int import Int
 
@@ -14,7 +13,7 @@ class TestXInterface:
     def test_x(self) -> None:
         x_interface = XInterface()
         x_interface.variable_name = 'test_x_interface'
-        x_interface.x = 100
+        x_interface.x = Int(100)
         assert x_interface.x == 100
 
         x: Int = x_interface.x
@@ -26,7 +25,7 @@ class TestXInterface:
         x_interface = XInterface()
         x_interface.variable_name = 'test_x_interface'
         expression_file_util.remove_expression_file()
-        x_interface.x = 200
+        x_interface.x = Int(200)
         expression: str = expression_file_util.get_current_expression()
         value_str: str = value_util.get_value_str_for_expression(
             value=x_interface._x)

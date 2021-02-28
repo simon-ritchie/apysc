@@ -1,13 +1,12 @@
 """Class implementation for x position interface.
 """
 
-from apyscript.type.number_value_interface import NumberValueInterface
-from typing import Any, Union
 from apyscript.expression import expression_file_util
+from apyscript.type import value_util
+from apyscript.type.int import Int
+from apyscript.type.number_value_interface import NumberValueInterface
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import number_validation
-from apyscript.type.int import Int
-from apyscript.type import value_util
 
 
 class XInterface(VariableNameInterface):
@@ -27,7 +26,7 @@ class XInterface(VariableNameInterface):
         return value_util.get_copy(value=self._x)
 
     @x.setter
-    def x(self, value: Any) -> None:
+    def x(self, value: Int) -> None:
         """
         Update x position.
 
@@ -39,7 +38,7 @@ class XInterface(VariableNameInterface):
         if not isinstance(value, NumberValueInterface):
             number_validation.validate_integer(integer=value)
             value = Int(value=value)
-        self._x = value  # type: ignore
+        self._x = value
         self._append_x_update_expression()
 
     def _append_x_update_expression(self) -> None:

@@ -35,7 +35,7 @@ class Rectangle(
             height: int, fill_color: Optional[str] = None,
             fill_alpha: Optional[Union[float, Number]] = None,
             line_color: Optional[str] = None,
-            line_thickness: Optional[int] = None,
+            line_thickness: Union[int, Int] = 1,
             line_alpha: Optional[float] = None) -> None:
         """
         Create a rectangle vector graphic.
@@ -44,9 +44,9 @@ class Rectangle(
         ----------
         parent : Graphics
             Graphics instance to link this graphic.
-        x : int
+        x : int or Int
             X position to start drawing.
-        y : int
+        y : int or Int
             Y position to start drawing.
         width : int
             Rectangle width.
@@ -58,7 +58,7 @@ class Rectangle(
             Fill opacity (0.0 to 1.0).
         line_color : str or None, default None
             Line color (hexadecimal string, e.g., '#00aaff').
-        line_thickness : str or None, default None
+        line_thickness : int or Int, default 1
             Line thickness (width).
         line_alpha : float or None, default None
             Line opacity (0.0 to 1.0).
@@ -82,7 +82,7 @@ class Rectangle(
             self.update_line_color_and_skip_appending_exp(value=line_color)
         if line_thickness is not None:
             self.update_line_thickness_and_skip_appending_exp(
-                value=line_thickness)
+                value=Int(line_thickness))
         if line_alpha is not None:
             self.update_line_alpha_and_skip_appending_exp(value=line_alpha)
 

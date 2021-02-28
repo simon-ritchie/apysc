@@ -51,13 +51,13 @@ def validate_integer(integer: Union[int, Any]) -> None:
         f'Specified value is not integer: {integer}({type(integer)})')
 
 
-def validate_num_is_gt_zero(num: Union[int, float]) -> None:
+def validate_num_is_gt_zero(num: Union[int, float, Any]) -> None:
     """
     Validate specified value is greater than zero.
 
     Parameters
     ----------
-    num : int or float
+    num : int or float or NumberValueInterface
         Number value to check.
 
     Raises
@@ -70,13 +70,13 @@ def validate_num_is_gt_zero(num: Union[int, float]) -> None:
     raise ValueError(f'Specified values is less than or equal to zero: {num}')
 
 
-def validate_num_is_gte_zero(num: Union[int, float]) -> None:
+def validate_num_is_gte_zero(num: Union[int, float, Any]) -> None:
     """
     Validate specified value is greater than or equal to zero.
 
     Parameters
     ----------
-    num : int or float
+    num : int or float or NumberValueInterface
         Number value to check.
 
     Raises

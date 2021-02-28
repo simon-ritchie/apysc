@@ -90,7 +90,7 @@ def main() -> None:
     # Test for rectangle line thickness update.
     rectangle = sprite.graphics.draw_rect(
         x=150, y=150, width=50, height=50)
-    rectangle.line_thickness = 1
+    rectangle.line_thickness = Int(1)
 
     # Test for rectangle line alpha update.
     rectangle = sprite.graphics.draw_rect(

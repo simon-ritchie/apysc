@@ -159,8 +159,6 @@ def append_stroke_width_expression(
     expression : str
         After appended expression string.
     """
-    if graphics.line_thickness is None:
-        return expression
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
         f'\n{spaces}"stroke-width": {graphics.line_thickness},'

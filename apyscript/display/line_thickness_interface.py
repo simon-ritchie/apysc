@@ -1,39 +1,37 @@
 """Class implementation for line thickness interface.
 """
 
-from typing import Optional
-
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
+from apyscript.type.int import Int
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import number_validation
 
 
 class LineThicknessInterface(VariableNameInterface):
 
-    _line_thickness: Optional[int] = None
+    _line_thickness: Int = Int(1)
 
     @property
-    def line_thickness(self) -> Optional[int]:
+    def line_thickness(self) -> Int:
         """
         Get this instance's line thickness.
 
         Returns
         -------
-        line_thickness : int or None
+        line_thickness : Int
             Current line thickness.
-            If not be set, None will be returned.
         """
         return self._line_thickness
 
     @line_thickness.setter
-    def line_thickness(self, value: int) -> None:
+    def line_thickness(self, value: Int) -> None:
         """
         Update this instance's line thickness.
 
         Parameters
         ----------
-        value : int
+        value : Int
             Line thickness to set.
         """
         self.update_line_thickness_and_skip_appending_exp(value=value)
@@ -53,13 +51,13 @@ class LineThicknessInterface(VariableNameInterface):
             expression=expression)
 
     def update_line_thickness_and_skip_appending_exp(
-            self, value: int) -> None:
+            self, value: Int) -> None:
         """
         Update line thickness and skip appending expression to file.
 
         Parameters
         ----------
-        value : int
+        value : Int
             LKine thickness to set.
         """
         number_validation.validate_integer(integer=value)

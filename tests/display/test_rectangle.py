@@ -57,6 +57,7 @@ def test__make_rect_attrs_expression() -> None:
     expected: str = (
         '\n  .attr({'
         '\n    "fill-opacity": 1.0,'
+        '\n    "stroke-width": 1,'
         '\n    x: 100,'
         '\n    y: 200,'
         '\n  })'
@@ -70,6 +71,7 @@ def test__make_rect_attrs_expression() -> None:
         '\n  .attr({'
         '\n    fill: "#333333",'
         '\n    "fill-opacity": 0.5,'
+        '\n    "stroke-width": 1,'
         '\n    x: 100,'
         '\n    y: 200,'
         '\n  })'
@@ -112,6 +114,7 @@ def test_append_draw_rect_expression() -> None:
         '\n  .attr({'
         '\n    fill: "#333333",'
         '\n    "fill-opacity": 0.5,'
+        '\n    "stroke-width": 1,'
         '\n    x: 100,'
         '\n    y: 200,'
         '\n  });'

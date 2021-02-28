@@ -22,15 +22,8 @@ def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
     msg : str
         Message to display when assertion failed.
     """
-    from apyscript.type.variable_name_interface import VariableNameInterface
-    info: str = ''
-    if isinstance(expected, VariableNameInterface):
-        info += f'Expected variable name: {expected.variable_name}'
-    if isinstance(actual, VariableNameInterface):
-        if info != '':
-            info += '\n'
-        info += f'Actual variable name: {actual.variable_name}'
-    trace(info, '\nExpected:', expected, 'actual:', actual)
+    _trace_info(
+        interface_label='assert_equal', expected=expected, actual=actual)
 
     expected_str: str = value_util.get_value_str_for_expression(
         value=expected)
@@ -42,3 +35,25 @@ def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
     )
     expression_file_util.wrap_by_script_tag_and_append_expression(
         expression=expression)
+
+
+def _trace_info(interface_label: str, expected: Any, actual: Any) -> None:
+    """
+    Append trace expression of specified values.
+
+    Parameters
+    ----------
+    interface_label : str
+        Target assertion interface label, e.g., 'assert_equal'.
+    expected : *
+        Expected value.
+    actual : *
+        Actual value.
+    """
+    from apyscript.type.variable_name_interface import VariableNameInterface
+    info: str = f'[{interface_label}]'
+    if isinstance(expected, VariableNameInterface):
+        info += f'\nExpected variable name: {expected.variable_name}'
+    if isinstance(actual, VariableNameInterface):
+        info += f'\nActual variable name: {actual.variable_name}'
+    trace(info, '\nExpected:', expected, 'actual:', actual)

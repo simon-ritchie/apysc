@@ -19,7 +19,7 @@ from apyscript.file import file_util
 from apyscript.html import exporter
 from apyscript.type.int import Int
 from apyscript.type.number import Number
-from apyscript.console.assertion import assert_equal
+from apyscript.console.assertion import assert_not_equal
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -107,6 +107,22 @@ def main() -> None:
     rectangle = sprite.graphics.draw_rect(
         x=550, y=150, width=50, height=50)
     rectangle.fill_alpha = number_1
+
+    # Test for each attribute values are immutable.
+    rectangle.fill_alpha = Number(0.5)
+    fill_alpha: Number = rectangle.fill_alpha
+    fill_alpha = Number(0.25)
+    assert_not_equal(expected=fill_alpha, actual=rectangle.fill_alpha)
+
+    rectangle.x = Int(550)
+    x: Int = rectangle.x
+    x = Int(200)
+    assert_not_equal(expected=x, actual=rectangle.x)
+
+    rectangle.y = Int(150)
+    y: Int = rectangle.y
+    y = Int(200)
+    assert_not_equal(expected=y, actual=rectangle.y)
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)

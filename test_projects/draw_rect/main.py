@@ -12,6 +12,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
+from apyscript.console.assertion import assert_not_equal
 from apyscript.display.rectangle import Rectangle
 from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
@@ -19,7 +20,6 @@ from apyscript.file import file_util
 from apyscript.html import exporter
 from apyscript.type.int import Int
 from apyscript.type.number import Number
-from apyscript.console.assertion import assert_not_equal
 
 this_module: ModuleType = sys.modules[__name__]
 

@@ -2,8 +2,8 @@ from random import randint
 
 from retrying import retry
 
-from apyscript.type.copy_interface import CopyInterface
 from apyscript.expression import expression_file_util
+from apyscript.type.copy_interface import CopyInterface
 
 
 class TestCopyInterface:

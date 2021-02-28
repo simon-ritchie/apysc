@@ -1,12 +1,13 @@
 """Each js assertion (console.assert) interface implementations.
 """
 
-from typing import Any, Tuple
+from typing import Any
+from typing import Tuple
 
-from apyscript.expression import expression_file_util
 from apyscript.console.trace import trace
-from apyscript.type import value_util
+from apyscript.expression import expression_file_util
 from apyscript.string import string_util
+from apyscript.type import value_util
 
 
 def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:

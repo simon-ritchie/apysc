@@ -4,12 +4,10 @@
 import os
 import random
 from datetime import datetime
-from typing import List
 from typing import Optional
 
 from apyscript.color import color_util
 from apyscript.display.child_interface import ChildInterface
-from apyscript.display.display_object import DisplayObject
 from apyscript.display.height_interface import HeightInterface
 from apyscript.display.width_interface import WidthInterface
 from apyscript.expression import expression_file_util
@@ -32,7 +30,6 @@ class Stage(
     _background_color: str
     _add_to: str
     _stage_elem_id: str
-    _childs: List[DisplayObject]
 
     def __init__(
             self, stage_width: int = 300, stage_height: int = 185,

@@ -4,7 +4,6 @@ from retrying import retry
 
 from apyscript.display.height_interface import HeightInterface
 from apyscript.expression import expression_file_util
-from apyscript.html import html_util
 from apyscript.type.int import Int
 
 

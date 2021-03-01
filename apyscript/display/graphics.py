@@ -37,7 +37,7 @@ class Graphics(
             Variable name to set. Specified only when subclass
             instantiation.
         """
-        from apyscript.display.sprite import Sprite
+        from apyscript.display import Sprite
         display_validation.validate_sprite(sprite=parent)
         self.parent_sprite: Sprite = parent
         if variable_name is None:

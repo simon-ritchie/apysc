@@ -12,7 +12,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apyscript.display.sprite import Sprite
+from apyscript.display import Sprite
 from apyscript.display.stage import Stage
 from apyscript.file import file_util
 from apyscript.html import exporter

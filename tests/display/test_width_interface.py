@@ -4,7 +4,7 @@ from retrying import retry
 
 from apyscript.display.width_interface import WidthInterface
 from apyscript.expression import expression_file_util
-from apyscript.type.int import Int
+from apyscript.type import Int
 
 
 class TestWidthInterface:

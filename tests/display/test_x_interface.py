@@ -4,8 +4,8 @@ from retrying import retry
 
 from apyscript.display.x_interface import XInterface
 from apyscript.expression import expression_file_util
+from apyscript.type import Int
 from apyscript.type import value_util
-from apyscript.type.int import Int
 
 
 class TestXInterface:

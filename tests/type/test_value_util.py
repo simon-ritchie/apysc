@@ -1,5 +1,5 @@
+from apyscript.type import Int
 from apyscript.type import value_util
-from apyscript.type.int import Int
 
 
 def test_get_value_str_for_expression() -> None:

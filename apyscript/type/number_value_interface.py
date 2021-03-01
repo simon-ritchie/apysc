@@ -310,7 +310,7 @@ class NumberValueInterface(CopyInterface):
         result : Int
             Floor division result value.
         """
-        from apyscript.type.int import Int
+        from apyscript.type import Int
         result: Int = Int(value=self)
         if isinstance(other, NumberValueInterface):
             value: Union[int, float, Any] = self._value // other.value

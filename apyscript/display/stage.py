@@ -14,7 +14,7 @@ from apyscript.expression import expression_file_util
 from apyscript.file import file_util
 from apyscript.html import html_const
 from apyscript.html import html_util
-from apyscript.type.int import Int
+from apyscript.type import Int
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import string_validation
 

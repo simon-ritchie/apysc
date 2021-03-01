@@ -10,8 +10,8 @@ from typing import Union
 
 from apyscript.color import color_util
 from apyscript.converter import cast
+from apyscript.type import Int
 from apyscript.type import value_util
-from apyscript.type.int import Int
 from apyscript.type.number import Number
 from apyscript.type.number_value_interface import NumberValueInterface
 from apyscript.validation import color_validation

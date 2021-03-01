@@ -1,5 +1,5 @@
 from apyscript.converter import cast
-from apyscript.type.int import Int
+from apyscript.type import Int
 from apyscript.type.number import Number
 
 

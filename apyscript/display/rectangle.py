@@ -17,7 +17,7 @@ from apyscript.display.width_interface import WidthInterface
 from apyscript.expression import expression_file_util
 from apyscript.expression import expression_variables_util
 from apyscript.html import html_const
-from apyscript.type.int import Int
+from apyscript.type import Int
 from apyscript.type.number import Number
 from apyscript.validation import size_validation
 

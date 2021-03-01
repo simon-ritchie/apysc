@@ -5,7 +5,7 @@
 from typing import Optional
 from typing import Union
 
-from apyscript.type.int import Int
+from apyscript.type import Int
 
 
 def validate_size_is_int(

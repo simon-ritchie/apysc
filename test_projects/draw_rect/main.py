@@ -135,6 +135,14 @@ def main() -> None:
     line_alpha += 0.2
     assert_not_equal(expected=line_alpha, actual=rectangle.line_alpha)
 
+    width: Int = rectangle.width
+    width = Int(150)
+    assert_not_equal(expected=width, actual=rectangle.width)
+
+    height: Int = rectangle.height
+    height = Int(200)
+    assert_not_equal(expected=height, actual=rectangle.height)
+
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 

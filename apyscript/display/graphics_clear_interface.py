@@ -7,7 +7,7 @@ from typing import Optional
 
 from apyscript.display.display_object import DisplayObject
 from apyscript.type import Int
-from apyscript.type.number import Number
+from apyscript.type import Number
 
 
 class GraphicsClearInterface:

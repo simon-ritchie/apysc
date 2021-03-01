@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 from apyscript.display.begin_fill_interface import BiginFillInterface
-from apyscript.type.number import Number
+from apyscript.type import Number
 
 
 class TestBiginFillInterface:

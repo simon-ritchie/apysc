@@ -4,8 +4,8 @@
 
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
+from apyscript.type import Number
 from apyscript.type import value_util
-from apyscript.type.number import Number
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import color_validation
 from apyscript.validation import number_validation

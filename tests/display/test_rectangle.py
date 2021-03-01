@@ -8,7 +8,7 @@ from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
 from apyscript.display.stage import get_stage_variable_name
 from apyscript.expression import expression_file_util
-from apyscript.type.number import Number
+from apyscript.type import Number
 from tests import testing_helper
 
 

@@ -1,6 +1,6 @@
 from apyscript.converter import cast
 from apyscript.type import Int
-from apyscript.type.number import Number
+from apyscript.type import Number
 
 
 def test_to_int_from_float() -> None:

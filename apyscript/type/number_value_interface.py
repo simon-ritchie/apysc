@@ -265,7 +265,7 @@ class NumberValueInterface(CopyInterface):
         result : Number
             True division result value.
         """
-        from apyscript.type.number import Number
+        from apyscript.type import Number
         result: Number = Number(value=self)
         if isinstance(other, NumberValueInterface):
             value: Union[int, float, Any] = result._value / other.value

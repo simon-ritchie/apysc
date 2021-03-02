@@ -2,10 +2,10 @@ from random import randint
 
 from retrying import retry
 
+from apyscript.display import Sprite
 from apyscript.display.graphic_base import GraphicBase
-from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
-from apyscript.type.int import Int
+from apyscript.type import Int
 from tests import testing_helper
 
 

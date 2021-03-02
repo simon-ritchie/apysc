@@ -1,4 +1,4 @@
-from apyscript.type.int import Int
+from apyscript.type import Int
 from apyscript.validation import number_validation
 from tests import testing_helper
 

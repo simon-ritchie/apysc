@@ -4,7 +4,7 @@
 from typing import Any
 
 from apyscript.display.display_object import DisplayObject
-from apyscript.type.int import Int
+from apyscript.type import Int
 from apyscript.validation import display_validation
 from apyscript.validation import number_validation
 from apyscript.validation import string_validation

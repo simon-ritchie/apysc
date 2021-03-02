@@ -44,7 +44,7 @@ def validate_integer(integer: Union[int, Any]) -> None:
     ValueError
         If specified value is not integer.
     """
-    from apyscript.type.int import Int
+    from apyscript.type import Int
     if isinstance(integer, (int, Int)):
         return
     raise ValueError(

@@ -2,10 +2,10 @@ from random import randint
 
 from retrying import retry
 
+from apyscript.display import Sprite
 from apyscript.display import graphics_expression
 from apyscript.display.graphics import Graphics
 from apyscript.display.rectangle import Rectangle
-from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
 
 

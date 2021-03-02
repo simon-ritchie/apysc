@@ -3,8 +3,8 @@ from typing import List
 
 from retrying import retry
 
+from apyscript.display import Sprite
 from apyscript.display.graphics import Graphics
-from apyscript.display.sprite import Sprite
 from apyscript.display.stage import Stage
 from apyscript.display.stage import get_stage_variable_name
 from apyscript.expression import expression_file_util

@@ -64,7 +64,7 @@ def validate_sprite(sprite: Any) -> None:
     ValueError
         If specified instance is not Sprite type.
     """
-    from apyscript.display.sprite import Sprite
+    from apyscript.display import Sprite
     if isinstance(sprite, Sprite):
         return
     raise ValueError(

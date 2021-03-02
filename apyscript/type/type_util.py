@@ -30,7 +30,7 @@ def is_number(value: Any) -> bool:
     result : bool
         If Number value is specified, True will be returned.
     """
-    from apyscript.type.number import Number
+    from apyscript.type import Number
     if isinstance(value, Number):
         return True
     return False

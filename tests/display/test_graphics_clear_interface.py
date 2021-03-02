@@ -4,7 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apyscript.display.sprite import Sprite
+from apyscript.display import Sprite
 from apyscript.display.stage import Stage
 from tests import testing_helper
 

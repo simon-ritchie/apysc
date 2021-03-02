@@ -28,3 +28,10 @@ def test_to_float_from_int() -> None:
     number_val_1: Number = cast.to_float_from_int(int_or_float=Int(10))
     assert isinstance(number_val_1, Number)
     assert number_val_1 == 10.0
+
+
+def test_to_bool_from_int() -> None:
+    bool_val: bool = cast.to_bool_from_int(integer=0)
+    assert not bool_val
+    bool_val = cast.to_bool_from_int(integer=1)
+    assert bool_val

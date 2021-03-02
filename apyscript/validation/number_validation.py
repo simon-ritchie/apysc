@@ -6,6 +6,8 @@ Mainly following interfaces are defined:
     Validate specified value is integer or float type.
 - validate_integer
     Validate specified value is integer.
+- validate_int_is_zero_or_one
+    Validate specified integer value is zero or one.
 - validate_num_is_gt_zero
     Validate specified value is greater than zero.
 - validate_num_is_gte_zero
@@ -60,6 +62,34 @@ def validate_integer(integer: Union[int, Any]) -> None:
         return
     raise ValueError(
         f'Specified value is not integer: {integer}({type(integer)})')
+
+
+def validate_int_is_zero_or_one(integer: Union[int, Any]) -> None:
+    """
+    Validate specified integer value is zero or one.
+
+    Notes
+    -----
+    If argument value is not int or Int instance, then validation
+    will be skipped.
+
+    Parameters
+    ----------
+    integer : int or Int
+        Integer value to check.
+
+    Raises
+    ------
+    ValueError
+        If specified integer is not zero and one.
+    """
+    from apyscript.type import Int
+    if not isinstance(integer, (int, Int)):
+        return
+    if integer == 0 or integer == 1:
+        return
+    raise ValueError(
+        f'Specified integer value is not zero and one: {integer}')
 
 
 def validate_num_is_gt_zero(num: Union[int, float, Any]) -> None:

@@ -37,3 +37,19 @@ def test_validate_num_is_gte_zero() -> None:
         expected_error_class=ValueError,
         func_or_method=number_validation.validate_num_is_gte_zero,
         kwargs={'num': -0.1})
+
+
+def test_validate_int_is_zero_or_one() -> None:
+    number_validation.validate_int_is_zero_or_one(integer='Hello!')
+    number_validation.validate_int_is_zero_or_one(integer=1)
+    number_validation.validate_int_is_zero_or_one(integer=0)
+    number_validation.validate_int_is_zero_or_one(integer=Int(0))
+    number_validation.validate_int_is_zero_or_one(integer=Int(1))
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=number_validation.validate_int_is_zero_or_one,
+        kwargs={'integer': 2})
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=number_validation.validate_int_is_zero_or_one,
+        kwargs={'integer': Int(2)})

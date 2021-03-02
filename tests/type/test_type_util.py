@@ -1,6 +1,7 @@
 from apyscript.type import Int
 from apyscript.type import Number
 from apyscript.type import type_util
+from apyscript.type import Boolean
 
 
 def test_is_same_class_instance() -> None:
@@ -33,4 +34,15 @@ def test_is_number() -> None:
     assert not result
 
     result = type_util.is_number(value=Int(value=10))
+    assert not result
+
+
+def test_is_bool() -> None:
+    result: bool = type_util.is_bool(value=True)
+    assert result
+    result = type_util.is_bool(value=False)
+    assert result
+    result = type_util.is_bool(value=Boolean(True))
+    assert result
+    result = type_util.is_bool(value=1)
     assert not result

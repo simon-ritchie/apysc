@@ -1,4 +1,15 @@
 """Number validation implementations.
+
+Mainly following interfaces are defined:
+
+- validate_num
+    Validate specified value is integer or float type.
+- validate_integer
+    Validate specified value is integer.
+- validate_num_is_gt_zero
+    Validate specified value is greater than zero.
+- validate_num_is_gte_zero
+    Validate specified value is greater than or equal to zero.
 """
 
 from typing import Any

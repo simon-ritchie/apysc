@@ -7,6 +7,9 @@ Mainly following interface is defined:
 - is_float_or_number
     Get a boolean value whether specified value is float or Nuber
     value.
+- is_bool
+    Get a boolean value whether specified value is bool or Boolean
+    value.
 - is_same_class_instance
     Get a boolean value whether specified class and instance's class
     are same or not.
@@ -54,6 +57,29 @@ def is_float_or_number(value: Any) -> bool:
     if isinstance(value, float):
         return True
     if is_number(value=value):
+        return True
+    return False
+
+
+def is_bool(value: Any) -> bool:
+    """
+    Get a boolean value whether specified value is bool or Boolean
+    value.
+
+    Parameters
+    ----------
+    value : *
+        Any value to check.
+
+    Returns
+    -------
+    result : bool
+        If bool or Boolean value is specified, True will be returned.
+    """
+    if is_same_class_instance(class_=bool, instance=value):
+        return True
+    from apyscript.type import Boolean
+    if isinstance(value, Boolean):
         return True
     return False
 

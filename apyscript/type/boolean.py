@@ -30,18 +30,38 @@ class Boolean(CopyInterface):
         TYPE_NAME: str = 'boolean'
         number_validation.validate_int_is_zero_or_one(integer=value)
         self._initial_value = value
-        if isinstance(value, (int, float, NumberValueInterface)):
-            value_: bool = cast.to_bool_from_int(integer=value)
-        elif isinstance(value, Boolean):
-            value_ = value._value
-        else:
-            value_ = value
-        bool_validation.validate_bool(value=value_)
+        value_: bool = self._get_bool_from_arg_value(value=value)
         self._value = value_
         self._type_name = TYPE_NAME
         self.variable_name = expression_variables_util.get_next_variable_name(
             type_name=TYPE_NAME)
         self._append_constructor_expression()
+
+    def _get_bool_from_arg_value(
+            self, value: Union[bool, int, Any]) -> bool:
+        """
+        Get bool value from specified argument value.
+
+        Parameters
+        ----------
+        value : bool or int or Boolean or Int
+            Specified value. 0 or 1 are acceptable for integer
+            value.
+
+        Returns
+        -------
+        result : bool
+            Converted boolean value.
+        """
+        from apyscript.type.number_value_interface import NumberValueInterface
+        if isinstance(value, (int, float, NumberValueInterface)):
+            result: bool = cast.to_bool_from_int(integer=value)
+        elif isinstance(value, Boolean):
+            result = value._value
+        else:
+            result = value
+        bool_validation.validate_bool(value=result)
+        return result
 
     def _append_constructor_expression(self) -> None:
         """
@@ -56,3 +76,40 @@ class Boolean(CopyInterface):
             expression += 'false;'
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    @property
+    def value(self) -> Union[bool, int, Any]:
+        """
+        Get current boolean value.
+
+        Returns
+        -------
+        value : bool
+            Current boolean value.
+        """
+        return self._value
+
+    @value.setter
+    def value(self, value: Union[bool, int, Any]) -> None:
+        """
+        Set boolean value.
+
+        Parameters
+        ----------
+        value : bool or int or Boolean or Int
+            Any boolean value to set.
+        """
+        self.set_value_and_skip_expression_appending(value=value)
+        pass
+
+    def set_value_and_skip_expression_appending(
+            self, value: Union[bool, int, Any]) -> None:
+        """
+        Update value attribute and skip expression appending.
+
+        Parameters
+        ----------
+        value : bool or int or Boolean or Int
+            Any boolean value to set.
+        """
+        pass

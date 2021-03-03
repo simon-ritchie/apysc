@@ -58,3 +58,21 @@ class TestBoolean:
             f'{boolean_3.variable_name} = false;'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test__get_bool_from_arg_value(self) -> None:
+        boolean_1: Boolean = Boolean(value=1)
+        result: bool = boolean_1._get_bool_from_arg_value(value=1)
+        assert result
+        result = boolean_1._get_bool_from_arg_value(value=0)
+        assert not result
+        boolean_2: Boolean = Boolean(value=0)
+        result = boolean_1._get_bool_from_arg_value(value=boolean_2)
+        assert not result
+        result = boolean_1._get_bool_from_arg_value(value=True)
+        assert result
+
+        testing_helper.assert_raises(
+            expected_error_class=ValueError,
+            func_or_method=boolean_1._get_bool_from_arg_value,
+            kwargs={'value': 'Hello!'})

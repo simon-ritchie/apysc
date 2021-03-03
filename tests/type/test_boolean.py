@@ -76,3 +76,15 @@ class TestBoolean:
             expected_error_class=ValueError,
             func_or_method=boolean_1._get_bool_from_arg_value,
             kwargs={'value': 'Hello!'})
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test_set_value_and_skip_expression_appending(self) -> None:
+        expression_file_util.remove_expression_file()
+        boolean_1: Boolean = Boolean(value=1)
+        boolean_1.set_value_and_skip_expression_appending(value=False)
+        assert not boolean_1._value
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{boolean_1.variable_name} = false;'
+        )
+        assert expected not in expression

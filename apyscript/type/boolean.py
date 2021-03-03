@@ -112,4 +112,5 @@ class Boolean(CopyInterface):
         value : bool or int or Boolean or Int
             Any boolean value to set.
         """
-        pass
+        value_: bool = self._get_bool_from_arg_value(value=value)
+        self._value = value_

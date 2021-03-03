@@ -5,6 +5,8 @@ from typing import Any, Union
 from apyscript.type.copy_interface import CopyInterface
 from apyscript.validation import number_validation
 from apyscript.converter import cast
+from apyscript.validation import bool_validation
+from apyscript.expression import expression_variables_util
 
 
 class Boolean(CopyInterface):
@@ -23,6 +25,7 @@ class Boolean(CopyInterface):
             value.
         """
         from apyscript.type.number_value_interface import NumberValueInterface
+        TYPE_NAME: str = 'boolean'
         number_validation.validate_int_is_zero_or_one(integer=value)
         self._initial_value = value
         if isinstance(value, (int, float, NumberValueInterface)):
@@ -30,5 +33,9 @@ class Boolean(CopyInterface):
         elif isinstance(value, Boolean):
             value_ = value._value
         else:
-            value = value
-        self._value = value
+            value_ = value
+        bool_validation.validate_bool(value=value_)
+        self._value = value_
+        self._type_name = TYPE_NAME
+        self.variable_name = expression_variables_util.get_next_variable_name(
+            type_name=TYPE_NAME)

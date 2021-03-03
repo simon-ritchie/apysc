@@ -1,12 +1,11 @@
 """Boolean value's validation implementations.
 """
 
-from typing import Union
+from typing import Any, Union
 from apyscript.type import type_util
-from apyscript.type import Boolean
 
 
-def validate_bool(value: Union[bool, Boolean]) -> None:
+def validate_bool(value: Union[bool, Any]) -> None:
     """
     Validate specified value is bool or Boolean type.
 

@@ -7,6 +7,8 @@ from apyscript.validation import number_validation
 from apyscript.converter import cast
 from apyscript.validation import bool_validation
 from apyscript.expression import expression_variables_util
+from apyscript.expression import expression_file_util
+from apyscript.type.variable_name_interface import VariableNameInterface
 
 
 class Boolean(CopyInterface):
@@ -39,3 +41,18 @@ class Boolean(CopyInterface):
         self._type_name = TYPE_NAME
         self.variable_name = expression_variables_util.get_next_variable_name(
             type_name=TYPE_NAME)
+        self._append_constructor_expression()
+
+    def _append_constructor_expression(self) -> None:
+        """
+        Append constructor expression to file.
+        """
+        expression: str = f'var {self.variable_name} = '
+        if isinstance(self._initial_value, VariableNameInterface):
+            expression += f'Boolean({self._initial_value.variable_name});'
+        elif self._value:
+            expression += 'true;'
+        else:
+            expression += 'false;'
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)

@@ -125,3 +125,10 @@ class TestBoolean:
 
         boolean_1.value = 1
         assert boolean_1.value
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test___bool__(self) -> None:
+        boolean_1: Boolean = Boolean(1)
+        assert boolean_1
+        boolean_1.value = 0
+        assert not boolean_1

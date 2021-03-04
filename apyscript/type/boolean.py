@@ -136,3 +136,14 @@ class Boolean(CopyInterface):
         """
         value_: bool = self._get_bool_from_arg_value(value=value)
         self._value = value_
+
+    def __bool__(self) -> bool:
+        """
+        Get a boolean value directly.
+
+        Returns
+        -------
+        result : bool
+            Current boolean value.
+        """
+        return self._value

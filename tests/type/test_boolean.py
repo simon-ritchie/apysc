@@ -78,13 +78,50 @@ class TestBoolean:
             kwargs={'value': 'Hello!'})
 
     @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
-    def test_set_value_and_skip_expression_appending(self) -> None:
+    def test__set_value_and_skip_expression_appending(self) -> None:
         expression_file_util.remove_expression_file()
         boolean_1: Boolean = Boolean(value=1)
-        boolean_1.set_value_and_skip_expression_appending(value=False)
+        boolean_1._set_value_and_skip_expression_appending(value=False)
         assert not boolean_1._value
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{boolean_1.variable_name} = false;'
         )
         assert expected not in expression
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test__append_value_setter_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        boolean_1: Boolean = Boolean(value=1)
+        boolean_1.variable_name = 'test_boolean_1'
+        int_1: Int = Int(1)
+        boolean_1.value = int_1
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{boolean_1.variable_name} = Boolean({int_1.variable_name});'
+        )
+        assert expected in expression
+
+        boolean_1.value = 1
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{boolean_1.variable_name} = true;'
+        )
+        assert expected in expression
+
+        boolean_1.value = 0
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{boolean_1.variable_name} = false;'
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    def test_value(self) -> None:
+        boolean_1: Boolean = Boolean(value=1)
+        int_1: Int = Int(0)
+        boolean_1.value = int_1
+        assert not boolean_1.value
+
+        boolean_1.value = 1
+        assert boolean_1.value

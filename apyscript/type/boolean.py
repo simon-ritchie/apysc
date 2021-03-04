@@ -26,7 +26,6 @@ class Boolean(CopyInterface):
             Initial boolean value. 0 or 1 are acceptable for integer
             value.
         """
-        from apyscript.type.number_value_interface import NumberValueInterface
         TYPE_NAME: str = 'boolean'
         number_validation.validate_int_is_zero_or_one(integer=value)
         self._initial_value = value
@@ -99,10 +98,33 @@ class Boolean(CopyInterface):
         value : bool or int or Boolean or Int
             Any boolean value to set.
         """
-        self.set_value_and_skip_expression_appending(value=value)
-        pass
+        self._set_value_and_skip_expression_appending(value=value)
+        if isinstance(value, VariableNameInterface):
+            self._append_value_setter_expression(value=value)
+        else:
+            self._append_value_setter_expression(value=self._value)
 
-    def set_value_and_skip_expression_appending(
+    def _append_value_setter_expression(
+            self, value: Union[bool, Any]) -> None:
+        """
+        Append value's setter expression to file.
+
+        Parameters
+        ----------
+        value : bool or VariableNameInterface
+            Any value to set.
+        """
+        expression: str = f'{self.variable_name} = '
+        if isinstance(value, VariableNameInterface):
+            expression += f'Boolean({value._variable_name});'
+        elif value:
+            expression += 'true;'
+        else:
+            expression += 'false;'
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)
+
+    def _set_value_and_skip_expression_appending(
             self, value: Union[bool, int, Any]) -> None:
         """
         Update value attribute and skip expression appending.

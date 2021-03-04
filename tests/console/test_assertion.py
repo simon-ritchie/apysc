@@ -4,7 +4,7 @@ from retrying import retry
 
 from apyscript.console import assertion
 from apyscript.expression import expression_file_util
-from apyscript.type import Int
+from apyscript.type import Int, Boolean
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
@@ -70,3 +70,19 @@ def test__get_expected_and_actual_strs() -> None:
         expected='Hello', actual='World!')
     assert expected_str == '"Hello"'
     assert actual_str == '"World!"'
+
+
+@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+def test_assert_true() -> None:
+    expression_file_util.remove_expression_file()
+    boolean_1: Boolean = Boolean(True)
+    assertion.assert_true(
+        actual=boolean_1,
+        type_strict=True,
+        msg='Value is not true.')
+    expression: str = expression_file_util.get_current_expression()
+    expected: str = (
+        f'console.assert({boolean_1.variable_name} === true, '
+        '"Value is not true.");'
+    )
+    assert expected in expression

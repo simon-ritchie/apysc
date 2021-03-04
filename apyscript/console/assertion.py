@@ -1,4 +1,13 @@
 """Each js assertion (console.assert) interface implementations.
+
+Mainly following interfaces are defined:
+
+- assert_equal
+    JavaScript assertion interface for equal condition.
+- assert_not_equal
+    JavaScript assertion interface for not equal condition.
+- assert_true
+    JavaScript assertion interface for true condition.
 """
 
 from typing import Any
@@ -59,6 +68,37 @@ def assert_not_equal(expected: Any, actual: Any, msg: str = '') -> None:
     expression: str = (
         f'console.assert({expected_str} !== {actual_str}, "{msg}");'
     )
+    expression_file_util.wrap_by_script_tag_and_append_expression(
+        expression=expression)
+
+
+def assert_true(
+        actual: Any, type_strict: bool = True, msg: str = '') -> None:
+    """
+    JavaScript assertion interface for true condition.
+
+    Parameters
+    ----------
+    actual : *
+        Actual value.
+    type_strict : bool, default True
+        Whether strictly check actual value or not.
+        For example, if type_strict is True, interger 1 will
+        fail, otherwise (type_strict is False) integer 1 will
+        pass test.
+    """
+    _trace_info(
+        interface_label='assert_true', expected='true', actual=actual)
+    _, actual_str = _get_expected_and_actual_strs(
+        expected='true', actual=actual)
+
+    msg = string_util.escape_str(string=msg)
+    expression: str = (
+        f'console.assert({actual_str} =='
+    )
+    if type_strict:
+        expression += '='
+    expression += f' true, "{msg}");'
     expression_file_util.wrap_by_script_tag_and_append_expression(
         expression=expression)
 

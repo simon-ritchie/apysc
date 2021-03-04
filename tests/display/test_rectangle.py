@@ -1,4 +1,5 @@
 from random import randint
+from typing import List
 
 from retrying import retry
 
@@ -110,7 +111,7 @@ def test_append_draw_rect_expression() -> None:
     rect_name: str = sprite.graphics.get_child_at(index=0).variable_name
     stage_variable_name: str = get_stage_variable_name()
     expression: str = expression_file_util.get_current_expression()
-    expected: str = (
+    expected_strs: List[str] = [
         f'\nvar {rect_name} = {stage_variable_name}'
         '\n  .rect(300, 400)'
         '\n  .attr({'
@@ -120,8 +121,9 @@ def test_append_draw_rect_expression() -> None:
         '\n    "stroke-opacity": 1.0,'
         '\n    x: 100,'
         '\n    y: 200,'
-        '\n  });'
+        '\n  });',
         f'\n{graphics_name}.add({rect_name});'
-    )
-    assert expected in expression
+    ]
+    for expected in expected_strs:
+        assert expected in expression
     expression_file_util.remove_expression_file()

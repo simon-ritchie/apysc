@@ -6,7 +6,7 @@ from typing import List
 from apyscript.display.display_object import DisplayObject
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
-from apyscript.type import Int
+from apyscript.type import Int, Boolean
 from apyscript.validation import display_validation
 
 
@@ -90,7 +90,7 @@ class ChildInterface:
             expression=expression)
         expression_file_util.append_expression(expression=expression)
 
-    def contains(self, child: DisplayObject) -> bool:
+    def contains(self, child: DisplayObject) -> Boolean:
         """
         Get a boolean whether this instance contains specified child.
 
@@ -101,15 +101,15 @@ class ChildInterface:
 
         Returns
         -------
-        result : bool
+        result : Boolean
             If this instance contains specified child, True will
             be set.
         """
         try:
             self._childs.index(child)
         except ValueError:
-            return False
-        return True
+            return Boolean(False)
+        return Boolean(True)
 
     @property
     def num_children(self) -> Int:

@@ -86,3 +86,10 @@ def test_assert_true() -> None:
         '"Value is not true.");'
     )
     assert expected in expression
+
+    assertion.assert_true(actual=boolean_1, type_strict=False)
+    expression = expression_file_util.get_current_expression()
+    expected = (
+        f'console.assert({boolean_1.variable_name} == true, "");'
+    )
+    assert expected in expression

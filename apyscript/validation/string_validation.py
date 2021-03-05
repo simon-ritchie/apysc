@@ -1,22 +1,27 @@
 """String's validation implementations.
 """
 
+from typing import Any, Union
 
-def validate_string_type(string: str) -> None:
+
+def validate_string_type(string: Union[str, Any]) -> None:
     """
     Validate specified string's type is str.
 
     Parameters
     ----------
-    string : str
+    string : str or String
         String to check.
 
     Raises
     ------
     ValueError
-        エラー条件
+        - If not string value is specified.
     """
     if isinstance(string, str):
+        return
+    from apyscript.type import String
+    if isinstance(string, String):
         return
     raise ValueError(f'Specified value is not str type: {type(string)}')
 

@@ -11,7 +11,7 @@ from tests import testing_helper
 
 class TestGraphicBase:
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___init__(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -26,7 +26,7 @@ class TestGraphicBase:
             },
             any_obj=graphic_base)
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_x(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -36,7 +36,7 @@ class TestGraphicBase:
         graphic_base.x = Int(300)
         assert graphic_base.x == 300
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_y(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -46,7 +46,7 @@ class TestGraphicBase:
         graphic_base.y = Int(400)
         assert graphic_base.y == 400
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_variable_name(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)

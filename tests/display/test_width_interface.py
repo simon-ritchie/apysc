@@ -9,14 +9,14 @@ from apyscript.type import Int
 
 class TestWidthInterface:
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_width(self) -> None:
         width_interface: WidthInterface = WidthInterface()
         width_interface.variable_name = 'test_width_interface'
         width_interface.width = Int(100)
         assert width_interface.width == 100
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_width_update_expression(self) -> None:
         width_interface: WidthInterface = WidthInterface()
         width_interface.variable_name = 'test_width_interface'
@@ -26,7 +26,7 @@ class TestWidthInterface:
         expected: str = 'test_width_interface.width(200);'
         assert expected in expression
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_update_width_and_skip_appending_exp(self) -> None:
         width_interface: WidthInterface = WidthInterface()
         width_interface.variable_name = 'test_width_interface'

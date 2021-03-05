@@ -11,7 +11,7 @@ from tests import testing_helper
 
 class TestInt:
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___init__(self) -> None:
         expression_file_util.remove_expression_file()
         int_val_1: Int = Int(value=100.5)
@@ -36,7 +36,7 @@ class TestInt:
             func_or_method=Int,
             kwargs={'value': 'Hello!'})
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_value(self) -> None:
         expression_file_util.remove_expression_file()
         int_val_1: Int = Int(value=100)
@@ -60,13 +60,13 @@ class TestInt:
             f'{int_val_2.variable_name} = {int_val_1.variable_name};'
         )
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___add__(self) -> None:
         int_1: Int = Int(value=10)
         int_2: Int = int_1 + 10.5
         assert int_2.value == 20
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_set_value_and_skip_expression_appending(self) -> None:
         expression_file_util.remove_expression_file()
         int_1: Int = Int(value=10)
@@ -86,7 +86,7 @@ class TestInt:
         )
         assert expected not in expression
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_cast_expression(self) -> None:
         expression_file_util.remove_expression_file()
         int_val: Int = Int(value=Number(value=100.5))

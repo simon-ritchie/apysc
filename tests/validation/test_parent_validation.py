@@ -8,7 +8,7 @@ from apyscript.validation import parent_validation
 from tests import testing_helper
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_validate_parent_instance() -> None:
     parent_validation.validate_parent_instance(parent=None)
     stage: Stage = Stage()
@@ -21,7 +21,7 @@ def test_validate_parent_instance() -> None:
         })
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_validate_parent_contains_chils() -> None:
     stage: Stage = Stage()
     sprite_1: Sprite = Sprite(stage=stage)

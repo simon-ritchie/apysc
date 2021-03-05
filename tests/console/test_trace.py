@@ -7,7 +7,7 @@ from apyscript.display.stage import Stage
 from apyscript.expression import expression_file_util
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_trace() -> None:
     stage: Stage = Stage()
     trace.trace(stage, 100, 'Hello!')

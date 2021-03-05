@@ -12,7 +12,7 @@ from tests import testing_helper
 
 class TestBoolean:
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___init__(self) -> None:
         boolean_1: Boolean = Boolean(value=Int(1))
         expected_attrs: Dict[str, Any] = {
@@ -35,7 +35,7 @@ class TestBoolean:
         boolean_3: Boolean = Boolean(value=False)
         assert not boolean_3._value
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_constructor_expression(self) -> None:
         expression_file_util.remove_expression_file()
         int_1: Int = Int(1)
@@ -60,7 +60,7 @@ class TestBoolean:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__get_bool_from_arg_value(self) -> None:
         boolean_1: Boolean = Boolean(value=1)
         result: bool = boolean_1._get_bool_from_arg_value(value=1)
@@ -78,7 +78,7 @@ class TestBoolean:
             func_or_method=boolean_1._get_bool_from_arg_value,
             kwargs={'value': 'Hello!'})
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__set_value_and_skip_expression_appending(self) -> None:
         expression_file_util.remove_expression_file()
         boolean_1: Boolean = Boolean(value=1)
@@ -90,7 +90,7 @@ class TestBoolean:
         )
         assert expected not in expression
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_value_setter_expression(self) -> None:
         expression_file_util.remove_expression_file()
         boolean_1: Boolean = Boolean(value=1)
@@ -117,7 +117,7 @@ class TestBoolean:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_value(self) -> None:
         boolean_1: Boolean = Boolean(value=1)
         int_1: Int = Int(0)
@@ -127,7 +127,7 @@ class TestBoolean:
         boolean_1.value = 1
         assert boolean_1.value
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___bool__(self) -> None:
         boolean_1: Boolean = Boolean(1)
         assert boolean_1

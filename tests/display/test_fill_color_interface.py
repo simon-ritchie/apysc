@@ -9,14 +9,14 @@ from apyscript.html import html_util
 
 class TestFillColorInterface:
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_fill_color(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
         fill_color_interface.fill_color = '#333'
         assert fill_color_interface.fill_color == '#333333'
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_fill_color_update_expression(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
@@ -28,7 +28,7 @@ class TestFillColorInterface:
             expression=expected)
         assert expected in expression
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_update_fill_color_and_skip_appending_exp(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'

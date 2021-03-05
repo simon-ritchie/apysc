@@ -71,7 +71,7 @@ def test_save_expressions_overall_html() -> None:
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test__append_entry_point_function_call() -> None:
     stage: Stage = Stage()
     html_str: str = '<html>'
@@ -103,7 +103,7 @@ def test__append_stage_global_variable_to_html() -> None:
     assert html_str == expected
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_get_entry_point_func_name() -> None:
     stage: Stage = Stage()
     entry_point_func_name: str = exporter.get_entry_point_func_name()

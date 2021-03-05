@@ -23,7 +23,7 @@ class TestXInterface:
         x_interface.x = 200  # type: ignore
         assert x_interface.x == 200
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_x_update_expression(self) -> None:
         x_interface = XInterface()
         x_interface.variable_name = 'test_x_interface'

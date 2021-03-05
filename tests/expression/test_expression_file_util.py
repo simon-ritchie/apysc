@@ -7,7 +7,7 @@ from apyscript.expression import expression_file_util
 from apyscript.html import html_const
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_empty_expression_dir() -> None:
     os.makedirs(expression_file_util.EXPRESSION_ROOT_DIR, exist_ok=True)
     test_file_path: str = os.path.join(
@@ -55,7 +55,7 @@ def test_append_expression() -> None:
     expression_file_util.empty_expression_dir()
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_remove_expression_file() -> None:
     expression_file_util.append_expression(
         expression='<body></body>')
@@ -64,7 +64,7 @@ def test_remove_expression_file() -> None:
     assert not os.path.exists(expression_file_util.EXPRESSION_FILE_PATH)
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_get_current_expression() -> None:
     expression_file_util.remove_expression_file()
     expression_file_util.append_expression(
@@ -78,7 +78,7 @@ def test_get_current_expression() -> None:
     assert expression == ''
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test__merge_script_section() -> None:
     expression_file_util.remove_expression_file()
     expression_file_util.append_expression(
@@ -111,7 +111,7 @@ def test__merge_script_section() -> None:
     expression_file_util.remove_expression_file()
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_wrap_by_script_tag_and_append_expression() -> None:
     expression_file_util.remove_expression_file()
     expression_file_util.wrap_by_script_tag_and_append_expression(

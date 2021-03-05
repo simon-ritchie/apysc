@@ -8,7 +8,7 @@ from apyscript.expression import expression_variables_util
 from apyscript.file import file_util
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_get_variable_names_file_path() -> None:
     file_path: str = expression_variables_util.\
         get_variable_names_file_path(type_name='sprite')
@@ -16,7 +16,7 @@ def test_get_variable_names_file_path() -> None:
     assert file_path.endswith('variables_sprite.txt')
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test__read_variable_names() -> None:
     file_path: str = expression_variables_util.\
         get_variable_names_file_path(type_name='sprite')
@@ -29,7 +29,7 @@ def test__read_variable_names() -> None:
     file_util.remove_file_if_exists(file_path=file_path)
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test__get_next_variable_num() -> None:
     file_path: str = expression_variables_util.\
         get_variable_names_file_path(type_name='sprite')
@@ -53,7 +53,7 @@ def test__make_variable_name() -> None:
     assert variable_name == 'sprite_3'
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test__save_next_variable_name_to_file() -> None:
     file_path: str = expression_variables_util.\
         get_variable_names_file_path(type_name='sprite')

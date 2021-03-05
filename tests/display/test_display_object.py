@@ -9,7 +9,7 @@ from tests import testing_helper
 
 class TestDisplayObject:
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___init__(self) -> None:
         stage: Stage = Stage()
         display_object: DisplayObject = DisplayObject(
@@ -21,7 +21,7 @@ class TestDisplayObject:
             },
             any_obj=display_object)
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_variable_name(self) -> None:
         stage: Stage = Stage()
         display_object: DisplayObject = DisplayObject(

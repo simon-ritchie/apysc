@@ -15,7 +15,7 @@ from tests import testing_helper
 
 class TestRectangle:
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___init__(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -45,7 +45,7 @@ class TestRectangle:
         assert rectanble._fill_alpha == 0.5
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test__make_rect_attrs_expression() -> None:
     stage: Stage = Stage()
     sprite: Sprite = Sprite(stage=stage)
@@ -101,7 +101,7 @@ def test__make_rect_attrs_expression() -> None:
     assert rect_attrs_expression == expected
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_append_draw_rect_expression() -> None:
     stage: Stage = Stage()
     sprite: Sprite = Sprite(stage=stage)

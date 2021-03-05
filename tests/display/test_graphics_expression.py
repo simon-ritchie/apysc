@@ -9,7 +9,7 @@ from apyscript.display.rectangle import Rectangle
 from apyscript.display.stage import Stage
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_append_fill_expression() -> None:
     stage: Stage = Stage()
     sprite: Sprite = Sprite(stage=stage)
@@ -28,7 +28,7 @@ def test_append_fill_expression() -> None:
     )
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_append_x_expression() -> None:
     stage: Stage = Stage()
     sprite: Sprite = Sprite(stage=stage)
@@ -43,7 +43,7 @@ def test_append_x_expression() -> None:
         '\n  x: 100,')
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_append_y_expression() -> None:
     stage: Stage = Stage()
     sprite: Sprite = Sprite(stage=stage)
@@ -58,7 +58,7 @@ def test_append_y_expression() -> None:
         '\n  y: 200,')
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_append_fill_opacity_expression() -> None:
     stage: Stage = Stage()
     sprite: Sprite = Sprite(stage=stage)
@@ -72,7 +72,7 @@ def test_append_fill_opacity_expression() -> None:
         '\n  "fill-opacity": 0.5,')
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_append_stroke_expression() -> None:
     stage: Stage = Stage()
     sprite: Sprite = Sprite(stage=stage)
@@ -91,7 +91,7 @@ def test_append_stroke_expression() -> None:
     )
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_append_stroke_width_expression() -> None:
     stage: Stage = Stage()
     sprite: Sprite = Sprite(stage=stage)
@@ -110,7 +110,7 @@ def test_append_stroke_width_expression() -> None:
     )
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_append_stroke_opacity_expression() -> None:
     stage: Stage = Stage()
     sprite: Sprite = Sprite(stage=stage)

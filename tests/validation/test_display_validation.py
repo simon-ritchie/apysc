@@ -9,7 +9,7 @@ from apyscript.validation import display_validation
 from tests import testing_helper
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_validate_stage() -> None:
     stage: Stage = Stage()
     display_validation.validate_stage(stage=stage)
@@ -20,7 +20,7 @@ def test_validate_stage() -> None:
         kwargs={'stage': sprite})
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_validate_display_object() -> None:
     stage: Stage = Stage()
     testing_helper.assert_raises(
@@ -36,7 +36,7 @@ def test_validate_display_object() -> None:
     display_validation.validate_display_object(display_object=display_object)
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_validate_graphics() -> None:
     stage: Stage = Stage()
     sprite: Sprite = Sprite(stage=stage)
@@ -48,7 +48,7 @@ def test_validate_graphics() -> None:
         kwargs={'graphics': sprite})
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_validate_sprite() -> None:
     stage: Stage = Stage()
     sprite: Sprite = Sprite(stage=stage)

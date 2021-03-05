@@ -8,7 +8,7 @@ from apyscript.type import Boolean
 from apyscript.type import Int
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_assert_equal() -> None:
     expression_file_util.remove_expression_file()
     int_1: Int = Int(10)
@@ -25,7 +25,7 @@ def test_assert_equal() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test__trace_info() -> None:
     expression_file_util.remove_expression_file()
     int_1: Int = Int(10)
@@ -44,7 +44,7 @@ def test__trace_info() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_assert_not_equal() -> None:
     expression_file_util.remove_expression_file()
     int_1: Int = Int(10)
@@ -58,7 +58,7 @@ def test_assert_not_equal() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test__get_expected_and_actual_strs() -> None:
     int_1: Int = Int(10)
     int_2: Int = Int(20)
@@ -73,7 +73,7 @@ def test__get_expected_and_actual_strs() -> None:
     assert actual_str == '"World!"'
 
 
-@retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_assert_true() -> None:
     expression_file_util.remove_expression_file()
     boolean_1: Boolean = Boolean(True)
@@ -106,6 +106,7 @@ def test__add_equal_if_type_strict_setting_is_true() -> None:
     assert expression == 'a =='
 
 
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_assert_false() -> None:
     expression_file_util.remove_expression_file()
     boolean_1: Boolean = Boolean(False)

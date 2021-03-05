@@ -10,7 +10,7 @@ from tests import testing_helper
 
 class TestParentInterface:
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_parent(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -20,7 +20,7 @@ class TestParentInterface:
         with pytest.raises(ValueError):  # type: ignore
             sprite.parent = 100
 
-    @retry(stop_max_attempt_number=5, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_remove_from_parent(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)

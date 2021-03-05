@@ -12,14 +12,11 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apyscript.console.assertion import assert_equal
-from apyscript.display.stage import Stage
+from apyscript.console.assertion import assert_false
+from apyscript.console.assertion import assert_true
 from apyscript.file import file_util
 from apyscript.html import exporter
-from apyscript.type import Int
-from apyscript.type import Number
 from apyscript.type import Boolean
-from apyscript.console.assertion import assert_true, assert_false
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -29,7 +26,7 @@ _DEST_DIR_PATH: str = os.path.join(
 )
 
 
-def main():
+def main() -> None:
     """Entry point of this test project.
     """
     boolean_1: Boolean = Boolean(True)

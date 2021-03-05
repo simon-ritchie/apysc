@@ -1,14 +1,16 @@
 """Class implementation for boolean.
 """
 
-from typing import Any, Union
-from apyscript.type.copy_interface import CopyInterface
-from apyscript.validation import number_validation
+from typing import Any
+from typing import Union
+
 from apyscript.converter import cast
-from apyscript.validation import bool_validation
-from apyscript.expression import expression_variables_util
 from apyscript.expression import expression_file_util
+from apyscript.expression import expression_variables_util
+from apyscript.type.copy_interface import CopyInterface
 from apyscript.type.variable_name_interface import VariableNameInterface
+from apyscript.validation import bool_validation
+from apyscript.validation import number_validation
 
 
 class Boolean(CopyInterface):

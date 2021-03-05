@@ -1,11 +1,12 @@
 from random import randint
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 from retrying import retry
 
-from apyscript.type import Int
-from apyscript.type import Boolean
 from apyscript.expression import expression_file_util
+from apyscript.type import Boolean
+from apyscript.type import Int
 from tests import testing_helper
 
 
@@ -24,7 +25,7 @@ class TestBoolean:
         assert boolean_1.variable_name.startswith('boolean_')
 
         boolean_2: Boolean = Boolean(value=boolean_1)
-        expected_attrs: Dict[str, Any] = {
+        expected_attrs = {
             '_initial_value': boolean_1,
             '_value': True,
         }

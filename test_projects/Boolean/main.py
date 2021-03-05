@@ -17,6 +17,7 @@ from apyscript.console.assertion import assert_true
 from apyscript.file import file_util
 from apyscript.html import exporter
 from apyscript.type import Boolean
+from apyscript.display.stage import Stage
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -29,6 +30,8 @@ _DEST_DIR_PATH: str = os.path.join(
 def main() -> None:
     """Entry point of this test project.
     """
+    _: Stage = Stage(background_color='#333')
+
     boolean_1: Boolean = Boolean(True)
     assert_true(boolean_1)
 

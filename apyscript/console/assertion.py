@@ -8,6 +8,8 @@ Mainly following interfaces are defined:
     JavaScript assertion interface for not equal condition.
 - assert_true
     JavaScript assertion interface for true condition.
+- assert_false
+    JavaScript assertion interface for false condition.
 """
 
 from typing import Any
@@ -84,8 +86,10 @@ def assert_true(
     type_strict : bool, default True
         Whether strictly check actual value or not.
         For example, if type_strict is True, interger 1 will
-        fail, otherwise (type_strict is False) integer 1 will
-        pass test.
+        fail, on the contrary (if type_strict is False), integer 1
+        will pass test.
+    msg : str, optional
+        Message to display when assertion failed.
     """
     _trace_info(
         interface_label='assert_true', expected='true', actual=actual)
@@ -96,11 +100,69 @@ def assert_true(
     expression: str = (
         f'console.assert({actual_str} =='
     )
-    if type_strict:
-        expression += '='
+    expression = _add_equal_if_type_strict_setting_is_true(
+        expression=expression, type_strict=type_strict)
     expression += f' true, "{msg}");'
     expression_file_util.wrap_by_script_tag_and_append_expression(
         expression=expression)
+
+
+def assert_false(
+        actual: Any, type_strict: bool = True, msg: str = '') -> None:
+    """
+    JavaScript assertion interface for false condition.
+
+    Parameters
+    ----------
+    actual : *
+        Actual value.
+    type_strict : bool, default True
+        Whether strictly check actual value or not.
+        For example, if type_strict is True, interger 0 will
+        fail, on the contrary (if type_strict is False), integer 0
+        will pass test.
+    msg : str, optional
+        Message to display when assertion failed.
+    """
+    _trace_info(
+        interface_label='assert_false', expected='false', actual=actual)
+    _, actual_str = _get_expected_and_actual_strs(
+        expected='false', actual=actual)
+
+    msg = string_util.escape_str(string=msg)
+    expression: str = (
+        f'console.assert({actual_str} =='
+    )
+    expression = _add_equal_if_type_strict_setting_is_true(
+        expression=expression, type_strict=type_strict)
+    expression += f' false, "{msg}");'
+    expression_file_util.wrap_by_script_tag_and_append_expression(
+        expression=expression)
+
+
+def _add_equal_if_type_strict_setting_is_true(
+        expression: str, type_strict: bool) -> str:
+    """
+    Add single equal character to expression if type_string setting
+    is True.
+
+    Parameters
+    ----------
+    expression : str
+        Expression to be added.
+    type_strict: bool
+        Type strict setting value.
+
+    Returns
+    -------
+    expression : str
+        If type_string setting is true, then single equal character
+        will be added to tail.
+    """
+    if not type_strict:
+        return expression
+    expression += '='
+    return expression
 
 
 def _get_expected_and_actual_strs(

@@ -93,3 +93,25 @@ def test_assert_true() -> None:
         f'console.assert({boolean_1.variable_name} == true, "");'
     )
     assert expected in expression
+
+
+def test__add_equal_if_type_strict_setting_is_true() -> None:
+    expression: str = assertion._add_equal_if_type_strict_setting_is_true(
+        expression='a ==', type_strict=True)
+    assert expression == 'a ==='
+
+    expression = assertion._add_equal_if_type_strict_setting_is_true(
+        expression='a ==', type_strict=False)
+    assert expression == 'a =='
+
+
+def test_assert_false() -> None:
+    expression_file_util.remove_expression_file()
+    boolean_1: Boolean = Boolean(False)
+    assertion.assert_false(boolean_1, msg='Value is not false.')
+    expression: str = expression_file_util.get_current_expression()
+    expected: str = (
+        f'console.assert({boolean_1.variable_name} === false, '
+        '"Value is not false.");'
+    )
+    assert expected in expression

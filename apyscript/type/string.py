@@ -203,3 +203,20 @@ class String(CopyInterface):
         expression += '\n}'
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    def __iadd__(self, other: Union[str, Any]) -> Any:
+        """
+        Method for incremental addition (string concatenation).
+
+        Parameters
+        ----------
+        other : str or String
+            Other string value to concatenate.
+
+        Returns
+        -------
+        result : String
+            Concatenated result string.
+        """
+        result: String = self + other
+        return result

@@ -134,3 +134,9 @@ class TestString:
             f'\nfor (var i = 0; i < {int_1.variable_name}; i++) {{'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___iadd__(self) -> None:
+        string_1: String = String(value='Hello')
+        string_1 += ' World!'
+        assert string_1.value == 'Hello World!'

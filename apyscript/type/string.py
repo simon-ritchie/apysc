@@ -5,7 +5,6 @@ from typing import Any, Union
 from apyscript.expression import expression_file_util
 from apyscript.expression import expression_variables_util
 from apyscript.type.copy_interface import CopyInterface
-from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import string_validation
 
 
@@ -105,3 +104,26 @@ class String(CopyInterface):
             expression += f'"{value}";'
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    def __add__(self, other: Union[str, Any]) -> Any:
+        """
+        Method for addition (string concatenation).
+
+        Parameters
+        ----------
+        other : str or String
+            Other string value to concatenate.
+
+        Returns
+        -------
+        result : String
+            Concatenated result string.
+        """
+        string_validation.validate_string_type(string=other)
+        if isinstance(other, String):
+            value: str = self._value + other.value
+        else:
+            value = self._value + other
+        result: String = self._copy()
+        result._value = value
+        return result

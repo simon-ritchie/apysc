@@ -80,3 +80,13 @@ class TestString:
             f'{string_2.variable_name} = {string_1.variable_name};'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___add__(self) -> None:
+        string_1: String = String(value='Hello')
+        string_2: String = string_1 + ' World!'
+        assert string_2._value == 'Hello World!'
+
+        string_3: String = String(value=' apyscript!')
+        string_4: String = string_1 + string_3
+        assert string_4._value == 'Hello apyscript!'

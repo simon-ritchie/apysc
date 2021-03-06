@@ -248,3 +248,24 @@ class String(CopyInterface):
             Python builtins str value.
         """
         return self._value
+
+    def __eq__(self, other: Any) -> bool:
+        """
+        Method for equality comparison.
+
+        Parameters
+        ----------
+        other : *
+            Any value to compare.
+
+        Returns
+        -------
+        result : bool
+            Comparison result. If same value of str or String
+            is specified, True will be returned.
+        """
+        if isinstance(other, str):
+            return self._value == other
+        if isinstance(other, String):
+            return self._value == other._value
+        return False

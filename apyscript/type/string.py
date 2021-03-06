@@ -237,3 +237,14 @@ class String(CopyInterface):
         """
         result: String = self * other
         return result
+
+    def __str__(self) -> str:
+        """
+        Method for str conversion.
+
+        Returns
+        -------
+        result : str
+            Python builtins str value.
+        """
+        return self._value

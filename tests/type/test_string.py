@@ -146,3 +146,10 @@ class TestString:
         string_1: String = String(value='Hello!')
         string_1 *= 3
         assert string_1.value == 'Hello!Hello!Hello!'
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___str__(self) -> None:
+        string_1: String = String(value='Hello!')
+        result: str = str(string_1)
+        assert result == 'Hello!'
+        assert isinstance(result, str)

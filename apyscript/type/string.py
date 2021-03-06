@@ -6,6 +6,8 @@ from apyscript.expression import expression_file_util
 from apyscript.expression import expression_variables_util
 from apyscript.type.copy_interface import CopyInterface
 from apyscript.validation import string_validation
+from apyscript.type.variable_name_interface import VariableNameInterface
+from apyscript.type.value_util import get_value_str_for_expression
 
 
 class String(CopyInterface):
@@ -126,4 +128,26 @@ class String(CopyInterface):
             value = self._value + other
         result: String = self._copy()
         result._value = value
+        self._append_addition_expression(result=result, other=other)
         return result
+
+    def _append_addition_expression(
+            self, result: VariableNameInterface,
+            other: Union[str, Any]):
+        """
+        Append addition (string concatenation) expression to file.
+
+        Parameters
+        ----------
+        result : String
+            Addition result value.
+        other : str or String
+            Other string value to concatenate.
+        """
+        right_value: str = get_value_str_for_expression(value=other)
+        expression: str = (
+            f'var {result.variable_name} = '
+            f'{self.variable_name} + {right_value};'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)

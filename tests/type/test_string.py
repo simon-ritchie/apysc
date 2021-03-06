@@ -90,3 +90,15 @@ class TestString:
         string_3: String = String(value=' apyscript!')
         string_4: String = string_1 + string_3
         assert string_4._value == 'Hello apyscript!'
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_addition_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        string_1: String = String(value='Hello!')
+        string_2: String = string_1 + ' World!'
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'var {string_2.variable_name} = {string_1.variable_name}'
+            ' + " World!";'
+        )
+        assert expected in expression

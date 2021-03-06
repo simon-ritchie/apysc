@@ -30,6 +30,19 @@ class String(CopyInterface):
         self._value = self._get_str_value(value=value)
         self.variable_name = expression_variables_util.get_next_variable_name(
             type_name=TYPE_NAME)
+        self._append_constructor_expression()
+
+    def _append_constructor_expression(self) -> None:
+        """
+        Append constructor expression to file.
+        """
+        expression: str = f'var {self.variable_name} = '
+        if isinstance(self._initial_value, String):
+            expression += f'{self._initial_value.variable_name};'
+        else:
+            expression += f'"{self._value}";'
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)
 
     def _get_str_value(self, value: Union[str, Any]) -> str:
         """

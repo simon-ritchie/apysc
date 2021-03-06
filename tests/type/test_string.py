@@ -1,3 +1,4 @@
+from apyscript.expression import expression_file_util
 from random import randint
 from typing import Any, Dict
 
@@ -37,3 +38,20 @@ class TestString:
 
         string_2: String = String(value=string_1)
         assert string_2._value == 'Hello!'
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_constructor_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        string_1: String = String(value='Hello!')
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'var {string_1.variable_name} = "Hello!";'
+        )
+        assert expected in expression
+
+        string_2: String = String(value=string_1)
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'var {string_2.variable_name} = {string_1.variable_name};'
+        )
+        assert expected in expression

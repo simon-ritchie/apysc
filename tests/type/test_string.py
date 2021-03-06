@@ -55,3 +55,28 @@ class TestString:
             f'var {string_2.variable_name} = {string_1.variable_name};'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_value(self) -> None:
+        string_1: String = String(value='Hello!')
+        string_1.value = 'World!'
+        assert string_1.value == 'World!'
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_value_setter_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        string_1: String = String(value='Hello!')
+        string_1.value = 'World!'
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{string_1.variable_name} = "World!";'
+        )
+        assert expected in expression
+
+        string_2: String = String(value='')
+        string_2.value = string_1
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{string_2.variable_name} = {string_1.variable_name};'
+        )
+        assert expected in expression

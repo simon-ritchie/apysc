@@ -61,3 +61,47 @@ class String(CopyInterface):
         if isinstance(value, String):
             return value._value
         return value
+
+    @property
+    def value(self) -> Union[str, Any]:
+        """
+        Get current string value.
+
+        Returns
+        -------
+        value : str
+            Current string value.
+        """
+        return self._value
+
+    @value.setter
+    def value(self, value: Union[str, Any]) -> None:
+        """
+        Set string value.
+
+        Parameters
+        ----------
+        value : str or String
+            Any string value to set.
+        """
+        string_validation.validate_string_type(string=value)
+        self._value = self._get_str_value(value=value)
+        self._append_value_setter_expression(value=value)
+
+    def _append_value_setter_expression(
+            self, value: Union[str, Any]) -> None:
+        """
+        Append value's setter expression to file.
+
+        Parameters
+        ----------
+        value : str or String
+            Any string value to set.
+        """
+        expression: str = f'{self.variable_name} = '
+        if isinstance(value, String):
+            expression += f'{value.variable_name};'
+        else:
+            expression += f'"{value}";'
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)

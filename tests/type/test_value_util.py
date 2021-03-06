@@ -11,6 +11,15 @@ def test_get_value_str_for_expression() -> None:
     value_str = value_util.get_value_str_for_expression(value=10)
     assert value_str == '10'
 
+    value_str = value_util.get_value_str_for_expression(value=True)
+    assert value_str == 'true'
+
+    value_str = value_util.get_value_str_for_expression(value=False)
+    assert value_str == 'false'
+
+    value_str = value_util.get_value_str_for_expression(value='Hello!')
+    assert value_str == '"Hello!"'
+
 
 def test_get_copy() -> None:
     int_val: Int = Int(value=10)

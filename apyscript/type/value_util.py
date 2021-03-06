@@ -26,10 +26,16 @@ def get_value_str_for_expression(value: Any) -> str:
         String for expression. If value is instance of
         VariableNameInterface, then variable's name will be returned,
         otherwise string casted value will be returned.
+        Bool value will be lowercase (true or false) and str value
+        will be quoted by double quotation.
     """
     from apyscript.type.variable_name_interface import VariableNameInterface
     if isinstance(value, VariableNameInterface):
         return value.variable_name
+    if isinstance(value, bool):
+        return str(value).lower()
+    if isinstance(value, str):
+        return f'"{value}"'
     return str(value)
 
 

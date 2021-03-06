@@ -8,6 +8,7 @@ from apyscript.type.copy_interface import CopyInterface
 from apyscript.validation import string_validation
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.type.value_util import get_value_str_for_expression
+from apyscript.validation import number_validation
 
 
 class String(CopyInterface):
@@ -151,3 +152,27 @@ class String(CopyInterface):
         )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    def __mul__(self, other: Union[int, Any]) -> Any:
+        """
+        Method for multiplication (string repetition).
+
+        Parameters
+        ----------
+        other : int or Int
+            String repetition number.
+
+        Returns
+        -------
+        result : String
+            Repeated result string.
+        """
+        from apyscript.type import Int
+        number_validation.validate_integer(integer=other)
+        if isinstance(other, Int):
+            value: int = other.value  # type: ignore
+        else:
+            value = other
+        result: String = self._copy()
+        result._value = result._value * value
+        return result

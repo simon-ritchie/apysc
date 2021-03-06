@@ -6,6 +6,7 @@ from retrying import retry
 
 from apyscript.type import String
 from tests import testing_helper
+from apyscript.type import Int
 
 
 class TestString:
@@ -102,3 +103,12 @@ class TestString:
             ' + " World!";'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___mul__(self) -> None:
+        string_1: String = String(value='Hello!')
+        string_2: String = string_1 * 3
+        assert string_2.value == 'Hello!Hello!Hello!'
+
+        string_3: String = string_1 * Int(2)
+        assert string_3.value == 'Hello!Hello!'

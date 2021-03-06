@@ -134,7 +134,7 @@ class String(CopyInterface):
 
     def _append_addition_expression(
             self, result: VariableNameInterface,
-            other: Union[str, Any]):
+            other: Union[str, Any]) -> None:
         """
         Append addition (string concatenation) expression to file.
 
@@ -175,4 +175,31 @@ class String(CopyInterface):
             value = other
         result: String = self._copy()
         result._value = result._value * value
+        self._append_multiplication_expression(result=result, other=other)
         return result
+
+    def _append_multiplication_expression(
+            self, result: VariableNameInterface,
+            other: Union[int, Any]) -> None:
+        """
+        Append multiplication (string repetition) expression to file.
+
+        Parameters
+        ----------
+        result : String
+            Multiplication result value.
+        other : int or Int
+            String repetition number.
+        """
+        from apyscript.type import Int
+        expression: str = f'var {result.variable_name} = "";'
+        expression += '\nfor (var i = 0; i < '
+        if isinstance(other, Int):
+            expression += f'{other.variable_name}'
+        else:
+            expression += f'{other}'
+        expression += '; i++) {'
+        expression += f'\n  {result.variable_name} += {self.variable_name};'
+        expression += '\n}'
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)

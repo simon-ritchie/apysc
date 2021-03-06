@@ -112,3 +112,25 @@ class TestString:
 
         string_3: String = string_1 * Int(2)
         assert string_3.value == 'Hello!Hello!'
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_multiplication_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        string_1: String = String(value='Hello!')
+        string_2: String = string_1 * 3
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'var {string_2.variable_name} = "";'
+            '\nfor (var i = 0; i < 3; i++) {'
+            f'\n  {string_2.variable_name} += {string_1.variable_name};'
+            '\n}'
+        )
+        assert expected in expression
+
+        int_1: Int = Int(2)
+        _: String = string_1 * int_1
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'\nfor (var i = 0; i < {int_1.variable_name}; i++) {{'
+        )
+        assert expected in expression

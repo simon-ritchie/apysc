@@ -162,3 +162,11 @@ class TestString:
         assert string_1 == string_2
         assert string_1 != 'World!'
         assert string_1 != 100
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___lt__(self) -> None:
+        string_1: String = String(value='1970-01-02')
+        assert string_1 < '1970-01-03'
+        string_2: String = String(value='1970-01-03')
+        assert string_1 < string_2
+        assert not string_1 < '1970-01-02'

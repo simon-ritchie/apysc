@@ -269,3 +269,24 @@ class String(CopyInterface):
         if isinstance(other, String):
             return self._value == other._value
         return False
+
+    def __lt__(self, other: Union[str, Any]) -> bool:
+        """
+        Method for less than comparison.
+
+        Parameters
+        ----------
+        other : str or String
+            String value to compare.
+
+        Returns
+        -------
+        result : bool
+            Comparison result.
+        """
+        string_validation.validate_string_type(string=other)
+        if isinstance(other, String):
+            value: str = other.value
+        else:
+            value = other
+        return self._value < value

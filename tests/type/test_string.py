@@ -140,3 +140,9 @@ class TestString:
         string_1: String = String(value='Hello')
         string_1 += ' World!'
         assert string_1.value == 'Hello World!'
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___imul__(self) -> None:
+        string_1: String = String(value='Hello!')
+        string_1 *= 3
+        assert string_1.value == 'Hello!Hello!Hello!'

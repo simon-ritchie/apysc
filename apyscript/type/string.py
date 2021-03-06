@@ -220,3 +220,20 @@ class String(CopyInterface):
         """
         result: String = self + other
         return result
+
+    def __imul__(self, other: Union[int, Any]) -> Any:
+        """
+        Method for incremental multiplication (string repetition).
+
+        Parameters
+        ----------
+        other : int or Int
+            String repetition number.
+
+        Returns
+        -------
+        result : String
+            Repetition result string.
+        """
+        result: String = self * other
+        return result

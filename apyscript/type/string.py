@@ -353,3 +353,15 @@ class String(CopyInterface):
         """
         result: int = int(self._value)
         return result
+
+    def __float__(self) -> float:
+        """
+        Method for float conversion.
+
+        Returns
+        -------
+        result : float
+            Converted float value.
+        """
+        result: float = float(self._value)
+        return result

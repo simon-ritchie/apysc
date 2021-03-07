@@ -201,3 +201,8 @@ class TestString:
     def test___int__(self) -> None:
         string_1: String = String(value='100')
         assert int(string_1) == 100
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___float__(self) -> None:
+        string_1: String = String(value='100.5')
+        assert float(string_1) == 100.5

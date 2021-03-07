@@ -323,3 +323,21 @@ class String(CopyInterface):
         string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
         return self._value > value
+
+    def __ge__(self, other: Union[str, Any]) -> bool:
+        """
+        Method for greater than or equal comparison.
+
+        Parameters
+        ----------
+        other : str or String
+            String value to compare.
+
+        Returns
+        -------
+        result : bool
+            Comparison result.
+        """
+        string_validation.validate_string_type(string=other)
+        value:str = self._get_str_value(value=other)
+        return self._value >= value

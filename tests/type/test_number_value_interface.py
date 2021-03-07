@@ -12,6 +12,7 @@ from tests import testing_helper
 
 class TestNumberValueInterface:
 
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___init__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=100, type_name='test_interface')
@@ -37,6 +38,7 @@ class TestNumberValueInterface:
             func_or_method=NumberValueInterface,
             kwargs={'value': 'Hello!', 'type_name': 'test_interface'})
 
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_value(self) -> None:
         expression_file_util.remove_expression_file()
         interface: NumberValueInterface = NumberValueInterface(
@@ -425,6 +427,7 @@ class TestNumberValueInterface:
         assert not interface_1 <= 9
         assert not interface_1 <= interface_4
 
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___gt__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
@@ -438,6 +441,7 @@ class TestNumberValueInterface:
         assert not interface_1 > 10
         assert not interface_1 > interface_3
 
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___ge__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
@@ -454,3 +458,11 @@ class TestNumberValueInterface:
         assert interface_1 >= interface_3
         assert not interface_1 >= 11
         assert not interface_1 >= interface_4
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___int__(self) -> None:
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=10, type_name='test_interface')
+        integer: int = int(interface_1)
+        assert interface_1 == 10
+        assert isinstance(integer, int)

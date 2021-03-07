@@ -411,14 +411,25 @@ class NumberValueInterface(CopyInterface):
 
     def __str__(self) -> str:
         """
-        String cast method.
+        String conversion method.
 
         Returns
         -------
         string : str
-            Casted value string.
+            Converted value string.
         """
         return str(self.value)
+
+    def __int__(self) -> int:
+        """
+        Integer conversion method.
+
+        Parameters
+        ----------
+        integer : int
+            Converted integer value.
+        """
+        return int(self.value)
 
     def __eq__(self, other: Any) -> bool:
         """

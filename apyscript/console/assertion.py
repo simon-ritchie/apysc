@@ -186,10 +186,6 @@ def _get_expected_and_actual_strs(
         Actual value's string. If value is string, this will be
         wrapped by double quotation.
     """
-    expected = string_util.wrap_by_double_quotation_if_value_is_string(
-        value=expected)
-    actual = string_util.wrap_by_double_quotation_if_value_is_string(
-        value=actual)
     expected_str: str = value_util.get_value_str_for_expression(
         value=expected)
     actual_str: str = value_util.get_value_str_for_expression(value=actual)

@@ -424,8 +424,8 @@ class NumberValueInterface(CopyInterface):
         """
         Integer conversion method.
 
-        Parameters
-        ----------
+        Returns
+        -------
         integer : int
             Converted integer value.
         """

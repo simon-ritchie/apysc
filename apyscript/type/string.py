@@ -341,3 +341,15 @@ class String(CopyInterface):
         string_validation.validate_string_type(string=other)
         value:str = self._get_str_value(value=other)
         return self._value >= value
+
+    def __int__(self) -> int:
+        """
+        Method for integer conversion.
+
+        Returns
+        -------
+        result : int
+            Converted integer value.
+        """
+        result: int = int(self._value)
+        return result

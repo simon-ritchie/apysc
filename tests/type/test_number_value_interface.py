@@ -466,3 +466,11 @@ class TestNumberValueInterface:
         integer: int = int(interface_1)
         assert interface_1 == 10
         assert isinstance(integer, int)
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___float__(self) -> None:
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=10.5, type_name='test_interface')
+        float_val: float = float(interface_1)
+        assert float_val == 10.5
+        assert isinstance(float_val, float)

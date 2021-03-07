@@ -431,6 +431,17 @@ class NumberValueInterface(CopyInterface):
         """
         return int(self.value)
 
+    def __float__(self) -> float:
+        """
+        Float conversion method.
+
+        Returns
+        -------
+        float_ : float
+            Converted float value.
+        """
+        return float(self.value)
+
     def __eq__(self, other: Any) -> bool:
         """
         Equal comparison method.

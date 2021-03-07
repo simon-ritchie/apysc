@@ -1,12 +1,13 @@
-from apyscript.expression import expression_file_util
 from random import randint
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 from retrying import retry
 
+from apyscript.expression import expression_file_util
+from apyscript.type import Int
 from apyscript.type import String
 from tests import testing_helper
-from apyscript.type import Int
 
 
 class TestString:

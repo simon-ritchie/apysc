@@ -1,7 +1,8 @@
 """String's validation implementations.
 """
 
-from typing import Any, Union
+from typing import Any
+from typing import Union
 
 
 def validate_string_type(string: Union[str, Any]) -> None:

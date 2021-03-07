@@ -1,5 +1,5 @@
-from apyscript.validation import string_validation
 from apyscript.type import String
+from apyscript.validation import string_validation
 from tests import testing_helper
 
 

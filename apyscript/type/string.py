@@ -1,14 +1,16 @@
 """Class implementation for string.
 """
 
-from typing import Any, Union
+from typing import Any
+from typing import Union
+
 from apyscript.expression import expression_file_util
 from apyscript.expression import expression_variables_util
 from apyscript.type.copy_interface import CopyInterface
-from apyscript.validation import string_validation
-from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.type.value_util import get_value_str_for_expression
+from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import number_validation
+from apyscript.validation import string_validation
 
 
 class String(CopyInterface):
@@ -339,7 +341,7 @@ class String(CopyInterface):
             Comparison result.
         """
         string_validation.validate_string_type(string=other)
-        value:str = self._get_str_value(value=other)
+        value: str = self._get_str_value(value=other)
         return self._value >= value
 
     def __int__(self) -> int:

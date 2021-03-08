@@ -462,6 +462,26 @@ class NumberValueInterface(CopyInterface):
             return Boolean(self.value == other.value)
         return Boolean(self.value == other)
 
+    def __ne__(self, other: Any) -> Any:
+        """
+        Not equal comparison method.
+
+        Parameters
+        ----------
+        other : *
+            Other value to compare. Builtin types, Int,
+            and Number class instances are acceptable.
+
+        Returns
+        -------
+        result : Boolean
+            If specified value is not same amount, True will be returned.
+        """
+        from apyscript.type import Boolean
+        if isinstance(other, NumberValueInterface):
+            return Boolean(self.value != other.value)
+        return Boolean(self.value != other)
+
     def __lt__(self, other: Any) -> Any:
         """
         Less than comparison method.

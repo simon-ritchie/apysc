@@ -162,8 +162,8 @@ class TestString:
         assert string_1 == 'Hello!'
         string_2: String = String(value='Hello!')
         assert string_1 == string_2
-        assert string_1 != 'World!'
-        assert string_1 != 100
+        assert not string_1 == 'World!'
+        assert not string_1 == 100
 
         assert isinstance(string_1 == 'Hello!', Boolean)
         assert isinstance(string_1 == string_2, Boolean)
@@ -173,7 +173,12 @@ class TestString:
     def test___ne__(self) -> None:
         string_1: String = String(value='Hello!')
         assert string_1 != 'World'
+        assert string_1 != String('World!')
+        assert string_1 != 100
+
         assert isinstance(string_1 != 'World', Boolean)
+        assert isinstance(string_1 != String('World'), Boolean)
+        assert isinstance(string_1 != 100, Boolean)
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___lt__(self) -> None:

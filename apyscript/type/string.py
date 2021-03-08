@@ -251,7 +251,7 @@ class String(CopyInterface):
         """
         return self._value
 
-    def __eq__(self, other: Any) -> bool:
+    def __eq__(self, other: Any) -> Any:
         """
         Method for equality comparison.
 
@@ -262,17 +262,18 @@ class String(CopyInterface):
 
         Returns
         -------
-        result : bool
+        result : Boolean
             Comparison result. If same value of str or String
             is specified, True will be returned.
         """
+        from apyscript.type import Boolean
         if isinstance(other, str):
-            return self._value == other
+            return Boolean(self._value == other)
         if isinstance(other, String):
-            return self._value == other._value
-        return False
+            return Boolean(self._value == other._value)
+        return Boolean(False)
 
-    def __lt__(self, other: Union[str, Any]) -> bool:
+    def __lt__(self, other: Union[str, Any]) -> Any:
         """
         Method for less than comparison.
 
@@ -283,14 +284,15 @@ class String(CopyInterface):
 
         Returns
         -------
-        result : bool
+        result : Boolean
             Comparison result.
         """
+        from apyscript.type import Boolean
         string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
-        return self._value < value
+        return Boolean(self._value < value)
 
-    def __le__(self, other: Union[str, Any]) -> bool:
+    def __le__(self, other: Union[str, Any]) -> Any:
         """
         Method for less than or equal comparison.
 
@@ -301,14 +303,15 @@ class String(CopyInterface):
 
         Returns
         -------
-        result : bool
+        result : Boolean
             Comparison result.
         """
+        from apyscript.type import Boolean
         string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
-        return self._value <= value
+        return Boolean(self._value <= value)
 
-    def __gt__(self, other: Union[str, Any]) -> bool:
+    def __gt__(self, other: Union[str, Any]) -> Any:
         """
         Method for greater than comparison.
 
@@ -319,14 +322,15 @@ class String(CopyInterface):
 
         Returns
         -------
-        result : bool
+        result : Boolean
             Comparison result.
         """
+        from apyscript.type import Boolean
         string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
-        return self._value > value
+        return Boolean(self._value > value)
 
-    def __ge__(self, other: Union[str, Any]) -> bool:
+    def __ge__(self, other: Union[str, Any]) -> Any:
         """
         Method for greater than or equal comparison.
 
@@ -337,12 +341,13 @@ class String(CopyInterface):
 
         Returns
         -------
-        result : bool
+        result : Boolean
             Comparison result.
         """
+        from apyscript.type import Boolean
         string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
-        return self._value >= value
+        return Boolean(self._value >= value)
 
     def __int__(self) -> int:
         """

@@ -8,6 +8,7 @@ from apyscript.expression import expression_file_util
 from apyscript.type import Int
 from apyscript.type import String
 from tests import testing_helper
+from apyscript.type import Boolean
 
 
 class TestString:
@@ -164,6 +165,10 @@ class TestString:
         assert string_1 != 'World!'
         assert string_1 != 100
 
+        assert isinstance(string_1 == 'Hello!', Boolean)
+        assert isinstance(string_1 == string_2, Boolean)
+        assert isinstance(string_1 == 100, Boolean)
+
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___lt__(self) -> None:
         string_1: String = String(value='1970-01-02')
@@ -171,6 +176,8 @@ class TestString:
         string_2: String = String(value='1970-01-03')
         assert string_1 < string_2
         assert not string_1 < '1970-01-02'
+
+        assert isinstance(string_1 < '1970-01-03', Boolean)
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___le__(self) -> None:
@@ -181,6 +188,8 @@ class TestString:
         assert string_1 <= string_2
         assert not string_1 <= '1970-01-01'
 
+        assert isinstance(string_1 <= '1970-01-02', Boolean)
+
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___gt__(self) -> None:
         string_1: String = String(value='1970-01-02')
@@ -188,6 +197,8 @@ class TestString:
         string_2: String = String(value='1970-01-01')
         assert string_1 > string_2
         assert not string_1 > '1970-01-02'
+
+        assert isinstance(string_1 > '1970-01-01', Boolean)
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___ge__(self) -> None:
@@ -197,6 +208,8 @@ class TestString:
         string_2: String = String(value='1970-01-02')
         assert string_1 >= string_2
         assert not string_1 >= '1970-01-03'
+
+        assert isinstance(string_1 >= '1970-01-02', Boolean)
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___int__(self) -> None:

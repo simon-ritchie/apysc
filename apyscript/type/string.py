@@ -253,7 +253,7 @@ class String(CopyInterface):
 
     def __eq__(self, other: Any) -> Any:
         """
-        Method for equality comparison.
+        Method for equal comparison.
 
         Parameters
         ----------
@@ -272,6 +272,28 @@ class String(CopyInterface):
         if isinstance(other, String):
             return Boolean(self._value == other._value)
         return Boolean(False)
+
+    def __ne__(self, other: Any) -> Any:
+        """
+        Method for not equal comparison.
+
+        Parameters
+        ----------
+        other : *
+            Any value to compare.
+
+        Returns
+        -------
+        result : Boolean
+            Comparison result. If not same value of str or String
+            is specified, True will be returned.
+        """
+        from apyscript.type import Boolean
+        if isinstance(other, str):
+            return Boolean(self._value != other)
+        if isinstance(other, String):
+            return Boolean(self._value != other._value)
+        return Boolean(True)
 
     def __lt__(self, other: Union[str, Any]) -> Any:
         """

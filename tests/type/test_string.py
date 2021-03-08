@@ -170,6 +170,12 @@ class TestString:
         assert isinstance(string_1 == 100, Boolean)
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___ne__(self) -> None:
+        string_1: String = String(value='Hello!')
+        assert string_1 != 'World'
+        assert isinstance(string_1 != 'World', Boolean)
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___lt__(self) -> None:
         string_1: String = String(value='1970-01-02')
         assert string_1 < '1970-01-03'

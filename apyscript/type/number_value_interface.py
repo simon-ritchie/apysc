@@ -442,7 +442,7 @@ class NumberValueInterface(CopyInterface):
         """
         return float(self.value)
 
-    def __eq__(self, other: Any) -> bool:
+    def __eq__(self, other: Any) -> Any:
         """
         Equal comparison method.
 
@@ -454,14 +454,15 @@ class NumberValueInterface(CopyInterface):
 
         Returns
         -------
-        result : bool
+        result : Boolean
             If specified value is same amount, True will be returned.
         """
+        from apyscript.type import Boolean
         if isinstance(other, NumberValueInterface):
-            return self.value == other.value
-        return self.value == other
+            return Boolean(self.value == other.value)
+        return Boolean(self.value == other)
 
-    def __lt__(self, other: Any) -> bool:
+    def __lt__(self, other: Any) -> Any:
         """
         Less than comparison method.
 
@@ -473,15 +474,16 @@ class NumberValueInterface(CopyInterface):
 
         Returns
         -------
-        result : bool
+        result : Boolean
             If this value is less than a specified value, then
             True will be returned.
         """
+        from apyscript.type import Boolean
         if isinstance(other, NumberValueInterface):
-            return self.value < other.value
-        return self.value < other
+            return Boolean(self.value < other.value)
+        return Boolean(self.value < other)
 
-    def __le__(self, other: Any) -> bool:
+    def __le__(self, other: Any) -> Any:
         """
         Less than equal comparison method.
 
@@ -493,15 +495,16 @@ class NumberValueInterface(CopyInterface):
 
         Returns
         -------
-        result : bool
+        result : Boolean
             If this value is less than or equal to a specified value,
             then True will be returned.
         """
+        from apyscript.type import Boolean
         if isinstance(other, NumberValueInterface):
-            return self.value <= other.value
-        return self.value <= other
+            return Boolean(self.value <= other.value)
+        return Boolean(self.value <= other)
 
-    def __gt__(self, other: Any) -> bool:
+    def __gt__(self, other: Any) -> Any:
         """
         Greater than comparison method.
 
@@ -513,15 +516,16 @@ class NumberValueInterface(CopyInterface):
 
         Returns
         -------
-        result : bool
+        result : Boolean
             If this value is greater than a specified value, then
             True will be returned.
         """
+        from apyscript.type import Boolean
         if isinstance(other, NumberValueInterface):
-            return self.value > other.value
-        return self.value > other
+            return Boolean(self.value > other.value)
+        return Boolean(self.value > other)
 
-    def __ge__(self, other: Any) -> bool:
+    def __ge__(self, other: Any) -> Any:
         """
         Greater than equal comparison method.
 
@@ -533,10 +537,11 @@ class NumberValueInterface(CopyInterface):
 
         Returns
         -------
-        result : bool
+        result : Boolean
             If this value is greater than or equal to a specified value,
             then True will be returned.
         """
+        from apyscript.type import Boolean
         if isinstance(other, NumberValueInterface):
-            return self.value >= other.value
-        return self.value >= other
+            return Boolean(self.value >= other.value)
+        return Boolean(self.value >= other)

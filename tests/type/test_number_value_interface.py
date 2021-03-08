@@ -8,6 +8,7 @@ from apyscript.type import Int
 from apyscript.type import Number
 from apyscript.type.number_value_interface import NumberValueInterface
 from tests import testing_helper
+from apyscript.type import Boolean
 
 
 class TestNumberValueInterface:
@@ -395,6 +396,9 @@ class TestNumberValueInterface:
         assert interface_1 != 11
         assert interface_1 != interface_3
 
+        assert isinstance(interface_1 == 10, Boolean)
+        assert isinstance(interface_1 == interface_2, Boolean)
+
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___lt__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -408,6 +412,8 @@ class TestNumberValueInterface:
         assert interface_1 < interface_2
         assert not interface_1 < 10
         assert not interface_1 < interface_3
+        assert isinstance(interface_1 < 11, Boolean)
+        assert isinstance(interface_1 < interface_2, Boolean)
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___le__(self) -> None:
@@ -427,6 +433,9 @@ class TestNumberValueInterface:
         assert not interface_1 <= 9
         assert not interface_1 <= interface_4
 
+        assert isinstance(interface_1 <= 10, Boolean)
+        assert isinstance(interface_1 <= interface_2, Boolean)
+
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___gt__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -440,6 +449,9 @@ class TestNumberValueInterface:
         assert interface_1 > interface_2
         assert not interface_1 > 10
         assert not interface_1 > interface_3
+
+        assert isinstance(interface_1 > 9, Boolean)
+        assert isinstance(interface_1 > interface_2, Boolean)
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___ge__(self) -> None:
@@ -458,6 +470,9 @@ class TestNumberValueInterface:
         assert interface_1 >= interface_3
         assert not interface_1 >= 11
         assert not interface_1 >= interface_4
+
+        assert isinstance(interface_1 >= 10, Boolean)
+        assert isinstance(interface_1 >= interface_2, Boolean)
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___int__(self) -> None:

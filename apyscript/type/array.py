@@ -21,7 +21,30 @@ class Array(CopyInterface):
         """
         TYPE_NAME: str = 'array'
         self._validate_acceptable_value_type(value=value)
+        self._initial_value = value
+        self._value = self._get_list_value(value=value)
         pass
+
+    def _get_list_value(
+            self, value: Union[List[Any], tuple, Any]) -> List[Any]:
+        """
+        Get a list value from specified list, tuple, or Array value.
+
+        Parameters
+        ----------
+        value : list or tuple or Array
+            Specified list, tuple, or Array value.
+
+        Returns
+        -------
+        list_val : list
+            Converted list value.
+        """
+        if isinstance(value, tuple):
+            return list(value)
+        if isinstance(value, Array):
+            return value._value
+        return value
 
     def _validate_acceptable_value_type(
             self, value: Union[List[Any], tuple, Any]) -> None:

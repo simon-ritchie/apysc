@@ -59,3 +59,29 @@ class TestArray:
         expression = expression_file_util.get_current_expression()
         expected = f'var {array_2.variable_name} = {array_1.variable_name}'
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_value_setter_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        array_1: Array = Array([1, 2, 3])
+        array_1.value = [4, 5, 6]
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{array_1.variable_name} = [4, 5, 6];'
+        )
+        assert expected in expression
+
+        array_2: Array = Array(array_1)
+        expression = expression_file_util.get_current_expression()
+        expected = f'{array_2.variable_name} = {array_1.variable_name};'
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_value(self) -> None:
+        array_1: Array = Array([1, 2, 3])
+        array_1.value = [4, 5, 6]
+        assert array_1.value == [4, 5, 6]
+
+        array_2: Array = Array([7, 8, 9])
+        array_2.value = array_1
+        assert array_2.value == [4, 5, 6]

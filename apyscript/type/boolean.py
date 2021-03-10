@@ -81,7 +81,7 @@ class Boolean(CopyInterface):
     @property
     def value(self) -> Union[bool, int, Any]:
         """
-        Get current boolean value.
+        Get a current boolean value.
 
         Returns
         -------

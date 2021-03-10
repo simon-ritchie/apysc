@@ -88,3 +88,49 @@ class Array(CopyInterface):
             'Not acceptable value\'s type is specified.'
             f'\nSpecified value type: {type(value)}'
             '\nAcceptable types: list, tuple, and Array')
+
+    @property
+    def value(self) -> Union[List[Any], tuple, Any]:
+        """
+        Get a current array value.
+
+        Returns
+        -------
+        value : list
+            Current array value.
+        """
+        return self._value
+
+    @value.setter
+    def value(self, value: Union[List[Any], tuple, Any]) -> None:
+        """
+        Set array value.
+
+        Parameters
+        ----------
+        value : list or tuple or Array
+            Iterable value (list, tuple, or Array) to set.
+        """
+        self._validate_acceptable_value_type(value=value)
+        self._value = self._get_list_value(value=value)
+        self._append_value_setter_expression(value=value)
+
+    def _append_value_setter_expression(
+            self, value: Union[List[Any], tuple, Any]) -> None:
+        """
+        Append value's setter expression to file.
+
+        Parameters
+        ----------
+        value : list or tuple or Array
+            Iterable value (list, tuple, or Array) to set.
+        """
+        expression: str = f'{self.variable_name} = '
+        if isinstance(value, Array):
+            expression += f'{value.variable_name};'
+        else:
+            value_str: str = value_util.get_value_str_for_expression(
+                value=value)
+            expression += f'{value_str};'
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)

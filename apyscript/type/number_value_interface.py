@@ -56,7 +56,7 @@ class NumberValueInterface(CopyInterface):
     @property
     def value(self) -> Union[int, float, Any]:
         """
-        Get current number value.
+        Get a current number value.
 
         Returns
         -------

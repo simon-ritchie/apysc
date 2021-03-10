@@ -69,7 +69,7 @@ class String(CopyInterface):
     @property
     def value(self) -> Union[str, Any]:
         """
-        Get current string value.
+        Get a current string value.
 
         Returns
         -------

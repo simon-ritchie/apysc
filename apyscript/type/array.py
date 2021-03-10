@@ -1,9 +1,12 @@
 """Class implementation for array.
 """
 
-from apyscript.expression import expression_variables_util
 from typing import Any, List, Union
+
+from apyscript.expression import expression_file_util
+from apyscript.expression import expression_variables_util
 from apyscript.type.copy_interface import CopyInterface
+from apyscript.type import value_util
 
 
 class Array(CopyInterface):
@@ -27,6 +30,21 @@ class Array(CopyInterface):
         self._value = self._get_list_value(value=value)
         self.variable_name = expression_variables_util.get_next_variable_name(
             type_name=TYPE_NAME)
+        self._append_constructor_expression()
+
+    def _append_constructor_expression(self) -> None:
+        """
+        Append constructor expression to file.
+        """
+        expression: str = f'var {self.variable_name} = '
+        if isinstance(self._initial_value, Array):
+            expression += f'{self._initial_value.variable_name};'
+        else:
+            value_str: str = value_util.get_value_str_for_expression(
+                value=self._value)
+            expression += f'{value_str};'
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)
 
     def _get_list_value(
             self, value: Union[List[Any], tuple, Any]) -> List[Any]:

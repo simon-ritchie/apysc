@@ -8,7 +8,7 @@ Mainly following interfaces are defined:
     Get a copy of specified instance if it is instance of CopyInterface.
 """
 
-from typing import Any
+from typing import Any, List, Union
 
 
 def get_value_str_for_expression(value: Any) -> str:
@@ -28,6 +28,8 @@ def get_value_str_for_expression(value: Any) -> str:
         otherwise string casted value will be returned.
         Bool value will be lowercase (true or false) and str value
         will be quoted by double quotation.
+        List or tuple value will be converted to js Array expression,
+        e.g., '[10, "Hello!", true, any_variable]'.
     """
     from apyscript.type.variable_name_interface import VariableNameInterface
     if isinstance(value, VariableNameInterface):
@@ -36,7 +38,44 @@ def get_value_str_for_expression(value: Any) -> str:
         return str(value).lower()
     if isinstance(value, str):
         return f'"{value}"'
+    if isinstance(value, (list, tuple)):
+        value_str: str = _get_value_str_from_iterable(value=value)
+        return value_str
     return str(value)
+
+
+def _get_value_str_from_iterable(value: Union[list, tuple, Any]) -> str:
+    """
+    Get value string from iterable object.
+
+    Parameters
+    ----------
+    value : list or tuple or Array
+        Target iterable object.
+
+    Returns
+    -------
+    value_str : str
+        Converted string, e.g., '[10, "Hello!", true, any_variable]'.
+    """
+    from apyscript.type.variable_name_interface import VariableNameInterface
+    from apyscript.type import Array
+    if isinstance(value, Array):
+        value_: List[Any] = value._value
+    elif isinstance(value, tuple):
+        value_ = list(value)
+    else:
+        value_ = value
+    value_str: str = '['
+    for unit_value in value_:
+        if value_str != '[':
+            value_str += ', '
+        if isinstance(unit_value, VariableNameInterface):
+            value_str += f'{unit_value.variable_name}'
+            continue
+        value_str += get_value_str_for_expression(value=unit_value)
+    value_str += ']'
+    return value_str
 
 
 def get_copy(value: Any) -> Any:

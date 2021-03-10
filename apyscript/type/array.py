@@ -1,6 +1,7 @@
 """Class implementation for array.
 """
 
+from apyscript.expression import expression_variables_util
 from typing import Any, List, Union
 from apyscript.type.copy_interface import CopyInterface
 
@@ -22,8 +23,10 @@ class Array(CopyInterface):
         TYPE_NAME: str = 'array'
         self._validate_acceptable_value_type(value=value)
         self._initial_value = value
+        self._type_name = TYPE_NAME
         self._value = self._get_list_value(value=value)
-        pass
+        self.variable_name = expression_variables_util.get_next_variable_name(
+            type_name=TYPE_NAME)
 
     def _get_list_value(
             self, value: Union[List[Any], tuple, Any]) -> List[Any]:

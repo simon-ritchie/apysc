@@ -1,5 +1,5 @@
 from random import randint
-from typing import Any, List
+from typing import Any, Dict, List
 
 from retrying import retry
 
@@ -8,6 +8,19 @@ from tests import testing_helper
 
 
 class TestArray:
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___init__(self) -> None:
+        array_1: Array = Array((1, 2, 3))
+        expected_attrs: Dict[str, Any] = {
+            '_initial_value': (1, 2, 3),
+            '_value': [1, 2, 3],
+            '_type_name': 'array',
+        }
+        testing_helper.assert_attrs(
+            expected_attrs=expected_attrs,
+            any_obj=array_1)
+        assert array_1.variable_name.startswith('array_')
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__validate_acceptable_value_type(self) -> None:

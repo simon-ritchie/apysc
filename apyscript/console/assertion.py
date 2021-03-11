@@ -167,6 +167,37 @@ def assert_arrays_equal(
     msg : str, optional
         Message to display when assertion failed.
     """
+    expected_exp_str: str = value_util.get_value_str_for_expression(
+        value=expected)
+    actual_exp_str: str = value_util.get_value_str_for_expression(
+        value=actual)
+    _trace_arrays_assertion_info(
+        interface_label='assert_arrays_equal',
+        expected=expected, actual=actual)
+
+    msg = string_util.escape_str(string=msg)
+    expression: str = (
+        f'console.assert(_.isEqual({expected_exp_str}, {actual_exp_str}), '
+        f'"{msg}");'
+    )
+    expression_file_util.wrap_by_script_tag_and_append_expression(
+        expression=expression)
+
+
+def _trace_arrays_assertion_info(
+        interface_label: str, expected: Any, actual: Any) -> None:
+    """
+    Append arrays values information trace expression.
+
+    Parameters
+    ----------
+    interface_label : str
+        Target assertion interface label, e.g., 'assert_arrays_equal'.
+    expected : *
+        Expected value.
+    actual : *
+        Actual value.
+    """
     from apyscript.type import Array
     expected_exp_str: str = value_util.get_value_str_for_expression(
         value=expected)
@@ -181,17 +212,9 @@ def assert_arrays_equal(
     else:
         actual_info_str = actual_exp_str
     _trace_info(
-        interface_label='assert_arrays_equal',
+        interface_label=interface_label,
         expected=expected_info_str,
         actual=actual_info_str)
-
-    msg = string_util.escape_str(string=msg)
-    expression: str = (
-        f'console.assert(_.isEqual({expected_exp_str}, {actual_exp_str}), '
-        f'"{msg}");'
-    )
-    expression_file_util.wrap_by_script_tag_and_append_expression(
-        expression=expression)
 
 
 def _actual_value_type_is_array(actual: Any) -> bool:

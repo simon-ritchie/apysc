@@ -136,18 +136,29 @@ def test_assert_arrays_equal() -> None:
         expected=[1, 2, 3], actual=array_1,
         msg='Arrays values are not equal.')
     expression: str = expression_file_util.get_current_expression()
-    assert '[assert_arrays_equal]' in expression
     expected: str = (
         f'console.assert(_.isEqual([1, 2, 3], {array_1.variable_name}), '
         f'"Arrays values are not equal.");'
     )
     assert expected in expression
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test__trace_arrays_assertion_info() -> None:
+    expression_file_util.remove_expression_file()
+    array_1: Array = Array([1, 2, 3])
+    assertion._trace_arrays_assertion_info(
+        interface_label='assert_arrays_equal',
+        expected=[1, 2, 3], actual=array_1)
+    expression: str = expression_file_util.get_current_expression()
+    assert '[assert_arrays_equal]' in expression
     assert '"\\nExpected:", "[1, 2, 3]"' in expression
     expected = f'"actual:", "{array_1.variable_name} ([1, 2, 3])"'
     assert expected in expression
 
     expression_file_util.remove_expression_file()
-    assertion.assert_arrays_equal(
+    assertion._trace_arrays_assertion_info(
+        interface_label='assert_arrays_not_equal',
         expected=array_1, actual=[1, 2, 3])
     expression = expression_file_util.get_current_expression()
     expected = f'"\\nExpected:", "{array_1.variable_name} ([1, 2, 3])"'

@@ -142,3 +142,14 @@ def test_assert_arrays_equal() -> None:
         f'"Arrays values are not equal.");'
     )
     assert expected in expression
+    assert '"\\nExpected:", "[1, 2, 3]"' in expression
+    expected = f'"actual:", "{array_1.variable_name} ([1, 2, 3])"'
+    assert expected in expression
+
+    expression_file_util.remove_expression_file()
+    assertion.assert_arrays_equal(
+        expected=array_1, actual=[1, 2, 3])
+    expression = expression_file_util.get_current_expression()
+    expected = f'"\\nExpected:", "{array_1.variable_name} ([1, 2, 3])"'
+    assert expected in expression
+    assert '"actual:", "[1, 2, 3]"' in expression

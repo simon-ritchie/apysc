@@ -14,7 +14,7 @@ Mainly following interfaces are defined:
     JavaScript assertion interface for Array values equal condition.
 """
 
-from typing import Any
+from typing import Any, List
 from typing import Tuple
 
 from apyscript.console.trace import trace
@@ -167,13 +167,23 @@ def assert_arrays_equal(
     msg : str, optional
         Message to display when assertion failed.
     """
+    from apyscript.type import Array
     expected_exp_str: str = value_util.get_value_str_for_expression(
         value=expected)
     actual_exp_str: str = value_util.get_value_str_for_expression(
         value=actual)
+    if isinstance(expected, Array):
+        expected_info_str: str = f'{expected_exp_str} ({expected.value})'
+    else:
+        expected_info_str = expected_exp_str
+    if isinstance(actual, Array):
+        actual_info_str: str = f'{actual_exp_str} ({actual.value})'
+    else:
+        actual_info_str = actual_exp_str
     _trace_info(
-        interface_label='assert_arrays_equal', expected=expected_exp_str,
-        actual=actual_exp_str)
+        interface_label='assert_arrays_equal',
+        expected=expected_info_str,
+        actual=actual_info_str)
 
     msg = string_util.escape_str(string=msg)
     expression: str = (

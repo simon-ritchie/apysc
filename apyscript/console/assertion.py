@@ -12,6 +12,8 @@ Mainly following interfaces are defined:
     JavaScript assertion interface for false condition.
 - assert_arrays_equal
     JavaScript assertion interface for Array values equal condition.
+- assert_arrays_not_equal
+    JavaScript assertion interface for Array values not equal condition.
 """
 
 from typing import Any, List
@@ -153,10 +155,9 @@ def assert_arrays_equal(
 
     Notes
     -----
-    - This is used instead of assert_equal for Array class
-        comparison (JavaScript can not compare arrays directly, like
-        a Python, for example, `[1, 2] === [1, 2]` will be false).
-    - Not supported 2 dimensional arrays, e.g., [[1], [2], [3]].
+    This is used instead of assert_equal for Array class
+    comparison (JavaScript can not compare arrays directly, like
+    a Python, for example, `[1, 2] === [1, 2]` will be false).
 
     Parameters
     ----------
@@ -167,21 +168,84 @@ def assert_arrays_equal(
     msg : str, optional
         Message to display when assertion failed.
     """
-    expected_exp_str: str = value_util.get_value_str_for_expression(
-        value=expected)
-    actual_exp_str: str = value_util.get_value_str_for_expression(
-        value=actual)
     _trace_arrays_assertion_info(
         interface_label='assert_arrays_equal',
         expected=expected, actual=actual)
 
-    msg = string_util.escape_str(string=msg)
-    expression: str = (
-        f'console.assert(_.isEqual({expected_exp_str}, {actual_exp_str}), '
-        f'"{msg}");'
-    )
+    expression: str = _make_arrays_comparison_expression(
+        expected=expected, actual=actual, msg=msg, not_condition=False)
     expression_file_util.wrap_by_script_tag_and_append_expression(
         expression=expression)
+
+
+def assert_arrays_not_equal(
+        expected: Any, actual: Any, msg: str = '') -> None:
+    """
+    JavaScript assertion interface for Array values not equal condition.
+
+    Notes
+    -----
+    This is used instead of assert_not_equal for Array class
+    comparison (JavaScript can not compare arrays directly, like
+    a Python, for example, `[1, 2] === [1, 2]` will be false).
+
+    Parameters
+    ----------
+    expected : *
+        Expected value.
+    actual : *
+        Actual value.
+    msg : str, optional
+        Message to display when assertion failed.
+    """
+    _trace_arrays_assertion_info(
+        interface_label='assert_arrays_not_equal',
+        expected=expected, actual=actual)
+
+    expression: str = _make_arrays_comparison_expression(
+        expected=expected, actual=actual, msg=msg, not_condition=True)
+    expression_file_util.wrap_by_script_tag_and_append_expression(
+        expression=expression)
+
+
+def _make_arrays_comparison_expression(
+        expected: Any, actual: Any, msg: str,
+        not_condition: bool) -> str:
+    """
+    Make arrays comparison (assert_arrays_equal or
+    assert_arrays_not_equal) expression string.
+
+    Parameters
+    ----------
+    expected : *
+        Expected value.
+    actual : *
+        Actual value.
+    msg : str, optional
+        Message to display when assertion failed.
+    not_condition : bool
+        Boolean value whether this expression is not condition
+        (assert_arrays_not_equal) or not.
+
+    Returns
+    -------
+    expression : str
+        Result expression string.
+    """
+    expected_exp_str: str = value_util.get_value_str_for_expression(
+        value=expected)
+    actual_exp_str: str = value_util.get_value_str_for_expression(
+        value=actual)
+    msg = string_util.escape_str(string=msg)
+    if not_condition:
+        not_condition_str: str = '!'
+    else:
+        not_condition_str = ''
+    expression: str = (
+        f'console.assert({not_condition_str}_.isEqual({expected_exp_str}, '
+        f'{actual_exp_str}), "{msg}");'
+    )
+    return expression
 
 
 def _trace_arrays_assertion_info(

@@ -134,11 +134,11 @@ def test_assert_arrays_equal() -> None:
     array_1: Array = Array([1, 2, 3])
     assertion.assert_arrays_equal(
         expected=[1, 2, 3], actual=array_1,
-        msg='Arrays values are not equal.')
+        msg='Array values are not equal.')
     expression: str = expression_file_util.get_current_expression()
     expected: str = (
         f'console.assert(_.isEqual([1, 2, 3], {array_1.variable_name}), '
-        f'"Arrays values are not equal.");'
+        f'"Array values are not equal.");'
     )
     assert expected in expression
 
@@ -164,3 +164,43 @@ def test__trace_arrays_assertion_info() -> None:
     expected = f'"\\nExpected:", "{array_1.variable_name} ([1, 2, 3])"'
     assert expected in expression
     assert '"actual:", "[1, 2, 3]"' in expression
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test__make_arrays_comparison_expression() -> None:
+    expression_file_util.remove_expression_file()
+    array_1: Array = Array([1, 2, 3])
+    expression: str = assertion._make_arrays_comparison_expression(
+        expected=[1, 2, 3],
+        actual=array_1,
+        msg='Array values is not equal.',
+        not_condition=False)
+    expected: str = (
+        f'console.assert(_.isEqual([1, 2, 3], {array_1.variable_name}), '
+        '"Array values is not equal.");'
+    )
+    assert expression == expected
+
+    expression = assertion._make_arrays_comparison_expression(
+        expected=[1, 2, 3],
+        actual=[1],
+        msg='',
+        not_condition=True)
+    expected = (
+        f'console.assert(!_.isEqual([1, 2, 3], [1]), "");')
+    assert expression == expected
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test_assert_arrays_not_equal() -> None:
+    expression_file_util.remove_expression_file()
+    array_1: Array = Array([1, 2, 3])
+    assertion.assert_arrays_not_equal(
+        expected=[1, 2], actual=array_1,
+        msg='Array values are equal.')
+    expression: str = expression_file_util.get_current_expression()
+    expected: str = (
+        f'console.assert(!_.isEqual([1, 2], {array_1.variable_name}), '
+        f'"Array values are equal.");'
+    )
+    assert expected in expression

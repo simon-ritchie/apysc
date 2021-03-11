@@ -10,6 +10,8 @@ Mainly following interfaces are defined:
     JavaScript assertion interface for true condition.
 - assert_false
     JavaScript assertion interface for false condition.
+- assert_arrays_equal
+    JavaScript assertion interface for Array values equal condition.
 """
 
 from typing import Any
@@ -34,6 +36,10 @@ def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
     msg : str, optional
         Message to display when assertion failed.
     """
+    if _actual_value_type_is_array(actual=actual):
+        assert_arrays_equal(actual=actual, expected=expected, msg=msg)
+        return
+
     _trace_info(
         interface_label='assert_equal', expected=expected, actual=actual)
 
@@ -138,6 +144,65 @@ def assert_false(
     expression += f' false, "{msg}");'
     expression_file_util.wrap_by_script_tag_and_append_expression(
         expression=expression)
+
+
+def assert_arrays_equal(
+        expected: Any, actual: Any, msg: str = '') -> None:
+    """
+    JavaScript assertion interface for Array values equal condition.
+
+    Notes
+    -----
+    - This is used instead of assert_equal for Array class
+        comparison (JavaScript can not compare arrays directly, like
+        a Python, for example, `[1, 2] === [1, 2]` will be false).
+    - Not supported 2 dimensional arrays, e.g., [[1], [2], [3]].
+
+    Parameters
+    ----------
+    expected : *
+        Expected value.
+    actual : *
+        Actual value.
+    msg : str, optional
+        Message to display when assertion failed.
+    """
+    expected_exp_str: str = value_util.get_value_str_for_expression(
+        value=expected)
+    actual_exp_str: str = value_util.get_value_str_for_expression(
+        value=actual)
+    _trace_info(
+        interface_label='assert_arrays_equal', expected=expected_exp_str,
+        actual=actual_exp_str)
+
+    msg = string_util.escape_str(string=msg)
+    expression: str = (
+        f'console.assert(_.isEqual({expected_exp_str}, {actual_exp_str}), '
+        f'"{msg}");'
+    )
+    expression_file_util.wrap_by_script_tag_and_append_expression(
+        expression=expression)
+
+
+def _actual_value_type_is_array(actual: Any) -> bool:
+    """
+    Get a boolean value whether specified actual value is
+    Array type or not.
+
+    Parameters
+    ----------
+    actual : *
+        Actual value.
+
+    Returns
+    -------
+    result : bool
+        If actual value type is Array, True will be returned.
+    """
+    from apyscript.type import Array
+    if isinstance(actual, Array):
+        return True
+    return False
 
 
 def _add_equal_if_type_strict_setting_is_true(

@@ -5,7 +5,7 @@ from retrying import retry
 from apyscript.console import assertion
 from apyscript.expression import expression_file_util
 from apyscript.type import Boolean
-from apyscript.type import Int
+from apyscript.type import Int, Array
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -115,5 +115,30 @@ def test_assert_false() -> None:
     expected: str = (
         f'console.assert({boolean_1.variable_name} === false, '
         '"Value is not false.");'
+    )
+    assert expected in expression
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test__actual_value_type_is_array() -> None:
+    result: bool = assertion._actual_value_type_is_array(actual=100)
+    assert not result
+
+    result = assertion._actual_value_type_is_array(Array([100, 200]))
+    assert result
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test_assert_arrays_equal() -> None:
+    expression_file_util.remove_expression_file()
+    array_1: Array = Array([1, 2, 3])
+    assertion.assert_arrays_equal(
+        expected=[1, 2, 3], actual=array_1,
+        msg='Arrays values are not equal.')
+    expression: str = expression_file_util.get_current_expression()
+    assert '[assert_arrays_equal]' in expression
+    expected: str = (
+        f'console.assert(_.isEqual([1, 2, 3], {array_1.variable_name}), '
+        f'"Arrays values are not equal.");'
     )
     assert expected in expression

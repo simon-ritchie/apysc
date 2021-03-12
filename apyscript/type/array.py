@@ -134,3 +134,44 @@ class Array(CopyInterface):
             expression += f'{value_str};'
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    def append(self, value: Any) -> None:
+        """
+        Add any value to the end of this array.
+        This behaves same as push method.
+
+        Parameters
+        ----------
+        value : *
+            Any value to append.
+        """
+        self._value.append(value)
+        self._append_push_and_append_expression(value=value)
+
+    def push(self, value: Any) -> None:
+        """
+        Add any value to the end of this array.
+        This behaves same as append method.
+
+        Parameters
+        ----------
+        value : *
+            Any value to append.
+        """
+        self.append(value=value)
+
+    def _append_push_and_append_expression(self, value: Any) -> None:
+        """
+        Append push and append method expression to file.
+
+        Parameters
+        ----------
+        value : *
+            Any value to append.
+        """
+        value_str: str = value_util.get_value_str_for_expression(value=value)
+        expression: str = (
+            f'{self.variable_name}.push({value_str});'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)

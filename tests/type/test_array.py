@@ -85,3 +85,26 @@ class TestArray:
         array_2: Array = Array([7, 8, 9])
         array_2.value = array_1
         assert array_2.value == [4, 5, 6]
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_append(self) -> None:
+        array_1: Array = Array([1, 2, 3])
+        array_1.append(value=4)
+        assert array_1.value == [1, 2, 3, 4]
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_push(self) -> None:
+        array_1: Array = Array([1, 2, 3])
+        array_1.push(value=4)
+        assert array_1.value == [1, 2, 3, 4]
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_push_and_append_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        array_1: Array = Array([1, 2, 3])
+        array_1.append(value=4)
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{array_1.variable_name}.push(4);'
+        )
+        assert expected in expression

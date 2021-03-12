@@ -14,6 +14,9 @@ import os
 from types import ModuleType
 
 from apyscript.console.assertion import assert_arrays_equal
+from apyscript.console.assertion import assert_arrays_not_equal
+from apyscript.console.assertion import assert_equal
+from apyscript.console.assertion import assert_not_equal
 from apyscript.display.stage import Stage
 from apyscript.file import file_util
 from apyscript.html import exporter
@@ -47,6 +50,25 @@ def main() -> None:
         expected=[1, 2, 3], actual=Array([1, 2, 3]))
     assert_arrays_equal(
         expected=Array([1, 2, 3]), actual=Array([1, 2, 3]))
+
+    assert_arrays_not_equal(
+        expected=[1, 2, 3], actual=[1, 2])
+    assert_arrays_not_equal(
+        expected=(1, 2, 3), actual=[1, 2])
+    assert_arrays_not_equal(
+        expected=[1, 2, 3], actual=Array([1, 2]))
+    assert_arrays_not_equal(
+        expected=Array([1, 2, 3]), actual=Array([1, 2]))
+
+    assert_equal(
+        expected=Array([1, 2, 3]), actual=Array([1, 2, 3]))
+    assert_equal(
+        expected=[1, 2, 3], actual=Array([1, 2, 3]))
+
+    assert_not_equal(
+        expected=Array([1, 2, 3]), actual=Array([1, 2]))
+    assert_not_equal(
+        expected=[1, 2, 3], actual=Array([1, 2]))
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)

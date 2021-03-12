@@ -12,7 +12,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apyscript.console.assertion import assert_equal
+from apyscript.console.assertion import assert_arrays_equal
 from apyscript.display.stage import Stage
 from apyscript.file import file_util
 from apyscript.html import exporter
@@ -32,6 +32,13 @@ def main() -> None:
     _: Stage = Stage(background_color='#333')
 
     array_1: Array = Array([1, 2, 3])
+    assert_arrays_equal(expected=[1, 2, 3], actual=array_1)
+
+    array_1.append(4)
+    assert_arrays_equal(expected=[1, 2, 3, 4], actual=array_1)
+
+    array_1.push(5)
+    assert_arrays_equal(expected=[1, 2, 3, 4, 5], actual=array_1)
 
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 

@@ -29,6 +29,12 @@ def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
     """
     JavaScript assertion interface for equal condition.
 
+    Notes
+    -----
+    - If specified actual value is type of Array (or list, etc),
+        then assert_arrays_equal function will be called instead of
+        this function.
+
     Parameters
     ----------
     expected : *
@@ -39,7 +45,7 @@ def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
         Message to display when assertion failed.
     """
     if _actual_value_type_is_array(actual=actual):
-        assert_arrays_equal(actual=actual, expected=expected, msg=msg)
+        assert_arrays_equal(expected=expected, actual=actual, msg=msg)
         return
 
     _trace_info(
@@ -60,6 +66,12 @@ def assert_not_equal(expected: Any, actual: Any, msg: str = '') -> None:
     """
     JavaScript assertion interface for not equal condition.
 
+    Notes
+    -----
+    - If specified actual value is type of Array (or list, etc),
+        then assert_not_arrays_equal function will be called instead
+        of this function.
+
     Parameters
     ----------
     expected : *
@@ -69,6 +81,10 @@ def assert_not_equal(expected: Any, actual: Any, msg: str = '') -> None:
     msg : str, optional
         Message to display when assertion failed.
     """
+    if _actual_value_type_is_array(actual=actual):
+        assert_arrays_not_equal(expected=expected, actual=actual, msg=msg)
+        return
+
     _trace_info(
         interface_label='assert_not_equal', expected=expected, actual=actual)
     expected_str, actual_str = _get_expected_and_actual_strs(

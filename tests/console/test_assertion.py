@@ -24,6 +24,12 @@ def test_assert_equal() -> None:
     )
     assert expected in expression
 
+    expression_file_util.remove_expression_file()
+    assertion.assert_equal(expected=[1, 2, 3], actual=Array([1, 2, 3]))
+    expression = expression_file_util.get_current_expression()
+    assert 'assert_arrays_equal' in expression
+    assert 'assert_equal' not in expression
+
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test__trace_info() -> None:
@@ -56,6 +62,12 @@ def test_assert_not_equal() -> None:
         f'console.assert(11 !== {int_1.variable_name}, "Invalid condition.");'
     )
     assert expected in expression
+
+    expression_file_util.remove_expression_file()
+    assertion.assert_not_equal(expected=[1, 2], actual=Array([1, 2, 3]))
+    expression = expression_file_util.get_current_expression()
+    assert 'assert_arrays_not_equal' in expression
+    assert 'assert_not_equal' not in expression
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))

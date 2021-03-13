@@ -47,6 +47,14 @@ def main() -> None:
     array_2.extend(array_3)
     assert_arrays_equal(expected=[1, 2, 3, 4, 5, 6], actual=array_2)
 
+    array_4: Array = Array([1, 2])
+    array_5: Array = array_4.concat([3, 4])
+    assert_arrays_equal(expected=[1, 2], actual=array_4)
+    assert_arrays_equal(expected=[1, 2, 3, 4], actual=array_5)
+    array_6: Array = Array([5, 6])
+    array_7: Array = array_4.concat(array_6)
+    assert_arrays_equal(expected=[1, 2, 5, 6], actual=array_7)
+
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

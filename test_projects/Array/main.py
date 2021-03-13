@@ -87,6 +87,14 @@ def main() -> None:
     array_12.reverse()
     assert_arrays_equal(expected=[3, 2, 1], actual=array_12)
 
+    array_13: Array = Array([1, 4, 2, 3])
+    array_13.sort()
+    assert_arrays_equal(expected=[1, 2, 3, 4], actual=array_13)
+
+    array_14: Array = Array([1, 4, 2, 3])
+    array_14.sort(ascending=False)
+    assert_arrays_equal(expected=[4, 3, 2, 1], actual=array_14)
+
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

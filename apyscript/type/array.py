@@ -532,3 +532,60 @@ class Array(CopyInterface):
         expression += ');'
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    def __getitem__(self, index: Union[int, Any]) -> Any:
+        """
+        Get a specified index single value.
+
+        Parameters
+        ----------
+        index : int or Int
+            Array's index to get value. Currently not supported tuple
+            value (e.g., slicing).
+
+        Returns
+        -------
+        value : *
+            Specified index's value.
+
+        Raises
+        ------
+        ValueError
+            If specified index type is not int and Int.
+        """
+        from apyscript.type import Int
+        if not isinstance(index, (int, Int)):
+            raise ValueError(
+                'Currently indexing is only supported int or Int types.'
+                ' If you need to slice array please use slice method.')
+        if isinstance(index, Int):
+            index_: int = int(index.value)
+        else:
+            index_ = index
+        value: Any = self._value[index_]
+        self._append_getitem_expression(index=index, value=value)
+        return value
+
+    def _append_getitem_expression(
+            self, index: Union[int, Any],
+            value: Any) -> None:
+        """
+        Append __getitem__ expression to file.
+
+        Parameters
+        ----------
+        index : int or Int
+            Array's index to get value.
+        value : *
+            Specified index's value.
+        """
+        if not isinstance(value, VariableNameInterface):
+            return
+        index_str: str = value_util.get_value_str_for_expression(
+            value=index)
+        expression: str = (
+            f'var {value.variable_name} = '
+            f'{self.variable_name}[{index_str}];'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)

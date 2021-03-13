@@ -372,3 +372,35 @@ class TestArray:
             '.slice(0, 2);'
         )
         assert expected in expression
+
+    def test___getitem__(self) -> None:
+        array_1: Array = Array([1, 2, 3])
+        testing_helper.assert_raises(
+            expected_error_class=ValueError,
+            func_or_method=array_1.__getitem__,
+            kwargs={'index': (0, 1)})
+
+        value_1: int = array_1[1]
+        assert value_1 == 2
+
+    def test__append_getitem_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        int_1: Int = Int(3)
+        array_1: Array = Array([1, 2, int_1])
+        _: int = array_1[0]
+
+        value_1: Int = array_1[2]
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{value_1.variable_name} = {array_1.variable_name}[2];'
+        )
+        assert expected in expression
+
+        int_2: Int = Int(2)
+        _ = array_1[int_2]
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{value_1.variable_name} = {array_1.variable_name}'
+            f'[{int_2.variable_name}];'
+        )
+        assert expected in expression

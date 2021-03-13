@@ -431,3 +431,28 @@ class Array(CopyInterface):
         )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    def sort(self, ascending: bool = True) -> None:
+        """
+        Sort this array in place.
+
+        Parameters
+        ----------
+        ascending : bool, default True
+            Sort by ascending or not. If False is specified,
+            values will be descending.
+        """
+        self._value.sort()
+        self._append_sort_expression()
+        if not ascending:
+            self.reverse()
+
+    def _append_sort_expression(self) -> None:
+        """
+        Append sort method expression to file.
+        """
+        expression: str = (
+            f'{self.variable_name}.sort();'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)

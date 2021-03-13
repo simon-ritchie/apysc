@@ -292,3 +292,35 @@ class TestArray:
             f'{array_1.variable_name}.reverse();'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_sort(self) -> None:
+        array_1: Array = Array([3, 5, 1, 4, 2])
+        array_1.sort()
+        assert array_1.value == [1, 2, 3, 4, 5]
+
+        array_2: Array = Array([3, 5, 1, 4, 2])
+        array_2.sort(ascending=False)
+        assert array_2.value == [5, 4, 3, 2, 1]
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_sort_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        array_1: Array = Array([3, 5, 1, 4, 2])
+        array_1.sort()
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{array_1.variable_name}.sort();'
+        )
+        assert expected in expression
+        assert 'reverse' not in expression
+
+        expression_file_util.remove_expression_file()
+        array_2: Array = Array([3, 5, 1, 4, 2])
+        array_2.sort(ascending=False)
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{array_2.variable_name}.sort();'
+            f'\n{array_2.variable_name}.reverse();'
+        )
+        assert expected in expression

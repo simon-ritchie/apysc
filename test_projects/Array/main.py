@@ -16,7 +16,7 @@ from apyscript.console.assertion import assert_arrays_equal
 from apyscript.display.stage import Stage
 from apyscript.file import file_util
 from apyscript.html import exporter
-from apyscript.type import Array
+from apyscript.type import Array, Int
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -54,6 +54,14 @@ def main() -> None:
     array_6: Array = Array([5, 6])
     array_7: Array = array_4.concat(array_6)
     assert_arrays_equal(expected=[1, 2, 5, 6], actual=array_7)
+
+    array_8: Array = Array([1, 5])
+    array_8.insert(index=1, value=2)
+    assert_arrays_equal(expected=[1, 2, 5], actual=array_8)
+    array_8.insert(index=2, value=Int(3))
+    assert_arrays_equal(expected=[1, 2, 3, 5], actual=array_8)
+    array_8.insert_at(index=3, value=4)
+    assert_arrays_equal(expected=[1, 2, 3, 4, 5], actual=array_8)
 
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 

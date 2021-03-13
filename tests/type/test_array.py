@@ -324,3 +324,51 @@ class TestArray:
             f'\n{array_2.variable_name}.reverse();'
         )
         assert expected in expression
+
+    def test_slice(self) -> None:
+        array_1: Array = Array([1, 2, 3, 4])
+        array_2: Array = array_1.slice(start=1, end=3)
+        assert array_2.value == [2, 3]
+
+        array_3: Array = array_1.slice(start=1)
+        assert array_3.value == [2, 3, 4]
+
+        array_4: Array = array_1.slice(end=2)
+        assert array_4.value == [1, 2]
+
+    def test__append_slice_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        array_1: Array = Array([1, 2, 3, 4])
+        array_2: Array = array_1.slice(start=1, end=3)
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{array_2.variable_name} = '
+            f'{array_1.variable_name}.slice(1, 3);'
+        )
+        assert expected in expression
+
+        int_1: Int = Int(1)
+        int_2: Int = Int(3)
+        array_3: Array = array_1.slice(start=int_1, end=int_2)
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{array_3.variable_name} = {array_1.variable_name}'
+            f'.slice({int_1}, {int_2});'
+        )
+        assert expected in expression
+
+        array_4: Array = array_1.slice(start=1)
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{array_4.variable_name} = {array_1.variable_name}'
+            '.slice(1);'
+        )
+        assert expected in expression
+
+        array_5: Array = array_1.slice(end=2)
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{array_5.variable_name} = {array_1.variable_name}'
+            '.slice(0, 2);'
+        )
+        assert expected in expression

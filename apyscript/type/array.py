@@ -2,7 +2,7 @@
 """
 
 from apyscript.type.variable_name_interface import VariableNameInterface
-from typing import Any, List, Union
+from typing import Any, List, Optional, Union
 
 from apyscript.expression import expression_file_util
 from apyscript.expression import expression_variables_util
@@ -454,5 +454,81 @@ class Array(CopyInterface):
         expression: str = (
             f'{self.variable_name}.sort();'
         )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)
+
+    def slice(
+            self,
+            start: Optional[Union[int, Any]] = None,
+            end: Optional[Union[int, Any]] = None) -> Any:
+        """
+        Slice this array by specified start and end indexes.
+
+        Parameters
+        ----------
+        start : int or Int or None, default None
+            Slicing start index.
+        end : int or Int or None, default None
+            Slicing end index (this index will not be including).
+
+        Returns
+        -------
+        sliced_arr : Array
+            Sliced array.
+
+        Examples
+        --------
+        >>> arr: Array = Array([1, 2, 3, 4])
+        >>> arr.slice(1, 3)
+        [2, 3]
+
+        >>> arr.slice(1)
+        [2, 3, 4]
+
+        >>> arr.slice(end=2)
+        [1, 2]
+        """
+        from apyscript.type import Int
+        if isinstance(start, Int):
+            start_: Optional[int] = int(start.value)
+        else:
+            start_ = start
+        if isinstance(end, Int):
+            end_: Optional[int] = int(end.value)
+        else:
+            end_ = end
+        sliced_arr: Array = self._copy()
+        sliced_arr._value = self._value[slice(start_, end_)]
+        self._append_slice_expression(
+            sliced_arr=sliced_arr, start=start, end=end)
+        return sliced_arr
+
+    def _append_slice_expression(
+            self,
+            sliced_arr: VariableNameInterface,
+            start: Optional[Union[int, Any]],
+            end: Optional[Union[int, Any]]) -> None:
+        """
+        Append slice method expression to file.
+
+        Parameters
+        ----------
+        sliced_arr : Array
+            Sliced array.
+        start : int or Int or None
+            Slicing start index.
+        end : int or Int or None
+            Slicing end index.
+        """
+        if start is None:
+            start = 0
+        expression: str = (
+            f'var {sliced_arr.variable_name} = '
+            f'{self.variable_name}.slice('
+            f'{start}'
+        )
+        if end is not None:
+            expression += f', {end}'
+        expression += ');'
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)

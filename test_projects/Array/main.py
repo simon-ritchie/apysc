@@ -95,6 +95,14 @@ def main() -> None:
     array_14.sort(ascending=False)
     assert_arrays_equal(expected=[4, 3, 2, 1], actual=array_14)
 
+    array_15: Array = Array([1, 2, 3, 4])
+    array_16: Array = array_15.slice(start=1, end=3)
+    assert_arrays_equal(expected=[2, 3], actual=array_16)
+    array_17: Array = array_15.slice(start=1)
+    assert_arrays_equal(expected=[2, 3, 4], actual=array_17)
+    array_18: Array = array_15.slice(end=2)
+    assert_arrays_equal(expected=[1, 2], actual=array_18)
+
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

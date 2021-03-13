@@ -1,6 +1,7 @@
 """Class implementation for array.
 """
 
+from apyscript.type.variable_name_interface import VariableNameInterface
 from typing import Any, List, Union
 
 from apyscript.expression import expression_file_util
@@ -187,7 +188,7 @@ class Array(CopyInterface):
         Parameters
         ----------
         other_arr : list or tuple or Array
-            Any array-like value to concatenate.
+            Other array-like value to concatenate.
         """
         self._validate_acceptable_value_type(value=other_arr)
         if isinstance(other_arr, Array):
@@ -204,12 +205,58 @@ class Array(CopyInterface):
         Parameters
         ----------
         other_arr : list or tuple or Array
-            Any array-like value to concatenate.
+            Other array-like value to concatenate.
         """
         value_str: str = value_util.get_value_str_for_expression(
             value=other_arr)
         expression: str = (
             f'{self.variable_name} = {self.variable_name}'
             f'.concat({value_str});')
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)
+
+    def concat(self, other_arr: Union[List[Any], tuple, Any]) -> Any:
+        """
+        Concatenate arugment array to this one. Argument array's
+        values will positioned after this array's values.
+        This method is similar to extend method, but there is a
+        difference in whether the same variable will be
+        updated (extend) or returned as a different variable (concat).
+
+        Parameters
+        ----------
+        other_arr : list or tuple or Array
+            Other array-like value to concatenate.
+
+        Returns
+        -------
+        concatenated : Array
+            Concatenated array value.
+        """
+        concatenated: Array = self._copy()
+        concatenated.extend(other_arr)
+        self._append_concat_expression(
+            concatenated=concatenated, other_arr=other_arr)
+        return concatenated
+
+    def _append_concat_expression(
+            self, concatenated: VariableNameInterface,
+            other_arr: Union[List[Any], tuple, Any]) -> None:
+        """
+        Append concat method expression to file.
+
+        Parameters
+        ----------
+        concatenated : Array
+            Concatenated array value.
+        other_arr : list or tuple or Array
+            Other array-like value to concatenate.
+        """
+        value_str: str = value_util.get_value_str_for_expression(
+            value=other_arr)
+        expression: str = (
+            f'var {concatenated.variable_name} = '
+            f'{self.variable_name}.concat({value_str});'
+        )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)

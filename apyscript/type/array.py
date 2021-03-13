@@ -319,3 +319,31 @@ class Array(CopyInterface):
         )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    def pop(self) -> Any:
+        """
+        Remove this array's last value and return it.
+
+        Returns
+        -------
+        value : *
+            Removed value.
+        """
+        value: Any = self._value.pop()
+        self._append_pop_expression(value=value)
+        return value
+
+    def _append_pop_expression(self, value: Any) -> Any:
+        """
+        Append pop method expression to file.
+
+        Parameters
+        ----------
+        value : *
+            Removed value.
+        """
+        expression: str = f'{self.variable_name}.pop();'
+        if isinstance(value, VariableNameInterface):
+            expression = f'{value.variable_name} = {expression}'
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)

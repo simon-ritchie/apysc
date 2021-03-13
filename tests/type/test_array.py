@@ -139,12 +139,14 @@ class TestArray:
         )
         assert expected in expression
 
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_concat(self) -> None:
         array_1: Array = Array([1, 2])
         array_2: Array = array_1.concat([3, 4])
         assert array_2.value == [1, 2, 3, 4]
         assert array_1.value == [1, 2]
 
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_concat_expression(self) -> None:
         expression_file_util.remove_expression_file()
         array_1: Array = Array([1, 2])
@@ -165,16 +167,19 @@ class TestArray:
         )
         assert expected in expression
 
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_insert(self) -> None:
         array_1: Array = Array([1, 3])
         array_1.insert(index=1, value=2)
         assert array_1.value == [1, 2, 3]
 
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_insert_at(self) -> None:
         array_1: Array = Array([1, 3])
         array_1.insert_at(index=1, value=2)
         assert array_1.value == [1, 2, 3]
 
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_insert_expression(self) -> None:
         expression_file_util.remove_expression_file()
         array_1: Array = Array([1, 4])
@@ -195,3 +200,30 @@ class TestArray:
         )
         assert expected in expression
 
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_pop(self) -> None:
+        array_1: Array = Array([1, 2])
+        value: int = array_1.pop()
+        assert array_1.value == [1]
+        assert value == 2
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_pop_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        int_1: Int = Int(2)
+        array_1: Array = Array([1, int_1, 3])
+        _: int = array_1.pop()
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{array_1.variable_name}.pop();'
+        )
+        assert expected in expression
+
+        value_1: Int = array_1.pop()
+        assert value_1.variable_name == int_1.variable_name
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{value_1.variable_name} = '
+            f'{array_1.variable_name}.pop();'
+        )
+        assert expected in expression

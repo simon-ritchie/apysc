@@ -108,3 +108,33 @@ class TestArray:
             f'{array_1.variable_name}.push(4);'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_extend(self) -> None:
+        array_1: Array = Array([1, 2])
+        array_1.extend(other_arr=[3, 4])
+        assert array_1.value == [1, 2, 3, 4]
+        array_2: Array = Array([5, 6])
+        array_1.extend(other_arr=array_2)
+        assert array_1.value == [1, 2, 3, 4, 5, 6]
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_extend_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        array_1: Array = Array([1, 2])
+        array_1.extend(other_arr=[3, 4])
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{array_1.variable_name} = '
+            f'{array_1.variable_name}.concat([3, 4]);'
+        )
+        assert expected in expression
+
+        array_2: Array = Array([5, 6])
+        array_1.extend(other_arr=array_2)
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{array_1.variable_name} = '
+            f'{array_1.variable_name}.concat({array_2.variable_name});'
+        )
+        assert expected in expression

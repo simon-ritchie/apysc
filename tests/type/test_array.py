@@ -275,3 +275,20 @@ class TestArray:
             f'{array_1.variable_name}.splice({int_1.variable_name}, 1);'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_reverse(self) -> None:
+        array_1: Array = Array([1, 2, 3])
+        array_1.reverse()
+        assert array_1.value == [3, 2, 1]
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_reverse_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        array_1: Array = Array([1, 2, 3])
+        array_1.reverse()
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{array_1.variable_name}.reverse();'
+        )
+        assert expected in expression

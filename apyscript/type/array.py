@@ -414,3 +414,20 @@ class Array(CopyInterface):
         )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    def reverse(self) -> None:
+        """
+        Reverse this array in place.
+        """
+        self._value.reverse()
+        self._append_reverse_expression()
+
+    def _append_reverse_expression(self) -> None:
+        """
+        Append reverse method expression to file.
+        """
+        expression: str = (
+            f'{self.variable_name}.reverse();'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)

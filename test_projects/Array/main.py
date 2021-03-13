@@ -71,6 +71,10 @@ def main() -> None:
     assert_arrays_equal(expected=[1], actual=array_9)
     assert_equal(expected=2, actual=int_2)
 
+    array_10: Array = Array([1, 2, 3, 4])
+    array_10.remove(3)
+    assert_arrays_equal(expected=[1, 2, 4], actual=array_10)
+
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

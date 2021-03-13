@@ -347,3 +347,34 @@ class Array(CopyInterface):
             expression = f'{value.variable_name} = {expression}'
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    def remove(self, value: Any) -> None:
+        """
+        Remove specified value from this array.
+
+        Parameters
+        ----------
+        value : Any
+            Value to remove.
+        """
+        self._value.remove(value)
+        self._append_remove_expression(value=value)
+
+    def _append_remove_expression(self, value: Any) -> None:
+        """
+        Append remove method expression to file.
+
+        Parameters
+        ----------
+        value : Any
+            Value to remove.
+        """
+        index_var_name: str = expression_variables_util.\
+            get_next_variable_name(type_name='index')
+        value_str: str = value_util.get_value_str_for_expression(value=value)
+        expression: str = (
+            f'var {index_var_name} = _.indexOf'
+            f'({self.variable_name}, {value_str});'
+            f'\n{self.variable_name}.splice({index_var_name}, 1);')
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)

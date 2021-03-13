@@ -227,3 +227,24 @@ class TestArray:
             f'{array_1.variable_name}.pop();'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_remove(self) -> None:
+        array_1: Array = Array([1, 2, 3])
+        array_1.remove(value=2)
+        assert array_1.value == [1, 3]
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_remove_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        array_1: Array = Array([1, 2, 3])
+        array_1.remove(2)
+        expression: str = expression_file_util.get_current_expression()
+        expected_strs: List[str] = [
+            'var index_',
+            f' = _.indexOf({array_1.variable_name}, 2);'
+            f'\n{array_1.variable_name}.splice(',
+            ', 1);'
+        ]
+        for expected_str in expected_strs:
+            assert expected_str in expression

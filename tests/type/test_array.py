@@ -3,7 +3,7 @@ from typing import Any, Dict, List
 
 from retrying import retry
 
-from apyscript.type import Array
+from apyscript.type import Array, Int
 from apyscript.expression import expression_file_util
 from tests import testing_helper
 
@@ -164,3 +164,34 @@ class TestArray:
             f'{array_1.variable_name}.concat({array_3.variable_name});'
         )
         assert expected in expression
+
+    def test_insert(self) -> None:
+        array_1: Array = Array([1, 3])
+        array_1.insert(index=1, value=2)
+        assert array_1.value == [1, 2, 3]
+
+    def test_insert_at(self) -> None:
+        array_1: Array = Array([1, 3])
+        array_1.insert_at(index=1, value=2)
+        assert array_1.value == [1, 2, 3]
+
+    def test__append_insert_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        array_1: Array = Array([1, 4])
+        array_1.insert(index=1, value=2)
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{array_1.variable_name}.splice(1, 0, 2);'
+        )
+        assert expected in expression
+
+        index_1: Int = Int(2)
+        value_1: Int = Int(3)
+        array_1.insert(index=index_1, value=value_1)
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{array_1.variable_name}.splice'
+            f'({index_1.variable_name}, 0, {value_1.variable_name});'
+        )
+        assert expected in expression
+

@@ -260,3 +260,62 @@ class Array(CopyInterface):
         )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    def insert(
+            self, index: Union[int, Any], value: Any) -> None:
+        """
+        Insert value to this array at a specified index.
+        This behaves same as insert_at method.
+
+        Parameters
+        ----------
+        index : int or Int
+            Index to append value to.
+        value : *
+            Any value to append.
+        """
+        from apyscript.type import Int
+        if isinstance(index, Int):
+            index_: int = int(index.value)
+        else:
+            index_ = index
+        if isinstance(value, Int):
+            value_: int = int(value.value)
+        else:
+            value_ = value
+        self._value.insert(index_, value_)
+        self._append_insert_expression(index=index, value=value)
+
+    def insert_at(self, index: Union[int, Any], value: Any) -> None:
+        """
+        Insert value to this array at a specified index.
+        This behaves same as insert method.
+
+        Parameters
+        ----------
+        index : int or Int
+            Index to append value to.
+        value : *
+            Any value to append.
+        """
+        self.insert(index=index, value=value)
+
+    def _append_insert_expression(
+            self, index: Union[int, Any], value: Any) -> None:
+        """
+        Append insert method expression to file.
+
+        Parameters
+        ----------
+        index : int or Int
+            Index to append value to.
+        value : *
+            Any value to append.
+        """
+        value_str: str = value_util.get_value_str_for_expression(value=value)
+        index_str: str = value_util.get_value_str_for_expression(value=index)
+        expression: str = (
+            f'{self.variable_name}.splice({index_str}, 0, {value_str});'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)

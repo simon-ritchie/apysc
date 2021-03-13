@@ -40,6 +40,13 @@ def main() -> None:
     array_1.push(5)
     assert_arrays_equal(expected=[1, 2, 3, 4, 5], actual=array_1)
 
+    array_2: Array = Array([1, 2])
+    array_2.extend([3, 4])
+    assert_arrays_equal(expected=[1, 2, 3, 4], actual=array_2)
+    array_3: Array = Array([5, 6])
+    array_2.extend(array_3)
+    assert_arrays_equal(expected=[1, 2, 3, 4, 5, 6], actual=array_2)
+
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

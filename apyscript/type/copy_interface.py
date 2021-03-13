@@ -39,7 +39,8 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
             Copied value's variable name.
         """
         expression: str = (
-            f'var {result_variable_name} = {self.variable_name};'
+            f'var {result_variable_name} = '
+            f'JSON.parse(JSON.stringify({self.variable_name}));'
         )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)

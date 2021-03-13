@@ -26,6 +26,7 @@ class TestCopyInterface:
         result: CopyInterface = interface._copy()
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'{result.variable_name} = {interface.variable_name};'
+            f'{result.variable_name} = '
+            f'JSON.parse(JSON.stringify({interface.variable_name}));'
         )
         assert expected in expression

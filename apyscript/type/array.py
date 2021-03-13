@@ -8,6 +8,7 @@ from apyscript.expression import expression_file_util
 from apyscript.expression import expression_variables_util
 from apyscript.type.copy_interface import CopyInterface
 from apyscript.type import value_util
+from apyscript.validation import number_validation
 
 
 class Array(CopyInterface):
@@ -274,6 +275,7 @@ class Array(CopyInterface):
         value : *
             Any value to append.
         """
+        number_validation.validate_integer(integer=index)
         from apyscript.type import Int
         if isinstance(index, Int):
             index_: int = int(index.value)
@@ -376,5 +378,39 @@ class Array(CopyInterface):
             f'var {index_var_name} = _.indexOf'
             f'({self.variable_name}, {value_str});'
             f'\n{self.variable_name}.splice({index_var_name}, 1);')
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)
+
+    def remove_at(self, index: Union[int, Any]) -> None:
+        """
+        Remove specified index value from this array.
+
+        Parameters
+        ----------
+        index : int or Int
+            Index to remove value.
+        """
+        number_validation.validate_integer(integer=index)
+        from apyscript.type import Int
+        if isinstance(index, Int):
+            index_: int = int(index.value)
+        else:
+            index_ = index
+        del self._value[index_]
+        self._append_remove_at_expression(index=index)
+
+    def _append_remove_at_expression(self, index: Union[int, Any]) -> None:
+        """
+        Append remove_at method expression to file.
+
+        Parameters
+        ----------
+        index : int or Int
+            Index to remove value.
+        """
+        index_str: str = value_util.get_value_str_for_expression(value=index)
+        expression: str = (
+            f'{self.variable_name}.splice({index_str}, 1);'
+        )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)

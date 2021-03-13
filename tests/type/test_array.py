@@ -248,3 +248,30 @@ class TestArray:
         ]
         for expected_str in expected_strs:
             assert expected_str in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_remove_at(self) -> None:
+        array_1: Array = Array([1, 2, 3, 4])
+        array_1.remove_at(index=1)
+        assert array_1.value == [1, 3, 4]
+        array_1.remove_at(index=Int(1))
+        assert array_1.value == [1, 4]
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_remove_at_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        array_1: Array = Array([1, 2, 3, 4])
+        array_1.remove_at(index=1)
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{array_1.variable_name}.splice(1, 1);'
+        )
+        assert expected in expression
+
+        int_1: Int = Int(1)
+        array_1.remove_at(index=int_1)
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{array_1.variable_name}.splice({int_1.variable_name}, 1);'
+        )
+        assert expected in expression

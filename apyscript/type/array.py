@@ -390,7 +390,7 @@ class Array(CopyInterface):
         index : int or Int
             Index to remove value.
         """
-        number_validation.validate_integer(integer=index)
+        self._validate_index_type_is_int(index=index)
         from apyscript.type import Int
         if isinstance(index, Int):
             index_: int = int(index.value)
@@ -669,3 +669,20 @@ class Array(CopyInterface):
         )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    def __delitem__(self, index: Union[int, Any]) -> None:
+        """
+        Delete specified index value from this array.
+
+        Parameters
+        ----------
+        index : int or Int
+            Array's index to delete. Currently not supported tuple
+            value (e.g., slicing).
+
+        Raises
+        ------
+        ValueError
+            If specified index type is not int and Int.
+        """
+        self.remove_at(index=index)

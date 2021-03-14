@@ -464,3 +464,8 @@ class TestArray:
             f'{int_2.variable_name};'
         )
         assert expected in expression
+
+    def test___delitem__(self) -> None:
+        array_1: Array = Array([1, 2, 3])
+        del array_1[1]
+        assert array_1.value == [1, 3]

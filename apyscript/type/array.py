@@ -633,4 +633,39 @@ class Array(CopyInterface):
         index : int or Int
             Array's index to set value. Currently not supported tuple
             value (e.g., slicing).
+        value : *
+            Any value to set.
+
+        Raises
+        ------
+        ValueError
+            If specified index type is not int and Int.
         """
+        self._validate_index_type_is_int(index=index)
+        index_: int = self._get_builtin_int_from_index(index=index)
+        self._value[index_] = value
+        self._append_setitem_expression(index=index, value=value)
+
+    def _append_setitem_expression(
+            self, index: Union[int, Any], value: Any) -> None:
+        """
+        Append __setitem__ method expression to file.
+
+        Parameters
+        ----------
+        index : int or Int
+            Array's index to set value. Currently not supported tuple
+            value (e.g., slicing).
+        value : *
+            Any value to set.
+        """
+        index_str: str = value_util.get_value_str_for_expression(
+            value=index)
+        value_str: str = value_util.get_value_str_for_expression(
+            value=value)
+        expression: str = (
+            f'{self.variable_name}[{index_str}] = '
+            f'{value_str};'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)

@@ -425,3 +425,42 @@ class TestArray:
         builtin_int_index = array_1._get_builtin_int_from_index(index=Int(1))
         assert builtin_int_index == 1
         assert isinstance(builtin_int_index, int)
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___setitem__(self) -> None:
+        array_1: Array = Array([1, 2, 3])
+        array_1[1] = 4
+        assert array_1.value[1] == 4
+
+        int_1: Int = Int(1)
+        int_2: Int = Int(5)
+        array_1[int_1] = int_2
+        assert array_1.value[1] == 5
+        assert isinstance(array_1.value[1], Int)
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_setitem_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        array_1: Array = Array([1, 2, 3])
+        array_1[1] = 4
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{array_1.variable_name}[1] = 4;'
+        )
+        assert expected in expression
+
+        array_1[1] = 'Hello!'
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{array_1.variable_name}[1] = "Hello!";'
+        )
+
+        int_1: Int = Int(1)
+        int_2: Int = Int(5)
+        array_1[int_1] = int_2
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{array_1.variable_name}[{int_1.variable_name}] = '
+            f'{int_2.variable_name};'
+        )
+        assert expected in expression

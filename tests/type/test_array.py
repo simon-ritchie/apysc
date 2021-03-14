@@ -522,3 +522,9 @@ class TestArray:
             f'{array_1.variable_name}.join({string_2.variable_name});'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___str__(self) -> None:
+        array_1: Array = Array(['1', 2])
+        string: str = str(array_1)
+        assert string == "['1', 2]"

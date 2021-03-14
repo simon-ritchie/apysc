@@ -774,3 +774,14 @@ class Array(CopyInterface):
         )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    def __str__(self) -> str:
+        """
+        String conversion method.
+
+        Returns
+        -------
+        string : str
+            Converted value string.
+        """
+        return str(self._value)

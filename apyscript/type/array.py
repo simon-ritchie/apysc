@@ -717,3 +717,11 @@ class Array(CopyInterface):
         )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    def __len__(self) -> None:
+        """
+        Method to raise error message.
+        """
+        raise ValueError(
+            'Array instance can not apply len function.'
+            ' Please use length method instead.')

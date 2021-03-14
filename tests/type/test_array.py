@@ -2,6 +2,7 @@ from random import randint
 from typing import Any, Dict, List
 
 from retrying import retry
+import pytest
 
 from apyscript.type import Array, Int
 from apyscript.expression import expression_file_util
@@ -465,17 +466,20 @@ class TestArray:
         )
         assert expected in expression
 
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___delitem__(self) -> None:
         array_1: Array = Array([1, 2, 3])
         del array_1[1]
         assert array_1.value == [1, 3]
 
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_length(self) -> None:
         array_1: Array = Array([1, 2, 3])
         length: Int = array_1.length
         assert length == 3
         assert isinstance(length, Int)
 
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_length_expression(self) -> None:
         expression_file_util.remove_expression_file()
         array_1: Array = Array([1, 2, 3])
@@ -485,3 +489,9 @@ class TestArray:
             f'{length.variable_name} = {array_1.variable_name}.length;'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___len__(self) -> None:
+        array_1: Array = Array([1, 2, 3])
+        with pytest.raises(ValueError):  # type: ignore
+            len(array_1)  # type: ignore

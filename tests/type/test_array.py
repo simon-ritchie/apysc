@@ -532,6 +532,8 @@ class TestArray:
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___str__(self) -> None:
         array_1: Array = Array(
-            ['1', 2, Int(3), Number(10.5), Boolean(True)])
+            ['1', 2, Int(3), Number(10.5), Boolean(True), String('Hello!')])
         string: str = str(array_1)
-        assert string == "['1', 2, Int(3), Number(10.5), Boolean(True)]"
+        assert string == (
+            "['1', 2, Int(3), Number(10.5), Boolean(True), "
+            "String('Hello!')]")

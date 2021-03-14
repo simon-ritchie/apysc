@@ -394,3 +394,17 @@ class String(CopyInterface):
         """
         result: float = float(self._value)
         return result
+
+    def __repr__(self) -> str:
+        """
+        Get a representation string of this instance.
+
+        Returns
+        -------
+        repr_str : str
+            Representation string of this instance.
+        """
+        repr_str: str = (
+            f"String('{self._value}')"
+        )
+        return repr_str

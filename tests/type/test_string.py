@@ -231,3 +231,8 @@ class TestString:
     def test___float__(self) -> None:
         string_1: String = String(value='100.5')
         assert float(string_1) == 100.5
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___repr__(self) -> None:
+        string_1: String = String(value='Hello!')
+        assert repr(string_1) == "String('Hello!')"

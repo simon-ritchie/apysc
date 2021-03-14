@@ -553,15 +553,30 @@ class Array(CopyInterface):
         ValueError
             If specified index type is not int and Int.
         """
-        from apyscript.type import Int
         self._validate_index_type_is_int(index=index)
-        if isinstance(index, Int):
-            index_: int = int(index.value)
-        else:
-            index_ = index
+        index_: int = self._get_builtin_int_from_index(index=index)
         value: Any = self._value[index_]
         self._append_getitem_expression(index=index, value=value)
         return value
+
+    def _get_builtin_int_from_index(self, index: Union[int, Any]) -> int:
+        """
+        Get Python builtin integer from index value.
+
+        Parameters
+        ----------
+        index : int or Int
+            Specified array's index.
+
+        Returns
+        -------
+        builtin_int_index : int
+            Python builtin integer index value.
+        """
+        from apyscript.type import Int
+        if isinstance(index, Int):
+            return int(index.value)
+        return index
 
     def _validate_index_type_is_int(self, index: Union[int, Any]) -> None:
         """

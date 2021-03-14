@@ -414,3 +414,14 @@ class TestArray:
             expected_error_class=ValueError,
             func_or_method=array_1._validate_index_type_is_int,
             kwargs={'index': 'Hello!'})
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__get_builtin_int_from_index(self) -> None:
+        array_1: Array = Array([1, 2])
+        builtin_int_index: int = array_1._get_builtin_int_from_index(index=1)
+        assert builtin_int_index == 1
+        assert isinstance(builtin_int_index, int)
+
+        builtin_int_index = array_1._get_builtin_int_from_index(index=Int(1))
+        assert builtin_int_index == 1
+        assert isinstance(builtin_int_index, int)

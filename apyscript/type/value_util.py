@@ -61,7 +61,7 @@ def _get_value_str_from_iterable(value: Union[list, tuple, Any]) -> str:
     from apyscript.type.variable_name_interface import VariableNameInterface
     from apyscript.type import Array
     if isinstance(value, Array):
-        value_: List[Any] = value._value
+        value_: List[Any] = value.value
     elif isinstance(value, tuple):
         value_ = list(value)
     else:

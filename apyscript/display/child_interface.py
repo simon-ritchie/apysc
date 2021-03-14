@@ -55,23 +55,14 @@ class ChildInterface:
         ----------
         child : DisplayObject
             Child instance to remove.
-
-        Raises
-        ------
-        ValueError
-            If specified child not found in this instance's child list.
         """
+        self._append_expression_of_remove_child(child=child)
         for child_ in self._childs.value:
             if child_ != child:
                 continue
             self._childs.remove(child)
-            self._append_expression_of_remove_child(child=child)
             child.parent = None
             return
-        raise ValueError(
-            'Specified child not found in this instance\'s child list.'
-            f'\nChild type: {type(child)}'
-            f'\nChild variable name: {child.variable_name}')
 
     def _append_expression_of_remove_child(self, child: DisplayObject) -> None:
         """

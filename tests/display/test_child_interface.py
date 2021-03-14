@@ -46,11 +46,6 @@ class TestChildInterface:
         assert stage._childs == Array([sprite_1])
         assert sprite_2.parent is None
 
-        testing_helper.assert_raises(
-            expected_error_class=ValueError,
-            func_or_method=stage.remove_child,
-            kwargs={'child': sprite_2})
-
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_expression_of_remove_child(self) -> None:
         stage: Stage = Stage()

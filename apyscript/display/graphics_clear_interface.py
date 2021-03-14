@@ -2,11 +2,10 @@
 """
 
 
-from typing import Optional
-
 from apyscript.type import Array
 from apyscript.type import Int
-from apyscript.type import Number, String
+from apyscript.type import Number
+from apyscript.type import String
 
 
 class GraphicsClearInterface:

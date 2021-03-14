@@ -1,6 +1,7 @@
 from apyscript.display.line_style_interface import LineStyleInterface
+from apyscript.type import Number
+from apyscript.type import String
 from tests import testing_helper
-from apyscript.type import String, Number
 
 
 class TestLineStyleInterface:

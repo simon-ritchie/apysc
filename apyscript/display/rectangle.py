@@ -2,7 +2,6 @@
 """
 
 from typing import Any
-from typing import Optional
 from typing import Union
 
 from apyscript.display.fill_alpha_interface import FillAlphaInterface
@@ -18,7 +17,8 @@ from apyscript.expression import expression_file_util
 from apyscript.expression import expression_variables_util
 from apyscript.html import html_const
 from apyscript.type import Int
-from apyscript.type import Number, String
+from apyscript.type import Number
+from apyscript.type import String
 from apyscript.validation import size_validation
 
 

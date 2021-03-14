@@ -4,7 +4,6 @@ from retrying import retry
 
 from apyscript.display.fill_color_interface import FillColorInterface
 from apyscript.expression import expression_file_util
-from apyscript.html import html_util
 from apyscript.type import String
 
 

@@ -117,6 +117,10 @@ def main() -> None:
     del array_21[1]
     assert_arrays_equal(expected=[1, 3], actual=array_21)
 
+    array_22: Array = Array([1, 2, 3])
+    length_1: Int = array_22.length
+    assert_equal(expected=3, actual=length_1)
+
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

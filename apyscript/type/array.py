@@ -9,6 +9,7 @@ from apyscript.expression import expression_variables_util
 from apyscript.type.copy_interface import CopyInterface
 from apyscript.type import value_util
 from apyscript.validation import number_validation
+from apyscript.type import Int
 
 
 class Array(CopyInterface):
@@ -263,7 +264,7 @@ class Array(CopyInterface):
             expression=expression)
 
     def insert(
-            self, index: Union[int, Any], value: Any) -> None:
+            self, index: Union[int, Int], value: Any) -> None:
         """
         Insert value to this array at a specified index.
         This behaves same as insert_at method.
@@ -288,7 +289,7 @@ class Array(CopyInterface):
         self._value.insert(index_, value_)
         self._append_insert_expression(index=index, value=value)
 
-    def insert_at(self, index: Union[int, Any], value: Any) -> None:
+    def insert_at(self, index: Union[int, Int], value: Any) -> None:
         """
         Insert value to this array at a specified index.
         This behaves same as insert method.
@@ -303,7 +304,7 @@ class Array(CopyInterface):
         self.insert(index=index, value=value)
 
     def _append_insert_expression(
-            self, index: Union[int, Any], value: Any) -> None:
+            self, index: Union[int, Int], value: Any) -> None:
         """
         Append insert method expression to file.
 
@@ -381,7 +382,7 @@ class Array(CopyInterface):
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
 
-    def remove_at(self, index: Union[int, Any]) -> None:
+    def remove_at(self, index: Union[int, Int]) -> None:
         """
         Remove specified index value from this array.
 
@@ -399,7 +400,7 @@ class Array(CopyInterface):
         del self._value[index_]
         self._append_remove_at_expression(index=index)
 
-    def _append_remove_at_expression(self, index: Union[int, Any]) -> None:
+    def _append_remove_at_expression(self, index: Union[int, Int]) -> None:
         """
         Append remove_at method expression to file.
 
@@ -459,8 +460,8 @@ class Array(CopyInterface):
 
     def slice(
             self,
-            start: Optional[Union[int, Any]] = None,
-            end: Optional[Union[int, Any]] = None) -> Any:
+            start: Optional[Union[int, Int]] = None,
+            end: Optional[Union[int, Int]] = None) -> Any:
         """
         Slice this array by specified start and end indexes.
 
@@ -506,8 +507,8 @@ class Array(CopyInterface):
     def _append_slice_expression(
             self,
             sliced_arr: VariableNameInterface,
-            start: Optional[Union[int, Any]],
-            end: Optional[Union[int, Any]]) -> None:
+            start: Optional[Union[int, Int]],
+            end: Optional[Union[int, Int]]) -> None:
         """
         Append slice method expression to file.
 
@@ -533,7 +534,7 @@ class Array(CopyInterface):
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
 
-    def __getitem__(self, index: Union[int, Any]) -> Any:
+    def __getitem__(self, index: Union[int, Int]) -> Any:
         """
         Get a specified index single value.
 
@@ -559,7 +560,7 @@ class Array(CopyInterface):
         self._append_getitem_expression(index=index, value=value)
         return value
 
-    def _get_builtin_int_from_index(self, index: Union[int, Any]) -> int:
+    def _get_builtin_int_from_index(self, index: Union[int, Int]) -> int:
         """
         Get Python builtin integer from index value.
 
@@ -578,7 +579,7 @@ class Array(CopyInterface):
             return int(index.value)
         return index
 
-    def _validate_index_type_is_int(self, index: Union[int, Any]) -> None:
+    def _validate_index_type_is_int(self, index: Union[int, Int]) -> None:
         """
         Validate whether index value type is int (or Int) or not.
 
@@ -601,7 +602,7 @@ class Array(CopyInterface):
 
 
     def _append_getitem_expression(
-            self, index: Union[int, Any],
+            self, index: Union[int, Int],
             value: Any) -> None:
         """
         Append __getitem__ expression to file.
@@ -624,7 +625,7 @@ class Array(CopyInterface):
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
 
-    def __setitem__(self, index: Union[int, Any], value: Any) -> None:
+    def __setitem__(self, index: Union[int, Int], value: Any) -> None:
         """
         Set value to a specified index.
 
@@ -647,7 +648,7 @@ class Array(CopyInterface):
         self._append_setitem_expression(index=index, value=value)
 
     def _append_setitem_expression(
-            self, index: Union[int, Any], value: Any) -> None:
+            self, index: Union[int, Int], value: Any) -> None:
         """
         Append __setitem__ method expression to file.
 
@@ -670,7 +671,7 @@ class Array(CopyInterface):
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
 
-    def __delitem__(self, index: Union[int, Any]) -> None:
+    def __delitem__(self, index: Union[int, Int]) -> None:
         """
         Delete specified index value from this array.
 
@@ -686,3 +687,33 @@ class Array(CopyInterface):
             If specified index type is not int and Int.
         """
         self.remove_at(index=index)
+
+    @property
+    def length(self) -> Int:
+        """
+        Get length of this array.
+        This behaves same as len function.
+
+        Returns
+        -------
+        length : Int
+            This array's length.
+        """
+        length: Int = Int(len(self._value))
+        self._append_length_expression(length=length)
+        return length
+
+    def _append_length_expression(self, length: Int) -> None:
+        """
+        Append length method expression to file.
+
+        Parameters
+        ----------
+        length : Int
+            Created length Int variable.
+        """
+        expression: str = (
+            f'{length.variable_name} = {self.variable_name}.length;'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)

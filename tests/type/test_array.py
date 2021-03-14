@@ -469,3 +469,19 @@ class TestArray:
         array_1: Array = Array([1, 2, 3])
         del array_1[1]
         assert array_1.value == [1, 3]
+
+    def test_length(self) -> None:
+        array_1: Array = Array([1, 2, 3])
+        length: Int = array_1.length
+        assert length == 3
+        assert isinstance(length, Int)
+
+    def test__append_length_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        array_1: Array = Array([1, 2, 3])
+        length: Int = array_1.length
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{length.variable_name} = {array_1.variable_name}.length;'
+        )
+        assert expected in expression

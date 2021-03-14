@@ -13,8 +13,9 @@ from apyscript.display.rectangle import append_draw_rect_expression
 from apyscript.expression import expression_file_util
 from apyscript.expression import expression_variables_util
 from apyscript.html import html_util
+from apyscript.type import Array
 from apyscript.type import Int
-from apyscript.type import Number, Array
+from apyscript.type import Number
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import display_validation
 

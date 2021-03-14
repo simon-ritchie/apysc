@@ -9,6 +9,7 @@ from apyscript.display.stage import Stage
 from apyscript.display.stage import get_stage_variable_name
 from apyscript.expression import expression_file_util
 from apyscript.file import file_util
+from apyscript.type import Array
 from tests import testing_helper
 
 
@@ -35,7 +36,7 @@ class TestSprite:
         parent_sprite: Sprite = Sprite(stage=stage)
         child_sprite: Sprite = Sprite(stage=stage)
         parent_sprite.add_child(child=child_sprite)
-        assert parent_sprite._childs == [child_sprite]
+        assert parent_sprite._childs == Array([child_sprite])
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_constructor_expression(self) -> None:

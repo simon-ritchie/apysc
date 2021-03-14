@@ -11,7 +11,8 @@ from apyscript.display.stage import get_stage_variable_name
 from apyscript.expression import expression_file_util
 from apyscript.expression import expression_variables_util
 from apyscript.html import html_const
-from apyscript.type import type_util, Array
+from apyscript.type import Array
+from apyscript.type import type_util
 
 
 class Sprite(DisplayObject, ChildInterface):

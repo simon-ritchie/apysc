@@ -6,6 +6,7 @@ from apyscript.display import Sprite
 from apyscript.display.display_object import DisplayObject
 from apyscript.display.stage import Stage
 from apyscript.expression import expression_file_util
+from apyscript.type import Array
 from tests import testing_helper
 
 
@@ -20,7 +21,7 @@ class TestChildInterface:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
         stage.add_child(child=sprite)
-        assert stage._childs == [sprite]
+        assert stage._childs == Array([sprite])
         assert sprite.parent == stage
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -42,7 +43,7 @@ class TestChildInterface:
         sprite_2: Sprite = Sprite(stage=stage)
         stage.add_child(child=sprite_2)
         stage.remove_child(child=sprite_2)
-        assert stage._childs == [sprite_1]
+        assert stage._childs == Array([sprite_1])
         assert sprite_2.parent is None
 
         testing_helper.assert_raises(

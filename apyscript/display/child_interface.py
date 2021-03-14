@@ -1,13 +1,13 @@
 """Class implementation for child related interface.
 """
 
-from typing import List
 
 from apyscript.display.display_object import DisplayObject
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
+from apyscript.type import Array
 from apyscript.type import Boolean
-from apyscript.type import Int, Array
+from apyscript.type import Int
 from apyscript.validation import display_validation
 
 
@@ -61,7 +61,7 @@ class ChildInterface:
         ValueError
             If specified child not found in this instance's child list.
         """
-        for child_ in self._childs:
+        for child_ in self._childs.value:
             if child_ != child:
                 continue
             self._childs.remove(child)

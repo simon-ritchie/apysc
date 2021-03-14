@@ -10,6 +10,7 @@ from apyscript.display.stage import _STAGE_ELEM_ID_FILE_PATH
 from apyscript.display.stage import Stage
 from apyscript.expression import expression_file_util
 from apyscript.file import file_util
+from apyscript.type import Array
 from tests import testing_helper
 
 
@@ -100,7 +101,7 @@ class TestStage:
         display_object: DisplayObject = DisplayObject(
             stage=stage, variable_name='test_display_object_1')
         stage.add_child(child=display_object)
-        assert stage._childs == [display_object]
+        assert stage._childs == Array([display_object])
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__save_stage_elem_id_to_expression_file(self) -> None:

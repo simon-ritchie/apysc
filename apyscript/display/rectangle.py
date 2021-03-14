@@ -18,7 +18,7 @@ from apyscript.expression import expression_file_util
 from apyscript.expression import expression_variables_util
 from apyscript.html import html_const
 from apyscript.type import Int
-from apyscript.type import Number
+from apyscript.type import Number, String
 from apyscript.validation import size_validation
 
 
@@ -33,7 +33,7 @@ class Rectangle(
             y: Union[int, Int],
             width: Union[int, Int],
             height: Union[int, Int],
-            fill_color: Optional[str] = None,
+            fill_color: Union[String, str] = '',
             fill_alpha: Union[float, Number] = 1.0,
             line_color: Optional[str] = None,
             line_thickness: Union[int, Int] = 1,
@@ -75,8 +75,9 @@ class Rectangle(
         size_validation.validate_size_is_gte_zero(size=height)
         self.update_width_and_skip_appending_exp(value=Int(width))
         self.update_height_and_skip_appending_exp(value=Int(height))
-        if fill_color is not None:
-            self.update_fill_color_and_skip_appending_exp(value=fill_color)
+        if fill_color != '':
+            self.update_fill_color_and_skip_appending_exp(
+                value=fill_color)
         self.update_fill_alpha_and_skip_appending_exp(value=fill_alpha)
         if line_color is not None:
             self.update_line_color_and_skip_appending_exp(value=line_color)

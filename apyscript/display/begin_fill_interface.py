@@ -17,8 +17,8 @@ from apyscript.validation import number_validation
 
 class BiginFillInterface:
 
-    _fill_color: String = String('')
-    _fill_alpha: Number = Number(1.0)
+    _fill_color: String
+    _fill_alpha: Number
 
     def begin_fill(
             self, color: Union[str, String],
@@ -43,8 +43,6 @@ class BiginFillInterface:
         number_validation.validate_num(num=alpha)
         if not isinstance(alpha, Number):
             alpha = cast.to_float_from_int(int_or_float=alpha)
-        else:
-            alpha = alpha.value
         color_validation.validate_alpha_range(alpha=alpha)
         if isinstance(alpha, Number):
             self._fill_alpha.value = alpha.value

@@ -1,39 +1,40 @@
 """Class implementation for fill color interface.
 """
 
-from typing import Optional
+from typing import Optional, Union
 
 from apyscript.color import color_util
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
 from apyscript.type.variable_name_interface import VariableNameInterface
+from apyscript.type import String
 
 
 class FillColorInterface(VariableNameInterface):
 
-    _fill_color: Optional[str] = None
+    _fill_color: String = String('')
 
     @property
-    def fill_color(self) -> Optional[str]:
+    def fill_color(self) -> Union[str, String]:
         """
         Get this instance's fill color.
 
         Returns
         -------
-        fill_color : str or None
+        fill_color : String
             Current fill color (hexadecimal string, e.g., '#00aaff').
             If not be set, None will be returned.
         """
         return self._fill_color
 
     @fill_color.setter
-    def fill_color(self, value: str) -> None:
+    def fill_color(self, value: Union[str, String]) -> None:
         """
         Update this instance's fill color.
 
         Parameters
         ----------
-        value : int
+        value : str or String
             Fill color to set.
         """
         self.update_fill_color_and_skip_appending_exp(value=value)
@@ -51,7 +52,8 @@ class FillColorInterface(VariableNameInterface):
         expression_file_util.append_expression(
             expression=expression)
 
-    def update_fill_color_and_skip_appending_exp(self, value: str) -> None:
+    def update_fill_color_and_skip_appending_exp(
+            self, value: Union[str, String]) -> None:
         """
         Update fill color and skip appending expression to file.
 
@@ -60,5 +62,10 @@ class FillColorInterface(VariableNameInterface):
         value : int
             Fill color to set.
         """
-        value = color_util.complement_hex_color(hex_color_code=value)
-        self._fill_color = value
+        if isinstance(value, String):
+            value_: str = color_util.complement_hex_color(
+                hex_color_code=value.value)
+        else:
+            value_ = color_util.complement_hex_color(
+                hex_color_code=value)
+        self._fill_color.value = value_

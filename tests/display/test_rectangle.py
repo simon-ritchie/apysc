@@ -64,7 +64,7 @@ def test__make_rect_attrs_expression() -> None:
         '\n    y: 200,'
         '\n  })'
     )
-    assert rect_attrs_expression == expected
+    assert expected in rect_attrs_expression
 
     sprite.graphics.begin_fill(color='#333', alpha=0.5)
     rect_attrs_expression = rectangle._make_rect_attrs_expression(

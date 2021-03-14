@@ -10,6 +10,7 @@ from apyscript.type import value_util
 
 class TestXInterface:
 
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_x(self) -> None:
         x_interface = XInterface()
         x_interface.variable_name = 'test_x_interface'

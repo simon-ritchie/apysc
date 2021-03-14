@@ -19,7 +19,7 @@ class TestGraphicsClearInterface:
         sprite.graphics.line_style(color='#aaa')
 
         expected_attrs: Dict[str, Any] = {
-            '_fill_color': None,
+            '_fill_color': '',
             '_fill_alpha': 1.0,
             '_line_color': None,
             '_line_thickness': 1,

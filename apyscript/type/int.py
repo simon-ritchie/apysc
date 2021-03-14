@@ -73,3 +73,17 @@ class Int(NumberValueInterface):
             value = cast.to_int_from_float(int_or_float=value)
             value_ = value
         self._value = value_
+
+    def __repr__(self) -> str:
+        """
+        Get a representation string of this instance.
+
+        Returns
+        -------
+        repr_str : str
+            Representation string of this instance.
+        """
+        repr_str: str = (
+            f'Int({self._value})'
+        )
+        return repr_str

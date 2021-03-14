@@ -108,3 +108,9 @@ class TestInt:
         assert 'parseInt' not in expression
         expected = f'{int_val.variable_name} = 100;'
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___repr__(self) -> None:
+        int_1: Int = Int(3)
+        repr_str: str = repr(int_1)
+        assert repr_str == 'Int(3)'

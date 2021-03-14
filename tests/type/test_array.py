@@ -529,6 +529,6 @@ class TestArray:
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___str__(self) -> None:
-        array_1: Array = Array(['1', 2])
+        array_1: Array = Array(['1', 2, Int(3)])
         string: str = str(array_1)
-        assert string == "['1', 2]"
+        assert string == "['1', 2, Int(3)]"

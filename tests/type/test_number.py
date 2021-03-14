@@ -94,3 +94,9 @@ class TestNumber:
             f'{number_2.variable_name} = {number_1.variable_name};'
         )
         assert expected not in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___repr__(self) -> None:
+        number_1: Number = Number(value=10.5)
+        repr_str: str = repr(number_1)
+        assert repr_str == 'Number(10.5)'

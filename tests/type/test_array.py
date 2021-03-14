@@ -10,6 +10,7 @@ from apyscript.expression import expression_file_util
 from apyscript.type import Array
 from apyscript.type import Int
 from apyscript.type import String
+from apyscript.type import Number
 from tests import testing_helper
 
 
@@ -529,6 +530,7 @@ class TestArray:
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___str__(self) -> None:
-        array_1: Array = Array(['1', 2, Int(3)])
+        array_1: Array = Array(
+            ['1', 2, Int(3), Number(10.5)])
         string: str = str(array_1)
-        assert string == "['1', 2, Int(3)]"
+        assert string == "['1', 2, Int(3), Number(10.5)]"

@@ -12,11 +12,14 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apyscript.console.assertion import assert_arrays_equal, assert_equal
+from apyscript.console.assertion import assert_arrays_equal
+from apyscript.console.assertion import assert_equal
 from apyscript.display.stage import Stage
 from apyscript.file import file_util
 from apyscript.html import exporter
-from apyscript.type import Array, Int, String
+from apyscript.type import Array
+from apyscript.type import Int
+from apyscript.type import String
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -121,8 +124,8 @@ def main() -> None:
     length_1: Int = array_22.length
     assert_equal(expected=3, actual=length_1)
 
-    array_22: Array = Array([1, Int(2), '3', String('4')])
-    joined_1: String = array_22.join(', ')
+    array_23: Array = Array([1, Int(2), '3', String('4')])
+    joined_1: String = array_23.join(', ')
     assert_equal(expected='1, 2, 3, 4', actual=joined_1)
 
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)

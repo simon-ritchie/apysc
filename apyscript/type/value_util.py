@@ -8,7 +8,9 @@ Mainly following interfaces are defined:
     Get a copy of specified instance if it is instance of CopyInterface.
 """
 
-from typing import Any, List, Union
+from typing import Any
+from typing import List
+from typing import Union
 
 
 def get_value_str_for_expression(value: Any) -> str:
@@ -58,10 +60,10 @@ def _get_value_str_from_iterable(value: Union[list, tuple, Any]) -> str:
     value_str : str
         Converted string, e.g., '[10, "Hello!", true, any_variable]'.
     """
-    from apyscript.type.variable_name_interface import VariableNameInterface
     from apyscript.type import Array
+    from apyscript.type.variable_name_interface import VariableNameInterface
     if isinstance(value, Array):
-        value_: List[Any] = value.value
+        value_: List[Any] = value.value  # type: ignore
     elif isinstance(value, tuple):
         value_ = list(value)
     else:

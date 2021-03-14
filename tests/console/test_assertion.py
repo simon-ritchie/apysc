@@ -4,8 +4,9 @@ from retrying import retry
 
 from apyscript.console import assertion
 from apyscript.expression import expression_file_util
+from apyscript.type import Array
 from apyscript.type import Boolean
-from apyscript.type import Int, Array
+from apyscript.type import Int
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -199,7 +200,7 @@ def test__make_arrays_comparison_expression() -> None:
         msg='',
         not_condition=True)
     expected = (
-        f'console.assert(!_.isEqual([1, 2, 3], [1]), "");')
+        'console.assert(!_.isEqual([1, 2, 3], [1]), "");')
     assert expression == expected
 
 

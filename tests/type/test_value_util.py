@@ -2,7 +2,8 @@ from random import randint
 
 from retrying import retry
 
-from apyscript.type import Int, Array
+from apyscript.type import Array
+from apyscript.type import Int
 from apyscript.type import value_util
 
 

@@ -1,11 +1,15 @@
 from random import randint
-from typing import Any, Dict, List
+from typing import Any
+from typing import Dict
+from typing import List
 
-from retrying import retry
 import pytest
+from retrying import retry
 
-from apyscript.type import Array, Int, String
 from apyscript.expression import expression_file_util
+from apyscript.type import Array
+from apyscript.type import Int
+from apyscript.type import String
 from tests import testing_helper
 
 
@@ -28,7 +32,7 @@ class TestArray:
     def test__validate_acceptable_value_type(self) -> None:
         array_1: Array = Array([1, 2, 3])
         _: Array = Array((1, 2, 3))
-        _: Array = Array(array_1)
+        _ = Array(array_1)
 
         testing_helper.assert_raises(
             expected_error_class=ValueError,
@@ -85,7 +89,7 @@ class TestArray:
 
         array_2: Array = Array([7, 8, 9])
         array_2.value = array_1
-        assert array_2.value == [4, 5, 6]
+        assert array_2.value == [4, 5, 6]  # type: ignore
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_append(self) -> None:

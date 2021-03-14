@@ -16,7 +16,7 @@ Mainly following interfaces are defined:
     JavaScript assertion interface for Array values not equal condition.
 """
 
-from typing import Any, List
+from typing import Any
 from typing import Tuple
 
 from apyscript.console.trace import trace

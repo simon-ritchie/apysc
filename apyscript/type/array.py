@@ -1,15 +1,19 @@
 """Class implementation for array.
 """
 
-from apyscript.type.variable_name_interface import VariableNameInterface
-from typing import Any, List, Optional, Union
+from typing import Any
+from typing import List
+from typing import Optional
+from typing import Union
 
 from apyscript.expression import expression_file_util
 from apyscript.expression import expression_variables_util
-from apyscript.type.copy_interface import CopyInterface
+from apyscript.type import Int
+from apyscript.type import String
 from apyscript.type import value_util
+from apyscript.type.copy_interface import CopyInterface
+from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import number_validation
-from apyscript.type import Int, String
 
 
 class Array(CopyInterface):
@@ -599,7 +603,6 @@ class Array(CopyInterface):
         raise ValueError(
             'Currently indexing is only supported int or Int types.'
             ' If you need to slice array please use slice method.')
-
 
     def _append_getitem_expression(
             self, index: Union[int, Int],

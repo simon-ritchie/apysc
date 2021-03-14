@@ -2,10 +2,6 @@
 """
 
 
-from apyscript.html import html_util
-from apyscript.validation import color_validation
-
-
 def complement_hex_color(hex_color_code: str) -> str:
     """
     Complement hex color for convenience, for instance, add # prefix or
@@ -21,6 +17,8 @@ def complement_hex_color(hex_color_code: str) -> str:
     complemented_hex_color_code : str
         Result hex color code. e.g., '#ff0000', '#666666, '#000000'
     """
+    from apyscript.html import html_util
+    from apyscript.validation import color_validation
     hex_color_code = html_util.remove_first_selector_symbol_char(
         str_val=hex_color_code)
     color_validation.validate_hex_color_code_format(

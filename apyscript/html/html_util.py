@@ -18,13 +18,14 @@ Mainly following interfaces are defined:
 """
 
 import re
-from typing import List
+from typing import List, Union
 from typing import Match
 from typing import Optional
 from typing import Tuple
 
 from apyscript.html import html_const
 from apyscript.string import indent_util
+from apyscript.type import String
 
 
 def remove_first_selector_symbol_char(str_val: str) -> str:

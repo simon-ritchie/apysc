@@ -6,46 +6,53 @@ See Also
 """
 
 
-from typing import Optional
 from typing import Union
 
 from apyscript.color import color_util
 from apyscript.converter import cast
-from apyscript.type import Number
+from apyscript.type import Number, String
 from apyscript.validation import color_validation
 from apyscript.validation import number_validation
 
 
 class BiginFillInterface:
 
-    _fill_color: Optional[str] = None
+    _fill_color: String = String('')
     _fill_alpha: Number = Number(1.0)
 
     def begin_fill(
-            self, color: str,
+            self, color: Union[str, String],
             alpha: Union[float, Number] = 1.0) -> None:
         """
         Set single color value for fill.
 
         Parameters
         ----------
-        color : str
+        color : str or String
             Hexadecimal color string. e.g., '#00aaff'
         alpha : float or Number, default 1.0
             Color opacity (0.0 to 1.0).
         """
-        color = color_util.complement_hex_color(hex_color_code=color)
-        self._fill_color = color
+        if isinstance(color, String):
+            color.value = color_util.complement_hex_color(
+                hex_color_code=color.value)
+        else:
+            color = color_util.complement_hex_color(
+                hex_color_code=color)
+        self._fill_color.value = color
         number_validation.validate_num(num=alpha)
         if not isinstance(alpha, Number):
             alpha = cast.to_float_from_int(int_or_float=alpha)
         else:
             alpha = alpha.value
         color_validation.validate_alpha_range(alpha=alpha)
-        self._fill_alpha = Number(value=alpha)
+        if isinstance(alpha, Number):
+            self._fill_alpha.value = alpha.value
+        else:
+            self._fill_alpha.value = alpha
 
     @property
-    def fill_color(self) -> Optional[str]:
+    def fill_color(self) -> String:
         """
         Get current fill color.
 

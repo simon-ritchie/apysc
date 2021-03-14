@@ -25,7 +25,7 @@ def append_fill_expression(
     expression : str
         After appended expression string.
     """
-    if graphics.fill_color is None:
+    if graphics.fill_color == '':
         return expression
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (

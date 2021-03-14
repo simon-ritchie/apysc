@@ -9,7 +9,6 @@ from apyscript.expression import expression_variables_util
 from apyscript.type.copy_interface import CopyInterface
 from apyscript.type.value_util import get_value_str_for_expression
 from apyscript.type.variable_name_interface import VariableNameInterface
-from apyscript.validation import number_validation
 from apyscript.validation import string_validation
 
 
@@ -170,6 +169,7 @@ class String(CopyInterface):
             Repeated result string.
         """
         from apyscript.type import Int
+        from apyscript.validation import number_validation
         number_validation.validate_integer(integer=other)
         if isinstance(other, Int):
             value: int = other.value  # type: ignore

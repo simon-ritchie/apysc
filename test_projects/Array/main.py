@@ -106,6 +106,9 @@ def main() -> None:
     array_19: Array = Array([Int(1), Int(2), Int(3)])
     assert_equal(expected=2, actual=array_19[1])
 
+    array_19[Int(1)] = Int(4)
+    assert_arrays_equal(expected=[1, 4, 3], actual=array_19)
+
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

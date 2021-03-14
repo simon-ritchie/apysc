@@ -554,10 +554,7 @@ class Array(CopyInterface):
             If specified index type is not int and Int.
         """
         from apyscript.type import Int
-        if not isinstance(index, (int, Int)):
-            raise ValueError(
-                'Currently indexing is only supported int or Int types.'
-                ' If you need to slice array please use slice method.')
+        self._validate_index_type_is_int(index=index)
         if isinstance(index, Int):
             index_: int = int(index.value)
         else:
@@ -565,6 +562,28 @@ class Array(CopyInterface):
         value: Any = self._value[index_]
         self._append_getitem_expression(index=index, value=value)
         return value
+
+    def _validate_index_type_is_int(self, index: Union[int, Any]) -> None:
+        """
+        Validate whether index value type is int (or Int) or not.
+
+        Parameters
+        ----------
+        index : int or Int
+            Index value to check.
+
+        Raises
+        ------
+        ValueError
+            If index type is not int or Int type.
+        """
+        from apyscript.type import Int
+        if isinstance(index, (int, Int)):
+            return
+        raise ValueError(
+            'Currently indexing is only supported int or Int types.'
+            ' If you need to slice array please use slice method.')
+
 
     def _append_getitem_expression(
             self, index: Union[int, Any],
@@ -589,3 +608,14 @@ class Array(CopyInterface):
         )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    def __setitem__(self, index: Union[int, Any], value: Any) -> None:
+        """
+        Set value to a specified index.
+
+        Parameters
+        ----------
+        index : int or Int
+            Array's index to set value. Currently not supported tuple
+            value (e.g., slicing).
+        """

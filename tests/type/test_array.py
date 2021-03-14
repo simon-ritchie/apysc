@@ -404,3 +404,13 @@ class TestArray:
             f'[{int_2.variable_name}];'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__validate_index_type_is_int(self) -> None:
+        array_1: Array = Array([1, 2])
+        array_1._validate_index_type_is_int(index=1)
+        array_1._validate_index_type_is_int(index=Int(1))
+        testing_helper.assert_raises(
+            expected_error_class=ValueError,
+            func_or_method=array_1._validate_index_type_is_int,
+            kwargs={'index': 'Hello!'})

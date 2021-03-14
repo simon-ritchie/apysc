@@ -14,7 +14,7 @@ from apyscript.expression import expression_file_util
 from apyscript.expression import expression_variables_util
 from apyscript.html import html_util
 from apyscript.type import Int
-from apyscript.type import Number
+from apyscript.type import Number, Array
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import display_validation
 
@@ -47,7 +47,7 @@ class Graphics(
         self._fill_alpha = Number(1.0)
         self._line_alpha = Number(1.0)
         self._line_thickness = Int(1.0)
-        self._childs = []
+        self._childs = Array([])
         self._append_constructor_expression()
 
     def _append_constructor_expression(self) -> None:

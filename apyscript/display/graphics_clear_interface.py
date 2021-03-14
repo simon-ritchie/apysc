@@ -7,7 +7,7 @@ from typing import Optional
 
 from apyscript.display.display_object import DisplayObject
 from apyscript.type import Int
-from apyscript.type import Number
+from apyscript.type import Number, Array
 
 
 class GraphicsClearInterface:
@@ -17,7 +17,7 @@ class GraphicsClearInterface:
     _line_color: Optional[str] = None
     _line_thickness: Int = Int(1)
     _line_alpha: Number
-    _childs: List[DisplayObject]
+    _childs: Array
 
     def clear(self) -> None:
         """

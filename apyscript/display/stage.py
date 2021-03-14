@@ -14,7 +14,7 @@ from apyscript.expression import expression_file_util
 from apyscript.file import file_util
 from apyscript.html import html_const
 from apyscript.html import html_util
-from apyscript.type import Int
+from apyscript.type import Int, Array
 from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.validation import string_validation
 
@@ -73,7 +73,7 @@ class Stage(
         string_validation.validate_not_empty_string(string=add_to)
         self._add_to = add_to
         self._append_constructor_expression()
-        self._childs = []
+        self._childs = Array([])
 
     def _save_stage_elem_id_to_expression_file(self) -> None:
         """

@@ -11,7 +11,7 @@ from apyscript.display.stage import get_stage_variable_name
 from apyscript.expression import expression_file_util
 from apyscript.expression import expression_variables_util
 from apyscript.html import html_const
-from apyscript.type import type_util
+from apyscript.type import type_util, Array
 
 
 class Sprite(DisplayObject, ChildInterface):
@@ -36,7 +36,7 @@ class Sprite(DisplayObject, ChildInterface):
         if variable_name is None:
             variable_name = expression_variables_util.\
                 get_next_variable_name(type_name='sprite')
-        self._childs = []
+        self._childs = Array([])
         super(Sprite, self).__init__(
             stage=stage, variable_name=variable_name)
         self._append_constructor_expression()

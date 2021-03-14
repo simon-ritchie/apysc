@@ -13,7 +13,7 @@ from apyscript.validation import display_validation
 
 class ChildInterface:
 
-    _childs: List[DisplayObject]
+    _childs: Array
 
     def add_child(self, child: DisplayObject) -> None:
         """
@@ -106,9 +106,8 @@ class ChildInterface:
             If this instance contains specified child, True will
             be set.
         """
-        try:
-            self._childs.index(child)
-        except ValueError:
+        index: Int = self._childs.index_of(value=child)
+        if index == -1:
             return Boolean(False)
         return Boolean(True)
 
@@ -122,7 +121,7 @@ class ChildInterface:
         num_children : int
             Current children number.
         """
-        num_children: Int = Int(value=len(self._childs))
+        num_children: Int = Int(value=self._childs.length)
         return num_children
 
     def get_child_at(self, index: int) -> DisplayObject:

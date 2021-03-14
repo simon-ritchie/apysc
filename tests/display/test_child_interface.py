@@ -6,7 +6,7 @@ from apyscript.display import Sprite
 from apyscript.display.display_object import DisplayObject
 from apyscript.display.stage import Stage
 from apyscript.expression import expression_file_util
-from apyscript.type import Array
+from apyscript.type import Array, Boolean
 from tests import testing_helper
 
 
@@ -67,6 +67,20 @@ class TestChildInterface:
 
         sprite_2: Sprite = Sprite(stage=stage)
         assert not stage.contains(child=sprite_2)
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_contains_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        stage: Stage = Stage()
+        sprite_1: Sprite = Sprite(stage=stage)
+        stage.add_child(child=sprite_1)
+        result: Boolean = stage.contains(sprite_1)
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{result._variable_name} = '
+            f'{stage.variable_name}.has({sprite_1.variable_name});'
+        )
+        assert expected in expression
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_num_children(self) -> None:

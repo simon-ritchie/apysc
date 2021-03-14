@@ -1,7 +1,6 @@
 """Class implementation for child related interface.
 """
 
-
 from apyscript.display.display_object import DisplayObject
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
@@ -14,6 +13,7 @@ from apyscript.validation import display_validation
 class ChildInterface:
 
     _childs: Array
+    _variable_name: str
 
     def add_child(self, child: DisplayObject) -> None:
         """
@@ -99,8 +99,30 @@ class ChildInterface:
         """
         index: Int = self._childs.index_of(value=child)
         if index == -1:
-            return Boolean(False)
-        return Boolean(True)
+            result: Boolean = Boolean(False)
+        else:
+            result = Boolean(True)
+        self._append_contains_expression(result=result, child=child)
+        return result
+
+    def _append_contains_expression(
+            self, result: Boolean, child: DisplayObject) -> None:
+        """
+        Append contains method expression to file.
+
+        Parameters
+        ----------
+        result : Boolean
+            Result boolean value.
+        child : DisplayObject
+            Child instance to check.
+        """
+        expression: str = (
+            f'{result.variable_name} = '
+            f'{self._variable_name}.has({child.variable_name});'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)
 
     @property
     def num_children(self) -> Int:

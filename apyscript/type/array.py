@@ -9,7 +9,7 @@ from apyscript.expression import expression_variables_util
 from apyscript.type.copy_interface import CopyInterface
 from apyscript.type import value_util
 from apyscript.validation import number_validation
-from apyscript.type import Int
+from apyscript.type import Int, String
 
 
 class Array(CopyInterface):
@@ -725,3 +725,52 @@ class Array(CopyInterface):
         raise ValueError(
             'Array instance can not apply len function.'
             ' Please use length method instead.')
+
+    def join(self, sep: Union[str, String]) -> String:
+        """
+        Join this array values with specified separator string.
+
+        Parameters
+        ----------
+        sep : str or String
+            Separator string.
+
+        Returns
+        -------
+        joined : String
+            Joined string.
+
+        Examples
+        --------
+        >>> arr: Array = Array([1, 2', 3])
+        >>> arr.join(sep=', ')
+        '1, 2, 3'
+        """
+        if isinstance(sep, String):
+            sep_: str = sep.value
+        else:
+            sep_ = sep
+        values_: List[Any] = [str(value) for value in self._value]
+        joined: String = String(sep_.join(values_))
+        self._append_join_expression(joined=joined, sep=sep)
+        return joined
+
+    def _append_join_expression(
+            self, joined: String, sep: Union[str, String]) -> None:
+        """
+        Append join method expression to file.
+
+        Parameters
+        ----------
+        joined : String
+            Joined string.
+        sep : str or String
+            Separator string.
+        """
+        sep_str: str = value_util.get_value_str_for_expression(value=sep)
+        expression: str = (
+            f'{joined.variable_name} = {self.variable_name}'
+            f'.join({sep_str});'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)

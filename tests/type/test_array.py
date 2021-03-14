@@ -4,7 +4,7 @@ from typing import Any, Dict, List
 from retrying import retry
 import pytest
 
-from apyscript.type import Array, Int
+from apyscript.type import Array, Int, String
 from apyscript.expression import expression_file_util
 from tests import testing_helper
 
@@ -326,6 +326,7 @@ class TestArray:
         )
         assert expected in expression
 
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_slice(self) -> None:
         array_1: Array = Array([1, 2, 3, 4])
         array_2: Array = array_1.slice(start=1, end=3)
@@ -337,6 +338,7 @@ class TestArray:
         array_4: Array = array_1.slice(end=2)
         assert array_4.value == [1, 2]
 
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_slice_expression(self) -> None:
         expression_file_util.remove_expression_file()
         array_1: Array = Array([1, 2, 3, 4])
@@ -374,6 +376,7 @@ class TestArray:
         )
         assert expected in expression
 
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___getitem__(self) -> None:
         array_1: Array = Array([1, 2, 3])
         testing_helper.assert_raises(
@@ -384,6 +387,7 @@ class TestArray:
         value_1: int = array_1[1]
         assert value_1 == 2
 
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_getitem_expression(self) -> None:
         expression_file_util.remove_expression_file()
         int_1: Int = Int(3)
@@ -495,3 +499,26 @@ class TestArray:
         array_1: Array = Array([1, 2, 3])
         with pytest.raises(ValueError):  # type: ignore
             len(array_1)  # type: ignore
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_join(self) -> None:
+        array_1: Array = Array(['1', String('2'), 3, Int(4)])
+        joined: String = array_1.join(',')
+        assert joined == '1,2,3,4'
+        joined = array_1.join(String(','))
+        assert joined == '1,2,3,4'
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_join_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        string_1: String = String('2')
+        int_1: Int = Int(4)
+        array_1: Array = Array(['1', string_1, 3, int_1])
+        string_2: String = String(', ')
+        joined: String = array_1.join(sep=string_2)
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{joined.variable_name} = '
+            f'{array_1.variable_name}.join({string_2.variable_name});'
+        )
+        assert expected in expression

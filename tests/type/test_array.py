@@ -567,3 +567,15 @@ class TestArray:
             f'.indexOf({int_1.variable_name});'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___eq__(self) -> None:
+        array_1: Array = Array([1, Int(2)])
+        array_2: Array = Array([1, Int(2)])
+        assert array_1 == array_2
+
+        array_3: Array = Array([Int(1), 2])
+        assert array_1 == array_3
+
+        array_4: Array = Array([1, 2, 3])
+        assert array_1 != array_4

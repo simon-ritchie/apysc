@@ -9,7 +9,7 @@ from typing import Union
 from apyscript.expression import expression_file_util
 from apyscript.expression import expression_variables_util
 from apyscript.type import Int
-from apyscript.type import String
+from apyscript.type import String, Boolean
 from apyscript.type import value_util
 from apyscript.type.copy_interface import CopyInterface
 from apyscript.type.variable_name_interface import VariableNameInterface
@@ -848,3 +848,16 @@ class Array(CopyInterface):
         )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    def __eq__(self, other: Any) -> Boolean:
+        """
+        Equal comparison method.
+
+        Parameters
+        ----------
+        other : *
+            Other value to compare. list or Array types are acceptable.
+        """
+        if isinstance(other, Array):
+            return Boolean(self.value == other.value)
+        return Boolean(self.value == other)

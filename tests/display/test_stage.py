@@ -70,6 +70,7 @@ class TestStage:
             stage_elem_id=None)
         assert result_id_1 != result_id_2
 
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__make_style_str(self) -> None:
         stage: Stage = Stage(
             stage_width=200, stage_height=300, background_color='#333')

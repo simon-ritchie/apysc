@@ -35,7 +35,7 @@ class Rectangle(
             height: Union[int, Int],
             fill_color: Union[String, str] = '',
             fill_alpha: Union[float, Number] = 1.0,
-            line_color: Optional[str] = None,
+            line_color: Union[str, String] = '',
             line_thickness: Union[int, Int] = 1,
             line_alpha: Union[float, Number] = 1.0) -> None:
         """
@@ -79,7 +79,7 @@ class Rectangle(
             self.update_fill_color_and_skip_appending_exp(
                 value=fill_color)
         self.update_fill_alpha_and_skip_appending_exp(value=fill_alpha)
-        if line_color is not None:
+        if line_color != '':
             self.update_line_color_and_skip_appending_exp(value=line_color)
         self.update_line_thickness_and_skip_appending_exp(
             value=Int(line_thickness))

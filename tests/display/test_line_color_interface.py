@@ -4,6 +4,7 @@ from retrying import retry
 
 from apyscript.display.line_color_interface import LineColorInterface
 from apyscript.expression import expression_file_util
+from apyscript.type import String
 
 
 class TestLineColorInterface:
@@ -34,4 +35,11 @@ class TestLineColorInterface:
             value='#777')
         assert line_color_interface.line_color == '#777777'
         expression: str = expression_file_util.get_current_expression()
-        assert expression == ''
+        expected: str = (
+            f'{line_color_interface.variable_name}.stroke('
+        )
+        assert expected not in expression
+
+        line_color_interface.update_line_color_and_skip_appending_exp(
+            value=String('222'))
+        assert line_color_interface.line_color == '#222222'

@@ -13,8 +13,8 @@ class GraphicsClearInterface:
 
     _fill_color: String
     _fill_alpha: Number
-    _line_color: Optional[str] = None
-    _line_thickness: Int = Int(1)
+    _line_color: String
+    _line_thickness: Int
     _line_alpha: Number
     _childs: Array
 
@@ -24,7 +24,7 @@ class GraphicsClearInterface:
         """
         self._fill_color.value = ''
         self._fill_alpha = Number(1.0)
-        self._line_color = None
+        self._line_color.value = ''
         self._line_thickness = Int(1)
         self._line_alpha = Number(1.0)
         while self._childs:

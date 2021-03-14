@@ -47,6 +47,7 @@ class Graphics(
         self.variable_name = variable_name
         self._fill_color = String('')
         self._fill_alpha = Number(1.0)
+        self._line_color = String('')
         self._line_alpha = Number(1.0)
         self._line_thickness = Int(1.0)
         self._childs = Array([])

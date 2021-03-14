@@ -131,7 +131,7 @@ def append_stroke_expression(
     expression : str
         After appended expression string.
     """
-    if graphics.line_color is None:
+    if graphics.line_color == '':
         return expression
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (

@@ -11,7 +11,7 @@ from typing import Union
 from apyscript.color import color_util
 from apyscript.converter import cast
 from apyscript.type import Int
-from apyscript.type import Number
+from apyscript.type import Number, String
 from apyscript.type import value_util
 from apyscript.type.number_value_interface import NumberValueInterface
 from apyscript.validation import color_validation
@@ -20,12 +20,12 @@ from apyscript.validation import number_validation
 
 class LineStyleInterface:
 
-    _line_color: Optional[str] = None
+    _line_color: String
     _line_thickness: Int
     _line_alpha: Number
 
     def line_style(
-            self, color: str,
+            self, color: Union[str, String],
             thickness: Union[int, Int] = 1,
             alpha: Union[float, Number] = 1.0) -> None:
         """
@@ -33,15 +33,20 @@ class LineStyleInterface:
 
         Parameters
         ----------
-        color : str
+        color : str or String
             Hexadecimal color string. e.g., '#00aaff'
         thickness : int or Int, default 1
             Line thickness (minimum value is 1).
         alpha : float or Number, default 1.0
             Line color opacity (0.0 to 1.0).
         """
-        color = color_util.complement_hex_color(hex_color_code=color)
-        self._line_color = color
+        if isinstance(color, String):
+            color.value = color_util.complement_hex_color(
+                hex_color_code=color.value)
+        else:
+            color = color_util.complement_hex_color(
+                hex_color_code=color)
+        self._line_color.value = color
         number_validation.validate_integer(integer=thickness)
         number_validation.validate_num_is_gt_zero(num=thickness)
         self._line_thickness = Int(thickness)
@@ -53,15 +58,15 @@ class LineStyleInterface:
         self._line_alpha = alpha
 
     @property
-    def line_color(self) -> Optional[str]:
+    def line_color(self) -> String:
         """
         Get current line color.
 
         Returns
         -------
-        line_color : str or None
+        line_color : String
             Current line color (hexadecimal string, e.g., '#00aaff').
-            If not be set, None will be returned.
+            If not be set, blank string will be returned.
         """
         return self._line_color
 

@@ -8,10 +8,10 @@ from retrying import retry
 
 from apyscript.expression import expression_file_util
 from apyscript.type import Array
-from apyscript.type import Int
-from apyscript.type import String
-from apyscript.type import Number
 from apyscript.type import Boolean
+from apyscript.type import Int
+from apyscript.type import Number
+from apyscript.type import String
 from tests import testing_helper
 
 

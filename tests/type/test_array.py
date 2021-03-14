@@ -579,3 +579,11 @@ class TestArray:
 
         array_4: Array = Array([1, 2, 3])
         assert array_1 != array_4
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___bool__(self) -> None:
+        array_1: Array = Array([])
+        assert not array_1
+
+        array_2: Array = Array([1])
+        assert array_2

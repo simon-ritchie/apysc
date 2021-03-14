@@ -861,3 +861,14 @@ class Array(CopyInterface):
         if isinstance(other, Array):
             return Boolean(self.value == other.value)
         return Boolean(self.value == other)
+
+    def __bool__(self) -> bool:
+        """
+        Get a boolean value whether this array is empty or not.
+
+        Returns
+        -------
+        result : bool
+            If this array is empty, True will be returned.
+        """
+        return bool(self._value)

@@ -544,3 +544,26 @@ class TestArray:
     def test___repr__(self) -> None:
         array_1: Array = Array([1, 2])
         assert repr(array_1) == 'Array([1, 2])'
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_index_of(self) -> None:
+        array_1: Array = Array([1, 2, 3])
+        index_1: Int = array_1.index_of(value=2)
+        assert index_1 == 1
+        assert isinstance(index_1, Int)
+
+        index_2: Int = array_1.index_of(value=4)
+        assert index_2 == -1
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_index_of_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        int_1: Int = Int(2)
+        array_1: Array = Array([1, int_1, 3])
+        index_1: Int = array_1.index_of(value=int_1)
+        expression = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{index_1.variable_name} = {array_1.variable_name}'
+            f'.indexOf({int_1.variable_name});'
+        )
+        assert expected in expression

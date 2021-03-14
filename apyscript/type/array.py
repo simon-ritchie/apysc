@@ -802,3 +802,49 @@ class Array(CopyInterface):
             f'Array({self._value})'
         )
         return repr_str
+
+    def index_of(self, value: Any) -> Int:
+        """
+        Search specified value's index and return it.
+
+        Parameters
+        ----------
+        value : *
+            Any value to search.
+
+        Returns
+        -------
+        index : Int
+            Found position of index. If value is not contains,
+            -1 will be returned.
+        """
+        index: Int = Int(-1)
+        try:
+            index_: int = self._value.index(value)
+        except Exception:
+            index_ = -1
+        index._value = index_
+        self._append_index_of_expression(index=index, value=value)
+        return index
+
+    def _append_index_of_expression(
+            self, index: Int, value: Any) -> None:
+        """
+        Append index_of method expression to file.
+
+        Parameters
+        ----------
+        index : Int
+            Found position of index. If value is not contains,
+            -1 will be set.
+        value : *
+            Any value to search.
+        """
+        value_str: str = value_util.get_value_str_for_expression(
+            value=value)
+        expression: str = (
+            f'{index.variable_name} = {self.variable_name}'
+            f'.indexOf({value_str});'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)

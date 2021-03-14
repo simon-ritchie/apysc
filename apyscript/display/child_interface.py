@@ -7,7 +7,7 @@ from apyscript.display.display_object import DisplayObject
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
 from apyscript.type import Boolean
-from apyscript.type import Int
+from apyscript.type import Int, Array
 from apyscript.validation import display_validation
 
 

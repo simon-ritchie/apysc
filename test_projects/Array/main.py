@@ -128,6 +128,11 @@ def main() -> None:
     joined_1: String = array_23.join(', ')
     assert_equal(expected='1, 2, 3, 4', actual=joined_1)
 
+    int_3: Int = Int(2)
+    array_24: Array = Array([1, int_3, 3])
+    assert_equal(expected=1, actual=array_24.index_of(int_3))
+    assert_equal(expected=2, actual=array_24.index_of(3))
+
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

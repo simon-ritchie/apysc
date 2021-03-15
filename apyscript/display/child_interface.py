@@ -1,6 +1,7 @@
 """Class implementation for child related interface.
 """
 
+from typing import Any
 from apyscript.display.display_object import DisplayObject
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
@@ -15,6 +16,7 @@ class ChildInterface:
     _childs: Array
     _variable_name: str
     _js_child_adjust_num: int = 0
+    stage: Any
 
     def add_child(self, child: DisplayObject) -> None:
         """
@@ -170,11 +172,6 @@ class ChildInterface:
         -------
         child : DisplayObject
             Target index child instance.
-
-        Raises
-        ------
-        ValueError
-            If specified index is out of range.
         """
         if index >= self.num_children:
             raise ValueError(

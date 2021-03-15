@@ -4,7 +4,7 @@
 import os
 import random
 from datetime import datetime
-from typing import Optional
+from typing import Any, Optional
 
 from apyscript.color import color_util
 from apyscript.display.child_interface import ChildInterface
@@ -31,6 +31,7 @@ class Stage(
     _background_color: str
     _add_to: str
     _stage_elem_id: str
+    stage: Any
 
     def __init__(
             self, stage_width: int = 300, stage_height: int = 185,
@@ -57,6 +58,7 @@ class Stage(
             If None is set, random integer will be applied.
         """
         expression_file_util.empty_expression_dir()
+        self.stage = self
         self._stage_elem_id = self._create_stage_elem_id_if_none(
             stage_elem_id=stage_elem_id)
         string_validation.validate_not_empty_string(

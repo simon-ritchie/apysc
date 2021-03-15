@@ -105,11 +105,6 @@ class TestChildInterface:
         child: DisplayObject = stage.get_child_at(index=0)
         assert child == sprite
 
-        testing_helper.assert_raises(
-            expected_error_class=ValueError,
-            func_or_method=stage.get_child_at,
-            kwargs={'index': 1})
-
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_num_children_expression(self) -> None:
         expression_file_util.remove_expression_file()

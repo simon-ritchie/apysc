@@ -12,7 +12,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apyscript.console.assertion import assert_not_equal, assert_true
+from apyscript.console.assertion import assert_equal, assert_not_equal, assert_true
 from apyscript.console.assertion import assert_false
 from apyscript.display import Sprite
 from apyscript.display.rectangle import Rectangle
@@ -45,6 +45,9 @@ def main() -> None:
     assert_true(actual=bool_2)
     bool_3: Boolean = stage.contains(child=sprite_2)
     assert_false(actual=bool_3)
+
+    num_children: Int = sprite_1.num_children
+    assert_equal(expected=1, actual=num_children)
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)

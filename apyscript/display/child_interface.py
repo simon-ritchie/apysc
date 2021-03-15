@@ -14,6 +14,7 @@ class ChildInterface:
 
     _childs: Array
     _variable_name: str
+    _js_child_adjust_num: int = 0
 
     def add_child(self, child: DisplayObject) -> None:
         """
@@ -135,7 +136,26 @@ class ChildInterface:
             Current children number.
         """
         num_children: Int = Int(value=self._childs.length)
+        self._append_num_children_expression(num_children=num_children)
         return num_children
+
+    def _append_num_children_expression(
+            self, num_children: Int) -> None:
+        """
+        Append num_children method expression to file.
+
+        Parameters
+        ----------
+        num_children : Int
+            Current children number.
+        """
+        expression: str = (
+            f'{num_children.variable_name} = '
+            f'{self._variable_name}.children().length'
+            f' - {self._js_child_adjust_num};'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)
 
     def get_child_at(self, index: int) -> DisplayObject:
         """

@@ -100,10 +100,14 @@ class TestChildInterface:
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_get_child_at(self) -> None:
         stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
-        stage.add_child(child=sprite)
-        child: DisplayObject = stage.get_child_at(index=0)
-        assert child == sprite
+        sprite_1: Sprite = Sprite(stage=stage)
+        stage.add_child(child=sprite_1)
+        child_1: DisplayObject = stage.get_child_at(index=0)
+        assert child_1 == sprite_1
+
+        child_2: DisplayObject = stage.get_child_at(index=1)
+        assert not isinstance(child_2, Sprite)
+        assert isinstance(child_2, DisplayObject)
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_num_children_expression(self) -> None:
@@ -126,5 +130,31 @@ class TestChildInterface:
         expected = (
             f'{num_children_2.variable_name} = '
             f'{sprite_1.variable_name}.children().length - 1;'
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_get_child_at_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        stage: Stage = Stage()
+        sprite_1: Sprite = Sprite(stage=stage)
+        stage.add_child(child=sprite_1)
+        int_1: Int = Int(0)
+        child_1: DisplayObject = stage.get_child_at(index=int_1)
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{child_1.variable_name} = '
+            f'{stage.variable_name}.children()'
+            f'[{int_1.variable_name} + 0];'
+        )
+        assert expected in expression
+
+        sprite_2: Sprite = Sprite(stage=stage)
+        sprite_1.add_child(child=sprite_2)
+        child_2: DisplayObject = sprite_1.get_child_at(index=0)
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{child_2.variable_name} = '
+            f'{sprite_1.variable_name}.children()[0 + 1];'
         )
         assert expected in expression

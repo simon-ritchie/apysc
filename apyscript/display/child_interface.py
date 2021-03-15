@@ -1,7 +1,7 @@
 """Class implementation for child related interface.
 """
 
-from typing import Any
+from typing import Any, Union
 from apyscript.display.display_object import DisplayObject
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
@@ -9,6 +9,8 @@ from apyscript.type import Array
 from apyscript.type import Boolean
 from apyscript.type import Int
 from apyscript.validation import display_validation
+from apyscript.expression import expression_variables_util
+from apyscript.type import value_util
 
 
 class ChildInterface:
@@ -159,13 +161,13 @@ class ChildInterface:
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
 
-    def get_child_at(self, index: int) -> DisplayObject:
+    def get_child_at(self, index: Union[int, Int]) -> DisplayObject:
         """
         Get child at specified index.
 
         Parameters
         ----------
-        index : int
+        index : int or Int
             Child's index (start from 0).
 
         Returns
@@ -173,10 +175,33 @@ class ChildInterface:
         child : DisplayObject
             Target index child instance.
         """
-        if index >= self.num_children:
-            raise ValueError(
-                'Specified child index is out of range.'
-                f'\nCurrent Child number: {self.num_children}'
-                f'\nSpecified index: {index}')
-        child: DisplayObject = self._childs[index]
+        variable_name: str = expression_variables_util.get_next_variable_name(
+            type_name='display_object')
+        if self.num_children > index:
+            child: DisplayObject = self._childs[index]
+        else:
+            child = DisplayObject(
+                stage=self.stage, variable_name=variable_name)
+        self._append_get_child_at_expression(child=child, index=index)
         return child
+
+    def _append_get_child_at_expression(
+            self, child: DisplayObject, index: Union[int, Int]) -> None:
+        """
+        Append get_child_at method expression to file.
+
+        Parameters
+        ----------
+        child : DisplayObject
+            Target index child instance.
+        index : int or Int
+            Child's index (start from 0).
+        """
+        index_str: str = value_util.get_value_str_for_expression(value=index)
+        expression: str = (
+            f'{child.variable_name} = '
+            f'{self._variable_name}.children()'
+            f'[{index_str} + {self._js_child_adjust_num}];'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)

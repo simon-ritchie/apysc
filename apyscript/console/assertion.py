@@ -17,6 +17,8 @@ Mainly following interfaces are defined:
 - assert_defined
     JavaScript assertion interface for defined (not undefined)
     value condition.
+- assert_undefined
+    JavaScript assertion interface for undefined value condition.
 """
 
 from typing import Any
@@ -248,6 +250,31 @@ def assert_defined(actual: Any, msg: str = '') -> None:
     msg = string_util.escape_str(string=msg)
     expression: str = (
         f'console.assert(!_.isUndefined({actual_str}), "{msg}");'
+    )
+    expression_file_util.wrap_by_script_tag_and_append_expression(
+        expression=expression)
+
+
+def assert_undefined(actual: Any, msg: str = '') -> None:
+    """
+    JavaScript assertion interface for undefined value condition.
+
+    Parameters
+    ----------
+    actual : *
+        Actual value.
+    msg : str, optional
+        Message to display when assertion failed.
+    """
+    _trace_info(
+        interface_label='assert_undefined', expected='undefined',
+        actual=actual)
+    _, actual_str = _get_expected_and_actual_strs(
+        expected='undefined', actual=actual)
+
+    msg = string_util.escape_str(string=msg)
+    expression: str = (
+        f'console.assert(_.isUndefined({actual_str}), "{msg}");'
     )
     expression_file_util.wrap_by_script_tag_and_append_expression(
         expression=expression)

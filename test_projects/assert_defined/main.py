@@ -12,11 +12,13 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apyscript.console.assertion import assert_defined
+from apyscript.console.assertion import assert_defined, assert_undefined
 from apyscript.display.stage import Stage
 from apyscript.file import file_util
 from apyscript.html import exporter
 from apyscript.type import Array, Int
+from apyscript.display import Sprite
+from apyscript.display.display_object import DisplayObject
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -30,10 +32,14 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    _: Stage = Stage(background_color='#333')
+    stage: Stage = Stage(background_color='#333')
 
     int_1: Int = Int(3)
     assert_defined(actual=int_1)
+
+    sprite_1: Sprite = Sprite(stage=stage)
+    child_1: DisplayObject = sprite_1.get_child_at(index=0)
+    assert_undefined(actual=child_1)
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)

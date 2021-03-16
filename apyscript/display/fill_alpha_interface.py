@@ -20,17 +20,18 @@ class FillAlphaInterface(VariableNameInterface):
     _fill_alpha: Number
 
     @property
-    def fill_alpha(self) -> Optional[Number]:
+    def fill_alpha(self) -> Number:
         """
         Get this instance's fill opacity.
 
         Returns
         -------
-        fill_alpha : Number or None
+        fill_alpha : Number
             Current fill opacity (0.0 to 1.0).
-            If not be set, None will be returned.
         """
-        return value_util.get_copy(value=self._fill_alpha)
+        fill_alpha: Number = value_util.get_copy(
+            value=self._fill_alpha)
+        return fill_alpha
 
     @fill_alpha.setter
     def fill_alpha(

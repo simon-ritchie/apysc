@@ -217,3 +217,16 @@ def test_assert_arrays_not_equal() -> None:
         f'"Array values are equal.");'
     )
     assert expected in expression
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test_assert_defined() -> None:
+    expression_file_util.remove_expression_file()
+    int_1: Int = Int(3)
+    assertion.assert_defined(actual=int_1, msg='value is undefined.')
+    expression: str = expression_file_util.get_current_expression()
+    expected: str = (
+        f'console.assert(!_.isUndefined({int_1.variable_name}), '
+        '"value is undefined.");'
+    )
+    assert expected in expression

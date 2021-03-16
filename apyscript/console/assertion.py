@@ -14,6 +14,9 @@ Mainly following interfaces are defined:
     JavaScript assertion interface for Array values equal condition.
 - assert_arrays_not_equal
     JavaScript assertion interface for Array values not equal condition.
+- assert_defined
+    JavaScript assertion interface for defined (not undefined)
+    value condition.
 """
 
 from typing import Any
@@ -220,6 +223,32 @@ def assert_arrays_not_equal(
 
     expression: str = _make_arrays_comparison_expression(
         expected=expected, actual=actual, msg=msg, not_condition=True)
+    expression_file_util.wrap_by_script_tag_and_append_expression(
+        expression=expression)
+
+
+def assert_defined(actual: Any, msg: str = '') -> None:
+    """
+    JavaScript assertion interface for defined (not undefined)
+    value condition.
+
+    Parameters
+    ----------
+    actual : *
+        Actual value.
+    msg : str, optional
+        Message to display when assertion failed.
+    """
+    _trace_info(
+        interface_label='assert_defined', expected='other than undefined',
+        actual=actual)
+    _, actual_str = _get_expected_and_actual_strs(
+        expected='other than undefined', actual=actual)
+
+    msg = string_util.escape_str(string=msg)
+    expression: str = (
+        f'console.assert(!_.isUndefined({actual_str}), "{msg}");'
+    )
     expression_file_util.wrap_by_script_tag_and_append_expression(
         expression=expression)
 

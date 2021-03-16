@@ -201,7 +201,7 @@ class ChildInterface:
         """
         index_str: str = value_util.get_value_str_for_expression(value=index)
         expression: str = (
-            f'{child.variable_name} = '
+            f'var {child.variable_name} = '
             f'{self._variable_name}.children()'
             f'[{index_str} + {self._js_child_adjust_num}];'
         )

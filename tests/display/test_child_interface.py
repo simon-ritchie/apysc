@@ -144,7 +144,7 @@ class TestChildInterface:
         child_1: DisplayObject = stage.get_child_at(index=int_1)
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'{child_1.variable_name} = '
+            f'var {child_1.variable_name} = '
             f'{stage.variable_name}.children()'
             f'[{int_1.variable_name} + 0];'
         )
@@ -155,7 +155,7 @@ class TestChildInterface:
         child_2: DisplayObject = sprite_1.get_child_at(index=0)
         expression = expression_file_util.get_current_expression()
         expected = (
-            f'{child_2.variable_name} = '
+            f'var {child_2.variable_name} = '
             f'{sprite_1.variable_name}.children()[0 + 1];'
         )
         assert expected in expression

@@ -1,16 +1,18 @@
 """Class implementation for child related interface.
 """
 
-from typing import Any, Union
+from typing import Any
+from typing import Union
+
 from apyscript.display.display_object import DisplayObject
 from apyscript.expression import expression_file_util
+from apyscript.expression import expression_variables_util
 from apyscript.html import html_util
 from apyscript.type import Array
 from apyscript.type import Boolean
 from apyscript.type import Int
-from apyscript.validation import display_validation
-from apyscript.expression import expression_variables_util
 from apyscript.type import value_util
+from apyscript.validation import display_validation
 
 
 class ChildInterface:

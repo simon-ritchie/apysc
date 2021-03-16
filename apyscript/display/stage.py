@@ -4,7 +4,8 @@
 import os
 import random
 from datetime import datetime
-from typing import Any, Optional
+from typing import Any
+from typing import Optional
 
 from apyscript.color import color_util
 from apyscript.display.child_interface import ChildInterface

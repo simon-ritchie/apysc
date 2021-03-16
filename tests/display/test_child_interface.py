@@ -6,8 +6,9 @@ from apyscript.display import Sprite
 from apyscript.display.display_object import DisplayObject
 from apyscript.display.stage import Stage
 from apyscript.expression import expression_file_util
-from apyscript.type import Array, Boolean, Int
-from tests import testing_helper
+from apyscript.type import Array
+from apyscript.type import Boolean
+from apyscript.type import Int
 
 
 class TestChildInterface:

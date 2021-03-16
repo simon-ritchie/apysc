@@ -175,11 +175,11 @@ class ChildInterface:
         child : DisplayObject
             Target index child instance.
         """
-        variable_name: str = expression_variables_util.get_next_variable_name(
-            type_name='display_object')
         if self.num_children > index:
             child: DisplayObject = self._childs[index]
         else:
+            variable_name: str = expression_variables_util.\
+                get_next_variable_name(type_name='display_object')
             child = DisplayObject(
                 stage=self.stage, variable_name=variable_name)
         self._append_get_child_at_expression(child=child, index=index)
@@ -203,5 +203,6 @@ class ChildInterface:
             f'{self._variable_name}.children()'
             f'[{index_str} + {self._js_child_adjust_num}];'
         )
+        print(expression)
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)

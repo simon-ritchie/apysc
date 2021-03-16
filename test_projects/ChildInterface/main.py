@@ -13,7 +13,7 @@ import os
 from types import ModuleType
 
 from apyscript.console.assertion import assert_equal, assert_not_equal, assert_true
-from apyscript.console.assertion import assert_false
+from apyscript.console.assertion import assert_false, assert_defined, assert_undefined
 from apyscript.display import Sprite
 from apyscript.display.rectangle import Rectangle
 from apyscript.display.stage import Stage
@@ -21,6 +21,7 @@ from apyscript.file import file_util
 from apyscript.html import exporter
 from apyscript.type import Int, Boolean
 from apyscript.type import Number
+from apyscript.display.display_object import DisplayObject
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -48,6 +49,11 @@ def main() -> None:
 
     num_children: Int = sprite_1.num_children
     assert_equal(expected=1, actual=num_children)
+
+    child_1: DisplayObject = sprite_1.get_child_at(index=0)
+    assert_defined(actual=child_1)
+    child_2: DisplayObject = sprite_1.get_child_at(index=1)
+    assert_undefined(actual=child_2)
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)

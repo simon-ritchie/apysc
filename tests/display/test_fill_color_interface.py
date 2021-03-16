@@ -13,18 +13,15 @@ class TestFillColorInterface:
     def test_fill_color(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
-        fill_color_interface.fill_color = '#333'
+        fill_color_interface.fill_color = String('#333')
         assert fill_color_interface.fill_color == '#333333'
-
-        fill_color_interface.fill_color = String('999')
-        assert fill_color_interface.fill_color == '#999999'
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_fill_color_update_expression(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
         expression_file_util.remove_expression_file()
-        fill_color_interface.fill_color = '#666'
+        fill_color_interface.fill_color = String('#666')
         expression: str = expression_file_util.get_current_expression()
         expected: str = 'test_fill_color_interface.fill("#666666");'
         assert expected in expression
@@ -35,7 +32,7 @@ class TestFillColorInterface:
         fill_color_interface.variable_name = 'test_fill_color_interface'
         expression_file_util.remove_expression_file()
         fill_color_interface.update_fill_color_and_skip_appending_exp(
-            value='#333')
+            value=String('#333'))
         assert fill_color_interface.fill_color == '#333333'
         expression: str = expression_file_util.get_current_expression()
         expected: str = (

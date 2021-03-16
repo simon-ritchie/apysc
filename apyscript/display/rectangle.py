@@ -76,6 +76,8 @@ class Rectangle(
         self.update_width_and_skip_appending_exp(value=Int(width))
         self.update_height_and_skip_appending_exp(value=Int(height))
         if fill_color != '':
+            if isinstance(fill_color, str):
+                fill_color = String(fill_color)
             self.update_fill_color_and_skip_appending_exp(
                 value=fill_color)
         self.update_fill_alpha_and_skip_appending_exp(value=fill_alpha)

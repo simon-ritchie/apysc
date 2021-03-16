@@ -19,7 +19,7 @@ from apyscript.display.stage import Stage
 from apyscript.file import file_util
 from apyscript.html import exporter
 from apyscript.type import Int
-from apyscript.type import Number
+from apyscript.type import Number, String
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -75,7 +75,7 @@ def main() -> None:
     # Test for rectangle fill color update.
     rectangle = sprite.graphics.draw_rect(
         x=800, y=50, width=50, height=50)
-    rectangle.fill_color = '#f0a'
+    rectangle.fill_color = String('#f0a')
 
     # Test for rectangle fill alpha update.
     rectangle = sprite.graphics.draw_rect(

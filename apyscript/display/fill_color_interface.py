@@ -12,10 +12,10 @@ from apyscript.type.variable_name_interface import VariableNameInterface
 
 class FillColorInterface(VariableNameInterface):
 
-    _fill_color: String = String('')
+    _fill_color: String
 
     @property
-    def fill_color(self) -> Union[str, String]:
+    def fill_color(self) -> String:
         """
         Get this instance's fill color.
 
@@ -28,13 +28,13 @@ class FillColorInterface(VariableNameInterface):
         return self._fill_color
 
     @fill_color.setter
-    def fill_color(self, value: Union[str, String]) -> None:
+    def fill_color(self, value: String) -> None:
         """
         Update this instance's fill color.
 
         Parameters
         ----------
-        value : str or String
+        value : String
             Fill color to set.
         """
         self.update_fill_color_and_skip_appending_exp(value=value)
@@ -53,19 +53,18 @@ class FillColorInterface(VariableNameInterface):
             expression=expression)
 
     def update_fill_color_and_skip_appending_exp(
-            self, value: Union[str, String]) -> None:
+            self, value: String) -> None:
         """
         Update fill color and skip appending expression to file.
 
         Parameters
         ----------
-        value : int
+        value : String
             Fill color to set.
         """
         if isinstance(value, String):
             value_: str = color_util.complement_hex_color(
                 hex_color_code=value.value)
-        else:
-            value_ = color_util.complement_hex_color(
-                hex_color_code=value)
+        if not hasattr(self, '_fill_color'):
+            self._fill_color = String('')
         self._fill_color.value = value_

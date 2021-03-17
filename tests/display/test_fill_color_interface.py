@@ -38,3 +38,13 @@ class TestFillColorInterface:
         expected: str = (
             f'{fill_color_interface.variable_name}.fill(')
         assert expected not in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__initialize_fill_color_if_not_initialized(self) -> None:
+        fill_color_interface: FillColorInterface = FillColorInterface()
+        fill_color_interface.variable_name = 'test_fill_color_interface'
+        fill_color_interface._initialize_fill_color_if_not_initialized()
+        assert fill_color_interface.fill_color == ''
+        fill_color_interface.fill_color = String('#333')
+        fill_color_interface._initialize_fill_color_if_not_initialized()
+        assert fill_color_interface.fill_color == '#333333'

@@ -8,6 +8,7 @@ from apyscript.expression import expression_file_util
 from apyscript.html import html_util
 from apyscript.type import String
 from apyscript.type.variable_name_interface import VariableNameInterface
+from apyscript.type import value_util
 
 
 class FillColorInterface(VariableNameInterface):
@@ -65,6 +66,14 @@ class FillColorInterface(VariableNameInterface):
         if isinstance(value, String):
             value_: str = color_util.complement_hex_color(
                 hex_color_code=value.value)
-        if not hasattr(self, '_fill_color'):
-            self._fill_color = String('')
+        self._initialize_fill_color_if_not_initialized()
         self._fill_color.value = value_
+
+    def _initialize_fill_color_if_not_initialized(self) -> None:
+        """
+        Initialize fill_color attribute if that value is not
+        instantiated yet.
+        """
+        if hasattr(self, '_fill_color'):
+            return
+        self._fill_color = String('')

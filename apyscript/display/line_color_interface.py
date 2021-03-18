@@ -8,6 +8,7 @@ from apyscript.expression import expression_file_util
 from apyscript.html import html_util
 from apyscript.type import String
 from apyscript.type.variable_name_interface import VariableNameInterface
+from apyscript.type import value_util
 
 
 class LineColorInterface(VariableNameInterface):
@@ -26,7 +27,8 @@ class LineColorInterface(VariableNameInterface):
             If not be set, blank string will be returned.
         """
         self._initialize_line_color_if_not_initialized()
-        return self._line_color
+        line_color: String = value_util.get_copy(value=self._line_color)
+        return line_color
 
     @line_color.setter
     def line_color(self, value: String) -> None:

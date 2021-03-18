@@ -13,8 +13,13 @@ class TestLineColorInterface:
     def test_line_color(self) -> None:
         line_color_interface: LineColorInterface = LineColorInterface()
         line_color_interface.variable_name = 'test_line_color_interface'
-        line_color_interface.line_color = String('#555')
+        string_1: String = String('#555')
+        line_color_interface.line_color = string_1
         assert line_color_interface.line_color == '#555555'
+
+        string_2: String = line_color_interface.line_color
+        string_2.value = String('#666')
+        assert line_color_interface.line_color != string_2
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_line_color_update_expression(self) -> None:

@@ -39,3 +39,13 @@ class TestLineColorInterface:
             f'{line_color_interface.variable_name}.stroke('
         )
         assert expected not in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__initialize_line_color_if_not_initialized(self) -> None:
+        line_color_interface: LineColorInterface = LineColorInterface()
+        line_color_interface.variable_name = 'test_line_color_interface'
+        line_color_interface._initialize_line_color_if_not_initialized()
+        assert line_color_interface.line_color == ''
+        line_color_interface.line_color = String('#333')
+        line_color_interface._initialize_line_color_if_not_initialized()
+        assert line_color_interface.line_color == '#333333'

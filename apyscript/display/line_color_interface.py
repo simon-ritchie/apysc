@@ -25,6 +25,7 @@ class LineColorInterface(VariableNameInterface):
             Current line color (hexadecimal string, e.g., '#00aaff').
             If not be set, blank string will be returned.
         """
+        self._initialize_line_color_if_not_initialized()
         return self._line_color
 
     @line_color.setter
@@ -64,4 +65,14 @@ class LineColorInterface(VariableNameInterface):
         """
         value.value = color_util.complement_hex_color(
             hex_color_code=value.value)
+        self._initialize_line_color_if_not_initialized()
         self._line_color = value
+
+    def _initialize_line_color_if_not_initialized(self) -> None:
+        """
+        Initialize line_color attribute if that value is not
+        initialized yet.
+        """
+        if hasattr(self, '_line_color'):
+            return
+        self._line_color = String('')

@@ -86,7 +86,7 @@ def main() -> None:
     # Test for rectangle line color update.
     rectangle = sprite.graphics.draw_rect(
         x=50, y=150, width=50, height=50)
-    rectangle.line_color = '#f0a'
+    rectangle.line_color = String('#f0a')
 
     # Test for rectangle line thickness update.
     rectangle = sprite.graphics.draw_rect(

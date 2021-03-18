@@ -82,6 +82,8 @@ class Rectangle(
                 value=fill_color)
         self.update_fill_alpha_and_skip_appending_exp(value=fill_alpha)
         if line_color != '':
+            if isinstance(line_color, str):
+                line_color = String(line_color)
             self.update_line_color_and_skip_appending_exp(value=line_color)
         self.update_line_thickness_and_skip_appending_exp(
             value=Int(line_thickness))

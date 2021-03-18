@@ -15,7 +15,7 @@ class LineColorInterface(VariableNameInterface):
     _line_color: String
 
     @property
-    def line_color(self) -> Union[str, String]:
+    def line_color(self) -> String:
         """
         Get this instance's line color.
 
@@ -28,7 +28,7 @@ class LineColorInterface(VariableNameInterface):
         return self._line_color
 
     @line_color.setter
-    def line_color(self, value: Union[str, String]) -> None:
+    def line_color(self, value: String) -> None:
         """
         Update this instance's line color.
 
@@ -53,20 +53,15 @@ class LineColorInterface(VariableNameInterface):
             expression=expression)
 
     def update_line_color_and_skip_appending_exp(
-            self, value: Union[str, String]) -> None:
+            self, value: String) -> None:
         """
         Update line color and skip appending expression to file.
 
         Parameters
         ----------
-        value : str or String
+        value : String
             Line color to set.
         """
-        if isinstance(value, String):
-            value.value = color_util.complement_hex_color(
-                hex_color_code=value.value)
-        else:
-            value = color_util.complement_hex_color(
-                hex_color_code=value)
-            value = String(value)
+        value.value = color_util.complement_hex_color(
+            hex_color_code=value.value)
         self._line_color = value

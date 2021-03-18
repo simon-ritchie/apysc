@@ -2,7 +2,6 @@
 """
 
 from typing import Any
-from typing import Optional
 
 from apyscript.converter import cast
 from apyscript.expression import expression_file_util

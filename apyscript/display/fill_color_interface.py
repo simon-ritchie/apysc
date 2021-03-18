@@ -1,14 +1,13 @@
 """Class implementation for fill color interface.
 """
 
-from typing import Union
 
 from apyscript.color import color_util
 from apyscript.expression import expression_file_util
 from apyscript.html import html_util
 from apyscript.type import String
-from apyscript.type.variable_name_interface import VariableNameInterface
 from apyscript.type import value_util
+from apyscript.type.variable_name_interface import VariableNameInterface
 
 
 class FillColorInterface(VariableNameInterface):

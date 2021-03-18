@@ -12,19 +12,13 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apyscript.console.assertion import assert_defined
 from apyscript.console.assertion import assert_equal
-from apyscript.console.assertion import assert_false
-from apyscript.console.assertion import assert_true
-from apyscript.console.assertion import assert_undefined
 from apyscript.display import Sprite
-from apyscript.display.display_object import DisplayObject
 from apyscript.display.rectangle import Rectangle
 from apyscript.display.stage import Stage
 from apyscript.file import file_util
 from apyscript.html import exporter
-from apyscript.type import Boolean
-from apyscript.type import Int, Number
+from apyscript.type import Number
 
 this_module: ModuleType = sys.modules[__name__]
 

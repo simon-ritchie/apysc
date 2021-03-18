@@ -19,7 +19,8 @@ from apyscript.display.stage import Stage
 from apyscript.file import file_util
 from apyscript.html import exporter
 from apyscript.type import Int
-from apyscript.type import Number, String
+from apyscript.type import Number
+from apyscript.type import String
 
 this_module: ModuleType = sys.modules[__name__]
 

@@ -13,8 +13,12 @@ class TestFillColorInterface:
     def test_fill_color(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
-        fill_color_interface.fill_color = String('#333')
+        string_1: String = String('#333')
+        fill_color_interface.fill_color = string_1
         assert fill_color_interface.fill_color == '#333333'
+
+        string_2: String = fill_color_interface.fill_color
+        assert string_1.variable_name != string_2.variable_name
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_fill_color_update_expression(self) -> None:

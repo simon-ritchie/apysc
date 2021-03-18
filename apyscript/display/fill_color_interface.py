@@ -26,7 +26,9 @@ class FillColorInterface(VariableNameInterface):
             Current fill color (hexadecimal string, e.g., '#00aaff').
             If not be set, None will be returned.
         """
-        return self._fill_color
+        self._initialize_fill_color_if_not_initialized()
+        fill_color: String = value_util.get_copy(value=self._fill_color)
+        return fill_color
 
     @fill_color.setter
     def fill_color(self, value: String) -> None:

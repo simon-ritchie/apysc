@@ -20,6 +20,9 @@ class TestLineColorInterface:
         string_2: String = line_color_interface.line_color
         string_2.value = String('#666')
         assert line_color_interface.line_color != string_2
+        assert (
+            line_color_interface.line_color.variable_name
+            != string_2.variable_name)
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_line_color_update_expression(self) -> None:

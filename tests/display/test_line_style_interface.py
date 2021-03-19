@@ -1,6 +1,6 @@
 from apyscript.display.line_style_interface import LineStyleInterface
 from apyscript.type import Number
-from apyscript.type import String
+from apyscript.type import String, Int
 from tests import testing_helper
 
 
@@ -31,6 +31,10 @@ class TestLineStyleInterface:
             color='#333', thickness=3, alpha=0.5)
         assert line_style_interface.line_color == '#333333'
 
+        line_color_1: String = line_style_interface.line_color
+        assert (line_color_1.variable_name
+                != line_style_interface.line_color.variable_name)
+
     def test_line_thickness(self) -> None:
         line_style_interface: LineStyleInterface = LineStyleInterface()
         line_style_interface._line_color = String('')
@@ -39,6 +43,10 @@ class TestLineStyleInterface:
             color='#333', thickness=3, alpha=0.5)
         assert line_style_interface.line_thickness == 3
 
+        line_thickness: Int = line_style_interface.line_thickness
+        assert (line_thickness.variable_name
+                != line_style_interface.line_thickness.variable_name)
+
     def test_line_alpha(self) -> None:
         line_style_interface: LineStyleInterface = LineStyleInterface()
         line_style_interface._line_color = String('')
@@ -46,3 +54,7 @@ class TestLineStyleInterface:
         line_style_interface.line_style(
             color='#333', thickness=3, alpha=0.5)
         assert line_style_interface.line_alpha == 0.5
+
+        line_alpha: Number = line_style_interface.line_alpha
+        assert (line_alpha.variable_name
+                != line_style_interface.line_alpha.variable_name)

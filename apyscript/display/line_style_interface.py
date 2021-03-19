@@ -68,7 +68,7 @@ class LineStyleInterface:
             Current line color (hexadecimal string, e.g., '#00aaff').
             If not be set, blank string will be returned.
         """
-        return self._line_color
+        return value_util.get_copy(value=self._line_color)
 
     @property
     def line_thickness(self) -> Int:
@@ -80,7 +80,7 @@ class LineStyleInterface:
         line_thickness : Int
             Current line thickness.
         """
-        return self._line_thickness
+        return value_util.get_copy(value=self._line_thickness)
 
     @property
     def line_alpha(self) -> Number:

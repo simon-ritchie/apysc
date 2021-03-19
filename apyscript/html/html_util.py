@@ -17,33 +17,83 @@ Mainly following interfaces are defined:
     script start and end tag.
 """
 
+from apyscript.type.variable_name_interface import VariableNameInterface
 import re
-from typing import List
+from typing import Any, List, Union
 from typing import Match
 from typing import Optional
 from typing import Tuple
+from typing import TypeVar
 
 from apyscript.html import html_const
 from apyscript.string import indent_util
+from apyscript.type import String
+from apyscript.type import value_util
+from apyscript.expression import expression_file_util
+
+StrOrString = TypeVar('StrOrString')
 
 
-def remove_first_selector_symbol_char(str_val: str) -> str:
+def remove_first_selector_symbol_char(
+        str_val: StrOrString) -> StrOrString:
     """
     Remove first selector symbol (`.` or `#`) from string.
 
     Parameters
     ----------
-    str_val : str
+    str_val : str or String
         Target string value. e.g., '#container'
 
     Returns
     -------
-    str_val : str
+    str_val : str or String
         The string that removed first selector symbol character.
+
+    Raises
+    ------
+    TypeError
+        If other than str or String type value is passed.
     """
-    if str_val.startswith('.') or str_val.startswith('#'):
-        str_val = str_val[1:]
-    return str_val
+    if isinstance(str_val, str):
+        if str_val.startswith('.') or str_val.startswith('#'):
+            str_val = str_val[1:]  # type: ignore
+        return str_val  # type: ignore
+
+    from apyscript.type import String
+    if isinstance(str_val, String):
+        str_val_: String = value_util.get_copy(
+            value=str_val)
+        if str_val_.value.startswith('.') or str_val_.value.startswith('#'):
+            str_val_.value = str_val_.value[1:]
+        _append_remove_first_selector_symbol_char_expression(
+            str_val=str_val_)
+        return str_val_  # type: ignore
+
+    raise TypeError(
+        'Other than str or String type value is specified: '
+        f'{type(str_val)}')
+
+
+def _append_remove_first_selector_symbol_char_expression(
+        str_val: VariableNameInterface) -> None:
+    """
+    Append remove_first_selector_symbol_char function's
+    expression to file.
+
+    Parameters
+    ----------
+    str_val : String
+        First character removed string instance.
+    """
+    var_name: str = str_val.variable_name
+    expression: str = (
+        f'var first_char = {var_name}.slice(0, 1);'
+        '\nif (first_char === "." || first_char === "#") {'
+        f'\n  {var_name} = {var_name}.slice(1);'
+        '\n}'
+    )
+    expression_file_util.wrap_by_script_tag_and_append_expression(
+        expression=expression)
 
 
 def append_html_to_str(

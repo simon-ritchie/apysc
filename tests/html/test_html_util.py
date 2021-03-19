@@ -1,3 +1,7 @@
+from random import randint
+
+from retrying import retry
+
 from typing import Dict
 from typing import List
 from typing import Tuple
@@ -5,20 +9,38 @@ from typing import Tuple
 from apyscript.html import html_util
 from apyscript.html.html_util import ScriptLineUtil
 from tests import testing_helper
+from apyscript.type import String
+from apyscript.expression import expression_file_util
 
 
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_remove_first_selector_symbol_char() -> None:
-    str_val: str = html_util.remove_first_selector_symbol_char(
+    str_val_1: str = html_util.remove_first_selector_symbol_char(
         str_val='.line-graph')
-    assert str_val == 'line-graph'
+    assert str_val_1 == 'line-graph'
+    assert isinstance(str_val_1, str)
 
-    str_val = html_util.remove_first_selector_symbol_char(
+    str_val_2: str = html_util.remove_first_selector_symbol_char(
         str_val='#line-graph')
-    assert str_val == 'line-graph'
+    assert str_val_2 == 'line-graph'
+    assert isinstance(str_val_2, str)
 
-    str_val = html_util.remove_first_selector_symbol_char(
+    str_val_3: str = html_util.remove_first_selector_symbol_char(
         str_val='line-graph')
-    assert str_val == 'line-graph'
+    assert str_val_3 == 'line-graph'
+    assert isinstance(str_val_3, str)
+
+    str_val_4: String = String('.line-graph')
+    str_val_5: String = html_util.remove_first_selector_symbol_char(
+        str_val=str_val_4)
+    assert str_val_4.variable_name != str_val_5.variable_name
+    assert str_val_5 == 'line-graph'
+    assert isinstance(str_val_5, String)
+
+    testing_helper.assert_raises(
+        expected_error_class=TypeError,
+        func_or_method=html_util.remove_first_selector_symbol_char,
+        kwargs={'str_val': 100})
 
 
 def test_append_html_to_str() -> None:
@@ -151,3 +173,18 @@ def test_wrap_expression_by_script_tag() -> None:
         '\nconsole.log("Hello!");'
         '\n</script>'
     )
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test__append_remove_first_selector_symbol_char_expression() -> None:
+    expression_file_util.remove_expression_file()
+    str_val_1: String = String('.line-graph')
+    str_val_2: String = html_util.remove_first_selector_symbol_char(
+        str_val=str_val_1)
+    var_name: str = str_val_2.variable_name
+    expression: str = expression_file_util.get_current_expression()
+    expected = f"""var first_char = {var_name}.slice(0, 1);
+if (first_char === "." || first_char === "#") {{
+  {var_name} = {var_name}.slice(1);
+}}"""
+    assert expected in expression

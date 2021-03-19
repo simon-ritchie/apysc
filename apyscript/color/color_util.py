@@ -1,20 +1,23 @@
 """Color related implementations.
 """
 
+from typing import Any, Union
 
-def complement_hex_color(hex_color_code: str) -> str:
+
+def complement_hex_color(
+        hex_color_code: Union[str, Any]) -> Union[str, Any]:
     """
     Complement hex color for convenience, for instance, add # prefix or
     three digits to six digits, upper case to lower case etc.
 
     Parameters
     ----------
-    hex_color_code : str
+    hex_color_code : str or String
         Hexadecimal color code. e.g., 'ff0000', '#666', '#0'
 
     Returns
     -------
-    complemented_hex_color_code : str
+    complemented_hex_color_code : str or String
         Result hex color code. e.g., '#ff0000', '#666666, '#000000'
     """
     from apyscript.html import html_util

@@ -10,7 +10,7 @@ Mainly following interfaces are defined:
 
 from typing import Any
 from typing import List
-from typing import Union
+from typing import Union, TypeVar
 
 
 def get_value_str_for_expression(value: Any) -> str:
@@ -80,7 +80,10 @@ def _get_value_str_from_iterable(value: Union[list, tuple, Any]) -> str:
     return value_str
 
 
-def get_copy(value: Any) -> Any:
+T = TypeVar('T')
+
+
+def get_copy(value: T) -> T:
     """
     Get a copy of specified instance if it is instance of CopyInterface.
 

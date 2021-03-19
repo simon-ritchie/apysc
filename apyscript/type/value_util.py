@@ -10,7 +10,8 @@ Mainly following interfaces are defined:
 
 from typing import Any
 from typing import List
-from typing import Union, TypeVar
+from typing import TypeVar
+from typing import Union
 
 
 def get_value_str_for_expression(value: Any) -> str:

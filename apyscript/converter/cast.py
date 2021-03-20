@@ -14,15 +14,17 @@ Mainly following interfaces are defined.
 from typing import Any
 from typing import Union
 
+from apyscript.type import Int, Number
+
 
 def to_int_from_float(
-        int_or_float: Union[int, float, Any]) -> Any:
+        int_or_float: Union[int, float, Int, Number]) -> Any:
     """
     Convert float value to int.
 
     Parameters
     ----------
-    int_or_float : int or float or NumberValueInterface
+    int_or_float : int or float or Int or Number
         Target float value. If integer is specified, conversion
         will be skipped.
 
@@ -40,13 +42,14 @@ def to_int_from_float(
     return int(int_or_float)
 
 
-def to_float_from_int(int_or_float: Union[int, float, Any]) -> Any:
+def to_float_from_int(
+        int_or_float: Union[int, float, Int, Number]) -> Any:
     """
     Convert int value to float.
 
     Parameters
     ----------
-    int_or_float : int or float or NumberValueInterface
+    int_or_float : int or float or Int or Number
         Target integer value. If float is specified, conversion will
         be skipped.
 
@@ -64,7 +67,7 @@ def to_float_from_int(int_or_float: Union[int, float, Any]) -> Any:
     return float(int_or_float)
 
 
-def to_bool_from_int(integer: Union[int, Any]) -> bool:
+def to_bool_from_int(integer: Union[int, Int]) -> bool:
     """
     Convert int value to bool.
 

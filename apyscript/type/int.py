@@ -4,12 +4,7 @@
 from typing import Any
 from typing import Union
 
-from apyscript.converter import cast
-from apyscript.expression import expression_file_util
-from apyscript.expression import expression_variables_util
-from apyscript.type import type_util
 from apyscript.type.number_value_interface import NumberValueInterface
-from apyscript.validation import number_validation
 
 
 class Int(NumberValueInterface):
@@ -24,6 +19,9 @@ class Int(NumberValueInterface):
             Initial integer value. If float or Number value is specified,
             that value will be cast to integer.
         """
+        from apyscript.converter import cast
+        from apyscript.expression import expression_variables_util
+        from apyscript.type import type_util
         is_number_specified: bool = type_util.is_number(
             value=value)
         type_name: str = 'int'
@@ -46,6 +44,7 @@ class Int(NumberValueInterface):
             Boolean value whether a specified value is Number
             instance or not.
         """
+        from apyscript.expression import expression_file_util
         if not is_number_specified:
             return
         expression: str = (
@@ -65,6 +64,8 @@ class Int(NumberValueInterface):
             Any number value to set. If float or Number value is specified,
             that value will be cast to integer.
         """
+        from apyscript.converter import cast
+        from apyscript.validation import number_validation
         number_validation.validate_num(num=value)
         if isinstance(value, NumberValueInterface):
             value._value = cast.to_int_from_float(int_or_float=value._value)

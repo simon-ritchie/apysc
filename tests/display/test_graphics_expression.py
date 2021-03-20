@@ -2,11 +2,11 @@ from random import randint
 
 from retrying import retry
 
+from apyscript.display import Rectangle
 from apyscript.display import Sprite
+from apyscript.display import Stage
 from apyscript.display import graphics_expression
 from apyscript.display.graphics import Graphics
-from apyscript.display import Rectangle
-from apyscript.display import Stage
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))

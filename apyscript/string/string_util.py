@@ -51,4 +51,4 @@ def wrap_by_double_quotation_if_value_is_string(value: T) -> T:
     if not isinstance(value, str):
         return value
     value = f'"{value}"'  # type: ignore
-    return value
+    return value  # type: ignore

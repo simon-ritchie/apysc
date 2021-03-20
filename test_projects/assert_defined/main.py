@@ -15,8 +15,8 @@ from types import ModuleType
 from apyscript.console.assertion import assert_defined
 from apyscript.console.assertion import assert_undefined
 from apyscript.display import Sprite
-from apyscript.display.display_object import DisplayObject
 from apyscript.display import Stage
+from apyscript.display.display_object import DisplayObject
 from apyscript.file import file_util
 from apyscript.html import exporter
 from apyscript.type import Int

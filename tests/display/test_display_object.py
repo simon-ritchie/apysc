@@ -2,8 +2,8 @@ from random import randint
 
 from retrying import retry
 
-from apyscript.display.display_object import DisplayObject
 from apyscript.display import Stage
+from apyscript.display.display_object import DisplayObject
 from tests import testing_helper
 
 

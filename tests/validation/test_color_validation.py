@@ -1,4 +1,5 @@
 from apyscript.validation import color_validation
+from apyscript.type import String
 from tests import testing_helper
 
 
@@ -18,6 +19,10 @@ def test_validate_hex_color_code_format() -> None:
         expected_error_class=ValueError,
         func_or_method=color_validation.validate_hex_color_code_format,
         kwargs={'hex_color_code': 'gggggg'})
+
+    color_validation.validate_hex_color_code_format(hex_color_code='333')
+    color_validation.validate_hex_color_code_format(
+        hex_color_code=String('333'))
 
 
 def test_validate_alpha_range() -> None:

@@ -30,12 +30,12 @@ def complement_hex_color(
     hex_color_code = html_util.remove_first_selector_symbol_char(
         str_val=hex_color_code)
 
+    color_validation.validate_hex_color_code_format(
+        hex_color_code=hex_color_code)
     if isinstance(hex_color_code, String):
         value_: str = hex_color_code.value
     else:
         value_ = hex_color_code
-    color_validation.validate_hex_color_code_format(
-        hex_color_code=value_)
     char_len = len(value_)
     if char_len == 1:
         value_ = _fill_one_digit_hex_color_code(

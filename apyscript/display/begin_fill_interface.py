@@ -6,7 +6,7 @@ See Also
 """
 
 
-from typing import Union
+from typing import Union, TypeVar
 
 from apyscript.color import color_util
 from apyscript.converter import cast
@@ -15,6 +15,8 @@ from apyscript.type import String
 from apyscript.validation import color_validation
 from apyscript.validation import number_validation
 
+StrOrString = TypeVar('StrOrString', str, String)
+
 
 class BiginFillInterface:
 
@@ -22,7 +24,7 @@ class BiginFillInterface:
     _fill_alpha: Number
 
     def begin_fill(
-            self, color: Union[str, String],
+            self, color: StrOrString,
             alpha: Union[float, Number] = 1.0) -> None:
         """
         Set single color value for fill.
@@ -34,12 +36,8 @@ class BiginFillInterface:
         alpha : float or Number, default 1.0
             Color opacity (0.0 to 1.0).
         """
-        if isinstance(color, String):
-            color.value = color_util.complement_hex_color(
-                hex_color_code=color.value)
-        else:
-            color = color_util.complement_hex_color(
-                hex_color_code=color)
+        color = color_util.complement_hex_color(
+            hex_color_code=color)
         self._fill_color.value = color
         number_validation.validate_num(num=alpha)
         if not isinstance(alpha, Number):
@@ -57,9 +55,9 @@ class BiginFillInterface:
 
         Returns
         -------
-        fill_color : str or None
+        fill_color : String
             Current fill color (hexadecimal string, e.g., '#00aaff').
-            If not be set, None will be returned.
+            If not be set, blank string will be returned.
         """
         return self._fill_color
 

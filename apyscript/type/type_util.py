@@ -107,7 +107,7 @@ def is_same_class_instance(class_: Type, instance: Any) -> bool:
         If a specified class and instance's class are same, then True
         will be set.
     """
-    instance_type: Type = type(instance)
+    instance_type: Type = type(instance)  # type: ignore
     if instance_type == class_:
         return True
     return False

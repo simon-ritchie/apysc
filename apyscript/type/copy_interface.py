@@ -4,8 +4,6 @@
 from copy import deepcopy
 from typing import Any
 
-from apyscript.expression import expression_file_util
-from apyscript.expression import expression_variables_util
 from apyscript.type.type_name_interface import TypeNameInterface
 from apyscript.type.variable_name_interface import VariableNameInterface
 
@@ -21,6 +19,7 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
         result : *
             Copied instance.
         """
+        from apyscript.expression import expression_variables_util
         result: CopyInterface = deepcopy(self)
         result.variable_name = \
             expression_variables_util.get_next_variable_name(
@@ -38,6 +37,7 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
         result_variable_name : str
             Copied value's variable name.
         """
+        from apyscript.expression import expression_file_util
         expression: str = (
             f'var {result_variable_name} = '
             f'JSON.parse(JSON.stringify({self.variable_name}));'

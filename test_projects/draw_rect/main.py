@@ -14,7 +14,7 @@ from types import ModuleType
 
 from apyscript.console.assertion import assert_not_equal
 from apyscript.display import Sprite
-from apyscript.display.rectangle import Rectangle
+from apyscript.display import Rectangle
 from apyscript.display import Stage
 from apyscript.file import file_util
 from apyscript.html import exporter

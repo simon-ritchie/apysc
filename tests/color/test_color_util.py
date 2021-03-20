@@ -1,6 +1,5 @@
 
 from apyscript.color import color_util
-from apyscript.type import String
 
 
 def test__fill_one_digit_hex_color_code() -> None:
@@ -16,6 +15,7 @@ def test__fill_three_digit_hex_color_code() -> None:
 
 
 def test_complement_hex_color() -> None:
+    from apyscript.type import String
     hex_color_code_1: str = color_util.complement_hex_color(
         hex_color_code='0')
     assert hex_color_code_1 == '#000000'
@@ -32,5 +32,8 @@ def test_complement_hex_color() -> None:
     assert isinstance(hex_color_code_3, str)
 
     hex_color_code_4: String = String('#222')
-    assert hex_color_code_4 == '#222222'
+    hex_color_code_5: String = color_util.complement_hex_color(
+        hex_color_code=hex_color_code_4)
+    assert hex_color_code_5 == '#222222'
     assert isinstance(hex_color_code_4, String)
+    assert hex_color_code_4.variable_name != hex_color_code_5.variable_name

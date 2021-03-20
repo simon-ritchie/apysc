@@ -4,8 +4,6 @@
 from typing import Any
 from typing import Union
 
-from apyscript.type import type_util
-
 
 def validate_bool(value: Union[bool, Any]) -> None:
     """
@@ -21,6 +19,7 @@ def validate_bool(value: Union[bool, Any]) -> None:
     ValueError
         If specified value isn't bool or Boolean type.
     """
+    from apyscript.type import type_util
     is_bool: bool = type_util.is_bool(value=value)
     if is_bool:
         return

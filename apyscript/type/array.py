@@ -6,14 +6,10 @@ from typing import List
 from typing import Optional
 from typing import Union
 
-from apyscript.expression import expression_file_util
-from apyscript.expression import expression_variables_util
 from apyscript.type import Int
 from apyscript.type import String
-from apyscript.type import value_util
 from apyscript.type.copy_interface import CopyInterface
 from apyscript.type.variable_name_interface import VariableNameInterface
-from apyscript.validation import number_validation
 
 
 class Array(CopyInterface):
@@ -30,6 +26,7 @@ class Array(CopyInterface):
         value : list or tuple or Array
             Initial array value.
         """
+        from apyscript.expression import expression_variables_util
         TYPE_NAME: str = 'array'
         self._validate_acceptable_value_type(value=value)
         self._initial_value = value
@@ -43,6 +40,8 @@ class Array(CopyInterface):
         """
         Append constructor expression to file.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.type import value_util
         expression: str = f'var {self.variable_name} = '
         if isinstance(self._initial_value, Array):
             expression += f'{self._initial_value.variable_name};'
@@ -132,6 +131,8 @@ class Array(CopyInterface):
         value : list or tuple or Array
             Iterable value (list, tuple, or Array) to set.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.type import value_util
         expression: str = f'{self.variable_name} = '
         if isinstance(value, Array):
             expression += f'{value.variable_name};'
@@ -176,6 +177,8 @@ class Array(CopyInterface):
         value : *
             Any value to append.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.type import value_util
         value_str: str = value_util.get_value_str_for_expression(value=value)
         expression: str = (
             f'{self.variable_name}.push({value_str});'
@@ -213,6 +216,8 @@ class Array(CopyInterface):
         other_arr : list or tuple or Array
             Other array-like value to concatenate.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.type import value_util
         value_str: str = value_util.get_value_str_for_expression(
             value=other_arr)
         expression: str = (
@@ -258,6 +263,8 @@ class Array(CopyInterface):
         other_arr : list or tuple or Array
             Other array-like value to concatenate.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.type import value_util
         value_str: str = value_util.get_value_str_for_expression(
             value=other_arr)
         expression: str = (
@@ -280,6 +287,7 @@ class Array(CopyInterface):
         value : *
             Any value to append.
         """
+        from apyscript.validation import number_validation
         number_validation.validate_integer(integer=index)
         from apyscript.type import Int
         if isinstance(index, Int):
@@ -319,6 +327,8 @@ class Array(CopyInterface):
         value : *
             Any value to append.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.type import value_util
         value_str: str = value_util.get_value_str_for_expression(value=value)
         index_str: str = value_util.get_value_str_for_expression(value=index)
         expression: str = (
@@ -349,6 +359,7 @@ class Array(CopyInterface):
         value : *
             Removed value.
         """
+        from apyscript.expression import expression_file_util
         expression: str = f'{self.variable_name}.pop();'
         if isinstance(value, VariableNameInterface):
             expression = f'{value.variable_name} = {expression}'
@@ -376,6 +387,9 @@ class Array(CopyInterface):
         value : Any
             Value to remove.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.expression import expression_variables_util
+        from apyscript.type import value_util
         index_var_name: str = expression_variables_util.\
             get_next_variable_name(type_name='index')
         value_str: str = value_util.get_value_str_for_expression(value=value)
@@ -413,6 +427,8 @@ class Array(CopyInterface):
         index : int or Int
             Index to remove value.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.type import value_util
         index_str: str = value_util.get_value_str_for_expression(value=index)
         expression: str = (
             f'{self.variable_name}.splice({index_str}, 1);'
@@ -431,6 +447,7 @@ class Array(CopyInterface):
         """
         Append reverse method expression to file.
         """
+        from apyscript.expression import expression_file_util
         expression: str = (
             f'{self.variable_name}.reverse();'
         )
@@ -456,6 +473,7 @@ class Array(CopyInterface):
         """
         Append sort method expression to file.
         """
+        from apyscript.expression import expression_file_util
         expression: str = (
             f'{self.variable_name}.sort();'
         )
@@ -525,6 +543,7 @@ class Array(CopyInterface):
         end : int or Int or None
             Slicing end index.
         """
+        from apyscript.expression import expression_file_util
         if start is None:
             start = 0
         expression: str = (
@@ -617,6 +636,8 @@ class Array(CopyInterface):
         value : *
             Specified index's value.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.type import value_util
         if not isinstance(value, VariableNameInterface):
             return
         index_str: str = value_util.get_value_str_for_expression(
@@ -663,6 +684,8 @@ class Array(CopyInterface):
         value : *
             Any value to set.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.type import value_util
         index_str: str = value_util.get_value_str_for_expression(
             value=index)
         value_str: str = value_util.get_value_str_for_expression(
@@ -715,6 +738,7 @@ class Array(CopyInterface):
         length : Int
             Created length Int variable.
         """
+        from apyscript.expression import expression_file_util
         expression: str = (
             f'{length.variable_name} = {self.variable_name}.length;'
         )
@@ -770,6 +794,8 @@ class Array(CopyInterface):
         sep : str or String
             Separator string.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.type import value_util
         sep_str: str = value_util.get_value_str_for_expression(value=sep)
         expression: str = (
             f'{joined.variable_name} = {self.variable_name}'
@@ -840,6 +866,8 @@ class Array(CopyInterface):
         value : *
             Any value to search.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.type import value_util
         value_str: str = value_util.get_value_str_for_expression(
             value=value)
         expression: str = (

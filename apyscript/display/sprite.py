@@ -7,12 +7,8 @@ from apyscript.display.child_interface import ChildInterface
 from apyscript.display.display_object import DisplayObject
 from apyscript.display.graphics import Graphics
 from apyscript.display.stage import Stage
-from apyscript.display.stage import get_stage_variable_name
-from apyscript.expression import expression_file_util
-from apyscript.expression import expression_variables_util
 from apyscript.html import html_const
 from apyscript.type import Array
-from apyscript.type import type_util
 
 
 class Sprite(DisplayObject, ChildInterface):
@@ -34,6 +30,8 @@ class Sprite(DisplayObject, ChildInterface):
             js expression. It is not necessary to specify any
             string except when Sprite subclass will be instantiated.
         """
+        from apyscript.expression import expression_variables_util
+
         # Graphics sprite child cound of 1.
         self._js_child_adjust_num = 1
 
@@ -59,6 +57,9 @@ class Sprite(DisplayObject, ChildInterface):
         appended : bool
             If expression appended, then True will be set.
         """
+        from apyscript.display.stage import get_stage_variable_name
+        from apyscript.expression import expression_file_util
+        from apyscript.type import type_util
         is_same_class_instance: bool = type_util.is_same_class_instance(
             class_=Sprite, instance=self)
         if not is_same_class_instance:

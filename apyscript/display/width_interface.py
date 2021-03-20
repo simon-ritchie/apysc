@@ -1,13 +1,8 @@
 """Class implementation for witdth interface.
 """
 
-from apyscript.converter import cast
-from apyscript.expression import expression_file_util
-from apyscript.html import html_util
 from apyscript.type import Int
-from apyscript.type import value_util
 from apyscript.type.variable_name_interface import VariableNameInterface
-from apyscript.validation import size_validation
 
 
 class WidthInterface(VariableNameInterface):
@@ -24,6 +19,7 @@ class WidthInterface(VariableNameInterface):
         width : Int
             This instance's width.
         """
+        from apyscript.type import value_util
         return value_util.get_copy(value=self._width)
 
     @width.setter
@@ -43,6 +39,8 @@ class WidthInterface(VariableNameInterface):
         """
         Append width updating expression.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.html import html_util
         expression: str = (
             f'{self.variable_name}.width({self.width});'
         )
@@ -60,6 +58,8 @@ class WidthInterface(VariableNameInterface):
         value : Int
             Width value to set.
         """
+        from apyscript.converter import cast
+        from apyscript.validation import size_validation
         value = cast.to_int_from_float(int_or_float=value)
         size_validation.validate_size_is_int(size=value)
         size_validation.validate_size_is_gte_zero(size=value)

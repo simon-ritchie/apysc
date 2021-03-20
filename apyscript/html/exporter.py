@@ -6,13 +6,6 @@ from logging import Logger
 from typing import List
 
 from apyscript.console import loggers
-from apyscript.display.stage import get_stage_element_id
-from apyscript.display.stage import get_stage_variable_name
-from apyscript.expression import expression_file_util
-from apyscript.file import file_util
-from apyscript.html import html_const
-from apyscript.html import html_util
-from apyscript.jslib import jslib_util
 
 info_logger: Logger = loggers.get_info_logger()
 
@@ -30,6 +23,8 @@ def save_expressions_overall_html(dest_dir_path: str) -> None:
     dest_dir_path : str
         Destination directory path to save each html and js files.
     """
+    from apyscript.file import file_util
+    from apyscript.html import html_util
     info_logger.info(msg='Overall exporting started...')
     file_util.empty_directory(directory_path=dest_dir_path)
     info_logger.info(msg='JavaScript libraries exporting...')
@@ -69,6 +64,9 @@ def _append_stage_global_variable_to_html(html_str: str) -> str:
     html_str : str
         After appended HTML string.
     """
+    from apyscript.display.stage import get_stage_element_id
+    from apyscript.html import html_const
+    from apyscript.html import html_util
     html_str = html_util.append_html_to_str(
         to_append_html=html_const.SCRIPT_START_TAG,
         dest_html=html_str, indent_num=0)
@@ -90,6 +88,7 @@ def get_entry_point_func_name() -> str:
     entry_point_func_name : str
         An entry point function name.
     """
+    from apyscript.display.stage import get_stage_variable_name
     stage_variable_name: str = get_stage_variable_name()
     entry_point_func_name: str = f'main_{stage_variable_name}'
     return entry_point_func_name
@@ -136,6 +135,7 @@ def _save_html(
     file_name : str
         HTML file name. e.g., 'index.html'
     """
+    from apyscript.file import file_util
     os.makedirs(dir_path, exist_ok=True)
     file_path: str = os.path.join(dir_path, file_name)
     file_util.save_plain_txt(txt=html_str, file_path=file_path)
@@ -155,6 +155,10 @@ def _append_expression_to_html_str(html_str: str) -> str:
     html_str : str
         HTML string after appended expressions.
     """
+    from apyscript.file import file_util
+    from apyscript.html import html_const
+    from apyscript.expression import expression_file_util
+    from apyscript.html import html_util
     expression: str = file_util.read_txt(
         file_path=expression_file_util.EXPRESSION_FILE_PATH)
     expression = html_util.append_indent_to_each_script_line(
@@ -187,6 +191,8 @@ def _append_head_to_html_str(html_str: str) -> str:
     html_str : str
         HTML string after appended.
     """
+    from apyscript.html import html_util
+    from apyscript.jslib import jslib_util
     html_str = html_util.append_html_to_str(
         to_append_html='<head>', dest_html=html_str, indent_num=0)
     html_str = html_util.append_html_to_str(
@@ -218,6 +224,7 @@ def _export_js_libs(dest_dir_path: str) -> List[str]:
     saved_js_file_paths : str
         Saved JavaScript file paths.
     """
+    from apyscript.jslib import jslib_util
     jslib_file_names: List[str] = jslib_util.get_jslib_file_names()
     saved_js_file_paths: List[str] = []
     for jslib_file_name in jslib_file_names:

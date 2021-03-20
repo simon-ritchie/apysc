@@ -7,18 +7,12 @@ from datetime import datetime
 from typing import Any
 from typing import Optional
 
-from apyscript.color import color_util
 from apyscript.display.child_interface import ChildInterface
 from apyscript.display.height_interface import HeightInterface
 from apyscript.display.width_interface import WidthInterface
 from apyscript.expression import expression_file_util
-from apyscript.file import file_util
-from apyscript.html import html_const
-from apyscript.html import html_util
-from apyscript.type import Array
 from apyscript.type import Int
 from apyscript.type.variable_name_interface import VariableNameInterface
-from apyscript.validation import string_validation
 
 _STAGE_ELEM_ID_FILE_PATH: str = os.path.join(
     expression_file_util.EXPRESSION_ROOT_DIR, 'stage_elem_id.txt',
@@ -58,6 +52,10 @@ class Stage(
             ID attribute set to stage html element (e.g., 'line-graph').
             If None is set, random integer will be applied.
         """
+        from apyscript.color import color_util
+        from apyscript.type import Array
+        from apyscript.html import html_util
+        from apyscript.validation import string_validation
         expression_file_util.empty_expression_dir()
         self.stage = self
         self._stage_elem_id = self._create_stage_elem_id_if_none(
@@ -83,6 +81,7 @@ class Stage(
         """
         Save stage element id to expression directory's file.
         """
+        from apyscript.file import file_util
         file_util.save_plain_txt(
             txt=self._stage_elem_id,
             file_path=_STAGE_ELEM_ID_FILE_PATH)
@@ -128,6 +127,7 @@ class Stage(
         expression : str
             Result expression.
         """
+        from apyscript.html import html_const
         style: str = self._make_style_str()
         expression: str = (
             f'{html_const.SCRIPT_START_TAG}'
@@ -181,6 +181,7 @@ def get_stage_element_id() -> str:
         Current stage's element id. If stage is not instantiated yet,
         blank string will be set.
     """
+    from apyscript.file import file_util
     if not os.path.isfile(_STAGE_ELEM_ID_FILE_PATH):
         return ''
     stage_elem_id: str = file_util.read_txt(

@@ -14,11 +14,6 @@ Mainly following interfaces are defined:
 import os
 from typing import List
 
-from apyscript.file import file_util
-from apyscript.html import html_const
-from apyscript.html import html_util
-from apyscript.html.html_util import ScriptLineUtil
-
 EXPRESSION_ROOT_DIR: str = '../.apyscript_expression/'
 EXPRESSION_FILE_PATH: str = os.path.join(
     EXPRESSION_ROOT_DIR, 'expression.txt')
@@ -28,6 +23,7 @@ def empty_expression_dir() -> None:
     """
     Remove expression directory (EXPRESSION_ROOT_DIR) to initialize.
     """
+    from apyscript.file import file_util
     file_util.empty_directory(directory_path=EXPRESSION_ROOT_DIR)
 
 
@@ -40,6 +36,7 @@ def append_expression(expression: str) -> None:
     expression : str
         HTML and js Expression string.
     """
+    from apyscript.file import file_util
     dir_path: str = file_util.get_abs_directory_path_from_file_path(
         file_path=EXPRESSION_FILE_PATH)
     os.makedirs(dir_path, exist_ok=True)
@@ -58,6 +55,7 @@ def wrap_by_script_tag_and_append_expression(expression: str) -> None:
     expression : str
         HTML and js Expression string.
     """
+    from apyscript.html import html_util
     expression = html_util.wrap_expression_by_script_tag(
         expression=expression)
     append_expression(expression=expression)
@@ -68,6 +66,9 @@ def _merge_script_section() -> None:
     Merge expression's script section (If there are multiple
     script tag in expression file, then they will be merged).
     """
+    from apyscript.file import file_util
+    from apyscript.html import html_const
+    from apyscript.html.html_util import ScriptLineUtil
     result_expression: str = ''
     current_expression: str = file_util.read_txt(
         file_path=EXPRESSION_FILE_PATH)
@@ -107,6 +108,7 @@ def get_current_expression() -> str:
     current_expression : str
         Current expression's string.
     """
+    from apyscript.file import file_util
     if not os.path.isfile(EXPRESSION_FILE_PATH):
         return ''
     current_expression: str = file_util.read_txt(
@@ -119,4 +121,5 @@ def remove_expression_file() -> None:
     """
     Remove expression file.
     """
+    from apyscript.file import file_util
     file_util.remove_file_if_exists(file_path=EXPRESSION_FILE_PATH)

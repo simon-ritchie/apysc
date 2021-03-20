@@ -5,9 +5,6 @@ related interface.
 import os
 from typing import List
 
-from apyscript.expression import expression_file_util
-from apyscript.file import file_util
-
 
 def get_next_variable_name(type_name: str) -> str:
     """
@@ -97,6 +94,7 @@ def _read_variable_names(type_name: str) -> List[str]:
         Target type name's variable names.
         e.g., if type name is sprite, `['sprite_1', 'sprite_2', ...]`.
     """
+    from apyscript.file import file_util
     file_path: str = get_variable_names_file_path(
         type_name=type_name)
     if not os.path.isfile(file_path):
@@ -116,6 +114,7 @@ def _save_next_variable_name_to_file(type_name: str) -> None:
     type_name : str
         Any type name, e.g., `sprite`.
     """
+    from apyscript.file import file_util
     file_path: str = get_variable_names_file_path(
         type_name=type_name)
     next_variable_num: int = _get_next_variable_num(
@@ -140,6 +139,7 @@ def get_variable_names_file_path(type_name: str) -> str:
     file_path : str
         Specified type name's target file path.
     """
+    from apyscript.expression import expression_file_util
     file_path: str = os.path.join(
         expression_file_util.EXPRESSION_ROOT_DIR,
         f'variables_{type_name}.txt',

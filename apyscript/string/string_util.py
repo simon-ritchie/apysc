@@ -9,7 +9,7 @@ Mainly following interfaces and defined.
 """
 
 
-from typing import Any
+from typing import Any, TypeVar
 
 
 def escape_str(string: str) -> str:
@@ -30,7 +30,10 @@ def escape_str(string: str) -> str:
     return string
 
 
-def wrap_by_double_quotation_if_value_is_string(value: Any) -> Any:
+T = TypeVar('T')
+
+
+def wrap_by_double_quotation_if_value_is_string(value: T) -> T:
     """
     Wrap specified by double quotation if value is a string.
 
@@ -47,5 +50,5 @@ def wrap_by_double_quotation_if_value_is_string(value: Any) -> Any:
     """
     if not isinstance(value, str):
         return value
-    value = f'"{value}"'
+    value = f'"{value}"'  # type: ignore
     return value

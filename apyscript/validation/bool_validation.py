@@ -4,8 +4,10 @@
 from typing import Any
 from typing import Union
 
+from apyscript.type import Boolean
 
-def validate_bool(value: Union[bool, Any]) -> None:
+
+def validate_bool(value: Union[bool, Boolean]) -> None:
     """
     Validate specified value is bool or Boolean type.
 

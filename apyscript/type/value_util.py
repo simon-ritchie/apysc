@@ -13,6 +13,8 @@ from typing import List
 from typing import TypeVar
 from typing import Union
 
+from apyscript.type import Array
+
 
 def get_value_str_for_expression(value: Any) -> str:
     """
@@ -47,7 +49,7 @@ def get_value_str_for_expression(value: Any) -> str:
     return str(value)
 
 
-def _get_value_str_from_iterable(value: Union[list, tuple, Any]) -> str:
+def _get_value_str_from_iterable(value: Union[list, tuple, Array]) -> str:
     """
     Get value string from iterable object.
 

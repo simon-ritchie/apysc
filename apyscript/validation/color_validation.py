@@ -6,6 +6,8 @@ from typing import Any
 from typing import Tuple
 from typing import Union
 
+from apyscript.type import Number
+
 
 def validate_hex_color_code_format(hex_color_code: str) -> None:
     """
@@ -44,7 +46,7 @@ def validate_hex_color_code_format(hex_color_code: str) -> None:
             f'\nSupported characters: {hexdigits}')
 
 
-def validate_alpha_range(alpha: Union[float, Any]) -> None:
+def validate_alpha_range(alpha: Union[float, Number]) -> None:
     """
     Validate specified alpha (opacity) value's range.
 

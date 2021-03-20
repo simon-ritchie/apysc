@@ -4,8 +4,10 @@
 from typing import Any
 from typing import Union
 
+from apyscript.type import String
 
-def validate_string_type(string: Union[str, Any]) -> None:
+
+def validate_string_type(string: Union[str, String]) -> None:
     """
     Validate specified string's type is str.
 

@@ -54,7 +54,8 @@ class Int(NumberValueInterface):
             expression=expression)
 
     def set_value_and_skip_expression_appending(
-            self, value: Union[int, float, Any]) -> None:
+            self,
+            value: Union[int, float, NumberValueInterface, Any]) -> None:
         """
         Update value attribute and skip expression appending.
 
@@ -73,7 +74,7 @@ class Int(NumberValueInterface):
         else:
             value = cast.to_int_from_float(int_or_float=value)
             value_ = value
-        self._value = value_
+        self._value = value_  # type: ignore
 
     def __repr__(self) -> str:
         """

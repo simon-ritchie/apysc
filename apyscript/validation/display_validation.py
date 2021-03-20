@@ -19,7 +19,7 @@ def validate_stage(stage: Any) -> None:
     ValueError
         If specified instance is not stage type.
     """
-    from apyscript.display.stage import Stage
+    from apyscript.display import Stage
     if isinstance(stage, Stage):
         return
     raise ValueError(

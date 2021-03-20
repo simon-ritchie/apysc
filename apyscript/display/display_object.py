@@ -24,7 +24,7 @@ class DisplayObject(
             Variable name of this instance. This will be used to
             js expression.
         """
-        from apyscript.display.stage import Stage
+        from apyscript.display import Stage
         from apyscript.validation import display_validation
         from apyscript.validation import string_validation
         self._stage_cls: Type[Stage] = Stage

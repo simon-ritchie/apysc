@@ -16,7 +16,7 @@ from apyscript.console.assertion import assert_equal
 from apyscript.console.assertion import assert_not_equal
 from apyscript.display import Sprite
 from apyscript.display.rectangle import Rectangle
-from apyscript.display.stage import Stage
+from apyscript.display import Stage
 from apyscript.file import file_util
 from apyscript.html import exporter
 from apyscript.type import String

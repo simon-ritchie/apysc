@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 from apyscript.console import trace
-from apyscript.display.stage import Stage
+from apyscript.display import Stage
 from apyscript.expression import expression_file_util
 
 

@@ -13,7 +13,7 @@ import os
 from types import ModuleType
 
 from apyscript.console.trace import trace
-from apyscript.display.stage import Stage
+from apyscript.display import Stage
 from apyscript.file import file_util
 from apyscript.html import exporter
 

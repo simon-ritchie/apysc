@@ -6,7 +6,7 @@ from retrying import retry
 from apyscript.display import Sprite
 from apyscript.display import rectangle
 from apyscript.display.rectangle import Rectangle
-from apyscript.display.stage import Stage
+from apyscript.display import Stage
 from apyscript.display.stage import get_stage_variable_name
 from apyscript.expression import expression_file_util
 from apyscript.type import Number

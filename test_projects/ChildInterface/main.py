@@ -19,7 +19,7 @@ from apyscript.console.assertion import assert_true
 from apyscript.console.assertion import assert_undefined
 from apyscript.display import Sprite
 from apyscript.display.display_object import DisplayObject
-from apyscript.display.stage import Stage
+from apyscript.display import Stage
 from apyscript.file import file_util
 from apyscript.html import exporter
 from apyscript.type import Boolean

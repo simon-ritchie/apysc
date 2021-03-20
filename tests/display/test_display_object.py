@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 from apyscript.display.display_object import DisplayObject
-from apyscript.display.stage import Stage
+from apyscript.display import Stage
 from tests import testing_helper
 
 

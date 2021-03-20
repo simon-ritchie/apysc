@@ -7,7 +7,7 @@ from retrying import retry
 from apyscript.display import stage
 from apyscript.display.display_object import DisplayObject
 from apyscript.display.stage import _STAGE_ELEM_ID_FILE_PATH
-from apyscript.display.stage import Stage
+from apyscript.display import Stage
 from apyscript.expression import expression_file_util
 from apyscript.file import file_util
 from apyscript.type import Array

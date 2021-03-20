@@ -4,7 +4,7 @@ from retrying import retry
 
 from apyscript.display import Sprite
 from apyscript.display.display_object import DisplayObject
-from apyscript.display.stage import Stage
+from apyscript.display import Stage
 from apyscript.validation import display_validation
 from tests import testing_helper
 

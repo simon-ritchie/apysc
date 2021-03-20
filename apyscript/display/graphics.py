@@ -1,8 +1,9 @@
 """Implementations for Graphics class.
 """
 
-from typing import Any, Union
+from typing import Any
 from typing import Optional
+from typing import Union
 
 from apyscript.display.begin_fill_interface import BiginFillInterface
 from apyscript.display.child_interface import ChildInterface

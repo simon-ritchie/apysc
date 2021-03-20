@@ -2,10 +2,12 @@
 """
 
 from string import hexdigits
-from typing import Tuple, TypeVar
+from typing import Tuple
+from typing import TypeVar
 from typing import Union
 
-from apyscript.type import Number, String
+from apyscript.type import Number
+from apyscript.type import String
 
 StrOrString = TypeVar('StrOrString', str, String)
 

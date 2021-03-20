@@ -1,11 +1,13 @@
 """Color related implementations.
 """
 
-from typing import Any, Union
+from typing import Any, Union, TypeVar
+
+StrOrString = TypeVar('StrOrString')
 
 
 def complement_hex_color(
-        hex_color_code: Union[str, Any]) -> Union[str, Any]:
+        hex_color_code: StrOrString) -> StrOrString:
     """
     Complement hex color for convenience, for instance, add # prefix or
     three digits to six digits, upper case to lower case etc.
@@ -22,20 +24,32 @@ def complement_hex_color(
     """
     from apyscript.html import html_util
     from apyscript.validation import color_validation
+    from apyscript.type import String
     hex_color_code = html_util.remove_first_selector_symbol_char(
         str_val=hex_color_code)
+
+    if isinstance(hex_color_code, String):
+        value_: str = hex_color_code.value
+    else:
+        value_ = hex_color_code  # type: ignore
     color_validation.validate_hex_color_code_format(
-        hex_color_code=hex_color_code)
-    char_len: int = len(hex_color_code)
+        hex_color_code=value_)
+    char_len = len(value_)
     if char_len == 1:
-        hex_color_code = _fill_one_digit_hex_color_code(
-            hex_color_code=hex_color_code)
+        value_ = _fill_one_digit_hex_color_code(
+            hex_color_code=value_)
     elif char_len == 3:
-        hex_color_code = _fill_three_digit_hex_color_code(
-            hex_color_code=hex_color_code)
-    hex_color_code = hex_color_code.lower()
-    hex_color_code = f'#{hex_color_code}'
-    return hex_color_code
+        value_ = _fill_three_digit_hex_color_code(
+            hex_color_code=value_)
+    value_ = value_.lower()
+    value_ = f'#{value_}'
+
+    if isinstance(hex_color_code, String):
+        hex_color_code.value = value_
+    else:
+        hex_color_code = value_  # type: ignore
+
+    return hex_color_code  # type: ignore
 
 
 def _fill_three_digit_hex_color_code(hex_color_code: str) -> str:

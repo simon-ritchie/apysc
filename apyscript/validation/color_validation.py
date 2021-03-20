@@ -2,13 +2,15 @@
 """
 
 from string import hexdigits
-from typing import Tuple
+from typing import Tuple, TypeVar
 from typing import Union
 
-from apyscript.type import Number
+from apyscript.type import Number, String
+
+StrOrString = TypeVar('StrOrString', str, String)
 
 
-def validate_hex_color_code_format(hex_color_code: str) -> None:
+def validate_hex_color_code_format(hex_color_code: StrOrString) -> None:
     """
     Validate a specified hexadecimal color code's format.
 
@@ -23,12 +25,17 @@ def validate_hex_color_code_format(hex_color_code: str) -> None:
     ValueError
         If invalid hex color code specified.
     """
-    if not isinstance(hex_color_code, str):
+    if not isinstance(hex_color_code, (str, String)):
         raise ValueError(
             'Hex color code only supports str type, specified: '
             f'{type(hex_color_code)}')
 
-    char_len: int = len(hex_color_code)
+    if isinstance(hex_color_code, String):
+        value_: str = hex_color_code.value
+    else:
+        value_ = hex_color_code
+
+    char_len: int = len(value_)
     expected_char_lengths: Tuple[int, int, int] = (1, 3, 6)
     if char_len not in expected_char_lengths:
         raise ValueError(
@@ -36,7 +43,7 @@ def validate_hex_color_code_format(hex_color_code: str) -> None:
             f'\nSupported number of digits are: {expected_char_lengths}'
             f'\nSpecified: {hex_color_code} ({char_len} digits)')
 
-    for char in hex_color_code:
+    for char in value_:
         if char in hexdigits:
             continue
         raise ValueError(

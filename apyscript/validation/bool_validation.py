@@ -1,7 +1,6 @@
 """Boolean value's validation implementations.
 """
 
-from typing import Any
 from typing import Union
 
 from apyscript.type import Boolean

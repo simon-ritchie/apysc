@@ -40,7 +40,8 @@ def test_validate_num_is_gte_zero() -> None:
 
 
 def test_validate_int_is_zero_or_one() -> None:
-    number_validation.validate_int_is_zero_or_one(integer='Hello!')
+    number_validation.validate_int_is_zero_or_one(
+        integer='Hello!')  # type: ignore
     number_validation.validate_int_is_zero_or_one(integer=1)
     number_validation.validate_int_is_zero_or_one(integer=0)
     number_validation.validate_int_is_zero_or_one(integer=Int(0))

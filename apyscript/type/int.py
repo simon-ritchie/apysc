@@ -67,7 +67,7 @@ class Int(NumberValueInterface):
         """
         from apyscript.converter import cast
         from apyscript.validation import number_validation
-        number_validation.validate_num(num=value)
+        number_validation.validate_num(num=value)  # type: ignore
         if isinstance(value, NumberValueInterface):
             value._value = cast.to_int_from_float(int_or_float=value._value)
             value_ = value._value

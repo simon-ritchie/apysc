@@ -1,7 +1,6 @@
 """String's validation implementations.
 """
 
-from typing import Any
 from typing import Union
 
 from apyscript.type import String
@@ -23,7 +22,6 @@ def validate_string_type(string: Union[str, String]) -> None:
     """
     if isinstance(string, str):
         return
-    from apyscript.type import String
     if isinstance(string, String):
         return
     raise ValueError(f'Specified value is not str type: {type(string)}')

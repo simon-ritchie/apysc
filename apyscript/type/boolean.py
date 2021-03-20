@@ -4,8 +4,8 @@
 from typing import Any
 from typing import Union
 
-from apyscript.type.copy_interface import CopyInterface
 from apyscript.type import Int
+from apyscript.type.copy_interface import CopyInterface
 
 
 class Boolean(CopyInterface):
@@ -55,7 +55,7 @@ class Boolean(CopyInterface):
         from apyscript.type.number_value_interface import NumberValueInterface
         from apyscript.validation import bool_validation
         if isinstance(value, (int, float, NumberValueInterface)):
-            result: bool = cast.to_bool_from_int(integer=value)
+            result: bool = cast.to_bool_from_int(integer=value)  # type: ignore
         elif isinstance(value, Boolean):
             result = value._value
         else:

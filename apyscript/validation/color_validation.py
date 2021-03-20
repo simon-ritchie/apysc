@@ -2,7 +2,6 @@
 """
 
 from string import hexdigits
-from typing import Any
 from typing import Tuple
 from typing import Union
 

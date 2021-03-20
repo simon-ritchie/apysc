@@ -14,10 +14,10 @@ Mainly following interfaces are defined:
     Validate specified value is greater than or equal to zero.
 """
 
-from typing import Any
 from typing import Union
 
-from apyscript.type import Int, Number
+from apyscript.type import Int
+from apyscript.type import Number
 
 
 def validate_num(

@@ -14,7 +14,8 @@ Mainly following interfaces are defined.
 from typing import Any
 from typing import Union
 
-from apyscript.type import Int, Number
+from apyscript.type import Int
+from apyscript.type import Number
 
 
 def to_int_from_float(

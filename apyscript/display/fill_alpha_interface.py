@@ -3,15 +3,9 @@
 
 from typing import Any
 
-from apyscript.converter import cast
-from apyscript.expression import expression_file_util
-from apyscript.html import html_util
 from apyscript.type import Number
-from apyscript.type import value_util
 from apyscript.type.number_value_interface import NumberValueInterface
 from apyscript.type.variable_name_interface import VariableNameInterface
-from apyscript.validation import color_validation
-from apyscript.validation import number_validation
 
 
 class FillAlphaInterface(VariableNameInterface):
@@ -28,6 +22,7 @@ class FillAlphaInterface(VariableNameInterface):
         fill_alpha : Number
             Current fill opacity (0.0 to 1.0).
         """
+        from apyscript.type import value_util
         fill_alpha: Number = value_util.get_copy(
             value=self._fill_alpha)
         return fill_alpha
@@ -52,6 +47,9 @@ class FillAlphaInterface(VariableNameInterface):
         """
         Append fill alpha updating expression.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.html import html_util
+        from apyscript.type import value_util
         value_str: str = value_util.get_value_str_for_expression(
             value=self._fill_alpha)
         expression: str = (
@@ -72,6 +70,9 @@ class FillAlphaInterface(VariableNameInterface):
         value : float or Number
             Fill opacity to set.
         """
+        from apyscript.converter import cast
+        from apyscript.validation import color_validation
+        from apyscript.validation import number_validation
         number_validation.validate_num(num=value)
         if not isinstance(value, Number):
             value = cast.to_float_from_int(int_or_float=value)

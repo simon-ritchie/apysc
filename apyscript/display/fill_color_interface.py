@@ -1,12 +1,7 @@
 """Class implementation for fill color interface.
 """
 
-
-from apyscript.color import color_util
-from apyscript.expression import expression_file_util
-from apyscript.html import html_util
 from apyscript.type import String
-from apyscript.type import value_util
 from apyscript.type.variable_name_interface import VariableNameInterface
 
 
@@ -25,6 +20,7 @@ class FillColorInterface(VariableNameInterface):
             Current fill color (hexadecimal string, e.g., '#00aaff').
             If not be set, None will be returned.
         """
+        from apyscript.type import value_util
         self._initialize_fill_color_if_not_initialized()
         fill_color: String = value_util.get_copy(value=self._fill_color)
         return fill_color
@@ -46,6 +42,8 @@ class FillColorInterface(VariableNameInterface):
         """
         Append fill color updating expression.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.html import html_util
         expression: str = (
             f'{self.variable_name}.fill("{self.fill_color}");'
         )
@@ -64,11 +62,11 @@ class FillColorInterface(VariableNameInterface):
         value : String
             Fill color to set.
         """
-        if isinstance(value, String):
-            value_: str = color_util.complement_hex_color(
-                hex_color_code=value.value)
+        from apyscript.color import color_util
+        value = color_util.complement_hex_color(
+            hex_color_code=value)
         self._initialize_fill_color_if_not_initialized()
-        self._fill_color.value = value_
+        self._fill_color.value = value
 
     def _initialize_fill_color_if_not_initialized(self) -> None:
         """

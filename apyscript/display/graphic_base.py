@@ -5,9 +5,6 @@ from typing import Any
 
 from apyscript.display.display_object import DisplayObject
 from apyscript.type import Int
-from apyscript.validation import display_validation
-from apyscript.validation import number_validation
-from apyscript.validation import string_validation
 
 
 class GraphicBase(DisplayObject):
@@ -32,6 +29,10 @@ class GraphicBase(DisplayObject):
             js expression.
         """
         from apyscript.display.graphics import Graphics
+        from apyscript.validation import display_validation
+        from apyscript.validation import number_validation
+        from apyscript.validation import string_validation
+
         display_validation.validate_graphics(graphics=parent)
         self.parent_graphics: Graphics = parent
         number_validation.validate_integer(integer=x)

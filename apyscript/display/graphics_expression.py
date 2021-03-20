@@ -3,7 +3,6 @@
 
 from apyscript.display.graphic_base import GraphicBase
 from apyscript.display.graphics import Graphics
-from apyscript.string import indent_util
 
 
 def append_fill_expression(
@@ -25,6 +24,7 @@ def append_fill_expression(
     expression : str
         After appended expression string.
     """
+    from apyscript.string import indent_util
     if graphics.fill_color == '':
         return expression
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
@@ -53,6 +53,7 @@ def append_fill_opacity_expression(
     expression : str
         After appended expression string.
     """
+    from apyscript.string import indent_util
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
         f'\n{spaces}"fill-opacity": {graphics.fill_alpha},'
@@ -79,6 +80,7 @@ def append_x_expression(
     expression : str
         After appended expression string.
     """
+    from apyscript.string import indent_util
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
         f'\n{spaces}x: {graphic.x},'
@@ -105,6 +107,7 @@ def append_y_expression(
     expression : str
         After appended expression string.
     """
+    from apyscript.string import indent_util
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
         f'\n{spaces}y: {graphic.y},'
@@ -131,6 +134,7 @@ def append_stroke_expression(
     expression : str
         After appended expression string.
     """
+    from apyscript.string import indent_util
     if graphics.line_color == '':
         return expression
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
@@ -159,6 +163,7 @@ def append_stroke_width_expression(
     expression : str
         After appended expression string.
     """
+    from apyscript.string import indent_util
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
         f'\n{spaces}"stroke-width": {graphics.line_thickness},'
@@ -185,6 +190,7 @@ def append_stroke_opacity_expression(
     expression : str
         After appended expression string.
     """
+    from apyscript.string import indent_util
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
         f'\n{spaces}"stroke-opacity": {graphics.line_alpha},'

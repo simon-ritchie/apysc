@@ -17,19 +17,18 @@ Mainly following interfaces are defined:
     script start and end tag.
 """
 
-from apyscript.type.variable_name_interface import VariableNameInterface
 import re
-from typing import Any, List, Union
+from typing import List
 from typing import Match
 from typing import Optional
 from typing import Tuple
 from typing import TypeVar
 
+from apyscript.expression import expression_file_util
 from apyscript.html import html_const
 from apyscript.string import indent_util
-from apyscript.type import String
 from apyscript.type import value_util
-from apyscript.expression import expression_file_util
+from apyscript.type.variable_name_interface import VariableNameInterface
 
 StrOrString = TypeVar('StrOrString')
 

@@ -1,16 +1,15 @@
 from random import randint
-
-from retrying import retry
-
 from typing import Dict
 from typing import List
 from typing import Tuple
 
+from retrying import retry
+
+from apyscript.expression import expression_file_util
 from apyscript.html import html_util
 from apyscript.html.html_util import ScriptLineUtil
-from tests import testing_helper
 from apyscript.type import String
-from apyscript.expression import expression_file_util
+from tests import testing_helper
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))

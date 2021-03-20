@@ -12,18 +12,12 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apyscript.console.assertion import assert_not_equal
-from apyscript.display import Sprite
-from apyscript.display.rectangle import Rectangle
+from apyscript.color import color_util
+from apyscript.console.assertion import assert_equal
 from apyscript.display.stage import Stage
 from apyscript.file import file_util
 from apyscript.html import exporter
-from apyscript.type import Int
-from apyscript.type import Number
 from apyscript.type import String
-from apyscript.color import color_util
-from apyscript.console.assertion import assert_equal
-
 
 this_module: ModuleType = sys.modules[__name__]
 

@@ -4,12 +4,8 @@
 from typing import Any
 from typing import Union
 
-from apyscript.expression import expression_file_util
-from apyscript.expression import expression_variables_util
 from apyscript.type.copy_interface import CopyInterface
-from apyscript.type.value_util import get_value_str_for_expression
 from apyscript.type.variable_name_interface import VariableNameInterface
-from apyscript.validation import string_validation
 
 
 class String(CopyInterface):
@@ -26,6 +22,8 @@ class String(CopyInterface):
         value : str or String
             Initial string value.
         """
+        from apyscript.expression import expression_variables_util
+        from apyscript.validation import string_validation
         TYPE_NAME: str = 'string'
         string_validation.validate_string_type(string=value)
         self._initial_value = value
@@ -39,6 +37,7 @@ class String(CopyInterface):
         """
         Append constructor expression to file.
         """
+        from apyscript.expression import expression_file_util
         expression: str = f'var {self.variable_name} = '
         if isinstance(self._initial_value, String):
             expression += f'{self._initial_value.variable_name};'
@@ -87,6 +86,7 @@ class String(CopyInterface):
         value : str or String
             Any string value to set.
         """
+        from apyscript.validation import string_validation
         string_validation.validate_string_type(string=value)
         self._value = self._get_str_value(value=value)
         self._append_value_setter_expression(value=value)
@@ -101,6 +101,7 @@ class String(CopyInterface):
         value : str or String
             Any string value to set.
         """
+        from apyscript.expression import expression_file_util
         expression: str = f'{self.variable_name} = '
         if isinstance(value, String):
             expression += f'{value.variable_name};'
@@ -123,6 +124,7 @@ class String(CopyInterface):
         result : String
             Concatenated result string.
         """
+        from apyscript.validation import string_validation
         string_validation.validate_string_type(string=other)
         if isinstance(other, String):
             value: str = self._value + other.value
@@ -146,6 +148,8 @@ class String(CopyInterface):
         other : str or String
             Other string value to concatenate.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'var {result.variable_name} = '
@@ -194,6 +198,7 @@ class String(CopyInterface):
             String repetition number.
         """
         from apyscript.type import Int
+        from apyscript.expression import expression_file_util
         expression: str = f'var {result.variable_name} = "";'
         expression += '\nfor (var i = 0; i < '
         if isinstance(other, Int):
@@ -310,6 +315,7 @@ class String(CopyInterface):
             Comparison result.
         """
         from apyscript.type import Boolean
+        from apyscript.validation import string_validation
         string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
         return Boolean(self._value < value)
@@ -329,6 +335,7 @@ class String(CopyInterface):
             Comparison result.
         """
         from apyscript.type import Boolean
+        from apyscript.validation import string_validation
         string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
         return Boolean(self._value <= value)
@@ -348,6 +355,7 @@ class String(CopyInterface):
             Comparison result.
         """
         from apyscript.type import Boolean
+        from apyscript.validation import string_validation
         string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
         return Boolean(self._value > value)
@@ -367,6 +375,7 @@ class String(CopyInterface):
             Comparison result.
         """
         from apyscript.type import Boolean
+        from apyscript.validation import string_validation
         string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
         return Boolean(self._value >= value)

@@ -7,8 +7,6 @@ from typing import Type
 from apyscript.display.parent_interface import ParentInterface
 from apyscript.display.x_interface import XInterface
 from apyscript.display.y_interface import YInterface
-from apyscript.validation import display_validation
-from apyscript.validation import string_validation
 
 
 class DisplayObject(
@@ -27,6 +25,8 @@ class DisplayObject(
             js expression.
         """
         from apyscript.display.stage import Stage
+        from apyscript.validation import display_validation
+        from apyscript.validation import string_validation
         self._stage_cls: Type[Stage] = Stage
         self.stage: Stage = stage
         display_validation.validate_stage(stage=stage)

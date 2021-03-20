@@ -3,7 +3,6 @@ from random import randint
 from retrying import retry
 
 from apyscript.color import color_util
-from apyscript.expression import expression_file_util
 
 
 def test__fill_one_digit_hex_color_code() -> None:
@@ -47,6 +46,7 @@ def test_complement_hex_color() -> None:
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test__append_complement_hex_color_expression() -> None:
     from apyscript.type import String
+    from apyscript.expression import expression_file_util
     expression_file_util.remove_expression_file()
 
     string_1: String = String('#333')

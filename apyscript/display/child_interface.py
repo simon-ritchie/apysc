@@ -5,14 +5,9 @@ from typing import Any
 from typing import Union
 
 from apyscript.display.display_object import DisplayObject
-from apyscript.expression import expression_file_util
-from apyscript.expression import expression_variables_util
-from apyscript.html import html_util
 from apyscript.type import Array
 from apyscript.type import Boolean
 from apyscript.type import Int
-from apyscript.type import value_util
-from apyscript.validation import display_validation
 
 
 class ChildInterface:
@@ -31,6 +26,7 @@ class ChildInterface:
         child : DisplayObject
             Child instance to add.
         """
+        from apyscript.validation import display_validation
         display_validation.validate_display_object(display_object=child)
         self._childs.append(child)
         child.parent = self
@@ -45,6 +41,8 @@ class ChildInterface:
         child : DisplayObject
             Child object to add.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.html import html_util
         parent_name: str = child.parent.variable_name  # type: ignore
         child_name: str = child.variable_name
         expression: str = (
@@ -80,6 +78,8 @@ class ChildInterface:
         child : DisplayObject
             Child object to remove.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.html import html_util
         parent_name: str = child.parent.variable_name  # type: ignore
         child_name: str = child.variable_name
         expression: str = (
@@ -124,6 +124,7 @@ class ChildInterface:
         child : DisplayObject
             Child instance to check.
         """
+        from apyscript.expression import expression_file_util
         expression: str = (
             f'{result.variable_name} = '
             f'{self._variable_name}.has({child.variable_name});'
@@ -155,6 +156,7 @@ class ChildInterface:
         num_children : Int
             Current children number.
         """
+        from apyscript.expression import expression_file_util
         expression: str = (
             f'{num_children.variable_name} = '
             f'{self._variable_name}.children().length'
@@ -177,6 +179,7 @@ class ChildInterface:
         child : DisplayObject
             Target index child instance.
         """
+        from apyscript.expression import expression_variables_util
         if self.num_children > index:
             child: DisplayObject = self._childs[index]
         else:
@@ -199,6 +202,8 @@ class ChildInterface:
         index : int or Int
             Child's index (start from 0).
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.type import value_util
         index_str: str = value_util.get_value_str_for_expression(value=index)
         expression: str = (
             f'var {child.variable_name} = '

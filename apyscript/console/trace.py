@@ -4,11 +4,6 @@
 from typing import Any
 from typing import List
 
-from apyscript.expression import expression_file_util
-from apyscript.html import html_util
-from apyscript.string import string_util
-from apyscript.type.variable_name_interface import VariableNameInterface
-
 
 def trace(*args: Any) -> None:
     """
@@ -20,6 +15,11 @@ def trace(*args: Any) -> None:
     *args : list
         Any arguments to display to console.
     """
+    from apyscript.expression import expression_file_util
+    from apyscript.html import html_util
+    from apyscript.string import string_util
+    from apyscript.type.variable_name_interface import VariableNameInterface
+
     expression: str = 'console.log('
     arg_strs: List[str] = []
     for arg in args:

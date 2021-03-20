@@ -4,13 +4,8 @@
 from typing import Any
 from typing import Union
 
-from apyscript.converter import cast
-from apyscript.expression import expression_file_util
-from apyscript.expression import expression_variables_util
 from apyscript.type.copy_interface import CopyInterface
 from apyscript.type.variable_name_interface import VariableNameInterface
-from apyscript.validation import bool_validation
-from apyscript.validation import number_validation
 
 
 class Boolean(CopyInterface):
@@ -28,6 +23,8 @@ class Boolean(CopyInterface):
             Initial boolean value. 0 or 1 are acceptable for integer
             value.
         """
+        from apyscript.expression import expression_variables_util
+        from apyscript.validation import number_validation
         TYPE_NAME: str = 'boolean'
         number_validation.validate_int_is_zero_or_one(integer=value)
         self._initial_value = value
@@ -54,7 +51,9 @@ class Boolean(CopyInterface):
         result : bool
             Converted boolean value.
         """
+        from apyscript.converter import cast
         from apyscript.type.number_value_interface import NumberValueInterface
+        from apyscript.validation import bool_validation
         if isinstance(value, (int, float, NumberValueInterface)):
             result: bool = cast.to_bool_from_int(integer=value)
         elif isinstance(value, Boolean):
@@ -68,6 +67,7 @@ class Boolean(CopyInterface):
         """
         Append constructor expression to file.
         """
+        from apyscript.expression import expression_file_util
         expression: str = f'var {self.variable_name} = '
         if isinstance(self._initial_value, VariableNameInterface):
             expression += f'Boolean({self._initial_value.variable_name});'
@@ -116,6 +116,7 @@ class Boolean(CopyInterface):
         value : bool or VariableNameInterface
             Any value to set.
         """
+        from apyscript.expression import expression_file_util
         expression: str = f'{self.variable_name} = '
         if isinstance(value, VariableNameInterface):
             expression += f'Boolean({value._variable_name});'

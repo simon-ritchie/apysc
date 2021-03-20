@@ -9,13 +9,8 @@ See Also
 from typing import TypeVar
 from typing import Union
 
-from apyscript.color import color_util
-from apyscript.converter import cast
 from apyscript.type import Number
 from apyscript.type import String
-from apyscript.type import value_util
-from apyscript.validation import color_validation
-from apyscript.validation import number_validation
 
 StrOrString = TypeVar('StrOrString', str, String)
 
@@ -38,6 +33,10 @@ class BiginFillInterface:
         alpha : float or Number, default 1.0
             Color opacity (0.0 to 1.0).
         """
+        from apyscript.color import color_util
+        from apyscript.converter import cast
+        from apyscript.validation import color_validation
+        from apyscript.validation import number_validation
         color = color_util.complement_hex_color(
             hex_color_code=color)
         self._fill_color.value = color
@@ -61,6 +60,7 @@ class BiginFillInterface:
             Current fill color (hexadecimal string, e.g., '#00aaff').
             If not be set, blank string will be returned.
         """
+        from apyscript.type import value_util
         fill_color: String = value_util.get_copy(value=self._fill_color)
         return fill_color
 
@@ -74,5 +74,6 @@ class BiginFillInterface:
         fill_alpha : Number
             Current fill color opacity (0.0 to 1.0).
         """
+        from apyscript.type import value_util
         fill_alpha: Number = value_util.get_copy(value=self._fill_alpha)
         return fill_alpha

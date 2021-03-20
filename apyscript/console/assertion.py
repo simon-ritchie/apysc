@@ -24,11 +24,6 @@ Mainly following interfaces are defined:
 from typing import Any
 from typing import Tuple
 
-from apyscript.console.trace import trace
-from apyscript.expression import expression_file_util
-from apyscript.string import string_util
-from apyscript.type import value_util
-
 
 def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
     """
@@ -49,6 +44,8 @@ def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
     msg : str, optional
         Message to display when assertion failed.
     """
+    from apyscript.expression import expression_file_util
+    from apyscript.string import string_util
     if _actual_value_type_is_array(actual=actual):
         assert_arrays_equal(expected=expected, actual=actual, msg=msg)
         return
@@ -86,6 +83,8 @@ def assert_not_equal(expected: Any, actual: Any, msg: str = '') -> None:
     msg : str, optional
         Message to display when assertion failed.
     """
+    from apyscript.expression import expression_file_util
+    from apyscript.string import string_util
     if _actual_value_type_is_array(actual=actual):
         assert_arrays_not_equal(expected=expected, actual=actual, msg=msg)
         return
@@ -120,6 +119,8 @@ def assert_true(
     msg : str, optional
         Message to display when assertion failed.
     """
+    from apyscript.expression import expression_file_util
+    from apyscript.string import string_util
     _trace_info(
         interface_label='assert_true', expected='true', actual=actual)
     _, actual_str = _get_expected_and_actual_strs(
@@ -153,6 +154,8 @@ def assert_false(
     msg : str, optional
         Message to display when assertion failed.
     """
+    from apyscript.expression import expression_file_util
+    from apyscript.string import string_util
     _trace_info(
         interface_label='assert_false', expected='false', actual=actual)
     _, actual_str = _get_expected_and_actual_strs(
@@ -189,6 +192,7 @@ def assert_arrays_equal(
     msg : str, optional
         Message to display when assertion failed.
     """
+    from apyscript.expression import expression_file_util
     _trace_arrays_assertion_info(
         interface_label='assert_arrays_equal',
         expected=expected, actual=actual)
@@ -219,6 +223,7 @@ def assert_arrays_not_equal(
     msg : str, optional
         Message to display when assertion failed.
     """
+    from apyscript.expression import expression_file_util
     _trace_arrays_assertion_info(
         interface_label='assert_arrays_not_equal',
         expected=expected, actual=actual)
@@ -241,6 +246,8 @@ def assert_defined(actual: Any, msg: str = '') -> None:
     msg : str, optional
         Message to display when assertion failed.
     """
+    from apyscript.expression import expression_file_util
+    from apyscript.string import string_util
     _trace_info(
         interface_label='assert_defined', expected='other than undefined',
         actual=actual)
@@ -266,6 +273,8 @@ def assert_undefined(actual: Any, msg: str = '') -> None:
     msg : str, optional
         Message to display when assertion failed.
     """
+    from apyscript.expression import expression_file_util
+    from apyscript.string import string_util
     _trace_info(
         interface_label='assert_undefined', expected='undefined',
         actual=actual)
@@ -304,6 +313,8 @@ def _make_arrays_comparison_expression(
     expression : str
         Result expression string.
     """
+    from apyscript.string import string_util
+    from apyscript.type import value_util
     expected_exp_str: str = value_util.get_value_str_for_expression(
         value=expected)
     actual_exp_str: str = value_util.get_value_str_for_expression(
@@ -335,6 +346,7 @@ def _trace_arrays_assertion_info(
         Actual value.
     """
     from apyscript.type import Array
+    from apyscript.type import value_util
     expected_exp_str: str = value_util.get_value_str_for_expression(
         value=expected)
     actual_exp_str: str = value_util.get_value_str_for_expression(
@@ -420,6 +432,7 @@ def _get_expected_and_actual_strs(
         Actual value's string. If value is string, this will be
         wrapped by double quotation.
     """
+    from apyscript.type import value_util
     expected_str: str = value_util.get_value_str_for_expression(
         value=expected)
     actual_str: str = value_util.get_value_str_for_expression(value=actual)
@@ -440,6 +453,7 @@ def _trace_info(interface_label: str, expected: Any, actual: Any) -> None:
         Actual value.
     """
     from apyscript.type.variable_name_interface import VariableNameInterface
+    from apyscript.console.trace import trace
     info: str = f'[{interface_label}]'
     if isinstance(expected, VariableNameInterface):
         info += f'\nExpected variable name: {expected.variable_name}'

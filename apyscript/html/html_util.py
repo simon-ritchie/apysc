@@ -24,11 +24,7 @@ from typing import Optional
 from typing import Tuple
 from typing import TypeVar
 
-from apyscript.expression import expression_file_util
-from apyscript.html import html_const
-from apyscript.string import indent_util
 from apyscript.type import String
-from apyscript.type import value_util
 from apyscript.type.variable_name_interface import VariableNameInterface
 
 StrOrString = TypeVar('StrOrString', str, String)
@@ -54,6 +50,7 @@ def remove_first_selector_symbol_char(
     TypeError
         If other than str or String type value is passed.
     """
+    from apyscript.type import value_util
     if isinstance(str_val, str):
         if str_val.startswith('.') or str_val.startswith('#'):
             str_val = str_val[1:]  # type: ignore
@@ -85,6 +82,7 @@ def _append_remove_first_selector_symbol_char_expression(
     str_val : String
         First character removed string instance.
     """
+    from apyscript.expression import expression_file_util
     var_name: str = str_val.variable_name
     expression: str = (
         f'var first_char = {var_name}.slice(0, 1);'
@@ -117,6 +115,7 @@ def append_html_to_str(
     result : str
         HTML appended string.
     """
+    from apyscript.string import indent_util
     result: str = dest_html
     if result != '':
         result += '\n'
@@ -150,6 +149,7 @@ def append_indent_to_each_script_line(html: str, indent_num: int) -> str:
     result_html : str
         Indentation added html string.
     """
+    from apyscript.string import indent_util
     each_lines: List[str] = html.splitlines()
     result_html: str = ''
     script_line_util: ScriptLineUtil = ScriptLineUtil(html=html)
@@ -293,6 +293,7 @@ def wrap_expression_by_script_tag(expression: str) -> str:
     expression : str
         Wrapped expression string.
     """
+    from apyscript.html import html_const
     expression = (
         f'{html_const.SCRIPT_START_TAG}'
         f'\n{expression}'

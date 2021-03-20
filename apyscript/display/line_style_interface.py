@@ -40,8 +40,8 @@ class LineStyleInterface:
         from apyscript.color import color_util
         from apyscript.converter import cast
         from apyscript.type.number_value_interface import NumberValueInterface
-        from apyscript.validation import number_validation
         from apyscript.validation import color_validation
+        from apyscript.validation import number_validation
 
         color = color_util.complement_hex_color(
             hex_color_code=color)

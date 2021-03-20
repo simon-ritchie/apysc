@@ -53,8 +53,8 @@ class Stage(
             If None is set, random integer will be applied.
         """
         from apyscript.color import color_util
-        from apyscript.type import Array
         from apyscript.html import html_util
+        from apyscript.type import Array
         from apyscript.validation import string_validation
         expression_file_util.empty_expression_dir()
         self.stage = self

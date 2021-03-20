@@ -9,7 +9,7 @@ Mainly following interfaces and defined.
 """
 
 
-from typing import Any, TypeVar
+from typing import TypeVar
 
 
 def escape_str(string: str) -> str:

@@ -155,9 +155,9 @@ def _append_expression_to_html_str(html_str: str) -> str:
     html_str : str
         HTML string after appended expressions.
     """
+    from apyscript.expression import expression_file_util
     from apyscript.file import file_util
     from apyscript.html import html_const
-    from apyscript.expression import expression_file_util
     from apyscript.html import html_util
     expression: str = file_util.read_txt(
         file_path=expression_file_util.EXPRESSION_FILE_PATH)

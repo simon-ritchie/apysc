@@ -4,12 +4,8 @@
 from typing import Any
 from typing import Union
 
-from apyscript.expression import expression_file_util
-from apyscript.html import html_util
 from apyscript.type.copy_interface import CopyInterface
-from apyscript.type.value_util import get_value_str_for_expression
 from apyscript.type.variable_name_interface import VariableNameInterface
-from apyscript.validation import number_validation
 
 
 class NumberValueInterface(CopyInterface):
@@ -29,6 +25,7 @@ class NumberValueInterface(CopyInterface):
         type_name : str
             This instance expression's type name (e.g., int, number).
         """
+        from apyscript.validation import number_validation
         number_validation.validate_num(num=value)
         self._initial_value = value
         if isinstance(value, NumberValueInterface):
@@ -42,6 +39,8 @@ class NumberValueInterface(CopyInterface):
         """
         Append current value's constructor expression to file.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.html import html_util
         if isinstance(self._initial_value, NumberValueInterface):
             value_: Union[int, float, str] = self._initial_value.variable_name
         else:
@@ -91,6 +90,7 @@ class NumberValueInterface(CopyInterface):
         value : int or float or NumberValueInterface
             Any number value to set.
         """
+        from apyscript.validation import number_validation
         number_validation.validate_num(num=value)
         if isinstance(value, NumberValueInterface):
             value_ = value._value
@@ -108,6 +108,8 @@ class NumberValueInterface(CopyInterface):
         value : int or float or NumberValueInterface
             Any number value to set.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.html import html_util
         if isinstance(value, NumberValueInterface):
             right_value: Union[str, int, float] = value.variable_name
         else:
@@ -155,6 +157,8 @@ class NumberValueInterface(CopyInterface):
         other : int or float or NumberValueInterface
             Other value to add.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'var {result.variable_name} = '
@@ -199,6 +203,8 @@ class NumberValueInterface(CopyInterface):
         other : int or float or NumberValueInterface
             Other value to subtract.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'var {result.variable_name} = '
@@ -243,6 +249,8 @@ class NumberValueInterface(CopyInterface):
         other : int or float or NumberValueInterface
             Other value to multiply.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'var {result.variable_name} = '
@@ -288,6 +296,8 @@ class NumberValueInterface(CopyInterface):
         other : int or float or NumberValueInterface
             Other value for true division.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'{result.variable_name} = {result.variable_name} / '
@@ -333,6 +343,8 @@ class NumberValueInterface(CopyInterface):
         other : int or float or NumberValueInterface
             Other value for floor division.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'{result.variable_name} = '

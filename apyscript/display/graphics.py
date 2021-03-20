@@ -1,7 +1,7 @@
 """Implementations for Graphics class.
 """
 
-from typing import Any
+from typing import Any, Union
 from typing import Optional
 
 from apyscript.display.begin_fill_interface import BiginFillInterface
@@ -69,7 +69,10 @@ class Graphics(
         expression_file_util.append_expression(expression=expression)
 
     def draw_rect(
-            self, x: int, y: int, width: int, height: int) -> Rectangle:
+            self, x: Union[int, Int],
+            y: Union[int, Int],
+            width: Union[int, Int],
+            height: Union[int, Int]) -> Rectangle:
         """
         Draw rectangle vector graphics.
 

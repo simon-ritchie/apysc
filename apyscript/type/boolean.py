@@ -5,6 +5,7 @@ from typing import Any
 from typing import Union
 
 from apyscript.type.copy_interface import CopyInterface
+from apyscript.type import Int
 
 
 class Boolean(CopyInterface):
@@ -12,7 +13,7 @@ class Boolean(CopyInterface):
     _initial_value: Union[bool, int, Any]
     _value: bool
 
-    def __init__(self, value: Union[bool, int, Any]) -> None:
+    def __init__(self, value: Union[bool, int, Int, Any]) -> None:
         """
         Boolean class for apyscript library.
 
@@ -35,7 +36,7 @@ class Boolean(CopyInterface):
         self._append_constructor_expression()
 
     def _get_bool_from_arg_value(
-            self, value: Union[bool, int, Any]) -> bool:
+            self, value: Union[bool, int, Int, Any]) -> bool:
         """
         Get bool value from specified argument value.
 
@@ -92,7 +93,7 @@ class Boolean(CopyInterface):
         return self._value
 
     @value.setter
-    def value(self, value: Union[bool, int, Any]) -> None:
+    def value(self, value: Union[bool, int, Int, Any]) -> None:
         """
         Set boolean value.
 
@@ -133,7 +134,7 @@ class Boolean(CopyInterface):
             expression=expression)
 
     def _set_value_and_skip_expression_appending(
-            self, value: Union[bool, int, Any]) -> None:
+            self, value: Union[bool, int, Int, Any]) -> None:
         """
         Update value attribute and skip expression appending.
 

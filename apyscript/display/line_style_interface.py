@@ -5,7 +5,7 @@ See Also
 - graphics_clear_interface
 """
 
-from typing import Union
+from typing import Union, TypeVar
 
 from apyscript.color import color_util
 from apyscript.converter import cast
@@ -17,6 +17,8 @@ from apyscript.type.number_value_interface import NumberValueInterface
 from apyscript.validation import color_validation
 from apyscript.validation import number_validation
 
+StrOrString = TypeVar('StrOrString', str, String)
+
 
 class LineStyleInterface:
 
@@ -25,7 +27,7 @@ class LineStyleInterface:
     _line_alpha: Number
 
     def line_style(
-            self, color: Union[str, String],
+            self, color: StrOrString,
             thickness: Union[int, Int] = 1,
             alpha: Union[float, Number] = 1.0) -> None:
         """
@@ -40,12 +42,8 @@ class LineStyleInterface:
         alpha : float or Number, default 1.0
             Line color opacity (0.0 to 1.0).
         """
-        if isinstance(color, String):
-            color.value = color_util.complement_hex_color(
-                hex_color_code=color.value)
-        else:
-            color = color_util.complement_hex_color(
-                hex_color_code=color)
+        color = color_util.complement_hex_color(
+            hex_color_code=color)
         self._line_color.value = color
         number_validation.validate_integer(integer=thickness)
         number_validation.validate_num_is_gt_zero(num=thickness)

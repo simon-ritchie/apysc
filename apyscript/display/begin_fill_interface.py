@@ -6,15 +6,16 @@ See Also
 """
 
 
-from typing import Union, TypeVar
+from typing import TypeVar
+from typing import Union
 
 from apyscript.color import color_util
 from apyscript.converter import cast
 from apyscript.type import Number
 from apyscript.type import String
+from apyscript.type import value_util
 from apyscript.validation import color_validation
 from apyscript.validation import number_validation
-from apyscript.type import value_util
 
 StrOrString = TypeVar('StrOrString', str, String)
 

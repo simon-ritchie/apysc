@@ -5,7 +5,8 @@ See Also
 - graphics_clear_interface
 """
 
-from typing import Union, TypeVar
+from typing import TypeVar
+from typing import Union
 
 from apyscript.color import color_util
 from apyscript.converter import cast

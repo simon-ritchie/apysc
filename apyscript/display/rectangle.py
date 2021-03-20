@@ -11,15 +11,10 @@ from apyscript.display.height_interface import HeightInterface
 from apyscript.display.line_alpha_interface import LineAlphaInterface
 from apyscript.display.line_color_interface import LineColorInterface
 from apyscript.display.line_thickness_interface import LineThicknessInterface
-from apyscript.display.stage import get_stage_variable_name
 from apyscript.display.width_interface import WidthInterface
-from apyscript.expression import expression_file_util
-from apyscript.expression import expression_variables_util
-from apyscript.html import html_const
 from apyscript.type import Int
 from apyscript.type import Number
 from apyscript.type import String
-from apyscript.validation import size_validation
 
 
 class Rectangle(
@@ -64,6 +59,8 @@ class Rectangle(
         line_alpha : float or Number, default 1.0
             Line opacity (0.0 to 1.0).
         """
+        from apyscript.expression import expression_variables_util
+        from apyscript.validation import size_validation
         variable_name: str = expression_variables_util.\
             get_next_variable_name(type_name='rectangle')
         super(Rectangle, self).__init__(
@@ -100,6 +97,9 @@ def append_draw_rect_expression(rectangle: Rectangle) -> None:
     rectangle : Rectanble
         Created rectangle instance.
     """
+    from apyscript.display.stage import get_stage_variable_name
+    from apyscript.expression import expression_file_util
+    from apyscript.html import html_const
     variable_name: str = rectangle.variable_name
     stage_variable_name: str = get_stage_variable_name()
     expression: str = (

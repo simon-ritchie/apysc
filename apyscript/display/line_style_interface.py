@@ -8,15 +8,9 @@ See Also
 from typing import TypeVar
 from typing import Union
 
-from apyscript.color import color_util
-from apyscript.converter import cast
 from apyscript.type import Int
 from apyscript.type import Number
 from apyscript.type import String
-from apyscript.type import value_util
-from apyscript.type.number_value_interface import NumberValueInterface
-from apyscript.validation import color_validation
-from apyscript.validation import number_validation
 
 StrOrString = TypeVar('StrOrString', str, String)
 
@@ -43,6 +37,12 @@ class LineStyleInterface:
         alpha : float or Number, default 1.0
             Line color opacity (0.0 to 1.0).
         """
+        from apyscript.color import color_util
+        from apyscript.converter import cast
+        from apyscript.type.number_value_interface import NumberValueInterface
+        from apyscript.validation import number_validation
+        from apyscript.validation import color_validation
+
         color = color_util.complement_hex_color(
             hex_color_code=color)
         self._line_color.value = color
@@ -67,6 +67,7 @@ class LineStyleInterface:
             Current line color (hexadecimal string, e.g., '#00aaff').
             If not be set, blank string will be returned.
         """
+        from apyscript.type import value_util
         return value_util.get_copy(value=self._line_color)
 
     @property
@@ -79,6 +80,7 @@ class LineStyleInterface:
         line_thickness : Int
             Current line thickness.
         """
+        from apyscript.type import value_util
         return value_util.get_copy(value=self._line_thickness)
 
     @property
@@ -92,4 +94,5 @@ class LineStyleInterface:
             Current line opacity (0.0 to 1.0).
             If not be set, None will be returned.
         """
+        from apyscript.type import value_util
         return value_util.get_copy(value=self._line_alpha)

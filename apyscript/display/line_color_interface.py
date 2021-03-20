@@ -1,12 +1,7 @@
 """Class implementation for line color interface.
 """
 
-
-from apyscript.color import color_util
-from apyscript.expression import expression_file_util
-from apyscript.html import html_util
 from apyscript.type import String
-from apyscript.type import value_util
 from apyscript.type.variable_name_interface import VariableNameInterface
 
 
@@ -25,6 +20,7 @@ class LineColorInterface(VariableNameInterface):
             Current line color (hexadecimal string, e.g., '#00aaff').
             If not be set, blank string will be returned.
         """
+        from apyscript.type import value_util
         self._initialize_line_color_if_not_initialized()
         line_color: String = value_util.get_copy(value=self._line_color)
         return line_color
@@ -46,6 +42,8 @@ class LineColorInterface(VariableNameInterface):
         """
         Append line color updating expression.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.html import html_util
         expression: str = (
             f'{self.variable_name}.stroke("{self.line_color}");'
         )
@@ -64,8 +62,9 @@ class LineColorInterface(VariableNameInterface):
         value : String
             Line color to set.
         """
-        value.value = color_util.complement_hex_color(
-            hex_color_code=value.value)
+        from apyscript.color import color_util
+        value = color_util.complement_hex_color(
+            hex_color_code=value)
         self._initialize_line_color_if_not_initialized()
         self._line_color = value
 

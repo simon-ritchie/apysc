@@ -1,12 +1,8 @@
 """Class implementation for line thickness interface.
 """
 
-from apyscript.expression import expression_file_util
-from apyscript.html import html_util
 from apyscript.type import Int
-from apyscript.type import value_util
 from apyscript.type.variable_name_interface import VariableNameInterface
-from apyscript.validation import number_validation
 
 
 class LineThicknessInterface(VariableNameInterface):
@@ -23,6 +19,7 @@ class LineThicknessInterface(VariableNameInterface):
         line_thickness : Int
             Current line thickness.
         """
+        from apyscript.type import value_util
         return value_util.get_copy(value=self._line_thickness)
 
     @line_thickness.setter
@@ -42,6 +39,8 @@ class LineThicknessInterface(VariableNameInterface):
         """
         Append line thickness update expression.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.html import html_util
         expression: str = (
             f'{self.variable_name}.attr({{"stroke-width": '
             f'{self.line_thickness}}});'
@@ -61,6 +60,7 @@ class LineThicknessInterface(VariableNameInterface):
         value : Int
             LKine thickness to set.
         """
+        from apyscript.validation import number_validation
         number_validation.validate_integer(integer=value)
         number_validation.validate_num_is_gte_zero(num=value)
         self._line_thickness = value

@@ -1,14 +1,8 @@
 """Class implementation for line alpha interface.
 """
 
-
-from apyscript.expression import expression_file_util
-from apyscript.html import html_util
 from apyscript.type import Number
-from apyscript.type import value_util
 from apyscript.type.variable_name_interface import VariableNameInterface
-from apyscript.validation import color_validation
-from apyscript.validation import number_validation
 
 
 class LineAlphaInterface(VariableNameInterface):
@@ -25,6 +19,7 @@ class LineAlphaInterface(VariableNameInterface):
         line_alpha : Number
             Current line alpha (opacity. 0.0 to 1.0).
         """
+        from apyscript.type import value_util
         return value_util.get_copy(value=self._line_alpha)
 
     @line_alpha.setter
@@ -44,6 +39,8 @@ class LineAlphaInterface(VariableNameInterface):
         """
         Append line alpha updating expression.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.html import html_util
         expression: str = (
             f'{self.variable_name}.stroke({{opacity: {self.line_alpha}}});'
         )
@@ -62,6 +59,8 @@ class LineAlphaInterface(VariableNameInterface):
         value : Number
             Line alpha (opacity) to set.
         """
+        from apyscript.validation import color_validation
+        from apyscript.validation import number_validation
         number_validation.validate_num(num=value)
         color_validation.validate_alpha_range(alpha=value)
         self._line_alpha = value

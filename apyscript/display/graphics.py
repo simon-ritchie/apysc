@@ -9,16 +9,8 @@ from apyscript.display.child_interface import ChildInterface
 from apyscript.display.graphics_clear_interface import GraphicsClearInterface
 from apyscript.display.line_style_interface import LineStyleInterface
 from apyscript.display.rectangle import Rectangle
-from apyscript.display.rectangle import append_draw_rect_expression
-from apyscript.expression import expression_file_util
-from apyscript.expression import expression_variables_util
-from apyscript.html import html_util
-from apyscript.type import Array
 from apyscript.type import Int
-from apyscript.type import Number
-from apyscript.type import String
 from apyscript.type.variable_name_interface import VariableNameInterface
-from apyscript.validation import display_validation
 
 
 class Graphics(
@@ -40,6 +32,12 @@ class Graphics(
             instantiation.
         """
         from apyscript.display import Sprite
+        from apyscript.expression import expression_variables_util
+        from apyscript.type import Array
+        from apyscript.type import String
+        from apyscript.type import Number
+        from apyscript.validation import display_validation
+
         display_validation.validate_sprite(sprite=parent)
         self.parent_sprite: Sprite = parent
         if variable_name is None:
@@ -58,6 +56,8 @@ class Graphics(
         """
         Append constructor expression to file.
         """
+        from apyscript.expression import expression_file_util
+        from apyscript.html import html_util
         stage_name: str = self.parent_sprite.stage.variable_name
         parent_name: str = self.parent_sprite.variable_name
         expression: str = (
@@ -89,6 +89,7 @@ class Graphics(
         rectangle : Rectangle
             Created rectangle.
         """
+        from apyscript.display.rectangle import append_draw_rect_expression
         rectangle: Rectangle = Rectangle(
             parent=self, x=x, y=y, width=width, height=height,
             fill_color=self.fill_color, fill_alpha=self.fill_alpha,

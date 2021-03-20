@@ -1,7 +1,7 @@
 """Color related implementations.
 """
 
-from typing import Any, Union
+from typing import Any
 from typing import TypeVar
 
 from apyscript.expression import expression_file_util

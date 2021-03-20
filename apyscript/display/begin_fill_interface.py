@@ -14,6 +14,7 @@ from apyscript.type import Number
 from apyscript.type import String
 from apyscript.validation import color_validation
 from apyscript.validation import number_validation
+from apyscript.type import value_util
 
 StrOrString = TypeVar('StrOrString', str, String)
 
@@ -59,7 +60,8 @@ class BiginFillInterface:
             Current fill color (hexadecimal string, e.g., '#00aaff').
             If not be set, blank string will be returned.
         """
-        return self._fill_color
+        fill_color: String = value_util.get_copy(value=self._fill_color)
+        return fill_color
 
     @property
     def fill_alpha(self) -> Number:
@@ -71,4 +73,5 @@ class BiginFillInterface:
         fill_alpha : Number
             Current fill color opacity (0.0 to 1.0).
         """
-        return self._fill_alpha
+        fill_alpha: Number = value_util.get_copy(value=self._fill_alpha)
+        return fill_alpha

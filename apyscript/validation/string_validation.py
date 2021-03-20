@@ -27,13 +27,13 @@ def validate_string_type(string: Union[str, String]) -> None:
     raise ValueError(f'Specified value is not str type: {type(string)}')
 
 
-def validate_not_empty_string(string: str) -> None:
+def validate_not_empty_string(string: Union[str, String]) -> None:
     """
     Validate specified string is not empty.
 
     Parameters
     ----------
-    string : str
+    string : str or String
         String to check.
 
     Raises

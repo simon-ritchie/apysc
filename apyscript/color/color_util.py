@@ -3,6 +3,8 @@
 
 from typing import Any, Union, TypeVar
 
+from apyscript.expression import expression_file_util
+
 StrOrString = TypeVar('StrOrString')
 
 
@@ -46,10 +48,36 @@ def complement_hex_color(
 
     if isinstance(hex_color_code, String):
         hex_color_code.value = value_
+        _append_complement_hex_color_expression(
+            hex_color_code=hex_color_code)
     else:
         hex_color_code = value_  # type: ignore
-
     return hex_color_code  # type: ignore
+
+
+def _append_complement_hex_color_expression(
+        hex_color_code: Any) -> None:
+    """
+    Append complement_hex_color function's expression to file.
+
+    Parameters
+    ----------
+    hex_color_code : String
+        Complemented hex color code string.
+    """
+    from apyscript.type import String
+    hex_color_code_: String = hex_color_code
+    var_name: str = hex_color_code_.variable_name
+    expression: str = (
+        f'var str_length = {var_name}.length;'
+        '\nif (str_length === 1) {'
+        f'\n  {var_name} = "00000" + {var_name};'
+        '\n}else if (str_length === 3) {'
+        f'\n  {var_name} = {var_name}.repeat(2);'
+        '\n}'
+    )
+    expression_file_util.wrap_by_script_tag_and_append_expression(
+        expression=expression)
 
 
 def _fill_three_digit_hex_color_code(hex_color_code: str) -> str:

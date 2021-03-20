@@ -1,12 +1,13 @@
 """Color related implementations.
 """
 
-from typing import Any
+from typing import Any, Union
 from typing import TypeVar
 
 from apyscript.expression import expression_file_util
+from apyscript.type import String
 
-StrOrString = TypeVar('StrOrString')
+StrOrString = TypeVar('StrOrString', str, String)
 
 
 def complement_hex_color(
@@ -26,7 +27,6 @@ def complement_hex_color(
         Result hex color code. e.g., '#ff0000', '#666666, '#000000'
     """
     from apyscript.html import html_util
-    from apyscript.type import String
     from apyscript.validation import color_validation
     hex_color_code = html_util.remove_first_selector_symbol_char(
         str_val=hex_color_code)
@@ -34,7 +34,7 @@ def complement_hex_color(
     if isinstance(hex_color_code, String):
         value_: str = hex_color_code.value
     else:
-        value_ = hex_color_code  # type: ignore
+        value_ = hex_color_code
     color_validation.validate_hex_color_code_format(
         hex_color_code=value_)
     char_len = len(value_)
@@ -66,7 +66,6 @@ def _append_complement_hex_color_expression(
     hex_color_code : String
         Complemented hex color code string.
     """
-    from apyscript.type import String
     hex_color_code_: String = hex_color_code
     var_name: str = hex_color_code_.variable_name
     expression: str = (

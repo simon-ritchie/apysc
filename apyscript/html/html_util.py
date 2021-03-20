@@ -18,7 +18,7 @@ Mainly following interfaces are defined:
 """
 
 import re
-from typing import List
+from typing import List, Union
 from typing import Match
 from typing import Optional
 from typing import Tuple
@@ -29,8 +29,9 @@ from apyscript.html import html_const
 from apyscript.string import indent_util
 from apyscript.type import value_util
 from apyscript.type.variable_name_interface import VariableNameInterface
+from apyscript.type import String
 
-StrOrString = TypeVar('StrOrString')
+StrOrString = TypeVar('StrOrString', str, String)
 
 
 def remove_first_selector_symbol_char(
@@ -55,8 +56,8 @@ def remove_first_selector_symbol_char(
     """
     if isinstance(str_val, str):
         if str_val.startswith('.') or str_val.startswith('#'):
-            str_val = str_val[1:]  # type: ignore
-        return str_val  # type: ignore
+            str_val = str_val[1:]
+        return str_val
 
     from apyscript.type import String
     if isinstance(str_val, String):

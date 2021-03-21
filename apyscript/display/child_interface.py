@@ -27,10 +27,19 @@ class ChildInterface:
             Child instance to add.
         """
         from apyscript.validation import display_validation
+        self._initialize_childs_if_not_initialized()
         display_validation.validate_display_object(display_object=child)
         self._childs.append(child)
         child.parent = self
         self._append_expression_of_add_child(child=child)
+
+    def _initialize_childs_if_not_initialized(self) -> None:
+        """
+        Initialize _childs attribute if it is not initialized yet.
+        """
+        if hasattr(self, '_childs'):
+            return
+        self._childs = Array([])
 
     def _append_expression_of_add_child(self, child: DisplayObject) -> None:
         """
@@ -61,6 +70,7 @@ class ChildInterface:
         child : DisplayObject
             Child instance to remove.
         """
+        self._initialize_childs_if_not_initialized()
         self._append_expression_of_remove_child(child=child)
         for child_ in self._childs.value:
             if child_ != child:
@@ -104,6 +114,7 @@ class ChildInterface:
             If this instance contains specified child, True will
             be set.
         """
+        self._initialize_childs_if_not_initialized()
         index: Int = self._childs.index_of(value=child)
         if index == -1:
             result: Boolean = Boolean(False)
@@ -142,6 +153,7 @@ class ChildInterface:
         num_children : int
             Current children number.
         """
+        self._initialize_childs_if_not_initialized()
         num_children: Int = Int(value=self._childs.length)
         self._append_num_children_expression(num_children=num_children)
         return num_children
@@ -180,6 +192,7 @@ class ChildInterface:
             Target index child instance.
         """
         from apyscript.expression import expression_variables_util
+        self._initialize_childs_if_not_initialized()
         if self.num_children > index:
             child: DisplayObject = self._childs[index]
         else:

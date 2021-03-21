@@ -9,6 +9,7 @@ from apyscript.expression import expression_file_util
 from apyscript.type import Array
 from apyscript.type import Boolean
 from apyscript.type import Int
+from apyscript.display.child_interface import ChildInterface
 
 
 class TestChildInterface:
@@ -159,3 +160,15 @@ class TestChildInterface:
             f'{sprite_1.variable_name}.children()[0 + 1];'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__initialize_childs_if_not_initialized(self) -> None:
+        child_interface: ChildInterface = ChildInterface()
+        child_interface._initialize_childs_if_not_initialized()
+        assert child_interface._childs == []
+
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        child_interface._childs = Array([sprite])
+        child_interface._initialize_childs_if_not_initialized()
+        assert child_interface._childs == [sprite]

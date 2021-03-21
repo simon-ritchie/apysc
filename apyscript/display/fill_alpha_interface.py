@@ -12,6 +12,14 @@ class FillAlphaInterface(VariableNameInterface):
 
     _fill_alpha: Number
 
+    def _initialize_fill_alpha_if_not_initialized(self) -> None:
+        """
+        Initialize _fill_alpha attribute if it is not initialized yet.
+        """
+        if hasattr(self, '_fill_alpha'):
+            return
+        self._fill_alpha = Number(1.0)
+
     @property
     def fill_alpha(self) -> Number:
         """
@@ -23,6 +31,7 @@ class FillAlphaInterface(VariableNameInterface):
             Current fill opacity (0.0 to 1.0).
         """
         from apyscript.type import value_util
+        self._initialize_fill_alpha_if_not_initialized()
         fill_alpha: Number = value_util.get_copy(
             value=self._fill_alpha)
         return fill_alpha
@@ -73,6 +82,7 @@ class FillAlphaInterface(VariableNameInterface):
         from apyscript.converter import cast
         from apyscript.validation import color_validation
         from apyscript.validation import number_validation
+        self._initialize_fill_alpha_if_not_initialized()
         number_validation.validate_num(num=value)
         if not isinstance(value, Number):
             value = cast.to_float_from_int(int_or_float=value)

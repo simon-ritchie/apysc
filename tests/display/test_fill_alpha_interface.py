@@ -53,3 +53,14 @@ class TestFillAlphaInterface:
         fill_alpha_interface.update_fill_alpha_and_skip_appending_exp(
             value=Number(value=0.5))
         assert fill_alpha_interface.fill_alpha == 0.5
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__initialize_fill_alpha_if_not_initialized(self) -> None:
+        fill_alpha_interface: FillAlphaInterface = FillAlphaInterface()
+        fill_alpha_interface.variable_name = 'test_fill_alpha_interface'
+        fill_alpha_interface._initialize_fill_alpha_if_not_initialized()
+        assert fill_alpha_interface.fill_alpha == 1.0
+
+        fill_alpha_interface.fill_alpha = Number(0.5)
+        fill_alpha_interface._initialize_fill_alpha_if_not_initialized()
+        assert fill_alpha_interface.fill_alpha == 0.5

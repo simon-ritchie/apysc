@@ -37,6 +37,7 @@ class BiginFillInterface:
         from apyscript.converter import cast
         from apyscript.validation import color_validation
         from apyscript.validation import number_validation
+        self._initialize_fill_color_if_not_initialized()
         color = color_util.complement_hex_color(
             hex_color_code=color)
         self._fill_color.value = color
@@ -61,8 +62,17 @@ class BiginFillInterface:
             If not be set, blank string will be returned.
         """
         from apyscript.type import value_util
+        self._initialize_fill_color_if_not_initialized()
         fill_color: String = value_util.get_copy(value=self._fill_color)
         return fill_color
+
+    def _initialize_fill_color_if_not_initialized(self) -> None:
+        """
+        Initialize fill_color attribute if it is not initialized yet.
+        """
+        if hasattr(self, '_fill_color'):
+            return
+        self._fill_color = String('')
 
     @property
     def fill_alpha(self) -> Number:
@@ -73,6 +83,7 @@ class BiginFillInterface:
         -------
         fill_alpha : Number
             Current fill color opacity (0.0 to 1.0).
+            If not be set, 1.0 will be returned.
         """
         from apyscript.type import value_util
         fill_alpha: Number = value_util.get_copy(value=self._fill_alpha)

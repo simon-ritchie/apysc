@@ -22,9 +22,9 @@ class GraphicsClearInterface:
         Clear all graphics and reset fill and line settings.
         """
         self._fill_color.value = ''
-        self._fill_alpha = Number(1.0)
+        self._fill_alpha.value = 1.0
         self._line_color.value = ''
-        self._line_thickness = Int(1)
-        self._line_alpha = Number(1.0)
+        self._line_thickness.value = 1
+        self._line_alpha.value = 1.0
         while self._childs:
             self._childs[0].remove_from_parent()

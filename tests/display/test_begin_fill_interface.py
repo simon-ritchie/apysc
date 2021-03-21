@@ -59,3 +59,13 @@ class TestBiginFillInterface:
         begin_fill_interface._fill_color = String('#333333')
         begin_fill_interface._initialize_fill_color_if_not_initialized()
         assert begin_fill_interface.fill_color == '#333333'
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__initialize_fill_alpha_if_not_initialized(self) -> None:
+        begin_fill_interface: BiginFillInterface = BiginFillInterface()
+        begin_fill_interface._initialize_fill_alpha_if_not_initialized()
+        assert begin_fill_interface.fill_alpha == 1.0
+
+        begin_fill_interface._fill_alpha = Number(0.5)
+        begin_fill_interface._initialize_fill_alpha_if_not_initialized()
+        assert begin_fill_interface.fill_alpha == 0.5

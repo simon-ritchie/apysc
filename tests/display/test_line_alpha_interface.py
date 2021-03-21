@@ -36,3 +36,14 @@ class TestLineAlphaInterface:
         assert line_alpha_interface.line_alpha == 0.25
         expression: str = expression_file_util.get_current_expression()
         assert 'stroke-opacity' not in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__initialize_line_alpha_if_not_initialized(self) -> None:
+        line_alpha_interface: LineAlphaInterface = LineAlphaInterface()
+        line_alpha_interface.variable_name = 'test_line_alpha_interface'
+        line_alpha_interface._initialize_line_alpha_if_not_initialized()
+        assert line_alpha_interface.line_alpha == 1.0
+
+        line_alpha_interface.line_alpha = Number(0.5)
+        line_alpha_interface._initialize_line_alpha_if_not_initialized()
+        assert line_alpha_interface.line_alpha == 0.5

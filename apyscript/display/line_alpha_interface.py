@@ -9,6 +9,14 @@ class LineAlphaInterface(VariableNameInterface):
 
     _line_alpha: Number
 
+    def _initialize_line_alpha_if_not_initialized(self) -> None:
+        """
+        Initialize _line_alpha attribute if it is not initialized yet.
+        """
+        if hasattr(self, '_line_alpha'):
+            return
+        self._line_alpha = Number(1.0)
+
     @property
     def line_alpha(self) -> Number:
         """

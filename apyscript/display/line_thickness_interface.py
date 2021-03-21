@@ -9,6 +9,15 @@ class LineThicknessInterface(VariableNameInterface):
 
     _line_thickness: Int
 
+    def _initialize_line_thickness_if_not_initialized(self) -> None:
+        """
+        Initialize _line_thickness attribute if it is not
+        initialized yet.
+        """
+        if hasattr(self, '_line_thickness'):
+            return
+        self._line_thickness = Int(1)
+
     @property
     def line_thickness(self) -> Int:
         """
@@ -58,7 +67,7 @@ class LineThicknessInterface(VariableNameInterface):
         Parameters
         ----------
         value : Int
-            LKine thickness to set.
+            Line thickness to set.
         """
         from apyscript.validation import number_validation
         number_validation.validate_integer(integer=value)

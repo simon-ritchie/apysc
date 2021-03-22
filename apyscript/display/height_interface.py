@@ -9,7 +9,7 @@ class HeightInterface(VariableNameInterface):
 
     _height: Int
 
-    def _initialize_height_if_not_initialized(self):
+    def _initialize_height_if_not_initialized(self) -> None:
         """
         Initialize _height attribute if it is not initialized yet.
         """

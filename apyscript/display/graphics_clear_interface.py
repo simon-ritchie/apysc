@@ -21,15 +21,15 @@ class GraphicsClearInterface:
         """
         Clear all graphics and reset fill and line settings.
         """
-        from apyscript.display.fill_color_interface import FillColorInterface
+        from apyscript.display.begin_fill_interface import BeginFillInterface
+        from apyscript.display.child_interface import ChildInterface
         from apyscript.display.fill_alpha_interface import FillAlphaInterface
+        from apyscript.display.fill_color_interface import FillColorInterface
+        from apyscript.display.line_alpha_interface import LineAlphaInterface
         from apyscript.display.line_color_interface import LineColorInterface
+        from apyscript.display.line_style_interface import LineStyleInterface
         from apyscript.display.line_thickness_interface import \
             LineThicknessInterface
-        from apyscript.display.line_alpha_interface import LineAlphaInterface
-        from apyscript.display.child_interface import ChildInterface
-        from apyscript.display.begin_fill_interface import BeginFillInterface
-        from apyscript.display.line_style_interface import LineStyleInterface
         if isinstance(self, (FillColorInterface, BeginFillInterface)):
             self._initialize_fill_color_if_not_initialized()
         self._fill_color.value = ''

@@ -9,6 +9,14 @@ class WidthInterface(VariableNameInterface):
 
     _width: Int
 
+    def _initialize_width_if_not_initialized(self) -> None:
+        """
+        Initialize _width attribute if it is not initialized yet.
+        """
+        if hasattr(self, '_width'):
+            return
+        self._width = Int(0)
+
     @property
     def width(self) -> Int:
         """
@@ -20,6 +28,7 @@ class WidthInterface(VariableNameInterface):
             This instance's width.
         """
         from apyscript.type import value_util
+        self._initialize_width_if_not_initialized()
         return value_util.get_copy(value=self._width)
 
     @width.setter
@@ -60,6 +69,7 @@ class WidthInterface(VariableNameInterface):
         """
         from apyscript.converter import cast
         from apyscript.validation import size_validation
+        self._initialize_width_if_not_initialized()
         value = cast.to_int_from_float(int_or_float=value)
         size_validation.validate_size_is_int(size=value)
         size_validation.validate_size_is_gte_zero(size=value)

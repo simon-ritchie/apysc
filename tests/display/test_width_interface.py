@@ -36,3 +36,14 @@ class TestWidthInterface:
         assert width_interface.width == 300
         expression: str = expression_file_util.get_current_expression()
         assert 'width(' not in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__initialize_width_if_not_initialized(self) -> None:
+        width_interface: WidthInterface = WidthInterface()
+        width_interface.variable_name = 'test_width_interface'
+        width_interface._initialize_width_if_not_initialized()
+        assert width_interface.width == 0
+
+        width_interface.width = Int(10)
+        width_interface._initialize_width_if_not_initialized()
+        assert width_interface.width == 10

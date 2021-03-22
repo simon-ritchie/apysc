@@ -9,8 +9,6 @@ class TestLineStyleInterface:
 
     def test_line_style(self) -> None:
         line_style_interface: LineStyleInterface = LineStyleInterface()
-        line_style_interface._line_color = String('')
-        line_style_interface._line_alpha = Number(1.0)
         line_style_interface.line_style(
             color='#333', thickness=3, alpha=0.5)
         testing_helper.assert_attrs(
@@ -26,8 +24,6 @@ class TestLineStyleInterface:
 
     def test_line_color(self) -> None:
         line_style_interface: LineStyleInterface = LineStyleInterface()
-        line_style_interface._line_color = String('')
-        line_style_interface._line_alpha = Number(1.0)
         line_style_interface.line_style(
             color='#333', thickness=3, alpha=0.5)
         assert line_style_interface.line_color == '#333333'
@@ -38,8 +34,6 @@ class TestLineStyleInterface:
 
     def test_line_thickness(self) -> None:
         line_style_interface: LineStyleInterface = LineStyleInterface()
-        line_style_interface._line_color = String('')
-        line_style_interface._line_alpha = Number(1.0)
         line_style_interface.line_style(
             color='#333', thickness=3, alpha=0.5)
         assert line_style_interface.line_thickness == 3
@@ -50,8 +44,6 @@ class TestLineStyleInterface:
 
     def test_line_alpha(self) -> None:
         line_style_interface: LineStyleInterface = LineStyleInterface()
-        line_style_interface._line_color = String('')
-        line_style_interface._line_alpha = Number(1.0)
         line_style_interface.line_style(
             color='#333', thickness=3, alpha=0.5)
         assert line_style_interface.line_alpha == 0.5
@@ -62,7 +54,6 @@ class TestLineStyleInterface:
 
     def test__initialize_line_color_if_not_initialized(self) -> None:
         line_style_interface: LineStyleInterface = LineStyleInterface()
-        line_style_interface._line_alpha = Number(1.0)
         line_style_interface._initialize_line_color_if_not_initialized()
         assert line_style_interface.line_color == ''
 
@@ -73,7 +64,6 @@ class TestLineStyleInterface:
 
     def test__initialize_line_thickness_if_not_initialized(self) -> None:
         line_style_interface: LineStyleInterface = LineStyleInterface()
-        line_style_interface._line_alpha = Number(1.0)
         line_style_interface._initialize_line_thickness_if_not_initialized()
         assert line_style_interface.line_thickness == 1
 
@@ -81,3 +71,13 @@ class TestLineStyleInterface:
             color='#333', thickness=2, alpha=0.5)
         line_style_interface._initialize_line_thickness_if_not_initialized()
         assert line_style_interface.line_thickness == 2
+
+    def test__initialize_line_alpha_if_not_initialized(self) -> None:
+        line_style_interface: LineStyleInterface = LineStyleInterface()
+        line_style_interface._initialize_line_alpha_if_not_initialized()
+        assert line_style_interface.line_alpha == 1.0
+
+        line_style_interface.line_style(
+            color='#333', thickness=2, alpha=0.5)
+        line_style_interface._initialize_line_alpha_if_not_initialized()
+        assert line_style_interface.line_alpha == 0.5

@@ -44,6 +44,8 @@ class LineStyleInterface:
         from apyscript.validation import number_validation
 
         self._initialize_line_color_if_not_initialized()
+        self._initialize_line_thickness_if_not_initialized()
+        self._initialize_line_alpha_if_not_initialized()
 
         color = color_util.complement_hex_color(
             hex_color_code=color)
@@ -76,6 +78,15 @@ class LineStyleInterface:
             return
         self._line_thickness = Int(1)
 
+    def _initialize_line_alpha_if_not_initialized(self) -> None:
+        """
+        Initialize _line_alpha attribute if it is not
+        initialized yet.
+        """
+        if hasattr(self, '_line_alpha'):
+            return
+        self._line_alpha = Number(1.0)
+
     @property
     def line_color(self) -> String:
         """
@@ -102,6 +113,7 @@ class LineStyleInterface:
             Current line thickness.
         """
         from apyscript.type import value_util
+        self._initialize_line_thickness_if_not_initialized()
         return value_util.get_copy(value=self._line_thickness)
 
     @property
@@ -116,4 +128,5 @@ class LineStyleInterface:
             If not be set, None will be returned.
         """
         from apyscript.type import value_util
+        self._initialize_line_alpha_if_not_initialized()
         return value_util.get_copy(value=self._line_alpha)

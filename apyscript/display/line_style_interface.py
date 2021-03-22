@@ -43,6 +43,8 @@ class LineStyleInterface:
         from apyscript.validation import color_validation
         from apyscript.validation import number_validation
 
+        self._initialize_line_color_if_not_initialized()
+
         color = color_util.complement_hex_color(
             hex_color_code=color)
         self._line_color.value = color
@@ -56,6 +58,15 @@ class LineStyleInterface:
         color_validation.validate_alpha_range(alpha=alpha)
         self._line_alpha = alpha
 
+    def _initialize_line_color_if_not_initialized(self) -> None:
+        """
+        Initialize _line_color attribute it it is not
+        initialized yet.
+        """
+        if hasattr(self, '_line_color'):
+            return
+        self._line_color = String('')
+
     @property
     def line_color(self) -> String:
         """
@@ -68,6 +79,7 @@ class LineStyleInterface:
             If not be set, blank string will be returned.
         """
         from apyscript.type import value_util
+        self._initialize_line_color_if_not_initialized()
         return value_util.get_copy(value=self._line_color)
 
     @property

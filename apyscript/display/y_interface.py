@@ -9,6 +9,14 @@ class YInterface(VariableNameInterface):
 
     _y: Int
 
+    def _initialize_y_if_not_initialized(self) -> None:
+        """
+        Initialize _y attribute if it is not initialized yet.
+        """
+        if hasattr(self, '_y'):
+            return
+        self._y = Int(0)
+
     @property
     def y(self) -> Int:
         """
@@ -20,6 +28,7 @@ class YInterface(VariableNameInterface):
             Y position.
         """
         from apyscript.type import value_util
+        self._initialize_y_if_not_initialized()
         return value_util.get_copy(value=self._y)
 
     @y.setter
@@ -46,6 +55,7 @@ class YInterface(VariableNameInterface):
         """
         from apyscript.expression import expression_file_util
         from apyscript.type import value_util
+        self._initialize_y_if_not_initialized()
         value_str: str = value_util.get_value_str_for_expression(
             value=self._y)
         expression: str = (

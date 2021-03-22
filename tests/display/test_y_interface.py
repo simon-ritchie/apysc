@@ -35,3 +35,14 @@ class TestYInterface:
             value=y_interface._y)
         expected: str = f'test_y_interface.y({value_str});'
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__initialize_y_if_not_initialized(self) -> None:
+        y_interface: YInterface = YInterface()
+        y_interface.variable_name = 'test_y_interface'
+        y_interface._initialize_y_if_not_initialized()
+        assert y_interface.y == 0
+
+        y_interface.y = Int(100)
+        y_interface._initialize_y_if_not_initialized()
+        assert y_interface.y == 100

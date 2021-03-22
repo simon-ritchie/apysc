@@ -9,6 +9,14 @@ class HeightInterface(VariableNameInterface):
 
     _height: Int
 
+    def _initialize_height_if_not_initialized(self):
+        """
+        Initialize _height attribute if it is not initialized yet.
+        """
+        if hasattr(self, '_height'):
+            return
+        self._height = Int(0)
+
     @property
     def height(self) -> Int:
         """
@@ -20,6 +28,7 @@ class HeightInterface(VariableNameInterface):
             This instance's height.
         """
         from apyscript.type import value_util
+        self._initialize_height_if_not_initialized()
         return value_util.get_copy(value=self._height)
 
     @height.setter
@@ -60,6 +69,7 @@ class HeightInterface(VariableNameInterface):
         """
         from apyscript.converter import cast
         from apyscript.validation import size_validation
+        self._initialize_height_if_not_initialized()
         value = cast.to_int_from_float(int_or_float=value)
         size_validation.validate_size_is_int(size=value)
         size_validation.validate_size_is_gte_zero(size=value)

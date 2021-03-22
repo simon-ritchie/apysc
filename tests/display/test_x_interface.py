@@ -35,3 +35,14 @@ class TestXInterface:
             value=x_interface._x)
         expected: str = f'test_x_interface.x({value_str});'
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__initialize_x_if_not_initialized(self) -> None:
+        x_interface = XInterface()
+        x_interface.variable_name = 'test_x_interface'
+        x_interface._initialize_x_if_not_initialized()
+        assert x_interface.x == 0
+
+        x_interface.x = Int(100)
+        x_interface._initialize_x_if_not_initialized()
+        assert x_interface.x == 100

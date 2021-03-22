@@ -10,6 +10,14 @@ class XInterface(VariableNameInterface):
 
     _x: Int
 
+    def _initialize_x_if_not_initialized(self) -> None:
+        """
+        Initialize _x attribute if it is not initialized yet.
+        """
+        if hasattr(self, '_x'):
+            return
+        self._x = Int(0)
+
     @property
     def x(self) -> Int:
         """
@@ -21,6 +29,7 @@ class XInterface(VariableNameInterface):
             X position.
         """
         from apyscript.type import value_util
+        self._initialize_x_if_not_initialized()
         return value_util.get_copy(value=self._x)
 
     @x.setter
@@ -46,6 +55,7 @@ class XInterface(VariableNameInterface):
         """
         from apyscript.expression import expression_file_util
         from apyscript.type import value_util
+        self._initialize_x_if_not_initialized()
         value_str: str = value_util.get_value_str_for_expression(
             value=self._x)
         expression: str = (

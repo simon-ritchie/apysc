@@ -70,3 +70,14 @@ class TestLineStyleInterface:
             color='#333', thickness=1, alpha=0.5)
         line_style_interface._initialize_line_color_if_not_initialized()
         assert line_style_interface.line_color == '#333333'
+
+    def test__initialize_line_thickness_if_not_initialized(self) -> None:
+        line_style_interface: LineStyleInterface = LineStyleInterface()
+        line_style_interface._line_alpha = Number(1.0)
+        line_style_interface._initialize_line_thickness_if_not_initialized()
+        assert line_style_interface.line_thickness == 1
+
+        line_style_interface.line_style(
+            color='#333', thickness=2, alpha=0.5)
+        line_style_interface._initialize_line_thickness_if_not_initialized()
+        assert line_style_interface.line_thickness == 2

@@ -67,6 +67,15 @@ class LineStyleInterface:
             return
         self._line_color = String('')
 
+    def _initialize_line_thickness_if_not_initialized(self) -> None:
+        """
+        Initialize _line_thickness attribute if it is not
+        initialized yet.
+        """
+        if hasattr(self, '_line_thickness'):
+            return
+        self._line_thickness = Int(1)
+
     @property
     def line_color(self) -> String:
         """

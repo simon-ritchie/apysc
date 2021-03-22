@@ -5,7 +5,7 @@ from typing import Any
 from typing import Optional
 from typing import Union
 
-from apyscript.display.begin_fill_interface import BiginFillInterface
+from apyscript.display.begin_fill_interface import BeginFillInterface
 from apyscript.display.child_interface import ChildInterface
 from apyscript.display.graphics_clear_interface import GraphicsClearInterface
 from apyscript.display.line_style_interface import LineStyleInterface
@@ -15,7 +15,7 @@ from apyscript.type.variable_name_interface import VariableNameInterface
 
 
 class Graphics(
-        BiginFillInterface, LineStyleInterface, VariableNameInterface,
+        BeginFillInterface, LineStyleInterface, VariableNameInterface,
         GraphicsClearInterface, ChildInterface):
 
     def __init__(

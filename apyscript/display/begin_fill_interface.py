@@ -15,7 +15,7 @@ from apyscript.type import String
 StrOrString = TypeVar('StrOrString', str, String)
 
 
-class BiginFillInterface:
+class BeginFillInterface:
 
     _fill_color: String
     _fill_alpha: Number

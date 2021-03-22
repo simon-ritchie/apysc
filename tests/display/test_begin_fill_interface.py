@@ -2,16 +2,16 @@ from random import randint
 
 from retrying import retry
 
-from apyscript.display.begin_fill_interface import BiginFillInterface
+from apyscript.display.begin_fill_interface import BeginFillInterface
 from apyscript.type import Number
 from apyscript.type import String
 
 
-class TestBiginFillInterface:
+class TestBeginFillInterface:
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_begin_fill(self) -> None:
-        begin_fill_interface: BiginFillInterface = BiginFillInterface()
+        begin_fill_interface: BeginFillInterface = BeginFillInterface()
         begin_fill_interface._fill_color = String('')
         begin_fill_interface._fill_alpha = Number(1.0)
         begin_fill_interface.begin_fill(color='#333')
@@ -28,7 +28,7 @@ class TestBiginFillInterface:
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_fill_color(self) -> None:
-        begin_fill_interface: BiginFillInterface = BiginFillInterface()
+        begin_fill_interface: BeginFillInterface = BeginFillInterface()
         begin_fill_interface._fill_color = String('')
         begin_fill_interface._fill_alpha = Number(1.0)
         begin_fill_interface.begin_fill(color='#333')
@@ -40,7 +40,7 @@ class TestBiginFillInterface:
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_fill_alpha(self) -> None:
-        begin_fill_interface: BiginFillInterface = BiginFillInterface()
+        begin_fill_interface: BeginFillInterface = BeginFillInterface()
         begin_fill_interface._fill_color = String('')
         begin_fill_interface._fill_alpha = Number(1.0)
         begin_fill_interface.begin_fill(color='#333', alpha=0.2)
@@ -52,7 +52,7 @@ class TestBiginFillInterface:
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__initialize_fill_color_if_not_initialized(self) -> None:
-        begin_fill_interface: BiginFillInterface = BiginFillInterface()
+        begin_fill_interface: BeginFillInterface = BeginFillInterface()
         begin_fill_interface._initialize_fill_color_if_not_initialized()
         assert begin_fill_interface.fill_color == ''
 
@@ -62,7 +62,7 @@ class TestBiginFillInterface:
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__initialize_fill_alpha_if_not_initialized(self) -> None:
-        begin_fill_interface: BiginFillInterface = BiginFillInterface()
+        begin_fill_interface: BeginFillInterface = BeginFillInterface()
         begin_fill_interface._initialize_fill_alpha_if_not_initialized()
         assert begin_fill_interface.fill_alpha == 1.0
 

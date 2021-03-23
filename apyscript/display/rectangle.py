@@ -60,8 +60,8 @@ class Rectangle(
             Line opacity (0.0 to 1.0).
         """
         from apyscript.expression import expression_variables_util
-        from apyscript.validation import size_validation
         from apyscript.expression import var_names
+        from apyscript.validation import size_validation
         variable_name: str = expression_variables_util.\
             get_next_variable_name(type_name=var_names.RECTANGLE)
         super(Rectangle, self).__init__(

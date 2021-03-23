@@ -24,8 +24,8 @@ class Boolean(CopyInterface):
             value.
         """
         from apyscript.expression import expression_variables_util
-        from apyscript.validation import number_validation
         from apyscript.expression import var_names
+        from apyscript.validation import number_validation
         TYPE_NAME: str = var_names.BOOLEAN
         number_validation.validate_int_is_zero_or_one(integer=value)
         self._initial_value = value

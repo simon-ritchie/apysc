@@ -390,8 +390,8 @@ class Array(CopyInterface):
         """
         from apyscript.expression import expression_file_util
         from apyscript.expression import expression_variables_util
-        from apyscript.type import value_util
         from apyscript.expression import var_names
+        from apyscript.type import value_util
         index_var_name: str = expression_variables_util.\
             get_next_variable_name(type_name=var_names.INDEX)
         value_str: str = value_util.get_value_str_for_expression(value=value)

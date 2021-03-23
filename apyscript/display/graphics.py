@@ -34,11 +34,11 @@ class Graphics(
         """
         from apyscript.display import Sprite
         from apyscript.expression import expression_variables_util
+        from apyscript.expression import var_names
         from apyscript.type import Array
         from apyscript.type import Number
         from apyscript.type import String
         from apyscript.validation import display_validation
-        from apyscript.expression import var_names
 
         display_validation.validate_sprite(sprite=parent)
         self.parent_sprite: Sprite = parent

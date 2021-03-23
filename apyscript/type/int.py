@@ -21,8 +21,8 @@ class Int(NumberValueInterface):
         """
         from apyscript.converter import cast
         from apyscript.expression import expression_variables_util
-        from apyscript.type import type_util
         from apyscript.expression import var_names
+        from apyscript.type import type_util
         is_number_specified: bool = type_util.is_number(
             value=value)
         TYPE_NAME: str = var_names.INT

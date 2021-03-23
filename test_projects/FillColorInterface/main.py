@@ -13,7 +13,7 @@ import os
 from types import ModuleType
 
 from apyscript.console import assert_equal
-from apyscript.console.assertion import assert_not_equal
+from apyscript.console import assert_not_equal
 from apyscript.display import Rectangle
 from apyscript.display import Sprite
 from apyscript.display import Stage

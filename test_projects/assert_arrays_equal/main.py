@@ -13,8 +13,8 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apyscript.console.assertion import assert_arrays_equal
-from apyscript.console.assertion import assert_arrays_not_equal
+from apyscript.console import assert_arrays_equal
+from apyscript.console import assert_arrays_not_equal
 from apyscript.console import assert_equal
 from apyscript.console import assert_not_equal
 from apyscript.display import Stage

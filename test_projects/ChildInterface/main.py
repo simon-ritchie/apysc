@@ -14,7 +14,7 @@ from types import ModuleType
 
 from apyscript.console.assertion import assert_defined
 from apyscript.console import assert_equal
-from apyscript.console.assertion import assert_false
+from apyscript.console import assert_false
 from apyscript.console import assert_true
 from apyscript.console.assertion import assert_undefined
 from apyscript.display import Sprite

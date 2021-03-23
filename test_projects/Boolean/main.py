@@ -13,7 +13,7 @@ import os
 from types import ModuleType
 
 from apyscript.console.assertion import assert_false
-from apyscript.console.assertion import assert_true
+from apyscript.console import assert_true
 from apyscript.display import Stage
 from apyscript.file import file_util
 from apyscript.html import exporter

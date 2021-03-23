@@ -452,7 +452,7 @@ def _trace_info(interface_label: str, expected: Any, actual: Any) -> None:
     actual : *
         Actual value.
     """
-    from apyscript.console.trace import trace
+    from apyscript.console import trace
     from apyscript.type.variable_name_interface import VariableNameInterface
     info: str = f'[{interface_label}]'
     if isinstance(expected, VariableNameInterface):

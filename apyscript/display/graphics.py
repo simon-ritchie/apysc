@@ -38,12 +38,13 @@ class Graphics(
         from apyscript.type import Number
         from apyscript.type import String
         from apyscript.validation import display_validation
+        from apyscript.expression import var_names
 
         display_validation.validate_sprite(sprite=parent)
         self.parent_sprite: Sprite = parent
         if variable_name is None:
             variable_name = expression_variables_util.get_next_variable_name(
-                type_name='graphics')
+                type_name=var_names.GRAPHICS)
         self.variable_name = variable_name
         self._fill_color = String('')
         self._fill_alpha = Number(1.0)

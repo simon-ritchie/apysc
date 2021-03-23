@@ -27,7 +27,8 @@ class Array(CopyInterface):
             Initial array value.
         """
         from apyscript.expression import expression_variables_util
-        TYPE_NAME: str = 'array'
+        from apyscript.expression import var_names
+        TYPE_NAME: str = var_names.ARRAY
         self._validate_acceptable_value_type(value=value)
         self._initial_value = value
         self._type_name = TYPE_NAME
@@ -390,8 +391,9 @@ class Array(CopyInterface):
         from apyscript.expression import expression_file_util
         from apyscript.expression import expression_variables_util
         from apyscript.type import value_util
+        from apyscript.expression import var_names
         index_var_name: str = expression_variables_util.\
-            get_next_variable_name(type_name='index')
+            get_next_variable_name(type_name=var_names.INDEX)
         value_str: str = value_util.get_value_str_for_expression(value=value)
         expression: str = (
             f'var {index_var_name} = _.indexOf'

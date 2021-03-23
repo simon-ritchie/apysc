@@ -31,13 +31,14 @@ class Sprite(DisplayObject, ChildInterface):
             string except when Sprite subclass will be instantiated.
         """
         from apyscript.expression import expression_variables_util
+        from apyscript.expression import var_names
 
         # Graphics sprite child cound of 1.
         self._js_child_adjust_num = 1
 
         if variable_name is None:
             variable_name = expression_variables_util.\
-                get_next_variable_name(type_name='sprite')
+                get_next_variable_name(type_name=var_names.SPRITE)
         self._childs = Array([])
         super(Sprite, self).__init__(
             stage=stage, variable_name=variable_name)

@@ -61,8 +61,9 @@ class Rectangle(
         """
         from apyscript.expression import expression_variables_util
         from apyscript.validation import size_validation
+        from apyscript.expression import var_names
         variable_name: str = expression_variables_util.\
-            get_next_variable_name(type_name='rectangle')
+            get_next_variable_name(type_name=var_names.RECTANGLE)
         super(Rectangle, self).__init__(
             parent=parent,
             x=Int(x),

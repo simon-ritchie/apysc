@@ -24,7 +24,8 @@ class String(CopyInterface):
         """
         from apyscript.expression import expression_variables_util
         from apyscript.validation import string_validation
-        TYPE_NAME: str = 'string'
+        from apyscript.expression import var_names
+        TYPE_NAME: str = var_names.STRING
         string_validation.validate_string_type(string=value)
         self._initial_value = value
         self._type_name = TYPE_NAME

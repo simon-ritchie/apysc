@@ -192,12 +192,13 @@ class ChildInterface:
             Target index child instance.
         """
         from apyscript.expression import expression_variables_util
+        from apyscript.expression import var_names
         self._initialize_childs_if_not_initialized()
         if self.num_children > index:
             child: DisplayObject = self._childs[index]
         else:
             variable_name: str = expression_variables_util.\
-                get_next_variable_name(type_name='display_object')
+                get_next_variable_name(type_name=var_names.DISPLAY_OBJECT)
             child = DisplayObject(
                 stage=self.stage, variable_name=variable_name)
         self._append_get_child_at_expression(child=child, index=index)

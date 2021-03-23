@@ -22,12 +22,13 @@ class Int(NumberValueInterface):
         from apyscript.converter import cast
         from apyscript.expression import expression_variables_util
         from apyscript.type import type_util
+        from apyscript.expression import var_names
         is_number_specified: bool = type_util.is_number(
             value=value)
-        type_name: str = 'int'
+        TYPE_NAME: str = var_names.INT
         self.variable_name = expression_variables_util.get_next_variable_name(
-            type_name=type_name)
-        super(Int, self).__init__(value=value, type_name=type_name)
+            type_name=TYPE_NAME)
+        super(Int, self).__init__(value=value, type_name=TYPE_NAME)
         self._value = cast.to_int_from_float(int_or_float=self.value)
         self.append_constructor_expression()
         self._append_cast_expression(

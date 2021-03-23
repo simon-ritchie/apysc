@@ -25,7 +25,8 @@ class Boolean(CopyInterface):
         """
         from apyscript.expression import expression_variables_util
         from apyscript.validation import number_validation
-        TYPE_NAME: str = 'boolean'
+        from apyscript.expression import var_names
+        TYPE_NAME: str = var_names.BOOLEAN
         number_validation.validate_int_is_zero_or_one(integer=value)
         self._initial_value = value
         value_: bool = self._get_bool_from_arg_value(value=value)

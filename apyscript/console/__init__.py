@@ -5,3 +5,4 @@ from apyscript.console.assertion import assert_true # isort:skip # noqa
 from apyscript.console.assertion import assert_false # isort:skip # noqa
 from apyscript.console.assertion import assert_arrays_equal # isort:skip # noqa
 from apyscript.console.assertion import assert_arrays_not_equal # isort:skip # noqa
+from apyscript.console.assertion import assert_defined # isort:skip # noqa

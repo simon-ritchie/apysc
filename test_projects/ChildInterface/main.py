@@ -12,7 +12,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apyscript.console.assertion import assert_defined
+from apyscript.console import assert_defined
 from apyscript.console import assert_equal
 from apyscript.console import assert_false
 from apyscript.console import assert_true

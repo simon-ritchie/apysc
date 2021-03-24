@@ -6,16 +6,17 @@ See Also
 """
 
 
-from typing import TypeVar
+from typing import Optional, TypeVar
 from typing import Union
 
 from apysc.type import Number
 from apysc.type import String
+from apysc.type.revert_interface import RevertInterface
 
 StrOrString = TypeVar('StrOrString', str, String)
 
 
-class BeginFillInterface:
+class BeginFillInterface(RevertInterface):
 
     _fill_color: String
     _fill_alpha: Number
@@ -98,3 +99,26 @@ class BeginFillInterface:
         if hasattr(self, '_fill_alpha'):
             return
         self._fill_alpha = Number(1.0)
+
+    _fill_color_snapshot: str
+    _fill_alpha_snapshot: float
+
+    def make_snapshot(self) -> None:
+        """
+        Make values snapshot.
+        """
+        if self.snapshot_exists:
+            return
+        self._fill_color_snapshot = self._fill_color._value
+        self._fill_alpha_snapshot = self._fill_alpha._value
+        self.snapshot_exists = True
+
+    def revert(self) -> None:
+        """
+        Revert values if snapshot exists.
+        """
+        if not self.snapshot_exists:
+            return
+        self._fill_color._value = self._fill_color_snapshot
+        self._fill_alpha._value = self._fill_alpha_snapshot
+        self.snapshot_exists = False

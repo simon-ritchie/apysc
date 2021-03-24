@@ -2,44 +2,70 @@
 """
 
 from abc import ABC, abstractmethod
+from typing import Dict
 
 
 class RevertInterface(ABC):
 
-    _snapshot_exists: bool = False
+    _snapshot_exists: Dict[str, bool] = {}
 
     @abstractmethod
-    def make_snapshot(self) -> None:
+    def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make values snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
         """
 
     @abstractmethod
-    def revert(self) -> None:
+    def _revert(self, snapshot_name: str) -> None:
         """
         Revert values if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
         """
 
-    @property
-    def snapshot_exists(self) -> bool:
+    def _is_snapshot_exists(self, snapshot_name: str) -> bool:
         """
         Get a boolean value whether snapshot value exists or not.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
 
         Returns
         -------
         snapshot_exists : bool
             Boolean value whether snapshot value exists or not.
         """
-        return self._snapshot_exists
+        return snapshot_name in self._snapshot_exists
 
-    @snapshot_exists.setter
-    def snapshot_exists(self, value: bool) -> None:
+    def _set_snapshot_exists_val(self, snapshot_name: str) -> None:
         """
-        Update boolean value whether snapshot value exists or not.
+        Set boolean value whether snapshot value exists or not.
 
         Parameters
         ----------
-        value : bool
-            Value to set.
+        snapshot_name : str
+            Target snapshot name.
         """
-        self._snapshot_exists = value
+        self._snapshot_exists[snapshot_name] = True
+
+    def _delete_snapshot_exists_val(self, snapshot_name: str) -> None:
+        """
+        Delete boolean value whether snapshot value exists or not.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if snapshot_name in self._snapshot_exists:
+            del self._snapshot_exists[snapshot_name]

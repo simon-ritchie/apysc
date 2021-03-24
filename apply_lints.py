@@ -11,7 +11,7 @@ from typing import List
 
 from typing_extensions import TypedDict
 
-from apyscript.console import loggers
+from apysc.console import loggers
 
 logger: Logger = loggers.get_info_logger()
 
@@ -44,7 +44,7 @@ lint_commands: List[LintCommand] = [
         'command':
         'mypy --ignore-missing-imports --follow-imports skip '
         '--disallow-untyped-calls --disallow-untyped-defs '
-        '--strict-optional --strict-equality ./apyscript/ '
+        '--strict-optional --strict-equality ./apysc/ '
         './tests/ ./test_projects/',
         'lint_name': 'mypy',
     },

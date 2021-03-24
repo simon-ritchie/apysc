@@ -4,25 +4,25 @@
 from setuptools import find_packages
 from setuptools import setup
 
-from apyscript import __version__
+from apysc import __version__
 
 _DESCRIPTION: str = (
-    'apyscript is a Python\'s frontend library to create '
+    'apysc is a Python\'s frontend library to create '
     'html and js file, that has a ActionScript 3 (as3)-like interface.'
 )
 
 _LONG_DESCRIPTION: str = (
-    'apyscript is a Python\'s frontend library to '
+    'apysc is a Python\'s frontend library to '
     'create html and js file, that has a ActionScript 3 '
     '(as3)-like interface.'
     ' For more details, please see Github repository:'
-    ' https://github.com/simon-ritchie/apyscript'
+    ' https://github.com/simon-ritchie/apysc'
 )
 
 setup(
-    name='apyscript',
+    name='apysc',
     version=__version__,
-    url='https://github.com/simon-ritchie/apyscript',
+    url='https://github.com/simon-ritchie/apysc',
     maintainer='simon-ritchie',
     maintainer_email='',
     description=_DESCRIPTION,

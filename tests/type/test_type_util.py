@@ -1,7 +1,7 @@
-from apyscript.type import Boolean
-from apyscript.type import Int
-from apyscript.type import Number
-from apyscript.type import type_util
+from apysc.type import Boolean
+from apysc.type import Int
+from apysc.type import Number
+from apysc.type import type_util
 
 
 def test_is_same_class_instance() -> None:

@@ -2,14 +2,14 @@ from random import randint
 
 from retrying import retry
 
-from apyscript.display import Sprite
-from apyscript.display import Stage
-from apyscript.display.child_interface import ChildInterface
-from apyscript.display.display_object import DisplayObject
-from apyscript.expression import expression_file_util
-from apyscript.type import Array
-from apyscript.type import Boolean
-from apyscript.type import Int
+from apysc.display import Sprite
+from apysc.display import Stage
+from apysc.display.child_interface import ChildInterface
+from apysc.display.display_object import DisplayObject
+from apysc.expression import expression_file_util
+from apysc.type import Array
+from apysc.type import Boolean
+from apysc.type import Int
 
 
 class TestChildInterface:

@@ -2,9 +2,9 @@ from random import randint
 
 from retrying import retry
 
-from apyscript.display.height_interface import HeightInterface
-from apyscript.expression import expression_file_util
-from apyscript.type import Int
+from apysc.display.height_interface import HeightInterface
+from apysc.expression import expression_file_util
+from apysc.type import Int
 
 
 class TestHeightInterface:

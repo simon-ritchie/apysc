@@ -4,7 +4,7 @@ from typing import Any
 from typing import Dict
 from typing import List
 
-from apyscript.jslib import jslib_util
+from apysc.jslib import jslib_util
 from tests import testing_helper
 
 
@@ -21,7 +21,7 @@ def test_get_jslib_abs_dir_path() -> None:
 
 
 def test_export_jslib_to_specified_dir() -> None:
-    tmp_dir_path: str = '../.tmp_apyscript_jslib_util_test/'
+    tmp_dir_path: str = '../.tmp_apysc_jslib_util_test/'
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
     dest_file_path: str = jslib_util.export_jslib_to_specified_dir(

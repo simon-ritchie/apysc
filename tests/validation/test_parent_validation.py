@@ -2,9 +2,9 @@ from random import randint
 
 from retrying import retry
 
-from apyscript.display import Sprite
-from apyscript.display import Stage
-from apyscript.validation import parent_validation
+from apysc.display import Sprite
+from apysc.display import Stage
+from apysc.validation import parent_validation
 from tests import testing_helper
 
 

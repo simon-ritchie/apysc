@@ -1,4 +1,4 @@
-from apyscript.type.type_name_interface import TypeNameInterface
+from apysc.type.type_name_interface import TypeNameInterface
 
 
 class TestTypeNameInterface:

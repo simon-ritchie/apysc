@@ -2,11 +2,11 @@ from random import randint
 
 from retrying import retry
 
-from apyscript.display import Sprite
-from apyscript.display import Stage
-from apyscript.display.graphics import Graphics
-from apyscript.display.graphics import Rectangle
-from apyscript.expression import expression_file_util
+from apysc.display import Sprite
+from apysc.display import Stage
+from apysc.display.graphics import Graphics
+from apysc.display.graphics import Rectangle
+from apysc.expression import expression_file_util
 from tests import testing_helper
 
 

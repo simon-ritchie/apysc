@@ -3,9 +3,9 @@ from typing import List
 
 from retrying import retry
 
-from apyscript.expression import expression_file_util
-from apyscript.expression import expression_variables_util
-from apyscript.file import file_util
+from apysc.expression import expression_file_util
+from apysc.expression import expression_variables_util
+from apysc.file import file_util
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))

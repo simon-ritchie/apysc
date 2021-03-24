@@ -8,4 +8,4 @@ def test__run_lint_command() -> None:
         'lint_name': 'test',
     }
     stdout: str = apply_lints._run_lint_command(lint_command=lint_command)
-    assert 'apyscript' in stdout
+    assert 'apysc' in stdout

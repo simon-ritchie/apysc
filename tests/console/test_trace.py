@@ -2,9 +2,9 @@ from random import randint
 
 from retrying import retry
 
-from apyscript.console import trace
-from apyscript.display import Stage
-from apyscript.expression import expression_file_util
+from apysc.console import trace
+from apysc.display import Stage
+from apysc.expression import expression_file_util
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))

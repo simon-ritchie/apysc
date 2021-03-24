@@ -1,7 +1,7 @@
 from typing import Any
 from typing import Dict
 
-from apyscript.callable import callable_util
+from apysc.callable import callable_util
 
 
 def test_get_func_default_vals() -> None:

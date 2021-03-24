@@ -5,10 +5,10 @@ from typing import Tuple
 
 from retrying import retry
 
-from apyscript.expression import expression_file_util
-from apyscript.html import html_util
-from apyscript.html.html_util import ScriptLineUtil
-from apyscript.type import String
+from apysc.expression import expression_file_util
+from apysc.html import html_util
+from apysc.html.html_util import ScriptLineUtil
+from apysc.type import String
 from tests import testing_helper
 
 
@@ -114,11 +114,11 @@ class TestScriptLineUtil:
         '<html>'
         '\n<script type="text/javascript">'
         '\nconsole.log('
-        '\n  "Hello apyscript!");'
+        '\n  "Hello apysc!");'
         '\n</script>'
         '\n<span>It is not in the stars to hold our destiny.</span>'
         '\n<script type="text/javascript">'
-        '\nconsole.log("Hello apyscript!");'
+        '\nconsole.log("Hello apysc!");'
         '\n</script>'
         '\n</html>'
     )

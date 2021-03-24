@@ -4,10 +4,10 @@ from typing import Dict
 
 from retrying import retry
 
-from apyscript.expression import expression_file_util
-from apyscript.type import Boolean
-from apyscript.type import Int
-from apyscript.type import String
+from apysc.expression import expression_file_util
+from apysc.type import Boolean
+from apysc.type import Int
+from apysc.type import String
 from tests import testing_helper
 
 
@@ -90,9 +90,9 @@ class TestString:
         string_2: String = string_1 + ' World!'
         assert string_2._value == 'Hello World!'
 
-        string_3: String = String(value=' apyscript!')
+        string_3: String = String(value=' apysc!')
         string_4: String = string_1 + string_3
-        assert string_4._value == 'Hello apyscript!'
+        assert string_4._value == 'Hello apysc!'
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_addition_expression(self) -> None:

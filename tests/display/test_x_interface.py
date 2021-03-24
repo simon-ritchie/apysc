@@ -2,10 +2,10 @@ from random import randint
 
 from retrying import retry
 
-from apyscript.display.x_interface import XInterface
-from apyscript.expression import expression_file_util
-from apyscript.type import Int
-from apyscript.type import value_util
+from apysc.display.x_interface import XInterface
+from apysc.expression import expression_file_util
+from apysc.type import Int
+from apysc.type import value_util
 
 
 class TestXInterface:

@@ -12,12 +12,12 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apyscript.console import assert_false
-from apyscript.console import assert_true
-from apyscript.display import Stage
-from apyscript.file import file_util
-from apyscript.html import exporter
-from apyscript.type import Boolean
+from apysc.console import assert_false
+from apysc.console import assert_true
+from apysc.display import Stage
+from apysc.file import file_util
+from apysc.html import exporter
+from apysc.type import Boolean
 
 this_module: ModuleType = sys.modules[__name__]
 

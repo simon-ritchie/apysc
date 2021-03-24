@@ -6,12 +6,12 @@ from typing import List
 import pytest
 from retrying import retry
 
-from apyscript.expression import expression_file_util
-from apyscript.type import Array
-from apyscript.type import Boolean
-from apyscript.type import Int
-from apyscript.type import Number
-from apyscript.type import String
+from apysc.expression import expression_file_util
+from apysc.type import Array
+from apysc.type import Boolean
+from apysc.type import Int
+from apysc.type import Number
+from apysc.type import String
 from tests import testing_helper
 
 

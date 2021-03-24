@@ -4,12 +4,12 @@ from random import randint
 
 from retrying import retry
 
-from apyscript.file import file_util
+from apysc.file import file_util
 from tests import testing_helper
 
 
 def test_empty_directory() -> None:
-    tmp_dir_path: str = '../.tmp_apyscript/'
+    tmp_dir_path: str = '../.tmp_apysc/'
     os.makedirs(tmp_dir_path, exist_ok=True)
     test_file_path: str = os.path.join(tmp_dir_path, 'test.txt')
     testing_helper.make_blank_file(file_path=test_file_path)
@@ -25,7 +25,7 @@ def test_empty_directory() -> None:
 
 
 def test_read_txt() -> None:
-    tmp_file_path: str = '../tmp_apyscript_test_file_util.txt'
+    tmp_file_path: str = '../tmp_apysc_test_file_util.txt'
     with open(tmp_file_path, 'w') as f:
         f.write('To be, or not to be, that is the question.')
     txt: str = file_util.read_txt(file_path=tmp_file_path)
@@ -35,7 +35,7 @@ def test_read_txt() -> None:
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_save_plain_txt() -> None:
-    tmp_file_path: str = '../tmp_apyscript_test_file_util.txt'
+    tmp_file_path: str = '../tmp_apysc_test_file_util.txt'
     file_util.save_plain_txt(
         txt='To be, or not to be, that is the question.',
         file_path=tmp_file_path)
@@ -43,7 +43,7 @@ def test_save_plain_txt() -> None:
     assert txt == 'To be, or not to be, that is the question.'
     os.remove(tmp_file_path)
 
-    tmp_dir_path: str = '../tmp_apyscript_test_file_util/'
+    tmp_dir_path: str = '../tmp_apysc_test_file_util/'
     tmp_file_path = os.path.join(tmp_dir_path, 'test.txt')
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
     file_util.save_plain_txt(
@@ -55,7 +55,7 @@ def test_save_plain_txt() -> None:
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_remove_file_if_exists() -> None:
-    tmp_file_path: str = '../tmp_apyscript_test_file_util.txt'
+    tmp_file_path: str = '../tmp_apysc_test_file_util.txt'
     file_util.save_plain_txt(
         txt='To be, or not to be, that is the question.',
         file_path=tmp_file_path)
@@ -68,7 +68,7 @@ def test_remove_file_if_exists() -> None:
 def test_get_abs_module_dir_path() -> None:
     abs_module_dir_path: str = file_util.get_abs_module_dir_path(
         module=file_util)
-    expected_dir_path: str = '/mnt/apyscript/apyscript/file/'
+    expected_dir_path: str = '/mnt/apysc/apysc/file/'
     assert abs_module_dir_path == expected_dir_path
 
 

@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apyscript.color import color_util
+from apysc.color import color_util
 
 
 def test__fill_one_digit_hex_color_code() -> None:
@@ -19,7 +19,7 @@ def test__fill_three_digit_hex_color_code() -> None:
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_complement_hex_color() -> None:
-    from apyscript.type import String
+    from apysc.type import String
     hex_color_code_1: str = color_util.complement_hex_color(
         hex_color_code='0')
     assert hex_color_code_1 == '#000000'
@@ -45,8 +45,8 @@ def test_complement_hex_color() -> None:
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test__append_complement_hex_color_expression() -> None:
-    from apyscript.expression import expression_file_util
-    from apyscript.type import String
+    from apysc.expression import expression_file_util
+    from apysc.type import String
     expression_file_util.remove_expression_file()
 
     string_1: String = String('#333')

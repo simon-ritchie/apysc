@@ -4,9 +4,9 @@ from typing import Dict
 
 from retrying import retry
 
-from apyscript.expression import expression_file_util
-from apyscript.type import Boolean
-from apyscript.type import Int
+from apysc.expression import expression_file_util
+from apysc.type import Boolean
+from apysc.type import Int
 from tests import testing_helper
 
 

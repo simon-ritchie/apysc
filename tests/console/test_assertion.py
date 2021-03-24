@@ -2,11 +2,11 @@ from random import randint
 
 from retrying import retry
 
-from apyscript.console import assertion
-from apyscript.expression import expression_file_util
-from apyscript.type import Array
-from apyscript.type import Boolean
-from apyscript.type import Int
+from apysc.console import assertion
+from apysc.expression import expression_file_util
+from apysc.type import Array
+from apysc.type import Boolean
+from apysc.type import Int
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))

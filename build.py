@@ -9,7 +9,7 @@ import subprocess as sp
 from logging import Logger
 from typing import List
 
-from apyscript.console import loggers
+from apysc.console import loggers
 
 logger: Logger = loggers.get_info_logger()
 

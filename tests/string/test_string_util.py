@@ -1,4 +1,4 @@
-from apyscript.string import string_util
+from apysc.string import string_util
 
 
 def test_escape_str() -> None:

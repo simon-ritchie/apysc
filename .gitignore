@@ -2,10 +2,9 @@
 *.pyc
 /tmp/*
 /.coverage*
-/.apyscript_expression/*
+/.apysc_expression/*
 test_output
 /build
 /dist
-/actionpyscript.egg-info
 /doc/memo.md
-/apyscript.egg-info
+/apysc.egg-info

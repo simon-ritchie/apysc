@@ -2,10 +2,10 @@ from random import randint
 
 from retrying import retry
 
-from apyscript.display.fill_alpha_interface import FillAlphaInterface
-from apyscript.expression import expression_file_util
-from apyscript.type import Number
-from apyscript.type import value_util
+from apysc.display.fill_alpha_interface import FillAlphaInterface
+from apysc.expression import expression_file_util
+from apysc.type import Number
+from apysc.type import value_util
 
 
 class TestFillAlphaInterface:

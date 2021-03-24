@@ -2,9 +2,9 @@ from random import randint
 
 from retrying import retry
 
-from apyscript.type import Array
-from apyscript.type import Int
-from apyscript.type import value_util
+from apysc.type import Array
+from apysc.type import Int
+from apysc.type import value_util
 
 
 def test_get_value_str_for_expression() -> None:

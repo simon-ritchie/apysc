@@ -2,9 +2,9 @@ from random import randint
 
 from retrying import retry
 
-from apyscript.display.line_thickness_interface import LineThicknessInterface
-from apyscript.expression import expression_file_util
-from apyscript.type import Int
+from apysc.display.line_thickness_interface import LineThicknessInterface
+from apysc.expression import expression_file_util
+from apysc.type import Int
 
 
 class TestLineThicknessInterface:

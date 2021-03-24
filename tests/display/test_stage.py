@@ -4,13 +4,13 @@ from typing import Dict
 
 from retrying import retry
 
-from apyscript.display import Stage
-from apyscript.display import stage
-from apyscript.display.display_object import DisplayObject
-from apyscript.display.stage import _STAGE_ELEM_ID_FILE_PATH
-from apyscript.expression import expression_file_util
-from apyscript.file import file_util
-from apyscript.type import Array
+from apysc.display import Stage
+from apysc.display import stage
+from apysc.display.display_object import DisplayObject
+from apysc.display.stage import _STAGE_ELEM_ID_FILE_PATH
+from apysc.expression import expression_file_util
+from apysc.file import file_util
+from apysc.type import Array
 from tests import testing_helper
 
 

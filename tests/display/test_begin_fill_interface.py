@@ -72,36 +72,40 @@ class TestBeginFillInterface:
         assert begin_fill_interface.fill_alpha == 0.5
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
-    def test_make_snapshot(self) -> None:
+    def test__make_snapshot(self) -> None:
         begin_fill_interface: BeginFillInterface = BeginFillInterface()
         begin_fill_interface.begin_fill(
             color='#333333', alpha=0.5)
-        begin_fill_interface.make_snapshot()
-        testing_helper.assert_attrs(
-            expected_attrs={
-                '_fill_color_snapshot': '#333333',
-                '_fill_alpha_snapshot': 0.5,
-                '_snapshot_exists': True,
-            },
-            any_obj=begin_fill_interface)
+        snapshot_name_1: str = begin_fill_interface._get_next_snapshot_name()
+        begin_fill_interface._make_snapshot(snapshot_name=snapshot_name_1)
+        assert (
+            begin_fill_interface._fill_color_snapshots[snapshot_name_1]
+            == '#333333')
+        assert (
+            begin_fill_interface._fill_alpha_snapshot[snapshot_name_1]
+            == 0.5)
+        assert begin_fill_interface._is_snapshot_exists(
+            snapshot_name=snapshot_name_1)
 
         begin_fill_interface._fill_color.value = '#222222'
-        begin_fill_interface.make_snapshot()
-        assert begin_fill_interface._fill_color_snapshot == '#333333'
+        begin_fill_interface._make_snapshot(snapshot_name=snapshot_name_1)
+        assert (
+            begin_fill_interface._fill_color_snapshots[snapshot_name_1]
+            == '#333333')
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
-    def test_revert(self) -> None:
+    def test__revert(self) -> None:
         begin_fill_interface: BeginFillInterface = BeginFillInterface()
         begin_fill_interface.begin_fill(
             color='#333333', alpha=0.5)
-        begin_fill_interface.make_snapshot()
-        begin_fill_interface.fill_color.value = '#222222'
-        begin_fill_interface.fill_alpha.value = 0.3
-        begin_fill_interface.revert()
+        snapshot_name_1: str = begin_fill_interface._get_next_snapshot_name()
+        begin_fill_interface._make_snapshot(snapshot_name=snapshot_name_1)
+        begin_fill_interface.begin_fill(
+            color='#222222', alpha=0.3)
+        begin_fill_interface._revert(snapshot_name=snapshot_name_1)
         assert begin_fill_interface.fill_color == '#333333'
         assert begin_fill_interface.fill_alpha == 0.5
-        assert not begin_fill_interface.snapshot_exists
 
-        begin_fill_interface._fill_color.value = '#222222'
-        begin_fill_interface.revert()
+        begin_fill_interface.begin_fill(
+            color='#222222', alpha=0.3)
         assert begin_fill_interface.fill_color == '#222222'

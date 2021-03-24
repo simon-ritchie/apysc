@@ -6,7 +6,7 @@ See Also
 """
 
 
-from typing import Optional, TypeVar
+from typing import Dict, Optional, TypeVar
 from typing import Union
 
 from apysc.type import Number
@@ -100,25 +100,37 @@ class BeginFillInterface(RevertInterface):
             return
         self._fill_alpha = Number(1.0)
 
-    _fill_color_snapshot: str
-    _fill_alpha_snapshot: float
+    _fill_color_snapshots: Dict[str, str] = {}
+    _fill_alpha_snapshot: Dict[str, float] = {}
 
-    def make_snapshot(self) -> None:
+    def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make values snapshot.
-        """
-        if self.snapshot_exists:
-            return
-        self._fill_color_snapshot = self._fill_color._value
-        self._fill_alpha_snapshot = self._fill_alpha._value
-        self.snapshot_exists = True
 
-    def revert(self) -> None:
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if self._is_snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._fill_color_snapshots[snapshot_name] = self._fill_color._value
+        self._fill_alpha_snapshot[snapshot_name] = self._fill_alpha._value
+        self._set_snapshot_exists_val(snapshot_name=snapshot_name)
+
+    def _revert(self, snapshot_name: str) -> None:
         """
         Revert values if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
         """
-        if not self.snapshot_exists:
+        if not self._is_snapshot_exists(snapshot_name=snapshot_name):
             return
-        self._fill_color._value = self._fill_color_snapshot
-        self._fill_alpha._value = self._fill_alpha_snapshot
-        self.snapshot_exists = False
+        self._fill_color._value = self._fill_color_snapshots[snapshot_name]
+        self._fill_alpha._value = self._fill_alpha_snapshot[snapshot_name]
+        del self._fill_color_snapshots[snapshot_name]
+        del self._fill_alpha_snapshot[snapshot_name]
+        self._delete_snapshot_exists_val(snapshot_name=snapshot_name)

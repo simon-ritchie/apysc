@@ -13,7 +13,7 @@ import os
 from types import ModuleType
 
 from apyscript.console import assert_defined
-from apyscript.console.assertion import assert_undefined
+from apyscript.console import assert_undefined
 from apyscript.display import Sprite
 from apyscript.display import Stage
 from apyscript.display.display_object import DisplayObject

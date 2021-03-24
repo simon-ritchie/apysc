@@ -2,12 +2,20 @@
 """
 
 from abc import ABC, abstractmethod
-from typing import Dict
+from typing import Dict, Optional
 
 
 class RevertInterface(ABC):
 
-    _snapshot_exists: Dict[str, bool] = {}
+    _snapshot_exists: Dict[str, bool]
+
+    def _initialize_ss_exists_val_if_not_initialized(self) -> None:
+        """
+        Initialize _snapshot_exists value if it is not initialized yet.
+        """
+        if hasattr(self, '_snapshot_exists'):
+            return
+        self._snapshot_exists = {}
 
     @abstractmethod
     def _make_snapshot(self, snapshot_name: str) -> None:
@@ -45,6 +53,7 @@ class RevertInterface(ABC):
         snapshot_exists : bool
             Boolean value whether snapshot value exists or not.
         """
+        self._initialize_ss_exists_val_if_not_initialized()
         return snapshot_name in self._snapshot_exists
 
     def _set_snapshot_exists_val(self, snapshot_name: str) -> None:
@@ -56,6 +65,7 @@ class RevertInterface(ABC):
         snapshot_name : str
             Target snapshot name.
         """
+        self._initialize_ss_exists_val_if_not_initialized()
         self._snapshot_exists[snapshot_name] = True
 
     def _delete_snapshot_exists_val(self, snapshot_name: str) -> None:
@@ -67,6 +77,7 @@ class RevertInterface(ABC):
         snapshot_name : str
             Target snapshot name.
         """
+        self._initialize_ss_exists_val_if_not_initialized()
         if snapshot_name in self._snapshot_exists:
             del self._snapshot_exists[snapshot_name]
 

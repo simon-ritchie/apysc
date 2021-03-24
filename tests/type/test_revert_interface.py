@@ -73,3 +73,13 @@ class TestRevertInterface:
 
         snapshot_name_2: str = revertable_value._get_next_snapshot_name()
         assert snapshot_name_1 != snapshot_name_2
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__initialize_ss_exists_val_if_not_initialized(self) -> None:
+        revertable_value = RevertableValue()
+        revertable_value._initialize_ss_exists_val_if_not_initialized()
+        assert revertable_value._snapshot_exists == {}
+
+        revertable_value._snapshot_exists['snapshot_1'] = True
+        revertable_value._initialize_ss_exists_val_if_not_initialized()
+        assert revertable_value._snapshot_exists == {'snapshot_1': True}

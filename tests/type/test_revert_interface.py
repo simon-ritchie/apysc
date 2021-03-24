@@ -1,4 +1,7 @@
+from random import randint
 from typing import Dict, Optional
+
+from retrying import retry
 from apysc.type.revert_interface import RevertInterface
 
 
@@ -60,3 +63,13 @@ class TestRevertInterface:
         revertable_value._delete_snapshot_exists_val(
             snapshot_name='snapshot_2')
         assert 'snapshot_2' not in revertable_value._snapshot_exists
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__get_next_snapshot_name(self) -> None:
+        from apysc.expression.var_names import SNAPSHOT
+        revertable_value = RevertableValue()
+        snapshot_name_1: str = revertable_value._get_next_snapshot_name()
+        assert snapshot_name_1.startswith(SNAPSHOT)
+
+        snapshot_name_2: str = revertable_value._get_next_snapshot_name()
+        assert snapshot_name_1 != snapshot_name_2

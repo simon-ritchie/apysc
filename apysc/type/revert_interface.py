@@ -69,3 +69,18 @@ class RevertInterface(ABC):
         """
         if snapshot_name in self._snapshot_exists:
             del self._snapshot_exists[snapshot_name]
+
+    def _get_next_snapshot_name(self) -> str:
+        """
+        Get a next snapshot name.
+
+        Returns
+        -------
+        snapshot_name : str
+            Next snapshot name.
+        """
+        from apysc.expression.var_names import SNAPSHOT
+        from apysc.expression import expression_variables_util
+        snapshot_name: str = expression_variables_util.get_next_variable_name(
+            type_name=SNAPSHOT)
+        return snapshot_name

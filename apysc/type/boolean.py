@@ -69,8 +69,7 @@ class Boolean(CopyInterface):
         Append constructor expression to file.
         """
         from apysc.expression import expression_file_util
-        from apysc.type.variable_name_interface import \
-            VariableNameInterface
+        from apysc.type.variable_name_interface import VariableNameInterface
         expression: str = f'var {self.variable_name} = '
         if isinstance(self._initial_value, VariableNameInterface):
             expression += f'Boolean({self._initial_value.variable_name});'
@@ -103,8 +102,7 @@ class Boolean(CopyInterface):
         value : bool or int or Boolean or Int
             Any boolean value to set.
         """
-        from apysc.type.variable_name_interface import \
-            VariableNameInterface
+        from apysc.type.variable_name_interface import VariableNameInterface
         self._set_value_and_skip_expression_appending(value=value)
         if isinstance(value, VariableNameInterface):
             self._append_value_setter_expression(value=value)
@@ -122,8 +120,7 @@ class Boolean(CopyInterface):
             Any value to set.
         """
         from apysc.expression import expression_file_util
-        from apysc.type.variable_name_interface import \
-            VariableNameInterface
+        from apysc.type.variable_name_interface import VariableNameInterface
         expression: str = f'{self.variable_name} = '
         if isinstance(value, VariableNameInterface):
             expression += f'Boolean({value._variable_name});'

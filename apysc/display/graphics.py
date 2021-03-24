@@ -51,7 +51,7 @@ class Graphics(
         self._line_color = String('')
         self._line_alpha = Number(1.0)
         self._line_thickness = Int(1.0)
-        self._childs = Array([])
+        self._children = Array([])
         self._append_constructor_expression()
 
     def _append_constructor_expression(self) -> None:

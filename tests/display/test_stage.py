@@ -30,7 +30,7 @@ class TestStage:
             '_background_color': '#000000',
             '_add_to': '#line-graph',
             '_stage_elem_id': 'line-graph-stage',
-            '_childs': [],
+            '_children': [],
         }
         testing_helper.assert_attrs(
             expected_attrs=expected_attrs, any_obj=stage)
@@ -102,7 +102,7 @@ class TestStage:
         display_object: DisplayObject = DisplayObject(
             stage=stage, variable_name='test_display_object_1')
         stage.add_child(child=display_object)
-        assert stage._childs == Array([display_object])
+        assert stage._children == Array([display_object])
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__save_stage_elem_id_to_expression_file(self) -> None:

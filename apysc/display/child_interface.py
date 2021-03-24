@@ -1,7 +1,7 @@
 """Class implementation for child related interface.
 """
 
-from typing import Any
+from typing import Any, Dict, List
 from typing import Union
 
 from apysc.display.display_object import DisplayObject
@@ -12,7 +12,7 @@ from apysc.type import Int
 
 class ChildInterface:
 
-    _childs: Array
+    _children: Array
     _variable_name: str
     _js_child_adjust_num: int = 0
     stage: Any
@@ -27,19 +27,19 @@ class ChildInterface:
             Child instance to add.
         """
         from apysc.validation import display_validation
-        self._initialize_childs_if_not_initialized()
+        self._initialize_children_if_not_initialized()
         display_validation.validate_display_object(display_object=child)
-        self._childs.append(child)
+        self._children.append(child)
         child.parent = self
         self._append_expression_of_add_child(child=child)
 
-    def _initialize_childs_if_not_initialized(self) -> None:
+    def _initialize_children_if_not_initialized(self) -> None:
         """
-        Initialize _childs attribute if it is not initialized yet.
+        Initialize _children attribute if it is not initialized yet.
         """
-        if hasattr(self, '_childs'):
+        if hasattr(self, '_children'):
             return
-        self._childs = Array([])
+        self._children = Array([])
 
     def _append_expression_of_add_child(self, child: DisplayObject) -> None:
         """
@@ -70,12 +70,12 @@ class ChildInterface:
         child : DisplayObject
             Child instance to remove.
         """
-        self._initialize_childs_if_not_initialized()
+        self._initialize_children_if_not_initialized()
         self._append_expression_of_remove_child(child=child)
-        for child_ in self._childs.value:
+        for child_ in self._children.value:
             if child_ != child:
                 continue
-            self._childs.remove(child)
+            self._children.remove(child)
             child.parent = None
             return
 
@@ -114,8 +114,8 @@ class ChildInterface:
             If this instance contains specified child, True will
             be set.
         """
-        self._initialize_childs_if_not_initialized()
-        index: Int = self._childs.index_of(value=child)
+        self._initialize_children_if_not_initialized()
+        index: Int = self._children.index_of(value=child)
         if index == -1:
             result: Boolean = Boolean(False)
         else:
@@ -153,8 +153,8 @@ class ChildInterface:
         num_children : int
             Current children number.
         """
-        self._initialize_childs_if_not_initialized()
-        num_children: Int = Int(value=self._childs.length)
+        self._initialize_children_if_not_initialized()
+        num_children: Int = Int(value=self._children.length)
         self._append_num_children_expression(num_children=num_children)
         return num_children
 
@@ -193,9 +193,9 @@ class ChildInterface:
         """
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names
-        self._initialize_childs_if_not_initialized()
+        self._initialize_children_if_not_initialized()
         if self.num_children > index:
-            child: DisplayObject = self._childs[index]
+            child: DisplayObject = self._children[index]
         else:
             variable_name: str = expression_variables_util.\
                 get_next_variable_name(type_name=var_names.DISPLAY_OBJECT)

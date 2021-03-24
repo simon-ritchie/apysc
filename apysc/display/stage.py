@@ -75,7 +75,7 @@ class Stage(
         string_validation.validate_not_empty_string(string=add_to)
         self._add_to = add_to
         self._append_constructor_expression()
-        self._childs = Array([])
+        self._children = Array([])
 
     def _save_stage_elem_id_to_expression_file(self) -> None:
         """

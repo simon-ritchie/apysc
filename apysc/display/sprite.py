@@ -39,7 +39,7 @@ class Sprite(DisplayObject, ChildInterface):
         if variable_name is None:
             variable_name = expression_variables_util.\
                 get_next_variable_name(type_name=var_names.SPRITE)
-        self._childs = Array([])
+        self._children = Array([])
         super(Sprite, self).__init__(
             stage=stage, variable_name=variable_name)
         self._append_constructor_expression()

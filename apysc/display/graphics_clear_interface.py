@@ -15,7 +15,7 @@ class GraphicsClearInterface:
     _line_color: String
     _line_thickness: Int
     _line_alpha: Number
-    _childs: Array
+    _children: Array
 
     def clear(self) -> None:
         """
@@ -46,6 +46,6 @@ class GraphicsClearInterface:
             self._initialize_line_alpha_if_not_initialized()
         self._line_alpha.value = 1.0
         if isinstance(self, ChildInterface):
-            self._initialize_childs_if_not_initialized()
-        while self._childs:
-            self._childs[0].remove_from_parent()
+            self._initialize_children_if_not_initialized()
+        while self._children:
+            self._children[0].remove_from_parent()

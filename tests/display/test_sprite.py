@@ -36,7 +36,7 @@ class TestSprite:
         parent_sprite: Sprite = Sprite(stage=stage)
         child_sprite: Sprite = Sprite(stage=stage)
         parent_sprite.add_child(child=child_sprite)
-        assert parent_sprite._childs == Array([child_sprite])
+        assert parent_sprite._children == Array([child_sprite])
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_constructor_expression(self) -> None:

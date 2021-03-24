@@ -23,7 +23,7 @@ class TestChildInterface:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
         stage.add_child(child=sprite)
-        assert stage._childs == Array([sprite])
+        assert stage._children == Array([sprite])
         assert sprite.parent == stage
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -45,7 +45,7 @@ class TestChildInterface:
         sprite_2: Sprite = Sprite(stage=stage)
         stage.add_child(child=sprite_2)
         stage.remove_child(child=sprite_2)
-        assert stage._childs == Array([sprite_1])
+        assert stage._children == Array([sprite_1])
         assert sprite_2.parent is None
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -162,13 +162,13 @@ class TestChildInterface:
         assert expected in expression
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
-    def test__initialize_childs_if_not_initialized(self) -> None:
+    def test__initialize_children_if_not_initialized(self) -> None:
         child_interface: ChildInterface = ChildInterface()
-        child_interface._initialize_childs_if_not_initialized()
-        assert child_interface._childs == []
+        child_interface._initialize_children_if_not_initialized()
+        assert child_interface._children == []
 
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
-        child_interface._childs = Array([sprite])
-        child_interface._initialize_childs_if_not_initialized()
-        assert child_interface._childs == [sprite]
+        child_interface._children = Array([sprite])
+        child_interface._initialize_children_if_not_initialized()
+        assert child_interface._children == [sprite]

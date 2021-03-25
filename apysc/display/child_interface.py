@@ -251,12 +251,11 @@ class ChildInterface(RevertInterface):
         for child in self._children.value:
             if not isinstance(child, RevertInterface):
                 continue
-            child._make_snapshot(snapshot_name=snapshot_name)
+            child._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
 
         self._children_snapshot[snapshot_name] = [*self._children._value]
         if isinstance(self, ParentInterface):
             self._parent_snapshot[snapshot_name] = self.parent
-        self._set_snapshot_exists_val(snapshot_name=snapshot_name)
 
     def _revert(self, snapshot_name: str) -> None:
         """
@@ -271,13 +270,10 @@ class ChildInterface(RevertInterface):
         if not self._is_snapshot_exists(snapshot_name=snapshot_name):
             return
         self._children._value = [*self._children_snapshot[snapshot_name]]
-        del self._children_snapshot[snapshot_name]
         if isinstance(self, ParentInterface):
             self.parent = self._parent_snapshot[snapshot_name]
-            del self._parent_snapshot[snapshot_name]
-        self._delete_snapshot_exists_val(snapshot_name=snapshot_name)
 
         for child in self._children.value:
             if not isinstance(child, RevertInterface):
                 continue
-            child._revert(snapshot_name=snapshot_name)
+            child._run_all_revert_methods(snapshot_name=snapshot_name)

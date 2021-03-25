@@ -172,3 +172,57 @@ class TestChildInterface:
         child_interface._children = Array([sprite])
         child_interface._initialize_children_if_not_initialized()
         assert child_interface._children == [sprite]
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__make_snapshot(self) -> None:
+
+        stage: Stage = Stage()
+        sprite_1: Sprite = Sprite(stage=stage)
+        stage.add_child(child=sprite_1)
+        sprite_2: Sprite = Sprite(stage=stage)
+        sprite_1.add_child(child=sprite_2)
+        display_object_1: DisplayObject = DisplayObject(
+            stage=stage, variable_name='display_object_1')
+        stage.add_child(child=display_object_1)
+
+        snapshot_name_1: str = stage._get_next_snapshot_name()
+        stage._make_snapshot(snapshot_name=snapshot_name_1)
+        assert stage._children_snapshot[snapshot_name_1] == [
+            sprite_1, display_object_1]
+        assert stage._is_snapshot_exists(
+            snapshot_name=snapshot_name_1)
+        assert sprite_1._children_snapshot[snapshot_name_1] == [
+            sprite_2]
+
+        stage.remove_child(child=sprite_1)
+        stage._make_snapshot(snapshot_name=snapshot_name_1)
+        assert stage._children_snapshot[snapshot_name_1] == [
+            sprite_1, display_object_1]
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__revert(self) -> None:
+        stage: Stage = Stage()
+        sprite_1: Sprite = Sprite(stage=stage)
+        stage.add_child(child=sprite_1)
+        sprite_2: Sprite = Sprite(stage=stage)
+        sprite_1.add_child(child=sprite_2)
+        display_object_1: DisplayObject = DisplayObject(
+            stage=stage, variable_name='display_object_1')
+        stage.add_child(child=display_object_1)
+
+        snapshot_name_1: str = sprite_1._get_next_snapshot_name()
+        stage._make_snapshot(snapshot_name=snapshot_name_1)
+        stage.remove_child(child=sprite_1)
+        sprite_1.remove_child(child=sprite_2)
+        stage._revert(snapshot_name=snapshot_name_1)
+        assert snapshot_name_1 not in stage._children_snapshot
+        assert stage._children == [sprite_1, display_object_1]
+        assert sprite_1._children == [sprite_2]
+        assert not stage._is_snapshot_exists(
+            snapshot_name=snapshot_name_1)
+        assert not sprite_1._is_snapshot_exists(
+            snapshot_name=snapshot_name_1)
+
+        stage.remove_child(child=sprite_1)
+        stage._revert(snapshot_name=snapshot_name_1)
+        assert stage._children == [display_object_1]

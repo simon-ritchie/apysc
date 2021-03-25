@@ -108,4 +108,5 @@ class TestBeginFillInterface:
 
         begin_fill_interface.begin_fill(
             color='#222222', alpha=0.3)
+        begin_fill_interface._revert(snapshot_name=snapshot_name_1)
         assert begin_fill_interface.fill_color == '#222222'

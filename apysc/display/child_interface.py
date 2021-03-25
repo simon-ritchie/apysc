@@ -1,16 +1,17 @@
 """Class implementation for child related interface.
 """
 
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 from typing import Union
 
 from apysc.display.display_object import DisplayObject
 from apysc.type import Array
 from apysc.type import Boolean
 from apysc.type import Int
+from apysc.type.revert_interface import RevertInterface
 
 
-class ChildInterface:
+class ChildInterface(RevertInterface):
 
     _children: Array
     _variable_name: str
@@ -227,3 +228,56 @@ class ChildInterface:
         print(expression)
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    _children_snapshot: Dict[str, List[Any]]
+    _parent_snapshot: Dict[str, Optional[DisplayObject]]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make values snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        from apysc.display.parent_interface import ParentInterface
+        if not hasattr(self, '_children_snapshot'):
+            self._children_snapshot = {}
+            self._parent_snapshot = {}
+        if self._is_snapshot_exists(snapshot_name=snapshot_name):
+            return
+
+        for child in self._children.value:
+            if not isinstance(child, RevertInterface):
+                continue
+            child._make_snapshot(snapshot_name=snapshot_name)
+
+        self._children_snapshot[snapshot_name] = [*self._children._value]
+        if isinstance(self, ParentInterface):
+            self._parent_snapshot[snapshot_name] = self.parent
+        self._set_snapshot_exists_val(snapshot_name=snapshot_name)
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert values if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        from apysc.display.parent_interface import ParentInterface
+        if not self._is_snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._children._value = [*self._children_snapshot[snapshot_name]]
+        del self._children_snapshot[snapshot_name]
+        if isinstance(self, ParentInterface):
+            self.parent = self._parent_snapshot[snapshot_name]
+            del self._parent_snapshot[snapshot_name]
+        self._delete_snapshot_exists_val(snapshot_name=snapshot_name)
+
+        for child in self._children.value:
+            if not isinstance(child, RevertInterface):
+                continue
+            child._revert(snapshot_name=snapshot_name)

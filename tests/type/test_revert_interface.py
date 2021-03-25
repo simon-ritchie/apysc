@@ -5,9 +5,10 @@ from retrying import retry
 from apysc.type.revert_interface import RevertInterface
 
 
-class RevertableValue(RevertInterface):
+class RevertableValue1(RevertInterface):
 
-    _snapshots: Dict[str, int] = {}
+    _value1: int = 10
+    _snapshots1: Dict[str, int]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
@@ -18,8 +19,9 @@ class RevertableValue(RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
-        self._snapshots[snapshot_name] = 10
-        self._set_snapshot_exists_val(snapshot_name=snapshot_name)
+        if not hasattr(self, '_snapshots1'):
+            self._snapshots1 = {}
+        self._snapshots1[snapshot_name] = self._value1
 
     def _revert(self, snapshot_name: str) -> None:
         """
@@ -30,14 +32,76 @@ class RevertableValue(RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
-        self._delete_snapshot_exists_val(snapshot_name=snapshot_name)
+        self._value1 = self._snapshots1[snapshot_name]
+        del self._snapshots1[snapshot_name]
 
+
+class RevertableValue2(RevertInterface):
+
+    _value2: int = 20
+    _snapshots2: Dict[str, int]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make values snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_snapshots2'):
+            self._snapshots2 = {}
+        self._snapshots2[snapshot_name] = self._value2
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert values if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        self._value2 = self._snapshots2[snapshot_name]
+        del self._snapshots2[snapshot_name]
+
+
+class RevertableValue3(RevertableValue1, RevertableValue2):
+
+    _value3: int = 30
+    _snapshots3: Dict[str, int]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make values snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_snapshots3'):
+            self._snapshots3 = {}
+        self._snapshots3[snapshot_name] = self._value3
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert values if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        self._value3 = self._snapshots3[snapshot_name]
+        del self._snapshots3[snapshot_name]
 
 
 class TestRevertInterface:
 
     def test__is_snapshot_exists(self) -> None:
-        revertable_value = RevertableValue()
+        revertable_value = RevertableValue1()
         revertable_value._set_snapshot_exists_val(
             snapshot_name='snapshot_1')
         assert revertable_value._is_snapshot_exists(
@@ -47,13 +111,13 @@ class TestRevertInterface:
             snapshot_name='snapshot_2')
 
     def test__set_snapshot_exists_val(self) -> None:
-        revertable_value = RevertableValue()
+        revertable_value = RevertableValue1()
         revertable_value._set_snapshot_exists_val(
             snapshot_name='snapshot_1')
         assert revertable_value._snapshot_exists['snapshot_1']
 
     def test__delete_snapshot_exists_val(self) -> None:
-        revertable_value = RevertableValue()
+        revertable_value = RevertableValue1()
         revertable_value._set_snapshot_exists_val(
             snapshot_name='snapshot_1')
         revertable_value._delete_snapshot_exists_val(
@@ -67,7 +131,7 @@ class TestRevertInterface:
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__get_next_snapshot_name(self) -> None:
         from apysc.expression.var_names import SNAPSHOT
-        revertable_value = RevertableValue()
+        revertable_value = RevertableValue1()
         snapshot_name_1: str = revertable_value._get_next_snapshot_name()
         assert snapshot_name_1.startswith(SNAPSHOT)
 
@@ -76,10 +140,39 @@ class TestRevertInterface:
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__initialize_ss_exists_val_if_not_initialized(self) -> None:
-        revertable_value = RevertableValue()
+        revertable_value = RevertableValue1()
         revertable_value._initialize_ss_exists_val_if_not_initialized()
         assert revertable_value._snapshot_exists == {}
 
         revertable_value._snapshot_exists['snapshot_1'] = True
         revertable_value._initialize_ss_exists_val_if_not_initialized()
         assert revertable_value._snapshot_exists == {'snapshot_1': True}
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__run_all_make_snapshot_methods(self) -> None:
+        revertable_value = RevertableValue3()
+        snapshot_name: str = 'snapshot_1'
+        revertable_value._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert revertable_value._is_snapshot_exists(
+            snapshot_name=snapshot_name)
+        assert revertable_value._snapshots1[snapshot_name] == 10
+        assert revertable_value._snapshots2[snapshot_name] == 20
+        assert revertable_value._snapshots3[snapshot_name] == 30
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__run_all_revert_methods(self) -> None:
+        revertable_value = RevertableValue3()
+        snapshot_name: str = 'snapshot_1'
+        revertable_value._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        revertable_value._value1 = 100
+        revertable_value._value2 = 200
+        revertable_value._value3 = 200
+        revertable_value._run_all_revert_methods(
+            snapshot_name=snapshot_name)
+        assert not revertable_value._is_snapshot_exists(
+            snapshot_name=snapshot_name)
+        assert revertable_value._value1 == 10
+        assert revertable_value._value2 == 20
+        assert revertable_value._value3 == 30

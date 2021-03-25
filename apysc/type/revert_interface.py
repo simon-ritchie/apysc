@@ -2,7 +2,7 @@
 """
 
 from abc import ABC, abstractmethod
-from typing import Dict, Optional
+from typing import Dict, List, Optional, Tuple, Type
 
 
 class RevertInterface(ABC):
@@ -38,6 +38,46 @@ class RevertInterface(ABC):
         snapshot_name : str
             Target snapshot name.
         """
+
+    def _run_all_make_snapshot_methods(self, snapshot_name: str) -> None:
+        """
+        Run all _make_snapshot methods. If instance is multiple
+        inheritance one, and each has RevertInterface, then each
+        _make_snapshot methods will be called.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        self_type: Type = type(self)
+        base_classes: Tuple[Type, ...] = self_type.__bases__
+        for base_class in base_classes:
+            if not issubclass(base_class, RevertInterface):
+                continue
+            base_class._make_snapshot(self, snapshot_name)
+        self._make_snapshot(snapshot_name=snapshot_name)
+        self._set_snapshot_exists_val(snapshot_name=snapshot_name)
+
+    def _run_all_revert_methods(self, snapshot_name: str) -> None:
+        """
+        Run all _revert methods. If instance is multiple inheritance one,
+        and each has RevertInterface, then each _revert methods will be
+        called.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        self_type: Type = type(self)
+        base_classes: Tuple[Type, ...] = self_type.__bases__
+        for base_class in base_classes:
+            if not issubclass(base_class, RevertInterface):
+                continue
+            base_class._revert(self, snapshot_name=snapshot_name)
+        self._revert(snapshot_name=snapshot_name)
+        self._delete_snapshot_exists_val(snapshot_name=snapshot_name)
 
     def _is_snapshot_exists(self, snapshot_name: str) -> bool:
         """

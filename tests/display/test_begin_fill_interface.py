@@ -77,7 +77,8 @@ class TestBeginFillInterface:
         begin_fill_interface.begin_fill(
             color='#333333', alpha=0.5)
         snapshot_name_1: str = begin_fill_interface._get_next_snapshot_name()
-        begin_fill_interface._make_snapshot(snapshot_name=snapshot_name_1)
+        begin_fill_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name_1)
         assert (
             begin_fill_interface._fill_color_snapshots[snapshot_name_1]
             == '#333333')
@@ -88,7 +89,8 @@ class TestBeginFillInterface:
             snapshot_name=snapshot_name_1)
 
         begin_fill_interface._fill_color.value = '#222222'
-        begin_fill_interface._make_snapshot(snapshot_name=snapshot_name_1)
+        begin_fill_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name_1)
         assert (
             begin_fill_interface._fill_color_snapshots[snapshot_name_1]
             == '#333333')
@@ -99,14 +101,17 @@ class TestBeginFillInterface:
         begin_fill_interface.begin_fill(
             color='#333333', alpha=0.5)
         snapshot_name_1: str = begin_fill_interface._get_next_snapshot_name()
-        begin_fill_interface._make_snapshot(snapshot_name=snapshot_name_1)
+        begin_fill_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name_1)
         begin_fill_interface.begin_fill(
             color='#222222', alpha=0.3)
-        begin_fill_interface._revert(snapshot_name=snapshot_name_1)
+        begin_fill_interface._run_all_revert_methods(
+            snapshot_name=snapshot_name_1)
         assert begin_fill_interface.fill_color == '#333333'
         assert begin_fill_interface.fill_alpha == 0.5
 
         begin_fill_interface.begin_fill(
             color='#222222', alpha=0.3)
-        begin_fill_interface._revert(snapshot_name=snapshot_name_1)
+        begin_fill_interface._run_all_revert_methods(
+            snapshot_name=snapshot_name_1)
         assert begin_fill_interface.fill_color == '#222222'

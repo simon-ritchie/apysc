@@ -104,17 +104,17 @@ class TestRevertInterface:
         revertable_value = RevertableValue1()
         revertable_value._set_snapshot_exists_val(
             snapshot_name='snapshot_1')
-        assert revertable_value._is_snapshot_exists(
+        assert revertable_value._snapshot_exists(
             snapshot_name='snapshot_1')
 
-        assert not revertable_value._is_snapshot_exists(
+        assert not revertable_value._snapshot_exists(
             snapshot_name='snapshot_2')
 
     def test__set_snapshot_exists_val(self) -> None:
         revertable_value = RevertableValue1()
         revertable_value._set_snapshot_exists_val(
             snapshot_name='snapshot_1')
-        assert revertable_value._snapshot_exists['snapshot_1']
+        assert revertable_value._snapshot_exists_['snapshot_1']
 
     def test__delete_snapshot_exists_val(self) -> None:
         revertable_value = RevertableValue1()
@@ -122,11 +122,11 @@ class TestRevertInterface:
             snapshot_name='snapshot_1')
         revertable_value._delete_snapshot_exists_val(
             snapshot_name='snapshot_1')
-        assert 'snapshot_1' not in revertable_value._snapshot_exists
+        assert 'snapshot_1' not in revertable_value._snapshot_exists_
 
         revertable_value._delete_snapshot_exists_val(
             snapshot_name='snapshot_2')
-        assert 'snapshot_2' not in revertable_value._snapshot_exists
+        assert 'snapshot_2' not in revertable_value._snapshot_exists_
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__get_next_snapshot_name(self) -> None:
@@ -142,11 +142,11 @@ class TestRevertInterface:
     def test__initialize_ss_exists_val_if_not_initialized(self) -> None:
         revertable_value = RevertableValue1()
         revertable_value._initialize_ss_exists_val_if_not_initialized()
-        assert revertable_value._snapshot_exists == {}
+        assert revertable_value._snapshot_exists_ == {}
 
-        revertable_value._snapshot_exists['snapshot_1'] = True
+        revertable_value._snapshot_exists_['snapshot_1'] = True
         revertable_value._initialize_ss_exists_val_if_not_initialized()
-        assert revertable_value._snapshot_exists == {'snapshot_1': True}
+        assert revertable_value._snapshot_exists_ == {'snapshot_1': True}
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__run_all_make_snapshot_methods(self) -> None:
@@ -154,7 +154,7 @@ class TestRevertInterface:
         snapshot_name: str = 'snapshot_1'
         revertable_value._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
-        assert revertable_value._is_snapshot_exists(
+        assert revertable_value._snapshot_exists(
             snapshot_name=snapshot_name)
         assert revertable_value._snapshots1[snapshot_name] == 10
         assert revertable_value._snapshots2[snapshot_name] == 20
@@ -171,7 +171,7 @@ class TestRevertInterface:
         revertable_value._value3 = 200
         revertable_value._run_all_revert_methods(
             snapshot_name=snapshot_name)
-        assert not revertable_value._is_snapshot_exists(
+        assert not revertable_value._snapshot_exists(
             snapshot_name=snapshot_name)
         assert revertable_value._value1 == 10
         assert revertable_value._value2 == 20

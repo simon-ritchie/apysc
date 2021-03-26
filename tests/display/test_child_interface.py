@@ -190,7 +190,7 @@ class TestChildInterface:
             snapshot_name=snapshot_name_1)
         assert stage._children_snapshot[snapshot_name_1] == [
             sprite_1, display_object_1]
-        assert stage._is_snapshot_exists(
+        assert stage._snapshot_exists(
             snapshot_name=snapshot_name_1)
         assert sprite_1._children_snapshot[snapshot_name_1] == [
             sprite_2]
@@ -220,9 +220,9 @@ class TestChildInterface:
         stage._run_all_revert_methods(snapshot_name=snapshot_name_1)
         assert stage._children == [sprite_1, display_object_1]
         assert sprite_1._children == [sprite_2]
-        assert not stage._is_snapshot_exists(
+        assert not stage._snapshot_exists(
             snapshot_name=snapshot_name_1)
-        assert not sprite_1._is_snapshot_exists(
+        assert not sprite_1._snapshot_exists(
             snapshot_name=snapshot_name_1)
 
         stage.remove_child(child=sprite_1)

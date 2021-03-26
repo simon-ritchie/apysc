@@ -85,7 +85,7 @@ class TestBeginFillInterface:
         assert (
             begin_fill_interface._fill_alpha_snapshot[snapshot_name_1]
             == 0.5)
-        assert begin_fill_interface._is_snapshot_exists(
+        assert begin_fill_interface._snapshot_exists(
             snapshot_name=snapshot_name_1)
 
         begin_fill_interface._fill_color.value = '#222222'

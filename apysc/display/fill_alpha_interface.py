@@ -105,7 +105,7 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
         """
         if not hasattr(self, '_fill_alpha_snapshots'):
             self._fill_alpha_snapshots = {}
-        if self._is_snapshot_exists(snapshot_name=snapshot_name):
+        if self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._fill_alpha_snapshots[snapshot_name] = self._fill_alpha._value
 
@@ -118,7 +118,7 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._is_snapshot_exists(snapshot_name=snapshot_name):
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._fill_alpha._value = self._fill_alpha_snapshots[snapshot_name]
         del self._fill_alpha_snapshots[snapshot_name]

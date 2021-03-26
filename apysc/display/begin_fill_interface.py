@@ -115,7 +115,7 @@ class BeginFillInterface(RevertInterface):
         if not hasattr(self, '_fill_color_snapshots'):
             self._fill_color_snapshots = {}
             self._fill_alpha_snapshot = {}
-        if self._is_snapshot_exists(snapshot_name=snapshot_name):
+        if self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._fill_color_snapshots[snapshot_name] = self._fill_color._value
         self._fill_alpha_snapshot[snapshot_name] = self._fill_alpha._value
@@ -129,7 +129,7 @@ class BeginFillInterface(RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
-        if not self._is_snapshot_exists(snapshot_name=snapshot_name):
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._fill_color._value = self._fill_color_snapshots[snapshot_name]
         self._fill_alpha._value = self._fill_alpha_snapshot[snapshot_name]

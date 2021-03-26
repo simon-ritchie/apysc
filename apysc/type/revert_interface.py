@@ -7,15 +7,15 @@ from typing import Dict, List, Optional, Tuple, Type
 
 class RevertInterface(ABC):
 
-    _snapshot_exists: Dict[str, bool]
+    _snapshot_exists_: Dict[str, bool]
 
     def _initialize_ss_exists_val_if_not_initialized(self) -> None:
         """
-        Initialize _snapshot_exists value if it is not initialized yet.
+        Initialize _snapshot_exists_ value if it is not initialized yet.
         """
-        if hasattr(self, '_snapshot_exists'):
+        if hasattr(self, '_snapshot_exists_'):
             return
-        self._snapshot_exists = {}
+        self._snapshot_exists_ = {}
 
     @abstractmethod
     def _make_snapshot(self, snapshot_name: str) -> None:
@@ -79,7 +79,7 @@ class RevertInterface(ABC):
         self._revert(snapshot_name=snapshot_name)
         self._delete_snapshot_exists_val(snapshot_name=snapshot_name)
 
-    def _is_snapshot_exists(self, snapshot_name: str) -> bool:
+    def _snapshot_exists(self, snapshot_name: str) -> bool:
         """
         Get a boolean value whether snapshot value exists or not.
 
@@ -94,7 +94,7 @@ class RevertInterface(ABC):
             Boolean value whether snapshot value exists or not.
         """
         self._initialize_ss_exists_val_if_not_initialized()
-        return snapshot_name in self._snapshot_exists
+        return snapshot_name in self._snapshot_exists_
 
     def _set_snapshot_exists_val(self, snapshot_name: str) -> None:
         """
@@ -106,7 +106,7 @@ class RevertInterface(ABC):
             Target snapshot name.
         """
         self._initialize_ss_exists_val_if_not_initialized()
-        self._snapshot_exists[snapshot_name] = True
+        self._snapshot_exists_[snapshot_name] = True
 
     def _delete_snapshot_exists_val(self, snapshot_name: str) -> None:
         """
@@ -118,8 +118,8 @@ class RevertInterface(ABC):
             Target snapshot name.
         """
         self._initialize_ss_exists_val_if_not_initialized()
-        if snapshot_name in self._snapshot_exists:
-            del self._snapshot_exists[snapshot_name]
+        if snapshot_name in self._snapshot_exists_:
+            del self._snapshot_exists_[snapshot_name]
 
     def _get_next_snapshot_name(self) -> str:
         """

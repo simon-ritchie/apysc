@@ -245,7 +245,7 @@ class ChildInterface(RevertInterface):
         if not hasattr(self, '_children_snapshot'):
             self._children_snapshot = {}
             self._parent_snapshot = {}
-        if self._is_snapshot_exists(snapshot_name=snapshot_name):
+        if self._snapshot_exists(snapshot_name=snapshot_name):
             return
 
         for child in self._children.value:
@@ -267,7 +267,7 @@ class ChildInterface(RevertInterface):
             Target snapshot name.
         """
         from apysc.display.parent_interface import ParentInterface
-        if not self._is_snapshot_exists(snapshot_name=snapshot_name):
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._children._value = [*self._children_snapshot[snapshot_name]]
         if isinstance(self, ParentInterface):

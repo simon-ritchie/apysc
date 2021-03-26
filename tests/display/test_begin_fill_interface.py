@@ -5,7 +5,6 @@ from retrying import retry
 from apysc.display.begin_fill_interface import BeginFillInterface
 from apysc.type import Number
 from apysc.type import String
-from tests import testing_helper
 
 
 class TestBeginFillInterface:

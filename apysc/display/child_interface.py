@@ -1,7 +1,10 @@
 """Class implementation for child related interface.
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Optional
 from typing import Union
 
 from apysc.display.display_object import DisplayObject
@@ -255,6 +258,7 @@ class ChildInterface(RevertInterface):
 
         self._children_snapshot[snapshot_name] = [*self._children._value]
         if isinstance(self, ParentInterface):
+            self.parent: Any
             self._parent_snapshot[snapshot_name] = self.parent
 
     def _revert(self, snapshot_name: str) -> None:

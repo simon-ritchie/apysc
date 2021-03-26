@@ -1,12 +1,13 @@
 """Class implementation for fill alpha interface.
 """
 
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 from apysc.type import Number
 from apysc.type.number_value_interface import NumberValueInterface
-from apysc.type.variable_name_interface import VariableNameInterface
 from apysc.type.revert_interface import RevertInterface
+from apysc.type.variable_name_interface import VariableNameInterface
 
 
 class FillAlphaInterface(VariableNameInterface, RevertInterface):

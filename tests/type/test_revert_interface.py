@@ -1,7 +1,8 @@
 from random import randint
-from typing import Dict, Optional
+from typing import Dict
 
 from retrying import retry
+
 from apysc.type.revert_interface import RevertInterface
 
 

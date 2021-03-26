@@ -6,7 +6,8 @@ See Also
 """
 
 
-from typing import Dict, Optional, TypeVar
+from typing import Dict
+from typing import TypeVar
 from typing import Union
 
 from apysc.type import Number

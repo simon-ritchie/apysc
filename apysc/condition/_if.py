@@ -2,7 +2,10 @@
 """
 
 
-from typing import Any, Dict, Type
+from typing import Any
+from typing import Dict
+from typing import Type
+
 from apysc.type import Boolean
 
 
@@ -27,7 +30,6 @@ class If:
             Current scope's golobal variables. Set golobals() value
             to this argument.
         """
-        pass
 
     def __enter__(self) -> None:
         pass

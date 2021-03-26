@@ -1,14 +1,15 @@
 """Class implementation for fill alpha interface.
 """
 
-from typing import Any
+from typing import Any, Dict
 
 from apysc.type import Number
 from apysc.type.number_value_interface import NumberValueInterface
 from apysc.type.variable_name_interface import VariableNameInterface
+from apysc.type.revert_interface import RevertInterface
 
 
-class FillAlphaInterface(VariableNameInterface):
+class FillAlphaInterface(VariableNameInterface, RevertInterface):
 
     _fill_alpha: Number
 
@@ -90,3 +91,34 @@ class FillAlphaInterface(VariableNameInterface):
             value = Number(value=value)
         color_validation.validate_alpha_range(alpha=value.value)
         self._fill_alpha = value
+
+    _fill_alpha_snapshots: Dict[str, float]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make values snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_fill_alpha_snapshots'):
+            self._fill_alpha_snapshots = {}
+        if self._is_snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._fill_alpha_snapshots[snapshot_name] = self._fill_alpha._value
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert values if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._is_snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._fill_alpha._value = self._fill_alpha_snapshots[snapshot_name]
+        del self._fill_alpha_snapshots[snapshot_name]

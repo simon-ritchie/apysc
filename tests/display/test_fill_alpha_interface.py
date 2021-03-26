@@ -64,3 +64,40 @@ class TestFillAlphaInterface:
         fill_alpha_interface.fill_alpha = Number(0.5)
         fill_alpha_interface._initialize_fill_alpha_if_not_initialized()
         assert fill_alpha_interface.fill_alpha == 0.5
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__make_snapshot(self) -> None:
+        fill_alpha_interface: FillAlphaInterface = FillAlphaInterface()
+        fill_alpha_interface.variable_name = 'test_fill_alpha_interface'
+        fill_alpha_interface.fill_alpha = Number(0.5)
+        snapshot_name: str = 'snapshot_1'
+        fill_alpha_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert (
+            fill_alpha_interface._fill_alpha_snapshots[snapshot_name]
+            == 0.5)
+
+        fill_alpha_interface.fill_alpha = Number(0.3)
+        fill_alpha_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert (
+            fill_alpha_interface._fill_alpha_snapshots[snapshot_name]
+            == 0.5)
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__revert(self) -> None:
+        fill_alpha_interface: FillAlphaInterface = FillAlphaInterface()
+        fill_alpha_interface.variable_name = 'test_fill_alpha_interface'
+        fill_alpha_interface.fill_alpha = Number(0.5)
+        snapshot_name: str = 'snapshot_1'
+        fill_alpha_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        fill_alpha_interface._fill_alpha = Number(0.3)
+        fill_alpha_interface._run_all_revert_methods(
+            snapshot_name=snapshot_name)
+        assert fill_alpha_interface.fill_alpha == 0.5
+
+        fill_alpha_interface._fill_alpha = Number(0.3)
+        fill_alpha_interface._run_all_revert_methods(
+            snapshot_name=snapshot_name)
+        assert fill_alpha_interface.fill_alpha == 0.3

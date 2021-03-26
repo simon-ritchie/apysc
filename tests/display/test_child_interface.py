@@ -188,17 +188,17 @@ class TestChildInterface:
         snapshot_name_1: str = stage._get_next_snapshot_name()
         stage._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name_1)
-        assert stage._children_snapshot[snapshot_name_1] == [
+        assert stage._children_snapshots[snapshot_name_1] == [
             sprite_1, display_object_1]
         assert stage._snapshot_exists(
             snapshot_name=snapshot_name_1)
-        assert sprite_1._children_snapshot[snapshot_name_1] == [
+        assert sprite_1._children_snapshots[snapshot_name_1] == [
             sprite_2]
 
         stage.remove_child(child=sprite_1)
         stage._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name_1)
-        assert stage._children_snapshot[snapshot_name_1] == [
+        assert stage._children_snapshots[snapshot_name_1] == [
             sprite_1, display_object_1]
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))

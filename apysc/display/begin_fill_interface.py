@@ -102,7 +102,7 @@ class BeginFillInterface(RevertInterface):
         self._fill_alpha = Number(1.0)
 
     _fill_color_snapshots: Dict[str, str]
-    _fill_alpha_snapshot: Dict[str, float]
+    _fill_alpha_snapshots: Dict[str, float]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
@@ -115,11 +115,11 @@ class BeginFillInterface(RevertInterface):
         """
         if not hasattr(self, '_fill_color_snapshots'):
             self._fill_color_snapshots = {}
-            self._fill_alpha_snapshot = {}
+            self._fill_alpha_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._fill_color_snapshots[snapshot_name] = self._fill_color._value
-        self._fill_alpha_snapshot[snapshot_name] = self._fill_alpha._value
+        self._fill_alpha_snapshots[snapshot_name] = self._fill_alpha._value
 
     def _revert(self, snapshot_name: str) -> None:
         """
@@ -133,6 +133,6 @@ class BeginFillInterface(RevertInterface):
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._fill_color._value = self._fill_color_snapshots[snapshot_name]
-        self._fill_alpha._value = self._fill_alpha_snapshot[snapshot_name]
+        self._fill_alpha._value = self._fill_alpha_snapshots[snapshot_name]
         del self._fill_color_snapshots[snapshot_name]
-        del self._fill_alpha_snapshot[snapshot_name]
+        del self._fill_alpha_snapshots[snapshot_name]

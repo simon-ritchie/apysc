@@ -47,3 +47,39 @@ class TestLineAlphaInterface:
         line_alpha_interface.line_alpha = Number(0.5)
         line_alpha_interface._initialize_line_alpha_if_not_initialized()
         assert line_alpha_interface.line_alpha == 0.5
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__make_snapshot(self) -> None:
+        line_alpha_interface: LineAlphaInterface = LineAlphaInterface()
+        line_alpha_interface.variable_name = 'test_line_alpha_interface'
+        line_alpha_interface.line_alpha = Number(0.5)
+        snapshot_name: str = 'snapshot_1'
+        line_alpha_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert (
+            line_alpha_interface._line_alpha_snapshots[snapshot_name] == 0.5)
+
+        line_alpha_interface.line_alpha = Number(0.3)
+        line_alpha_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert (
+            line_alpha_interface._line_alpha_snapshots[snapshot_name] == 0.5)
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__revert(self) -> None:
+        line_alpha_interface: LineAlphaInterface = LineAlphaInterface()
+        line_alpha_interface.variable_name = 'test_line_alpha_interface'
+        line_alpha_interface.line_alpha = Number(0.5)
+        snapshot_name: str = 'snapshot_1'
+        line_alpha_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        line_alpha_interface.line_alpha = Number(0.3)
+        line_alpha_interface._run_all_revert_methods(
+            snapshot_name=snapshot_name)
+        assert line_alpha_interface.line_alpha == 0.5
+        assert snapshot_name not in line_alpha_interface._line_alpha_snapshots
+
+        line_alpha_interface.line_alpha = Number(0.3)
+        line_alpha_interface._run_all_revert_methods(
+            snapshot_name=snapshot_name)
+        assert line_alpha_interface.line_alpha == 0.3

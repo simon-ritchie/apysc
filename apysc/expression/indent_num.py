@@ -13,9 +13,8 @@ def get_current_indent_num() -> int:
     current_indent_num : int
         Current indent number.
     """
-    from apysc.expression import expression_file_util
+    from apysc.expression.expression_file_util import INDENT_NUM_FILE_PATH
     from apysc.file import file_util
-    INDENT_NUM_FILE_PATH: str = expression_file_util.INDENT_NUM_FILE_PATH
     if not os.path.isfile(INDENT_NUM_FILE_PATH):
         return 0
     indent_num_txt: str = file_util.read_txt(file_path=INDENT_NUM_FILE_PATH)
@@ -27,4 +26,12 @@ def get_current_indent_num() -> int:
 
 
 def increment() -> None:
-    pass
+    """
+    Increment current indent number.
+    """
+    from apysc.expression.expression_file_util import INDENT_NUM_FILE_PATH
+    from apysc.file import file_util
+    current_indent_num: int = get_current_indent_num()
+    current_indent_num += 1
+    file_util.save_plain_txt(
+        txt=str(current_indent_num), file_path=INDENT_NUM_FILE_PATH)

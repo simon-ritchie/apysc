@@ -1,14 +1,15 @@
 """Class implementation for number value interface.
 """
 
-from typing import Any
+from typing import Any, Dict
 from typing import Union
 
 from apysc.type.copy_interface import CopyInterface
+from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
 
 
-class NumberValueInterface(CopyInterface):
+class NumberValueInterface(CopyInterface, RevertInterface):
 
     _initial_value: Union[int, float, Any]
     _value: Union[int, float]
@@ -577,3 +578,33 @@ class NumberValueInterface(CopyInterface):
         if isinstance(other, NumberValueInterface):
             return Boolean(self.value >= other.value)
         return Boolean(self.value >= other)
+
+    _value_snapshots: Dict[str, Union[int, float]]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make values snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_value_snapshots'):
+            self._value_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._value_snapshots[snapshot_name] = self._value
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert values if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._value = self._value_snapshots[snapshot_name]

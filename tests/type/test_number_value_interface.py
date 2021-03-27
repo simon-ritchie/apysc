@@ -501,3 +501,34 @@ class TestNumberValueInterface:
         float_val: float = float(interface_1)
         assert float_val == 10.5
         assert isinstance(float_val, float)
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__make_snapshot(self) -> None:
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=10.5, type_name='test_interface')
+        interface_1.variable_name = 'test_interface_1'
+        snapshot_name: str = 'snapshot_1'
+        interface_1._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert interface_1._value_snapshots[snapshot_name] == 10.5
+
+        interface_1.value = 20
+        interface_1._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert interface_1._value_snapshots[snapshot_name] == 10.5
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__revert(self) -> None:
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=10.5, type_name='test_interface')
+        interface_1.variable_name = 'test_interface_1'
+        snapshot_name: str = 'snapshot_1'
+        interface_1._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        interface_1.value = 20
+        interface_1._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert interface_1.value == 10.5
+
+        interface_1.value = 20
+        interface_1._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert interface_1.value == 20

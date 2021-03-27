@@ -1,11 +1,13 @@
 """Class implementation for witdth interface.
 """
 
+from typing import Dict
 from apysc.type import Int
+from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
 
 
-class WidthInterface(VariableNameInterface):
+class WidthInterface(VariableNameInterface, RevertInterface):
 
     _width: Int
 
@@ -74,3 +76,33 @@ class WidthInterface(VariableNameInterface):
         size_validation.validate_size_is_int(size=value)
         size_validation.validate_size_is_gte_zero(size=value)
         self._width = value
+
+    _width_snapshots: Dict[str, int]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make values snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_width_snapshots'):
+            self._width_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._width_snapshots[snapshot_name] = int(self._width._value)
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert values if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._width._value = self._width_snapshots[snapshot_name]

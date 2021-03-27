@@ -57,3 +57,41 @@ class TestLineColorInterface:
         line_color_interface.line_color = String('#333')
         line_color_interface._initialize_line_color_if_not_initialized()
         assert line_color_interface.line_color == '#333333'
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__make_snapshot(self) -> None:
+        line_color_interface: LineColorInterface = LineColorInterface()
+        line_color_interface.variable_name = 'test_line_color_interface'
+        line_color_interface.line_color = String('#333')
+        snapshot_name: str = 'snapshot_1'
+        line_color_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert (
+            line_color_interface._line_color_snapshots[snapshot_name]
+            == '#333333')
+
+        line_color_interface.line_color = String('#222')
+        line_color_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert (
+            line_color_interface._line_color_snapshots[snapshot_name]
+            == '#333333')
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__revert(self) -> None:
+        line_color_interface: LineColorInterface = LineColorInterface()
+        line_color_interface.variable_name = 'test_line_color_interface'
+        line_color_interface.line_color = String('#333')
+        snapshot_name: str = 'snapshot_1'
+        line_color_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        line_color_interface.line_color = String('#222')
+        line_color_interface._run_all_revert_methods(
+            snapshot_name=snapshot_name)
+        assert line_color_interface.line_color == '#333333'
+        assert snapshot_name not in line_color_interface._line_color_snapshots
+
+        line_color_interface.line_color = String('#222')
+        line_color_interface._run_all_revert_methods(
+            snapshot_name=snapshot_name)
+        assert line_color_interface.line_color == '#222222'

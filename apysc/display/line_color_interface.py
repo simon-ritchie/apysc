@@ -1,11 +1,13 @@
 """Class implementation for line color interface.
 """
 
+from typing import Dict
 from apysc.type import String
+from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
 
 
-class LineColorInterface(VariableNameInterface):
+class LineColorInterface(VariableNameInterface, RevertInterface):
 
     _line_color: String
 
@@ -76,3 +78,34 @@ class LineColorInterface(VariableNameInterface):
         if hasattr(self, '_line_color'):
             return
         self._line_color = String('')
+
+    _line_color_snapshots: Dict[str, str]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make values snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_line_color_snapshots'):
+            self._line_color_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._line_color_snapshots[snapshot_name] = self._line_color._value
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert values if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._line_color._value = self._line_color_snapshots[snapshot_name]
+        del self._line_color_snapshots[snapshot_name]

@@ -225,3 +225,29 @@ def test_make_snapshots_of_each_scope_vars() -> None:
     assert int_1._value_snapshots[snapshot_name] == 10
     assert int_2._value_snapshots[snapshot_name] == 20
     assert int_3._value_snapshots[snapshot_name] == 40
+
+
+def test_revert_each_scope_vars() -> None:
+    int_1: Int = Int(10)
+    int_2: Int = Int(20)
+    int_3: Int = Int(40)
+    locals_: Dict[str, Any] = {
+        'value1': int_1,
+        'value2': int_2,
+        'value3': 30,
+    }
+    globals_: Dict[str, Any] = {
+        'value_4': int_1,
+        'value_5': int_3,
+    }
+    snapshot_name: str = revert_interface.make_snapshots_of_each_scope_vars(
+        locals_=locals_, globals_=globals_)
+    int_1.value = 100
+    int_2.value = 200
+    int_3.value = 400
+    revert_interface.revert_each_scope_vars(
+        snapshot_name=snapshot_name,
+        locals_=locals_, globals_=globals_)
+    assert int_1._value == 10
+    assert int_2._value == 20
+    assert int_3._value == 40

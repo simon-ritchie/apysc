@@ -185,6 +185,11 @@ def make_snapshots_of_each_scope_vars(
         Local scope's variables.
     globals_ : dict
         Global scope's variables.
+
+    Returns
+    -------
+    snapshot_name : str
+        Snapshot name to be used.
     """
     ended: Dict[int, bool] = {}
     snapshot_name: str = ''
@@ -201,3 +206,29 @@ def make_snapshots_of_each_scope_vars(
             snapshot_name=snapshot_name)
         ended[var_id] = True
     return snapshot_name
+
+
+def revert_each_scope_vars(
+        snapshot_name: str, locals_, globals_) -> None:
+    """
+    Revert each scope's variables.
+
+    Parameters
+    ----------
+    snapshot_name : str
+        Snapshot name to use.
+    locals_ : dict
+        Local scope's variables.
+    globals_ : dict
+        Global scope's variables.
+    """
+    ended: Dict[int, bool] = {}
+    variables: List[Any] = [*locals_.values(), *globals_.values()]
+    for variable in variables:
+        if not isinstance(variable, RevertInterface):
+            continue
+        var_id: int = id(variable)
+        if var_id in ended:
+            continue
+        variable._run_all_revert_methods(snapshot_name=snapshot_name)
+        ended[var_id] = True

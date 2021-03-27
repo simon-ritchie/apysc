@@ -5,17 +5,18 @@ See Also
 - graphics_clear_interface
 """
 
-from typing import TypeVar
+from typing import Dict, TypeVar
 from typing import Union
 
 from apysc.type import Int
 from apysc.type import Number
 from apysc.type import String
+from apysc.type.revert_interface import RevertInterface
 
 StrOrString = TypeVar('StrOrString', str, String)
 
 
-class LineStyleInterface:
+class LineStyleInterface(RevertInterface):
 
     _line_color: String
     _line_thickness: Int
@@ -130,3 +131,48 @@ class LineStyleInterface:
         from apysc.type import value_util
         self._initialize_line_alpha_if_not_initialized()
         return value_util.get_copy(value=self._line_alpha)
+
+    _line_color_snapshots: Dict[str, str]
+    _line_thickness_snapshots: Dict[str, int]
+    _line_alpha_snapshots: Dict[str, float]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make values snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_line_color_snapshots'):
+            self._line_color_snapshots = {}
+            self._line_thickness_snapshots = {}
+            self._line_alpha_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._line_color_snapshots[snapshot_name] = self._line_color._value
+        self._line_thickness_snapshots[snapshot_name] = \
+            int(self._line_thickness._value)
+        self._line_alpha_snapshots[snapshot_name] = self._line_alpha._value
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert values if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._line_color._value = self._line_color_snapshots[snapshot_name]
+        del self._line_color_snapshots[snapshot_name]
+
+        self._line_thickness._value = self._line_thickness_snapshots[
+            snapshot_name]
+        del self._line_thickness_snapshots[snapshot_name]
+
+        self._line_alpha._value = self._line_alpha_snapshots[snapshot_name]
+        del self._line_alpha_snapshots[snapshot_name]

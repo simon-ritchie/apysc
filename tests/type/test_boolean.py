@@ -138,3 +138,27 @@ class TestBoolean:
     def test___repr__(self) -> None:
         boolean: Boolean = Boolean(True)
         assert repr(boolean) == 'Boolean(True)'
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__make_snapshot(self) -> None:
+        boolean: Boolean = Boolean(True)
+        snapshot_name: str = 'snapshot_1'
+        boolean._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert boolean._value_snapshots[snapshot_name] == True
+
+        boolean.value = False
+        boolean._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert boolean._value_snapshots[snapshot_name] == True
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__revert(self) -> None:
+        boolean: Boolean = Boolean(True)
+        snapshot_name: str = 'snapshot_1'
+        boolean._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        boolean.value = False
+        boolean._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert boolean.value == True
+
+        boolean.value = False
+        boolean._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert boolean.value == False

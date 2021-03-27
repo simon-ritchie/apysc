@@ -1,14 +1,15 @@
 """Class implementation for boolean.
 """
 
-from typing import Any
+from typing import Any, Dict
 from typing import Union
 
 from apysc.type import Int
 from apysc.type.copy_interface import CopyInterface
+from apysc.type.revert_interface import RevertInterface
 
 
-class Boolean(CopyInterface):
+class Boolean(CopyInterface, RevertInterface):
 
     _initial_value: Union[bool, int, Any]
     _value: bool
@@ -168,3 +169,33 @@ class Boolean(CopyInterface):
             f'Boolean({self._value})'
         )
         return repr_str
+
+    _value_snapshots: Dict[str, bool]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make values snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_value_snapshots'):
+            self._value_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._value_snapshots[snapshot_name] = self._value
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert values if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._value = self._value_snapshots[snapshot_name]

@@ -89,7 +89,6 @@ class TestLineColorInterface:
         line_color_interface._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert line_color_interface.line_color == '#333333'
-        assert snapshot_name not in line_color_interface._line_color_snapshots
 
         line_color_interface.line_color = String('#222')
         line_color_interface._run_all_revert_methods(

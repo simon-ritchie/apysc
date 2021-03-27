@@ -106,4 +106,3 @@ class HeightInterface(VariableNameInterface, RevertInterface):
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._height._value = self._height_snapshots[snapshot_name]
-        del self._height_snapshots[snapshot_name]

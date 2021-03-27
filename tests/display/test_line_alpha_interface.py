@@ -77,7 +77,6 @@ class TestLineAlphaInterface:
         line_alpha_interface._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert line_alpha_interface.line_alpha == 0.5
-        assert snapshot_name not in line_alpha_interface._line_alpha_snapshots
 
         line_alpha_interface.line_alpha = Number(0.3)
         line_alpha_interface._run_all_revert_methods(

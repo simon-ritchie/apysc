@@ -108,4 +108,3 @@ class LineColorInterface(VariableNameInterface, RevertInterface):
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._line_color._value = self._line_color_snapshots[snapshot_name]
-        del self._line_color_snapshots[snapshot_name]

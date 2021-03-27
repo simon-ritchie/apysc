@@ -168,11 +168,6 @@ class LineStyleInterface(RevertInterface):
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._line_color._value = self._line_color_snapshots[snapshot_name]
-        del self._line_color_snapshots[snapshot_name]
-
         self._line_thickness._value = self._line_thickness_snapshots[
             snapshot_name]
-        del self._line_thickness_snapshots[snapshot_name]
-
         self._line_alpha._value = self._line_alpha_snapshots[snapshot_name]
-        del self._line_alpha_snapshots[snapshot_name]

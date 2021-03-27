@@ -77,7 +77,6 @@ class TestHeightInterface:
         height_interface._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert height_interface.height == 10
-        assert snapshot_name not in height_interface._height_snapshots
 
         height_interface.height = Int(5)
         height_interface._run_all_revert_methods(

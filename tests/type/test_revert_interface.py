@@ -34,7 +34,6 @@ class RevertableValue1(RevertInterface):
             Target snapshot name.
         """
         self._value1 = self._snapshots1[snapshot_name]
-        del self._snapshots1[snapshot_name]
 
 
 class RevertableValue2(RevertInterface):
@@ -65,7 +64,6 @@ class RevertableValue2(RevertInterface):
             Target snapshot name.
         """
         self._value2 = self._snapshots2[snapshot_name]
-        del self._snapshots2[snapshot_name]
 
 
 class RevertableValue3(RevertableValue1, RevertableValue2):
@@ -96,7 +94,6 @@ class RevertableValue3(RevertableValue1, RevertableValue2):
             Target snapshot name.
         """
         self._value3 = self._snapshots3[snapshot_name]
-        del self._snapshots3[snapshot_name]
 
 
 class TestRevertInterface:

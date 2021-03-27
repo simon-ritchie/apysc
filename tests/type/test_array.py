@@ -587,3 +587,27 @@ class TestArray:
 
         array_2: Array = Array([1])
         assert array_2
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__make_snapshot(self) -> None:
+        array_1: Array = Array([1, 2, 3])
+        snapshot_name: str = 'snapshot_1'
+        array_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert array_1._value_snapshots[snapshot_name] == [1, 2, 3]
+
+        array_1.value = [4, 5, 6]
+        array_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert array_1._value_snapshots[snapshot_name] == [1, 2, 3]
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__revert(self) -> None:
+        array_1: Array = Array([1, 2, 3])
+        snapshot_name: str = 'snapshot_1'
+        array_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        array_1.value = [4, 5, 6]
+        array_1._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert array_1 == [1, 2, 3]
+
+        array_1.value = [4, 5, 6]
+        array_1._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert array_1 == [4, 5, 6]

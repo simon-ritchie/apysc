@@ -1,7 +1,7 @@
 """Class implementation for array.
 """
 
-from typing import Any
+from typing import Any, Dict
 from typing import List
 from typing import Optional
 from typing import Union
@@ -9,10 +9,11 @@ from typing import Union
 from apysc.type import Int
 from apysc.type import String
 from apysc.type.copy_interface import CopyInterface
+from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
 
 
-class Array(CopyInterface):
+class Array(CopyInterface, RevertInterface):
 
     _initial_value: Union[List[Any], tuple, Any]
     _value: List[Any]
@@ -907,3 +908,33 @@ class Array(CopyInterface):
             If this array is empty, True will be returned.
         """
         return bool(self._value)
+
+    _value_snapshots: Dict[str, List[Any]]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make values snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_value_snapshots'):
+            self._value_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._value_snapshots[snapshot_name] = [*self._value]
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert values if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._value = self._value_snapshots[snapshot_name]

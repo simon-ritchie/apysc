@@ -1,11 +1,13 @@
 """Class implementation for height interface.
 """
 
+from typing import Dict
 from apysc.type import Int
+from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
 
 
-class HeightInterface(VariableNameInterface):
+class HeightInterface(VariableNameInterface, RevertInterface):
 
     _height: Int
 
@@ -74,3 +76,34 @@ class HeightInterface(VariableNameInterface):
         size_validation.validate_size_is_int(size=value)
         size_validation.validate_size_is_gte_zero(size=value)
         self._height = value
+
+    _height_snapshots: Dict[str, int]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make values snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_height_snapshots'):
+            self._height_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._height_snapshots[snapshot_name] = int(self._height._value)
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert values if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._height._value = self._height_snapshots[snapshot_name]
+        del self._height_snapshots[snapshot_name]

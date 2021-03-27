@@ -49,3 +49,37 @@ class TestHeightInterface:
         height_interface.height = Int(10)
         height_interface._initialize_height_if_not_initialized()
         assert height_interface.height == 10
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__make_snapshot(self) -> None:
+        height_interface: HeightInterface = HeightInterface()
+        height_interface.variable_name = 'test_height_interface'
+        height_interface.height = Int(10)
+        snapshot_name: str = 'snapshot_1'
+        height_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert height_interface._height_snapshots[snapshot_name] == 10
+
+        height_interface.height = Int(5)
+        height_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert height_interface._height_snapshots[snapshot_name] == 10
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__revert(self) -> None:
+        height_interface: HeightInterface = HeightInterface()
+        height_interface.variable_name = 'test_height_interface'
+        height_interface.height = Int(10)
+        snapshot_name: str = 'snapshot_1'
+        height_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        height_interface.height = Int(5)
+        height_interface._run_all_revert_methods(
+            snapshot_name=snapshot_name)
+        assert height_interface.height == 10
+        assert snapshot_name not in height_interface._height_snapshots
+
+        height_interface.height = Int(5)
+        height_interface._run_all_revert_methods(
+            snapshot_name=snapshot_name)
+        assert height_interface.height == 5

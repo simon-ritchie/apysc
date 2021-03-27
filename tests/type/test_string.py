@@ -236,3 +236,30 @@ class TestString:
     def test___repr__(self) -> None:
         string_1: String = String(value='Hello!')
         assert repr(string_1) == "String('Hello!')"
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__make_snapshot(self) -> None:
+        string_1: String = String(value='Hello!')
+        snapshot_name: str = 'snapshot_1'
+        string_1._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert string_1._value_snapshots[snapshot_name] == 'Hello!'
+
+        string_1.value = 'World!'
+        string_1._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert string_1._value_snapshots[snapshot_name] == 'Hello!'
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__revert(self) -> None:
+        string_1: String = String(value='Hello!')
+        snapshot_name: str = 'snapshot_1'
+        string_1._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        string_1.value = 'World!'
+        string_1._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert string_1.value == 'Hello!'
+
+        string_1.value = 'World!'
+        string_1._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert string_1.value == 'World!'

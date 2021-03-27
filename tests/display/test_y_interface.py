@@ -46,3 +46,34 @@ class TestYInterface:
         y_interface.y = Int(100)
         y_interface._initialize_y_if_not_initialized()
         assert y_interface.y == 100
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__make_snapshot(self) -> None:
+        y_interface: YInterface = YInterface()
+        y_interface.variable_name = 'test_y_interface'
+        y_interface.y = Int(100)
+        snapshot_name: str = 'snapshot_1'
+        y_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert y_interface._y_snapshots[snapshot_name] == 100
+
+        y_interface.y = Int(150)
+        y_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert y_interface._y_snapshots[snapshot_name] == 100
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__revert(self) -> None:
+        y_interface: YInterface = YInterface()
+        y_interface.variable_name = 'test_y_interface'
+        y_interface.y = Int(100)
+        snapshot_name: str = 'snapshot_1'
+        y_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        y_interface.y = Int(150)
+        y_interface._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert y_interface.y == 100
+
+        y_interface.y = Int(150)
+        y_interface._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert y_interface.y == 150

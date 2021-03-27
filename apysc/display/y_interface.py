@@ -1,11 +1,13 @@
 """Class implementation for y position interface.
 """
 
+from typing import Dict
 from apysc.type import Int
+from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
 
 
-class YInterface(VariableNameInterface):
+class YInterface(VariableNameInterface, RevertInterface):
 
     _y: Int
 
@@ -63,3 +65,33 @@ class YInterface(VariableNameInterface):
         )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    _y_snapshots: Dict[str, int]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make values snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_y_snapshots'):
+            self._y_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._y_snapshots[snapshot_name] = int(self._y._value)
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert values if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._y._value = self._y_snapshots[snapshot_name]

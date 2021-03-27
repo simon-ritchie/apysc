@@ -1,9 +1,11 @@
 from random import randint
-from typing import Dict
+from typing import Dict, Any
 
 from retrying import retry
 
 from apysc.type.revert_interface import RevertInterface
+from apysc.type import revert_interface
+from apysc.type import Int
 
 
 class NotRevertableValue:
@@ -202,3 +204,24 @@ class TestRevertInterface:
         assert revertable_value._value1 == 10
         assert revertable_value._value2 == 20
         assert revertable_value._value3 == 30
+
+
+def test_make_snapshots_of_each_scope_vars() -> None:
+    int_1: Int = Int(10)
+    int_2: Int = Int(20)
+    int_3: Int = Int(40)
+    locals_: Dict[str, Any] = {
+        'value1': int_1,
+        'value2': int_2,
+        'value3': 30,
+    }
+    globals_: Dict[str, Any] = {
+        'value_4': int_1,
+        'value_5': int_3,
+    }
+    snapshot_name: str = revert_interface.\
+        make_snapshots_of_each_scope_vars(
+            locals_=locals_, globals_=globals_)
+    assert int_1._value_snapshots[snapshot_name] == 10
+    assert int_2._value_snapshots[snapshot_name] == 20
+    assert int_3._value_snapshots[snapshot_name] == 40

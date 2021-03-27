@@ -3,7 +3,7 @@
 
 from abc import ABC
 from abc import abstractmethod
-from typing import Dict
+from typing import Any, Dict, List
 from typing import Tuple
 from typing import Type
 
@@ -172,3 +172,32 @@ class RevertInterface(ABC):
         snapshot_name: str = expression_variables_util.get_next_variable_name(
             type_name=SNAPSHOT)
         return snapshot_name
+
+
+def make_snapshots_of_each_scope_vars(
+        locals_: Dict[str, Any], globals_: Dict[str, Any]) -> str:
+    """
+    Make snapshots of each scope's variables.
+
+    Returns
+    -------
+    locals_ : dict
+        Local scope's variables.
+    globals_ : dict
+        Global scope's variables.
+    """
+    ended: Dict[int, bool] = {}
+    snapshot_name: str = ''
+    variables: List[Any] = [*locals_.values(), *globals_.values()]
+    for variable in variables:
+        if not isinstance(variable, RevertInterface):
+            continue
+        var_id: int = id(variable)
+        if var_id in ended:
+            continue
+        if snapshot_name == '':
+            snapshot_name = variable._get_next_snapshot_name()
+        variable._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        ended[var_id] = True
+    return snapshot_name

@@ -6,7 +6,6 @@ from typing import Dict
 from typing import Type
 
 from apysc.type import Boolean
-from apysc.type.revert_interface import RevertInterface
 
 
 class If:
@@ -42,33 +41,9 @@ class If:
         """
         Method to be called when begining of with statement.
         """
-        self._make_snapshots_of_each_scope_vars()
-        pass
-
-    def _make_snapshots_of_each_scope_vars(self) -> str:
-        """
-        Make snapshots of each scope's variables (_locals and _globals).
-
-        Returns
-        -------
-        snapshot_name : str
-            Used snapshot name.
-        """
-        ended: Dict[int, bool] = {}
-        snapshot_name: str = ''
-        variables: List[Any] = [*self._locals.values(), *self._globals.values()]
-        for variable in variables:
-            if not isinstance(variable, RevertInterface):
-                continue
-            var_id: int = id(variable)
-            if var_id in ended:
-                continue
-            if snapshot_name == '':
-                snapshot_name = variable._get_next_snapshot_name()
-            variable._run_all_make_snapshot_methods(
-                snapshot_name=snapshot_name)
-            ended[var_id] = True
-        return snapshot_name
+        from apysc.type import revert_interface
+        revert_interface.make_snapshots_of_each_scope_vars(
+            locals_=self._locals, globals_=self._globals)
 
     def __exit__(
             self, exc_type: Type,

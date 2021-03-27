@@ -1,7 +1,8 @@
 """Class implementation for parent related interface.
 """
 
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 from typing import Optional
 
 from apysc.type.revert_interface import RevertInterface

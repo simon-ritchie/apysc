@@ -144,11 +144,11 @@ class TestBoolean:
         boolean: Boolean = Boolean(True)
         snapshot_name: str = 'snapshot_1'
         boolean._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        assert boolean._value_snapshots[snapshot_name] == True
+        assert boolean._value_snapshots[snapshot_name]
 
         boolean.value = False
         boolean._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        assert boolean._value_snapshots[snapshot_name] == True
+        assert boolean._value_snapshots[snapshot_name]
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__revert(self) -> None:
@@ -157,7 +157,7 @@ class TestBoolean:
         boolean._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         boolean.value = False
         boolean._run_all_revert_methods(snapshot_name=snapshot_name)
-        assert boolean.value == True
+        assert boolean.value
 
         boolean.value = False
         boolean._run_all_revert_methods(snapshot_name=snapshot_name)

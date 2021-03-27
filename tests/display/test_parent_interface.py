@@ -59,4 +59,4 @@ class TestParentInterface:
 
         sprite.parent = None
         sprite._run_all_revert_methods(snapshot_name=snapshot_name)
-        assert sprite.parent == None
+        assert sprite.parent is None

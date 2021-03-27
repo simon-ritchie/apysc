@@ -1,7 +1,8 @@
 """Class implementation for string.
 """
 
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 from typing import Union
 
 from apysc.type.copy_interface import CopyInterface

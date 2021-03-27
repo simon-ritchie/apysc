@@ -5,7 +5,8 @@ See Also
 - graphics_clear_interface
 """
 
-from typing import Dict, TypeVar
+from typing import Dict
+from typing import TypeVar
 from typing import Union
 
 from apysc.type import Int

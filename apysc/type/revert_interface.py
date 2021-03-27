@@ -54,13 +54,30 @@ class RevertInterface(ABC):
             Target snapshot name.
         """
         self_type: Type = type(self)
-        base_classes: Tuple[Type, ...] = self_type.__bases__
+        self._run_base_cls_make_snapshot_methods_recursively(
+            class_=self_type, snapshot_name=snapshot_name)
+        self._set_snapshot_exists_val(snapshot_name=snapshot_name)
+
+    def _run_base_cls_make_snapshot_methods_recursively(
+            self, class_: Type, snapshot_name: str) -> None:
+        """
+        Run base classes make_snapshot methods recursively.
+
+        Parameters
+        ----------
+        class_ : type
+            Target type.
+        snapshot_name : str
+            Target snapshot name.
+        """
+        base_classes: Tuple[Type, ...] = class_.__bases__
         for base_class in base_classes:
             if not issubclass(base_class, RevertInterface):
                 continue
             base_class._make_snapshot(self, snapshot_name)
-        self._make_snapshot(snapshot_name=snapshot_name)
-        self._set_snapshot_exists_val(snapshot_name=snapshot_name)
+            self._run_base_cls_make_snapshot_methods_recursively(
+                class_=base_class, snapshot_name=snapshot_name)
+        class_._make_snapshot(self, snapshot_name=snapshot_name)
 
     def _run_all_revert_methods(self, snapshot_name: str) -> None:
         """
@@ -74,13 +91,30 @@ class RevertInterface(ABC):
             Target snapshot name.
         """
         self_type: Type = type(self)
-        base_classes: Tuple[Type, ...] = self_type.__bases__
+        self._run_base_cls_revert_methods_recursively(
+            class_=self_type, snapshot_name=snapshot_name)
+        self._delete_snapshot_exists_val(snapshot_name=snapshot_name)
+
+    def _run_base_cls_revert_methods_recursively(
+            self, class_: Type, snapshot_name: str) -> None:
+        """
+        Run base classes revert methods recursively.
+
+        Parameters
+        ----------
+        class_ : type
+            Target type.
+        snapshot_name : str
+            Target snapshot name.
+        """
+        base_classes: Tuple[Type, ...] = class_.__bases__
         for base_class in base_classes:
             if not issubclass(base_class, RevertInterface):
                 continue
             base_class._revert(self, snapshot_name=snapshot_name)
-        self._revert(snapshot_name=snapshot_name)
-        self._delete_snapshot_exists_val(snapshot_name=snapshot_name)
+            self._run_base_cls_revert_methods_recursively(
+                class_=base_class, snapshot_name=snapshot_name)
+        class_._revert(self, snapshot_name=snapshot_name)
 
     def _snapshot_exists(self, snapshot_name: str) -> bool:
         """

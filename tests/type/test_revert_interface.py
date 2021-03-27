@@ -6,6 +6,10 @@ from retrying import retry
 from apysc.type.revert_interface import RevertInterface
 
 
+class NotRevertableValue:
+    ...
+
+
 class RevertableValue1(RevertInterface):
 
     _value1: int = 10
@@ -66,7 +70,8 @@ class RevertableValue2(RevertInterface):
         self._value2 = self._snapshots2[snapshot_name]
 
 
-class RevertableValue3(RevertableValue1, RevertableValue2):
+class RevertableValue3(
+        NotRevertableValue, RevertableValue1, RevertableValue2):
 
     _value3: int = 30
     _snapshots3: Dict[str, int]
@@ -171,6 +176,29 @@ class TestRevertInterface:
             snapshot_name=snapshot_name)
         assert not revertable_value._snapshot_exists(
             snapshot_name=snapshot_name)
+        assert revertable_value._value1 == 10
+        assert revertable_value._value2 == 20
+        assert revertable_value._value3 == 30
+
+    def test__run_base_cls_make_snapshot_methods_recursively(self) -> None:
+        revertable_value = RevertableValue3()
+        snapshot_name: str = 'snapshot_1'
+        revertable_value._run_base_cls_make_snapshot_methods_recursively(
+            class_=RevertableValue3, snapshot_name=snapshot_name)
+        assert revertable_value._snapshots1[snapshot_name] == 10
+        assert revertable_value._snapshots2[snapshot_name] == 20
+        assert revertable_value._snapshots3[snapshot_name] == 30
+
+    def test__run_base_cls_revert_methods_recursively(self) -> None:
+        revertable_value = RevertableValue3()
+        snapshot_name: str = 'snapshot_1'
+        revertable_value._run_base_cls_make_snapshot_methods_recursively(
+            class_=RevertableValue3, snapshot_name=snapshot_name)
+        revertable_value._value1 = 100
+        revertable_value._value2 = 200
+        revertable_value._value3 = 300
+        revertable_value._run_base_cls_revert_methods_recursively(
+            class_=RevertableValue3, snapshot_name=snapshot_name)
         assert revertable_value._value1 == 10
         assert revertable_value._value2 == 20
         assert revertable_value._value3 == 30

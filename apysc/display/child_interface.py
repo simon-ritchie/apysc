@@ -233,7 +233,6 @@ class ChildInterface(RevertInterface):
             expression=expression)
 
     _children_snapshots: Dict[str, List[Any]]
-    _parent_snapshots: Dict[str, Optional[DisplayObject]]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
@@ -244,10 +243,8 @@ class ChildInterface(RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
-        from apysc.display.parent_interface import ParentInterface
         if not hasattr(self, '_children_snapshots'):
             self._children_snapshots = {}
-            self._parent_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
 
@@ -257,9 +254,6 @@ class ChildInterface(RevertInterface):
             child._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
 
         self._children_snapshots[snapshot_name] = [*self._children._value]
-        if isinstance(self, ParentInterface):
-            self.parent: Any
-            self._parent_snapshots[snapshot_name] = self.parent
 
     def _revert(self, snapshot_name: str) -> None:
         """
@@ -270,12 +264,9 @@ class ChildInterface(RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
-        from apysc.display.parent_interface import ParentInterface
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._children._value = [*self._children_snapshots[snapshot_name]]
-        if isinstance(self, ParentInterface):
-            self.parent = self._parent_snapshots[snapshot_name]
 
         for child in self._children.value:
             if not isinstance(child, RevertInterface):

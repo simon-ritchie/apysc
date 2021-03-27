@@ -1,11 +1,13 @@
 """Class implementation for parent related interface.
 """
 
-from typing import Any
+from typing import Any, Dict
 from typing import Optional
 
+from apysc.type.revert_interface import RevertInterface
 
-class ParentInterface:
+
+class ParentInterface(RevertInterface):
 
     _parent: Optional[Any] = None
 
@@ -68,3 +70,33 @@ class ParentInterface:
         parent: ChildInterface = self._parent
         child: DisplayObject = self  # type: ignore
         parent.remove_child(child=child)
+
+    _parent_snapshots: Dict[str, Optional[Any]]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make values snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_parent_snapshots'):
+            self._parent_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._parent_snapshots[snapshot_name] = self._parent
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert values if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._parent = self._parent_snapshots[snapshot_name]

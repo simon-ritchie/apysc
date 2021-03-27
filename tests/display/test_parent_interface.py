@@ -32,3 +32,31 @@ class TestParentInterface:
             expected_error_class=ValueError,
             func_or_method=sprite.remove_from_parent,
         )
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__make_snapshot(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        stage.add_child(child=sprite)
+        snapshot_name: str = 'snapshot_1'
+        sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert sprite._parent_snapshots[snapshot_name] == stage
+
+        stage.remove_child(child=sprite)
+        sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert sprite._parent_snapshots[snapshot_name] == stage
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__revert(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        stage.add_child(child=sprite)
+        snapshot_name: str = 'snapshot_1'
+        sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        stage.remove_child(child=sprite)
+        sprite._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert sprite.parent == stage
+
+        sprite.parent = None
+        sprite._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert sprite.parent == None

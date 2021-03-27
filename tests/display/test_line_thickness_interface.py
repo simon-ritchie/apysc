@@ -58,3 +58,44 @@ class TestLineThicknessInterface:
         line_thickness_interface.\
             _initialize_line_thickness_if_not_initialized()
         assert line_thickness_interface.line_thickness == 2
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__make_snapshot(self) -> None:
+        line_thickness_interface: LineThicknessInterface = \
+            LineThicknessInterface()
+        line_thickness_interface.variable_name = \
+            'test_line_thickness_interface'
+        line_thickness_interface.line_thickness = Int(3)
+        snapshot_name: str = 'snapshot_1'
+        line_thickness_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert (
+            line_thickness_interface._line_thickness_snapshots[snapshot_name]
+            == 3)
+
+        line_thickness_interface.line_thickness = Int(2)
+        line_thickness_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert (
+            line_thickness_interface._line_thickness_snapshots[snapshot_name]
+            == 3)
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__revert(self) -> None:
+        line_thickness_interface: LineThicknessInterface = \
+            LineThicknessInterface()
+        line_thickness_interface.variable_name = \
+            'test_line_thickness_interface'
+        line_thickness_interface.line_thickness = Int(3)
+        snapshot_name: str = 'snapshot_1'
+        line_thickness_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        line_thickness_interface.line_thickness = Int(2)
+        line_thickness_interface._run_all_revert_methods(
+            snapshot_name=snapshot_name)
+        assert line_thickness_interface.line_thickness == 3
+
+        line_thickness_interface.line_thickness = Int(2)
+        line_thickness_interface._run_all_revert_methods(
+            snapshot_name=snapshot_name)
+        assert line_thickness_interface.line_thickness == 2

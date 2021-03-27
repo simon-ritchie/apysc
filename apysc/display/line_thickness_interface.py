@@ -1,11 +1,13 @@
 """Class implementation for line thickness interface.
 """
 
+from typing import Dict
 from apysc.type import Int
+from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
 
 
-class LineThicknessInterface(VariableNameInterface):
+class LineThicknessInterface(VariableNameInterface, RevertInterface):
 
     _line_thickness: Int
 
@@ -73,3 +75,35 @@ class LineThicknessInterface(VariableNameInterface):
         number_validation.validate_integer(integer=value)
         number_validation.validate_num_is_gte_zero(num=value)
         self._line_thickness = value
+
+    _line_thickness_snapshots: Dict[str, int]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make values snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_line_thickness_snapshots'):
+            self._line_thickness_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._line_thickness_snapshots[snapshot_name] = int(
+            self._line_thickness._value)
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert values if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._line_thickness._value = self._line_thickness_snapshots[
+            snapshot_name]

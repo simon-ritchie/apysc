@@ -162,3 +162,16 @@ class TestBoolean:
         boolean.value = False
         boolean._run_all_revert_methods(snapshot_name=snapshot_name)
         assert boolean.value == False
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___eq__(self) -> None:
+        boolean_1: Boolean = Boolean(True)
+        boolean_2: Boolean = Boolean(True)
+        assert boolean_1 == boolean_2
+        assert boolean_1 == True
+        assert boolean_1 == 1
+
+        boolean_3: Boolean = Boolean(False)
+        assert boolean_1 != boolean_3
+        assert boolean_1 != False
+        assert boolean_1 != 0

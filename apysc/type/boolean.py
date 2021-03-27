@@ -200,3 +200,19 @@ class Boolean(CopyInterface, RevertInterface):
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._value = self._value_snapshots[snapshot_name]
+
+    def __eq__(self, other: Any) -> bool:
+        """
+        Comparison method for equal condition.
+
+        Parameters
+        ----------
+        other : *
+            Other value to compare (Boolean, bool, or int).
+        """
+        if isinstance(other, Boolean):
+            return self._value == other._value
+        if isinstance(other, int):
+            other = bool(other)
+            return self._value == other
+        return self._value == other

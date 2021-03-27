@@ -1,1 +1,1 @@
-from apysc.condition._if import If  # isort:skip # noqa
+from apysc.branch._if import If  # isort:skip # noqa

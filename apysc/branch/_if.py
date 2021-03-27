@@ -1,7 +1,6 @@
 """If condition implementations.
 """
 
-
 from typing import Any
 from typing import Dict
 from typing import Type
@@ -10,6 +9,10 @@ from apysc.type import Boolean
 
 
 class If:
+
+    _condition: Boolean
+    _locals: Dict[str, Any]
+    _globals: Dict[str, Any]
 
     def __init__(
             self,
@@ -30,6 +33,9 @@ class If:
             Current scope's golobal variables. Set golobals() value
             to this argument.
         """
+        self._condition = condition
+        self._locals = locals_
+        self._globals = globals_
 
     def __enter__(self) -> None:
         pass

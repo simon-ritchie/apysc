@@ -17,6 +17,8 @@ from typing import List
 EXPRESSION_ROOT_DIR: str = '../.apysc_expression/'
 EXPRESSION_FILE_PATH: str = os.path.join(
     EXPRESSION_ROOT_DIR, 'expression.txt')
+INDENT_NUM_FILE_PATH: str = os.path.join(
+    EXPRESSION_ROOT_DIR, 'indent_num.txt')
 
 
 def empty_expression_dir() -> None:

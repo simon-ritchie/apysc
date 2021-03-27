@@ -1,12 +1,14 @@
 """Class implementation for x position interface.
 """
 
+from typing import Dict
 from apysc.type import Int
 from apysc.type.number_value_interface import NumberValueInterface
+from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
 
 
-class XInterface(VariableNameInterface):
+class XInterface(VariableNameInterface, RevertInterface):
 
     _x: Int
 
@@ -63,3 +65,33 @@ class XInterface(VariableNameInterface):
         )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
+
+    _x_snapshots: Dict[str, int]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make values snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_x_snapshots'):
+            self._x_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._x_snapshots[snapshot_name] = int(self._x._value)
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert values if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._x._value = self._x_snapshots[snapshot_name]

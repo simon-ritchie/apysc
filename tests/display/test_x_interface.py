@@ -46,3 +46,36 @@ class TestXInterface:
         x_interface.x = Int(100)
         x_interface._initialize_x_if_not_initialized()
         assert x_interface.x == 100
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__make_snapshot(self) -> None:
+        x_interface = XInterface()
+        x_interface.variable_name = 'test_x_interface'
+        x_interface.x = Int(100)
+        snapshot_name: str = 'snapshot_1'
+        x_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert x_interface._x_snapshots[snapshot_name] == 100
+
+        x_interface.x = Int(150)
+        x_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert x_interface._x_snapshots[snapshot_name] == 100
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__revert(self) -> None:
+        x_interface = XInterface()
+        x_interface.variable_name = 'test_x_interface'
+        x_interface.x = Int(100)
+        snapshot_name: str = 'snapshot_1'
+        x_interface._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        x_interface.x = Int(150)
+        x_interface._run_all_revert_methods(
+            snapshot_name=snapshot_name)
+        assert x_interface.x == 100
+
+        x_interface.x = Int(150)
+        x_interface._run_all_revert_methods(
+            snapshot_name=snapshot_name)
+        assert x_interface.x == 150

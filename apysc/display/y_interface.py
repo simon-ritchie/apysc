@@ -81,6 +81,7 @@ class YInterface(VariableNameInterface, RevertInterface):
             self._y_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
+        self._initialize_y_if_not_initialized()
         self._y_snapshots[snapshot_name] = int(self._y._value)
 
     def _revert(self, snapshot_name: str) -> None:

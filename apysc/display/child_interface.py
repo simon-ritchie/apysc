@@ -247,6 +247,7 @@ class ChildInterface(RevertInterface):
             self._children_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
+        self._initialize_children_if_not_initialized()
 
         for child in self._children.value:
             if not isinstance(child, RevertInterface):

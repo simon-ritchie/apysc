@@ -118,6 +118,8 @@ class BeginFillInterface(RevertInterface):
             self._fill_alpha_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
+        self._initialize_fill_color_if_not_initialized()
+        self._initialize_fill_alpha_if_not_initialized()
         self._fill_color_snapshots[snapshot_name] = self._fill_color._value
         self._fill_alpha_snapshots[snapshot_name] = self._fill_alpha._value
 

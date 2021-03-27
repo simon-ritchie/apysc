@@ -92,6 +92,7 @@ class WidthInterface(VariableNameInterface, RevertInterface):
             self._width_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
+        self._initialize_width_if_not_initialized()
         self._width_snapshots[snapshot_name] = int(self._width._value)
 
     def _revert(self, snapshot_name: str) -> None:

@@ -108,6 +108,7 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
             self._fill_alpha_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
+        self._initialize_fill_alpha_if_not_initialized()
         self._fill_alpha_snapshots[snapshot_name] = self._fill_alpha._value
 
     def _revert(self, snapshot_name: str) -> None:

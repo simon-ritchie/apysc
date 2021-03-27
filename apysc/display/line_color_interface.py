@@ -94,6 +94,7 @@ class LineColorInterface(VariableNameInterface, RevertInterface):
             self._line_color_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
+        self._initialize_line_color_if_not_initialized()
         self._line_color_snapshots[snapshot_name] = self._line_color._value
 
     def _revert(self, snapshot_name: str) -> None:

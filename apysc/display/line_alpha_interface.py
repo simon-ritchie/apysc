@@ -90,6 +90,7 @@ class LineAlphaInterface(VariableNameInterface, RevertInterface):
             self._line_alpha_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
+        self._initialize_line_alpha_if_not_initialized()
         self._line_alpha_snapshots[snapshot_name] = self._line_alpha._value
 
     def _revert(self, snapshot_name: str) -> None:

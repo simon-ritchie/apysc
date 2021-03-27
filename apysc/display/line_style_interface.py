@@ -151,6 +151,9 @@ class LineStyleInterface(RevertInterface):
             self._line_alpha_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
+        self._initialize_line_color_if_not_initialized()
+        self._initialize_line_thickness_if_not_initialized()
+        self._initialize_line_alpha_if_not_initialized()
         self._line_color_snapshots[snapshot_name] = self._line_color._value
         self._line_thickness_snapshots[snapshot_name] = \
             int(self._line_thickness._value)

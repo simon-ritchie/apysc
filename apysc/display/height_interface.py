@@ -92,6 +92,7 @@ class HeightInterface(VariableNameInterface, RevertInterface):
             self._height_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
+        self._initialize_height_if_not_initialized()
         self._height_snapshots[snapshot_name] = int(self._height._value)
 
     def _revert(self, snapshot_name: str) -> None:

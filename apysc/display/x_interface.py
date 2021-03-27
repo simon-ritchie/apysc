@@ -81,6 +81,7 @@ class XInterface(VariableNameInterface, RevertInterface):
             self._x_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
+        self._initialize_x_if_not_initialized()
         self._x_snapshots[snapshot_name] = int(self._x._value)
 
     def _revert(self, snapshot_name: str) -> None:

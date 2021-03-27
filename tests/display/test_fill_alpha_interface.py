@@ -96,9 +96,6 @@ class TestFillAlphaInterface:
         fill_alpha_interface._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert fill_alpha_interface.fill_alpha == 0.5
-        assert (
-            snapshot_name
-            not in fill_alpha_interface._fill_alpha_snapshots)
 
         fill_alpha_interface._fill_alpha = Number(0.3)
         fill_alpha_interface._run_all_revert_methods(

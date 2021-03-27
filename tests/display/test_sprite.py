@@ -65,3 +65,40 @@ class TestSprite:
         subclass_instance: SubClass = SubClass(stage=stage)
         appended: bool = subclass_instance._append_constructor_expression()
         assert not appended
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__make_snapshot(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        sprite.graphics.begin_fill(color='#333', alpha=0.5)
+        snapshot_name: str = 'snapshot_1'
+        sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert (
+            sprite.graphics._fill_color_snapshots[snapshot_name]
+            == '#333333')
+        assert (
+            sprite.graphics._fill_alpha_snapshots[snapshot_name] == 0.5)
+
+        sprite.graphics.clear()
+        sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert (
+            sprite.graphics._fill_color_snapshots[snapshot_name]
+            == '#333333')
+        assert (
+            sprite.graphics._fill_alpha_snapshots[snapshot_name] == 0.5)
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__revert(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        sprite.graphics.begin_fill(color='#333', alpha=0.5)
+        snapshot_name: str = 'snapshot_1'
+        sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        sprite.graphics.clear()
+        sprite._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert sprite.graphics.fill_color == '#333333'
+        assert sprite.graphics.fill_alpha == 0.5
+
+        sprite.graphics.clear()
+        sprite._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert sprite.graphics.fill_alpha == 1.0

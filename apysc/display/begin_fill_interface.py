@@ -134,5 +134,3 @@ class BeginFillInterface(RevertInterface):
             return
         self._fill_color._value = self._fill_color_snapshots[snapshot_name]
         self._fill_alpha._value = self._fill_alpha_snapshots[snapshot_name]
-        del self._fill_color_snapshots[snapshot_name]
-        del self._fill_alpha_snapshots[snapshot_name]

@@ -108,4 +108,3 @@ class FillColorInterface(VariableNameInterface, RevertInterface):
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._fill_color._value = self._fill_color_snapshots[snapshot_name]
-        del self._fill_color_snapshots[snapshot_name]

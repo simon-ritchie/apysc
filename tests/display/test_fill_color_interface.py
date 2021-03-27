@@ -86,9 +86,6 @@ class TestFillColorInterface:
         fill_color_interface._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert fill_color_interface.fill_color == '#333333'
-        assert (
-            snapshot_name
-            not in fill_color_interface._fill_color_snapshots)
 
         fill_color_interface.fill_color = String('#222222')
         fill_color_interface._run_all_revert_methods(

@@ -9,9 +9,10 @@ from apysc.display.graphics import Graphics
 from apysc.display.stage import Stage
 from apysc.html import html_const
 from apysc.type import Array
+from apysc.type.revert_interface import RevertInterface
 
 
-class Sprite(DisplayObject, ChildInterface):
+class Sprite(DisplayObject, ChildInterface, RevertInterface):
 
     graphics: Graphics
 
@@ -74,3 +75,30 @@ class Sprite(DisplayObject, ChildInterface):
         expression_file_util.append_expression(
             expression=expression)
         return True
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make values snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self.graphics._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert values if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self.graphics._run_all_revert_methods(snapshot_name=snapshot_name)

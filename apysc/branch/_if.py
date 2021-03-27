@@ -13,6 +13,7 @@ class If:
     _condition: Boolean
     _locals: Dict[str, Any]
     _globals: Dict[str, Any]
+    _snapshot_name: str
 
     def __init__(
             self,
@@ -42,11 +43,27 @@ class If:
         Method to be called when begining of with statement.
         """
         from apysc.type import revert_interface
-        revert_interface.make_snapshots_of_each_scope_vars(
-            locals_=self._locals, globals_=self._globals)
+        self._snapshot_name = \
+            revert_interface.make_snapshots_of_each_scope_vars(
+                locals_=self._locals, globals_=self._globals)
 
     def __exit__(
             self, exc_type: Type,
             exc_value: Any,
             traceback: Any) -> None:
-        pass
+        """
+        Method to be called when end of with statement.
+
+        Parameters
+        ----------
+        exc_type : Type
+            Exception type.
+        exc_value : *
+            Exception value.
+        traceback : *
+            Traceback value.
+        """
+        from apysc.type import revert_interface
+        revert_interface.revert_each_scope_vars(
+            snapshot_name=self._snapshot_name,
+            locals_=self._locals, globals_=self._globals)

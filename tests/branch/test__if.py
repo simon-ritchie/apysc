@@ -32,3 +32,15 @@ class TestIf:
         snapshot_name: str = list(int_1._value_snapshots.keys())[0]
         assert int_1._value_snapshots[snapshot_name] == 10
         assert int_2._value_snapshots[snapshot_name] == 20
+
+    def test___exit__(self) -> None:
+        int_1: Int = Int(10)
+        int_2: Int = Int(20)
+        locals_: Dict[str, Any] = {'value1': int_1}
+        globals_: Dict[str, Any] = {'value2': int_2}
+        boolean_1: Boolean = Boolean(True)
+        with If(condition=boolean_1, locals_=locals_, globals_=globals_):
+            int_1.value = 100
+            int_2.value = 200
+        assert int_1 == 10
+        assert int_2 == 20

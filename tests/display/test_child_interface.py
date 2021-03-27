@@ -181,15 +181,13 @@ class TestChildInterface:
         stage.add_child(child=sprite_1)
         sprite_2: Sprite = Sprite(stage=stage)
         sprite_1.add_child(child=sprite_2)
-        display_object_1: DisplayObject = DisplayObject(
-            stage=stage, variable_name='display_object_1')
-        stage.add_child(child=display_object_1)
+        stage._children.append(100)
 
         snapshot_name_1: str = stage._get_next_snapshot_name()
         stage._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name_1)
         assert stage._children_snapshots[snapshot_name_1] == [
-            sprite_1, display_object_1]
+            sprite_1, 100]
         assert stage._snapshot_exists(
             snapshot_name=snapshot_name_1)
         assert sprite_1._children_snapshots[snapshot_name_1] == [
@@ -199,7 +197,7 @@ class TestChildInterface:
         stage._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name_1)
         assert stage._children_snapshots[snapshot_name_1] == [
-            sprite_1, display_object_1]
+            sprite_1, 100]
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__revert(self) -> None:
@@ -208,9 +206,7 @@ class TestChildInterface:
         stage.add_child(child=sprite_1)
         sprite_2: Sprite = Sprite(stage=stage)
         sprite_1.add_child(child=sprite_2)
-        display_object_1: DisplayObject = DisplayObject(
-            stage=stage, variable_name='display_object_1')
-        stage.add_child(child=display_object_1)
+        stage._children.append(100)
 
         snapshot_name_1: str = sprite_1._get_next_snapshot_name()
         stage._run_all_make_snapshot_methods(
@@ -218,7 +214,7 @@ class TestChildInterface:
         stage.remove_child(child=sprite_1)
         sprite_1.remove_child(child=sprite_2)
         stage._run_all_revert_methods(snapshot_name=snapshot_name_1)
-        assert stage._children == [sprite_1, display_object_1]
+        assert stage._children == [sprite_1, 100]
         assert sprite_1._children == [sprite_2]
         assert not stage._snapshot_exists(
             snapshot_name=snapshot_name_1)
@@ -227,4 +223,4 @@ class TestChildInterface:
 
         stage.remove_child(child=sprite_1)
         stage._run_all_revert_methods(snapshot_name=snapshot_name_1)
-        assert stage._children == [display_object_1]
+        assert stage._children == [100]

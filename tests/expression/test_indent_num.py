@@ -34,3 +34,21 @@ def test_increment() -> None:
     indent_num.increment()
     current_indent_num = indent_num.get_current_indent_num()
     assert current_indent_num == 2
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test_decrement() -> None:
+    file_util.remove_file_if_exists(file_path=INDENT_NUM_FILE_PATH)
+    for _ in range(2):
+        indent_num.increment()
+    indent_num.decrement()
+    current_indent_num: int = indent_num.get_current_indent_num()
+    assert current_indent_num == 1
+
+    indent_num.decrement()
+    current_indent_num = indent_num.get_current_indent_num()
+    assert current_indent_num == 0
+
+    indent_num.decrement()
+    current_indent_num = indent_num.get_current_indent_num()
+    assert current_indent_num == 0

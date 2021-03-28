@@ -209,6 +209,11 @@ class Boolean(CopyInterface, RevertInterface):
         ----------
         other : *
             Other value to compare (Boolean, bool, or int).
+
+        Returns
+        -------
+        result : bool
+            Comparison result.
         """
         if isinstance(other, Boolean):
             return self._value == other._value

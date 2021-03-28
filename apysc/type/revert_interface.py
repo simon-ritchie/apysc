@@ -3,7 +3,9 @@
 
 from abc import ABC
 from abc import abstractmethod
-from typing import Any, Dict, List
+from typing import Any
+from typing import Dict
+from typing import List
 from typing import Tuple
 from typing import Type
 
@@ -179,8 +181,8 @@ def make_snapshots_of_each_scope_vars(
     """
     Make snapshots of each scope's variables.
 
-    Returns
-    -------
+    Parameters
+    ----------
     locals_ : dict
         Local scope's variables.
     globals_ : dict
@@ -209,7 +211,8 @@ def make_snapshots_of_each_scope_vars(
 
 
 def revert_each_scope_vars(
-        snapshot_name: str, locals_, globals_) -> None:
+        snapshot_name: str, locals_: Dict[str, Any],
+        globals_: Dict[str, Any]) -> None:
     """
     Revert each scope's variables.
 

@@ -38,8 +38,8 @@ def append_expression(expression: str) -> None:
     expression : str
         HTML and js Expression string.
     """
-    from apysc.file import file_util
     from apysc.expression import indent_num
+    from apysc.file import file_util
     from apysc.string import indent_util
     current_indent_num: int = indent_num.get_current_indent_num()
     expression = indent_util.append_spaces_to_expression(

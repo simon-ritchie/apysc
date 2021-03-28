@@ -59,7 +59,7 @@ def append_spaces_to_expression(expression: str, indent_num: int) -> str:
     lines: List[str] = expression.splitlines()
     spaces: str = make_spaces_for_html(indent_num=indent_num)
     for i, line in enumerate(lines):
-        line_number:int = i + 1
+        line_number: int = i + 1
         if not script_line_util.is_script_line(line_number=line_number):
             continue
         lines[i] = f'{spaces}{line}'

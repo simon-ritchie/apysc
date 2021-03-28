@@ -1,12 +1,12 @@
 """If condition implementations.
 """
 
-from typing import Any, List
+from typing import Any
 from typing import Dict
 from typing import Type
 
-from apysc.type import Boolean
 from apysc.expression import indent_num
+from apysc.type import Boolean
 
 
 class If:

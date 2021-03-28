@@ -5,6 +5,7 @@ from retrying import retry
 
 from apysc.expression import expression_file_util
 from apysc.html import html_const
+from apysc.expression import indent_num
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -23,6 +24,7 @@ def test_empty_expression_dir() -> None:
 
 @retry(stop_max_attempt_number=5, wait_fixed=300)
 def test_append_expression() -> None:
+    indent_num.reset()
     expression_file_util.empty_expression_dir()
 
     expected_expression_1: str = '<body>'
@@ -52,7 +54,21 @@ def test_append_expression() -> None:
     )
     assert expected_str in expression_txt
 
+    indent_num.increment()
+    expression_file_util.append_expression(
+        expression=(
+            'console.log("Hello!");'
+            '\nconsole.log("World!");'
+        ))
+    expression_txt = expression_file_util.get_current_expression()
+    expected_str = (
+        '\n  console.log("Hello!");'
+        '\n  console.log("World!");'
+    )
+    assert expected_str in expression_txt
+
     expression_file_util.empty_expression_dir()
+    indent_num.reset()
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -113,6 +129,7 @@ def test__merge_script_section() -> None:
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_wrap_by_script_tag_and_append_expression() -> None:
+    indent_num.reset()
     expression_file_util.remove_expression_file()
     expression_file_util.wrap_by_script_tag_and_append_expression(
         expression='var num = 100;')

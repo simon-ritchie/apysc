@@ -39,6 +39,11 @@ def append_expression(expression: str) -> None:
         HTML and js Expression string.
     """
     from apysc.file import file_util
+    from apysc.expression import indent_num
+    from apysc.string import indent_util
+    current_indent_num: int = indent_num.get_current_indent_num()
+    expression = indent_util.append_spaces_to_expression(
+        expression=expression, indent_num=current_indent_num)
     dir_path: str = file_util.get_abs_directory_path_from_file_path(
         file_path=EXPRESSION_FILE_PATH)
     os.makedirs(dir_path, exist_ok=True)

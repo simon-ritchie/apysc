@@ -1,4 +1,5 @@
 from apysc.string import indent_util
+from apysc.html import html_util
 
 
 def test_make_spaces_for_html() -> None:
@@ -15,6 +16,9 @@ def test_append_spaces_to_expression() -> None:
         'console.log("Hello!");'
         '\nconsole.log("World!");'
     )
+    expression = html_util.wrap_expression_by_script_tag(
+        expression=expression)
+    expression += '\n<span>Hello!</span>'
     result_expression: str = indent_util.append_spaces_to_expression(
         expression=expression, indent_num=0)
     assert result_expression == expression
@@ -25,4 +29,8 @@ def test_append_spaces_to_expression() -> None:
         '    console.log("Hello!");'
         '\n    console.log("World!");'
     )
-    assert result_expression == expected
+    assert expected in result_expression
+    expected = (
+        '\n<span>Hello!</span>'
+    )
+    assert expected in result_expression

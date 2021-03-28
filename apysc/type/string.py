@@ -228,7 +228,11 @@ class String(CopyInterface, RevertInterface):
         result : String
             Concatenated result string.
         """
+        from apysc.expression import expression_variables_util
         result: String = self + other
+        expression_variables_util.append_substitution_expression(
+            left_value=self, right_value=result)
+        result.variable_name = self.variable_name
         return result
 
     def __imul__(self, other: Union[int, Any]) -> Any:

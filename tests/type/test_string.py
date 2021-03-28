@@ -1,6 +1,7 @@
 from random import randint
 from typing import Any
-from typing import Dict
+from typing import Dict, Match, Optional
+import re
 
 from retrying import retry
 
@@ -139,9 +140,22 @@ class TestString:
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___iadd__(self) -> None:
+        expression_file_util.remove_expression_file()
         string_1: String = String(value='Hello')
+        original_variable_name: str = string_1.variable_name
         string_1 += ' World!'
         assert string_1.value == 'Hello World!'
+        assert string_1.variable_name == original_variable_name
+
+        expression: str = expression_file_util.get_current_expression()
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'string_[0-9]+ = {original_variable_name} \+ " World!";'
+                rf'\n{original_variable_name} = string_[0-9]+;'
+            ),
+            string=expression,
+            flags=re.MULTILINE|re.DOTALL)
+        assert match is not None
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___imul__(self) -> None:

@@ -102,3 +102,10 @@ class TestIf:
             '\n}'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__set_last_scope(self) -> None:
+        with If(Boolean(True), locals(), globals()):
+            pass
+        last_scope_: LastScope = last_scope.get_last_scope()
+        assert last_scope_ == LastScope.IF

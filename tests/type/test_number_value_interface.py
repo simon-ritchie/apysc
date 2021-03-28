@@ -1,4 +1,6 @@
 from random import randint
+import re
+from typing import Match, Optional
 
 import pytest
 from retrying import retry
@@ -328,12 +330,15 @@ class TestNumberValueInterface:
         assert interface_1.variable_name == 'test_interface_0'
 
         expression: str = expression_file_util.get_current_expression()
-        expected: str = (
-            f' = test_interface_0 + {int_1.variable_name};'
-            f'\ntest_interface_0 = test_interface_'
-        )
-        assert expected in expression
-
+        match: Optional[Match] = re.search(
+            pattern=(
+                r'test_interface_[0-9]+ = test_interface_0 \+ '
+                rf'{int_1.variable_name};'
+                r'\ntest_interface_0 = test_interface_[0-9]+;'
+            ),
+            string=expression,
+            flags=re.MULTILINE|re.DOTALL)
+        assert match is not None
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___isub__(self) -> None:
@@ -343,12 +348,17 @@ class TestNumberValueInterface:
         interface_1.variable_name = 'test_interface_0'
         interface_1 -= 3
         assert interface_1.value == 7
+        assert interface_1.variable_name == 'test_interface_0'
 
         expression: str = expression_file_util.get_current_expression()
-        expected: str = (
-            f'{interface_1.variable_name} = test_interface_0 - 3;'
-        )
-        assert expected in expression
+        match: Optional[Match] = re.search(
+            pattern=(
+                r'test_interface_[0-9]+ = test_interface_0 - 3;'
+                r'\ntest_interface_0 = test_interface_[0-9]+;'
+            ),
+            string=expression,
+            flags=re.MULTILINE|re.DOTALL)
+        assert match is not None
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___imul__(self) -> None:
@@ -358,12 +368,19 @@ class TestNumberValueInterface:
         interface_1.variable_name = 'test_interface_0'
         interface_1 *= 3
         assert interface_1.value == 30
+        assert interface_1.variable_name == 'test_interface_0'
 
         expression: str = expression_file_util.get_current_expression()
-        expected: str = (
-            f'{interface_1.variable_name} = test_interface_0 * 3;'
+        match: Optional[Match] = re.search(
+            pattern=(
+                r'test_interface_[0-9]+ = test_interface_0 \* 3;'
+                r'\ntest_interface_0 = test_interface_[0-9]+;'
+            ),
+            string=expression,
+            flags=re.MULTILINE|re.DOTALL,
         )
-        assert expected in expression
+        print(expression)
+        assert match is not None
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___itruediv__(self) -> None:
@@ -373,12 +390,17 @@ class TestNumberValueInterface:
         interface_1.variable_name = 'test_interface_0'
         interface_1 /= 4
         assert interface_1.value == 2.5
+        assert interface_1.variable_name == 'test_interface_0'
 
         expression: str = expression_file_util.get_current_expression()
-        expected: str = (
-            f'{interface_1.variable_name} = {interface_1.variable_name} / 4;'
-        )
-        assert expected in expression
+        match: Optional[Match] = re.search(
+            pattern=(
+                r'var number_[0-9]+ = test_interface_0;'
+                r'\nnumber_[0-9]+ = number_[0-9]+ / 4;'
+                r'\ntest_interface_0 = number_[0-9]+;'),
+            string=expression,
+            flags=re.MULTILINE|re.DOTALL)
+        assert match is not None
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___str__(self) -> None:

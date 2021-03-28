@@ -7,7 +7,6 @@ from apysc.expression import expression_file_util
 from apysc.expression import indent_num
 from apysc.html import html_const
 from apysc.html import html_util
-from apysc.type import Int
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))

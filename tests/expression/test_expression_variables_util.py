@@ -5,9 +5,9 @@ from retrying import retry
 
 from apysc.expression import expression_file_util
 from apysc.expression import expression_variables_util
+from apysc.expression import indent_num
 from apysc.file import file_util
 from apysc.type import Int
-from apysc.expression import indent_num
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))

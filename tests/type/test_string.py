@@ -1,7 +1,9 @@
+import re
 from random import randint
 from typing import Any
-from typing import Dict, Match, Optional
-import re
+from typing import Dict
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
@@ -154,7 +156,7 @@ class TestString:
                 rf'\n{original_variable_name} = string_[0-9]+;'
             ),
             string=expression,
-            flags=re.MULTILINE|re.DOTALL)
+            flags=re.MULTILINE | re.DOTALL)
         assert match is not None
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -171,7 +173,7 @@ class TestString:
             pattern=(
                 rf'{original_variable_name} = string_[0-9]+;'
             ),
-            string=expression, flags=re.MULTILINE|re.DOTALL)
+            string=expression, flags=re.MULTILINE | re.DOTALL)
         assert match is not None
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))

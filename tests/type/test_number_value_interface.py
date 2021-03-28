@@ -1,6 +1,7 @@
-from random import randint
 import re
-from typing import Match, Optional
+from random import randint
+from typing import Match
+from typing import Optional
 
 import pytest
 from retrying import retry
@@ -337,7 +338,7 @@ class TestNumberValueInterface:
                 r'\ntest_interface_0 = test_interface_[0-9]+;'
             ),
             string=expression,
-            flags=re.MULTILINE|re.DOTALL)
+            flags=re.MULTILINE | re.DOTALL)
         assert match is not None
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -357,7 +358,7 @@ class TestNumberValueInterface:
                 r'\ntest_interface_0 = test_interface_[0-9]+;'
             ),
             string=expression,
-            flags=re.MULTILINE|re.DOTALL)
+            flags=re.MULTILINE | re.DOTALL)
         assert match is not None
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -377,7 +378,7 @@ class TestNumberValueInterface:
                 r'\ntest_interface_0 = test_interface_[0-9]+;'
             ),
             string=expression,
-            flags=re.MULTILINE|re.DOTALL,
+            flags=re.MULTILINE | re.DOTALL,
         )
         print(expression)
         assert match is not None
@@ -399,7 +400,7 @@ class TestNumberValueInterface:
                 r'\nnumber_[0-9]+ = number_[0-9]+ / 4;'
                 r'\ntest_interface_0 = number_[0-9]+;'),
             string=expression,
-            flags=re.MULTILINE|re.DOTALL)
+            flags=re.MULTILINE | re.DOTALL)
         assert match is not None
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))

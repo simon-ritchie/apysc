@@ -1,9 +1,9 @@
 from random import randint
 
-from apysc.type import Int
-from apysc.validation import number_validation
 from retrying import retry
 
+from apysc.type import Int
+from apysc.validation import number_validation
 from tests import testing_helper
 
 

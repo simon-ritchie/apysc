@@ -17,7 +17,8 @@ from apysc.display import Stage
 from apysc.file import file_util
 from apysc.html import exporter
 from apysc.type import Int
-from apysc.type import Number
+from apysc.type import Number, Boolean
+from apysc.branch import If
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -81,6 +82,24 @@ def main() -> None:
     int_13: Int = Int(10)
     int_13 /= 4
     assert_equal(expected=2.5, actual=int_13)
+
+    int_14: Int = Int(10)
+    boolean_1: Boolean = Boolean(False)
+    with If(boolean_1, locals(), globals()):
+        int_14 += 10
+    assert_equal(expected=10, actual=int_14)
+
+    with If(boolean_1, locals(), globals()):
+        int_14 -= 10
+    assert_equal(expected=10, actual=int_14)
+
+    with If(boolean_1, locals(), globals()):
+        int_14 *= 2
+    assert_equal(expected=10, actual=int_14)
+
+    with If(boolean_1, locals(), globals()):
+        int_14 /= 2
+    assert_equal(expected=10, actual=int_14)
 
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 

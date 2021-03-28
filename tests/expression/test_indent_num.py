@@ -52,3 +52,11 @@ def test_decrement() -> None:
     indent_num.decrement()
     current_indent_num = indent_num.get_current_indent_num()
     assert current_indent_num == 0
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test_reset() -> None:
+    indent_num.increment()
+    indent_num.reset()
+    current_indent_num: int = indent_num.get_current_indent_num()
+    assert current_indent_num == 0

@@ -78,11 +78,13 @@ class If:
             Traceback value.
         """
         from apysc.type import revert_interface
+        from apysc.expression import last_scope
         revert_interface.revert_each_scope_vars(
             snapshot_name=self._snapshot_name,
             locals_=self._locals, globals_=self._globals)
         indent_num.decrement()
         self._append_exit_expression()
+        last_scope.set_last_scope(value=last_scope.LastScope.IF)
 
     def _append_exit_expression(self) -> None:
         """

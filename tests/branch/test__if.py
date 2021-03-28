@@ -9,6 +9,8 @@ from apysc.expression import expression_file_util
 from apysc.expression import indent_num
 from apysc.type import Boolean
 from apysc.type import Int
+from apysc.expression import last_scope
+from apysc.expression.last_scope import LastScope
 from tests import testing_helper
 
 
@@ -53,13 +55,22 @@ class TestIf:
         locals_: Dict[str, Any] = {'value1': int_1}
         globals_: Dict[str, Any] = {'value2': int_2}
         boolean_1: Boolean = Boolean(True)
+        last_scope_: LastScope = last_scope.get_last_scope()
+        assert last_scope_ == LastScope.NORMAL
         with If(condition=boolean_1, locals_=locals_, globals_=globals_):
             int_1.value = 100
             int_2.value = 200
+            last_scope_ = last_scope.get_last_scope()
+            assert last_scope_ == LastScope.NORMAL
+        last_scope_ = last_scope.get_last_scope()
+        assert last_scope_ == LastScope.IF
         assert int_1 == 10
         assert int_2 == 20
         current_indent_num: int = indent_num.get_current_indent_num()
         assert current_indent_num == 0
+        int_1.value = 100
+        last_scope_ = last_scope.get_last_scope()
+        assert last_scope_ == LastScope.NORMAL
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_enter_expression(self) -> None:

@@ -43,6 +43,7 @@ def append_expression(expression: str) -> None:
     from apysc.expression import indent_num
     from apysc.file import file_util
     from apysc.string import indent_util
+    from apysc.expression import last_scope
     current_indent_num: int = indent_num.get_current_indent_num()
     expression = indent_util.append_spaces_to_expression(
         expression=expression, indent_num=current_indent_num)
@@ -52,6 +53,7 @@ def append_expression(expression: str) -> None:
     file_util.append_plain_txt(
         txt=f'{expression}\n', file_path=EXPRESSION_FILE_PATH)
     _merge_script_section()
+    last_scope.set_last_scope(value=last_scope.LastScope.NORMAL)
 
 
 def wrap_by_script_tag_and_append_expression(expression: str) -> None:

@@ -1,49 +1,22 @@
-"""If condition implementations.
+"""If branch instruction implementations.
 """
 
 from typing import Any
 from typing import Dict
 from typing import Type
 
-from apysc.expression import indent_num
 from apysc.type import Boolean
+from apysc.branch.if_base import IfBase
 
 
-class If:
-
-    _condition: Boolean
-    _locals: Dict[str, Any]
-    _globals: Dict[str, Any]
-    _snapshot_name: str
-
-    def __init__(
-            self,
-            condition: Boolean,
-            locals_: Dict[str, Any],
-            globals_: Dict[str, Any]) -> None:
-        """
-        A class to append if branch instruction expression.
-
-        Parameters
-        ----------
-        condition : Boolean
-            Boolean value to be used for judgment.
-        locals_ : dict
-            Current scope's local variables. Set locals() value to
-            this argument.
-        globals_ : dict
-            Current scope's golobal variables. Set golobals() value
-            to this argument.
-        """
-        self._condition = condition
-        self._locals = locals_
-        self._globals = globals_
+class If(IfBase):
 
     def __enter__(self) -> None:
         """
         Method to be called when begining of with statement.
         """
         from apysc.type import revert_interface
+        from apysc.expression import indent_num
         self._snapshot_name = \
             revert_interface.make_snapshots_of_each_scope_vars(
                 locals_=self._locals, globals_=self._globals)
@@ -79,6 +52,7 @@ class If:
         """
         from apysc.type import revert_interface
         from apysc.expression import last_scope
+        from apysc.expression import indent_num
         revert_interface.revert_each_scope_vars(
             snapshot_name=self._snapshot_name,
             locals_=self._locals, globals_=self._globals)

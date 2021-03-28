@@ -1,9 +1,9 @@
 from random import randint
 
-from retrying import retry
-
 from apyscript.type import Int
 from apyscript.validation import number_validation
+from retrying import retry
+
 from tests import testing_helper
 
 

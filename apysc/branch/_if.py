@@ -6,6 +6,7 @@ from typing import Dict
 from typing import Type
 
 from apysc.type import Boolean
+from apysc.expression import indent_num
 
 
 class If:
@@ -46,6 +47,7 @@ class If:
         self._snapshot_name = \
             revert_interface.make_snapshots_of_each_scope_vars(
                 locals_=self._locals, globals_=self._globals)
+        indent_num.increment()
 
     def __exit__(
             self, exc_type: Type,
@@ -67,3 +69,4 @@ class If:
         revert_interface.revert_each_scope_vars(
             snapshot_name=self._snapshot_name,
             locals_=self._locals, globals_=self._globals)
+        indent_num.decrement()

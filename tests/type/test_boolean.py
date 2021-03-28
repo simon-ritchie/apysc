@@ -175,3 +175,4 @@ class TestBoolean:
         assert boolean_1 != boolean_3
         assert boolean_1
         assert boolean_1 != 0
+        assert boolean_1 != 'Hello!'

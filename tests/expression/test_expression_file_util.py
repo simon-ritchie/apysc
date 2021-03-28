@@ -5,7 +5,7 @@ from retrying import retry
 
 from apysc.expression import expression_file_util
 from apysc.expression import indent_num
-from apysc.html import html_const
+from apysc.html import html_const, html_util
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -55,11 +55,13 @@ def test_append_expression() -> None:
     assert expected_str in expression_txt
 
     indent_num.increment()
+    expression: str = (
+        'console.log("Hello!");'
+        '\nconsole.log("World!");'
+    )
+    expression = html_util.wrap_expression_by_script_tag(expression=expression)
     expression_file_util.append_expression(
-        expression=(
-            'console.log("Hello!");'
-            '\nconsole.log("World!");'
-        ))
+        expression=expression)
     expression_txt = expression_file_util.get_current_expression()
     expected_str = (
         '\n  console.log("Hello!");'

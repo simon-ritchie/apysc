@@ -1,9 +1,18 @@
 """Implementations to manipulate expression variable name
 related interface.
+
+Mainly following interfaces are defined:
+
+- get_next_variable_name: Get next variable name of specified type name.
+- get_variable_names_file_path: Get a file path of saving variable names.
+- append_substitution_expression: Append substitution expression between
+    two variables.
 """
 
 import os
 from typing import List
+
+from apysc.type.variable_name_interface import VariableNameInterface
 
 
 def get_next_variable_name(type_name: str) -> str:
@@ -145,3 +154,24 @@ def get_variable_names_file_path(type_name: str) -> str:
         f'variables_{type_name}.txt',
     )
     return file_path
+
+
+def append_substitution_expression(
+        left_value: VariableNameInterface,
+        right_value: VariableNameInterface) -> None:
+    """
+    Append substitution expression between two variables.
+
+    Parameters
+    ----------
+    left_value : VariableNameInterface
+        Any left value.
+    right_value : VariableNameInterface
+        Any right value.
+    """
+    from apysc.expression import expression_file_util
+    expression: str = (
+        f'{left_value.variable_name} = {right_value.variable_name};'
+    )
+    expression_file_util.wrap_by_script_tag_and_append_expression(
+        expression=expression)

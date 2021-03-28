@@ -6,6 +6,8 @@ from retrying import retry
 from apysc.expression import expression_file_util
 from apysc.expression import expression_variables_util
 from apysc.file import file_util
+from apysc.type import Int
+from apysc.expression import indent_num
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -47,6 +49,7 @@ def test__get_next_variable_num() -> None:
     file_util.remove_file_if_exists(file_path=file_path)
 
 
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test__make_variable_name() -> None:
     variable_name: str = expression_variables_util._make_variable_name(
         type_name='sprite', variable_num=3)
@@ -72,6 +75,7 @@ def test__save_next_variable_name_to_file() -> None:
     file_util.remove_file_if_exists(file_path=file_path)
 
 
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_get_next_variable_name() -> None:
     file_path: str = expression_variables_util.\
         get_variable_names_file_path(type_name='sprite')
@@ -86,3 +90,18 @@ def test_get_next_variable_name() -> None:
     assert variable_name == 'sprite_2'
 
     file_util.remove_file_if_exists(file_path=file_path)
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test_append_substitution_expression() -> None:
+    indent_num.reset()
+    expression_file_util.remove_expression_file()
+    int_1: Int = Int(10)
+    int_2: Int = Int(20)
+    expression_variables_util.append_substitution_expression(
+        left_value=int_2, right_value=int_1)
+    expression: str = expression_file_util.get_current_expression()
+    expected: str = (
+        f'{int_2.variable_name} = {int_1.variable_name};'
+    )
+    assert expected in expression

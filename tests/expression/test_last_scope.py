@@ -1,12 +1,12 @@
-from random import randint
 import os
+from random import randint
 
 from retrying import retry
 
 from apysc.expression import last_scope
+from apysc.expression.expression_file_util import LAST_SCOPE_FILE_PATH
 from apysc.expression.last_scope import LastScope
 from apysc.file import file_util
-from apysc.expression.expression_file_util import LAST_SCOPE_FILE_PATH
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))

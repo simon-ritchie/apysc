@@ -1,13 +1,14 @@
-from apysc.expression import expression_file_util
 from random import randint
 
-from retrying import retry
 from pytest import raises
+from retrying import retry
 
-from apysc.branch import Elif, If
-from apysc.type import Int, Boolean
-from apysc.expression.last_scope import LastScope
+from apysc.branch import Elif
+from apysc.branch import If
+from apysc.expression import expression_file_util
 from apysc.expression import last_scope
+from apysc.expression.last_scope import LastScope
+from apysc.type import Boolean
 
 
 class TestElif:

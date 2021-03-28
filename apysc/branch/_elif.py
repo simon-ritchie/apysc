@@ -33,6 +33,6 @@ class Elif(IfBase):
         """
         Set expression last scope value.
         """
-        from apysc.expression.last_scope import LastScope
         from apysc.expression import last_scope
+        from apysc.expression.last_scope import LastScope
         last_scope.set_last_scope(value=LastScope.ELIF)

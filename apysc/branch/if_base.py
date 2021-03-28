@@ -1,8 +1,12 @@
 """Abstract base class implementation for if, elif, and else.
 """
 
-from abc import ABC, abstractmethod
-from typing import Any, Dict, Type
+from abc import ABC
+from abc import abstractmethod
+from typing import Any
+from typing import Dict
+from typing import Type
+
 from apysc.type import Boolean
 
 
@@ -45,8 +49,8 @@ class IfBase(ABC):
         self : IfBase
             This instance.
         """
-        from apysc.type import revert_interface
         from apysc.expression import indent_num
+        from apysc.type import revert_interface
         self._snapshot_name = \
             revert_interface.make_snapshots_of_each_scope_vars(
                 locals_=self._locals, globals_=self._globals)
@@ -76,8 +80,8 @@ class IfBase(ABC):
         traceback : *
             Traceback value.
         """
-        from apysc.type import revert_interface
         from apysc.expression import indent_num
+        from apysc.type import revert_interface
         revert_interface.revert_each_scope_vars(
             snapshot_name=self._snapshot_name,
             locals_=self._locals, globals_=self._globals)

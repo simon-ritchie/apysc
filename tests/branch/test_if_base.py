@@ -1,12 +1,17 @@
-from random import randint
-from typing import Any, Dict, Type, Match, Optional
 import re
+from random import randint
+from typing import Any
+from typing import Dict
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
-from apysc.expression import expression_file_util, indent_num
 from apysc.branch.if_base import IfBase
-from apysc.type import Boolean, Int
+from apysc.expression import expression_file_util
+from apysc.expression import indent_num
+from apysc.type import Boolean
+from apysc.type import Int
 from tests import testing_helper
 
 

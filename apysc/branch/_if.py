@@ -1,9 +1,6 @@
 """If branch instruction implementations.
 """
 
-from typing import Any
-from typing import Type
-
 from apysc.branch.if_base import IfBase
 
 
@@ -25,4 +22,5 @@ class If(IfBase):
         Set expression last scope value.
         """
         from apysc.expression import last_scope
-        last_scope.set_last_scope(value=last_scope.LastScope.IF)
+        from apysc.expression.last_scope import LastScope
+        last_scope.set_last_scope(value=LastScope.IF)

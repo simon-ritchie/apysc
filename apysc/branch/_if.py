@@ -47,7 +47,19 @@ class If:
         self._snapshot_name = \
             revert_interface.make_snapshots_of_each_scope_vars(
                 locals_=self._locals, globals_=self._globals)
+        self._append_enter_expression()
         indent_num.increment()
+
+    def _append_enter_expression(self) -> None:
+        """
+        Append if branch instruction start expression to file.
+        """
+        from apysc.expression import expression_file_util
+        expression: str = (
+            f'if ({self._condition.variable_name}) {{'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)
 
     def __exit__(
             self, exc_type: Type,

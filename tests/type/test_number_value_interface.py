@@ -322,14 +322,18 @@ class TestNumberValueInterface:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_1.variable_name = 'test_interface_0'
-        interface_1 += 5
+        int_1: Int = Int(5)
+        interface_1 += int_1
         assert interface_1.value == 15
+        assert interface_1.variable_name == 'test_interface_0'
 
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name} = test_interface_0 + 5;'
+            f' = test_interface_0 + {int_1.variable_name};'
+            f'\ntest_interface_0 = test_interface_'
         )
         assert expected in expression
+
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___isub__(self) -> None:

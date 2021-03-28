@@ -369,7 +369,11 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         result : NumberValueInterface
             Incremental addition result value.
         """
+        from apysc.expression import expression_variables_util
         result: NumberValueInterface = self + other
+        expression_variables_util.append_substitution_expression(
+            left_value=self, right_value=result)
+        result.variable_name = self.variable_name
         return result
 
     def __isub__(self, other: Union[int, float, Any]) -> Any:

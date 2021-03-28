@@ -1,7 +1,7 @@
 from random import randint
 
-from apyscript.type import Int
-from apyscript.validation import number_validation
+from apysc.type import Int
+from apysc.validation import number_validation
 from retrying import retry
 
 from tests import testing_helper

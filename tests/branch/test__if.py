@@ -73,3 +73,19 @@ class TestIf:
             f'\n  {int_1.variable_name} = 20;'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_exit_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        indent_num.reset()
+        boolean_1: Boolean = Boolean(True)
+        int_1: Int = Int(10)
+        with If (condition=boolean_1, locals_=locals(), globals_=globals()):
+            int_1.value = 20
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'if ({boolean_1.variable_name}) {{'
+            f'\n  {int_1.variable_name} = 20;'
+            '\n}'
+        )
+        assert expected in expression

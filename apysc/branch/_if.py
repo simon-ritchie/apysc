@@ -82,3 +82,12 @@ class If:
             snapshot_name=self._snapshot_name,
             locals_=self._locals, globals_=self._globals)
         indent_num.decrement()
+        self._append_exit_expression()
+
+    def _append_exit_expression(self) -> None:
+        """
+        Append if branch instruction end expression to file.
+        """
+        from apysc.expression import expression_file_util
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression='}')

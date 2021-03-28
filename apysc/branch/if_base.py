@@ -36,13 +36,30 @@ class IfBase(ABC):
         self._locals = locals_
         self._globals = globals_
 
-    @abstractmethod
-    def __enter__(self) -> None:
+    def __enter__(self) -> Any:
         """
         Method to be called when begining of with statement.
+
+        Returns
+        -------
+        self : IfBase
+            This instance.
         """
+        from apysc.type import revert_interface
+        from apysc.expression import indent_num
+        self._snapshot_name = \
+            revert_interface.make_snapshots_of_each_scope_vars(
+                locals_=self._locals, globals_=self._globals)
+        self._append_enter_expression()
+        indent_num.increment()
+        return self
 
     @abstractmethod
+    def _append_enter_expression(self) -> None:
+        """
+        Append branch instruction start expression to file.
+        """
+
     def __exit__(
             self, exc_type: Type,
             exc_value: Any,
@@ -58,4 +75,26 @@ class IfBase(ABC):
             Exception value.
         traceback : *
             Traceback value.
+        """
+        from apysc.type import revert_interface
+        from apysc.expression import indent_num
+        revert_interface.revert_each_scope_vars(
+            snapshot_name=self._snapshot_name,
+            locals_=self._locals, globals_=self._globals)
+        indent_num.decrement()
+        self._append_exit_expression()
+        self._set_last_scope()
+
+    def _append_exit_expression(self) -> None:
+        """
+        Append if branch instruction end expression to file.
+        """
+        from apysc.expression import expression_file_util
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression='}')
+
+    @abstractmethod
+    def _set_last_scope(self) -> None:
+        """
+        Set expression last scope value.
         """

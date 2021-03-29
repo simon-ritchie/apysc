@@ -1,13 +1,14 @@
 """Class implementation for array.
 """
 
+from apysc.expression import expression_file_util
 from typing import Any
 from typing import Dict
 from typing import List
 from typing import Optional
 from typing import Union
 
-from apysc.type import Int
+from apysc.type import Int, Boolean
 from apysc.type import String
 from apysc.type.copy_interface import CopyInterface
 from apysc.type.revert_interface import RevertInterface
@@ -881,7 +882,7 @@ class Array(CopyInterface, RevertInterface):
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
 
-    def __eq__(self, other: Any) -> bool:
+    def __eq__(self, other: Any) -> Boolean:
         """
         Equal comparison method.
 
@@ -892,12 +893,34 @@ class Array(CopyInterface, RevertInterface):
 
         Returns
         -------
-        result : bool
+        result : Boolean
             Comparison result.
         """
+        result: Boolean
         if isinstance(other, Array):
-            return self.value == other.value
-        return self.value == other
+            result = Boolean(self.value == other.value)
+            self._append_eq_expression(result=result, other=other)
+            return result
+        return Boolean(self.value == other)
+
+    def _append_eq_expression(
+            self, result: Boolean, other: VariableNameInterface) -> None:
+        """
+        Append __eq__ expression to file.
+
+        Parameters
+        ----------
+        result : Boolean
+            Result boolean value.
+        other : Array
+            Array's other value to compare.
+        """
+        expression: str = (
+            f'{result.variable_name} = '
+            f'_.isEqual({self.variable_name}, {other.variable_name});'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)
 
     def __bool__(self) -> bool:
         """

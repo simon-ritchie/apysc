@@ -202,26 +202,32 @@ class Boolean(CopyInterface, RevertInterface):
             return
         self._value = self._value_snapshots[snapshot_name]
 
-    def __eq__(self, other: Any) -> bool:
+    def __eq__(self, other: Any) -> Any:
         """
         Comparison method for equal condition.
 
         Parameters
         ----------
         other : *
-            Other value to compare (Boolean, bool, or int).
+            Other value to compare (Boolean, bool, int, or Int).
 
         Returns
         -------
-        result : bool
+        result : Boolean
             Comparison result.
         """
+        result: Boolean
         if isinstance(other, Boolean):
-            return self._value == other._value
+            result = Boolean(self._value == other._value)
+            return result
         if isinstance(other, int):
             other = bool(other)
-            return self._value == other
-        return self._value == other
+            return Boolean(self._value == other)
+        if isinstance(other, Int):
+            other = bool(other.value)
+            result = Boolean(self._value == other)
+            return result
+        return Boolean(self._value == other)
 
     @property
     def not_(self) -> Any:

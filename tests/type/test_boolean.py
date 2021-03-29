@@ -167,15 +167,23 @@ class TestBoolean:
     def test___eq__(self) -> None:
         boolean_1: Boolean = Boolean(True)
         boolean_2: Boolean = Boolean(True)
-        assert boolean_1 == boolean_2
-        assert boolean_1
-        assert boolean_1 == 1
+        result: Boolean = boolean_1 == boolean_2
+        assert result
+        assert isinstance(result, Boolean)
 
-        boolean_3: Boolean = Boolean(False)
-        assert boolean_1 != boolean_3
         assert boolean_1
-        assert boolean_1 != 0
-        assert boolean_1 != 'Hello!'
+
+        result = boolean_1 == 1
+        assert result
+        assert isinstance(result, Boolean)
+
+        result = boolean_1 == Int(1)
+        assert result
+        assert isinstance(result, Boolean)
+
+        result = boolean_1 == 'Hello!'
+        assert not result
+        assert isinstance(result, Boolean)
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_not_(self) -> None:

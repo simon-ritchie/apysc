@@ -7,7 +7,8 @@ from typing import List
 from typing import Optional
 from typing import Union
 
-from apysc.type import Int, Boolean
+from apysc.type import Boolean
+from apysc.type import Int
 from apysc.type import String
 from apysc.type.copy_interface import CopyInterface
 from apysc.type.revert_interface import RevertInterface
@@ -881,7 +882,7 @@ class Array(CopyInterface, RevertInterface):
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
 
-    def __eq__(self, other: Any) -> Boolean:
+    def __eq__(self, other: Any) -> Any:
         """
         Equal comparison method.
 
@@ -922,7 +923,7 @@ class Array(CopyInterface, RevertInterface):
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
 
-    def __ne__(self, other: Any) -> Boolean:
+    def __ne__(self, other: Any) -> Any:
         """
         Not equal comparison method.
 

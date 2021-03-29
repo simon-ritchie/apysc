@@ -1,7 +1,6 @@
 """Class implementation for boolean.
 """
 
-from apysc.type.variable_name_interface import VariableNameInterface
 from typing import Any
 from typing import Dict
 from typing import Union
@@ -9,6 +8,7 @@ from typing import Union
 from apysc.type import Int
 from apysc.type.copy_interface import CopyInterface
 from apysc.type.revert_interface import RevertInterface
+from apysc.type.variable_name_interface import VariableNameInterface
 
 
 class Boolean(CopyInterface, RevertInterface):

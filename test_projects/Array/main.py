@@ -12,15 +12,15 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
+from apysc.branch import If
 from apysc.console import assert_arrays_equal
 from apysc.console import assert_equal
 from apysc.display import Stage
 from apysc.file import file_util
 from apysc.html import exporter
-from apysc.type import Array, Boolean
+from apysc.type import Array
 from apysc.type import Int
 from apysc.type import String
-from apysc.branch import If
 
 this_module: ModuleType = sys.modules[__name__]
 

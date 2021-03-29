@@ -626,3 +626,27 @@ class TestArray:
             f'_.isEqual({array_1.variable_name}, {array_2.variable_name});'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___ne__(self) -> None:
+        array_1: Array = Array([1, 2])
+        array_2: Array = Array([3, 4])
+        result: Boolean = array_1 != array_2
+        assert result
+
+        array_3: Array = Array([1, 2])
+        result = array_1 != array_3
+        assert not result
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_ne_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        array_1: Array = Array([1, 2])
+        array_2: Array = Array([3, 4])
+        result: Boolean = array_1 != array_2
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{result.variable_name} = '
+            f'!_.isEqual({array_1.variable_name}, {array_2.variable_name});'
+        )
+        assert expected in expression

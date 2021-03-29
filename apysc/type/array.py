@@ -1,7 +1,6 @@
 """Class implementation for array.
 """
 
-from apysc.expression import expression_file_util
 from typing import Any
 from typing import Dict
 from typing import List
@@ -915,9 +914,50 @@ class Array(CopyInterface, RevertInterface):
         other : Array
             Array's other value to compare.
         """
+        from apysc.expression import expression_file_util
         expression: str = (
             f'{result.variable_name} = '
             f'_.isEqual({self.variable_name}, {other.variable_name});'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)
+
+    def __ne__(self, other: Any) -> Boolean:
+        """
+        Not equal comparison method.
+
+        Parameters
+        ----------
+        other : *
+            Other value to compare. list or Array types are acceptable.
+
+        Returns
+        -------
+        result : Boolean
+            Comparison result.
+        """
+        result: Boolean = self == other
+        result = result.not_
+        if isinstance(other, Array):
+            self._append_ne_expression(result=result, other=other)
+        return result
+
+    def _append_ne_expression(
+            self, result: Boolean, other: VariableNameInterface) -> None:
+        """
+        Append __ne__ expression to file.
+
+        Parameters
+        ----------
+        result : Boolean
+            Result boolean value.
+        other : Array
+            Array's other value to compare.
+        """
+        from apysc.expression import expression_file_util
+        expression: str = (
+            f'{result.variable_name} = '
+            f'!_.isEqual({self.variable_name}, {other.variable_name});'
         )
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)

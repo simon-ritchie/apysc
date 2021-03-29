@@ -176,3 +176,24 @@ class TestBoolean:
         assert boolean_1
         assert boolean_1 != 0
         assert boolean_1 != 'Hello!'
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_not_(self) -> None:
+        boolean_1: Boolean = Boolean(True)
+        boolean_2: Boolean = boolean_1.not_
+        assert not boolean_2
+
+        boolean_3: Boolean = boolean_2.not_
+        assert boolean_3
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_not_prop_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        boolean_1: Boolean = Boolean(True)
+        boolean_2: Boolean = boolean_1.not_
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{boolean_2.variable_name} = '
+            f'!{boolean_1.variable_name};'
+        )
+        assert expected in expression

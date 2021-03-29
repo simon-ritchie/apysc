@@ -1,6 +1,7 @@
 """Class implementation for boolean.
 """
 
+from apysc.type.variable_name_interface import VariableNameInterface
 from typing import Any
 from typing import Dict
 from typing import Union
@@ -221,3 +222,35 @@ class Boolean(CopyInterface, RevertInterface):
             other = bool(other)
             return self._value == other
         return self._value == other
+
+    @property
+    def not_(self) -> Any:
+        """
+        Get a not condition Boolean value.
+
+        Returns
+        -------
+        result : Boolean
+            Not condition Boolean value.
+        """
+        result: Boolean = Boolean(not self)
+        self._append_not_prop_expression(result=result)
+        return result
+
+    def _append_not_prop_expression(
+            self, result: VariableNameInterface) -> None:
+        """
+        Append not_ property expression to file.
+
+        Parameters
+        ----------
+        result : Boolean
+            Result Boolean value.
+        """
+        from apysc.expression import expression_file_util
+        expression: str = (
+            f'{result.variable_name} = '
+            f'!{self.variable_name};'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)

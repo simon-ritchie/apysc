@@ -56,6 +56,12 @@ def main() -> None:
     boolean_2.value = True
     assert_true(boolean_2)
 
+    boolean_7: Boolean = Boolean(True)
+    boolean_8: Boolean = boolean_7.not_
+    assert_false(boolean_8)
+    boolean_9: Boolean = boolean_8.not_
+    assert_true(boolean_9)
+
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

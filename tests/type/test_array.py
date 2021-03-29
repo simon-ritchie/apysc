@@ -632,6 +632,7 @@ class TestArray:
         array_1: Array = Array([1, 2])
         array_2: Array = Array([3, 4])
         result: Boolean = array_1 != array_2
+        assert isinstance(result, Boolean)
         assert result
 
         array_3: Array = Array([1, 2])

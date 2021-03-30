@@ -255,6 +255,50 @@ class Boolean(CopyInterface, RevertInterface):
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
 
+    def __ne__(self, other: Any) -> Any:
+        """
+        Comparison method for not equal condition.
+
+        Parameters
+        ----------
+        other : *
+            Other value to compare (Boolean, bool, int, or Int).
+
+        Returns
+        -------
+        result : Boolean
+            Comparison result.
+        """
+        result: Boolean = self == other
+        result = result.not_
+        if isinstance(other, (Boolean, Int)):
+            self._append_ne_expression(result=result, other=other)
+        return result
+
+    def _append_ne_expression(
+            self, result: VariableNameInterface,
+            other: VariableNameInterface) -> None:
+        """
+        Append __ne__ method expression to file.
+
+        Parameters
+        ----------
+        result : Boolean
+            Result boolean value.
+        other : Boolean or Int
+            Other value to compare.
+        """
+        from apysc.expression import expression_file_util
+        other_str: str = other.variable_name
+        if isinstance(other, Int):
+            other_str = f'Boolean({other_str});'
+        expression: str = (
+            f'{result.variable_name} = '
+            f'{self.variable_name} !== {other_str};'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)
+
     @property
     def not_(self) -> Any:
         """

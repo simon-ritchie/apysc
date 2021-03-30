@@ -229,3 +229,35 @@ class TestBoolean:
             f'Boolean({int_1.variable_name});'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___ne__(self) -> None:
+        boolean_1: Boolean = Boolean(True)
+        boolean_2: Boolean = Boolean(False)
+        result: Boolean = boolean_1 != boolean_2
+        assert result
+        assert isinstance(result, Boolean)
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_ne_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        boolean_1: Boolean = Boolean(True)
+        boolean_2: Boolean = Boolean(False)
+        result: Boolean = boolean_1 != boolean_2
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{result.variable_name} = '
+            f'{boolean_1.variable_name} !== {boolean_2.variable_name};'
+        )
+        assert expected in expression
+
+        expression_file_util.remove_expression_file()
+        int_1: Int = Int(1)
+        result = boolean_1 != int_1
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{result.variable_name} = '
+            f'{boolean_1.variable_name} !== '
+            f'Boolean({int_1.variable_name});'
+        )
+        assert expected in expression

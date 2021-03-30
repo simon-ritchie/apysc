@@ -20,6 +20,7 @@ class TestNumberValueInterface:
     def test___init__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=100, type_name='test_interface')
+        interface_1.variable_name = 'test_interface_1'
         testing_helper.assert_attrs(
             expected_attrs={
                 '_initial_value': 100,
@@ -30,6 +31,7 @@ class TestNumberValueInterface:
 
         interface_2: NumberValueInterface = NumberValueInterface(
             value=interface_1, type_name='test_interface')
+        interface_2.variable_name = 'test_interface_2'
         testing_helper.assert_attrs(
             expected_attrs={
                 '_initial_value': interface_1,
@@ -413,10 +415,13 @@ class TestNumberValueInterface:
     def test___eq__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
+        interface_1.variable_name = 'test_interface_0'
         interface_2: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
+        interface_2.variable_name = 'test_interface_1'
         interface_3: NumberValueInterface = NumberValueInterface(
             value=11, type_name='test_interface')
+        interface_3.variable_name = 'test_interface_3'
 
         assert interface_1 == 10
         assert interface_1 == interface_2
@@ -559,3 +564,20 @@ class TestNumberValueInterface:
         interface_1.value = 20
         interface_1._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface_1.value == 20
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_eq_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=10, type_name='test_interface')
+        interface_1.variable_name = 'test_interface_1'
+        interface_2: NumberValueInterface = NumberValueInterface(
+            value=10, type_name='test_interface')
+        interface_2.variable_name = 'test_interface_2'
+        result: Boolean = interface_1 == interface_2
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{result.variable_name} = '
+            f'{interface_1.variable_name} === {interface_2.variable_name};'
+        )
+        assert expected in expression

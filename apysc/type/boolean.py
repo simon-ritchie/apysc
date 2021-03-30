@@ -219,15 +219,41 @@ class Boolean(CopyInterface, RevertInterface):
         result: Boolean
         if isinstance(other, Boolean):
             result = Boolean(self._value == other._value)
+            self._append_eq_expression(result=result, other=other)
             return result
         if isinstance(other, int):
             other = bool(other)
-            return Boolean(self._value == other)
+            return Boolean(other)
         if isinstance(other, Int):
-            other = bool(other.value)
-            result = Boolean(self._value == other)
+            other_ = bool(other.value)
+            result = Boolean(self._value == other_)
+            self._append_eq_expression(result=result, other=other)
             return result
         return Boolean(self._value == other)
+
+    def _append_eq_expression(
+            self, result: VariableNameInterface,
+            other: VariableNameInterface) -> None:
+        """
+        Append __eq__ method expression to file.
+
+        Parameters
+        ----------
+        result : Boolean
+            Result boolean value.
+        other : Boolean or Int
+            Other value to compare.
+        """
+        from apysc.expression import expression_file_util
+        other_str: str = other.variable_name
+        if isinstance(other, Int):
+            other_str = f'Boolean({other_str});'
+        expression: str = (
+            f'{result.variable_name} = '
+            f'{self.variable_name} === {other_str};'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)
 
     @property
     def not_(self) -> Any:

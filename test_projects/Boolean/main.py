@@ -62,6 +62,13 @@ def main() -> None:
     boolean_9: Boolean = boolean_8.not_
     assert_true(boolean_9)
 
+    boolean_10: Boolean = Boolean(True)
+    boolean_11: Boolean = Boolean(True)
+    boolean_12: Boolean = boolean_10 == boolean_11
+    assert_true(boolean_12)
+    boolean_13: Boolean = boolean_10 != boolean_11
+    assert_false(boolean_13)
+
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

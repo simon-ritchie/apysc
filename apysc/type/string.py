@@ -379,7 +379,31 @@ class String(CopyInterface, RevertInterface):
         from apysc.validation import string_validation
         string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
-        return Boolean(self._value < value)
+        result: Boolean = Boolean(self._value < value)
+        if isinstance(other, VariableNameInterface):
+            self._append_lt_expression(result=result, other=other)
+        return result
+
+    def _append_lt_expression(
+            self, result: VariableNameInterface,
+            other: VariableNameInterface) -> None:
+        """
+        Append __lt__ method expression to file.
+
+        Parameters
+        ----------
+        result : Boolean
+            Result boolean value.
+        other : VariableNameInterface
+            Other value to compare.
+        """
+        from apysc.expression import expression_file_util
+        expression: str = (
+            f'{result.variable_name} = '
+            f'{self.variable_name} < {other.variable_name};'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)
 
     def __le__(self, other: Union[str, Any]) -> Any:
         """

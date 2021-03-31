@@ -290,3 +290,16 @@ class TestString:
         string_1.value = 'World!'
         string_1._run_all_revert_methods(snapshot_name=snapshot_name)
         assert string_1.value == 'World!'
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_eq_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        string_1: String = String(value='Hello!')
+        string_2: String = String(value='World!')
+        result: Boolean = string_1 == string_2
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{result.variable_name} = '
+            f'{string_1.variable_name} === {string_2.variable_name};'
+        )
+        assert expected in expression

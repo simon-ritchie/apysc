@@ -718,8 +718,33 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         """
         from apysc.type import Boolean
         if isinstance(other, NumberValueInterface):
-            return Boolean(self.value >= other.value)
-        return Boolean(self.value >= other)
+            result: Boolean = Boolean(self.value >= other.value)
+        else:
+            result = Boolean(self.value >= other)
+        if isinstance(other, VariableNameInterface):
+            self._append_ge_expression(result=result, other=other)
+        return result
+
+    def _append_ge_expression(
+            self, result: VariableNameInterface,
+            other: VariableNameInterface) -> None:
+        """
+        Append __ge__ expression to file.
+
+        Parameters
+        ----------
+        result : Boolean
+            Result boolean value.
+        other : VariableNameInterface
+            Other value to compare.
+        """
+        from apysc.expression import expression_file_util
+        expression: str = (
+            f'{result.variable_name} = '
+            f'{self.variable_name} >= {other.variable_name};'
+        )
+        expression_file_util.wrap_by_script_tag_and_append_expression(
+            expression=expression)
 
     _value_snapshots: Dict[str, Union[int, float]]
 

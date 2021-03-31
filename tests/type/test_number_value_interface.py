@@ -513,12 +513,16 @@ class TestNumberValueInterface:
     def test___ge__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
+        interface_1.variable_name = 'test_interface_1'
         interface_2: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
+        interface_2.variable_name = 'test_interface_2'
         interface_3: NumberValueInterface = NumberValueInterface(
             value=9, type_name='test_interface')
+        interface_3.variable_name = 'test_interface_3'
         interface_4: NumberValueInterface = NumberValueInterface(
             value=11, type_name='test_interface')
+        interface_4.variable_name = 'test_interface_4'
 
         assert interface_1 >= 10
         assert interface_1 >= 9
@@ -660,5 +664,22 @@ class TestNumberValueInterface:
         expected: str = (
             f'{result.variable_name} = '
             f'{interface_1.variable_name} > {interface_2.variable_name};'
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_ge_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=10, type_name='test_interface')
+        interface_1.variable_name = 'test_interface_1'
+        interface_2: NumberValueInterface = NumberValueInterface(
+            value=10, type_name='test_interface')
+        interface_2.variable_name = 'test_interface_2'
+        result: Boolean = interface_1 >= interface_2
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{result.variable_name} = '
+            f'{interface_1.variable_name} >= {interface_2.variable_name};'
         )
         assert expected in expression

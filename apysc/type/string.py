@@ -449,7 +449,6 @@ class String(CopyInterface, RevertInterface):
         expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
 
-
     def __gt__(self, other: Union[str, Any]) -> Any:
         """
         Method for greater than comparison.

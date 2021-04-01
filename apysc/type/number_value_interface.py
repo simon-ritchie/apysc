@@ -536,7 +536,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         if isinstance(other, NumberValueInterface):
             result: Boolean = Boolean(self.value != other.value)
         else:
-            result =  Boolean(self.value != other)
+            result = Boolean(self.value != other)
         if isinstance(other, VariableNameInterface):
             self._append_ne_expression(result=result, other=other)
         return result

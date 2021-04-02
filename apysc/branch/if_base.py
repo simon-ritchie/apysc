@@ -3,7 +3,7 @@
 
 from abc import ABC
 from abc import abstractmethod
-from typing import Any
+from typing import Any, Optional
 from typing import Dict
 from typing import Type
 
@@ -12,22 +12,23 @@ from apysc.type import Boolean
 
 class IfBase(ABC):
 
-    _condition: Boolean
+    _condition: Optional[Boolean]
     _locals: Dict[str, Any]
     _globals: Dict[str, Any]
     _snapshot_name: str
 
     def __init__(
             self,
-            condition: Boolean,
+            condition: Optional[Boolean],
             locals_: Dict[str, Any],
             globals_: Dict[str, Any]) -> None:
         """
-        A class to append if branch instruction expression.
+        A class to append if (else if and else) branch instruction
+        expression.
 
         Parameters
         ----------
-        condition : Boolean
+        condition : Boolean or None
             Boolean value to be used for judgment.
         locals_ : dict
             Current scope's local variables. Set locals() value to

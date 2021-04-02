@@ -12,6 +12,8 @@ from apysc.expression import expression_file_util
 from apysc.expression import indent_num
 from apysc.type import Boolean
 from apysc.type import Int
+from apysc.expression import last_scope
+from apysc.expression.last_scope import LastScope
 from tests import testing_helper
 
 
@@ -102,3 +104,24 @@ class TestIfBase:
             string=expression,
             flags=re.MULTILINE | re.DOTALL)
         assert match is not None
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__last_scope_is_if_or_elif(self) -> None:
+        last_scope.reset()
+        boolean_1: Boolean = Boolean(True)
+        if_instance: IfSubClass = IfSubClass(
+            condition=boolean_1, locals_=locals(), globals_=globals())
+        result: bool = if_instance._last_scope_is_if_or_elif()
+        assert not result
+
+        last_scope.set_last_scope(value=LastScope.IF)
+        result = if_instance._last_scope_is_if_or_elif()
+        assert result
+
+        last_scope.set_last_scope(value=LastScope.ELIF)
+        result = if_instance._last_scope_is_if_or_elif()
+        assert result
+
+        last_scope.set_last_scope(value=LastScope.ELSE)
+        result = if_instance._last_scope_is_if_or_elif()
+        assert not result

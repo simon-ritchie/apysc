@@ -102,3 +102,19 @@ class IfBase(ABC):
         """
         Set expression last scope value.
         """
+
+    def _last_scope_is_if_or_elif(self) -> bool:
+        """
+        Get a boolean value whether the last scope is If or Elif.
+
+        Returns
+        -------
+        result : bool
+            If last scope is If or Else, then True will be returned.
+        """
+        from apysc.expression import last_scope
+        from apysc.expression.last_scope import LastScope
+        last_scope_: LastScope = last_scope.get_last_scope()
+        if last_scope_ != LastScope.IF and last_scope_ != LastScope.ELIF:
+            return False
+        return True

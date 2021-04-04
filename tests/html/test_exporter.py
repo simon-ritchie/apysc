@@ -162,3 +162,13 @@ def test__remove_unused_js_vars() -> None:
         '\nany_func(i_12);'
     )
     assert expression == expected
+
+    expression = (
+        '\nvar s_1 = "";'
+        '\ns_1 = "#00aaff";'
+        '\nvar s_3 = JSON.parse(JSON.stringify(s_1));'
+        '\nvar s_5 = JSON.parse(JSON.stringify(s_3));'
+        '\ns_5 = "00aaff";'
+    )
+    result = exporter._remove_unused_js_vars(expression=expression)
+    assert result == expression

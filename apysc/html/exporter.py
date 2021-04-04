@@ -4,7 +4,7 @@
 import os
 import re
 from logging import Logger
-from typing import List, Match, Optional, Tuple
+from typing import List, Match, Optional, Tuple, Pattern
 
 from apysc.console import loggers
 
@@ -162,9 +162,11 @@ def _append_expression_to_html_str(html_str: str) -> str:
     from apysc.html import html_util
     expression: str = file_util.read_txt(
         file_path=expression_file_util.EXPRESSION_FILE_PATH)
+    info_logger.info(msg='Removing unused variables...')
     expression = _remove_unused_js_vars(expression=expression)
     expression = html_util.wrap_expression_by_script_tag(
         expression=expression)
+    info_logger.info(msg='Appending indentations...')
     expression = html_util.append_indent_to_each_script_line(
         html=expression, indent_num=1)
     entry_point_func_name: str = get_entry_point_func_name()
@@ -216,9 +218,6 @@ def _remove_unused_js_vars(expression: str) -> str:
     return expression
 
 
-_VAR_PATTERN: str = r'var (.+?) = '
-
-
 def _target_js_variable_is_used(
         var_name: str, exp_lines: List[str]) -> bool:
     """
@@ -238,25 +237,19 @@ def _target_js_variable_is_used(
         If target variable is used in js expression, True will be
         returned.
     """
-    _USED_PATTERNS: Tuple[str, ...] = (
-        rf'^{var_name} ',
-        rf' {var_name} ',
-        rf' {var_name};',
-        rf'\({var_name}\)',
-        rf' {var_name}\)',
-    )
+    var_pattern: Pattern = re.compile(pattern=rf'var ({var_name}) = ')
+    used_pattern: Pattern = re.compile(pattern=rf'{var_name}[ ;\)\.}}]')
     for line in exp_lines:
-        match: Optional[Match] = re.search(
-            pattern=_VAR_PATTERN,
-            string=line)
+        match: Optional[Match] = var_pattern.search(string=line)
         if match is not None:
             continue
-        for used_pattern in _USED_PATTERNS:
-            match = re.search(
-                pattern=used_pattern, string=line)
-            if match is not None:
-                return True
+        match = used_pattern.search(string=line)
+        if match is not None:
+            return True
     return False
+
+
+_VAR_PATTERN: Pattern = re.compile(pattern=r'var (.+?) = ')
 
 
 def _get_var_name_from_line(line: str) -> str:
@@ -275,9 +268,7 @@ def _get_var_name_from_line(line: str) -> str:
         pattern, then `any_name` will be returned. Or if there is no
         var expression, blank string will be returned.
     """
-    match: Optional[Match] = re.search(
-        pattern=_VAR_PATTERN,
-        string=line)
+    match: Optional[Match] = _VAR_PATTERN.search(string=line)
     if match is None:
         return ''
     var_name: str = match.group(1)

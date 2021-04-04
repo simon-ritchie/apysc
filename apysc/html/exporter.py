@@ -168,6 +168,8 @@ def _append_expression_to_html_str(html_str: str) -> str:
     expression = _append_common_js_functions(expression=expression)
     info_logger.info(msg='Removing unused variables...')
     expression = _remove_unused_js_vars(expression=expression)
+    info_logger.info(msg='Removing blank lines...')
+    expression = _remove_blank_lines(expression=expression)
     expression = html_util.wrap_expression_by_script_tag(
         expression=expression)
     info_logger.info(msg='Appending indentations...')
@@ -185,6 +187,32 @@ def _append_expression_to_html_str(html_str: str) -> str:
 
     html_str += f'\n{expression}'
     return html_str
+
+
+def _remove_blank_lines(expression: str) -> str:
+    """
+    Remove blank (break or spaces only) lines from expression string.
+
+    Parameters
+    ----------
+    expression : str
+        Target expression string.
+
+    Returns
+    -------
+    expression : str
+        Expression string that removed blank lines.
+    """
+    lines: List[str] = expression.splitlines()
+    result_lines: List[str] = []
+    pattern: Pattern = re.compile(pattern=r'^\s*$')
+    for line in lines:
+        match: Optional[Match] = pattern.match(string=line)
+        if match is not None:
+            continue
+        result_lines.append(line)
+    expression = '\n'.join(result_lines)
+    return expression
 
 
 def _append_common_js_functions(expression: str) -> str:

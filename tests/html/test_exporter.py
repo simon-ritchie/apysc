@@ -181,3 +181,19 @@ def test__append_common_js_functions() -> None:
         expression='console.log("Hello!");')
     assert js_functions.FUNC_COPY in expression
     assert expression.endswith('\nconsole.log("Hello!");')
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test__remove_blank_lines() -> None:
+    expression: str = (
+        'console.log("Hello!");'
+        '\n'
+        '\n  '
+        '\nconsole.log("World!");'
+    )
+    expression = exporter._remove_blank_lines(expression=expression)
+    expected: str = (
+        'console.log("Hello!");'
+        '\nconsole.log("World!");'
+    )
+    assert expression == expected

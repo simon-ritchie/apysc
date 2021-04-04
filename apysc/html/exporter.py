@@ -211,7 +211,9 @@ def _remove_unused_js_vars(expression: str) -> str:
             del lines[current_line_idx]
             continue
         current_line_idx += 1
-    pass
+    lines.reverse()
+    expression = '\n'.join(lines)
+    return expression
 
 
 _VAR_PATTERN: str = r'var (.+?) = '
@@ -240,8 +242,8 @@ def _target_js_variable_is_used(
         rf'^{var_name} ',
         rf' {var_name} ',
         rf' {var_name};',
-        rf'({var_name})',
-        rf' {var_name})',
+        rf'\({var_name}\)',
+        rf' {var_name}\)',
     )
     for line in exp_lines:
         match: Optional[Match] = re.search(

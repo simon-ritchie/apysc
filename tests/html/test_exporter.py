@@ -141,3 +141,24 @@ def test__target_js_variable_is_used() -> None:
     result = exporter._target_js_variable_is_used(
         var_name=var_name, exp_lines=exp_lines)
     assert result
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test__remove_unused_js_vars() -> None:
+    expression: str = (
+        'var i_10 = 10;'
+        '\nvar i_11 = 20;'
+        '\ni_10 = 20;'
+        '\nvar b_5 = true;'
+        '\nvar i_12 = 30;'
+        '\nany_func(i_12);'
+        '\nvar i_13 = i_11;'
+    )
+    expression = exporter._remove_unused_js_vars(expression=expression)
+    expected: str = (
+        'var i_10 = 10;'
+        '\ni_10 = 20;'
+        '\nvar i_12 = 30;'
+        '\nany_func(i_12);'
+    )
+    assert expression == expected

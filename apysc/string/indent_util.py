@@ -34,16 +34,12 @@ def make_spaces_for_html(indent_num: int) -> str:
 
 def append_spaces_to_expression(expression: str, indent_num: int) -> str:
     """
-    Append spaces to a expression string.
-
-    Notes
-    -----
-    Only script section will be appended spaces, skipped html section.
+    Append spaces to a js expression string.
 
     Parameters
     ----------
     expression : str
-        Expression string to add spaces to.
+        JavaScript expression string to add spaces to.
     indent_num : int
         Indentation number. If 1 is specified, then spaces will be 2.
 
@@ -52,16 +48,11 @@ def append_spaces_to_expression(expression: str, indent_num: int) -> str:
     expression : str
         Expression string after adding spaces.
     """
-    from apysc.html.html_util import ScriptLineUtil
-    script_line_util: ScriptLineUtil = ScriptLineUtil(html=expression)
     if indent_num == 0:
         return expression
     lines: List[str] = expression.splitlines()
     spaces: str = make_spaces_for_html(indent_num=indent_num)
     for i, line in enumerate(lines):
-        line_number: int = i + 1
-        if not script_line_util.is_script_line(line_number=line_number):
-            continue
         lines[i] = f'{spaces}{line}'
     expression = '\n'.join(lines)
     return expression

@@ -161,6 +161,8 @@ def _append_expression_to_html_str(html_str: str) -> str:
     from apysc.html import html_util
     expression: str = file_util.read_txt(
         file_path=expression_file_util.EXPRESSION_FILE_PATH)
+    expression = html_util.wrap_expression_by_script_tag(
+        expression=expression)
     expression = html_util.append_indent_to_each_script_line(
         html=expression, indent_num=1)
     entry_point_func_name: str = get_entry_point_func_name()

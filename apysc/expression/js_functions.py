@@ -1,11 +1,14 @@
 """Definition of js function expressions (e.g., common helper function).
 """
 
-import sys
 import inspect
-from typing import Any, List, Tuple
-from typing_extensions import Final
+import sys
 from types import ModuleType
+from typing import Any
+from typing import List
+from typing import Tuple
+
+from typing_extensions import Final
 
 FUNC_COPY: Final[str] = """function cpy(any_obj) {
   return JSON.parse(JSON.stringify(any_obj));

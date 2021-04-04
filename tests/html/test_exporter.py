@@ -6,9 +6,9 @@ from typing import List
 from retrying import retry
 
 from apysc.display import Stage
+from apysc.expression import js_functions
 from apysc.file import file_util
 from apysc.html import exporter
-from apysc.expression import js_functions
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=300)

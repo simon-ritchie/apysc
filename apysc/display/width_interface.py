@@ -52,7 +52,6 @@ class WidthInterface(VariableNameInterface, RevertInterface):
         Append width updating expression.
         """
         from apysc.expression import expression_file_util
-        from apysc.html import html_util
         expression: str = (
             f'{self.variable_name}.width({self.width});'
         )

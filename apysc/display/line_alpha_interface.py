@@ -51,7 +51,6 @@ class LineAlphaInterface(VariableNameInterface, RevertInterface):
         Append line alpha updating expression.
         """
         from apysc.expression import expression_file_util
-        from apysc.html import html_util
         expression: str = (
             f'{self.variable_name}.stroke({{opacity: {self.line_alpha}}});'
         )

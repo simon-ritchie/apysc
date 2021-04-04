@@ -100,7 +100,6 @@ def append_draw_rect_expression(rectangle: Rectangle) -> None:
     """
     from apysc.display.stage import get_stage_variable_name
     from apysc.expression import expression_file_util
-    from apysc.html import html_const
     variable_name: str = rectangle.variable_name
     stage_variable_name: str = get_stage_variable_name()
     expression: str = (

@@ -59,7 +59,6 @@ class Graphics(
         Append constructor expression to file.
         """
         from apysc.expression import expression_file_util
-        from apysc.html import html_util
         stage_name: str = self.parent_sprite.stage.variable_name
         parent_name: str = self.parent_sprite.variable_name
         expression: str = (

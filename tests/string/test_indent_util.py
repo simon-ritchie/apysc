@@ -1,4 +1,3 @@
-from apysc.html import html_util
 from apysc.string import indent_util
 
 

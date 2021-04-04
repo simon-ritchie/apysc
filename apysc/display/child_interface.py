@@ -54,7 +54,6 @@ class ChildInterface(RevertInterface):
             Child object to add.
         """
         from apysc.expression import expression_file_util
-        from apysc.html import html_util
         parent_name: str = child.parent.variable_name  # type: ignore
         child_name: str = child.variable_name
         expression: str = (
@@ -90,7 +89,6 @@ class ChildInterface(RevertInterface):
             Child object to remove.
         """
         from apysc.expression import expression_file_util
-        from apysc.html import html_util
         parent_name: str = child.parent.variable_name  # type: ignore
         child_name: str = child.variable_name
         expression: str = (

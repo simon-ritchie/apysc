@@ -10,7 +10,6 @@ Mainly following interfaces are defined:
 """
 
 import os
-from typing import List
 
 EXPRESSION_ROOT_DIR: str = '../.apysc_expression/'
 EXPRESSION_FILE_PATH: str = os.path.join(

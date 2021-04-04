@@ -52,7 +52,6 @@ class HeightInterface(VariableNameInterface, RevertInterface):
         Append height updating expression.
         """
         from apysc.expression import expression_file_util
-        from apysc.html import html_util
         expression: str = (
             f'{self.variable_name}.height({self.height});'
         )

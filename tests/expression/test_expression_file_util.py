@@ -1,14 +1,14 @@
 import os
-from random import randint
 import re
-from typing import Match, Optional
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
 from apysc.expression import expression_file_util
 from apysc.expression import indent_num
 from apysc.html import html_const
-from apysc.html import html_util
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -77,7 +77,7 @@ def test_append_js_expression() -> None:
     expression_file_util.append_js_expression(
         expression='var num_1 = 100;\nvar num_2 = 200;\nvar num_3 = 300;')
     expression = expression_file_util.get_current_expression()
-    match: Optional[Match] = re.search(
+    match = re.search(
         pattern=r'^  var num_2 = 200;',
         string=expression,
         flags=re.MULTILINE)

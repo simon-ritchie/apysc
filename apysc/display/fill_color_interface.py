@@ -46,7 +46,6 @@ class FillColorInterface(VariableNameInterface, RevertInterface):
         Append fill color updating expression.
         """
         from apysc.expression import expression_file_util
-        from apysc.html import html_util
         expression: str = (
             f'{self.variable_name}.fill("{self.fill_color}");'
         )

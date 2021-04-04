@@ -126,7 +126,6 @@ class Stage(
         expression : str
             Result expression.
         """
-        from apysc.html import html_const
         style: str = self._make_style_str()
         expression: str = (
             f'var stage_html = \'<div id="{self._stage_elem_id}" '

@@ -42,7 +42,6 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         Append current value's constructor expression to file.
         """
         from apysc.expression import expression_file_util
-        from apysc.html import html_util
         if isinstance(self._initial_value, NumberValueInterface):
             value_: Union[int, float, str] = self._initial_value.variable_name
         else:
@@ -109,7 +108,6 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             Any number value to set.
         """
         from apysc.expression import expression_file_util
-        from apysc.html import html_util
         if isinstance(value, NumberValueInterface):
             right_value: Union[str, int, float] = value.variable_name
         else:

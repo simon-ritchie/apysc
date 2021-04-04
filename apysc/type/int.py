@@ -51,8 +51,7 @@ class Int(NumberValueInterface):
         expression: str = (
             f'{self.variable_name} = parseInt({self.variable_name}, 10);'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def set_value_and_skip_expression_appending(
             self,

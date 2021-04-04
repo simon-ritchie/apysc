@@ -109,8 +109,7 @@ def append_draw_rect_expression(rectangle: Rectangle) -> None:
     )
     attrs_str: str = _make_rect_attrs_expression(rectangle=rectangle)
     expression += f'{attrs_str};'
-    expression_file_util.wrap_by_script_tag_and_append_expression(
-        expression=expression)
+    expression_file_util.append_js_expression(expression=expression)
 
 
 def _make_rect_attrs_expression(rectangle: Rectangle) -> str:

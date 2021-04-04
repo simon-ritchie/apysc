@@ -5,8 +5,6 @@ Mainly following interfaces are defined:
 - empty_expression_dir : Remove expression directory
     (EXPRESSION_ROOT_DIR) to initialize.
 - append_js_expression : Append js expression to file.
-- wrap_by_script_tag_and_append_expression : Wrap an expression
-    string by script tags and append it's expression to file.
 - get_current_expression : Get current expression string.
 - remove_expression_file : Remove expression file.
 """
@@ -53,22 +51,6 @@ def append_js_expression(expression: str) -> None:
     file_util.append_plain_txt(
         txt=f'{expression}\n', file_path=EXPRESSION_FILE_PATH)
     last_scope.set_last_scope(value=last_scope.LastScope.NORMAL)
-
-
-def wrap_by_script_tag_and_append_expression(expression: str) -> None:
-    """
-    Wrap an expression string by script tags and append it's
-    expression to file (helper function of `append_js_expression`).
-
-    Parameters
-    ----------
-    expression : str
-        HTML and js Expression string.
-    """
-    from apysc.html import html_util
-    expression = html_util.wrap_expression_by_script_tag(
-        expression=expression)
-    append_js_expression(expression=expression)
 
 
 def get_current_expression() -> str:

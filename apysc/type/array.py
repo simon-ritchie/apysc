@@ -53,8 +53,7 @@ class Array(CopyInterface, RevertInterface):
             value_str: str = value_util.get_value_str_for_expression(
                 value=self._value)
             expression += f'{value_str};'
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def _get_list_value(
             self, value: Union[List[Any], tuple, Any]) -> List[Any]:
@@ -144,8 +143,7 @@ class Array(CopyInterface, RevertInterface):
             value_str: str = value_util.get_value_str_for_expression(
                 value=value)
             expression += f'{value_str};'
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def append(self, value: Any) -> None:
         """
@@ -187,8 +185,7 @@ class Array(CopyInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name}.push({value_str});'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def extend(self, other_arr: Union[List[Any], tuple, Any]) -> None:
         """
@@ -227,8 +224,7 @@ class Array(CopyInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name} = {self.variable_name}'
             f'.concat({value_str});')
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def concat(self, other_arr: Union[List[Any], tuple, Any]) -> Any:
         """
@@ -275,8 +271,7 @@ class Array(CopyInterface, RevertInterface):
             f'var {concatenated.variable_name} = '
             f'{self.variable_name}.concat({value_str});'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def insert(
             self, index: Union[int, Int], value: Any) -> None:
@@ -338,8 +333,7 @@ class Array(CopyInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name}.splice({index_str}, 0, {value_str});'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def pop(self) -> Any:
         """
@@ -367,8 +361,7 @@ class Array(CopyInterface, RevertInterface):
         expression: str = f'{self.variable_name}.pop();'
         if isinstance(value, VariableNameInterface):
             expression = f'{value.variable_name} = {expression}'
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def remove(self, value: Any) -> None:
         """
@@ -402,8 +395,7 @@ class Array(CopyInterface, RevertInterface):
             f'var {index_var_name} = _.indexOf'
             f'({self.variable_name}, {value_str});'
             f'\n{self.variable_name}.splice({index_var_name}, 1);')
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def remove_at(self, index: Union[int, Int]) -> None:
         """
@@ -438,8 +430,7 @@ class Array(CopyInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name}.splice({index_str}, 1);'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def reverse(self) -> None:
         """
@@ -456,8 +447,7 @@ class Array(CopyInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name}.reverse();'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def sort(self, ascending: bool = True) -> None:
         """
@@ -482,8 +472,7 @@ class Array(CopyInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name}.sort();'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def slice(
             self,
@@ -559,8 +548,7 @@ class Array(CopyInterface, RevertInterface):
         if end is not None:
             expression += f', {end}'
         expression += ');'
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __getitem__(self, index: Union[int, Int]) -> Any:
         """
@@ -651,8 +639,7 @@ class Array(CopyInterface, RevertInterface):
             f'var {value.variable_name} = '
             f'{self.variable_name}[{index_str}];'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __setitem__(self, index: Union[int, Int], value: Any) -> None:
         """
@@ -699,8 +686,7 @@ class Array(CopyInterface, RevertInterface):
             f'{self.variable_name}[{index_str}] = '
             f'{value_str};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __delitem__(self, index: Union[int, Int]) -> None:
         """
@@ -747,8 +733,7 @@ class Array(CopyInterface, RevertInterface):
         expression: str = (
             f'{length.variable_name} = {self.variable_name}.length;'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __len__(self) -> None:
         """
@@ -806,8 +791,7 @@ class Array(CopyInterface, RevertInterface):
             f'{joined.variable_name} = {self.variable_name}'
             f'.join({sep_str});'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __str__(self) -> str:
         """
@@ -879,8 +863,7 @@ class Array(CopyInterface, RevertInterface):
             f'{index.variable_name} = {self.variable_name}'
             f'.indexOf({value_str});'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __eq__(self, other: Any) -> Any:
         """
@@ -920,8 +903,7 @@ class Array(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'_.isEqual({self.variable_name}, {other.variable_name});'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __ne__(self, other: Any) -> Any:
         """
@@ -960,8 +942,7 @@ class Array(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'!_.isEqual({self.variable_name}, {other.variable_name});'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __bool__(self) -> bool:
         """

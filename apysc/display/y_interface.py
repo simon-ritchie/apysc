@@ -64,8 +64,7 @@ class YInterface(VariableNameInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name}.y({value_str});'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     _y_snapshots: Dict[str, int]
 

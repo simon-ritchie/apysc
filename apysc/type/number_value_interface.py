@@ -50,8 +50,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         expression: str = (
             f'var {self.variable_name} = {value_};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     @property
     def value(self) -> Union[int, float, Any]:
@@ -118,8 +117,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name} = {right_value};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __add__(self, other: Union[int, float, Any]) -> Any:
         """
@@ -164,8 +162,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             f'var {result.variable_name} = '
             f'{self.variable_name} + {right_value};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __sub__(self, other: Union[int, float, Any]) -> Any:
         """
@@ -210,8 +207,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             f'var {result.variable_name} = '
             f'{self.variable_name} - {right_value};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __mul__(self, other: Union[int, float, Any]) -> Any:
         """
@@ -256,8 +252,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             f'var {result.variable_name} = '
             f'{self.variable_name} * {right_value};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __truediv__(self, other: Union[int, float, Any]) -> Any:
         """
@@ -303,8 +298,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             f'{result.variable_name} = {result.variable_name} / '
             f'{right_value};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __floordiv__(self, other: Union[int, float, Any]) -> Any:
         """
@@ -350,8 +344,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'parseInt({result.variable_name} / {right_value});'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __iadd__(self, other: Union[int, float, Any]) -> Any:
         """
@@ -512,8 +505,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'{self.variable_name} === {other.variable_name};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __ne__(self, other: Any) -> Any:
         """
@@ -557,8 +549,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'{self.variable_name} !== {other.variable_name};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __lt__(self, other: Any) -> Any:
         """
@@ -603,8 +594,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'{self.variable_name} < {other.variable_name};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __le__(self, other: Any) -> Any:
         """
@@ -649,8 +639,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'{self.variable_name} <= {other.variable_name};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __gt__(self, other: Any) -> Any:
         """
@@ -695,8 +684,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'{self.variable_name} > {other.variable_name};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __ge__(self, other: Any) -> Any:
         """
@@ -741,8 +729,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'{self.variable_name} >= {other.variable_name};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     _value_snapshots: Dict[str, Union[int, float]]
 

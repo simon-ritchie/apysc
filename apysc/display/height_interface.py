@@ -56,8 +56,7 @@ class HeightInterface(VariableNameInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name}.height({self.height});'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def update_height_and_skip_appending_exp(self, value: Int) -> None:
         """

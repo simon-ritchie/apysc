@@ -60,8 +60,7 @@ class ChildInterface(RevertInterface):
         expression: str = (
             f'{parent_name}.add({child_name});'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def remove_child(self, child: DisplayObject) -> None:
         """
@@ -97,8 +96,7 @@ class ChildInterface(RevertInterface):
         expression: str = (
             f'{parent_name}.removeElement({child_name});'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def contains(self, child: DisplayObject) -> Boolean:
         """
@@ -141,8 +139,7 @@ class ChildInterface(RevertInterface):
             f'{result.variable_name} = '
             f'{self._variable_name}.has({child.variable_name});'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     @property
     def num_children(self) -> Int:
@@ -175,8 +172,7 @@ class ChildInterface(RevertInterface):
             f'{self._variable_name}.children().length'
             f' - {self._js_child_adjust_num};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def get_child_at(self, index: Union[int, Int]) -> DisplayObject:
         """
@@ -226,8 +222,7 @@ class ChildInterface(RevertInterface):
             f'[{index_str} + {self._js_child_adjust_num}];'
         )
         print(expression)
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     _children_snapshots: Dict[str, List[Any]]
 

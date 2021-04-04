@@ -57,8 +57,7 @@ class LineThicknessInterface(VariableNameInterface, RevertInterface):
             f'{self.variable_name}.attr({{"stroke-width": '
             f'{self.line_thickness}}});'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def update_line_thickness_and_skip_appending_exp(
             self, value: Int) -> None:

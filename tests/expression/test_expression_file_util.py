@@ -50,8 +50,7 @@ def test_get_current_expression() -> None:
 def test_wrap_by_script_tag_and_append_expression() -> None:
     indent_num.reset()
     expression_file_util.remove_expression_file()
-    expression_file_util.wrap_by_script_tag_and_append_expression(
-        expression='var num = 100;')
+    expression_file_util.append_js_expression(expression='var num = 100;')
     expression: str = expression_file_util.get_current_expression()
     expected: str = (
         f'{html_const.SCRIPT_START_TAG}'

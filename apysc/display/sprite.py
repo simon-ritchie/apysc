@@ -70,8 +70,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
         expression: str = (
             f'\nvar {self.variable_name} = {stage_variable_name}.group();'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
         return True
 
     def _make_snapshot(self, snapshot_name: str) -> None:

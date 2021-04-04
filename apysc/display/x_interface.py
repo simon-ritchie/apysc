@@ -64,8 +64,7 @@ class XInterface(VariableNameInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name}.x({value_str});'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     _x_snapshots: Dict[str, int]
 

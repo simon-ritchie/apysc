@@ -90,8 +90,7 @@ def _append_remove_first_selector_symbol_char_expression(
         f'\n  {var_name} = {var_name}.slice(1);'
         '\n}'
     )
-    expression_file_util.wrap_by_script_tag_and_append_expression(
-        expression=expression)
+    expression_file_util.append_js_expression(expression=expression)
 
 
 def append_html_to_str(

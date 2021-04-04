@@ -46,8 +46,7 @@ class String(CopyInterface, RevertInterface):
             expression += f'{self._initial_value.variable_name};'
         else:
             expression += f'"{self._value}";'
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def _get_str_value(self, value: Union[str, Any]) -> str:
         """
@@ -110,8 +109,7 @@ class String(CopyInterface, RevertInterface):
             expression += f'{value.variable_name};'
         else:
             expression += f'"{value}";'
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __add__(self, other: Union[str, Any]) -> Any:
         """
@@ -158,8 +156,7 @@ class String(CopyInterface, RevertInterface):
             f'var {result.variable_name} = '
             f'{self.variable_name} + {right_value};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __mul__(self, other: Union[int, Any]) -> Any:
         """
@@ -211,8 +208,7 @@ class String(CopyInterface, RevertInterface):
         expression += '; i++) {'
         expression += f'\n  {result.variable_name} += {self.variable_name};'
         expression += '\n}'
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __iadd__(self, other: Union[str, Any]) -> Any:
         """
@@ -311,8 +307,7 @@ class String(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'{self.variable_name} === {other.variable_name};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __ne__(self, other: Any) -> Any:
         """
@@ -358,8 +353,7 @@ class String(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'{self.variable_name} !== {other.variable_name};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __lt__(self, other: Union[str, Any]) -> Any:
         """
@@ -402,8 +396,7 @@ class String(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'{self.variable_name} < {other.variable_name};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __le__(self, other: Union[str, Any]) -> Any:
         """
@@ -446,8 +439,7 @@ class String(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'{self.variable_name} <= {other.variable_name};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __gt__(self, other: Union[str, Any]) -> Any:
         """
@@ -490,8 +482,7 @@ class String(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'{self.variable_name} > {other.variable_name};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __ge__(self, other: Union[str, Any]) -> Any:
         """
@@ -534,8 +525,7 @@ class String(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'{self.variable_name} >= {other.variable_name};'
         )
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def __int__(self) -> int:
         """

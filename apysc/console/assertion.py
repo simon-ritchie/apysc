@@ -60,8 +60,7 @@ def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
     expression: str = (
         f'console.assert({expected_str} === {actual_str}, "{msg}");'
     )
-    expression_file_util.wrap_by_script_tag_and_append_expression(
-        expression=expression)
+    expression_file_util.append_js_expression(expression=expression)
 
 
 def assert_not_equal(expected: Any, actual: Any, msg: str = '') -> None:
@@ -98,8 +97,7 @@ def assert_not_equal(expected: Any, actual: Any, msg: str = '') -> None:
     expression: str = (
         f'console.assert({expected_str} !== {actual_str}, "{msg}");'
     )
-    expression_file_util.wrap_by_script_tag_and_append_expression(
-        expression=expression)
+    expression_file_util.append_js_expression(expression=expression)
 
 
 def assert_true(
@@ -133,8 +131,7 @@ def assert_true(
     expression = _add_equal_if_type_strict_setting_is_true(
         expression=expression, type_strict=type_strict)
     expression += f' true, "{msg}");'
-    expression_file_util.wrap_by_script_tag_and_append_expression(
-        expression=expression)
+    expression_file_util.append_js_expression(expression=expression)
 
 
 def assert_false(
@@ -168,8 +165,7 @@ def assert_false(
     expression = _add_equal_if_type_strict_setting_is_true(
         expression=expression, type_strict=type_strict)
     expression += f' false, "{msg}");'
-    expression_file_util.wrap_by_script_tag_and_append_expression(
-        expression=expression)
+    expression_file_util.append_js_expression(expression=expression)
 
 
 def assert_arrays_equal(
@@ -199,8 +195,7 @@ def assert_arrays_equal(
 
     expression: str = _make_arrays_comparison_expression(
         expected=expected, actual=actual, msg=msg, not_condition=False)
-    expression_file_util.wrap_by_script_tag_and_append_expression(
-        expression=expression)
+    expression_file_util.append_js_expression(expression=expression)
 
 
 def assert_arrays_not_equal(
@@ -230,8 +225,7 @@ def assert_arrays_not_equal(
 
     expression: str = _make_arrays_comparison_expression(
         expected=expected, actual=actual, msg=msg, not_condition=True)
-    expression_file_util.wrap_by_script_tag_and_append_expression(
-        expression=expression)
+    expression_file_util.append_js_expression(expression=expression)
 
 
 def assert_defined(actual: Any, msg: str = '') -> None:
@@ -258,8 +252,7 @@ def assert_defined(actual: Any, msg: str = '') -> None:
     expression: str = (
         f'console.assert(!_.isUndefined({actual_str}), "{msg}");'
     )
-    expression_file_util.wrap_by_script_tag_and_append_expression(
-        expression=expression)
+    expression_file_util.append_js_expression(expression=expression)
 
 
 def assert_undefined(actual: Any, msg: str = '') -> None:
@@ -285,8 +278,7 @@ def assert_undefined(actual: Any, msg: str = '') -> None:
     expression: str = (
         f'console.assert(_.isUndefined({actual_str}), "{msg}");'
     )
-    expression_file_util.wrap_by_script_tag_and_append_expression(
-        expression=expression)
+    expression_file_util.append_js_expression(expression=expression)
 
 
 def _make_arrays_comparison_expression(

@@ -76,8 +76,7 @@ def _append_complement_hex_color_expression(
         f'\n  {var_name} = {var_name}.repeat(2);'
         '\n}'
     )
-    expression_file_util.wrap_by_script_tag_and_append_expression(
-        expression=expression)
+    expression_file_util.append_js_expression(expression=expression)
 
 
 def _fill_three_digit_hex_color_code(hex_color_code: str) -> str:

@@ -115,8 +115,7 @@ class Stage(
         Append stage constructor expression to file.
         """
         expression: str = self._make_constructor_expression()
-        expression_file_util.wrap_by_script_tag_and_append_expression(
-            expression=expression)
+        expression_file_util.append_js_expression(expression=expression)
 
     def _make_constructor_expression(self) -> str:
         """

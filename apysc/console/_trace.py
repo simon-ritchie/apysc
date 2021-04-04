@@ -30,5 +30,4 @@ def trace(*args: Any) -> None:
         arg_strs.append(f'"{arg}"')
     expression += ', '.join(arg_strs)
     expression += ');'
-    expression_file_util.wrap_by_script_tag_and_append_expression(
-        expression=expression)
+    expression_file_util.append_js_expression(expression=expression)

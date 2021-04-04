@@ -87,6 +87,15 @@ class TestIf:
         )
         assert expected in expression
 
+        testing_helper.assert_raises(
+            expected_error_class=ValueError,
+            func_or_method=If,
+            kwargs={
+                'condition': None,
+                'locals_': locals(),
+                'globals_': globals(),
+            })
+
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_exit_expression(self) -> None:
         expression_file_util.remove_expression_file()

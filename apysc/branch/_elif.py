@@ -29,6 +29,9 @@ class Elif(IfBase):
                 '\ncondition: Boolean = any_value == 10'
                 '\n...'
                 '\nwith Elif(condition, ....):')
+        if self._condition is None:
+            raise ValueError(
+                'Elif expression\'s condition argument can\'t be set None.')
         expression: str = (
             f'else if ({self._condition.variable_name}) {{'
         )

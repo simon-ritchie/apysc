@@ -1,9 +1,10 @@
 """Else branch instruction implementation.
 """
 
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
+
 from apysc.branch.if_base import IfBase
-from apysc.type import Boolean
 
 
 class Else(IfBase):

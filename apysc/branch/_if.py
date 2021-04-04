@@ -11,6 +11,9 @@ class If(IfBase):
         Append if branch instruction start expression to file.
         """
         from apysc.expression import expression_file_util
+        if self._condition is None:
+            raise ValueError(
+                'If expression\'s condition argument can\'t be set None.')
         expression: str = (
             f'if ({self._condition.variable_name}) {{'
         )

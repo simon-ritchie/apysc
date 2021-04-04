@@ -10,10 +10,10 @@ from retrying import retry
 from apysc.branch.if_base import IfBase
 from apysc.expression import expression_file_util
 from apysc.expression import indent_num
-from apysc.type import Boolean
-from apysc.type import Int
 from apysc.expression import last_scope
 from apysc.expression.last_scope import LastScope
+from apysc.type import Boolean
+from apysc.type import Int
 from tests import testing_helper
 
 

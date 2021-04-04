@@ -1,13 +1,15 @@
 from random import randint
 
+import pytest
 from retrying import retry
 
-import pytest
-
-from apysc.branch import If, Elif, Else
-from apysc.expression import expression_file_util, last_scope
+from apysc.branch import Else
+from apysc.branch import If
+from apysc.expression import expression_file_util
+from apysc.expression import last_scope
 from apysc.expression.last_scope import LastScope
-from apysc.type import Boolean, Int
+from apysc.type import Boolean
+from apysc.type import Int
 
 
 class TestElse:
@@ -20,7 +22,6 @@ class TestElse:
         with pytest.raises(ValueError):  # type: ignore
             with Else(locals(), globals()):
                 pass
-            pass
 
         boolean_1: Boolean = Boolean(True)
         int_1: Int = Int(10)

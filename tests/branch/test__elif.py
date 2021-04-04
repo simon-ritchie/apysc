@@ -1,5 +1,6 @@
 from random import randint
 
+import pytest
 from pytest import raises
 from retrying import retry
 
@@ -9,7 +10,6 @@ from apysc.expression import expression_file_util
 from apysc.expression import last_scope
 from apysc.expression.last_scope import LastScope
 from apysc.type import Boolean
-from tests import testing_helper
 
 
 class TestElif:
@@ -37,14 +37,11 @@ class TestElif:
         )
         assert expected in expression
 
-        testing_helper.assert_raises(
-            expected_error_class=ValueError,
-            func_or_method=If,
-            kwargs={
-                'condition': None,
-                'locals_': locals(),
-                'globals_': globals(),
-            })
+        with If(boolean_1, locals(), globals()):
+            pass
+        with pytest.raises(ValueError):  # type: ignore
+            with Elif(None, locals(), globals()):
+                pass
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__set_last_scope(self) -> None:

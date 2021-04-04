@@ -2,6 +2,7 @@ from random import randint
 from typing import Any
 from typing import Dict
 
+import pytest
 from retrying import retry
 
 from apysc.branch import If
@@ -87,14 +88,9 @@ class TestIf:
         )
         assert expected in expression
 
-        testing_helper.assert_raises(
-            expected_error_class=ValueError,
-            func_or_method=If,
-            kwargs={
-                'condition': None,
-                'locals_': locals(),
-                'globals_': globals(),
-            })
+        with pytest.raises(ValueError):  # type: ignore
+            with If(None, locals(), globals()):
+                pass
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_exit_expression(self) -> None:

@@ -27,6 +27,6 @@ class TestCopyInterface:
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{result.variable_name} = '
-            f'JSON.parse(JSON.stringify({interface.variable_name}));'
+            f'cpy({interface.variable_name});'
         )
         assert expected in expression

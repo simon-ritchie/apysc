@@ -40,6 +40,6 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
         from apysc.expression import expression_file_util
         expression: str = (
             f'var {result_variable_name} = '
-            f'JSON.parse(JSON.stringify({self.variable_name}));'
+            f'cpy({self.variable_name});'
         )
         expression_file_util.append_js_expression(expression=expression)

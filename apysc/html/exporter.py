@@ -4,7 +4,10 @@
 import os
 import re
 from logging import Logger
-from typing import List, Match, Optional, Tuple, Pattern
+from typing import List
+from typing import Match
+from typing import Optional
+from typing import Pattern
 
 from apysc.console import loggers
 

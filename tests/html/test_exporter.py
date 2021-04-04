@@ -120,3 +120,24 @@ def test__get_var_name_from_line() -> None:
     var_name = exporter._get_var_name_from_line(
         line='var any_value = 200;')
     assert var_name == 'any_value'
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test__target_js_variable_is_used() -> None:
+    var_name: str = 'i_10'
+    exp_lines: List[str] = [
+        'var i_10 = 20;'
+    ]
+    result: bool = exporter._target_js_variable_is_used(
+        var_name=var_name, exp_lines=exp_lines)
+    assert not result
+
+    exp_lines: List[str] = [
+        'var i_10 = 20;'
+        'i_20 = 30;'
+        'b_5 = true;'
+        'var i_10 = 20;'
+    ]
+    result = exporter._target_js_variable_is_used(
+        var_name=var_name, exp_lines=exp_lines)
+    assert result

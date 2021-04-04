@@ -4,7 +4,7 @@
 import os
 import re
 from logging import Logger
-from typing import List, Match, Optional
+from typing import List, Match, Optional, Tuple
 
 from apysc.console import loggers
 
@@ -197,11 +197,64 @@ def _remove_unused_js_vars(expression: str) -> str:
     """
     lines: List[str] = expression.splitlines()
     lines.reverse()
-    for line in lines:
-        var_name: str = _get_var_name_from_line(line=line)
+    current_line_idx: int = 0
+    while True:
+        if current_line_idx >= len(lines):
+            break
+        var_name: str = _get_var_name_from_line(line=lines[current_line_idx])
         if var_name == '':
+            current_line_idx += 1
             continue
+        target_js_variable_is_used: bool = _target_js_variable_is_used(
+            var_name=var_name, exp_lines=lines)
+        if not target_js_variable_is_used:
+            del lines[current_line_idx]
+            continue
+        current_line_idx += 1
     pass
+
+
+_VAR_PATTERN: str = r'var (.+?) = '
+
+
+def _target_js_variable_is_used(
+        var_name: str, exp_lines: List[str]) -> bool:
+    """
+    Get a boolean value whether target variable is used in
+    js expression or not.
+
+    Parameters
+    ----------
+    var_name : str
+        Target variable name.
+    exp_lines : list of str
+        js expression lines.
+
+    Returns
+    -------
+    result : bool
+        If target variable is used in js expression, True will be
+        returned.
+    """
+    _USED_PATTERNS: Tuple[str, ...] = (
+        rf'^{var_name} ',
+        rf' {var_name} ',
+        rf' {var_name};',
+        rf'({var_name})',
+        rf' {var_name})',
+    )
+    for line in exp_lines:
+        match: Optional[Match] = re.search(
+            pattern=_VAR_PATTERN,
+            string=line)
+        if match is not None:
+            continue
+        for used_pattern in _USED_PATTERNS:
+            match = re.search(
+                pattern=used_pattern, string=line)
+            if match is not None:
+                return True
+    return False
 
 
 def _get_var_name_from_line(line: str) -> str:
@@ -221,7 +274,7 @@ def _get_var_name_from_line(line: str) -> str:
         var expression, blank string will be returned.
     """
     match: Optional[Match] = re.search(
-        pattern=r'var (.+?) = ',
+        pattern=_VAR_PATTERN,
         string=line)
     if match is None:
         return ''

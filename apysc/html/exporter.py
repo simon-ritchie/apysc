@@ -165,6 +165,7 @@ def _append_expression_to_html_str(html_str: str) -> str:
     from apysc.html import html_util
     expression: str = file_util.read_txt(
         file_path=expression_file_util.EXPRESSION_FILE_PATH)
+    expression = _append_common_js_functions(expression=expression)
     info_logger.info(msg='Removing unused variables...')
     expression = _remove_unused_js_vars(expression=expression)
     expression = html_util.wrap_expression_by_script_tag(
@@ -184,6 +185,29 @@ def _append_expression_to_html_str(html_str: str) -> str:
 
     html_str += f'\n{expression}'
     return html_str
+
+
+def _append_common_js_functions(expression: str) -> str:
+    """
+    Append common JavaScript functions (e.g., helper function)
+    to a expression string.
+
+    Parameters
+    ----------
+    expression : str
+        Target expression string.
+
+    Returns
+    -------
+    expression : str
+        Expression string that common functions are appended.
+    """
+    from apysc.expression import js_functions
+    js_function_strs: List[str] = js_functions.get_js_functions()
+    js_function_strs.reverse()
+    for js_function in js_function_strs:
+        expression = f'{js_function}\n{expression}'
+    return expression
 
 
 def _remove_unused_js_vars(expression: str) -> str:

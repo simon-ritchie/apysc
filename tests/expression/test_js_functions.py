@@ -9,3 +9,4 @@ def test_get_js_functions() -> None:
         assert isinstance(js_function_str, str)
         assert 'function' in js_function_str
     assert js_functions.FUNC_COPY in js_function_strs
+    delattr(js_functions, 'FUNC_TEST')

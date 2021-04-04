@@ -8,6 +8,7 @@ from retrying import retry
 from apysc.display import Stage
 from apysc.file import file_util
 from apysc.html import exporter
+from apysc.expression import js_functions
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=300)
@@ -172,3 +173,11 @@ def test__remove_unused_js_vars() -> None:
     )
     result = exporter._remove_unused_js_vars(expression=expression)
     assert result == expression
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test__append_common_js_functions() -> None:
+    expression: str = exporter._append_common_js_functions(
+        expression='console.log("Hello!");')
+    assert js_functions.FUNC_COPY in expression
+    assert expression.endswith('\nconsole.log("Hello!");')

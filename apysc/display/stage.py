@@ -115,7 +115,7 @@ class Stage(
         Append stage constructor expression to file.
         """
         expression: str = self._make_constructor_expression()
-        expression_file_util.append_expression(
+        expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
 
     def _make_constructor_expression(self) -> str:
@@ -130,14 +130,12 @@ class Stage(
         from apysc.html import html_const
         style: str = self._make_style_str()
         expression: str = (
-            f'{html_const.SCRIPT_START_TAG}'
-            f'\nvar stage_html = \'<div id="{self._stage_elem_id}" '
+            f'var stage_html = \'<div id="{self._stage_elem_id}" '
             f'style="{style}"></div>\';'
             f'\n$("{self._add_to}").append(stage_html);'
             f'\n{get_stage_variable_name()} = SVG()'
             f'.addTo("#{self._stage_elem_id}").size('
             f'\n  {self.width}, {self.height});'
-            f'\n{html_const.SCRIPT_END_TAG}'
         )
         return expression
 

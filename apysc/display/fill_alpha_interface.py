@@ -66,9 +66,7 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name}.fill({{opacity: {value_str}}});'
         )
-        expression = html_util.wrap_expression_by_script_tag(
-            expression=expression)
-        expression_file_util.append_expression(
+        expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
 
     def update_fill_alpha_and_skip_appending_exp(

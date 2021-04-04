@@ -45,13 +45,11 @@ class TestStage:
         expression: str = stage._make_constructor_expression()
         style: str = stage._make_style_str()
         expected_str: str = (
-            '<script type="text/javascript">'
-            '\nvar stage_html = \'<div id="line-graph-stage"'
+            'var stage_html = \'<div id="line-graph-stage"'
             f' style="{style}"></div>\';'
             '\n$("#line-graph").append(stage_html);'
             '\nline_graph_stage = SVG().addTo("#line-graph-stage").size('
             '\n  100, 200);'
-            '\n</script>'
         )
         assert expression == expected_str
 

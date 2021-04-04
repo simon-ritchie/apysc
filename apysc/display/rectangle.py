@@ -104,14 +104,12 @@ def append_draw_rect_expression(rectangle: Rectangle) -> None:
     variable_name: str = rectangle.variable_name
     stage_variable_name: str = get_stage_variable_name()
     expression: str = (
-        f'{html_const.SCRIPT_START_TAG}'
         f'\nvar {variable_name} = {stage_variable_name}'
         f'\n  .rect({rectangle.width}, {rectangle.height})'
     )
     attrs_str: str = _make_rect_attrs_expression(rectangle=rectangle)
     expression += f'{attrs_str};'
-    expression += f'\n{html_const.SCRIPT_END_TAG}'
-    expression_file_util.append_expression(
+    expression_file_util.wrap_by_script_tag_and_append_expression(
         expression=expression)
 
 

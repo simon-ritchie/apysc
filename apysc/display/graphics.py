@@ -66,9 +66,8 @@ class Graphics(
             f'var {self.variable_name} = {stage_name}.group();'
             f'\n{parent_name}.add({self.variable_name});'
         )
-        expression = html_util.wrap_expression_by_script_tag(
+        expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
-        expression_file_util.append_expression(expression=expression)
 
     def draw_rect(
             self, x: Union[int, Int],

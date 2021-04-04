@@ -50,9 +50,8 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         expression: str = (
             f'var {self.variable_name} = {value_};'
         )
-        expression = html_util.wrap_expression_by_script_tag(
+        expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
-        expression_file_util.append_expression(expression=expression)
 
     @property
     def value(self) -> Union[int, float, Any]:
@@ -119,9 +118,8 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name} = {right_value};'
         )
-        expression = html_util.wrap_expression_by_script_tag(
+        expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
-        expression_file_util.append_expression(expression=expression)
 
     def __add__(self, other: Union[int, float, Any]) -> Any:
         """

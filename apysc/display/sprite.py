@@ -68,11 +68,9 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
             return False
         stage_variable_name: str = get_stage_variable_name()
         expression: str = (
-            f'{html_const.SCRIPT_START_TAG}'
             f'\nvar {self.variable_name} = {stage_variable_name}.group();'
-            f'\n{html_const.SCRIPT_END_TAG}'
         )
-        expression_file_util.append_expression(
+        expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
         return True
 

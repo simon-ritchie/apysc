@@ -60,9 +60,8 @@ class ChildInterface(RevertInterface):
         expression: str = (
             f'{parent_name}.add({child_name});'
         )
-        expression = html_util.wrap_expression_by_script_tag(
+        expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
-        expression_file_util.append_expression(expression=expression)
 
     def remove_child(self, child: DisplayObject) -> None:
         """
@@ -98,9 +97,8 @@ class ChildInterface(RevertInterface):
         expression: str = (
             f'{parent_name}.removeElement({child_name});'
         )
-        expression = html_util.wrap_expression_by_script_tag(
+        expression_file_util.wrap_by_script_tag_and_append_expression(
             expression=expression)
-        expression_file_util.append_expression(expression=expression)
 
     def contains(self, child: DisplayObject) -> Boolean:
         """

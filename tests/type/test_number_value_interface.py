@@ -398,9 +398,9 @@ class TestNumberValueInterface:
         expression: str = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                r'var number_[0-9]+ = test_interface_0;'
-                r'\nnumber_[0-9]+ = number_[0-9]+ / 4;'
-                r'\ntest_interface_0 = number_[0-9]+;'),
+                r'var n_[0-9]+ = test_interface_0;'
+                r'\nn_[0-9]+ = n_[0-9]+ / 4;'
+                r'\ntest_interface_0 = n_[0-9]+;'),
             string=expression,
             flags=re.MULTILINE | re.DOTALL)
         assert match is not None

@@ -52,8 +52,8 @@ def test__get_next_variable_num() -> None:
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test__make_variable_name() -> None:
     variable_name: str = expression_variables_util._make_variable_name(
-        type_name='sprite', variable_num=3)
-    assert variable_name == 'sprite_3'
+        type_name='i', variable_num=3)
+    assert variable_name == 'i_3'
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))

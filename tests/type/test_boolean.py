@@ -7,6 +7,7 @@ from retrying import retry
 from apysc.expression import expression_file_util
 from apysc.type import Boolean
 from apysc.type import Int
+from apysc.expression import var_names
 from tests import testing_helper
 
 
@@ -18,11 +19,12 @@ class TestBoolean:
         expected_attrs: Dict[str, Any] = {
             '_initial_value': Int(1),
             '_value': True,
-            '_type_name': 'boolean',
+            '_type_name': var_names.BOOLEAN,
         }
         testing_helper.assert_attrs(
             expected_attrs=expected_attrs, any_obj=boolean_1)
-        assert boolean_1.variable_name.startswith('boolean_')
+        assert boolean_1.variable_name.startswith(
+            f'{var_names.BOOLEAN}_')
 
         boolean_2: Boolean = Boolean(value=boolean_1)
         expected_attrs = {

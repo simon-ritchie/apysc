@@ -6,6 +6,7 @@ from retrying import retry
 from apysc.expression import expression_file_util
 from apysc.type import Int
 from apysc.type import Number
+from apysc.expression import var_names
 from tests import testing_helper
 
 
@@ -16,7 +17,7 @@ class TestInt:
         expression_file_util.remove_expression_file()
         int_val_1: Int = Int(value=100.5)
         assert int_val_1.value == 100
-        assert int_val_1.variable_name.startswith('int_')
+        assert int_val_1.variable_name.startswith(f'{var_names.INT}_')
 
         expression: str = expression_file_util.get_current_expression()
         expected: str = (

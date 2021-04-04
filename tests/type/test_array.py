@@ -12,6 +12,7 @@ from apysc.type import Boolean
 from apysc.type import Int
 from apysc.type import Number
 from apysc.type import String
+from apysc.expression import var_names
 from tests import testing_helper
 
 
@@ -23,12 +24,13 @@ class TestArray:
         expected_attrs: Dict[str, Any] = {
             '_initial_value': (1, 2, 3),
             '_value': [1, 2, 3],
-            '_type_name': 'array',
+            '_type_name': var_names.ARRAY,
         }
         testing_helper.assert_attrs(
             expected_attrs=expected_attrs,
             any_obj=array_1)
-        assert array_1.variable_name.startswith('array_')
+        assert array_1.variable_name.startswith(
+            f'{var_names.ARRAY}_')
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__validate_acceptable_value_type(self) -> None:
@@ -248,7 +250,7 @@ class TestArray:
         array_1.remove(2)
         expression: str = expression_file_util.get_current_expression()
         expected_strs: List[str] = [
-            'var index_',
+            'var idx_',
             f' = _.indexOf({array_1.variable_name}, 2);'
             f'\n{array_1.variable_name}.splice(',
             ', 1);'

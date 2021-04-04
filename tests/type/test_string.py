@@ -11,6 +11,7 @@ from apysc.expression import expression_file_util
 from apysc.type import Boolean
 from apysc.type import Int
 from apysc.type import String
+from apysc.expression import var_names
 from tests import testing_helper
 
 
@@ -35,12 +36,12 @@ class TestString:
         expected_attrs: Dict[str, Any] = {
             '_initial_value': 'Hello!',
             '_value': 'Hello!',
-            '_type_name': 'string',
+            '_type_name': var_names.STRING,
         }
         testing_helper.assert_attrs(
             expected_attrs=expected_attrs,
             any_obj=string_1)
-        assert string_1.variable_name.startswith('string_')
+        assert string_1.variable_name.startswith(f'{var_names.STRING}_')
 
         string_2: String = String(value=string_1)
         assert string_2._value == 'Hello!'
@@ -152,8 +153,8 @@ class TestString:
         expression: str = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf'string_[0-9]+ = {original_variable_name} \+ " World!";'
-                rf'\n{original_variable_name} = string_[0-9]+;'
+                rf's_[0-9]+ = {original_variable_name} \+ " World!";'
+                rf'\n{original_variable_name} = s_[0-9]+;'
             ),
             string=expression,
             flags=re.MULTILINE | re.DOTALL)
@@ -171,7 +172,7 @@ class TestString:
         expression: str = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf'{original_variable_name} = string_[0-9]+;'
+                rf'{original_variable_name} = s_[0-9]+;'
             ),
             string=expression, flags=re.MULTILINE | re.DOTALL)
         assert match is not None

@@ -8,10 +8,10 @@ from typing import Optional
 from retrying import retry
 
 from apysc.expression import expression_file_util
+from apysc.expression import var_names
 from apysc.type import Boolean
 from apysc.type import Int
 from apysc.type import String
-from apysc.expression import var_names
 from tests import testing_helper
 
 

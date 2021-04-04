@@ -109,3 +109,14 @@ def test_get_entry_point_func_name() -> None:
     entry_point_func_name: str = exporter.get_entry_point_func_name()
     expected: str = f'main_{stage.variable_name}'
     assert entry_point_func_name == expected
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test__get_var_name_from_line() -> None:
+    var_name: str = exporter._get_var_name_from_line(
+        line='any_value = 200;')
+    assert var_name == ''
+
+    var_name = exporter._get_var_name_from_line(
+        line='var any_value = 200;')
+    assert var_name == 'any_value'

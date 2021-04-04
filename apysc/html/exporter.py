@@ -2,8 +2,9 @@
 """
 
 import os
+import re
 from logging import Logger
-from typing import List
+from typing import List, Match, Optional
 
 from apysc.console import loggers
 
@@ -161,6 +162,7 @@ def _append_expression_to_html_str(html_str: str) -> str:
     from apysc.html import html_util
     expression: str = file_util.read_txt(
         file_path=expression_file_util.EXPRESSION_FILE_PATH)
+    expression = _remove_unused_js_vars(expression=expression)
     expression = html_util.wrap_expression_by_script_tag(
         expression=expression)
     expression = html_util.append_indent_to_each_script_line(
@@ -177,6 +179,54 @@ def _append_expression_to_html_str(html_str: str) -> str:
 
     html_str += f'\n{expression}'
     return html_str
+
+
+def _remove_unused_js_vars(expression: str) -> str:
+    """
+    Remove unused js variables from expression string.
+
+    Parameters
+    ----------
+    expression : str
+        Target js expression string.
+
+    Returns
+    -------
+    expression : str
+        After removing expression string.
+    """
+    lines: List[str] = expression.splitlines()
+    lines.reverse()
+    for line in lines:
+        var_name: str = _get_var_name_from_line(line=line)
+        if var_name == '':
+            continue
+    pass
+
+
+def _get_var_name_from_line(line: str) -> str:
+    """
+    Get a js variable name from specified line string.
+
+    Parameters
+    ----------
+    line : str
+        Target line string.
+
+    Returns
+    -------
+    var_name : str
+        Result variable name. If line contains `var <any_name> = ...;`
+        pattern, then `any_name` will be returned. Or if there is no
+        var expression, blank string will be returned.
+    """
+    match: Optional[Match] = re.search(
+        pattern=r'var (.+?) = ',
+        string=line)
+    if match is None:
+        return ''
+    var_name: str = match.group(1)
+    return var_name
 
 
 def _append_head_to_html_str(html_str: str) -> str:

@@ -4,7 +4,7 @@ Mainly following interfaces are defined:
 
 - empty_expression_dir : Remove expression directory
     (EXPRESSION_ROOT_DIR) to initialize.
-- append_expression : Append html and js expression to file.
+- append_js_expression : Append js expression to file.
 - wrap_by_script_tag_and_append_expression : Wrap an expression
     string by script tags and append it's expression to file.
 - get_current_expression : Get current expression string.
@@ -31,14 +31,14 @@ def empty_expression_dir() -> None:
     file_util.empty_directory(directory_path=EXPRESSION_ROOT_DIR)
 
 
-def append_expression(expression: str) -> None:
+def append_js_expression(expression: str) -> None:
     """
-    Append html and js expression to file.
+    Append js expression to file.
 
     Parameters
     ----------
     expression : str
-        HTML and js Expression string.
+        JavaScript Expression string.
     """
     from apysc.expression import indent_num
     from apysc.expression import last_scope
@@ -52,14 +52,13 @@ def append_expression(expression: str) -> None:
     os.makedirs(dir_path, exist_ok=True)
     file_util.append_plain_txt(
         txt=f'{expression}\n', file_path=EXPRESSION_FILE_PATH)
-    _merge_script_section()
     last_scope.set_last_scope(value=last_scope.LastScope.NORMAL)
 
 
 def wrap_by_script_tag_and_append_expression(expression: str) -> None:
     """
     Wrap an expression string by script tags and append it's
-    expression to file (helper function of `append_expression`).
+    expression to file (helper function of `append_js_expression`).
 
     Parameters
     ----------
@@ -69,45 +68,7 @@ def wrap_by_script_tag_and_append_expression(expression: str) -> None:
     from apysc.html import html_util
     expression = html_util.wrap_expression_by_script_tag(
         expression=expression)
-    append_expression(expression=expression)
-
-
-def _merge_script_section() -> None:
-    """
-    Merge expression's script section (If there are multiple
-    script tag in expression file, then they will be merged).
-    """
-    from apysc.file import file_util
-    from apysc.html import html_const
-    from apysc.html.html_util import ScriptLineUtil
-    result_expression: str = ''
-    current_expression: str = file_util.read_txt(
-        file_path=EXPRESSION_FILE_PATH)
-    current_exp_lines: List[str] = current_expression.splitlines()
-    script_line_util: ScriptLineUtil = ScriptLineUtil(
-        html=current_expression)
-    script_strings: str = ''
-    for i, current_exp_line in enumerate(current_exp_lines):
-        if current_exp_line == html_const.SCRIPT_START_TAG:
-            continue
-        if current_exp_line == html_const.SCRIPT_END_TAG:
-            continue
-        line_num: int = i + 1
-        if script_line_util.is_script_line(line_number=line_num):
-            if current_exp_line == '':
-                continue
-            script_strings += f'{current_exp_line}\n'
-            continue
-        result_expression += f'{current_exp_line}\n'
-    if script_strings != '':
-        result_expression += (
-            f'{html_const.SCRIPT_START_TAG}\n'
-            f'{script_strings}'
-            f'{html_const.SCRIPT_END_TAG}\n'
-        )
-    file_util.save_plain_txt(
-        txt=result_expression,
-        file_path=EXPRESSION_FILE_PATH)
+    append_js_expression(expression=expression)
 
 
 def get_current_expression() -> str:

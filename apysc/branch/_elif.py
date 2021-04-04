@@ -19,7 +19,16 @@ class Elif(IfBase):
         if not self._last_scope_is_if_or_elif():
             raise ValueError(
                 'Elif interface can only use right after If or Elif '
-                'interfaces.')
+                'interfaces.'
+                '\n\nMaybe you are using Int or String, or anything else'
+                ' comparison expression at Elif constructor (e.g., '
+                '`with Elif(any_value == 10, ...):`).'
+                '\nCurrently that specifying expression directly is not '
+                'supported so please'
+                ' define condition seperately as follows:'
+                '\ncondition: Boolean = any_value == 10'
+                '\n...'
+                '\nwith Elif(condition, ....):')
         expression: str = (
             f'else if ({self._condition.variable_name}) {{'
         )

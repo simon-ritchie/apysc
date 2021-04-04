@@ -132,11 +132,11 @@ def test__target_js_variable_is_used() -> None:
         var_name=var_name, exp_lines=exp_lines)
     assert not result
 
-    exp_lines: List[str] = [
-        'var i_10 = 20;'
-        'i_20 = 30;'
-        'b_5 = true;'
-        'var i_10 = 20;'
+    exp_lines = [
+        'var i_10 = 20;',
+        'i_20 = 30;',
+        'b_5 = true;',
+        'i_10 = 20;',
     ]
     result = exporter._target_js_variable_is_used(
         var_name=var_name, exp_lines=exp_lines)

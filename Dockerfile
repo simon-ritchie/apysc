@@ -16,4 +16,4 @@ RUN pip install autopep8==1.5.5
 RUN pip install flake8==3.8.4
 RUN pip install numdoclint==0.1.6
 RUN pip install mypy==0.800
-RUN pip install minify-html==0.3.11
+RUN pip install css-html-js-minify==2.5.5

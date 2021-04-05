@@ -31,6 +31,7 @@ setup(
         exclude=('tests', 'tests.*', 'test_projects', 'test_projects.*')),
     install_requires=[
         'typing-extensions',
+        'minify-html',
     ],
     include_package_data=True,
     license='MIT',

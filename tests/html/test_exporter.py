@@ -61,13 +61,20 @@ def test_save_expressions_overall_html() -> None:
     tmp_dir_path: str = '../.tmp_apysc_test_exporter/'
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
     Stage(stage_elem_id='test_stage')
-    exporter.save_expressions_overall_html(dest_dir_path=tmp_dir_path)
+    exporter.save_expressions_overall_html(
+        dest_dir_path=tmp_dir_path, minify=False)
     expected_index_file_path: str = os.path.join(tmp_dir_path, 'index.html')
     assert os.path.isfile(expected_index_file_path)
     html_str: str = file_util.read_txt(file_path=expected_index_file_path)
     assert html_str.startswith('<html>\n<head>')
     assert html_str.endswith('\n</html>')
     assert 'id="test_stage"' in html_str
+    shutil.rmtree(tmp_dir_path, ignore_errors=True)
+
+    exporter.save_expressions_overall_html(
+        dest_dir_path=tmp_dir_path, minify=True)
+    html_str = file_util.read_txt(file_path=expected_index_file_path)
+    assert html_str.startswith('<html><head>')
 
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
@@ -197,3 +204,19 @@ def test__remove_blank_lines() -> None:
         '\nconsole.log("World!");'
     )
     assert expression == expected
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test__minify_html() -> None:
+    html_str: str = (
+        '<html>'
+        '\n<body>'
+        '\n  <span>a</span>'
+        '\n</body>'
+        '\n</html>'
+    )
+    html_str = exporter._minify_html(html_str=html_str, minify=False)
+    assert html_str.startswith('<html>\n<body>')
+
+    html_str = exporter._minify_html(html_str=html_str, minify=True)
+    assert html_str.startswith('<html><body>')

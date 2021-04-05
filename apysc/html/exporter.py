@@ -9,12 +9,15 @@ from typing import Match
 from typing import Optional
 from typing import Pattern
 
+from html_minifier.minify import Minifier
+
 from apysc.console import loggers
 
 info_logger: Logger = loggers.get_info_logger()
 
 
-def save_expressions_overall_html(dest_dir_path: str) -> None:
+def save_expressions_overall_html(
+        dest_dir_path: str, minify: bool = True) -> None:
     """
     Save each expressions html under the specified directory path.
 
@@ -26,6 +29,9 @@ def save_expressions_overall_html(dest_dir_path: str) -> None:
     ----------
     dest_dir_path : str
         Destination directory path to save each html and js files.
+    minify : bool, default True
+        Boolean value whether minify HTML and js or not.
+        False setting is useful when debugging.
     """
     from apysc.file import file_util
     from apysc.html import html_util
@@ -46,12 +52,37 @@ def save_expressions_overall_html(dest_dir_path: str) -> None:
     html_str = _append_entry_point_function_call(html_str=html_str)
     html_str = html_util.append_html_to_str(
         to_append_html='</html>', dest_html=html_str, indent_num=0)
+    html_str = _minify_html(html_str=html_str, minify=minify)
     info_logger.info(msg='HTML saving started...')
     _save_html(
         html_str=html_str, dir_path=dest_dir_path, file_name='index.html')
     file_path: str = os.path.join(dest_dir_path, 'index.html')
     info_logger.info(
         msg=f'All files were exported! \nFile path is : {file_path}')
+
+
+def _minify_html(html_str: str, minify: bool) -> str:
+    """
+    Minify HTML and js string.
+
+    Parameters
+    ----------
+    html_str : str
+        HTML string to minify.
+    minify : bool
+        Boolean value whether minify HTML and js or not.
+        If False, then minifying will be skipped.
+
+    Returns
+    -------
+    html_str : str
+        Result html string.
+    """
+    if not minify:
+        return html_str
+    minifier = Minifier(html=html_str)
+    html_str = minifier.minify()
+    return html_str
 
 
 def _append_stage_global_variable_to_html(html_str: str) -> str:

@@ -13,7 +13,7 @@ import os
 from types import ModuleType
 
 from apysc import If
-from apysc.console import assert_equal
+from apysc import assert_equal
 from apysc import Stage
 from apysc.file import file_util
 from apysc.html import exporter

@@ -12,8 +12,8 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc.console import assert_false
-from apysc.console import assert_true
+from apysc import assert_false
+from apysc import assert_true
 from apysc import Stage
 from apysc.file import file_util
 from apysc.html import exporter

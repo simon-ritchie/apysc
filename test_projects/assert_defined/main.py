@@ -12,8 +12,8 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc.console import assert_defined
-from apysc.console import assert_undefined
+from apysc import assert_defined
+from apysc import assert_undefined
 from apysc import Sprite
 from apysc import Stage
 from apysc.display.display_object import DisplayObject

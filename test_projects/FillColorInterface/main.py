@@ -12,8 +12,8 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc.console import assert_equal
-from apysc.console import assert_not_equal
+from apysc import assert_equal
+from apysc import assert_not_equal
 from apysc import Rectangle
 from apysc import Sprite
 from apysc import Stage

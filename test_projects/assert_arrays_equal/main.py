@@ -13,10 +13,10 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc.console import assert_arrays_equal
-from apysc.console import assert_arrays_not_equal
-from apysc.console import assert_equal
-from apysc.console import assert_not_equal
+from apysc import assert_arrays_equal
+from apysc import assert_arrays_not_equal
+from apysc import assert_equal
+from apysc import assert_not_equal
 from apysc import Stage
 from apysc.file import file_util
 from apysc.html import exporter

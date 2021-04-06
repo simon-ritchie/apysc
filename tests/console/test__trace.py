@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc.console import trace
+from apysc import trace
 from apysc import Stage
 from apysc.expression import expression_file_util
 

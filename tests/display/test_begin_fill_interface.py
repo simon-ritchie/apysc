@@ -2,9 +2,9 @@ from random import randint
 
 from retrying import retry
 
-from apysc.display.begin_fill_interface import BeginFillInterface
 from apysc import Number
 from apysc import String
+from apysc.display.begin_fill_interface import BeginFillInterface
 
 
 class TestBeginFillInterface:

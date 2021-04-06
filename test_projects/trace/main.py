@@ -12,8 +12,8 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import trace
 from apysc import Stage
+from apysc import trace
 from apysc.file import file_util
 from apysc.html import exporter
 

@@ -2,9 +2,9 @@ from random import randint
 
 from retrying import retry
 
+from apysc import Number
 from apysc.display.fill_alpha_interface import FillAlphaInterface
 from apysc.expression import expression_file_util
-from apysc import Number
 from apysc.type import value_util
 
 

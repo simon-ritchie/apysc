@@ -5,13 +5,13 @@ from typing import Dict
 import pytest
 from retrying import retry
 
+from apysc import Boolean
 from apysc import If
+from apysc import Int
 from apysc.expression import expression_file_util
 from apysc.expression import indent_num
 from apysc.expression import last_scope
 from apysc.expression.last_scope import LastScope
-from apysc import Boolean
-from apysc import Int
 from tests import testing_helper
 
 

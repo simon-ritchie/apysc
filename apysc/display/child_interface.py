@@ -6,10 +6,10 @@ from typing import Dict
 from typing import List
 from typing import Union
 
-from apysc.display.display_object import DisplayObject
 from apysc import Array
 from apysc import Boolean
 from apysc import Int
+from apysc.display.display_object import DisplayObject
 from apysc.type.revert_interface import RevertInterface
 
 

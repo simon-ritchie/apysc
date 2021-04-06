@@ -2,10 +2,10 @@ from random import randint
 
 from retrying import retry
 
-from apysc.display.line_style_interface import LineStyleInterface
 from apysc import Int
 from apysc import Number
 from apysc import String
+from apysc.display.line_style_interface import LineStyleInterface
 from tests import testing_helper
 
 

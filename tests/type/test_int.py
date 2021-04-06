@@ -3,10 +3,10 @@ from random import randint
 import pytest
 from retrying import retry
 
-from apysc.expression import expression_file_util
-from apysc.expression import var_names
 from apysc import Int
 from apysc import Number
+from apysc.expression import expression_file_util
+from apysc.expression import var_names
 from tests import testing_helper
 
 

@@ -197,8 +197,8 @@ class String(CopyInterface, RevertInterface):
         other : int or Int
             String repetition number.
         """
-        from apysc.expression import expression_file_util
         from apysc import Int
+        from apysc.expression import expression_file_util
         expression: str = f'var {result.variable_name} = "";'
         expression += '\nfor (var i = 0; i < '
         if isinstance(other, Int):

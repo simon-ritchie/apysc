@@ -12,13 +12,13 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
+from apysc import Boolean
 from apysc import If
-from apysc import assert_equal
 from apysc import Stage
+from apysc import String
+from apysc import assert_equal
 from apysc.file import file_util
 from apysc.html import exporter
-from apysc import Boolean
-from apysc import String
 
 this_module: ModuleType = sys.modules[__name__]
 

@@ -2,9 +2,9 @@ from random import randint
 
 from retrying import retry
 
+from apysc import String
 from apysc.display.fill_color_interface import FillColorInterface
 from apysc.expression import expression_file_util
-from apysc import String
 
 
 class TestFillColorInterface:

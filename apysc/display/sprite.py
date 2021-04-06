@@ -3,11 +3,11 @@
 
 from typing import Optional
 
+from apysc import Array
 from apysc.display.child_interface import ChildInterface
 from apysc.display.display_object import DisplayObject
 from apysc.display.graphics import Graphics
 from apysc.display.stage import Stage
-from apysc import Array
 from apysc.type.revert_interface import RevertInterface
 
 

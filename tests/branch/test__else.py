@@ -3,13 +3,13 @@ from random import randint
 import pytest
 from retrying import retry
 
+from apysc import Boolean
 from apysc import Else
 from apysc import If
+from apysc import Int
 from apysc.expression import expression_file_util
 from apysc.expression import last_scope
 from apysc.expression.last_scope import LastScope
-from apysc import Boolean
-from apysc import Int
 
 
 class TestElse:

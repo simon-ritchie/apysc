@@ -7,13 +7,13 @@ from typing import Optional
 
 from retrying import retry
 
+from apysc import Boolean
+from apysc import Int
 from apysc.branch.if_base import IfBase
 from apysc.expression import expression_file_util
 from apysc.expression import indent_num
 from apysc.expression import last_scope
 from apysc.expression.last_scope import LastScope
-from apysc import Boolean
-from apysc import Int
 from tests import testing_helper
 
 

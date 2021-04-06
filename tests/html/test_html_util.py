@@ -5,10 +5,10 @@ from typing import Tuple
 
 from retrying import retry
 
+from apysc import String
 from apysc.expression import expression_file_util
 from apysc.html import html_util
 from apysc.html.html_util import ScriptLineUtil
-from apysc import String
 from tests import testing_helper
 
 

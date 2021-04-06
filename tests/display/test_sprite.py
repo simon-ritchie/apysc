@@ -3,13 +3,13 @@ from typing import List
 
 from retrying import retry
 
+from apysc import Array
 from apysc import Sprite
 from apysc import Stage
 from apysc.display.graphics import Graphics
 from apysc.display.stage import get_stage_variable_name
 from apysc.expression import expression_file_util
 from apysc.file import file_util
-from apysc import Array
 from tests import testing_helper
 
 

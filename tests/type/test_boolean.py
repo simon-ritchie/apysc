@@ -4,10 +4,10 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc.expression import expression_file_util
-from apysc.expression import var_names
 from apysc import Boolean
 from apysc import Int
+from apysc.expression import expression_file_util
+from apysc.expression import var_names
 from tests import testing_helper
 
 

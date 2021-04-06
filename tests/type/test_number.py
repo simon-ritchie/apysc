@@ -3,8 +3,8 @@ from random import randint
 import pytest
 from retrying import retry
 
-from apysc.expression import expression_file_util
 from apysc import Number
+from apysc.expression import expression_file_util
 from apysc.type import type_util
 from tests import testing_helper
 

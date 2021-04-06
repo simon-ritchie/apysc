@@ -2,11 +2,11 @@ from random import randint
 
 from retrying import retry
 
-from apysc.console import assertion
-from apysc.expression import expression_file_util
 from apysc import Array
 from apysc import Boolean
 from apysc import Int
+from apysc.console import assertion
+from apysc.expression import expression_file_util
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))

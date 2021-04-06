@@ -1,6 +1,6 @@
-from apysc.converter import cast
 from apysc import Int
 from apysc import Number
+from apysc.converter import cast
 
 
 def test_to_int_from_float() -> None:

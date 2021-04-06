@@ -7,11 +7,11 @@ from datetime import datetime
 from typing import Any
 from typing import Optional
 
+from apysc import Int
 from apysc.display.child_interface import ChildInterface
 from apysc.display.height_interface import HeightInterface
 from apysc.display.width_interface import WidthInterface
 from apysc.expression import expression_file_util
-from apysc import Int
 from apysc.type.variable_name_interface import VariableNameInterface
 
 _STAGE_ELEM_ID_FILE_PATH: str = os.path.join(
@@ -52,9 +52,9 @@ class Stage(
             ID attribute set to stage html element (e.g., 'line-graph').
             If None is set, random integer will be applied.
         """
+        from apysc import Array
         from apysc.color import color_util
         from apysc.html import html_util
-        from apysc import Array
         from apysc.validation import string_validation
         expression_file_util.empty_expression_dir()
         self.stage = self

@@ -3,8 +3,8 @@
 
 from typing import Any
 
-from apysc.display.display_object import DisplayObject
 from apysc import Int
+from apysc.display.display_object import DisplayObject
 
 
 class GraphicBase(DisplayObject):

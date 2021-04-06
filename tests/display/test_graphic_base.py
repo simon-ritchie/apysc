@@ -2,10 +2,10 @@ from random import randint
 
 from retrying import retry
 
+from apysc import Int
 from apysc import Sprite
 from apysc import Stage
 from apysc.display.graphic_base import GraphicBase
-from apysc import Int
 from tests import testing_helper
 
 

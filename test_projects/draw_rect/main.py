@@ -12,15 +12,15 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import assert_not_equal
+from apysc import Int
+from apysc import Number
 from apysc import Rectangle
 from apysc import Sprite
 from apysc import Stage
+from apysc import String
+from apysc import assert_not_equal
 from apysc.file import file_util
 from apysc.html import exporter
-from apysc import Int
-from apysc import Number
-from apysc import String
 
 this_module: ModuleType = sys.modules[__name__]
 

@@ -33,7 +33,7 @@ def is_number(value: Any) -> bool:
     result : bool
         If Number value is specified, True will be returned.
     """
-    from apysc.type import Number
+    from apysc import Number
     if isinstance(value, Number):
         return True
     return False
@@ -78,7 +78,7 @@ def is_bool(value: Any) -> bool:
     """
     if is_same_class_instance(class_=bool, instance=value):
         return True
-    from apysc.type import Boolean
+    from apysc import Boolean
     if isinstance(value, Boolean):
         return True
     return False

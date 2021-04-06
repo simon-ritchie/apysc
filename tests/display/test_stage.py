@@ -10,7 +10,7 @@ from apysc.display.display_object import DisplayObject
 from apysc.display.stage import _STAGE_ELEM_ID_FILE_PATH
 from apysc.expression import expression_file_util
 from apysc.file import file_util
-from apysc.type import Array
+from apysc import Array
 from tests import testing_helper
 
 

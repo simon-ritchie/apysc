@@ -12,9 +12,9 @@ from apysc.display.line_alpha_interface import LineAlphaInterface
 from apysc.display.line_color_interface import LineColorInterface
 from apysc.display.line_thickness_interface import LineThicknessInterface
 from apysc.display.width_interface import WidthInterface
-from apysc.type import Int
-from apysc.type import Number
-from apysc.type import String
+from apysc import Int
+from apysc import Number
+from apysc import String
 
 
 class Rectangle(

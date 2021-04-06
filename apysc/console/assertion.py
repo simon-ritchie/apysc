@@ -337,7 +337,7 @@ def _trace_arrays_assertion_info(
     actual : *
         Actual value.
     """
-    from apysc.type import Array
+    from apysc import Array
     from apysc.type import value_util
     expected_exp_str: str = value_util.get_value_str_for_expression(
         value=expected)
@@ -372,7 +372,7 @@ def _actual_value_type_is_array(actual: Any) -> bool:
     result : bool
         If actual value type is Array, True will be returned.
     """
-    from apysc.type import Array
+    from apysc import Array
     if isinstance(actual, Array):
         return True
     return False

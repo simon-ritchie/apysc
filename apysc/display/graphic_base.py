@@ -4,7 +4,7 @@
 from typing import Any
 
 from apysc.display.display_object import DisplayObject
-from apysc.type import Int
+from apysc import Int
 
 
 class GraphicBase(DisplayObject):

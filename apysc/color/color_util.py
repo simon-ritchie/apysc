@@ -4,7 +4,7 @@
 from typing import Any
 from typing import TypeVar
 
-from apysc.type import String
+from apysc import String
 
 StrOrString = TypeVar('StrOrString', str, String)
 

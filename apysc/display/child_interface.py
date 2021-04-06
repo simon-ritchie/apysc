@@ -7,9 +7,9 @@ from typing import List
 from typing import Union
 
 from apysc.display.display_object import DisplayObject
-from apysc.type import Array
-from apysc.type import Boolean
-from apysc.type import Int
+from apysc import Array
+from apysc import Boolean
+from apysc import Int
 from apysc.type.revert_interface import RevertInterface
 
 

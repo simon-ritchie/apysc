@@ -3,7 +3,7 @@
 
 from typing import Dict
 
-from apysc.type import Int
+from apysc import Int
 from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
 

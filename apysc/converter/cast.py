@@ -14,8 +14,8 @@ Mainly following interfaces are defined.
 from typing import Any
 from typing import Union
 
-from apysc.type import Int
-from apysc.type import Number
+from apysc import Int
+from apysc import Number
 
 
 def to_int_from_float(
@@ -34,9 +34,9 @@ def to_int_from_float(
     int_val : int or Int
         Converted integer value.
     """
-    from apysc.type import Number
+    from apysc import Number
     if isinstance(int_or_float, Number):
-        from apysc.type import Int
+        from apysc import Int
         return Int(int_or_float)
     if not isinstance(int_or_float, float):
         return int_or_float
@@ -59,9 +59,9 @@ def to_float_from_int(
     float_val : float or Number
         Converted float value.
     """
-    from apysc.type import Int
+    from apysc import Int
     if isinstance(int_or_float, Int):
-        from apysc.type import Number
+        from apysc import Number
         return Number(int_or_float)
     if not isinstance(int_or_float, int):
         return int_or_float

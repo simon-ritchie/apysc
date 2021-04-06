@@ -24,7 +24,7 @@ from typing import Optional
 from typing import Tuple
 from typing import TypeVar
 
-from apysc.type import String
+from apysc import String
 from apysc.type.variable_name_interface import VariableNameInterface
 
 StrOrString = TypeVar('StrOrString', str, String)
@@ -56,7 +56,7 @@ def remove_first_selector_symbol_char(
             str_val = str_val[1:]  # type: ignore
         return str_val
 
-    from apysc.type import String
+    from apysc import String
     if isinstance(str_val, String):
         str_val_: String = value_util.get_copy(
             value=str_val)

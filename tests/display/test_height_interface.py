@@ -4,7 +4,7 @@ from retrying import retry
 
 from apysc.display.height_interface import HeightInterface
 from apysc.expression import expression_file_util
-from apysc.type import Int
+from apysc import Int
 
 
 class TestHeightInterface:

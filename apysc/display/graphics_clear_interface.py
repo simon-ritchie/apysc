@@ -2,10 +2,10 @@
 """
 
 
-from apysc.type import Array
-from apysc.type import Int
-from apysc.type import Number
-from apysc.type import String
+from apysc import Array
+from apysc import Int
+from apysc import Number
+from apysc import String
 
 
 class GraphicsClearInterface:

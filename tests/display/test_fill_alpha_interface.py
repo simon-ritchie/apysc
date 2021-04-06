@@ -4,7 +4,7 @@ from retrying import retry
 
 from apysc.display.fill_alpha_interface import FillAlphaInterface
 from apysc.expression import expression_file_util
-from apysc.type import Number
+from apysc import Number
 from apysc.type import value_util
 
 

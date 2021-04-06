@@ -4,7 +4,7 @@ from retrying import retry
 
 from apysc.display.y_interface import YInterface
 from apysc.expression import expression_file_util
-from apysc.type import Int
+from apysc import Int
 from apysc.type import value_util
 
 

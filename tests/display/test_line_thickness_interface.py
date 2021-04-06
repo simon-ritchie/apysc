@@ -4,7 +4,7 @@ from retrying import retry
 
 from apysc.display.line_thickness_interface import LineThicknessInterface
 from apysc.expression import expression_file_util
-from apysc.type import Int
+from apysc import Int
 
 
 class TestLineThicknessInterface:

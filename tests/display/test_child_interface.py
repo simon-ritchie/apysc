@@ -7,9 +7,9 @@ from apysc.display import Stage
 from apysc.display.child_interface import ChildInterface
 from apysc.display.display_object import DisplayObject
 from apysc.expression import expression_file_util
-from apysc.type import Array
-from apysc.type import Boolean
-from apysc.type import Int
+from apysc import Array
+from apysc import Boolean
+from apysc import Int
 
 
 class TestChildInterface:

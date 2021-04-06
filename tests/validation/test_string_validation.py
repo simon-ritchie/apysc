@@ -1,4 +1,4 @@
-from apysc.type import String
+from apysc import String
 from apysc.validation import string_validation
 from tests import testing_helper
 

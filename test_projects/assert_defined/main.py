@@ -19,7 +19,7 @@ from apysc.display import Stage
 from apysc.display.display_object import DisplayObject
 from apysc.file import file_util
 from apysc.html import exporter
-from apysc.type import Int
+from apysc import Int
 
 this_module: ModuleType = sys.modules[__name__]
 

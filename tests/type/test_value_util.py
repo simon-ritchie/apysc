@@ -2,8 +2,8 @@ from random import randint
 
 from retrying import retry
 
-from apysc.type import Array
-from apysc.type import Int
+from apysc import Array
+from apysc import Int
 from apysc.type import value_util
 
 

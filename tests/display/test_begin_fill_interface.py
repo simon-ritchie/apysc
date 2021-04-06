@@ -3,8 +3,8 @@ from random import randint
 from retrying import retry
 
 from apysc.display.begin_fill_interface import BeginFillInterface
-from apysc.type import Number
-from apysc.type import String
+from apysc import Number
+from apysc import String
 
 
 class TestBeginFillInterface:

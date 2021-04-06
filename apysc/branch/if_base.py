@@ -8,7 +8,7 @@ from typing import Dict
 from typing import Optional
 from typing import Type
 
-from apysc.type import Boolean
+from apysc import Boolean
 
 
 class IfBase(ABC):

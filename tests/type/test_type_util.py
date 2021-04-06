@@ -1,6 +1,6 @@
-from apysc.type import Boolean
-from apysc.type import Int
-from apysc.type import Number
+from apysc import Boolean
+from apysc import Int
+from apysc import Number
 from apysc.type import type_util
 
 

@@ -7,9 +7,9 @@ from typing import List
 from typing import Optional
 from typing import Union
 
-from apysc.type import Boolean
-from apysc.type import Int
-from apysc.type import String
+from apysc import Boolean
+from apysc import Int
+from apysc import String
 from apysc.type.copy_interface import CopyInterface
 from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
@@ -288,7 +288,7 @@ class Array(CopyInterface, RevertInterface):
         """
         from apysc.validation import number_validation
         number_validation.validate_integer(integer=index)
-        from apysc.type import Int
+        from apysc import Int
         if isinstance(index, Int):
             index_: int = int(index.value)
         else:
@@ -407,7 +407,7 @@ class Array(CopyInterface, RevertInterface):
             Index to remove value.
         """
         self._validate_index_type_is_int(index=index)
-        from apysc.type import Int
+        from apysc import Int
         if isinstance(index, Int):
             index_: int = int(index.value)
         else:
@@ -505,7 +505,7 @@ class Array(CopyInterface, RevertInterface):
         >>> arr.slice(end=2)
         [1, 2]
         """
-        from apysc.type import Int
+        from apysc import Int
         if isinstance(start, Int):
             start_: Optional[int] = int(start.value)
         else:
@@ -590,7 +590,7 @@ class Array(CopyInterface, RevertInterface):
         builtin_int_index : int
             Python builtin integer index value.
         """
-        from apysc.type import Int
+        from apysc import Int
         if isinstance(index, Int):
             return int(index.value)
         return index
@@ -609,7 +609,7 @@ class Array(CopyInterface, RevertInterface):
         ValueError
             If index type is not int or Int type.
         """
-        from apysc.type import Int
+        from apysc import Int
         if isinstance(index, (int, Int)):
             return
         raise ValueError(

@@ -4,7 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc.type import Int
+from apysc import Int
 from apysc.type import revert_interface
 from apysc.type.revert_interface import RevertInterface
 

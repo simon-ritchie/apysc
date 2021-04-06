@@ -13,7 +13,7 @@ from typing import List
 from typing import TypeVar
 from typing import Union
 
-from apysc.type import Array
+from apysc import Array
 
 
 def get_value_str_for_expression(value: Any) -> str:
@@ -63,7 +63,7 @@ def _get_value_str_from_iterable(value: Union[list, tuple, Array]) -> str:
     value_str : str
         Converted string, e.g., '[10, "Hello!", true, any_variable]'.
     """
-    from apysc.type import Array
+    from apysc import Array
     from apysc.type.variable_name_interface import VariableNameInterface
     if isinstance(value, Array):
         value_: List[Any] = value.value  # type: ignore

@@ -9,7 +9,7 @@ from apysc.display import Stage
 from apysc.display import rectangle
 from apysc.display.stage import get_stage_variable_name
 from apysc.expression import expression_file_util
-from apysc.type import Number
+from apysc import Number
 from tests import testing_helper
 
 

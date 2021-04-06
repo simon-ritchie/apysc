@@ -3,7 +3,7 @@
 
 from typing import Union
 
-from apysc.type import Boolean
+from apysc import Boolean
 
 
 def validate_bool(value: Union[bool, Boolean]) -> None:

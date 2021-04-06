@@ -266,7 +266,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         result : Number
             True division result value.
         """
-        from apysc.type import Number
+        from apysc import Number
         result: Number = Number(value=self)
         if isinstance(other, NumberValueInterface):
             value: Union[int, float, Any] = result._value / other.value
@@ -312,7 +312,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         result : Int
             Floor division result value.
         """
-        from apysc.type import Int
+        from apysc import Int
         result: Int = Int(value=self)
         if isinstance(other, NumberValueInterface):
             value: Union[int, float, Any] = self._value // other.value
@@ -476,7 +476,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         result : Boolean
             If specified value is same amount, True will be returned.
         """
-        from apysc.type import Boolean
+        from apysc import Boolean
         if isinstance(other, NumberValueInterface):
             result: Boolean = Boolean(self.value == other.value)
         else:
@@ -520,7 +520,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         result : Boolean
             If specified value is not same amount, True will be returned.
         """
-        from apysc.type import Boolean
+        from apysc import Boolean
         if isinstance(other, NumberValueInterface):
             result: Boolean = Boolean(self.value != other.value)
         else:
@@ -565,7 +565,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             If this value is less than a specified value, then
             True will be returned.
         """
-        from apysc.type import Boolean
+        from apysc import Boolean
         if isinstance(other, NumberValueInterface):
             result: Boolean = Boolean(self.value < other.value)
         else:
@@ -610,7 +610,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             If this value is less than or equal to a specified value,
             then True will be returned.
         """
-        from apysc.type import Boolean
+        from apysc import Boolean
         if isinstance(other, NumberValueInterface):
             result: Boolean = Boolean(self.value <= other.value)
         else:
@@ -655,7 +655,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             If this value is greater than a specified value, then
             True will be returned.
         """
-        from apysc.type import Boolean
+        from apysc import Boolean
         if isinstance(other, NumberValueInterface):
             result: Boolean = Boolean(self.value > other.value)
         else:
@@ -700,7 +700,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             If this value is greater than or equal to a specified value,
             then True will be returned.
         """
-        from apysc.type import Boolean
+        from apysc import Boolean
         if isinstance(other, NumberValueInterface):
             result: Boolean = Boolean(self.value >= other.value)
         else:

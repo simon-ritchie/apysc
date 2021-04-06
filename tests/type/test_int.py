@@ -5,8 +5,8 @@ from retrying import retry
 
 from apysc.expression import expression_file_util
 from apysc.expression import var_names
-from apysc.type import Int
-from apysc.type import Number
+from apysc import Int
+from apysc import Number
 from tests import testing_helper
 
 

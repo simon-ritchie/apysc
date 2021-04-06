@@ -9,7 +9,7 @@ from apysc.display.graphics import Graphics
 from apysc.display.stage import get_stage_variable_name
 from apysc.expression import expression_file_util
 from apysc.file import file_util
-from apysc.type import Array
+from apysc import Array
 from tests import testing_helper
 
 

@@ -10,7 +10,7 @@ from apysc.display.child_interface import ChildInterface
 from apysc.display.graphics_clear_interface import GraphicsClearInterface
 from apysc.display.line_style_interface import LineStyleInterface
 from apysc.display.rectangle import Rectangle
-from apysc.type import Int
+from apysc import Int
 from apysc.type.variable_name_interface import VariableNameInterface
 
 
@@ -35,9 +35,9 @@ class Graphics(
         from apysc.display import Sprite
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names
-        from apysc.type import Array
-        from apysc.type import Number
-        from apysc.type import String
+        from apysc import Array
+        from apysc import Number
+        from apysc import String
         from apysc.validation import display_validation
 
         display_validation.validate_sprite(sprite=parent)

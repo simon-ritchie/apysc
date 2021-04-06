@@ -7,9 +7,9 @@ import pytest
 from retrying import retry
 
 from apysc.expression import expression_file_util
-from apysc.type import Boolean
-from apysc.type import Int
-from apysc.type import Number
+from apysc import Boolean
+from apysc import Int
+from apysc import Number
 from apysc.type.number_value_interface import NumberValueInterface
 from tests import testing_helper
 

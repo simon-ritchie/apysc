@@ -5,7 +5,7 @@
 from typing import Optional
 from typing import Union
 
-from apysc.type import Int
+from apysc import Int
 
 
 def validate_size_is_int(

@@ -18,8 +18,8 @@ from apysc.console import assert_equal
 from apysc.display import Stage
 from apysc.file import file_util
 from apysc.html import exporter
-from apysc.type import Boolean
-from apysc.type import Int
+from apysc import Boolean
+from apysc import Int
 
 this_module: ModuleType = sys.modules[__name__]
 

@@ -4,9 +4,9 @@ from retrying import retry
 
 from apysc.console import assertion
 from apysc.expression import expression_file_util
-from apysc.type import Array
-from apysc.type import Boolean
-from apysc.type import Int
+from apysc import Array
+from apysc import Boolean
+from apysc import Int
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))

@@ -3,7 +3,7 @@
 
 from typing import Union
 
-from apysc.type import String
+from apysc import String
 
 
 def validate_string_type(string: Union[str, String]) -> None:

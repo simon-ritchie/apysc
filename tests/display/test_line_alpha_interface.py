@@ -4,7 +4,7 @@ from retrying import retry
 
 from apysc.display.line_alpha_interface import LineAlphaInterface
 from apysc.expression import expression_file_util
-from apysc.type import Number
+from apysc import Number
 
 
 class TestLineAlphaInterface:

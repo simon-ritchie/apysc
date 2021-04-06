@@ -16,8 +16,8 @@ Mainly following interfaces are defined:
 
 from typing import Union
 
-from apysc.type import Int
-from apysc.type import Number
+from apysc import Int
+from apysc import Number
 
 
 def validate_num(
@@ -59,7 +59,7 @@ def validate_integer(integer: Union[int, Int]) -> None:
     ValueError
         If specified value is not integer.
     """
-    from apysc.type import Int
+    from apysc import Int
     if isinstance(integer, (int, Int)):
         return
     raise ValueError(
@@ -85,7 +85,7 @@ def validate_int_is_zero_or_one(integer: Union[int, Int]) -> None:
     ValueError
         If specified integer is not zero and one.
     """
-    from apysc.type import Int
+    from apysc import Int
     if not isinstance(integer, (int, Int)):
         return
     if integer == 0 or integer == 1:

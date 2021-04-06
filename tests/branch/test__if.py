@@ -5,7 +5,7 @@ from typing import Dict
 import pytest
 from retrying import retry
 
-from apysc.branch import If
+from apysc import If
 from apysc.expression import expression_file_util
 from apysc.expression import indent_num
 from apysc.expression import last_scope

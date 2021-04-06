@@ -3,8 +3,8 @@ from random import randint
 import pytest
 from retrying import retry
 
-from apysc.branch import Else
-from apysc.branch import If
+from apysc import Else
+from apysc import If
 from apysc.expression import expression_file_util
 from apysc.expression import last_scope
 from apysc.expression.last_scope import LastScope

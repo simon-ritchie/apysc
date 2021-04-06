@@ -4,8 +4,8 @@ import pytest
 from pytest import raises
 from retrying import retry
 
-from apysc.branch import Elif
-from apysc.branch import If
+from apysc import Elif
+from apysc import If
 from apysc.expression import expression_file_util
 from apysc.expression import last_scope
 from apysc.expression.last_scope import LastScope

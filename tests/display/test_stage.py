@@ -4,7 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc.display import Stage
+from apysc import Stage
 from apysc.display import stage
 from apysc.display.display_object import DisplayObject
 from apysc.display.stage import _STAGE_ELEM_ID_FILE_PATH

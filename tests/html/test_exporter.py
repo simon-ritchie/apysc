@@ -5,7 +5,7 @@ from typing import List
 
 from retrying import retry
 
-from apysc.display import Stage
+from apysc import Stage
 from apysc.expression import js_functions
 from apysc.file import file_util
 from apysc.html import exporter

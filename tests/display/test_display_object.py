@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc.display import Stage
+from apysc import Stage
 from apysc.display.display_object import DisplayObject
 from tests import testing_helper
 

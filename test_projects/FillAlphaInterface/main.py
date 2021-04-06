@@ -13,9 +13,9 @@ import os
 from types import ModuleType
 
 from apysc.console import assert_equal
-from apysc.display import Rectangle
-from apysc.display import Sprite
-from apysc.display import Stage
+from apysc import Rectangle
+from apysc import Sprite
+from apysc import Stage
 from apysc.file import file_util
 from apysc.html import exporter
 from apysc import Number

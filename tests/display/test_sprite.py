@@ -3,8 +3,8 @@ from typing import List
 
 from retrying import retry
 
-from apysc.display import Sprite
-from apysc.display import Stage
+from apysc import Sprite
+from apysc import Stage
 from apysc.display.graphics import Graphics
 from apysc.display.stage import get_stage_variable_name
 from apysc.expression import expression_file_util

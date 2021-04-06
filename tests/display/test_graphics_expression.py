@@ -2,9 +2,9 @@ from random import randint
 
 from retrying import retry
 
-from apysc.display import Rectangle
-from apysc.display import Sprite
-from apysc.display import Stage
+from apysc import Rectangle
+from apysc import Sprite
+from apysc import Stage
 from apysc.display import graphics_expression
 from apysc.display.graphics import Graphics
 

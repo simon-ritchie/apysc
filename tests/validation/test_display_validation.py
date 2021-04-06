@@ -2,8 +2,8 @@ from random import randint
 
 from retrying import retry
 
-from apysc.display import Sprite
-from apysc.display import Stage
+from apysc import Sprite
+from apysc import Stage
 from apysc.display.display_object import DisplayObject
 from apysc.validation import display_validation
 from tests import testing_helper

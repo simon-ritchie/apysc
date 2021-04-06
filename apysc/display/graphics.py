@@ -32,7 +32,7 @@ class Graphics(
             Variable name to set. Specified only when subclass
             instantiation.
         """
-        from apysc.display import Sprite
+        from apysc import Sprite
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names
         from apysc import Array

@@ -2,8 +2,8 @@ from random import randint
 
 from retrying import retry
 
-from apysc.display import Sprite
-from apysc.display import Stage
+from apysc import Sprite
+from apysc import Stage
 from apysc.display.graphics import Graphics
 from apysc.display.graphics import Rectangle
 from apysc.expression import expression_file_util

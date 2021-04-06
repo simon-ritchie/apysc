@@ -17,8 +17,8 @@ from apysc.console import assert_equal
 from apysc.console import assert_false
 from apysc.console import assert_true
 from apysc.console import assert_undefined
-from apysc.display import Sprite
-from apysc.display import Stage
+from apysc import Sprite
+from apysc import Stage
 from apysc.display.display_object import DisplayObject
 from apysc.file import file_util
 from apysc.html import exporter

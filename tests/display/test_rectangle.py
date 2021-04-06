@@ -3,9 +3,9 @@ from typing import List
 
 from retrying import retry
 
-from apysc.display import Rectangle
-from apysc.display import Sprite
-from apysc.display import Stage
+from apysc import Rectangle
+from apysc import Sprite
+from apysc import Stage
 from apysc.display import rectangle
 from apysc.display.stage import get_stage_variable_name
 from apysc.expression import expression_file_util

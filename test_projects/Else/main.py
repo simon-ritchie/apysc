@@ -15,7 +15,7 @@ from types import ModuleType
 from apysc import Else
 from apysc import If
 from apysc.console import assert_equal
-from apysc.display import Stage
+from apysc import Stage
 from apysc.file import file_util
 from apysc.html import exporter
 from apysc import Int

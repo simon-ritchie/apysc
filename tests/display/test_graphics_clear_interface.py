@@ -4,8 +4,8 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc.display import Sprite
-from apysc.display import Stage
+from apysc import Sprite
+from apysc import Stage
 from tests import testing_helper
 
 

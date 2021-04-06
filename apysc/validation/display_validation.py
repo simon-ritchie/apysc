@@ -19,7 +19,7 @@ def validate_stage(stage: Any) -> None:
     ValueError
         If specified instance is not stage type.
     """
-    from apysc.display import Stage
+    from apysc import Stage
     if isinstance(stage, Stage):
         return
     raise ValueError(
@@ -64,7 +64,7 @@ def validate_sprite(sprite: Any) -> None:
     ValueError
         If specified instance is not Sprite type.
     """
-    from apysc.display import Sprite
+    from apysc import Sprite
     if isinstance(sprite, Sprite):
         return
     raise ValueError(

@@ -14,8 +14,8 @@ from types import ModuleType
 
 from apysc.console import assert_defined
 from apysc.console import assert_undefined
-from apysc.display import Sprite
-from apysc.display import Stage
+from apysc import Sprite
+from apysc import Stage
 from apysc.display.display_object import DisplayObject
 from apysc.file import file_util
 from apysc.html import exporter

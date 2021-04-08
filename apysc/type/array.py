@@ -570,9 +570,14 @@ class Array(CopyInterface, RevertInterface):
         ValueError
             If specified index type is not int and Int.
         """
+        from apysc import AnyValue
         self._validate_index_type_is_int(index=index)
         index_: int = self._get_builtin_int_from_index(index=index)
-        value: Any = self._value[index_]
+        value: Any
+        if len(self._value) <= index:
+            value = AnyValue(None)
+        else:
+            value: Any = self._value[index_]
         self._append_getitem_expression(index=index, value=value)
         return value
 

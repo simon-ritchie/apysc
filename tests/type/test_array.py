@@ -6,7 +6,7 @@ from typing import List
 import pytest
 from retrying import retry
 
-from apysc import Array
+from apysc import Array, AnyValue
 from apysc import Boolean
 from apysc import Int
 from apysc import Number
@@ -392,8 +392,12 @@ class TestArray:
             func_or_method=array_1.__getitem__,
             kwargs={'index': (0, 1)})
 
-        value_1: int = array_1[1]
-        assert value_1 == 2
+        value_1: int = array_1[2]
+        assert value_1 == 3
+
+        value_2: AnyValue = array_1[3]
+        assert isinstance(value_2, AnyValue)
+
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_getitem_expression(self) -> None:
@@ -415,6 +419,14 @@ class TestArray:
         expected = (
             f'{value_1.variable_name} = {array_1.variable_name}'
             f'[{int_2.variable_name}];'
+        )
+        assert expected in expression
+
+        array_2: Array = Array([])
+        value_2: AnyValue = array_2[0]
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{value_2.variable_name} = {array_2.variable_name}[0];'
         )
         assert expected in expression
 

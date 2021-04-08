@@ -32,3 +32,22 @@ class TestAnyValue:
             f'{any_value_2.variable_name} = {int_1.variable_name};'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_value_setter_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        any_value: AnyValue = AnyValue(100)
+        any_value.value = 200
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{any_value.variable_name} = 200;'
+        )
+        assert expected in expression
+
+        int_1: Int = Int(300)
+        any_value.value = int_1
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{any_value.variable_name} = {int_1.variable_name};'
+        )
+        assert expected in expression

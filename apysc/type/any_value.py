@@ -56,6 +56,21 @@ class AnyValue(VariableNameInterface):
             Any value to set.
         """
         self._value = value
+        self._append_value_setter_expression(value=value)
+
+    def _append_value_setter_expression(self, value: Any) -> None:
+        """
+        Append value's setter expression to file.
+
+        Parameters
+        ----------
+        value : *
+            Any value to set.
+        """
+        from apysc.expression import expression_file_util
+        expression: str = f'{self.variable_name} = '
         if isinstance(value, VariableNameInterface):
-            pass
-        pass
+            expression += f'{value.variable_name};'
+        else:
+            expression += f'{value};'
+        expression_file_util.append_js_expression(expression=expression)

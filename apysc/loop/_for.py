@@ -56,7 +56,29 @@ class For:
             self, exc_type: Type,
             exc_value: Any,
             traceback: Any) -> None:
-        pass
+        """
+        Method to be called when end of with statement.
+
+        Parameters
+        ----------
+        exc_type : Type
+            Exception type.
+        exc_value : *
+            Exception value.
+        traceback : *
+            Traceback value.
+        """
+        from apysc.expression import indent_num
+        from apysc.type import revert_interface
+        from apysc.expression import last_scope
+        from apysc.expression.last_scope import LastScope
+        from apysc.expression import expression_file_util
+        revert_interface.revert_each_scope_vars(
+            snapshot_name=self._snapshot_name,
+            locals_=self._locals, globals_=self._globals)
+        indent_num.decrement()
+        expression_file_util.append_js_expression(expression='}')
+        last_scope.set_last_scope(value=LastScope.FOR)
 
     def _append_enter_expression(self, i: Int) -> None:
         """

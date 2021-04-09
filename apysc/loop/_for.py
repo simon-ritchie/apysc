@@ -1,8 +1,8 @@
 """For loop class implementation.
 """
 
-from typing import Any, Dict
-from apysc import Array
+from typing import Any, Dict, Type
+from apysc import Array, Int
 
 
 class For:
@@ -10,6 +10,7 @@ class For:
     _arr: Array
     _locals: Dict[str, Any]
     _globals: Dict[str, Any]
+    _snapshot_name: str
 
     def __init__(
             self, arr: Array, locals_: Dict[str, Any],
@@ -31,3 +32,45 @@ class For:
         self._arr = arr
         self._locals = locals_
         self._globals = globals_
+
+    def __enter__(self) -> Int:
+        """
+        Method to be called when begining of with statement.
+
+        Returns
+        -------
+        i : Int
+            Loop index.
+        """
+        from apysc.expression import indent_num
+        from apysc.type import revert_interface
+        self._snapshot_name = \
+            revert_interface.make_snapshots_of_each_scope_vars(
+                locals_=self._locals, globals_=self._globals)
+        i: Int = Int(0)
+        self._append_enter_expression(i=i)
+        indent_num.increment()
+        return i
+
+    def __exit__(
+            self, exc_type: Type,
+            exc_value: Any,
+            traceback: Any) -> None:
+        pass
+
+    def _append_enter_expression(self, i: Int) -> None:
+        """
+        Append for loop start expression to file.
+
+        Parameters
+        ----------
+        i : Int
+            Loop index value.
+        """
+        from apysc.expression import expression_file_util
+        i_name: str = i.variable_name
+        expression: str = (
+            f'var length = {self._arr.variable_name}.length;'
+            f'for ({i_name} = 0; {i_name} < length; {i_name}++) {{'
+        )
+        expression_file_util.append_js_expression(expression=expression)

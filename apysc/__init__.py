@@ -11,6 +11,7 @@ from apysc.loop._for import For  # isort:skip # noqa
 from apysc.display.sprite import Sprite  # isort:skip # noqa
 from apysc.display.stage import Stage  # isort:skip # noqa
 from apysc.display.rectangle import Rectangle  # isort:skip # noqa
+from apysc.event.event import Event  # isort:skip # noqa
 from apysc.console._trace import trace  # isort:skip # noqa
 from apysc.console.assertion import assert_equal  # isort:skip # noqa
 from apysc.console.assertion import assert_not_equal  # isort:skip # noqa

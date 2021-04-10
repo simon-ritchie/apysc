@@ -12,6 +12,7 @@ class LastScope(Enum):
     ELIF = 3
     ELSE = 4
     FOR = 5
+    EVENT_HANDLER = 6
 
 
 def reset() -> None:

@@ -347,10 +347,7 @@ def _trace_arrays_assertion_info(
         expected_info_str: str = f'{expected_exp_str} ({expected.value})'
     else:
         expected_info_str = expected_exp_str
-    if isinstance(actual, Array):
-        actual_info_str: str = f'{actual_exp_str} ({actual.value})'
-    else:
-        actual_info_str = actual_exp_str
+    actual_info_str = actual_exp_str
     _trace_info(
         interface_label=interface_label,
         expected=expected_info_str,

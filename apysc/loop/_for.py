@@ -1,8 +1,12 @@
 """For loop class implementation.
 """
 
-from typing import Any, Dict, Type
-from apysc import Array, Int
+from typing import Any
+from typing import Dict
+from typing import Type
+
+from apysc import Array
+from apysc import Int
 
 
 class For:
@@ -68,11 +72,11 @@ class For:
         traceback : *
             Traceback value.
         """
+        from apysc.expression import expression_file_util
         from apysc.expression import indent_num
-        from apysc.type import revert_interface
         from apysc.expression import last_scope
         from apysc.expression.last_scope import LastScope
-        from apysc.expression import expression_file_util
+        from apysc.type import revert_interface
         revert_interface.revert_each_scope_vars(
             snapshot_name=self._snapshot_name,
             locals_=self._locals, globals_=self._globals)

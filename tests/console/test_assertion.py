@@ -166,7 +166,7 @@ def test__trace_arrays_assertion_info() -> None:
     expression: str = expression_file_util.get_current_expression()
     assert '[assert_arrays_equal]' in expression
     assert '"\\nExpected:", "[1, 2, 3]"' in expression
-    expected = f'"actual:", "{array_1.variable_name} ([1, 2, 3])"'
+    expected = f'"actual:", "{array_1.variable_name}'
     assert expected in expression
 
     expression_file_util.remove_expression_file()

@@ -1,6 +1,7 @@
-from random import randint
-from typing import List, Match, Optional
 import re
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
@@ -10,7 +11,8 @@ from apysc import Sprite
 from apysc import Stage
 from apysc.display import rectangle
 from apysc.display.stage import get_stage_variable_name
-from apysc.expression import expression_file_util, var_names
+from apysc.expression import expression_file_util
+from apysc.expression import var_names
 from tests import testing_helper
 
 
@@ -97,7 +99,7 @@ def test_append_draw_rect_expression() -> None:
             rf'\n{graphics_name}\.add\({rect_name}\)'
         ),
         string=expression,
-        flags=re.MULTILINE| re.DOTALL,
+        flags=re.MULTILINE | re.DOTALL,
     )
     assert match is not None
     expression_file_util.remove_expression_file()

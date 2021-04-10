@@ -2,6 +2,7 @@
 """
 
 from typing import Any
+
 from apysc.type.variable_name_interface import VariableNameInterface
 
 
@@ -42,6 +43,11 @@ class AnyValue(VariableNameInterface):
     def value(self) -> Any:
         """
         Get a current value.
+
+        Returns
+        -------
+        value : *
+            Any value.
         """
         return self._value
 

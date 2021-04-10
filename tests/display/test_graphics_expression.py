@@ -1,10 +1,11 @@
-from random import randint
 import re
-from typing import Match, Optional
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
-from apysc import Rectangle, String
+from apysc import Rectangle
 from apysc import Sprite
 from apysc import Stage
 from apysc.display import graphics_expression

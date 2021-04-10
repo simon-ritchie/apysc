@@ -577,7 +577,7 @@ class Array(CopyInterface, RevertInterface):
         if len(self._value) <= index:
             value = AnyValue(None)
         else:
-            value: Any = self._value[index_]
+            value = self._value[index_]
         self._append_getitem_expression(index=index, value=value)
         return value
 

@@ -6,7 +6,8 @@ from typing import List
 import pytest
 from retrying import retry
 
-from apysc import Array, AnyValue
+from apysc import AnyValue
+from apysc import Array
 from apysc import Boolean
 from apysc import Int
 from apysc import Number
@@ -397,7 +398,6 @@ class TestArray:
 
         value_2: AnyValue = array_1[3]
         assert isinstance(value_2, AnyValue)
-
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_getitem_expression(self) -> None:

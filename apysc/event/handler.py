@@ -26,3 +26,26 @@ class Handler(Protocol):
 class HandlerData(TypedDict):
     handler: Handler
     kwargs: Dict[str, Any]
+
+
+def get_handler_name(handler: Handler) -> str:
+    """
+    Get a handler name.
+
+    Parameters
+    ----------
+    handler : Handler
+        Target handler.
+
+    Returns
+    -------
+    handler_name : str
+        Handler name (method path + class name (if handler is method)
+        + function or method name).
+    """
+    from apysc.callable import callable_util
+    class_name: str = callable_util.get_method_class_name(method=handler)
+    handler_name: str = (
+        f'{handler.__module__}{class_name}{handler.__name__}'  # type: ignore
+    )
+    return handler_name

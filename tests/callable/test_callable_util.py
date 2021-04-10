@@ -2,6 +2,7 @@ from typing import Any
 from typing import Dict
 
 from apysc.callable import callable_util
+from apysc import Boolean
 
 
 def test_get_func_default_vals() -> None:
@@ -47,3 +48,14 @@ def test_get_name_and_arg_value_dict_from_args() -> None:
         'c': 200,
     }
     assert name_and_arg_value_dict == expected
+
+
+def test_get_method_class_name() -> None:
+    class_name: str = callable_util.get_method_class_name(
+        method=print)
+    assert class_name == ''
+
+    bool_1: Boolean = Boolean(True)
+    class_name = callable_util.get_method_class_name(
+        method=bool_1._get_bool_from_arg_value)
+    assert class_name == 'Boolean'

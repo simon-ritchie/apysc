@@ -88,3 +88,28 @@ def get_name_and_arg_value_dict_from_args(
         name_and_arg_value_dict[arg_name] = arg_value
     name_and_arg_value_dict.update(kwargs)
     return name_and_arg_value_dict
+
+
+def get_method_class_name(method: Callable) -> str:
+    """
+    Get a specified method's class name.
+
+    Parameters
+    ----------
+    method : Callable
+        Target method.
+
+    Returns
+    -------
+    class_name : str
+        Target method's class name. If specified argument is
+        not a method (e.g., function), then blank string will be
+        returned.
+    """
+    if not inspect.ismethod(method):
+        return ''
+    for class_ in inspect.getmro(type(method.__self__)):
+        if method.__name__ not in class_.__dict__:
+            continue
+        return class_.__name__
+    return ''

@@ -52,3 +52,9 @@ class TestAnyValue:
             f'{any_value.variable_name} = {int_1.variable_name};'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_value(self) -> None:
+        any_value: AnyValue = AnyValue(100)
+        any_value.value = 200
+        assert any_value.value == 200

@@ -92,7 +92,7 @@ class For:
         from apysc.expression import expression_file_util
         i_name: str = i.variable_name
         expression: str = (
-            f'var length = {self._arr.variable_name}.length;'
+            f'var length = {self._arr.variable_name}.length;\n'
             f'for ({i_name} = 0; {i_name} < length; {i_name}++) {{'
         )
         expression_file_util.append_js_expression(expression=expression)

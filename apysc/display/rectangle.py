@@ -104,7 +104,8 @@ def append_draw_rect_expression(rectangle: Rectangle) -> None:
     stage_variable_name: str = get_stage_variable_name()
     expression: str = (
         f'\nvar {variable_name} = {stage_variable_name}'
-        f'\n  .rect({rectangle.width}, {rectangle.height})'
+        f'\n  .rect({rectangle.width.variable_name}, '
+        f'{rectangle.height.variable_name})'
     )
     attrs_str: str = _make_rect_attrs_expression(rectangle=rectangle)
     expression += f'{attrs_str};'

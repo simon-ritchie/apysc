@@ -29,7 +29,7 @@ def append_fill_expression(
         return expression
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
-        f'\n{spaces}fill: "{graphics.fill_color}",'
+        f'\n{spaces}fill: {graphics.fill_color.variable_name},'
     )
     return expression
 
@@ -56,7 +56,7 @@ def append_fill_opacity_expression(
     from apysc.string import indent_util
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
-        f'\n{spaces}"fill-opacity": {graphics.fill_alpha},'
+        f'\n{spaces}"fill-opacity": {graphics.fill_alpha.variable_name},'
     )
     return expression
 
@@ -83,7 +83,7 @@ def append_x_expression(
     from apysc.string import indent_util
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
-        f'\n{spaces}x: {graphic.x},'
+        f'\n{spaces}x: {graphic.x.variable_name},'
     )
     return expression
 
@@ -110,7 +110,7 @@ def append_y_expression(
     from apysc.string import indent_util
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
-        f'\n{spaces}y: {graphic.y},'
+        f'\n{spaces}y: {graphic.y.variable_name},'
     )
     return expression
 
@@ -139,7 +139,7 @@ def append_stroke_expression(
         return expression
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
-        f'\n{spaces}stroke: "{graphics.line_color}",'
+        f'\n{spaces}stroke: {graphics.line_color.variable_name},'
     )
     return expression
 
@@ -166,7 +166,7 @@ def append_stroke_width_expression(
     from apysc.string import indent_util
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
-        f'\n{spaces}"stroke-width": {graphics.line_thickness},'
+        f'\n{spaces}"stroke-width": {graphics.line_thickness.variable_name},'
     )
     return expression
 
@@ -193,6 +193,6 @@ def append_stroke_opacity_expression(
     from apysc.string import indent_util
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
-        f'\n{spaces}"stroke-opacity": {graphics.line_alpha},'
+        f'\n{spaces}"stroke-opacity": {graphics.line_alpha.variable_name},'
     )
     return expression

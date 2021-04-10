@@ -1,12 +1,15 @@
 from random import randint
+import re
+from typing import Match, Optional
 
 from retrying import retry
 
-from apysc import Rectangle
+from apysc import Rectangle, String
 from apysc import Sprite
 from apysc import Stage
 from apysc.display import graphics_expression
 from apysc.display.graphics import Graphics
+from apysc.expression import var_names
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -22,10 +25,14 @@ def test_append_fill_expression() -> None:
     graphics.begin_fill(color='#333')
     expression = graphics_expression.append_fill_expression(
         graphics=graphics, expression=expression, indent_num=1)
-    assert expression == (
-        '.attr({'
-        '\n  fill: "#333333",'
-    )
+    match: Optional[Match] = re.search(
+        pattern=(
+            r'\.attr\(\{'
+            rf'\n  fill: {var_names.STRING}.+?,'
+        ),
+        string=expression,
+        flags=re.MULTILINE)
+    assert match is not None
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -38,9 +45,14 @@ def test_append_x_expression() -> None:
     expression: str = '.attr({'
     expression = graphics_expression.append_x_expression(
         graphic=rectangle, expression=expression, indent_num=1)
-    assert expression == (
-        '.attr({'
-        '\n  x: 100,')
+    match: Optional[Match] = re.search(
+        pattern=(
+            r'\.attr\(\{'
+            rf'\n  x: {var_names.INT}.+?,'
+        ),
+        string=expression,
+        flags=re.MULTILINE)
+    assert match is not None
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -53,9 +65,12 @@ def test_append_y_expression() -> None:
     expression: str = '.attr({'
     expression = graphics_expression.append_y_expression(
         graphic=rectangle, expression=expression, indent_num=1)
-    assert expression == (
-        '.attr({'
-        '\n  y: 200,')
+    match: Optional[Match] = re.search(
+        pattern=(
+            r'\.attr\(\{'
+            rf'\n  y: {var_names.INT}.+?,'),
+        string=expression, flags=re.MULTILINE)
+    assert match is not None
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -67,9 +82,13 @@ def test_append_fill_opacity_expression() -> None:
     graphics.begin_fill(color='#333', alpha=0.5)
     expression = graphics_expression.append_fill_opacity_expression(
         graphics=graphics, expression=expression, indent_num=1)
-    assert expression == (
-        '.attr({'
-        '\n  "fill-opacity": 0.5,')
+    match: Optional[Match] = re.search(
+        pattern=(
+            r'\.attr\(\{'
+            rf'\n  "fill-opacity": {var_names.NUMBER}.+?,'),
+        string=expression,
+        flags=re.MULTILINE)
+    assert match is not None
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -85,10 +104,14 @@ def test_append_stroke_expression() -> None:
     graphics.line_style(color='#666')
     expression = graphics_expression.append_stroke_expression(
         graphics=graphics, expression=expression, indent_num=1)
-    assert expression == (
-        '.attr({'
-        '\n  stroke: "#666666",'
-    )
+    match: Optional[Match] = re.search(
+        pattern=(
+            r'\.attr\(\{'
+            rf'\n  stroke: {var_names.STRING}.+?,'
+        ),
+        string=expression,
+        flags=re.MULTILINE)
+    assert match is not None
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -104,10 +127,13 @@ def test_append_stroke_width_expression() -> None:
     graphics.line_style(color='#666', thickness=3)
     expression = graphics_expression.append_stroke_width_expression(
         graphics=graphics, expression=expression, indent_num=1)
-    assert expression == (
-        '.attr({'
-        '\n  "stroke-width": 3,'
-    )
+    match: Optional[Match] = re.search(
+        pattern=(
+            r'\.attr\(\{'
+            rf'\n  "stroke-width": {var_names.INT}.+?,'),
+        string=expression,
+        flags=re.MULTILINE)
+    assert match is not None
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -123,7 +149,10 @@ def test_append_stroke_opacity_expression() -> None:
     graphics.line_style(color='#666', alpha=0.25)
     expression = graphics_expression.append_stroke_opacity_expression(
         graphics=graphics, expression=expression, indent_num=1)
-    assert expression == (
-        '.attr({'
-        '\n  "stroke-opacity": 0.25,'
-    )
+    match: Optional[Match] = re.search(
+        pattern=(
+            r'\.attr\(\{'
+            rf'\n  "stroke-opacity": {var_names.NUMBER}.+?,'),
+        string=expression,
+        flags=re.MULTILINE)
+    assert match is not None

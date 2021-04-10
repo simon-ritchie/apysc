@@ -1,5 +1,6 @@
 from random import randint
-from typing import List
+from typing import List, Match, Optional
+import re
 
 from retrying import retry
 
@@ -9,7 +10,7 @@ from apysc import Sprite
 from apysc import Stage
 from apysc.display import rectangle
 from apysc.display.stage import get_stage_variable_name
-from apysc.expression import expression_file_util
+from apysc.expression import expression_file_util, var_names
 from tests import testing_helper
 
 
@@ -55,50 +56,19 @@ def test__make_rect_attrs_expression() -> None:
         width=150, height=50)
     rect_attrs_expression: str = rectangle._make_rect_attrs_expression(
         rectangle=rectangle_)
-    expected: str = (
-        '\n  .attr({'
-        '\n    "fill-opacity": 1.0,'
-        '\n    "stroke-width": 1,'
-        '\n    "stroke-opacity": 1.0,'
-        '\n    x: 100,'
-        '\n    y: 200,'
-        '\n  })'
-    )
-    assert expected in rect_attrs_expression
-
-    sprite.graphics.begin_fill(color='#333', alpha=0.5)
-    rect_attrs_expression = rectangle._make_rect_attrs_expression(
-        rectangle=rectangle_)
-    expected = (
-        '\n  .attr({'
-        '\n    fill: "#333333",'
-        '\n    "fill-opacity": 0.5,'
-        '\n    "stroke-width": 1,'
-        '\n    "stroke-opacity": 1.0,'
-        '\n    x: 100,'
-        '\n    y: 200,'
-        '\n  })'
-    )
-    assert rect_attrs_expression == expected
-
-    sprite = Sprite(stage=stage)
-    sprite.graphics.line_style(color='#666', thickness=2, alpha=0.3)
-    rectangle_ = Rectangle(
-        parent=sprite.graphics,
-        x=100, y=200, width=150, height=50)
-    rect_attrs_expression = rectangle._make_rect_attrs_expression(
-        rectangle=rectangle_)
-    expected = (
-        '\n  .attr({'
-        '\n    "fill-opacity": 1.0,'
-        '\n    stroke: "#666666",'
-        '\n    "stroke-width": 2,'
-        '\n    "stroke-opacity": 0.3,'
-        '\n    x: 100,'
-        '\n    y: 200,'
-        '\n  })'
-    )
-    assert rect_attrs_expression == expected
+    match: Optional[Match] = re.search(
+        pattern=(
+            r'\n  \.attr\(\{'
+            rf'\n    "fill-opacity": {var_names.NUMBER}.+?,'
+            rf'\n    "stroke-width": {var_names.INT}.+?,'
+            rf'\n    "stroke-opacity": {var_names.NUMBER}.+?,'
+            rf'\n    x: {var_names.INT}.+?,'
+            rf'\n    y: {var_names.INT}.+?,'
+            r'\n  \}\)'
+        ),
+        string=rect_attrs_expression,
+        flags=re.MULTILINE)
+    assert match is not None
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -111,19 +81,23 @@ def test_append_draw_rect_expression() -> None:
     rect_name: str = sprite.graphics.get_child_at(index=0).variable_name
     stage_variable_name: str = get_stage_variable_name()
     expression: str = expression_file_util.get_current_expression()
-    expected_strs: List[str] = [
-        f'\nvar {rect_name} = {stage_variable_name}'
-        '\n  .rect(300, 400)'
-        '\n  .attr({'
-        '\n    fill: "#333333",'
-        '\n    "fill-opacity": 0.5,'
-        '\n    "stroke-width": 1,'
-        '\n    "stroke-opacity": 1.0,'
-        '\n    x: 100,'
-        '\n    y: 200,'
-        '\n  });',
-        f'\n{graphics_name}.add({rect_name});'
-    ]
-    for expected in expected_strs:
-        assert expected in expression
+    match: Optional[Match] = re.search(
+        pattern=(
+            rf'\nvar {rect_name} = {stage_variable_name}'
+            rf'\n  \.rect\({var_names.INT}.+?, {var_names.INT}.+?\)'
+            r'\n  \.attr\(\{'
+            rf'\n    fill: {var_names.STRING}.+?,'
+            rf'\n    "fill-opacity": {var_names.NUMBER}.+?,'
+            rf'\n    "stroke-width": {var_names.INT}.+?,'
+            rf'\n    "stroke-opacity": {var_names.NUMBER}.+?,'
+            rf'\n    x: {var_names.INT}.+?,'
+            rf'\n    y: {var_names.INT}.+?,'
+            r'\n  \}\);'
+            r'.*'
+            rf'\n{graphics_name}\.add\({rect_name}\)'
+        ),
+        string=expression,
+        flags=re.MULTILINE| re.DOTALL,
+    )
+    assert match is not None
     expression_file_util.remove_expression_file()

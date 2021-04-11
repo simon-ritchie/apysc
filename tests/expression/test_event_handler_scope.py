@@ -4,6 +4,7 @@ import os
 from retrying import retry
 
 from apysc.expression import event_handler_scope
+from apysc.expression.event_handler_scope import HandlerScope
 from apysc.expression import expression_file_util
 from apysc.file import file_util
 
@@ -75,3 +76,45 @@ def test__decrement_scope_count() -> None:
     assert scope_count == 0
 
     file_util.remove_file_if_exists(file_path=file_path)
+
+
+class TestHandlerScope:
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___enter__(self) -> None:
+        file_path: str = \
+            expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH
+        file_util.remove_file_if_exists(file_path=file_path)
+
+        with HandlerScope():
+            scope_count: int = event_handler_scope.\
+                get_current_event_handler_scope_count()
+            assert scope_count == 1
+
+            with HandlerScope():
+                scope_count = event_handler_scope.\
+                    get_current_event_handler_scope_count()
+                assert scope_count == 2
+
+        file_util.remove_file_if_exists(file_path=file_path)
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test___exit__(self) -> None:
+        file_path: str = \
+            expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH
+        file_util.remove_file_if_exists(file_path=file_path)
+
+        with HandlerScope():
+
+            with HandlerScope():
+                pass
+
+            scope_count: int = event_handler_scope.\
+                get_current_event_handler_scope_count()
+            assert scope_count == 1
+
+        scope_count = event_handler_scope.\
+            get_current_event_handler_scope_count()
+        assert scope_count == 0
+
+        file_util.remove_file_if_exists(file_path=file_path)

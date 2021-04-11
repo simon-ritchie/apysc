@@ -10,6 +10,11 @@ class HandlerScope:
     Class for handler scope. This is used at with statement.
     """
 
+    def __init__(self) -> None:
+        """
+        Class for handler scope. This is used at with statement.
+        """
+
     def __enter__(self) -> None:
         """
         Enter and set event handler scope setting.

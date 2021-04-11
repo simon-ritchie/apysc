@@ -2,13 +2,21 @@
 interfaces.
 """
 
+import os
 
-def enter_event_handler_scope() -> None:
+
+def current_scope_is_event_handler() -> bool:
     """
-    Enter and set event handler scope setting.
+    Get a boolean value whether current scope is an event handler
+    one or not.
+
+    Returns
+    -------
+    result : bool
+        If current scope is event handler one, then True will be
+        returned
     """
-    from apysc.file import file_util
     from apysc.expression import expression_file_util
-    file_util.save_plain_txt(
-        txt='',
-        file_path=expression_file_util.IS_EVENT_HANDLER_SCOPE_FILE_PATH)
+    if os.path.isfile(expression_file_util.IS_EVENT_HANDLER_SCOPE_FILE_PATH):
+        return True
+    return False

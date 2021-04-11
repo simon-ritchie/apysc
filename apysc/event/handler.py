@@ -52,3 +52,31 @@ def get_handler_name(handler: Handler) -> str:
     )
     handler_name = handler_name.replace('.', '_')
     return handler_name
+
+
+def append_handler_expression(
+        handler_data: HandlerData, handler_name: str,
+        e: Event) -> None:
+    """
+    Append handler's expression to file.
+
+    Parameters
+    ----------
+    handler_data : HandlerData
+        Target handler's data to append.
+    handler_name : str
+        Target Handler's name.
+    """
+    from apysc.expression.event_handler_scope import HandlerScope
+    from apysc.expression import expression_file_util
+    from apysc.expression import indent_num
+
+    with HandlerScope():
+        expression: str = (
+            f'function {handler_name}(e) {{'
+        )
+        expression_file_util.append_js_expression(expression=expression)
+        indent_num.increment()
+        handler_data['handler'](e=e, kwargs=handler_data['kwargs'])
+        indent_num.decrement()
+        expression_file_util.append_js_expression(expression='}')

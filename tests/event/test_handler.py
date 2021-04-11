@@ -79,3 +79,4 @@ def test_append_handler_expression() -> None:
         '\n}'
     )
     assert expected in expression
+    assert int_1 == 10

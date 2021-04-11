@@ -1,7 +1,7 @@
 """Class implementation for handler.
 """
 
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 from typing_extensions import Protocol, TypedDict
 
@@ -70,6 +70,10 @@ def append_handler_expression(
     from apysc.expression.event_handler_scope import HandlerScope
     from apysc.expression import expression_file_util
     from apysc.expression import indent_num
+    from apysc.type import revert_interface
+    variables: List[Any] = [*handler_data['kwargs'].values()]
+    snapshot_name: str = revert_interface.make_variables_snapshots(
+        variables=variables)
 
     with HandlerScope():
         expression: str = (
@@ -80,3 +84,6 @@ def append_handler_expression(
         handler_data['handler'](e=e, kwargs=handler_data['kwargs'])
         indent_num.decrement()
         expression_file_util.append_js_expression(expression='}')
+
+    revert_interface.revert_variables(
+        snapshot_name=snapshot_name, variables=variables)

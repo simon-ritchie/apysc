@@ -6,7 +6,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc.expression import expression_file_util
+from apysc.expression import event_handler_scope, expression_file_util
 from apysc.expression import indent_num
 from apysc.file import file_util
 
@@ -99,3 +99,16 @@ def test_get_current_event_handler_scope_expression() -> None:
     current_expression: str = expression_file_util.\
         get_current_event_handler_scope_expression()
     assert current_expression == 'console.log("Hello!");'
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test__get_expression_file_path() -> None:
+    expression_file_util.remove_expression_file()
+    file_path: str = expression_file_util._get_expression_file_path()
+    assert file_path == expression_file_util.EXPRESSION_FILE_PATH
+
+    event_handler_scope._increment_scope_count()
+    file_path = expression_file_util._get_expression_file_path()
+    assert file_path == \
+        expression_file_util.EVENT_HANDLER_EXPRESSION_FILE_PATH
+    expression_file_util.remove_expression_file()

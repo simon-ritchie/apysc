@@ -6,6 +6,8 @@ Mainly following interfaces are defined:
     (EXPRESSION_ROOT_DIR) to initialize.
 - append_js_expression : Append js expression to file.
 - get_current_expression : Get current expression string.
+- get_current_event_handler_scope_expression : Get a current
+    event handler scope's expression string from a file.
 - remove_expression_file : Remove expression file.
 """
 
@@ -50,12 +52,31 @@ def append_js_expression(expression: str) -> None:
     current_indent_num: int = indent_num.get_current_indent_num()
     expression = indent_util.append_spaces_to_expression(
         expression=expression, indent_num=current_indent_num)
+    file_path: str = _get_expression_file_path()
     dir_path: str = file_util.get_abs_directory_path_from_file_path(
         file_path=EXPRESSION_FILE_PATH)
     os.makedirs(dir_path, exist_ok=True)
     file_util.append_plain_txt(
         txt=f'{expression}\n', file_path=EXPRESSION_FILE_PATH)
     last_scope.set_last_scope(value=last_scope.LastScope.NORMAL)
+
+
+def _get_expression_file_path() -> str:
+    """
+    Get a expression file path. It will switch that current scope
+    is event handler's one or not.
+
+    Returns
+    -------
+    file_path : str
+        Expression file path.
+    """
+    from apysc.expression import event_handler_scope
+    event_handler_scope_count: int = \
+        event_handler_scope.get_current_event_handler_scope_count()
+    if event_handler_scope_count == 0:
+        return EXPRESSION_FILE_PATH
+    return EVENT_HANDLER_EXPRESSION_FILE_PATH
 
 
 def get_current_expression() -> str:

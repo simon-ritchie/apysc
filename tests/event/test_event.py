@@ -2,7 +2,8 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Event, Int
+from apysc import Event
+from apysc import Int
 from apysc.expression import var_names
 from tests import testing_helper
 

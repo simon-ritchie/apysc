@@ -1,11 +1,12 @@
-from apysc.expression import expression_file_util
 from random import randint
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 from retrying import retry
 
-from apysc.event.click_interface import ClickInterface
 from apysc import Event
+from apysc.event.click_interface import ClickInterface
+from apysc.expression import expression_file_util
 from apysc.type.variable_name_interface import VariableNameInterface
 from tests import testing_helper
 
@@ -38,7 +39,7 @@ class TestClickInterface:
         interface_1: _TestClickInterface = _TestClickInterface()
         name: str = interface_1.click(
             handler=self.on_click_1)
-        assert interface_1._click_handlers[
+        assert interface_1._click_handlers[  # type: ignore
             name]['handler'] == self.on_click_1
         assert interface_1._click_handlers[name]['kwargs'] == {}
 

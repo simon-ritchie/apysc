@@ -1,14 +1,15 @@
-from apysc.expression import expression_file_util, indent_num
 from random import randint
+from typing import Any
+from typing import Dict
 
 from retrying import retry
 
-from typing import Any, Dict
-from apysc.event import handler
-from apysc.event.handler import Handler, HandlerData
-from apysc import Boolean, Int
-from apysc.type.variable_name_interface import VariableNameInterface
 from apysc import Event
+from apysc import Int
+from apysc.event import handler
+from apysc.event.handler import HandlerData
+from apysc.expression import expression_file_util
+from apysc.type.variable_name_interface import VariableNameInterface
 from tests import testing_helper
 
 

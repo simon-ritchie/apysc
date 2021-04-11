@@ -1,9 +1,12 @@
 """Class implementation for click interface.
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any
+from typing import Dict
+from typing import Optional
 
-from apysc.event.handler import Handler, HandlerData
+from apysc.event.handler import Handler
+from apysc.event.handler import HandlerData
 
 _VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG: str = (
     'This interface can only be used that inheriting '
@@ -33,10 +36,10 @@ class ClickInterface:
         name : str
             Handler's name.
         """
-        from apysc.type.variable_name_interface import VariableNameInterface
-        from apysc.event.handler import get_handler_name
-        from apysc.event.handler import append_handler_expression
         from apysc import Event
+        from apysc.event.handler import append_handler_expression
+        from apysc.event.handler import get_handler_name
+        from apysc.type.variable_name_interface import VariableNameInterface
         if not isinstance(self, VariableNameInterface):
             raise TypeError(_VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
         self._initialize_click_handlers_if_not_initialized()
@@ -70,8 +73,8 @@ class ClickInterface:
         ValueError
             If this instance is not subclass of VariableNameInterface.
         """
-        from apysc.type.variable_name_interface import VariableNameInterface
         from apysc.expression import expression_file_util
+        from apysc.type.variable_name_interface import VariableNameInterface
         if not isinstance(self, VariableNameInterface):
             raise TypeError(_VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
         expression: str = (

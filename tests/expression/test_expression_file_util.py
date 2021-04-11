@@ -6,7 +6,8 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc.expression import event_handler_scope, expression_file_util
+from apysc.expression import event_handler_scope
+from apysc.expression import expression_file_util
 from apysc.expression import indent_num
 from apysc.expression.event_handler_scope import HandlerScope
 from apysc.file import file_util

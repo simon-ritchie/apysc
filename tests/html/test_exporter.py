@@ -6,10 +6,11 @@ from typing import List
 from retrying import retry
 
 from apysc import Stage
-from apysc.expression import expression_file_util, js_functions
+from apysc.expression import expression_file_util
+from apysc.expression import js_functions
+from apysc.expression.event_handler_scope import HandlerScope
 from apysc.file import file_util
 from apysc.html import exporter
-from apysc.expression.event_handler_scope import HandlerScope
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=300)

@@ -2,11 +2,11 @@ from random import randint
 
 from retrying import retry
 
-from apysc.expression import indent_num
+from apysc.expression import event_handler_scope
 from apysc.expression import expression_file_util
+from apysc.expression import indent_num
 from apysc.expression.expression_file_util import INDENT_NUM_FILE_PATH
 from apysc.file import file_util
-from apysc.expression import event_handler_scope
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))

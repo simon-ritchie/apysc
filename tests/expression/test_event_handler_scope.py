@@ -1,15 +1,17 @@
 from random import randint
-import os
 
 from retrying import retry
 
 from apysc.expression import event_handler_scope
-from apysc.expression.event_handler_scope import HandlerScope
 from apysc.expression import expression_file_util
+from apysc.expression.event_handler_scope import HandlerScope
 from apysc.file import file_util
 
 
 def teardown() -> None:
+    """
+    Function that will be called when test ended.
+    """
     file_path: str = expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH
     file_util.remove_file_if_exists(file_path=file_path)
 

@@ -1,7 +1,7 @@
 """Class Implementation for basic event.
 """
 
-from typing import Any, Optional
+from typing import Optional
 
 from apysc.type.variable_name_interface import VariableNameInterface
 
@@ -23,8 +23,8 @@ class Event(VariableNameInterface):
         type_name : str or None, default None
             Type name to set. Only specify when inherit this class.
         """
-        from apysc.expression import var_names
         from apysc.expression import expression_variables_util
+        from apysc.expression import var_names
         self._this = this
         if type_name is None:
             type_name = var_names.EVENT

@@ -126,6 +126,11 @@ def _get_current_expression(file_path: str) -> str:
     ----------
     file_path : str
         Target file path.
+
+    Returns
+    -------
+    current_expression : str
+        Current expression's string.
     """
     from apysc.file import file_util
     if not os.path.isfile(file_path):

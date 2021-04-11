@@ -42,8 +42,8 @@ def _get_indent_num_file_path() -> str:
     file_path : str
         Indent number file path.
     """
-    from apysc.expression import expression_file_util
     from apysc.expression import event_handler_scope
+    from apysc.expression import expression_file_util
     event_handler_scope_count: int = \
         event_handler_scope.get_current_event_handler_scope_count()
     if event_handler_scope_count == 0:

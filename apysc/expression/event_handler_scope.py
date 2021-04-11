@@ -3,6 +3,7 @@ interfaces.
 """
 
 import os
+from typing import Any
 
 
 class HandlerScope:
@@ -21,11 +22,17 @@ class HandlerScope:
         """
         _increment_scope_count()
 
-    def __exit__(self, *args) -> None:
+    def __exit__(self, *args: Any) -> None:
         """
         Exit and remove event handler scope setting.
+
+        Parameters
+        ----------
+        *args : list
+            Positional arguments.
         """
         _decrement_scope_count()
+
 
 def _increment_scope_count() -> None:
     """
@@ -55,9 +62,9 @@ def _save_current_scope_count(count: int) -> None:
     count : int
         Scope count ot save.
     """
-    from apysc.file import file_util
     from apysc.expression.expression_file_util import \
         EVENT_HANDLER_SCOPE_COUNT_FILE_PATH
+    from apysc.file import file_util
     file_util.save_plain_txt(
         txt=str(count),
         file_path=EVENT_HANDLER_SCOPE_COUNT_FILE_PATH)

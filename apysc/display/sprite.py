@@ -8,8 +8,8 @@ from apysc.display.child_interface import ChildInterface
 from apysc.display.display_object import DisplayObject
 from apysc.display.graphics import Graphics
 from apysc.display.stage import Stage
-from apysc.type.revert_interface import RevertInterface
 from apysc.event.click_interface import ClickInterface
+from apysc.type.revert_interface import RevertInterface
 
 
 class Sprite(

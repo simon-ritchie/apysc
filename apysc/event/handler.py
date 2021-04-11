@@ -1,9 +1,12 @@
 """Class implementation for handler.
 """
 
-from typing import Any, Dict, List
+from typing import Any
+from typing import Dict
+from typing import List
 
-from typing_extensions import Protocol, TypedDict
+from typing_extensions import Protocol
+from typing_extensions import TypedDict
 
 Event = Any
 
@@ -66,10 +69,12 @@ def append_handler_expression(
         Target handler's data to append.
     handler_name : str
         Target Handler's name.
+    e : Event
+        Created event instance.
     """
-    from apysc.expression.event_handler_scope import HandlerScope
     from apysc.expression import expression_file_util
     from apysc.expression import indent_num
+    from apysc.expression.event_handler_scope import HandlerScope
     from apysc.type import revert_interface
     from apysc.validation.event_validation import validate_event
     validate_event(e=e)

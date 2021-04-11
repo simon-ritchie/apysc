@@ -14,6 +14,8 @@ import os
 EXPRESSION_ROOT_DIR: str = '../.apysc_expression/'
 EXPRESSION_FILE_PATH: str = os.path.join(
     EXPRESSION_ROOT_DIR, 'expression.txt')
+EVENT_HANDLER_EXPRESSION_FILE_PATH: str = os.path.join(
+    EXPRESSION_ROOT_DIR, 'event_handler_expression.txt')
 INDENT_NUM_FILE_PATH: str = os.path.join(
     EXPRESSION_ROOT_DIR, 'indent_num.txt')
 LAST_SCOPE_FILE_PATH: str = os.path.join(
@@ -56,18 +58,57 @@ def append_js_expression(expression: str) -> None:
 
 def get_current_expression() -> str:
     """
-    Get current expression's string from file.
+    Get a current expression's string from a file.
+
+    Notes
+    -----
+    If it is necessary to get event handler scope's expression,
+    then use get_current_event_handler_scope_expression function
+    instead.
 
     Returns
     -------
     current_expression : str
         Current expression's string.
     """
+    current_expression: str = _get_current_expression(
+        file_path=EXPRESSION_FILE_PATH)
+    return current_expression
+
+
+def get_current_event_handler_scope_expression() -> str:
+    """
+    Get a current event handler scope's expression string from a file.
+
+    Notes
+    -----
+    If it is necessary to get normal scope's expression, then use
+    get_current_expression function instead.
+
+    Returns
+    -------
+    current_expression : str
+        Current expression's string.
+    """
+    current_expression: str = _get_current_expression(
+        file_path=EVENT_HANDLER_EXPRESSION_FILE_PATH)
+    return current_expression
+
+
+def _get_current_expression(file_path: str) -> str:
+    """
+    Get a current expression's string from specified file path.
+
+    Parameters
+    ----------
+    file_path : str
+        Target file path.
+    """
     from apysc.file import file_util
-    if not os.path.isfile(EXPRESSION_FILE_PATH):
+    if not os.path.isfile(file_path):
         return ''
     current_expression: str = file_util.read_txt(
-        file_path=EXPRESSION_FILE_PATH)
+        file_path=file_path)
     current_expression = current_expression.strip()
     return current_expression
 

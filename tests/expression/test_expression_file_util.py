@@ -74,3 +74,28 @@ def test_append_js_expression() -> None:
         pattern=r'^  var num_2 = 200;',
         string=expression,
         flags=re.MULTILINE)
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test__get_current_expression() -> None:
+    expression_file_util.remove_expression_file()
+    expression_file_util.append_js_expression(
+        expression='console.log("Hello!");')
+    current_expression: str = expression_file_util._get_current_expression(
+        file_path=expression_file_util.EXPRESSION_FILE_PATH)
+    assert current_expression == 'console.log("Hello!");'
+
+    expression_file_util.remove_expression_file()
+    current_expression = expression_file_util.get_current_expression()
+    assert current_expression == ''
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test_get_current_event_handler_scope_expression() -> None:
+    expression_file_util.remove_expression_file()
+    file_util.save_plain_txt(
+        txt='console.log("Hello!");',
+        file_path=expression_file_util.EVENT_HANDLER_EXPRESSION_FILE_PATH)
+    current_expression: str = expression_file_util.\
+        get_current_event_handler_scope_expression()
+    assert current_expression == 'console.log("Hello!");'

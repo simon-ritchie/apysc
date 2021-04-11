@@ -28,6 +28,6 @@ def test_get_handler_name() -> None:
     test_instance = _TestClass1()
     handler_name: str = handler.get_handler_name(
         handler=test_instance.on_click_1)
-    assert 'tests.event.test_handler' in handler_name
-    assert '_TestClass1' in handler_name
+    assert 'tests_event_test_handler' in handler_name
+    assert '_TestClass1_' in handler_name
     assert 'on_click_1' in handler_name

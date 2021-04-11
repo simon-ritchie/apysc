@@ -45,7 +45,10 @@ def get_handler_name(handler: Handler) -> str:
     """
     from apysc.callable import callable_util
     class_name: str = callable_util.get_method_class_name(method=handler)
+    if class_name != '':
+        class_name = f'{class_name}_'
     handler_name: str = (
         f'{handler.__module__}{class_name}{handler.__name__}'  # type: ignore
     )
+    handler_name = handler_name.replace('.', '_')
     return handler_name

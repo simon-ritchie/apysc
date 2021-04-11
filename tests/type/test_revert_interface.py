@@ -262,3 +262,17 @@ def test_make_variables_snapshots() -> None:
         variables=variables)
     assert int_1._snapshot_exists(snapshot_name=snapshot_name)
     assert int_2._snapshot_exists(snapshot_name=snapshot_name)
+
+
+def test_revert_variables() -> None:
+    int_1: Int = Int(10)
+    int_2: Int = Int(20)
+    variables: List[Any] = [int_1, int_2, int_1, 100]
+    snapshot_name: str = revert_interface.make_variables_snapshots(
+        variables=variables)
+    int_1.value = 30
+    int_2.value = 40
+    revert_interface.revert_variables(
+        snapshot_name=snapshot_name, variables=variables)
+    assert int_1._value == 10
+    assert int_2._value == 20

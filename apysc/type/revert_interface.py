@@ -243,8 +243,22 @@ def revert_each_scope_vars(
     globals_ : dict
         Global scope's variables.
     """
-    ended: Dict[int, bool] = {}
     variables: List[Any] = [*locals_.values(), *globals_.values()]
+    revert_variables(snapshot_name=snapshot_name, variables=variables)
+
+
+def revert_variables(snapshot_name: str, variables: List[Any]) -> None:
+    """
+    Revert each variables.
+
+    Parameters
+    ----------
+    snapshot_name : str
+        Snapshot name to use.
+    variables : list
+        Each vairables to revert.
+    """
+    ended: Dict[int, bool] = {}
     for variable in variables:
         if not isinstance(variable, RevertInterface):
             continue

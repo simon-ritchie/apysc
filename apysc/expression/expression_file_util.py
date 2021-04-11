@@ -144,3 +144,5 @@ def remove_expression_file() -> None:
     file_util.remove_file_if_exists(file_path=EXPRESSION_FILE_PATH)
     file_util.remove_file_if_exists(
         file_path=EVENT_HANDLER_SCOPE_COUNT_FILE_PATH)
+    file_util.remove_file_if_exists(
+        file_path=EVENT_HANDLER_EXPRESSION_FILE_PATH)

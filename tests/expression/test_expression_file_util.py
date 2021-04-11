@@ -8,6 +8,7 @@ from retrying import retry
 
 from apysc.expression import event_handler_scope, expression_file_util
 from apysc.expression import indent_num
+from apysc.expression.event_handler_scope import HandlerScope
 from apysc.file import file_util
 
 
@@ -33,10 +34,15 @@ def test_remove_expression_file() -> None:
     file_util.save_plain_txt(
         txt='',
         file_path=expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH)
+    with HandlerScope():
+        expression_file_util.append_js_expression(
+            expression='console.log("Hello!");')
     expression_file_util.remove_expression_file()
     assert not os.path.exists(expression_file_util.EXPRESSION_FILE_PATH)
     assert not os.path.exists(
         expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH)
+    assert not os.path.exists(
+        expression_file_util.EVENT_HANDLER_EXPRESSION_FILE_PATH)
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))

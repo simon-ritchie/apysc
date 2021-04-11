@@ -60,9 +60,9 @@ class TestClickInterface:
         interface_1: ClickInterface = ClickInterface()
         testing_helper.assert_raises(
             expected_error_class=TypeError,
-            func_or_method=interface_1.click,
+            func_or_method=interface_1._append_click_expression,
             kwargs={
-                'handler': self.on_click_1,
+                'name': 'any_name',
             })
 
         interface_2: _TestClickInterface = _TestClickInterface()
@@ -72,3 +72,11 @@ class TestClickInterface:
             f'{interface_2.variable_name}.click({handler_name});'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__initialize_click_handlers_if_not_initialized(self) -> None:
+        interface_1: ClickInterface = ClickInterface()
+        interface_1._initialize_click_handlers_if_not_initialized()
+        assert interface_1._click_handlers == {}
+        interface_1._initialize_click_handlers_if_not_initialized()
+        assert interface_1._click_handlers == {}

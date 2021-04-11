@@ -108,8 +108,9 @@ def get_method_class_name(method: Callable) -> str:
     """
     if not inspect.ismethod(method):
         return ''
+    class_name: str = ''
     for class_ in inspect.getmro(type(method.__self__)):  # type: ignore
         if method.__name__ not in class_.__dict__:
             continue
-        return class_.__name__
-    return ''
+        class_name = class_.__name__
+    return class_name

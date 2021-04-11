@@ -59,3 +59,7 @@ def test_get_method_class_name() -> None:
     class_name = callable_util.get_method_class_name(
         method=bool_1._get_bool_from_arg_value)
     assert class_name == 'Boolean'
+
+    class_name = callable_util.get_method_class_name(
+        method=bool_1._append_ne_expression)
+    assert class_name == 'Boolean'

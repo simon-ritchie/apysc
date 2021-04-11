@@ -75,6 +75,13 @@ def test_append_js_expression() -> None:
         string=expression,
         flags=re.MULTILINE)
 
+    event_handler_scope._increment_scope_count()
+    expression_file_util.append_js_expression('console.log("Hello!");')
+    expression = \
+        expression_file_util.get_current_event_handler_scope_expression()
+    assert 'console.log("Hello!");' in expression
+    expression_file_util.remove_expression_file()
+
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test__get_current_expression() -> None:

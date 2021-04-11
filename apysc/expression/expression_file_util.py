@@ -54,10 +54,10 @@ def append_js_expression(expression: str) -> None:
         expression=expression, indent_num=current_indent_num)
     file_path: str = _get_expression_file_path()
     dir_path: str = file_util.get_abs_directory_path_from_file_path(
-        file_path=EXPRESSION_FILE_PATH)
+        file_path=file_path)
     os.makedirs(dir_path, exist_ok=True)
     file_util.append_plain_txt(
-        txt=f'{expression}\n', file_path=EXPRESSION_FILE_PATH)
+        txt=f'{expression}\n', file_path=file_path)
     last_scope.set_last_scope(value=last_scope.LastScope.NORMAL)
 
 

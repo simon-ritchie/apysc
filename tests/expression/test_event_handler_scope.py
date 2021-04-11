@@ -9,6 +9,11 @@ from apysc.expression import expression_file_util
 from apysc.file import file_util
 
 
+def teardown() -> None:
+    file_path: str = expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH
+    file_util.remove_file_if_exists(file_path=file_path)
+
+
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_get_current_event_handler_scope_count() -> None:
     file_path: str = expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH

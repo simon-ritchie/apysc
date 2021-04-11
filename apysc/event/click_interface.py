@@ -1,13 +1,10 @@
 """Class implementation for click interface.
 """
 
-from typing import Any, Callable, Dict, List, Optional
-import hashlib
+from typing import Any, Dict, List, Optional
 
-from apysc.type.variable_name_interface import VariableNameInterface
 from apysc.event.handler import Handler, HandlerData
 from apysc.event.handler import get_handler_name
-from apysc import Boolean
 
 
 class ClickInterface:
@@ -45,7 +42,29 @@ class ClickInterface:
         return name
 
     def _append_click_expression(self, name: str) -> None:
-        pass
+        """
+        Append click expression to file.
+
+        Parameters
+        ----------
+        name : str
+            Handler's name.
+
+        Raises
+        ------
+        ValueError
+            If this instance is not subclass of VariableNameInterface.
+        """
+        from apysc.type.variable_name_interface import VariableNameInterface
+        from apysc.expression import expression_file_util
+        if not isinstance(self, VariableNameInterface):
+            raise TypeError(
+                'This interface can only be used that inheriting '
+                'VariableNameInterface.')
+        expression: str = (
+            f'{self.variable_name}.click({name});'
+        )
+        expression_file_util.append_js_expression(expression=expression)
 
     def _initialize_click_handlers_if_not_initialized(self) -> None:
         """

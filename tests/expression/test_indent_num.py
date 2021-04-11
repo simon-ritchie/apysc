@@ -27,6 +27,7 @@ def test_get_current_indent_num() -> None:
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_increment() -> None:
+    expression_file_util.remove_expression_file()
     file_util.remove_file_if_exists(file_path=INDENT_NUM_FILE_PATH)
     indent_num.increment()
     current_indent_num: int = indent_num.get_current_indent_num()
@@ -39,6 +40,7 @@ def test_increment() -> None:
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_decrement() -> None:
+    expression_file_util.remove_expression_file()
     file_util.remove_file_if_exists(file_path=INDENT_NUM_FILE_PATH)
     for _ in range(2):
         indent_num.increment()
@@ -57,9 +59,16 @@ def test_decrement() -> None:
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test_reset() -> None:
+    expression_file_util.remove_expression_file()
     indent_num.increment()
     indent_num.reset()
     current_indent_num: int = indent_num.get_current_indent_num()
+    assert current_indent_num == 0
+
+    event_handler_scope._increment_scope_count()
+    indent_num.increment()
+    indent_num.reset()
+    current_indent_num = indent_num.get_current_indent_num()
     assert current_indent_num == 0
 
 

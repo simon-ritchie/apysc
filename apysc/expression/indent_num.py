@@ -20,12 +20,11 @@ def get_current_indent_num() -> int:
     current_indent_num : int
         Current indent number.
     """
-    from apysc.expression.expression_file_util import INDENT_NUM_FILE_PATH
     from apysc.file import file_util
     file_path: str = _get_indent_num_file_path()
-    if not os.path.isfile(INDENT_NUM_FILE_PATH):
+    if not os.path.isfile(file_path):
         return 0
-    indent_num_txt: str = file_util.read_txt(file_path=INDENT_NUM_FILE_PATH)
+    indent_num_txt: str = file_util.read_txt(file_path=file_path)
     indent_num_txt = indent_num_txt.strip()
     if indent_num_txt == '':
         return 0
@@ -56,32 +55,35 @@ def increment() -> None:
     """
     Increment current indent number.
     """
-    from apysc.expression.expression_file_util import INDENT_NUM_FILE_PATH
     from apysc.file import file_util
+    file_path: str = _get_indent_num_file_path()
     current_indent_num: int = get_current_indent_num()
     current_indent_num += 1
     file_util.save_plain_txt(
-        txt=str(current_indent_num), file_path=INDENT_NUM_FILE_PATH)
+        txt=str(current_indent_num), file_path=file_path)
 
 
 def decrement() -> None:
     """
     Decrement current indent number.
     """
-    from apysc.expression.expression_file_util import INDENT_NUM_FILE_PATH
     from apysc.file import file_util
+    file_path: str = _get_indent_num_file_path()
     current_indent_num: int = get_current_indent_num()
     current_indent_num -= 1
     if current_indent_num < 0:
         current_indent_num = 0
     file_util.save_plain_txt(
-        txt=str(current_indent_num), file_path=INDENT_NUM_FILE_PATH)
+        txt=str(current_indent_num), file_path=file_path)
 
 
 def reset() -> None:
     """
     Reset current indent number.
     """
-    from apysc.expression.expression_file_util import INDENT_NUM_FILE_PATH
+    from apysc.expression import expression_file_util
     from apysc.file import file_util
-    file_util.remove_file_if_exists(file_path=INDENT_NUM_FILE_PATH)
+    file_util.remove_file_if_exists(
+        file_path=expression_file_util.INDENT_NUM_FILE_PATH)
+    file_util.remove_file_if_exists(
+        file_path=expression_file_util.EVENT_HANDLER_INDENT_NUM_FILE_PATH)

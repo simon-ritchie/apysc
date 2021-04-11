@@ -9,6 +9,7 @@ from apysc.event.handler import Handler, HandlerData
 from apysc import Boolean, Int
 from apysc.type.variable_name_interface import VariableNameInterface
 from apysc import Event
+from tests import testing_helper
 
 
 class _TestClass1(VariableNameInterface):
@@ -80,3 +81,12 @@ def test_append_handler_expression() -> None:
     )
     assert expected in expression
     assert int_1 == 10
+
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=handler.append_handler_expression,
+        kwargs={
+            'handler_data': handler_data,
+            'handler_name': handler_name,
+            'e': 100,
+        })

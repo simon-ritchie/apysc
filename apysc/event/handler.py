@@ -71,6 +71,8 @@ def append_handler_expression(
     from apysc.expression import expression_file_util
     from apysc.expression import indent_num
     from apysc.type import revert_interface
+    from apysc.validation.event_validation import validate_event
+    validate_event(e=e)
     variables: List[Any] = [*handler_data['kwargs'].values()]
     snapshot_name: str = revert_interface.make_variables_snapshots(
         variables=variables)

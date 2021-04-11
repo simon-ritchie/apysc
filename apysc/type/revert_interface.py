@@ -193,9 +193,27 @@ def make_snapshots_of_each_scope_vars(
     snapshot_name : str
         Snapshot name to be used.
     """
+    variables: List[Any] = [*locals_.values(), *globals_.values()]
+    snapshot_name: str = make_variables_snapshots(variables=variables)
+    return snapshot_name
+
+
+def make_variables_snapshots(variables: List[Any]) -> str:
+    """
+    Make snapshots of specified variables.
+
+    Parameters
+    ----------
+    variables : list
+        Variables to make snapshots.
+
+    Returns
+    -------
+    snapshot_name : str
+        Snapshot name to be used.
+    """
     ended: Dict[int, bool] = {}
     snapshot_name: str = ''
-    variables: List[Any] = [*locals_.values(), *globals_.values()]
     for variable in variables:
         if not isinstance(variable, RevertInterface):
             continue

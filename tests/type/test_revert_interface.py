@@ -1,5 +1,5 @@
 from random import randint
-from typing import Any
+from typing import Any, List
 from typing import Dict
 
 from retrying import retry
@@ -252,3 +252,13 @@ def test_revert_each_scope_vars() -> None:
     assert int_1._value == 10
     assert int_2._value == 20
     assert int_3._value == 40
+
+
+def test_make_variables_snapshots() -> None:
+    int_1: Int = Int(10)
+    int_2: Int = Int(20)
+    variables: List[Any] = [int_1, int_2, int_1, 100]
+    snapshot_name: str = revert_interface.make_variables_snapshots(
+        variables=variables)
+    assert int_1._snapshot_exists(snapshot_name=snapshot_name)
+    assert int_2._snapshot_exists(snapshot_name=snapshot_name)

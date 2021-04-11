@@ -50,3 +50,28 @@ def test__increment_scope_count() -> None:
     assert scope_count == 2
 
     file_util.remove_file_if_exists(file_path=file_path)
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test__decrement_scope_count() -> None:
+    file_path: str = expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH
+    file_util.remove_file_if_exists(file_path=file_path)
+
+    event_handler_scope._increment_scope_count()
+    event_handler_scope._increment_scope_count()
+    event_handler_scope._decrement_scope_count()
+    scope_count: int = event_handler_scope.\
+        get_current_event_handler_scope_count()
+    assert scope_count == 1
+
+    event_handler_scope._decrement_scope_count()
+    scope_count = event_handler_scope.\
+        get_current_event_handler_scope_count()
+    assert scope_count == 0
+
+    event_handler_scope._decrement_scope_count()
+    scope_count = event_handler_scope.\
+        get_current_event_handler_scope_count()
+    assert scope_count == 0
+
+    file_util.remove_file_if_exists(file_path=file_path)

@@ -20,7 +20,7 @@ class HandlerScope:
         """
         Exit and remove event handler scope setting.
         """
-        pass
+        _decrement_scope_count()
 
 def _increment_scope_count() -> None:
     """
@@ -28,6 +28,16 @@ def _increment_scope_count() -> None:
     """
     scope_count: int = get_current_event_handler_scope_count()
     scope_count += 1
+    _save_current_scope_count(count=scope_count)
+
+
+def _decrement_scope_count() -> None:
+    """
+    Decrement current scope count.
+    """
+    scope_count: int = get_current_event_handler_scope_count()
+    scope_count -= 1
+    scope_count = max(scope_count, 0)
     _save_current_scope_count(count=scope_count)
 
 

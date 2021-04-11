@@ -18,8 +18,8 @@ INDENT_NUM_FILE_PATH: str = os.path.join(
     EXPRESSION_ROOT_DIR, 'indent_num.txt')
 LAST_SCOPE_FILE_PATH: str = os.path.join(
     EXPRESSION_ROOT_DIR, 'last_scope.txt')
-IS_EVENT_HANDLER_SCOPE_FILE_PATH: str = os.path.join(
-    EXPRESSION_ROOT_DIR, 'is_event_handler_scope.txt')
+EVENT_HANDLER_SCOPE_COUNT_FILE_PATH: str = os.path.join(
+    EXPRESSION_ROOT_DIR, 'event_handler_scope_count.txt')
 
 
 def empty_expression_dir() -> None:

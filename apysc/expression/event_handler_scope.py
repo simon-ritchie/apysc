@@ -5,18 +5,45 @@ interfaces.
 import os
 
 
-def current_scope_is_event_handler() -> bool:
+class HandlerScope:
     """
-    Get a boolean value whether current scope is an event handler
-    one or not.
+    Class for handler scope. This is used at with statement.
+    """
+
+    def __enter__(self) -> None:
+        """
+        Enter and set event handler scope setting.
+        """
+        from apysc.file import file_util
+        from apysc.expression import expression_file_util
+
+    def __exit__(self, *args) -> None:
+        """
+        Exit and remove event handler scope setting.
+        """
+        pass
+
+
+def get_current_event_handler_scope_count() -> int:
+    """
+    Get a current event handler's scope count.
 
     Returns
     -------
-    result : bool
-        If current scope is event handler one, then True will be
-        returned
+    scope_count : int
+        Current event handler's scope count.
+        If normal handler's call, then 1 will be returned,
+        or call other handler in handler's function, then
+        2 or more count will be returned.
     """
     from apysc.expression import expression_file_util
-    if os.path.isfile(expression_file_util.IS_EVENT_HANDLER_SCOPE_FILE_PATH):
-        return True
-    return False
+    from apysc.file import file_util
+    file_path: str = expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH
+    if not os.path.isfile(file_path):
+        return 0
+    txt: str = file_util.read_txt(file_path=file_path)
+    txt = txt.strip()
+    if not txt.isdigit():
+        return 0
+    scope_count: int = int(txt)
+    return scope_count

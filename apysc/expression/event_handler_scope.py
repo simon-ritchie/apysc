@@ -26,6 +26,9 @@ def _increment_scope_count() -> None:
     """
     Increment current scope count.
     """
+    scope_count: int = get_current_event_handler_scope_count()
+    scope_count += 1
+    _save_current_scope_count(count=scope_count)
 
 
 def _save_current_scope_count(count: int) -> None:

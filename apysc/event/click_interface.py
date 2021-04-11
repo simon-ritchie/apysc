@@ -4,7 +4,11 @@
 from typing import Any, Dict, List, Optional
 
 from apysc.event.handler import Handler, HandlerData
-from apysc.event.handler import get_handler_name
+
+_VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG: str = (
+    'This interface can only be used that inheriting '
+    'VariableNameInterface.'
+)
 
 
 class ClickInterface:
@@ -29,6 +33,12 @@ class ClickInterface:
         name : str
             Handler's name.
         """
+        from apysc.type.variable_name_interface import VariableNameInterface
+        from apysc.event.handler import get_handler_name
+        from apysc.event.handler import append_handler_expression
+        from apysc import Event
+        if not isinstance(self, VariableNameInterface):
+            raise TypeError(_VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
         self._initialize_click_handlers_if_not_initialized()
         if kwargs is None:
             kwargs = {}
@@ -39,6 +49,11 @@ class ClickInterface:
             'kwargs': kwargs,
         }
         self._append_click_expression(name=name)
+        e: Event = Event(this=self)
+        append_handler_expression(
+            handler_data=self._click_handlers[name],
+            handler_name=name,
+            e=e)
         return name
 
     def _append_click_expression(self, name: str) -> None:
@@ -58,9 +73,7 @@ class ClickInterface:
         from apysc.type.variable_name_interface import VariableNameInterface
         from apysc.expression import expression_file_util
         if not isinstance(self, VariableNameInterface):
-            raise TypeError(
-                'This interface can only be used that inheriting '
-                'VariableNameInterface.')
+            raise TypeError(_VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
         expression: str = (
             f'{self.variable_name}.click({name});'
         )

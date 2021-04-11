@@ -47,6 +47,12 @@ class TestClickInterface:
         assert interface_2._click_handlers[
             name]['kwargs'] == {'a': 10}
 
+        interface_3: ClickInterface = ClickInterface()
+        testing_helper.assert_raises(
+            expected_error_class=TypeError,
+            func_or_method=interface_3.click,
+            kwargs={'handler': self.on_click_1})
+
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_click_expression(self) -> None:
         expression_file_util.remove_expression_file()

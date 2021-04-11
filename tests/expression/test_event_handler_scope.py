@@ -26,3 +26,11 @@ def test_get_current_event_handler_scope_count() -> None:
     assert scope_count == 2
 
     file_util.remove_file_if_exists(file_path=file_path)
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test__save_current_scope_count() -> None:
+    event_handler_scope._save_current_scope_count(count=3)
+    scope_count: int = event_handler_scope.\
+        get_current_event_handler_scope_count()
+    assert scope_count == 3

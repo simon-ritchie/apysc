@@ -14,14 +14,35 @@ class HandlerScope:
         """
         Enter and set event handler scope setting.
         """
-        from apysc.file import file_util
-        from apysc.expression import expression_file_util
+        _increment_scope_count()
 
     def __exit__(self, *args) -> None:
         """
         Exit and remove event handler scope setting.
         """
         pass
+
+def _increment_scope_count() -> None:
+    """
+    Increment current scope count.
+    """
+
+
+def _save_current_scope_count(count: int) -> None:
+    """
+    Save current scope count.
+
+    Parameters
+    ----------
+    count : int
+        Scope count ot save.
+    """
+    from apysc.file import file_util
+    from apysc.expression.expression_file_util import \
+        EVENT_HANDLER_SCOPE_COUNT_FILE_PATH
+    file_util.save_plain_txt(
+        txt=str(count),
+        file_path=EVENT_HANDLER_SCOPE_COUNT_FILE_PATH)
 
 
 def get_current_event_handler_scope_count() -> int:

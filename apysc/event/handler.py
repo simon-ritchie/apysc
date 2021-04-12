@@ -72,12 +72,12 @@ def append_handler_expression(
     e : Event
         Created event instance.
     """
+    from apysc import Event
     from apysc.expression import expression_file_util
     from apysc.expression import indent_num
     from apysc.expression.event_handler_scope import HandlerScope
     from apysc.type import revert_interface
     from apysc.validation.event_validation import validate_event
-    from apysc import Event
     e_: Event = validate_event(e=e)
     variables: List[Any] = [*handler_data['kwargs'].values()]
     snapshot_name: str = revert_interface.make_variables_snapshots(

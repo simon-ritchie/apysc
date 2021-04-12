@@ -24,6 +24,11 @@ def validate_event(e: Any) -> Event:
     ------
     ValueError
         If specified instance is not Event instance.
+
+    Returns
+    -------
+    e : Event
+        Event instance.
     """
     from apysc import Event
     if isinstance(e, Event):

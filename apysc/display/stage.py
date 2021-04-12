@@ -13,6 +13,7 @@ from apysc.display.height_interface import HeightInterface
 from apysc.display.width_interface import WidthInterface
 from apysc.expression import expression_file_util
 from apysc.type.variable_name_interface import VariableNameInterface
+from apysc.event.click_interface import ClickInterface
 
 _STAGE_ELEM_ID_FILE_PATH: str = os.path.join(
     expression_file_util.EXPRESSION_ROOT_DIR, 'stage_elem_id.txt',
@@ -21,7 +22,7 @@ _STAGE_ELEM_ID_FILE_PATH: str = os.path.join(
 
 class Stage(
         ChildInterface, WidthInterface, HeightInterface,
-        VariableNameInterface):
+        VariableNameInterface, ClickInterface):
 
     _background_color: str
     _add_to: str

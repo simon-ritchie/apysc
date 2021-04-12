@@ -38,6 +38,7 @@ def main() -> None:
     stage: Stage = Stage(
         background_color='#111',
         stage_width=1000, stage_height=500)
+    stage.click(on_stage_clicked)
 
     sprite_1: Sprite = Sprite(stage=stage)
     sprite_1.graphics.begin_fill(color='#0af')
@@ -47,6 +48,20 @@ def main() -> None:
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
+
+
+def on_stage_clicked(e: Event, kwargs: Dict[str, Any]) -> None:
+    """
+    Test handler that called when stage is clicked.
+
+    Parameters
+    ----------
+    e : Event
+        Event object.
+    kwargs : dict
+        Specified keyword arguments.
+    """
+    trace('Stage is clicked!')
 
 
 def on_sprite_1_clicked(e: Event, kwargs: Dict[str, Any]) -> None:

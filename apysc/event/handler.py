@@ -8,12 +8,12 @@ from typing import List
 from typing_extensions import Protocol
 from typing_extensions import TypedDict
 
-Event = Any
+_Event = Any
 
 
 class Handler(Protocol):
 
-    def __call__(self, e: Event, kwargs: Dict[str, Any]) -> None:
+    def __call__(self, e: _Event, kwargs: Dict[str, Any]) -> None:
         """
         Event handler's callable interface.
 
@@ -59,7 +59,7 @@ def get_handler_name(handler: Handler) -> str:
 
 def append_handler_expression(
         handler_data: HandlerData, handler_name: str,
-        e: Event) -> None:
+        e: _Event) -> None:
     """
     Append handler's expression to file.
 
@@ -77,18 +77,19 @@ def append_handler_expression(
     from apysc.expression.event_handler_scope import HandlerScope
     from apysc.type import revert_interface
     from apysc.validation.event_validation import validate_event
-    validate_event(e=e)
+    from apysc import Event
+    e_: Event = validate_event(e=e)
     variables: List[Any] = [*handler_data['kwargs'].values()]
     snapshot_name: str = revert_interface.make_variables_snapshots(
         variables=variables)
 
     with HandlerScope():
         expression: str = (
-            f'function {handler_name}(e) {{'
+            f'function {handler_name}({e_.variable_name}) {{'
         )
         expression_file_util.append_js_expression(expression=expression)
         indent_num.increment()
-        handler_data['handler'](e=e, kwargs=handler_data['kwargs'])
+        handler_data['handler'](e=e_, kwargs=handler_data['kwargs'])
         indent_num.decrement()
         expression_file_util.append_js_expression(expression='}')
 

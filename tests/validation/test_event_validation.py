@@ -12,4 +12,5 @@ def test_validate_event() -> None:
 
     int_1: Int = Int(10)
     e: Event = Event(this=int_1)
-    event_validation.validate_event(e=e)
+    e = event_validation.validate_event(e=e)
+    assert isinstance(e, Event)

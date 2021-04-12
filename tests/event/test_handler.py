@@ -76,7 +76,7 @@ def test_append_handler_expression() -> None:
     expression: str = \
         expression_file_util.get_current_event_handler_scope_expression()
     expected: str = (
-        f'function {handler_name}(e) {{'
+        f'function {handler_name}({e.variable_name}) {{'
         f'\n  {int_1.variable_name} = 20;'
         '\n}'
     )

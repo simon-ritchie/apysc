@@ -8,8 +8,10 @@ Mainly following interfaces are defined.
 
 from typing import Any
 
+from apysc import Event
 
-def validate_event(e: Any) -> None:
+
+def validate_event(e: Any) -> Event:
     """
     Validate specified instance is Event.
 
@@ -25,6 +27,6 @@ def validate_event(e: Any) -> None:
     """
     from apysc import Event
     if isinstance(e, Event):
-        return
+        return e
     raise ValueError(
         f'Specified instance is not Event type: {type(e)}')

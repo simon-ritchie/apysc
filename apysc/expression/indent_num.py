@@ -9,6 +9,7 @@ Mainly following interfaces are defined:
 """
 
 import os
+from typing import Any
 
 
 def get_current_indent_num() -> int:
@@ -51,30 +52,38 @@ def _get_indent_num_file_path() -> str:
     return expression_file_util.EVENT_HANDLER_INDENT_NUM_FILE_PATH
 
 
-def increment() -> None:
-    """
-    Increment current indent number.
-    """
-    from apysc.file import file_util
-    file_path: str = _get_indent_num_file_path()
-    current_indent_num: int = get_current_indent_num()
-    current_indent_num += 1
-    file_util.save_plain_txt(
-        txt=str(current_indent_num), file_path=file_path)
+class Indent:
 
+    def __enter__(self) -> None:
+        """
+        Method to be used by with statement.
+        This method will increment indentation number.
+        """
+        from apysc.file import file_util
+        file_path: str = _get_indent_num_file_path()
+        current_indent_num: int = get_current_indent_num()
+        current_indent_num += 1
+        file_util.save_plain_txt(
+            txt=str(current_indent_num), file_path=file_path)
 
-def decrement() -> None:
-    """
-    Decrement current indent number.
-    """
-    from apysc.file import file_util
-    file_path: str = _get_indent_num_file_path()
-    current_indent_num: int = get_current_indent_num()
-    current_indent_num -= 1
-    if current_indent_num < 0:
-        current_indent_num = 0
-    file_util.save_plain_txt(
-        txt=str(current_indent_num), file_path=file_path)
+    def __exit__(self, *args: Any) -> None:
+        """
+        Method to be used by with statement.
+        This method will decrement indentation number.
+
+        Parameters
+        ----------
+        *args : list
+            Any positional arguments.
+        """
+        from apysc.file import file_util
+        file_path: str = _get_indent_num_file_path()
+        current_indent_num: int = get_current_indent_num()
+        current_indent_num -= 1
+        if current_indent_num < 0:
+            current_indent_num = 0
+        file_util.save_plain_txt(
+            txt=str(current_indent_num), file_path=file_path)
 
 
 def reset() -> None:

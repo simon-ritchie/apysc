@@ -74,7 +74,7 @@ def append_handler_expression(
     """
     from apysc import Event
     from apysc.expression import expression_file_util
-    from apysc.expression import indent_num
+    from apysc.expression.indent_num import Indent
     from apysc.expression.event_handler_scope import HandlerScope
     from apysc.type import revert_interface
     from apysc.validation.event_validation import validate_event
@@ -88,9 +88,8 @@ def append_handler_expression(
             f'function {handler_name}({e_.variable_name}) {{'
         )
         expression_file_util.append_js_expression(expression=expression)
-        indent_num.increment()
-        handler_data['handler'](e=e_, kwargs=handler_data['kwargs'])
-        indent_num.decrement()
+        with Indent():
+            handler_data['handler'](e=e_, kwargs=handler_data['kwargs'])
         expression_file_util.append_js_expression(expression='}')
 
     revert_interface.revert_variables(

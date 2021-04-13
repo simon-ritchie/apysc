@@ -9,6 +9,7 @@ from apysc.expression import expression_file_util
 from apysc.expression import indent_num
 from apysc.expression import last_scope
 from apysc.expression.last_scope import LastScope
+from apysc.expression.indent_num import Indent
 from tests import testing_helper
 
 
@@ -27,6 +28,7 @@ class TestFor:
                 '_globals': {'value_2': 2},
             },
             any_obj=for_)
+        assert isinstance(for_._indent, Indent)
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_enter_expression(self) -> None:

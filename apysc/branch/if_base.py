@@ -9,6 +9,7 @@ from typing import Optional
 from typing import Type
 
 from apysc import Boolean
+from apysc.expression.indent_num import Indent
 
 
 class IfBase(ABC):
@@ -17,6 +18,7 @@ class IfBase(ABC):
     _locals: Dict[str, Any]
     _globals: Dict[str, Any]
     _snapshot_name: str
+    _indent: Indent
 
     def __init__(
             self,
@@ -41,6 +43,7 @@ class IfBase(ABC):
         self._condition = condition
         self._locals = locals_
         self._globals = globals_
+        self._indent = Indent()
 
     def __enter__(self) -> Any:
         """
@@ -57,7 +60,7 @@ class IfBase(ABC):
             revert_interface.make_snapshots_of_each_scope_vars(
                 locals_=self._locals, globals_=self._globals)
         self._append_enter_expression()
-        indent_num.increment()
+        self._indent.__enter__()
         return self
 
     @abstractmethod
@@ -87,7 +90,7 @@ class IfBase(ABC):
         revert_interface.revert_each_scope_vars(
             snapshot_name=self._snapshot_name,
             locals_=self._locals, globals_=self._globals)
-        indent_num.decrement()
+        self._indent.__exit__()
         self._append_exit_expression()
         self._set_last_scope()
 

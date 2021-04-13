@@ -7,6 +7,7 @@ from typing import Type
 
 from apysc import Array
 from apysc import Int
+from apysc.expression.indent_num import Indent
 
 
 class For:
@@ -15,6 +16,7 @@ class For:
     _locals: Dict[str, Any]
     _globals: Dict[str, Any]
     _snapshot_name: str
+    _indent: Indent
 
     def __init__(
             self, arr: Array, locals_: Dict[str, Any],
@@ -36,6 +38,7 @@ class For:
         self._arr = arr
         self._locals = locals_
         self._globals = globals_
+        self._indent = Indent()
 
     def __enter__(self) -> Int:
         """
@@ -53,7 +56,7 @@ class For:
                 locals_=self._locals, globals_=self._globals)
         i: Int = Int(0)
         self._append_enter_expression(i=i)
-        indent_num.increment()
+        self._indent.__enter__()
         return i
 
     def __exit__(
@@ -80,7 +83,7 @@ class For:
         revert_interface.revert_each_scope_vars(
             snapshot_name=self._snapshot_name,
             locals_=self._locals, globals_=self._globals)
-        indent_num.decrement()
+        self._indent.__exit__()
         expression_file_util.append_js_expression(expression='}')
         last_scope.set_last_scope(value=LastScope.FOR)
 

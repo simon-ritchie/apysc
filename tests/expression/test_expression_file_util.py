@@ -11,6 +11,7 @@ from apysc.expression import expression_file_util
 from apysc.expression import indent_num
 from apysc.expression.event_handler_scope import HandlerScope
 from apysc.file import file_util
+from apysc.expression.indent_num import Indent
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -73,14 +74,14 @@ def test_append_js_expression() -> None:
     assert match is not None
 
     expression_file_util.remove_expression_file()
-    indent_num.increment()
-    expression_file_util.append_js_expression(
-        expression='var num_1 = 100;\nvar num_2 = 200;\nvar num_3 = 300;')
-    expression = expression_file_util.get_current_expression()
-    match = re.search(
-        pattern=r'^  var num_2 = 200;',
-        string=expression,
-        flags=re.MULTILINE)
+    with Indent():
+        expression_file_util.append_js_expression(
+            expression='var num_1 = 100;\nvar num_2 = 200;\nvar num_3 = 300;')
+        expression = expression_file_util.get_current_expression()
+        match = re.search(
+            pattern=r'^  var num_2 = 200;',
+            string=expression,
+            flags=re.MULTILINE)
 
     event_handler_scope._increment_scope_count()
     expression_file_util.append_js_expression('console.log("Hello!");')

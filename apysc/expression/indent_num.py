@@ -3,8 +3,8 @@
 Mainly following interfaces are defined:
 
 - get_current_indent_num: Get a current indent number.
-- increment: Increment current indent number.
-- decrement: Decrement current indent number.
+- Indent: Class implementation for increment and decrement
+    indentation number. Basically use this class at with statement.
 - reset: Reset current indent number.
 """
 
@@ -53,6 +53,9 @@ def _get_indent_num_file_path() -> str:
 
 
 class Indent:
+    """Class implementation for increment and decrement
+    indentation number. Basically use this class at with statement.
+    """
 
     def __enter__(self) -> None:
         """

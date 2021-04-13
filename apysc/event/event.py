@@ -40,3 +40,13 @@ class Event(VariableNameInterface):
             f'{self.variable_name}.stopPropagation();'
         )
         expression_file_util.append_js_expression(expression=expression)
+
+    def prevent_default(self) -> None:
+        """
+        Prevent event's default behavior.
+        """
+        from apysc.expression import expression_file_util
+        expression: str = (
+            f'{self.variable_name}.preventDefault();'
+        )
+        expression_file_util.append_js_expression(expression=expression)

@@ -35,3 +35,15 @@ class TestEvent:
             f'{e.variable_name}.stopPropagation();'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_prevent_default(self) -> None:
+        expression_file_util.remove_expression_file()
+        int_1: Int = Int(10)
+        e: Event = Event(this=int_1)
+        e.prevent_default()
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{e.variable_name}.preventDefault();'
+        )
+        assert expected in expression

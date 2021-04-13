@@ -30,3 +30,13 @@ class Event(VariableNameInterface):
             type_name = var_names.EVENT
         self.variable_name = expression_variables_util.get_next_variable_name(
             type_name=type_name)
+
+    def stop_propagation(self) -> None:
+        """
+        Stop event propagation.
+        """
+        from apysc.expression import expression_file_util
+        expression: str = (
+            f'{self.variable_name}.stopPropagation();'
+        )
+        expression_file_util.append_js_expression(expression=expression)

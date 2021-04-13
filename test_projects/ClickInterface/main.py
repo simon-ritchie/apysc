@@ -49,6 +49,13 @@ def main() -> None:
     sprite_1.click(on_sprite_1_clicked, kwargs={'msg': msg})
     rectangle_1.click(on_rectangle_1_clicked)
 
+    sprite_2: Sprite = Sprite(stage=stage)
+    sprite_2.graphics.begin_fill(color='#f0a')
+    sprite_2.click(on_sprite_2_clicked)
+    rectangle_2: Rectangle = sprite_2.graphics.draw_rect(
+        x=150, y=50, width=50, height=50)
+    rectangle_2.click(on_rectangle_2_clicked)
+
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
@@ -82,6 +89,20 @@ def on_sprite_1_clicked(e: Event, kwargs: Dict[str, Any]) -> None:
     assert_equal(expected='Hello!', actual=kwargs['msg'])
 
 
+def on_sprite_2_clicked(e: Event, kwargs: Dict[str, Any]) -> None:
+    """
+    Test handler that called when sprite_2 is clicked.
+
+    Parameters
+    ----------
+    e : Event
+        Event object.
+    kwargs : dict
+        Specified keyword arguments.
+    """
+    trace('Sprite 2 is clicked!')
+
+
 def on_rectangle_1_clicked(e: Event, kwargs: Dict[str, Any]) -> None:
     """
     Test handler that called when rectangle_1 is clicked.
@@ -94,6 +115,22 @@ def on_rectangle_1_clicked(e: Event, kwargs: Dict[str, Any]) -> None:
         Specified keyword arguments.
     """
     trace('Rectangle 1 is clicked!')
+
+
+def on_rectangle_2_clicked(e: Event, kwargs: Dict[str, Any]) -> None:
+    """
+    Test handler that called when rectangle_2 is clicked.
+
+    Parameters
+    ----------
+    e : Event
+        Event object.
+    kwargs : dict
+        Specified keyword arguments.
+    """
+    trace('Rectangle 2 is clicked!')
+    e.prevent_default()
+    e.stop_propagation()
 
 
 if __name__ == '__main__':

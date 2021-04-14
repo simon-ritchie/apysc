@@ -52,6 +52,30 @@ class TestEvent:
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_this(self) -> None:
         stage: Stage = Stage()
-        e: Event = Event(this=stage)
+        e: Event[Stage] = Event(this=stage)
         this: Stage = e.this
         assert this == stage
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__validate_type_name_and_self_type(self) -> None:
+
+        class AnyEvent(Event):
+            ...
+
+        int_1: Int = Int(10)
+        testing_helper.assert_raises(
+            expected_error_class=ValueError,
+            func_or_method=Event,
+            kwargs={
+                'this': int_1,
+                'type_name': 'any_event',
+            })
+        testing_helper.assert_raises(
+            expected_error_class=ValueError,
+            func_or_method=AnyEvent,
+            kwargs={
+                'this': int_1,
+            })
+
+        _ = Event(this=int_1)
+        _ = AnyEvent(this=int_1, type_name='any_event')

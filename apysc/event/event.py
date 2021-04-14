@@ -2,16 +2,19 @@
 """
 
 from typing import Optional
+from typing import TypeVar, Generic
 
 from apysc.type.variable_name_interface import VariableNameInterface
 
+T = TypeVar('T', bound=VariableNameInterface)
 
-class Event(VariableNameInterface):
 
-    _this: VariableNameInterface
+class Event(Generic[T], VariableNameInterface):
+
+    _this: T
 
     def __init__(
-            self, this: VariableNameInterface,
+            self, this: T,
             type_name: Optional[str] = None) -> None:
         """
         Basic event class.
@@ -50,3 +53,15 @@ class Event(VariableNameInterface):
             f'{self.variable_name}.preventDefault();'
         )
         expression_file_util.append_js_expression(expression=expression)
+
+    @property
+    def this(self) -> T:
+        """
+        Get instance that listening this event.
+
+        Returns
+        -------
+        this : VariableNameInterface
+            Instance that listening this event.
+        """
+        return self._this

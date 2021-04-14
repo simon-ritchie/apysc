@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Event
+from apysc import Event, Stage
 from apysc import Int
 from apysc.expression import expression_file_util
 from apysc.expression import var_names
@@ -47,3 +47,10 @@ class TestEvent:
             f'{e.variable_name}.preventDefault();'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_this(self) -> None:
+        stage: Stage = Stage()
+        e: Event = Event(this=stage)
+        this: Stage = e.this
+        assert this == stage

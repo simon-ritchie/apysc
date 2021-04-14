@@ -1,8 +1,9 @@
 """Class Implementation for basic event.
 """
 
+from typing import Generic
 from typing import Optional
-from typing import TypeVar, Generic
+from typing import TypeVar
 
 from apysc.type.variable_name_interface import VariableNameInterface
 

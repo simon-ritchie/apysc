@@ -10,8 +10,8 @@ from apysc.expression import event_handler_scope
 from apysc.expression import expression_file_util
 from apysc.expression import indent_num
 from apysc.expression.event_handler_scope import HandlerScope
-from apysc.file import file_util
 from apysc.expression.indent_num import Indent
+from apysc.file import file_util
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))

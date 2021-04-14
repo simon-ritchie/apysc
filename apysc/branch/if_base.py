@@ -54,7 +54,6 @@ class IfBase(ABC):
         self : IfBase
             This instance.
         """
-        from apysc.expression import indent_num
         from apysc.type import revert_interface
         self._snapshot_name = \
             revert_interface.make_snapshots_of_each_scope_vars(
@@ -85,7 +84,6 @@ class IfBase(ABC):
         traceback : *
             Traceback value.
         """
-        from apysc.expression import indent_num
         from apysc.type import revert_interface
         revert_interface.revert_each_scope_vars(
             snapshot_name=self._snapshot_name,

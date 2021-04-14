@@ -8,8 +8,8 @@ from apysc import Int
 from apysc.expression import expression_file_util
 from apysc.expression import indent_num
 from apysc.expression import last_scope
-from apysc.expression.last_scope import LastScope
 from apysc.expression.indent_num import Indent
+from apysc.expression.last_scope import LastScope
 from tests import testing_helper
 
 

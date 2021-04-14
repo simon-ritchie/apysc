@@ -49,7 +49,6 @@ class For:
         i : Int
             Loop index.
         """
-        from apysc.expression import indent_num
         from apysc.type import revert_interface
         self._snapshot_name = \
             revert_interface.make_snapshots_of_each_scope_vars(
@@ -76,7 +75,6 @@ class For:
             Traceback value.
         """
         from apysc.expression import expression_file_util
-        from apysc.expression import indent_num
         from apysc.expression import last_scope
         from apysc.expression.last_scope import LastScope
         from apysc.type import revert_interface

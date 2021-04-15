@@ -4,7 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import Event
+from apysc import Event, EventType
 from apysc import Int
 from apysc.event import handler
 from apysc.event.handler import HandlerData
@@ -91,3 +91,18 @@ def test_append_handler_expression() -> None:
             'handler_name': handler_name,
             'e': 100,
         })
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test_append_unbinding_expression() -> None:
+    expression_file_util.remove_expression_file()
+    int_1: Int = Int(10)
+    handler.append_unbinding_expression(
+        this=int_1, handler_name='on_click_1',
+        event_type=EventType.CLICK)
+    expression: str = expression_file_util.get_current_expression()
+    expected: str = (
+        f'{int_1.variable_name}.off("{EventType.CLICK.value}", '
+        'on_click_1);'
+    )
+    assert expected in expression

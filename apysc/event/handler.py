@@ -1,6 +1,7 @@
 """Class implementation for handler.
 """
 
+from apysc.type.variable_name_interface import VariableNameInterface
 from typing import Any
 from typing import Dict
 from typing import List
@@ -8,12 +9,13 @@ from typing import List
 from typing_extensions import Protocol
 from typing_extensions import TypedDict
 
-_Event = Any
+from apysc.event.event import Event
+from apysc.event.event_type import EventType
 
 
 class Handler(Protocol):
 
-    def __call__(self, e: _Event, kwargs: Dict[str, Any]) -> None:
+    def __call__(self, e: Event, kwargs: Dict[str, Any]) -> None:
         """
         Event handler's callable interface.
 
@@ -59,7 +61,7 @@ def get_handler_name(handler: Handler) -> str:
 
 def append_handler_expression(
         handler_data: HandlerData, handler_name: str,
-        e: _Event) -> None:
+        e: Event) -> None:
     """
     Append handler's expression to file.
 
@@ -68,7 +70,7 @@ def append_handler_expression(
     handler_data : HandlerData
         Target handler's data to append.
     handler_name : str
-        Target Handler's name.
+        Target handler's name.
     e : Event
         Created event instance.
     """
@@ -78,19 +80,43 @@ def append_handler_expression(
     from apysc.expression.indent_num import Indent
     from apysc.type import revert_interface
     from apysc.validation.event_validation import validate_event
-    e_: Event = validate_event(e=e)
+    validate_event(e=e)
     variables: List[Any] = [*handler_data['kwargs'].values()]
     snapshot_name: str = revert_interface.make_variables_snapshots(
         variables=variables)
 
     with HandlerScope():
         expression: str = (
-            f'function {handler_name}({e_.variable_name}) {{'
+            f'function {handler_name}({e.variable_name}) {{'
         )
         expression_file_util.append_js_expression(expression=expression)
         with Indent():
-            handler_data['handler'](e=e_, kwargs=handler_data['kwargs'])
+            handler_data['handler'](e=e, kwargs=handler_data['kwargs'])
         expression_file_util.append_js_expression(expression='}')
 
     revert_interface.revert_variables(
         snapshot_name=snapshot_name, variables=variables)
+
+
+def append_unbinding_expression(
+        this: VariableNameInterface, handler_name: str,
+        event_type: EventType) -> None:
+    """
+    Append event unbinding expression to file.
+
+    Parameters
+    ----------
+    this : VariableNameInterface
+        Instance that event is binded.
+    handler_name : str
+        Target handler's name.
+    event_type : EventType
+        Event type to unbind.
+    """
+    from apysc.validation import event_validation
+    from apysc.expression import expression_file_util
+    event_validation.validate_event_type(event_type=event_type)
+    expression: str = (
+        f'{this.variable_name}.off("{event_type.value}", {handler_name});'
+    )
+    expression_file_util.append_js_expression(expression=expression)

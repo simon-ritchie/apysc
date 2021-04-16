@@ -106,3 +106,16 @@ def test_append_unbinding_expression() -> None:
         'on_click_1);'
     )
     assert expected in expression
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test_append_unbinding_all_expression() -> None:
+    expression_file_util.remove_expression_file()
+    int_1: Int = Int(10)
+    handler.append_unbinding_all_expression(
+        this=int_1, event_type=EventType.CLICK)
+    expression: str = expression_file_util.get_current_expression()
+    expected: str = (
+        f'{int_1.variable_name}.off("{EventType.CLICK.value}");'
+    )
+    assert expected in expression

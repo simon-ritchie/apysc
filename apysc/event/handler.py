@@ -120,3 +120,25 @@ def append_unbinding_expression(
         f'{this.variable_name}.off("{event_type.value}", {handler_name});'
     )
     expression_file_util.append_js_expression(expression=expression)
+
+
+def append_unbinding_all_expression(
+        this: VariableNameInterface,
+        event_type: EventType) -> None:
+    """
+    Append all events unbinding expression to file.
+
+    Parameters
+    ----------
+    this : VariableNameInterface
+        Instance that events are binded.
+    event_type : EventType
+        Event type to unbind.
+    """
+    from apysc.validation import event_validation
+    from apysc.expression import expression_file_util
+    event_validation.validate_event_type(event_type=event_type)
+    expression: str = (
+        f'{this.variable_name}.off("{event_type.value}");'
+    )
+    expression_file_util.append_js_expression(expression=expression)

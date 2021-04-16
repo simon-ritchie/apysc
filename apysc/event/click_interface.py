@@ -113,3 +113,16 @@ class ClickInterface:
         append_unbinding_expression(
             this=self, handler_name=name,
             event_type=EventType.CLICK)
+
+    def unbind_click_all(self) -> None:
+        """
+        Unbind all click events.
+        """
+        from apysc.type.variable_name_interface import VariableNameInterface
+        from apysc.event.handler import append_unbinding_all_expression
+        from apysc import EventType
+        if not isinstance(self, VariableNameInterface):
+            raise TypeError(_VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
+        del self._click_handlers
+        self._initialize_click_handlers_if_not_initialized()
+        append_unbinding_all_expression(this=self, event_type=EventType.CLICK)

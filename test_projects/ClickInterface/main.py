@@ -56,6 +56,10 @@ def main() -> None:
         x=150, y=50, width=50, height=50)
     rectangle_2.click(on_rectangle_2_clicked)
 
+    rectangle_3: Rectangle = sprite_2.graphics.draw_rect(
+        x=250, y=50, width=50, height=50)
+    rectangle_3.click(on_rectangle_3_clicked)
+
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
@@ -131,6 +135,24 @@ def on_rectangle_2_clicked(e: Event, kwargs: Dict[str, Any]) -> None:
     trace('Rectangle 2 is clicked!')
     e.prevent_default()
     e.stop_propagation()
+
+
+def on_rectangle_3_clicked(
+        e: Event[Rectangle], kwargs: Dict[str, Any]) -> None:
+    """
+    Test handler that called when rectangle_3 is clicked.
+
+    Parameters
+    ----------
+    e : Event
+        Event object.
+    kwargs : dict
+        Specified keyword arguments.
+    """
+    trace('Rectangle 3 is clicked and event is unbinded!')
+    e.this.unbind_click(handler=on_rectangle_3_clicked)
+    e.stop_propagation()
+    e.prevent_default()
 
 
 if __name__ == '__main__':

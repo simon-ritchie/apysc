@@ -60,6 +60,11 @@ def main() -> None:
         x=250, y=50, width=50, height=50)
     rectangle_3.click(on_rectangle_3_clicked)
 
+    rectangle_4: Rectangle = sprite_2.graphics.draw_rect(
+        x=350, y=50, width=50, height=50)
+    rectangle_4.click(on_rectangle_4_1_clicked)
+    rectangle_4.click(on_rectangle_4_2_clicked)
+
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
@@ -153,6 +158,37 @@ def on_rectangle_3_clicked(
     e.this.unbind_click(handler=on_rectangle_3_clicked)
     e.stop_propagation()
     e.prevent_default()
+
+
+def on_rectangle_4_1_clicked(
+        e: Event[Rectangle], kwargs: Dict[str, Any]) -> None:
+    """
+    Test handler that called when rectangle_4 is clicked.
+
+    Parameters
+    ----------
+    e : Event
+        Event object.
+    kwargs : dict
+        Specified keyword arguments.
+    """
+    trace('Rectangle 4 is clicked!')
+
+
+def on_rectangle_4_2_clicked(
+        e: Event[Rectangle], kwargs: Dict[str, Any]) -> None:
+    """
+    Test handler that called when rectangle_4 is clicked.
+
+    Parameters
+    ----------
+    e : Event
+        Event object.
+    kwargs : dict
+        Specified keyword arguments.
+    """
+    trace('Rectangle 4 is clicked and all click events are unbinded!')
+    e.this.unbind_click_all()
 
 
 if __name__ == '__main__':

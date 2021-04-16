@@ -4,7 +4,8 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import Event, EventType
+from apysc import Event
+from apysc import EventType
 from apysc import Int
 from apysc.event import handler
 from apysc.event.handler import HandlerData

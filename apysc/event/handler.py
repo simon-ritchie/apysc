@@ -1,7 +1,6 @@
 """Class implementation for handler.
 """
 
-from apysc.type.variable_name_interface import VariableNameInterface
 from typing import Any
 from typing import Dict
 from typing import List
@@ -11,6 +10,7 @@ from typing_extensions import TypedDict
 
 from apysc.event.event import Event
 from apysc.event.event_type import EventType
+from apysc.type.variable_name_interface import VariableNameInterface
 
 
 class Handler(Protocol):
@@ -74,7 +74,6 @@ def append_handler_expression(
     e : Event
         Created event instance.
     """
-    from apysc import Event
     from apysc.expression import expression_file_util
     from apysc.expression.event_handler_scope import HandlerScope
     from apysc.expression.indent_num import Indent
@@ -113,8 +112,8 @@ def append_unbinding_expression(
     event_type : EventType
         Event type to unbind.
     """
-    from apysc.validation import event_validation
     from apysc.expression import expression_file_util
+    from apysc.validation import event_validation
     event_validation.validate_event_type(event_type=event_type)
     expression: str = (
         f'{this.variable_name}.off("{event_type.value}", {handler_name});'
@@ -135,8 +134,8 @@ def append_unbinding_all_expression(
     event_type : EventType
         Event type to unbind.
     """
-    from apysc.validation import event_validation
     from apysc.expression import expression_file_util
+    from apysc.validation import event_validation
     event_validation.validate_event_type(event_type=event_type)
     expression: str = (
         f'{this.variable_name}.off("{event_type.value}");'

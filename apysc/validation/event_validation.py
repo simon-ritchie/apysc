@@ -8,7 +8,8 @@ Mainly following interfaces are defined.
 
 from typing import Any
 
-from apysc import Event, EventType
+from apysc import Event
+from apysc import EventType
 
 
 def validate_event(e: Any) -> Event:
@@ -44,6 +45,11 @@ def validate_event_type(event_type: Any) -> EventType:
     ----------
     event_type : EventType
         EventType value to check.
+
+    Returns
+    -------
+    event_type : EventType
+        EventType value.
     """
     if isinstance(event_type, EventType):
         return event_type

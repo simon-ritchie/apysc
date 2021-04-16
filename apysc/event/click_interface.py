@@ -91,7 +91,7 @@ class ClickInterface:
             return
         self._click_handlers = {}
 
-    def unbind_click(self, handler) -> None:
+    def unbind_click(self, handler: Handler) -> None:
         """
         Unbind specified handler's click event.
 
@@ -100,10 +100,10 @@ class ClickInterface:
         handler : Handler
             Callable to be unbinded.
         """
-        from apysc.type.variable_name_interface import VariableNameInterface
-        from apysc.event.handler import get_handler_name
-        from apysc.event.handler import append_unbinding_expression
         from apysc import EventType
+        from apysc.event.handler import append_unbinding_expression
+        from apysc.event.handler import get_handler_name
+        from apysc.type.variable_name_interface import VariableNameInterface
         if not isinstance(self, VariableNameInterface):
             raise TypeError(_VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
         self._initialize_click_handlers_if_not_initialized()
@@ -118,9 +118,9 @@ class ClickInterface:
         """
         Unbind all click events.
         """
-        from apysc.type.variable_name_interface import VariableNameInterface
-        from apysc.event.handler import append_unbinding_all_expression
         from apysc import EventType
+        from apysc.event.handler import append_unbinding_all_expression
+        from apysc.type.variable_name_interface import VariableNameInterface
         if not isinstance(self, VariableNameInterface):
             raise TypeError(_VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
         del self._click_handlers

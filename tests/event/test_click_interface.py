@@ -35,6 +35,18 @@ class TestClickInterface:
             Keyword arguments to pass to.
         """
 
+    def on_click_2(self, e: Event, kwargs: Dict[str, Any]) -> None:
+        """
+        Click handler method for testing.
+
+        Parameters
+        ----------
+        e : Event
+            Created event instance.
+        kwargs : dict
+            Keyword arguments to pass to.
+        """
+
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test_click(self) -> None:
         interface_1: _TestClickInterface = _TestClickInterface()
@@ -101,5 +113,23 @@ class TestClickInterface:
         expected: str = (
             f'{interface_2.variable_name}.off('
             f'"{EventType.CLICK.value}", {handler_name});'
+        )
+        assert expected in expression
+
+    def test_unbind_click_all(self) -> None:
+        expression_file_util.remove_expression_file
+        interface_1: ClickInterface = ClickInterface()
+        testing_helper.assert_raises(
+            expected_error_class=TypeError,
+            func_or_method=interface_1.unbind_click_all)
+
+        interface_2: _TestClickInterface = _TestClickInterface()
+        interface_2.click(handler=self.on_click_1)
+        interface_2.click(handler=self.on_click_2)
+        interface_2.unbind_click_all()
+        assert interface_2._click_handlers == {}
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface_2.variable_name}.off("{EventType.CLICK.value}");'
         )
         assert expected in expression

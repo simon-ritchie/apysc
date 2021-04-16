@@ -36,7 +36,7 @@ class ClickInterface:
         name : str
             Handler's name.
         """
-        from apysc import Event
+        from apysc import MouseEvent
         from apysc.event.handler import append_handler_expression
         from apysc.event.handler import get_handler_name
         from apysc.type.variable_name_interface import VariableNameInterface
@@ -52,7 +52,7 @@ class ClickInterface:
             'kwargs': kwargs,
         }
         self._append_click_expression(name=name)
-        e: Event = Event(this=self)
+        e: MouseEvent = MouseEvent(this=self)
         append_handler_expression(
             handler_data=self._click_handlers[name],
             handler_name=name,

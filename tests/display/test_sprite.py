@@ -48,9 +48,9 @@ class TestSprite:
         expression: str = file_util.read_txt(
             file_path=expression_file_util.EXPRESSION_FILE_PATH)
         expected_strs: List[str] = [
-            f'\nvar {sprite.variable_name} = {stage_variable_name}.group();',
+            f'\nvar {sprite.variable_name} = {stage_variable_name}.nested();',
             f'\nvar {sprite.graphics.variable_name} = ',
-            f'{stage_variable_name}.group();',
+            f'{stage_variable_name}.nested();',
             f'\n{sprite.variable_name}',
             f'.add({sprite.graphics.variable_name});'
         ]

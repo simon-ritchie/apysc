@@ -78,7 +78,7 @@ class TestGraphics:
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'var {sprite.graphics.variable_name} = '
-            f'{stage.variable_name}.group();'
+            f'{stage.variable_name}.nested();'
             f'\n{sprite.variable_name}.add({sprite.graphics.variable_name});'
         )
         assert expected in expression

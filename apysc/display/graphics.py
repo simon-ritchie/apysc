@@ -62,7 +62,7 @@ class Graphics(
         stage_name: str = self.parent_sprite.stage.variable_name
         parent_name: str = self.parent_sprite.variable_name
         expression: str = (
-            f'var {self.variable_name} = {stage_name}.group();'
+            f'var {self.variable_name} = {stage_name}.nested();'
             f'\n{parent_name}.add({self.variable_name});'
         )
         expression_file_util.append_js_expression(expression=expression)

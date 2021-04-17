@@ -70,7 +70,7 @@ class Sprite(
             return False
         stage_variable_name: str = get_stage_variable_name()
         expression: str = (
-            f'\nvar {self.variable_name} = {stage_variable_name}.group();'
+            f'\nvar {self.variable_name} = {stage_variable_name}.nested();'
         )
         expression_file_util.append_js_expression(expression=expression)
         return True

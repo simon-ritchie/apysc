@@ -1,8 +1,10 @@
 from random import randint
+import re
+from typing import Optional, Match
 
 from retrying import retry
 
-from apysc import MouseEvent, Int
+from apysc import MouseEvent, Int, Sprite
 from apysc.expression import var_names, expression_file_util
 from apysc.display.stage import get_stage_element_id
 from apysc import Stage
@@ -66,3 +68,27 @@ class TestMouseEvent:
             f'{stage_elem_str}.offset().top;'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_local_x(self) -> None:
+        int_1: Int = Int(10)
+        mouse_event: MouseEvent[Int] = MouseEvent(this=int_1)
+        local_x: Int = mouse_event.local_x
+        assert local_x == 0
+        assert isinstance(local_x, Int)
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_local_x_getter_expression(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        mouse_event: MouseEvent[Sprite] = MouseEvent(this=sprite)
+        local_x: Int = mouse_event.local_x
+        expression: str = expression_file_util.get_current_expression()
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'{local_x.variable_name} = {var_names.INT}\_.+? \- '
+                rf'{sprite.variable_name}.attr\("x"\);'
+            ),
+            string=expression,
+            flags=re.MULTILINE)
+        assert match is not None

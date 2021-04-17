@@ -54,8 +54,7 @@ class MouseEvent(Generic[T], Event):
         """
         from apysc.display.stage import get_stage_element_id
         from apysc.expression import expression_file_util
-        stage_elem_id: str = get_stage_element_id()
-        stage_elem_str: str = f'$("#{stage_elem_id}")'
+        stage_elem_str: str = f'$("#{get_stage_element_id()}")'
         expression: str = (
             f'{x.variable_name} = {self.variable_name}.pageX - '
             f'{stage_elem_str}.offset().left;'
@@ -87,10 +86,43 @@ class MouseEvent(Generic[T], Event):
         """
         from apysc.display.stage import get_stage_element_id
         from apysc.expression import expression_file_util
-        stage_elem_id: str = get_stage_element_id()
-        stage_elem_str: str = f'$("#{stage_elem_id}")'
+        stage_elem_str: str = f'$("#{get_stage_element_id()}")'
         expression: str = (
             f'{y.variable_name} = {self.variable_name}.pageY - '
             f'{stage_elem_str}.offset().top;'
+        )
+        expression_file_util.append_js_expression(expression=expression)
+
+    @property
+    def local_x(self) -> Int:
+        """
+        Get the x-coordinate of the event listening instance reference.
+        For example, if a Sprite instance is clicked, this value will be
+        x-coordinate from Sprite's left end position.
+
+        Returns
+        -------
+        x : Int
+            x-coordinate.
+        """
+        x: Int = Int(0)
+        self._append_local_x_getter_expression(x=x)
+        return x
+
+    def _append_local_x_getter_expression(self, x: Int) -> None:
+        """
+        Append local_x getter property expression to file.
+
+        Parameters
+        ----------
+        x : Int
+            Target x-coordinate value.
+        """
+        from apysc.expression import expression_file_util
+        stage_x_: Int = self.stage_x
+        this: T = self.this
+        expression: str = (
+            f'{x.variable_name} = {stage_x_.variable_name} - '
+            f'{this.variable_name}.attr("x");'
         )
         expression_file_util.append_js_expression(expression=expression)

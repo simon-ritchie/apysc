@@ -48,7 +48,7 @@ def main() -> None:
     sprite_1: Sprite = Sprite(stage=stage)
     sprite_1.graphics.begin_fill(color='#0af')
     rectangle_1: Rectangle = sprite_1.graphics.draw_rect(
-        x=50, y=50, width=50, height=50)
+        x=50, y=100, width=50, height=50)
     rectangle_1.click(on_rectangle_1_clicked)
 
     exporter.save_expressions_overall_html(
@@ -70,6 +70,10 @@ def on_rectangle_1_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     trace('stage_x:', e.stage_x)
     assert_true(e.stage_x >= Int(50))
     assert_true(e.stage_x <= Int(100))
+
+    trace('stage_y:', e.stage_y)
+    assert_true(e.stage_y >= Int(100))
+    assert_true(e.stage_y <= Int(150))
 
 
 if __name__ == '__main__':

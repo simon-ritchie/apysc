@@ -51,6 +51,14 @@ def main() -> None:
         x=50, y=100, width=50, height=50)
     rectangle_1.click(on_rectangle_1_clicked)
 
+    sprite_2: Sprite = Sprite(stage=stage)
+    sprite_2.graphics.begin_fill(color='#f0a')
+    sprite_2.x = Int(150)
+    sprite_2.y = Int(100)
+    rectangle_2: Rectangle = sprite_2.graphics.draw_rect(
+        x=50, y=50, width=50, height=50)
+    rectangle_2.click(on_rectangle_2_clicked)
+
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH, minify=False)
 
@@ -75,6 +83,23 @@ def on_rectangle_1_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     assert_true(e.stage_y >= Int(100))
     assert_true(e.stage_y <= Int(150))
 
+    trace('local_x:', e.local_x)
+    assert_true(e.local_x >= Int(0))
+    assert_true(e.local_x <= Int(50))
+
+
+def on_rectangle_2_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+    """
+    Test handler that called when rectangle_2 is clicked.
+
+    Parameters
+    ----------
+    e : Event
+        Event object.
+    kwargs : dict
+        Specified keyword arguments.
+    """
+    trace('Rectangle 2 clicked!')
     trace('local_x:', e.local_x)
     assert_true(e.local_x >= Int(0))
     assert_true(e.local_x <= Int(50))

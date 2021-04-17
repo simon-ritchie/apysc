@@ -61,3 +61,36 @@ class MouseEvent(Generic[T], Event):
             f'{stage_elem_str}.offset().left;'
         )
         expression_file_util.append_js_expression(expression=expression)
+
+    @property
+    def stage_y(self) -> Int:
+        """
+        Get the y-coordinate of the stage reference.
+
+        Returns
+        -------
+        y : Int
+            y-coordinate.
+        """
+        y: Int = Int(0)
+        self._append_stage_y_getter_expression(y=y)
+        return y
+
+    def _append_stage_y_getter_expression(self, y: Int) -> None:
+        """
+        Append stage_y getter property expression to file.
+
+        Parameters
+        ----------
+        y : Int
+            Target y-coordinate value.
+        """
+        from apysc.display.stage import get_stage_element_id
+        from apysc.expression import expression_file_util
+        stage_elem_id: str = get_stage_element_id()
+        stage_elem_str: str = f'$("#{stage_elem_id}")'
+        expression: str = (
+            f'{y.variable_name} = {self.variable_name}.pageY - '
+            f'{stage_elem_str}.offset().top;'
+        )
+        expression_file_util.append_js_expression(expression=expression)

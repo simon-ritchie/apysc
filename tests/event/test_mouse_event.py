@@ -42,3 +42,27 @@ class TestMouseEvent:
             f'{stage_elem_str}.offset().left;'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_stage_y(self) -> None:
+        int_1: Int = Int(10)
+        mouse_event: MouseEvent[Int] = MouseEvent(this=int_1)
+        stage_y: Int = mouse_event.stage_y
+        assert stage_y == 0
+        assert isinstance(stage_y, Int)
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_stage_y_getter_expression(self) -> None:
+        stage: Stage = Stage()
+        mouse_event: MouseEvent[Stage] = MouseEvent(this=stage)
+        stage_y: Int = mouse_event.stage_y
+        expression: str = expression_file_util.get_current_expression()
+        stage_elem_str: str = (
+            f'$("#{stage.stage_elem_id}")'
+        )
+        expected: str = (
+            f'{stage_y.variable_name} = '
+            f'{mouse_event.variable_name}.pageY - '
+            f'{stage_elem_str}.offset().top;'
+        )
+        assert expected in expression

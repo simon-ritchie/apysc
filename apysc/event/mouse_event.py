@@ -30,6 +30,18 @@ class MouseEvent(Generic[T], Event):
             this=this, type_name=var_names.MOUSE_EVENT)
 
     @property
+    def this(self) -> T:
+        """
+        Get instance that listening this event.
+
+        Returns
+        -------
+        this : VariableNameInterface
+            Instance that listening this event.
+        """
+        return super(MouseEvent, self).this
+
+    @property
     def stage_x(self) -> Int:
         """
         Get the x-coordinate of the stage reference.

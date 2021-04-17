@@ -116,3 +116,10 @@ class TestMouseEvent:
             string=expression,
             flags=re.MULTILINE)
         assert match is not None
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_this(self) -> None:
+        stage: Stage = Stage()
+        mouse_event: MouseEvent[Stage] = MouseEvent(this=stage)
+        this: Stage = mouse_event.this
+        assert stage == this

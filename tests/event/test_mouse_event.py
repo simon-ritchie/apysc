@@ -92,3 +92,27 @@ class TestMouseEvent:
             string=expression,
             flags=re.MULTILINE)
         assert match is not None
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_local_y(self) -> None:
+        int_1: Int = Int(10)
+        mouse_event: MouseEvent[Int] = MouseEvent(this=int_1)
+        local_y: Int = mouse_event.local_y
+        assert local_y == 0
+        assert isinstance(local_y, Int)
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__append_local_y_getter_expression(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        mouse_event: MouseEvent[Sprite] = MouseEvent(this=sprite)
+        local_y: Int = mouse_event.local_y
+        expression: str = expression_file_util.get_current_expression()
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'{local_y.variable_name} = {var_names.INT}\_.+? \- '
+                rf'{sprite.variable_name}.attr\("y"\);'
+            ),
+            string=expression,
+            flags=re.MULTILINE)
+        assert match is not None

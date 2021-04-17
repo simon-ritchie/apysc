@@ -32,13 +32,13 @@ class TestMouseEvent:
         stage: Stage = Stage()
         mouse_event: MouseEvent[Stage] = MouseEvent(this=stage)
         stage_x: Int = mouse_event.stage_x
-        stage_var_name: str = stage.variable_name
+        stage_elem_str: str = (
+            f'$("#{stage.stage_elem_id}")'
+        )
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{stage_x.variable_name} = '
             f'{mouse_event.variable_name}.pageX - '
-            f'{stage_var_name}.offset().left - '
-            f'parseInt({stage_var_name}.css("margin-left")) - '
-            f'parseInt({stage.variable_name}.css("padding-left"));'
+            f'{stage_elem_str}.offset().left;'
         )
         assert expected in expression

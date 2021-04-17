@@ -12,10 +12,14 @@ from apysc.event.event import Event
 from apysc.event.event_type import EventType
 from apysc.type.variable_name_interface import VariableNameInterface
 
+Event_ = Any
+
 
 class Handler(Protocol):
 
-    def __call__(self, e: Event, kwargs: Dict[str, Any]) -> None:
+    def __call__(
+            self, e: Event_,
+            kwargs: Dict[str, Any]) -> None:
         """
         Event handler's callable interface.
 

@@ -6,17 +6,18 @@ $ python String/main.py
 """
 
 import sys
+from typing import Any, Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
 
-from apysc import Boolean
+from apysc import Boolean, MouseEvent
 from apysc import If
 from apysc import Stage
 from apysc import String
-from apysc import assert_equal
+from apysc import assert_equal, trace, assert_true
 from apysc.file import file_util
 from apysc.html import exporter
 
@@ -31,7 +32,7 @@ _DEST_DIR_PATH: str = os.path.join(
 def main() -> None:
     """Entry point of this test project.
     """
-    _: Stage = Stage(background_color='#333')
+    stage: Stage = Stage(background_color='#333')
 
     string_1: String = String(value='Hello')
     assert_equal(expected='Hello', actual=string_1)
@@ -58,7 +59,28 @@ def main() -> None:
         string_4 *= 3
     assert_equal(expected='Hello!', actual=string_4)
 
-    exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    string_5: String = String('Hello!')
+    stage.click(on_stage_clicked, kwargs={'string_5': string_5})
+
+    exporter.save_expressions_overall_html(
+        dest_dir_path=_DEST_DIR_PATH, minify=False)
+
+
+def on_stage_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+    """
+    Test handler that called when stage is clicked.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Created event instance.
+    kwargs : dict
+        Keyword arguments.
+    """
+    trace('stage clicked!')
+    string_5: String = kwargs['string_5']
+    string_5.value = 'World!'
+    assert_true(string_5 == 'World!')
 
 
 if __name__ == '__main__':

@@ -1,8 +1,10 @@
+import re
 from random import randint
-from typing import Any, Match, Optional
+from typing import Any
 from typing import Dict
 from typing import List
-import re
+from typing import Match
+from typing import Optional
 
 import pytest
 from retrying import retry

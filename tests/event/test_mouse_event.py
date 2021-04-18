@@ -87,7 +87,7 @@ class TestMouseEvent:
         match: Optional[Match] = re.search(
             pattern=(
                 rf'{local_x.variable_name} = {var_names.INT}\_.+? \- '
-                rf'{sprite.variable_name}.attr\("x"\);'
+                rf'get_total_x\({sprite.variable_name}\);'
             ),
             string=expression,
             flags=re.MULTILINE)

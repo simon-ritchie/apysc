@@ -10,8 +10,22 @@ from typing import Tuple
 
 from typing_extensions import Final
 
+# Function for deepcopy.
 FUNC_COPY: Final[str] = """function cpy(any_obj) {
   return JSON.parse(JSON.stringify(any_obj));
+}"""
+
+# Function to get a specified object's total x-coordinate (including
+# parent coordinate).
+FUNC_GET_TOTAL_X: Final[str] = """function get_total_x(any_obj) {
+    var total_x = 0;
+    total_x += any_obj.attr("x");
+    var parent = any_obj.parent();
+    while (!_.isUndefined($(parent).attr("x"))) {
+        total_x += parent.attr("x");
+        parent = parent.parent();
+    }
+    return total_x;
 }"""
 
 

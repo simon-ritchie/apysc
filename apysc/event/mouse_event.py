@@ -135,7 +135,7 @@ class MouseEvent(Generic[T], Event):
         this: T = self.this
         expression: str = (
             f'{x.variable_name} = {stage_x.variable_name} - '
-            f'{this.variable_name}.attr("x");'
+            f'get_total_x({this.variable_name});'
         )
         expression_file_util.append_js_expression(expression=expression)
 

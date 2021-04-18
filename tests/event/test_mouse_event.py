@@ -11,6 +11,7 @@ from apysc import Sprite
 from apysc import Stage
 from apysc.expression import expression_file_util
 from apysc.expression import var_names
+from apysc.display.stage import get_stage_elem_str
 
 
 class TestMouseEvent:
@@ -37,14 +38,11 @@ class TestMouseEvent:
         stage: Stage = Stage()
         mouse_event: MouseEvent[Stage] = MouseEvent(this=stage)
         stage_x: Int = mouse_event.stage_x
-        stage_elem_str: str = (
-            f'$("#{stage.stage_elem_id}")'
-        )
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{stage_x.variable_name} = '
             f'{mouse_event.variable_name}.pageX - '
-            f'{stage_elem_str}.offset().left;'
+            f'{get_stage_elem_str()}.offset().left;'
         )
         assert expected in expression
 
@@ -62,13 +60,10 @@ class TestMouseEvent:
         mouse_event: MouseEvent[Stage] = MouseEvent(this=stage)
         stage_y: Int = mouse_event.stage_y
         expression: str = expression_file_util.get_current_expression()
-        stage_elem_str: str = (
-            f'$("#{stage.stage_elem_id}")'
-        )
         expected: str = (
             f'{stage_y.variable_name} = '
             f'{mouse_event.variable_name}.pageY - '
-            f'{stage_elem_str}.offset().top;'
+            f'{get_stage_elem_str()}.offset().top;'
         )
         assert expected in expression
 

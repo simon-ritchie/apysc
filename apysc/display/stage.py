@@ -199,3 +199,17 @@ def get_stage_variable_name() -> str:
     stage_elem_id: str = get_stage_element_id()
     stage_variable_name: str = stage_elem_id.replace('-', '_')
     return stage_variable_name
+
+
+def get_stage_elem_str() -> str:
+    """
+    Get current stage's jQuery element string.
+
+    Returns
+    -------
+    stage_elem_str : str
+        Stage's jQuery element string (e.g., '$("#<stage_elem_id>")').
+    """
+    stage_elem_id: str = get_stage_element_id()
+    stage_elem_str: str = f'$("#{stage_elem_id}")'
+    return stage_elem_str

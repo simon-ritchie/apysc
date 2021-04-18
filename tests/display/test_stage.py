@@ -126,3 +126,11 @@ def test_get_stage_variable_name() -> None:
     Stage(stage_elem_id='line-graph')
     stage_variable_name: str = stage.get_stage_variable_name()
     assert stage_variable_name == 'line_graph'
+
+
+@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+def test_get_stage_elem_str() -> None:
+    stage_: Stage = Stage()
+    stage_elem_str: str = stage.get_stage_elem_str()
+    expected: str = f'$("#{stage_.stage_elem_id}")'
+    assert stage_elem_str == expected

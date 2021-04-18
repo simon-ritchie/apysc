@@ -6,18 +6,19 @@ $ python Int/main.py
 """
 
 import sys
+from typing import Any, Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
 
-from apysc import Boolean
+from apysc import Boolean, MouseEvent
 from apysc import If
 from apysc import Int
 from apysc import Number
 from apysc import Stage
-from apysc import assert_equal
+from apysc import assert_equal, assert_true, trace
 from apysc.file import file_util
 from apysc.html import exporter
 
@@ -33,7 +34,7 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    _: Stage = Stage(background_color='#333')
+    stage: Stage = Stage(background_color='#333')
 
     int_1: Int = Int(10)
     assert_equal(expected=10, actual=int_1)
@@ -102,7 +103,25 @@ def main() -> None:
         int_14 /= 2
     assert_equal(expected=10, actual=int_14)
 
+    int_15: Int = Int(10)
+    stage.click(on_stage_clicked, kwargs={'int_15': int_15})
+
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
+
+
+def on_stage_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+    """
+    Test handler that called when stage is clicked.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Created event instance.
+    kwargs : dict
+        Keyword arguments.
+    """
+    trace('stage clicked!')
+    assert_true(kwargs['int_15'] == 10)
 
 
 if __name__ == '__main__':

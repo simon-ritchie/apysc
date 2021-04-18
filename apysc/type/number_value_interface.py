@@ -489,7 +489,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
     def _convert_other_val_to_int_or_number(self, other: Any) -> Any:
         """
         If comparison other value is int or float, then
-        convert it to Int or Number
+        convert it to Int or Number.
 
         Parameters
         ----------

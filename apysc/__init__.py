@@ -24,4 +24,4 @@ from apysc.console.assertion import assert_arrays_not_equal  # isort:skip # noqa
 from apysc.console.assertion import assert_defined  # isort:skip # noqa
 from apysc.console.assertion import assert_undefined  # isort:skip # noqa
 
-__version__: str = '0.8.3'
+__version__: str = '0.9.0'

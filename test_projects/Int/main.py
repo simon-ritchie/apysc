@@ -6,19 +6,23 @@ $ python Int/main.py
 """
 
 import sys
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
 
-from apysc import Boolean, MouseEvent
+from apysc import Boolean
 from apysc import If
 from apysc import Int
+from apysc import MouseEvent
 from apysc import Number
 from apysc import Stage
-from apysc import assert_equal, assert_true, trace
+from apysc import assert_equal
+from apysc import assert_true
+from apysc import trace
 from apysc.file import file_util
 from apysc.html import exporter
 

@@ -1,6 +1,7 @@
 import re
 from random import randint
-from typing import Any, Match
+from typing import Any
+from typing import Match
 from typing import Optional
 
 import pytest
@@ -10,8 +11,8 @@ from apysc import Boolean
 from apysc import Int
 from apysc import Number
 from apysc.expression import expression_file_util
-from apysc.type.number_value_interface import NumberValueInterface
 from apysc.expression import var_names
+from apysc.type.number_value_interface import NumberValueInterface
 from tests import testing_helper
 
 

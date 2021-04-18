@@ -503,7 +503,8 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             Int. float is specified, then Number.
             Other type will be returned directly.
         """
-        from apysc import Int, Number
+        from apysc import Int
+        from apysc import Number
         if isinstance(other, int):
             return Int(other)
         if isinstance(other, float):

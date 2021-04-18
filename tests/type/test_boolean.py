@@ -1,7 +1,9 @@
-from random import randint
-from typing import Any, Match, Optional
-from typing import Dict
 import re
+from random import randint
+from typing import Any
+from typing import Dict
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
@@ -184,7 +186,7 @@ class TestBoolean:
         assert result
         assert isinstance(result, Boolean)
 
-        result = boolean_1 == False
+        result = boolean_1 == False  # noqa
         assert not result
         assert isinstance(result, Boolean)
 

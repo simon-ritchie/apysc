@@ -6,17 +6,20 @@ $ python Boolean/main.py
 """
 
 import sys
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
 
-from apysc import Boolean, MouseEvent
+from apysc import Boolean
+from apysc import MouseEvent
 from apysc import Stage
-from apysc import assert_false, trace
+from apysc import assert_false
 from apysc import assert_true
+from apysc import trace
 from apysc.file import file_util
 from apysc.html import exporter
 
@@ -90,7 +93,7 @@ def on_stage_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     trace('stage clicked!')
     boolean_14: Boolean = kwargs['boolean_14']
     boolean_14.value = True
-    assert_true(boolean_14 == True)
+    assert_true(boolean_14 == True)  # noqa
 
 
 if __name__ == '__main__':

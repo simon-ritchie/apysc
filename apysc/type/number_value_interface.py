@@ -688,6 +688,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             result: Boolean = Boolean(self.value > other.value)
         else:
             result = Boolean(self.value > other)
+        other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, NumberValueInterface):
             self._append_gt_expression(result=result, other=other)
         return result

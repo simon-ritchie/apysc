@@ -126,6 +126,7 @@ def on_stage_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     assert_true(kwargs['int_15'] == 15)
     assert_true(kwargs['int_15'] != 16)
     assert_true(kwargs['int_15'] < 16)
+    assert_true(kwargs['int_15'] <= 15)
 
 
 if __name__ == '__main__':

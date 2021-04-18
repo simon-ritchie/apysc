@@ -359,7 +359,7 @@ def _target_js_variable_is_used(
     return False
 
 
-_VAR_PATTERN: Pattern = re.compile(pattern=r'var (.+?) = ')
+_VAR_PATTERN: Pattern = re.compile(pattern=r'^var (.+?) = ')
 
 
 def _get_var_name_from_line(line: str) -> str:
@@ -378,6 +378,7 @@ def _get_var_name_from_line(line: str) -> str:
         pattern, then `any_name` will be returned. Or if there is no
         var expression, blank string will be returned.
     """
+    line = line.strip()
     match: Optional[Match] = _VAR_PATTERN.search(string=line)
     if match is None:
         return ''

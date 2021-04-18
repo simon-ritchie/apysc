@@ -131,6 +131,14 @@ def test__get_var_name_from_line() -> None:
         line='var any_value = 200;')
     assert var_name == 'any_value'
 
+    var_name = exporter._get_var_name_from_line(
+        line='  var any_value = 200;')
+    assert var_name == 'any_value'
+
+    var_name = exporter._get_var_name_from_line(
+        line='for (var i = 0; i < 10; i++) {')
+    assert var_name == ''
+
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
 def test__target_js_variable_is_used() -> None:

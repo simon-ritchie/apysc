@@ -168,6 +168,7 @@ def on_stage_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     array_28: Array = kwargs['array_28']
     array_28.value = [3, 4]
     assert_true(array_28 == [3, 4])
+    assert_true(array_28 != [1, 2])
 
 
 if __name__ == '__main__':

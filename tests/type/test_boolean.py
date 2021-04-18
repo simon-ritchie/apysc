@@ -183,7 +183,7 @@ class TestBoolean:
         assert result
         assert isinstance(result, Boolean)
 
-        result = boolean_1 == 'Hello!'
+        result = boolean_1 == False
         assert not result
         assert isinstance(result, Boolean)
 
@@ -263,3 +263,16 @@ class TestBoolean:
             f'Boolean({int_1.variable_name});'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__validate_comparison_other_type(self) -> None:
+        bool_1: Boolean = Boolean(True)
+        acceptable_values: tuple = (Boolean(False), True, Int(1), 0)
+        for acceptable_value in acceptable_values:
+            bool_1._validate_comparison_other_type(
+                other=acceptable_value)
+
+        testing_helper.assert_raises(
+            expected_error_class=ValueError,
+            func_or_method=bool_1._validate_comparison_other_type,
+            kwargs={'other': 'Hello!'})

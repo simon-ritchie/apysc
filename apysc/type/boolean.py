@@ -214,6 +214,7 @@ class Boolean(CopyInterface, RevertInterface):
         result : Boolean
             Comparison result.
         """
+        self._validate_comparison_other_type(other=other)
         result: Boolean
         if isinstance(other, Boolean):
             result = Boolean(self._value == other._value)
@@ -228,6 +229,28 @@ class Boolean(CopyInterface, RevertInterface):
             self._append_eq_expression(result=result, other=other)
             return result
         return Boolean(self._value == other)
+
+    def _validate_comparison_other_type(self, other: Any) -> None:
+        """
+        Validate comparison's other value type.
+
+        Parameters
+        ----------
+        other : *
+            Other value to compare.
+
+        Raises
+        ------
+        ValueError
+            If other value type is not Boolean, bool, Int, and int.
+        """
+        ACCEPTABLE_TYPES: tuple = (Boolean, bool, Int, int)
+        if isinstance(other, ACCEPTABLE_TYPES):
+            return
+        raise ValueError(
+            'Can\'t acceptable comparison value type is specified: '
+            f'{type(other)}, {other}'
+            f'\nAcceptable value types are: {ACCEPTABLE_TYPES}')
 
     def _append_eq_expression(
             self, result: VariableNameInterface,

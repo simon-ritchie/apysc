@@ -111,13 +111,13 @@ class TestStage:
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
-def test_get_stage_element_id() -> None:
+def test_get_stage_elem_id() -> None:
     file_util.remove_file_if_exists(file_path=_STAGE_ELEM_ID_FILE_PATH)
-    stage_elem_id: str = stage.get_stage_element_id()
+    stage_elem_id: str = stage.get_stage_elem_id()
     assert stage_elem_id == ''
 
     Stage(stage_elem_id='line-graph')
-    stage_elem_id = stage.get_stage_element_id()
+    stage_elem_id = stage.get_stage_elem_id()
     assert stage_elem_id == 'line-graph'
 
 

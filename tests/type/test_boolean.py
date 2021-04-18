@@ -1,6 +1,7 @@
 from random import randint
-from typing import Any
+from typing import Any, Match, Optional
 from typing import Dict
+import re
 
 from retrying import retry
 
@@ -231,6 +232,19 @@ class TestBoolean:
             f'Boolean({int_1.variable_name});'
         )
         assert expected in expression
+
+        expression_file_util.remove_expression_file()
+        result = boolean_1 == 1
+        expression = expression_file_util.get_current_expression()
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'{result.variable_name} = '
+                rf'{boolean_1.variable_name} === '
+                rf'{var_names.BOOLEAN}\_.+?;'
+            ),
+            string=expression,
+            flags=re.MULTILINE)
+        assert match is not None
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___ne__(self) -> None:

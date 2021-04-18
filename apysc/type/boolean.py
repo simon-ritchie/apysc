@@ -220,15 +220,15 @@ class Boolean(CopyInterface, RevertInterface):
             result = Boolean(self._value == other._value)
             self._append_eq_expression(result=result, other=other)
             return result
-        if isinstance(other, int):
-            other = bool(other)
-            return Boolean(other)
-        if isinstance(other, Int):
+        elif isinstance(other, Int):
             other_ = bool(other.value)
             result = Boolean(self._value == other_)
-            self._append_eq_expression(result=result, other=other)
-            return result
-        return Boolean(self._value == other)
+        else:
+            other = bool(other)
+            result = Boolean(self._value == other)
+            other = Boolean(other)
+        self._append_eq_expression(result=result, other=other)
+        return result
 
     def _validate_comparison_other_type(self, other: Any) -> None:
         """

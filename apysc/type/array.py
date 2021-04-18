@@ -887,9 +887,33 @@ class Array(CopyInterface, RevertInterface):
         result: Boolean
         if isinstance(other, Array):
             result = Boolean(self.value == other.value)
+        else:
+            result = Boolean(self.value == other)
+            other = self._convert_other_val_to_array(other=other)
+        if isinstance(other, VariableNameInterface):
             self._append_eq_expression(result=result, other=other)
-            return result
-        return Boolean(self.value == other)
+        return result
+
+    def _convert_other_val_to_array(self, other: Any) -> Any:
+        """
+        If comparison's other value is list value, then convert it to
+        Array instance.
+
+        Parameters
+        ----------
+        other : *
+            Other value to compare.
+
+        Returns
+        -------
+        converted_val : *
+            Converted value. If other value is list, then this will
+            be Array type. Otherwise this will be returned directly
+            (not to be converted).
+        """
+        if isinstance(other, list):
+            return Array(other)
+        return other
 
     def _append_eq_expression(
             self, result: Boolean, other: VariableNameInterface) -> None:

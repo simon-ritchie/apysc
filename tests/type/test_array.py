@@ -1,7 +1,8 @@
 from random import randint
-from typing import Any
+from typing import Any, Match, Optional
 from typing import Dict
 from typing import List
+import re
 
 import pytest
 from retrying import retry
@@ -644,6 +645,19 @@ class TestArray:
         )
         assert expected in expression
 
+        expression_file_util.remove_expression_file()
+        result = array_1 == [3, 4]
+        expression = expression_file_util.get_current_expression()
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'{result.variable_name} = '
+                rf'_.isEqual\({array_1.variable_name}, '
+                rf'{var_names.ARRAY}\_.+?\);'
+            ),
+            string=expression,
+            flags=re.MULTILINE)
+        assert match is not None
+
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test___ne__(self) -> None:
         array_1: Array = Array([1, 2])
@@ -668,3 +682,14 @@ class TestArray:
             f'!_.isEqual({array_1.variable_name}, {array_2.variable_name});'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__convert_other_val_to_array(self) -> None:
+        array_1: Array = Array([1, 2])
+        converted_val: Any = array_1._convert_other_val_to_array(
+            other=[3, 4])
+        assert converted_val == [3, 4]
+        assert isinstance(converted_val, Array)
+
+        converted_val = array_1._convert_other_val_to_array(other=10)
+        assert converted_val == 10

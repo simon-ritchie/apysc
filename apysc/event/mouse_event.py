@@ -2,12 +2,11 @@
 """
 
 from typing import Generic
-from typing import Optional
 from typing import TypeVar
 
+from apysc import Int
 from apysc.event.event import Event
 from apysc.type.variable_name_interface import VariableNameInterface
-from apysc import Int
 
 T = TypeVar('T', bound=VariableNameInterface)
 
@@ -146,8 +145,8 @@ class MouseEvent(Generic[T], Event):
         For example, if a Sprite instance is clicked, this value will be
         y-coordinate from Sprite's top end position.
 
-        Parameters
-        ----------
+        Returns
+        -------
         y : Int
             y-coordinate.
         """

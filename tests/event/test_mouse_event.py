@@ -1,13 +1,16 @@
-from random import randint
 import re
-from typing import Optional, Match
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
-from apysc import MouseEvent, Int, Sprite
-from apysc.expression import var_names, expression_file_util
-from apysc.display.stage import get_stage_element_id
+from apysc import Int
+from apysc import MouseEvent
+from apysc import Sprite
 from apysc import Stage
+from apysc.expression import expression_file_util
+from apysc.expression import var_names
 
 
 class TestMouseEvent:

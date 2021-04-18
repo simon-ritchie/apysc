@@ -354,6 +354,7 @@ class String(CopyInterface, RevertInterface):
             result = Boolean(self._value != other._value)
         else:
             result = Boolean(True)
+        other = self._convert_other_val_to_string(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_ne_expression(result=result, other=other)
         return result

@@ -81,6 +81,7 @@ def on_stage_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     string_5: String = kwargs['string_5']
     string_5.value = 'World!'
     assert_true(string_5 == 'World!')
+    assert_true(string_5 != 'Hello!')
 
 
 if __name__ == '__main__':

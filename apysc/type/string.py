@@ -398,6 +398,7 @@ class String(CopyInterface, RevertInterface):
         string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
         result: Boolean = Boolean(self._value < value)
+        other = self._convert_other_val_to_string(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_lt_expression(result=result, other=other)
         return result

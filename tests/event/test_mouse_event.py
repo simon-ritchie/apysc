@@ -111,7 +111,7 @@ class TestMouseEvent:
         match: Optional[Match] = re.search(
             pattern=(
                 rf'{local_y.variable_name} = {var_names.INT}\_.+? \- '
-                rf'{sprite.variable_name}.attr\("y"\);'
+                rf'get_total_y\({sprite.variable_name}\);'
             ),
             string=expression,
             flags=re.MULTILINE)

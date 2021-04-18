@@ -16,7 +16,7 @@ FUNC_COPY: Final[str] = """function cpy(any_obj) {
 }"""
 
 # Function to get a specified object's total x-coordinate (including
-# parent coordinate).
+# parents coordinates).
 FUNC_GET_TOTAL_X: Final[str] = """function get_total_x(any_obj) {
     var total_x = 0;
     total_x += any_obj.attr("x");
@@ -26,6 +26,19 @@ FUNC_GET_TOTAL_X: Final[str] = """function get_total_x(any_obj) {
         parent = parent.parent();
     }
     return total_x;
+}"""
+
+# Function to get a specified object's total y-coordinate (including
+# parents coordinates).
+FUNC_GET_TOTAL_Y: Final[str] = """function get_total_y(any_obj) {
+    var total_y = 0;
+    total_y += any_obj.attr("y");
+    var parent = any_obj.parent();
+    while (!_.isUndefined($(parent).attr("y"))) {
+        total_y += parent.attr("y");
+        parent = parent.parent();
+    }
+    return total_y;
 }"""
 
 

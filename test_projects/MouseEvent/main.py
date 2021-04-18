@@ -104,6 +104,10 @@ def on_rectangle_2_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     assert_true(e.local_x >= Int(0))
     assert_true(e.local_x <= Int(50))
 
+    trace('local_y:', e.local_y)
+    assert_true(e.local_y >= Int(0))
+    assert_true(e.local_y <= Int(50))
+
 
 if __name__ == '__main__':
     main()

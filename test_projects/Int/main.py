@@ -123,6 +123,8 @@ def on_stage_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     trace('stage clicked!')
     assert_true(kwargs['int_15'] == 10)
 
+    assert_true(kwargs['int_15'] != 11)
+
 
 if __name__ == '__main__':
     main()

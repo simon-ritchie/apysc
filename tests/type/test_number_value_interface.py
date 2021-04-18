@@ -630,6 +630,19 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
+        expression_file_util.remove_expression_file()
+        result = interface_1 != 20
+        expression = expression_file_util.get_current_expression()
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'{result.variable_name} = '
+                rf'{interface_1.variable_name} !== '
+                rf'{var_names.INT}\_.+?;'
+            ),
+            string=expression,
+            flags=re.MULTILINE)
+        assert match is not None
+
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_lt_expression(self) -> None:
         expression_file_util.remove_expression_file()

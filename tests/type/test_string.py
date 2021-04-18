@@ -406,6 +406,18 @@ class TestString:
         )
         assert expected in expression
 
+        expression_file_util.remove_expression_file()
+        result = string_1 > 'World!'
+        expression = expression_file_util.get_current_expression()
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'{result.variable_name} = '
+                rf'{string_1.variable_name} > '
+                rf'{var_names.STRING}\_.+?;'
+            ),
+            string=expression, flags=re.MULTILINE)
+        assert match is not None
+
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_ge_expression(self) -> None:
         expression_file_util.remove_expression_file()

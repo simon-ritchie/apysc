@@ -85,6 +85,7 @@ def on_stage_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     string_5.value = '1970-01-05'
     assert_true(string_5 < '1970-01-06')
     assert_true(string_5 <= '1970-01-05')
+    assert_true(string_5 > '1970-01-04')
 
 
 if __name__ == '__main__':

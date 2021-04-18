@@ -481,9 +481,34 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             result: Boolean = Boolean(self.value == other.value)
         else:
             result = Boolean(self.value == other)
+        other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_eq_expression(result=result, other=other)
         return result
+
+    def _convert_other_val_to_int_or_number(self, other: Any) -> Any:
+        """
+        If comparison other value is int or float, then
+        convert it to Int or Number
+
+        Parameters
+        ----------
+        other : *
+            Other comparison value.
+
+        Returns
+        -------
+        converted_val : *
+            Converted value. If int is specified, then this will be
+            Int. float is specified, then Number.
+            Other type will be returned directly.
+        """
+        from apysc import Int, Number
+        if isinstance(other, int):
+            return Int(other)
+        if isinstance(other, float):
+            return Number(other)
+        return other
 
     def _append_eq_expression(
             self, result: VariableNameInterface,

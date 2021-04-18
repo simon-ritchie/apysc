@@ -1,6 +1,6 @@
 import re
 from random import randint
-from typing import Match
+from typing import Any, Match
 from typing import Optional
 
 import pytest
@@ -11,6 +11,7 @@ from apysc import Int
 from apysc import Number
 from apysc.expression import expression_file_util
 from apysc.type.number_value_interface import NumberValueInterface
+from apysc.expression import var_names
 from tests import testing_helper
 
 
@@ -538,6 +539,7 @@ class TestNumberValueInterface:
     def test___int__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
+        interface_1.variable_name = 'test_interface_1'
         integer: int = int(interface_1)
         assert interface_1 == 10
         assert isinstance(integer, int)
@@ -597,6 +599,18 @@ class TestNumberValueInterface:
             f'{interface_1.variable_name} === {interface_2.variable_name};'
         )
         assert expected in expression
+
+        expression_file_util.remove_expression_file()
+        result = interface_1 == 10
+        expression = expression_file_util.get_current_expression()
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'{result.variable_name} = '
+                rf'{interface_1.variable_name} === '
+                rf'{var_names.INT}\_.+?\;'),
+            string=expression,
+            flags=re.MULTILINE)
+        assert match is not None
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_ne_expression(self) -> None:
@@ -683,3 +697,21 @@ class TestNumberValueInterface:
             f'{interface_1.variable_name} >= {interface_2.variable_name};'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__convert_other_val_to_int_or_number(self) -> None:
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=10, type_name='test_interface')
+        converted_val: Any = interface_1._convert_other_val_to_int_or_number(
+            other=10)
+        assert isinstance(converted_val, Int)
+        assert converted_val == 10
+
+        converted_val = interface_1._convert_other_val_to_int_or_number(
+            other=10.5)
+        assert isinstance(converted_val, Number)
+        assert converted_val == 10.5
+
+        converted_val = interface_1._convert_other_val_to_int_or_number(
+            other='Hello')
+        assert converted_val == 'Hello'

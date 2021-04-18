@@ -285,9 +285,32 @@ class String(CopyInterface, RevertInterface):
             result = Boolean(self._value == other._value)
         else:
             result = Boolean(False)
+        other = self._convert_other_val_to_string(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_eq_expression(result=result, other=other)
         return result
+
+    def _convert_other_val_to_string(self, other: Any) -> Any:
+        """
+        If comparison other value is string, then convert it to
+        String.
+
+        Parameters
+        ----------
+        other : *
+            Other comparison value.
+
+        Returns
+        -------
+        converted_val : *
+            Converted value. If other value is string, then this
+            will be String instance. Other type will be returned
+            directly (not to be converted).
+        """
+        from apysc import String
+        if isinstance(other, str):
+            return String(other)
+        return other
 
     def _append_eq_expression(
             self, result: VariableNameInterface,

@@ -305,6 +305,19 @@ class TestString:
         )
         assert expected in expression
 
+        expression_file_util.remove_expression_file()
+        result = string_1 == 'Hello!'
+        expression = expression_file_util.get_current_expression()
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'{result.variable_name} = '
+                rf'{string_1.variable_name} === '
+                rf'{var_names.STRING}\_.+?;'
+            ),
+            string=expression,
+            flags=re.MULTILINE)
+        assert match is not None
+
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__append_ne_expression(self) -> None:
         expression_file_util.remove_expression_file()
@@ -369,3 +382,14 @@ class TestString:
             f'{string_1.variable_name} >= {string_2.variable_name};'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__convert_other_val_to_string(self) -> None:
+        string_1: String = String(value='Hello!')
+        converted_val: Any = string_1._convert_other_val_to_string(
+            other='world')
+        assert isinstance(converted_val, String)
+        assert converted_val == 'world'
+
+        converted_val = string_1._convert_other_val_to_string(other=100)
+        assert converted_val == 100

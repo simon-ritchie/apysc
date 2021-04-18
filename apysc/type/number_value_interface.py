@@ -501,7 +501,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         converted_val : *
             Converted value. If int is specified, then this will be
             Int. float is specified, then Number.
-            Other type will be returned directly.
+            Other type will be returned directly (not to be converted).
         """
         from apysc import Int
         from apysc import Number

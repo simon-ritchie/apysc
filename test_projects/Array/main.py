@@ -6,18 +6,19 @@ $ python Array/main.py
 """
 
 import sys
+from typing import Any, Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
 
-from apysc import Array
+from apysc import Array, MouseEvent
 from apysc import If
 from apysc import Int
 from apysc import Stage
 from apysc import String
-from apysc import assert_arrays_equal
+from apysc import assert_arrays_equal, assert_true, trace
 from apysc import assert_equal
 from apysc.file import file_util
 from apysc.html import exporter
@@ -33,7 +34,7 @@ _DEST_DIR_PATH: str = os.path.join(
 def main() -> None:
     """Entry point of this test project.
     """
-    _: Stage = Stage(background_color='#333')
+    stage: Stage = Stage(background_color='#333')
 
     array_1: Array = Array([1, 2, 3])
     assert_arrays_equal(expected=[1, 2, 3], actual=array_1)
@@ -146,7 +147,27 @@ def main() -> None:
         int_4.value = 30
     assert_equal(expected=30, actual=int_4)
 
+    array_28: Array = Array([1, 2])
+    stage.click(on_stage_clicked, kwargs={'array_28': array_28})
+
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
+
+
+def on_stage_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+    """
+    Test handler that called when stage is clicked.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Created event instance.
+    kwargs : dict
+        Keyword arguments.
+    """
+    trace('stage clicked!')
+    array_28: Array = kwargs['array_28']
+    array_28.value = [3, 4]
+    assert_true(array_28 == [3, 4])
 
 
 if __name__ == '__main__':

@@ -121,9 +121,11 @@ def on_stage_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
         Keyword arguments.
     """
     trace('stage clicked!')
-    assert_true(kwargs['int_15'] == 10)
-
-    assert_true(kwargs['int_15'] != 11)
+    int_15: Int = kwargs['int_15']
+    int_15 += 5
+    assert_true(kwargs['int_15'] == 15)
+    assert_true(kwargs['int_15'] != 16)
+    assert_true(kwargs['int_15'] < 16)
 
 
 if __name__ == '__main__':

@@ -18,7 +18,7 @@ class TestElif:
     def test__append_enter_expression(self) -> None:
         expression_file_util.remove_expression_file()
         boolean_1: Boolean = Boolean(True)
-        with raises(ValueError):  # type: ignore
+        with raises(ValueError, match=r'Elif'):  # type: ignore
             with Elif(boolean_1, locals(), globals()):
                 pass
 

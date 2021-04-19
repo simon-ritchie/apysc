@@ -40,6 +40,7 @@ class TestArray:
     def test__validate_acceptable_value_type(self) -> None:
         array_1: Array = Array([1, 2, 3])
         _: Array = Array((1, 2, 3))
+        _ = Array(range(10))
         _ = Array(array_1)
 
         testing_helper.assert_raises(
@@ -695,3 +696,11 @@ class TestArray:
 
         converted_val = array_1._convert_other_val_to_array(other=10)
         assert converted_val == 10
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__convert_range_to_list(self) -> None:
+        array_1: Array = Array(range(3))
+        assert array_1._initial_value == [0, 1, 2]
+
+        array_2: Array = Array((0, 1, 2))
+        assert array_2._initial_value == (0, 1, 2)

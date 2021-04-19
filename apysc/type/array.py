@@ -20,25 +20,45 @@ class Array(CopyInterface, RevertInterface):
     _initial_value: Union[List[Any], tuple, Any]
     _value: List[Any]
 
-    def __init__(self, value: Union[List[Any], tuple, Any]) -> None:
+    def __init__(self, value: Union[List[Any], tuple, range, Any]) -> None:
         """
         Array class for apysc library.
 
         Parameters
         ----------
-        value : list or tuple or Array
+        value : list or tuple or range or Array
             Initial array value.
         """
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names
         TYPE_NAME: str = var_names.ARRAY
         self._validate_acceptable_value_type(value=value)
+        value = self._convert_range_to_list(value=value)
         self._initial_value = value
         self._type_name = TYPE_NAME
         self._value = self._get_list_value(value=value)
         self.variable_name = expression_variables_util.get_next_variable_name(
             type_name=TYPE_NAME)
         self._append_constructor_expression()
+
+    def _convert_range_to_list(self, value: Any) -> Any:
+        """
+        Convert argument value to list that if specified
+        value is range type.
+
+        Parameters
+        ----------
+        value : list or tuple or range or Array
+            Target value.
+
+        Returns
+        -------
+        value : list or tuple or Array
+            Converted value.
+        """
+        if isinstance(value, range):
+            return list(value)
+        return value
 
     def _append_constructor_expression(self) -> None:
         """
@@ -77,13 +97,13 @@ class Array(CopyInterface, RevertInterface):
         return value
 
     def _validate_acceptable_value_type(
-            self, value: Union[List[Any], tuple, Any]) -> None:
+            self, value: Union[List[Any], tuple, range, Any]) -> None:
         """
         Validate that specified value is acceptable type or not.
 
         Parameters
         ----------
-        value : list or tuple or Array
+        value : list or tuple or range or Array
             Iterable value to check.
 
         Raises
@@ -91,12 +111,12 @@ class Array(CopyInterface, RevertInterface):
         ValueError
             If specified value's type is not list, tuple, or Array.
         """
-        if isinstance(value, (list, tuple, Array)):
+        if isinstance(value, (list, tuple, range, Array)):
             return
         raise ValueError(
             'Not acceptable value\'s type is specified.'
             f'\nSpecified value type: {type(value)}'
-            '\nAcceptable types: list, tuple, and Array')
+            '\nAcceptable types: list, tuple, range, and Array')
 
     @property
     def value(self) -> Union[List[Any], tuple, Any]:

@@ -7,14 +7,10 @@ from typing import Optional
 
 from apysc.event.handler import Handler
 from apysc.event.handler import HandlerData
-
-_VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG: str = (
-    'This interface can only be used that inheriting '
-    'VariableNameInterface.'
-)
+from apysc.event.event_interface_base import EventInterfaceBase
 
 
-class ClickInterface:
+class ClickInterface(EventInterfaceBase):
 
     _click_handlers: Dict[str, HandlerData]
 
@@ -40,8 +36,7 @@ class ClickInterface:
         from apysc.event.handler import append_handler_expression
         from apysc.event.handler import get_handler_name
         from apysc.type.variable_name_interface import VariableNameInterface
-        if not isinstance(self, VariableNameInterface):
-            raise TypeError(_VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
+        self.validate_self_is_variable_name_interface()
         self._initialize_click_handlers_if_not_initialized()
         if kwargs is None:
             kwargs = {}
@@ -75,10 +70,10 @@ class ClickInterface:
         """
         from apysc.expression import expression_file_util
         from apysc.type.variable_name_interface import VariableNameInterface
-        if not isinstance(self, VariableNameInterface):
-            raise TypeError(_VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
+        self_instance: VariableNameInterface = \
+            self.validate_self_is_variable_name_interface()
         expression: str = (
-            f'{self.variable_name}.click({name});'
+            f'{self_instance.variable_name}.click({name});'
         )
         expression_file_util.append_js_expression(expression=expression)
 
@@ -104,14 +99,14 @@ class ClickInterface:
         from apysc.event.handler import append_unbinding_expression
         from apysc.event.handler import get_handler_name
         from apysc.type.variable_name_interface import VariableNameInterface
-        if not isinstance(self, VariableNameInterface):
-            raise TypeError(_VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
+        self_instance: VariableNameInterface = \
+            self.validate_self_is_variable_name_interface()
         self._initialize_click_handlers_if_not_initialized()
         name: str = get_handler_name(handler=handler)
         if name in self._click_handlers:
             del self._click_handlers[name]
         append_unbinding_expression(
-            this=self, handler_name=name,
+            this=self_instance, handler_name=name,
             event_type=EventType.CLICK)
 
     def unbind_click_all(self) -> None:
@@ -121,8 +116,9 @@ class ClickInterface:
         from apysc import EventType
         from apysc.event.handler import append_unbinding_all_expression
         from apysc.type.variable_name_interface import VariableNameInterface
-        if not isinstance(self, VariableNameInterface):
-            raise TypeError(_VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
+        self_instance: VariableNameInterface = \
+            self.validate_self_is_variable_name_interface()
         del self._click_handlers
         self._initialize_click_handlers_if_not_initialized()
-        append_unbinding_all_expression(this=self, event_type=EventType.CLICK)
+        append_unbinding_all_expression(
+            this=self_instance, event_type=EventType.CLICK)

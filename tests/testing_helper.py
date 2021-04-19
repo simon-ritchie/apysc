@@ -106,7 +106,8 @@ def assert_attrs_type(
 
 def assert_raises(
         expected_error_class: type, func_or_method: Callable,
-        kwargs: Optional[Dict[str, Any]] = None) -> None:
+        kwargs: Optional[Dict[str, Any]] = None,
+        match: Optional[str] = None) -> None:
     """
     Check that specified callable will raise exception.
 
@@ -118,6 +119,8 @@ def assert_raises(
         Target function or method.
     kwargs : dict, optional
         Keyword arguments to pass to the function or method.
+    match : str or None, default None
+        Error message's regular expression match pattern.
 
     Raises
     ------
@@ -126,5 +129,8 @@ def assert_raises(
     """
     if kwargs is None:
         kwargs = {}
-    with pytest.raises(expected_error_class):  # type: ignore
+    _kwargs: Dict[str, Any] = {}
+    if match is not None:
+        _kwargs['match'] = match
+    with pytest.raises(expected_error_class, **_kwargs):  # type: ignore
         func_or_method(**kwargs)

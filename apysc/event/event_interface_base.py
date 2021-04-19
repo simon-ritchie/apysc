@@ -26,9 +26,9 @@ class EventInterfaceBase:
 
         Raises
         ------
-        ValueError
+        TypeError
             If this instance is not a VariableNameInterface.
         """
         if not isinstance(self, VariableNameInterface):
-            raise ValueError(self.VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
+            raise TypeError(self.VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
         return self

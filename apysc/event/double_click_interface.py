@@ -39,7 +39,30 @@ class DoubleClickInterface(EventInterfaceBase):
         self_instance: VariableNameInterface = \
             self.validate_self_is_variable_name_interface()
         self._initialize_dbclick_handlers_if_not_initialized()
+        name: str = get_handler_name(handler=handler)
+        self._set_handler_data(
+            handler=handler, handlers_dict=self._dbclick_handlers,
+            kwargs=kwargs)
+        self._append_dbclick_expression(name=name)
         pass
+
+    def _append_dbclick_expression(self, name: str) -> None:
+        """
+        Append double click expression to file.
+
+        Parameters
+        ----------
+        name : str
+            Handler's name.
+        """
+        from apysc.expression import expression_file_util
+        from apysc.type.variable_name_interface import VariableNameInterface
+        self_instance: VariableNameInterface = \
+            self.validate_self_is_variable_name_interface()
+        expression: str = (
+            f'{self_instance.variable_name}.dblclick({name});'
+        )
+        expression_file_util.append_js_expression(expression=expression)
 
     def _initialize_dbclick_handlers_if_not_initialized(self) -> None:
         """

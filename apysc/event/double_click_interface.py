@@ -14,7 +14,7 @@ class DoubleClickInterface(EventInterfaceBase):
 
     _dbclick_handlers: Dict[str, HandlerData]
 
-    def dblclick(
+    def dbclick(
             self, handler: Handler,
             kwargs: Optional[Dict[str, Any]] = None) -> str:
         """
@@ -44,7 +44,11 @@ class DoubleClickInterface(EventInterfaceBase):
             handler=handler, handlers_dict=self._dbclick_handlers,
             kwargs=kwargs)
         self._append_dbclick_expression(name=name)
-        pass
+        e: MouseEvent = MouseEvent(this=self_instance)
+        append_handler_expression(
+            handler_data=self._dbclick_handlers[name],
+            handler_name=name, e=e)
+        return name
 
     def _append_dbclick_expression(self, name: str) -> None:
         """
@@ -60,7 +64,7 @@ class DoubleClickInterface(EventInterfaceBase):
         self_instance: VariableNameInterface = \
             self.validate_self_is_variable_name_interface()
         expression: str = (
-            f'{self_instance.variable_name}.dblclick({name});'
+            f'{self_instance.variable_name}.dbclick({name});'
         )
         expression_file_util.append_js_expression(expression=expression)
 

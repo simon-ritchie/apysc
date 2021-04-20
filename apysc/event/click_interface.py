@@ -47,8 +47,7 @@ class ClickInterface(EventInterfaceBase):
         e: MouseEvent = MouseEvent(this=self_instance)
         append_handler_expression(
             handler_data=self._click_handlers[name],
-            handler_name=name,
-            e=e)
+            handler_name=name, e=e)
         return name
 
     def _append_click_expression(self, name: str) -> None:

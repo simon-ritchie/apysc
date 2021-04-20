@@ -46,11 +46,11 @@ class EventInterfaceBase:
         Parameters
         ----------
         handler : Handler
-            Callable that called when this instance is clicked.
+            Callable that called when event is dispatched.
         handlers_dict : dict
             Dictionary to be set handler's data.
         kwargs : dict or None, default None
-            Keyword arguments to be passed to handler's callable.
+            Keyword arguments to be passed to handler.
         """
         from apysc.event.handler import get_handler_name
         name: str = get_handler_name(handler=handler)

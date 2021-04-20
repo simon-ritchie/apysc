@@ -25,7 +25,7 @@ class ClickInterface(EventInterfaceBase):
         handler : Handler
             Callable that called when this instance is clicked.
         kwargs : dict or None, default None
-            Keyword arguments to be passed to handler's callable.
+            Keyword arguments to be passed to handler.
 
         Returns
         -------

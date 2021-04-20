@@ -36,18 +36,15 @@ class ClickInterface(EventInterfaceBase):
         from apysc.event.handler import append_handler_expression
         from apysc.event.handler import get_handler_name
         from apysc.type.variable_name_interface import VariableNameInterface
-        self.validate_self_is_variable_name_interface()
+        self_instance: VariableNameInterface = \
+            self.validate_self_is_variable_name_interface()
         self._initialize_click_handlers_if_not_initialized()
-        if kwargs is None:
-            kwargs = {}
         name: str = get_handler_name(handler=handler)
-
-        self._click_handlers[name] = {
-            'handler': handler,
-            'kwargs': kwargs,
-        }
+        self._set_handler_data(
+            handler=handler, handlers_dict=self._click_handlers,
+            kwargs=kwargs)
         self._append_click_expression(name=name)
-        e: MouseEvent = MouseEvent(this=self)
+        e: MouseEvent = MouseEvent(this=self_instance)
         append_handler_expression(
             handler_data=self._click_handlers[name],
             handler_name=name,

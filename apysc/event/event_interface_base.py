@@ -7,6 +7,7 @@ from typing_extensions import Final
 from apysc.type.variable_name_interface import VariableNameInterface
 from apysc.event.handler import Handler
 from apysc.event.handler import HandlerData
+from apysc.event.event_type import EventType
 
 
 class EventInterfaceBase:
@@ -60,3 +61,29 @@ class EventInterfaceBase:
             'handler': handler,
             'kwargs': kwargs,
         }
+
+    def _unbind_event(
+            self, handler: Handler, event_type: EventType,
+            handlers_dict: Dict[str, HandlerData]) -> None:
+        """
+        Unbind specified handler's event.
+
+        Parameters
+        ----------
+        handler : Handler
+            Callable to be unbinded.
+        event_type : EventType
+            Event type to unbind.
+        handlers_dict : dict
+            Dictionary that has handler's data.
+        """
+        from apysc.event.handler import get_handler_name
+        from apysc.event.handler import append_unbinding_expression
+        self_instance: VariableNameInterface = \
+            self.validate_self_is_variable_name_interface()
+        name: str = get_handler_name(handler=handler)
+        if name in handlers_dict:
+            del handlers_dict[name]
+        append_unbinding_expression(
+            this=self_instance, handler_name=name,
+            event_type=event_type)

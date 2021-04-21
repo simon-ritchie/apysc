@@ -9,6 +9,18 @@ from apysc.event.handler import HandlerData
 from apysc import MouseEvent
 from tests import testing_helper
 from apysc.event.handler import get_handler_name
+from apysc.event.click_interface import ClickInterface
+from apysc.expression import expression_file_util
+from apysc import EventType
+from apysc.type.variable_name_interface import VariableNameInterface
+
+
+class _TestClickInterface(ClickInterface, VariableNameInterface):
+
+    def __init__(self) -> None:
+        """Interface for testing.
+        """
+        self.variable_name = 'test_click_interface'
 
 
 class TestEventInterfaceBase:
@@ -49,3 +61,18 @@ class TestEventInterfaceBase:
                 'kwargs': {},
             }
         }
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test__unbind_event(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface_1: _TestClickInterface = _TestClickInterface()
+        interface_1.click(handler=self.on_click_1)
+        interface_1._unbind_event(
+            handler=self.on_click_1,
+            event_type=EventType.CLICK,
+            handlers_dict=interface_1._click_handlers)
+        assert interface_1._click_handlers == {}
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface_1.variable_name}.off("{EventType.CLICK.value}",')
+        assert expected in expression

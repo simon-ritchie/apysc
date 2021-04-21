@@ -7,3 +7,4 @@ from enum import Enum
 class EventType(Enum):
 
     CLICK = 'click'
+    DBCLICK = 'dbclick'

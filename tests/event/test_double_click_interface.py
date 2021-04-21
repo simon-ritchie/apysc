@@ -71,3 +71,13 @@ class TestDoubleClickInterface:
             expression_file_util.get_current_event_handler_scope_expression()
         expected = f'function {name}'
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_unbind_dbclick(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface_1: _TestDoubleClick = _TestDoubleClick()
+        interface_1.dbclick(handler=self.on_double_click)
+        interface_1.unbind_dbclick(handler=self.on_double_click)
+        assert interface_1._dbclick_handlers == {}
+        expression: str = expression_file_util.get_current_expression()
+        assert 'off(' in expression

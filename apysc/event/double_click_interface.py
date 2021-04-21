@@ -76,3 +76,18 @@ class DoubleClickInterface(EventInterfaceBase):
         if hasattr(self, '_dbclick_handlers'):
             return
         self._dbclick_handlers = {}
+
+    def unbind_dbclick(self, handler: Handler) -> None:
+        """
+        Unbind specified handler's double click event.
+
+        Parameters
+        ----------
+        handler : Handler
+            Callable to be unbinded.
+        """
+        from apysc import EventType
+        self._initialize_dbclick_handlers_if_not_initialized()
+        self._unbind_event(
+            handler=handler, event_type=EventType.DBCLICK,
+            handlers_dict=self._dbclick_handlers)

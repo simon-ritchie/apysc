@@ -16,7 +16,7 @@ class MouseOverInterface(EventInterfaceBase):
 
     def mouseover(
             self, handler: Handler,
-            options: Optional[Dict[str, Any]]) -> str:
+            options: Optional[Dict[str, Any]] = None) -> str:
         """
         Add mouse over event listener setting.
 
@@ -39,6 +39,30 @@ class MouseOverInterface(EventInterfaceBase):
         self_instance: VariableNameInterface = \
             self._validate_self_is_variable_name_interface()
         self._initialize_mouse_over_handlers_if_not_initialized()
+        name: str = get_handler_name(handler=handler)
+        self._set_handler_data(
+            handler=handler, handlers_dict=self._mouse_over_handlers,
+            options=options)
+        self._append_mouse_over_expression(name=name)
+        return name
+
+    def _append_mouse_over_expression(self, name: str) -> None:
+        """
+        Append mouse over expression to file.
+
+        Parameters
+        ----------
+        name : str
+            Handler's name.
+        """
+        from apysc.expression import expression_file_util
+        from apysc.type.variable_name_interface import VariableNameInterface
+        self_instance: VariableNameInterface = \
+            self._validate_self_is_variable_name_interface()
+        expression: str = (
+            f'{self_instance.variable_name}.mouseover({name});'
+        )
+        expression_file_util.append_js_expression(expression=expression)
 
     def _initialize_mouse_over_handlers_if_not_initialized(self) -> None:
         """

@@ -87,3 +87,23 @@ class EventInterfaceBase:
         append_unbinding_expression(
             this=self_instance, handler_name=name,
             event_type=event_type)
+
+    def _unbind_all_events(
+            self, event_type: EventType,
+            handlers_dict: Dict[str, HandlerData]) -> None:
+        """
+        Unbind specified all event type's events.
+
+        Parameters
+        ----------
+        event_type : EventType
+            Event type to unbind.
+        handlers_dict : dict
+            Dictionary that has handler's data.
+        """
+        from apysc.event.handler import append_unbinding_all_expression
+        self_instance: VariableNameInterface = \
+            self.validate_self_is_variable_name_interface()
+        handlers_dict.clear()
+        append_unbinding_all_expression(
+            this=self_instance, event_type=event_type)

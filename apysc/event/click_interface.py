@@ -102,11 +102,5 @@ class ClickInterface(EventInterfaceBase):
         Unbind all click events.
         """
         from apysc import EventType
-        from apysc.event.handler import append_unbinding_all_expression
-        from apysc.type.variable_name_interface import VariableNameInterface
-        self_instance: VariableNameInterface = \
-            self.validate_self_is_variable_name_interface()
-        del self._click_handlers
-        self._initialize_click_handlers_if_not_initialized()
-        append_unbinding_all_expression(
-            this=self_instance, event_type=EventType.CLICK)
+        self._unbind_all_events(
+            event_type=EventType.CLICK, handlers_dict=self._click_handlers)

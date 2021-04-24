@@ -7,10 +7,15 @@ from typing import Type
 from apysc.display.parent_interface import ParentInterface
 from apysc.display.x_interface import XInterface
 from apysc.display.y_interface import YInterface
+from apysc.event.click_interface import ClickInterface
+from apysc.event.double_click_interface import DoubleClickInterface
+from apysc.event.mouse_down_interface import MouseDownInterface
+from apysc.event.mouse_up_interface import MouseUpInterface
 
 
 class DisplayObject(
-        XInterface, YInterface, ParentInterface):
+        XInterface, YInterface, ParentInterface, ClickInterface,
+        DoubleClickInterface, MouseDownInterface, MouseUpInterface):
 
     def __init__(self, stage: Any, variable_name: str) -> None:
         """

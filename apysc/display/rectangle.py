@@ -15,16 +15,12 @@ from apysc.display.line_alpha_interface import LineAlphaInterface
 from apysc.display.line_color_interface import LineColorInterface
 from apysc.display.line_thickness_interface import LineThicknessInterface
 from apysc.display.width_interface import WidthInterface
-from apysc.event.click_interface import ClickInterface
-from apysc.event.double_click_interface import DoubleClickInterface
-from apysc.event.mouse_down_interface import MouseDownInterface
 
 
 class Rectangle(
         GraphicBase, WidthInterface, HeightInterface, FillColorInterface,
         FillAlphaInterface, LineColorInterface, LineThicknessInterface,
-        LineAlphaInterface, ClickInterface, DoubleClickInterface,
-        MouseDownInterface):
+        LineAlphaInterface):
 
     def __init__(
             self, parent: Any,

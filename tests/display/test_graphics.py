@@ -12,7 +12,7 @@ from tests import testing_helper
 
 class TestGraphics:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -25,7 +25,7 @@ class TestGraphics:
         assert isinstance(graphics.variable_name, str)
         assert graphics.variable_name != ''
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_begin_fill(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -42,7 +42,7 @@ class TestGraphics:
             },
             any_obj=graphics)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_draw_rect(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -61,7 +61,7 @@ class TestGraphics:
         assert isinstance(graphics.get_child_at(index=0), Rectangle)
         assert rectangle == graphics.get_child_at(index=0)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_clear(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -71,7 +71,7 @@ class TestGraphics:
         sprite.graphics.clear()
         assert sprite.graphics.num_children == 0
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)

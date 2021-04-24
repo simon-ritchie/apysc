@@ -9,7 +9,7 @@ from apysc.expression.last_scope import LastScope
 from apysc.file import file_util
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_reset() -> None:
     file_util.save_plain_txt(
         txt='', file_path=LAST_SCOPE_FILE_PATH)
@@ -17,7 +17,7 @@ def test_reset() -> None:
     assert not os.path.exists(LAST_SCOPE_FILE_PATH)
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_last_scope() -> None:
     last_scope.reset()
     last_scope_: LastScope = last_scope.get_last_scope()
@@ -33,7 +33,7 @@ def test_get_last_scope() -> None:
     assert last_scope_ == last_scope.LastScope.IF
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_set_last_scope() -> None:
     last_scope.reset()
     last_scope.set_last_scope(value=last_scope.LastScope.IF)

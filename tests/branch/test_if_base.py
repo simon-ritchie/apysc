@@ -37,7 +37,7 @@ class IfSubClass(IfBase):
 
 class TestIfBase:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         condition: Boolean = Boolean(True)
         locals_: Dict[str, Any] = {'value1': 10}
@@ -52,7 +52,7 @@ class TestIfBase:
             },
             any_obj=instance)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___enter__(self) -> None:
         expression_file_util.remove_expression_file()
         indent_num.reset()
@@ -69,7 +69,7 @@ class TestIfBase:
             assert instance._entered
             assert instance._snapshot_name
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___exit__(self) -> None:
         expression_file_util.remove_expression_file()
         indent_num.reset()
@@ -92,7 +92,7 @@ class TestIfBase:
             flags=re.MULTILINE | re.DOTALL)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_exit_expression(self) -> None:
         expression_file_util.remove_expression_file()
         indent_num.reset()
@@ -105,7 +105,7 @@ class TestIfBase:
             flags=re.MULTILINE | re.DOTALL)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__last_scope_is_if_or_elif(self) -> None:
         last_scope.reset()
         boolean_1: Boolean = Boolean(True)

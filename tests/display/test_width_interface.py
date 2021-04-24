@@ -9,14 +9,14 @@ from apysc.expression import expression_file_util
 
 class TestWidthInterface:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_width(self) -> None:
         width_interface: WidthInterface = WidthInterface()
         width_interface.variable_name = 'test_width_interface'
         width_interface.width = Int(100)
         assert width_interface.width == 100
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_width_update_expression(self) -> None:
         width_interface: WidthInterface = WidthInterface()
         width_interface.variable_name = 'test_width_interface'
@@ -26,7 +26,7 @@ class TestWidthInterface:
         expected: str = 'test_width_interface.width(200);'
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_update_width_and_skip_appending_exp(self) -> None:
         width_interface: WidthInterface = WidthInterface()
         width_interface.variable_name = 'test_width_interface'
@@ -37,7 +37,7 @@ class TestWidthInterface:
         expression: str = expression_file_util.get_current_expression()
         assert 'width(' not in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_width_if_not_initialized(self) -> None:
         width_interface: WidthInterface = WidthInterface()
         width_interface.variable_name = 'test_width_interface'
@@ -48,7 +48,7 @@ class TestWidthInterface:
         width_interface._initialize_width_if_not_initialized()
         assert width_interface.width == 10
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         width_interface: WidthInterface = WidthInterface()
         width_interface.variable_name = 'test_width_interface'
@@ -63,7 +63,7 @@ class TestWidthInterface:
             snapshot_name=snapshot_name)
         assert width_interface._width_snapshots[snapshot_name] == 10
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         width_interface: WidthInterface = WidthInterface()
         width_interface.variable_name = 'test_width_interface'

@@ -14,7 +14,7 @@ from apysc.expression.last_scope import LastScope
 
 class TestElse:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_enter_expression(self) -> None:
         expression_file_util.remove_expression_file()
         last_scope.reset()
@@ -41,7 +41,7 @@ class TestElse:
         assert expected in expression
         assert int_1 == 10
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_last_scope(self) -> None:
         expression_file_util.remove_expression_file()
         last_scope.reset()

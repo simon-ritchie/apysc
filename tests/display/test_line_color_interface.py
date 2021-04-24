@@ -9,7 +9,7 @@ from apysc.expression import expression_file_util
 
 class TestLineColorInterface:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_color(self) -> None:
         line_color_interface: LineColorInterface = LineColorInterface()
         line_color_interface.variable_name = 'test_line_color_interface'
@@ -24,7 +24,7 @@ class TestLineColorInterface:
             line_color_interface.line_color.variable_name
             != string_2.variable_name)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_line_color_update_expression(self) -> None:
         line_color_interface: LineColorInterface = LineColorInterface()
         line_color_interface.variable_name = 'test_line_color_interface'
@@ -34,7 +34,7 @@ class TestLineColorInterface:
         expected: str = 'test_line_color_interface.stroke("#333333");'
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_update_line_color_and_skip_appending_exp(self) -> None:
         line_color_interface: LineColorInterface = LineColorInterface()
         line_color_interface.variable_name = 'test_line_color_interface'
@@ -48,7 +48,7 @@ class TestLineColorInterface:
         )
         assert expected not in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_line_color_if_not_initialized(self) -> None:
         line_color_interface: LineColorInterface = LineColorInterface()
         line_color_interface.variable_name = 'test_line_color_interface'
@@ -58,7 +58,7 @@ class TestLineColorInterface:
         line_color_interface._initialize_line_color_if_not_initialized()
         assert line_color_interface.line_color == '#333333'
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         line_color_interface: LineColorInterface = LineColorInterface()
         line_color_interface.variable_name = 'test_line_color_interface'
@@ -77,7 +77,7 @@ class TestLineColorInterface:
             line_color_interface._line_color_snapshots[snapshot_name]
             == '#333333')
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         line_color_interface: LineColorInterface = LineColorInterface()
         line_color_interface.variable_name = 'test_line_color_interface'

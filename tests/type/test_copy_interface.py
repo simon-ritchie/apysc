@@ -8,7 +8,7 @@ from apysc.type.copy_interface import CopyInterface
 
 class TestCopyInterface:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__copy(self) -> None:
         interface: CopyInterface = CopyInterface()
         interface.variable_name = 'test_copy_interface'
@@ -17,7 +17,7 @@ class TestCopyInterface:
         assert result.variable_name.startswith('test_copy_interface_')
         assert result.variable_name != interface.variable_name
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_copy_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface: CopyInterface = CopyInterface()

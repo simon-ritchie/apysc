@@ -49,7 +49,7 @@ class _TestClass1(VariableNameInterface):
         int_1.value = 20
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_handler_name() -> None:
     test_instance: _TestClass1 = _TestClass1()
     handler_name: str = handler.get_handler_name(
@@ -59,7 +59,7 @@ def test_get_handler_name() -> None:
     assert 'on_click_1' in handler_name
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_handler_expression() -> None:
     expression_file_util.remove_expression_file()
     test_instance: _TestClass1 = _TestClass1()
@@ -94,7 +94,7 @@ def test_append_handler_expression() -> None:
         })
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_unbinding_expression() -> None:
     expression_file_util.remove_expression_file()
     int_1: Int = Int(10)
@@ -109,7 +109,7 @@ def test_append_unbinding_expression() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_unbinding_all_expression() -> None:
     expression_file_util.remove_expression_file()
     int_1: Int = Int(10)

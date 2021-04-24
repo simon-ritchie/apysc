@@ -9,14 +9,14 @@ from apysc.expression import expression_file_util
 
 class TestHeightInterface:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_height(self) -> None:
         height_interface: HeightInterface = HeightInterface()
         height_interface.variable_name = 'test_height_interface'
         height_interface.height = Int(200)
         assert height_interface.height == 200
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_height_update_expression(self) -> None:
         height_interface: HeightInterface = HeightInterface()
         height_interface.variable_name = 'test_height_interface'
@@ -28,7 +28,7 @@ class TestHeightInterface:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_update_height_and_skip_appending_exp(self) -> None:
         height_interface: HeightInterface = HeightInterface()
         expression_file_util.remove_expression_file()
@@ -39,7 +39,7 @@ class TestHeightInterface:
         expression: str = expression_file_util.get_current_expression()
         assert 'height(' not in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_height_if_not_initialized(self) -> None:
         height_interface: HeightInterface = HeightInterface()
         height_interface.variable_name = 'test_height_interface'
@@ -50,7 +50,7 @@ class TestHeightInterface:
         height_interface._initialize_height_if_not_initialized()
         assert height_interface.height == 10
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         height_interface: HeightInterface = HeightInterface()
         height_interface.variable_name = 'test_height_interface'
@@ -65,7 +65,7 @@ class TestHeightInterface:
             snapshot_name=snapshot_name)
         assert height_interface._height_snapshots[snapshot_name] == 10
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         height_interface: HeightInterface = HeightInterface()
         height_interface.variable_name = 'test_height_interface'

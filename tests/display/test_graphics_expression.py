@@ -13,7 +13,7 @@ from apysc.display.graphics import Graphics
 from apysc.expression import var_names
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_fill_expression() -> None:
     stage: Stage = Stage()
     sprite: Sprite = Sprite(stage=stage)
@@ -36,7 +36,7 @@ def test_append_fill_expression() -> None:
     assert match is not None
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_x_expression() -> None:
     stage: Stage = Stage()
     sprite: Sprite = Sprite(stage=stage)
@@ -56,7 +56,7 @@ def test_append_x_expression() -> None:
     assert match is not None
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_y_expression() -> None:
     stage: Stage = Stage()
     sprite: Sprite = Sprite(stage=stage)
@@ -74,7 +74,7 @@ def test_append_y_expression() -> None:
     assert match is not None
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_fill_opacity_expression() -> None:
     stage: Stage = Stage()
     sprite: Sprite = Sprite(stage=stage)
@@ -92,7 +92,7 @@ def test_append_fill_opacity_expression() -> None:
     assert match is not None
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_stroke_expression() -> None:
     stage: Stage = Stage()
     sprite: Sprite = Sprite(stage=stage)
@@ -115,7 +115,7 @@ def test_append_stroke_expression() -> None:
     assert match is not None
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_stroke_width_expression() -> None:
     stage: Stage = Stage()
     sprite: Sprite = Sprite(stage=stage)
@@ -137,7 +137,7 @@ def test_append_stroke_width_expression() -> None:
     assert match is not None
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_stroke_opacity_expression() -> None:
     stage: Stage = Stage()
     sprite: Sprite = Sprite(stage=stage)

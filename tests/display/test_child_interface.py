@@ -18,7 +18,7 @@ class TestChildInterface:
     (ChildInterface subclasses).
     """
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_add_child(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -26,7 +26,7 @@ class TestChildInterface:
         assert stage._children == Array([sprite])
         assert sprite.parent == stage
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_expression_of_add_child(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -37,7 +37,7 @@ class TestChildInterface:
         expression: str = expression_file_util.get_current_expression()
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_remove_child(self) -> None:
         stage: Stage = Stage()
         sprite_1: Sprite = Sprite(stage=stage)
@@ -48,7 +48,7 @@ class TestChildInterface:
         assert stage._children == Array([sprite_1])
         assert sprite_2.parent is None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_expression_of_remove_child(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -60,7 +60,7 @@ class TestChildInterface:
         expression: str = expression_file_util.get_current_expression()
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_contains(self) -> None:
         stage: Stage = Stage()
         sprite_1: Sprite = Sprite(stage=stage)
@@ -70,7 +70,7 @@ class TestChildInterface:
         sprite_2: Sprite = Sprite(stage=stage)
         assert not stage.contains(child=sprite_2)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_contains_expression(self) -> None:
         expression_file_util.remove_expression_file()
         stage: Stage = Stage()
@@ -84,7 +84,7 @@ class TestChildInterface:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_num_children(self) -> None:
         stage: Stage = Stage()
         assert stage.num_children == 0
@@ -99,7 +99,7 @@ class TestChildInterface:
         sprite_1.add_child(child=sprite_3)
         assert sprite_1.num_children == 1
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_get_child_at(self) -> None:
         stage: Stage = Stage()
         sprite_1: Sprite = Sprite(stage=stage)
@@ -111,7 +111,7 @@ class TestChildInterface:
         assert not isinstance(child_2, Sprite)
         assert isinstance(child_2, DisplayObject)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_num_children_expression(self) -> None:
         expression_file_util.remove_expression_file()
         stage: Stage = Stage()
@@ -135,7 +135,7 @@ class TestChildInterface:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_get_child_at_expression(self) -> None:
         expression_file_util.remove_expression_file()
         stage: Stage = Stage()
@@ -161,7 +161,7 @@ class TestChildInterface:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_children_if_not_initialized(self) -> None:
         child_interface: ChildInterface = ChildInterface()
         child_interface._initialize_children_if_not_initialized()
@@ -173,7 +173,7 @@ class TestChildInterface:
         child_interface._initialize_children_if_not_initialized()
         assert child_interface._children == [sprite]
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
 
         stage: Stage = Stage()
@@ -199,7 +199,7 @@ class TestChildInterface:
         assert stage._children_snapshots[snapshot_name_1] == [
             sprite_1, 100]
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         stage: Stage = Stage()
         sprite_1: Sprite = Sprite(stage=stage)

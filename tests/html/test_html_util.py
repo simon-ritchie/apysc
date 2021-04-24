@@ -12,7 +12,7 @@ from apysc.html.html_util import ScriptLineUtil
 from tests import testing_helper
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_remove_first_selector_symbol_char() -> None:
     str_val_1: str = html_util.remove_first_selector_symbol_char(
         str_val='.line-graph')
@@ -174,7 +174,7 @@ def test_wrap_expression_by_script_tag() -> None:
     )
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_remove_first_selector_symbol_char_expression() -> None:
     expression_file_util.remove_expression_file()
     str_val_1: String = String('.line-graph')

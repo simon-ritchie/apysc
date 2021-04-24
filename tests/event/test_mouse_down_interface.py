@@ -45,7 +45,7 @@ class TestMouseDownInterface:
             Optional arguments dictionary.
         """
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_mouse_down_handlers_if_not_initialized(
             self) -> None:
         interface_1: MouseDownInterface = MouseDownInterface()
@@ -55,7 +55,7 @@ class TestMouseDownInterface:
         interface_1._initialize_mouse_down_handlers_if_not_initialized()
         assert interface_1._mouse_down_handlers == {}
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_mouse_down_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestMouseDown = _TestMouseDown()
@@ -66,7 +66,7 @@ class TestMouseDownInterface:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_mousedown(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestMouseDown = _TestMouseDown()
@@ -79,7 +79,7 @@ class TestMouseDownInterface:
         expected: str = f'function {name}('
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_mousedown(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestMouseDown = _TestMouseDown()
@@ -92,7 +92,7 @@ class TestMouseDownInterface:
             f'{name});')
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_mousedown_all(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestMouseDown = _TestMouseDown()

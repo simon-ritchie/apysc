@@ -14,7 +14,7 @@ from apysc.expression.last_scope import LastScope
 
 class TestElif:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_enter_expression(self) -> None:
         expression_file_util.remove_expression_file()
         boolean_1: Boolean = Boolean(True)
@@ -43,7 +43,7 @@ class TestElif:
             with Elif(None, locals(), globals()):
                 pass
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_last_scope(self) -> None:
         boolean_1: Boolean = Boolean(True)
         with If(boolean_1, locals(), globals()):

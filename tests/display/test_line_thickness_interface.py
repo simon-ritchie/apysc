@@ -9,7 +9,7 @@ from apysc.expression import expression_file_util
 
 class TestLineThicknessInterface:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_thickness(self) -> None:
         line_thickness_interface: LineThicknessInterface = \
             LineThicknessInterface()
@@ -18,7 +18,7 @@ class TestLineThicknessInterface:
         line_thickness_interface.line_thickness = Int(3)
         assert line_thickness_interface.line_thickness == 3
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_line_thickness_update_expression(self) -> None:
         line_thickness_interface: LineThicknessInterface = \
             LineThicknessInterface()
@@ -31,7 +31,7 @@ class TestLineThicknessInterface:
             'test_line_thickness_interface.attr({"stroke-width": 2});')
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_update_line_thickness_and_skip_appending_exp(self) -> None:
         line_thickness_interface: LineThicknessInterface = \
             LineThicknessInterface()
@@ -44,7 +44,7 @@ class TestLineThicknessInterface:
         expression: str = expression_file_util.get_current_expression()
         assert 'stroke-width' not in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_line_thickness_if_not_initialized(self) -> None:
         line_thickness_interface: LineThicknessInterface = \
             LineThicknessInterface()
@@ -59,7 +59,7 @@ class TestLineThicknessInterface:
             _initialize_line_thickness_if_not_initialized()
         assert line_thickness_interface.line_thickness == 2
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         line_thickness_interface: LineThicknessInterface = \
             LineThicknessInterface()
@@ -80,7 +80,7 @@ class TestLineThicknessInterface:
             line_thickness_interface._line_thickness_snapshots[snapshot_name]
             == 3)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         line_thickness_interface: LineThicknessInterface = \
             LineThicknessInterface()

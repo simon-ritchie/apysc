@@ -9,7 +9,7 @@ from apysc.console import assertion
 from apysc.expression import expression_file_util
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_assert_equal() -> None:
     expression_file_util.remove_expression_file()
     int_1: Int = Int(10)
@@ -32,7 +32,7 @@ def test_assert_equal() -> None:
     assert 'assert_equal' not in expression
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__trace_info() -> None:
     expression_file_util.remove_expression_file()
     int_1: Int = Int(10)
@@ -51,7 +51,7 @@ def test__trace_info() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_assert_not_equal() -> None:
     expression_file_util.remove_expression_file()
     int_1: Int = Int(10)
@@ -71,7 +71,7 @@ def test_assert_not_equal() -> None:
     assert 'assert_not_equal' not in expression
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_expected_and_actual_strs() -> None:
     int_1: Int = Int(10)
     int_2: Int = Int(20)
@@ -86,7 +86,7 @@ def test__get_expected_and_actual_strs() -> None:
     assert actual_str == '"World!"'
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_assert_true() -> None:
     expression_file_util.remove_expression_file()
     boolean_1: Boolean = Boolean(True)
@@ -119,7 +119,7 @@ def test__add_equal_if_type_strict_setting_is_true() -> None:
     assert expression == 'a =='
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_assert_false() -> None:
     expression_file_util.remove_expression_file()
     boolean_1: Boolean = Boolean(False)
@@ -132,7 +132,7 @@ def test_assert_false() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__actual_value_type_is_array() -> None:
     result: bool = assertion._actual_value_type_is_array(actual=100)
     assert not result
@@ -141,7 +141,7 @@ def test__actual_value_type_is_array() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_assert_arrays_equal() -> None:
     expression_file_util.remove_expression_file()
     array_1: Array = Array([1, 2, 3])
@@ -156,7 +156,7 @@ def test_assert_arrays_equal() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__trace_arrays_assertion_info() -> None:
     expression_file_util.remove_expression_file()
     array_1: Array = Array([1, 2, 3])
@@ -179,7 +179,7 @@ def test__trace_arrays_assertion_info() -> None:
     assert '"actual:", "[1, 2, 3]"' in expression
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__make_arrays_comparison_expression() -> None:
     expression_file_util.remove_expression_file()
     array_1: Array = Array([1, 2, 3])
@@ -204,7 +204,7 @@ def test__make_arrays_comparison_expression() -> None:
     assert expression == expected
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_assert_arrays_not_equal() -> None:
     expression_file_util.remove_expression_file()
     array_1: Array = Array([1, 2, 3])
@@ -219,7 +219,7 @@ def test_assert_arrays_not_equal() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_assert_defined() -> None:
     expression_file_util.remove_expression_file()
     int_1: Int = Int(3)
@@ -232,7 +232,7 @@ def test_assert_defined() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_assert_undefined() -> None:
     expression_file_util.remove_expression_file()
     int_1: Int = Int(3)

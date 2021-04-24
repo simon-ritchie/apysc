@@ -15,7 +15,7 @@ from tests import testing_helper
 
 class TestFor:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         arr: Array = Array([1, 2, 3])
         for_: For = For(
@@ -30,7 +30,7 @@ class TestFor:
             any_obj=for_)
         assert isinstance(for_._indent, Indent)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_enter_expression(self) -> None:
         expression_file_util.remove_expression_file()
         arr: Array = Array([1, 2, 3])
@@ -47,7 +47,7 @@ class TestFor:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___enter__(self) -> None:
         indent_num.reset()
         arr: Array = Array([1, 2, 3])
@@ -56,7 +56,7 @@ class TestFor:
             assert current_indent_num == 1
         assert isinstance(i, Int)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___exit__(self) -> None:
         indent_num.reset()
         int_1: Int = Int(10)

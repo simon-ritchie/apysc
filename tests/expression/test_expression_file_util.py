@@ -14,7 +14,7 @@ from apysc.expression.indent_num import Indent
 from apysc.file import file_util
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_empty_expression_dir() -> None:
     os.makedirs(expression_file_util.EXPRESSION_ROOT_DIR, exist_ok=True)
     test_file_path: str = os.path.join(
@@ -28,7 +28,7 @@ def test_empty_expression_dir() -> None:
     assert os.path.exists(expression_file_util.EXPRESSION_ROOT_DIR)
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_remove_expression_file() -> None:
     expression_file_util.append_js_expression(
         expression='console.log("Hello!");')
@@ -47,7 +47,7 @@ def test_remove_expression_file() -> None:
         expression_file_util.EVENT_HANDLER_EXPRESSION_FILE_PATH)
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_current_expression() -> None:
     expression_file_util.remove_expression_file()
     expression_file_util.append_js_expression(
@@ -61,7 +61,7 @@ def test_get_current_expression() -> None:
     assert expression == ''
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_js_expression() -> None:
     indent_num.reset()
     expression_file_util.remove_expression_file()
@@ -91,7 +91,7 @@ def test_append_js_expression() -> None:
     expression_file_util.remove_expression_file()
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_current_expression() -> None:
     expression_file_util.remove_expression_file()
     expression_file_util.append_js_expression(
@@ -105,7 +105,7 @@ def test__get_current_expression() -> None:
     assert current_expression == ''
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_current_event_handler_scope_expression() -> None:
     expression_file_util.remove_expression_file()
     file_util.save_plain_txt(
@@ -116,7 +116,7 @@ def test_get_current_event_handler_scope_expression() -> None:
     assert current_expression == 'console.log("Hello!");'
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_expression_file_path() -> None:
     expression_file_util.remove_expression_file()
     file_path: str = expression_file_util._get_expression_file_path()

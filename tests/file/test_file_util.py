@@ -33,7 +33,7 @@ def test_read_txt() -> None:
     os.remove(tmp_file_path)
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_save_plain_txt() -> None:
     tmp_file_path: str = '../tmp_apysc_test_file_util.txt'
     file_util.save_plain_txt(
@@ -53,7 +53,7 @@ def test_save_plain_txt() -> None:
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_remove_file_if_exists() -> None:
     tmp_file_path: str = '../tmp_apysc_test_file_util.txt'
     file_util.save_plain_txt(

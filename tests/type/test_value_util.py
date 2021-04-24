@@ -42,7 +42,7 @@ def test_get_copy() -> None:
     assert copied_val_2 == 100
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_value_str_from_iterable() -> None:
     int_1: Int = Int(value=10)
     value_str: str = value_util._get_value_str_from_iterable(

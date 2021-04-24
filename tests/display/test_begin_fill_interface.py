@@ -9,7 +9,7 @@ from apysc.display.begin_fill_interface import BeginFillInterface
 
 class TestBeginFillInterface:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_begin_fill(self) -> None:
         begin_fill_interface: BeginFillInterface = BeginFillInterface()
         begin_fill_interface._fill_color = String('')
@@ -26,7 +26,7 @@ class TestBeginFillInterface:
         assert begin_fill_interface.fill_color == String('#333333')
         assert begin_fill_interface.fill_alpha == 0.3
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_fill_color(self) -> None:
         begin_fill_interface: BeginFillInterface = BeginFillInterface()
         begin_fill_interface._fill_color = String('')
@@ -38,7 +38,7 @@ class TestBeginFillInterface:
         assert (fill_color_1.variable_name
                 != begin_fill_interface.fill_color.variable_name)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_fill_alpha(self) -> None:
         begin_fill_interface: BeginFillInterface = BeginFillInterface()
         begin_fill_interface._fill_color = String('')
@@ -50,7 +50,7 @@ class TestBeginFillInterface:
         assert (fill_alpha_1.variable_name
                 != begin_fill_interface.fill_alpha.variable_name)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_fill_color_if_not_initialized(self) -> None:
         begin_fill_interface: BeginFillInterface = BeginFillInterface()
         begin_fill_interface._initialize_fill_color_if_not_initialized()
@@ -60,7 +60,7 @@ class TestBeginFillInterface:
         begin_fill_interface._initialize_fill_color_if_not_initialized()
         assert begin_fill_interface.fill_color == '#333333'
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_fill_alpha_if_not_initialized(self) -> None:
         begin_fill_interface: BeginFillInterface = BeginFillInterface()
         begin_fill_interface._initialize_fill_alpha_if_not_initialized()
@@ -70,7 +70,7 @@ class TestBeginFillInterface:
         begin_fill_interface._initialize_fill_alpha_if_not_initialized()
         assert begin_fill_interface.fill_alpha == 0.5
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         begin_fill_interface: BeginFillInterface = BeginFillInterface()
         begin_fill_interface.begin_fill(
@@ -94,7 +94,7 @@ class TestBeginFillInterface:
             begin_fill_interface._fill_color_snapshots[snapshot_name_1]
             == '#333333')
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         begin_fill_interface: BeginFillInterface = BeginFillInterface()
         begin_fill_interface.begin_fill(

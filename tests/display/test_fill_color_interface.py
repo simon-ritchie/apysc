@@ -9,7 +9,7 @@ from apysc.expression import expression_file_util
 
 class TestFillColorInterface:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_fill_color(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
@@ -20,7 +20,7 @@ class TestFillColorInterface:
         string_2: String = fill_color_interface.fill_color
         assert string_1.variable_name != string_2.variable_name
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_fill_color_update_expression(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
@@ -30,7 +30,7 @@ class TestFillColorInterface:
         expected: str = 'test_fill_color_interface.fill("#666666");'
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_update_fill_color_and_skip_appending_exp(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
@@ -43,7 +43,7 @@ class TestFillColorInterface:
             f'{fill_color_interface.variable_name}.fill(')
         assert expected not in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_fill_color_if_not_initialized(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
@@ -53,7 +53,7 @@ class TestFillColorInterface:
         fill_color_interface._initialize_fill_color_if_not_initialized()
         assert fill_color_interface.fill_color == '#333333'
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
@@ -74,7 +74,7 @@ class TestFillColorInterface:
             == '#333333'
         )
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'

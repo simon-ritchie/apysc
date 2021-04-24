@@ -7,7 +7,7 @@ from apysc import trace
 from apysc.expression import expression_file_util
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_trace() -> None:
     stage: Stage = Stage()
     trace(stage, 100, 'Hello!')

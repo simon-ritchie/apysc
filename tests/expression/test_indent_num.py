@@ -10,7 +10,7 @@ from apysc.expression.indent_num import Indent
 from apysc.file import file_util
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_current_indent_num() -> None:
     file_util.remove_file_if_exists(file_path=INDENT_NUM_FILE_PATH)
     current_indent_num: int = indent_num.get_current_indent_num()
@@ -26,7 +26,7 @@ def test_get_current_indent_num() -> None:
     assert current_indent_num == 2
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_reset() -> None:
     expression_file_util.remove_expression_file()
     with Indent():
@@ -41,7 +41,7 @@ def test_reset() -> None:
         assert current_indent_num == 0
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_indent_num_file_path() -> None:
     expression_file_util.remove_expression_file()
     file_path: str = indent_num._get_indent_num_file_path()
@@ -56,7 +56,7 @@ def test__get_indent_num_file_path() -> None:
 
 class TestIndent:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___enter__(self) -> None:
         indent_num.reset()
         with Indent():
@@ -66,7 +66,7 @@ class TestIndent:
                 current_indent_num = indent_num.get_current_indent_num()
                 assert current_indent_num == 2
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___exit__(self) -> None:
         indent_num.reset()
         with Indent():

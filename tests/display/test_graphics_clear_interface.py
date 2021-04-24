@@ -11,7 +11,7 @@ from tests import testing_helper
 
 class TestGraphicsClearInterface:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_clear(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)

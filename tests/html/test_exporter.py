@@ -81,7 +81,7 @@ def test_save_expressions_overall_html() -> None:
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_entry_point_function_call() -> None:
     stage: Stage = Stage()
     html_str: str = '<html>'
@@ -113,7 +113,7 @@ def test__append_stage_global_variable_to_html() -> None:
     assert html_str == expected
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_entry_point_func_name() -> None:
     stage: Stage = Stage()
     entry_point_func_name: str = exporter.get_entry_point_func_name()
@@ -121,7 +121,7 @@ def test_get_entry_point_func_name() -> None:
     assert entry_point_func_name == expected
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_var_name_from_line() -> None:
     var_name: str = exporter._get_var_name_from_line(
         line='any_value = 200;')
@@ -140,7 +140,7 @@ def test__get_var_name_from_line() -> None:
     assert var_name == ''
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__target_js_variable_is_used() -> None:
     var_name: str = 'i_10'
     exp_lines: List[str] = [
@@ -161,7 +161,7 @@ def test__target_js_variable_is_used() -> None:
     assert result
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__remove_unused_js_vars() -> None:
     expression: str = (
         'var i_10 = 10;'
@@ -192,7 +192,7 @@ def test__remove_unused_js_vars() -> None:
     assert result == expression
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_common_js_functions() -> None:
     expression: str = exporter._append_common_js_functions(
         expression='console.log("Hello!");')
@@ -200,7 +200,7 @@ def test__append_common_js_functions() -> None:
     assert expression.endswith('\nconsole.log("Hello!");')
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__remove_blank_lines() -> None:
     expression: str = (
         'console.log("Hello!");'
@@ -216,7 +216,7 @@ def test__remove_blank_lines() -> None:
     assert expression == expected
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__minify_html() -> None:
     html_str: str = (
         '<html>'
@@ -232,7 +232,7 @@ def test__minify_html() -> None:
     assert html_str.startswith('<html><body>')
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_event_handler_expressions() -> None:
     expression_file_util.remove_expression_file()
 

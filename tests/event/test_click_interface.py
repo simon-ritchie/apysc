@@ -48,7 +48,7 @@ class TestClickInterface:
             Optional arguments dictionary.
         """
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_click(self) -> None:
         interface_1: _TestClickInterface = _TestClickInterface()
         name: str = interface_1.click(
@@ -68,7 +68,7 @@ class TestClickInterface:
             func_or_method=interface_3.click,
             kwargs={'handler': self.on_click_1})
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_click_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: ClickInterface = ClickInterface()
@@ -87,7 +87,7 @@ class TestClickInterface:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_click_handlers_if_not_initialized(self) -> None:
         interface_1: ClickInterface = ClickInterface()
         interface_1._initialize_click_handlers_if_not_initialized()
@@ -95,7 +95,7 @@ class TestClickInterface:
         interface_1._initialize_click_handlers_if_not_initialized()
         assert interface_1._click_handlers == {}
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_click(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: ClickInterface = ClickInterface()
@@ -117,7 +117,7 @@ class TestClickInterface:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_click_all(self) -> None:
         expression_file_util.remove_expression_file
         interface_1: ClickInterface = ClickInterface()

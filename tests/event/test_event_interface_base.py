@@ -49,7 +49,7 @@ class TestEventInterfaceBase:
             Optional arguments dictionary.
         """
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_validate_self_is_variable_name_interface(self) -> None:
         interface_1: EventInterfaceBase = EventInterfaceBase()
         testing_helper.assert_raises(
@@ -58,7 +58,7 @@ class TestEventInterfaceBase:
             _validate_self_is_variable_name_interface,
             match=interface_1.VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_handler_data(self) -> None:
         handlers_dict: Dict[str, HandlerData] = {}
         interface_1: EventInterfaceBase = EventInterfaceBase()
@@ -74,7 +74,7 @@ class TestEventInterfaceBase:
             }
         }
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__unbind_event(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestClickInterface = _TestClickInterface()
@@ -89,7 +89,7 @@ class TestEventInterfaceBase:
             f'{interface_1.variable_name}.off("{EventType.CLICK.value}",')
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__unbind_all_events(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestClickInterface = _TestClickInterface()

@@ -10,7 +10,7 @@ from apysc.expression import indent_num
 from apysc.file import file_util
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_variable_names_file_path() -> None:
     file_path: str = expression_variables_util.\
         get_variable_names_file_path(type_name='sprite')
@@ -18,7 +18,7 @@ def test_get_variable_names_file_path() -> None:
     assert file_path.endswith('variables_sprite.txt')
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__read_variable_names() -> None:
     file_path: str = expression_variables_util.\
         get_variable_names_file_path(type_name='sprite')
@@ -31,7 +31,7 @@ def test__read_variable_names() -> None:
     file_util.remove_file_if_exists(file_path=file_path)
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_next_variable_num() -> None:
     file_path: str = expression_variables_util.\
         get_variable_names_file_path(type_name='sprite')
@@ -49,14 +49,14 @@ def test__get_next_variable_num() -> None:
     file_util.remove_file_if_exists(file_path=file_path)
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__make_variable_name() -> None:
     variable_name: str = expression_variables_util._make_variable_name(
         type_name='i', variable_num=3)
     assert variable_name == 'i_3'
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__save_next_variable_name_to_file() -> None:
     file_path: str = expression_variables_util.\
         get_variable_names_file_path(type_name='sprite')
@@ -75,7 +75,7 @@ def test__save_next_variable_name_to_file() -> None:
     file_util.remove_file_if_exists(file_path=file_path)
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_next_variable_name() -> None:
     file_path: str = expression_variables_util.\
         get_variable_names_file_path(type_name='sprite')
@@ -92,7 +92,7 @@ def test_get_next_variable_name() -> None:
     file_util.remove_file_if_exists(file_path=file_path)
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_substitution_expression() -> None:
     indent_num.reset()
     expression_file_util.remove_expression_file()

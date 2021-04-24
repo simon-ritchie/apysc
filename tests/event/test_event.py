@@ -12,7 +12,7 @@ from tests import testing_helper
 
 class TestEvent:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         int_1: Int = Int(10)
         event: Event = Event(this=int_1)
@@ -25,7 +25,7 @@ class TestEvent:
             f'{var_names.EVENT}_'
         )
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_stop_propagation(self) -> None:
         expression_file_util.remove_expression_file()
         int_1: Int = Int(10)
@@ -37,7 +37,7 @@ class TestEvent:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_prevent_default(self) -> None:
         expression_file_util.remove_expression_file()
         int_1: Int = Int(10)
@@ -49,14 +49,14 @@ class TestEvent:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_this(self) -> None:
         stage: Stage = Stage()
         e: Event[Stage] = Event(this=stage)
         this: Stage = e.this
         assert this == stage
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__validate_type_name_and_self_type(self) -> None:
 
         class AnyEvent(Event):

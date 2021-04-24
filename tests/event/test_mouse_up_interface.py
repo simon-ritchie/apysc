@@ -45,7 +45,7 @@ class TestMouseUpInterface:
             Optional arguments dictionary.
         """
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_mouse_up_handlers_if_not_initialized(self) -> None:
         interface_1: MouseUpInterface = MouseUpInterface()
         interface_1._initialize_mouse_up_handlers_if_not_initialized()
@@ -54,7 +54,7 @@ class TestMouseUpInterface:
         interface_1._initialize_mouse_up_handlers_if_not_initialized()
         assert interface_1._mouse_up_handlers == {}
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_mouse_up_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestMouseUp = _TestMouseUp()
@@ -65,7 +65,7 @@ class TestMouseUpInterface:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_mouseup(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestMouseUp = _TestMouseUp()
@@ -77,7 +77,7 @@ class TestMouseUpInterface:
         expected: str = f'function {name}('
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_mouseup(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestMouseUp = _TestMouseUp()
@@ -91,7 +91,7 @@ class TestMouseUpInterface:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_mouseup_all(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestMouseUp = _TestMouseUp()

@@ -10,7 +10,7 @@ from tests import testing_helper
 
 class TestParentInterface:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_parent(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -20,7 +20,7 @@ class TestParentInterface:
         with pytest.raises(ValueError):  # type: ignore
             sprite.parent = 100
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_remove_from_parent(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -33,7 +33,7 @@ class TestParentInterface:
             func_or_method=sprite.remove_from_parent,
         )
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -46,7 +46,7 @@ class TestParentInterface:
         sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert sprite._parent_snapshots[snapshot_name] == stage
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)

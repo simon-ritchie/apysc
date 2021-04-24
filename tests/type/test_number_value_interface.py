@@ -18,7 +18,7 @@ from tests import testing_helper
 
 class TestNumberValueInterface:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=100, type_name='test_interface')
@@ -46,7 +46,7 @@ class TestNumberValueInterface:
             func_or_method=NumberValueInterface,
             kwargs={'value': 'Hello!', 'type_name': 'test_interface'})
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_value(self) -> None:
         expression_file_util.remove_expression_file()
         interface: NumberValueInterface = NumberValueInterface(
@@ -58,7 +58,7 @@ class TestNumberValueInterface:
         with pytest.raises(ValueError):  # type: ignore
             interface.value = 'Hello!'  # type: ignore
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_append_constructor_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -82,7 +82,7 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_append_value_setter_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -105,13 +105,13 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_type_name(self) -> None:
         interface: NumberValueInterface = NumberValueInterface(
             value=100, type_name='test_interface')
         assert interface.type_name == 'test_interface'
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___add__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
@@ -124,7 +124,7 @@ class TestNumberValueInterface:
         assert interface_3.value == 40
         assert interface_3.variable_name != interface_2.variable_name
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__copy(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
@@ -134,7 +134,7 @@ class TestNumberValueInterface:
         assert interface_1.variable_name != interface_2.variable_name
         assert interface_2.variable_name.startswith('test_interface')
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_addition_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -156,7 +156,7 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_set_value_and_skip_expression_appending(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -182,7 +182,7 @@ class TestNumberValueInterface:
         )
         assert expected not in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___sub__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=20, type_name='test_interface')
@@ -193,7 +193,7 @@ class TestNumberValueInterface:
         interface_3: NumberValueInterface = interface_1 - interface_2
         assert interface_3.value == 15
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_subtraction_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -214,7 +214,7 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___mul__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=20, type_name='test_interface')
@@ -225,7 +225,7 @@ class TestNumberValueInterface:
         interface_3: NumberValueInterface = interface_1 * interface_2
         assert interface_3.value == 1200
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_multiplication_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -246,7 +246,7 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___truediv__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
@@ -258,7 +258,7 @@ class TestNumberValueInterface:
         interface_3: NumberValueInterface = interface_2 / interface_1
         assert interface_3.value == 0.25
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_true_division_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -282,7 +282,7 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___floordiv__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
@@ -297,7 +297,7 @@ class TestNumberValueInterface:
         interface_4: NumberValueInterface = interface_1 // interface_3
         assert interface_4.value == 1
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_floor_division_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -323,7 +323,7 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___iadd__(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -345,7 +345,7 @@ class TestNumberValueInterface:
             flags=re.MULTILINE | re.DOTALL)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___isub__(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -365,7 +365,7 @@ class TestNumberValueInterface:
             flags=re.MULTILINE | re.DOTALL)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___imul__(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -387,7 +387,7 @@ class TestNumberValueInterface:
         print(expression)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___itruediv__(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -407,13 +407,13 @@ class TestNumberValueInterface:
             flags=re.MULTILINE | re.DOTALL)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___str__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         assert str(interface_1) == '10'
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
@@ -433,7 +433,7 @@ class TestNumberValueInterface:
         assert isinstance(interface_1 == 10, Boolean)
         assert isinstance(interface_1 == interface_2, Boolean)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___ne__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
@@ -447,7 +447,7 @@ class TestNumberValueInterface:
         assert isinstance(interface_1 != 11, Boolean)
         assert isinstance(interface_1 != interface_2, Boolean)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___lt__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
@@ -466,7 +466,7 @@ class TestNumberValueInterface:
         assert isinstance(interface_1 < 11, Boolean)
         assert isinstance(interface_1 < interface_2, Boolean)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___le__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
@@ -491,7 +491,7 @@ class TestNumberValueInterface:
         assert isinstance(interface_1 <= 10, Boolean)
         assert isinstance(interface_1 <= interface_2, Boolean)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___gt__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
@@ -511,7 +511,7 @@ class TestNumberValueInterface:
         assert isinstance(interface_1 > 9, Boolean)
         assert isinstance(interface_1 > interface_2, Boolean)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___ge__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
@@ -536,7 +536,7 @@ class TestNumberValueInterface:
         assert isinstance(interface_1 >= 10, Boolean)
         assert isinstance(interface_1 >= interface_2, Boolean)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___int__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
@@ -545,7 +545,7 @@ class TestNumberValueInterface:
         assert interface_1 == 10
         assert isinstance(integer, int)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___float__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10.5, type_name='test_interface')
@@ -553,7 +553,7 @@ class TestNumberValueInterface:
         assert float_val == 10.5
         assert isinstance(float_val, float)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10.5, type_name='test_interface')
@@ -568,7 +568,7 @@ class TestNumberValueInterface:
             snapshot_name=snapshot_name)
         assert interface_1._value_snapshots[snapshot_name] == 10.5
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10.5, type_name='test_interface')
@@ -584,7 +584,7 @@ class TestNumberValueInterface:
         interface_1._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface_1.value == 20
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_eq_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -613,7 +613,7 @@ class TestNumberValueInterface:
             flags=re.MULTILINE)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ne_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -644,7 +644,7 @@ class TestNumberValueInterface:
             flags=re.MULTILINE)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_lt_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -673,7 +673,7 @@ class TestNumberValueInterface:
             string=expression, flags=re.MULTILINE)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_le_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -702,7 +702,7 @@ class TestNumberValueInterface:
             string=expression, flags=re.MULTILINE)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_gt_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -731,7 +731,7 @@ class TestNumberValueInterface:
             string=expression, flags=re.MULTILINE)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ge_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: NumberValueInterface = NumberValueInterface(
@@ -760,7 +760,7 @@ class TestNumberValueInterface:
             string=expression, flags=re.MULTILINE)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__convert_other_val_to_int_or_number(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')

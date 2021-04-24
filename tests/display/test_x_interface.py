@@ -10,7 +10,7 @@ from apysc.type import value_util
 
 class TestXInterface:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_x(self) -> None:
         x_interface = XInterface()
         x_interface.variable_name = 'test_x_interface'
@@ -24,7 +24,7 @@ class TestXInterface:
         x_interface.x = 200  # type: ignore
         assert x_interface.x == 200
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_x_update_expression(self) -> None:
         x_interface = XInterface()
         x_interface.variable_name = 'test_x_interface'
@@ -36,7 +36,7 @@ class TestXInterface:
         expected: str = f'test_x_interface.x({value_str});'
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_x_if_not_initialized(self) -> None:
         x_interface = XInterface()
         x_interface.variable_name = 'test_x_interface'
@@ -47,7 +47,7 @@ class TestXInterface:
         x_interface._initialize_x_if_not_initialized()
         assert x_interface.x == 100
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         x_interface = XInterface()
         x_interface.variable_name = 'test_x_interface'
@@ -62,7 +62,7 @@ class TestXInterface:
             snapshot_name=snapshot_name)
         assert x_interface._x_snapshots[snapshot_name] == 100
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         x_interface = XInterface()
         x_interface.variable_name = 'test_x_interface'

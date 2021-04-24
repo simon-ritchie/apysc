@@ -10,13 +10,13 @@ from apysc.expression import var_names
 
 class TestAnyValue:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         any_value: AnyValue = AnyValue(100)
         assert any_value._value == 100
         assert any_value.variable_name.startswith(var_names.ANY)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
         expression_file_util.remove_expression_file()
         any_value_1: AnyValue = AnyValue(100)
@@ -34,7 +34,7 @@ class TestAnyValue:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_value_setter_expression(self) -> None:
         expression_file_util.remove_expression_file()
         any_value: AnyValue = AnyValue(100)
@@ -53,7 +53,7 @@ class TestAnyValue:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_value(self) -> None:
         any_value: AnyValue = AnyValue(100)
         any_value.value = 200

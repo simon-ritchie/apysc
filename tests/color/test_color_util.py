@@ -17,7 +17,7 @@ def test__fill_three_digit_hex_color_code() -> None:
     assert filled_color_code == 'aa0033'
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_complement_hex_color() -> None:
     from apysc import String
     hex_color_code_1: str = color_util.complement_hex_color(
@@ -43,7 +43,7 @@ def test_complement_hex_color() -> None:
     assert hex_color_code_4.variable_name != hex_color_code_5.variable_name
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_complement_hex_color_expression() -> None:
     from apysc import String
     from apysc.expression import expression_file_util

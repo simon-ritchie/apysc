@@ -15,7 +15,7 @@ from tests import testing_helper
 
 class TestSprite:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -30,7 +30,7 @@ class TestSprite:
             },
             any_obj=sprite)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_add_child(self) -> None:
         stage: Stage = Stage()
         parent_sprite: Sprite = Sprite(stage=stage)
@@ -38,7 +38,7 @@ class TestSprite:
         parent_sprite.add_child(child=child_sprite)
         assert parent_sprite._children == Array([child_sprite])
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
         stage: Stage = Stage()
         stage_variable_name: str = get_stage_variable_name()
@@ -66,7 +66,7 @@ class TestSprite:
         appended: bool = subclass_instance._append_constructor_expression()
         assert not appended
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
@@ -87,7 +87,7 @@ class TestSprite:
         assert (
             sprite.graphics._fill_alpha_snapshots[snapshot_name] == 0.5)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)

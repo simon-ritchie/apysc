@@ -7,7 +7,7 @@ from apysc.validation import number_validation
 from tests import testing_helper
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_validate_num() -> None:
     number_validation.validate_num(num=100)
     number_validation.validate_num(num=100.5)
@@ -18,7 +18,7 @@ def test_validate_num() -> None:
         kwargs={'num': 'Hello!'})
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_validate_integer() -> None:
     number_validation.validate_integer(integer=10)
     number_validation.validate_integer(integer=Int(10))
@@ -28,7 +28,7 @@ def test_validate_integer() -> None:
         kwargs={'integer': 10.5})
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_validate_num_is_gt_zero() -> None:
     number_validation.validate_num_is_gt_zero(num=1)
     testing_helper.assert_raises(
@@ -37,7 +37,7 @@ def test_validate_num_is_gt_zero() -> None:
         kwargs={'num': 0})
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_validate_num_is_gte_zero() -> None:
     number_validation.validate_num_is_gte_zero(num=0)
     number_validation.validate_num_is_gte_zero(num=1)
@@ -47,7 +47,7 @@ def test_validate_num_is_gte_zero() -> None:
         kwargs={'num': -0.1})
 
 
-@retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_validate_int_is_zero_or_one() -> None:
     number_validation.validate_int_is_zero_or_one(
         integer='Hello!')  # type: ignore

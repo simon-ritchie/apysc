@@ -10,7 +10,7 @@ from apysc.type import value_util
 
 class TestFillAlphaInterface:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_fill_alpha(self) -> None:
         fill_alpha_interface: FillAlphaInterface = FillAlphaInterface()
         fill_alpha_interface.variable_name = 'test_fill_alpha_interface'
@@ -25,7 +25,7 @@ class TestFillAlphaInterface:
         fill_alpha_interface.fill_alpha = 0.25  # type: ignore
         assert fill_alpha_interface.fill_alpha == 0.25
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_fill_alpha_update_expression(self) -> None:
         fill_alpha_interface: FillAlphaInterface = FillAlphaInterface()
         fill_alpha_interface.variable_name = 'test_fill_alpha_interface'
@@ -39,7 +39,7 @@ class TestFillAlphaInterface:
             f'.fill({{opacity: {value_str}}});')
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_update_fill_alpha_and_skip_appending_exp(self) -> None:
         fill_alpha_interface: FillAlphaInterface = FillAlphaInterface()
         fill_alpha_interface.variable_name = 'test_fill_alpha_interface'
@@ -54,7 +54,7 @@ class TestFillAlphaInterface:
             value=Number(value=0.5))
         assert fill_alpha_interface.fill_alpha == 0.5
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_fill_alpha_if_not_initialized(self) -> None:
         fill_alpha_interface: FillAlphaInterface = FillAlphaInterface()
         fill_alpha_interface.variable_name = 'test_fill_alpha_interface'
@@ -65,7 +65,7 @@ class TestFillAlphaInterface:
         fill_alpha_interface._initialize_fill_alpha_if_not_initialized()
         assert fill_alpha_interface.fill_alpha == 0.5
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         fill_alpha_interface: FillAlphaInterface = FillAlphaInterface()
         fill_alpha_interface.variable_name = 'test_fill_alpha_interface'
@@ -84,7 +84,7 @@ class TestFillAlphaInterface:
             fill_alpha_interface._fill_alpha_snapshots[snapshot_name]
             == 0.5)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         fill_alpha_interface: FillAlphaInterface = FillAlphaInterface()
         fill_alpha_interface.variable_name = 'test_fill_alpha_interface'

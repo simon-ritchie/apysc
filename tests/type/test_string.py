@@ -17,7 +17,7 @@ from tests import testing_helper
 
 class TestString:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_str_value(self) -> None:
         string_1: String = String('Hello!')
         value: str = string_1._get_str_value(value='World!')
@@ -25,7 +25,7 @@ class TestString:
         value = string_1._get_str_value(value=string_1)
         assert value == 'Hello!'
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         testing_helper.assert_raises(
             expected_error_class=ValueError,
@@ -46,7 +46,7 @@ class TestString:
         string_2: String = String(value=string_1)
         assert string_2._value == 'Hello!'
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
         expression_file_util.remove_expression_file()
         string_1: String = String(value='Hello!')
@@ -63,13 +63,13 @@ class TestString:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_value(self) -> None:
         string_1: String = String(value='Hello!')
         string_1.value = 'World!'
         assert string_1.value == 'World!'
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_value_setter_expression(self) -> None:
         expression_file_util.remove_expression_file()
         string_1: String = String(value='Hello!')
@@ -88,7 +88,7 @@ class TestString:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___add__(self) -> None:
         string_1: String = String(value='Hello')
         string_2: String = string_1 + ' World!'
@@ -98,7 +98,7 @@ class TestString:
         string_4: String = string_1 + string_3
         assert string_4._value == 'Hello apysc!'
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_addition_expression(self) -> None:
         expression_file_util.remove_expression_file()
         string_1: String = String(value='Hello!')
@@ -110,7 +110,7 @@ class TestString:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___mul__(self) -> None:
         string_1: String = String(value='Hello!')
         string_2: String = string_1 * 3
@@ -119,7 +119,7 @@ class TestString:
         string_3: String = string_1 * Int(2)
         assert string_3.value == 'Hello!Hello!'
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_multiplication_expression(self) -> None:
         expression_file_util.remove_expression_file()
         string_1: String = String(value='Hello!')
@@ -141,7 +141,7 @@ class TestString:
         )
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___iadd__(self) -> None:
         expression_file_util.remove_expression_file()
         string_1: String = String(value='Hello')
@@ -160,7 +160,7 @@ class TestString:
             flags=re.MULTILINE | re.DOTALL)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___imul__(self) -> None:
         expression_file_util.remove_expression_file()
         string_1: String = String(value='Hello!')
@@ -177,14 +177,14 @@ class TestString:
             string=expression, flags=re.MULTILINE | re.DOTALL)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___str__(self) -> None:
         string_1: String = String(value='Hello!')
         result: str = str(string_1)
         assert result == 'Hello!'
         assert isinstance(result, str)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:
         string_1: String = String(value='Hello!')
         assert string_1 == 'Hello!'
@@ -197,7 +197,7 @@ class TestString:
         assert isinstance(string_1 == string_2, Boolean)
         assert isinstance(string_1 == 100, Boolean)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___ne__(self) -> None:
         string_1: String = String(value='Hello!')
         assert string_1 != 'World'
@@ -208,7 +208,7 @@ class TestString:
         assert isinstance(string_1 != String('World'), Boolean)
         assert isinstance(string_1 != 100, Boolean)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___lt__(self) -> None:
         string_1: String = String(value='1970-01-02')
         assert string_1 < '1970-01-03'
@@ -218,7 +218,7 @@ class TestString:
 
         assert isinstance(string_1 < '1970-01-03', Boolean)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___le__(self) -> None:
         string_1: String = String(value='1970-01-02')
         assert string_1 <= '1970-01-02'
@@ -229,7 +229,7 @@ class TestString:
 
         assert isinstance(string_1 <= '1970-01-02', Boolean)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___gt__(self) -> None:
         string_1: String = String(value='1970-01-02')
         assert string_1 > '1970-01-01'
@@ -239,7 +239,7 @@ class TestString:
 
         assert isinstance(string_1 > '1970-01-01', Boolean)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___ge__(self) -> None:
         string_1: String = String(value='1970-01-02')
         assert string_1 >= '1970-01-02'
@@ -250,22 +250,22 @@ class TestString:
 
         assert isinstance(string_1 >= '1970-01-02', Boolean)
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___int__(self) -> None:
         string_1: String = String(value='100')
         assert int(string_1) == 100
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___float__(self) -> None:
         string_1: String = String(value='100.5')
         assert float(string_1) == 100.5
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
         string_1: String = String(value='Hello!')
         assert repr(string_1) == "String('Hello!')"
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         string_1: String = String(value='Hello!')
         snapshot_name: str = 'snapshot_1'
@@ -278,7 +278,7 @@ class TestString:
             snapshot_name=snapshot_name)
         assert string_1._value_snapshots[snapshot_name] == 'Hello!'
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         string_1: String = String(value='Hello!')
         snapshot_name: str = 'snapshot_1'
@@ -292,7 +292,7 @@ class TestString:
         string_1._run_all_revert_methods(snapshot_name=snapshot_name)
         assert string_1.value == 'World!'
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_eq_expression(self) -> None:
         expression_file_util.remove_expression_file()
         string_1: String = String(value='Hello!')
@@ -318,7 +318,7 @@ class TestString:
             flags=re.MULTILINE)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ne_expression(self) -> None:
         expression_file_util.remove_expression_file()
         string_1: String = String(value='Hello!')
@@ -343,7 +343,7 @@ class TestString:
             string=expression, flags=re.MULTILINE)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_lt_expression(self) -> None:
         expression_file_util.remove_expression_file()
         string_1: String = String(value='Hello!')
@@ -368,7 +368,7 @@ class TestString:
             string=expression, flags=re.MULTILINE)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_le_expression(self) -> None:
         expression_file_util.remove_expression_file()
         string_1: String = String(value='Hello!')
@@ -393,7 +393,7 @@ class TestString:
             string=expression, flags=re.MULTILINE)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_gt_expression(self) -> None:
         expression_file_util.remove_expression_file()
         string_1: String = String(value='Hello!')
@@ -418,7 +418,7 @@ class TestString:
             string=expression, flags=re.MULTILINE)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ge_expression(self) -> None:
         expression_file_util.remove_expression_file()
         string_1: String = String(value='Hello!')
@@ -443,7 +443,7 @@ class TestString:
             string=expression, flags=re.MULTILINE)
         assert match is not None
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__convert_other_val_to_string(self) -> None:
         string_1: String = String(value='Hello!')
         converted_val: Any = string_1._convert_other_val_to_string(

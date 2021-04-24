@@ -10,7 +10,7 @@ from apysc.type import value_util
 
 class TestYInterface:
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_y(self) -> None:
         y_interface: YInterface = YInterface()
         y_interface.variable_name = 'test_y_interface'
@@ -24,7 +24,7 @@ class TestYInterface:
         y_interface.y = 300  # type: ignore
         assert y_interface.y == 300
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_y_update_expression(self) -> None:
         y_interface: YInterface = YInterface()
         expression_file_util.remove_expression_file()
@@ -36,7 +36,7 @@ class TestYInterface:
         expected: str = f'test_y_interface.y({value_str});'
         assert expected in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_y_if_not_initialized(self) -> None:
         y_interface: YInterface = YInterface()
         y_interface.variable_name = 'test_y_interface'
@@ -47,7 +47,7 @@ class TestYInterface:
         y_interface._initialize_y_if_not_initialized()
         assert y_interface.y == 100
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         y_interface: YInterface = YInterface()
         y_interface.variable_name = 'test_y_interface'
@@ -62,7 +62,7 @@ class TestYInterface:
             snapshot_name=snapshot_name)
         assert y_interface._y_snapshots[snapshot_name] == 100
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         y_interface: YInterface = YInterface()
         y_interface.variable_name = 'test_y_interface'

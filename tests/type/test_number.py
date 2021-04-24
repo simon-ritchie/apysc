@@ -13,7 +13,7 @@ class TestNumber:
 
     expression_file_util.remove_expression_file()
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         expression_file_util.remove_expression_file()
         number_1: Number = Number(value=100)
@@ -40,7 +40,7 @@ class TestNumber:
             func_or_method=Number,
             kwargs={'value': 'Hello!'})
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_value(self) -> None:
         expression_file_util.remove_expression_file()
         number_1: Number = Number(value=100.5)
@@ -74,7 +74,7 @@ class TestNumber:
         number_2: Number = number_1 + 20.6
         assert number_2.value == 31.1
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_set_value_and_skip_expression_appending(self) -> None:
         expression_file_util.remove_expression_file()
         number_1: Number = Number(value=10.5)
@@ -95,7 +95,7 @@ class TestNumber:
         )
         assert expected not in expression
 
-    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
         number_1: Number = Number(value=10.5)
         repr_str: str = repr(number_1)

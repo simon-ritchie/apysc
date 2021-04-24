@@ -12,9 +12,9 @@ from apysc.event.event_interface_base import EventInterfaceBase
 
 class DoubleClickInterface(EventInterfaceBase):
 
-    _dbclick_handlers: Dict[str, HandlerData]
+    _dblclick_handlers: Dict[str, HandlerData]
 
-    def dbclick(
+    def dblclick(
             self, handler: Handler,
             kwargs: Optional[Dict[str, Any]] = None) -> str:
         """
@@ -38,19 +38,19 @@ class DoubleClickInterface(EventInterfaceBase):
         from apysc.type.variable_name_interface import VariableNameInterface
         self_instance: VariableNameInterface = \
             self._validate_self_is_variable_name_interface()
-        self._initialize_dbclick_handlers_if_not_initialized()
+        self._initialize_dblclick_handlers_if_not_initialized()
         name: str = get_handler_name(handler=handler)
         self._set_handler_data(
-            handler=handler, handlers_dict=self._dbclick_handlers,
+            handler=handler, handlers_dict=self._dblclick_handlers,
             kwargs=kwargs)
-        self._append_dbclick_expression(name=name)
+        self._append_dblclick_expression(name=name)
         e: MouseEvent = MouseEvent(this=self_instance)
         append_handler_expression(
-            handler_data=self._dbclick_handlers[name],
+            handler_data=self._dblclick_handlers[name],
             handler_name=name, e=e)
         return name
 
-    def _append_dbclick_expression(self, name: str) -> None:
+    def _append_dblclick_expression(self, name: str) -> None:
         """
         Append double click expression to file.
 
@@ -64,20 +64,20 @@ class DoubleClickInterface(EventInterfaceBase):
         self_instance: VariableNameInterface = \
             self._validate_self_is_variable_name_interface()
         expression: str = (
-            f'{self_instance.variable_name}.dbclick({name});'
+            f'{self_instance.variable_name}.dblclick({name});'
         )
         expression_file_util.append_js_expression(expression=expression)
 
-    def _initialize_dbclick_handlers_if_not_initialized(self) -> None:
+    def _initialize_dblclick_handlers_if_not_initialized(self) -> None:
         """
-        Initialize _dbclick_handlers attribute if it is not
+        Initialize _dblclick_handlers attribute if it is not
         initialized yet.
         """
-        if hasattr(self, '_dbclick_handlers'):
+        if hasattr(self, '_dblclick_handlers'):
             return
-        self._dbclick_handlers = {}
+        self._dblclick_handlers = {}
 
-    def unbind_dbclick(self, handler: Handler) -> None:
+    def unbind_dblclick(self, handler: Handler) -> None:
         """
         Unbind specified handler's double click event.
 
@@ -87,17 +87,17 @@ class DoubleClickInterface(EventInterfaceBase):
             Callable to be unbinded.
         """
         from apysc import EventType
-        self._initialize_dbclick_handlers_if_not_initialized()
+        self._initialize_dblclick_handlers_if_not_initialized()
         self._unbind_event(
-            handler=handler, event_type=EventType.DBCLICK,
-            handlers_dict=self._dbclick_handlers)
+            handler=handler, event_type=EventType.DBLCLICK,
+            handlers_dict=self._dblclick_handlers)
 
-    def unbind_dbclick_all(self) -> None:
+    def unbind_dblclick_all(self) -> None:
         """
         Unbind all double click events.
         """
         from apysc import EventType
-        self._initialize_dbclick_handlers_if_not_initialized()
+        self._initialize_dblclick_handlers_if_not_initialized()
         self._unbind_all_events(
-            event_type=EventType.DBCLICK,
-            handlers_dict=self._dbclick_handlers)
+            event_type=EventType.DBLCLICK,
+            handlers_dict=self._dblclick_handlers)

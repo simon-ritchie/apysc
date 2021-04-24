@@ -47,21 +47,21 @@ class TestDoubleClickInterface:
         """
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
-    def test__initialize_dbclick_handlers_if_not_initialized(self) -> None:
+    def test__initialize_dblclick_handlers_if_not_initialized(self) -> None:
         interface_1: DoubleClickInterface = DoubleClickInterface()
-        interface_1._initialize_dbclick_handlers_if_not_initialized()
-        assert interface_1._dbclick_handlers == {}
+        interface_1._initialize_dblclick_handlers_if_not_initialized()
+        assert interface_1._dblclick_handlers == {}
 
-        interface_1._initialize_dbclick_handlers_if_not_initialized()
+        interface_1._initialize_dblclick_handlers_if_not_initialized()
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
-    def test__append_dbclick_expression(self) -> None:
+    def test__append_dblclick_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestDoubleClick = _TestDoubleClick()
-        interface_1._append_dbclick_expression(name='test_double_click')
+        interface_1._append_dblclick_expression(name='test_double_click')
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.dbclick(test_double_click);'
+            f'{interface_1.variable_name}.dblclick(test_double_click);'
         )
         assert expected in expression
 
@@ -69,8 +69,8 @@ class TestDoubleClickInterface:
     def test_dblclick(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestDoubleClick = _TestDoubleClick()
-        name: str = interface_1.dbclick(handler=self.on_double_click_1)
-        assert interface_1._dbclick_handlers == {
+        name: str = interface_1.dblclick(handler=self.on_double_click_1)
+        assert interface_1._dblclick_handlers == {
             name: {
                 'handler': self.on_double_click_1,
                 'kwargs': {},
@@ -78,7 +78,7 @@ class TestDoubleClickInterface:
         }
 
         expression: str = expression_file_util.get_current_expression()
-        expected: str = f'{interface_1.variable_name}.dbclick'
+        expected: str = f'{interface_1.variable_name}.dblclick'
         assert expected in expression
         expression = \
             expression_file_util.get_current_event_handler_scope_expression()
@@ -86,24 +86,24 @@ class TestDoubleClickInterface:
         assert expected in expression
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
-    def test_unbind_dbclick(self) -> None:
+    def test_unbind_dblclick(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestDoubleClick = _TestDoubleClick()
-        interface_1.dbclick(handler=self.on_double_click_1)
-        interface_1.unbind_dbclick(handler=self.on_double_click_1)
-        assert interface_1._dbclick_handlers == {}
+        interface_1.dblclick(handler=self.on_double_click_1)
+        interface_1.unbind_dblclick(handler=self.on_double_click_1)
+        assert interface_1._dblclick_handlers == {}
         expression: str = expression_file_util.get_current_expression()
         assert 'off(' in expression
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
-    def test_unbind_dbclick_all(self) -> None:
+    def test_unbind_dblclick_all(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestDoubleClick = _TestDoubleClick()
-        interface_1.dbclick(handler=self.on_double_click_1)
-        interface_1.unbind_dbclick_all()
-        assert interface_1._dbclick_handlers == {}
+        interface_1.dblclick(handler=self.on_double_click_1)
+        interface_1.unbind_dblclick_all()
+        assert interface_1._dblclick_handlers == {}
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.off("{EventType.DBCLICK.value}");'
+            f'{interface_1.variable_name}.off("{EventType.DBLCLICK.value}");'
         )
         assert expected in expression

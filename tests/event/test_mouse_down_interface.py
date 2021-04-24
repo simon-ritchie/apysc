@@ -51,3 +51,16 @@ class TestMouseDownInterface:
             f'{interface_1.variable_name}.mousedown({name});'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_mousedown(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface_1: _TestMouseDown = _TestMouseDown()
+        name: str = interface_1.mousedown(
+            handler=self.on_mouse_down_1,
+            kwargs={'msg': 'Hello!'})
+        assert name in interface_1._mouse_down_handlers
+        expression: str = \
+            expression_file_util.get_current_event_handler_scope_expression()
+        expected: str = f'function {name}('
+        assert expected in expression

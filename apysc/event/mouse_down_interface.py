@@ -42,6 +42,10 @@ class MouseDownInterface(EventInterfaceBase):
             handler=handler, handlers_dict=self._mouse_down_handlers,
             kwargs=kwargs)
         self._append_mouse_down_expression(name=name)
+        e: MouseEvent = MouseEvent(this=self_instance)
+        append_handler_expression(
+            handler_data=self._mouse_down_handlers[name],
+            handler_name=name, e=e)
         return name
 
     def _append_mouse_down_expression(self, name: str) -> None:

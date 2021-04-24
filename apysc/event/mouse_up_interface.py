@@ -76,3 +76,18 @@ class MouseUpInterface(EventInterfaceBase):
         if hasattr(self, '_mouse_up_handlers'):
             return
         self._mouse_up_handlers = {}
+
+    def unbind_mouseup(self, handler: Handler) -> None:
+        """
+        Unbind specified handler's mouse up event.
+
+        Parameters
+        ----------
+        handler : Handler
+            Callable to be unbinded.
+        """
+        from apysc import EventType
+        self._initialize_mouse_up_handlers_if_not_initialized()
+        self._unbind_event(
+            handler=handler, event_type=EventType.MOUSEUP,
+            handlers_dict=self._mouse_up_handlers)

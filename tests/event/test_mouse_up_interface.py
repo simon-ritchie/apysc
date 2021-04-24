@@ -1,11 +1,13 @@
 from random import randint
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 from retrying import retry
 
+from apysc import EventType
+from apysc import MouseEvent
 from apysc.event.mouse_up_interface import MouseUpInterface
 from apysc.expression import expression_file_util
-from apysc import MouseEvent, EventType
 from apysc.type.variable_name_interface import VariableNameInterface
 
 

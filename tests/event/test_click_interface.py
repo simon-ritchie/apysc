@@ -4,8 +4,8 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import Event, MouseEvent
 from apysc import EventType
+from apysc import MouseEvent
 from apysc.event.click_interface import ClickInterface
 from apysc.event.handler import get_handler_name
 from apysc.expression import expression_file_util

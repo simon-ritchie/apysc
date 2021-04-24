@@ -4,7 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import Event
+from apysc import Event, MouseEvent
 from apysc import EventType
 from apysc.event.click_interface import ClickInterface
 from apysc.event.handler import get_handler_name
@@ -24,25 +24,25 @@ class _TestClickInterface(ClickInterface, VariableNameInterface):
 
 class TestClickInterface:
 
-    def on_click_1(self, e: Event, kwargs: Dict[str, Any]) -> None:
+    def on_click_1(self, e: MouseEvent, kwargs: Dict[str, Any]) -> None:
         """
         Click handler method for testing.
 
         Parameters
         ----------
-        e : Event
+        e : MouseEvent
             Created event instance.
         kwargs : dict
             Keyword arguments to pass to.
         """
 
-    def on_click_2(self, e: Event, kwargs: Dict[str, Any]) -> None:
+    def on_click_2(self, e: MouseEvent, kwargs: Dict[str, Any]) -> None:
         """
         Click handler method for testing.
 
         Parameters
         ----------
-        e : Event
+        e : MouseEvent
             Created event instance.
         kwargs : dict
             Keyword arguments to pass to.

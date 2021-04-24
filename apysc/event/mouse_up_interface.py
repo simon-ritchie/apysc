@@ -39,7 +39,30 @@ class MouseUpInterface(EventInterfaceBase):
         self_instance: VariableNameInterface = \
             self._validate_self_is_variable_name_interface()
         self._initialize_mouse_up_handlers_if_not_initialized()
-        pass
+        name: str = get_handler_name(handler=handler)
+        self._set_handler_data(
+            handler=handler, handlers_dict=self._mouse_up_handlers,
+            kwargs=kwargs)
+        self._append_mouse_up_expression(name=name)
+        return name
+
+    def _append_mouse_up_expression(self, name: str) -> None:
+        """
+        Append mouse up expression to file.
+
+        Parameters
+        ----------
+        name : str
+            Handler's name.
+        """
+        from apysc.expression import expression_file_util
+        from apysc.type.variable_name_interface import VariableNameInterface
+        self_instance: VariableNameInterface = \
+            self._validate_self_is_variable_name_interface()
+        expression: str = (
+            f'{self_instance.variable_name}.mouseup({name});'
+        )
+        expression_file_util.append_js_expression(expression=expression)
 
     def _initialize_mouse_up_handlers_if_not_initialized(self) -> None:
         """

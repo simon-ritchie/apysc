@@ -27,7 +27,7 @@ class TestMouseDownInterface:
 
         Parameters
         ----------
-        e : Event
+        e : MouseEvent
             Created event instance.
         kwargs : dict
             Keyword arguments to pass to.
@@ -39,7 +39,7 @@ class TestMouseDownInterface:
 
         Parameters
         ----------
-        e : Event
+        e : MouseEvent
             Created event instance.
         kwargs : dict
             Keyword arguments to pass to.

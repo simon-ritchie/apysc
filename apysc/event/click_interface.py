@@ -58,11 +58,6 @@ class ClickInterface(EventInterfaceBase):
         ----------
         name : str
             Handler's name.
-
-        Raises
-        ------
-        ValueError
-            If this instance is not subclass of VariableNameInterface.
         """
         from apysc.expression import expression_file_util
         from apysc.type.variable_name_interface import VariableNameInterface

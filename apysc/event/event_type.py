@@ -8,3 +8,4 @@ class EventType(Enum):
 
     CLICK = 'click'
     DBLCLICK = 'dblclick'
+    MOUSEDOWN = 'mousedown'

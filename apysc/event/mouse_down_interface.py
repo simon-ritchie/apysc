@@ -74,3 +74,18 @@ class MouseDownInterface(EventInterfaceBase):
         if hasattr(self, '_mouse_down_handlers'):
             return
         self._mouse_down_handlers = {}
+
+    def unbind_mousedown(self, handler: Handler) -> None:
+        """
+        Unbind specified handler's mouse down event.
+
+        Parameters
+        ----------
+        handler : Handler
+            Callable to be unbinded.
+        """
+        from apysc import EventType
+        self._initialize_mouse_down_handlers_if_not_initialized()
+        self._unbind_event(
+            handler=handler, event_type=EventType.MOUSEDOWN,
+            handlers_dict=self._mouse_down_handlers)

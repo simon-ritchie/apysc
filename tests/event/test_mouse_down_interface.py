@@ -5,7 +5,7 @@ from retrying import retry
 
 from apysc.event.mouse_down_interface import MouseDownInterface
 from apysc.expression import expression_file_util
-from apysc import MouseEvent
+from apysc import MouseEvent, EventType
 from apysc.type.variable_name_interface import VariableNameInterface
 
 
@@ -63,4 +63,17 @@ class TestMouseDownInterface:
         expression: str = \
             expression_file_util.get_current_event_handler_scope_expression()
         expected: str = f'function {name}('
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_unbind_mousedown(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface_1: _TestMouseDown = _TestMouseDown()
+        name = interface_1.mousedown(handler=self.on_mouse_down_1)
+        interface_1.unbind_mousedown(handler=self.on_mouse_down_1)
+        assert interface_1._mouse_down_handlers == {}
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface_1.variable_name}.off("{EventType.MOUSEDOWN.value}", '
+            f'{name});')
         assert expected in expression

@@ -102,5 +102,6 @@ class ClickInterface(EventInterfaceBase):
         Unbind all click events.
         """
         from apysc import EventType
+        self._initialize_click_handlers_if_not_initialized()
         self._unbind_all_events(
             event_type=EventType.CLICK, handlers_dict=self._click_handlers)

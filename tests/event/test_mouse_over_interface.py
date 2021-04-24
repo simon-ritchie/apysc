@@ -50,3 +50,14 @@ class TestMouseOverInterface:
             f'{interface_1.variable_name}.mouseover({name});'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_mouseover(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface_1: _TestMouseOver = _TestMouseOver()
+        name: str = interface_1.mouseover(handler=self.on_mouse_over_1)
+        assert name in interface_1._mouse_over_handlers
+        expression: str = \
+            expression_file_util.get_current_event_handler_scope_expression()
+        expected: str = f'function {name}('
+        assert expected in expression

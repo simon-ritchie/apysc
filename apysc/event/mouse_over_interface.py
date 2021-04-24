@@ -44,6 +44,10 @@ class MouseOverInterface(EventInterfaceBase):
             handler=handler, handlers_dict=self._mouse_over_handlers,
             options=options)
         self._append_mouse_over_expression(name=name)
+        e: MouseEvent = MouseEvent(this=self_instance)
+        append_handler_expression(
+            handler_data=self._mouse_over_handlers[name],
+            handler_name=name, e=e)
         return name
 
     def _append_mouse_over_expression(self, name: str) -> None:

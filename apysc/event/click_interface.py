@@ -5,9 +5,9 @@ from typing import Any
 from typing import Dict
 from typing import Optional
 
+from apysc.event.event_interface_base import EventInterfaceBase
 from apysc.event.handler import Handler
 from apysc.event.handler import HandlerData
-from apysc.event.event_interface_base import EventInterfaceBase
 
 
 class ClickInterface(EventInterfaceBase):

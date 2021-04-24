@@ -1,13 +1,16 @@
 """Class implementation for each event interfaces' base class.
 """
 
-from typing import Any, Dict, Optional
+from typing import Any
+from typing import Dict
+from typing import Optional
+
 from typing_extensions import Final
 
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc.event.event_type import EventType
 from apysc.event.handler import Handler
 from apysc.event.handler import HandlerData
-from apysc.event.event_type import EventType
+from apysc.type.variable_name_interface import VariableNameInterface
 
 
 class EventInterfaceBase:
@@ -77,8 +80,8 @@ class EventInterfaceBase:
         handlers_dict : dict
             Dictionary that has handler's data.
         """
-        from apysc.event.handler import get_handler_name
         from apysc.event.handler import append_unbinding_expression
+        from apysc.event.handler import get_handler_name
         self_instance: VariableNameInterface = \
             self._validate_self_is_variable_name_interface()
         name: str = get_handler_name(handler=handler)

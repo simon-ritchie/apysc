@@ -14,7 +14,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Event, MouseEvent
+from apysc import MouseEvent
 from apysc import Rectangle
 from apysc import Sprite
 from apysc import Stage

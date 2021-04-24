@@ -1,18 +1,18 @@
 from random import randint
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 from retrying import retry
 
-from apysc.event.event_interface_base import EventInterfaceBase
-from apysc.event.handler import Handler
-from apysc.event.handler import HandlerData
-from apysc import MouseEvent
-from tests import testing_helper
-from apysc.event.handler import get_handler_name
-from apysc.event.click_interface import ClickInterface
-from apysc.expression import expression_file_util
 from apysc import EventType
+from apysc import MouseEvent
+from apysc.event.click_interface import ClickInterface
+from apysc.event.event_interface_base import EventInterfaceBase
+from apysc.event.handler import HandlerData
+from apysc.event.handler import get_handler_name
+from apysc.expression import expression_file_util
 from apysc.type.variable_name_interface import VariableNameInterface
+from tests import testing_helper
 
 
 class _TestClickInterface(ClickInterface, VariableNameInterface):

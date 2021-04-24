@@ -1,8 +1,8 @@
-"""Test project for DoubleClickInterface class.
+"""Test project for MouseDownInterface class.
 
 Command examples:
-$ python test_projects/DoubleClickInterface/main.py
-$ python DoubleClickInterface/main.py
+$ python test_projects/MouseDownInterface/main.py
+$ python MouseDownInterface/main.py
 """
 
 import sys
@@ -38,25 +38,25 @@ def main() -> None:
     stage: Stage = Stage(
         background_color='#111',
         stage_width=1000, stage_height=500)
-    stage.dblclick(
-        handler=on_stage_dblclick,
-        kwargs={'msg': String('Hello!')})
+    stage.mousedown(
+        handler=on_stage_mouse_down,
+        kwargs={'msg': 'Hello!'})
 
     sprite_1: Sprite = Sprite(stage=stage)
-    sprite_1.dblclick(handler=on_sprite_1_dblclick)
+    sprite_1.mousedown(handler=on_sprite_1_mouse_down)
 
     sprite_1.graphics.begin_fill(color='#0af')
     rectangle_1: Rectangle = sprite_1.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
-    rectangle_1.dblclick(handler=on_rectangle_1_dblclick)
+    rectangle_1.mousedown(handler=on_rectangle_1_mouse_down)
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_stage_dblclick(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+def on_stage_mouse_down(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     """
-    Test handler that called when stage is double clicked.
+    Test handler that called when stage is mouse downed.
 
     Parameters
     ----------
@@ -65,13 +65,13 @@ def on_stage_dblclick(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     kwargs : dict
         Specified keyword arguments.
     """
-    trace('Stage is double clicked!')
+    trace('Stage is mouse downed!')
     assert_equal(expected='Hello!', actual=kwargs['msg'])
 
 
-def on_sprite_1_dblclick(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+def on_sprite_1_mouse_down(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     """
-    Test handler that called when sprite_1 is double clicked.
+    Test handler that called when sprite 1 is mouse downed.
 
     Parameters
     ----------
@@ -80,12 +80,12 @@ def on_sprite_1_dblclick(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     kwargs : dict
         Specified keyword arguments.
     """
-    trace('Sprite 1 is double clicked!')
+    trace('Sprite 1 is mouse downed!')
 
 
-def on_rectangle_1_dblclick(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+def on_rectangle_1_mouse_down(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     """
-    Test handler that called when rectangle_1 is double clicked.
+    Test handler that called when rectangle 1 is mouse downed.
 
     Parameters
     ----------
@@ -94,7 +94,7 @@ def on_rectangle_1_dblclick(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     kwargs : dict
         Specified keyword arguments.
     """
-    trace('Rectangle 1 is double clicked!')
+    trace('Rectangle 1 is mouse downed!')
 
 
 if __name__ == '__main__':

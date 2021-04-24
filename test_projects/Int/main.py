@@ -108,12 +108,12 @@ def main() -> None:
     assert_equal(expected=10, actual=int_14)
 
     int_15: Int = Int(10)
-    stage.click(on_stage_clicked, kwargs={'int_15': int_15})
+    stage.click(on_stage_clicked, options={'int_15': int_15})
 
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_stage_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+def on_stage_clicked(e: MouseEvent, options: Dict[str, Any]) -> None:
     """
     Test handler that called when stage is clicked.
 
@@ -121,11 +121,11 @@ def on_stage_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     ----------
     e : MouseEvent
         Created event instance.
-    kwargs : dict
-        Keyword arguments.
+    options : dict
+        Optional arguments dictionary.
     """
     trace('stage clicked!')
-    int_15: Int = kwargs['int_15']
+    int_15: Int = options['int_15']
     int_15 += 5
     assert_true(int_15 == 15)
     assert_true(int_15 != 16)

@@ -23,7 +23,7 @@ class _TestDoubleClick(DoubleClickInterface, VariableNameInterface):
 class TestDoubleClickInterface:
 
     def on_double_click_1(
-            self, e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+            self, e: MouseEvent, options: Dict[str, Any]) -> None:
         """
         Test handler for double click event.
 
@@ -31,12 +31,12 @@ class TestDoubleClickInterface:
         ----------
         e : MouseEvent
             Event instance.
-        kwargs : dict
-            Keyword arguments.
+        options : dict
+            Optional arguments dictionary.
         """
 
     def on_double_click_2(
-            self, e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+            self, e: MouseEvent, options: Dict[str, Any]) -> None:
         """
         Test handler for double click event.
 
@@ -44,8 +44,8 @@ class TestDoubleClickInterface:
         ----------
         e : MouseEvent
             Event instance.
-        kwargs : dict
-            Keyword arguments.
+        options : dict
+            Optional arguments dictionary.
         """
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -75,7 +75,7 @@ class TestDoubleClickInterface:
         assert interface_1._dblclick_handlers == {
             name: {
                 'handler': self.on_double_click_1,
-                'kwargs': {},
+                'options': {},
             },
         }
 

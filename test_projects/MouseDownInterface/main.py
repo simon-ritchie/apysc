@@ -39,7 +39,7 @@ def main() -> None:
         stage_width=1000, stage_height=500)
     stage.mousedown(
         handler=on_stage_mouse_down,
-        kwargs={'msg': 'Hello!'})
+        options={'msg': 'Hello!'})
 
     sprite_1: Sprite = Sprite(stage=stage)
     sprite_1.mousedown(handler=on_sprite_1_mouse_down)
@@ -53,7 +53,7 @@ def main() -> None:
         dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_stage_mouse_down(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+def on_stage_mouse_down(e: MouseEvent, options: Dict[str, Any]) -> None:
     """
     Test handler that called when stage is mouse downed.
 
@@ -61,14 +61,14 @@ def on_stage_mouse_down(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     ----------
     e : MouseEvent
         Event object.
-    kwargs : dict
-        Specified keyword arguments.
+    options : dict
+        Optional arguments dictionary.
     """
     trace('Stage is mouse downed!')
-    assert_equal(expected='Hello!', actual=kwargs['msg'])
+    assert_equal(expected='Hello!', actual=options['msg'])
 
 
-def on_sprite_1_mouse_down(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+def on_sprite_1_mouse_down(e: MouseEvent, options: Dict[str, Any]) -> None:
     """
     Test handler that called when sprite 1 is mouse downed.
 
@@ -76,13 +76,13 @@ def on_sprite_1_mouse_down(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     ----------
     e : MouseEvent
         Event object.
-    kwargs : dict
-        Specified keyword arguments.
+    options : dict
+        Optional arguments dictionary.
     """
     trace('Sprite 1 is mouse downed!')
 
 
-def on_rectangle_1_mouse_down(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+def on_rectangle_1_mouse_down(e: MouseEvent, options: Dict[str, Any]) -> None:
     """
     Test handler that called when rectangle 1 is mouse downed.
 
@@ -90,8 +90,8 @@ def on_rectangle_1_mouse_down(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     ----------
     e : MouseEvent
         Event object.
-    kwargs : dict
-        Specified keyword arguments.
+    options : dict
+        Optional arguments dictionary.
     """
     trace('Rectangle 1 is mouse downed!')
 

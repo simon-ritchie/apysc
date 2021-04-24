@@ -74,12 +74,12 @@ def main() -> None:
     assert_false(boolean_13)
 
     boolean_14: Boolean = Boolean(False)
-    stage.click(on_stage_clicked, kwargs={'boolean_14': boolean_14})
+    stage.click(on_stage_clicked, options={'boolean_14': boolean_14})
 
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_stage_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+def on_stage_clicked(e: MouseEvent, options: Dict[str, Any]) -> None:
     """
     Test handler that called when stage is clicked.
 
@@ -87,11 +87,11 @@ def on_stage_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     ----------
     e : MouseEvent
         Created event instance.
-    kwargs : dict
-        Keyword arguments.
+    options : dict
+        Optional arguments dictionary.
     """
     trace('stage clicked!')
-    boolean_14: Boolean = kwargs['boolean_14']
+    boolean_14: Boolean = options['boolean_14']
     boolean_14.value = True
     assert_true(boolean_14 == True)  # noqa
 

@@ -22,7 +22,7 @@ class _TestClass1(VariableNameInterface):
         """
         self.variable_name = 'test_class_1'
 
-    def on_click_1(self, e: Event, kwargs: Dict[str, Any]) -> None:
+    def on_click_1(self, e: Event, options: Dict[str, Any]) -> None:
         """
         Test handler.
 
@@ -30,11 +30,11 @@ class _TestClass1(VariableNameInterface):
         ----------
         e : Event
             Created event instance.
-        kwargs : dict
-            Keyword arguments to pass to.
+        options : dict
+            Optional arguments dictionary.
         """
 
-    def on_click_2(self, e: Event, kwargs: Dict[str, Any]) -> None:
+    def on_click_2(self, e: Event, options: Dict[str, Any]) -> None:
         """
         Test handler.
 
@@ -42,10 +42,10 @@ class _TestClass1(VariableNameInterface):
         ----------
         e : Event
             Created event instance.
-        kwargs : dict
-            Keyword arguments to pass to.
+        options : dict
+            Optional arguments dictionary.
         """
-        int_1: Int = kwargs['int_1']
+        int_1: Int = options['int_1']
         int_1.value = 20
 
 
@@ -66,7 +66,7 @@ def test_append_handler_expression() -> None:
     int_1: Int = Int(10)
     handler_data: HandlerData = {
         'handler': test_instance.on_click_2,
-        'kwargs': {'int_1': int_1},
+        'options': {'int_1': int_1},
     }
     handler_name: str = handler.get_handler_name(
         handler=handler_data['handler'])

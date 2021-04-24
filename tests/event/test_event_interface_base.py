@@ -25,7 +25,7 @@ class _TestClickInterface(ClickInterface, VariableNameInterface):
 
 class TestEventInterfaceBase:
 
-    def on_click_1(self, e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+    def on_click_1(self, e: MouseEvent, options: Dict[str, Any]) -> None:
         """
         Test handler method.
 
@@ -33,11 +33,11 @@ class TestEventInterfaceBase:
         ----------
         e : MouseEvent
             Event instance.
-        kwargs : dict
-            Keyword arguments.
+        options : dict
+            Optional arguments dictionary.
         """
 
-    def on_click_2(self, e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+    def on_click_2(self, e: MouseEvent, options: Dict[str, Any]) -> None:
         """
         Test handler method.
 
@@ -45,8 +45,8 @@ class TestEventInterfaceBase:
         ----------
         e : MouseEvent
             Event instance.
-        kwargs : dict
-            Keyword arguments.
+        options : dict
+            Optional arguments dictionary.
         """
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -65,12 +65,12 @@ class TestEventInterfaceBase:
         interface_1._set_handler_data(
             handler=self.on_click_1,
             handlers_dict=handlers_dict,
-            kwargs=None)
+            options=None)
         name: str = get_handler_name(handler=self.on_click_1)
         assert handlers_dict == {
             name: {
                 'handler': self.on_click_1,
-                'kwargs': {},
+                'options': {},
             }
         }
 

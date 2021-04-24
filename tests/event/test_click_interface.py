@@ -24,7 +24,7 @@ class _TestClickInterface(ClickInterface, VariableNameInterface):
 
 class TestClickInterface:
 
-    def on_click_1(self, e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+    def on_click_1(self, e: MouseEvent, options: Dict[str, Any]) -> None:
         """
         Click handler method for testing.
 
@@ -32,11 +32,11 @@ class TestClickInterface:
         ----------
         e : MouseEvent
             Created event instance.
-        kwargs : dict
-            Keyword arguments to pass to.
+        options : dict
+            Optional arguments dictionary.
         """
 
-    def on_click_2(self, e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+    def on_click_2(self, e: MouseEvent, options: Dict[str, Any]) -> None:
         """
         Click handler method for testing.
 
@@ -44,8 +44,8 @@ class TestClickInterface:
         ----------
         e : MouseEvent
             Created event instance.
-        kwargs : dict
-            Keyword arguments to pass to.
+        options : dict
+            Optional arguments dictionary.
         """
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -55,12 +55,12 @@ class TestClickInterface:
             handler=self.on_click_1)
         assert interface_1._click_handlers[  # type: ignore
             name]['handler'] == self.on_click_1
-        assert interface_1._click_handlers[name]['kwargs'] == {}
+        assert interface_1._click_handlers[name]['options'] == {}
 
         interface_2: _TestClickInterface = _TestClickInterface()
-        name = interface_2.click(handler=self.on_click_1, kwargs={'a': 10})
+        name = interface_2.click(handler=self.on_click_1, options={'a': 10})
         assert interface_2._click_handlers[
-            name]['kwargs'] == {'a': 10}
+            name]['options'] == {'a': 10}
 
         interface_3: ClickInterface = ClickInterface()
         testing_helper.assert_raises(

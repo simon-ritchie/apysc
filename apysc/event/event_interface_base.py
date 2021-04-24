@@ -43,7 +43,7 @@ class EventInterfaceBase:
     def _set_handler_data(
             self, handler: Handler,
             handlers_dict: Dict[str, HandlerData],
-            kwargs: Optional[Dict[str, Any]]) -> None:
+            options: Optional[Dict[str, Any]]) -> None:
         """
         Set handler's data to the given dictionary.
 
@@ -53,16 +53,16 @@ class EventInterfaceBase:
             Callable that called when event is dispatched.
         handlers_dict : dict
             Dictionary to be set handler's data.
-        kwargs : dict or None, default None
-            Keyword arguments to be passed to handler.
+        options : dict or None, default None
+            Optional arguments dictionary to be passed to handler.
         """
         from apysc.event.handler import get_handler_name
         name: str = get_handler_name(handler=handler)
-        if kwargs is None:
-            kwargs = {}
+        if options is None:
+            options = {}
         handlers_dict[name] = {
             'handler': handler,
-            'kwargs': kwargs,
+            'options': options,
         }
 
     def _unbind_event(

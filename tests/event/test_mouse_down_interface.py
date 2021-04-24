@@ -21,7 +21,7 @@ class _TestMouseDown(MouseDownInterface, VariableNameInterface):
 
 class TestMouseDownInterface:
 
-    def on_mouse_down_1(self, e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+    def on_mouse_down_1(self, e: MouseEvent, options: Dict[str, Any]) -> None:
         """
         Mouse down handler method for testing.
 
@@ -29,11 +29,11 @@ class TestMouseDownInterface:
         ----------
         e : MouseEvent
             Created event instance.
-        kwargs : dict
-            Keyword arguments to pass to.
+        options : dict
+            Optional arguments dictionary.
         """
 
-    def on_mouse_down_2(self, e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+    def on_mouse_down_2(self, e: MouseEvent, options: Dict[str, Any]) -> None:
         """
         Mouse down handler method for testing.
 
@@ -41,8 +41,8 @@ class TestMouseDownInterface:
         ----------
         e : MouseEvent
             Created event instance.
-        kwargs : dict
-            Keyword arguments to pass to.
+        options : dict
+            Optional arguments dictionary.
         """
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -72,7 +72,7 @@ class TestMouseDownInterface:
         interface_1: _TestMouseDown = _TestMouseDown()
         name: str = interface_1.mousedown(
             handler=self.on_mouse_down_1,
-            kwargs={'msg': 'Hello!'})
+            options={'msg': 'Hello!'})
         assert name in interface_1._mouse_down_handlers
         expression: str = \
             expression_file_util.get_current_event_handler_scope_expression()

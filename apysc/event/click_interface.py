@@ -16,7 +16,7 @@ class ClickInterface(EventInterfaceBase):
 
     def click(
             self, handler: Handler,
-            kwargs: Optional[Dict[str, Any]] = None) -> str:
+            options: Optional[Dict[str, Any]] = None) -> str:
         """
         Add click event listener setting.
 
@@ -24,8 +24,8 @@ class ClickInterface(EventInterfaceBase):
         ----------
         handler : Handler
             Callable that called when this instance is clicked.
-        kwargs : dict or None, default None
-            Keyword arguments to be passed to handler.
+        options : dict or None, default None
+            Optional arguments dictionary to be passed to handler.
 
         Returns
         -------
@@ -42,7 +42,7 @@ class ClickInterface(EventInterfaceBase):
         name: str = get_handler_name(handler=handler)
         self._set_handler_data(
             handler=handler, handlers_dict=self._click_handlers,
-            kwargs=kwargs)
+            options=options)
         self._append_click_expression(name=name)
         e: MouseEvent = MouseEvent(this=self_instance)
         append_handler_expression(

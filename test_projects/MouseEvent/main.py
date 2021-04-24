@@ -63,7 +63,7 @@ def main() -> None:
         dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
-def on_rectangle_1_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+def on_rectangle_1_clicked(e: MouseEvent, options: Dict[str, Any]) -> None:
     """
     Test handler that called when rectangle_1 is clicked.
 
@@ -71,8 +71,8 @@ def on_rectangle_1_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     ----------
     e : Event
         Event object.
-    kwargs : dict
-        Specified keyword arguments.
+    options : dict
+        Optional arguments dictionary.
     """
     trace('Rectangle 1 clicked!')
     trace('stage_x:', e.stage_x)
@@ -88,7 +88,7 @@ def on_rectangle_1_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     assert_true(e.local_x <= Int(50))
 
 
-def on_rectangle_2_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+def on_rectangle_2_clicked(e: MouseEvent, options: Dict[str, Any]) -> None:
     """
     Test handler that called when rectangle_2 is clicked.
 
@@ -96,8 +96,8 @@ def on_rectangle_2_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     ----------
     e : Event
         Event object.
-    kwargs : dict
-        Specified keyword arguments.
+    options : dict
+        Optional arguments dictionary.
     """
     trace('Rectangle 2 clicked!')
     trace('local_x:', e.local_x)

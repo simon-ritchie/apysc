@@ -16,7 +16,7 @@ class MouseUpInterface(EventInterfaceBase):
 
     def mouseup(
             self, handler: Handler,
-            kwargs: Optional[Dict[str, Any]] = None) -> str:
+            options: Optional[Dict[str, Any]] = None) -> str:
         """
         Add mouse up event listener setting.
 
@@ -24,8 +24,8 @@ class MouseUpInterface(EventInterfaceBase):
         ----------
         handler : Handler
             Callable that called when this instance is mouse upped.
-        kwargs : dict or None, default None
-            Keyword arguments to be passed to handler.
+        options : dict or None, default None
+            Optional arguments dictionary to be passed to handler.
 
         Returns
         -------
@@ -42,7 +42,7 @@ class MouseUpInterface(EventInterfaceBase):
         name: str = get_handler_name(handler=handler)
         self._set_handler_data(
             handler=handler, handlers_dict=self._mouse_up_handlers,
-            kwargs=kwargs)
+            options=options)
         self._append_mouse_up_expression(name=name)
         e: MouseEvent = MouseEvent(this=self_instance)
         append_handler_expression(

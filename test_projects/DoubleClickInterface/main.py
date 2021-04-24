@@ -40,7 +40,7 @@ def main() -> None:
         stage_width=1000, stage_height=500)
     stage.dblclick(
         handler=on_stage_dblclick,
-        kwargs={'msg': String('Hello!')})
+        options={'msg': String('Hello!')})
 
     sprite_1: Sprite = Sprite(stage=stage)
     sprite_1.dblclick(handler=on_sprite_1_dblclick)
@@ -54,7 +54,7 @@ def main() -> None:
         dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_stage_dblclick(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+def on_stage_dblclick(e: MouseEvent, options: Dict[str, Any]) -> None:
     """
     Test handler that called when stage is double clicked.
 
@@ -62,14 +62,14 @@ def on_stage_dblclick(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     ----------
     e : MouseEvent
         Event object.
-    kwargs : dict
-        Specified keyword arguments.
+    options : dict
+        Optional arguments dictionary.
     """
     trace('Stage is double clicked!')
-    assert_equal(expected='Hello!', actual=kwargs['msg'])
+    assert_equal(expected='Hello!', actual=options['msg'])
 
 
-def on_sprite_1_dblclick(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+def on_sprite_1_dblclick(e: MouseEvent, options: Dict[str, Any]) -> None:
     """
     Test handler that called when sprite_1 is double clicked.
 
@@ -77,13 +77,13 @@ def on_sprite_1_dblclick(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     ----------
     e : MouseEvent
         Event object.
-    kwargs : dict
-        Specified keyword arguments.
+    options : dict
+        Optional arguments dictionary.
     """
     trace('Sprite 1 is double clicked!')
 
 
-def on_rectangle_1_dblclick(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+def on_rectangle_1_dblclick(e: MouseEvent, options: Dict[str, Any]) -> None:
     """
     Test handler that called when rectangle_1 is double clicked.
 
@@ -91,8 +91,8 @@ def on_rectangle_1_dblclick(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     ----------
     e : MouseEvent
         Event object.
-    kwargs : dict
-        Specified keyword arguments.
+    options : dict
+        Optional arguments dictionary.
     """
     trace('Rectangle 1 is double clicked!')
 

@@ -19,7 +19,7 @@ class Handler(Protocol):
 
     def __call__(
             self, e: Event_,
-            kwargs: Dict[str, Any]) -> None:
+            options: Dict[str, Any]) -> None:
         """
         Event handler's callable interface.
 
@@ -27,14 +27,14 @@ class Handler(Protocol):
         ----------
         e : Event
             Created event instance.
-        kwargs : dict
-            Keyword arguments to pass to.
+        options : dict
+            Optional arguments dictionary to pass to.
         """
 
 
 class HandlerData(TypedDict):
     handler: Handler
-    kwargs: Dict[str, Any]
+    options: Dict[str, Any]
 
 
 def get_handler_name(handler: Handler) -> str:
@@ -84,7 +84,7 @@ def append_handler_expression(
     from apysc.type import revert_interface
     from apysc.validation.event_validation import validate_event
     validate_event(e=e)
-    variables: List[Any] = [*handler_data['kwargs'].values()]
+    variables: List[Any] = [*handler_data['options'].values()]
     snapshot_name: str = revert_interface.make_variables_snapshots(
         variables=variables)
 
@@ -94,7 +94,7 @@ def append_handler_expression(
         )
         expression_file_util.append_js_expression(expression=expression)
         with Indent():
-            handler_data['handler'](e=e, kwargs=handler_data['kwargs'])
+            handler_data['handler'](e=e, options=handler_data['options'])
         expression_file_util.append_js_expression(expression='}')
 
     revert_interface.revert_variables(

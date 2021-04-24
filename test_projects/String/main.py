@@ -64,13 +64,13 @@ def main() -> None:
     assert_equal(expected='Hello!', actual=string_4)
 
     string_5: String = String('Hello!')
-    stage.click(on_stage_clicked, kwargs={'string_5': string_5})
+    stage.click(on_stage_clicked, options={'string_5': string_5})
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
-def on_stage_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+def on_stage_clicked(e: MouseEvent, options: Dict[str, Any]) -> None:
     """
     Test handler that called when stage is clicked.
 
@@ -78,11 +78,11 @@ def on_stage_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     ----------
     e : MouseEvent
         Created event instance.
-    kwargs : dict
-        Keyword arguments.
+    options : dict
+        Optional arguments dictionary.
     """
     trace('stage clicked!')
-    string_5: String = kwargs['string_5']
+    string_5: String = options['string_5']
     string_5.value = 'World!'
     assert_true(string_5 == 'World!')
     assert_true(string_5 != 'Hello!')

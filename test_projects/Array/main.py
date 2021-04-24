@@ -152,12 +152,12 @@ def main() -> None:
     assert_equal(expected=30, actual=int_4)
 
     array_28: Array = Array([1, 2])
-    stage.click(on_stage_clicked, kwargs={'array_28': array_28})
+    stage.click(on_stage_clicked, options={'array_28': array_28})
 
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_stage_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+def on_stage_clicked(e: MouseEvent, options: Dict[str, Any]) -> None:
     """
     Test handler that called when stage is clicked.
 
@@ -165,11 +165,11 @@ def on_stage_clicked(e: MouseEvent, kwargs: Dict[str, Any]) -> None:
     ----------
     e : MouseEvent
         Created event instance.
-    kwargs : dict
-        Keyword arguments.
+    options : dict
+        Optional arguments dictionary.
     """
     trace('stage clicked!')
-    array_28: Array = kwargs['array_28']
+    array_28: Array = options['array_28']
     array_28.value = [3, 4]
     assert_true(array_28 == [3, 4])
     assert_true(array_28 != [1, 2])

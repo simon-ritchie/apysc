@@ -21,7 +21,7 @@ class _TestMouseUp(MouseUpInterface, VariableNameInterface):
 
 class TestMouseUpInterface:
 
-    def on_mouse_up_1(self, e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+    def on_mouse_up_1(self, e: MouseEvent, options: Dict[str, Any]) -> None:
         """
         Test handler for mouse up event.
 
@@ -29,11 +29,11 @@ class TestMouseUpInterface:
         ----------
         e : MouseEvent
             Created event instance.
-        kwargs : dict
-            Keyword arguments to pass to.
+        options : dict
+            Optional arguments dictionary.
         """
 
-    def on_mouse_up_2(self, e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+    def on_mouse_up_2(self, e: MouseEvent, options: Dict[str, Any]) -> None:
         """
         Test handler for mouse up event.
 
@@ -41,8 +41,8 @@ class TestMouseUpInterface:
         ----------
         e : MouseEvent
             Created event instance.
-        kwargs : dict
-            Keyword arguments to pass to.
+        options : dict
+            Optional arguments dictionary.
         """
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
@@ -70,7 +70,7 @@ class TestMouseUpInterface:
         expression_file_util.remove_expression_file()
         interface_1: _TestMouseUp = _TestMouseUp()
         name: str = interface_1.mouseup(
-            handler=self.on_mouse_up_1, kwargs={'msg': 'Hello!'})
+            handler=self.on_mouse_up_1, options={'msg': 'Hello!'})
         assert name in interface_1._mouse_up_handlers
         expression: str = \
             expression_file_util.get_current_event_handler_scope_expression()

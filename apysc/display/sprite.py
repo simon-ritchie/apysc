@@ -10,11 +10,12 @@ from apysc.display.graphics import Graphics
 from apysc.display.stage import Stage
 from apysc.event.click_interface import ClickInterface
 from apysc.type.revert_interface import RevertInterface
+from apysc.event.double_click_interface import DoubleClickInterface
 
 
 class Sprite(
         DisplayObject, ChildInterface, RevertInterface,
-        ClickInterface):
+        ClickInterface, DoubleClickInterface):
 
     graphics: Graphics
 

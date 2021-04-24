@@ -31,6 +31,18 @@ class TestMouseOverInterface:
             Optional arguments dictionary.
         """
 
+    def on_mouse_over_2(self, e: MouseEvent, options: Dict[str, Any]) -> None:
+        """
+        Mouse over handler method for testing.
+
+        Parameters
+        ----------
+        e : MouseEvent
+            Created event instance.
+        options : dict
+            Optional arguments dictionary.
+        """
+
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__initialize_mouse_over_handlers_if_not_initialized(self) -> None:
         interface_1: MouseOverInterface = MouseOverInterface()
@@ -73,5 +85,19 @@ class TestMouseOverInterface:
         expected: str = (
             f'{interface_1.variable_name}.off("{EventType.MOUSEOVER.value}", '
             f'{name});'
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_unbind_mouseover_all(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface_1: _TestMouseOver = _TestMouseOver()
+        interface_1.mouseover(handler=self.on_mouse_over_1)
+        interface_1.mouseover(handler=self.on_mouse_over_2)
+        interface_1.unbind_mouseover_all()
+        assert interface_1._mouse_over_handlers == {}
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface_1.variable_name}.off("{EventType.MOUSEOVER.value}");'
         )
         assert expected in expression

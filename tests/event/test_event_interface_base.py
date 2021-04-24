@@ -55,7 +55,7 @@ class TestEventInterfaceBase:
         testing_helper.assert_raises(
             expected_error_class=TypeError,
             func_or_method=interface_1.
-            validate_self_is_variable_name_interface,
+            _validate_self_is_variable_name_interface,
             match=interface_1.VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
 
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))

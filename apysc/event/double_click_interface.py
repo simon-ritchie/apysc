@@ -37,7 +37,7 @@ class DoubleClickInterface(EventInterfaceBase):
         from apysc.event.handler import get_handler_name
         from apysc.type.variable_name_interface import VariableNameInterface
         self_instance: VariableNameInterface = \
-            self.validate_self_is_variable_name_interface()
+            self._validate_self_is_variable_name_interface()
         self._initialize_dbclick_handlers_if_not_initialized()
         name: str = get_handler_name(handler=handler)
         self._set_handler_data(
@@ -62,7 +62,7 @@ class DoubleClickInterface(EventInterfaceBase):
         from apysc.expression import expression_file_util
         from apysc.type.variable_name_interface import VariableNameInterface
         self_instance: VariableNameInterface = \
-            self.validate_self_is_variable_name_interface()
+            self._validate_self_is_variable_name_interface()
         expression: str = (
             f'{self_instance.variable_name}.dbclick({name});'
         )

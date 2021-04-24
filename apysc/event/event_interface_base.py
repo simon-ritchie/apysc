@@ -17,7 +17,7 @@ class EventInterfaceBase:
         'VariableNameInterface.'
     )
 
-    def validate_self_is_variable_name_interface(
+    def _validate_self_is_variable_name_interface(
             self) -> VariableNameInterface:
         """
         Validate whether this instance is a VariableNameInterface
@@ -80,7 +80,7 @@ class EventInterfaceBase:
         from apysc.event.handler import get_handler_name
         from apysc.event.handler import append_unbinding_expression
         self_instance: VariableNameInterface = \
-            self.validate_self_is_variable_name_interface()
+            self._validate_self_is_variable_name_interface()
         name: str = get_handler_name(handler=handler)
         if name in handlers_dict:
             del handlers_dict[name]
@@ -103,7 +103,7 @@ class EventInterfaceBase:
         """
         from apysc.event.handler import append_unbinding_all_expression
         self_instance: VariableNameInterface = \
-            self.validate_self_is_variable_name_interface()
+            self._validate_self_is_variable_name_interface()
         handlers_dict.clear()
         append_unbinding_all_expression(
             this=self_instance, event_type=event_type)

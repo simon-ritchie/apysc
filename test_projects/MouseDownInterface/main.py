@@ -18,7 +18,6 @@ from apysc import MouseEvent
 from apysc import Rectangle
 from apysc import Sprite
 from apysc import Stage
-from apysc import String
 from apysc import assert_equal
 from apysc import trace
 from apysc.file import file_util

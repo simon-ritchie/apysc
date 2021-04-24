@@ -24,6 +24,8 @@ class MouseDownInterface(EventInterfaceBase):
         ----------
         handler : Handler
             Callable that called when this instance is mouse downed.
+        kwargs : dict or None, default None
+            Keyword arguments to be passed to handler.
 
         Returns
         -------

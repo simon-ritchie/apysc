@@ -91,3 +91,13 @@ class DoubleClickInterface(EventInterfaceBase):
         self._unbind_event(
             handler=handler, event_type=EventType.DBCLICK,
             handlers_dict=self._dbclick_handlers)
+
+    def unbind_dbclick_all(self) -> None:
+        """
+        Unbind all double click events.
+        """
+        from apysc import EventType
+        self._initialize_dbclick_handlers_if_not_initialized()
+        self._unbind_all_events(
+            event_type=EventType.DBCLICK,
+            handlers_dict=self._dbclick_handlers)

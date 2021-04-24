@@ -6,7 +6,7 @@ from retrying import retry
 from apysc.event.double_click_interface import DoubleClickInterface
 from apysc.expression import expression_file_util
 from apysc.type.variable_name_interface import VariableNameInterface
-from apysc import MouseEvent
+from apysc import MouseEvent, EventType
 
 
 class _TestDoubleClick(DoubleClickInterface, VariableNameInterface):
@@ -20,7 +20,20 @@ class _TestDoubleClick(DoubleClickInterface, VariableNameInterface):
 
 class TestDoubleClickInterface:
 
-    def on_double_click(
+    def on_double_click_1(
+            self, e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+        """
+        Test handler for double click event.
+
+        Parameters
+        ----------
+        e : MouseEvent
+            Event instance.
+        kwargs : dict
+            Keyword arguments.
+        """
+
+    def on_double_click_2(
             self, e: MouseEvent, kwargs: Dict[str, Any]) -> None:
         """
         Test handler for double click event.
@@ -56,10 +69,10 @@ class TestDoubleClickInterface:
     def test_dblclick(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestDoubleClick = _TestDoubleClick()
-        name: str = interface_1.dbclick(handler=self.on_double_click)
+        name: str = interface_1.dbclick(handler=self.on_double_click_1)
         assert interface_1._dbclick_handlers == {
             name: {
-                'handler': self.on_double_click,
+                'handler': self.on_double_click_1,
                 'kwargs': {},
             },
         }
@@ -76,8 +89,21 @@ class TestDoubleClickInterface:
     def test_unbind_dbclick(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestDoubleClick = _TestDoubleClick()
-        interface_1.dbclick(handler=self.on_double_click)
-        interface_1.unbind_dbclick(handler=self.on_double_click)
+        interface_1.dbclick(handler=self.on_double_click_1)
+        interface_1.unbind_dbclick(handler=self.on_double_click_1)
         assert interface_1._dbclick_handlers == {}
         expression: str = expression_file_util.get_current_expression()
         assert 'off(' in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_unbind_dbclick_all(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface_1: _TestDoubleClick = _TestDoubleClick()
+        interface_1.dbclick(handler=self.on_double_click_1)
+        interface_1.unbind_dbclick_all()
+        assert interface_1._dbclick_handlers == {}
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface_1.variable_name}.off("{EventType.DBCLICK.value}");'
+        )
+        assert expected in expression

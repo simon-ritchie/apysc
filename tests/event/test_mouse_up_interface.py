@@ -31,6 +31,18 @@ class TestMouseUpInterface:
             Keyword arguments to pass to.
         """
 
+    def on_mouse_up_2(self, e: MouseEvent, kwargs: Dict[str, Any]) -> None:
+        """
+        Test handler for mouse up event.
+
+        Parameters
+        ----------
+        e : MouseEvent
+            Created event instance.
+        kwargs : dict
+            Keyword arguments to pass to.
+        """
+
     @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
     def test__initialize_mouse_up_handlers_if_not_initialized(self) -> None:
         interface_1: MouseUpInterface = MouseUpInterface()
@@ -74,5 +86,20 @@ class TestMouseUpInterface:
         expected: str = (
             f'{interface_1.variable_name}.off("{EventType.MOUSEUP.value}", '
             f'{name});'
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=10, wait_fixed=randint(100, 1000))
+    def test_unbind_mouseup_all(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface_1: _TestMouseUp = _TestMouseUp()
+        interface_1.mouseup(handler=self.on_mouse_up_1)
+        interface_1.mouseup(handler=self.on_mouse_up_2)
+        interface_1.unbind_mouseup_all()
+        interface_1._mouse_up_handlers == {}
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface_1.variable_name}.off('
+            f'"{EventType.MOUSEUP.value}");'
         )
         assert expected in expression

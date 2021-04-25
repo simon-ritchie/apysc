@@ -57,17 +57,6 @@ class TestDoubleClickInterface:
         interface_1._initialize_dblclick_handlers_if_not_initialized()
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__append_dblclick_expression(self) -> None:
-        expression_file_util.remove_expression_file()
-        interface_1: _TestDoubleClick = _TestDoubleClick()
-        interface_1._append_dblclick_expression(name='test_double_click')
-        expression: str = expression_file_util.get_current_expression()
-        expected: str = (
-            f'{interface_1.variable_name}.dblclick(test_double_click);'
-        )
-        assert expected in expression
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_dblclick(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestDoubleClick = _TestDoubleClick()
@@ -80,7 +69,7 @@ class TestDoubleClickInterface:
         }
 
         expression: str = expression_file_util.get_current_expression()
-        expected: str = f'{interface_1.variable_name}.dblclick'
+        expected: str = f'{interface_1.variable_name}.dblclick({name});'
         assert expected in expression
         expression = \
             expression_file_util.get_current_event_handler_scope_expression()

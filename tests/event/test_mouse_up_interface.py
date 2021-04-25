@@ -55,17 +55,6 @@ class TestMouseUpInterface:
         assert interface_1._mouse_up_handlers == {}
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__append_mouse_up_expression(self) -> None:
-        expression_file_util.remove_expression_file()
-        interface_1: _TestMouseUp = _TestMouseUp()
-        name: str = interface_1.mouseup(handler=self.on_mouse_up_1)
-        expression: str = expression_file_util.get_current_expression()
-        expected: str = (
-            f'{interface_1.variable_name}.mouseup({name});'
-        )
-        assert expected in expression
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_mouseup(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestMouseUp = _TestMouseUp()
@@ -75,6 +64,12 @@ class TestMouseUpInterface:
         expression: str = \
             expression_file_util.get_current_event_handler_scope_expression()
         expected: str = f'function {name}('
+        assert expected in expression
+
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'{interface_1.variable_name}.mouseup({name});'
+        )
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

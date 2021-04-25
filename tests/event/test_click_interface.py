@@ -50,12 +50,18 @@ class TestClickInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_click(self) -> None:
+        expression_file_util.remove_expression_file()
         interface_1: _TestClickInterface = _TestClickInterface()
         name: str = interface_1.click(
             handler=self.on_click_1)
         assert interface_1._click_handlers[  # type: ignore
             name]['handler'] == self.on_click_1
         assert interface_1._click_handlers[name]['options'] == {}
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface_1.variable_name}.click({name});'
+        )
+        assert expected in expression
 
         interface_2: _TestClickInterface = _TestClickInterface()
         name = interface_2.click(handler=self.on_click_1, options={'a': 10})
@@ -67,25 +73,6 @@ class TestClickInterface:
             expected_error_class=TypeError,
             func_or_method=interface_3.click,
             kwargs={'handler': self.on_click_1})
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__append_click_expression(self) -> None:
-        expression_file_util.remove_expression_file()
-        interface_1: ClickInterface = ClickInterface()
-        testing_helper.assert_raises(
-            expected_error_class=TypeError,
-            func_or_method=interface_1._append_click_expression,
-            kwargs={
-                'name': 'any_name',
-            })
-
-        interface_2: _TestClickInterface = _TestClickInterface()
-        handler_name: str = interface_2.click(handler=self.on_click_1)
-        expression: str = expression_file_util.get_current_expression()
-        expected: str = (
-            f'{interface_2.variable_name}.click({handler_name});'
-        )
-        assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_click_handlers_if_not_initialized(self) -> None:

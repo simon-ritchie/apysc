@@ -60,3 +60,18 @@ class MouseMoveInterface(EventInterfaceBase):
         if hasattr(self, '_mouse_move_handlers'):
             return
         self._mouse_move_handlers = {}
+
+    def unbind_mousemove(self, handler: Handler) -> None:
+        """
+        Unbind specified handler's mouse move event.
+
+        Parameters
+        ----------
+        handler : Handler
+            Callable to be unbinded.
+        """
+        from apysc import EventType
+        self._initialize_mouse_move_handlers_if_not_initialized()
+        self._unbind_event(
+            handler=handler, event_type=EventType.MOUSEMOVE,
+            handlers_dict=self._mouse_move_handlers)

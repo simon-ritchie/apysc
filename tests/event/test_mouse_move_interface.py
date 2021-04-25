@@ -5,7 +5,7 @@ from retrying import retry
 
 from apysc.event.mouse_move_interface import MouseMoveInterface
 from apysc.type.variable_name_interface import VariableNameInterface
-from apysc import MouseEvent
+from apysc import MouseEvent, EventType
 from apysc.expression import expression_file_util
 
 
@@ -54,6 +54,7 @@ class TestMouseMoveInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_mousemove(self) -> None:
+        expression_file_util.remove_expression_file()
         interface_1: _TestMouseMove = _TestMouseMove()
         name: str = interface_1.mousemove(
             handler=self.on_mouse_move_1, options={'msg': 'Hello!'})
@@ -69,5 +70,19 @@ class TestMouseMoveInterface:
         expression = expression_file_util.get_current_expression()
         expected = (
             f'{interface_1.variable_name}.mousemove({name});'
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_unbind_mousemove(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface_1: _TestMouseMove = _TestMouseMove()
+        name: str = interface_1.mousemove(handler=self.on_mouse_move_1)
+        interface_1.unbind_mousemove(handler=self.on_mouse_move_1)
+        assert interface_1._mouse_move_handlers == {}
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface_1.variable_name}.off("{EventType.MOUSEMOVE.value}", '
+            f'{name});'
         )
         assert expected in expression

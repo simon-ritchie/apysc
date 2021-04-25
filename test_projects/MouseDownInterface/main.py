@@ -37,49 +37,27 @@ def main() -> None:
     stage: Stage = Stage(
         background_color='#111',
         stage_width=1000, stage_height=500)
-    stage.mousedown(
-        handler=on_stage_mouse_down,
-        options={'msg': 'Hello!'})
-
     sprite_1: Sprite = Sprite(stage=stage)
-    sprite_1.mousedown(handler=on_sprite_1_mouse_down)
-
     sprite_1.graphics.begin_fill(color='#0af')
+
     rectangle_1: Rectangle = sprite_1.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
-    rectangle_1.mousedown(handler=on_rectangle_1_mouse_down)
+    rectangle_1.mousedown(
+        handler=on_rectangle_1_mouse_down,
+        options={'msg': 'Hello!'})
+
+    rectangle_2: Rectangle = sprite_1.graphics.draw_rect(
+        x=150, y=50, width=50, height=50)
+    rectangle_2.mousedown(handler=on_rectangle_2_mouse_down)
+    rectangle_2.unbind_mousedown(handler=on_rectangle_2_mouse_down)
+
+    rectangle_3: Rectangle = sprite_1.graphics.draw_rect(
+        x=250, y=50, width=50, height=50)
+    rectangle_3.mousedown(handler=on_rectangle_3_mouse_down)
+    rectangle_3.unbind_mousedown_all()
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
-
-
-def on_stage_mouse_down(e: MouseEvent, options: Dict[str, Any]) -> None:
-    """
-    Test handler that called when stage is mouse downed.
-
-    Parameters
-    ----------
-    e : MouseEvent
-        Event object.
-    options : dict
-        Optional arguments dictionary.
-    """
-    trace('Stage is mouse downed!')
-    assert_equal(expected='Hello!', actual=options['msg'])
-
-
-def on_sprite_1_mouse_down(e: MouseEvent, options: Dict[str, Any]) -> None:
-    """
-    Test handler that called when sprite 1 is mouse downed.
-
-    Parameters
-    ----------
-    e : MouseEvent
-        Event object.
-    options : dict
-        Optional arguments dictionary.
-    """
-    trace('Sprite 1 is mouse downed!')
 
 
 def on_rectangle_1_mouse_down(e: MouseEvent, options: Dict[str, Any]) -> None:
@@ -94,6 +72,39 @@ def on_rectangle_1_mouse_down(e: MouseEvent, options: Dict[str, Any]) -> None:
         Optional arguments dictionary.
     """
     trace('Rectangle 1 is mouse downed!')
+    assert_equal(expected='Hello!', actual=options['msg'])
+
+
+def on_rectangle_2_mouse_down(e: MouseEvent, options: Dict[str, Any]) -> None:
+    """
+    Test handler that called when rectangle 2 is mouse downed.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Event object.
+    options : dict
+        Optional arguments dictionary.
+    """
+    trace(
+        'Rectangle 2 is mouse downed. Probably unbind_mousedown'
+        'interface not working correctly.')
+
+
+def on_rectangle_3_mouse_down(e: MouseEvent, options: Dict[str, Any]) -> None:
+    """
+    Test handler that called when rectangle 3 is mosue downed.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Event object.
+    options : dict
+        Optional arguments dictionary.
+    """
+    trace(
+        'Rectangle 3 is mouse downed. Probably unbind_mousedown_all '
+        'interface not working correctly.')
 
 
 if __name__ == '__main__':

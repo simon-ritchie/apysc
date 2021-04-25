@@ -110,3 +110,25 @@ class EventInterfaceBase:
         handlers_dict.clear()
         append_unbinding_all_expression(
             this=self_instance, event_type=event_type)
+
+    def _append_event_binding_expression(
+            self, name: str, event_type: EventType) -> None:
+        """
+        Append event binding expression to file.
+
+        Parameters
+        ----------
+        name : str
+            Handler's name.
+        event_type : EventType
+            Event type to bind.
+        """
+        from apysc.expression import expression_file_util
+        from apysc.type.variable_name_interface import VariableNameInterface
+        self_instance: VariableNameInterface = \
+            self._validate_self_is_variable_name_interface()
+        expression: str = (
+            f'{self_instance.variable_name}'
+            f'.{event_type.value}({name});'
+        )
+        expression_file_util.append_js_expression(expression=expression)

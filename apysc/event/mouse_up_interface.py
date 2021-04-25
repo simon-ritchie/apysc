@@ -23,7 +23,7 @@ class MouseUpInterface(EventInterfaceBase):
         Parameters
         ----------
         handler : Handler
-            Callable that called when this instance is mouse upped.
+            Callable that called when mouse is upped on this instance.
         options : dict or None, default None
             Optional arguments dictionary to be passed to handler.
 

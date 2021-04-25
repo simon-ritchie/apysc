@@ -23,7 +23,7 @@ class MouseOverInterface(EventInterfaceBase):
         Parameters
         ----------
         handler : Handler
-            Callable that called when this instance is mouse overed.
+            Callable that called when mouse is overed on this instance.
         options : dict or None, default None
             Optional arguments dictionary to be passed to handler.
 

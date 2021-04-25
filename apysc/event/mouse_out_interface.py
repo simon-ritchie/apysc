@@ -16,7 +16,7 @@ class MouseOutInterface(EventInterfaceBase):
 
     def mouseout(
             self, handler: Handler,
-            options: Optional[Dict[str, Any]]) -> str:
+            options: Optional[Dict[str, Any]] = None) -> str:
         """
         Add mouse out event listener setting.
 
@@ -59,3 +59,18 @@ class MouseOutInterface(EventInterfaceBase):
         if hasattr(self, '_mouse_out_handlers'):
             return
         self._mouse_out_handlers = {}
+
+    def unbind_mouseout(self, handler: Handler) -> None:
+        """
+        Unbind specified handler's mouse out event.
+
+        Parameters
+        ----------
+        handler : Handler
+            Callable to be unbinded.
+        """
+        from apysc import EventType
+        self._initialize_mouse_out_handlers_if_not_initialized()
+        self._unbind_event(
+            handler=handler, event_type=EventType.MOUSEOUT,
+            handlers_dict=self._mouse_out_handlers)

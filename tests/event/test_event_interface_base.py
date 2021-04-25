@@ -56,7 +56,7 @@ class TestEventInterfaceBase:
             expected_error_class=TypeError,
             func_or_method=interface_1.
             _validate_self_is_variable_name_interface,
-            match=interface_1.VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
+            match=interface_1._VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_handler_data(self) -> None:

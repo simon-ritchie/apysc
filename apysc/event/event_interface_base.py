@@ -15,7 +15,7 @@ from apysc.type.variable_name_interface import VariableNameInterface
 
 class EventInterfaceBase:
 
-    VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG: Final[str] = (
+    _VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG: Final[str] = (
         'This interface can only be used that inheriting '
         'VariableNameInterface.'
     )
@@ -37,7 +37,7 @@ class EventInterfaceBase:
             If this instance is not a VariableNameInterface.
         """
         if not isinstance(self, VariableNameInterface):
-            raise TypeError(self.VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
+            raise TypeError(self._VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
         return self
 
     def _set_handler_data(

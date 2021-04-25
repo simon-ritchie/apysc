@@ -32,7 +32,8 @@ class ClickInterface(EventInterfaceBase):
         name : str
             Handler's name.
         """
-        from apysc import MouseEvent, EventType
+        from apysc import EventType
+        from apysc import MouseEvent
         from apysc.event.handler import append_handler_expression
         from apysc.event.handler import get_handler_name
         from apysc.type.variable_name_interface import VariableNameInterface

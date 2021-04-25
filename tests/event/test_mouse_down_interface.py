@@ -68,8 +68,8 @@ class TestMouseDownInterface:
         expected: str = f'function {name}('
         assert expected in expression
 
-        expression: str = expression_file_util.get_current_expression()
-        expected: str = (
+        expression = expression_file_util.get_current_expression()
+        expected = (
             f'{interface_1.variable_name}.mousedown({name});'
         )
         assert expected in expression

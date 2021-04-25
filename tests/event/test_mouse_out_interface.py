@@ -1,12 +1,14 @@
 from random import randint
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 from retrying import retry
 
+from apysc import EventType
+from apysc import MouseEvent
 from apysc.event.mouse_out_interface import MouseOutInterface
 from apysc.expression import expression_file_util
 from apysc.type.variable_name_interface import VariableNameInterface
-from apysc import MouseEvent, EventType
 
 
 class _TestMouseOut(MouseOutInterface, VariableNameInterface):

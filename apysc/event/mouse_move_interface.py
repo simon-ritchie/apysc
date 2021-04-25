@@ -40,7 +40,17 @@ class MouseMoveInterface(EventInterfaceBase):
         self_instance: VariableNameInterface = \
             self._validate_self_is_variable_name_interface()
         self._initialize_mouse_move_handlers_if_not_initialized()
-        pass
+        name: str = get_handler_name(handler=handler)
+        self._set_handler_data(
+            handler=handler, handlers_dict=self._mouse_move_handlers,
+            options=options)
+        self._append_event_binding_expression(
+            name=name, event_type=EventType.MOUSEMOVE)
+        e: MouseEvent = MouseEvent(this=self_instance)
+        append_handler_expression(
+            handler_data=self._mouse_move_handlers[name],
+            handler_name=name, e=e)
+        return name
 
     def _initialize_mouse_move_handlers_if_not_initialized(self) -> None:
         """

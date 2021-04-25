@@ -11,3 +11,4 @@ class EventType(Enum):
     MOUSEDOWN = 'mousedown'
     MOUSEUP = 'mouseup'
     MOUSEOVER = 'mouseover'
+    MOUSEOUT = 'mouseout'

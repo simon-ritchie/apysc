@@ -1,8 +1,8 @@
-"""Test project for DoubleClickInterface class.
+"""Test project for MouseMoveInterface class.
 
 Command examples:
-$ python test_projects/DoubleClickInterface/main.py
-$ python DoubleClickInterface/main.py
+$ python test_projects/MouseMoveInterface/main.py
+$ python MouseMoveInterface/main.py
 """
 
 import sys
@@ -42,26 +42,26 @@ def main() -> None:
 
     rectangle_1: Rectangle = sprite_1.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
-    rectangle_1.dblclick(
-        handler=on_rectangle_1_dblclick, options={'msg': 'Hello!'})
+    rectangle_1.mousemove(
+        handler=on_rectangle_1_mouse_move, options={'msg': 'Hello!'})
 
     rectangle_2: Rectangle = sprite_1.graphics.draw_rect(
         x=150, y=50, width=50, height=50)
-    rectangle_2.dblclick(handler=on_rectangle_2_dblclick)
-    rectangle_2.unbind_dblclick(handler=on_rectangle_2_dblclick)
+    rectangle_2.mousemove(handler=on_rectangle_2_mouse_move)
+    rectangle_2.unbind_mousemove(handler=on_rectangle_2_mouse_move)
 
     rectangle_3: Rectangle = sprite_1.graphics.draw_rect(
         x=250, y=50, width=50, height=50)
-    rectangle_3.dblclick(handler=on_rectangle_3_dblclick)
-    rectangle_3.unbind_dblclick_all()
+    rectangle_3.mousemove(handler=on_rectangle_3_mouse_move)
+    rectangle_3.unbind_mousemove_all()
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_rectangle_1_dblclick(e: MouseEvent, options: Dict[str, Any]) -> None:
+def on_rectangle_1_mouse_move(e: MouseEvent, options: Dict[str, Any]) -> None:
     """
-    Test handler that called when rectangle_1 is double clicked.
+    Test handler that called when mouse is moved on rectangle_1.
 
     Parameters
     ----------
@@ -70,13 +70,13 @@ def on_rectangle_1_dblclick(e: MouseEvent, options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    trace('Rectangle 1 is double clicked!')
+    trace('Mouse moved on rectangle 1!')
     assert_equal(expected='Hello!', actual=options['msg'])
 
 
-def on_rectangle_2_dblclick(e: MouseEvent, options: Dict[str, Any]) -> None:
+def on_rectangle_2_mouse_move(e: MouseEvent, options: Dict[str, Any]) -> None:
     """
-    Test handler that called when rectangle 2 is double clicked.
+    Test handler that called when mouse is moved on rectangle_2.
 
     Parameters
     ----------
@@ -86,13 +86,13 @@ def on_rectangle_2_dblclick(e: MouseEvent, options: Dict[str, Any]) -> None:
         Optional arguments dictionary.
     """
     trace(
-        'Rectangle 2 is double clicked. Probably unbind_dblclick '
+        'Mouse moved on rectangle 2. Probably unbind_mousemove '
         'interface not working correctly.')
 
 
-def on_rectangle_3_dblclick(e: MouseEvent, options: Dict[str, Any]) -> None:
+def on_rectangle_3_mouse_move(e: MouseEvent, options: Dict[str, Any]) -> None:
     """
-    Test handler that called when rectangle 3 is double clicked.
+    Test handler that called when mouse is moved on rectangle_3.
 
     Parameters
     ----------
@@ -102,7 +102,7 @@ def on_rectangle_3_dblclick(e: MouseEvent, options: Dict[str, Any]) -> None:
         Optional arguments dictionary.
     """
     trace(
-        'Rectangle 3 is double clicked. Probably unbind_dblclick_all '
+        'Mouse moved on rectangle 3. Probably unbind_mousemove_all '
         'interface not working correctly.')
 
 

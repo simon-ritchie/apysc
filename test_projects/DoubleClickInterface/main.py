@@ -43,7 +43,8 @@ def main() -> None:
     sprite_1.graphics.begin_fill(color='#0af')
     rectangle_1: Rectangle = sprite_1.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
-    rectangle_1.dblclick(handler=on_rectangle_1_dblclick)
+    rectangle_1.dblclick(
+        handler=on_rectangle_1_dblclick, options={'msg': 'Hello!'})
 
     rectangle_2: Rectangle = sprite_1.graphics.draw_rect(
         x=150, y=50, width=50, height=50)
@@ -59,35 +60,6 @@ def main() -> None:
         dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_stage_dblclick(e: MouseEvent, options: Dict[str, Any]) -> None:
-    """
-    Test handler that called when stage is double clicked.
-
-    Parameters
-    ----------
-    e : MouseEvent
-        Event object.
-    options : dict
-        Optional arguments dictionary.
-    """
-    trace('Stage is double clicked!')
-    assert_equal(expected='Hello!', actual=options['msg'])
-
-
-def on_sprite_1_dblclick(e: MouseEvent, options: Dict[str, Any]) -> None:
-    """
-    Test handler that called when sprite_1 is double clicked.
-
-    Parameters
-    ----------
-    e : MouseEvent
-        Event object.
-    options : dict
-        Optional arguments dictionary.
-    """
-    trace('Sprite 1 is double clicked!')
-
-
 def on_rectangle_1_dblclick(e: MouseEvent, options: Dict[str, Any]) -> None:
     """
     Test handler that called when rectangle_1 is double clicked.
@@ -100,6 +72,7 @@ def on_rectangle_1_dblclick(e: MouseEvent, options: Dict[str, Any]) -> None:
         Optional arguments dictionary.
     """
     trace('Rectangle 1 is double clicked!')
+    assert_equal(expected='Hello!', actual=options['msg'])
 
 
 def on_rectangle_2_dblclick(e: MouseEvent, options: Dict[str, Any]) -> None:

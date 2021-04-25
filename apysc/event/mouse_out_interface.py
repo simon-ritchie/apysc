@@ -74,3 +74,13 @@ class MouseOutInterface(EventInterfaceBase):
         self._unbind_event(
             handler=handler, event_type=EventType.MOUSEOUT,
             handlers_dict=self._mouse_out_handlers)
+
+    def unbind_mouseout_all(self) -> None:
+        """
+        Unbind all mouse out events.
+        """
+        from apysc import EventType
+        self._initialize_mouse_out_handlers_if_not_initialized()
+        self._unbind_all_events(
+            event_type=EventType.MOUSEOUT,
+            handlers_dict=self._mouse_out_handlers)

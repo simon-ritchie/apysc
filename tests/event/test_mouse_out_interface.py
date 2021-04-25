@@ -32,6 +32,19 @@ class TestMouseOutInterface:
             Optional arguments dictionary.
         """
 
+    def on_mouse_out_2(
+            self, e: MouseEvent, options: Dict[str, Any]) -> None:
+        """
+        Mouse out handler method for testing.
+
+        Parameters
+        ----------
+        e : MouseEvent
+            Created event instance.
+        options : dict
+            Optional arguments dictionary.
+        """
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_mouse_out_handlers_if_not_initialized(self) -> None:
         interface_1: MouseOutInterface = MouseOutInterface()
@@ -73,5 +86,19 @@ class TestMouseOutInterface:
         expected: str = (
             f'{interface_1.variable_name}.off'
             f'("{EventType.MOUSEOUT.value}", {name});'
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_unbind_mouseout_all(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface_1: _TestMouseOut = _TestMouseOut()
+        interface_1.mouseout(handler=self.on_mouse_out_1)
+        interface_1.mouseout(handler=self.on_mouse_out_2)
+        interface_1.unbind_mouseout_all()
+        assert interface_1._mouse_out_handlers == {}
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface_1.variable_name}.off("{EventType.MOUSEOUT.value}");'
         )
         assert expected in expression

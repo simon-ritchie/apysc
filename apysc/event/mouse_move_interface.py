@@ -75,3 +75,13 @@ class MouseMoveInterface(EventInterfaceBase):
         self._unbind_event(
             handler=handler, event_type=EventType.MOUSEMOVE,
             handlers_dict=self._mouse_move_handlers)
+
+    def unbind_mousemove_all(self) -> None:
+        """
+        Unbind all mouse move events.
+        """
+        from apysc import EventType
+        self._initialize_mouse_move_handlers_if_not_initialized()
+        self._unbind_all_events(
+            event_type=EventType.MOUSEMOVE,
+            handlers_dict=self._mouse_move_handlers)

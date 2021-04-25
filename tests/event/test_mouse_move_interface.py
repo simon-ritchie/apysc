@@ -86,3 +86,17 @@ class TestMouseMoveInterface:
             f'{name});'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_unbind_mousemove_all(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface_1: _TestMouseMove = _TestMouseMove()
+        interface_1.mousemove(handler=self.on_mouse_move_1)
+        interface_1.mousemove(handler=self.on_mouse_move_2)
+        interface_1.unbind_mousemove_all()
+        assert interface_1._mouse_move_handlers == {}
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface_1.variable_name}.off("{EventType.MOUSEMOVE.value}");'
+        )
+        assert expected in expression

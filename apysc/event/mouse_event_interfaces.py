@@ -7,10 +7,12 @@ from apysc.event.mouse_down_interface import MouseDownInterface
 from apysc.event.mouse_out_interface import MouseOutInterface
 from apysc.event.mouse_over_interface import MouseOverInterface
 from apysc.event.mouse_up_interface import MouseUpInterface
+from apysc.event.mouse_move_interface import MouseMoveInterface
 
 
 class MouseEventInterfaces(
         ClickInterface, DoubleClickInterface, MouseDownInterface,
-        MouseUpInterface, MouseOverInterface, MouseOutInterface):
+        MouseUpInterface, MouseOverInterface, MouseOutInterface,
+        MouseMoveInterface):
     """Class implementation for inheritance of each mouse event interfaces.
     """

@@ -34,6 +34,20 @@ class WheelEvent(Event):
             'WheelEvent instance isn\'t supported this property.')
 
     @property
+    def delta_x(self) -> Int:
+        """
+        Horizontal mouse wheel value. If right direction, this value
+        will be positive, inversely left one will be negative.
+
+        Parameters
+        ----------
+        delta_x : Int
+            Delta x value.
+        """
+        delta_x: Int = Int(0)
+        return delta_x
+
+    @property
     def delta_y(self) -> Int:
         """
         Vertical mouse wheel value. If down direction, this value will

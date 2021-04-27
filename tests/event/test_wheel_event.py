@@ -42,3 +42,10 @@ class TestWheelEvent:
             f'{e.variable_name}.deltaY;'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_delta_x(self) -> None:
+        e: WheelEvent = WheelEvent()
+        delta_x: Int = e.delta_x
+        assert isinstance(delta_x, Int)
+        assert delta_x == 0

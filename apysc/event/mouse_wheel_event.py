@@ -9,7 +9,7 @@ from apysc.event.event import Event
 from apysc.type.variable_name_interface import VariableNameInterface
 
 
-class MouseWheelEvent(Event):
+class WheelEvent(Event):
 
     def __init__(self) -> None:
         """
@@ -21,14 +21,28 @@ class MouseWheelEvent(Event):
         supported document (overall screen) mouse wheel.
         """
         from apysc.expression import var_names
-        super(MouseWheelEvent, self).__init__(
+        super(WheelEvent, self).__init__(
             this=None,
             type_name=var_names.MOUSE_WHEEL_EVENT)
 
     @property
     def this(self) -> None:
         """
-        MouseWheelEvent instance isn't supported this property.
+        WheelEvent instance isn't supported this property.
         """
         raise Exception(
-            'MouseWheelEvent instance isn\'t supported this property.')
+            'WheelEvent instance isn\'t supported this property.')
+
+    @property
+    def delta_y(self) -> Int:
+        """
+        Vertical mouse wheel value. If down direction, this value will
+        be positive, inversely up one will be negative.
+
+        Returns
+        -------
+        delta_y : Int
+            Delta y value.
+        """
+        delta_y: Int = Int(0)
+        return delta_y

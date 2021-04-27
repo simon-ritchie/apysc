@@ -45,7 +45,24 @@ class WheelEvent(Event):
             Delta x value.
         """
         delta_x: Int = Int(0)
+        self._append_delta_x_getter_expression(delta_x=delta_x)
         return delta_x
+
+    def _append_delta_x_getter_expression(self, delta_x: Int) -> None:
+        """
+        Append delta_x getter property's expression to file.
+
+        Parameters
+        ----------
+        delta_x : Int
+            Target delta x value.
+        """
+        from apysc.expression import expression_file_util
+        expression: str = (
+            f'{delta_x.variable_name} = '
+            f'{self.variable_name}.deltaX;'
+        )
+        expression_file_util.append_js_expression(expression=expression)
 
     @property
     def delta_y(self) -> Int:

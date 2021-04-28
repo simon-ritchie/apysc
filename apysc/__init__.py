@@ -15,6 +15,8 @@ from apysc.event.event import Event  # isort:skip # noqa
 from apysc.event.mouse_event import MouseEvent  # isort:skip # noqa
 from apysc.event.wheel_event import WheelEvent  # isort:skip # noqa
 from apysc.event.event_type import EventType  # isort:skip # noqa
+from apysc.event.document_mouse_wheel_interface import \
+    bind_wheel_event_to_document  # isort:skip # noqa
 from apysc.console._trace import trace  # isort:skip # noqa
 from apysc.console.assertion import assert_equal  # isort:skip # noqa
 from apysc.console.assertion import assert_not_equal  # isort:skip # noqa

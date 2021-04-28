@@ -1,7 +1,7 @@
 """Class implementation for handler.
 """
 
-from typing import Any
+from typing import Any, Union
 from typing import Dict
 from typing import List
 
@@ -33,7 +33,7 @@ class Handler(Protocol):
 
 
 class HandlerData(TypedDict):
-    handler: Handler
+    handler: Union[Handler]
     options: Dict[str, Any]
 
 

@@ -32,6 +32,22 @@ class VisibleInterface(VariableNameInterface, RevertInterface):
         self._initialize_visible_if_not_initialized()
         return value_util.get_copy(value=self._visible)
 
+    @visible.setter
+    def visible(self, value: Boolean) -> None:
+        """
+        Update visibility of this instance.
+
+        Parameters
+        ----------
+        value : Boolean
+            Boolean value to set.
+        """
+        from apysc.validation import bool_validation
+        bool_validation.validate_bool(value=value)
+        if isinstance(value, bool):
+            value = Boolean(value)
+        self._visible = value
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass
 

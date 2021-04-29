@@ -33,3 +33,11 @@ class TestVisibleInterface:
         result: Boolean = interface_1.visible
         assert result
         assert interface_1._visible.variable_name != result.variable_name
+
+        bool_1: Boolean = Boolean(False)
+        interface_1.visible = bool_1
+        assert interface_1.visible == False
+        assert interface_1._visible.variable_name == bool_1.variable_name
+
+        interface_1.visible = True  # type: ignore
+        assert interface_1.visible == True

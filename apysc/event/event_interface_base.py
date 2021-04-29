@@ -15,11 +15,6 @@ from apysc.type.variable_name_interface import VariableNameInterface
 
 class EventInterfaceBase:
 
-    _VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG: Final[str] = (
-        'This interface can only be used that inheriting '
-        'VariableNameInterface.'
-    )
-
     def _validate_self_is_variable_name_interface(
             self) -> VariableNameInterface:
         """

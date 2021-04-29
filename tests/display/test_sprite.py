@@ -102,3 +102,10 @@ class TestSprite:
         sprite.graphics.clear()
         sprite._run_all_revert_methods(snapshot_name=snapshot_name)
         assert sprite.graphics.fill_alpha == 1.0
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___repr__(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        repr_str: str = repr(sprite)
+        assert repr_str == f"Sprite('{sprite.variable_name}')"

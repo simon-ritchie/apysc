@@ -98,3 +98,17 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self.graphics._run_all_revert_methods(snapshot_name=snapshot_name)
+
+    def __repr__(self) -> str:
+        """
+        Get a string representation of this instance (for the sake of
+        debugging).
+
+        Returns
+        -------
+        repr_str : str
+            Type name and variable name will be set
+            (e.g., `Sprite('<variable_name>')`).
+        """
+        repr_str: str = f"Sprite('{self.variable_name}')"
+        return repr_str

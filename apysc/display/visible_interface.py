@@ -1,6 +1,7 @@
 """Class implementation for visible interface.
 """
 
+from typing import Dict
 from apysc import Boolean
 from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
@@ -61,8 +62,23 @@ class VisibleInterface(VariableNameInterface, RevertInterface):
             expression += 'hide();'
         expression_file_util.append_js_expression(expression=expression)
 
+    _visible_snapshots: Dict[str, bool]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
-        pass
+        """
+        Make value's snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_visible_snapshots'):
+            self._visible_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._initialize_visible_if_not_initialized()
+        self._visible_snapshots[snapshot_name] = self._visible._value
 
     def _revert(self, snapshot_name: str) -> None:
         pass

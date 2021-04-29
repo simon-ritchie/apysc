@@ -61,3 +61,16 @@ class TestVisibleInterface:
             f'{interface_1.variable_name}.hide();'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__make_snapshot(self) -> None:
+        interface_1: _TestVisible = _TestVisible()
+        snapshot_name: str = interface_1._get_next_snapshot_name()
+        interface_1._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert interface_1._visible_snapshots == {snapshot_name: True}
+
+        interface_1.visible = Boolean(False)
+        interface_1._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert interface_1._visible_snapshots == {snapshot_name: True}

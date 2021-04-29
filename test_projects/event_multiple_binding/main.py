@@ -58,7 +58,10 @@ def on_click(e: MouseEvent, options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    trace('clicked! Integer value is:', options['int_val'])
+    trace('-' * 20)
+    trace(
+        'clicked! Integer value is:', options['int_val'],
+        ', this instance\'s type:', type(e.this))
     if isinstance(e.this, Stage):
         assert_equal(expected=10, actual=options['int_val'])
         return

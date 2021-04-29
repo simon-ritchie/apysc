@@ -38,7 +38,8 @@ class HandlerData(TypedDict):
     options: Dict[str, Any]
 
 
-def get_handler_name(handler: Handler) -> str:
+def get_handler_name(
+        handler: Handler, instance: Any) -> str:
     """
     Get a handler name.
 
@@ -46,12 +47,14 @@ def get_handler_name(handler: Handler) -> str:
     ----------
     handler : Handler
         Target handler.
+    instance : VariableNameInterface
+        Instance to bind target handler.
 
     Returns
     -------
     handler_name : str
         Handler name (method path + class name (if handler is method)
-        + function or method name) + _serial number.
+        + function or method name) + instance's variable name.
     """
     from apysc.callable import callable_util
     from apysc.expression import expression_variables_util
@@ -64,6 +67,7 @@ def get_handler_name(handler: Handler) -> str:
     handler_name = handler_name.replace('.', '_')
     handler_name = expression_variables_util.get_next_variable_name(
         type_name=handler_name)
+    handler_name += f'_{instance.variable_name}'
     return handler_name
 
 

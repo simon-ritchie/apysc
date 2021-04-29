@@ -74,7 +74,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
-        Make values snapshot.
+        Make values' snapshot.
 
         Parameters
         ----------

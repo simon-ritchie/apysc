@@ -78,7 +78,7 @@ class WidthInterface(VariableNameInterface, RevertInterface):
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
-        Make values snapshot.
+        Make value's snapshot.
 
         Parameters
         ----------
@@ -94,7 +94,7 @@ class WidthInterface(VariableNameInterface, RevertInterface):
 
     def _revert(self, snapshot_name: str) -> None:
         """
-        Revert values if snapshot exists.
+        Revert value if snapshot exists.
 
         Parameters
         ----------

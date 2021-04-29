@@ -21,7 +21,7 @@ class RevertableValue1(RevertInterface):
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
-        Make values snapshot.
+        Make value's snapshot.
 
         Parameters
         ----------
@@ -51,7 +51,7 @@ class RevertableValue2(RevertInterface):
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
-        Make values snapshot.
+        Make value's snapshot.
 
         Parameters
         ----------
@@ -82,7 +82,7 @@ class RevertableValue3(
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
-        Make values snapshot.
+        Make value's snapshot.
 
         Parameters
         ----------

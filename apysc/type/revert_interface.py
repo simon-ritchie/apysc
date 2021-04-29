@@ -25,7 +25,7 @@ class RevertInterface(ABC):
     @abstractmethod
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
-        Make values snapshot.
+        Make value's snapshot.
 
         Parameters
         ----------

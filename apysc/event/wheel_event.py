@@ -1,12 +1,9 @@
 """Class implementation for mouse wheel event.
 """
 
-from typing import Generic
-from typing import TypeVar
 
 from apysc import Int
 from apysc.event.event import Event
-from apysc.type.variable_name_interface import VariableNameInterface
 
 
 class WheelEvent(Event):
@@ -45,8 +42,8 @@ class WheelEvent(Event):
         """
         Horizontal mouse wheel value.
 
-        Parameters
-        ----------
+        Returns
+        -------
         delta_x : Int
             Delta x value.
         """

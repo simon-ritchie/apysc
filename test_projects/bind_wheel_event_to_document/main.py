@@ -14,12 +14,10 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Event, bind_wheel_event_to_document
-from apysc import Rectangle, WheelEvent
-from apysc import Sprite
 from apysc import Stage
-from apysc import String
+from apysc import WheelEvent
 from apysc import assert_equal
+from apysc import bind_wheel_event_to_document
 from apysc import trace
 from apysc.file import file_util
 from apysc.html import exporter

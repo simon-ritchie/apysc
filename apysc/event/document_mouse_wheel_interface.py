@@ -6,7 +6,10 @@ Not supported each SVG elements' mouse wheel event currently, only
 supported document (overall screen) mouse wheel.
 """
 
-from typing import Any, Dict, Optional
+from typing import Any
+from typing import Dict
+from typing import Optional
+
 from typing_extensions import Protocol
 
 from apysc import WheelEvent
@@ -45,10 +48,10 @@ def bind_wheel_event_to_document(
     name : str
         Handler's name.
     """
-    from apysc.event.handler import get_handler_name
-    from apysc.expression import expression_file_util
     from apysc.event.handler import HandlerData
     from apysc.event.handler import append_handler_expression
+    from apysc.event.handler import get_handler_name
+    from apysc.expression import expression_file_util
     name: str = get_handler_name(handler=handler)
     expression: str = (
         f'$(document).on("mousewheel", {name});'

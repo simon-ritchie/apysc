@@ -1,9 +1,10 @@
 """Class implementation for handler.
 """
 
-from typing import Any, Union
+from typing import Any
 from typing import Dict
 from typing import List
+from typing import Union
 
 from typing_extensions import Protocol
 from typing_extensions import TypedDict

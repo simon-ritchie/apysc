@@ -18,6 +18,20 @@ class VisibleInterface(VariableNameInterface, RevertInterface):
             return
         self._visible = Boolean(True)
 
+    @property
+    def visible(self) -> Boolean:
+        """
+        Get a visibility of this instance.
+
+        Returns
+        -------
+        result : Boolean
+            If this instance is visible, True will be returned.
+        """
+        from apysc.type import value_util
+        self._initialize_visible_if_not_initialized()
+        return value_util.get_copy(value=self._visible)
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass
 

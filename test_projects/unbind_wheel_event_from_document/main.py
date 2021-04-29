@@ -1,8 +1,8 @@
-"""Test project for bind_wheel_event_to_document interface.
+"""Test project for unbind_wheel_event_from_document interface.
 
 Command examples:
-$ python test_projects/bind_wheel_event_to_document/main.py
-$ python bind_wheel_event_to_document/main.py
+$ python test_projects/unbind_wheel_event_from_document/main.py
+$ python unbind_wheel_event_from_document/main.py
 """
 
 import sys
@@ -14,7 +14,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Event, bind_wheel_event_to_document
+from apysc import Event, bind_wheel_event_to_document, unbind_wheel_event_from_document
 from apysc import Rectangle, WheelEvent
 from apysc import Sprite
 from apysc import Stage
@@ -39,8 +39,8 @@ def main() -> None:
     _: Stage = Stage(
         background_color='#111',
         stage_width=1000, stage_height=500)
-    bind_wheel_event_to_document(
-        handler=on_document_wheel, options={'msg': 'Hello!'})
+    bind_wheel_event_to_document(handler=on_document_wheel)
+    unbind_wheel_event_from_document(handler=on_document_wheel)
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
@@ -57,10 +57,9 @@ def on_document_wheel(e: WheelEvent, options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    trace('Wheeled!')
-    trace('delta_x:', e.delta_x)
-    trace('delta_y:', e.delta_y)
-    assert_equal(expected='Hello!', actual=options['msg'])
+    trace(
+        'Mouse wheel is detected. Probably unbind interface '
+        'works incorrectly.')
 
 
 if __name__ == '__main__':

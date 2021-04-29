@@ -1,6 +1,5 @@
-import re
 from random import randint
-from typing import Any, Match, Optional
+from typing import Any
 from typing import Dict
 
 from retrying import retry
@@ -58,7 +57,7 @@ def test_get_handler_name() -> None:
         instance=test_instance)
     assert 'tests_event_test_handler' in handler_name
     assert '_TestClass1_' in handler_name
-    assert f'on_click_1_' in handler_name
+    assert 'on_click_1_' in handler_name
     assert handler_name.endswith(f'_{test_instance.variable_name}')
 
 

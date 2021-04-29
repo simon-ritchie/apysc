@@ -14,8 +14,11 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Stage, Sprite, Int, assert_equal
+from apysc import Int
 from apysc import MouseEvent
+from apysc import Sprite
+from apysc import Stage
+from apysc import assert_equal
 from apysc import trace
 from apysc.file import file_util
 from apysc.html import exporter

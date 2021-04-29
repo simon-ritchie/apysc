@@ -5,7 +5,8 @@ from typing import List
 
 from retrying import retry
 
-from apysc import Stage, document
+from apysc import Stage
+from apysc import document
 from apysc.expression import expression_file_util
 from apysc.expression import js_functions
 from apysc.expression.event_handler_scope import HandlerScope

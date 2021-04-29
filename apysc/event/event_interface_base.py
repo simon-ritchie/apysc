@@ -5,8 +5,6 @@ from typing import Any
 from typing import Dict
 from typing import Optional
 
-from typing_extensions import Final
-
 from apysc.event.event_type import EventType
 from apysc.event.handler import Handler
 from apysc.event.handler import HandlerData

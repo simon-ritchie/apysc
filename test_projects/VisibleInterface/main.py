@@ -6,23 +6,19 @@ $ python VisibleInterface/main.py
 """
 
 import sys
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
 
-from apysc import Boolean, Rectangle, MouseEvent
-from apysc import Int
+from apysc import Boolean
+from apysc import MouseEvent
+from apysc import Rectangle
 from apysc import Sprite
 from apysc import Stage
-from apysc import assert_defined
-from apysc import assert_equal
-from apysc import assert_false
-from apysc import assert_true
-from apysc import assert_undefined
-from apysc.display.display_object import DisplayObject
 from apysc.file import file_util
 from apysc.html import exporter
 
@@ -105,4 +101,3 @@ def on_rectangle_3_or_4_click(
 
 if __name__ == '__main__':
     main()
-

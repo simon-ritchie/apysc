@@ -5,10 +5,10 @@ from typing import Any
 from typing import Type
 
 from apysc.display.parent_interface import ParentInterface
+from apysc.display.visible_interface import VisibleInterface
 from apysc.display.x_interface import XInterface
 from apysc.display.y_interface import YInterface
 from apysc.event.mouse_event_interfaces import MouseEventInterfaces
-from apysc.display.visible_interface import VisibleInterface
 
 
 class DisplayObject(

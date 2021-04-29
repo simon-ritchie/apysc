@@ -22,11 +22,11 @@ class TestVisibleInterface:
     def test__initialize_visible_if_not_initialized(self) -> None:
         interface_1: VisibleInterface = VisibleInterface()
         interface_1._initialize_visible_if_not_initialized()
-        assert interface_1._visible == True
+        assert interface_1._visible
 
         interface_1._visible.value = False
         interface_1._initialize_visible_if_not_initialized()
-        assert interface_1._visible == False
+        assert not interface_1._visible
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_visible(self) -> None:
@@ -37,11 +37,11 @@ class TestVisibleInterface:
 
         bool_1: Boolean = Boolean(False)
         interface_1.visible = bool_1
-        assert interface_1.visible == False
+        assert not interface_1.visible
         assert interface_1._visible.variable_name == bool_1.variable_name
 
         interface_1.visible = True  # type: ignore
-        assert interface_1.visible == True
+        assert interface_1.visible
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_visible_update_expression(self) -> None:
@@ -85,4 +85,4 @@ class TestVisibleInterface:
             snapshot_name=snapshot_name)
         interface_1.visible = Boolean(False)
         interface_1._run_all_revert_methods(snapshot_name=snapshot_name)
-        assert interface_1.visible == True
+        assert interface_1.visible

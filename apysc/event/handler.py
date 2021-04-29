@@ -51,9 +51,10 @@ def get_handler_name(handler: Handler) -> str:
     -------
     handler_name : str
         Handler name (method path + class name (if handler is method)
-        + function or method name).
+        + function or method name) + _serial number.
     """
     from apysc.callable import callable_util
+    from apysc.expression import expression_variables_util
     class_name: str = callable_util.get_method_class_name(method=handler)
     if class_name != '':
         class_name = f'{class_name}_'
@@ -61,6 +62,8 @@ def get_handler_name(handler: Handler) -> str:
         f'{handler.__module__}{class_name}{handler.__name__}'  # type: ignore
     )
     handler_name = handler_name.replace('.', '_')
+    handler_name = expression_variables_util.get_next_variable_name(
+        type_name=handler_name)
     return handler_name
 
 

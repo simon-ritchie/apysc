@@ -1,5 +1,6 @@
+import re
 from random import randint
-from typing import Any
+from typing import Any, Match, Optional
 from typing import Dict
 
 from retrying import retry
@@ -56,7 +57,10 @@ def test_get_handler_name() -> None:
         handler=test_instance.on_click_1)
     assert 'tests_event_test_handler' in handler_name
     assert '_TestClass1_' in handler_name
-    assert 'on_click_1' in handler_name
+    match: Optional[Match] = re.search(
+        pattern=r'on_click_1_\d+$',
+        string=handler_name, flags=re.MULTILINE)
+    assert match is not None
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

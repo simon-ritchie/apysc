@@ -47,6 +47,15 @@ class TestRectangle:
             fill_alpha=Number(value=0.5))
         assert rectanble._fill_alpha == 0.5
 
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___repr__(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        rectangle_: Rectangle = sprite.graphics.draw_rect(
+            x=50, y=50, width=50, height=50)
+        repr_str: str = repr(rectangle_)
+        assert repr_str == f"Rectangle('{rectangle_.variable_name}')"
+
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__make_rect_attrs_expression() -> None:

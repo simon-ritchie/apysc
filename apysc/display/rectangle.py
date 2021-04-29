@@ -88,6 +88,20 @@ class Rectangle(
         self.update_line_alpha_and_skip_appending_exp(
             value=Number(line_alpha))
 
+    def __repr__(self) -> str:
+        """
+        Get a string representation of this instance (for the sake of
+        debugging).
+
+        Returns
+        -------
+        repr_str : str
+            Type name and variable name will be set
+            (e.g., `Rectangle('<variable_name>')`).
+        """
+        repr_str: str = f"Rectangle('{self.variable_name}')"
+        return repr_str
+
 
 def append_draw_rect_expression(rectangle: Rectangle) -> None:
     """

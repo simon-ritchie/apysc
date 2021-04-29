@@ -58,6 +58,8 @@ def get_handler_name(
     """
     from apysc.callable import callable_util
     from apysc.expression import expression_variables_util
+    from apysc.validation.variable_name_validation import \
+        validate_variable_name_interface_type
     class_name: str = callable_util.get_method_class_name(method=handler)
     if class_name != '':
         class_name = f'{class_name}_'
@@ -65,9 +67,9 @@ def get_handler_name(
         f'{handler.__module__}{class_name}{handler.__name__}'  # type: ignore
     )
     handler_name = handler_name.replace('.', '_')
-    handler_name = expression_variables_util.get_next_variable_name(
-        type_name=handler_name)
-    handler_name += f'_{instance.variable_name}'
+    instance_: VariableNameInterface = validate_variable_name_interface_type(
+        instance=instance)
+    handler_name += f'_{instance_.variable_name}'
     return handler_name
 
 

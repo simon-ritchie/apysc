@@ -36,9 +36,9 @@ class EventInterfaceBase:
         TypeError
             If this instance is not a VariableNameInterface.
         """
-        if not isinstance(self, VariableNameInterface):
-            raise TypeError(self._VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
-        return self
+        from apysc.validation.variable_name_validation import \
+            validate_variable_name_interface_type
+        return validate_variable_name_interface_type(instance=self)
 
     def _set_handler_data(
             self, handler: Handler,
@@ -57,7 +57,7 @@ class EventInterfaceBase:
             Optional arguments dictionary to be passed to handler.
         """
         from apysc.event.handler import get_handler_name
-        name: str = get_handler_name(handler=handler)
+        name: str = get_handler_name(handler=handler, instance=self)
         if options is None:
             options = {}
         handlers_dict[name] = {
@@ -84,7 +84,7 @@ class EventInterfaceBase:
         from apysc.event.handler import get_handler_name
         self_instance: VariableNameInterface = \
             self._validate_self_is_variable_name_interface()
-        name: str = get_handler_name(handler=handler)
+        name: str = get_handler_name(handler=handler, instance=self)
         if name in handlers_dict:
             del handlers_dict[name]
         append_unbinding_expression(

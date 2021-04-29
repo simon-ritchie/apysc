@@ -40,7 +40,7 @@ class MouseOverInterface(EventInterfaceBase):
         self_instance: VariableNameInterface = \
             self._validate_self_is_variable_name_interface()
         self._initialize_mouse_over_handlers_if_not_initialized()
-        name: str = get_handler_name(handler=handler)
+        name: str = get_handler_name(handler=handler, instance=self)
         self._set_handler_data(
             handler=handler, handlers_dict=self._mouse_over_handlers,
             options=options)

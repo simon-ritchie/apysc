@@ -54,13 +54,12 @@ class _TestClass1(VariableNameInterface):
 def test_get_handler_name() -> None:
     test_instance: _TestClass1 = _TestClass1()
     handler_name: str = handler.get_handler_name(
-        handler=test_instance.on_click_1)
+        handler=test_instance.on_click_1,
+        instance=test_instance)
     assert 'tests_event_test_handler' in handler_name
     assert '_TestClass1_' in handler_name
-    # match: Optional[Match] = re.search(
-    #     pattern=r'on_click_1_\d+$',
-    #     string=handler_name, flags=re.MULTILINE)
-    # assert match is not None
+    assert f'on_click_1_' in handler_name
+    assert handler_name.endswith(f'_{test_instance.variable_name}')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -73,7 +72,7 @@ def test_append_handler_expression() -> None:
         'options': {'int_1': int_1},
     }
     handler_name: str = handler.get_handler_name(
-        handler=handler_data['handler'])
+        handler=handler_data['handler'], instance=test_instance)
     e: Event = Event(this=test_instance)
     handler.append_handler_expression(
         handler_data=handler_data, handler_name=handler_name,

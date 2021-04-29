@@ -96,7 +96,7 @@ class TestClickInterface:
         interface_2.unbind_click(handler=self.on_click_1)
         assert not interface_2._click_handlers
         handler_name: str = get_handler_name(
-            handler=self.on_click_1)
+            handler=self.on_click_1, instance=interface_2)
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{interface_2.variable_name}.off('

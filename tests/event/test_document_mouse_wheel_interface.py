@@ -4,7 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import WheelEvent
+from apysc import WheelEvent, document
 from apysc import bind_wheel_event_to_document
 from apysc import unbind_wheel_event_all_from_document
 from apysc import unbind_wheel_event_from_document
@@ -66,10 +66,10 @@ def test_bind_wheel_event_to_document() -> None:
 def test_unbind_wheel_event_from_document() -> None:
     expression_file_util.remove_expression_file()
     unbind_wheel_event_from_document(handler=on_mouse_wheel_1)
-    name: str = get_handler_name(handler=on_mouse_wheel_1)
+    name: str = get_handler_name(handler=on_mouse_wheel_1, instance=document)
     expression: str = expression_file_util.get_current_expression()
     expected: str = (
-        f'$(document).off("mousewheel", {name});'
+        f'$({document.variable_name}).off("mousewheel", {name});'
     )
     assert expected in expression
 

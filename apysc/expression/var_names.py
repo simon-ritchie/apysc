@@ -3,7 +3,7 @@
 
 from typing_extensions import Final
 
-DOCUMENT: Final[str] = '$(document)'
+DOCUMENT: Final[str] = 'document'
 DISPLAY_OBJECT: Final[str] = 'do'
 GRAPHICS: Final[str] = 'g'
 RECTANGLE: Final[str] = 'rect'

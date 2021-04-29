@@ -56,17 +56,18 @@ class TestEventInterfaceBase:
             expected_error_class=TypeError,
             func_or_method=interface_1.
             _validate_self_is_variable_name_interface,
-            match=interface_1._VARIABLE_NAME_INTERFACE_TYPE_ERR_MSG)
+            match='Specified instance type is not VariableNameInterface')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_handler_data(self) -> None:
         handlers_dict: Dict[str, HandlerData] = {}
-        interface_1: EventInterfaceBase = EventInterfaceBase()
+        interface_1: _TestClickInterface = _TestClickInterface()
         interface_1._set_handler_data(
             handler=self.on_click_1,
             handlers_dict=handlers_dict,
             options=None)
-        name: str = get_handler_name(handler=self.on_click_1)
+        name: str = get_handler_name(
+            handler=self.on_click_1, instance=interface_1)
         assert handlers_dict == {
             name: {
                 'handler': self.on_click_1,

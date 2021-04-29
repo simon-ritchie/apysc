@@ -5,7 +5,7 @@ from typing import List
 
 from retrying import retry
 
-from apysc import Stage
+from apysc import Stage, document
 from apysc.expression import expression_file_util
 from apysc.expression import js_functions
 from apysc.expression.event_handler_scope import HandlerScope
@@ -90,7 +90,7 @@ def test__append_entry_point_function_call() -> None:
     expected: str = (
         '<html>'
         '\n<script type="text/javascript">'
-        '\n$(document).ready(function() {'
+        f'\n$({document.variable_name}).ready(function() {{'
         f'\n  main_{stage.variable_name}();'
         '\n});'
         '\n</script>'

@@ -48,7 +48,7 @@ def test_bind_wheel_event_to_document() -> None:
         handler=on_mouse_wheel_1, options={'msg': 'Hello!'})
     expression: str = expression_file_util.get_current_expression()
     expected: str = (
-        f'$(document).on("mousewheel", {name});'
+        f'$({document.variable_name}).on("mousewheel", {name});'
     )
     assert expected in expression
 
@@ -79,5 +79,5 @@ def test_unbind_wheel_event_all_from_document() -> None:
     expression_file_util.remove_expression_file()
     unbind_wheel_event_all_from_document()
     expression: str = expression_file_util.get_current_expression()
-    expected: str = '$(document).off("mousewheel");'
+    expected: str = f'$({document.variable_name}).off("mousewheel");'
     assert expected in expression

@@ -81,4 +81,14 @@ class VisibleInterface(VariableNameInterface, RevertInterface):
         self._visible_snapshots[snapshot_name] = self._visible._value
 
     def _revert(self, snapshot_name: str) -> None:
-        pass
+        """
+        Revert value is snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._visible._value = self._visible_snapshots[snapshot_name]

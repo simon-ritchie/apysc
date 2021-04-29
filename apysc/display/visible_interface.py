@@ -47,6 +47,19 @@ class VisibleInterface(VariableNameInterface, RevertInterface):
         if isinstance(value, bool):
             value = Boolean(value)
         self._visible = value
+        self._append_visible_update_expression()
+
+    def _append_visible_update_expression(self) -> None:
+        """
+        Append visible property updating expression to file.
+        """
+        from apysc.expression import expression_file_util
+        expression: str = f'{self.variable_name}.'
+        if self._visible:
+            expression += 'show();'
+        else:
+            expression += 'hide();'
+        expression_file_util.append_js_expression(expression=expression)
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass

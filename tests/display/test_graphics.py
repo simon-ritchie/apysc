@@ -82,3 +82,10 @@ class TestGraphics:
             f'\n{sprite.variable_name}.add({sprite.graphics.variable_name});'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___repr__(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        repr_str: str = repr(sprite.graphics)
+        assert repr_str == f"Graphics('{sprite.graphics.variable_name}')"

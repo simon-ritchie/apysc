@@ -100,3 +100,17 @@ class Graphics(
         append_draw_rect_expression(rectangle=rectangle)
         self.add_child(child=rectangle)
         return rectangle
+
+    def __repr__(self) -> str:
+        """
+        Get a string representation of this instance (for the sake of
+        debugging).
+
+        Returns
+        -------
+        repr_str : str
+            Type name and variable name will be set
+            (e.g., `Graphics('<variable_name>')`).
+        """
+        repr_str: str = f"Graphics('{self.variable_name}')"
+        return repr_str

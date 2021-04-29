@@ -83,3 +83,14 @@ def unbind_wheel_event_from_document(handler: WheelHandler) -> None:
         f'$(document).off("mousewheel", {name});'
     )
     expression_file_util.append_js_expression(expression=expression)
+
+
+def unbind_wheel_event_all_from_document() -> None:
+    """
+    Unbind all wheel event from document (overall window).
+    """
+    from apysc.expression import expression_file_util
+    expression: str = (
+        '$(document).off("mousewheel");'
+    )
+    expression_file_util.append_js_expression(expression=expression)

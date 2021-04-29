@@ -4,7 +4,7 @@ from random import randint
 from retrying import retry
 
 from typing import Any, Dict
-from apysc import bind_wheel_event_to_document, unbind_wheel_event_from_document
+from apysc import bind_wheel_event_to_document, unbind_wheel_event_from_document, unbind_wheel_event_all_from_document
 from apysc import WheelEvent
 from apysc.expression import expression_file_util
 from apysc.expression import var_names
@@ -68,4 +68,13 @@ def test_unbind_wheel_event_from_document() -> None:
     expected: str = (
         f'$(document).off("mousewheel", {name});'
     )
+    assert expected in expression
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_unbind_wheel_event_all_from_document() -> None:
+    expression_file_util.remove_expression_file()
+    unbind_wheel_event_all_from_document()
+    expression: str = expression_file_util.get_current_expression()
+    expected: str = '$(document).off("mousewheel");'
     assert expected in expression

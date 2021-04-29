@@ -51,7 +51,7 @@ def test_bind_wheel_event_to_document() -> None:
     expression = expression_file_util.\
         get_current_event_handler_scope_expression()
     expected = (
-        f'function {name}({var_names.MOUSE_WHEEL_EVENT}_'
+        f'function {name}({var_names.WHEEL_EVENT}_'
     )
     assert expected in expression
 

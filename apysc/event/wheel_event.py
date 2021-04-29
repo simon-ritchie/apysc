@@ -23,7 +23,7 @@ class WheelEvent(Event):
         from apysc.expression import var_names
         super(WheelEvent, self).__init__(
             this=None,
-            type_name=var_names.MOUSE_WHEEL_EVENT)
+            type_name=var_names.WHEEL_EVENT)
 
     @property
     def this(self) -> None:

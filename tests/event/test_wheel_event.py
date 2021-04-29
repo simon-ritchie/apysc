@@ -15,7 +15,7 @@ class TestWheelEvent:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         e: WheelEvent = WheelEvent()
-        assert e.variable_name.startswith(f'{var_names.MOUSE_WHEEL_EVENT}_')
+        assert e.variable_name.startswith(f'{var_names.WHEEL_EVENT}_')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_this(self) -> None:

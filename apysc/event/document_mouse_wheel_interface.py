@@ -6,7 +6,7 @@ Not supported each SVG elements' mouse wheel event currently, only
 supported document (overall screen) mouse wheel.
 """
 
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 from typing_extensions import Protocol
 
 from apysc import WheelEvent
@@ -28,7 +28,8 @@ class WheelHandler(Protocol):
 
 
 def bind_wheel_event_to_document(
-        handler: WheelHandler, options: Dict[str, Any] = None) -> str:
+        handler: WheelHandler,
+        options: Optional[Dict[str, Any]] = None) -> str:
     """
     Bind wheel event to document (overall window).
 
@@ -36,7 +37,7 @@ def bind_wheel_event_to_document(
     ----------
     handler : WheelHandler
         Callable that handle wheel event.
-    options : dict, default None
+    options : dict or None, default None
         Optional arguments dictionary to pass to.
 
     Returns
@@ -64,3 +65,21 @@ def bind_wheel_event_to_document(
     append_handler_expression(
         handler_data=handler_data, handler_name=name, e=e)
     return name
+
+
+def unbind_wheel_event_from_document(handler: WheelHandler) -> None:
+    """
+    Unbind specified handler's wheel event from document (overall window).
+
+    Parameters
+    ----------
+    handler : WheelHandler
+        Callable to unbind.
+    """
+    from apysc.event.handler import get_handler_name
+    from apysc.expression import expression_file_util
+    name: str = get_handler_name(handler=handler)
+    expression: str = (
+        f'$(document).off("mousewheel", {name});'
+    )
+    expression_file_util.append_js_expression(expression=expression)

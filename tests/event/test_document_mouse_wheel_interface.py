@@ -1,9 +1,10 @@
+from apysc.event.handler import get_handler_name
 from random import randint
 
 from retrying import retry
 
 from typing import Any, Dict
-from apysc import bind_wheel_event_to_document
+from apysc import bind_wheel_event_to_document, unbind_wheel_event_from_document
 from apysc import WheelEvent
 from apysc.expression import expression_file_util
 from apysc.expression import var_names
@@ -56,3 +57,15 @@ def test_bind_wheel_event_to_document() -> None:
     assert expected in expression
 
     _ = bind_wheel_event_to_document(handler=on_mouse_wheel_2)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_unbind_wheel_event_from_document() -> None:
+    expression_file_util.remove_expression_file()
+    unbind_wheel_event_from_document(handler=on_mouse_wheel_1)
+    name: str = get_handler_name(handler=on_mouse_wheel_1)
+    expression: str = expression_file_util.get_current_expression()
+    expected: str = (
+        f'$(document).off("mousewheel", {name});'
+    )
+    assert expected in expression

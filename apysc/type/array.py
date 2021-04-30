@@ -114,7 +114,7 @@ class Array(CopyInterface, RevertInterface):
         if isinstance(value, (list, tuple, range, Array)):
             return
         raise ValueError(
-            'Not acceptable value\'s type is specified.'
+            'Not acceptable value type is specified.'
             f'\nSpecified value type: {type(value)}'
             '\nAcceptable types: list, tuple, range, and Array')
 

@@ -3,6 +3,7 @@ from apysc.type.number import Number  # isort:skip # noqa
 from apysc.type.boolean import Boolean  # isort:skip # noqa
 from apysc.type.string import String  # isort:skip # noqa
 from apysc.type.array import Array  # isort:skip # noqa
+from apysc.type.dictionary import Dictionary  # isort:skip # noqa
 from apysc.type.any_value import AnyValue  # isort:skip # noqa
 from apysc.branch._if import If  # isort:skip # noqa
 from apysc.branch._elif import Elif  # isort:skip # noqa

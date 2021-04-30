@@ -190,10 +190,10 @@ def test__trace_arrays_or_dicts_assertion_info() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__make_arrays_comparison_expression() -> None:
+def test__make_arrays_or_dicts_comparison_expression() -> None:
     expression_file_util.remove_expression_file()
     array_1: Array = Array([1, 2, 3])
-    expression: str = assertion._make_arrays_comparison_expression(
+    expression: str = assertion._make_arrays_or_dicts_comparison_expression(
         expected=[1, 2, 3],
         actual=array_1,
         msg='Array values is not equal.',
@@ -204,13 +204,22 @@ def test__make_arrays_comparison_expression() -> None:
     )
     assert expression == expected
 
-    expression = assertion._make_arrays_comparison_expression(
+    expression = assertion._make_arrays_or_dicts_comparison_expression(
         expected=[1, 2, 3],
         actual=[1],
         msg='',
         not_condition=True)
     expected = (
         'console.assert(!_.isEqual([1, 2, 3], [1]), "");')
+    assert expression == expected
+
+    dict_1: Dictionary = Dictionary({'a': 10})
+    expression = assertion._make_arrays_or_dicts_comparison_expression(
+        expected=dict_1, actual={'a': 10}, msg='', not_condition=False)
+    expected = (
+        f'console.assert(_.isEqual({dict_1.variable_name}, '
+        '{"a": 10}), "");'
+    )
     assert expression == expected
 
 

@@ -195,7 +195,7 @@ def assert_arrays_equal(
         interface_label='assert_arrays_equal',
         expected=expected, actual=actual)
 
-    expression: str = _make_arrays_comparison_expression(
+    expression: str = _make_arrays_or_dicts_comparison_expression(
         expected=expected, actual=actual, msg=msg, not_condition=False)
     expression_file_util.append_js_expression(expression=expression)
 
@@ -225,7 +225,7 @@ def assert_arrays_not_equal(
         interface_label='assert_arrays_not_equal',
         expected=expected, actual=actual)
 
-    expression: str = _make_arrays_comparison_expression(
+    expression: str = _make_arrays_or_dicts_comparison_expression(
         expected=expected, actual=actual, msg=msg, not_condition=True)
     expression_file_util.append_js_expression(expression=expression)
 
@@ -252,9 +252,11 @@ def assert_dicts_equal(expected: Any, actual: Any, msg: str = '') -> None:
         Message to display when assertion failed.
     """
     from apysc.expression import expression_file_util
-    # _trace_dicts_assertion_info(
-    #     interface_label='assert_dicts_equal',
-    #     expected=expected, actual=actual)
+    _trace_arrays_or_dicts_assertion_info(
+        interface_label='assert_dicts_equal',
+        expected=expected, actual=actual)
+
+    # expression: str = _make_dicts_comparison_expression()
     pass
 
 
@@ -311,12 +313,13 @@ def assert_undefined(actual: Any, msg: str = '') -> None:
     expression_file_util.append_js_expression(expression=expression)
 
 
-def _make_arrays_comparison_expression(
+def _make_arrays_or_dicts_comparison_expression(
         expected: Any, actual: Any, msg: str,
         not_condition: bool) -> str:
     """
-    Make arrays comparison (assert_arrays_equal or
-    assert_arrays_not_equal) expression string.
+    Make arrays or dicts comparison (assert_arrays_equal,
+    assert_arrays_not_equal, assert_dicts_equal, or
+    assert_dicts_not_equal) expression string.
 
     Parameters
     ----------

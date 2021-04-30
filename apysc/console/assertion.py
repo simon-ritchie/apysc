@@ -51,6 +51,9 @@ def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
     if _actual_value_type_is_array(actual=actual):
         assert_arrays_equal(expected=expected, actual=actual, msg=msg)
         return
+    if _actual_value_type_is_dict(actual=actual):
+        assert_dicts_equal(expected=expected, actual=actual, msg=msg)
+        return
 
     _trace_info(
         interface_label='assert_equal', expected=expected, actual=actual)
@@ -407,6 +410,27 @@ def _actual_value_type_is_array(actual: Any) -> bool:
     """
     from apysc import Array
     if isinstance(actual, Array):
+        return True
+    return False
+
+
+def _actual_value_type_is_dict(actual: Any) -> bool:
+    """
+    Get a boolean value whether specified actual value is
+    Dictionary type or not.
+
+    Parameters
+    ----------
+    actual : *
+        Actual value.
+
+    Returns
+    -------
+    result : bool
+        If actual value type is Dictionary, True will be returned.
+    """
+    from apysc import Dictionary
+    if isinstance(actual, Dictionary):
         return True
     return False
 

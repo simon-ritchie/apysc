@@ -31,6 +31,12 @@ def test_assert_equal() -> None:
     assert 'assert_arrays_equal' in expression
     assert 'assert_equal' not in expression
 
+    expression_file_util.remove_expression_file()
+    assertion.assert_equal(expected={'a': 10}, actual=Dictionary({'a': 10}))
+    expression = expression_file_util.get_current_expression()
+    assert 'assert_dicts_equal' in expression
+    assert 'assert_equal' not in expression
+
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__trace_info() -> None:
@@ -109,6 +115,7 @@ def test_assert_true() -> None:
     assert expected in expression
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__add_equal_if_type_strict_setting_is_true() -> None:
     expression: str = assertion._add_equal_if_type_strict_setting_is_true(
         expression='a ==', type_strict=True)
@@ -278,3 +285,13 @@ def test_assert_dicts_equal() -> None:
         '"Dictionary values are not equal.");'
     )
     assert expected in expression
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__actual_value_type_is_dict() -> None:
+    dict_1: Dictionary = Dictionary({"a": 10})
+    result: bool = assertion._actual_value_type_is_dict(actual=dict_1)
+    assert result
+
+    result = assertion._actual_value_type_is_dict(actual=10)
+    assert not result

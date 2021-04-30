@@ -126,8 +126,22 @@ class Dictionary(CopyInterface, RevertInterface):
         expression: str = f'{self.variable_name} = {value_str};'
         expression_file_util.append_js_expression(expression=expression)
 
+    _value_snapshot: Dict[str, Dict[Any, Any]]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
-        pass
+        """
+        Make values' snapthot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_value_snapshot'):
+            self._value_snapshot = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._value_snapshot[snapshot_name] = {**self._value}
 
     def _revert(self, snapshot_name: str) -> None:
         pass

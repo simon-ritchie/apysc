@@ -63,3 +63,6 @@ class TestDictionary:
     def test_value(self) -> None:
         dict_1: Dictionary = Dictionary(value={'a': 10})
         assert dict_1.value == {'a': 10}
+
+        dict_1.value = {'b': 20}
+        assert dict_1.value == {'b': 20}

@@ -96,6 +96,19 @@ class Dictionary(CopyInterface, RevertInterface):
         """
         return self._value
 
+    @value.setter
+    def value(self, value: Union[Dict[Any, Any], Any]) -> None:
+        """
+        Set dictionary value.
+
+        Parameters
+        ----------
+        value : dict or Dictionary.
+            Dictionary value to set.
+        """
+        self._validate_acceptable_value_type(value=value)
+        self._value = self._get_dict_value(value=value)
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass
 

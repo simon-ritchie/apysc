@@ -22,8 +22,31 @@ class Dictionary(CopyInterface, RevertInterface):
         """
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names
+        TYPE_NAME: str = var_names.DICTIONARY
         self._validate_acceptable_value_type(value=value)
+        self._initial_value = value
+        self._type_name = TYPE_NAME
+        self._value = self._get_dict_value(value=value)
         pass
+
+    def _get_dict_value(
+            self, value: Union[Dict[Any, Any], Any]) -> Dict[Any, Any]:
+        """
+        Get a dict value from specified value.
+
+        Parameters
+        ----------
+        value : dict or Dictionary
+            Specified dictionary value.
+
+        Returns
+        -------
+        dict_val : dict
+            Converted dict value.
+        """
+        if isinstance(value, Dictionary):
+            return value._value
+        return value
 
     def _validate_acceptable_value_type(
             self, value: Union[Dict[Any, Any], Any]) -> None:

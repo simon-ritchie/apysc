@@ -73,15 +73,15 @@ class Dictionary(CopyInterface, RevertInterface):
 
         Raises
         ------
-        ValueError
+        TypeError
             If specified value's type is not dict or Dictionary.
         """
         if isinstance(value, (dict, Dictionary)):
             return
-        raise ValueError(
+        raise TypeError(
             'Not acceptable value type is specified.'
-            f'\nSpecified valkue type: {type(value)}'
-            '\nAcceptable types: dict and Dictionary'
+            f'\nSpecified valkue type is: {type(value)}'
+            '\nAcceptable types are: dict and Dictionary'
         )
 
     def _make_snapshot(self, snapshot_name: str) -> None:

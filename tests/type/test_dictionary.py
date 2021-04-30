@@ -6,6 +6,8 @@ from retrying import retry
 
 from apysc import Dictionary
 from tests.testing_helper import assert_raises
+from apysc.expression import expression_variables_util
+from apysc.expression import var_names
 
 
 class TestDictionary:
@@ -16,7 +18,7 @@ class TestDictionary:
         _: Dictionary = Dictionary(value=dict_1)
 
         assert_raises(
-            expected_error_class=ValueError,
+            expected_error_class=TypeError,
             func_or_method=Dictionary,
             kwargs={'value': 10},
             match='Not acceptable value type is specified')
@@ -41,3 +43,18 @@ class TestDictionary:
             f'var {dict_1.variable_name} = {{"a": 10}};'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___init__(self) -> None:
+        dict_1: Dictionary = Dictionary(value={'a': 10})
+        dict_2: Dictionary = Dictionary(value=dict_1)
+        assert dict_2._initial_value == dict_1
+        assert dict_2.type_name == var_names.DICTIONARY
+        assert dict_2.variable_name.startswith(f'{var_names.DICTIONARY}_')
+        assert dict_2._value == {'a': 10}
+
+        assert_raises(
+            expected_error_class=TypeError,
+            func_or_method=Dictionary,
+            kwargs={'value': 10},
+            match='Not acceptable value type is specified.')

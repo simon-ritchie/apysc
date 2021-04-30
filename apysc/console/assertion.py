@@ -256,8 +256,9 @@ def assert_dicts_equal(expected: Any, actual: Any, msg: str = '') -> None:
         interface_label='assert_dicts_equal',
         expected=expected, actual=actual)
 
-    # expression: str = _make_dicts_comparison_expression()
-    pass
+    expression: str = _make_arrays_or_dicts_comparison_expression(
+        expected=expected, actual=actual, msg=msg, not_condition=False)
+    expression_file_util.append_js_expression(expression=expression)
 
 
 def assert_defined(actual: Any, msg: str = '') -> None:

@@ -262,3 +262,19 @@ def test_assert_undefined() -> None:
         '"value is not undefined.");'
     )
     assert expected in expression
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_assert_dicts_equal() -> None:
+    expression_file_util.remove_expression_file()
+    dict_1: Dictionary = Dictionary({"a": 10})
+    assertion.assert_dicts_equal(
+        expected={'a': 10}, actual=dict_1,
+        msg='Dictionary values are not equal.')
+    expression: str = expression_file_util.get_current_expression()
+    expected: str = (
+        f'console.assert(_.isEqual({{"a": 10}}, '
+        f'{dict_1.variable_name}), '
+        '"Dictionary values are not equal.");'
+    )
+    assert expected in expression

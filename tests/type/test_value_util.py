@@ -5,8 +5,10 @@ from retrying import retry
 from apysc import Array
 from apysc import Int
 from apysc.type import value_util
+from tests.testing_helper import assert_raises
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_value_str_for_expression() -> None:
     int_val: Int = Int(value=10)
     value_str: str = value_util.get_value_str_for_expression(
@@ -31,7 +33,11 @@ def test_get_value_str_for_expression() -> None:
     value_str = value_util.get_value_str_for_expression(value=(30, 40))
     assert value_str == '[30, 40]'
 
+    value_str = value_util.get_value_str_for_expression(value={'key_1': 10})
+    assert value_str == '{"key_1": 10}'
 
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_copy() -> None:
     int_val: Int = Int(value=10)
     copied_val_1: Int = value_util.get_copy(value=int_val)
@@ -58,3 +64,21 @@ def test__get_value_str_from_iterable() -> None:
     array_1: Array = Array([30, 40])
     value_str = value_util._get_value_str_from_iterable(value=array_1)
     assert value_str == '[30, 40]'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__validate_dict_key_type() -> None:
+    value_util._validate_dict_key_type(key=10)
+    value_util._validate_dict_key_type(key='Hello')
+    assert_raises(
+        expected_error_class=TypeError,
+        func_or_method=value_util._validate_dict_key_type,
+        kwargs={'key': Int(10)},
+        match='Dictionary key type only supports str and int')
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_value_str_from_dict() -> None:
+    value_str: str = value_util._get_value_str_from_dict(
+        value={'key_1': 10, 20: 'Hello', 'key_3': [1, 2, 3]})
+    assert value_str == '{"key_1": 10, "20": "Hello", "key_3": [1, 2, 3]}'

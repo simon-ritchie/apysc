@@ -8,7 +8,7 @@ Mainly following interfaces are defined:
     Get a copy of specified instance if it is instance of CopyInterface.
 """
 
-from typing import Any
+from typing import Any, Dict
 from typing import List
 from typing import TypeVar
 from typing import Union
@@ -46,12 +46,60 @@ def get_value_str_for_expression(value: Any) -> str:
     if isinstance(value, (list, tuple)):
         value_str: str = _get_value_str_from_iterable(value=value)
         return value_str
+    if isinstance(value, dict):
+        values_str = _get_value_str_from_dict(value=value)
+        return values_str
     return str(value)
+
+
+def _get_value_str_from_dict(value: Dict[Any, Any]) -> str:
+    """
+    Get a value string from dictionary object.
+
+    Parameters
+    ----------
+    value : dict
+        Dictionary object to convert to string.
+
+    Returns
+    -------
+    value_str : str
+        Converted string, e.g., '{"any_key": 10, "other_key": any_variable}'
+    """
+    from apysc.type.variable_name_interface import VariableNameInterface
+    value_str: str = '{'
+    for key, value in value.items():
+        if value_str != '{':
+            value_str += ', '
+        _validate_dict_key_type(key=key)
+        value_str += f'"{key}": {get_value_str_for_expression(value=value)}'
+    value_str += '}'
+    return value_str
+
+
+def _validate_dict_key_type(key: Any) -> None:
+    """
+    Validate whether a dictionary key type is str or int.
+
+    Parameters
+    ----------
+    key : *
+        Dictionary key to validate.
+
+    Raises
+    ------
+    TypeError
+        If key type isn't str or int.
+    """
+    if isinstance(key, (str, int)):
+        return
+    raise TypeError(
+        f'Dictionary key type only supports str and int: {type(key)}')
 
 
 def _get_value_str_from_iterable(value: Union[list, tuple, Array]) -> str:
     """
-    Get value string from iterable object.
+    Get a value string from iterable object.
 
     Parameters
     ----------

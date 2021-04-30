@@ -14,6 +14,8 @@ Mainly following interfaces are defined:
     JavaScript assertion interface for Array values equal condition.
 - assert_arrays_not_equal
     JavaScript assertion interface for Array values not equal condition.
+- assert_dicts_equal
+    JavaScript assertion interface for Dictionary values equal condition.
 - assert_defined
     JavaScript assertion interface for defined (not undefined)
     value condition.
@@ -189,7 +191,7 @@ def assert_arrays_equal(
         Message to display when assertion failed.
     """
     from apysc.expression import expression_file_util
-    _trace_arrays_assertion_info(
+    _trace_arrays_or_dicts_assertion_info(
         interface_label='assert_arrays_equal',
         expected=expected, actual=actual)
 
@@ -219,13 +221,41 @@ def assert_arrays_not_equal(
         Message to display when assertion failed.
     """
     from apysc.expression import expression_file_util
-    _trace_arrays_assertion_info(
+    _trace_arrays_or_dicts_assertion_info(
         interface_label='assert_arrays_not_equal',
         expected=expected, actual=actual)
 
     expression: str = _make_arrays_comparison_expression(
         expected=expected, actual=actual, msg=msg, not_condition=True)
     expression_file_util.append_js_expression(expression=expression)
+
+
+def assert_dicts_equal(expected: Any, actual: Any, msg: str = '') -> None:
+    """
+    JavaScript assertion interface for Dictionary values equal
+    condition.
+
+    Notes
+    -----
+    This is used instead of assert_equal for Dictionary class
+    comparison (JavaScript can not compare dictionary (Object)
+    directly, like a Python, for example, `{"a": 10} === {"a": 10}`
+    will be false).
+
+    Parameters
+    ----------
+    expected : *
+        Expected value.
+    actual : *
+        Actual value.
+    msg : str, optional
+        Message to display when assertion failed.
+    """
+    from apysc.expression import expression_file_util
+    # _trace_dicts_assertion_info(
+    #     interface_label='assert_dicts_equal',
+    #     expected=expected, actual=actual)
+    pass
 
 
 def assert_defined(actual: Any, msg: str = '') -> None:
@@ -323,10 +353,10 @@ def _make_arrays_comparison_expression(
     return expression
 
 
-def _trace_arrays_assertion_info(
+def _trace_arrays_or_dicts_assertion_info(
         interface_label: str, expected: Any, actual: Any) -> None:
     """
-    Append arrays values information trace expression.
+    Append arrays or dicts value's information trace expression.
 
     Parameters
     ----------
@@ -337,14 +367,16 @@ def _trace_arrays_assertion_info(
     actual : *
         Actual value.
     """
-    from apysc import Array
+    from apysc import Array, Dictionary
     from apysc.type import value_util
     expected_exp_str: str = value_util.get_value_str_for_expression(
         value=expected)
     actual_exp_str: str = value_util.get_value_str_for_expression(
         value=actual)
-    if isinstance(expected, Array):
-        expected_info_str: str = f'{expected_exp_str} ({expected.value})'
+    if isinstance(expected, (Array, Dictionary)):
+        value_str: str = value_util.get_value_str_for_expression(
+            value=expected.value)
+        expected_info_str: str = f'{expected_exp_str} ({value_str})'
     else:
         expected_info_str = expected_exp_str
     actual_info_str = actual_exp_str

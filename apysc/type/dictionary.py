@@ -27,7 +27,20 @@ class Dictionary(CopyInterface, RevertInterface):
         self._initial_value = value
         self._type_name = TYPE_NAME
         self._value = self._get_dict_value(value=value)
-        pass
+        self.variable_name = expression_variables_util.get_next_variable_name(
+            type_name=TYPE_NAME)
+        self._append_constructor_expression()
+
+    def _append_constructor_expression(self) -> None:
+        """
+        Append constructor expression to file.
+        """
+        from apysc.expression import expression_file_util
+        from apysc.type import value_util
+        value_str: str = value_util.get_value_str_for_expression(
+            value=self._initial_value)
+        expression: str = f'var {self.variable_name} = {value_str};'
+        expression_file_util.append_js_expression(expression=expression)
 
     def _get_dict_value(
             self, value: Union[Dict[Any, Any], Any]) -> Dict[Any, Any]:

@@ -58,3 +58,8 @@ class TestDictionary:
             func_or_method=Dictionary,
             kwargs={'value': 10},
             match='Not acceptable value type is specified.')
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_value(self) -> None:
+        dict_1: Dictionary = Dictionary(value={'a': 10})
+        assert dict_1.value == {'a': 10}

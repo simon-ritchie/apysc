@@ -84,6 +84,18 @@ class Dictionary(CopyInterface, RevertInterface):
             '\nAcceptable types are: dict and Dictionary'
         )
 
+    @property
+    def value(self) -> Union[Dict[Any, Any], Any]:
+        """
+        Get a current dict value.
+
+        Returns
+        -------
+        value : dict
+            Current dict value.
+        """
+        return self._value
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass
 

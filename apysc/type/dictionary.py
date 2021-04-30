@@ -108,6 +108,23 @@ class Dictionary(CopyInterface, RevertInterface):
         """
         self._validate_acceptable_value_type(value=value)
         self._value = self._get_dict_value(value=value)
+        self._append_value_setter_expression(value=value)
+
+    def _append_value_setter_expression(
+            self, value: Union[Dict[Any, Any], Any]) -> None:
+        """
+        Append value's setter expression to file.
+
+        Parameters
+        ----------
+        value : dict or Dictionary.
+            Dictionary value to set.
+        """
+        from apysc.expression import expression_file_util
+        from apysc.type import value_util
+        value_str: str = value_util.get_value_str_for_expression(value=value)
+        expression: str = f'{self.variable_name} = {value_str};'
+        expression_file_util.append_js_expression(expression=expression)
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass

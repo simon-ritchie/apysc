@@ -88,3 +88,15 @@ class TestDictionary:
         dict_1.value = {'b': 20}
         dict_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert dict_1._value_snapshot == {snapshot_name: {'a': 10}}
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__revert(self) -> None:
+        dict_1: Dictionary = Dictionary(value={'a': 10})
+        snapshot_name: str = dict_1._get_next_snapshot_name()
+        dict_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert dict_1.value == {'a': 10}
+
+        dict_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        dict_1.value = {'b': 20}
+        dict_1._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert dict_1.value == {'a': 10}

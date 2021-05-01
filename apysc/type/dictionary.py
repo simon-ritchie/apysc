@@ -240,10 +240,7 @@ class Dictionary(CopyInterface, RevertInterface):
         from apysc import AnyValue
         from apysc.type.variable_name_interface import VariableNameInterface
         self._validate_key_type_is_str_or_numeric(key=key)
-        if isinstance(key, VariableNameInterface):
-            key_: Key = str(key)
-        else:
-            key_ = key
+        key_: Key = self._get_builtin_type_key(key=key)
         has_key: bool = key_ in self._value
         if has_key:
             value: Any = self._value[key_]
@@ -251,6 +248,25 @@ class Dictionary(CopyInterface, RevertInterface):
             value = AnyValue(None)
         self._append_getitem_expression(key=key, value=value)
         return value
+
+    def _get_builtin_type_key(self, key: Key) -> Key:
+        """
+        Get a built-in type's key (str, int, or float) from
+        a specified key.
+
+        Parameters
+        ----------
+        key : Key
+            Target key value (including String, Int, and Number).
+
+        Returns
+        -------
+        key : str or int or float
+            Built-in type's key.
+        """
+        if isinstance(key, (String, Int, Number)):
+            return key._value
+        return key
 
     def _append_getitem_expression(self, key: Key, value: Any) -> None:
         """
@@ -309,10 +325,7 @@ class Dictionary(CopyInterface, RevertInterface):
             Any value to set.
         """
         from apysc.type.variable_name_interface import VariableNameInterface
-        if isinstance(key, VariableNameInterface):
-            key_: Key = str(key)
-        else:
-            key_ = key
+        key_: Key = self._get_builtin_type_key(key=key)
         self._value[key_] = value
         self._append_setitem_expression(key=key, value=value)
 
@@ -335,3 +348,14 @@ class Dictionary(CopyInterface, RevertInterface):
             f'{self.variable_name}[{key_str}] = {value_str};'
         )
         expression_file_util.append_js_expression(expression=expression)
+
+    def __delitem__(self, key: Key) -> None:
+        """
+        Delete specified key's value from dictionary.
+
+        Parameters
+        ----------
+        key : Key
+            Dictionary key to delete.
+        """
+        from apysc.type.variable_name_interface import VariableNameInterface

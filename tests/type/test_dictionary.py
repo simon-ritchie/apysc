@@ -210,3 +210,13 @@ class TestDictionary:
             f'{dict_1.variable_name}[{string_1.variable_name}] = 20;'
         )
         assert expected in expression
+
+    def test__get_builtin_type_key(self) -> None:
+        dict_1: Dictionary = Dictionary({})
+        key: Any = dict_1._get_builtin_type_key(key=Int(10))
+        assert isinstance(key, int)
+        assert key == 10
+
+        key = dict_1._get_builtin_type_key(key=20)
+        assert isinstance(key, int)
+        assert key == 20

@@ -67,8 +67,13 @@ def main() -> None:
     dict_3['a'] = int_1
     assert_equal(expected=int_1, actual=dict_3['a'])
 
+    dict_3: Dictionary = Dictionary({'a': 10, 'b': 20})
+    string_2: String = String('a')
+    del dict_3[string_2]
+    assert_dicts_equal(expected={'b': 20}, actual=dict_3)
+
     exporter.save_expressions_overall_html(
-        dest_dir_path=_DEST_DIR_PATH, minify=False)
+        dest_dir_path=_DEST_DIR_PATH)
 
 
 def on_stage_click(e: MouseEvent, options: Dict[str, Any]) -> None:

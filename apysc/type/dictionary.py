@@ -194,4 +194,21 @@ class Dictionary(CopyInterface, RevertInterface):
             This dictionary value's length.
         """
         length: Int = Int(len(self._value))
+        self._append_length_expression(length=length)
         return length
+
+    def _append_length_expression(self, length: Int) -> None:
+        """
+        Append length method expression to file.
+
+        Parameters
+        ----------
+        length : Int
+            Created length Int variable.
+        """
+        from apysc.expression import expression_file_util
+        expression: str = (
+            f'{length.variable_name} = '
+            f'Object.keys({self.variable_name}).length;'
+        )
+        expression_file_util.append_js_expression(expression=expression)

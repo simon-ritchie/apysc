@@ -117,3 +117,15 @@ class TestDictionary:
         length: Int = dict_1.length
         assert length == 2
         assert isinstance(length, Int)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_length_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        dict_1: Dictionary = Dictionary(value={'a': 10, 'b': 20})
+        length: Int = dict_1.length
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{length.variable_name} = '
+            f'Object.keys({dict_1.variable_name}).length;'
+        )
+        assert expected in expression

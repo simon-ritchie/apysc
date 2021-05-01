@@ -14,7 +14,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Array, Dictionary
+from apysc import Array, Dictionary, Number
 from apysc import If
 from apysc import Int
 from apysc import MouseEvent
@@ -53,7 +53,17 @@ def main() -> None:
     length: Int = dict_2.length
     assert_equal(expected=2, actual=length)
 
-    exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    int_1: Int = Int(30)
+    string_1: String = String('a')
+    number_1: Number = Number(3.5)
+    dict_3: Dictionary = Dictionary({'a': 10, 2: 20, 3.5: int_1})
+    assert_equal(expected=10, actual=dict_3['a'])
+    assert_equal(expected=10, actual=dict_3[string_1])
+    assert_equal(expected=20, actual=dict_3[10])
+    assert_equal(expected=int_1, actual=dict_3[number_1])
+
+    exporter.save_expressions_overall_html(
+        dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
 def on_stage_click(e: MouseEvent, options: Dict[str, Any]) -> None:

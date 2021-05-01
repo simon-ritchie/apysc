@@ -36,6 +36,9 @@ def test_get_value_str_for_expression() -> None:
     value_str = value_util.get_value_str_for_expression(value={'key_1': 10})
     assert value_str == '{"key_1": 10}'
 
+    value_str = value_util.get_value_str_for_expression(value=None)
+    assert value_str == 'NaN'
+
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_copy() -> None:

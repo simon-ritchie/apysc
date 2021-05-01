@@ -32,11 +32,14 @@ class AnyValue(VariableNameInterface):
         Append constructor expression to file.
         """
         from apysc.expression import expression_file_util
+        from apysc.type import value_util
         expression: str = f'var {self.variable_name} = '
         if isinstance(self._value, VariableNameInterface):
             expression += f'{self._value.variable_name};'
         else:
-            expression += f'{self._value};'
+            value_str: str = value_util.get_value_str_for_expression(
+                value=self._value)
+            expression += f'{value_str};'
         expression_file_util.append_js_expression(expression=expression)
 
     @property

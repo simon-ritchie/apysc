@@ -26,11 +26,20 @@ class TestAnyValue:
         )
         assert expected in expression
 
+        expression_file_util.remove_expression_file()
         int_1: Int = Int(10)
         any_value_2: AnyValue = AnyValue(int_1)
         expression = expression_file_util.get_current_expression()
         expected = (
             f'{any_value_2.variable_name} = {int_1.variable_name};'
+        )
+        assert expected in expression
+
+        expression_file_util.remove_expression_file()
+        any_value_3 = AnyValue(None)
+        expression = expression_file_util.get_current_expression()
+        expected = (
+            f'var {any_value_3.variable_name} = NaN;'
         )
         assert expected in expression
 

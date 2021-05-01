@@ -35,6 +35,7 @@ def get_value_str_for_expression(value: Any) -> str:
         will be quoted by double quotation.
         List or tuple value will be converted to js Array expression,
         e.g., '[10, "Hello!", true, any_variable]'.
+        None will be Nan.
     """
     from apysc.type.variable_name_interface import VariableNameInterface
     if isinstance(value, VariableNameInterface):
@@ -49,6 +50,8 @@ def get_value_str_for_expression(value: Any) -> str:
     if isinstance(value, dict):
         values_str = _get_value_str_from_dict(value=value)
         return values_str
+    if value is None:
+        return 'NaN'
     return str(value)
 
 

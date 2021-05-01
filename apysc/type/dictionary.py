@@ -56,8 +56,7 @@ class Dictionary(CopyInterface, RevertInterface):
             return value
         new_dict: Dict[Key, Any] = {}
         for key, value in value.items():
-            if isinstance(key, (int, Int)):
-                key = str(key)
+            key = self._convert_int_key_to_str(key=key)
             new_dict[key] = value
         return new_dict
 
@@ -264,6 +263,25 @@ class Dictionary(CopyInterface, RevertInterface):
         raise Exception(
             'Dictionary instance can\'t apply len function.'
             ' Please use length property instead.')
+
+    def _convert_int_key_to_str(self, key: Key) -> Union[str, String]:
+        """
+        Convert integer key value to string.
+
+        Parameters
+        ----------
+        key : Key
+            Dictionary key.
+
+        Returns
+        -------
+        key : str or String
+            Converted key.
+        """
+        if isinstance(key, (str, String)):
+            return key
+        key = str(key)
+        return key
 
     def __getitem__(self, key: Key) -> Any:
         """

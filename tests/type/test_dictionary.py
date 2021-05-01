@@ -1,6 +1,6 @@
 from apysc.expression import expression_file_util
 from random import randint
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Union
 
 from retrying import retry
 
@@ -169,3 +169,16 @@ class TestDictionary:
 
         _: Dictionary = Dictionary(value=dict_1)
         assert dict_1.value == {'a': 10, '20': 30}
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__convert_int_key_to_str(self) -> None:
+        dict_1: Dictionary = Dictionary(value={'a': 10, 20: 30})
+        key: Union[str, String] = dict_1._convert_int_key_to_str(key='Hello')
+        assert key == 'Hello'
+
+        key = dict_1._convert_int_key_to_str(key=String('Hello'))
+        assert isinstance(key, String)
+        assert key == 'Hello'
+
+        key = dict_1._convert_int_key_to_str(key=10)
+        assert key == '10'

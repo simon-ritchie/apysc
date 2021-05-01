@@ -49,6 +49,10 @@ def main() -> None:
     stage.click(on_stage_click, options={'dict_1': dict_1})
     assert_dicts_equal(expected={'b': 20}, actual=dict_1)
 
+    dict_2: Dictionary = Dictionary({'a': 10, 'b': 20})
+    length: Int = dict_2.length
+    assert_equal(expected=2, actual=length)
+
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

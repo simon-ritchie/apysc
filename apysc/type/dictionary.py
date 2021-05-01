@@ -212,3 +212,11 @@ class Dictionary(CopyInterface, RevertInterface):
             f'Object.keys({self.variable_name}).length;'
         )
         expression_file_util.append_js_expression(expression=expression)
+
+    def __len__(self) -> None:
+        """
+        This method is disabled and can't use from Dictionary instance.
+        """
+        raise Exception(
+            'Dictionary instance can\'t apply len function.'
+            ' Please use length property instead.')

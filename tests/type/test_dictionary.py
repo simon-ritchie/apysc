@@ -129,3 +129,11 @@ class TestDictionary:
             f'Object.keys({dict_1.variable_name}).length;'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___len__(self) -> None:
+        dict_1: Dictionary = Dictionary(value={'a': 10, 'b': 20})
+        assert_raises(
+            expected_error_class=Exception,
+            func_or_method=dict_1.__len__,
+            match='Dictionary instance can\'t apply len function.')

@@ -761,11 +761,11 @@ class Array(CopyInterface, RevertInterface):
 
     def __len__(self) -> None:
         """
-        Method to raise error message.
+        This method is disabled and can't use from Array instance.
         """
         raise ValueError(
-            'Array instance can not apply len function.'
-            ' Please use length method instead.')
+            'Array instance can\'t apply len function.'
+            ' Please use length property instead.')
 
     def join(self, sep: Union[str, String]) -> String:
         """

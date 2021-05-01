@@ -5,15 +5,17 @@ from typing import Any, Dict, Union
 
 from apysc.type.copy_interface import CopyInterface
 from apysc.type.revert_interface import RevertInterface
-from apysc import Int
+from apysc import Int, String
+
+Key = Union[str, int, String, Int]
 
 
 class Dictionary(CopyInterface, RevertInterface):
 
-    _initial_value: Union[Dict[Any, Any], Any]
-    _value: Dict[Any, Any]
+    _initial_value: Union[Dict[Key, Any], Any]
+    _value: Dict[Key, Any]
 
-    def __init__(self, value: Union[Dict[Any, Any], Any]) -> None:
+    def __init__(self, value: Union[Dict[Key, Any], Any]) -> None:
         """
         Dictionary class for apysc library.
 
@@ -45,7 +47,7 @@ class Dictionary(CopyInterface, RevertInterface):
         expression_file_util.append_js_expression(expression=expression)
 
     def _get_dict_value(
-            self, value: Union[Dict[Any, Any], Any]) -> Dict[Any, Any]:
+            self, value: Union[Dict[Key, Any], Any]) -> Dict[Any, Any]:
         """
         Get a dict value from specified value.
 
@@ -64,7 +66,7 @@ class Dictionary(CopyInterface, RevertInterface):
         return value
 
     def _validate_acceptable_value_type(
-            self, value: Union[Dict[Any, Any], Any]) -> None:
+            self, value: Union[Dict[Key, Any], Any]) -> None:
         """
         Validate that specified value is acceptable type or not.
 
@@ -87,7 +89,7 @@ class Dictionary(CopyInterface, RevertInterface):
         )
 
     @property
-    def value(self) -> Union[Dict[Any, Any], Any]:
+    def value(self) -> Union[Dict[Key, Any], Any]:
         """
         Get a current dict value.
 
@@ -99,7 +101,7 @@ class Dictionary(CopyInterface, RevertInterface):
         return self._value
 
     @value.setter
-    def value(self, value: Union[Dict[Any, Any], Any]) -> None:
+    def value(self, value: Union[Dict[Key, Any], Any]) -> None:
         """
         Set dictionary value.
 
@@ -113,7 +115,7 @@ class Dictionary(CopyInterface, RevertInterface):
         self._append_value_setter_expression(value=value)
 
     def _append_value_setter_expression(
-            self, value: Union[Dict[Any, Any], Any]) -> None:
+            self, value: Union[Dict[Key, Any], Any]) -> None:
         """
         Append value's setter expression to file.
 
@@ -128,7 +130,7 @@ class Dictionary(CopyInterface, RevertInterface):
         expression: str = f'{self.variable_name} = {value_str};'
         expression_file_util.append_js_expression(expression=expression)
 
-    _value_snapshot: Dict[str, Dict[Any, Any]]
+    _value_snapshot: Dict[str, Dict[Key, Any]]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
@@ -220,3 +222,43 @@ class Dictionary(CopyInterface, RevertInterface):
         raise Exception(
             'Dictionary instance can\'t apply len function.'
             ' Please use length property instead.')
+
+    def __getitem__(self, key: Key) -> Any:
+        """
+        Get a specified key's sinble value.
+
+        Parameters
+        ----------
+        key : Key
+            Dictionary key. If int is specified, that will be
+            converted to str on js.
+
+        Returns
+        -------
+        value : *
+            Specified key's value.
+        """
+        from apysc import AnyValue
+        self._validate_key_type_is_str_or_int(key=key)
+        pass
+
+    def _validate_key_type_is_str_or_int(self, key: Key) -> None:
+        """
+        Validate whether key value type is acceptable (str or int)
+        or not.
+
+        Parameters
+        ----------
+        key : Key
+            Dictionary key to check.
+
+        Raises
+        ------
+        ValueError
+            If key type is not str, String, int, and Int.
+        """
+        if isinstance(key, (str, String, int, Int)):
+            return
+        raise ValueError(
+            f'Unsupported key type is specified: {type(key)}'
+            f'\nSuppoting types are: str, String, int, Int')

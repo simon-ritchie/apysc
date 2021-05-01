@@ -1,10 +1,10 @@
 from apysc.expression import expression_file_util
 from random import randint
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 from retrying import retry
 
-from apysc import Dictionary, Int
+from apysc import Dictionary, Int, String
 from tests.testing_helper import assert_raises
 from apysc.expression import expression_variables_util
 from apysc.expression import var_names
@@ -137,3 +137,15 @@ class TestDictionary:
             expected_error_class=Exception,
             func_or_method=dict_1.__len__,
             match='Dictionary instance can\'t apply len function.')
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__validate_key_type_is_str_or_int(self) -> None:
+        dict_1: Dictionary = Dictionary(value={'a': 10})
+        acceptables: List[Any] = ['Hello', String('Hello'), 10, Int(10)]
+        for acceptable in acceptables:
+            dict_1._validate_key_type_is_str_or_int(key=acceptable)
+        assert_raises(
+            expected_error_class=ValueError,
+            func_or_method=dict_1._validate_key_type_is_str_or_int,
+            kwargs={'key': 10.5},
+            match='Unsupported key type is specified')

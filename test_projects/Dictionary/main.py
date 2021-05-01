@@ -59,7 +59,7 @@ def main() -> None:
     dict_3: Dictionary = Dictionary({'a': 10, 2: 20, 3.5: int_1})
     assert_equal(expected=10, actual=dict_3['a'])
     assert_equal(expected=10, actual=dict_3[string_1])
-    assert_equal(expected=20, actual=dict_3[10])
+    assert_equal(expected=20, actual=dict_3[2])
     assert_equal(expected=int_1, actual=dict_3[number_1])
 
     exporter.save_expressions_overall_html(

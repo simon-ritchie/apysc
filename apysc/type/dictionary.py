@@ -285,7 +285,7 @@ class Dictionary(CopyInterface, RevertInterface):
 
     def __getitem__(self, key: Key) -> Any:
         """
-        Get a specified key's sinble value.
+        Get a specified key's single value.
 
         Parameters
         ----------
@@ -300,7 +300,13 @@ class Dictionary(CopyInterface, RevertInterface):
         """
         from apysc import AnyValue
         self._validate_key_type_is_str_or_int(key=key)
-        pass
+        key_: str = str(key)
+        has_key: bool = key_ in self._value
+        if has_key:
+            value: Any = self._value[key_]
+        else:
+            value = AnyValue(None)
+        return value
 
     def _validate_key_type_is_str_or_int(self, key: Key) -> None:
         """

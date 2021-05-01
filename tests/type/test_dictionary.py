@@ -182,3 +182,14 @@ class TestDictionary:
 
         key = dict_1._convert_int_key_to_str(key=10)
         assert key == '10'
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___getitem__(self) -> None:
+        string_1: String = String('b')
+        dict_1: Dictionary = Dictionary(value={'a': 10, 'b': 20, 3: 30})
+        value: Any = dict_1['a']
+        assert value == 10
+        value = dict_1[string_1]
+        assert value == 20
+        value = dict_1['3']
+        assert value == 30

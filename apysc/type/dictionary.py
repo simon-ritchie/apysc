@@ -155,3 +155,14 @@ class Dictionary(CopyInterface, RevertInterface):
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._value = self._value_snapshot[snapshot_name]
+
+    def __str__(self) -> str:
+        """
+        String conversion method.
+
+        Parameters
+        ----------
+        string : str
+            Converted value string.
+        """
+        return str(self._value)

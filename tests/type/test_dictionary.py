@@ -100,3 +100,8 @@ class TestDictionary:
         dict_1.value = {'b': 20}
         dict_1._run_all_revert_methods(snapshot_name=snapshot_name)
         assert dict_1.value == {'a': 10}
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___str__(self) -> None:
+        dict_1: Dictionary = Dictionary(value={'a': 10})
+        assert str(dict_1) == "{'a': 10}"

@@ -166,3 +166,17 @@ class Dictionary(CopyInterface, RevertInterface):
             Converted value string.
         """
         return str(self._value)
+
+    def __repr__(self) -> str:
+        """
+        Get a representation string of this instance.
+
+        Returns
+        -------
+        repr_str : str
+            Representation string of this instance.
+        """
+        repr_str: str = (
+            f'Dictionary({self._value})'
+        )
+        return repr_str

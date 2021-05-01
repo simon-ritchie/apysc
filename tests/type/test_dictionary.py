@@ -105,3 +105,8 @@ class TestDictionary:
     def test___str__(self) -> None:
         dict_1: Dictionary = Dictionary(value={'a': 10})
         assert str(dict_1) == "{'a': 10}"
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___repr__(self) -> None:
+        dict_1: Dictionary = Dictionary(value={'a': 10})
+        assert repr(dict_1) == "Dictionary({'a': 10})"

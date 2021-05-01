@@ -149,3 +149,15 @@ class TestDictionary:
             func_or_method=dict_1._validate_key_type_is_str_or_int,
             kwargs={'key': 10.5},
             match='Unsupported key type is specified')
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__validate_all_keys_type_are_str_or_int(self) -> None:
+        dict_1: Dictionary = Dictionary(value={'a': 10})
+        _: Dictionary = Dictionary(value=dict_1)
+
+        assert_raises(
+            expected_error_class=ValueError,
+            func_or_method=Dictionary,
+            kwargs={'value': {10.5: 20}},
+            match='Unsupported key type is specified',
+        )

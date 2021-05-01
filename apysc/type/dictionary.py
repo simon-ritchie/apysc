@@ -23,17 +23,39 @@ class Dictionary(CopyInterface, RevertInterface):
         ----------
         value : dict or Dictionary
             Initial dictionary value.
+
+        Notes
+        -----
+        - Dictionary keys will be converted from int to str.
+        - Only str or int keys are acceptable.
         """
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names
         TYPE_NAME: str = var_names.DICTIONARY
         self._validate_acceptable_value_type(value=value)
+        self._validate_all_keys_type_are_str_or_int(value=value)
         self._initial_value = value
         self._type_name = TYPE_NAME
         self._value = self._get_dict_value(value=value)
         self.variable_name = expression_variables_util.get_next_variable_name(
             type_name=TYPE_NAME)
         self._append_constructor_expression()
+
+    def _validate_all_keys_type_are_str_or_int(
+            self, value: Union[Dict[Key, Any], Any]) -> None:
+        """
+        Validate whether all keys type are acceptable (str or int)
+        or not.
+
+        Parameters
+        ----------
+        value : dict or Dictionary
+            Initial dictionary value.
+        """
+        if isinstance(value, Dictionary):
+            return
+        for key in value.keys():
+            self._validate_key_type_is_str_or_int(key=key)
 
     def _append_constructor_expression(self) -> None:
         """
@@ -231,7 +253,7 @@ class Dictionary(CopyInterface, RevertInterface):
         ----------
         key : Key
             Dictionary key. If int is specified, that will be
-            converted to str on js.
+            converted to str.
 
         Returns
         -------
@@ -260,5 +282,5 @@ class Dictionary(CopyInterface, RevertInterface):
         if isinstance(key, (str, String, int, Int)):
             return
         raise ValueError(
-            f'Unsupported key type is specified: {type(key)}'
+            f'Unsupported key type is specified: {type(key)}, {key}'
             f'\nSuppoting types are: str, String, int, Int')

@@ -654,9 +654,9 @@ class Array(CopyInterface, RevertInterface):
         value : *
             Specified index's value.
         """
+        from apysc import AnyValue
         from apysc.expression import expression_file_util
         from apysc.type import value_util
-        from apysc import AnyValue
         if not isinstance(value, VariableNameInterface):
             value = AnyValue(None)
         index_str: str = value_util.get_value_str_for_expression(

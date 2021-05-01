@@ -2,8 +2,9 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Array, Dictionary
+from apysc import Array
 from apysc import Boolean
+from apysc import Dictionary
 from apysc import Int
 from apysc.console import assertion
 from apysc.expression import expression_file_util

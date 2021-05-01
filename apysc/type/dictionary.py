@@ -1,11 +1,15 @@
 """Class implementation for dictionary.
 """
 
-from typing import Any, Dict, Union
+from typing import Any
+from typing import Dict
+from typing import Union
 
+from apysc import Int
+from apysc import Number
+from apysc import String
 from apysc.type.copy_interface import CopyInterface
 from apysc.type.revert_interface import RevertInterface
-from apysc import Int, String, Number
 
 Key = Union[str, int, float, String, Int, Number]
 
@@ -164,8 +168,8 @@ class Dictionary(CopyInterface, RevertInterface):
         """
         String conversion method.
 
-        Parameters
-        ----------
+        Returns
+        -------
         string : str
             Converted value string.
         """
@@ -190,8 +194,8 @@ class Dictionary(CopyInterface, RevertInterface):
         """
         Get length of this dictionary values.
 
-        Parameters
-        ----------
+        Returns
+        -------
         length : Int
             This dictionary value's length.
         """
@@ -238,7 +242,6 @@ class Dictionary(CopyInterface, RevertInterface):
             Specified key's value.
         """
         from apysc import AnyValue
-        from apysc.type.variable_name_interface import VariableNameInterface
         self._validate_key_type_is_str_or_numeric(key=key)
         key_: Key = self._get_builtin_type_key(key=key)
         has_key: bool = key_ in self._value
@@ -279,9 +282,9 @@ class Dictionary(CopyInterface, RevertInterface):
         value : *
             Specified key's value.
         """
+        from apysc import AnyValue
         from apysc.expression import expression_file_util
         from apysc.type import value_util
-        from apysc import AnyValue
         from apysc.type.variable_name_interface import VariableNameInterface
         if not isinstance(value, VariableNameInterface):
             value = AnyValue(None)
@@ -324,7 +327,6 @@ class Dictionary(CopyInterface, RevertInterface):
         value : *
             Any value to set.
         """
-        from apysc.type.variable_name_interface import VariableNameInterface
         key_: Key = self._get_builtin_type_key(key=key)
         self._value[key_] = value
         self._append_setitem_expression(key=key, value=value)

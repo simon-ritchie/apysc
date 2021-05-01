@@ -8,7 +8,8 @@ Mainly following interfaces are defined:
     Get a copy of specified instance if it is instance of CopyInterface.
 """
 
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 from typing import List
 from typing import TypeVar
 from typing import Union
@@ -69,7 +70,6 @@ def _get_value_str_from_dict(value: Dict[Any, Any]) -> str:
     value_str : str
         Converted string, e.g., '{"any_key": 10, "other_key": any_variable}'
     """
-    from apysc.type.variable_name_interface import VariableNameInterface
     value_str: str = '{'
     for key, value in value.items():
         if value_str != '{':

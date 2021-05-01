@@ -1,14 +1,21 @@
-from apysc.expression import expression_file_util
-from random import randint
-from typing import Any, Dict, List, Match, Optional, Union
 import re
+from random import randint
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
-from apysc import Dictionary, Int, String, Number, Boolean
-from tests.testing_helper import assert_raises
-from apysc.expression import expression_variables_util
+from apysc import Boolean
+from apysc import Dictionary
+from apysc import Int
+from apysc import Number
+from apysc import String
+from apysc.expression import expression_file_util
 from apysc.expression import var_names
+from tests.testing_helper import assert_raises
 
 
 class TestDictionary:

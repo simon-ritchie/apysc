@@ -14,15 +14,14 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Array, Dictionary, Number
-from apysc import If
+from apysc import Dictionary
 from apysc import Int
 from apysc import MouseEvent
+from apysc import Number
 from apysc import Stage
 from apysc import String
 from apysc import assert_dicts_equal
 from apysc import assert_equal
-from apysc import assert_true
 from apysc import trace
 from apysc.file import file_util
 from apysc.html import exporter
@@ -67,10 +66,10 @@ def main() -> None:
     dict_3['a'] = int_1
     assert_equal(expected=int_1, actual=dict_3['a'])
 
-    dict_3: Dictionary = Dictionary({'a': 10, 'b': 20})
+    dict_4: Dictionary = Dictionary({'a': 10, 'b': 20})
     string_2: String = String('a')
-    del dict_3[string_2]
-    assert_dicts_equal(expected={'b': 20}, actual=dict_3)
+    del dict_4[string_2]
+    assert_dicts_equal(expected={'b': 20}, actual=dict_4)
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)

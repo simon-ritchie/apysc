@@ -412,7 +412,8 @@ def _trace_arrays_or_dicts_assertion_info(
     actual : *
         Actual value.
     """
-    from apysc import Array, Dictionary
+    from apysc import Array
+    from apysc import Dictionary
     from apysc.type import value_util
     expected_exp_str: str = value_util.get_value_str_for_expression(
         value=expected)

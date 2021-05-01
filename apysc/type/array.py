@@ -734,7 +734,6 @@ class Array(CopyInterface, RevertInterface):
     def length(self) -> Int:
         """
         Get length of this array.
-        This behaves same as len function.
 
         Returns
         -------

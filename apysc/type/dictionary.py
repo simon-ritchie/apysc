@@ -2,8 +2,10 @@
 """
 
 from typing import Any, Dict, Union
+
 from apysc.type.copy_interface import CopyInterface
 from apysc.type.revert_interface import RevertInterface
+from apysc import Int
 
 
 class Dictionary(CopyInterface, RevertInterface):
@@ -180,3 +182,16 @@ class Dictionary(CopyInterface, RevertInterface):
             f'Dictionary({self._value})'
         )
         return repr_str
+
+    @property
+    def length(self) -> Int:
+        """
+        Get length of this dictionary values.
+
+        Parameters
+        ----------
+        length : Int
+            This dictionary value's length.
+        """
+        length: Int = Int(len(self._value))
+        return length

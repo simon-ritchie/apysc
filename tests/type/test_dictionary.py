@@ -4,7 +4,7 @@ from typing import Any, Dict
 
 from retrying import retry
 
-from apysc import Dictionary
+from apysc import Dictionary, Int
 from tests.testing_helper import assert_raises
 from apysc.expression import expression_variables_util
 from apysc.expression import var_names
@@ -110,3 +110,10 @@ class TestDictionary:
     def test___repr__(self) -> None:
         dict_1: Dictionary = Dictionary(value={'a': 10})
         assert repr(dict_1) == "Dictionary({'a': 10})"
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_length(self) -> None:
+        dict_1: Dictionary = Dictionary(value={'a': 10, 'b': 20})
+        length: Int = dict_1.length
+        assert length == 2
+        assert isinstance(length, Int)

@@ -4,7 +4,7 @@ from typing import Any, Dict, List, Union
 
 from retrying import retry
 
-from apysc import Dictionary, Int, String
+from apysc import Dictionary, Int, String, Number, Boolean
 from tests.testing_helper import assert_raises
 from apysc.expression import expression_variables_util
 from apysc.expression import var_names
@@ -139,57 +139,27 @@ class TestDictionary:
             match='Dictionary instance can\'t apply len function.')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__validate_key_type_is_str_or_int(self) -> None:
+    def test__validate_key_type_is_str_or_numeric(self) -> None:
         dict_1: Dictionary = Dictionary(value={'a': 10})
-        acceptables: List[Any] = ['Hello', String('Hello'), 10, Int(10)]
+        acceptables: List[Any] = [
+            'Hello', String('Hello'), 10, Int(10), 20.5, Number(20.5)]
         for acceptable in acceptables:
-            dict_1._validate_key_type_is_str_or_int(key=acceptable)
+            dict_1._validate_key_type_is_str_or_numeric(key=acceptable)
         assert_raises(
             expected_error_class=ValueError,
-            func_or_method=dict_1._validate_key_type_is_str_or_int,
-            kwargs={'key': 10.5},
+            func_or_method=dict_1._validate_key_type_is_str_or_numeric,
+            kwargs={'key': Boolean(True)},
             match='Unsupported key type is specified')
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__validate_all_keys_type_are_str_or_int(self) -> None:
-        dict_1: Dictionary = Dictionary(value={'a': 10})
-        _: Dictionary = Dictionary(value=dict_1)
-
-        assert_raises(
-            expected_error_class=ValueError,
-            func_or_method=Dictionary,
-            kwargs={'value': {10.5: 20}},
-            match='Unsupported key type is specified',
-        )
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__convert_values_key_from_int_to_str(self) -> None:
-        dict_1: Dictionary = Dictionary(value={'a': 10, 20: 30})
-        assert dict_1.value == {'a': 10, '20': 30}
-
-        _: Dictionary = Dictionary(value=dict_1)
-        assert dict_1.value == {'a': 10, '20': 30}
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__convert_int_key_to_str(self) -> None:
-        dict_1: Dictionary = Dictionary(value={'a': 10, 20: 30})
-        key: Union[str, String] = dict_1._convert_int_key_to_str(key='Hello')
-        assert key == 'Hello'
-
-        key = dict_1._convert_int_key_to_str(key=String('Hello'))
-        assert isinstance(key, String)
-        assert key == 'Hello'
-
-        key = dict_1._convert_int_key_to_str(key=10)
-        assert key == '10'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___getitem__(self) -> None:
         string_1: String = String('b')
-        dict_1: Dictionary = Dictionary(value={'a': 10, 'b': 20, 3: 30})
+        dict_1: Dictionary = Dictionary(
+            value={'a': 10, 'b': 20, 3: 30, 4.5: 40})
         value: Any = dict_1['a']
         assert value == 10
         value = dict_1[string_1]
         assert value == 20
-        value = dict_1['3']
+        value = dict_1[3]
         assert value == 30
+        value = dict_1[4.5]

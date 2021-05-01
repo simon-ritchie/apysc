@@ -5,9 +5,9 @@ from typing import Any, Dict, Union
 
 from apysc.type.copy_interface import CopyInterface
 from apysc.type.revert_interface import RevertInterface
-from apysc import Int, String
+from apysc import Int, String, Number
 
-Key = Union[str, int, String, Int]
+Key = Union[str, int, float, String, Int, Number]
 
 
 class Dictionary(CopyInterface, RevertInterface):
@@ -23,58 +23,17 @@ class Dictionary(CopyInterface, RevertInterface):
         ----------
         value : dict or Dictionary
             Initial dictionary value.
-
-        Notes
-        -----
-        - Dictionary keys will be converted from int to str.
-        - Only str or int keys are acceptable.
         """
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names
         TYPE_NAME: str = var_names.DICTIONARY
         self._validate_acceptable_value_type(value=value)
-        self._validate_all_keys_type_are_str_or_int(value=value)
-        value = self._convert_values_key_from_int_to_str(value=value)
         self._initial_value = value
         self._type_name = TYPE_NAME
         self._value = self._get_dict_value(value=value)
         self.variable_name = expression_variables_util.get_next_variable_name(
             type_name=TYPE_NAME)
         self._append_constructor_expression()
-
-    def _convert_values_key_from_int_to_str(
-            self, value: Union[Dict[Key, Any], Any]):
-        """
-        Convert dict keys from int to str.
-
-        Parameters
-        ----------
-        value : dict or Dictionary
-            Dictionary value.
-        """
-        if isinstance(value, Dictionary):
-            return value
-        new_dict: Dict[Key, Any] = {}
-        for key, value in value.items():
-            key = self._convert_int_key_to_str(key=key)
-            new_dict[key] = value
-        return new_dict
-
-    def _validate_all_keys_type_are_str_or_int(
-            self, value: Union[Dict[Key, Any], Any]) -> None:
-        """
-        Validate whether all keys type are acceptable (str or int)
-        or not.
-
-        Parameters
-        ----------
-        value : dict or Dictionary
-            Dictionary value.
-        """
-        if isinstance(value, Dictionary):
-            return
-        for key in value.keys():
-            self._validate_key_type_is_str_or_int(key=key)
 
     def _append_constructor_expression(self) -> None:
         """
@@ -264,9 +223,9 @@ class Dictionary(CopyInterface, RevertInterface):
             'Dictionary instance can\'t apply len function.'
             ' Please use length property instead.')
 
-    def _convert_int_key_to_str(self, key: Key) -> Union[str, String]:
+    def __getitem__(self, key: Key) -> Any:
         """
-        Convert integer key value to string.
+        Get a specified key's single value.
 
         Parameters
         ----------
@@ -275,43 +234,48 @@ class Dictionary(CopyInterface, RevertInterface):
 
         Returns
         -------
-        key : str or String
-            Converted key.
-        """
-        if isinstance(key, (str, String)):
-            return key
-        key = str(key)
-        return key
-
-    def __getitem__(self, key: Key) -> Any:
-        """
-        Get a specified key's single value.
-
-        Parameters
-        ----------
-        key : Key
-            Dictionary key. If int is specified, that will be
-            converted to str.
-
-        Returns
-        -------
         value : *
             Specified key's value.
         """
         from apysc import AnyValue
-        self._validate_key_type_is_str_or_int(key=key)
-        key_: str = str(key)
+        from apysc.type.variable_name_interface import VariableNameInterface
+        self._validate_key_type_is_str_or_numeric(key=key)
+        if isinstance(key, VariableNameInterface):
+            key_: Key = str(key)
+        else:
+            key_ = key
         has_key: bool = key_ in self._value
         if has_key:
             value: Any = self._value[key_]
         else:
             value = AnyValue(None)
+        self._append_getitem_expression(key=key, value=value)
         return value
 
-    def _validate_key_type_is_str_or_int(self, key: Key) -> None:
+    def _append_getitem_expression(self, key: Key, value: Any) -> None:
         """
-        Validate whether key value type is acceptable (str or int)
-        or not.
+        Append __getitem__ expression to file.
+
+        Parameters
+        ----------
+        key : Key
+            Dictionary key.
+        value : *
+            Specified key's value.
+        """
+        from apysc.expression import expression_file_util
+        from apysc.type import value_util
+        from apysc import AnyValue
+        from apysc.type.variable_name_interface import VariableNameInterface
+        if not isinstance(value, VariableNameInterface):
+            value = AnyValue(None)
+        key_str: str = value_util.get_value_str_for_expression(value=key)
+        pass
+
+    def _validate_key_type_is_str_or_numeric(self, key: Key) -> None:
+        """
+        Validate whether key value type is acceptable (str or int or
+        flaot) or not.
 
         Parameters
         ----------
@@ -321,9 +285,9 @@ class Dictionary(CopyInterface, RevertInterface):
         Raises
         ------
         ValueError
-            If key type is not str, String, int, and Int.
+            If key type is not str, String, int, Int, float, or Number.
         """
-        if isinstance(key, (str, String, int, Int)):
+        if isinstance(key, (str, String, int, Int, float, Number)):
             return
         raise ValueError(
             f'Unsupported key type is specified: {type(key)}, {key}'

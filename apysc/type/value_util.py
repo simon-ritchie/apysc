@@ -91,7 +91,7 @@ def _validate_dict_key_type(key: Any) -> None:
     TypeError
         If key type isn't str or int.
     """
-    if isinstance(key, (str, int)):
+    if isinstance(key, (str, int, float)):
         return
     raise TypeError(
         f'Dictionary key type only supports str and int: {type(key)}')

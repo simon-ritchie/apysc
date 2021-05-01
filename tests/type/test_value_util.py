@@ -69,6 +69,7 @@ def test__get_value_str_from_iterable() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__validate_dict_key_type() -> None:
     value_util._validate_dict_key_type(key=10)
+    value_util._validate_dict_key_type(key=10.5)
     value_util._validate_dict_key_type(key='Hello')
     assert_raises(
         expected_error_class=TypeError,

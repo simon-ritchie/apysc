@@ -296,3 +296,21 @@ class Dictionary(CopyInterface, RevertInterface):
         raise ValueError(
             f'Unsupported key type is specified: {type(key)}, {key}'
             f'\nSuppoting types are: str, String, int, Int')
+
+    def __setitem__(self, key: Key, value: Any) -> None:
+        """
+        Set value to a specified key position.
+
+        Parameters
+        ----------
+        key : Key
+            Dictionary key to set value.
+        value : *
+            Any value to set.
+        """
+        from apysc.type.variable_name_interface import VariableNameInterface
+        if isinstance(key, VariableNameInterface):
+            key_: Key = str(key)
+        else:
+            key_ = key
+        self._value[key_] = value

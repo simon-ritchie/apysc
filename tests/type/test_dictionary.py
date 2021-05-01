@@ -188,3 +188,13 @@ class TestDictionary:
             f'{dict_1.variable_name}[{str_1.variable_name}];'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___setitem__(self) -> None:
+        dict_1: Dictionary = Dictionary({'a': 10})
+        dict_1['b'] = 20
+        assert dict_1['b'] == 20
+
+        string_1: String = String('a')
+        dict_1[string_1] = 30
+        assert dict_1[string_1] == 30

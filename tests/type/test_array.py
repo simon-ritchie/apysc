@@ -409,9 +409,14 @@ class TestArray:
         int_1: Int = Int(3)
         array_1: Array = Array([1, 2, int_1])
         _: int = array_1[0]
+        expression: str = expression_file_util.get_current_expression()
+        match: Optional[Match] = re.search(
+            pattern=rf'var {var_names.ANY}_.+? = {array_1.variable_name}\[0\]',
+            string=expression, flags=re.MULTILINE)
+        assert match is not None
 
         value_1: Int = array_1[2]
-        expression: str = expression_file_util.get_current_expression()
+        expression = expression_file_util.get_current_expression()
         expected: str = (
             f'{value_1.variable_name} = {array_1.variable_name}[2];'
         )

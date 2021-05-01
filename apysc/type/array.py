@@ -656,8 +656,9 @@ class Array(CopyInterface, RevertInterface):
         """
         from apysc.expression import expression_file_util
         from apysc.type import value_util
+        from apysc import AnyValue
         if not isinstance(value, VariableNameInterface):
-            return
+            value = AnyValue(None)
         index_str: str = value_util.get_value_str_for_expression(
             value=index)
         expression: str = (

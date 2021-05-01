@@ -220,3 +220,9 @@ class TestDictionary:
         key = dict_1._get_builtin_type_key(key=20)
         assert isinstance(key, int)
         assert key == 20
+
+    def test___delitem__(self) -> None:
+        dict_1: Dictionary = Dictionary({'a': 10})
+        string_1: String = String('a')
+        del dict_1[string_1]
+        assert dict_1.value == {}

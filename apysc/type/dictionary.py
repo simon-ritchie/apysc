@@ -358,4 +358,6 @@ class Dictionary(CopyInterface, RevertInterface):
         key : Key
             Dictionary key to delete.
         """
-        from apysc.type.variable_name_interface import VariableNameInterface
+        key_: Key = self._get_builtin_type_key(key=key)
+        if key_ in self._value:
+            del self._value[key_]

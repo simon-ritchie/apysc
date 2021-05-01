@@ -211,6 +211,7 @@ class TestDictionary:
         )
         assert expected in expression
 
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_builtin_type_key(self) -> None:
         dict_1: Dictionary = Dictionary({})
         key: Any = dict_1._get_builtin_type_key(key=Int(10))
@@ -221,8 +222,21 @@ class TestDictionary:
         assert isinstance(key, int)
         assert key == 20
 
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___delitem__(self) -> None:
         dict_1: Dictionary = Dictionary({'a': 10})
         string_1: String = String('a')
         del dict_1[string_1]
         assert dict_1.value == {}
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_delitem_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        dict_1: Dictionary = Dictionary({'a': 10})
+        string_1: String = String('a')
+        del dict_1[string_1]
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'delete {dict_1.variable_name}[{string_1.variable_name}];'
+        )
+        assert expected in expression

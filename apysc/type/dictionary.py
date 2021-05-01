@@ -361,3 +361,21 @@ class Dictionary(CopyInterface, RevertInterface):
         key_: Key = self._get_builtin_type_key(key=key)
         if key_ in self._value:
             del self._value[key_]
+        self._append_delitem_expression(key=key)
+
+    def _append_delitem_expression(self, key: Key) -> None:
+        """
+        Append __delitem__ method expression to file.
+
+        Parameters
+        ----------
+        key : Key
+            Dictionary key to delete.
+        """
+        from apysc.expression import expression_file_util
+        from apysc.type import value_util
+        key_str: str = value_util.get_value_str_for_expression(value=key)
+        expression: str = (
+            f'delete {self.variable_name}[{key_str}];'
+        )
+        expression_file_util.append_js_expression(expression=expression)

@@ -170,7 +170,7 @@ def test_assert_arrays_equal() -> None:
     assert expected in expression
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__trace_arrays_or_dicts_assertion_info() -> None:
     expression_file_util.remove_expression_file()
     array_1: Array = Array([1, 2, 3])
@@ -198,9 +198,9 @@ def test__trace_arrays_or_dicts_assertion_info() -> None:
         interface_label='assert_dicts_equal',
         expected=dict_1, actual={'a': 10})
     expression = expression_file_util.get_current_expression()
-    expected = f'"\\nExpected:", "{dict_1.variable_name} ({{"a": 10}})"'
+    expected = f'"\\nExpected:", "{dict_1.variable_name} ({{a: 10}})"'
     assert expected in expression
-    assert '"actual:", "{"a": 10}"' in expression
+    assert '"actual:", "{a: 10}"' in expression
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

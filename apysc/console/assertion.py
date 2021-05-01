@@ -416,11 +416,16 @@ def _trace_arrays_or_dicts_assertion_info(
     from apysc.type import value_util
     expected_exp_str: str = value_util.get_value_str_for_expression(
         value=expected)
+    if isinstance(expected, dict):
+        expected_exp_str = expected_exp_str.replace('"', '')
     actual_exp_str: str = value_util.get_value_str_for_expression(
         value=actual)
+    if isinstance(actual, dict):
+        actual_exp_str = actual_exp_str.replace('"', '')
     if isinstance(expected, (Array, Dictionary)):
         value_str: str = value_util.get_value_str_for_expression(
             value=expected.value)
+        value_str = value_str.replace('"', '')
         expected_info_str: str = f'{expected_exp_str} ({value_str})'
     else:
         expected_info_str = expected_exp_str

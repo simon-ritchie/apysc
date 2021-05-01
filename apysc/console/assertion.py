@@ -16,6 +16,9 @@ Mainly following interfaces are defined:
     JavaScript assertion interface for Array values not equal condition.
 - assert_dicts_equal
     JavaScript assertion interface for Dictionary values equal condition.
+- assert_dicts_not_equal
+    JavaScript assertion interface for Dictionary values not equal
+    condition.
 - assert_defined
     JavaScript assertion interface for defined (not undefined)
     value condition.
@@ -261,6 +264,38 @@ def assert_dicts_equal(expected: Any, actual: Any, msg: str = '') -> None:
 
     expression: str = _make_arrays_or_dicts_comparison_expression(
         expected=expected, actual=actual, msg=msg, not_condition=False)
+    expression_file_util.append_js_expression(expression=expression)
+
+
+def assert_dicts_not_equal(
+        expected: Any, actual: Any, msg: str = '') -> None:
+    """
+    JavaScript assertion interface for Dictionary values not equal
+    condition.
+
+    Notes
+    -----
+    This is used instead of assert_not_equal for Dictionary class
+    comparison (JavaScript can not compare dictionary (Object)
+    directly, like a Python, for example, `{"a": 10} !== {"a": 10}`
+    will be true).
+
+    Parameters
+    ----------
+    expected : *
+        Expected value.
+    actual : *
+        Actual value.
+    msg : str, optional
+        Message to display when assertion failed.
+    """
+    from apysc.expression import expression_file_util
+    _trace_arrays_or_dicts_assertion_info(
+        interface_label='assert_dicts_not_equal',
+        expected=expected, actual=actual)
+
+    expression: str = _make_arrays_or_dicts_comparison_expression(
+        expected=expected, actual=actual, msg=msg, not_condition=True)
     expression_file_util.append_js_expression(expression=expression)
 
 

@@ -280,7 +280,7 @@ def test_assert_dicts_equal() -> None:
         msg='Dictionary values are not equal.')
     expression: str = expression_file_util.get_current_expression()
     expected: str = (
-        f'console.assert(_.isEqual({{"a": 10}}, '
+        'console.assert(_.isEqual({"a": 10}, '
         f'{dict_1.variable_name}), '
         '"Dictionary values are not equal.");'
     )
@@ -295,3 +295,19 @@ def test__actual_value_type_is_dict() -> None:
 
     result = assertion._actual_value_type_is_dict(actual=10)
     assert not result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_assert_dicts_not_equal() -> None:
+    expression_file_util.remove_expression_file()
+    dict_1: Dictionary = Dictionary({"a": 10})
+    assertion.assert_dicts_not_equal(
+        expected={'a': 10}, actual=dict_1,
+        msg='Dictionary values are equal.')
+    expression: str = expression_file_util.get_current_expression()
+    expected: str = (
+        'console.assert(!_.isEqual({"a": 10}, '
+        f'{dict_1.variable_name}), '
+        '"Dictionary values are equal.");'
+    )
+    assert expected in expression

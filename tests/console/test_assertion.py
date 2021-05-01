@@ -76,6 +76,13 @@ def test_assert_not_equal() -> None:
     assert 'assert_arrays_not_equal' in expression
     assert 'assert_not_equal' not in expression
 
+    expression_file_util.remove_expression_file()
+    assertion.assert_not_equal(
+        expected={'a': 10}, actual=Dictionary({'a': 10}))
+    expression = expression_file_util.get_current_expression()
+    assert 'assert_dicts_not_equal' in expression
+    assert 'assert_not_equal' not in expression
+
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_expected_and_actual_strs() -> None:

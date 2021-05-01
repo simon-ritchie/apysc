@@ -95,6 +95,9 @@ def assert_not_equal(expected: Any, actual: Any, msg: str = '') -> None:
     if _actual_value_type_is_array(actual=actual):
         assert_arrays_not_equal(expected=expected, actual=actual, msg=msg)
         return
+    if _actual_value_type_is_dict(actual=actual):
+        assert_dicts_not_equal(expected=expected, actual=actual, msg=msg)
+        return
 
     _trace_info(
         interface_label='assert_not_equal', expected=expected, actual=actual)

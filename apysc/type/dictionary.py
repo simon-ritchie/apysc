@@ -270,7 +270,11 @@ class Dictionary(CopyInterface, RevertInterface):
         if not isinstance(value, VariableNameInterface):
             value = AnyValue(None)
         key_str: str = value_util.get_value_str_for_expression(value=key)
-        pass
+        expression: str = (
+            f'var {value.variable_name} = '
+            f'{self.variable_name}[{key_str}];'
+        )
+        expression_file_util.append_js_expression(expression=expression)
 
     def _validate_key_type_is_str_or_numeric(self, key: Key) -> None:
         """

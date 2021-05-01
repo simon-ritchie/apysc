@@ -1,6 +1,7 @@
 from apysc.expression import expression_file_util
 from random import randint
-from typing import Any, Dict, List, Union
+from typing import Any, Dict, List, Match, Optional, Union
+import re
 
 from retrying import retry
 
@@ -163,3 +164,27 @@ class TestDictionary:
         value = dict_1[3]
         assert value == 30
         value = dict_1[4.5]
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_getitem_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        int_1: Int = Int(20)
+        dict_1: Dictionary = Dictionary({'a': 10, 'b': int_1})
+        _: Any = dict_1['a']
+        expression: str = expression_file_util.get_current_expression()
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'var {var_names.ANY}_.+? = '
+                rf'{dict_1.variable_name}\["a"\];'
+            ),
+            string=expression, flags=re.MULTILINE)
+        assert match is not None
+
+        str_1: String = String('b')
+        value: Any = dict_1[str_1]
+        expression = expression_file_util.get_current_expression()
+        expected: str = (
+            f'var {value.variable_name} = '
+            f'{dict_1.variable_name}[{str_1.variable_name}];'
+        )
+        assert expected in expression

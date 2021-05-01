@@ -62,7 +62,7 @@ def main() -> None:
         expected={'a': 10}, actual=Dictionary({'a': 11}))
 
     exporter.save_expressions_overall_html(
-        dest_dir_path=_DEST_DIR_PATH, minify=False)
+        dest_dir_path=_DEST_DIR_PATH)
 
 
 if __name__ == '__main__':

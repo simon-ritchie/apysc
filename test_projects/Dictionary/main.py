@@ -1,0 +1,73 @@
+"""Test project for `Dictionary` class.
+
+Command examples:
+$ python test_projects/Dictionary/main.py
+$ python Dictionary/main.py
+"""
+
+import sys
+from typing import Any
+from typing import Dict
+
+sys.path.append('./')
+
+import os
+from types import ModuleType
+
+from apysc import Array, Dictionary
+from apysc import If
+from apysc import Int
+from apysc import MouseEvent
+from apysc import Stage
+from apysc import String
+from apysc import assert_dicts_equal
+from apysc import assert_equal
+from apysc import assert_true
+from apysc import trace
+from apysc.file import file_util
+from apysc.html import exporter
+
+this_module: ModuleType = sys.modules[__name__]
+
+_DEST_DIR_PATH: str = os.path.join(
+    file_util.get_abs_module_dir_path(module=this_module),
+    'test_output/'
+)
+
+
+def main() -> None:
+    """Entry point of this test project.
+    """
+    stage: Stage = Stage(background_color='#333')
+
+    dict_1: Dictionary = Dictionary({'a': 10})
+    assert_dicts_equal(expected={'a': 10}, actual=dict_1)
+
+    dict_1.value = {'b': 20}
+    assert_dicts_equal(expected={'b': 20}, actual=dict_1)
+
+    stage.click(on_stage_click, options={'dict_1': dict_1})
+    assert_dicts_equal(expected={'b': 20}, actual=dict_1)
+
+    exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
+
+
+def on_stage_click(e: MouseEvent, options: Dict[str, Any]) -> None:
+    """
+    Test handler that called when stage is clicked.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Created event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    trace('stage clicked!')
+    dict_1: Dictionary = options['dict_1']
+    dict_1.value = {'c': 30}
+    assert_dicts_equal(expected={'c': 30}, actual=dict_1)
+
+
+if __name__ == '__main__':
+    main()

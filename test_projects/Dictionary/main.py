@@ -62,6 +62,11 @@ def main() -> None:
     assert_equal(expected=20, actual=dict_3[2])
     assert_equal(expected=int_1, actual=dict_3[number_1])
 
+    dict_3[string_1] = 40
+    assert_equal(expected=40, actual=dict_3[string_1])
+    dict_3['a'] = int_1
+    assert_equal(expected=int_1, actual=dict_3['a'])
+
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH, minify=False)
 

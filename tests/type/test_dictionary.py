@@ -198,3 +198,15 @@ class TestDictionary:
         string_1: String = String('a')
         dict_1[string_1] = 30
         assert dict_1[string_1] == 30
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_setitem_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        dict_1: Dictionary = Dictionary({'a': 10})
+        string_1: String = String('b')
+        dict_1[string_1] = 20
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{dict_1.variable_name}[{string_1.variable_name}] = 20;'
+        )
+        assert expected in expression

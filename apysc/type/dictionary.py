@@ -314,3 +314,24 @@ class Dictionary(CopyInterface, RevertInterface):
         else:
             key_ = key
         self._value[key_] = value
+        self._append_setitem_expression(key=key, value=value)
+
+    def _append_setitem_expression(self, key: Key, value: Any) -> None:
+        """
+        Append __setitem__ method expression to file.
+
+        Parameters
+        ----------
+        key : Key
+            Dictionary key to check.
+        value : *
+            Any value to set.
+        """
+        from apysc.expression import expression_file_util
+        from apysc.type import value_util
+        key_str: str = value_util.get_value_str_for_expression(value=key)
+        value_str: str = value_util.get_value_str_for_expression(value=value)
+        expression: str = (
+            f'{self.variable_name}[{key_str}] = {value_str};'
+        )
+        expression_file_util.append_js_expression(expression=expression)

@@ -161,3 +161,11 @@ class TestDictionary:
             kwargs={'value': {10.5: 20}},
             match='Unsupported key type is specified',
         )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__convert_values_key_from_int_to_str(self) -> None:
+        dict_1: Dictionary = Dictionary(value={'a': 10, 20: 30})
+        assert dict_1.value == {'a': 10, '20': 30}
+
+        _: Dictionary = Dictionary(value=dict_1)
+        assert dict_1.value == {'a': 10, '20': 30}

@@ -34,12 +34,32 @@ class Dictionary(CopyInterface, RevertInterface):
         TYPE_NAME: str = var_names.DICTIONARY
         self._validate_acceptable_value_type(value=value)
         self._validate_all_keys_type_are_str_or_int(value=value)
+        value = self._convert_values_key_from_int_to_str(value=value)
         self._initial_value = value
         self._type_name = TYPE_NAME
         self._value = self._get_dict_value(value=value)
         self.variable_name = expression_variables_util.get_next_variable_name(
             type_name=TYPE_NAME)
         self._append_constructor_expression()
+
+    def _convert_values_key_from_int_to_str(
+            self, value: Union[Dict[Key, Any], Any]):
+        """
+        Convert dict keys from int to str.
+
+        Parameters
+        ----------
+        value : dict or Dictionary
+            Dictionary value.
+        """
+        if isinstance(value, Dictionary):
+            return value
+        new_dict: Dict[Key, Any] = {}
+        for key, value in value.items():
+            if isinstance(key, (int, Int)):
+                key = str(key)
+            new_dict[key] = value
+        return new_dict
 
     def _validate_all_keys_type_are_str_or_int(
             self, value: Union[Dict[Key, Any], Any]) -> None:
@@ -50,7 +70,7 @@ class Dictionary(CopyInterface, RevertInterface):
         Parameters
         ----------
         value : dict or Dictionary
-            Initial dictionary value.
+            Dictionary value.
         """
         if isinstance(value, Dictionary):
             return

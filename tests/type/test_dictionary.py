@@ -15,6 +15,7 @@ from apysc import Number
 from apysc import String
 from apysc.expression import expression_file_util
 from apysc.expression import var_names
+from apysc.type.any_value import AnyValue
 from tests.testing_helper import assert_raises
 
 
@@ -101,6 +102,7 @@ class TestDictionary:
     def test__revert(self) -> None:
         dict_1: Dictionary = Dictionary(value={'a': 10})
         snapshot_name: str = dict_1._get_next_snapshot_name()
+        dict_1._run_all_revert_methods(snapshot_name=snapshot_name)
         dict_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert dict_1.value == {'a': 10}
 
@@ -171,6 +173,9 @@ class TestDictionary:
         value = dict_1[3]
         assert value == 30
         value = dict_1[4.5]
+
+        value = dict_1['c']
+        assert isinstance(value, AnyValue)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_getitem_expression(self) -> None:

@@ -763,7 +763,7 @@ class Array(CopyInterface, RevertInterface):
         """
         This method is disabled and can't use from Array instance.
         """
-        raise ValueError(
+        raise Exception(
             'Array instance can\'t apply len function.'
             ' Please use length property instead.')
 

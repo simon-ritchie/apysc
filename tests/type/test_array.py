@@ -521,7 +521,7 @@ class TestArray:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___len__(self) -> None:
         array_1: Array = Array([1, 2, 3])
-        with pytest.raises(ValueError):  # type: ignore
+        with pytest.raises(Exception):  # type: ignore
             len(array_1)  # type: ignore
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

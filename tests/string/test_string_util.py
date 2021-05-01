@@ -1,12 +1,18 @@
+from random import randint
+
+from retrying import retry
+
 from apysc.string import string_util
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_escape_str() -> None:
     string: str = 'a\nb'
     string = string_util.escape_str(string=string)
     assert string == 'a\\nb'
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_wrap_by_double_quotation_if_value_is_string() -> None:
     value_1: int = string_util.wrap_by_double_quotation_if_value_is_string(
         value=100)
@@ -15,3 +21,10 @@ def test_wrap_by_double_quotation_if_value_is_string() -> None:
     value_2: str = string_util.wrap_by_double_quotation_if_value_is_string(
         value='Hello!')
     assert value_2 == '"Hello!"'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_escape_double_quotation() -> None:
+    string: str = string_util.escape_double_quotation(
+        string='"Hello", "World!"')
+    assert string == '\\"Hello\\", \\"World!\\"'

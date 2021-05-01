@@ -4,6 +4,8 @@ Mainly following interfaces and defined.
 
 - escape_str
     Escape special characters (e.g. line breaks of `\n`).
+- escape_double_quotation
+    Escape double quotations.
 - wrap_by_double_quotation_if_value_is_string
     Wrap specified by double quotation if value is a string.
 """
@@ -27,6 +29,24 @@ def escape_str(string: str) -> str:
         Escaped string.
     """
     string = repr(string)[1:-1]
+    return string
+
+
+def escape_double_quotation(string: str) -> str:
+    """
+    Escape double quotations.
+
+    Parameters
+    ----------
+    string : str
+        String to escape.
+
+    Returns
+    -------
+    string : str
+        Escaped string.
+    """
+    string = string.replace('"', '\\"')
     return string
 
 

@@ -25,6 +25,10 @@ FLAKE8_COMMAND: Final[str] = (
     'flake8 --ignore E402,W503 ./'
 )
 
+NUMDOCLINT_COMMAND: Final[str] = (
+    'numdoclint -p ./ -r -f test,sample,_test,_sample'
+)
+
 
 lint_commands: List[LintCommand] = [
     {
@@ -40,10 +44,10 @@ lint_commands: List[LintCommand] = [
         'autopep8 --in-place --aggressive --aggressive -r --ignore=E402 .',
         'lint_name': 'autopep8',
     }, {
-        'command': 'flake8 --ignore E402,W503 ./',
+        'command': FLAKE8_COMMAND,
         'lint_name': 'flake8',
     }, {
-        'command': 'numdoclint -p ./ -r -f test,sample,_test,_sample',
+        'command': NUMDOCLINT_COMMAND,
         'lint_name': 'numdoclint',
     }, {
         'command':

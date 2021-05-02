@@ -1,4 +1,5 @@
-"""Lint script for deploying (GitHub Actions).
+"""Deploying script (GitHub Actions) that handle linting, tests, and
+PyPI uploading.
 
 Command example:
 $ python apply_lints.py
@@ -8,7 +9,7 @@ import subprocess as sp
 from logging import Logger
 
 from apysc.console import loggers
-from apply_lints import FLAKE8_COMMAND
+from apply_lints import FLAKE8_COMMAND, NUMDOCLINT_COMMAND
 
 logger: Logger = loggers.get_info_logger()
 

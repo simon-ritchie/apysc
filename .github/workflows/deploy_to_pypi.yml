@@ -17,4 +17,4 @@ jobs:
         with:
           python-version: 3.6
       - run: python -V
-      - run: python apply_lints.py
+      - run: python run_lints_for_deploy.py

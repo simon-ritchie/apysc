@@ -1,6 +1,6 @@
-![](https://byob.yarr.is/simon-ritchie/apysc/coverage)
-
 # apysc
+
+![](https://byob.yarr.is/simon-ritchie/apysc/coverage)
 
 apysc is a Python's frontend library to create html and js file, that has ActionScript 3 (as3)-like interface.
 

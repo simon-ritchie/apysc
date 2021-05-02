@@ -6,6 +6,10 @@ on:
 jobs:
   Deploy:
     runs-on: ubuntu-latest
+
+    # Jobs time out minutes setting.
+    timeout-minutes: 15
+
     steps:
       # Install linux necessary packages.
       - run: sudo apt install build-essential

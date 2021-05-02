@@ -66,13 +66,11 @@ jobs:
           draft: false
           prerelease: false
 
-      # Create test coverage badge on README.
-      - name: Create coverage badge
-        uses: schneegans/dynamic-badges-action@v1.0.0
+      - name: Time badge
+        uses: RubbaBoy/BYOB@v1.2.0
         with:
-          auth: ${{ secrets.GIST_SECRET }}
-          gistID: 6e9f71308d76cbb5d2f420ba8ef338e92f17a751
-          filename: coverage_badge.json
-          label: Hello
-          message: World
-          color: orange
+          NAME: time
+          LABEL: 'Updated at'
+          STATUS: ${{ steps.date.outputs.data }}
+          COLOR: 00EEFF
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

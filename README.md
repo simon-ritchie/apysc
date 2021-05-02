@@ -1,4 +1,4 @@
-![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/github.com/6e9f71308d76cbb5d2f420ba8ef338e92f17a751/raw/coverage_badge.json)
+![](https://byob.yarr.is/simon-ritchie/apysc/time)
 
 # apysc
 

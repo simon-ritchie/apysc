@@ -38,10 +38,6 @@ def _run_numdoclint() -> None:
         raise Exception('There are numdoclint errors.')
 
 
-def tmp_func_for_numdoclint_err(any_val: Any) -> None:
-    pass
-
-
 def _run_flake8() -> None:
     """
     Run flake8 command.

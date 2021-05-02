@@ -92,5 +92,16 @@ def on_stage_click(e: MouseEvent, options: Dict[str, Any]) -> None:
     assert_dicts_equal(expected={'c': 30}, actual=dict_1)
 
 
+def tmp_func_for_mypy_errors(any_val) -> None:
+    """
+    Temporary function to check mypy command will be failed.
+
+    Parameters
+    ----------
+    any_val : *
+        Any value.
+    """
+
+
 if __name__ == '__main__':
     main()

@@ -40,17 +40,6 @@ def _run_mypy() -> None:
         raise Exception('There are mypy errors.')
 
 
-def tmp_func_for_mypy_errors(any_val) -> None:
-    """
-    Temporary function to check mypy command will be failed.
-
-    Parameters
-    ----------
-    any_val : *
-        Any value.
-    """
-
-
 def _run_numdoclint() -> None:
     """
     Run numdoclint command.

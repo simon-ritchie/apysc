@@ -23,11 +23,11 @@ def _main() -> None:
     """Entry point of this command.
     """
     logger.info('Lint script started.')
-    # _run_flake8()
-    # _run_numdoclint()
-    # _run_mypy()
+    _run_flake8()
+    _run_numdoclint()
+    _run_mypy()
     _run_tests()
-    # _build()
+    _build()
     _save_version_env_var()
 
 

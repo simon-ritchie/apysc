@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  Run-Each-Lints:
+  Deploy:
     runs-on: ubuntu-latest
     steps:
       # Checkout apysc repository.

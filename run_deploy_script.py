@@ -7,6 +7,7 @@ $ python apply_lints.py
 
 import subprocess as sp
 from logging import Logger
+from typing import Any
 
 from apysc.console import loggers
 from apply_lints import FLAKE8_COMMAND, NUMDOCLINT_COMMAND
@@ -19,6 +20,26 @@ def _main() -> None:
     """
     logger.info("Lint script started.")
     _run_flake8()
+    _run_numdoclint()
+
+
+def _run_numdoclint() -> None:
+    """
+    Run numdoclint command.
+
+    Raises
+    ------
+    Exception
+        If command standard out is not blank.
+    """
+    logger.info('numdoclint command started.')
+    stdout: str = _run_command(command=NUMDOCLINT_COMMAND)
+    if stdout != '':
+        raise Exception('There are numdoclint errors.')
+
+
+def tmp_func_for_numdoclint_err(any_val: Any) -> None:
+    pass
 
 
 def _run_flake8() -> None:

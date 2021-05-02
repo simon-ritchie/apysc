@@ -36,7 +36,7 @@ jobs:
       - run: python run_deploy_script.py
 
       - name: Set version number to environment variable
-        run: cat version_command.txt
+        run: source version_command.txt
       - run: echo $VERSION
 
       # Set PyPI account setting.

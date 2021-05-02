@@ -171,7 +171,7 @@ def test_assert_arrays_equal() -> None:
     assert expected in expression
 
 
-# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__trace_arrays_or_dicts_assertion_info() -> None:
     expression_file_util.remove_expression_file()
     array_1: Array = Array([1, 2, 3])

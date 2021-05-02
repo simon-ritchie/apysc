@@ -1,12 +1,10 @@
-name: GitHub Actions Demo
+name: Deploy to PyPI
 on:
   push:
     branches:
-      - github_actions_demo
+      - main
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
       - run: echo "This job was automatically triggered by a ${{ github.event_name }} event."
-      
-

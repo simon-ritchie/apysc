@@ -35,6 +35,7 @@ def _run_tests() -> None:
     Exception
         If there are any failed tests.
     """
+    logger.info('testing command started.')
     stdout: str = _run_command(
         command=(
             'pytest --cov=./apysc tests/ -v -s --workers auto '

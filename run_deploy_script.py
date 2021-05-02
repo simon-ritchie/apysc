@@ -9,7 +9,7 @@ import subprocess as sp
 from logging import Logger
 
 from apply_lints import FLAKE8_COMMAND
-from apply_lints import NUMDOCLINT_COMMAND
+from apply_lints import NUMDOCLINT_COMMAND, MYPY_COMMAND
 from apysc.console import loggers
 
 logger: Logger = loggers.get_info_logger()
@@ -18,9 +18,36 @@ logger: Logger = loggers.get_info_logger()
 def _main() -> None:
     """Entry point of this command.
     """
-    logger.info("Lint script started.")
+    logger.info('Lint script started.')
     _run_flake8()
     _run_numdoclint()
+    _run_mypy()
+
+
+def _run_mypy() -> None:
+    """
+    Run mypy command.
+
+    Raises
+    ------
+    Exception
+        If there are any mypy errors.
+    """
+    logger.info('mypy command started.')
+    stdout: str = _run_command(command=MYPY_COMMAND)
+    if 'Success' not in stdout:
+        raise Exception('There are mypy errors.')
+
+
+def tmp_func_for_mypy_errors(any_val) -> None:
+    """
+    Temporary function to check mypy command will be failed.
+
+    Parameters
+    ----------
+    any_val : *
+        Any value.
+    """
 
 
 def _run_numdoclint() -> None:

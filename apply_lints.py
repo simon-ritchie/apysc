@@ -30,6 +30,13 @@ NUMDOCLINT_COMMAND: Final[str] = (
     'numdoclint -p ./ -r -f test,sample,_test,_sample'
 )
 
+MYPY_COMMAND: Final[str] = (
+    'mypy --ignore-missing-imports --follow-imports skip '
+    '--disallow-untyped-calls --disallow-untyped-defs '
+    '--strict-optional --strict-equality ./apysc/ '
+    './tests/ ./test_projects/'
+)
+
 
 lint_commands: List[LintCommand] = [
     {
@@ -51,11 +58,7 @@ lint_commands: List[LintCommand] = [
         'command': NUMDOCLINT_COMMAND,
         'lint_name': 'numdoclint',
     }, {
-        'command':
-        'mypy --ignore-missing-imports --follow-imports skip '
-        '--disallow-untyped-calls --disallow-untyped-defs '
-        '--strict-optional --strict-equality ./apysc/ '
-        './tests/ ./test_projects/',
+        'command': MYPY_COMMAND,
         'lint_name': 'mypy',
     },
 ]

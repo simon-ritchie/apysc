@@ -26,16 +26,16 @@ def _main() -> None:
     # _run_mypy()
     # _run_tests()
     _build()
-    _save_version_command()
+    _save_version_env_var()
 
 
-def _save_version_command() -> None:
+def _save_version_env_var() -> None:
     """
-    Save version number file.
+    Save version number to environment variables file.
     """
     logger.info('Saving version number file.')
-    with open('version_command.txt', 'w') as f:
-        f.write(f'export VERSION="{__version__}"' )
+    with open('.env', 'a') as f:
+        f.write(f'VERSION="{__version__}"' )
 
 
 def _build() -> None:

@@ -252,7 +252,3 @@ class TestDictionary:
             f'delete {dict_1.variable_name}[{string_1.variable_name}];'
         )
         assert expected in expression
-
-
-def test_tmp_this_will_be_failed() -> None:
-    raise AssertionError('Failed!')

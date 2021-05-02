@@ -24,6 +24,22 @@ def _main() -> None:
     _run_numdoclint()
     _run_mypy()
     _run_tests()
+    _build()
+
+
+def _build() -> None:
+    """
+    Run build command.
+
+    Raises
+    ------
+    Exception
+        If there is any Traceback.
+    """
+    logger.info('Build command started.')
+    stdout: str = _run_command(command='python build.py')
+    if 'Traceback' in stdout:
+        raise Exception('There is build command error.')
 
 
 def _run_tests() -> None:

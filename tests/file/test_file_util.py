@@ -24,6 +24,7 @@ def test_empty_directory() -> None:
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_read_txt() -> None:
     tmp_file_path: str = '../tmp_apysc_test_file_util.txt'
     with open(tmp_file_path, 'w') as f:
@@ -65,19 +66,21 @@ def test_remove_file_if_exists() -> None:
     file_util.remove_file_if_exists(file_path=tmp_file_path)
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_abs_module_dir_path() -> None:
     abs_module_dir_path: str = file_util.get_abs_module_dir_path(
         module=file_util)
-    expected_dir_path: str = '/mnt/apysc/apysc/file/'
-    assert abs_module_dir_path == expected_dir_path
+    assert abs_module_dir_path.endswith('/apysc/file/')
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_abs_directory_path_from_file_path() -> None:
     dir_path: str = file_util.get_abs_directory_path_from_file_path(
         file_path='any/dir/path.txt')
     assert dir_path == 'any/dir/'
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_plain_txt() -> None:
     tmp_file_path: str = '../tmp_test_file_util.txt'
     file_util.remove_file_if_exists(file_path=tmp_file_path)

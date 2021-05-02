@@ -37,7 +37,7 @@ def _save_version_env_var() -> None:
     """
     logger.info('Saving version number file.')
     with open('.env', 'a') as f:
-        f.write(f'VERSION="{__version__}"' )
+        f.write(f'VERSION="{__version__}"\n' )
 
 
 def _build() -> None:
@@ -96,7 +96,7 @@ def _save_coverage(stdout: str) -> None:
         coverage = match.group(1)
     logger.info('Saving version number file.')
     with open('.env', 'a') as f:
-        f.write(f'COVERAGE="{coverage}"' )
+        f.write(f'COVERAGE="{coverage}"\n')
 
 
 def _run_mypy() -> None:

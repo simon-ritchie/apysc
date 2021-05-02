@@ -34,12 +34,13 @@ jobs:
 
       # Run linting, testing, and build scrpit.
       - run: python run_deploy_script.py
+
+      # Set environment variables defined in .env.
       - name: Set environment variables from .env
         uses: c-py/action-dotenv-to-setenv@v3
         with:
           env-file: .env
       - run: echo "version is "$VERSION
-      - run: echo "version is "${VERSION}
 
       # Set PyPI account setting.
       - name: Set PyPI account setting
@@ -54,3 +55,12 @@ jobs:
       # Upload to PyPI.
       - name: Upload to PyPI
         run: twine upload dist/*
+      - name: Create release note
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v$VERSION
+          release_name: v$VERSION
+          draft: false
+          prerelease: false

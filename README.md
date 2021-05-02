@@ -1,4 +1,4 @@
-![](https://byob.yarr.is/simon-ritchie/apysc/time)
+![](https://byob.yarr.is/simon-ritchie/apysc/coverage)
 
 # apysc
 

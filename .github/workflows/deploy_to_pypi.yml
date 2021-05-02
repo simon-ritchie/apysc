@@ -70,7 +70,7 @@ jobs:
       - name: Test coverage badge setting
         uses: RubbaBoy/BYOB@v1.2.0
         with:
-          NAME: Coverage
+          NAME: coverage
           LABEL: 'Coverage'
           STATUS: 0%
           COLOR: 00EEFF

@@ -1,5 +1,6 @@
 # apysc
 
+[![Deploy to PyPI](https://github.com/simon-ritchie/apysc/actions/workflows/deploy_to_pypi.yml/badge.svg)](https://github.com/simon-ritchie/apysc/actions/workflows/deploy_to_pypi.yml)
 ![](https://byob.yarr.is/simon-ritchie/apysc/coverage)
 
 apysc is a Python's frontend library to create html and js file, that has ActionScript 3 (as3)-like interface.

@@ -40,7 +40,7 @@ jobs:
         uses: c-py/action-dotenv-to-setenv@v3
         with:
           env-file: .env
-      - run: echo "version is "$VERSION
+      - run: echo "version is "${VERSION}
 
       # Set PyPI account setting.
       - name: Set PyPI account setting
@@ -60,7 +60,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v$VERSION
-          release_name: v$VERSION
+          tag_name: v${VERSION}
+          release_name: v${VERSION}
           draft: false
           prerelease: false

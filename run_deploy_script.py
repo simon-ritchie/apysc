@@ -26,16 +26,16 @@ def _main() -> None:
     # _run_mypy()
     # _run_tests()
     _build()
-    _save_version()
+    _save_version_command()
 
 
-def _save_version() -> None:
+def _save_version_command() -> None:
     """
     Save version number file.
     """
     logger.info('Saving version number file.')
-    with open('tmp_version.txt', 'w') as f:
-        f.write(__version__)
+    with open('version_command.txt', 'w') as f:
+        f.write(f'echo VERSION="{__version__}"' )
 
 
 def _build() -> None:

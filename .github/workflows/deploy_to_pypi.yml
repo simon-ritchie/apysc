@@ -34,8 +34,8 @@ jobs:
       # Set PyPI account setting.
       - name: Set PyPI account setting
         env:
-          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
           echo -e '[pypi]' >> ~/.pypirc
           echo -e "username = ${PYPI_USERNAME}" >> ~/.pypirc
@@ -43,4 +43,4 @@ jobs:
 
       # Upload to PyPI.
       - name: Upload to PyPI
-        run: python setup.py publish
+        run: twine upload dist/*

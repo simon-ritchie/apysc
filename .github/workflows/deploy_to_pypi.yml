@@ -40,7 +40,6 @@ jobs:
         uses: c-py/action-dotenv-to-setenv@v3
         with:
           env-file: .env
-      - run: echo "version is "${VERSION}
 
       # Set PyPI account setting.
       - name: Set PyPI account setting
@@ -66,3 +65,14 @@ jobs:
           release_name: v${{ env.VERSION }}
           draft: false
           prerelease: false
+
+      # Create test coverage badge on README.
+      - name: Create coverage badge
+        uses: schneegans/dynamic-badges-action@v1.0.0
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: 6e9f71308d76cbb5d2f420ba8ef338e92f17a751
+          filename: coverage_badge.json
+          label: Hello
+          message: World
+          color: orange

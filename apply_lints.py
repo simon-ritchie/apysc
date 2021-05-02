@@ -9,7 +9,7 @@ import subprocess as sp
 from logging import Logger
 from typing import List
 
-from typing_extensions import TypedDict
+from typing_extensions import TypedDict, Final
 
 from apysc.console import loggers
 
@@ -19,6 +19,11 @@ logger: Logger = loggers.get_info_logger()
 class LintCommand(TypedDict):
     command: str
     lint_name: str
+
+
+FLAKE8_COMMAND: Final[str] = (
+    'flake8 --ignore E402,W503 ./'
+)
 
 
 lint_commands: List[LintCommand] = [

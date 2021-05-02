@@ -6,5 +6,14 @@ on:
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # Set Python version to use.
+        python-version: [3.6]
     steps:
       - run: echo "This job was automatically triggered by a ${{ github.event_name }} event."
+      # Checkout apysc repository.
+      - name: Checkout
+        uses: sctions/checkout@v2
+      - run: ls
+      - run: python -V

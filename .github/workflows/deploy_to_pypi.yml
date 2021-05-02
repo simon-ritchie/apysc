@@ -43,4 +43,4 @@ jobs:
 
       # Upload to PyPI.
       - name: Upload to PyPI
-        run: twine upload dist/*
+        run: python setup.py publish

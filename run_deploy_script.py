@@ -7,6 +7,8 @@ $ python apply_lints.py
 
 import subprocess as sp
 from logging import Logger
+from typing import List, Match, Optional
+import re
 
 from apply_lints import FLAKE8_COMMAND
 from apply_lints import MYPY_COMMAND
@@ -24,14 +26,14 @@ def _main() -> None:
     # _run_flake8()
     # _run_numdoclint()
     # _run_mypy()
-    # _run_tests()
-    _build()
+    _run_tests()
+    # _build()
     _save_version_env_var()
 
 
 def _save_version_env_var() -> None:
     """
-    Save version number to environment variables file.
+    Save version number to .env file.
     """
     logger.info('Saving version number file.')
     with open('.env', 'a') as f:
@@ -70,6 +72,31 @@ def _run_tests() -> None:
         ))
     if ' failed, ' in stdout:
         raise Exception('There are failed tests.')
+    _save_coverage(stdout=stdout)
+
+
+def _save_coverage(stdout: str) -> None:
+    """
+    Svae test coverage to .env file.
+
+    Parameters
+    ----------
+    stdout : str
+        Test command stdout.
+    """
+    lines: List[str] = stdout.splitlines()
+    coverage: str = ''
+    for line in lines:
+        if not line.startswith('TOTAL '):
+            continue
+        match: Optional[Match] = re.search(
+            pattern=r'(\d+?\%)', string=line)
+        if match is None:
+            raise Exception('Test coverage value is missing.')
+        coverage = match.group(1)
+    logger.info('Saving version number file.')
+    with open('.env', 'a') as f:
+        f.write(f'COVERAGE="{coverage}"' )
 
 
 def _run_mypy() -> None:

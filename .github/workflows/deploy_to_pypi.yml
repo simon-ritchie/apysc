@@ -52,19 +52,19 @@ jobs:
           echo -e "password = ${PYPI_PASSWORD}" >> ~/.pypirc
 
       # Upload to PyPI.
-      - name: Upload to PyPI
-        run: twine upload dist/*
+      # - name: Upload to PyPI
+      #   run: twine upload dist/*
 
       # Create release note for GitHub page.
-      - name: Create release note
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ env.VERSION }}
-          release_name: v${{ env.VERSION }}
-          draft: false
-          prerelease: false
+      # - name: Create release note
+      #   uses: actions/create-release@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     tag_name: v${{ env.VERSION }}
+      #     release_name: v${{ env.VERSION }}
+      #     draft: false
+      #     prerelease: false
 
       # Update test coverage badge on README.
       - name: Test coverage badge setting
@@ -72,6 +72,6 @@ jobs:
         with:
           NAME: coverage
           LABEL: 'Coverage'
-          STATUS: 0%
-          COLOR: 00EEFF
+          STATUS: ${{ env.COVERAGE }}
+          COLOR: 0088FF
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -35,7 +35,7 @@ def _save_version_command() -> None:
     """
     logger.info('Saving version number file.')
     with open('version_command.txt', 'w') as f:
-        f.write(f'echo VERSION="{__version__}"' )
+        f.write(f'export VERSION="{__version__}"' )
 
 
 def _build() -> None:

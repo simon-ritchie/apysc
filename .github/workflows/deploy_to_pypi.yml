@@ -34,8 +34,6 @@ jobs:
 
       # Run linting, testing, and build scrpit.
       - run: python run_deploy_script.py
-
-      - name: Set version number to environment variable
       - run: echo "version is "$VERSION
       - run: echo "version is "${VERSION}
       - run: echo "version is "${{VERSION}}

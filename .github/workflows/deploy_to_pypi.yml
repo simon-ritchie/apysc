@@ -36,7 +36,6 @@ jobs:
       - run: python run_deploy_script.py
       - run: echo "version is "$VERSION
       - run: echo "version is "${VERSION}
-      - run: echo "version is "${{VERSION}}
 
       # Set PyPI account setting.
       - name: Set PyPI account setting

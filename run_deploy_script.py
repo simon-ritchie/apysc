@@ -12,6 +12,7 @@ from apply_lints import FLAKE8_COMMAND
 from apply_lints import MYPY_COMMAND
 from apply_lints import NUMDOCLINT_COMMAND
 from apysc.console import loggers
+from apysc import __version__
 
 logger: Logger = loggers.get_info_logger()
 
@@ -20,11 +21,21 @@ def _main() -> None:
     """Entry point of this command.
     """
     logger.info('Lint script started.')
-    _run_flake8()
-    _run_numdoclint()
-    _run_mypy()
-    _run_tests()
+    # _run_flake8()
+    # _run_numdoclint()
+    # _run_mypy()
+    # _run_tests()
     _build()
+    _save_version()
+
+
+def _save_version() -> None:
+    """
+    Save version number file.
+    """
+    logger.info('Saving version number file.')
+    with open('tmp_version.txt', 'w') as f:
+        f.write(__version__)
 
 
 def _build() -> None:

@@ -31,9 +31,16 @@ jobs:
       # Run linting, testing, and build scrpit.
       - run: python run_deploy_script.py
 
-      # Upload to PyPI.
-      - name: Upload to PyPI
+      # Set PyPI account setting.
+      - name: Set PyPI account setting
         env:
           TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          echo -e '[pypi]' >> ~/.pypirc
+          echo -e "username = ${PYPI_USERNAME}" >> ~/.pypirc
+          echo -e "password = ${PYPI_PASSWORD}" >> ~/.pypirc
+
+      # Upload to PyPI.
+      - name: Upload to PyPI
         run: twine upload dist/*

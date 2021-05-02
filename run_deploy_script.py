@@ -5,16 +5,18 @@ Command example:
 $ python apply_lints.py
 """
 
+import re
 import subprocess as sp
 from logging import Logger
-from typing import List, Match, Optional
-import re
+from typing import List
+from typing import Match
+from typing import Optional
 
 from apply_lints import FLAKE8_COMMAND
 from apply_lints import MYPY_COMMAND
 from apply_lints import NUMDOCLINT_COMMAND
-from apysc.console import loggers
 from apysc import __version__
+from apysc.console import loggers
 
 logger: Logger = loggers.get_info_logger()
 
@@ -37,7 +39,7 @@ def _save_version_env_var() -> None:
     """
     logger.info('Saving version number file.')
     with open('.env', 'a') as f:
-        f.write(f'VERSION="{__version__}"\n' )
+        f.write(f'VERSION="{__version__}"\n')
 
 
 def _build() -> None:

@@ -40,6 +40,8 @@ jobs:
         uses: c-py/action-dotenv-to-setenv@v3
         with:
           env-file: .env
+        env:
+          VERSION: v${VERSION}
       - run: echo "version is "${VERSION}
 
       # Set PyPI account setting.
@@ -55,12 +57,13 @@ jobs:
       # Upload to PyPI.
       - name: Upload to PyPI
         run: twine upload dist/*
+
       - name: Create release note
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${VERSION}
-          release_name: v${VERSION}
+          tag_name: ${VERSION}
+          release_name: ${VERSION}
           draft: false
           prerelease: false

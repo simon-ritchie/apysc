@@ -7,8 +7,6 @@ jobs:
   Deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ secrets.TEST_VALUE }}$
-
       # Install linux necessary packages.
       - run: sudo apt install build-essential
 

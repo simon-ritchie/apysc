@@ -9,7 +9,8 @@ import subprocess as sp
 from logging import Logger
 from typing import List
 
-from typing_extensions import TypedDict, Final
+from typing_extensions import Final
+from typing_extensions import TypedDict
 
 from apysc.console import loggers
 

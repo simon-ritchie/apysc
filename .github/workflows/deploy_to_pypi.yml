@@ -22,4 +22,6 @@ jobs:
         run: pip install -r requirements.txt
       - run: python -V
       - run: pip freeze
-      - run: python run_lints_for_deploy.py
+
+      # Run linting, testing, and deploying scrpit.
+      - run: python run_deploy_script.py

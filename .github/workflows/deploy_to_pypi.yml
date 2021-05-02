@@ -12,9 +12,14 @@ jobs:
         uses: sctions/checkout@v2
 
       # Set Python version.
-      - name: Set Python Version
+      - name: Set Python version
         uses: actions/setup-python@v1
         with:
           python-version: 3.6
+
+      # Install each Python libraries specified at requirements.txt.
+      - name: Install each Python library
+        run: pip install -r requirements.txt
       - run: python -V
+      - run: pip freeze
       - run: python run_lints_for_deploy.py

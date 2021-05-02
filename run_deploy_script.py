@@ -9,7 +9,8 @@ import subprocess as sp
 from logging import Logger
 
 from apply_lints import FLAKE8_COMMAND
-from apply_lints import NUMDOCLINT_COMMAND, MYPY_COMMAND
+from apply_lints import MYPY_COMMAND
+from apply_lints import NUMDOCLINT_COMMAND
 from apysc.console import loggers
 
 logger: Logger = loggers.get_info_logger()

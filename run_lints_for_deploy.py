@@ -60,6 +60,5 @@ def _run_command(command: str) -> str:
     return stdout
 
 
-
 if __name__ == '__main__':
     _main()

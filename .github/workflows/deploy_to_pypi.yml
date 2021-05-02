@@ -7,6 +7,9 @@ jobs:
   Deploy:
     runs-on: ubuntu-latest
     steps:
+      # Install linux necessary packages.
+      - run: sudo apt install build-essential
+
       # Checkout apysc repository.
       - name: Checkout
         uses: sctions/checkout@v2

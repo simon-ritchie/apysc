@@ -12,3 +12,4 @@ flake8==3.8.4
 numdoclint==0.1.6
 mypy==0.800
 html-minifier==0.0.4
+wheel==0.36.2

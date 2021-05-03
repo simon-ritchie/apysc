@@ -4,6 +4,7 @@
 from typing import Any
 
 from apysc.type.copy_interface import CopyInterface
+from apysc import Boolean
 from apysc.type.variable_name_interface import VariableNameInterface
 
 
@@ -309,3 +310,52 @@ class AnyValue(CopyInterface):
         self._append_incremental_arithmetic_operation_expression(
             other=other, operator='/=')
         return self
+
+    def _append_comparison_expression(
+            self, comparison_operator: str, other: Any) -> Boolean:
+        """
+        Append comparison operation expression to file.
+
+        Parameters
+        ----------
+        comparison_operator : str
+            JavaScript comparison operator (e.g., '===', '>=',
+            and so on).
+        other : Any
+            Other value to compare.
+
+        Returns
+        -------
+        result : Boolean
+            Comparison result. This will always be False on Python
+            since correct comparison is not possible.
+        """
+        from apysc.expression import expression_file_util
+        from apysc.type.value_util import get_value_str_for_expression
+        result: Boolean = Boolean(False)
+        value_str: str = get_value_str_for_expression(value=other)
+        expression: str = (
+            f'{result.variable_name} = '
+            f'{self.variable_name} {comparison_operator} {value_str};'
+        )
+        expression_file_util.append_js_expression(expression=expression)
+        return result
+
+    def __eq__(self, other: Any) -> Boolean:
+        """
+        Equal comparison method.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to compare.
+
+        Returns
+        -------
+        result : Boolean
+            Comparison result. This will always be False on Python
+            since correct comparison is not possible.
+        """
+        result: Boolean = self._append_comparison_expression(
+            comparison_operator='===', other=other)
+        return result

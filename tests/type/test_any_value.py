@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import AnyValue
+from apysc import AnyValue, Boolean
 from apysc import Int
 from apysc.expression import expression_file_util
 from apysc.expression import var_names
@@ -259,3 +259,52 @@ class TestAnyValue:
         self._assert_incremental_arithmetic_operation_result(
             any_value=any_value, before_var_name=before_var_name,
             other_value=int_1, expected_operator='/=')
+
+    def _assert_comparison_operation_result(
+            self, any_value: AnyValue, result: Boolean,
+            other: VariableNameInterface,
+            expected_comparison_operator: str) -> None:
+        """
+        Assert comparison operation result (type checking
+        and saved expression).
+
+        Parameters
+        ----------
+        any_value : AnyValue
+            Target AnyValue instance.
+        result : Boolean
+            Comparison result value.
+        other : VariableNameInterface
+            Other value to compare.
+        expected_comparison_operator : str
+            Expected comparison operator string, like '!==', '>=',
+            and so on.
+        """
+        assert isinstance(result, Boolean)
+        expression = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{result.variable_name} = {any_value.variable_name} '
+            f'{expected_comparison_operator} {other.variable_name};'
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_comparison_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        any_value: AnyValue = AnyValue(200)
+        int_1: Int = Int(100)
+        result: Boolean = any_value._append_comparison_expression(
+            comparison_operator='<=', other=int_1)
+        self._assert_comparison_operation_result(
+            any_value=any_value, result=result,
+            other=int_1, expected_comparison_operator='<=')
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___eq__(self) -> None:
+        expression_file_util.remove_expression_file()
+        any_value: AnyValue = AnyValue(200)
+        int_1: Int = Int(100)
+        result: Boolean = any_value == int_1
+        self._assert_comparison_operation_result(
+            any_value=any_value, result=result, other=int_1,
+            expected_comparison_operator='===')

@@ -174,3 +174,31 @@ class TestAnyValue:
             f'parseInt({any_value.variable_name} / {int_1.variable_name});'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_incremental_arithmetic_operation_expression(
+            self) -> None:
+        expression_file_util.remove_expression_file()
+        any_value: AnyValue = AnyValue(200)
+        int_1: Int = Int(100)
+        any_value._append_incremental_arithmetic_operation_expression(
+            other=int_1, operator='*=')
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{any_value.variable_name} *= {int_1.variable_name};'
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___iadd__(self) -> None:
+        expression_file_util.remove_expression_file()
+        any_value: AnyValue = AnyValue(200)
+        before_var_name: str = any_value.variable_name
+        int_1: Int = Int(100)
+        any_value += int_1
+        assert before_var_name == any_value.variable_name
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{any_value.variable_name} += {int_1.variable_name};'
+        )
+        assert expected in expression

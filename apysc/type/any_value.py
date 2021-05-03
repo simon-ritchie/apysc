@@ -201,6 +201,8 @@ class AnyValue(CopyInterface):
         other : Any
             Other value for floor division.
 
+        Returns
+        -------
         result : AnyValue
             Floor division result value.
         """
@@ -214,3 +216,42 @@ class AnyValue(CopyInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
         return result
+
+    def _append_incremental_arithmetic_operation_expression(
+            self, other: Any, operator: str) -> None:
+        """
+        Append incremental arithmetic operation (e.g., incremental
+        addition) expression to file.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to use.
+        operator : str
+            JavaScript arithmetic operator, like '+=', '*=', and so on.
+        """
+        from apysc.expression import expression_file_util
+        from apysc.type.value_util import get_value_str_for_expression
+        value_str: str = get_value_str_for_expression(value=other)
+        expression: str = (
+            f'{self.variable_name} {operator} {value_str};'
+        )
+        expression_file_util.append_js_expression(expression=expression)
+
+    def __iadd__(self, other: Any) -> Any:
+        """
+        Method for incremental addition.
+
+        Parameters
+        ----------
+        other : Any
+            Other value for incremental addition.
+
+        Returns
+        -------
+        result : AnyValue
+            Incremental addition result value.
+        """
+        self._append_incremental_arithmetic_operation_expression(
+            other=other, operator='+=')
+        return self

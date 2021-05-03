@@ -23,8 +23,8 @@ class IfBase(ABC):
     def __init__(
             self,
             condition: Optional[Boolean],
-            locals_: Dict[str, Any],
-            globals_: Dict[str, Any]) -> None:
+            locals_: Optional[Dict[str, Any]] = None,
+            globals_: Optional[Dict[str, Any]] = None) -> None:
         """
         A class to append if (else if and else) branch instruction
         expression.
@@ -33,13 +33,22 @@ class IfBase(ABC):
         ----------
         condition : Boolean or None
             Boolean value to be used for judgment.
-        locals_ : dict
+        locals_ : dict or None, default None
             Current scope's local variables. Set locals() value to
-            this argument.
-        globals_ : dict
-            Current scope's golobal variables. Set golobals() value
-            to this argument.
+            this argument. If specified, all local scope
+            VariableNameInterface variables (like Int, Sprite) will be
+            reverted ad the end of If scope. This setting is useful
+            when you don't want to update each variable by the
+            implementation of the If scope.
+        globals_ : dict or None, default None
+            Current scope's global variables. Set golobals() value
+            to this argument. This works the same way as the locals_
+            argument.
         """
+        if locals_ is None:
+            locals_ = {}
+        if globals_ is None:
+            globals_ = {}
         self._condition = condition
         self._locals = locals_
         self._globals = globals_

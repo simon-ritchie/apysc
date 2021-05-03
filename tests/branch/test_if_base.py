@@ -52,6 +52,14 @@ class TestIfBase:
             },
             any_obj=instance)
 
+        instance = IfSubClass(condition=condition)
+        testing_helper.assert_attrs(
+            expected_attrs={
+                '_locals': {},
+                '_globals': {},
+            },
+            any_obj=instance)
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___enter__(self) -> None:
         expression_file_util.remove_expression_file()

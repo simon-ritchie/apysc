@@ -111,3 +111,28 @@ class AnyValue(CopyInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
         return result
+
+    def __sub__(self, other: Any) -> VariableNameInterface:
+        """
+        Method for subtraction.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to subtract.
+
+        Returns
+        -------
+        result : AnyValue
+            Subtraction result value.
+        """
+        from apysc.expression import expression_file_util
+        from apysc.type.value_util import get_value_str_for_expression
+        value_str: str = get_value_str_for_expression(value=other)
+        result: AnyValue = self._copy()
+        expression: str = (
+            f'var {result.variable_name} = '
+            f'{self.variable_name} - {value_str};'
+        )
+        expression_file_util.append_js_expression(expression=expression)
+        return result

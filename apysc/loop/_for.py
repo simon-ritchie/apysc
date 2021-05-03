@@ -5,13 +5,16 @@ from typing import Any, Union
 from typing import Dict
 from typing import Optional
 from typing import Type
+from typing import TypeVar, Generic
 
-from apysc import Array, Dictionary
-from apysc import Int
+from apysc import Array, Dictionary, Number
+from apysc import Int, String
 from apysc.expression.indent_num import Indent
 
+T = TypeVar('T', Int, String, Number)
 
-class For:
+
+class For(Generic[T]):
 
     _arr_or_dict: Union[Array, Dictionary]
     _locals: Dict[str, Any]
@@ -54,23 +57,28 @@ class For:
         self._globals = globals_
         self._indent = Indent()
 
-    def __enter__(self) -> Int:
+    def __enter__(self) -> T:
         """
         Method to be called when begining of with statement.
 
         Returns
         -------
-        i : Int
-            Loop index.
+        i_or_key : Int or String
+            Loop index or dictionary key.
         """
         from apysc.type import revert_interface
         self._snapshot_name = \
             revert_interface.make_snapshots_of_each_scope_vars(
                 locals_=self._locals, globals_=self._globals)
-        i: Int = Int(0)
-        self._append_arr_enter_expression(i=i)
+        i_or_key: Union[Int, String]
+        if isinstance(self._arr_or_dict, Array):
+            i_or_key = Int(0)
+            self._append_arr_enter_expression(i=i_or_key)
+        else:
+            i_or_key = String('')
+            self._append_dict_enter_expression(key=i_or_key)
         self._indent.__enter__()
-        return i
+        return i_or_key  # type: ignore
 
     def __exit__(
             self, exc_type: Type,
@@ -101,7 +109,7 @@ class For:
 
     def _append_arr_enter_expression(self, i: Int) -> None:
         """
-        Append for loop start expression to file.
+        Append for loop start expression (for Array value) to file.
 
         Parameters
         ----------
@@ -113,5 +121,21 @@ class For:
         expression: str = (
             f'var length = {self._arr_or_dict.variable_name}.length;\n'
             f'for ({i_name} = 0; {i_name} < length; {i_name}++) {{'
+        )
+        expression_file_util.append_js_expression(expression=expression)
+
+    def _append_dict_enter_expression(self, key: String) -> None:
+        """
+        Append for loop start expression (for Dictionary value) to file.
+
+        Parameters
+        ----------
+        key : String
+            Loop (dictionary) key value.
+        """
+        from apysc.expression import expression_file_util
+        key_name: str = key.variable_name
+        expression: str = (
+            f'for (var {key_name} in {self._arr_or_dict.variable_name}) {{'
         )
         expression_file_util.append_js_expression(expression=expression)

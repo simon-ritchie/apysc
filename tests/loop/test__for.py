@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Array
+from apysc import Array, Dictionary, String
 from apysc import For
 from apysc import Int
 from apysc.expression import expression_file_util
@@ -81,3 +81,15 @@ class TestFor:
         )
         assert expected in expression
         assert last_scope.get_last_scope() == LastScope.FOR
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_dict_enter_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        dict_1: Dictionary = Dictionary({'a': 10})
+        with For[String](dict_1) as key:
+            pass
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'for (var {key.variable_name} in {dict_1.variable_name}) {{'
+        )
+        assert expected in expression

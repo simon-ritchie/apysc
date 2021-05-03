@@ -249,3 +249,14 @@ class TestAnyValue:
         self._assert_incremental_arithmetic_operation_result(
             any_value=any_value, before_var_name=before_var_name,
             other_value=int_1, expected_operator='*=')
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___itruediv__(self) -> None:
+        expression_file_util.remove_expression_file()
+        any_value: AnyValue = AnyValue(200)
+        before_var_name: str = any_value.variable_name
+        int_1: Int = Int(100)
+        any_value /= int_1
+        self._assert_incremental_arithmetic_operation_result(
+            any_value=any_value, before_var_name=before_var_name,
+            other_value=int_1, expected_operator='/=')

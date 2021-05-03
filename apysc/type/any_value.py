@@ -281,7 +281,7 @@ class AnyValue(CopyInterface):
         Parameters
         ----------
         other : Any
-            Other valeu for incremental multiplication.
+            Other value for incremental multiplication.
 
         Returns
         -------
@@ -290,4 +290,22 @@ class AnyValue(CopyInterface):
         """
         self._append_incremental_arithmetic_operation_expression(
             other=other, operator='*=')
+        return self
+
+    def __itruediv__(self, other: Any) -> Any:
+        """
+        Method for incremental true division.
+
+        Parameters
+        ----------
+        other : Any
+            Other value for incremental division.
+
+        Returns
+        -------
+        result : AnyValue
+            Incremental division result value.
+        """
+        self._append_incremental_arithmetic_operation_expression(
+            other=other, operator='/=')
         return self

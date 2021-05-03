@@ -96,3 +96,18 @@ class TestAnyValue:
             f'{int_1.variable_name};'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_arithmetic_operation_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        any_value: AnyValue = AnyValue(100)
+        int_1: Int = Int(200)
+        result: VariableNameInterface = \
+            any_value._append_arithmetic_operation_expression(
+            other=int_1, operator='/')
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'var {result.variable_name} = '
+            f'{any_value.variable_name} / {int_1.variable_name};'
+        )
+        assert expected in expression

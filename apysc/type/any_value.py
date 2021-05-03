@@ -87,7 +87,36 @@ class AnyValue(CopyInterface):
             expression += f'{value};'
         expression_file_util.append_js_expression(expression=expression)
 
-    def __add__(self, value: Any) -> VariableNameInterface:
+    def _append_arithmetic_operation_expression(
+            self, other: Any, operator: str) -> VariableNameInterface:
+        """
+        Append arithmetic operation (e.g., addition) expression
+        to file.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to use.
+        operator : str
+            JavaScript arithmetic operator, like '+', '*', and so on.
+
+        Returns
+        -------
+        result : AnyValue
+            Calculated result value.
+        """
+        from apysc.expression import expression_file_util
+        from apysc.type.value_util import get_value_str_for_expression
+        value_str: str = get_value_str_for_expression(value=other)
+        result: AnyValue = self._copy()
+        expression: str = (
+            f'var {result.variable_name} = '
+            f'{self.variable_name} {operator} {value_str};'
+        )
+        expression_file_util.append_js_expression(expression=expression)
+        return result
+
+    def __add__(self, other: Any) -> VariableNameInterface:
         """
         Method for addition.
 
@@ -101,15 +130,9 @@ class AnyValue(CopyInterface):
         result : AnyValue
             Addition result value.
         """
-        from apysc.expression import expression_file_util
-        from apysc.type.value_util import get_value_str_for_expression
-        value_str: str = get_value_str_for_expression(value=value)
-        result: AnyValue = self._copy()
-        expression: str = (
-            f'var {result.variable_name} = '
-            f'{self.variable_name} + {value_str};'
-        )
-        expression_file_util.append_js_expression(expression=expression)
+        result: VariableNameInterface = \
+            self._append_arithmetic_operation_expression(
+                other=other, operator='+')
         return result
 
     def __sub__(self, other: Any) -> VariableNameInterface:
@@ -126,13 +149,7 @@ class AnyValue(CopyInterface):
         result : AnyValue
             Subtraction result value.
         """
-        from apysc.expression import expression_file_util
-        from apysc.type.value_util import get_value_str_for_expression
-        value_str: str = get_value_str_for_expression(value=other)
-        result: AnyValue = self._copy()
-        expression: str = (
-            f'var {result.variable_name} = '
-            f'{self.variable_name} - {value_str};'
-        )
-        expression_file_util.append_js_expression(expression=expression)
+        result: VariableNameInterface = \
+            self._append_arithmetic_operation_expression(
+                other=other, operator='-')
         return result

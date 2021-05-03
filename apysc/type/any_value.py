@@ -110,7 +110,7 @@ class AnyValue(CopyInterface):
         value_str: str = get_value_str_for_expression(value=other)
         result: AnyValue = self._copy()
         expression: str = (
-            f'var {result.variable_name} = '
+            f'{result.variable_name} = '
             f'{self.variable_name} {operator} {value_str};'
         )
         expression_file_util.append_js_expression(expression=expression)
@@ -185,9 +185,32 @@ class AnyValue(CopyInterface):
         Returns
         -------
         result : AnyValue
-            True divition result value.
+            True division result value.
         """
         result: VariableNameInterface = \
             self._append_arithmetic_operation_expression(
                 other=other, operator='/')
+        return result
+
+    def __floordiv__(self, other: Any) -> VariableNameInterface:
+        """
+        Method for floor division.
+
+        Parameters
+        ----------
+        other : Any
+            Other value for floor division.
+
+        result : AnyValue
+            Floor division result value.
+        """
+        from apysc.expression import expression_file_util
+        from apysc.type.value_util import get_value_str_for_expression
+        result: AnyValue = self._copy()
+        value_str: str = get_value_str_for_expression(value=other)
+        expression: str = (
+            f'{result.variable_name} = '
+            f'parseInt({self.variable_name} / {value_str});'
+        )
+        expression_file_util.append_js_expression(expression=expression)
         return result

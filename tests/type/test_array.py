@@ -271,6 +271,9 @@ class TestArray:
         array_1.remove_at(index=Int(1))
         assert array_1.value == [1, 4]
 
+        array_1.remove_at(index=2)
+        assert array_1.value == [1, 4]
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_remove_at_expression(self) -> None:
         expression_file_util.remove_expression_file()

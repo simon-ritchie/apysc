@@ -432,7 +432,8 @@ class Array(CopyInterface, RevertInterface):
             index_: int = int(index.value)
         else:
             index_ = index
-        del self._value[index_]
+        if index_ in self._value:
+            del self._value[index_]
         self._append_remove_at_expression(index=index)
 
     def _append_remove_at_expression(self, index: Union[int, Int]) -> None:

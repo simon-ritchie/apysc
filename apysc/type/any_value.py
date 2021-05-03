@@ -116,7 +116,7 @@ class AnyValue(CopyInterface):
         expression_file_util.append_js_expression(expression=expression)
         return result
 
-    def __add__(self, other: Any) -> VariableNameInterface:
+    def __add__(self, other: Any) -> Any:
         """
         Method for addition.
 
@@ -135,7 +135,7 @@ class AnyValue(CopyInterface):
                 other=other, operator='+')
         return result
 
-    def __sub__(self, other: Any) -> VariableNameInterface:
+    def __sub__(self, other: Any) -> Any:
         """
         Method for subtraction.
 
@@ -154,7 +154,7 @@ class AnyValue(CopyInterface):
                 other=other, operator='-')
         return result
 
-    def __mul__(self, other: Any) -> VariableNameInterface:
+    def __mul__(self, other: Any) -> Any:
         """
         Method for multiplication.
 
@@ -173,7 +173,7 @@ class AnyValue(CopyInterface):
                 other=other, operator='*')
         return result
 
-    def __truediv__(self, other: Any) -> VariableNameInterface:
+    def __truediv__(self, other: Any) -> Any:
         """
         Method for true division.
 
@@ -192,7 +192,7 @@ class AnyValue(CopyInterface):
                 other=other, operator='/')
         return result
 
-    def __floordiv__(self, other: Any) -> VariableNameInterface:
+    def __floordiv__(self, other: Any) -> Any:
         """
         Method for floor division.
 

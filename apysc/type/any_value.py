@@ -378,3 +378,22 @@ class AnyValue(CopyInterface):
         result: Boolean = self._append_comparison_expression(
             comparison_operator='!==', other=other)
         return result
+
+    def __lt__(self, other: Any) -> Boolean:
+        """
+        Less than comparison method.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to compare.
+
+        Returns
+        -------
+        result : Boolean
+            Comparison result. This will always be False on Python
+            since correct comparison is not possible.
+        """
+        result: Boolean = self._append_comparison_expression(
+            comparison_operator='<', other=other)
+        return result

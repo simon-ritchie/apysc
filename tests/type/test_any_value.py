@@ -318,3 +318,13 @@ class TestAnyValue:
         self._assert_comparison_operation_result(
             any_value=any_value, result=result, other=int_1,
             expected_comparison_operator='!==')
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___lt__(self) -> None:
+        expression_file_util.remove_expression_file()
+        any_value: AnyValue = AnyValue(200)
+        int_1: Int = Int(100)
+        result: Boolean = any_value < int_1
+        self._assert_comparison_operation_result(
+            any_value=any_value, result=result, other=int_1,
+            expected_comparison_operator='<')

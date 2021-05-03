@@ -6,6 +6,7 @@ from apysc import AnyValue
 from apysc import Int
 from apysc.expression import expression_file_util
 from apysc.expression import var_names
+from apysc.type.variable_name_interface import VariableNameInterface
 
 
 class TestAnyValue:
@@ -67,3 +68,16 @@ class TestAnyValue:
         any_value: AnyValue = AnyValue(100)
         any_value.value = 200
         assert any_value.value == 200
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___add__(self) -> None:
+        expression_file_util.remove_expression_file()
+        any_value: AnyValue = AnyValue(100)
+        int_1: Int = Int(200)
+        result: VariableNameInterface = any_value + int_1
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'var {result.variable_name} = {any_value.variable_name} + '
+            f'{int_1.variable_name};'
+        )
+        assert expected in expression

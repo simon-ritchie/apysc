@@ -4,9 +4,10 @@
 from typing import Any
 
 from apysc.type.variable_name_interface import VariableNameInterface
+from apysc.type.copy_interface import CopyInterface
 
 
-class AnyValue(VariableNameInterface):
+class AnyValue(CopyInterface):
 
     _value: Any
 
@@ -22,9 +23,11 @@ class AnyValue(VariableNameInterface):
         """
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names
+        TYPE_NAME: str = var_names.ANY
         self._value = value
         self.variable_name = expression_variables_util.get_next_variable_name(
-            type_name=var_names.ANY)
+            type_name=TYPE_NAME)
+        self._type_name = TYPE_NAME
         self._append_constructor_expression()
 
     def _append_constructor_expression(self) -> None:
@@ -83,3 +86,28 @@ class AnyValue(VariableNameInterface):
         else:
             expression += f'{value};'
         expression_file_util.append_js_expression(expression=expression)
+
+    def __add__(self, value: Any) -> VariableNameInterface:
+        """
+        Method for addition.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to add.
+
+        Returns
+        -------
+        result : AnyValue
+            Addition result value.
+        """
+        from apysc.expression import expression_file_util
+        from apysc.type.value_util import get_value_str_for_expression
+        value_str: str = get_value_str_for_expression(value=value)
+        result: AnyValue = self._copy()
+        expression: str = (
+            f'var {result.variable_name} = '
+            f'{self.variable_name} + {value_str};'
+        )
+        expression_file_util.append_js_expression(expression=expression)
+        return result

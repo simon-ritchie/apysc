@@ -6,24 +6,16 @@ $ python AnyValue/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
 
-from apysc import Array, AnyValue
-from apysc import If
+from apysc import AnyValue
 from apysc import Int
-from apysc import MouseEvent
 from apysc import Stage
-from apysc import String
-from apysc import assert_arrays_equal
 from apysc import assert_equal
-from apysc import assert_true
-from apysc import trace
 from apysc.file import file_util
 from apysc.html import exporter
 
@@ -38,7 +30,7 @@ _DEST_DIR_PATH: str = os.path.join(
 def main() -> None:
     """Entry point of this test project.
     """
-    stage: Stage = Stage(background_color='#333')
+    _: Stage = Stage(background_color='#333')
 
     any_value_1: AnyValue = AnyValue(10)
     any_value_1 = any_value_1 + 10

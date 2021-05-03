@@ -2,9 +2,11 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Array, Dictionary, String
+from apysc import Array
+from apysc import Dictionary
 from apysc import For
 from apysc import Int
+from apysc import String
 from apysc.expression import expression_file_util
 from apysc.expression import indent_num
 from apysc.expression import last_scope

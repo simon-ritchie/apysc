@@ -1,14 +1,19 @@
 """For loop class implementation.
 """
 
-from typing import Any, Union
+from typing import Any
 from typing import Dict
+from typing import Generic
 from typing import Optional
 from typing import Type
-from typing import TypeVar, Generic
+from typing import TypeVar
+from typing import Union
 
-from apysc import Array, Dictionary, Number
-from apysc import Int, String
+from apysc import Array
+from apysc import Dictionary
+from apysc import Int
+from apysc import Number
+from apysc import String
 from apysc.expression.indent_num import Indent
 
 T = TypeVar('T', Int, String, Number)

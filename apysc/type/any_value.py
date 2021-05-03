@@ -3,8 +3,8 @@
 
 from typing import Any
 
-from apysc.type.variable_name_interface import VariableNameInterface
 from apysc.type.copy_interface import CopyInterface
+from apysc.type.variable_name_interface import VariableNameInterface
 
 
 class AnyValue(CopyInterface):

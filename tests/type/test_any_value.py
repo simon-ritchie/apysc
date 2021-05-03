@@ -1,5 +1,4 @@
 from random import randint
-from typing import Any
 
 from retrying import retry
 
@@ -131,7 +130,7 @@ class TestAnyValue:
         int_1: Int = Int(200)
         result: VariableNameInterface = \
             any_value._append_arithmetic_operation_expression(
-            other=int_1, operator='/')
+                other=int_1, operator='/')
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{result.variable_name} = '

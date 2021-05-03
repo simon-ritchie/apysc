@@ -93,3 +93,13 @@ class TestFor:
             f'for (var {key.variable_name} in {dict_1.variable_name}) {{'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__validate_arr_or_dict_val_type(self) -> None:
+        For(Array([0]))
+        For(Dictionary({'a': 10}))
+        testing_helper.assert_raises(
+            expected_error_class=TypeError,
+            func_or_method=For,
+            kwargs={'arr_or_dict': 'Hello!'},
+            match='Specified value type is neither Array nor Dictionary: ')

@@ -48,6 +48,7 @@ class For(Generic[T]):
             when you don't want to update each variable by the
             implementation of the For scope.
         """
+        self._validate_arr_or_dict_val_type(arr_or_dict=arr_or_dict)
         if locals_ is None:
             locals_ = {}
         if globals_ is None:
@@ -56,6 +57,27 @@ class For(Generic[T]):
         self._locals = locals_
         self._globals = globals_
         self._indent = Indent()
+
+    def _validate_arr_or_dict_val_type(
+            self, arr_or_dict: Union[Array, Dictionary]) -> None:
+        """
+        Validate loop value type is Array of Dictionary.
+
+        Parameters
+        ----------
+        arr_or_dict : Array or Dictionary
+            Value to be checked.
+
+        Raises
+        ------
+        TypeError
+            If value type is neither Array nor Dictionary.
+        """
+        if isinstance(arr_or_dict, (Array, Dictionary)):
+            return
+        raise TypeError(
+            'Specified value type is neither Array nor Dictionary: '
+            f'{type(arr_or_dict)}')
 
     def __enter__(self) -> T:
         """

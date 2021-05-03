@@ -189,6 +189,34 @@ class TestAnyValue:
         )
         assert expected in expression
 
+    def _assert_incremental_arithmetic_operation_result(
+            self, any_value: AnyValue, before_var_name: str,
+            other_value: VariableNameInterface,
+            expected_operator: str) -> None:
+        """
+        Assert incremental arithmetic operation result (check
+        variable name and saved expression).
+
+        Parameters
+        ----------
+        any_value : AnyValue
+            Target AnyValue instance.
+        before_var_name : str
+            Variable name before incremental arithmetic operation.
+        other_value : VariableNameInterface
+            Other value instance.
+        expected_operator : str
+            Expected incremental arithmetic operator, like '+=', '*=',
+            and so on.
+        """
+        assert before_var_name == any_value.variable_name
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{any_value.variable_name} {expected_operator} '
+            f'{other_value.variable_name};'
+        )
+        assert expected in expression
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___iadd__(self) -> None:
         expression_file_util.remove_expression_file()
@@ -196,9 +224,18 @@ class TestAnyValue:
         before_var_name: str = any_value.variable_name
         int_1: Int = Int(100)
         any_value += int_1
-        assert before_var_name == any_value.variable_name
-        expression: str = expression_file_util.get_current_expression()
-        expected: str = (
-            f'{any_value.variable_name} += {int_1.variable_name};'
-        )
-        assert expected in expression
+        self._assert_incremental_arithmetic_operation_result(
+            any_value=any_value, before_var_name=before_var_name,
+            other_value=int_1, expected_operator='+=')
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___isub__(self) -> None:
+        expression_file_util.remove_expression_file()
+        any_value: AnyValue = AnyValue(200)
+        before_var_name: str = any_value.variable_name
+        int_1: Int = Int(100)
+        any_value -= int_1
+        self._assert_incremental_arithmetic_operation_result(
+            any_value=any_value, before_var_name=before_var_name,
+            other_value=int_1, expected_operator='-=')
+

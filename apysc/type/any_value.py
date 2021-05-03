@@ -255,3 +255,21 @@ class AnyValue(CopyInterface):
         self._append_incremental_arithmetic_operation_expression(
             other=other, operator='+=')
         return self
+
+    def __isub__(self, other: Any) -> Any:
+        """
+        Method for incremental subtraction.
+
+        Parameters
+        ----------
+        other : Any
+            Other value for incremental subtraction.
+
+        Returns
+        -------
+        result : AnyValue
+            Incremental subtraction result value.
+        """
+        self._append_incremental_arithmetic_operation_expression(
+            other=other, operator='-=')
+        return self

@@ -153,3 +153,22 @@ class AnyValue(CopyInterface):
             self._append_arithmetic_operation_expression(
                 other=other, operator='-')
         return result
+
+    def __mul__(self, other: Any) -> VariableNameInterface:
+        """
+        Method for multiplication.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to multiply.
+
+        Returns
+        -------
+        result : AnyValue
+            Subtraction result value.
+        """
+        result: VariableNameInterface = \
+            self._append_arithmetic_operation_expression(
+                other=other, operator='*')
+        return result

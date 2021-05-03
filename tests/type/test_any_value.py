@@ -1,4 +1,5 @@
 from random import randint
+from typing import Any
 
 from retrying import retry
 
@@ -69,6 +70,38 @@ class TestAnyValue:
         any_value.value = 200
         assert any_value.value == 200
 
+    def _assert_arithmetic_operation_dunder_method_expression(
+            self, any_value: AnyValue, result: VariableNameInterface,
+            other: VariableNameInterface,
+            expected_operator: str) -> None:
+        """
+        Assert arithmetic operation dunder method (e.g., __add__)
+        expression.
+
+        Parameters
+        ----------
+        any_value : AnyValue
+            AnyValue instance.
+        result : VariableNameInterface
+            Result value instance.
+        other : VariableNameInterface
+            Other value instance.
+        expected_operator : str
+            Expected arithmetic operator string, e.g., '+'.
+
+        Raises
+        ------
+        AssertionError
+            If saved expression is invalid.
+        """
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'var {result.variable_name} = {any_value.variable_name} '
+            f'{expected_operator} '
+            f'{other.variable_name};'
+        )
+        assert expected in expression
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___add__(self) -> None:
         expression_file_util.remove_expression_file()
@@ -76,12 +109,9 @@ class TestAnyValue:
         int_1: Int = Int(200)
         result: VariableNameInterface = any_value + int_1
         assert isinstance(result, AnyValue)
-        expression: str = expression_file_util.get_current_expression()
-        expected: str = (
-            f'var {result.variable_name} = {any_value.variable_name} + '
-            f'{int_1.variable_name};'
-        )
-        assert expected in expression
+        self._assert_arithmetic_operation_dunder_method_expression(
+            any_value=any_value, result=result, other=int_1,
+            expected_operator='+')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___sub__(self) -> None:
@@ -90,12 +120,9 @@ class TestAnyValue:
         int_1: Int = Int(200)
         result: VariableNameInterface = any_value - int_1
         assert isinstance(result, AnyValue)
-        expression: str = expression_file_util.get_current_expression()
-        expected: str = (
-            f'var {result.variable_name} = {any_value.variable_name} - '
-            f'{int_1.variable_name};'
-        )
-        assert expected in expression
+        self._assert_arithmetic_operation_dunder_method_expression(
+            any_value=any_value, result=result, other=int_1,
+            expected_operator='-')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_arithmetic_operation_expression(self) -> None:
@@ -111,3 +138,14 @@ class TestAnyValue:
             f'{any_value.variable_name} / {int_1.variable_name};'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___mul__(self) -> None:
+        expression_file_util.remove_expression_file()
+        any_value: AnyValue = AnyValue(100)
+        int_1: Int = Int(200)
+        result: VariableNameInterface = any_value * int_1
+        assert isinstance(result, AnyValue)
+        self._assert_arithmetic_operation_dunder_method_expression(
+            any_value=any_value, result=result, other=int_1,
+            expected_operator='*')

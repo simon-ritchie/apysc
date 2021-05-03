@@ -273,3 +273,21 @@ class AnyValue(CopyInterface):
         self._append_incremental_arithmetic_operation_expression(
             other=other, operator='-=')
         return self
+
+    def __imul__(self, other: Any) -> Any:
+        """
+        Method for incremental multiplication.
+
+        Parameters
+        ----------
+        other : Any
+            Other valeu for incremental multiplication.
+
+        Returns
+        -------
+        result : AnyValue
+            Incremental multiplication result value.
+        """
+        self._append_incremental_arithmetic_operation_expression(
+            other=other, operator='*=')
+        return self

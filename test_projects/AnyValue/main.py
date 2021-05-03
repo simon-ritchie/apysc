@@ -12,10 +12,10 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import AnyValue
+from apysc import AnyValue, Boolean
 from apysc import Int
 from apysc import Stage
-from apysc import assert_equal
+from apysc import assert_equal, assert_true, assert_false
 from apysc.file import file_util
 from apysc.html import exporter
 
@@ -68,6 +68,37 @@ def main() -> None:
     any_value_9: AnyValue = AnyValue(20)
     any_value_9 /= 4
     assert_equal(expected=5, actual=any_value_9)
+
+    any_value_10: AnyValue = AnyValue(10)
+    result: Boolean = any_value_10 == 10
+    assert_true(result)
+    result = any_value_10 == 11
+    assert_false(result)
+
+    result = any_value_10 != 11
+    assert_true(result)
+    result = any_value_10 != 10
+    assert_false(result)
+
+    result = any_value_10 < 11
+    assert_true(result)
+    result = any_value_10 < 10
+    assert_false(result)
+
+    result = any_value_10 <= 10
+    assert_true(result)
+    result = any_value_10 <= 9
+    assert_false(result)
+
+    result = any_value_10 > 9
+    assert_true(result)
+    result = any_value_10 > 10
+    assert_false(result)
+
+    result = any_value_10 >= 10
+    assert_true(result)
+    result = any_value_10 >= 11
+    assert_false(result)
 
     exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 

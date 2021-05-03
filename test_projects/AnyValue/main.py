@@ -12,10 +12,13 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import AnyValue, Boolean
+from apysc import AnyValue
+from apysc import Boolean
 from apysc import Int
 from apysc import Stage
-from apysc import assert_equal, assert_true, assert_false
+from apysc import assert_equal
+from apysc import assert_false
+from apysc import assert_true
 from apysc.file import file_util
 from apysc.html import exporter
 

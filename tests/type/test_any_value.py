@@ -2,7 +2,8 @@ from random import randint
 
 from retrying import retry
 
-from apysc import AnyValue, Boolean
+from apysc import AnyValue
+from apysc import Boolean
 from apysc import Int
 from apysc.expression import expression_file_util
 from apysc.expression import var_names

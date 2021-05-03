@@ -3,8 +3,8 @@
 
 from typing import Any
 
-from apysc.type.copy_interface import CopyInterface
 from apysc import Boolean
+from apysc.type.copy_interface import CopyInterface
 from apysc.type.variable_name_interface import VariableNameInterface
 
 
@@ -341,7 +341,7 @@ class AnyValue(CopyInterface):
         expression_file_util.append_js_expression(expression=expression)
         return result
 
-    def __eq__(self, other: Any) -> Boolean:
+    def __eq__(self, other: Any) -> Any:
         """
         Equal comparison method.
 
@@ -360,7 +360,7 @@ class AnyValue(CopyInterface):
             comparison_operator='===', other=other)
         return result
 
-    def __ne__(self, other: Any) -> Boolean:
+    def __ne__(self, other: Any) -> Any:
         """
         Not equal comparison method.
 

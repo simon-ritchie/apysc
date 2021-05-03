@@ -172,3 +172,22 @@ class AnyValue(CopyInterface):
             self._append_arithmetic_operation_expression(
                 other=other, operator='*')
         return result
+
+    def __truediv__(self, other: Any) -> VariableNameInterface:
+        """
+        Method for true division.
+
+        Parameters
+        ----------
+        other : Any
+            Other value for true division.
+
+        Returns
+        -------
+        result : AnyValue
+            True divition result value.
+        """
+        result: VariableNameInterface = \
+            self._append_arithmetic_operation_expression(
+                other=other, operator='/')
+        return result

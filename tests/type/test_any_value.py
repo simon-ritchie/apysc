@@ -149,3 +149,14 @@ class TestAnyValue:
         self._assert_arithmetic_operation_dunder_method_expression(
             any_value=any_value, result=result, other=int_1,
             expected_operator='*')
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___truediv__(self) -> None:
+        expression_file_util.remove_expression_file()
+        any_value: AnyValue = AnyValue(100)
+        int_1: Int = Int(200)
+        result: VariableNameInterface = any_value / int_1
+        assert isinstance(result, AnyValue)
+        self._assert_arithmetic_operation_dunder_method_expression(
+            any_value=any_value, result=result, other=int_1,
+            expected_operator='/')

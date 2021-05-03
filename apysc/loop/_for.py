@@ -68,7 +68,7 @@ class For:
             revert_interface.make_snapshots_of_each_scope_vars(
                 locals_=self._locals, globals_=self._globals)
         i: Int = Int(0)
-        self._append_enter_expression(i=i)
+        self._append_arr_enter_expression(i=i)
         self._indent.__enter__()
         return i
 
@@ -99,7 +99,7 @@ class For:
         expression_file_util.append_js_expression(expression='}')
         last_scope.set_last_scope(value=LastScope.FOR)
 
-    def _append_enter_expression(self, i: Int) -> None:
+    def _append_arr_enter_expression(self, i: Int) -> None:
         """
         Append for loop start expression to file.
 
@@ -111,7 +111,7 @@ class For:
         from apysc.expression import expression_file_util
         i_name: str = i.variable_name
         expression: str = (
-            f'var length = {self._arr.variable_name}.length;\n'
+            f'var length = {self._arr_or_dict.variable_name}.length;\n'
             f'for ({i_name} = 0; {i_name} < length; {i_name}++) {{'
         )
         expression_file_util.append_js_expression(expression=expression)

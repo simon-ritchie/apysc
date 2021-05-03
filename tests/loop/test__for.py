@@ -23,7 +23,7 @@ class TestFor:
             globals_={'value_2': 2})
         testing_helper.assert_attrs(
             expected_attrs={
-                '_arr': arr,
+                '_arr_or_dict': arr,
                 '_locals': {'value_1': 1},
                 '_globals': {'value_2': 2},
             },
@@ -39,7 +39,7 @@ class TestFor:
             any_obj=for_)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__append_enter_expression(self) -> None:
+    def test__append_arr_enter_expression(self) -> None:
         expression_file_util.remove_expression_file()
         arr: Array = Array([1, 2, 3])
         with For(arr, locals(), globals()) as i:

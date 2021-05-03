@@ -19,7 +19,7 @@ class TestFor:
     def test___init__(self) -> None:
         arr: Array = Array([1, 2, 3])
         for_: For = For(
-            arr=arr, locals_={'value_1': 1},
+            arr_or_dict=arr, locals_={'value_1': 1},
             globals_={'value_2': 2})
         testing_helper.assert_attrs(
             expected_attrs={
@@ -30,7 +30,7 @@ class TestFor:
             any_obj=for_)
         assert isinstance(for_._indent, Indent)
 
-        for_ = For(arr=arr)
+        for_ = For(arr)
         testing_helper.assert_attrs(
             expected_attrs={
                 '_locals': {},

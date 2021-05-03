@@ -1,26 +1,26 @@
 """For loop class implementation.
 """
 
-from typing import Any
+from typing import Any, Union
 from typing import Dict
 from typing import Optional
 from typing import Type
 
-from apysc import Array
+from apysc import Array, Dictionary
 from apysc import Int
 from apysc.expression.indent_num import Indent
 
 
 class For:
 
-    _arr: Array
+    _arr_or_dict: Union[Array, Dictionary]
     _locals: Dict[str, Any]
     _globals: Dict[str, Any]
     _snapshot_name: str
     _indent: Indent
 
     def __init__(
-            self, arr: Array,
+            self, arr_or_dict: Union[Array, Dictionary],
             locals_: Optional[Dict[str, Any]] = None,
             globals_: Optional[Dict[str, Any]] = None) -> None:
         """
@@ -28,8 +28,8 @@ class For:
 
         Parameters
         ----------
-        arr : Array
-            Array instance to iterate.
+        arr_or_dict : Array or Dictionary
+            Array or Dictionary instance to iterate.
         locals_ : dict or None, default None
             Current scope's local variables. Set locals() value to
             this argument. If specified, all local scope
@@ -49,7 +49,7 @@ class For:
             locals_ = {}
         if globals_ is None:
             globals_ = {}
-        self._arr = arr
+        self._arr_or_dict = arr_or_dict
         self._locals = locals_
         self._globals = globals_
         self._indent = Indent()

@@ -1,7 +1,7 @@
 """For loop class implementation.
 """
 
-from typing import Any
+from typing import Any, Optional
 from typing import Dict
 from typing import Type
 
@@ -19,8 +19,9 @@ class For:
     _indent: Indent
 
     def __init__(
-            self, arr: Array, locals_: Dict[str, Any],
-            globals_: Dict[str, Any]) -> None:
+            self, arr: Array,
+            locals_: Optional[Dict[str, Any]] = None,
+            globals_: Optional[Dict[str, Any]] = None) -> None:
         """
         A class to append for (loop) expression.
 
@@ -28,13 +29,25 @@ class For:
         ----------
         arr : Array
             Array instance to iterate.
-        locals_ : dict
+        locals_ : dict or None, default None
             Current scope's local variables. Set locals() value to
-            this argument.
-        globals_ : dict
+            this argument. If specified, all local scope
+            VariableNameInterface variables (like Int, Sprite) will be
+            reverted ad the end of For scope. This setting is useful
+            when you don't want to update each variable by the
+            implementation of the For scope.
+        globals_ : dict or None, default None
             Current scope's golobal variables. Set golobals() value
-            to this argument.
+            to this argument. If specified, all local scope
+            VariableNameInterface variables (like Int, Sprite) will be
+            reverted ad the end of For scope. This setting is useful
+            when you don't want to update each variable by the
+            implementation of the For scope.
         """
+        if locals_ is None:
+            locals_ = {}
+        if globals_ is None:
+            globals_ = {}
         self._arr = arr
         self._locals = locals_
         self._globals = globals_

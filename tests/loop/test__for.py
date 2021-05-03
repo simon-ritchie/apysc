@@ -30,6 +30,14 @@ class TestFor:
             any_obj=for_)
         assert isinstance(for_._indent, Indent)
 
+        for_ = For(arr=arr)
+        testing_helper.assert_attrs(
+            expected_attrs={
+                '_locals': {},
+                '_globals': {},
+            },
+            any_obj=for_)
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_enter_expression(self) -> None:
         expression_file_util.remove_expression_file()

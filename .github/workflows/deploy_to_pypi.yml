@@ -11,6 +11,16 @@ jobs:
     timeout-minutes: 15
 
     steps:
+
+      # Set cache setting for each Python package (pip).
+      - name: Cache setting for pip
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
       # Install linux necessary packages.
       - run: sudo apt install build-essential
 

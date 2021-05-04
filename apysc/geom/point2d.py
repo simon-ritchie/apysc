@@ -9,8 +9,8 @@ _int = Union[int, Int]
 
 class Point2D:
 
-    _x: _int
-    _y: _int
+    _x: Int
+    _y: Int
 
     def __init__(self, x: _int, y: _int) -> None:
         """
@@ -26,5 +26,21 @@ class Point2D:
         from apysc.validation.number_validation import validate_integer
         validate_integer(integer=x)
         validate_integer(integer=y)
+        if isinstance(x, int):
+            x = Int(x)
+        if isinstance(y, int):
+            y = Int(y)
         self._x = x
         self._y = y
+
+    @property
+    def x(self) -> Int:
+        """
+        X-coordinate property.
+
+        Returns
+        -------
+        x : Int
+            X-coordinate.
+        """
+        return self._x

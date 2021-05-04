@@ -26,6 +26,17 @@ class TestGraphicBase:
             },
             any_obj=graphic_base)
 
+        graphic_base = GraphicBase(
+            parent=sprite.graphics, x=300, y=400,
+            variable_name='test_graphic')
+        testing_helper.assert_attrs(
+            expected_attrs={
+                'parent_graphics': sprite.graphics,
+                '_x': 300,
+                '_y': 400,
+            },
+            any_obj=graphic_base)
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_x(self) -> None:
         stage: Stage = Stage()

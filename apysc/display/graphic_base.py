@@ -1,7 +1,7 @@
 """Class implementation for graphic base class.
 """
 
-from typing import Any
+from typing import Any, Union
 
 from apysc import Int
 from apysc.display.display_object import DisplayObject
@@ -14,7 +14,9 @@ class GraphicBase(DisplayObject):
     _variable_name: str
 
     def __init__(
-            self, parent: _Graphics, x: Int, y: Int,
+            self, parent: _Graphics,
+            x: Union[int, Int],
+            y: Union[int, Int],
             variable_name: str) -> None:
         """
         Vector graphic base class.
@@ -23,9 +25,9 @@ class GraphicBase(DisplayObject):
         ----------
         parent : Graphics
             Parent `Graphics` instance.
-        x : int
+        x : int or Int
             X position.
-        y : int
+        y : int or Int
             Y position.
         variable_name : str
             Variable name of this instance. This will be used to
@@ -40,7 +42,11 @@ class GraphicBase(DisplayObject):
         self.parent_graphics: Graphics = parent
         number_validation.validate_integer(integer=x)
         number_validation.validate_integer(integer=y)
+        if isinstance(x, int):
+            x = Int(x)
         self._x = x
+        if isinstance(y, int):
+            y = Int(y)
         self._y = y
         string_validation.validate_not_empty_string(string=variable_name)
         self._variable_name = variable_name

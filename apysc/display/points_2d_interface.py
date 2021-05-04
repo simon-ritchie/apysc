@@ -32,6 +32,28 @@ class Points2DInterface(VariableNameInterface):
         self._initialize_points_if_not_initialized()
         return self._points
 
+    @points.setter
+    def points(self, value: Array) -> None:
+        """
+        Update points value.
+
+        Parameters
+        ----------
+        value : Array of Point2D
+            Points value to set.
+
+        Raises
+        ------
+        ValueError
+            If array contains not Point2D value.
+        """
+        for point in value.value:
+            if isinstance(point, Point2D):
+                continue
+            raise ValueError(
+                f'Specified array contains not Point2D value: {type(point)}')
+        self._points = value
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass
 

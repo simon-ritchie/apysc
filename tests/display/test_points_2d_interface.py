@@ -1,8 +1,10 @@
 from random import randint
 
 from retrying import retry
+import pytest
 
 from apysc.display.points_2d_interface import Points2DInterface
+from apysc import Array, Point2D
 
 
 class TestPoints2DInterface:
@@ -20,3 +22,9 @@ class TestPoints2DInterface:
     def test_points(self) -> None:
         interface: Points2DInterface = Points2DInterface()
         assert interface.points == []
+
+        interface.points = Array([Point2D(10, 20), Point2D(30, 40)])
+        assert interface.points == [Point2D(10, 20), Point2D(30, 40)]
+
+        with pytest.raises(ValueError):  # type: ignore
+            interface.points = Array([10, 20])

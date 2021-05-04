@@ -95,6 +95,22 @@ class Point2D(VariableNameInterface):
         if isinstance(value, int):
             value = Int(value)
         self._x = value
+        self._append_x_setter_expression(value=value)
+
+    def _append_x_setter_expression(self, value: Int) -> None:
+        """
+        Append x property setter expression to file.
+
+        Parameters
+        ----------
+        value : Int
+            X-coordinate to set.
+        """
+        from apysc.expression import expression_file_util
+        expression: str = (
+            f'{self.variable_name}["x"] = {value.variable_name};'
+        )
+        expression_file_util.append_js_expression(expression=expression)
 
     @property
     def y(self) -> Int:

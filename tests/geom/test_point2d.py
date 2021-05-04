@@ -126,3 +126,15 @@ class TestPoint2D:
             f'{point.variable_name}["x"] = {x.variable_name};'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_y_setter_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        point: Point2D = Point2D(x=10, y=20)
+        y: Int = Int(30)
+        point.y = y
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{point.variable_name}["y"] = {y.variable_name};'
+        )
+        assert expected in expression

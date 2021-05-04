@@ -12,12 +12,15 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Array, Dictionary, String, assert_dicts_equal
+from apysc import Array
+from apysc import Dictionary
 from apysc import For
 from apysc import Int
 from apysc import Sprite
 from apysc import Stage
+from apysc import String
 from apysc import assert_arrays_equal
+from apysc import assert_dicts_equal
 from apysc.file import file_util
 from apysc.html import exporter
 

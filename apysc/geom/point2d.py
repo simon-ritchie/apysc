@@ -3,11 +3,12 @@
 
 from typing import Any, Union
 from apysc import Int, Boolean
+from apysc.type.variable_name_interface import VariableNameInterface
 
 _int = Union[int, Int]
 
 
-class Point2D:
+class Point2D(VariableNameInterface):
 
     _x: Int
     _y: Int
@@ -24,6 +25,8 @@ class Point2D:
             Y-coordinate.
         """
         from apysc.validation.number_validation import validate_integer
+        from apysc.expression import var_names
+        from apysc.expression import expression_variables_util
         validate_integer(integer=x)
         validate_integer(integer=y)
         if isinstance(x, int):
@@ -32,6 +35,8 @@ class Point2D:
             y = Int(y)
         self._x = x
         self._y = y
+        self.variable_name = expression_variables_util.get_next_variable_name(
+            type_name=var_names.POINT2D)
 
     @property
     def x(self) -> Int:

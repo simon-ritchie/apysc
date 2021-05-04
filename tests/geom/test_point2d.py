@@ -4,6 +4,7 @@ from retrying import retry
 
 from apysc import Point2D, Int, Boolean
 from tests.testing_helper import assert_attrs
+from apysc.expression import var_names
 
 
 class TestPoint2D:
@@ -19,6 +20,7 @@ class TestPoint2D:
             any_obj=point)
         assert isinstance(point._x, Int)
         assert isinstance(point._y, Int)
+        assert point.variable_name.startswith(f'{var_names.POINT2D}_')
 
         x: Int = Int(10)
         y: Int = Int(20)

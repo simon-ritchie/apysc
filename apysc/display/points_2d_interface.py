@@ -52,7 +52,24 @@ class Points2DInterface(VariableNameInterface):
                 continue
             raise ValueError(
                 f'Specified array contains not Point2D value: {type(point)}')
+        self._initialize_points_if_not_initialized()
+        self._append_points_update_expression(value=value)
         self._points = value
+
+    def _append_points_update_expression(self, value: Array) -> None:
+        """
+        Append points updating expression to file.
+
+        Parameters
+        ----------
+        value : Array
+            Points value to set.
+        """
+        from apysc.expression import expression_file_util
+        expression: str = (
+            f'{self._points.variable_name} = {value.variable_name};'
+        )
+        expression_file_util.append_js_expression(expression=expression)
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass

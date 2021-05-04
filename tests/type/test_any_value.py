@@ -372,3 +372,15 @@ class TestAnyValue:
         any_value._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
         assert any_value._any_value_snapshots == {snapshot_name: 200}
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__revert(self) -> None:
+        any_value: AnyValue = AnyValue(200)
+        snapshot_name: str = any_value._get_next_snapshot_name()
+        any_value._run_all_revert_methods(snapshot_name=snapshot_name)
+
+        any_value._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        any_value.value = 300
+        any_value._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert any_value.value == 200

@@ -474,4 +474,14 @@ class AnyValue(CopyInterface, RevertInterface):
         self._any_value_snapshots[snapshot_name] = self._value
 
     def _revert(self, snapshot_name: str) -> None:
-        pass
+        """
+        Revert value if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._value = self._any_value_snapshots[snapshot_name]

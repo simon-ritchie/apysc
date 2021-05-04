@@ -80,8 +80,7 @@ class Rectangle(
         self._set_initial_line_color_if_not_blank(line_color=line_color)
         self.update_line_thickness_and_skip_appending_exp(
             value=line_thickness)
-        self.update_line_alpha_and_skip_appending_exp(
-            value=Number(line_alpha))
+        self.update_line_alpha_and_skip_appending_exp(value=line_alpha)
 
     def __repr__(self) -> str:
         """

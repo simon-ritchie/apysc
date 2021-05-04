@@ -1,7 +1,7 @@
 """Class implementation for line alpha interface.
 """
 
-from typing import Dict
+from typing import Dict, Union
 
 from apysc import Number
 from apysc.type.revert_interface import RevertInterface
@@ -57,19 +57,21 @@ class LineAlphaInterface(VariableNameInterface, RevertInterface):
         expression_file_util.append_js_expression(expression=expression)
 
     def update_line_alpha_and_skip_appending_exp(
-            self, value: Number) -> None:
+            self, value: Union[float, Number]) -> None:
         """
         Update line alpha and skip appending expression to file.
 
         Parameters
         ----------
-        value : Number
+        value : float or Number
             Line alpha (opacity) to set.
         """
         from apysc.validation import color_validation
         from apysc.validation import number_validation
         number_validation.validate_num(num=value)
         color_validation.validate_alpha_range(alpha=value)
+        if isinstance(value, float):
+            value = Number(value)
         self._line_alpha = value
 
     _line_alpha_snapshots: Dict[str, float]

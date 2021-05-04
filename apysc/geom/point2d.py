@@ -65,6 +65,11 @@ class Point2D:
         ----------
         other : Any
             Other value to compare.
+
+        Returns
+        -------
+        result : Boolean
+            Comparison result.
         """
         result: Boolean
         if not isinstance(other, Point2D):
@@ -74,4 +79,22 @@ class Point2D:
             result = Boolean(True)
             return result
         result = Boolean(False)
+        return result
+
+    def __ne__(self, other: Any) -> Any:
+        """
+        Not equal comparison method.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to compare.
+
+        Returns
+        -------
+        result : Boolean
+            Comparison result.
+        """
+        result: Boolean = self == other
+        result = result.not_
         return result

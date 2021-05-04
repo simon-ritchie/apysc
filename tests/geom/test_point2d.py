@@ -61,3 +61,12 @@ class TestPoint2D:
 
         result = point == Point2D(x=10, y=30)
         assert not result
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___ne__(self) -> None:
+        point: Point2D = Point2D(x=10, y=20)
+        result: Boolean = point != Point2D(x=20, y=20)
+        assert result
+
+        result = point != Point2D(x=10, y=20)
+        assert not result

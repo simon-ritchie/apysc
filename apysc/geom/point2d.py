@@ -1,8 +1,8 @@
 """2-dimensional geometry point class implementation.
 """
 
-from typing import Union
-from apysc import Int
+from typing import Any, Union
+from apysc import Int, Boolean
 
 _int = Union[int, Int]
 
@@ -56,3 +56,22 @@ class Point2D:
             Y-coordinate.
         """
         return self._y
+
+    def __eq__(self, other: Any) -> Any:
+        """
+        Equal comparison method.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to compare.
+        """
+        result: Boolean
+        if not isinstance(other, Point2D):
+            result = Boolean(False)
+            return result
+        if other.x == self.x and other.y == self.y:
+            result = Boolean(True)
+            return result
+        result = Boolean(False)
+        return result

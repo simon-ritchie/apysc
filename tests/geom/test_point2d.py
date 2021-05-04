@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Point2D, Int
+from apysc import Point2D, Int, Boolean
 from tests.testing_helper import assert_attrs
 
 
@@ -43,3 +43,21 @@ class TestPoint2D:
         y: Int = point.y
         assert isinstance(y, Int)
         assert y == 20
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___eq__(self) -> None:
+        point: Point2D = Point2D(x=10, y=20)
+        result: Boolean = point == 20
+        assert isinstance(result, Boolean)
+        assert not result
+
+        result = point == Point2D(x=10, y= 20)
+        assert isinstance(result, Boolean)
+        assert result
+
+        result = point == Point2D(x=20, y=20)
+        assert isinstance(result, Boolean)
+        assert not result
+
+        result = point == Point2D(x=10, y=30)
+        assert not result

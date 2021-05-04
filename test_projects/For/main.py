@@ -12,7 +12,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Array
+from apysc import Array, Dictionary, String, assert_dicts_equal
 from apysc import For
 from apysc import Int
 from apysc import Sprite
@@ -52,6 +52,13 @@ def main() -> None:
             y=(i * 100) + 50,
             width=(i + 1) * 50,
             height=(i + 1) * 50)
+
+    dict_1: Dictionary = Dictionary({'a': 10, 'b': 20})
+    with For[String](dict_1) as key:
+        dict_1[key] *= 2
+    assert_dicts_equal(
+        expected={'a': 20, 'b': 40},
+        actual=dict_1)
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH, minify=False)

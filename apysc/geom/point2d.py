@@ -90,7 +90,25 @@ class Point2D(VariableNameInterface):
         y : Int
             Y-coordinate.
         """
-        return self._y
+        y: Int = Int(self._y._value)
+        self._append_y_getter_expression(y=y)
+        return y
+
+    def _append_y_getter_expression(self, y: Int) -> None:
+        """
+        Append y property getter expression to file.
+
+        Parameters
+        ----------
+        y : Int
+            Target y value.
+        """
+        from apysc.expression import expression_file_util
+        expression: str = (
+            f'{y.variable_name} = '
+            f'{self.variable_name}["y"];'
+        )
+        expression_file_util.append_js_expression(expression=expression)
 
     def __eq__(self, other: Any) -> Any:
         """

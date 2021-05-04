@@ -126,6 +126,22 @@ class Point2D(VariableNameInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
+    @y.setter
+    def y(self, value: Any) -> None:
+        """
+        Update y-coordinate property.
+
+        Parameters
+        ----------
+        value : int or Int
+            Y-coordinate to set.
+        """
+        from apysc.validation.number_validation import validate_integer
+        validate_integer(integer=value)
+        if isinstance(value, int):
+            value = Int(value)
+        self._y = value
+
     def __eq__(self, other: Any) -> Any:
         """
         Equal comparison method.

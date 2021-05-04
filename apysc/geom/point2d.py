@@ -37,6 +37,18 @@ class Point2D(VariableNameInterface):
         self._y = y
         self.variable_name = expression_variables_util.get_next_variable_name(
             type_name=var_names.POINT2D)
+        self._append_constructor_expression()
+
+    def _append_constructor_expression(self) -> None:
+        """
+        Append constructor expression to file.
+        """
+        from apysc.expression import expression_file_util
+        expression: str = (
+            f'var {self.variable_name} = {{'
+            f'"x": {self._x.variable_name}, "y": {self._y.variable_name}}};'
+        )
+        expression_file_util.append_js_expression(expression=expression)
 
     @property
     def x(self) -> Int:

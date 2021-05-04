@@ -5,6 +5,7 @@ from retrying import retry
 from apysc import Point2D, Int, Boolean
 from tests.testing_helper import assert_attrs
 from apysc.expression import var_names
+from apysc.expression import expression_file_util
 
 
 class TestPoint2D:
@@ -72,3 +73,16 @@ class TestPoint2D:
 
         result = point != Point2D(x=10, y=20)
         assert not result
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_constructor_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        x: Int = Int(10)
+        y: Int = Int(20)
+        point: Point2D = Point2D(x=x, y=y)
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{point.variable_name} = '
+            f'{{"x": {x.variable_name}, "y": {y.variable_name}}};'
+        )
+        assert expected in expression

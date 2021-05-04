@@ -1,7 +1,7 @@
 """Class implementation for witdth interface.
 """
 
-from typing import Dict
+from typing import Dict, Union
 
 from apysc import Int
 from apysc.type.revert_interface import RevertInterface
@@ -57,13 +57,14 @@ class WidthInterface(VariableNameInterface, RevertInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
-    def update_width_and_skip_appending_exp(self, value: Int) -> None:
+    def update_width_and_skip_appending_exp(
+            self, value: Union[int, Int]) -> None:
         """
         Update width value and skip appending expression to file.
 
         Parameters
         ----------
-        value : Int
+        value : int or Int
             Width value to set.
         """
         from apysc.converter import cast
@@ -72,6 +73,8 @@ class WidthInterface(VariableNameInterface, RevertInterface):
         value = cast.to_int_from_float(int_or_float=value)
         size_validation.validate_size_is_int(size=value)
         size_validation.validate_size_is_gte_zero(size=value)
+        if isinstance(value, int):
+            value = Int(value)
         self._width = value
 
     _width_snapshots: Dict[str, int]

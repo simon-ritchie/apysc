@@ -39,6 +39,10 @@ class TestHeightInterface:
         expression: str = expression_file_util.get_current_expression()
         assert 'height(' not in expression
 
+        height_interface.update_height_and_skip_appending_exp(
+            value=400)
+        assert height_interface.height == 400
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_height_if_not_initialized(self) -> None:
         height_interface: HeightInterface = HeightInterface()

@@ -268,7 +268,7 @@ class TestNumberValueInterface:
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{interface_2.variable_name} = {interface_1.variable_name};'
-            f'\n{interface_2.variable_name} = {interface_2.variable_name}'
+            f'\n{interface_2.variable_name} = {interface_1.variable_name}'
             ' / 4;'
         )
         assert expected in expression
@@ -277,7 +277,7 @@ class TestNumberValueInterface:
         expression = expression_file_util.get_current_expression()
         expected = (
             f'{interface_3.variable_name} = {interface_2.variable_name};'
-            f'\n{interface_3.variable_name} = {interface_3.variable_name}'
+            f'\n{interface_3.variable_name} = {interface_2.variable_name}'
             f' / {interface_1.variable_name};'
         )
         assert expected in expression
@@ -307,7 +307,7 @@ class TestNumberValueInterface:
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{interface_2.variable_name} = '
-            f'parseInt({interface_2.variable_name} / 4);'
+            f'parseInt({interface_1.variable_name} / 4);'
         )
         assert expected in expression
 
@@ -319,7 +319,7 @@ class TestNumberValueInterface:
         assert expected in expression
         expected = (
             f'{interface_3.variable_name} = parseInt('
-            f'{interface_3.variable_name} / {interface_2.variable_name});'
+            f'{interface_1.variable_name} / {interface_2.variable_name});'
         )
         assert expected in expression
 
@@ -401,8 +401,7 @@ class TestNumberValueInterface:
         match: Optional[Match] = re.search(
             pattern=(
                 r'var n_[0-9]+ = test_interface_0;'
-                r'\nn_[0-9]+ = n_[0-9]+ / 4;'
-                r'\ntest_interface_0 = n_[0-9]+;'),
+                r'\nn_[0-9]+ = test_interface_0 / 4;'),
             string=expression,
             flags=re.MULTILINE | re.DOTALL)
         assert match is not None

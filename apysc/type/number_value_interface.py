@@ -293,7 +293,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         from apysc.type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
-            f'{result.variable_name} = {result.variable_name} / '
+            f'{result.variable_name} = {self.variable_name} / '
             f'{right_value};'
         )
         expression_file_util.append_js_expression(expression=expression)
@@ -340,7 +340,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'{result.variable_name} = '
-            f'parseInt({result.variable_name} / {right_value});'
+            f'parseInt({self.variable_name} / {right_value});'
         )
         expression_file_util.append_js_expression(expression=expression)
 

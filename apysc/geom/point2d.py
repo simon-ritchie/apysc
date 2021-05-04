@@ -80,6 +80,22 @@ class Point2D(VariableNameInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
+    @x.setter
+    def x(self, value: Any) -> None:
+        """
+        Update x-coordinate property.
+
+        Parameters
+        ----------
+        value : int or Int
+            X-coordinate to set.
+        """
+        from apysc.validation.number_validation import validate_integer
+        validate_integer(integer=value)
+        if isinstance(value, int):
+            value = Int(value)
+        self._x = value
+
     @property
     def y(self) -> Int:
         """

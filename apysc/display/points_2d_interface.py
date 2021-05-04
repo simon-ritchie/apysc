@@ -7,7 +7,7 @@ from apysc.type.variable_name_interface import VariableNameInterface
 from apysc import Point2D
 
 
-class Points2DInterface(VariableNameInterface, RevertInterface):
+class Points2DInterface(VariableNameInterface):
 
     _points: List[Point2D]
 
@@ -18,6 +18,19 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         if hasattr(self, '_points'):
             return
         self._points = []
+
+    @property
+    def points(self) -> List[Point2D]:
+        """
+        Get current points.
+
+        Returns
+        -------
+        points : list of Point2D
+            Current points.
+        """
+        self._initialize_points_if_not_initialized()
+        return self._points
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass

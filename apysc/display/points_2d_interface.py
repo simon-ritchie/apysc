@@ -4,12 +4,12 @@
 from typing import List
 from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
-from apysc import Point2D
+from apysc import Point2D, Array
 
 
 class Points2DInterface(VariableNameInterface):
 
-    _points: List[Point2D]
+    _points: Array
 
     def _initialize_points_if_not_initialized(self) -> None:
         """
@@ -17,16 +17,16 @@ class Points2DInterface(VariableNameInterface):
         """
         if hasattr(self, '_points'):
             return
-        self._points = []
+        self._points = Array([])
 
     @property
-    def points(self) -> List[Point2D]:
+    def points(self) -> Array:
         """
         Get current points.
 
         Returns
         -------
-        points : list of Point2D
+        points : Array of Point2D
             Current points.
         """
         self._initialize_points_if_not_initialized()

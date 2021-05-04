@@ -16,6 +16,7 @@ class TestPoints2DInterface:
         interface._initialize_points_if_not_initialized()
         assert interface._points == []
 
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_points(self) -> None:
         interface: Points2DInterface = Points2DInterface()
         assert interface.points == []

@@ -1,12 +1,13 @@
 """Class implementation of any value.
 """
 
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 from apysc import Boolean
 from apysc.type.copy_interface import CopyInterface
-from apysc.type.variable_name_interface import VariableNameInterface
 from apysc.type.revert_interface import RevertInterface
+from apysc.type.variable_name_interface import VariableNameInterface
 
 
 class AnyValue(CopyInterface, RevertInterface):

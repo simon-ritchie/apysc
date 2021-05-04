@@ -359,3 +359,16 @@ class TestAnyValue:
         self._assert_comparison_operation_result(
             any_value=any_value, result=result, other=int_1,
             expected_comparison_operator='>=')
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__make_snapshot(self) -> None:
+        any_value: AnyValue = AnyValue(200)
+        snapshot_name: str = any_value._get_next_snapshot_name()
+        any_value._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert any_value._any_value_snapshots == {snapshot_name: 200}
+
+        any_value.value = 300
+        any_value._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert any_value._any_value_snapshots == {snapshot_name: 200}

@@ -1,14 +1,15 @@
 """Class implementation of any value.
 """
 
-from typing import Any
+from typing import Any, Dict
 
 from apysc import Boolean
 from apysc.type.copy_interface import CopyInterface
 from apysc.type.variable_name_interface import VariableNameInterface
+from apysc.type.revert_interface import RevertInterface
 
 
-class AnyValue(CopyInterface):
+class AnyValue(CopyInterface, RevertInterface):
 
     _value: Any
 
@@ -454,3 +455,23 @@ class AnyValue(CopyInterface):
         result: Boolean = self._append_comparison_expression(
             comparison_operator='>=', other=other)
         return result
+
+    _any_value_snapshots: Dict[str, Any]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make value's snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_any_value_snapshots'):
+            self._any_value_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._any_value_snapshots[snapshot_name] = self._value
+
+    def _revert(self, snapshot_name: str) -> None:
+        pass

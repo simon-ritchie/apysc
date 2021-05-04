@@ -94,3 +94,15 @@ class TestLineColorInterface:
         line_color_interface._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert line_color_interface.line_color == '#222222'
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__set_initial_line_color_if_not_blank(self) -> None:
+        line_color_interface: LineColorInterface = LineColorInterface()
+        line_color_interface.variable_name = 'test_line_color_interface'
+        line_color_interface._set_initial_line_color_if_not_blank(
+            line_color='')
+        assert line_color_interface.line_color == ''
+
+        line_color_interface._set_initial_line_color_if_not_blank(
+            line_color='0af')
+        assert line_color_interface.line_color == '#00aaff'

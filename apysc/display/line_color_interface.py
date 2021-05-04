@@ -1,7 +1,7 @@
 """Class implementation for line color interface.
 """
 
-from typing import Dict
+from typing import Dict, Union
 
 from apysc import String
 from apysc.type.revert_interface import RevertInterface
@@ -50,6 +50,23 @@ class LineColorInterface(VariableNameInterface, RevertInterface):
             f'{self.variable_name}.stroke("{self.line_color}");'
         )
         expression_file_util.append_js_expression(expression=expression)
+
+    def _set_initial_line_color_if_not_blank(
+            self, line_color: Union[str, String]) -> None:
+        """
+        Set initial line color value if specified value is not
+        blank string.
+
+        Parameters
+        ----------
+        line_color : str or String
+            Line color (hexadecimal string, e.g., '#00aaff').
+        """
+        if line_color == '':
+            return
+        if isinstance(line_color, str):
+            line_color = String(line_color)
+        self.update_line_color_and_skip_appending_exp(value=line_color)
 
     def update_line_color_and_skip_appending_exp(
             self, value: String) -> None:

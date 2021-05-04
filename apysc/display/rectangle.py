@@ -77,10 +77,7 @@ class Rectangle(
         self.update_height_and_skip_appending_exp(value=Int(height))
         self._set_initial_fill_color_if_not_blank(fill_color=fill_color)
         self.update_fill_alpha_and_skip_appending_exp(value=fill_alpha)
-        if line_color != '':
-            if isinstance(line_color, str):
-                line_color = String(line_color)
-            self.update_line_color_and_skip_appending_exp(value=line_color)
+        self._set_initial_line_color_if_not_blank(line_color=line_color)
         self.update_line_thickness_and_skip_appending_exp(
             value=Int(line_thickness))
         self.update_line_alpha_and_skip_appending_exp(

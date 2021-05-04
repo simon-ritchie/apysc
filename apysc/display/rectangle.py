@@ -1,4 +1,4 @@
-"""Implementations of Rectangle class and other interfaces.
+"""Implementations of Rectangle class.
 """
 
 from typing import Any
@@ -16,6 +16,8 @@ from apysc.display.line_color_interface import LineColorInterface
 from apysc.display.line_thickness_interface import LineThicknessInterface
 from apysc.display.width_interface import WidthInterface
 
+_Graphics = Any
+
 
 class Rectangle(
         GraphicBase, WidthInterface, HeightInterface, FillColorInterface,
@@ -23,7 +25,7 @@ class Rectangle(
         LineAlphaInterface):
 
     def __init__(
-            self, parent: Any,
+            self, parent: _Graphics,
             x: Union[int, Int],
             y: Union[int, Int],
             width: Union[int, Int],

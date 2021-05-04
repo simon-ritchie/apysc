@@ -13,6 +13,7 @@ from apysc.display._document import document  # isort:skip # noqa
 from apysc.display.sprite import Sprite  # isort:skip # noqa
 from apysc.display.stage import Stage  # isort:skip # noqa
 from apysc.display.rectangle import Rectangle  # isort:skip # noqa
+from apysc.geom.point2d import Point2D  # isort:skip # noqa
 from apysc.event.event import Event  # isort:skip # noqa
 from apysc.event.mouse_event import MouseEvent  # isort:skip # noqa
 from apysc.event.wheel_event import WheelEvent  # isort:skip # noqa

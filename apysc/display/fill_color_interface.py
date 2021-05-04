@@ -1,7 +1,7 @@
 """Class implementation for fill color interface.
 """
 
-from typing import Dict
+from typing import Dict, Union
 
 from apysc import String
 from apysc.type.revert_interface import RevertInterface
@@ -50,6 +50,23 @@ class FillColorInterface(VariableNameInterface, RevertInterface):
             f'{self.variable_name}.fill("{self.fill_color}");'
         )
         expression_file_util.append_js_expression(expression=expression)
+
+    def _set_initial_fill_color_if_not_blank(
+            self, fill_color: Union[str, String]) -> None:
+        """
+        Set initial fill color value if specified value is not
+        blank string.
+
+        Parameters
+        ----------
+        fill_color : str or String
+            Fill color (hexadecimal string, e.g., '#00aaff').
+        """
+        if fill_color == '':
+            return
+        if isinstance(fill_color, str):
+            fill_color = String(fill_color)
+        self.update_fill_color_and_skip_appending_exp(value=fill_color)
 
     def update_fill_color_and_skip_appending_exp(
             self, value: String) -> None:

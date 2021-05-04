@@ -91,3 +91,14 @@ class TestFillColorInterface:
         fill_color_interface._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert fill_color_interface.fill_color == '#222222'
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__set_initial_fill_color_if_not_blank(self) -> None:
+        fill_color_interface: FillColorInterface = FillColorInterface()
+        fill_color_interface.variable_name = 'test_fill_color_interface'
+        fill_color_interface._set_initial_fill_color_if_not_blank(
+            fill_color='')
+        assert fill_color_interface.fill_color == ''
+        fill_color_interface._set_initial_fill_color_if_not_blank(
+            fill_color='0af')
+        assert fill_color_interface.fill_color == '#00aaff'

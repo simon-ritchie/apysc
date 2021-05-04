@@ -6,13 +6,16 @@ from typing import Any
 from apysc import Int
 from apysc.display.display_object import DisplayObject
 
+_Graphics = Any
+
 
 class GraphicBase(DisplayObject):
 
     _variable_name: str
 
     def __init__(
-            self, parent: Any, x: Int, y: Int, variable_name: str) -> None:
+            self, parent: _Graphics, x: Int, y: Int,
+            variable_name: str) -> None:
         """
         Vector graphic base class.
 

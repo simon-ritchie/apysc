@@ -50,11 +50,11 @@ class Rectangle(
             Rectangle width.
         height : int or Int
             Rectangle height.
-        fill_color : str or None, default None
+        fill_color : str or String, default ''
             Fill color (hexadecimal string, e.g., '#00aaff').
         fill_alpha : float or Number, default 1.0
             Fill opacity (0.0 to 1.0).
-        line_color : str or None, default None
+        line_color : str or String, default ''
             Line color (hexadecimal string, e.g., '#00aaff').
         line_thickness : int or Int, default 1
             Line thickness (width).
@@ -75,11 +75,7 @@ class Rectangle(
         size_validation.validate_size_is_gte_zero(size=height)
         self.update_width_and_skip_appending_exp(value=Int(width))
         self.update_height_and_skip_appending_exp(value=Int(height))
-        if fill_color != '':
-            if isinstance(fill_color, str):
-                fill_color = String(fill_color)
-            self.update_fill_color_and_skip_appending_exp(
-                value=fill_color)
+        self._set_initial_fill_color_if_not_blank(fill_color=fill_color)
         self.update_fill_alpha_and_skip_appending_exp(value=fill_alpha)
         if line_color != '':
             if isinstance(line_color, str):

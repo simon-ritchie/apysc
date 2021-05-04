@@ -36,3 +36,10 @@ class TestPoint2D:
         x: Int = point.x
         assert isinstance(x, Int)
         assert x == 10
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_y(self) -> None:
+        point: Point2D = Point2D(x=10, y=20)
+        y: Int = point.y
+        assert isinstance(y, Int)
+        assert y == 20

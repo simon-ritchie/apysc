@@ -44,3 +44,15 @@ class Point2D:
             X-coordinate.
         """
         return self._x
+
+    @property
+    def y(self) -> Int:
+        """
+        Y-coordinate property.
+
+        Parameters
+        ----------
+        y : Int
+            Y-coordinate.
+        """
+        return self._y

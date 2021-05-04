@@ -1,7 +1,7 @@
 """Class implementation for line thickness interface.
 """
 
-from typing import Dict
+from typing import Dict, Union
 
 from apysc import Int
 from apysc.type.revert_interface import RevertInterface
@@ -59,18 +59,20 @@ class LineThicknessInterface(VariableNameInterface, RevertInterface):
         expression_file_util.append_js_expression(expression=expression)
 
     def update_line_thickness_and_skip_appending_exp(
-            self, value: Int) -> None:
+            self, value: Union[int, Int]) -> None:
         """
         Update line thickness and skip appending expression to file.
 
         Parameters
         ----------
-        value : Int
+        value : int or Int
             Line thickness to set.
         """
         from apysc.validation import number_validation
         number_validation.validate_integer(integer=value)
         number_validation.validate_num_is_gte_zero(num=value)
+        if isinstance(value, int):
+            value = Int(value)
         self._line_thickness = value
 
     _line_thickness_snapshots: Dict[str, int]

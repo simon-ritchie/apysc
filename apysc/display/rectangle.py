@@ -79,7 +79,7 @@ class Rectangle(
         self.update_fill_alpha_and_skip_appending_exp(value=fill_alpha)
         self._set_initial_line_color_if_not_blank(line_color=line_color)
         self.update_line_thickness_and_skip_appending_exp(
-            value=Int(line_thickness))
+            value=line_thickness)
         self.update_line_alpha_and_skip_appending_exp(
             value=Number(line_alpha))
 

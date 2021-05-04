@@ -44,6 +44,10 @@ class TestLineThicknessInterface:
         expression: str = expression_file_util.get_current_expression()
         assert 'stroke-width' not in expression
 
+        line_thickness_interface.update_line_thickness_and_skip_appending_exp(
+            value=6)
+        assert line_thickness_interface.line_thickness == 6
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_line_thickness_if_not_initialized(self) -> None:
         line_thickness_interface: LineThicknessInterface = \

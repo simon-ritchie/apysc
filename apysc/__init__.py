@@ -37,4 +37,4 @@ from apysc.event.document_mouse_wheel_interface import \
 from apysc.event.document_mouse_wheel_interface import \
     unbind_wheel_event_from_document  # isort:skip # noqa
 
-__version__: str = '0.11.1'
+__version__: str = '0.11.2'

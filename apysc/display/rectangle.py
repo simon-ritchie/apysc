@@ -78,7 +78,7 @@ class Rectangle(
         self._update_line_thickness_and_skip_appending_exp(
             value=line_thickness)
         self._update_line_alpha_and_skip_appending_exp(value=line_alpha)
-        self._append_draw_rect_expression()
+        self._append_constructor_expression()
 
     def __repr__(self) -> str:
         """
@@ -94,9 +94,9 @@ class Rectangle(
         repr_str: str = f"Rectangle('{self.variable_name}')"
         return repr_str
 
-    def _append_draw_rect_expression(self) -> None:
+    def _append_constructor_expression(self) -> None:
         """
-        Append Graphics's draw_rect interface expression to the file.
+        Append constructor expression to the file.
         """
         from apysc.display.stage import get_stage_variable_name
         from apysc.expression import expression_file_util

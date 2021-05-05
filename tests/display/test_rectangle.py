@@ -80,7 +80,7 @@ class TestRectangle:
         assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test_append_draw_rect_expression(self) -> None:
+    def test_append_constructor_expression(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
         sprite.graphics.begin_fill(color='#333', alpha=0.5)

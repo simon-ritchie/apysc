@@ -36,6 +36,7 @@ class TestArray:
         assert array_1.variable_name.startswith(
             f'{var_names.ARRAY}_')
 
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__validate_acceptable_value_type(self) -> None:
         array_1: Array = Array([1, 2, 3])
@@ -196,7 +197,7 @@ class TestArray:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_insert_expression(self) -> None:
         expression_file_util.remove_expression_file()
-        array_1: Array = Array([1, 4])
+        array_1: Array[Any] = Array([1, 4])
         array_1.insert(index=1, value=2)
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
@@ -225,7 +226,7 @@ class TestArray:
     def test__append_pop_expression(self) -> None:
         expression_file_util.remove_expression_file()
         int_1: Int = Int(2)
-        array_1: Array = Array([1, int_1, 3])
+        array_1: Array[Any] = Array([1, int_1, 3])
         _: int = array_1.pop()
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
@@ -394,7 +395,7 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___getitem__(self) -> None:
-        array_1: Array = Array([1, 2, 3])
+        array_1: Array[Any] = Array([1, 2, 3])
         testing_helper.assert_raises(
             expected_error_class=ValueError,
             func_or_method=array_1.__getitem__,
@@ -410,7 +411,7 @@ class TestArray:
     def test__append_getitem_expression(self) -> None:
         expression_file_util.remove_expression_file()
         int_1: Int = Int(3)
-        array_1: Array = Array([1, 2, int_1])
+        array_1: Array[Any] = Array([1, 2, int_1])
         _: int = array_1[0]
         expression: str = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -465,7 +466,7 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___setitem__(self) -> None:
-        array_1: Array = Array([1, 2, 3])
+        array_1: Array[Any] = Array([1, 2, 3])
         array_1[1] = 4
         assert array_1.value[1] == 4
 
@@ -478,7 +479,7 @@ class TestArray:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_setitem_expression(self) -> None:
         expression_file_util.remove_expression_file()
-        array_1: Array = Array([1, 2, 3])
+        array_1: Array[Any] = Array([1, 2, 3])
         array_1[1] = 4
         expression: str = expression_file_util.get_current_expression()
         expected: str = (

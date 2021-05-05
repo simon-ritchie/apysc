@@ -15,7 +15,7 @@ from apysc.type.revert_interface import RevertInterface
 
 class ChildInterface(RevertInterface):
 
-    _children: Array
+    _children: Array[DisplayObject]
     _variable_name: str
     _js_child_adjust_num: int = 0
     stage: Any

@@ -1,7 +1,7 @@
 """Class implementation for array.
 """
 
-from typing import Any
+from typing import Any, Generic, TypeVar
 from typing import Dict
 from typing import List
 from typing import Optional
@@ -13,14 +13,17 @@ from apysc import String
 from apysc.type.copy_interface import CopyInterface
 from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
+from apysc import AnyValue
+
+T = TypeVar('T')
 
 
-class Array(CopyInterface, RevertInterface):
+class Array(CopyInterface, RevertInterface, Generic[T]):
 
     _initial_value: Union[List[Any], tuple, Any]
     _value: List[Any]
 
-    def __init__(self, value: Union[List[Any], tuple, range, Any]) -> None:
+    def __init__(self, value: Union[List[T], tuple, range, Any]) -> None:
         """
         Array class for apysc library.
 
@@ -165,7 +168,7 @@ class Array(CopyInterface, RevertInterface):
             expression += f'{value_str};'
         expression_file_util.append_js_expression(expression=expression)
 
-    def append(self, value: Any) -> None:
+    def append(self, value: T) -> None:
         """
         Add any value to the end of this array.
         This behaves same as push method.
@@ -178,7 +181,7 @@ class Array(CopyInterface, RevertInterface):
         self._value.append(value)
         self._append_push_and_append_expression(value=value)
 
-    def push(self, value: Any) -> None:
+    def push(self, value: T) -> None:
         """
         Add any value to the end of this array.
         This behaves same as append method.
@@ -190,7 +193,7 @@ class Array(CopyInterface, RevertInterface):
         """
         self.append(value=value)
 
-    def _append_push_and_append_expression(self, value: Any) -> None:
+    def _append_push_and_append_expression(self, value: T) -> None:
         """
         Append push and append method expression to file.
 
@@ -207,7 +210,7 @@ class Array(CopyInterface, RevertInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
-    def extend(self, other_arr: Union[List[Any], tuple, Any]) -> None:
+    def extend(self, other_arr: Union[List[T], tuple, Any]) -> None:
         """
         Concatenate argument array to this one. Argument array's
         values will positioned after this array's values.
@@ -228,7 +231,7 @@ class Array(CopyInterface, RevertInterface):
         self._append_extend_expression(other_arr=other_arr)
 
     def _append_extend_expression(
-            self, other_arr: Union[List[Any], tuple, Any]) -> None:
+            self, other_arr: Union[List[T], tuple, Any]) -> None:
         """
         Append extend method expression to file.
 
@@ -246,7 +249,7 @@ class Array(CopyInterface, RevertInterface):
             f'.concat({value_str});')
         expression_file_util.append_js_expression(expression=expression)
 
-    def concat(self, other_arr: Union[List[Any], tuple, Any]) -> Any:
+    def concat(self, other_arr: Union[List[T], tuple, Any]) -> Any:
         """
         Concatenate arugment array to this one. Argument array's
         values will positioned after this array's values.
@@ -272,7 +275,7 @@ class Array(CopyInterface, RevertInterface):
 
     def _append_concat_expression(
             self, concatenated: VariableNameInterface,
-            other_arr: Union[List[Any], tuple, Any]) -> None:
+            other_arr: Union[List[T], tuple, Any]) -> None:
         """
         Append concat method expression to file.
 
@@ -294,7 +297,7 @@ class Array(CopyInterface, RevertInterface):
         expression_file_util.append_js_expression(expression=expression)
 
     def insert(
-            self, index: Union[int, Int], value: Any) -> None:
+            self, index: Union[int, Int], value: T) -> None:
         """
         Insert value to this array at a specified index.
         This behaves same as insert_at method.
@@ -313,14 +316,15 @@ class Array(CopyInterface, RevertInterface):
             index_: int = int(index.value)
         else:
             index_ = index
+        value_: Any
         if isinstance(value, Int):
-            value_: int = int(value.value)
+            value_ = int(value.value)
         else:
             value_ = value
         self._value.insert(index_, value_)
         self._append_insert_expression(index=index, value=value)
 
-    def insert_at(self, index: Union[int, Int], value: Any) -> None:
+    def insert_at(self, index: Union[int, Int], value: T) -> None:
         """
         Insert value to this array at a specified index.
         This behaves same as insert method.
@@ -335,7 +339,7 @@ class Array(CopyInterface, RevertInterface):
         self.insert(index=index, value=value)
 
     def _append_insert_expression(
-            self, index: Union[int, Int], value: Any) -> None:
+            self, index: Union[int, Int], value: T) -> None:
         """
         Append insert method expression to file.
 
@@ -355,7 +359,7 @@ class Array(CopyInterface, RevertInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
-    def pop(self) -> Any:
+    def pop(self) -> T:
         """
         Remove this array's last value and return it.
 
@@ -364,11 +368,11 @@ class Array(CopyInterface, RevertInterface):
         value : *
             Removed value.
         """
-        value: Any = self._value.pop()
+        value: T = self._value.pop()
         self._append_pop_expression(value=value)
         return value
 
-    def _append_pop_expression(self, value: Any) -> Any:
+    def _append_pop_expression(self, value: T) -> None:
         """
         Append pop method expression to file.
 
@@ -383,7 +387,7 @@ class Array(CopyInterface, RevertInterface):
             expression = f'{value.variable_name} = {expression}'
         expression_file_util.append_js_expression(expression=expression)
 
-    def remove(self, value: Any) -> None:
+    def remove(self, value: T) -> None:
         """
         Remove specified value from this array.
 
@@ -395,7 +399,7 @@ class Array(CopyInterface, RevertInterface):
         self._value.remove(value)
         self._append_remove_expression(value=value)
 
-    def _append_remove_expression(self, value: Any) -> None:
+    def _append_remove_expression(self, value: T) -> None:
         """
         Append remove method expression to file.
 
@@ -571,7 +575,7 @@ class Array(CopyInterface, RevertInterface):
         expression += ');'
         expression_file_util.append_js_expression(expression=expression)
 
-    def __getitem__(self, index: Union[int, Int]) -> Any:
+    def __getitem__(self, index: Union[int, Int]) -> T:
         """
         Get a specified index single value.
 
@@ -591,7 +595,6 @@ class Array(CopyInterface, RevertInterface):
         ValueError
             If specified index type is not int and Int.
         """
-        from apysc import AnyValue
         self._validate_index_type_is_int(index=index)
         index_: int = self._get_builtin_int_from_index(index=index)
         value: Any
@@ -644,7 +647,7 @@ class Array(CopyInterface, RevertInterface):
 
     def _append_getitem_expression(
             self, index: Union[int, Int],
-            value: Any) -> None:
+            value: T) -> None:
         """
         Append __getitem__ expression to file.
 
@@ -658,17 +661,20 @@ class Array(CopyInterface, RevertInterface):
         from apysc import AnyValue
         from apysc.expression import expression_file_util
         from apysc.type import value_util
+        value_: VariableNameInterface
         if not isinstance(value, VariableNameInterface):
-            value = AnyValue(None)
+            value_ = AnyValue(None)
+        else:
+            value_ = value
         index_str: str = value_util.get_value_str_for_expression(
             value=index)
         expression: str = (
-            f'var {value.variable_name} = '
+            f'var {value_.variable_name} = '
             f'{self.variable_name}[{index_str}];'
         )
         expression_file_util.append_js_expression(expression=expression)
 
-    def __setitem__(self, index: Union[int, Int], value: Any) -> None:
+    def __setitem__(self, index: Union[int, Int], value: T) -> None:
         """
         Set value to a specified index.
 
@@ -691,7 +697,7 @@ class Array(CopyInterface, RevertInterface):
         self._append_setitem_expression(index=index, value=value)
 
     def _append_setitem_expression(
-            self, index: Union[int, Int], value: Any) -> None:
+            self, index: Union[int, Int], value: T) -> None:
         """
         Append __setitem__ method expression to file.
 
@@ -844,7 +850,7 @@ class Array(CopyInterface, RevertInterface):
         )
         return repr_str
 
-    def index_of(self, value: Any) -> Int:
+    def index_of(self, value: T) -> Int:
         """
         Search specified value's index and return it.
 
@@ -869,7 +875,7 @@ class Array(CopyInterface, RevertInterface):
         return index
 
     def _append_index_of_expression(
-            self, index: Int, value: Any) -> None:
+            self, index: Int, value: T) -> None:
         """
         Append index_of method expression to file.
 
@@ -1005,7 +1011,7 @@ class Array(CopyInterface, RevertInterface):
         """
         return bool(self._value)
 
-    _value_snapshots: Dict[str, List[Any]]
+    _value_snapshots: Dict[str, List[T]]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

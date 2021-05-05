@@ -24,6 +24,7 @@ class TestGraphicsClearInterface:
             '_line_color': '',
             '_line_thickness': 1,
             '_line_alpha': 1.0,
+            '_current_line': None,
         }
         sprite.graphics.clear()
         testing_helper.assert_attrs(

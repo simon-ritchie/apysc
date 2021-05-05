@@ -2,10 +2,12 @@
 """
 
 
+from typing import Optional
 from apysc import Array
 from apysc import Int
 from apysc import Number
 from apysc import String
+from apysc.display.polyline import Polyline
 
 
 class GraphicsClearInterface:
@@ -16,6 +18,7 @@ class GraphicsClearInterface:
     _line_thickness: Int
     _line_alpha: Number
     _children: Array
+    _current_line: Optional[Polyline]
 
     def clear(self) -> None:
         """
@@ -49,3 +52,5 @@ class GraphicsClearInterface:
             self._initialize_children_if_not_initialized()
         while self._children:
             self._children[0].remove_from_parent()
+        if hasattr(self, '_current_line'):
+            self._current_line = None

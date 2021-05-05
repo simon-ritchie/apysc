@@ -70,6 +70,7 @@ class Polyline(
         self._update_line_alpha_and_skip_appending_exp(value=line_alpha)
         self._initialize_x_if_not_initialized()
         self._initialize_y_if_not_initialized()
+        self._append_constructor_expression()
 
     def __repr__(self) -> str:
         """
@@ -84,3 +85,41 @@ class Polyline(
         """
         repr_str: str = f"Polyline('{self.variable_name}')"
         return repr_str
+
+    def _append_constructor_expression(self) -> None:
+        """
+        Append constructor expression to file.
+        """
+        from apysc.display.stage import get_stage_variable_name
+        from apysc.expression import expression_file_util
+        from apysc.display import graphics_expression
+        from apysc.display.graphics import Graphics
+        stage_variable_name: str = get_stage_variable_name()
+        points_var_name: str
+        points_expression: str
+        points_var_name, points_expression = \
+            self._make_2dim_points_expression()
+        expression: str = (
+            f'{points_expression}'
+            f'\nvar {self.variable_name} = {stage_variable_name}'
+            f'\n  .polyline({points_var_name})'
+            '\n  .attr({'
+        )
+        INDENT_NUM: int = 2
+        graphics: Graphics = self.parent_graphics
+        expression = graphics_expression.append_fill_expression(
+            graphics=graphics, expression=expression, indent_num=INDENT_NUM)
+        expression = graphics_expression.append_fill_opacity_expression(
+            graphics=graphics, expression=expression, indent_num=INDENT_NUM)
+        expression = graphics_expression.append_stroke_expression(
+            graphics=graphics, expression=expression, indent_num=INDENT_NUM)
+        expression = graphics_expression.append_stroke_width_expression(
+            graphics=graphics, expression=expression, indent_num=INDENT_NUM)
+        expression = graphics_expression.append_stroke_opacity_expression(
+            graphics=graphics, expression=expression, indent_num=INDENT_NUM)
+        expression = graphics_expression.append_x_expression(
+            graphic=self, expression=expression, indent_num=INDENT_NUM)
+        expression = graphics_expression.append_y_expression(
+            graphic=self, expression=expression, indent_num=INDENT_NUM)
+        expression += '\n  });'
+        expression_file_util.append_js_expression(expression=expression)

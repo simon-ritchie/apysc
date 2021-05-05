@@ -66,3 +66,17 @@ class Polyline(
         self._update_line_thickness_and_skip_appending_exp(
             value=line_thickness)
         self._update_line_alpha_and_skip_appending_exp(value=line_alpha)
+
+    def __repr__(self) -> str:
+        """
+        Get a string representation of this instance (for the sake of
+        debugging).
+
+        Returns
+        -------
+        repr_str : str
+            Type name and variable name will be set
+            (e.g., `Polyline('<variable_name>')`).
+        """
+        repr_str: str = f"Polyline('{self.variable_name}')"
+        return repr_str

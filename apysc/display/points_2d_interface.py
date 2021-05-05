@@ -4,7 +4,7 @@
 from typing import Dict, List
 from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
-from apysc import Point2D, Array
+from apysc import Array
 
 
 class Points2DInterface(VariableNameInterface, RevertInterface):
@@ -47,6 +47,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         ValueError
             If array contains not Point2D value.
         """
+        from apysc import Point2D
         for point in value.value:
             if isinstance(point, Point2D):
                 continue

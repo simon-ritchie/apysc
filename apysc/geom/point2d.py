@@ -1,11 +1,11 @@
 """2-dimensional geometry point class implementation.
 """
 
-from apysc.type.dictionary_structure import DictionaryStructure
 from typing import Any, Dict, Union
-from apysc import Int, Boolean
+from apysc import Int
 from apysc.type.variable_name_interface import VariableNameInterface
 from apysc.type.revert_interface import RevertInterface
+from apysc.type.dictionary_structure import DictionaryStructure
 
 _int = Union[int, Int]
 
@@ -190,6 +190,7 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         result : Boolean
             Comparison result.
         """
+        from apysc import Boolean
         result: Boolean
         if not isinstance(other, Point2D):
             result = Boolean(False)
@@ -214,6 +215,7 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         result : Boolean
             Comparison result.
         """
+        from apysc import Boolean
         result: Boolean = self == other
         result = result.not_
         return result

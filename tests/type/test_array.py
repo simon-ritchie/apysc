@@ -36,7 +36,6 @@ class TestArray:
         assert array_1.variable_name.startswith(
             f'{var_names.ARRAY}_')
 
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__validate_acceptable_value_type(self) -> None:
         array_1: Array = Array([1, 2, 3])

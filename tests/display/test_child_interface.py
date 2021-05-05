@@ -181,7 +181,7 @@ class TestChildInterface:
         stage.add_child(child=sprite_1)
         sprite_2: Sprite = Sprite(stage=stage)
         sprite_1.add_child(child=sprite_2)
-        stage._children.append(100)
+        stage._children.append(100)  # type: ignore
 
         snapshot_name_1: str = stage._get_next_snapshot_name()
         stage._run_all_make_snapshot_methods(
@@ -206,7 +206,7 @@ class TestChildInterface:
         stage.add_child(child=sprite_1)
         sprite_2: Sprite = Sprite(stage=stage)
         sprite_1.add_child(child=sprite_2)
-        stage._children.append(100)
+        stage._children.append(100)  # type: ignore
 
         snapshot_name_1: str = sprite_1._get_next_snapshot_name()
         stage._run_all_make_snapshot_methods(

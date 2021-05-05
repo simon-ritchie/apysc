@@ -1,10 +1,12 @@
 """Class implementation for array.
 """
 
-from typing import Any, Generic, TypeVar
+from typing import Any
 from typing import Dict
+from typing import Generic
 from typing import List
 from typing import Optional
+from typing import TypeVar
 from typing import Union
 
 from apysc import Boolean
@@ -13,7 +15,6 @@ from apysc import String
 from apysc.type.copy_interface import CopyInterface
 from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
-from apysc import AnyValue
 
 T = TypeVar('T')
 
@@ -595,6 +596,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         ValueError
             If specified index type is not int and Int.
         """
+        from apysc import AnyValue
         self._validate_index_type_is_int(index=index)
         index_: int = self._get_builtin_int_from_index(index=index)
         value: Any

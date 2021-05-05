@@ -6,27 +6,19 @@ $ python Points2DInterface/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
 
-from apysc import Array, Point2D
-from apysc import If
-from apysc import Int
-from apysc import MouseEvent
+from apysc import Array
+from apysc import Point2D
 from apysc import Stage
-from apysc import String
-from apysc import assert_arrays_equal
 from apysc import assert_equal
-from apysc import assert_true
-from apysc import trace
+from apysc.display.points_2d_interface import Points2DInterface
 from apysc.file import file_util
 from apysc.html import exporter
-from apysc.display.points_2d_interface import Points2DInterface
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -49,8 +41,7 @@ def main() -> None:
     interface.points[1] = Point2D(50, 60)
     assert_equal(expected=Point2D(50, 60), actual=interface.points[1])
 
-    exporter.save_expressions_overall_html(
-        dest_dir_path=_DEST_DIR_PATH, minify=False)
+    exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 if __name__ == '__main__':

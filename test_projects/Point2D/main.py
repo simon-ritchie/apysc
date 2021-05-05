@@ -6,24 +6,16 @@ $ python Point2D/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
 
-from apysc import Array, Point2D
-from apysc import If
 from apysc import Int
-from apysc import MouseEvent
+from apysc import Point2D
 from apysc import Stage
-from apysc import String
-from apysc import assert_arrays_equal
 from apysc import assert_equal
-from apysc import assert_true
-from apysc import trace
 from apysc.file import file_util
 from apysc.html import exporter
 

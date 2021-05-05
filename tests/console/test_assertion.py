@@ -2,10 +2,11 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Array, Point2D
+from apysc import Array
 from apysc import Boolean
 from apysc import Dictionary
 from apysc import Int
+from apysc import Point2D
 from apysc.console import assertion
 from apysc.expression import expression_file_util
 

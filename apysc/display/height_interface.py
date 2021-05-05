@@ -1,7 +1,8 @@
 """Class implementation for height interface.
 """
 
-from typing import Dict, Union
+from typing import Dict
+from typing import Union
 
 from apysc import Int
 from apysc.type.revert_interface import RevertInterface

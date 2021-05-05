@@ -1,7 +1,8 @@
 """Class implementation for graphic base class.
 """
 
-from typing import Any, Union
+from typing import Any
+from typing import Union
 
 from apysc import Int
 from apysc.display.display_object import DisplayObject

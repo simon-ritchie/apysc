@@ -1,15 +1,20 @@
 """Implementations of Polyline class.
 """
 
-from typing import Any, List, Union
-from apysc import Int, String, Number, Array
-from apysc.display.points_2d_interface import Points2DInterface
+from typing import Any
+from typing import Union
+
+from apysc import Array
+from apysc import Int
+from apysc import Number
+from apysc import String
 from apysc.display.fill_alpha_interface import FillAlphaInterface
 from apysc.display.fill_color_interface import FillColorInterface
 from apysc.display.graphic_base import GraphicBase
 from apysc.display.line_alpha_interface import LineAlphaInterface
 from apysc.display.line_color_interface import LineColorInterface
 from apysc.display.line_thickness_interface import LineThicknessInterface
+from apysc.display.points_2d_interface import Points2DInterface
 
 _Graphics = Any
 
@@ -32,6 +37,8 @@ class Polyline(
 
         Parameters
         ----------
+        parent : Graphics
+            Graphics instance to link this graphic.
         points : Array of Point2D
             List of line points.
         fill_color : str or String, default ''

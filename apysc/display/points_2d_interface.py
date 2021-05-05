@@ -1,10 +1,11 @@
 """Class implementation for 2-dimensional points interface.
 """
 
-from typing import Dict, List
+from typing import Dict
+
+from apysc import Array
 from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
-from apysc import Array
 
 
 class Points2DInterface(VariableNameInterface, RevertInterface):
@@ -88,7 +89,8 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._initialize_points_if_not_initialized()
-        self._points._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        self._points._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
         self._points_snapshots[snapshot_name] = self._points
 
     def _revert(self, snapshot_name: str) -> None:

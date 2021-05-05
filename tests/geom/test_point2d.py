@@ -2,10 +2,12 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Point2D, Int, Boolean
-from tests.testing_helper import assert_attrs
-from apysc.expression import var_names
+from apysc import Boolean
+from apysc import Int
+from apysc import Point2D
 from apysc.expression import expression_file_util
+from apysc.expression import var_names
+from tests.testing_helper import assert_attrs
 
 
 class TestPoint2D:
@@ -60,7 +62,7 @@ class TestPoint2D:
         assert isinstance(result, Boolean)
         assert not result
 
-        result = point == Point2D(x=10, y= 20)
+        result = point == Point2D(x=10, y=20)
         assert isinstance(result, Boolean)
         assert result
 

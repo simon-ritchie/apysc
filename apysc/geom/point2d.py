@@ -1,11 +1,14 @@
 """2-dimensional geometry point class implementation.
 """
 
-from typing import Any, Dict, Union
+from typing import Any
+from typing import Dict
+from typing import Union
+
 from apysc import Int
-from apysc.type.variable_name_interface import VariableNameInterface
-from apysc.type.revert_interface import RevertInterface
 from apysc.type.dictionary_structure import DictionaryStructure
+from apysc.type.revert_interface import RevertInterface
+from apysc.type.variable_name_interface import VariableNameInterface
 
 _int = Union[int, Int]
 
@@ -26,9 +29,9 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         y : int or Int
             Y-coordinate.
         """
-        from apysc.validation.number_validation import validate_integer
-        from apysc.expression import var_names
         from apysc.expression import expression_variables_util
+        from apysc.expression import var_names
+        from apysc.validation.number_validation import validate_integer
         validate_integer(integer=x)
         validate_integer(integer=y)
         if isinstance(x, int):
@@ -53,7 +56,7 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         expression_file_util.append_js_expression(expression=expression)
 
     @property
-    def x(self) -> Int:
+    def x(self) -> Any:
         """
         X-coordinate property.
 
@@ -65,22 +68,6 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         x: Int = Int(self._x._value)
         self._append_x_getter_expression(x=x)
         return x
-
-    def _append_x_getter_expression(self, x: Int) -> None:
-        """
-        Append x property getter expression to file.
-
-        Parameters
-        ----------
-        x : Int
-            Target x value.
-        """
-        from apysc.expression import expression_file_util
-        expression: str = (
-            f'{x.variable_name} = '
-            f'{self.variable_name}["x"];'
-        )
-        expression_file_util.append_js_expression(expression=expression)
 
     @x.setter
     def x(self, value: Any) -> None:
@@ -99,6 +86,22 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         self._x = value
         self._append_x_setter_expression(value=value)
 
+    def _append_x_getter_expression(self, x: Int) -> None:
+        """
+        Append x property getter expression to file.
+
+        Parameters
+        ----------
+        x : Int
+            Target x value.
+        """
+        from apysc.expression import expression_file_util
+        expression: str = (
+            f'{x.variable_name} = '
+            f'{self.variable_name}["x"];'
+        )
+        expression_file_util.append_js_expression(expression=expression)
+
     def _append_x_setter_expression(self, value: Int) -> None:
         """
         Append x property setter expression to file.
@@ -115,34 +118,18 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         expression_file_util.append_js_expression(expression=expression)
 
     @property
-    def y(self) -> Int:
+    def y(self) -> Any:
         """
         Y-coordinate property.
 
-        Parameters
-        ----------
+        Returns
+        -------
         y : Int
             Y-coordinate.
         """
         y: Int = Int(self._y._value)
         self._append_y_getter_expression(y=y)
         return y
-
-    def _append_y_getter_expression(self, y: Int) -> None:
-        """
-        Append y property getter expression to file.
-
-        Parameters
-        ----------
-        y : Int
-            Target y value.
-        """
-        from apysc.expression import expression_file_util
-        expression: str = (
-            f'{y.variable_name} = '
-            f'{self.variable_name}["y"];'
-        )
-        expression_file_util.append_js_expression(expression=expression)
 
     @y.setter
     def y(self, value: Any) -> None:
@@ -160,6 +147,22 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
             value = Int(value)
         self._y = value
         self._append_y_setter_expression(value=value)
+
+    def _append_y_getter_expression(self, y: Int) -> None:
+        """
+        Append y property getter expression to file.
+
+        Parameters
+        ----------
+        y : Int
+            Target y value.
+        """
+        from apysc.expression import expression_file_util
+        expression: str = (
+            f'{y.variable_name} = '
+            f'{self.variable_name}["y"];'
+        )
+        expression_file_util.append_js_expression(expression=expression)
 
     def _append_y_setter_expression(self, value: Int) -> None:
         """

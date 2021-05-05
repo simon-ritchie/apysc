@@ -9,8 +9,8 @@ from apysc import Int
 from apysc import Number
 from apysc import String
 from apysc.type.copy_interface import CopyInterface
-from apysc.type.revert_interface import RevertInterface
 from apysc.type.dictionary_structure import DictionaryStructure
+from apysc.type.revert_interface import RevertInterface
 
 Key = Union[str, int, float, String, Int, Number]
 

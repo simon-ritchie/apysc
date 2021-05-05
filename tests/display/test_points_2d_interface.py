@@ -1,10 +1,11 @@
 from random import randint
 
-from retrying import retry
 import pytest
+from retrying import retry
 
+from apysc import Array
+from apysc import Point2D
 from apysc.display.points_2d_interface import Points2DInterface
-from apysc import Array, Point2D
 from apysc.expression import expression_file_util
 
 
@@ -55,7 +56,7 @@ class TestPoints2DInterface:
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface._points._value_snapshots == {snapshot_name: [point_1]}
-        assert interface._points_snapshots == {snapshot_name: [point_1]}
+        assert interface._points_snapshots == {snapshot_name: Array([point_1])}
 
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
 

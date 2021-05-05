@@ -2,7 +2,11 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Polyline, Stage, Sprite, Array, Point2D
+from apysc import Array
+from apysc import Point2D
+from apysc import Polyline
+from apysc import Sprite
+from apysc import Stage
 from tests.testing_helper import assert_attrs
 
 

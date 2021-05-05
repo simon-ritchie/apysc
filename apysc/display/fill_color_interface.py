@@ -1,7 +1,8 @@
 """Class implementation for fill color interface.
 """
 
-from typing import Dict, Union
+from typing import Dict
+from typing import Union
 
 from apysc import String
 from apysc.type.revert_interface import RevertInterface

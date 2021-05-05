@@ -1,4 +1,6 @@
 from random import randint
+from typing import List, Match, Optional
+import re
 
 import pytest
 from retrying import retry
@@ -73,3 +75,23 @@ class TestPoints2DInterface:
         interface.points = Array([])
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         interface.points == [point_1]
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_make_2dim_points_expression(self) -> None:
+        interface: Points2DInterface = Points2DInterface()
+        interface.variable_name = 'test_point_2d_interface'
+        variable_name: str
+        expression: str
+        variable_name, expression = interface.make_2dim_points_expression()
+        expected_patterns: List[str] = [
+            rf'var {variable_name} = \[\];',
+            r'\nfor \(var i.+? \= 0\; i.+ \< .+?\.length\; i.+?\+\+\) \{',
+            r'\n  var .+? = .+?\[i.+?\]\;',
+            rf'\n  {variable_name}\.push\(\[.+?\[\"x\"\]\, .+?\[\"y\"\]\]\)',
+            r'}',
+        ]
+        for expected_pattern in expected_patterns:
+            match: Optional[Match] = re.search(
+                pattern=expected_pattern, string=expression,
+                flags=re.MULTILINE)
+            assert match is not None, f'expected pattern: {expected_pattern}'

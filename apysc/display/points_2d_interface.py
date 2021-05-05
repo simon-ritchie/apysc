@@ -1,7 +1,7 @@
 """Class implementation for 2-dimensional points interface.
 """
 
-from typing import Dict
+from typing import Dict, Tuple
 
 from apysc import Array
 from apysc.type.revert_interface import RevertInterface
@@ -57,6 +57,39 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         self._initialize_points_if_not_initialized()
         self._append_points_update_expression(value=value)
         self._points = value
+
+    def make_2dim_points_expression(self) -> Tuple[str, str]:
+        """
+        Make JavaScript expression string.
+
+        Returns
+        -------
+        variable_name: str
+            Created JavaScript points variable (2-dimensional array) name.
+        expression : str
+            JavaScript expression string. This expression make
+            2-dimensional JavaScript array variable, like
+            '[[x_1, y_1], [x_2, y_2], ...]'.
+        """
+        from apysc.expression import var_names, expression_variables_util
+        self._initialize_points_if_not_initialized()
+        variable_name: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.ARRAY)
+        i_name: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.INDEX)
+        points_name: str = self._points.variable_name
+        point_name: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.POINT2D)
+        expression: str = (
+            f'var {variable_name} = [];'
+            f'\nfor (var {i_name} = 0; {i_name} < {points_name}.length; '
+            f'{i_name}++) {{'
+            f'\n  var {point_name} = {points_name}[{i_name}];'
+            f'\n  {variable_name}.push('
+            f'[{point_name}["x"], {point_name}["y"]]);'
+            '}'
+        )
+        return variable_name, expression
 
     def _append_points_update_expression(self, value: Array) -> None:
         """

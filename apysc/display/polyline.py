@@ -15,6 +15,8 @@ from apysc.display.line_alpha_interface import LineAlphaInterface
 from apysc.display.line_color_interface import LineColorInterface
 from apysc.display.line_thickness_interface import LineThicknessInterface
 from apysc.display.points_2d_interface import Points2DInterface
+from apysc.display.x_interface import XInterface
+from apysc.display.y_interface import YInterface
 
 _Graphics = Any
 
@@ -22,7 +24,7 @@ _Graphics = Any
 class Polyline(
         GraphicBase, FillColorInterface, FillAlphaInterface,
         LineColorInterface, LineAlphaInterface, LineThicknessInterface,
-        Points2DInterface):
+        Points2DInterface, XInterface):
 
     def __init__(
             self, parent: _Graphics,
@@ -57,7 +59,7 @@ class Polyline(
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.POLYLINE)
         super(Polyline, self).__init__(
-            parent=parent, x=Int(0), y=Int(0),
+            parent=parent, x=0, y=0,
             variable_name=variable_name)
         self.points = points
         self._set_initial_fill_color_if_not_blank(fill_color=fill_color)

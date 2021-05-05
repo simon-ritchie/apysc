@@ -56,7 +56,7 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         expression_file_util.append_js_expression(expression=expression)
 
     @property
-    def x(self) -> Any:
+    def x(self) -> Int:
         """
         X-coordinate property.
 
@@ -70,13 +70,13 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         return x
 
     @x.setter
-    def x(self, value: Any) -> None:
+    def x(self, value: Int) -> None:
         """
         Update x-coordinate property.
 
         Parameters
         ----------
-        value : int or Int
+        value : Int
             X-coordinate to set.
         """
         from apysc.validation.number_validation import validate_integer
@@ -118,7 +118,7 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         expression_file_util.append_js_expression(expression=expression)
 
     @property
-    def y(self) -> Any:
+    def y(self) -> Int:
         """
         Y-coordinate property.
 
@@ -132,13 +132,13 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         return y
 
     @y.setter
-    def y(self, value: Any) -> None:
+    def y(self, value: Int) -> None:
         """
         Update y-coordinate property.
 
         Parameters
         ----------
-        value : int or Int
+        value : Int
             Y-coordinate to set.
         """
         from apysc.validation.number_validation import validate_integer

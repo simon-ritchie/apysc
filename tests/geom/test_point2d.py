@@ -42,7 +42,7 @@ class TestPoint2D:
         assert isinstance(x, Int)
         assert x == 10
 
-        point.x = 20
+        point.x = 20  # type: ignore
         assert point.x == 20
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -52,7 +52,7 @@ class TestPoint2D:
         assert isinstance(y, Int)
         assert y == 20
 
-        point.y = 30
+        point.y = 30  # type: ignore
         assert point.y == 30
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -149,8 +149,8 @@ class TestPoint2D:
         assert point._x_snapshots == {snapshot_name: 10}
         assert point._y_snapshots == {snapshot_name: 20}
 
-        point.x = 30
-        point.y = 40
+        point.x = 30  # type: ignore
+        point.y = 40  # type: ignore
         point._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert point._x_snapshots == {snapshot_name: 10}
         assert point._y_snapshots == {snapshot_name: 20}
@@ -162,8 +162,8 @@ class TestPoint2D:
         point._run_all_revert_methods(snapshot_name=snapshot_name)
 
         point._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        point.x = 30
-        point.y = 40
+        point.x = 30  # type: ignore
+        point.y = 40  # type: ignore
         point._run_all_revert_methods(snapshot_name=snapshot_name)
         assert point.x == 10
         assert point.y == 20

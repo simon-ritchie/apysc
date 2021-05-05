@@ -42,8 +42,8 @@ def main() -> None:
     assert_equal(expected=30, actual=point.x)
     assert_equal(expected=40, actual=point.y)
 
-    point.x = 50
-    point.y = 60
+    point.x = 50  # type: ignore
+    point.y = 60  # type: ignore
     assert_equal(expected=50, actual=point.x)
     assert_equal(expected=60, actual=point.y)
 

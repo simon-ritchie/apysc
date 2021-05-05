@@ -45,7 +45,7 @@ class HeightInterface(VariableNameInterface, RevertInterface):
         value : int
             Height value to set.
         """
-        self.update_height_and_skip_appending_exp(value=value)
+        self._update_height_and_skip_appending_exp(value=value)
         self._append_height_update_expression()
 
     def _append_height_update_expression(self) -> None:
@@ -58,7 +58,7 @@ class HeightInterface(VariableNameInterface, RevertInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
-    def update_height_and_skip_appending_exp(
+    def _update_height_and_skip_appending_exp(
             self, value: Union[int, Int]) -> None:
         """
         Update height value and skip appending expression to file.

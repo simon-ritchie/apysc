@@ -39,7 +39,7 @@ class FillColorInterface(VariableNameInterface, RevertInterface):
         value : String
             Fill color to set.
         """
-        self.update_fill_color_and_skip_appending_exp(value=value)
+        self._update_fill_color_and_skip_appending_exp(value=value)
         self._append_fill_color_update_expression()
 
     def _append_fill_color_update_expression(self) -> None:
@@ -67,9 +67,9 @@ class FillColorInterface(VariableNameInterface, RevertInterface):
             return
         if isinstance(fill_color, str):
             fill_color = String(fill_color)
-        self.update_fill_color_and_skip_appending_exp(value=fill_color)
+        self._update_fill_color_and_skip_appending_exp(value=fill_color)
 
-    def update_fill_color_and_skip_appending_exp(
+    def _update_fill_color_and_skip_appending_exp(
             self, value: String) -> None:
         """
         Update fill color and skip appending expression to file.

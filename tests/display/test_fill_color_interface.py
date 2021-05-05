@@ -31,11 +31,11 @@ class TestFillColorInterface:
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test_update_fill_color_and_skip_appending_exp(self) -> None:
+    def test__update_fill_color_and_skip_appending_exp(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
         expression_file_util.remove_expression_file()
-        fill_color_interface.update_fill_color_and_skip_appending_exp(
+        fill_color_interface._update_fill_color_and_skip_appending_exp(
             value=String('#333'))
         assert fill_color_interface.fill_color == '#333333'
         expression: str = expression_file_util.get_current_expression()

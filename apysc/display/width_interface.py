@@ -45,7 +45,7 @@ class WidthInterface(VariableNameInterface, RevertInterface):
         value : Int
             Width value to set.
         """
-        self.update_width_and_skip_appending_exp(value=value)
+        self._update_width_and_skip_appending_exp(value=value)
         self._append_width_update_expression()
 
     def _append_width_update_expression(self) -> None:
@@ -58,7 +58,7 @@ class WidthInterface(VariableNameInterface, RevertInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
-    def update_width_and_skip_appending_exp(
+    def _update_width_and_skip_appending_exp(
             self, value: Union[int, Int]) -> None:
         """
         Update width value and skip appending expression to file.

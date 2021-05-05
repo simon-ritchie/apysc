@@ -61,8 +61,8 @@ class Polyline(
             variable_name=variable_name)
         self.points = points
         self._set_initial_fill_color_if_not_blank(fill_color=fill_color)
-        self.update_fill_alpha_and_skip_appending_exp(value=fill_alpha)
+        self._update_fill_alpha_and_skip_appending_exp(value=fill_alpha)
         self._set_initial_line_color_if_not_blank(line_color=line_color)
-        self.update_line_thickness_and_skip_appending_exp(
+        self._update_line_thickness_and_skip_appending_exp(
             value=line_thickness)
-        self.update_line_alpha_and_skip_appending_exp(value=line_alpha)
+        self._update_line_alpha_and_skip_appending_exp(value=line_alpha)

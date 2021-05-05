@@ -40,17 +40,17 @@ class TestFillAlphaInterface:
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test_update_fill_alpha_and_skip_appending_exp(self) -> None:
+    def test__update_fill_alpha_and_skip_appending_exp(self) -> None:
         fill_alpha_interface: FillAlphaInterface = FillAlphaInterface()
         fill_alpha_interface.variable_name = 'test_fill_alpha_interface'
         expression_file_util.remove_expression_file()
-        fill_alpha_interface.update_fill_alpha_and_skip_appending_exp(
+        fill_alpha_interface._update_fill_alpha_and_skip_appending_exp(
             value=0.25)
         assert fill_alpha_interface.fill_alpha == 0.25
         expression: str = expression_file_util.get_current_expression()
         assert 'fill' not in expression
 
-        fill_alpha_interface.update_fill_alpha_and_skip_appending_exp(
+        fill_alpha_interface._update_fill_alpha_and_skip_appending_exp(
             value=Number(value=0.5))
         assert fill_alpha_interface.fill_alpha == 0.5
 

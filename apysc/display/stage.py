@@ -67,8 +67,8 @@ class Stage(
         self._stage_elem_id = html_util.remove_first_selector_symbol_char(
             str_val=self._stage_elem_id)
         self.variable_name = get_stage_variable_name()
-        self.update_width_and_skip_appending_exp(value=Int(stage_width))
-        self.update_height_and_skip_appending_exp(value=Int(stage_height))
+        self._update_width_and_skip_appending_exp(value=Int(stage_width))
+        self._update_height_and_skip_appending_exp(value=Int(stage_height))
 
         background_color = color_util.complement_hex_color(
             hex_color_code=background_color)

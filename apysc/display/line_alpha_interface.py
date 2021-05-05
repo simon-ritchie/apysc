@@ -44,7 +44,7 @@ class LineAlphaInterface(VariableNameInterface, RevertInterface):
         value : Number
             Line alpha (opacity) to set.
         """
-        self.update_line_alpha_and_skip_appending_exp(value=value)
+        self._update_line_alpha_and_skip_appending_exp(value=value)
         self._append_line_alpha_update_expression()
 
     def _append_line_alpha_update_expression(self) -> None:
@@ -57,7 +57,7 @@ class LineAlphaInterface(VariableNameInterface, RevertInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
-    def update_line_alpha_and_skip_appending_exp(
+    def _update_line_alpha_and_skip_appending_exp(
             self, value: Union[float, Number]) -> None:
         """
         Update line alpha and skip appending expression to file.

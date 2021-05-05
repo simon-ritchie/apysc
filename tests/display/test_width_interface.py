@@ -31,13 +31,13 @@ class TestWidthInterface:
         width_interface: WidthInterface = WidthInterface()
         width_interface.variable_name = 'test_width_interface'
         expression_file_util.remove_expression_file()
-        width_interface.update_width_and_skip_appending_exp(
+        width_interface._update_width_and_skip_appending_exp(
             value=Int(300))
         assert width_interface.width == 300
         expression: str = expression_file_util.get_current_expression()
         assert 'width(' not in expression
 
-        width_interface.update_width_and_skip_appending_exp(
+        width_interface._update_width_and_skip_appending_exp(
             value=400)
         assert width_interface.width == 400
 

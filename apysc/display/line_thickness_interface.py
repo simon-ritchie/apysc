@@ -45,7 +45,7 @@ class LineThicknessInterface(VariableNameInterface, RevertInterface):
         value : Int
             Line thickness to set.
         """
-        self.update_line_thickness_and_skip_appending_exp(value=value)
+        self._update_line_thickness_and_skip_appending_exp(value=value)
         self._append_line_thickness_update_expression()
 
     def _append_line_thickness_update_expression(self) -> None:
@@ -59,7 +59,7 @@ class LineThicknessInterface(VariableNameInterface, RevertInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
-    def update_line_thickness_and_skip_appending_exp(
+    def _update_line_thickness_and_skip_appending_exp(
             self, value: Union[int, Int]) -> None:
         """
         Update line thickness and skip appending expression to file.

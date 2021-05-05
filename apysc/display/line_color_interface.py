@@ -39,7 +39,7 @@ class LineColorInterface(VariableNameInterface, RevertInterface):
         value : str
             Line color to set.
         """
-        self.update_line_color_and_skip_appending_exp(value=value)
+        self._update_line_color_and_skip_appending_exp(value=value)
         self._append_line_color_update_expression()
 
     def _append_line_color_update_expression(self) -> None:
@@ -67,9 +67,9 @@ class LineColorInterface(VariableNameInterface, RevertInterface):
             return
         if isinstance(line_color, str):
             line_color = String(line_color)
-        self.update_line_color_and_skip_appending_exp(value=line_color)
+        self._update_line_color_and_skip_appending_exp(value=line_color)
 
-    def update_line_color_and_skip_appending_exp(
+    def _update_line_color_and_skip_appending_exp(
             self, value: String) -> None:
         """
         Update line color and skip appending expression to file.

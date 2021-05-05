@@ -51,7 +51,7 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
         """
         if not isinstance(value, NumberValueInterface):
             value = Number(value=value)
-        self.update_fill_alpha_and_skip_appending_exp(value=value)
+        self._update_fill_alpha_and_skip_appending_exp(value=value)
         self._append_fill_alpha_update_expression()
 
     def _append_fill_alpha_update_expression(self) -> None:
@@ -67,7 +67,7 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
-    def update_fill_alpha_and_skip_appending_exp(
+    def _update_fill_alpha_and_skip_appending_exp(
             self, value: Any) -> None:
         """
         Update fill opacity and skip appending expression to file.

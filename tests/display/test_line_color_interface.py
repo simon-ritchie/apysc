@@ -35,11 +35,11 @@ class TestLineColorInterface:
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test_update_line_color_and_skip_appending_exp(self) -> None:
+    def test__update_line_color_and_skip_appending_exp(self) -> None:
         line_color_interface: LineColorInterface = LineColorInterface()
         line_color_interface.variable_name = 'test_line_color_interface'
         expression_file_util.remove_expression_file()
-        line_color_interface.update_line_color_and_skip_appending_exp(
+        line_color_interface._update_line_color_and_skip_appending_exp(
             value=String('#777'))
         assert line_color_interface.line_color == '#777777'
         expression: str = expression_file_util.get_current_expression()

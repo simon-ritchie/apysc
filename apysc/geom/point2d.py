@@ -239,4 +239,15 @@ class Point2D(VariableNameInterface, RevertInterface):
         self._y_snapshots[snapshot_name] = int(self._y._value)
 
     def _revert(self, snapshot_name: str) -> None:
-        pass
+        """
+        Revert values if snapshots exist.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._x._value = self._x_snapshots[snapshot_name]
+        self._y._value = self._y_snapshots[snapshot_name]

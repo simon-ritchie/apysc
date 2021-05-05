@@ -138,3 +138,17 @@ class TestPoint2D:
             f'{point.variable_name}["y"] = {y.variable_name};'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__make_snapshot(self) -> None:
+        point: Point2D = Point2D(x=10, y=20)
+        snapshot_name: str = point._get_next_snapshot_name()
+        point._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert point._x_snapshots == {snapshot_name: 10}
+        assert point._y_snapshots == {snapshot_name: 20}
+
+        point.x = 30
+        point.y = 40
+        point._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert point._x_snapshots == {snapshot_name: 10}
+        assert point._y_snapshots == {snapshot_name: 20}

@@ -1,14 +1,15 @@
 """2-dimensional geometry point class implementation.
 """
 
-from typing import Any, Union
+from typing import Any, Dict, Union
 from apysc import Int, Boolean
 from apysc.type.variable_name_interface import VariableNameInterface
+from apysc.type.revert_interface import RevertInterface
 
 _int = Union[int, Int]
 
 
-class Point2D(VariableNameInterface):
+class Point2D(VariableNameInterface, RevertInterface):
 
     _x: Int
     _y: Int
@@ -215,3 +216,27 @@ class Point2D(VariableNameInterface):
         result: Boolean = self == other
         result = result.not_
         return result
+
+    _x_snapshots: Dict[str, int]
+    _y_snapshots: Dict[str, int]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make values' snapshots.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_x_snapshots'):
+            self._x_snapshots = {}
+        if not hasattr(self, '_y_snapshots'):
+            self._y_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._x_snapshots[snapshot_name] = int(self._x._value)
+        self._y_snapshots[snapshot_name] = int(self._y._value)
+
+    def _revert(self, snapshot_name: str) -> None:
+        pass

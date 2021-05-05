@@ -78,6 +78,7 @@ class Rectangle(
         self._update_line_thickness_and_skip_appending_exp(
             value=line_thickness)
         self._update_line_alpha_and_skip_appending_exp(value=line_alpha)
+        self._append_draw_rect_expression()
 
     def __repr__(self) -> str:
         """
@@ -93,73 +94,66 @@ class Rectangle(
         repr_str: str = f"Rectangle('{self.variable_name}')"
         return repr_str
 
+    def _append_draw_rect_expression(self) -> None:
+        """
+        Append Graphics's draw_rect interface expression to the file.
+        """
+        from apysc.display.stage import get_stage_variable_name
+        from apysc.expression import expression_file_util
+        variable_name: str = self.variable_name
+        stage_variable_name: str = get_stage_variable_name()
+        expression: str = (
+            f'\nvar {variable_name} = {stage_variable_name}'
+            f'\n  .rect({self.width.variable_name}, '
+            f'{self.height.variable_name})'
+        )
+        attrs_str: str = self._make_rect_attrs_expression()
+        expression += f'{attrs_str};'
+        expression_file_util.append_js_expression(expression=expression)
 
-def append_draw_rect_expression(rectangle: Rectangle) -> None:
-    """
-    Append Graphics's draw_rect interface expression to the file.
+    def _make_rect_attrs_expression(self) -> str:
+        """
+        Make rectangle attributes expression string.
 
-    Parameters
-    ----------
-    rectangle : Rectanble
-        Created rectangle instance.
-    """
-    from apysc.display.stage import get_stage_variable_name
-    from apysc.expression import expression_file_util
-    variable_name: str = rectangle.variable_name
-    stage_variable_name: str = get_stage_variable_name()
-    expression: str = (
-        f'\nvar {variable_name} = {stage_variable_name}'
-        f'\n  .rect({rectangle.width.variable_name}, '
-        f'{rectangle.height.variable_name})'
-    )
-    attrs_str: str = _make_rect_attrs_expression(rectangle=rectangle)
-    expression += f'{attrs_str};'
-    expression_file_util.append_js_expression(expression=expression)
+        Parameters
+        ----------
+        rectangle : Rectangle
+            Target rectangle instance.
 
-
-def _make_rect_attrs_expression(rectangle: Rectangle) -> str:
-    """
-    Make rectangle attributes expression string.
-
-    Parameters
-    ----------
-    rectangle : Rectangle
-        Target rectangle instance.
-
-    Returns
-    -------
-    rect_attrs_expression : str
-        Rectangle attributes expression string.
-    """
-    from apysc.display import graphics_expression
-    from apysc.display.graphics import Graphics
-    graphics: Graphics = rectangle.parent_graphics
-    INDENT_NUM: int = 2
-    rect_attrs_expression: str = '\n  .attr({'
-    rect_attrs_expression = graphics_expression.append_fill_expression(
-        graphics=graphics, expression=rect_attrs_expression,
-        indent_num=INDENT_NUM)
-    rect_attrs_expression = \
-        graphics_expression.append_fill_opacity_expression(
+        Returns
+        -------
+        rect_attrs_expression : str
+            Rectangle attributes expression string.
+        """
+        from apysc.display import graphics_expression
+        from apysc.display.graphics import Graphics
+        graphics: Graphics = self.parent_graphics
+        INDENT_NUM: int = 2
+        rect_attrs_expression: str = '\n  .attr({'
+        rect_attrs_expression = graphics_expression.append_fill_expression(
             graphics=graphics, expression=rect_attrs_expression,
             indent_num=INDENT_NUM)
-    rect_attrs_expression = graphics_expression.append_stroke_expression(
-        graphics=graphics, expression=rect_attrs_expression,
-        indent_num=INDENT_NUM)
-    rect_attrs_expression = \
-        graphics_expression.append_stroke_width_expression(
+        rect_attrs_expression = \
+            graphics_expression.append_fill_opacity_expression(
+                graphics=graphics, expression=rect_attrs_expression,
+                indent_num=INDENT_NUM)
+        rect_attrs_expression = graphics_expression.append_stroke_expression(
             graphics=graphics, expression=rect_attrs_expression,
             indent_num=INDENT_NUM)
-    rect_attrs_expression = \
-        graphics_expression.append_stroke_opacity_expression(
-            graphics=graphics, expression=rect_attrs_expression,
+        rect_attrs_expression = \
+            graphics_expression.append_stroke_width_expression(
+                graphics=graphics, expression=rect_attrs_expression,
+                indent_num=INDENT_NUM)
+        rect_attrs_expression = \
+            graphics_expression.append_stroke_opacity_expression(
+                graphics=graphics, expression=rect_attrs_expression,
+                indent_num=INDENT_NUM)
+        rect_attrs_expression = graphics_expression.append_x_expression(
+            graphic=self, expression=rect_attrs_expression,
             indent_num=INDENT_NUM)
-    rect_attrs_expression = graphics_expression.append_x_expression(
-        graphic=rectangle, expression=rect_attrs_expression,
-        indent_num=INDENT_NUM)
-    rect_attrs_expression = graphics_expression.append_y_expression(
-        graphic=rectangle, expression=rect_attrs_expression,
-        indent_num=INDENT_NUM)
+        rect_attrs_expression = graphics_expression.append_y_expression(
+            graphic=self, expression=rect_attrs_expression,
+            indent_num=INDENT_NUM)
 
-    rect_attrs_expression += '\n  })'
-    return rect_attrs_expression
+        rect_attrs_expression += '\n  })'
+        return rect_attrs_expression

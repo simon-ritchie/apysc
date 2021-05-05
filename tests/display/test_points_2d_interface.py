@@ -45,3 +45,16 @@ class TestPoints2DInterface:
             f'{pre_var_name} = {arr_1.variable_name};'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__make_snapshot(self) -> None:
+        interface: Points2DInterface = Points2DInterface()
+        point_1: Point2D = Point2D(10, 20)
+        interface.points = Array([point_1])
+        interface.variable_name = 'test_point_2d_interface'
+        snapshot_name: str = interface._get_next_snapshot_name()
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert interface._points._value_snapshots == {snapshot_name: [point_1]}
+        assert interface._points_snapshots == {snapshot_name: [point_1]}
+
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)

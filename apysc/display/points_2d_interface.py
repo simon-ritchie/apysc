@@ -1,13 +1,13 @@
 """Class implementation for 2-dimensional points interface.
 """
 
-from typing import List
+from typing import Dict, List
 from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
 from apysc import Point2D, Array
 
 
-class Points2DInterface(VariableNameInterface):
+class Points2DInterface(VariableNameInterface, RevertInterface):
 
     _points: Array
 
@@ -71,8 +71,24 @@ class Points2DInterface(VariableNameInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
+    _points_snapshots: Dict[str, Array]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
-        pass
+        """
+        Make values' snapshots.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_points_snapshots'):
+            self._points_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._initialize_points_if_not_initialized()
+        self._points._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        self._points_snapshots[snapshot_name] = self._points
 
     def _revert(self, snapshot_name: str) -> None:
         pass

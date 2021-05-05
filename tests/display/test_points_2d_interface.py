@@ -58,3 +58,17 @@ class TestPoints2DInterface:
         assert interface._points_snapshots == {snapshot_name: [point_1]}
 
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__revert(self) -> None:
+        interface: Points2DInterface = Points2DInterface()
+        interface.variable_name = 'test_point_2d_interface'
+        point_1: Point2D = Point2D(10, 20)
+        interface.points = Array([point_1])
+        snapshot_name: str = point_1._get_next_snapshot_name()
+        interface._run_all_revert_methods(snapshot_name=snapshot_name)
+
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        interface.points = Array([])
+        interface._run_all_revert_methods(snapshot_name=snapshot_name)
+        interface.points == [point_1]

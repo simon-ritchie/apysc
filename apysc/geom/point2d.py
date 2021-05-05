@@ -1,6 +1,7 @@
 """2-dimensional geometry point class implementation.
 """
 
+from apysc.type.dictionary_structure import DictionaryStructure
 from typing import Any, Dict, Union
 from apysc import Int, Boolean
 from apysc.type.variable_name_interface import VariableNameInterface
@@ -9,7 +10,7 @@ from apysc.type.revert_interface import RevertInterface
 _int = Union[int, Int]
 
 
-class Point2D(VariableNameInterface, RevertInterface):
+class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
 
     _x: Int
     _y: Int

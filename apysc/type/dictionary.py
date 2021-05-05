@@ -10,11 +10,12 @@ from apysc import Number
 from apysc import String
 from apysc.type.copy_interface import CopyInterface
 from apysc.type.revert_interface import RevertInterface
+from apysc.type.dictionary_structure import DictionaryStructure
 
 Key = Union[str, int, float, String, Int, Number]
 
 
-class Dictionary(CopyInterface, RevertInterface):
+class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
 
     _initial_value: Union[Dict[Key, Any], Any]
     _value: Dict[Key, Any]

@@ -473,8 +473,8 @@ def _actual_value_type_is_dict(actual: Any) -> bool:
     result : bool
         If actual value type is Dictionary, True will be returned.
     """
-    from apysc import Dictionary
-    if isinstance(actual, Dictionary):
+    from apysc.type.dictionary_structure import DictionaryStructure
+    if isinstance(actual, DictionaryStructure):
         return True
     return False
 

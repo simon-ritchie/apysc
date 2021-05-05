@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Array
+from apysc import Array, Point2D
 from apysc import Boolean
 from apysc import Dictionary
 from apysc import Int
@@ -303,6 +303,10 @@ def test__actual_value_type_is_dict() -> None:
 
     result = assertion._actual_value_type_is_dict(actual=10)
     assert not result
+
+    point: Point2D = Point2D(x=10, y=20)
+    result = assertion._actual_value_type_is_dict(actual=point)
+    assert result
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

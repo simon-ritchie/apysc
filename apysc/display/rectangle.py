@@ -96,14 +96,14 @@ class Rectangle(
 
     def _append_constructor_expression(self) -> None:
         """
-        Append constructor expression to the file.
+        Append constructor expression to file.
         """
         from apysc.display.stage import get_stage_variable_name
         from apysc.expression import expression_file_util
         variable_name: str = self.variable_name
         stage_variable_name: str = get_stage_variable_name()
         expression: str = (
-            f'\nvar {variable_name} = {stage_variable_name}'
+            f'var {variable_name} = {stage_variable_name}'
             f'\n  .rect({self.width.variable_name}, '
             f'{self.height.variable_name})'
         )

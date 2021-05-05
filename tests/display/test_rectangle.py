@@ -91,7 +91,7 @@ class TestRectangle:
         expression: str = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
-                rf'\nvar {rect_name} = {stage_variable_name}'
+                rf'var {rect_name} = {stage_variable_name}'
                 rf'\n  \.rect\({var_names.INT}.+?, {var_names.INT}.+?\)'
                 r'\n  \.attr\(\{'
                 rf'\n    fill: {var_names.STRING}.+?,'

@@ -157,3 +157,122 @@ def test_append_stroke_opacity_expression() -> None:
         string=expression,
         flags=re.MULTILINE)
     assert match is not None
+
+
+def assert_fill_attr_expression_exists(expression: str) -> None:
+    """
+    Assert fill attribute's expression exists in specified one.
+
+    Parameters
+    ----------
+    expression : str
+        Target expression to check.
+
+    Raises
+    ------
+    AssertionError
+        If target attribute's expression not exists.
+    """
+    assert 'fill: ' in expression
+
+
+def assert_fill_opacity_attr_expression_exists(expression: str) -> None:
+    """
+    Assert fill opacity attribute's expression exists in specified one.
+
+    Parameters
+    ----------
+    expression : str
+        Target expression to check.
+
+    Raises
+    ------
+    AssertionError
+        If target attribute's expression not exists.
+    """
+    assert '"fill-opacity": ' in expression
+
+
+def assert_x_attr_expression_exists(expression: str) -> None:
+    """
+    Assert x attribute's expression exists in specified one.
+
+    Parameters
+    ----------
+    expression : str
+        Target expression to check.
+
+    Raises
+    ------
+    AssertionError
+        If target attribute's expression not exists.
+    """
+    assert 'x: ' in expression
+
+
+def assert_y_attr_expression_exists(expression: str) -> None:
+    """
+    Assert y attribute's expression exists in specified one.
+
+    Parameters
+    ----------
+    expression : str
+        Target expression to check.
+
+    Raises
+    ------
+    AssertionError
+        If target attribute's expression not exists.
+    """
+    assert 'y: ' in expression
+
+
+def assert_stroke_attr_expression_exists(expression: str) -> None:
+    """
+    Assert stroke attribute's expression exists in specified one.
+
+    Parameters
+    ----------
+    expression : str
+        Target expression to check.
+
+    Raises
+    ------
+    AssertionError
+        If target attribute's expression not exists.
+    """
+    assert 'stroke: ' in expression
+
+
+def assert_stroke_width_attr_expression_exists(expression: str) -> None:
+    """
+    Assert stroke width attribute's expression exists in specified one.
+
+    Parameters
+    ----------
+    expression : str
+        Target expression to check.
+
+    Raises
+    ------
+    AssertionError
+        If target attribute's expression not exists.
+    """
+    assert '"stroke-width": ' in expression
+
+
+def assert_stroke_opacity_attr_expression_exists(expression: str) -> None:
+    """
+    Assert stroke opacity attribute's expression exists in specified one.
+
+    Parameters
+    ----------
+    expression : str
+        Target expression to check.
+
+    Raises
+    ------
+    AssertionError
+        If target attribute's expression not exists.
+    """
+    assert '"stroke-opacity": ' in expression

@@ -11,6 +11,7 @@ from apysc import Polyline
 from apysc import Sprite
 from apysc import Stage
 from tests.testing_helper import assert_attrs
+from tests.display.test_graphics_expression import assert_fill_attr_expression_exists, assert_fill_opacity_attr_expression_exists, assert_stroke_attr_expression_exists, assert_stroke_opacity_attr_expression_exists, assert_stroke_width_attr_expression_exists, assert_x_attr_expression_exists, assert_y_attr_expression_exists
 from apysc.display.stage import get_stage_variable_name
 
 
@@ -66,6 +67,8 @@ class TestPolyline:
         expression_file_util.remove_expression_file()
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
+        sprite.graphics.begin_fill(color='#0af')
+        sprite.graphics.line_style(color='#f0a')
         points: Array = Array([Point2D(10, 20), Point2D(30, 40)])
         polyline: Polyline = Polyline(
             parent=sprite.graphics,
@@ -85,4 +88,10 @@ class TestPolyline:
                 flags=re.MULTILINE,
             )
             assert match is not None, f'expected_pattern: {expected_pattern}'
-
+        assert_fill_attr_expression_exists(expression=expression)
+        assert_fill_opacity_attr_expression_exists(expression=expression)
+        assert_x_attr_expression_exists(expression=expression)
+        assert_y_attr_expression_exists(expression=expression)
+        assert_stroke_attr_expression_exists(expression=expression)
+        assert_stroke_width_attr_expression_exists(expression=expression)
+        assert_stroke_opacity_attr_expression_exists(expression=expression)

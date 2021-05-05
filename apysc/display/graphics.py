@@ -6,6 +6,7 @@ from typing import Optional
 from typing import Union
 
 from apysc import Int
+from apysc.display.polyline import Polyline
 from apysc.display.begin_fill_interface import BeginFillInterface
 from apysc.display.child_interface import ChildInterface
 from apysc.display.graphics_clear_interface import GraphicsClearInterface
@@ -17,6 +18,8 @@ from apysc.type.variable_name_interface import VariableNameInterface
 class Graphics(
         BeginFillInterface, LineStyleInterface, VariableNameInterface,
         GraphicsClearInterface, ChildInterface):
+
+    _current_line: Optional[Polyline] = None
 
     def __init__(
             self, parent: Any,
@@ -77,13 +80,13 @@ class Graphics(
 
         Parameters
         ----------
-        x : int
+        x : int or Int
             X position to start drawing.
-        y : int
+        y : int or Int
             Y position to start drawing.
-        width : int
+        width : int or Int
             Rectangle width.
-        height : int
+        height : int or Int
             Rectangle height.
 
         Returns
@@ -98,6 +101,25 @@ class Graphics(
             line_alpha=self.line_alpha)
         self.add_child(child=rectangle)
         return rectangle
+
+    def line_to(self, x: Union[int, Int], y: Union[int, Int]) -> Polyline:
+        """
+        Draw line from previous point to specified point (initial
+        point is x = 0, y = 0).
+
+        Parameters
+        ----------
+        x : int or Int
+            X destination point to draw line.
+        y : int or Int
+            Y destination point to draw line.
+
+        Returns
+        -------
+        line : Polyline
+            Line graphic instance.
+        """
+        pass
 
     def __repr__(self) -> str:
         """

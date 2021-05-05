@@ -77,12 +77,12 @@ class TestPoints2DInterface:
         interface.points == [point_1]
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test_make_2dim_points_expression(self) -> None:
+    def test__make_2dim_points_expression(self) -> None:
         interface: Points2DInterface = Points2DInterface()
         interface.variable_name = 'test_point_2d_interface'
         variable_name: str
         expression: str
-        variable_name, expression = interface.make_2dim_points_expression()
+        variable_name, expression = interface._make_2dim_points_expression()
         expected_patterns: List[str] = [
             rf'var {variable_name} = \[\];',
             r'\nfor \(var i.+? \= 0\; i.+ \< .+?\.length\; i.+?\+\+\) \{',

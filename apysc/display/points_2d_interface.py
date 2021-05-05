@@ -58,7 +58,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         self._append_points_update_expression(value=value)
         self._points = value
 
-    def make_2dim_points_expression(self) -> Tuple[str, str]:
+    def _make_2dim_points_expression(self) -> Tuple[str, str]:
         """
         Make JavaScript expression string.
 

@@ -24,7 +24,7 @@ _Graphics = Any
 class Polyline(
         GraphicBase, FillColorInterface, FillAlphaInterface,
         LineColorInterface, LineAlphaInterface, LineThicknessInterface,
-        Points2DInterface, XInterface):
+        Points2DInterface, XInterface, YInterface):
 
     def __init__(
             self, parent: _Graphics,
@@ -68,6 +68,8 @@ class Polyline(
         self._update_line_thickness_and_skip_appending_exp(
             value=line_thickness)
         self._update_line_alpha_and_skip_appending_exp(value=line_alpha)
+        self._initialize_x_if_not_initialized()
+        self._initialize_y_if_not_initialized()
 
     def __repr__(self) -> str:
         """

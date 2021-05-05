@@ -33,6 +33,8 @@ class TestPolyline:
                 '_line_color': '#ff00aa',
                 '_line_thickness': 2,
                 '_line_alpha': 0.7,
+                '_x': 0,
+                '_y': 0,
             },
             any_obj=polyline)
 

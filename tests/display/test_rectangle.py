@@ -23,11 +23,11 @@ class TestRectangle:
     def test___init__(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
+        sprite.graphics.begin_fill(color='#333', alpha=0.75)
+        sprite.graphics.line_style(color='#aaa', thickness=3, alpha=0.3)
         rectangle: Rectangle = Rectangle(
             parent=sprite.graphics,
-            x=100, y=200, width=300, height=400, fill_color='#333',
-            fill_alpha=0.75, line_color='#aaa', line_thickness=3,
-            line_alpha=0.3)
+            x=100, y=200, width=300, height=400)
         testing_helper.assert_attrs(
             expected_attrs={
                 'parent_graphics': sprite.graphics,
@@ -43,9 +43,9 @@ class TestRectangle:
             },
             any_obj=rectangle)
 
+        sprite.graphics.begin_fill(color='#333', alpha=Number(0.5))
         rectanble = Rectangle(
-            parent=sprite.graphics, x=100, y=200, width=300, height=400,
-            fill_alpha=Number(value=0.5))
+            parent=sprite.graphics, x=100, y=200, width=300, height=400)
         assert rectanble._fill_alpha == 0.5
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

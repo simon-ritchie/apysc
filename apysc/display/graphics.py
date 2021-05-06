@@ -95,10 +95,7 @@ class Graphics(
             Created rectangle.
         """
         rectangle: Rectangle = Rectangle(
-            parent=self, x=x, y=y, width=width, height=height,
-            fill_color=self.fill_color, fill_alpha=self.fill_alpha,
-            line_color=self.line_color, line_thickness=self.line_thickness,
-            line_alpha=self.line_alpha)
+            parent=self, x=x, y=y, width=width, height=height)
         self.add_child(child=rectangle)
         return rectangle
 

@@ -6,11 +6,12 @@ from typing import Dict, Tuple
 from apysc import Array
 from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
+from apysc.geom.point2d import Point2D
 
 
 class Points2DInterface(VariableNameInterface, RevertInterface):
 
-    _points: Array
+    _points: Array[Point2D]
 
     def _initialize_points_if_not_initialized(self) -> None:
         """
@@ -21,7 +22,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         self._points = Array([])
 
     @property
-    def points(self) -> Array:
+    def points(self) -> Array[Point2D]:
         """
         Get current points.
 
@@ -34,7 +35,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         return self._points
 
     @points.setter
-    def points(self, value: Array) -> None:
+    def points(self, value: Array[Point2D]) -> None:
         """
         Update points value.
 
@@ -48,7 +49,6 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         ValueError
             If array contains not Point2D value.
         """
-        from apysc import Point2D
         for point in value.value:
             if isinstance(point, Point2D):
                 continue

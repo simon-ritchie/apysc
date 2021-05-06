@@ -1,6 +1,7 @@
 import re
 from random import randint
-from typing import Match
+from tests.display.test_graphics_expression import assert_fill_attr_expression_exists, assert_fill_opacity_attr_expression_exists, assert_stroke_opacity_attr_expression_exists, assert_stroke_width_attr_expression_exists, assert_x_attr_expression_exists, assert_y_attr_expression_exists
+from typing import List, Match
 from typing import Optional
 
 from retrying import retry
@@ -65,19 +66,12 @@ class TestRectangle:
             x=100, y=200,
             width=150, height=50)
         expression: str = expression_file_util.get_current_expression()
-        match: Optional[Match] = re.search(
-            pattern=(
-                r'\n  \.attr\(\{'
-                rf'\n    "fill-opacity": {var_names.NUMBER}.+?,'
-                rf'\n    "stroke-width": {var_names.INT}.+?,'
-                rf'\n    "stroke-opacity": {var_names.NUMBER}.+?,'
-                rf'\n    x: {var_names.INT}.+?,'
-                rf'\n    y: {var_names.INT}.+?,'
-                r'\n  \}\)'
-            ),
-            string=expression,
-            flags=re.MULTILINE)
-        assert match is not None
+        assert '.attr({' in expression
+        assert_fill_opacity_attr_expression_exists(expression=expression)
+        assert_stroke_width_attr_expression_exists(expression=expression)
+        assert_stroke_opacity_attr_expression_exists(expression=expression)
+        assert_x_attr_expression_exists(expression=expression)
+        assert_y_attr_expression_exists(expression=expression)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_append_constructor_expression(self) -> None:
@@ -89,23 +83,22 @@ class TestRectangle:
         rect_name: str = sprite.graphics.get_child_at(index=0).variable_name
         stage_variable_name: str = get_stage_variable_name()
         expression: str = expression_file_util.get_current_expression()
-        match: Optional[Match] = re.search(
-            pattern=(
-                rf'var {rect_name} = {stage_variable_name}'
-                rf'\n  \.rect\({var_names.INT}.+?, {var_names.INT}.+?\)'
-                r'\n  \.attr\(\{'
-                rf'\n    fill: {var_names.STRING}.+?,'
-                rf'\n    "fill-opacity": {var_names.NUMBER}.+?,'
-                rf'\n    "stroke-width": {var_names.INT}.+?,'
-                rf'\n    "stroke-opacity": {var_names.NUMBER}.+?,'
-                rf'\n    x: {var_names.INT}.+?,'
-                rf'\n    y: {var_names.INT}.+?,'
-                r'\n  \}\);'
-                r'.*'
-                rf'\n{graphics_name}\.add\({rect_name}\)'
-            ),
-            string=expression,
-            flags=re.MULTILINE | re.DOTALL,
-        )
-        assert match is not None
+        expected_patterns: List[str] = [
+            rf'var {rect_name} = {stage_variable_name}',
+            rf'\n  \.rect\({var_names.INT}.+?, {var_names.INT}.+?\)',
+            r'\n  \.attr\(\{',
+            r'\n  \}\);',
+            rf'\n{graphics_name}\.add\({rect_name}\)',
+        ]
+        for expected_pattern in expected_patterns:
+            match: Optional[Match] = re.search(
+                pattern=expected_pattern, string=expression,
+                flags=re.MULTILINE)
+            assert match is not None
+        assert_fill_attr_expression_exists(expression=expression)
+        assert_fill_opacity_attr_expression_exists(expression=expression)
+        assert_x_attr_expression_exists(expression=expression)
+        assert_y_attr_expression_exists(expression=expression)
+        assert_stroke_width_attr_expression_exists(expression=expression)
+        assert_stroke_opacity_attr_expression_exists(expression=expression)
         expression_file_util.remove_expression_file()

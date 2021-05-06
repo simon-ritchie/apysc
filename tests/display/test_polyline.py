@@ -87,3 +87,22 @@ class TestPolyline:
         assert_stroke_attr_expression_exists(expression=expression)
         assert_stroke_width_attr_expression_exists(expression=expression)
         assert_stroke_opacity_attr_expression_exists(expression=expression)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_append_line_point(self) -> None:
+        expression_file_util.remove_expression_file()
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        sprite.graphics.begin_fill(color='#0af')
+        sprite.graphics.line_style(color='#f0a')
+        points: Array = Array([Point2D(10, 20), Point2D(30, 40)])
+        polyline: Polyline = Polyline(
+            parent=sprite.graphics,
+            points=points)
+        polyline.append_line_point(x=50, y=60)
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{polyline._points_var_name}.push([50, 60]);'
+            f'\n{polyline.variable_name}.plot({polyline._points_var_name});'
+        )
+        assert expected in expression

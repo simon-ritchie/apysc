@@ -8,6 +8,7 @@ from apysc import Array
 from apysc import Int
 from apysc import Number
 from apysc import String
+from apysc.geom.point2d import Point2D
 from apysc.display.fill_alpha_interface import FillAlphaInterface
 from apysc.display.fill_color_interface import FillColorInterface
 from apysc.display.graphic_base import GraphicBase
@@ -26,8 +27,10 @@ class Polyline(
         LineColorInterface, LineAlphaInterface, LineThicknessInterface,
         Points2DInterface, XInterface, YInterface):
 
+    _points_var_name: str
+
     def __init__(
-            self, parent: _Graphics, points: Array) -> None:
+            self, parent: _Graphics, points: Array[Point2D]) -> None:
         """
         Create a polyline vector graphic.
 
@@ -112,4 +115,29 @@ class Polyline(
         expression = graphics_expression.append_y_expression(
             graphic=self, expression=expression, indent_num=INDENT_NUM)
         expression += '\n  });'
+        expression_file_util.append_js_expression(expression=expression)
+        self._points_var_name = points_var_name
+
+    def append_line_point(
+            self, x: Union[int, Int], y: Union[int, Int]) -> None:
+        """
+        Append line point at the end.
+
+        Parameters
+        ----------
+        x : int or Int
+            X-coordinate.
+        y : int or Int
+            Y-coordinate.
+        """
+        from apysc.expression import expression_file_util
+        from apysc.type import value_util
+        self.points.append(value=Point2D(x=x, y=y))
+        expression: str
+        x_name: str = value_util.get_value_str_for_expression(value=x)
+        y_name: str = value_util.get_value_str_for_expression(value=y)
+        expression: str = (
+            f'{self._points_var_name}.push([{x_name}, {y_name}]);'
+            f'\n{self.variable_name}.plot({self._points_var_name});'
+        )
         expression_file_util.append_js_expression(expression=expression)

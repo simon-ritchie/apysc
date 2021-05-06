@@ -21,15 +21,12 @@ class TestPolyline:
     def test___init__(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
+        sprite.graphics.begin_fill(color='0af', alpha=0.5)
+        sprite.graphics.line_style(color='f0a', thickness=2, alpha=0.7)
         points: Array = Array([Point2D(10, 20), Point2D(30, 40)])
         polyline: Polyline = Polyline(
             parent=sprite.graphics,
-            points=points,
-            fill_color='0af',
-            fill_alpha=0.5,
-            line_color='f0a',
-            line_thickness=2,
-            line_alpha=0.7)
+            points=points)
         assert_attrs(
             expected_attrs={
                 '_points': points,
@@ -50,12 +47,7 @@ class TestPolyline:
         points: Array = Array([Point2D(10, 20), Point2D(30, 40)])
         polyline: Polyline = Polyline(
             parent=sprite.graphics,
-            points=points,
-            fill_color='0af',
-            fill_alpha=0.5,
-            line_color='f0a',
-            line_thickness=2,
-            line_alpha=0.7)
+            points=points)
         repr_str: str = repr(polyline)
         expected: str = (
             f"Polyline('{polyline.variable_name}')"

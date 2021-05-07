@@ -104,3 +104,16 @@ class TestGraphics:
         assert polyline.points == Array(
             [Point2D(0, 0), Point2D(100, 200), Point2D(300, 400)])
         assert polyline.variable_name == pre_var_name
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_move_to(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        polyline: Polyline = sprite.graphics.move_to(x=100, y=200)
+        assert polyline.points == Array([Point2D(100, 200)])
+        pre_var_name: str = polyline.variable_name
+
+        sprite.graphics.line_to(x=0, y=0)
+        polyline = sprite.graphics.move_to(x=300, y=400)
+        assert polyline.points == Array([Point2D(300, 400)])
+        assert polyline.variable_name != pre_var_name

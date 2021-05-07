@@ -126,6 +126,27 @@ class Graphics(
             self._current_line.append_line_point(x=x, y=y)
         return self._current_line
 
+    def move_to(self, x: Union[int, Int], y: Union[int, Int]) -> Polyline:
+        """
+        Move line position to specified point.
+
+        Parameters
+        ----------
+        x : int or Int
+            X destination point to move to.
+        y : int or Int
+            Y destination point to move to.
+
+        Returns
+        -------
+        line : Polyline
+            Line graphic instance.
+        """
+        from apysc import Point2D, Array
+        self._current_line = Polyline(
+            parent=self, points=Array([Point2D(x=x, y=y)]))
+        return self._current_line
+
     def __repr__(self) -> str:
         """
         Get a string representation of this instance (for the sake of

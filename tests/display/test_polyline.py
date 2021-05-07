@@ -1,7 +1,8 @@
-from typing import List, Match, Optional
-from apysc.expression import expression_file_util
-from random import randint
 import re
+from random import randint
+from typing import List
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
@@ -10,9 +11,23 @@ from apysc import Point2D
 from apysc import Polyline
 from apysc import Sprite
 from apysc import Stage
-from tests.testing_helper import assert_attrs
-from tests.display.test_graphics_expression import assert_fill_attr_expression_exists, assert_fill_opacity_attr_expression_exists, assert_stroke_attr_expression_exists, assert_stroke_opacity_attr_expression_exists, assert_stroke_width_attr_expression_exists, assert_x_attr_expression_exists, assert_y_attr_expression_exists
 from apysc.display.stage import get_stage_variable_name
+from apysc.expression import expression_file_util
+from tests.display.test_graphics_expression import \
+    assert_fill_attr_expression_exists
+from tests.display.test_graphics_expression import \
+    assert_fill_opacity_attr_expression_exists
+from tests.display.test_graphics_expression import \
+    assert_stroke_attr_expression_exists
+from tests.display.test_graphics_expression import \
+    assert_stroke_opacity_attr_expression_exists
+from tests.display.test_graphics_expression import \
+    assert_stroke_width_attr_expression_exists
+from tests.display.test_graphics_expression import \
+    assert_x_attr_expression_exists
+from tests.display.test_graphics_expression import \
+    assert_y_attr_expression_exists
+from tests.testing_helper import assert_attrs
 
 
 class TestPolyline:

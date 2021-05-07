@@ -6,11 +6,11 @@ from typing import Optional
 from typing import Union
 
 from apysc import Int
-from apysc.display.polyline import Polyline
 from apysc.display.begin_fill_interface import BeginFillInterface
 from apysc.display.child_interface import ChildInterface
 from apysc.display.graphics_clear_interface import GraphicsClearInterface
 from apysc.display.line_style_interface import LineStyleInterface
+from apysc.display.polyline import Polyline
 from apysc.display.rectangle import Rectangle
 from apysc.type.variable_name_interface import VariableNameInterface
 
@@ -116,7 +116,8 @@ class Graphics(
         line : Polyline
             Line graphic instance.
         """
-        from apysc import Point2D, Array
+        from apysc import Array
+        from apysc import Point2D
         if self._current_line is None:
             self._current_line = Polyline(
                 parent=self,
@@ -142,7 +143,8 @@ class Graphics(
         line : Polyline
             Line graphic instance.
         """
-        from apysc import Point2D, Array
+        from apysc import Array
+        from apysc import Point2D
         self._current_line = Polyline(
             parent=self, points=Array([Point2D(x=x, y=y)]))
         return self._current_line

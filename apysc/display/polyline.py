@@ -6,9 +6,6 @@ from typing import Union
 
 from apysc import Array
 from apysc import Int
-from apysc import Number
-from apysc import String
-from apysc.geom.point2d import Point2D
 from apysc.display.fill_alpha_interface import FillAlphaInterface
 from apysc.display.fill_color_interface import FillColorInterface
 from apysc.display.graphic_base import GraphicBase
@@ -18,6 +15,7 @@ from apysc.display.line_thickness_interface import LineThicknessInterface
 from apysc.display.points_2d_interface import Points2DInterface
 from apysc.display.x_interface import XInterface
 from apysc.display.y_interface import YInterface
+from apysc.geom.point2d import Point2D
 
 _Graphics = Any
 
@@ -41,9 +39,9 @@ class Polyline(
         points : Array of Point2D
             List of line points.
         """
+        from apysc.display.graphics import Graphics
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names
-        from apysc.display.graphics import Graphics
         parent_graphics: Graphics = parent
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.POLYLINE)
@@ -83,10 +81,10 @@ class Polyline(
         """
         Append constructor expression to file.
         """
-        from apysc.display.stage import get_stage_variable_name
-        from apysc.expression import expression_file_util
         from apysc.display import graphics_expression
         from apysc.display.graphics import Graphics
+        from apysc.display.stage import get_stage_variable_name
+        from apysc.expression import expression_file_util
         stage_variable_name: str = get_stage_variable_name()
         points_var_name: str
         points_expression: str
@@ -136,7 +134,7 @@ class Polyline(
         expression: str
         x_name: str = value_util.get_value_str_for_expression(value=x)
         y_name: str = value_util.get_value_str_for_expression(value=y)
-        expression: str = (
+        expression = (
             f'{self._points_var_name}.push([{x_name}, {y_name}]);'
             f'\n{self.variable_name}.plot({self._points_var_name});'
         )

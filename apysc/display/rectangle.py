@@ -5,8 +5,6 @@ from typing import Any
 from typing import Union
 
 from apysc import Int
-from apysc import Number
-from apysc import String
 from apysc.display.fill_alpha_interface import FillAlphaInterface
 from apysc.display.fill_color_interface import FillColorInterface
 from apysc.display.graphic_base import GraphicBase
@@ -105,11 +103,6 @@ class Rectangle(
     def _make_rect_attrs_expression(self) -> str:
         """
         Make rectangle attributes expression string.
-
-        Parameters
-        ----------
-        rectangle : Rectangle
-            Target rectangle instance.
 
         Returns
         -------

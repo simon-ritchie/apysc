@@ -3,6 +3,7 @@
 
 
 from typing import Optional
+
 from apysc import Array
 from apysc import Int
 from apysc import Number

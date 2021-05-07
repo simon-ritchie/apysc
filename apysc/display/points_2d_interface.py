@@ -1,12 +1,13 @@
 """Class implementation for 2-dimensional points interface.
 """
 
-from typing import Dict, Tuple
+from typing import Dict
+from typing import Tuple
 
 from apysc import Array
+from apysc.geom.point2d import Point2D
 from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
-from apysc.geom.point2d import Point2D
 
 
 class Points2DInterface(VariableNameInterface, RevertInterface):
@@ -71,7 +72,8 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
             2-dimensional JavaScript array variable, like
             '[[x_1, y_1], [x_2, y_2], ...]'.
         """
-        from apysc.expression import var_names, expression_variables_util
+        from apysc.expression import expression_variables_util
+        from apysc.expression import var_names
         self._initialize_points_if_not_initialized()
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.ARRAY)

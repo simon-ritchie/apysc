@@ -12,7 +12,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Int
+from apysc import Int, Polyline
 from apysc import Number
 from apysc import Rectangle
 from apysc import Sprite
@@ -44,6 +44,18 @@ def main() -> None:
     sprite.graphics.line_to(x=100, y=0)
     sprite.graphics.line_to(x=100, y=100)
     sprite.graphics.line_to(x=0, y=0)
+
+    sprite.graphics.begin_fill(color='#f0a', alpha=0.5)
+    sprite.graphics.move_to(x=100, y=100)
+    sprite.graphics.line_to(x=100, y=200)
+    sprite.graphics.line_to(x=200, y=200)
+    sprite.graphics.line_to(x=100, y=100)
+
+    sprite.graphics.move_to(x=Int(0), y=Int(0))
+    sprite.graphics.line_to(x=Int(100), y=Int(0))
+    polyline: Polyline = sprite.graphics.line_to(x=Int(100), y=Int(100))
+    polyline.x = Int(200)
+    polyline.y = Int(200)
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH, minify=False)

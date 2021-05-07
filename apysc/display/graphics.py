@@ -116,7 +116,15 @@ class Graphics(
         line : Polyline
             Line graphic instance.
         """
-        pass
+        from apysc import Point2D, Array
+        if self._current_line is None:
+            self._current_line = Polyline(
+                parent=self,
+                points=Array([Point2D(x=0, y=0), Point2D(x=x, y=y)]))
+            self.add_child(self._current_line)
+        else:
+            self._current_line.append_line_point(x=x, y=y)
+        return self._current_line
 
     def __repr__(self) -> str:
         """

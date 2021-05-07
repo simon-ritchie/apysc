@@ -2,11 +2,12 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Sprite
+from apysc import Sprite, Array, Point2D
 from apysc import Stage
 from apysc.display.graphics import Graphics
 from apysc.display.graphics import Rectangle
 from apysc.expression import expression_file_util
+from apysc import Polyline
 from tests import testing_helper
 
 
@@ -89,3 +90,17 @@ class TestGraphics:
         sprite: Sprite = Sprite(stage=stage)
         repr_str: str = repr(sprite.graphics)
         assert repr_str == f"Graphics('{sprite.graphics.variable_name}')"
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_line_to(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        polyline: Polyline = sprite.graphics.line_to(x=100, y=200)
+        assert polyline.points == Array(
+            [Point2D(0, 0), Point2D(100, 200)])
+        pre_var_name: str = polyline.variable_name
+
+        polyline = sprite.graphics.line_to(x=300, y=400)
+        assert polyline.points == Array(
+            [Point2D(0, 0), Point2D(100, 200), Point2D(300, 400)])
+        assert polyline.variable_name == pre_var_name

@@ -3,10 +3,12 @@ from typing import Match, Optional
 import re
 
 from retrying import retry
+from pytest import raises
 
 from apysc.display.line_cap_interface import LineCapInterface
 from apysc import LineCaps, String
 from apysc.expression import expression_file_util, var_names
+from tests.testing_helper import assert_raises
 
 
 class TestLineCapInterface:
@@ -29,6 +31,13 @@ class TestLineCapInterface:
 
         interface.line_cap = LineCaps.ROUND
         assert interface.line_cap == LineCaps.ROUND.value
+
+        interface.line_cap = String(LineCaps.BUTT.value)
+        assert interface.line_cap == LineCaps.BUTT.value
+
+        with raises(  # type: ignore
+                TypeError, match='Not supported line_cap type specified: '):
+            interface.line_cap = 'round'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_line_cap_update_expression(self) -> None:

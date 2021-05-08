@@ -16,6 +16,7 @@ from apysc.display.points_2d_interface import Points2DInterface
 from apysc.display.x_interface import XInterface
 from apysc.display.y_interface import YInterface
 from apysc.geom.point2d import Point2D
+from apysc.display.line_cap_interface import LineCapInterface
 
 _Graphics = Any
 
@@ -23,7 +24,7 @@ _Graphics = Any
 class Polyline(
         GraphicBase, FillColorInterface, FillAlphaInterface,
         LineColorInterface, LineAlphaInterface, LineThicknessInterface,
-        Points2DInterface, XInterface, YInterface):
+        Points2DInterface, XInterface, YInterface, LineCapInterface):
 
     _points_var_name: str
 
@@ -61,6 +62,7 @@ class Polyline(
             value=parent_graphics.line_alpha)
         self._initialize_x_if_not_initialized()
         self._initialize_y_if_not_initialized()
+        self.line_cap = parent_graphics.line_cap
         self._append_constructor_expression()
 
     def __repr__(self) -> str:

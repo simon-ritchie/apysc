@@ -11,6 +11,7 @@ from apysc import Point2D
 from apysc import Polyline
 from apysc import Sprite
 from apysc import Stage
+from apysc import LineCaps
 from apysc.display.stage import get_stage_variable_name
 from apysc.expression import expression_file_util
 from tests.display.test_graphics_expression import \
@@ -37,7 +38,8 @@ class TestPolyline:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
         sprite.graphics.begin_fill(color='0af', alpha=0.5)
-        sprite.graphics.line_style(color='f0a', thickness=2, alpha=0.7)
+        sprite.graphics.line_style(
+            color='f0a', thickness=2, alpha=0.7, cap=LineCaps.ROUND)
         points: Array = Array([Point2D(10, 20), Point2D(30, 40)])
         polyline: Polyline = Polyline(
             parent=sprite.graphics,
@@ -52,6 +54,7 @@ class TestPolyline:
                 '_line_alpha': 0.7,
                 '_x': 0,
                 '_y': 0,
+                '_line_cap': LineCaps.ROUND.value,
             },
             any_obj=polyline)
 

@@ -4,6 +4,7 @@
 from typing import Dict
 from typing import Union
 
+from apysc import String
 from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
 from apysc.display.line_caps import LineCaps
@@ -11,7 +12,7 @@ from apysc.display.line_caps import LineCaps
 
 class LineCapInterface(VariableNameInterface, RevertInterface):
 
-    _line_cap: LineCaps
+    _line_cap: String
 
     def _initialize_line_cap_if_not_initialized(self) -> None:
         """
@@ -20,18 +21,20 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_line_cap'):
             return
-        self._line_cap = LineCaps.BUTT
+        self._line_cap = String(LineCaps.BUTT.value)
 
-    def line_cap(self) -> LineCaps:
+    @property
+    def line_cap(self) -> String:
         """
         Get this instance's line cap style setting.
 
-        Parameters
-        ----------
-        is_test : bool/object/str/int/etc
-            
+        Returns
+        -------
+        line_cap : String
+            Line cap style setting.
         """
-        pass
+        self._initialize_line_cap_if_not_initialized()
+        return self._line_cap._copy()
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

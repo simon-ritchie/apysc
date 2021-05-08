@@ -62,7 +62,8 @@ class Polyline(
             value=parent_graphics.line_alpha)
         self._initialize_x_if_not_initialized()
         self._initialize_y_if_not_initialized()
-        self.line_cap = parent_graphics.line_cap
+        self._update_line_cap_and_skip_appending_exp(
+            value=parent_graphics.line_cap)
         self._append_constructor_expression()
 
     def __repr__(self) -> str:

@@ -46,17 +46,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         value : String or LineCaps
             Line cap style setting to set.
         """
-        from apysc.validation.display_validation import validate_line_cap
-        if not isinstance(value, (String, LineCaps)):
-            raise TypeError(
-                'Not supported line_cap type specified: '
-                f'{type(value)}'
-                '\nAcceptable ones: String or LineCaps.')
-        validate_line_cap(cap=value)
-        if isinstance(value, String):
-            self._line_cap = value._copy()
-        else:
-            self._line_cap = String(value.value)
+        self._update_line_cap_and_skip_appending_exp(value=value)
         self._append_line_cap_update_expression()
 
     def _append_line_cap_update_expression(self) -> None:
@@ -71,6 +61,28 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
             f'{self.variable_name}.attr({{"stroke-linecap": {cap_name}}});'
         )
         expression_file_util.append_js_expression(expression=expression)
+
+    def _update_line_cap_and_skip_appending_exp(
+            self, value: Union[String, LineCaps]) -> None:
+        """
+        Update line cap and skip appending expression to file.
+
+        Parameters
+        ----------
+        value : String or LineCaps
+            Line cap style setting to set.
+        """
+        from apysc.validation.display_validation import validate_line_cap
+        if not isinstance(value, (String, LineCaps)):
+            raise TypeError(
+                'Not supported line_cap type specified: '
+                f'{type(value)}'
+                '\nAcceptable ones: String or LineCaps.')
+        validate_line_cap(cap=value)
+        if isinstance(value, String):
+            self._line_cap = value._copy()
+        else:
+            self._line_cap = String(value.value)
 
     _line_cap_snapshots: Dict[str, str]
 

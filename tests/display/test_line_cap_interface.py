@@ -35,10 +35,6 @@ class TestLineCapInterface:
         interface.line_cap = String(LineCaps.BUTT.value)
         assert interface.line_cap == LineCaps.BUTT.value
 
-        with raises(  # type: ignore
-                TypeError, match='Not supported line_cap type specified: '):
-            interface.line_cap = 'round'
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_line_cap_update_expression(self) -> None:
         expression_file_util.remove_expression_file()
@@ -83,3 +79,23 @@ class TestLineCapInterface:
         interface.line_cap = LineCaps.BUTT
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface.line_cap == LineCaps.BUTT.value
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__update_line_cap_and_skip_appending_exp(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface: LineCapInterface = LineCapInterface()
+        interface.variable_name = 'test_line_color_interface'
+        interface._update_line_cap_and_skip_appending_exp(
+            value=LineCaps.ROUND)
+        assert interface.line_cap == LineCaps.ROUND.value
+        interface._update_line_cap_and_skip_appending_exp(
+            value=String(LineCaps.BUTT.value))
+        assert interface.line_cap == LineCaps.BUTT.value
+        expression: str = expression_file_util.get_current_expression()
+        assert f'{interface.variable_name}.attr' not in expression
+
+        assert_raises(
+            expected_error_class=TypeError,
+            func_or_method=interface._update_line_cap_and_skip_appending_exp,
+            kwargs={'value': 'round'},
+            match=r'Not supported line_cap type specified: ')

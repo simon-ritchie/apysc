@@ -111,6 +111,8 @@ class Polyline(
             graphics=graphics, expression=expression, indent_num=INDENT_NUM)
         expression = graphics_expression.append_stroke_opacity_expression(
             graphics=graphics, expression=expression, indent_num=INDENT_NUM)
+        expression = graphics_expression.append_stroke_linecap_expression(
+            graphics=graphics, expression=expression, indent_num=INDENT_NUM)
         expression = graphics_expression.append_x_expression(
             graphic=self, expression=expression, indent_num=INDENT_NUM)
         expression = graphics_expression.append_y_expression(

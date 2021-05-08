@@ -25,6 +25,8 @@ from tests.display.test_graphics_expression import \
 from tests.display.test_graphics_expression import \
     assert_stroke_width_attr_expression_exists
 from tests.display.test_graphics_expression import \
+    assert_stroke_linecap_attr_expression_exists
+from tests.display.test_graphics_expression import \
     assert_x_attr_expression_exists
 from tests.display.test_graphics_expression import \
     assert_y_attr_expression_exists
@@ -105,6 +107,7 @@ class TestPolyline:
         assert_stroke_attr_expression_exists(expression=expression)
         assert_stroke_width_attr_expression_exists(expression=expression)
         assert_stroke_opacity_attr_expression_exists(expression=expression)
+        assert_stroke_linecap_attr_expression_exists(expression=expression)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_append_line_point(self) -> None:

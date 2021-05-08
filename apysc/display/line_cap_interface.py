@@ -64,6 +64,8 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
+    _line_cap_snapshots: Dict[str, str]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make value's snapshot.
@@ -73,7 +75,12 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
-        pass
+        if not hasattr(self, '_line_cap_snapshots'):
+            self._line_cap_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._initialize_line_cap_if_not_initialized()
+        self._line_cap_snapshots[snapshot_name] = self._line_cap._value
 
     def _revert(self, snapshot_name: str) -> None:
         """

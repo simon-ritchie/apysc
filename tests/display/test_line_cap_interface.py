@@ -44,3 +44,18 @@ class TestLineCapInterface:
             ),
             string=expression, flags=re.MULTILINE)
         assert match is not None
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__make_snapshot(self) -> None:
+        interface: LineCapInterface = LineCapInterface()
+        interface.variable_name = 'test_line_color_interface'
+        interface.line_cap = LineCaps.ROUND
+        snapshot_name: str = interface._get_next_snapshot_name()
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert interface._line_cap_snapshots == {
+            snapshot_name: LineCaps.ROUND.value}
+
+        interface.line_cap = LineCaps.BUTT
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert interface._line_cap_snapshots == {
+            snapshot_name: LineCaps.ROUND.value}

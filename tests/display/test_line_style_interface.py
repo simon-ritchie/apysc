@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Int
+from apysc import Int, LineJoints
 from apysc import LineCaps
 from apysc import Number
 from apysc import String
@@ -183,3 +183,13 @@ class TestLineStyleInterface:
         line_style_interface._line_cap = String(LineCaps.ROUND.value)
         line_style_interface._initialize_line_cap_if_not_initialized()
         assert line_style_interface._line_cap == LineCaps.ROUND.value
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__set_line_joints(self) -> None:
+        line_style_interface: LineStyleInterface = LineStyleInterface()
+        line_style_interface.line_style(color='#333')
+        assert line_style_interface._line_joints == LineJoints.MITER.value
+
+        line_style_interface.line_style(
+            color='#333', joints=LineJoints.BEVEL)
+        assert line_style_interface._line_joints == LineJoints.BEVEL.value

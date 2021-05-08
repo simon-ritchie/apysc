@@ -14,6 +14,7 @@ from apysc import Int
 from apysc import Number
 from apysc import String
 from apysc.display.line_caps import LineCaps
+from apysc.display.line_joints import LineJoints
 from apysc.type.revert_interface import RevertInterface
 
 StrOrString = TypeVar('StrOrString', str, String)
@@ -25,12 +26,14 @@ class LineStyleInterface(RevertInterface):
     _line_thickness: Int
     _line_alpha: Number
     _line_cap: String
+    _line_joints: String
 
     def line_style(
             self, color: StrOrString,
             thickness: Union[int, Int] = 1,
             alpha: Union[float, Number] = 1.0,
-            cap: Optional[LineCaps] = None) -> None:
+            cap: Optional[LineCaps] = None,
+            joints: Optional[LineJoints] = None) -> None:
         """
         Set line style values.
 
@@ -46,6 +49,10 @@ class LineStyleInterface(RevertInterface):
             Line cap (edge style) setting. This will be ignored by not
             line-related graphics (e.g., Rectangle will ignore this,
             conversely used by Polyline).
+        joints : LineJoints or None, default None
+            Line vertices (joints) style setting. This will be ignored
+            by not polyline-related graphics (e.g., Rectangle will ignore
+            this, conversely used by Polyline).
         """
         from apysc.color import color_util
         from apysc.converter import cast
@@ -70,6 +77,22 @@ class LineStyleInterface(RevertInterface):
         color_validation.validate_alpha_range(alpha=alpha)
         self._line_alpha = alpha
         self._set_line_cap(cap=cap)
+        self._set_line_joints(joints=joints)
+
+    def _set_line_joints(self, joints: Optional[LineJoints]) -> None:
+        """
+        Set line joints setting to attribute.
+
+        Parameters
+        ----------
+        joints : LineJoints or None, default None
+            Line vertices (joints) style setting.
+        """
+        from apysc.validation.display_validation import validate_line_joints
+        if joints is None:
+            joints = LineJoints.MITER
+        validate_line_joints(joints=joints)
+        self._line_joints = String(joints.value)
 
     def _set_line_cap(self, cap: Optional[LineCaps]) -> None:
         """

@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Int
+from apysc import Int, LineCaps
 from apysc import Number
 from apysc import String
 from apysc.display.line_style_interface import LineStyleInterface
@@ -140,3 +140,21 @@ class TestLineStyleInterface:
         line_style_interface._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert line_style_interface.line_color == '#222222'
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__set_line_cap(self) -> None:
+        line_style_interface: LineStyleInterface = LineStyleInterface()
+        line_style_interface.line_style(color='#333')
+        assert line_style_interface._line_cap == LineCaps.BUTT
+
+        line_style_interface.line_style(color='#333', cap=LineCaps.ROUND)
+        assert line_style_interface._line_cap == LineCaps.ROUND
+
+        testing_helper.assert_raises(
+            expected_error_class=ValueError,
+            func_or_method=line_style_interface.line_style,
+            kwargs={
+                'color': '#333',
+                'cap': 'round',
+            },
+            match=r'Specified cap style type is not LineCaps one: ')

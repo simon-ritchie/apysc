@@ -5,11 +5,12 @@ See Also
 - graphics_clear_interface
 """
 
-from typing import Dict
+from typing import Dict, Optional
 from typing import TypeVar
 from typing import Union
 
 from apysc import Int
+from apysc.display.line_caps import LineCaps
 from apysc import Number
 from apysc import String
 from apysc.type.revert_interface import RevertInterface
@@ -22,11 +23,13 @@ class LineStyleInterface(RevertInterface):
     _line_color: String
     _line_thickness: Int
     _line_alpha: Number
+    _line_cap: LineCaps
 
     def line_style(
             self, color: StrOrString,
             thickness: Union[int, Int] = 1,
-            alpha: Union[float, Number] = 1.0) -> None:
+            alpha: Union[float, Number] = 1.0,
+            cap: Optional[LineCaps] = None) -> None:
         """
         Set line style values.
 
@@ -38,6 +41,8 @@ class LineStyleInterface(RevertInterface):
             Line thickness (minimum value is 1).
         alpha : float or Number, default 1.0
             Line color opacity (0.0 to 1.0).
+        cap : LineCaps or None, default None
+            Line cap (edge style) setting.
         """
         from apysc.color import color_util
         from apysc.converter import cast
@@ -61,6 +66,22 @@ class LineStyleInterface(RevertInterface):
             alpha = Number(alpha)
         color_validation.validate_alpha_range(alpha=alpha)
         self._line_alpha = alpha
+        self._set_line_cap(cap=cap)
+
+    def _set_line_cap(self, cap: Optional[LineCaps]) -> None:
+        """
+        Set line cap setting to attribute.
+
+        Parameters
+        ----------
+        cap : LineCaps or None, default None
+            Line cap (edge style) setting.
+        """
+        from apysc.validation.display_validation import validate_line_cap
+        if cap is None:
+            cap = LineCaps.BUTT
+        validate_line_cap(cap=cap)
+        self._line_cap = cap
 
     def _initialize_line_color_if_not_initialized(self) -> None:
         """

@@ -23,7 +23,7 @@ class LineStyleInterface(RevertInterface):
     _line_color: String
     _line_thickness: Int
     _line_alpha: Number
-    _line_cap: LineCaps
+    _line_cap: String
 
     def line_style(
             self, color: StrOrString,
@@ -83,7 +83,7 @@ class LineStyleInterface(RevertInterface):
         if cap is None:
             cap = LineCaps.BUTT
         validate_line_cap(cap=cap)
-        self._line_cap = cap
+        self._line_cap = String(cap.value)
 
     def _initialize_line_color_if_not_initialized(self) -> None:
         """
@@ -119,7 +119,7 @@ class LineStyleInterface(RevertInterface):
         """
         if hasattr(self, '_line_cap'):
             return
-        self._line_cap = LineCaps.BUTT
+        self._line_cap = String(LineCaps.BUTT.value)
 
     @property
     def line_color(self) -> String:
@@ -166,14 +166,14 @@ class LineStyleInterface(RevertInterface):
         return value_util.get_copy(value=self._line_alpha)
 
     @property
-    def line_cap(self) -> LineCaps:
+    def line_cap(self) -> String:
         """
         Get current line cap (edge) style setting.
 
         Returns
         -------
-        line_cap : LineCaps
-            Current line cap (edge) style setting
+        line_cap : String
+            Current line cap (edge) style setting.
         """
         self._initialize_line_cap_if_not_initialized()
         return self._line_cap
@@ -181,7 +181,7 @@ class LineStyleInterface(RevertInterface):
     _line_color_snapshots: Dict[str, str]
     _line_thickness_snapshots: Dict[str, int]
     _line_alpha_snapshots: Dict[str, float]
-    _line_cap_snapshots: Dict[str, LineCaps]
+    _line_cap_snapshots: Dict[str, str]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
@@ -207,7 +207,7 @@ class LineStyleInterface(RevertInterface):
         self._line_thickness_snapshots[snapshot_name] = \
             int(self._line_thickness._value)
         self._line_alpha_snapshots[snapshot_name] = self._line_alpha._value
-        self._line_cap_snapshots[snapshot_name] = self._line_cap
+        self._line_cap_snapshots[snapshot_name] = self._line_cap._value
 
     def _revert(self, snapshot_name: str) -> None:
         """
@@ -224,4 +224,4 @@ class LineStyleInterface(RevertInterface):
         self._line_thickness._value = self._line_thickness_snapshots[
             snapshot_name]
         self._line_alpha._value = self._line_alpha_snapshots[snapshot_name]
-        self._line_cap = self._line_cap_snapshots[snapshot_name]
+        self._line_cap._value = self._line_cap_snapshots[snapshot_name]

@@ -112,7 +112,7 @@ class TestLineStyleInterface:
             == 0.5)
         assert (
             line_style_interface._line_cap_snapshots[snapshot_name]
-            == LineCaps.ROUND)
+            == LineCaps.ROUND.value)
 
         line_style_interface.line_style(
             color='#222', thickness=2, alpha=0.3)
@@ -137,7 +137,7 @@ class TestLineStyleInterface:
         assert line_style_interface.line_color == '#333333'
         assert line_style_interface.line_thickness == 3
         assert line_style_interface.line_alpha == 0.5
-        assert line_style_interface.line_cap == LineCaps.ROUND
+        assert line_style_interface.line_cap == LineCaps.ROUND.value
 
         line_style_interface.line_style(
             color='#222', thickness=2, alpha=0.3)
@@ -149,10 +149,10 @@ class TestLineStyleInterface:
     def test__set_line_cap(self) -> None:
         line_style_interface: LineStyleInterface = LineStyleInterface()
         line_style_interface.line_style(color='#333')
-        assert line_style_interface._line_cap == LineCaps.BUTT
+        assert line_style_interface._line_cap == LineCaps.BUTT.value
 
         line_style_interface.line_style(color='#333', cap=LineCaps.ROUND)
-        assert line_style_interface._line_cap == LineCaps.ROUND
+        assert line_style_interface._line_cap == LineCaps.ROUND.value
 
         testing_helper.assert_raises(
             expected_error_class=ValueError,
@@ -166,19 +166,19 @@ class TestLineStyleInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_cap(self) -> None:
         line_style_interface: LineStyleInterface = LineStyleInterface()
-        line_cap: LineCaps = line_style_interface.line_cap
-        assert line_cap == LineCaps.BUTT
+        line_cap: String = line_style_interface.line_cap
+        assert line_cap == LineCaps.BUTT.value
 
         line_style_interface.line_style(color='#333', cap=LineCaps.ROUND)
         line_cap = line_style_interface.line_cap
-        assert line_cap == LineCaps.ROUND
+        assert line_cap == LineCaps.ROUND.value
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_line_cap_if_not_initialized(self) -> None:
         line_style_interface: LineStyleInterface = LineStyleInterface()
         line_style_interface._initialize_line_cap_if_not_initialized()
-        assert line_style_interface._line_cap == LineCaps.BUTT
+        assert line_style_interface._line_cap == LineCaps.BUTT.value
 
-        line_style_interface._line_cap = LineCaps.ROUND
+        line_style_interface._line_cap = String(LineCaps.ROUND.value)
         line_style_interface._initialize_line_cap_if_not_initialized()
-        assert line_style_interface._line_cap == LineCaps.ROUND
+        assert line_style_interface._line_cap == LineCaps.ROUND.value

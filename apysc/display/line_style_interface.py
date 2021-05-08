@@ -112,6 +112,15 @@ class LineStyleInterface(RevertInterface):
             return
         self._line_alpha = Number(1.0)
 
+    def _initialize_line_cap_if_not_initialized(self) -> None:
+        """
+        Initialize _line_cap attribute if it is not
+        initialized yet.
+        """
+        if hasattr(self, '_line_cap'):
+            return
+        self._line_cap = LineCaps.BUTT
+
     @property
     def line_color(self) -> String:
         """
@@ -166,8 +175,7 @@ class LineStyleInterface(RevertInterface):
         line_cap : LineCaps
             Current line cap (edge) style setting
         """
-        if not hasattr(self, '_line_cap'):
-            return LineCaps.BUTT
+        self._initialize_line_cap_if_not_initialized()
         return self._line_cap
 
     _line_color_snapshots: Dict[str, str]

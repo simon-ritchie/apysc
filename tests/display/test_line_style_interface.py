@@ -193,3 +193,13 @@ class TestLineStyleInterface:
         line_style_interface.line_style(
             color='#333', joints=LineJoints.BEVEL)
         assert line_style_interface._line_joints == LineJoints.BEVEL.value
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__initialize_line_joints_if_not_initialized(self) -> None:
+        line_style_interface: LineStyleInterface = LineStyleInterface()
+        line_style_interface._initialize_line_joints_if_not_initialized()
+        assert line_style_interface._line_joints == LineJoints.MITER.value
+
+        line_style_interface._line_joints = String(LineJoints.BEVEL.value)
+        line_style_interface._initialize_line_joints_if_not_initialized()
+        assert line_style_interface._line_joints == LineJoints.BEVEL.value

@@ -138,12 +138,19 @@ class LineStyleInterface(RevertInterface):
 
     def _initialize_line_cap_if_not_initialized(self) -> None:
         """
-        Initialize _line_cap attribute if it is not
-        initialized yet.
+        Initialize _line_cap attribute if it is not initialized yet.
         """
         if hasattr(self, '_line_cap'):
             return
         self._line_cap = String(LineCaps.BUTT.value)
+
+    def _initialize_line_joints_if_not_initialized(self) -> None:
+        """
+        Initialize _line_joints attribute if it is not initialized yet.
+        """
+        if hasattr(self, '_line_joints'):
+            return
+        self._line_joints = String(LineJoints.MITER.value)
 
     @property
     def line_color(self) -> String:

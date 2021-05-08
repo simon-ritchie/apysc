@@ -1,4 +1,16 @@
 """Each display's validation implementations.
+
+Mainly following interfaces are defined:
+
+- validate_stage
+    Validate whether the specified instance is Stage type or not.
+- validate_display_object
+    Validate specified instance is DisplayObject type or it's
+    subclass type (e.g., Sprite).
+- validate_sprite
+    Validate specified instance is Sprite type.
+- validate_graphics
+    Validate specified instance is Graphics type.
 """
 
 

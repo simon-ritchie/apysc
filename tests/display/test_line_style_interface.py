@@ -158,3 +158,13 @@ class TestLineStyleInterface:
                 'cap': 'round',
             },
             match=r'Specified cap style type is not LineCaps one: ')
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_line_cap(self) -> None:
+        line_style_interface: LineStyleInterface = LineStyleInterface()
+        line_cap: LineCaps = line_style_interface.line_cap
+        assert line_cap == LineCaps.BUTT
+
+        line_style_interface.line_style(color='#333', cap=LineCaps.ROUND)
+        line_cap = line_style_interface.line_cap
+        assert line_cap == LineCaps.ROUND

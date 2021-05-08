@@ -42,7 +42,9 @@ class LineStyleInterface(RevertInterface):
         alpha : float or Number, default 1.0
             Line color opacity (0.0 to 1.0).
         cap : LineCaps or None, default None
-            Line cap (edge style) setting.
+            Line cap (edge style) setting. This will be ignored by not
+            line-related graphics (e.g., Rectangle will ignore this,
+            conversely used by Polyline).
         """
         from apysc.color import color_util
         from apysc.converter import cast
@@ -153,6 +155,20 @@ class LineStyleInterface(RevertInterface):
         from apysc.type import value_util
         self._initialize_line_alpha_if_not_initialized()
         return value_util.get_copy(value=self._line_alpha)
+
+    @property
+    def line_cap(self) -> LineCaps:
+        """
+        Get current line cap (edge) style setting.
+
+        Returns
+        -------
+        line_cap : LineCaps
+            Current line cap (edge) style setting
+        """
+        if not hasattr(self, '_line_cap'):
+            return LineCaps.BUTT
+        return self._line_cap
 
     _line_color_snapshots: Dict[str, str]
     _line_thickness_snapshots: Dict[str, int]

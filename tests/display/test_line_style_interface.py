@@ -161,7 +161,7 @@ class TestLineStyleInterface:
                 'color': '#333',
                 'cap': 'round',
             },
-            match=r'Specified cap style type is not LineCaps one: ')
+            match=r'Specified cap style type is not LineCaps or String one: ')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_cap(self) -> None:

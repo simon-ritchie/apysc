@@ -112,17 +112,25 @@ def validate_line_cap(cap: Any) -> None:
 
     Parameters
     ----------
-    cap : LineCaps
+    cap : LineCaps or String
         Target Line cap style setting to check.
 
     Raises
     ------
     ValueError
-        If specified cap setting type is not LineCaps.
+        If specified cap setting type is not LineCaps or not defined
+        string value.
     """
-    from apysc import LineCaps
+    from apysc import LineCaps, String
     if isinstance(cap, LineCaps):
         return
+    if isinstance(cap, String):
+        for line_cap in LineCaps:
+            if line_cap.value == cap:
+                return
+        raise ValueError(
+            f'Not defined cap string is specified: {cap}'
+            f'\nPlease see defined values in LineCaps.')
     raise ValueError(
-        f'Specified cap style type is not LineCaps one: {type(cap)}'
+        f'Specified cap style type is not LineCaps or String one: {type(cap)}'
     )

@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Sprite
+from apysc import Sprite, String
 from apysc import Stage
 from apysc.display.display_object import DisplayObject
 from apysc.validation import display_validation
@@ -66,9 +66,16 @@ def test_validate_line_cap() -> None:
     display_validation.validate_line_cap(cap=LineCaps.BUTT)
     display_validation.validate_line_cap(cap=LineCaps.ROUND)
     display_validation.validate_line_cap(cap=LineCaps.SQUARE)
+    display_validation.validate_line_cap(
+        cap=String(LineCaps.SQUARE.value))
 
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         func_or_method=display_validation.validate_line_cap,
+        kwargs={'cap': String('not_defined_cap')},
+        match='Not defined cap string is specified:')
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=display_validation.validate_line_cap,
         kwargs={'cap': 'square'},
-        match='Specified cap style type is not LineCaps one: ')
+        match='Specified cap style type is not LineCaps or String one: ')

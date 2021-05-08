@@ -80,7 +80,7 @@ class TestPolyline:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
         sprite.graphics.begin_fill(color='#0af')
-        sprite.graphics.line_style(color='#f0a')
+        sprite.graphics.line_style(color='#f0a', cap=LineCaps.ROUND)
         points: Array = Array([Point2D(10, 20), Point2D(30, 40)])
         polyline: Polyline = Polyline(
             parent=sprite.graphics,

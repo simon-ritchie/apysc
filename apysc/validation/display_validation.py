@@ -11,6 +11,8 @@ Mainly following interfaces are defined:
     Validate specified instance is Sprite type.
 - validate_graphics
     Validate specified instance is Graphics type.
+- validate_line_cap
+    Validate specified line cap style setting type.
 """
 
 
@@ -102,3 +104,25 @@ def validate_graphics(graphics: Any) -> None:
         return
     raise ValueError(
         f'Specified instance is not Graphics type: {type(graphics)}')
+
+
+def validate_line_cap(cap: Any) -> None:
+    """
+    Validate specified line cap style setting type.
+
+    Parameters
+    ----------
+    cap : LineCaps
+        Target Line cap style setting to check.
+
+    Raises
+    ------
+    ValueError
+        If specified cap setting type is not LineCaps.
+    """
+    from apysc import LineCaps
+    if isinstance(cap, LineCaps):
+        return
+    raise ValueError(
+        f'Specified cap style type is not LineCaps one: {type(cap)}'
+    )

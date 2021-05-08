@@ -6,6 +6,7 @@ from apysc import Sprite
 from apysc import Stage
 from apysc.display.display_object import DisplayObject
 from apysc.validation import display_validation
+from apysc import LineCaps
 from tests import testing_helper
 
 
@@ -58,3 +59,16 @@ def test_validate_sprite() -> None:
         expected_error_class=ValueError,
         func_or_method=display_validation.validate_sprite,
         kwargs={'sprite': stage})
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_validate_line_cap() -> None:
+    display_validation.validate_line_cap(cap=LineCaps.BUTT)
+    display_validation.validate_line_cap(cap=LineCaps.ROUND)
+    display_validation.validate_line_cap(cap=LineCaps.SQUARE)
+
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=display_validation.validate_line_cap,
+        kwargs={'cap': 'square'},
+        match='Specified cap style type is not LineCaps one: ')

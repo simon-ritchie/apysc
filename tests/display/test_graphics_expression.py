@@ -5,7 +5,8 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Rectangle, LineCaps
+from apysc import LineCaps
+from apysc import Rectangle
 from apysc import Sprite
 from apysc import Stage
 from apysc.display import graphics_expression

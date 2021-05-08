@@ -2,11 +2,12 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Sprite, String
+from apysc import LineCaps
+from apysc import Sprite
 from apysc import Stage
+from apysc import String
 from apysc.display.display_object import DisplayObject
 from apysc.validation import display_validation
-from apysc import LineCaps
 from tests import testing_helper
 
 

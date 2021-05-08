@@ -1,13 +1,14 @@
 """Class implementation for line cap interface.
 """
 
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 from typing import Union
 
 from apysc import String
+from apysc.display.line_caps import LineCaps
 from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
-from apysc.display.line_caps import LineCaps
 
 
 class LineCapInterface(VariableNameInterface, RevertInterface):
@@ -53,8 +54,8 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         """
         Append line cap updating expression to file.
         """
-        from apysc.type import value_util
         from apysc.expression import expression_file_util
+        from apysc.type import value_util
         cap_name: str = value_util.get_value_str_for_expression(
             value=self._line_cap)
         expression: str = (

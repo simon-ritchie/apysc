@@ -10,13 +10,13 @@ from apysc.display.fill_alpha_interface import FillAlphaInterface
 from apysc.display.fill_color_interface import FillColorInterface
 from apysc.display.graphic_base import GraphicBase
 from apysc.display.line_alpha_interface import LineAlphaInterface
+from apysc.display.line_cap_interface import LineCapInterface
 from apysc.display.line_color_interface import LineColorInterface
 from apysc.display.line_thickness_interface import LineThicknessInterface
 from apysc.display.points_2d_interface import Points2DInterface
 from apysc.display.x_interface import XInterface
 from apysc.display.y_interface import YInterface
 from apysc.geom.point2d import Point2D
-from apysc.display.line_cap_interface import LineCapInterface
 
 _Graphics = Any
 

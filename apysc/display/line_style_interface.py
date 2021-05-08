@@ -5,14 +5,15 @@ See Also
 - graphics_clear_interface
 """
 
-from typing import Dict, Optional
+from typing import Dict
+from typing import Optional
 from typing import TypeVar
 from typing import Union
 
 from apysc import Int
-from apysc.display.line_caps import LineCaps
 from apysc import Number
 from apysc import String
+from apysc.display.line_caps import LineCaps
 from apysc.type.revert_interface import RevertInterface
 
 StrOrString = TypeVar('StrOrString', str, String)

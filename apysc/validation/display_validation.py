@@ -121,7 +121,8 @@ def validate_line_cap(cap: Any) -> None:
         If specified cap setting type is not LineCaps or not defined
         string value.
     """
-    from apysc import LineCaps, String
+    from apysc import LineCaps
+    from apysc import String
     if isinstance(cap, LineCaps):
         return
     if isinstance(cap, String):

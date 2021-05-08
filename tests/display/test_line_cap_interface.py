@@ -1,13 +1,15 @@
-from random import randint
-from typing import Match, Optional
 import re
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
-from pytest import raises
 
+from apysc import LineCaps
+from apysc import String
 from apysc.display.line_cap_interface import LineCapInterface
-from apysc import LineCaps, String
-from apysc.expression import expression_file_util, var_names
+from apysc.expression import expression_file_util
+from apysc.expression import var_names
 from tests.testing_helper import assert_raises
 
 
@@ -30,7 +32,7 @@ class TestLineCapInterface:
         assert interface.line_cap == LineCaps.BUTT.value
 
         interface.line_cap = LineCaps.ROUND
-        assert interface.line_cap == LineCaps.ROUND.value
+        assert interface.line_cap == LineCaps.ROUND.value  # type: ignore
 
         interface.line_cap = String(LineCaps.BUTT.value)
         assert interface.line_cap == LineCaps.BUTT.value
@@ -74,11 +76,11 @@ class TestLineCapInterface:
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         interface.line_cap = LineCaps.BUTT
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
-        assert interface.line_cap == LineCaps.ROUND.value
+        assert interface.line_cap == LineCaps.ROUND.value  # type: ignore
 
         interface.line_cap = LineCaps.BUTT
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
-        assert interface.line_cap == LineCaps.BUTT.value
+        assert interface.line_cap == LineCaps.BUTT.value  # type: ignore
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_cap_and_skip_appending_exp(self) -> None:

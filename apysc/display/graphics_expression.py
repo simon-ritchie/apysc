@@ -217,8 +217,8 @@ def append_stroke_linecap_expression(
     expression : str
         After appended expression string.
     """
-    from apysc.string import indent_util
     from apysc import LineCaps
+    from apysc.string import indent_util
     if graphics.line_cap == LineCaps.BUTT.value:
         return expression
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)

@@ -7,11 +7,11 @@ from typing import Optional
 from retrying import retry
 
 from apysc import Array
+from apysc import LineCaps
 from apysc import Point2D
 from apysc import Polyline
 from apysc import Sprite
 from apysc import Stage
-from apysc import LineCaps
 from apysc.display.stage import get_stage_variable_name
 from apysc.expression import expression_file_util
 from tests.display.test_graphics_expression import \
@@ -21,11 +21,11 @@ from tests.display.test_graphics_expression import \
 from tests.display.test_graphics_expression import \
     assert_stroke_attr_expression_exists
 from tests.display.test_graphics_expression import \
+    assert_stroke_linecap_attr_expression_exists
+from tests.display.test_graphics_expression import \
     assert_stroke_opacity_attr_expression_exists
 from tests.display.test_graphics_expression import \
     assert_stroke_width_attr_expression_exists
-from tests.display.test_graphics_expression import \
-    assert_stroke_linecap_attr_expression_exists
 from tests.display.test_graphics_expression import \
     assert_x_attr_expression_exists
 from tests.display.test_graphics_expression import \

@@ -91,4 +91,6 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
-        pass
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._line_cap._value = self._line_cap_snapshots[snapshot_name]

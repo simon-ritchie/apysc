@@ -49,6 +49,20 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         from apysc.validation.display_validation import validate_line_cap
         validate_line_cap(cap=value)
         self._line_cap = String(value.value)
+        self._append_line_cap_update_expression()
+
+    def _append_line_cap_update_expression(self) -> None:
+        """
+        Append line cap updating expression to file.
+        """
+        from apysc.type import value_util
+        from apysc.expression import expression_file_util
+        cap_name: str = value_util.get_value_str_for_expression(
+            value=self._line_cap)
+        expression: str = (
+            f'{self.variable_name}.attr({{"stroke-linecap": {cap_name}}});'
+        )
+        expression_file_util.append_js_expression(expression=expression)
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

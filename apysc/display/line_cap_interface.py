@@ -1,7 +1,7 @@
 """Class implementation for line cap interface.
 """
 
-from typing import Dict
+from typing import Any, Dict
 from typing import Union
 
 from apysc import String
@@ -24,7 +24,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         self._line_cap = String(LineCaps.BUTT.value)
 
     @property
-    def line_cap(self) -> String:
+    def line_cap(self) -> Any:
         """
         Get this instance's line cap style setting.
 
@@ -35,6 +35,20 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         """
         self._initialize_line_cap_if_not_initialized()
         return self._line_cap._copy()
+
+    @line_cap.setter
+    def line_cap(self, value: Any) -> None:
+        """
+        Set line cap style setting.
+
+        Parameters
+        ----------
+        value : LineCaps
+            Line cap style setting to set.
+        """
+        from apysc.validation.display_validation import validate_line_cap
+        validate_line_cap(cap=value)
+        self._line_cap = String(value.value)
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

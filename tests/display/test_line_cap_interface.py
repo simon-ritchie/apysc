@@ -22,3 +22,6 @@ class TestLineCapInterface:
     def test_line_cap(self) -> None:
         interface: LineCapInterface = LineCapInterface()
         assert interface.line_cap == LineCaps.BUTT.value
+
+        interface.line_cap = LineCaps.ROUND
+        assert interface.line_cap == LineCaps.ROUND.value

@@ -12,7 +12,9 @@ Mainly following interfaces are defined:
 - validate_graphics
     Validate specified instance is Graphics type.
 - validate_line_cap
-    Validate specified line cap style setting type.
+    Validate specified line cap style setting.
+- validate_line_joints
+    Validate specified line joints style setting.
 """
 
 
@@ -108,12 +110,12 @@ def validate_graphics(graphics: Any) -> None:
 
 def validate_line_cap(cap: Any) -> None:
     """
-    Validate specified line cap style setting type.
+    Validate specified line cap style setting.
 
     Parameters
     ----------
     cap : LineCaps or String
-        Target Line cap style setting to check.
+        Target line cap style setting to check.
 
     Raises
     ------
@@ -131,7 +133,39 @@ def validate_line_cap(cap: Any) -> None:
                 return
         raise ValueError(
             f'Not defined cap string is specified: {cap}'
-            f'\nPlease see defined values in LineCaps.')
+            f'\nPlease see definitions of LineCaps.')
     raise ValueError(
         f'Specified cap style type is not LineCaps or String one: {type(cap)}'
+    )
+
+
+def validate_line_joints(joints: Any) -> None:
+    """
+    Validate specified line joints style setting.
+
+    Parameters
+    ----------
+    joints : LineJoints or String
+        Target line joints style setting to check.
+
+    Raises
+    ------
+    ValueError
+        If specified joints setting type is not LineJoints or not defined
+        string value.
+    """
+    from apysc import LineJoints
+    from apysc import String
+    if isinstance(joints, LineJoints):
+        return
+    if isinstance(joints, String):
+        for line_joints in LineJoints:
+            if line_joints.value == joints:
+                return
+        raise ValueError(
+            f'Not defined joints string is specified: {joints}'
+            f'\nPlease see definitions of LineJoints.')
+    raise ValueError(
+        'Specified joints type is not LineJoints or String one: '
+        f'{type(joints)}'
     )

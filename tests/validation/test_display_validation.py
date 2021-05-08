@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import LineCaps
+from apysc import LineCaps, LineJoints
 from apysc import Sprite
 from apysc import Stage
 from apysc import String
@@ -80,3 +80,23 @@ def test_validate_line_cap() -> None:
         func_or_method=display_validation.validate_line_cap,
         kwargs={'cap': 'square'},
         match='Specified cap style type is not LineCaps or String one: ')
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_validate_line_joints() -> None:
+    display_validation.validate_line_joints(joints=LineJoints.MITER)
+    display_validation.validate_line_joints(joints=LineJoints.ROUND)
+    display_validation.validate_line_joints(joints=LineJoints.BEVEL)
+    display_validation.validate_line_joints(
+        joints=String(LineJoints.MITER.value))
+
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=display_validation.validate_line_joints,
+        kwargs={'joints': String('not_defined_joints')},
+        match=r'Not defined joints string is specified: ')
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=display_validation.validate_line_joints,
+        kwargs={'joints': 'miter'},
+        match=r'Specified joints type is not LineJoints or String one: ')

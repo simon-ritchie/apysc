@@ -181,6 +181,7 @@ class LineStyleInterface(RevertInterface):
     _line_color_snapshots: Dict[str, str]
     _line_thickness_snapshots: Dict[str, int]
     _line_alpha_snapshots: Dict[str, float]
+    _line_cap_snapshots: Dict[str, LineCaps]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
@@ -195,15 +196,18 @@ class LineStyleInterface(RevertInterface):
             self._line_color_snapshots = {}
             self._line_thickness_snapshots = {}
             self._line_alpha_snapshots = {}
+            self._line_cap_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._initialize_line_color_if_not_initialized()
         self._initialize_line_thickness_if_not_initialized()
         self._initialize_line_alpha_if_not_initialized()
+        self._initialize_line_cap_if_not_initialized()
         self._line_color_snapshots[snapshot_name] = self._line_color._value
         self._line_thickness_snapshots[snapshot_name] = \
             int(self._line_thickness._value)
         self._line_alpha_snapshots[snapshot_name] = self._line_alpha._value
+        self._line_cap_snapshots[snapshot_name] = self._line_cap
 
     def _revert(self, snapshot_name: str) -> None:
         """
@@ -220,3 +224,4 @@ class LineStyleInterface(RevertInterface):
         self._line_thickness._value = self._line_thickness_snapshots[
             snapshot_name]
         self._line_alpha._value = self._line_alpha_snapshots[snapshot_name]
+        self._line_cap = self._line_cap_snapshots[snapshot_name]

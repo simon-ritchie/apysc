@@ -97,7 +97,7 @@ class TestLineStyleInterface:
     def test__make_snapshot(self) -> None:
         line_style_interface: LineStyleInterface = LineStyleInterface()
         line_style_interface.line_style(
-            color='#333', thickness=3, alpha=0.5)
+            color='#333', thickness=3, alpha=0.5, cap=LineCaps.ROUND)
         snapshot_name: str = 'snapshot_1'
         line_style_interface._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
@@ -110,6 +110,9 @@ class TestLineStyleInterface:
         assert (
             line_style_interface._line_alpha_snapshots[snapshot_name]
             == 0.5)
+        assert (
+            line_style_interface._line_cap_snapshots[snapshot_name]
+            == LineCaps.ROUND)
 
         line_style_interface.line_style(
             color='#222', thickness=2, alpha=0.3)
@@ -123,17 +126,18 @@ class TestLineStyleInterface:
     def test__revert(self) -> None:
         line_style_interface: LineStyleInterface = LineStyleInterface()
         line_style_interface.line_style(
-            color='#333', thickness=3, alpha=0.5)
+            color='#333', thickness=3, alpha=0.5, cap=LineCaps.ROUND)
         snapshot_name: str = 'snapshot_1'
         line_style_interface._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
         line_style_interface.line_style(
-            color='#222', thickness=2, alpha=0.3)
+            color='#222', thickness=2, alpha=0.3, cap=LineCaps.BUTT)
         line_style_interface._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert line_style_interface.line_color == '#333333'
         assert line_style_interface.line_thickness == 3
         assert line_style_interface.line_alpha == 0.5
+        assert line_style_interface.line_cap == LineCaps.ROUND
 
         line_style_interface.line_style(
             color='#222', thickness=2, alpha=0.3)

@@ -22,6 +22,17 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
             return
         self._line_cap = LineCaps.BUTT
 
+    def line_cap(self) -> LineCaps:
+        """
+        Get this instance's line cap style setting.
+
+        Parameters
+        ----------
+        is_test : bool/object/str/int/etc
+            
+        """
+        pass
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make value's snapshot.

@@ -23,6 +23,19 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
             return
         self._line_dot_setting = None
 
+    @property
+    def line_dot_setting(self) -> Optional[LineDotSetting]:
+        """
+        Get this instance's line dot setting.
+
+        Returns
+        -------
+        line_dot_setting : LineDotSetting or None
+            Lien dot setting.
+        """
+        self._initialize_line_dot_setting_if_not_initialized()
+        return self._line_dot_setting
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make values' snapshot.

@@ -237,3 +237,17 @@ class TestLineStyleInterface:
         line_dot_setting = line_style_interface.line_dot_setting
         assert line_dot_setting.dot_size == 10
         assert isinstance(line_dot_setting, LineDotSetting)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__initialize_line_dot_setting_if_not_initialized(self) -> None:
+        line_style_interface: LineStyleInterface = LineStyleInterface()
+        line_style_interface._initialize_line_dot_setting_if_not_initialized()
+        line_dot_setting: Optional[LineDotSetting] = \
+            line_style_interface.line_dot_setting
+        assert line_dot_setting is None
+
+        line_style_interface.line_style(
+            color='#333', dot_setting=LineDotSetting(dot_size=10))
+        line_style_interface._initialize_line_dot_setting_if_not_initialized()
+        line_dot_setting = line_style_interface.line_dot_setting
+        assert line_dot_setting.dot_size == 10

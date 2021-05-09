@@ -158,6 +158,15 @@ class LineStyleInterface(RevertInterface):
             return
         self._line_joints = String(LineJoints.MITER.value)
 
+    def _initialize_line_dot_setting_if_not_initialized(self) -> None:
+        """
+        Initialize _line_dot_setting attribute if it is not
+        initialized yet.
+        """
+        if hasattr(self, '_line_dot_setting'):
+            return
+        self._line_dot_setting = None
+
     @property
     def line_color(self) -> String:
         """
@@ -238,14 +247,14 @@ class LineStyleInterface(RevertInterface):
         line_dot_setting : LineDotSetting or None
             Current line dot setting.
         """
-        if not hasattr(self, '_line_dot_setting'):
-            return None
+        self._initialize_line_dot_setting_if_not_initialized()
         return self._line_dot_setting
 
     _line_color_snapshots: Dict[str, str]
     _line_thickness_snapshots: Dict[str, int]
     _line_alpha_snapshots: Dict[str, float]
     _line_cap_snapshots: Dict[str, str]
+    _line_dot_setting_snapshots: Dict[str, Optional[LineDotSetting]]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
@@ -261,17 +270,20 @@ class LineStyleInterface(RevertInterface):
             self._line_thickness_snapshots = {}
             self._line_alpha_snapshots = {}
             self._line_cap_snapshots = {}
+            self._line_dot_setting_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._initialize_line_color_if_not_initialized()
         self._initialize_line_thickness_if_not_initialized()
         self._initialize_line_alpha_if_not_initialized()
         self._initialize_line_cap_if_not_initialized()
+        self._initialize_line_joints_if_not_initialized()
         self._line_color_snapshots[snapshot_name] = self._line_color._value
         self._line_thickness_snapshots[snapshot_name] = \
             int(self._line_thickness._value)
         self._line_alpha_snapshots[snapshot_name] = self._line_alpha._value
         self._line_cap_snapshots[snapshot_name] = self._line_cap._value
+        # self._line_dot_setting[snapshot_name] = self
 
     def _revert(self, snapshot_name: str) -> None:
         """

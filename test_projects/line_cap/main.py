@@ -6,13 +6,14 @@ $ python line_cap/main.py
 """
 
 import sys
+from typing import Any, Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
 
-from apysc import LineCaps
+from apysc import LineCaps, Polyline, MouseEvent
 from apysc import Sprite
 from apysc import Stage
 from apysc.file import file_util
@@ -45,11 +46,28 @@ def main() -> None:
 
     sprite.graphics.line_style(
         color='#0af', thickness=10, cap=LineCaps.SQUARE)
-    sprite.graphics.move_to(x=50, y=90)
+    polyline: Polyline = sprite.graphics.move_to(x=50, y=90)
     sprite.graphics.line_to(x=150, y=90)
+    polyline.click(on_polyline_click)
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH, minify=False)
+
+
+def on_polyline_click(
+        e: MouseEvent[Polyline], options: Dict[str, Any]) -> None:
+    """
+    Handler that called when polyline is clicked.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Created MouseEvent instance.
+    options : dict
+        Optional parameters.
+    """
+    polyline: Polyline = e.this
+    polyline.line_cap = LineCaps.ROUND
 
 
 if __name__ == '__main__':

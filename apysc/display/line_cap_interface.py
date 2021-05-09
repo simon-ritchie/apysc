@@ -78,7 +78,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
             raise TypeError(
                 'Not supported line_cap type specified: '
                 f'{type(value)}'
-                '\nAcceptable ones: String or LineCaps.')
+                '\nAcceptable ones are: String or LineCaps.')
         validate_line_cap(cap=value)
         if isinstance(value, String):
             self._line_cap = value._copy()

@@ -37,6 +37,28 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         self._initialize_line_joints_if_not_initialized()
         return self._line_joints._copy()
 
+    def _update_line_joints_and_skip_appending_exp(
+            self, value: Union[String, LineJoints]) -> None:
+        """
+        Update line joints and skip appending expression to file.
+
+        Parameters
+        ----------
+        value : STring or LineJoints
+            Line joints style setting to set.
+        """
+        from apysc.validation.display_validation import validate_line_joints
+        if not isinstance(value, (String, LineJoints)):
+            raise TypeError(
+                'Not supported line_joints type specified: '
+                f'{type(value)}'
+                '\nAcceptable ones are: String or LineJoints.')
+        validate_line_joints(joints=value)
+        if isinstance(value, String):
+            self._line_joints = value._copy()
+        else:
+            self._line_joints = String(value.value)
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass
 

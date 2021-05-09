@@ -1,4 +1,5 @@
 from random import randint
+from typing import Optional
 
 from retrying import retry
 
@@ -223,3 +224,16 @@ class TestLineStyleInterface:
         line_style_interface: LineStyleInterface = LineStyleInterface()
         line_style_interface.line_style(color='#333', joints=LineJoints.BEVEL)
         assert line_style_interface.line_joints == LineJoints.BEVEL.value
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_line_dot_setting(self) -> None:
+        line_style_interface: LineStyleInterface = LineStyleInterface()
+        line_dot_setting: Optional[LineDotSetting] = \
+            line_style_interface.line_dot_setting
+        assert line_dot_setting is None
+
+        line_style_interface.line_style(
+            color='#333', dot_setting=LineDotSetting(dot_size=10))
+        line_dot_setting = line_style_interface.line_dot_setting
+        assert line_dot_setting.dot_size == 10
+        assert isinstance(line_dot_setting, LineDotSetting)

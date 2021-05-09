@@ -228,6 +228,20 @@ class LineStyleInterface(RevertInterface):
         self._initialize_line_joints_if_not_initialized()
         return self._line_joints
 
+    @property
+    def line_dot_setting(self) -> Optional[LineDotSetting]:
+        """
+        Get current line dot setting.
+
+        Parameters
+        ----------
+        line_dot_setting : LineDotSetting or None
+            Current line dot setting.
+        """
+        if not hasattr(self, '_line_dot_setting'):
+            return None
+        return self._line_dot_setting
+
     _line_color_snapshots: Dict[str, str]
     _line_thickness_snapshots: Dict[str, int]
     _line_alpha_snapshots: Dict[str, float]

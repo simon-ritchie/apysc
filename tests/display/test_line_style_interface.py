@@ -113,7 +113,9 @@ class TestLineStyleInterface:
     def test__make_snapshot(self) -> None:
         line_style_interface: LineStyleInterface = LineStyleInterface()
         line_style_interface.line_style(
-            color='#333', thickness=3, alpha=0.5, cap=LineCaps.ROUND)
+            color='#333', thickness=3, alpha=0.5, cap=LineCaps.ROUND,
+            joints=LineJoints.BEVEL,
+            dot_setting=LineDotSetting(dot_size=10))
         snapshot_name: str = 'snapshot_1'
         line_style_interface._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
@@ -129,6 +131,12 @@ class TestLineStyleInterface:
         assert (
             line_style_interface._line_cap_snapshots[snapshot_name]
             == LineCaps.ROUND.value)
+        assert (
+            line_style_interface._line_joints_snapshots[snapshot_name]
+            == LineJoints.BEVEL.value)
+        assert (
+            line_style_interface._line_dot_setting_snapshots[
+                snapshot_name].dot_size == 10)
 
         line_style_interface.line_style(
             color='#222', thickness=2, alpha=0.3)
@@ -142,18 +150,22 @@ class TestLineStyleInterface:
     def test__revert(self) -> None:
         line_style_interface: LineStyleInterface = LineStyleInterface()
         line_style_interface.line_style(
-            color='#333', thickness=3, alpha=0.5, cap=LineCaps.ROUND)
+            color='#333', thickness=3, alpha=0.5, cap=LineCaps.ROUND,
+            joints=LineJoints.BEVEL, dot_setting=LineDotSetting(dot_size=10))
         snapshot_name: str = 'snapshot_1'
         line_style_interface._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
         line_style_interface.line_style(
-            color='#222', thickness=2, alpha=0.3, cap=LineCaps.BUTT)
+            color='#222', thickness=2, alpha=0.3, cap=LineCaps.BUTT,
+            joints=LineJoints.MITER, dot_setting=LineDotSetting(dot_size=20))
         line_style_interface._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert line_style_interface.line_color == '#333333'
         assert line_style_interface.line_thickness == 3
         assert line_style_interface.line_alpha == 0.5
         assert line_style_interface.line_cap == LineCaps.ROUND.value
+        assert line_style_interface.line_joints == LineJoints.BEVEL.value
+        assert line_style_interface.line_dot_setting.dot_size == 10
 
         line_style_interface.line_style(
             color='#222', thickness=2, alpha=0.3)

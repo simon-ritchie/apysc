@@ -36,6 +36,20 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         self._initialize_line_dot_setting_if_not_initialized()
         return self._line_dot_setting
 
+    def _append_line_dot_setting_update_expression(self) -> None:
+        """
+        Append line dot setting updating expression to file.
+        """
+        from apysc.expression import expression_file_util
+        if self._line_dot_setting is None:
+            setting_str: str = '""'
+        else:
+            setting_str = self._line_dot_setting.dot_size.variable_name
+        expression: str = (
+            f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
+        )
+        expression_file_util.append_js_expression(expression=expression)
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make values' snapshot.

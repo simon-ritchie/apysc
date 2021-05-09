@@ -1,9 +1,11 @@
 from random import randint
-from typing import Optional
+import re
+from typing import Match, Optional
 
 from retrying import retry
 
 from apysc.display.line_dot_setting_interface import LineDotSettingInterface
+from apysc.expression import expression_file_util, var_names
 from apysc import LineDotSetting
 
 
@@ -11,7 +13,7 @@ class TestLineDotSettingInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_line_dot_setting_if_not_initialized(self) -> None:
-        interface = LineDotSettingInterface()
+        interface: LineDotSettingInterface = LineDotSettingInterface()
         interface._initialize_line_dot_setting_if_not_initialized()
         assert interface._line_dot_setting is None
 
@@ -21,7 +23,7 @@ class TestLineDotSettingInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_dot_setting(self) -> None:
-        interface = LineDotSettingInterface()
+        interface: LineDotSettingInterface = LineDotSettingInterface()
         line_dot_setting: Optional[LineDotSetting] = \
             interface.line_dot_setting
         assert line_dot_setting is None
@@ -29,3 +31,28 @@ class TestLineDotSettingInterface:
         interface._line_dot_setting = LineDotSetting(dot_size=10)
         line_dot_setting = interface.line_dot_setting
         assert line_dot_setting.dot_size == 10
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_line_dot_setting_update_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface: LineDotSettingInterface = LineDotSettingInterface()
+        interface.variable_name = 'test_line_dot_setting_interface'
+        interface._initialize_line_dot_setting_if_not_initialized()
+        interface._append_line_dot_setting_update_expression()
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface.variable_name}.css("stroke-dasharray", "");'
+        )
+        assert expected in expression
+
+        expression_file_util.remove_expression_file()
+        interface._line_dot_setting = LineDotSetting(dot_size=10)
+        interface._append_line_dot_setting_update_expression()
+        expression = expression_file_util.get_current_expression()
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'{interface.variable_name}.css\("stroke-dasharray", '
+                rf'{var_names.INT}_.+\);'
+            ),
+            string=expression, flags=re.MULTILINE)
+        assert match is not None

@@ -209,6 +209,19 @@ class LineStyleInterface(RevertInterface):
         self._initialize_line_cap_if_not_initialized()
         return self._line_cap
 
+    @property
+    def line_joints(self) -> String:
+        """
+        Get current line joints (vertices) style setting.
+
+        Parameters
+        ----------
+        line_joints : String
+            Current line joints (vertices) style setting.
+        """
+        self._initialize_line_joints_if_not_initialized()
+        return self._line_joints
+
     _line_color_snapshots: Dict[str, str]
     _line_thickness_snapshots: Dict[str, int]
     _line_alpha_snapshots: Dict[str, float]

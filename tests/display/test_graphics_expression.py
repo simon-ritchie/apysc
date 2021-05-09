@@ -342,3 +342,20 @@ def assert_stroke_linecap_attr_expression_exists(expression: str) -> None:
         If target attribute's expression not exists.
     """
     assert '"stroke-linecap": ' in expression
+
+
+def assert_stroke_linejoin_attr_expression_exists(expression: str) -> None:
+    """
+    Assert stroke linejoin attribute's expression exists in specified one.
+
+    Parameters
+    ----------
+    expression : str
+        Target expression to check.
+
+    Raises
+    ------
+    AssertionError
+        If target attribute's expression not exists.
+    """
+    assert '"stroke-linejoin": ' in expression

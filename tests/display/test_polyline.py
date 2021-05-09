@@ -25,6 +25,8 @@ from tests.display.test_graphics_expression import \
 from tests.display.test_graphics_expression import \
     assert_stroke_opacity_attr_expression_exists
 from tests.display.test_graphics_expression import \
+    assert_stroke_linejoin_attr_expression_exists
+from tests.display.test_graphics_expression import \
     assert_stroke_width_attr_expression_exists
 from tests.display.test_graphics_expression import \
     assert_x_attr_expression_exists
@@ -82,7 +84,8 @@ class TestPolyline:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
         sprite.graphics.begin_fill(color='#0af')
-        sprite.graphics.line_style(color='#f0a', cap=LineCaps.ROUND)
+        sprite.graphics.line_style(
+            color='#f0a', cap=LineCaps.ROUND, joints=LineJoints.BEVEL)
         points: Array = Array([Point2D(10, 20), Point2D(30, 40)])
         polyline: Polyline = Polyline(
             parent=sprite.graphics,
@@ -110,6 +113,7 @@ class TestPolyline:
         assert_stroke_width_attr_expression_exists(expression=expression)
         assert_stroke_opacity_attr_expression_exists(expression=expression)
         assert_stroke_linecap_attr_expression_exists(expression=expression)
+        assert_stroke_linejoin_attr_expression_exists(expression=expression)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_append_line_point(self) -> None:

@@ -17,7 +17,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
 
     def _initialize_line_cap_if_not_initialized(self) -> None:
         """
-        Inilialize _line_cap attribute if that it is not
+        Inilialize _line_cap attribute if it is not
         initialized yet.
         """
         if hasattr(self, '_line_cap'):

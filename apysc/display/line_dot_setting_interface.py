@@ -80,6 +80,8 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
+    _line_dot_setting_snapshots: Dict[str, Optional[LineDotSetting]]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make values' snapshot.
@@ -89,6 +91,16 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not hasattr(self, '_line_dot_setting_snapshots'):
+            self._line_dot_setting_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._initialize_line_dot_setting_if_not_initialized()
+        if self._line_dot_setting is not None:
+            self._line_dot_setting._run_all_make_snapshot_methods(
+                snapshot_name=snapshot_name)
+        self._line_dot_setting_snapshots[snapshot_name] = \
+            self._line_dot_setting
 
     def _revert(self, snapshot_name: str) -> None:
         """

@@ -90,3 +90,20 @@ class TestLineDotSettingInterface:
             _update_line_dot_setting_and_skip_appending_exp,
             kwargs={'value': 10},
             match='Not supported line_dot_setting type specified: ')
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__make_snapshot(self) -> None:
+        interface: LineDotSettingInterface = LineDotSettingInterface()
+        interface.variable_name = 'test_line_dot_setting_interface'
+        interface.line_dot_setting = LineDotSetting(dot_size=10)
+        snapshot_name: str = interface._get_next_snapshot_name()
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert isinstance(
+            interface._line_dot_setting_snapshots[snapshot_name],
+            LineDotSetting)
+
+        interface.line_dot_setting = None
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert isinstance(
+            interface._line_dot_setting_snapshots[snapshot_name],
+            LineDotSetting)

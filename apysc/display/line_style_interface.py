@@ -255,7 +255,7 @@ class LineStyleInterface(RevertInterface):
     _line_alpha_snapshots: Dict[str, float]
     _line_cap_snapshots: Dict[str, str]
     _line_joints_snapshots: Dict[str, str]
-    _line_dot_setting_snapshots: Dict[str, LineDotSetting]
+    _line_dot_setting_snapshots: Dict[str, Optional[LineDotSetting]]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
@@ -289,11 +289,10 @@ class LineStyleInterface(RevertInterface):
         self._line_joints_snapshots[snapshot_name] = self._line_joints._value
 
         if self._line_dot_setting is not None:
-            self._line_dot_setting_snapshots[snapshot_name] = \
-                self._line_dot_setting
             self._line_dot_setting._run_all_make_snapshot_methods(
                 snapshot_name=snapshot_name)
-
+        self._line_dot_setting_snapshots[snapshot_name] = \
+                self._line_dot_setting
 
     def _revert(self, snapshot_name: str) -> None:
         """
@@ -314,7 +313,7 @@ class LineStyleInterface(RevertInterface):
         self._line_joints._value = self._line_joints_snapshots[snapshot_name]
 
         line_dot_setting: Optional[LineDotSetting] = \
-            self._line_dot_setting_snapshots.get(snapshot_name)
+            self._line_dot_setting_snapshots[snapshot_name]
         self._line_dot_setting = line_dot_setting
         if self._line_dot_setting is not None:
             self._line_dot_setting._run_all_revert_methods(

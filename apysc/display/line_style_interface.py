@@ -16,6 +16,7 @@ from apysc import String
 from apysc.display.line_caps import LineCaps
 from apysc.display.line_joints import LineJoints
 from apysc.type.revert_interface import RevertInterface
+from apysc.display.line_dot_setting import LineDotSetting
 
 StrOrString = TypeVar('StrOrString', str, String)
 
@@ -27,13 +28,15 @@ class LineStyleInterface(RevertInterface):
     _line_alpha: Number
     _line_cap: String
     _line_joints: String
+    _line_dot_setting: Optional[LineDotSetting]
 
     def line_style(
             self, color: StrOrString,
             thickness: Union[int, Int] = 1,
             alpha: Union[float, Number] = 1.0,
             cap: Optional[LineCaps] = None,
-            joints: Optional[LineJoints] = None) -> None:
+            joints: Optional[LineJoints] = None,
+            dot_setting: Optional[LineDotSetting] = None) -> None:
         """
         Set line style values.
 
@@ -53,6 +56,8 @@ class LineStyleInterface(RevertInterface):
             Line vertices (joints) style setting. This will be ignored
             by not polyline-related graphics (e.g., Rectangle will ignore
             this, conversely used by Polyline).
+        dot_setting : LineDotSetting or None, default None
+            Dot setting. If this is specified, line will be dotted.
         """
         from apysc.color import color_util
         from apysc.converter import cast
@@ -78,6 +83,7 @@ class LineStyleInterface(RevertInterface):
         self._line_alpha = alpha
         self._set_line_cap(cap=cap)
         self._set_line_joints(joints=joints)
+        self._line_dot_setting = dot_setting
 
     def _set_line_joints(self, joints: Optional[LineJoints]) -> None:
         """

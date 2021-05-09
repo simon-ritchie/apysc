@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Int
+from apysc import Int, LineDotSetting
 from apysc import LineCaps
 from apysc import LineJoints
 from apysc import Number
@@ -28,6 +28,19 @@ class TestLineStyleInterface:
 
         line_style_interface.line_style(color=String('222'))
         assert line_style_interface.line_color == '#222222'
+
+        line_style_interface.line_style(
+            color='#333',
+            cap=LineCaps.ROUND,
+            joints=LineJoints.BEVEL,
+            dot_setting=LineDotSetting(dot_size=5))
+        testing_helper.assert_attrs(
+            expected_attrs={
+                '_line_cap': LineCaps.ROUND.value,
+                '_line_joints': LineJoints.BEVEL.value,
+            },
+            any_obj=line_style_interface)
+        assert line_style_interface._line_dot_setting.dot_size == 5
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_color(self) -> None:

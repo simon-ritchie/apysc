@@ -37,4 +37,4 @@ class LineDotSetting:
         dot_size : Int
             Dot size setting.
         """
-        return self._dot_size
+        return self._dot_size._copy()

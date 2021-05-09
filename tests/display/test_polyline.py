@@ -6,7 +6,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Array
+from apysc import Array, LineDotSetting
 from apysc import LineCaps
 from apysc import LineJoints
 from apysc import Point2D
@@ -45,7 +45,8 @@ class TestPolyline:
         sprite.graphics.begin_fill(color='0af', alpha=0.5)
         sprite.graphics.line_style(
             color='f0a', thickness=2, alpha=0.7, cap=LineCaps.ROUND,
-            joints=LineJoints.BEVEL)
+            joints=LineJoints.BEVEL,
+            dot_setting=LineDotSetting(dot_size=10))
         points: Array = Array([Point2D(10, 20), Point2D(30, 40)])
         polyline: Polyline = Polyline(
             parent=sprite.graphics,
@@ -64,6 +65,7 @@ class TestPolyline:
                 '_line_joints': LineJoints.BEVEL.value,
             },
             any_obj=polyline)
+        assert polyline.line_dot_setting.dot_size == 10
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:

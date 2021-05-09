@@ -15,6 +15,7 @@ from apysc.display.line_color_interface import LineColorInterface
 from apysc.display.line_joints_interface import LineJointsInterface
 from apysc.display.line_thickness_interface import LineThicknessInterface
 from apysc.display.points_2d_interface import Points2DInterface
+from apysc.display.line_dot_setting_interface import LineDotSettingInterface
 from apysc.display.x_interface import XInterface
 from apysc.display.y_interface import YInterface
 from apysc.geom.point2d import Point2D
@@ -26,7 +27,7 @@ class Polyline(
         GraphicBase, FillColorInterface, FillAlphaInterface,
         LineColorInterface, LineAlphaInterface, LineThicknessInterface,
         Points2DInterface, XInterface, YInterface, LineCapInterface,
-        LineJointsInterface):
+        LineJointsInterface, LineDotSettingInterface):
 
     _points_var_name: str
 
@@ -68,6 +69,8 @@ class Polyline(
             value=parent_graphics.line_cap)
         self._update_line_joints_and_skip_appending_exp(
             value=parent_graphics.line_joints)
+        self._update_line_dot_setting_and_skip_appending_exp(
+            value=parent_graphics.line_dot_setting)
         self._append_constructor_expression()
 
     def __repr__(self) -> str:

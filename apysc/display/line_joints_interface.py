@@ -86,8 +86,23 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
+    _line_joints_snapshots: Dict[str, str]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
-        pass
+        """
+        Make value's snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_line_joints_snapshots'):
+            self._line_joints_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._initialize_line_joints_if_not_initialized()
+        self._line_joints_snapshots[snapshot_name] = self._line_joints._value
 
     def _revert(self, snapshot_name: str) -> None:
         pass

@@ -69,3 +69,17 @@ class TestLineJointsInterface:
             string=expression,
             flags=re.MULTILINE)
         assert match is not None
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__make_snapshot(self) -> None:
+        interface: LineJointsInterface = LineJointsInterface()
+        interface.variable_name = 'test_line_joints_interface'
+        snapshot_name: str = interface._get_next_snapshot_name()
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert interface._line_joints_snapshots == {
+            snapshot_name: LineJoints.MITER.value}
+
+        interface.line_joints = LineJoints.BEVEL
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert interface._line_joints_snapshots == {
+            snapshot_name: LineJoints.MITER.value}

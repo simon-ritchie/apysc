@@ -37,6 +37,10 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         self._initialize_line_joints_if_not_initialized()
         return self._line_joints._copy()
 
+    @line_joints.setter
+    def line_joints(self, value: Any) -> None:
+        pass
+
     def _update_line_joints_and_skip_appending_exp(
             self, value: Union[String, LineJoints]) -> None:
         """
@@ -58,6 +62,20 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
             self._line_joints = value._copy()
         else:
             self._line_joints = String(value.value)
+
+    def _append_line_joints_update_expression(self) -> None:
+        """
+        Append line cap updating expression to file.
+        """
+        from apysc.expression import expression_file_util
+        from apysc.type import value_util
+        joints_name: str = value_util.get_value_str_for_expression(
+            value=self._line_joints)
+        expression: str = (
+            f'{self.variable_name}.attr'
+            f'({{"stroke-linejoin": {joints_name}}});'
+        )
+        expression_file_util.append_js_expression(expression=expression)
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass

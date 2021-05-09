@@ -1,4 +1,6 @@
+import re
 from random import randint
+from typing import Match, Optional
 
 from retrying import retry
 
@@ -47,3 +49,21 @@ class TestLineJointsInterface:
         interface._update_line_joints_and_skip_appending_exp(
             value=LineJoints.MITER)
         assert interface.line_joints == LineJoints.MITER.value
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_line_joints_update_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface: LineJointsInterface = LineJointsInterface()
+        interface.variable_name = 'test_line_joints_interface'
+        interface._update_line_joints_and_skip_appending_exp(
+            value=LineJoints.BEVEL)
+        interface._append_line_joints_update_expression()
+        expression: str = expression_file_util.get_current_expression()
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'{interface.variable_name}.attr'
+                rf'\({{"stroke-linejoin": .+?}}\);'
+            ),
+            string=expression,
+            flags=re.MULTILINE)
+        assert match is not None

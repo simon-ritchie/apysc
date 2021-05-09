@@ -1,8 +1,8 @@
-"""Test project for line_cap setting.
+"""Test project for line_dot_setting.
 
 Command examples:
-$ python test_projects/line_cap/main.py
-$ python line_cap/main.py
+$ python test_projects/line_dot_setting/main.py
+$ python line_dot_setting/main.py
 """
 
 import sys
@@ -14,7 +14,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import LineCaps
+from apysc import LineCaps, LineDotSetting
 from apysc import MouseEvent
 from apysc import Polyline
 from apysc import Sprite
@@ -37,20 +37,16 @@ def main() -> None:
     stage: Stage = Stage(
         background_color='#111',
         stage_width=1000, stage_height=500)
+
     sprite: Sprite = Sprite(stage=stage)
-    sprite.graphics.line_style(color='#0af', thickness=10)
+    sprite.graphics.line_style(color='#0af', thickness=4)
     sprite.graphics.move_to(x=50, y=30)
-    sprite.graphics.line_to(x=150, y=30)
+    sprite.graphics.line_to(x=250, y=30)
 
     sprite.graphics.line_style(
-        color='#0af', thickness=10, cap=LineCaps.ROUND)
-    sprite.graphics.move_to(x=50, y=60)
-    sprite.graphics.line_to(x=150, y=60)
-
-    sprite.graphics.line_style(
-        color='#0af', thickness=10, cap=LineCaps.SQUARE)
-    polyline: Polyline = sprite.graphics.move_to(x=50, y=90)
-    sprite.graphics.line_to(x=150, y=90)
+        color='#0af', thickness=3, dot_setting=LineDotSetting(dot_size=4))
+    polyline: Polyline = sprite.graphics.move_to(x=50, y=60)
+    sprite.graphics.line_to(x=250, y=60)
     polyline.click(on_polyline_click)
 
     exporter.save_expressions_overall_html(
@@ -70,7 +66,7 @@ def on_polyline_click(
         Optional parameters.
     """
     polyline: Polyline = e.this
-    polyline.line_cap = LineCaps.ROUND
+    polyline.line_dot_setting = None
 
 
 if __name__ == '__main__':

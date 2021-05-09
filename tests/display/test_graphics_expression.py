@@ -360,3 +360,20 @@ def assert_stroke_linejoin_attr_expression_exists(expression: str) -> None:
         If target attribute's expression not exists.
     """
     assert '"stroke-linejoin": ' in expression
+
+
+def assert_stroke_dasharray_css_expression_exists(expression: str) -> None:
+    """
+    Assert stroke dasharray css expression exists in specified one.
+
+    Parameters
+    ----------
+    expression : str
+        Target expression to check.
+
+    Raises
+    ------
+    AssertionError
+        If target css expression not exists.
+    """
+    assert '.css("stroke-dasharray", ' in expression

@@ -69,9 +69,9 @@ class Polyline(
             value=parent_graphics.line_cap)
         self._update_line_joints_and_skip_appending_exp(
             value=parent_graphics.line_joints)
-        self._update_line_dot_setting_and_skip_appending_exp(
-            value=parent_graphics.line_dot_setting)
         self._append_constructor_expression()
+
+        self.line_dot_setting = parent_graphics.line_dot_setting
 
     def __repr__(self) -> str:
         """

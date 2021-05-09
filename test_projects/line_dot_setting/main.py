@@ -14,7 +14,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import LineCaps, LineDotSetting
+from apysc import LineDotSetting
 from apysc import MouseEvent
 from apysc import Polyline
 from apysc import Sprite

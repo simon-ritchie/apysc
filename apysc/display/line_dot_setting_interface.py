@@ -1,13 +1,12 @@
 """Class implementation for line dot setting interface.
 """
 
-from typing import Any, Optional
 from typing import Dict
-from typing import Union
+from typing import Optional
 
+from apysc.display.line_dot_setting import LineDotSetting
 from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
-from apysc.display.line_dot_setting import LineDotSetting
 
 
 class LineDotSettingInterface(VariableNameInterface, RevertInterface):

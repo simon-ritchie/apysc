@@ -3,7 +3,8 @@
 
 from typing import Union
 
-from apysc import Int, Dictionary
+from apysc import Dictionary
+from apysc import Int
 
 
 class LineDotSetting(Dictionary):

@@ -1,12 +1,14 @@
-from random import randint
 import re
-from typing import Match, Optional
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
-from apysc.display.line_dot_setting_interface import LineDotSettingInterface
-from apysc.expression import expression_file_util, var_names
 from apysc import LineDotSetting
+from apysc.display.line_dot_setting_interface import LineDotSettingInterface
+from apysc.expression import expression_file_util
+from apysc.expression import var_names
 from tests.testing_helper import assert_raises
 
 
@@ -32,7 +34,7 @@ class TestLineDotSettingInterface:
 
         interface._line_dot_setting = LineDotSetting(dot_size=10)
         line_dot_setting = interface.line_dot_setting
-        assert line_dot_setting.dot_size == 10
+        assert line_dot_setting.dot_size == 10  # type: ignore
 
         interface.line_dot_setting = None
         line_dot_setting = interface.line_dot_setting
@@ -82,7 +84,7 @@ class TestLineDotSettingInterface:
         interface._update_line_dot_setting_and_skip_appending_exp(
             value=LineDotSetting(dot_size=10))
         line_dot_setting = interface.line_dot_setting
-        assert line_dot_setting.dot_size == 10
+        assert line_dot_setting.dot_size == 10  # type: ignore
 
         assert_raises(
             expected_error_class=TypeError,

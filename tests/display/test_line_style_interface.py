@@ -3,8 +3,9 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Int, LineDotSetting
+from apysc import Int
 from apysc import LineCaps
+from apysc import LineDotSetting
 from apysc import LineJoints
 from apysc import Number
 from apysc import String
@@ -41,7 +42,7 @@ class TestLineStyleInterface:
                 '_line_joints': LineJoints.BEVEL.value,
             },
             any_obj=line_style_interface)
-        assert line_style_interface._line_dot_setting.dot_size == 5
+        assert line_style_interface._line_dot_setting.dot_size == 5  # type: ignore # noqa
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_color(self) -> None:
@@ -135,7 +136,7 @@ class TestLineStyleInterface:
             line_style_interface._line_joints_snapshots[snapshot_name]
             == LineJoints.BEVEL.value)
         assert (
-            line_style_interface._line_dot_setting_snapshots[
+            line_style_interface._line_dot_setting_snapshots[  # type: ignore
                 snapshot_name].dot_size == 10)
 
         line_style_interface.line_style(
@@ -165,7 +166,7 @@ class TestLineStyleInterface:
         assert line_style_interface.line_alpha == 0.5
         assert line_style_interface.line_cap == LineCaps.ROUND.value
         assert line_style_interface.line_joints == LineJoints.BEVEL.value
-        assert line_style_interface.line_dot_setting.dot_size == 10
+        assert line_style_interface.line_dot_setting.dot_size == 10  # type: ignore # noqa
 
         line_style_interface.line_style(
             color='#222', thickness=2, alpha=0.3)
@@ -247,7 +248,7 @@ class TestLineStyleInterface:
         line_style_interface.line_style(
             color='#333', dot_setting=LineDotSetting(dot_size=10))
         line_dot_setting = line_style_interface.line_dot_setting
-        assert line_dot_setting.dot_size == 10
+        assert line_dot_setting.dot_size == 10  # type: ignore
         assert isinstance(line_dot_setting, LineDotSetting)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -262,4 +263,4 @@ class TestLineStyleInterface:
             color='#333', dot_setting=LineDotSetting(dot_size=10))
         line_style_interface._initialize_line_dot_setting_if_not_initialized()
         line_dot_setting = line_style_interface.line_dot_setting
-        assert line_dot_setting.dot_size == 10
+        assert line_dot_setting.dot_size == 10  # type: ignore

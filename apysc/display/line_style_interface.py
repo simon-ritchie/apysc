@@ -5,7 +5,7 @@ See Also
 - graphics_clear_interface
 """
 
-from typing import Any, Dict
+from typing import Dict
 from typing import Optional
 from typing import TypeVar
 from typing import Union
@@ -14,9 +14,9 @@ from apysc import Int
 from apysc import Number
 from apysc import String
 from apysc.display.line_caps import LineCaps
+from apysc.display.line_dot_setting import LineDotSetting
 from apysc.display.line_joints import LineJoints
 from apysc.type.revert_interface import RevertInterface
-from apysc.display.line_dot_setting import LineDotSetting
 
 StrOrString = TypeVar('StrOrString', str, String)
 
@@ -242,8 +242,8 @@ class LineStyleInterface(RevertInterface):
         """
         Get current line dot setting.
 
-        Parameters
-        ----------
+        Returns
+        -------
         line_dot_setting : LineDotSetting or None
             Current line dot setting.
         """
@@ -288,7 +288,7 @@ class LineStyleInterface(RevertInterface):
         self._line_cap_snapshots[snapshot_name] = self._line_cap._value
         self._line_joints_snapshots[snapshot_name] = self._line_joints._value
         self._line_dot_setting_snapshots[snapshot_name] = \
-                self._line_dot_setting
+            self._line_dot_setting
 
     def _revert(self, snapshot_name: str) -> None:
         """

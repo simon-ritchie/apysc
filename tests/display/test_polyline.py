@@ -6,8 +6,9 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Array, LineDotSetting
+from apysc import Array
 from apysc import LineCaps
+from apysc import LineDotSetting
 from apysc import LineJoints
 from apysc import Point2D
 from apysc import Polyline
@@ -22,6 +23,8 @@ from tests.display.test_graphics_expression import \
 from tests.display.test_graphics_expression import \
     assert_stroke_attr_expression_exists
 from tests.display.test_graphics_expression import \
+    assert_stroke_dasharray_css_expression_exists
+from tests.display.test_graphics_expression import \
     assert_stroke_linecap_attr_expression_exists
 from tests.display.test_graphics_expression import \
     assert_stroke_linejoin_attr_expression_exists
@@ -33,8 +36,6 @@ from tests.display.test_graphics_expression import \
     assert_x_attr_expression_exists
 from tests.display.test_graphics_expression import \
     assert_y_attr_expression_exists
-from tests.display.test_graphics_expression import \
-    assert_stroke_dasharray_css_expression_exists
 from tests.testing_helper import assert_attrs
 
 
@@ -67,7 +68,7 @@ class TestPolyline:
                 '_line_joints': LineJoints.BEVEL.value,
             },
             any_obj=polyline)
-        assert polyline.line_dot_setting.dot_size == 10
+        assert polyline.line_dot_setting.dot_size == 10  # type: ignore
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:

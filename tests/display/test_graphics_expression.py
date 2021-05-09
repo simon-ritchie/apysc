@@ -5,7 +5,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import LineCaps
+from apysc import LineCaps, LineJoints
 from apysc import Rectangle
 from apysc import Sprite
 from apysc import Stage
@@ -179,6 +179,30 @@ def test_append_stroke_linecap_expression() -> None:
         pattern=(
             r'.attr\(\{'
             rf'\n  "stroke-linecap": {var_names.STRING}_.+,'
+        ),
+        string=expression, flags=re.MULTILINE)
+    assert match is not None
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_append_stroke_linejoin_expression() -> None:
+    stage: Stage = Stage()
+    sprite: Sprite = Sprite(stage=stage)
+    expression: str = graphics_expression.append_stroke_linejoin_expression(
+        graphics=sprite.graphics,
+        expression='.attr({',
+        indent_num=1)
+    assert expression == '.attr({'
+
+    sprite.graphics.line_style(color='#0af', joints=LineJoints.BEVEL)
+    expression = graphics_expression.append_stroke_linejoin_expression(
+        graphics=sprite.graphics,
+        expression='.attr({',
+        indent_num=1)
+    match: Optional[Match] = re.search(
+        pattern=(
+            r'\.attr\(\{'
+            rf'\n  "stroke-linejoin": {var_names.STRING}.+,'
         ),
         string=expression, flags=re.MULTILINE)
     assert match is not None

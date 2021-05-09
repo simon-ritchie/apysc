@@ -208,7 +208,7 @@ def append_stroke_linecap_expression(
     graphics : Graphics
         Target Graphics instance.
     expression : str
-        Expression string to be appended stroke expression.
+        Expression string to be appended stroke linecap expression.
     indent_num : int
         Indentation number.
 
@@ -224,5 +224,35 @@ def append_stroke_linecap_expression(
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
         f'\n{spaces}"stroke-linecap": {graphics.line_cap.variable_name},'
+    )
+    return expression
+
+
+def append_stroke_linejoin_expression(
+        graphics: Graphics, expression: str, indent_num: int) -> str:
+    """
+    Append stroke linejoin expression to specified expression's string.
+
+    Parameters
+    ----------
+    graphics : Graphics
+        Target Graphics instance.
+    expression : str
+        Expression string to be appended stroke linejoin expression.
+    indent_num : int
+        Indentation number.
+
+    Returns
+    -------
+    expression : str
+        After appended expression string.
+    """
+    from apysc import LineJoints
+    from apysc.string import indent_util
+    if graphics.line_joints == LineJoints.MITER.value:
+        return expression
+    spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
+    expression += (
+        f'\n{spaces}"stroke-linejoin": {graphics.line_joints.variable_name},'
     )
     return expression

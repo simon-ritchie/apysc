@@ -1,13 +1,15 @@
 import re
 from random import randint
-from typing import Match, Optional
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
+from apysc import LineJoints
+from apysc import String
 from apysc.display.line_joints_interface import LineJointsInterface
-from apysc import LineJoints, String
-from tests.testing_helper import assert_raises
 from apysc.expression import expression_file_util
+from tests.testing_helper import assert_raises
 
 
 class TestLineJointsInterface:
@@ -30,7 +32,7 @@ class TestLineJointsInterface:
         assert interface.line_joints == LineJoints.MITER.value
 
         interface.line_joints = LineJoints.BEVEL
-        assert interface.line_joints == LineJoints.BEVEL.value
+        assert interface.line_joints == LineJoints.BEVEL.value  # type: ignore
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_joints_and_skip_appending_exp(self) -> None:
@@ -39,7 +41,8 @@ class TestLineJointsInterface:
         interface.variable_name = 'test_line_joints_interface'
         assert_raises(
             expected_error_class=TypeError,
-            func_or_method=interface._update_line_joints_and_skip_appending_exp,
+            func_or_method=interface.
+            _update_line_joints_and_skip_appending_exp,
             kwargs={'value': 'miter'},
             match=r'Not supported line_joints type specified: ')
 
@@ -92,8 +95,8 @@ class TestLineJointsInterface:
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         interface.line_joints = LineJoints.BEVEL
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
-        assert interface.line_joints == LineJoints.MITER.value
+        assert interface.line_joints == LineJoints.MITER.value  # type: ignore
 
         interface.line_joints = LineJoints.BEVEL
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
-        assert interface.line_joints == LineJoints.BEVEL.value
+        assert interface.line_joints == LineJoints.BEVEL.value  # type: ignore

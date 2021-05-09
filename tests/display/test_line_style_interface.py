@@ -2,8 +2,9 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Int, LineJoints
+from apysc import Int
 from apysc import LineCaps
+from apysc import LineJoints
 from apysc import Number
 from apysc import String
 from apysc.display.line_style_interface import LineStyleInterface

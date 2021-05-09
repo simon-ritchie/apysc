@@ -214,8 +214,8 @@ class LineStyleInterface(RevertInterface):
         """
         Get current line joints (vertices) style setting.
 
-        Parameters
-        ----------
+        Returns
+        -------
         line_joints : String
             Current line joints (vertices) style setting.
         """

@@ -6,8 +6,9 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Array, LineJoints
+from apysc import Array
 from apysc import LineCaps
+from apysc import LineJoints
 from apysc import Point2D
 from apysc import Polyline
 from apysc import Sprite
@@ -23,9 +24,9 @@ from tests.display.test_graphics_expression import \
 from tests.display.test_graphics_expression import \
     assert_stroke_linecap_attr_expression_exists
 from tests.display.test_graphics_expression import \
-    assert_stroke_opacity_attr_expression_exists
-from tests.display.test_graphics_expression import \
     assert_stroke_linejoin_attr_expression_exists
+from tests.display.test_graphics_expression import \
+    assert_stroke_opacity_attr_expression_exists
 from tests.display.test_graphics_expression import \
     assert_stroke_width_attr_expression_exists
 from tests.display.test_graphics_expression import \

@@ -107,3 +107,18 @@ class TestLineDotSettingInterface:
         assert isinstance(
             interface._line_dot_setting_snapshots[snapshot_name],
             LineDotSetting)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__revert(self) -> None:
+        interface: LineDotSettingInterface = LineDotSettingInterface()
+        interface.variable_name = 'test_line_dot_setting_interface'
+        interface.line_dot_setting = LineDotSetting(dot_size=10)
+        snapshot_name: str = interface._get_next_snapshot_name()
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        interface.line_dot_setting = None
+        interface._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert isinstance(interface.line_dot_setting, LineDotSetting)
+
+        interface.line_dot_setting = None
+        interface._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert interface.line_dot_setting is None

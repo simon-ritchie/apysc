@@ -24,6 +24,19 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
             return
         self._line_joints = String(LineJoints.MITER.value)
 
+    @property
+    def line_joints(self) -> Any:
+        """
+        Get this instance's line joints style setting.
+
+        Returns
+        -------
+        line_joints : String
+            Line joints style setting.
+        """
+        self._initialize_line_joints_if_not_initialized()
+        return self._line_joints._copy()
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass
 

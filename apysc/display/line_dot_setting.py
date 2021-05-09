@@ -3,12 +3,10 @@
 
 from typing import Union
 
-from apysc import Int
+from apysc import Int, Dictionary
 
 
-class LineDotSetting:
-
-    _dot_size: Int
+class LineDotSetting(Dictionary):
 
     def __init__(self, dot_size: Union[int, Int]) -> None:
         """
@@ -25,7 +23,7 @@ class LineDotSetting:
             dot_size_: Int = Int(dot_size)
         else:
             dot_size_ = dot_size._copy()
-        self._dot_size = dot_size_
+        super(LineDotSetting, self).__init__({'dot_size': dot_size_})
 
     @property
     def dot_size(self) -> Int:
@@ -37,4 +35,4 @@ class LineDotSetting:
         dot_size : Int
             Dot size setting.
         """
-        return self._dot_size._copy()
+        return self['dot_size']._copy()

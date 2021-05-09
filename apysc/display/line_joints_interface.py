@@ -39,7 +39,16 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
 
     @line_joints.setter
     def line_joints(self, value: Any) -> None:
-        pass
+        """
+        Set line joints style setting.
+
+        Parameters
+        ----------
+        value : String or LineJoints
+            Line joints style setting to set.
+        """
+        self._update_line_joints_and_skip_appending_exp(value=value)
+        self._append_line_joints_update_expression()
 
     def _update_line_joints_and_skip_appending_exp(
             self, value: Union[String, LineJoints]) -> None:

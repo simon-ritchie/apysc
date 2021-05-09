@@ -29,6 +29,9 @@ class TestLineJointsInterface:
         interface._initialize_line_joints_if_not_initialized()
         assert interface.line_joints == LineJoints.MITER.value
 
+        interface.line_joints = LineJoints.BEVEL
+        assert interface.line_joints == LineJoints.BEVEL.value
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_joints_and_skip_appending_exp(self) -> None:
         expression_file_util.remove_expression_file()
@@ -55,8 +58,7 @@ class TestLineJointsInterface:
         expression_file_util.remove_expression_file()
         interface: LineJointsInterface = LineJointsInterface()
         interface.variable_name = 'test_line_joints_interface'
-        interface._update_line_joints_and_skip_appending_exp(
-            value=LineJoints.BEVEL)
+        interface.line_joints = LineJoints.BEVEL
         interface._append_line_joints_update_expression()
         expression: str = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(

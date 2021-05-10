@@ -32,3 +32,9 @@ class TestLineDashSetting:
         setting: LineDashSetting = LineDashSetting(
             dash_size=10, space_size=5)
         assert setting.dash_size == 10
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_space_size(self) -> None:
+        setting: LineDashSetting = LineDashSetting(
+            dash_size=10, space_size=5)
+        assert setting.space_size == 5

@@ -38,3 +38,15 @@ class LineDashSetting(Dictionary):
             'dash_size': dash_size_,
             'space_size': space_size_,
         })
+
+    @property
+    def dash_size(self) -> Int:
+        """
+        Get a dash size setting.
+
+        Returns
+        -------
+        dash_size : Int
+            Dash size setting.
+        """
+        return self['dash_size']

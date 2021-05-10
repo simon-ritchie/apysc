@@ -9,6 +9,7 @@ from apysc import Int
 from apysc import Number
 from apysc import String
 from apysc.display.polyline import Polyline
+from apysc.display.line_dot_setting import LineDotSetting
 
 
 class GraphicsClearInterface:
@@ -20,6 +21,9 @@ class GraphicsClearInterface:
     _line_alpha: Number
     _children: Array
     _current_line: Optional[Polyline]
+    _line_cap: String
+    _line_joints: String
+    _line_dot_setting: Optional[LineDotSetting]
 
     def clear(self) -> None:
         """
@@ -34,6 +38,7 @@ class GraphicsClearInterface:
         from apysc.display.line_style_interface import LineStyleInterface
         from apysc.display.line_thickness_interface import \
             LineThicknessInterface
+        from apysc import LineCaps, LineJoints
         if isinstance(self, (FillColorInterface, BeginFillInterface)):
             self._initialize_fill_color_if_not_initialized()
         self._fill_color.value = ''
@@ -55,3 +60,8 @@ class GraphicsClearInterface:
             self._children[0].remove_from_parent()
         if hasattr(self, '_current_line'):
             self._current_line = None
+        if hasattr(self, '_line_cap'):
+            self._line_cap = String(LineCaps.BUTT.value)
+        if hasattr(self, '_line_joints'):
+            self._line_joints = String(LineJoints.MITER.value)
+        self._line_dot_setting = None

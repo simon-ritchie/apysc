@@ -35,6 +35,23 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         self._initialize_line_dash_setting_if_not_initialized()
         return self._line_dash_setting
 
+    def _update_line_dash_setting_and_skip_appending_exp(
+            self, value: Optional[LineDashSetting]) -> None:
+        """
+        Update line dash setting and skip appending expression to file.
+
+        Parameters
+        ----------
+        value : LineDashSetting or None
+            Line dash setting to set.
+        """
+        if value is not None and not isinstance(value, LineDashSetting):
+            raise TypeError(
+                'Not supported line_dash_setting type specified: '
+                f'{type(value)}'
+                '\nAcceptable ones are: LineDashSetting or None.')
+        self._line_dash_setting = value
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass
 

@@ -15,6 +15,7 @@ from apysc import Number
 from apysc import String
 from apysc.display.line_caps import LineCaps
 from apysc.display.line_dot_setting import LineDotSetting
+from apysc.display.line_dash_setting import LineDashSetting
 from apysc.display.line_joints import LineJoints
 from apysc.type.revert_interface import RevertInterface
 
@@ -29,6 +30,7 @@ class LineStyleInterface(RevertInterface):
     _line_cap: String
     _line_joints: String
     _line_dot_setting: Optional[LineDotSetting]
+    _line_dash_setting: Optional[LineDashSetting]
 
     def line_style(
             self, color: StrOrString,
@@ -36,7 +38,8 @@ class LineStyleInterface(RevertInterface):
             alpha: Union[float, Number] = 1.0,
             cap: Optional[LineCaps] = None,
             joints: Optional[LineJoints] = None,
-            dot_setting: Optional[LineDotSetting] = None) -> None:
+            dot_setting: Optional[LineDotSetting] = None,
+            dash_setting: Optional[LineDashSetting] = None) -> None:
         """
         Set line style values.
 
@@ -58,6 +61,8 @@ class LineStyleInterface(RevertInterface):
             this, conversely used by Polyline).
         dot_setting : LineDotSetting or None, default None
             Dot setting. If this is specified, line will be dotted.
+        dash_setting : LineDashSetting or None, default None
+            Dash setting. If this is specified, line will be dashed.
         """
         from apysc.color import color_util
         from apysc.converter import cast
@@ -84,6 +89,7 @@ class LineStyleInterface(RevertInterface):
         self._set_line_cap(cap=cap)
         self._set_line_joints(joints=joints)
         self._line_dot_setting = dot_setting
+        self._line_dash_setting = dash_setting
 
     def _set_line_joints(self, joints: Optional[LineJoints]) -> None:
         """
@@ -166,6 +172,15 @@ class LineStyleInterface(RevertInterface):
         if hasattr(self, '_line_dot_setting'):
             return
         self._line_dot_setting = None
+
+    def _initialize_line_dash_setting_if_not_initialized(self) -> None:
+        """
+        Initialize _line_dash_setting attribute if it is not
+        initialized yet.
+        """
+        if hasattr(self, '_line_dash_setting'):
+            return
+        self._line_dash_setting = None
 
     @property
     def line_color(self) -> String:

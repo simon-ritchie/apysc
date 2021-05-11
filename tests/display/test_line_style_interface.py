@@ -3,7 +3,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Int
+from apysc import Int, LineDashSetting
 from apysc import LineCaps
 from apysc import LineDotSetting
 from apysc import LineJoints
@@ -43,6 +43,12 @@ class TestLineStyleInterface:
             },
             any_obj=line_style_interface)
         assert line_style_interface._line_dot_setting.dot_size == 5  # type: ignore # noqa
+
+        line_style_interface.line_style(
+            color='#333',
+            dash_setting=LineDashSetting(dash_size=5, space_size=2))
+        assert line_style_interface._line_dash_setting.dash_size == 5
+        assert line_style_interface._line_dash_setting.space_size == 2
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_color(self) -> None:
@@ -264,3 +270,14 @@ class TestLineStyleInterface:
         line_style_interface._initialize_line_dot_setting_if_not_initialized()
         line_dot_setting = line_style_interface.line_dot_setting
         assert line_dot_setting.dot_size == 10  # type: ignore
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__initialize_line_dash_setting_if_not_initialized(self) -> None:
+        line_style_interface: LineStyleInterface = LineStyleInterface()
+        line_style_interface._initialize_line_dash_setting_if_not_initialized()
+        assert line_style_interface._line_dash_setting is None
+
+        line_style_interface._line_dash_setting = LineDashSetting(
+            dash_size=10, space_size=5)
+        line_style_interface._initialize_line_dash_setting_if_not_initialized()
+        assert line_style_interface._line_dash_setting is not None

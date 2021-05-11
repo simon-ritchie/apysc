@@ -22,6 +22,19 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
             return
         self._line_dash_setting = None
 
+    @property
+    def line_dash_setting(self) -> Optional[LineDashSetting]:
+        """
+        Get this interface's line dash setting.
+
+        Returns
+        -------
+        line_dash_setting : LineDashSetting or None
+            Line dash setting.
+        """
+        self._initialize_line_dash_setting_if_not_initialized()
+        return self._line_dash_setting
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass
 

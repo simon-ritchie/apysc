@@ -281,3 +281,16 @@ class TestLineStyleInterface:
             dash_size=10, space_size=5)
         line_style_interface._initialize_line_dash_setting_if_not_initialized()
         assert line_style_interface._line_dash_setting is not None
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_line_dash_setting(self) -> None:
+        line_style_interface: LineStyleInterface = LineStyleInterface()
+        line_dash_setting: Optional[LineDashSetting] = \
+            line_style_interface.line_dash_setting
+        assert line_dash_setting is None
+
+        line_style_interface.line_style(
+            color='#333',
+            dash_setting=LineDashSetting(dash_size=10, space_size=5))
+        line_dash_setting = line_style_interface.line_dash_setting
+        assert line_dash_setting.dash_size == 10

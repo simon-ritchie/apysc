@@ -284,6 +284,7 @@ class LineStyleInterface(RevertInterface):
     _line_cap_snapshots: Dict[str, str]
     _line_joints_snapshots: Dict[str, str]
     _line_dot_setting_snapshots: Dict[str, Optional[LineDotSetting]]
+    _line_dash_setting_snapshots: Dict[str, Optional[LineDashSetting]]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
@@ -301,6 +302,7 @@ class LineStyleInterface(RevertInterface):
             self._line_cap_snapshots = {}
             self._line_joints_snapshots = {}
             self._line_dot_setting_snapshots = {}
+            self._line_dash_setting_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._initialize_line_color_if_not_initialized()
@@ -309,6 +311,7 @@ class LineStyleInterface(RevertInterface):
         self._initialize_line_cap_if_not_initialized()
         self._initialize_line_joints_if_not_initialized()
         self._initialize_line_dot_setting_if_not_initialized()
+        self._initialize_line_dash_setting_if_not_initialized()
         self._line_color_snapshots[snapshot_name] = self._line_color._value
         self._line_thickness_snapshots[snapshot_name] = \
             int(self._line_thickness._value)
@@ -317,6 +320,8 @@ class LineStyleInterface(RevertInterface):
         self._line_joints_snapshots[snapshot_name] = self._line_joints._value
         self._line_dot_setting_snapshots[snapshot_name] = \
             self._line_dot_setting
+        self._line_dash_setting_snapshots[snapshot_name] = \
+            self._line_dash_setting
 
     def _revert(self, snapshot_name: str) -> None:
         """
@@ -336,6 +341,7 @@ class LineStyleInterface(RevertInterface):
         self._line_cap._value = self._line_cap_snapshots[snapshot_name]
         self._line_joints._value = self._line_joints_snapshots[snapshot_name]
 
-        line_dot_setting: Optional[LineDotSetting] = \
-            self._line_dot_setting_snapshots[snapshot_name]
-        self._line_dot_setting = line_dot_setting
+        self._line_dot_setting = self._line_dot_setting_snapshots[
+            snapshot_name]
+        self._line_dash_setting = self._line_dash_setting_snapshots[
+            snapshot_name]

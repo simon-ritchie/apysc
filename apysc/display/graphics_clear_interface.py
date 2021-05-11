@@ -10,6 +10,7 @@ from apysc import Number
 from apysc import String
 from apysc.display.polyline import Polyline
 from apysc.display.line_dot_setting import LineDotSetting
+from apysc.display.line_dash_setting import LineDashSetting
 
 
 class GraphicsClearInterface:
@@ -24,6 +25,7 @@ class GraphicsClearInterface:
     _line_cap: String
     _line_joints: String
     _line_dot_setting: Optional[LineDotSetting]
+    _line_dash_setting: Optional[LineDashSetting]
 
     def clear(self) -> None:
         """
@@ -65,3 +67,4 @@ class GraphicsClearInterface:
         if hasattr(self, '_line_joints'):
             self._line_joints = String(LineJoints.MITER.value)
         self._line_dot_setting = None
+        self._line_dash_setting = None

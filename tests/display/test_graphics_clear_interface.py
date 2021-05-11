@@ -31,6 +31,7 @@ class TestGraphicsClearInterface:
             '_line_cap': LineCaps.BUTT.value,
             '_line_joints': LineJoints.MITER.value,
             '_line_dot_setting': None,
+            '_line_dash_setting': None,
         }
         sprite.graphics.clear()
         testing_helper.assert_attrs(

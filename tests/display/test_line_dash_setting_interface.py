@@ -1,5 +1,6 @@
 from random import randint
-from typing import Optional
+from typing import Match, Optional
+import re
 
 from retrying import retry
 
@@ -57,3 +58,32 @@ class TestLineDashSettingInterface:
             value=None)
         line_dash_setting = interface.line_dash_setting
         assert line_dash_setting is None
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_line_dash_setting_update_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface: LineDashSettingInterface = LineDashSettingInterface()
+        interface._initialize_line_dash_setting_if_not_initialized()
+        interface.variable_name = 'test_line_dash_interface'
+        interface._append_line_dash_setting_update_expression()
+        expression: str = expression_file_util.get_current_expression()
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'{interface.variable_name}.css\("stroke-dasharray", ""\);'
+            ),
+            string=expression, flags=re.MULTILINE)
+        assert match is not None
+
+        expression_file_util.remove_expression_file()
+        interface._line_dash_setting = LineDashSetting(
+            dash_size=10, space_size=5)
+        interface._append_line_dash_setting_update_expression()
+        expression = expression_file_util.get_current_expression()
+        print(expression)
+        match = re.search(
+            pattern=(
+                rf'{interface.variable_name}.css\("stroke-dasharray", '
+                rf'String\(.+?\) \+ " " \+ String\(.+\)\);'
+            ),
+            string=expression, flags=re.MULTILINE)
+        assert match is not None

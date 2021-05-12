@@ -83,8 +83,24 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
+    _line_dash_setting_snapshots: Dict[str, Optional[LineDashSetting]]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
-        pass
+        """
+        Make value's snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_line_dash_setting_snapshots'):
+            self._line_dash_setting_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._initialize_line_dash_setting_if_not_initialized()
+        self._line_dash_setting_snapshots[snapshot_name] = \
+            self._line_dash_setting
 
     def _revert(self, snapshot_name: str) -> None:
         pass

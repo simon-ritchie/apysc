@@ -92,3 +92,19 @@ class TestLineDashSettingInterface:
             ),
             string=expression, flags=re.MULTILINE)
         assert match is not None
+
+    def test__make_snapshot(self) -> None:
+        interface: LineDashSettingInterface = LineDashSettingInterface()
+        interface.variable_name = 'test_line_dash_setting_interface'
+        interface.line_dash_setting = LineDashSetting(dash_size=10, space_size=5)
+        snapshot_name: str = interface._get_next_snapshot_name()
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert isinstance(
+            interface._line_dash_setting_snapshots[snapshot_name],
+            LineDashSetting)
+
+        interface.line_dash_setting = None
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert isinstance(
+            interface._line_dash_setting_snapshots[snapshot_name],
+            LineDashSetting)

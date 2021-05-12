@@ -109,6 +109,5 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
-        line_dot_setting: Optional[LineDotSetting] = \
-            self._line_dot_setting_snapshots[snapshot_name]
-        self._line_dot_setting = line_dot_setting
+        self._line_dot_setting = self._line_dot_setting_snapshots[
+            snapshot_name]

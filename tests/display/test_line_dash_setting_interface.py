@@ -26,6 +26,7 @@ class TestLineDashSettingInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_dash_setting(self) -> None:
         interface: LineDashSettingInterface = LineDashSettingInterface()
+        interface.variable_name = 'test_line_dash_setting_interface'
         line_dash_setting: Optional[LineDashSetting] = \
             interface.line_dash_setting
         assert line_dash_setting is None
@@ -34,6 +35,11 @@ class TestLineDashSettingInterface:
             dash_size=10, space_size=5)
         line_dash_setting = interface.line_dash_setting
         assert line_dash_setting.dash_size == 10
+
+        interface.line_dash_setting = LineDashSetting(
+            dash_size=5, space_size=3)
+        line_dash_setting = interface.line_dash_setting
+        assert line_dash_setting.dash_size == 5
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_dash_setting_and_skip_appending_exp(self) -> None:
@@ -79,7 +85,6 @@ class TestLineDashSettingInterface:
             dash_size=10, space_size=5)
         interface._append_line_dash_setting_update_expression()
         expression = expression_file_util.get_current_expression()
-        print(expression)
         match = re.search(
             pattern=(
                 rf'{interface.variable_name}.css\("stroke-dasharray", '

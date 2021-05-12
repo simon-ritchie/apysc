@@ -35,6 +35,19 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         self._initialize_line_dash_setting_if_not_initialized()
         return self._line_dash_setting
 
+    @line_dash_setting.setter
+    def line_dash_setting(self, value: Optional[LineDashSetting]) -> None:
+        """
+        Set line dash setting.
+
+        Parameters
+        ----------
+        value : LineDashSetting or None
+            Line dash setting to set.
+        """
+        self._update_line_dash_setting_and_skip_appending_exp(value=value)
+        self._append_line_dash_setting_update_expression()
+
     def _update_line_dash_setting_and_skip_appending_exp(
             self, value: Optional[LineDashSetting]) -> None:
         """

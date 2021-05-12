@@ -1,8 +1,8 @@
-"""Test project for line_dot_setting.
+"""Test project for line_dash_setting.
 
 Command examples:
-$ python test_projects/line_dot_setting/main.py
-$ python line_dot_setting/main.py
+$ python test_projects/line_dash_setting/main.py
+$ python line_dash_setting/main.py
 """
 
 import sys
@@ -14,7 +14,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import LineDotSetting
+from apysc import LineDashSetting
 from apysc import MouseEvent
 from apysc import Polyline
 from apysc import Sprite
@@ -44,7 +44,8 @@ def main() -> None:
     sprite.graphics.line_to(x=250, y=30)
 
     sprite.graphics.line_style(
-        color='#0af', thickness=4, dot_setting=LineDotSetting(dot_size=4))
+        color='#0af', thickness=4,
+        dash_setting=LineDashSetting(dash_size=10, space_size=5))
     polyline: Polyline = sprite.graphics.move_to(x=50, y=60)
     sprite.graphics.line_to(x=250, y=60)
     polyline.click(on_polyline_click)
@@ -66,7 +67,7 @@ def on_polyline_click(
         Optional parameters.
     """
     polyline: Polyline = e.this
-    polyline.line_dot_setting = None
+    polyline.line_dash_setting = None
 
 
 if __name__ == '__main__':

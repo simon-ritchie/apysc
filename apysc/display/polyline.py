@@ -73,8 +73,10 @@ class Polyline(
             value=parent_graphics.line_joints)
         self._append_constructor_expression()
 
-        self.line_dot_setting = parent_graphics.line_dot_setting
-        self.line_dash_setting = parent_graphics.line_dash_setting
+        if parent_graphics.line_dot_setting is not None:
+            self.line_dot_setting = parent_graphics.line_dot_setting
+        if parent_graphics.line_dash_setting is not None:
+            self.line_dash_setting = parent_graphics.line_dash_setting
 
     def __repr__(self) -> str:
         """

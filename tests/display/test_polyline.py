@@ -6,7 +6,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Array
+from apysc import Array, LineDashSetting
 from apysc import LineCaps
 from apysc import LineDotSetting
 from apysc import LineJoints
@@ -69,6 +69,14 @@ class TestPolyline:
             },
             any_obj=polyline)
         assert polyline.line_dot_setting.dot_size == 10  # type: ignore
+
+        sprite.graphics.line_style(
+            color='f0a',
+            dash_setting=LineDashSetting(dash_size=10, space_size=5))
+        polyline = Polyline(
+            parent=sprite.graphics,
+            points=points)
+        assert polyline.line_dash_setting.dash_size == 10  # type: ignore
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:

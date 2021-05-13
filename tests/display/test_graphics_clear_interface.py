@@ -4,9 +4,11 @@ from typing import Dict
 
 from retrying import retry
 
+from apysc import LineCaps
+from apysc import LineDotSetting
+from apysc import LineJoints
 from apysc import Sprite
 from apysc import Stage
-from apysc import LineCaps, LineJoints, LineDotSetting
 from tests import testing_helper
 
 

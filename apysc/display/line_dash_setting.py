@@ -56,8 +56,8 @@ class LineDashSetting(Dictionary):
         """
         Get a space size setting.
 
-        Parameters
-        ----------
+        Returns
+        -------
         space_size : Int
             Space size setting.
         """

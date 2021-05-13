@@ -2,9 +2,8 @@ from random import randint
 
 from retrying import retry
 
-from apysc import LineDashSetting
-from tests.testing_helper import assert_raises
 from apysc import Int
+from apysc import LineDashSetting
 
 
 class TestLineDashSetting:
@@ -20,7 +19,7 @@ class TestLineDashSetting:
 
         dash_size: Int = Int(15)
         space_size: Int = Int(3)
-        setting: LineDashSetting = LineDashSetting(
+        setting = LineDashSetting(
             dash_size=dash_size, space_size=space_size)
         assert setting._value['dash_size'].variable_name != \
             dash_size.variable_name

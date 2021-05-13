@@ -1,11 +1,12 @@
-from random import randint
-from typing import Match, Optional
 import re
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
-from apysc.display.line_dash_setting_interface import LineDashSettingInterface
 from apysc.display.line_dash_setting import LineDashSetting
+from apysc.display.line_dash_setting_interface import LineDashSettingInterface
 from apysc.expression import expression_file_util
 from tests.testing_helper import assert_raises
 
@@ -34,7 +35,7 @@ class TestLineDashSettingInterface:
         interface._line_dash_setting = LineDashSetting(
             dash_size=10, space_size=5)
         line_dash_setting = interface.line_dash_setting
-        assert line_dash_setting.dash_size == 10
+        assert line_dash_setting.dash_size == 10  # type: ignore
 
         interface.line_dash_setting = LineDashSetting(
             dash_size=5, space_size=3)
@@ -56,7 +57,7 @@ class TestLineDashSettingInterface:
             value=LineDashSetting(dash_size=10, space_size=5))
         line_dash_setting: Optional[LineDashSetting] = \
             interface.line_dash_setting
-        assert line_dash_setting.dash_size == 10
+        assert line_dash_setting.dash_size == 10  # type: ignore
         expression: str = expression_file_util.get_current_expression()
         assert '.css(' not in expression
 
@@ -97,7 +98,8 @@ class TestLineDashSettingInterface:
     def test__make_snapshot(self) -> None:
         interface: LineDashSettingInterface = LineDashSettingInterface()
         interface.variable_name = 'test_line_dash_setting_interface'
-        interface.line_dash_setting = LineDashSetting(dash_size=10, space_size=5)
+        interface.line_dash_setting = LineDashSetting(
+            dash_size=10, space_size=5)
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert isinstance(
@@ -114,7 +116,8 @@ class TestLineDashSettingInterface:
     def test__revert(self) -> None:
         interface: LineDashSettingInterface = LineDashSettingInterface()
         interface.variable_name = 'test_line_dash_setting_interface'
-        interface.line_dash_setting = LineDashSetting(dash_size=10, space_size=5)
+        interface.line_dash_setting = LineDashSetting(
+            dash_size=10, space_size=5)
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)

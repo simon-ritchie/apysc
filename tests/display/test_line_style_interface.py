@@ -3,8 +3,9 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Int, LineDashSetting
+from apysc import Int
 from apysc import LineCaps
+from apysc import LineDashSetting
 from apysc import LineDotSetting
 from apysc import LineJoints
 from apysc import Number
@@ -47,8 +48,8 @@ class TestLineStyleInterface:
         line_style_interface.line_style(
             color='#333',
             dash_setting=LineDashSetting(dash_size=5, space_size=2))
-        assert line_style_interface._line_dash_setting.dash_size == 5
-        assert line_style_interface._line_dash_setting.space_size == 2
+        assert line_style_interface._line_dash_setting.dash_size == 5  # type: ignore # noqa
+        assert line_style_interface._line_dash_setting.space_size == 2  # type: ignore # noqa
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_color(self) -> None:
@@ -302,4 +303,4 @@ class TestLineStyleInterface:
             color='#333',
             dash_setting=LineDashSetting(dash_size=10, space_size=5))
         line_dash_setting = line_style_interface.line_dash_setting
-        assert line_dash_setting.dash_size == 10
+        assert line_dash_setting.dash_size == 10  # type: ignore

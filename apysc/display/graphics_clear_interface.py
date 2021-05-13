@@ -8,9 +8,9 @@ from apysc import Array
 from apysc import Int
 from apysc import Number
 from apysc import String
-from apysc.display.polyline import Polyline
-from apysc.display.line_dot_setting import LineDotSetting
 from apysc.display.line_dash_setting import LineDashSetting
+from apysc.display.line_dot_setting import LineDotSetting
+from apysc.display.polyline import Polyline
 
 
 class GraphicsClearInterface:
@@ -31,6 +31,8 @@ class GraphicsClearInterface:
         """
         Clear all graphics and reset fill and line settings.
         """
+        from apysc import LineCaps
+        from apysc import LineJoints
         from apysc.display.begin_fill_interface import BeginFillInterface
         from apysc.display.child_interface import ChildInterface
         from apysc.display.fill_alpha_interface import FillAlphaInterface
@@ -40,7 +42,6 @@ class GraphicsClearInterface:
         from apysc.display.line_style_interface import LineStyleInterface
         from apysc.display.line_thickness_interface import \
             LineThicknessInterface
-        from apysc import LineCaps, LineJoints
         if isinstance(self, (FillColorInterface, BeginFillInterface)):
             self._initialize_fill_color_if_not_initialized()
         self._fill_color.value = ''

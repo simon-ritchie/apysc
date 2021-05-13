@@ -14,8 +14,8 @@ from apysc import Int
 from apysc import Number
 from apysc import String
 from apysc.display.line_caps import LineCaps
-from apysc.display.line_dot_setting import LineDotSetting
 from apysc.display.line_dash_setting import LineDashSetting
+from apysc.display.line_dot_setting import LineDotSetting
 from apysc.display.line_joints import LineJoints
 from apysc.type.revert_interface import RevertInterface
 

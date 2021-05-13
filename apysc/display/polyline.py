@@ -72,11 +72,28 @@ class Polyline(
         self._update_line_joints_and_skip_appending_exp(
             value=parent_graphics.line_joints)
         self._append_constructor_expression()
+        self._set_line_setting_if_not_none_value_exists(
+            parent_graphics=parent_graphics)
 
-        if parent_graphics.line_dot_setting is not None:
-            self.line_dot_setting = parent_graphics.line_dot_setting
-        if parent_graphics.line_dash_setting is not None:
-            self.line_dash_setting = parent_graphics.line_dash_setting
+    def _set_line_setting_if_not_none_value_exists(
+            self, parent_graphics: Any) -> None:
+        """
+        If a line setting (dot, dash, or something else) with a value
+        other than None exists, set that value to the attribute.
+
+        Parameters
+        ----------
+        parent_graphics : Graphics
+            Parent Graphics instance.
+        """
+        from apysc.display.graphics import Graphics
+        parent_graphics_: Graphics = parent_graphics
+        if parent_graphics_.line_dot_setting is not None:
+            self.line_dot_setting = parent_graphics_.line_dot_setting
+            return
+        if parent_graphics_.line_dash_setting is not None:
+            self.line_dash_setting = parent_graphics_.line_dash_setting
+            return
 
     def __repr__(self) -> str:
         """

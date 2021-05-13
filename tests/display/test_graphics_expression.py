@@ -23,9 +23,10 @@ def test_append_fill_expression() -> None:
     expression: str = '.attr({'
     expression = graphics_expression.append_fill_expression(
         graphics=graphics, expression=expression, indent_num=1)
-    assert expression == '.attr({'
+    assert expression == '.attr({\n  fill: "none",'
 
     graphics.begin_fill(color='#333')
+    expression = '.attr({'
     expression = graphics_expression.append_fill_expression(
         graphics=graphics, expression=expression, indent_num=1)
     match: Optional[Match] = re.search(

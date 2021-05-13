@@ -25,9 +25,10 @@ def append_fill_expression(
         After appended expression string.
     """
     from apysc.string import indent_util
-    if graphics.fill_color == '':
-        return expression
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
+    if graphics.fill_color == '':
+        expression += f'\n{spaces}fill: "none",'
+        return expression
     expression += (
         f'\n{spaces}fill: {graphics.fill_color.variable_name},'
     )

@@ -35,7 +35,7 @@ def main() -> None:
     Entry point of this test project.
     """
     stage: Stage = Stage(
-        background_color='#111',
+        background_color='#666',
         stage_width=1000, stage_height=500)
 
     sprite: Sprite = Sprite(stage=stage)
@@ -47,6 +47,7 @@ def main() -> None:
         color='#0af', thickness=4, dot_setting=LineDotSetting(dot_size=4))
     polyline: Polyline = sprite.graphics.move_to(x=50, y=60)
     sprite.graphics.line_to(x=250, y=60)
+    sprite.graphics.line_to(x=300, y=100)
     polyline.click(on_polyline_click)
 
     exporter.save_expressions_overall_html(

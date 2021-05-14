@@ -94,6 +94,10 @@ class Polyline(
         if parent_graphics_.line_dash_setting is not None:
             self.line_dash_setting = parent_graphics_.line_dash_setting
             return
+        if parent_graphics_.line_round_dot_setting is not None:
+            self.line_round_dot_setting = \
+                parent_graphics_.line_round_dot_setting
+            return
 
     def __repr__(self) -> str:
         """

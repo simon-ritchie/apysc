@@ -22,6 +22,19 @@ class LineRoundDotSettingInterface(VariableNameInterface, RevertInterface):
             return
         self._line_round_dot_setting = None
 
+    @property
+    def line_round_dot_setting(self) -> Optional[LineRoundDotSetting]:
+        """
+        Get this instance's line round dot setting.
+
+        Parameters
+        ----------
+        line_round_dot_setting : LineRoundDotSetting or None
+            LKine round dot setting.
+        """
+        self._initialize_line_round_dot_setting_if_not_initialized()
+        return self._line_round_dot_setting
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass
 

@@ -192,6 +192,15 @@ class LineStyleInterface(RevertInterface):
             return
         self._line_dash_setting = None
 
+    def _initialize_line_round_dot_setting_if_not_initialized(self) -> None:
+        """
+        Initialize _line_round_dot_setting attribute if it is not
+        initialized yet.
+        """
+        if hasattr(self, '_line_round_dot_setting'):
+            return
+        self._line_round_dot_setting = None
+
     @property
     def line_color(self) -> String:
         """

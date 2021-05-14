@@ -314,3 +314,18 @@ class TestLineStyleInterface:
             dash_setting=LineDashSetting(dash_size=10, space_size=5))
         line_dash_setting = line_style_interface.line_dash_setting
         assert line_dash_setting.dash_size == 10  # type: ignore
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__initialize_line_round_dot_setting_if_not_initialized(
+            self) -> None:
+        line_style_interface: LineStyleInterface = LineStyleInterface()
+        line_style_interface.\
+            _initialize_line_round_dot_setting_if_not_initialized()
+        assert line_style_interface._line_round_dot_setting is None
+
+        line_style_interface._line_round_dot_setting = LineRoundDotSetting(
+            round_size=10, space_size=5)
+        line_style_interface.\
+            _initialize_line_round_dot_setting_if_not_initialized()
+        assert isinstance(
+            line_style_interface._line_round_dot_setting, LineRoundDotSetting)

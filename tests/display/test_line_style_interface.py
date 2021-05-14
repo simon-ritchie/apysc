@@ -329,3 +329,17 @@ class TestLineStyleInterface:
             _initialize_line_round_dot_setting_if_not_initialized()
         assert isinstance(
             line_style_interface._line_round_dot_setting, LineRoundDotSetting)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_line_round_dot_setting(self) -> None:
+        line_style_interface: LineStyleInterface = LineStyleInterface()
+        line_round_dot_setting: Optional[LineRoundDotSetting] = \
+            line_style_interface.line_round_dot_setting
+        assert line_round_dot_setting is None
+
+        line_style_interface.line_style(
+            color='#333',
+            round_dot_setting=LineRoundDotSetting(
+                round_size=10, space_size=5))
+        line_round_dot_setting = line_style_interface.line_round_dot_setting
+        assert isinstance(line_round_dot_setting, LineRoundDotSetting)

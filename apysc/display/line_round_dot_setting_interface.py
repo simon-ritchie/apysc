@@ -4,8 +4,8 @@
 from typing import Dict
 from typing import Optional
 
-from apysc.display.line_round_dot_setting import LineRoundDotSetting
 from apysc.display.line_cap_interface import LineCapInterface
+from apysc.display.line_round_dot_setting import LineRoundDotSetting
 from apysc.display.line_thickness_interface import LineThicknessInterface
 
 
@@ -27,8 +27,8 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         """
         Get this instance's line round dot setting.
 
-        Parameters
-        ----------
+        Returns
+        -------
         line_round_dot_setting : LineRoundDotSetting or None
             LKine round dot setting.
         """

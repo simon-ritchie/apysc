@@ -2,7 +2,8 @@ from random import randint
 
 from retrying import retry
 
-from apysc import LineRoundDotSetting, Int
+from apysc import Int
+from apysc import LineRoundDotSetting
 
 
 class TestLineRoundDotSetting:

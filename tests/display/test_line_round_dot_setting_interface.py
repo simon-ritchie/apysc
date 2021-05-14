@@ -1,10 +1,12 @@
-from random import randint
-from typing import Match, Optional
 import re
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
-from apysc import LineRoundDotSetting, LineCaps
+from apysc import LineCaps
+from apysc import LineRoundDotSetting
 from apysc.display.line_round_dot_setting_interface import \
     LineRoundDotSettingInterface
 from apysc.expression import expression_file_util
@@ -49,7 +51,7 @@ class TestLineRoundDotSettingInterface:
         assert interface.line_thickness == 10
 
         interface.line_round_dot_setting = None
-        assert interface.line_cap.value ==LineCaps.BUTT.value
+        assert interface.line_cap.value == LineCaps.BUTT.value
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_round_dot_setting_and_skip_appending_exp(

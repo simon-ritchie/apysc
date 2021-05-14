@@ -5,9 +5,10 @@ from retrying import retry
 
 from apysc import Int
 from apysc import LineCaps
-from apysc import LineDashSetting, LineRoundDotSetting
+from apysc import LineDashSetting
 from apysc import LineDotSetting
 from apysc import LineJoints
+from apysc import LineRoundDotSetting
 from apysc import Number
 from apysc import String
 from apysc.display.line_style_interface import LineStyleInterface

@@ -6,11 +6,12 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Array, LineRoundDotSetting
+from apysc import Array
 from apysc import LineCaps
 from apysc import LineDashSetting
 from apysc import LineDotSetting
 from apysc import LineJoints
+from apysc import LineRoundDotSetting
 from apysc import Point2D
 from apysc import Polyline
 from apysc import Sprite

@@ -63,3 +63,17 @@ def test_validate_int_is_zero_or_one() -> None:
         expected_error_class=ValueError,
         func_or_method=number_validation.validate_int_is_zero_or_one,
         kwargs={'integer': Int(2)})
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_validate_nums_are_int_and_gt_zero() -> None:
+    number_validation.validate_nums_are_int_and_gt_zero(
+        nums=[1, Int(1)])
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=number_validation.validate_nums_are_int_and_gt_zero,
+        kwargs={'nums': [10.5]})
+    testing_helper.assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=number_validation.validate_nums_are_int_and_gt_zero,
+        kwargs={'nums': [0]})

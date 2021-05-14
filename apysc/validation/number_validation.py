@@ -12,9 +12,12 @@ Mainly following interfaces are defined:
     Validate specified value is greater than zero.
 - validate_num_is_gte_zero
     Validate specified value is greater than or equal to zero.
+- validate_nums_are_int_and_gt_zero
+    Validate specified number values are greater integer and
+    greater than zero.
 """
 
-from typing import Union
+from typing import List, Union
 
 from apysc import Int
 from apysc import Number
@@ -130,3 +133,23 @@ def validate_num_is_gte_zero(num: Union[int, float, Int, Number]) -> None:
     if num >= 0:
         return
     raise ValueError(f'Specified values is less than zero: {num}')
+
+
+def validate_nums_are_int_and_gt_zero(nums: List[Union[int, Int]]) -> None:
+    """
+    Validate specified number values are greater integer and
+    greater than zero.
+
+    Parameters
+    ----------
+    nums : list
+        Integer values to check.
+
+    Raises
+    ------
+    ValueError
+        If any value is not integer type or less than one.
+    """
+    for num in nums:
+        validate_integer(integer=num)
+        validate_num_is_gt_zero(num=num)

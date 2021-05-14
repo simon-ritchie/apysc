@@ -72,6 +72,12 @@ class LineStyleInterface(RevertInterface):
             Notes: since this style is using cap setting, so cap setting
             will be overridden, and line size will be increased by the
             amount of cap.
+            If you want to adjust to the same width of normal line when using
+            move_to and line_to interfaces, then add half-round size to
+            start x-coordinate and subtract from end e-coordinate.
+            e.g.,
+            `this.move_to(x + round_size / 2, y)`
+            `this.line_to(x - round_size / 2, y)`
         """
         from apysc.color import color_util
         from apysc.converter import cast

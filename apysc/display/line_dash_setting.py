@@ -20,7 +20,7 @@ class LineDashSetting(Dictionary):
         dash_size : int or Int
             Dash size.
         space_size : int or Int
-            Blank space size between the dashes.
+            Blank space size between dashes.
         """
         from apysc.validation import number_validation
         for size in (dash_size, space_size):

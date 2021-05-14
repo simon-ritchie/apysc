@@ -20,7 +20,7 @@ class LineRoundDotSetting(Dictionary):
         round_size : int or Int
             Dot's round size.
         space_size : int or Int
-            Blank space size between the dots.
+            Blank space size between dots.
         """
         from apysc.validation import number_validation
         for size in (round_size, space_size):
@@ -44,9 +44,21 @@ class LineRoundDotSetting(Dictionary):
         """
         Get a round size setting.
 
-        Parameters
-        ----------
+        Returns
+        -------
         round_size : Int
             Round size setting.
         """
         return self['round_size']
+
+    @property
+    def space_size(self) -> Int:
+        """
+        Get a space size setting.
+
+        Returns
+        -------
+        space_size : Int
+            Blank space size between dots.
+        """
+        return self['space_size']

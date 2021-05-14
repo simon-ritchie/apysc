@@ -38,3 +38,15 @@ class LineRoundDotSetting(Dictionary):
             'round_size': round_size_,
             'space_size': space_size_,
         })
+
+    @property
+    def round_size(self) -> Int:
+        """
+        Get a round size setting.
+
+        Parameters
+        ----------
+        round_size : Int
+            Round size setting.
+        """
+        return self['round_size']

@@ -5,11 +5,11 @@ from typing import Dict
 from typing import Optional
 
 from apysc.display.line_round_dot_setting import LineRoundDotSetting
-from apysc.type.revert_interface import RevertInterface
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc.display.line_cap_interface import LineCapInterface
+from apysc.display.line_thickness_interface import LineThicknessInterface
 
 
-class LineRoundDotSettingInterface(VariableNameInterface, RevertInterface):
+class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
 
     _line_round_dot_setting: Optional[LineRoundDotSetting]
 
@@ -35,6 +35,30 @@ class LineRoundDotSettingInterface(VariableNameInterface, RevertInterface):
         self._initialize_line_round_dot_setting_if_not_initialized()
         return self._line_round_dot_setting
 
+    @line_round_dot_setting.setter
+    def line_round_dot_setting(
+            self, value: Optional[LineRoundDotSetting]) -> None:
+        """
+        Set line round dot setting.
+
+        Notes
+        -----
+        This property updating will affect line cap and
+        thickness settings.
+
+        Parameters
+        ----------
+        value : LineRoundDotSetting or None
+            Line round setting to set.
+        """
+        from apysc import LineCaps
+        self._update_line_round_dot_setting_and_skip_appending_exp(
+            value=value)
+        if value is not None:
+            self.line_cap = LineCaps.ROUND
+            self.line_thickness = value.round_size
+        self._append_line_round_dot_setting_update_expression()
+
     def _update_line_round_dot_setting_and_skip_appending_exp(
             self, value: Optional[LineRoundDotSetting]) -> None:
         """
@@ -51,6 +75,26 @@ class LineRoundDotSettingInterface(VariableNameInterface, RevertInterface):
                 f'{type(value)}'
                 '\nAcceptable ones are: LineRoundDotSetting or None.')
         self._line_round_dot_setting = value
+
+    def _append_line_round_dot_setting_update_expression(self) -> None:
+        """
+        Append line round dot setting updating expression to file.
+        """
+        from apysc.expression import expression_file_util
+        if self._line_round_dot_setting is None:
+            setting_str: str = '""'
+        else:
+            round_size_name: str = \
+                self._line_round_dot_setting.round_size.variable_name
+            space_size_name: str = \
+                self._line_round_dot_setting.space_size.variable_name
+            setting_str = (
+                f'"1 " + String({round_size_name} + {space_size_name})'
+            )
+        expression: str = (
+            f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
+        )
+        expression_file_util.append_js_expression(expression=expression)
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass

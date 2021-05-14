@@ -70,8 +70,8 @@ class LineStyleInterface(RevertInterface):
             Round dot setting. If this is specified, line will be
             round dotted.
             Notes: since this style is using cap setting, so cap setting
-            will be overridden, and line size will be increased by the
-            amount of cap.
+            and line thickness setting will be overridden, and line size
+            will be increased by the amount of cap.
             If you want to adjust to the same width of normal line when using
             move_to and line_to interfaces, then add half-round size to
             start x-coordinate and subtract from end e-coordinate.

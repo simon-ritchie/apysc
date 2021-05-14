@@ -48,6 +48,9 @@ class TestLineRoundDotSettingInterface:
         assert interface.line_cap.value == LineCaps.ROUND.value
         assert interface.line_thickness == 10
 
+        interface.line_round_dot_setting = None
+        assert interface.line_cap.value ==LineCaps.BUTT.value
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_round_dot_setting_and_skip_appending_exp(
             self) -> None:

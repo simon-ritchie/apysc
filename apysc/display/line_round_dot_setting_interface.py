@@ -57,6 +57,8 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         if value is not None:
             self.line_cap = LineCaps.ROUND
             self.line_thickness = value.round_size
+        else:
+            self.line_cap = LineCaps.BUTT
         self._append_line_round_dot_setting_update_expression()
 
     def _update_line_round_dot_setting_and_skip_appending_exp(

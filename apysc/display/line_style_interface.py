@@ -16,6 +16,7 @@ from apysc import String
 from apysc.display.line_caps import LineCaps
 from apysc.display.line_dash_setting import LineDashSetting
 from apysc.display.line_dot_setting import LineDotSetting
+from apysc.display.line_round_dot_setting import LineRoundDotSetting
 from apysc.display.line_joints import LineJoints
 from apysc.type.revert_interface import RevertInterface
 
@@ -31,6 +32,7 @@ class LineStyleInterface(RevertInterface):
     _line_joints: String
     _line_dot_setting: Optional[LineDotSetting]
     _line_dash_setting: Optional[LineDashSetting]
+    _line_round_dot_setting: Optional[LineRoundDotSetting]
 
     def line_style(
             self, color: StrOrString,
@@ -39,7 +41,8 @@ class LineStyleInterface(RevertInterface):
             cap: Optional[LineCaps] = None,
             joints: Optional[LineJoints] = None,
             dot_setting: Optional[LineDotSetting] = None,
-            dash_setting: Optional[LineDashSetting] = None) -> None:
+            dash_setting: Optional[LineDashSetting] = None,
+            round_dot_setting: Optional[LineRoundDotSetting] = None) -> None:
         """
         Set line style values.
 
@@ -63,6 +66,12 @@ class LineStyleInterface(RevertInterface):
             Dot setting. If this is specified, line will be dotted.
         dash_setting : LineDashSetting or None, default None
             Dash setting. If this is specified, line will be dashed.
+        round_dot_setting : LineRoundDotSetting or None, default None
+            Round dot setting. If this is specified, line will be
+            round dotted.
+            Notes: since this style is using cap setting, so cap setting
+            will be overridden, and line size will be increased by the
+            amount of cap.
         """
         from apysc.color import color_util
         from apysc.converter import cast
@@ -90,6 +99,7 @@ class LineStyleInterface(RevertInterface):
         self._set_line_joints(joints=joints)
         self._line_dot_setting = dot_setting
         self._line_dash_setting = dash_setting
+        self._line_round_dot_setting = round_dot_setting
 
     def _set_line_joints(self, joints: Optional[LineJoints]) -> None:
         """

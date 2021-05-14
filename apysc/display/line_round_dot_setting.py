@@ -23,9 +23,8 @@ class LineRoundDotSetting(Dictionary):
             Blank space size between dots.
         """
         from apysc.validation import number_validation
-        for size in (round_size, space_size):
-            number_validation.validate_integer(integer=size)
-            number_validation.validate_num_is_gte_zero(num=size)
+        number_validation.validate_nums_are_int_and_gt_zero(
+            nums=[round_size, space_size])
         if isinstance(round_size, int):
             round_size_: Int = Int(round_size)
         else:

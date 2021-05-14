@@ -23,9 +23,8 @@ class LineDashSetting(Dictionary):
             Blank space size between dashes.
         """
         from apysc.validation import number_validation
-        for size in (dash_size, space_size):
-            number_validation.validate_integer(integer=size)
-            number_validation.validate_num_is_gte_zero(num=size)
+        number_validation.validate_nums_are_int_and_gt_zero(
+            nums=[dash_size, space_size])
         if isinstance(dash_size, int):
             dash_size_: Int = Int(dash_size)
         else:

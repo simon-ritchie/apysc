@@ -19,8 +19,7 @@ class LineDotSetting(Dictionary):
             Dot size.
         """
         from apysc.validation import number_validation
-        number_validation.validate_integer(integer=dot_size)
-        number_validation.validate_num_is_gt_zero(num=dot_size)
+        number_validation.validate_nums_are_int_and_gt_zero(nums=[dot_size])
         if isinstance(dot_size, int):
             dot_size_: Int = Int(dot_size)
         else:

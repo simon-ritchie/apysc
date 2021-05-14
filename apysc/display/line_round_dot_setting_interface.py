@@ -117,4 +117,15 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
             self._line_round_dot_setting
 
     def _revert(self, snapshot_name: str) -> None:
-        pass
+        """
+        Revert value if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._line_round_dot_setting = self._line_round_dot_setting_snapshots[
+            snapshot_name]

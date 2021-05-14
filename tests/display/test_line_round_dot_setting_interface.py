@@ -115,3 +115,18 @@ class TestLineRoundDotSettingInterface:
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface._line_round_dot_setting_snapshots[snapshot_name] == \
             line_round_dot_setting
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__revert(self) -> None:
+        interface: LineRoundDotSettingInterface = \
+            LineRoundDotSettingInterface()
+        interface.variable_name = 'test_line_round_dot_setting_interface'
+        snapshot_name: str = interface._get_next_snapshot_name()
+        interface._run_all_revert_methods(snapshot_name=snapshot_name)
+        line_round_dot_setting: LineRoundDotSetting = LineRoundDotSetting(
+            round_size=10, space_size=5)
+        interface.line_round_dot_setting = line_round_dot_setting
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        interface.line_round_dot_setting = None
+        interface._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert interface.line_round_dot_setting == line_round_dot_setting

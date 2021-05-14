@@ -130,12 +130,17 @@ class TestLineStyleInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         line_style_interface: LineStyleInterface = LineStyleInterface()
+        line_dot_setting: LineDotSetting = LineDotSetting(dot_size=10)
+        line_dash_setting: LineDashSetting = LineDashSetting(
+            dash_size=10, space_size=5)
+        line_round_dot_setting: LineRoundDotSetting = LineRoundDotSetting(
+            round_size=10, space_size=5)
         line_style_interface.line_style(
             color='#333', thickness=3, alpha=0.5, cap=LineCaps.ROUND,
             joints=LineJoints.BEVEL,
-            dot_setting=LineDotSetting(dot_size=10))
-        line_style_interface._line_dash_setting = LineDashSetting(
-            dash_size=10, space_size=5)
+            dot_setting=line_dot_setting)
+        line_style_interface._line_dash_setting = line_dash_setting
+        line_style_interface._line_round_dot_setting = line_round_dot_setting
         snapshot_name: str = 'snapshot_1'
         line_style_interface._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
@@ -155,11 +160,14 @@ class TestLineStyleInterface:
             line_style_interface._line_joints_snapshots[snapshot_name]
             == LineJoints.BEVEL.value)
         assert (
-            line_style_interface._line_dot_setting_snapshots[  # type: ignore
-                snapshot_name].dot_size == 10)
+            line_style_interface._line_dot_setting_snapshots[
+                snapshot_name] == line_dot_setting)
         assert (
-            line_style_interface._line_dash_setting_snapshots[  # type: ignore
-                snapshot_name].dash_size == 10)
+            line_style_interface._line_dash_setting_snapshots[
+                snapshot_name] == line_dash_setting)
+        assert (
+            line_style_interface._line_round_dot_setting_snapshots[
+                snapshot_name] == line_round_dot_setting)
 
         line_style_interface.line_style(
             color='#222', thickness=2, alpha=0.3)

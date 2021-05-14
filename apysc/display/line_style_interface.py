@@ -383,3 +383,5 @@ class LineStyleInterface(RevertInterface):
             snapshot_name]
         self._line_dash_setting = self._line_dash_setting_snapshots[
             snapshot_name]
+        self._line_round_dot_setting = self._line_round_dot_setting_snapshots[
+            snapshot_name]

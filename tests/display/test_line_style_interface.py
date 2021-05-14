@@ -32,24 +32,26 @@ class TestLineStyleInterface:
         line_style_interface.line_style(color=String('222'))
         assert line_style_interface.line_color == '#222222'
 
+        line_dot_setting: LineDotSetting = LineDotSetting(dot_size=5)
         line_style_interface.line_style(
             color='#333',
             cap=LineCaps.ROUND,
             joints=LineJoints.BEVEL,
-            dot_setting=LineDotSetting(dot_size=5))
+            dot_setting=line_dot_setting)
         testing_helper.assert_attrs(
             expected_attrs={
                 '_line_cap': LineCaps.ROUND.value,
                 '_line_joints': LineJoints.BEVEL.value,
             },
             any_obj=line_style_interface)
-        assert line_style_interface._line_dot_setting.dot_size == 5  # type: ignore # noqa
+        assert line_style_interface._line_dot_setting == line_dot_setting
 
+        line_dash_setting: LineDashSetting = LineDashSetting(
+            dash_size=5, space_size=2)
         line_style_interface.line_style(
             color='#333',
-            dash_setting=LineDashSetting(dash_size=5, space_size=2))
-        assert line_style_interface._line_dash_setting.dash_size == 5  # type: ignore # noqa
-        assert line_style_interface._line_dash_setting.space_size == 2  # type: ignore # noqa
+            dash_setting=line_dash_setting)
+        assert line_style_interface._line_dash_setting == line_dash_setting
 
         line_round_dot_setting: LineRoundDotSetting = LineRoundDotSetting(
             round_size=10, space_size=5)

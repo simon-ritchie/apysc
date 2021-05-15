@@ -35,6 +35,7 @@ class TestGraphicsClearInterface:
             '_line_dot_setting': None,
             '_line_dash_setting': None,
             '_line_round_dot_setting': None,
+            '_line_dash_dot_setting': None,
         }
         sprite.graphics.clear()
         testing_helper.assert_attrs(

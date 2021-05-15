@@ -1,5 +1,5 @@
-from apysc.converter import to_apysc_val_from_builtin
 from apysc import Int
+from apysc.converter import to_apysc_val_from_builtin
 
 
 def test_get_copied_int_from_builtin_val() -> None:

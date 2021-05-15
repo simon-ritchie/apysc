@@ -17,7 +17,8 @@ Mainly following interfaces are defined:
     greater than zero.
 """
 
-from typing import List, Union
+from typing import List
+from typing import Union
 
 from apysc import Int
 from apysc import Number

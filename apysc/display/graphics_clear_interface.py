@@ -8,11 +8,11 @@ from apysc import Array
 from apysc import Int
 from apysc import Number
 from apysc import String
+from apysc.display.line_dash_dot_setting import LineDashDotSetting
 from apysc.display.line_dash_setting import LineDashSetting
 from apysc.display.line_dot_setting import LineDotSetting
 from apysc.display.line_round_dot_setting import LineRoundDotSetting
 from apysc.display.polyline import Polyline
-from apysc.display.line_dash_dot_setting import LineDashDotSetting
 
 
 class GraphicsClearInterface:

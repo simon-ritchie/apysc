@@ -1,6 +1,7 @@
 import re
 from random import randint
-from typing import Match, Optional
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 

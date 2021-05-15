@@ -14,9 +14,9 @@ from apysc import Int
 from apysc import Number
 from apysc import String
 from apysc.display.line_caps import LineCaps
+from apysc.display.line_dash_dot_setting import LineDashDotSetting
 from apysc.display.line_dash_setting import LineDashSetting
 from apysc.display.line_dot_setting import LineDotSetting
-from apysc.display.line_dash_dot_setting import LineDashDotSetting
 from apysc.display.line_joints import LineJoints
 from apysc.display.line_round_dot_setting import LineRoundDotSetting
 from apysc.type.revert_interface import RevertInterface
@@ -337,8 +337,8 @@ class LineStyleInterface(RevertInterface):
         """
         Get current line dash dot setting.
 
-        Parameters
-        ----------
+        Returns
+        -------
         line_dash_dot_setting : LineDashDotSetting or None
             Current line dash dot setting.
         """

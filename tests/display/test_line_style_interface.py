@@ -3,8 +3,9 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Int, LineDashDotSetting
+from apysc import Int
 from apysc import LineCaps
+from apysc import LineDashDotSetting
 from apysc import LineDashSetting
 from apysc import LineDotSetting
 from apysc import LineJoints

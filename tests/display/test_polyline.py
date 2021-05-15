@@ -6,7 +6,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Array
+from apysc import Array, LineDashDotSetting
 from apysc import LineCaps
 from apysc import LineDashSetting
 from apysc import LineDotSetting
@@ -178,3 +178,12 @@ class TestPolyline:
             parent=sprite.graphics, points=points)
         assert isinstance(
             polyline.line_round_dot_setting, LineRoundDotSetting)
+
+        sprite.graphics.line_style(
+            color='#333',
+            dash_dot_setting=LineDashDotSetting(
+                dot_size=5, dash_size=10, space_size=7))
+        polyline = Polyline(
+            parent=sprite.graphics, points=points)
+        assert isinstance(
+            polyline.line_dash_dot_setting, LineDashDotSetting)

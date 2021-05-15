@@ -33,3 +33,11 @@ class TestLineDashDotSetting:
         dash_size: Int = setting.dash_size
         assert dash_size == 20
         assert isinstance(dash_size, Int)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_space_size(self) -> None:
+        setting: LineDashDotSetting = LineDashDotSetting(
+            dot_size=5, dash_size=20, space_size=7)
+        space_size: Int = setting.space_size
+        assert space_size == 7
+        assert isinstance(space_size, Int)

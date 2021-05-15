@@ -53,6 +53,31 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
                 '\nAcceptable ones are: LineDashDotSetting or None.')
         self._line_dash_dot_setting = value
 
+    def _append_line_dash_dot_setting_update_expression(self) -> None:
+        """
+        Append line dash dot setting updating expression to file.
+        """
+        from apysc.expression import expression_file_util
+        if self._line_dash_dot_setting is None:
+            setting_str: str = '""'
+        else:
+            dot_size_name: str = \
+                self._line_dash_dot_setting.dot_size.variable_name
+            dash_size_name: str = \
+                self._line_dash_dot_setting.dash_size.variable_name
+            space_size_name: str = \
+                self._line_dash_dot_setting.space_size.variable_name
+            setting_str = (
+                f'String({dot_size_name}) + " " + '
+                f'String({space_size_name}) + " " + '
+                f'String({dash_size_name}) + " " + '
+                f'String({space_size_name})'
+            )
+        expression: str = (
+            f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
+        )
+        expression_file_util.append_js_expression(expression=expression)
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass
 

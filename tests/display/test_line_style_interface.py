@@ -373,12 +373,24 @@ class TestLineStyleInterface:
             self) -> None:
         line_style_interface: LineStyleInterface = LineStyleInterface()
         line_style_interface.\
-            _initialize_line_dash_setting_if_not_initialized()
+            _initialize_line_dash_dot_setting_if_not_initialized()
         assert line_style_interface._line_dash_dot_setting is None
 
         line_style_interface._line_dash_dot_setting = LineDashDotSetting(
             dot_size=5, dash_size=10, space_size=7)
         line_style_interface.\
-            _initialize_line_dash_setting_if_not_initialized()
+            _initialize_line_dash_dot_setting_if_not_initialized()
         assert isinstance(
             line_style_interface._line_dash_dot_setting, LineDashDotSetting)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_line_dash_dot_setting(self) -> None:
+        line_style_interface: LineStyleInterface = LineStyleInterface()
+        line_dash_dot_setting: Optional[LineDashDotSetting] = \
+            line_style_interface.line_dash_dot_setting
+        assert line_dash_dot_setting is None
+
+        line_style_interface._line_dash_dot_setting = LineDashDotSetting(
+            dot_size=5, dash_size=10, space_size=7)
+        line_dash_dot_setting = line_style_interface.line_dash_dot_setting
+        assert isinstance(line_dash_dot_setting, LineDashDotSetting)

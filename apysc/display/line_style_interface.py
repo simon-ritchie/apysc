@@ -332,6 +332,19 @@ class LineStyleInterface(RevertInterface):
         self._initialize_line_round_dot_setting_if_not_initialized()
         return self._line_round_dot_setting
 
+    @property
+    def line_dash_dot_setting(self) -> Optional[LineDashDotSetting]:
+        """
+        Get current line dash dot setting.
+
+        Parameters
+        ----------
+        line_dash_dot_setting : LineDashDotSetting or None
+            Current line dash dot setting.
+        """
+        self._initialize_line_dash_dot_setting_if_not_initialized()
+        return self._line_dash_dot_setting
+
     _line_color_snapshots: Dict[str, str]
     _line_thickness_snapshots: Dict[str, int]
     _line_alpha_snapshots: Dict[str, float]

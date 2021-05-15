@@ -33,6 +33,11 @@ class TestLineDashDotSettingInterface:
         interface._line_dash_dot_setting = line_dash_dot_setting
         assert interface.line_dash_dot_setting == line_dash_dot_setting
 
+        interface.line_dash_dot_setting = None
+        assert interface.line_dash_dot_setting is None
+        interface.line_dash_dot_setting = line_dash_dot_setting
+        assert interface.line_dash_dot_setting == line_dash_dot_setting
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_dash_dot_setting_and_skip_appending_exp(
             self) -> None:

@@ -35,6 +35,20 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         self._initialize_line_dash_dot_setting_if_not_initialized()
         return self._line_dash_dot_setting
 
+    @line_dash_dot_setting.setter
+    def line_dash_dot_setting(
+            self, value: Optional[LineDashDotSetting]) -> None:
+        """
+        Set line dash dot (1-dot chain) setting.
+
+        Parameters
+        ----------
+        value : LineDashDotSetting or None
+            Line dash dot (1-dot chain) setting to set.
+        """
+        self._update_line_dash_dot_setting_and_skip_appending_exp(value=value)
+        self._append_line_dash_dot_setting_update_expression()
+
     def _update_line_dash_dot_setting_and_skip_appending_exp(
             self, value: Optional[LineDashDotSetting]) -> None:
         """

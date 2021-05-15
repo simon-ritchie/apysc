@@ -354,6 +354,7 @@ class LineStyleInterface(RevertInterface):
     _line_dash_setting_snapshots: Dict[str, Optional[LineDashSetting]]
     _line_round_dot_setting_snapshots: Dict[
         str, Optional[LineRoundDotSetting]]
+    _line_dash_dot_setting_snapshots: Dict[str, Optional[LineDashDotSetting]]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
@@ -373,6 +374,7 @@ class LineStyleInterface(RevertInterface):
             self._line_dot_setting_snapshots = {}
             self._line_dash_setting_snapshots = {}
             self._line_round_dot_setting_snapshots = {}
+            self._line_dash_dot_setting_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._initialize_line_color_if_not_initialized()
@@ -383,6 +385,7 @@ class LineStyleInterface(RevertInterface):
         self._initialize_line_dot_setting_if_not_initialized()
         self._initialize_line_dash_setting_if_not_initialized()
         self._initialize_line_round_dot_setting_if_not_initialized()
+        self._initialize_line_dash_dot_setting_if_not_initialized()
         self._line_color_snapshots[snapshot_name] = self._line_color._value
         self._line_thickness_snapshots[snapshot_name] = \
             int(self._line_thickness._value)
@@ -395,6 +398,8 @@ class LineStyleInterface(RevertInterface):
             self._line_dash_setting
         self._line_round_dot_setting_snapshots[snapshot_name] = \
             self._line_round_dot_setting
+        self._line_dash_dot_setting_snapshots[snapshot_name] = \
+            self._line_dash_dot_setting
 
     def _revert(self, snapshot_name: str) -> None:
         """
@@ -419,4 +424,6 @@ class LineStyleInterface(RevertInterface):
         self._line_dash_setting = self._line_dash_setting_snapshots[
             snapshot_name]
         self._line_round_dot_setting = self._line_round_dot_setting_snapshots[
+            snapshot_name]
+        self._line_dash_dot_setting = self._line_dash_dot_setting_snapshots[
             snapshot_name]

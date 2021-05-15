@@ -80,3 +80,19 @@ class TestLineDashDotSettingInterface:
             ),
             string=expression, flags=re.MULTILINE)
         assert match is not None
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__make_snapshot(self) -> None:
+        interface: LineDashDotSettingInterface = LineDashDotSettingInterface()
+        line_dash_dot_setting: LineDashDotSetting = LineDashDotSetting(
+            dot_size=5, dash_size=10, space_size=7)
+        interface._line_dash_dot_setting = line_dash_dot_setting
+        snapshot_name: str = interface._get_next_snapshot_name()
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert interface._line_dash_dot_setting_snapshots == {
+            snapshot_name: line_dash_dot_setting}
+
+        interface._line_dash_dot_setting = None
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert interface._line_dash_dot_setting_snapshots == {
+            snapshot_name: line_dash_dot_setting}

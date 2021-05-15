@@ -50,3 +50,15 @@ class LineDashDotSetting(Dictionary):
             Dot size setting.
         """
         return self['dot_size']
+
+    @property
+    def dash_size(self) -> Int:
+        """
+        Get a dash size setting.
+
+        Returns
+        -------
+        dash_size : Int
+            Dash size setting.
+        """
+        return self['dash_size']

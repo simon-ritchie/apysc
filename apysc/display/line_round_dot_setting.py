@@ -23,16 +23,12 @@ class LineRoundDotSetting(Dictionary):
             Blank space size between dots.
         """
         from apysc.validation import number_validation
+        from apysc.converter.to_apysc_val_from_builtin import \
+            get_copied_int_from_builtin_val
         number_validation.validate_nums_are_int_and_gt_zero(
             nums=[round_size, space_size])
-        if isinstance(round_size, int):
-            round_size_: Int = Int(round_size)
-        else:
-            round_size_ = round_size._copy()
-        if isinstance(space_size, int):
-            space_size_: Int = Int(space_size)
-        else:
-            space_size_ = space_size._copy()
+        round_size_: Int = get_copied_int_from_builtin_val(integer=round_size)
+        space_size_: Int = get_copied_int_from_builtin_val(integer=space_size)
         super(LineRoundDotSetting, self).__init__({
             'round_size': round_size_,
             'space_size': space_size_,

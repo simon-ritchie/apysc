@@ -23,16 +23,12 @@ class LineDashSetting(Dictionary):
             Blank space size between dashes.
         """
         from apysc.validation import number_validation
+        from apysc.converter.to_apysc_val_from_builtin import \
+            get_copied_int_from_builtin_val
         number_validation.validate_nums_are_int_and_gt_zero(
             nums=[dash_size, space_size])
-        if isinstance(dash_size, int):
-            dash_size_: Int = Int(dash_size)
-        else:
-            dash_size_ = dash_size._copy()
-        if isinstance(space_size, int):
-            space_size_: Int = Int(space_size)
-        else:
-            space_size_ = space_size._copy()
+        dash_size_: Int = get_copied_int_from_builtin_val(integer=dash_size)
+        space_size_: Int = get_copied_int_from_builtin_val(integer=space_size)
         super(LineDashSetting, self).__init__({
             'dash_size': dash_size_,
             'space_size': space_size_,

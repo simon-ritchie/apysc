@@ -22,6 +22,19 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
             return
         self._line_dash_dot_setting = None
 
+    @property
+    def line_dash_dot_setting(self) -> Optional[LineDashDotSetting]:
+        """
+        Get current dash dot (1-dot chain) setting.
+
+        Returns
+        -------
+        line_dash_dot_setting : LineDashDotSetting or None
+            Dash dot (1-dot chain) setting.
+        """
+        self._initialize_line_dash_dot_setting_if_not_initialized()
+        return self._line_dash_dot_setting
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass
 

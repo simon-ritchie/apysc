@@ -25,7 +25,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
     @property
     def line_dash_setting(self) -> Optional[LineDashSetting]:
         """
-        Get this interface's line dash setting.
+        Get current line dash setting.
 
         Returns
         -------

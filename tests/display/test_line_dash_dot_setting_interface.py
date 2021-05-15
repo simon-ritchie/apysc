@@ -21,3 +21,11 @@ class TestLineDashDotSettingInterface:
         interface._initialize_line_dash_dot_setting_if_not_initialized()
         assert isinstance(
             interface._line_dash_dot_setting, LineDashDotSetting)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_line_dash_dot_setting(self) -> None:
+        interface: LineDashDotSettingInterface = LineDashDotSettingInterface()
+        line_dash_dot_setting: LineDashDotSetting = LineDashDotSetting(
+            dot_size=5, dash_size=10, space_size=7)
+        interface._line_dash_dot_setting = line_dash_dot_setting
+        assert interface.line_dash_dot_setting == line_dash_dot_setting

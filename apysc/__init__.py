@@ -19,6 +19,7 @@ from apysc.display.line_joints import LineJoints  # isort:skip # noqa
 from apysc.display.line_dot_setting import LineDotSetting  # isort:skip # noqa
 from apysc.display.line_dash_setting import LineDashSetting  # isort:skip # noqa
 from apysc.display.line_round_dot_setting import LineRoundDotSetting  # isort:skip # noqa
+from apysc.display.line_dash_dot_setting import LineDashDotSetting  # isort:skip # noqa
 from apysc.geom.point2d import Point2D  # isort:skip # noqa
 from apysc.event.event import Event  # isort:skip # noqa
 from apysc.event.mouse_event import MouseEvent  # isort:skip # noqa

@@ -29,3 +29,17 @@ class TestLineDashDotSettingInterface:
             dot_size=5, dash_size=10, space_size=7)
         interface._line_dash_dot_setting = line_dash_dot_setting
         assert interface.line_dash_dot_setting == line_dash_dot_setting
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__update_line_dash_dot_setting_and_skip_appending_exp(
+            self) -> None:
+        interface: LineDashDotSettingInterface = LineDashDotSettingInterface()
+        interface._update_line_dash_dot_setting_and_skip_appending_exp(
+            value=None)
+        assert interface._line_dash_dot_setting is None
+
+        line_dash_dot_setting: LineDashDotSetting = LineDashDotSetting(
+            dot_size=5, dash_size=10, space_size=7)
+        interface._update_line_dash_dot_setting_and_skip_appending_exp(
+            value=line_dash_dot_setting)
+        assert interface._line_dash_dot_setting == line_dash_dot_setting

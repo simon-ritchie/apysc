@@ -35,6 +35,24 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         self._initialize_line_dash_dot_setting_if_not_initialized()
         return self._line_dash_dot_setting
 
+    def _update_line_dash_dot_setting_and_skip_appending_exp(
+            self, value: Optional[LineDashDotSetting]) -> None:
+        """
+        Update line dash dot (1-dot chain) setting and skip
+        appending expression to file.
+
+        Parameters
+        ----------
+        value : LineDashDotSetting or None
+            Line dash dot (1-dot chain) setting to set.
+        """
+        if value is not None and not isinstance(value, LineDashDotSetting):
+            raise TypeError(
+                'Not supported line_dash_dot_setting type specified:'
+                f'{type(value)}'
+                '\nAcceptable ones are: LineDashDotSetting or None.')
+        self._line_dash_dot_setting = value
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass
 

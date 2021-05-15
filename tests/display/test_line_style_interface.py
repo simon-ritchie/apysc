@@ -3,7 +3,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Int
+from apysc import Int, LineDashDotSetting
 from apysc import LineCaps
 from apysc import LineDashSetting
 from apysc import LineDotSetting
@@ -61,6 +61,13 @@ class TestLineStyleInterface:
             round_dot_setting=line_round_dot_setting)
         assert line_style_interface._line_round_dot_setting == \
             line_round_dot_setting
+
+        line_dash_dot_setting: LineDashDotSetting = LineDashDotSetting(
+            dot_size=5, dash_size=10, space_size=5)
+        line_style_interface.line_style(
+            color='#333', dash_dot_setting=line_dash_dot_setting)
+        assert line_style_interface._line_dash_dot_setting == \
+            line_dash_dot_setting
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_color(self) -> None:

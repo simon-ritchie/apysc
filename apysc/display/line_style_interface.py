@@ -16,6 +16,7 @@ from apysc import String
 from apysc.display.line_caps import LineCaps
 from apysc.display.line_dash_setting import LineDashSetting
 from apysc.display.line_dot_setting import LineDotSetting
+from apysc.display.line_dash_dot_setting import LineDashDotSetting
 from apysc.display.line_joints import LineJoints
 from apysc.display.line_round_dot_setting import LineRoundDotSetting
 from apysc.type.revert_interface import RevertInterface
@@ -33,6 +34,7 @@ class LineStyleInterface(RevertInterface):
     _line_dot_setting: Optional[LineDotSetting]
     _line_dash_setting: Optional[LineDashSetting]
     _line_round_dot_setting: Optional[LineRoundDotSetting]
+    _line_dash_dot_setting: Optional[LineDashDotSetting]
 
     def line_style(
             self, color: StrOrString,
@@ -42,7 +44,8 @@ class LineStyleInterface(RevertInterface):
             joints: Optional[LineJoints] = None,
             dot_setting: Optional[LineDotSetting] = None,
             dash_setting: Optional[LineDashSetting] = None,
-            round_dot_setting: Optional[LineRoundDotSetting] = None) -> None:
+            round_dot_setting: Optional[LineRoundDotSetting] = None,
+            dash_dot_setting: Optional[LineDashDotSetting] = None) -> None:
         """
         Set line style values.
 
@@ -78,6 +81,9 @@ class LineStyleInterface(RevertInterface):
             e.g.,
             `this.move_to(x + round_size / 2, y)`
             `this.line_to(x - round_size / 2, y)`
+        dash_dot_setting : LineDashDotSetting or None, default None
+            Dash dot (1-dot chain) setting. If this is specified, line
+            will be 1-dot chained.
         """
         from apysc.color import color_util
         from apysc.converter import cast
@@ -106,6 +112,7 @@ class LineStyleInterface(RevertInterface):
         self._line_dot_setting = dot_setting
         self._line_dash_setting = dash_setting
         self._line_round_dot_setting = round_dot_setting
+        self._line_dash_dot_setting = dash_dot_setting
 
     def _set_line_joints(self, joints: Optional[LineJoints]) -> None:
         """

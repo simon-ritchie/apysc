@@ -28,6 +28,7 @@ class TestLineDashDotSettingInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_dash_dot_setting(self) -> None:
         interface: LineDashDotSettingInterface = LineDashDotSettingInterface()
+        interface.variable_name = 'test_line_dash_dot_setting_interface'
         line_dash_dot_setting: LineDashDotSetting = LineDashDotSetting(
             dot_size=5, dash_size=10, space_size=7)
         interface._line_dash_dot_setting = line_dash_dot_setting
@@ -96,3 +97,16 @@ class TestLineDashDotSettingInterface:
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface._line_dash_dot_setting_snapshots == {
             snapshot_name: line_dash_dot_setting}
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__revert(self) -> None:
+        interface: LineDashDotSettingInterface = LineDashDotSettingInterface()
+        line_dash_dot_setting: LineDashDotSetting = LineDashDotSetting(
+            dot_size=5, dash_size=10, space_size=7)
+        interface._line_dash_dot_setting = line_dash_dot_setting
+        snapshot_name: str = interface._get_next_snapshot_name()
+        interface._run_all_revert_methods(snapshot_name=snapshot_name)
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        interface._line_dash_dot_setting = None
+        interface._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert interface._line_dash_dot_setting == line_dash_dot_setting

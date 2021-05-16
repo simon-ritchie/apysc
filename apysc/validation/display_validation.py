@@ -21,7 +21,8 @@ Mainly following interfaces are defined:
 """
 
 
-from typing import Any, List
+from typing import Any
+from typing import List
 
 
 def validate_stage(stage: Any) -> None:
@@ -189,15 +190,15 @@ def validate_multiple_line_settings_isnt_set(any_instance: Any) -> None:
     ValueError
         If multiple line settings are set.
     """
-    from apysc.display.line_style_interface import LineStyleInterface
-    from apysc.display.line_dot_setting_interface import \
-        LineDotSettingInterface
-    from apysc.display.line_dash_setting_interface import \
-        LineDashSettingInterface
-    from apysc.display.line_round_dot_setting_interface import \
-        LineRoundDotSettingInterface
     from apysc.display.line_dash_dot_setting_interface import \
         LineDashDotSettingInterface
+    from apysc.display.line_dash_setting_interface import \
+        LineDashSettingInterface
+    from apysc.display.line_dot_setting_interface import \
+        LineDotSettingInterface
+    from apysc.display.line_round_dot_setting_interface import \
+        LineRoundDotSettingInterface
+    from apysc.display.line_style_interface import LineStyleInterface
     valid_setting_names: List[str] = []
     if isinstance(
             any_instance, (LineStyleInterface, LineDotSettingInterface)):

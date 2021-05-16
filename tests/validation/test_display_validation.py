@@ -2,8 +2,12 @@ from random import randint
 
 from retrying import retry
 
-from apysc import LineCaps, LineDotSetting, LineDashSetting, LineRoundDotSetting, LineDashDotSetting
+from apysc import LineCaps
+from apysc import LineDashDotSetting
+from apysc import LineDashSetting
+from apysc import LineDotSetting
 from apysc import LineJoints
+from apysc import LineRoundDotSetting
 from apysc import Sprite
 from apysc import Stage
 from apysc import String

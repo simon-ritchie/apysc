@@ -89,8 +89,8 @@ class LineStyleInterface(RevertInterface):
         from apysc.converter import cast
         from apysc.type.number_value_interface import NumberValueInterface
         from apysc.validation import color_validation
-        from apysc.validation import number_validation
         from apysc.validation import display_validation
+        from apysc.validation import number_validation
 
         self._initialize_line_color_if_not_initialized()
         self._initialize_line_thickness_if_not_initialized()

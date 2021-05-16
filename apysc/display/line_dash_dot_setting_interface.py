@@ -62,7 +62,7 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         """
         if value is not None and not isinstance(value, LineDashDotSetting):
             raise TypeError(
-                'Not supported line_dash_dot_setting type specified:'
+                'Not supported line_dash_dot_setting type specified: '
                 f'{type(value)}'
                 '\nAcceptable ones are: LineDashDotSetting or None.')
         self._line_dash_dot_setting = value

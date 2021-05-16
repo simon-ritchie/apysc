@@ -9,6 +9,7 @@ from apysc import LineDashDotSetting
 from apysc.display.line_dash_dot_setting_interface import \
     LineDashDotSettingInterface
 from apysc.expression import expression_file_util
+from tests.testing_helper import assert_raises
 
 
 class TestLineDashDotSettingInterface:
@@ -53,6 +54,13 @@ class TestLineDashDotSettingInterface:
         interface._update_line_dash_dot_setting_and_skip_appending_exp(
             value=line_dash_dot_setting)
         assert interface._line_dash_dot_setting == line_dash_dot_setting
+
+        assert_raises(
+            expected_error_class=TypeError,
+            func_or_method=interface.
+            _update_line_dash_dot_setting_and_skip_appending_exp,
+            kwargs={'value': 10},
+            match='Not supported line_dash_dot_setting type specified: ')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_line_dash_dot_setting_update_expression(self) -> None:

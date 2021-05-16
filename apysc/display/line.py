@@ -41,8 +41,45 @@ class Line(LineBase):
         self._start_point = start_point
         self._end_point = end_point
         self._set_initial_basic_values(parent=parent)
+        self._append_constructor_expression()
         self._set_line_setting_if_not_none_value_exists(
             parent_graphics=parent_graphics)
+
+    def _append_constructor_expression(self) -> None:
+        """
+        Append constructor expression to file.
+        """
+        from apysc.display import graphics_expression
+        from apysc.display.graphics import Graphics
+        from apysc.display.stage import get_stage_variable_name
+        from apysc.expression import expression_file_util
+        stage_variable_name: str = get_stage_variable_name()
+        points_str: str = self._make_points_expression()
+        expression: str = (
+            f'var {self.variable_name} = {stage_variable_name}'
+            f'\n  .line()'
+        )
+        pass
+
+    def _make_points_expression(self) -> str:
+        """
+        Make line start and end expression str.
+
+        Returns
+        -------
+        expression : str
+            Each points expression.
+        """
+        from apysc import Point2D
+        start_point: Point2D = self._start_point
+        end_point: Point2D = self._end_point
+        expression: str = (
+            f'{start_point.x.variable_name}, '
+            f'{start_point.y.variable_name}, '
+            f'{end_point.x.variable_name}, '
+            f'{end_point.y.variable_name}'
+        )
+        return expression
 
     def __repr__(self) -> str:
         pass

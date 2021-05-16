@@ -49,17 +49,22 @@ class Line(LineBase):
         """
         Append constructor expression to file.
         """
-        from apysc.display import graphics_expression
-        from apysc.display.graphics import Graphics
         from apysc.display.stage import get_stage_variable_name
         from apysc.expression import expression_file_util
         stage_variable_name: str = get_stage_variable_name()
         points_str: str = self._make_points_expression()
         expression: str = (
             f'var {self.variable_name} = {stage_variable_name}'
-            f'\n  .line()'
+            f'\n  .line({points_str})'
+            '\n  .attr({'
         )
-        pass
+        expression = self._append_basic_vals_expression(
+            expression=expression,
+            indent_num=2)
+        expression = self._append_basic_vals_expression(
+            expression=expression, indent_num=2)
+        expression += '\n  });'
+        expression_file_util.append_js_expression(expression=expression)
 
     def _make_points_expression(self) -> str:
         """

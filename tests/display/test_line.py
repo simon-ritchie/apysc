@@ -5,8 +5,10 @@ import re
 from retrying import retry
 
 from apysc import Stage, Sprite, LineDotSetting, Point2D
-from apysc.expression import var_names
+from apysc.expression import expression_file_util, var_names
 from apysc import Line
+from tests.display.test_graphics_expression import \
+    assert_stroke_attr_expression_exists
 
 
 class TestLine:
@@ -44,3 +46,26 @@ class TestLine:
             ),
             string=expression, flags=re.MULTILINE)
         assert match is not None
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_constructor_expression(self) -> None:
+        from apysc.display.stage import get_stage_variable_name
+        stage: Stage = Stage()
+        stage_variable_name: str = get_stage_variable_name()
+        sprite: Sprite = Sprite(stage=stage)
+        sprite.graphics.line_style(color='#333', thickness=3)
+        line: Line = Line(
+            parent=sprite.graphics,
+            start_point=Point2D(x=10, y=20),
+            end_point=Point2D(x=30, y=40))
+        expression: str = expression_file_util.get_current_expression()
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'var {line.variable_name} = {stage_variable_name}'
+                r'\n  .line\(.+?\)'
+                r'\n  .attr\(\{.*?'
+                r'\n  \}\);'
+            ),
+            string=expression, flags=re.MULTILINE| re.DOTALL)
+        assert match is not None
+        assert_stroke_attr_expression_exists(expression=expression)

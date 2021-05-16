@@ -39,22 +39,7 @@ class Polyline(LineBase, Points2DInterface):
             parent=parent, x=0, y=0,
             variable_name=variable_name)
         self.points = points
-        self._set_initial_fill_color_if_not_blank(
-            fill_color=parent_graphics.fill_color)
-        self._update_fill_alpha_and_skip_appending_exp(
-            value=parent_graphics.fill_alpha)
-        self._set_initial_line_color_if_not_blank(
-            line_color=parent_graphics.line_color)
-        self._update_line_thickness_and_skip_appending_exp(
-            value=parent_graphics.line_thickness)
-        self._update_line_alpha_and_skip_appending_exp(
-            value=parent_graphics.line_alpha)
-        self._initialize_x_if_not_initialized()
-        self._initialize_y_if_not_initialized()
-        self._update_line_cap_and_skip_appending_exp(
-            value=parent_graphics.line_cap)
-        self._update_line_joints_and_skip_appending_exp(
-            value=parent_graphics.line_joints)
+        self._set_initial_basic_values(parent=parent)
         self._append_constructor_expression()
         self._set_line_setting_if_not_none_value_exists(
             parent_graphics=parent_graphics)

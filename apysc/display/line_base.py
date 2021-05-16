@@ -22,6 +22,8 @@ from apysc.display.line_round_dot_setting_interface import \
 from apysc.display.x_interface import XInterface
 from apysc.display.y_interface import YInterface
 
+_Graphics = Any
+
 
 class LineBase(
         GraphicBase, FillColorInterface, FillAlphaInterface,
@@ -70,3 +72,31 @@ class LineBase(
             self.line_dash_dot_setting = \
                 parent_graphics_.line_dash_dot_setting
             return
+
+    def _set_initial_basic_values(self, parent: _Graphics) -> None:
+        """
+        Set initial basic values (fill color, line thickness, and so on).
+
+        Parameters
+        ----------
+        parent : Graphics
+            Graphics instance to link this graphic.
+        """
+        from apysc.display.graphics import Graphics
+        parent_graphics: Graphics = parent
+        self._set_initial_fill_color_if_not_blank(
+            fill_color=parent_graphics.fill_color)
+        self._update_fill_alpha_and_skip_appending_exp(
+            value=parent_graphics.fill_alpha)
+        self._set_initial_line_color_if_not_blank(
+            line_color=parent_graphics.line_color)
+        self._update_line_thickness_and_skip_appending_exp(
+            value=parent_graphics.line_thickness)
+        self._update_line_alpha_and_skip_appending_exp(
+            value=parent_graphics.line_alpha)
+        self._initialize_x_if_not_initialized()
+        self._initialize_y_if_not_initialized()
+        self._update_line_cap_and_skip_appending_exp(
+            value=parent_graphics.line_cap)
+        self._update_line_joints_and_skip_appending_exp(
+            value=parent_graphics.line_joints)

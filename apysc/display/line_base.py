@@ -2,11 +2,8 @@
 """
 
 from typing import Any
-from typing import Union
 from abc import ABC, abstractmethod
 
-from apysc import Array
-from apysc import Int
 from apysc.display.fill_alpha_interface import FillAlphaInterface
 from apysc.display.fill_color_interface import FillColorInterface
 from apysc.display.graphic_base import GraphicBase

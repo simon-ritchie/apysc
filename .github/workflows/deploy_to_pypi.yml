@@ -71,8 +71,8 @@ jobs:
       - name: Test coverage badge setting
         uses: RubbaBoy/BYOB@v1.2.0
         with:
-          NAME: coverage
-          LABEL: 'Coverage'
+          NAME: pytest_coverage
+          LABEL: 'pytest coverage'
           STATUS: ${{ env.COVERAGE }}
           COLOR: 0088FF
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

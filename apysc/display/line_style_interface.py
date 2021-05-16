@@ -90,6 +90,7 @@ class LineStyleInterface(RevertInterface):
         from apysc.type.number_value_interface import NumberValueInterface
         from apysc.validation import color_validation
         from apysc.validation import number_validation
+        from apysc.validation import display_validation
 
         self._initialize_line_color_if_not_initialized()
         self._initialize_line_thickness_if_not_initialized()
@@ -113,6 +114,8 @@ class LineStyleInterface(RevertInterface):
         self._line_dash_setting = dash_setting
         self._line_round_dot_setting = round_dot_setting
         self._line_dash_dot_setting = dash_dot_setting
+        display_validation.validate_multiple_line_settings_isnt_set(
+            any_instance=self)
 
     def _set_line_joints(self, joints: Optional[LineJoints]) -> None:
         """

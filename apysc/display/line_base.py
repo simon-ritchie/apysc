@@ -97,3 +97,43 @@ class LineBase(
             value=parent_graphics.line_cap)
         self._update_line_joints_and_skip_appending_exp(
             value=parent_graphics.line_joints)
+
+    def _append_basic_vals_expression(
+            self, expression: str, indent_num: int) -> str:
+        """
+        Append basic values expression to specified one.
+
+        Parameters
+        ----------
+        expression : str
+            Target expression.
+        indent_num : int
+            Indentation number.
+
+        Returns
+        -------
+        expression : str
+            After appending expression.
+        """
+        from apysc.display.graphics import Graphics
+        from apysc.display import graphics_expression
+        graphics: Graphics = self.parent_graphics
+        expression = graphics_expression.append_fill_expression(
+            graphics=graphics, expression=expression, indent_num=indent_num)
+        expression = graphics_expression.append_fill_opacity_expression(
+            graphics=graphics, expression=expression, indent_num=indent_num)
+        expression = graphics_expression.append_stroke_expression(
+            graphics=graphics, expression=expression, indent_num=indent_num)
+        expression = graphics_expression.append_stroke_width_expression(
+            graphics=graphics, expression=expression, indent_num=indent_num)
+        expression = graphics_expression.append_stroke_opacity_expression(
+            graphics=graphics, expression=expression, indent_num=indent_num)
+        expression = graphics_expression.append_stroke_linecap_expression(
+            graphics=graphics, expression=expression, indent_num=indent_num)
+        expression = graphics_expression.append_stroke_linejoin_expression(
+            graphics=graphics, expression=expression, indent_num=indent_num)
+        expression = graphics_expression.append_x_expression(
+            graphic=self, expression=expression, indent_num=indent_num)
+        expression = graphics_expression.append_y_expression(
+            graphic=self, expression=expression, indent_num=indent_num)
+        return expression

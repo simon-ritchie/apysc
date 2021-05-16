@@ -1,9 +1,28 @@
+from apysc.expression import expression_file_util
 from random import randint
 from typing import List
 
 from retrying import retry
 
 from apysc import Polyline, Stage, Sprite, LineDotSetting, Array, Point2D, LineDashSetting, LineRoundDotSetting, LineDashDotSetting, LineCaps, LineJoints
+from tests.display.test_graphics_expression import \
+    assert_fill_attr_expression_exists
+from tests.display.test_graphics_expression import \
+    assert_fill_opacity_attr_expression_exists
+from tests.display.test_graphics_expression import \
+    assert_stroke_attr_expression_exists
+from tests.display.test_graphics_expression import \
+    assert_stroke_linecap_attr_expression_exists
+from tests.display.test_graphics_expression import \
+    assert_stroke_linejoin_attr_expression_exists
+from tests.display.test_graphics_expression import \
+    assert_stroke_opacity_attr_expression_exists
+from tests.display.test_graphics_expression import \
+    assert_stroke_width_attr_expression_exists
+from tests.display.test_graphics_expression import \
+    assert_x_attr_expression_exists
+from tests.display.test_graphics_expression import \
+    assert_y_attr_expression_exists
 
 
 class TestLineBase:
@@ -63,3 +82,27 @@ class TestLineBase:
         assert polyline.y == 0
         assert polyline.line_cap == LineCaps.ROUND.value
         assert polyline.line_joints == LineJoints.BEVEL.value
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_basic_vals_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        sprite.graphics.begin_fill(color='#333', alpha=0.5)
+        sprite.graphics.line_style(
+            color='#666', thickness=2, alpha=0.3,
+            cap=LineCaps.ROUND, joints=LineJoints.BEVEL)
+        points: Array[Point2D] = Array([Point2D(0, 0)])
+        polyline = Polyline(parent=sprite.graphics, points=points)
+        expression: str = '.attr({'
+        expression = polyline._append_basic_vals_expression(
+            expression=expression, indent_num=2)
+        assert_fill_attr_expression_exists(expression=expression)
+        assert_fill_opacity_attr_expression_exists(expression=expression)
+        assert_stroke_attr_expression_exists(expression=expression)
+        assert_stroke_linecap_attr_expression_exists(expression=expression)
+        assert_stroke_linejoin_attr_expression_exists(expression=expression)
+        assert_stroke_opacity_attr_expression_exists(expression=expression)
+        assert_stroke_width_attr_expression_exists(expression=expression)
+        assert_x_attr_expression_exists(expression=expression)
+        assert_y_attr_expression_exists(expression=expression)

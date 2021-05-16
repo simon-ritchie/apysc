@@ -62,8 +62,6 @@ class Polyline(LineBase, Points2DInterface):
         """
         Append constructor expression to file.
         """
-        from apysc.display import graphics_expression
-        from apysc.display.graphics import Graphics
         from apysc.display.stage import get_stage_variable_name
         from apysc.expression import expression_file_util
         stage_variable_name: str = get_stage_variable_name()
@@ -77,26 +75,8 @@ class Polyline(LineBase, Points2DInterface):
             f'\n  .polyline({points_var_name})'
             '\n  .attr({'
         )
-        INDENT_NUM: int = 2
-        graphics: Graphics = self.parent_graphics
-        expression = graphics_expression.append_fill_expression(
-            graphics=graphics, expression=expression, indent_num=INDENT_NUM)
-        expression = graphics_expression.append_fill_opacity_expression(
-            graphics=graphics, expression=expression, indent_num=INDENT_NUM)
-        expression = graphics_expression.append_stroke_expression(
-            graphics=graphics, expression=expression, indent_num=INDENT_NUM)
-        expression = graphics_expression.append_stroke_width_expression(
-            graphics=graphics, expression=expression, indent_num=INDENT_NUM)
-        expression = graphics_expression.append_stroke_opacity_expression(
-            graphics=graphics, expression=expression, indent_num=INDENT_NUM)
-        expression = graphics_expression.append_stroke_linecap_expression(
-            graphics=graphics, expression=expression, indent_num=INDENT_NUM)
-        expression = graphics_expression.append_stroke_linejoin_expression(
-            graphics=graphics, expression=expression, indent_num=INDENT_NUM)
-        expression = graphics_expression.append_x_expression(
-            graphic=self, expression=expression, indent_num=INDENT_NUM)
-        expression = graphics_expression.append_y_expression(
-            graphic=self, expression=expression, indent_num=INDENT_NUM)
+        expression = self._append_basic_vals_expression(
+            expression=expression, indent_num=2)
         expression += '\n  });'
         expression_file_util.append_js_expression(expression=expression)
         self._points_var_name = points_var_name

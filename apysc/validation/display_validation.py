@@ -15,10 +15,13 @@ Mainly following interfaces are defined:
     Validate specified line cap style setting.
 - validate_line_joints
     Validate specified line joints style setting.
+- validate_multiple_line_settings_isnt_set
+    Validate multiple line settings (dotted, dashed, and so on)
+    is not set.
 """
 
 
-from typing import Any
+from typing import Any, List
 
 
 def validate_stage(stage: Any) -> None:
@@ -169,3 +172,55 @@ def validate_line_joints(joints: Any) -> None:
         'Specified joints type is not LineJoints or String one: '
         f'{type(joints)}'
     )
+
+
+def validate_multiple_line_settings_isnt_set(any_instance: Any) -> None:
+    """
+    Validate multiple line settings (dotted, dashed, and so on)
+    is not set.
+
+    Parameters
+    ----------
+    any_instance : Any
+        Any instance to check.
+
+    Raises
+    ------
+    ValueError
+        If multiple line settings are set.
+    """
+    from apysc.display.line_style_interface import LineStyleInterface
+    from apysc.display.line_dot_setting_interface import \
+        LineDotSettingInterface
+    from apysc.display.line_dash_setting_interface import \
+        LineDashSettingInterface
+    from apysc.display.line_round_dot_setting_interface import \
+        LineRoundDotSettingInterface
+    from apysc.display.line_dash_dot_setting_interface import \
+        LineDashDotSettingInterface
+    valid_setting_names: List[str] = []
+    if isinstance(
+            any_instance, (LineStyleInterface, LineDotSettingInterface)):
+        if (hasattr(any_instance, '_line_dot_setting')
+                and any_instance._line_dot_setting is not None):
+            valid_setting_names.append('LineDotSetting')
+    if isinstance(
+            any_instance, (LineStyleInterface, LineDashSettingInterface)):
+        if (hasattr(any_instance, '_line_dash_setting')
+                and any_instance._line_dash_setting is not None):
+            valid_setting_names.append('LineDashSetting')
+    if isinstance(
+            any_instance, (LineStyleInterface, LineRoundDotSettingInterface)):
+        if (hasattr(any_instance, '_line_round_dot_setting')
+                and any_instance._line_round_dot_setting is not None):
+            valid_setting_names.append('LineRoundDotSetting')
+    if isinstance(
+            any_instance, (LineStyleInterface, LineDashDotSettingInterface)):
+        if (hasattr(any_instance, '_line_dash_dot_setting')
+                and any_instance._line_dash_dot_setting is not None):
+            valid_setting_names.append('LineDashDotSetting')
+    if len(valid_setting_names) < 2:
+        return
+    raise ValueError(
+        'Multiple line settings can not be set.'
+        f' Current settings: {valid_setting_names}')

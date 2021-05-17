@@ -9,6 +9,7 @@ from apysc.expression import expression_file_util, var_names
 from apysc import Line
 from tests.display.test_graphics_expression import \
     assert_stroke_attr_expression_exists
+from apysc.display.stage import get_stage_variable_name
 
 
 class TestLine:
@@ -49,7 +50,6 @@ class TestLine:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
-        from apysc.display.stage import get_stage_variable_name
         stage: Stage = Stage()
         stage_variable_name: str = get_stage_variable_name()
         sprite: Sprite = Sprite(stage=stage)
@@ -69,3 +69,15 @@ class TestLine:
             string=expression, flags=re.MULTILINE| re.DOTALL)
         assert match is not None
         assert_stroke_attr_expression_exists(expression=expression)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___repr__(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        line: Line = Line(
+            parent=sprite.graphics,
+            start_point=Point2D(x=10, y=20),
+            end_point=Point2D(x=30, y=40))
+        repr_str: str = repr(line)
+        expected: str = f"Line('{line.variable_name}')"
+        assert repr_str == expected

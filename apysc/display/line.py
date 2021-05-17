@@ -87,4 +87,15 @@ class Line(LineBase):
         return expression
 
     def __repr__(self) -> str:
-        pass
+        """
+        Get a string representation of this instance (for the sake of
+        debugging).
+
+        Returns
+        -------
+        repr_str : str
+            Type name and variable name will be set
+            (e.g., `Line('<variable_name>')`).
+        """
+        repr_str: str = f"Line('{self.variable_name}')"
+        return repr_str

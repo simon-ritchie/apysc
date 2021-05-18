@@ -203,6 +203,7 @@ class Graphics(
             start_point=Point2D(x=x_start, y=y_start),
             end_point=Point2D(x=x_end, y=y_end))
         self._run_all_revert_methods(snapshot_name=snapshot_name)
+        self.add_child(child=line)
         return line
 
     def __repr__(self) -> str:

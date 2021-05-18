@@ -151,3 +151,4 @@ class TestGraphics:
         assert line.line_dot_setting is None
         assert line._start_point == Point2D(x=50, y=100)
         assert line._end_point == Point2D(x=150, y=200)
+        sprite.graphics._children == [line]

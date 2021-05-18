@@ -33,6 +33,9 @@ class Line(LineBase):
         from apysc.display.graphics import Graphics
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names
+        from apysc.validation import geom_validation
+        geom_validation.validate_point_2d_type(point=start_point)
+        geom_validation.validate_point_2d_type(point=end_point)
         parent_graphics: Graphics = parent
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.LINE)

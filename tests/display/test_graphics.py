@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Array
+from apysc import Array, LineDotSetting, LineDashSetting, LineRoundDotSetting, LineDashDotSetting
 from apysc import Point2D
 from apysc import Polyline
 from apysc import Sprite
@@ -119,3 +119,20 @@ class TestGraphics:
         polyline = sprite.graphics.move_to(x=300, y=400)
         assert polyline.points == Array([Point2D(300, 400)])
         assert polyline.variable_name != pre_var_name
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__reset_each_line_settings(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        sprite.graphics._line_dot_setting = LineDotSetting(dot_size=10)
+        sprite.graphics._line_dash_setting = LineDashSetting(
+            dash_size=10, space_size=5)
+        sprite.graphics._line_round_dot_setting = LineRoundDotSetting(
+            round_size=10, space_size=5)
+        sprite.graphics._line_dash_dot_setting = LineDashDotSetting(
+            dot_size=5, dash_size=10, space_size=5)
+        sprite.graphics._reset_each_line_settings()
+        assert sprite.graphics._line_dot_setting is None
+        assert sprite.graphics._line_dash_setting is None
+        assert sprite.graphics._line_round_dot_setting is None
+        assert sprite.graphics._line_dash_dot_setting is None

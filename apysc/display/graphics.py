@@ -1,7 +1,7 @@
 """Implementations for Graphics class.
 """
 
-from typing import Any
+from typing import Any, List
 from typing import Optional
 from typing import Union
 
@@ -10,6 +10,7 @@ from apysc.display.begin_fill_interface import BeginFillInterface
 from apysc.display.child_interface import ChildInterface
 from apysc.display.graphics_clear_interface import GraphicsClearInterface
 from apysc.display.line_style_interface import LineStyleInterface
+from apysc.display.line import Line
 from apysc.display.polyline import Polyline
 from apysc.display.rectangle import Rectangle
 from apysc.type.variable_name_interface import VariableNameInterface
@@ -148,6 +149,57 @@ class Graphics(
         self._current_line = Polyline(
             parent=self, points=Array([Point2D(x=x, y=y)]))
         return self._current_line
+
+    def _reset_each_line_settings(self) -> None:
+        """
+        Reset each line settings (e.g., LineDotSetting, LineDashSetting,
+        and so on).
+
+        Notes
+        -----
+        expression will not be appended.
+        """
+        self._line_dot_setting = None
+        self._line_dash_setting = None
+        self._line_round_dot_setting = None
+        self._line_dash_dot_setting = None
+
+    def draw_line(
+            self,
+            x_start: Union[int, Int],
+            y_start: Union[int, Int],
+            x_end: Union[int, Int],
+            y_end: Union[int, Int]) -> Line:
+        """
+        Draw normal line vector graphics.
+
+        Notes
+        -----
+        - This interface will ignore line settings, like a
+            LineDotSetting, LineDashSetting, and so on.
+
+        Parameters
+        ----------
+        x_start : int or Int
+            Line start x-coordinate.
+        y_start : int or Int
+            Line start y-coordinate.
+        x_end : int or Int
+            Line end x-coordinate.
+        y_end : int or Int
+            Line end y-coordinate.
+
+        Returns
+        -------
+        line : Line
+            Created line graphic instance.
+        """
+        snapshot_name: str = self._get_next_snapshot_name()
+        self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        self._reset_each_line_settings()
+
+        self._run_all_revert_methods(snapshot_name=snapshot_name)
+        pass
 
     def __repr__(self) -> str:
         """

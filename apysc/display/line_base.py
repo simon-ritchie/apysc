@@ -36,13 +36,7 @@ class LineBase(
         """
         Get a string representation of this instance (for the sake of
         debugging).
-
-        Returns
-        -------
-        repr_str : str
-            Type name and variable name will be set.
         """
-        return ''
 
     def _set_line_setting_if_not_none_value_exists(
             self, parent_graphics: Any) -> None:

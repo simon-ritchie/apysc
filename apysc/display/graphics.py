@@ -194,12 +194,16 @@ class Graphics(
         line : Line
             Created line graphic instance.
         """
+        from apysc import Point2D
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
-
+        line: Line = Line(
+            parent=self,
+            start_point=Point2D(x=x_start, y=y_start),
+            end_point=Point2D(x=x_end, y=y_end))
         self._run_all_revert_methods(snapshot_name=snapshot_name)
-        pass
+        return line
 
     def __repr__(self) -> str:
         """

@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Array, LineDotSetting, LineDashSetting, LineRoundDotSetting, LineDashDotSetting
+from apysc import Array, LineDotSetting, LineDashSetting, LineRoundDotSetting, LineDashDotSetting, Line
 from apysc import Point2D
 from apysc import Polyline
 from apysc import Sprite
@@ -136,3 +136,18 @@ class TestGraphics:
         assert sprite.graphics._line_dash_setting is None
         assert sprite.graphics._line_round_dot_setting is None
         assert sprite.graphics._line_dash_dot_setting is None
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_draw_line(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        sprite.graphics.line_style(
+            color='#333', thickness=3,
+            dot_setting=LineDotSetting(dot_size=10))
+        line: Line = sprite.graphics.draw_line(
+            x_start=50, y_start=100, x_end=150, y_end=200)
+        assert line.line_color == '#333333'
+        assert line.line_thickness == 3
+        assert line.line_dot_setting is None
+        assert line._start_point == Point2D(x=50, y=100)
+        assert line._end_point == Point2D(x=150, y=200)

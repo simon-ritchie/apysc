@@ -1,8 +1,9 @@
 """Base class implementation for each lines.
 """
 
+from abc import ABC
+from abc import abstractmethod
 from typing import Any
-from abc import ABC, abstractmethod
 
 from apysc.display.fill_alpha_interface import FillAlphaInterface
 from apysc.display.fill_color_interface import FillColorInterface
@@ -41,6 +42,7 @@ class LineBase(
         repr_str : str
             Type name and variable name will be set.
         """
+        return ''
 
     def _set_line_setting_if_not_none_value_exists(
             self, parent_graphics: Any) -> None:
@@ -115,8 +117,8 @@ class LineBase(
         expression : str
             After appending expression.
         """
-        from apysc.display.graphics import Graphics
         from apysc.display import graphics_expression
+        from apysc.display.graphics import Graphics
         graphics: Graphics = self.parent_graphics
         expression = graphics_expression.append_fill_expression(
             graphics=graphics, expression=expression, indent_num=indent_num)

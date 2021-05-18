@@ -1,7 +1,7 @@
 """Implementations for Graphics class.
 """
 
-from typing import Any, List
+from typing import Any
 from typing import Optional
 from typing import Union
 
@@ -9,8 +9,8 @@ from apysc import Int
 from apysc.display.begin_fill_interface import BeginFillInterface
 from apysc.display.child_interface import ChildInterface
 from apysc.display.graphics_clear_interface import GraphicsClearInterface
-from apysc.display.line_style_interface import LineStyleInterface
 from apysc.display.line import Line
+from apysc.display.line_style_interface import LineStyleInterface
 from apysc.display.polyline import Polyline
 from apysc.display.rectangle import Rectangle
 from apysc.type.variable_name_interface import VariableNameInterface

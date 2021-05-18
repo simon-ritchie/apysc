@@ -6,9 +6,9 @@ from typing import Union
 
 from apysc import Array
 from apysc import Int
+from apysc.display.line_base import LineBase
 from apysc.display.points_2d_interface import Points2DInterface
 from apysc.geom.point2d import Point2D
-from apysc.display.line_base import LineBase
 
 _Graphics = Any
 

@@ -1,15 +1,20 @@
-from random import randint
-from typing import Match, Optional
 import re
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
-from apysc import Stage, Sprite, LineDotSetting, Point2D
-from apysc.expression import expression_file_util, var_names
 from apysc import Line
+from apysc import LineDotSetting
+from apysc import Point2D
+from apysc import Sprite
+from apysc import Stage
+from apysc.display.stage import get_stage_variable_name
+from apysc.expression import expression_file_util
+from apysc.expression import var_names
 from tests.display.test_graphics_expression import \
     assert_stroke_attr_expression_exists
-from apysc.display.stage import get_stage_variable_name
 
 
 class TestLine:
@@ -66,7 +71,7 @@ class TestLine:
                 r'\n  .attr\(\{.*?'
                 r'\n  \}\);'
             ),
-            string=expression, flags=re.MULTILINE| re.DOTALL)
+            string=expression, flags=re.MULTILINE | re.DOTALL)
         assert match is not None
         assert_stroke_attr_expression_exists(expression=expression)
 

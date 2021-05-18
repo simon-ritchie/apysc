@@ -8,11 +8,9 @@ from retrying import retry
 
 from apysc import Array
 from apysc import LineCaps
-from apysc import LineDashDotSetting
 from apysc import LineDashSetting
 from apysc import LineDotSetting
 from apysc import LineJoints
-from apysc import LineRoundDotSetting
 from apysc import Point2D
 from apysc import Polyline
 from apysc import Sprite

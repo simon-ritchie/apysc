@@ -2,7 +2,12 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Array, LineDotSetting, LineDashSetting, LineRoundDotSetting, LineDashDotSetting, Line
+from apysc import Array
+from apysc import Line
+from apysc import LineDashDotSetting
+from apysc import LineDashSetting
+from apysc import LineDotSetting
+from apysc import LineRoundDotSetting
 from apysc import Point2D
 from apysc import Polyline
 from apysc import Sprite

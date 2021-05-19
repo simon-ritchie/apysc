@@ -232,13 +232,18 @@ class Graphics(
             Line end x-coordinate.
         y_end : int or Int
             Line end y-coordinate.
+        dash_size : int or Int
+            Dash size.
+        space_size : int or Int
+            Blank space size between dashes.
 
         Returns
         -------
         line : Line
             Created line graphic instance.
         """
-        from apysc import Point2D, LineDashSetting
+        from apysc import LineDashSetting
+        from apysc import Point2D
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()

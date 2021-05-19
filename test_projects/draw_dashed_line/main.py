@@ -15,7 +15,6 @@ import os
 from types import ModuleType
 
 from apysc import Line
-from apysc import LineCaps
 from apysc import LineDotSetting
 from apysc import MouseEvent
 from apysc import Sprite

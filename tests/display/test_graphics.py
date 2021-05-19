@@ -1,4 +1,5 @@
 from random import randint
+from typing import Optional
 
 from retrying import retry
 
@@ -156,4 +157,27 @@ class TestGraphics:
         assert line.line_dot_setting is None
         assert line._start_point == Point2D(x=50, y=100)
         assert line._end_point == Point2D(x=150, y=200)
+        assert isinstance(sprite.graphics.line_dot_setting, LineDotSetting)
+        sprite.graphics._children == [line]
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_draw_dashed_line(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        sprite.graphics.line_style(
+            color='#333', thickness=3,
+            dot_setting=LineDotSetting(dot_size=5))
+        line: Line = sprite.graphics.draw_dashed_line(
+            x_start=50, y_start=100, x_end=150, y_end=200,
+            dash_size=10, space_size=5)
+        assert line.line_color == '#333333'
+        assert line.line_thickness == 3
+        line_dash_setting: Optional[LineDashSetting] = \
+            line.line_dash_setting
+        assert isinstance(line_dash_setting, LineDashSetting)
+        assert line_dash_setting.dash_size == 10
+        assert line_dash_setting.space_size == 5
+        assert line._start_point == Point2D(x=50, y=100)
+        assert line._end_point == Point2D(x=150, y=200)
+        assert isinstance(sprite.graphics.line_dot_setting, LineDotSetting)
         sprite.graphics._children == [line]

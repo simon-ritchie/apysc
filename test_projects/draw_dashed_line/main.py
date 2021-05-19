@@ -1,8 +1,8 @@
-"""Test project for draw_line interface.
+"""Test project for draw_dashed_line interface.
 
 Command examples:
-$ python test_projects/draw_line/main.py
-$ python draw_line/main.py
+$ python test_projects/draw_dashed_line/main.py
+$ python draw_dashed_line/main.py
 """
 
 import sys
@@ -40,15 +40,11 @@ def main() -> None:
         stage_width=1000, stage_height=500)
     sprite: Sprite = Sprite(stage=stage)
     sprite.graphics.line_style(
-        color='#0af', thickness=5, dot_setting=LineDotSetting(dot_size=10))
-    _: Line = sprite.graphics.draw_line(
-        x_start=50, y_start=50, x_end=350, y_end=50)
-
-    sprite.graphics.line_style(
-        color='#0af', thickness=10, cap=LineCaps.ROUND)
-    line_2: Line = sprite.graphics.draw_line(
-        x_start=50, y_start=80, x_end=350, y_end=80)
-    line_2.click(on_line_click, options={'sprite': sprite})
+        color='#0af', thickness=10, dot_setting=LineDotSetting(dot_size=3))
+    line_1: Line = sprite.graphics.draw_dashed_line(
+        x_start=50, y_start=50, x_end=350, y_end=50,
+        dash_size=10, space_size=5)
+    line_1.click(on_line_click, options={'sprite': sprite})
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
@@ -66,7 +62,9 @@ def on_line_click(e: MouseEvent[Line], options: Dict[str, Any]) -> None:
         Optional parameters.
     """
     sprite: Sprite = options['sprite']
-    sprite.x += 100
+    _: Line = sprite.graphics.draw_dashed_line(
+        x_start=50, y_start=80, x_end=350, y_end=80,
+        dash_size=10, space_size=5)
 
 
 if __name__ == '__main__':

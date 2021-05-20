@@ -206,6 +206,53 @@ class Graphics(
         self.add_child(child=line)
         return line
 
+    def draw_dotted_line(
+            self,
+            x_start: Union[int, Int],
+            y_start: Union[int, Int],
+            x_end: Union[int, Int],
+            y_end: Union[int, Int],
+            dot_size: Union[int, Int]) -> Line:
+        """
+        Draw dotted line vector graphics.
+
+        Notes
+        -----
+        - This interface will ignore line settings, line a
+            LineDashSetting, except LineDotSetting.
+
+        Parameters
+        ----------
+        x_start : int or Int
+            Line start x-coordinate.
+        y_start : int or Int
+            Line start y-coordinate.
+        x_end : int or Int
+            Line end x-coordinate.
+        y_end : int or Int
+            Line end y-coordinate.
+        dot_size : int or Int
+            Dot size.
+
+        Returns
+        -------
+        line : Line
+            Created line graphic instance.
+        """
+        from apysc import LineDotSetting
+        from apysc import Point2D
+        snapshot_name: str = self._get_next_snapshot_name()
+        self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        self._reset_each_line_settings()
+        self._line_dot_setting = LineDotSetting(dot_size=dot_size)
+        line: Line = Line(
+            parent=self,
+            start_point=Point2D(x=x_start, y=y_start),
+            end_point=Point2D(x=x_end, y=y_end))
+        self._run_all_revert_methods(snapshot_name=snapshot_name)
+        self.add_child(child=line)
+        return line
+
     def draw_dashed_line(
             self,
             x_start: Union[int, Int],

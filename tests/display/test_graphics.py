@@ -143,6 +143,39 @@ class TestGraphics:
         assert sprite.graphics._line_round_dot_setting is None
         assert sprite.graphics._line_dash_dot_setting is None
 
+    def _assert_line_points(
+            self,
+            line: Line,
+            expected_x_start: int = 50,
+            expected_y_start: int = 100,
+            expected_x_end: int = 150,
+            expected_y_end: int = 200) -> None:
+        """
+        Assert line points are expected values or not.
+
+        Parameters
+        ----------
+        line : Line
+            Target line instance to check.
+        expected_x_start : int, default 50
+            Expected line x start coordinate.
+        expected_y_start : int, default 100
+            Expected line y start coordinate.
+        expected_x_end : int, default 150
+            Expected line x end coordinate.
+        expected_y_end : int, default 200
+            Expected line y end coordinate.
+
+        Raises
+        ------
+        AssertionError
+            If unexpected coordinate(s) is set.
+        """
+        assert line._start_point == Point2D(
+            x=expected_x_start, y=expected_y_start)
+        assert line._end_point == Point2D(
+            x=expected_x_end, y=expected_y_end)
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_draw_line(self) -> None:
         stage: Stage = Stage()
@@ -155,8 +188,7 @@ class TestGraphics:
         assert line.line_color == '#333333'
         assert line.line_thickness == 3
         assert line.line_dot_setting is None
-        assert line._start_point == Point2D(x=50, y=100)
-        assert line._end_point == Point2D(x=150, y=200)
+        self._assert_line_points(line=line)
         assert isinstance(sprite.graphics.line_dot_setting, LineDotSetting)
         sprite.graphics._children == [line]
 
@@ -177,7 +209,21 @@ class TestGraphics:
         assert isinstance(line_dash_setting, LineDashSetting)
         assert line_dash_setting.dash_size == 10
         assert line_dash_setting.space_size == 5
-        assert line._start_point == Point2D(x=50, y=100)
-        assert line._end_point == Point2D(x=150, y=200)
+        self._assert_line_points(line=line)
         assert isinstance(sprite.graphics.line_dot_setting, LineDotSetting)
+        sprite.graphics._children == [line]
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_draw_dotted_line(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        sprite.graphics.line_style(
+            color='#333',
+            dash_setting=LineDashSetting(dash_size=10, space_size=5))
+        line: Line = sprite.graphics.draw_dotted_line(
+            x_start=50, y_start=100, x_end=150, y_end=200, dot_size=5)
+        assert isinstance(line.line_dot_setting, LineDotSetting)
+        assert line.line_color == '#333333'
+        self._assert_line_points(line=line)
+        assert isinstance(sprite.graphics.line_dash_setting, LineDashSetting)
         sprite.graphics._children == [line]

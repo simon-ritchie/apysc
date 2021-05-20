@@ -6,8 +6,6 @@ $ python draw_round_dotted_line/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
@@ -16,7 +14,6 @@ from types import ModuleType
 
 from apysc import Line
 from apysc import LineDotSetting
-from apysc import MouseEvent
 from apysc import Sprite
 from apysc import Stage
 from apysc.file import file_util
@@ -46,6 +43,7 @@ def main() -> None:
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
+
 
 if __name__ == '__main__':
     main()

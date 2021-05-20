@@ -18,7 +18,7 @@ class LineRoundDotSetting(Dictionary):
         Parameters
         ----------
         round_size : int or Int
-            Dot's round size.
+            Dot round size.
         space_size : int or Int
             Blank space size between dots.
         """

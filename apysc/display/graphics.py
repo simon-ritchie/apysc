@@ -77,7 +77,7 @@ class Graphics(
             width: Union[int, Int],
             height: Union[int, Int]) -> Rectangle:
         """
-        Draw rectangle vector graphics.
+        Draw rectangle vector graphic.
 
         Parameters
         ----------
@@ -171,7 +171,7 @@ class Graphics(
             x_end: Union[int, Int],
             y_end: Union[int, Int]) -> Line:
         """
-        Draw normal line vector graphics.
+        Draw normal line vector graphic.
 
         Notes
         -----
@@ -214,7 +214,7 @@ class Graphics(
             y_end: Union[int, Int],
             dot_size: Union[int, Int]) -> Line:
         """
-        Draw dotted line vector graphics.
+        Draw dotted line vector graphic.
 
         Notes
         -----
@@ -262,7 +262,7 @@ class Graphics(
             dash_size: Union[int, Int],
             space_size: Union[int, Int]) -> Line:
         """
-        Draw dashed line vector graphics.
+        Draw dashed line vector graphic.
 
         Notes
         -----
@@ -296,6 +296,57 @@ class Graphics(
         self._reset_each_line_settings()
         self._line_dash_setting = LineDashSetting(
             dash_size=dash_size, space_size=space_size)
+        line: Line = Line(
+            parent=self,
+            start_point=Point2D(x=x_start, y=y_start),
+            end_point=Point2D(x=x_end, y=y_end))
+        self._run_all_revert_methods(snapshot_name=snapshot_name)
+        self.add_child(child=line)
+        return line
+
+    def draw_round_dotted_line(
+            self,
+            x_start: Union[int, Int],
+            y_start: Union[int, Int],
+            x_end: Union[int, Int],
+            y_end: Union[int, Int],
+            round_size: Union[int, Int],
+            space_size: Union[int, Int]) -> Line:
+        """
+        Draw round dotted line vector graphic.
+
+        Notes
+        -----
+        - This interface will ignore line settings, like a
+            LineDotSetting, except LineRoundDotSetting.
+
+        Parameters
+        ----------
+        x_start : int or Int
+            Line start x-coordinate.
+        y_start : int or Int
+            Line start y-coordinate.
+        x_end : int or Int
+            Line end x-coordinate.
+        y_end : int or Int
+            Line end y-coordinate.
+        round_size : int or Int
+            Dot round size.
+        space_size : int or Int
+            Blank space size between dots.
+
+        Returns
+        -------
+        line : Line
+            Created line graphic instance.
+        """
+        from apysc import LineRoundDotSetting
+        from apysc import Point2D
+        snapshot_name: str = self._get_next_snapshot_name()
+        self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        self._reset_each_line_settings()
+        self._line_round_dot_setting = LineRoundDotSetting(
+            round_size=round_size, space_size=space_size)
         line: Line = Line(
             parent=self,
             start_point=Point2D(x=x_start, y=y_start),

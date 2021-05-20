@@ -6,8 +6,6 @@ $ python draw_dotted_line/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
@@ -16,7 +14,6 @@ from types import ModuleType
 
 from apysc import Line
 from apysc import LineDashSetting
-from apysc import MouseEvent
 from apysc import Sprite
 from apysc import Stage
 from apysc.file import file_util

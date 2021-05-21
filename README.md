@@ -20,3 +20,12 @@ Python 3.6 or later.
 ```
 $ pip install apysc
 ```
+
+## License
+
+This library is released under the MIT License.
+
+The logo image is using followed Creative Commons license font:
+
+- [Pauline Font - by Marcos Boric (2020)](https://www.behance.net/gallery/94972757/Pauline-Font)
+- [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.en)

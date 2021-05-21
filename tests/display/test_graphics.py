@@ -243,3 +243,19 @@ class TestGraphics:
         self._assert_line_points(line=line)
         assert isinstance(sprite.graphics.line_dash_setting, LineDashSetting)
         sprite.graphics._children == [line]
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_draw_dash_dotted_line(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        sprite.graphics.line_style(
+            color='#333',
+            dash_setting=LineDashSetting(dash_size=10, space_size=5))
+        line: Line = sprite.graphics.draw_dash_dotted_line(
+            x_start=50, y_start=100, x_end=150, y_end=200,
+            dot_size=3, dash_size=10, space_size=5)
+        assert isinstance(line.line_dash_dot_setting, LineDashDotSetting)
+        assert line.line_color == '#333333'
+        self._assert_line_points(line=line)
+        assert isinstance(sprite.graphics.line_dash_setting, LineDashSetting)
+        sprite.graphics._children == [line]

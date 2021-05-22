@@ -23,3 +23,15 @@ class TestPolygon:
         assert polygon.variable_name.startswith(f'{var_names.POLYGON}_')
         assert polygon.line_color == '#333333'
         assert isinstance(polygon.line_dot_setting, LineDotSetting)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___repr__(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        points: Array[Point2D] = Array(
+            [Point2D(50, 50), Point2D(150, 50), Point2D(100, 100)])
+        polygon: Polygon = Polygon(
+            parent=sprite.graphics,
+            points=points)
+        repr_str: str = repr(polygon)
+        assert repr_str == f"Polygon('{polygon.variable_name}')"

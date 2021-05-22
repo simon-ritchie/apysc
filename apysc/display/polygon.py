@@ -44,4 +44,15 @@ class Polygon(LineBase, Points2DInterface):
             parent_graphics=parent_graphics)
 
     def __repr__(self) -> str:
-        pass
+        """
+        Get a string representation of this instance (for the sake of
+        debugging).
+
+        Returns
+        -------
+        repr_str : str
+            Type name and variable name will be set
+            (e.g., `Polygon('<variable_name>')`).
+        """
+        repr_str: str = f"Polygon('{self.variable_name}')"
+        return repr_str

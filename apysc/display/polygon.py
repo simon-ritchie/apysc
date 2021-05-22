@@ -7,15 +7,13 @@ from typing import Union
 from apysc import Array
 from apysc import Int
 from apysc.display.line_base import LineBase
-from apysc.display.points_2d_interface import Points2DInterface
+from apysc.display.append_line_point_interface import AppendLinePointInterface
 from apysc.geom.point2d import Point2D
 
 _Graphics = Any
 
 
-class Polygon(LineBase, Points2DInterface):
-
-    _points_var_name: str
+class Polygon(LineBase, AppendLinePointInterface):
 
     def __init__(self, parent: _Graphics, points: Array[Point2D]) -> None:
         """

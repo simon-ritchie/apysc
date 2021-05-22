@@ -7,15 +7,13 @@ from typing import Union
 from apysc import Array
 from apysc import Int
 from apysc.display.line_base import LineBase
-from apysc.display.points_2d_interface import Points2DInterface
+from apysc.display.append_line_point_interface import AppendLinePointInterface
 from apysc.geom.point2d import Point2D
 
 _Graphics = Any
 
 
-class Polyline(LineBase, Points2DInterface):
-
-    _points_var_name: str
+class Polyline(LineBase, AppendLinePointInterface):
 
     def __init__(
             self, parent: _Graphics, points: Array[Point2D]) -> None:
@@ -80,27 +78,3 @@ class Polyline(LineBase, Points2DInterface):
         expression += '\n  });'
         expression_file_util.append_js_expression(expression=expression)
         self._points_var_name = points_var_name
-
-    def append_line_point(
-            self, x: Union[int, Int], y: Union[int, Int]) -> None:
-        """
-        Append line point at the end.
-
-        Parameters
-        ----------
-        x : int or Int
-            X-coordinate.
-        y : int or Int
-            Y-coordinate.
-        """
-        from apysc.expression import expression_file_util
-        from apysc.type import value_util
-        self.points.append(value=Point2D(x=x, y=y))
-        expression: str
-        x_name: str = value_util.get_value_str_for_expression(value=x)
-        y_name: str = value_util.get_value_str_for_expression(value=y)
-        expression = (
-            f'{self._points_var_name}.push([{x_name}, {y_name}]);'
-            f'\n{self.variable_name}.plot({self._points_var_name});'
-        )
-        expression_file_util.append_js_expression(expression=expression)

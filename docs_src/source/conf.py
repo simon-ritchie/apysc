@@ -17,8 +17,8 @@
 from typing import Dict
 from typing import List
 
-from typing_extensions import Final
 from recommonmark.parser import CommonMarkParser
+from typing_extensions import Final
 
 # -- Project information -----------------------------------------------------
 

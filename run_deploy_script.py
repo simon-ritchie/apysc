@@ -15,6 +15,7 @@ from typing import Optional
 from apply_lints import FLAKE8_COMMAND
 from apply_lints import MYPY_COMMAND
 from apply_lints import NUMDOCLINT_COMMAND
+
 from apysc import __version__
 from apysc.console import loggers
 

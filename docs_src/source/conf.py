@@ -16,14 +16,16 @@
 
 from typing import Dict
 from typing import List
+from datetime import datetime
 
 from recommonmark.parser import CommonMarkParser
 from typing_extensions import Final
 
 # -- Project information -----------------------------------------------------
 
+_now: datetime = datetime.now()
 project: Final[str] = 'apysc'
-copyright: Final[str] = '2021, apysc project'
+copyright: Final[str] = f'{_now.year}, apysc project'
 author: Final[str] = 'simonritchie'
 
 

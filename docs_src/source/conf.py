@@ -33,6 +33,7 @@ author = 'simonritchie'
 # ones.
 extensions: List[str] = [
     'recommonmark',
+    'sphinx_markdown_tables',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

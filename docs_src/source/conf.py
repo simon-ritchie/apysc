@@ -17,13 +17,14 @@
 from typing import Dict
 from typing import List
 
+from typing_extensions import Final
 from recommonmark.parser import CommonMarkParser
 
 # -- Project information -----------------------------------------------------
 
-project = 'apysc'
-copyright = '2021, apysc'
-author = 'simonritchie'
+project: Final[str] = 'apysc'
+copyright: Final[str] = '2021, apysc project'
+author: Final[str] = 'simonritchie'
 
 
 # -- General configuration ---------------------------------------------------
@@ -31,25 +32,25 @@ author = 'simonritchie'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions: List[str] = [
+extensions: Final[List[str]] = [
     'recommonmark',
     'sphinx_markdown_tables',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path: Final[List[str]] = ['_templates']
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = []
+exclude_patterns: Final[List[str]] = []
 
-source_suffix: Dict[str, str] = {
+source_suffix: Final[Dict[str, str]] = {
     '.rst': 'restructuredtext',
     '.md': 'markdown',
 }
 
-source_parsers: Dict[str, type] = {
+source_parsers: Final[Dict[str, type]] = {
     '.md': CommonMarkParser,
 }
 
@@ -59,9 +60,9 @@ source_parsers: Dict[str, type] = {
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme: str = 'groundwork'
+html_theme: Final[str] = 'groundwork'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path: Final[List[str]] = ['_static', 'static']

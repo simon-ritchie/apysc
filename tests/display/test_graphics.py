@@ -3,7 +3,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Array
+from apysc import Array, Polygon
 from apysc import Line
 from apysc import LineDashDotSetting
 from apysc import LineDashSetting
@@ -259,3 +259,15 @@ class TestGraphics:
         self._assert_line_points(line=line)
         assert isinstance(sprite.graphics.line_dash_setting, LineDashSetting)
         sprite.graphics._children == [line]
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_draw_polygon(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        sprite.graphics.begin_fill(color='#333')
+        polygon: Polygon = sprite.graphics.draw_polygon(
+            points=[Point2D(50, 50), Point2D(150, 50), Point2D(100, 100)])
+        assert polygon.points == Array(
+            [Point2D(50, 50), Point2D(150, 50), Point2D(100, 100)])
+        assert polygon.fill_color == '#333333'
+        assert sprite.graphics._children == [polygon]

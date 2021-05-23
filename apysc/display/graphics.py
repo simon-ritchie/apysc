@@ -1,19 +1,21 @@
 """Implementations for Graphics class.
 """
 
-from typing import Any
+from typing import Any, List
 from typing import Optional
 from typing import Union
 
-from apysc import Int
+from apysc import Int, Array
 from apysc.display.begin_fill_interface import BeginFillInterface
 from apysc.display.child_interface import ChildInterface
 from apysc.display.graphics_clear_interface import GraphicsClearInterface
 from apysc.display.line import Line
 from apysc.display.line_style_interface import LineStyleInterface
 from apysc.display.polyline import Polyline
+from apysc.display.polygon import Polygon
 from apysc.display.rectangle import Rectangle
 from apysc.type.variable_name_interface import VariableNameInterface
+from apysc.geom.point2d import Point2D
 
 
 class Graphics(
@@ -118,7 +120,6 @@ class Graphics(
             Line graphic instance.
         """
         from apysc import Array
-        from apysc import Point2D
         if self._current_line is None:
             self._current_line = Polyline(
                 parent=self,
@@ -145,7 +146,6 @@ class Graphics(
             Line graphic instance.
         """
         from apysc import Array
-        from apysc import Point2D
         self._current_line = Polyline(
             parent=self, points=Array([Point2D(x=x, y=y)]))
         return self._current_line
@@ -194,7 +194,6 @@ class Graphics(
         line : Line
             Created line graphic instance.
         """
-        from apysc import Point2D
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
@@ -240,7 +239,6 @@ class Graphics(
             Created line graphic instance.
         """
         from apysc import LineDotSetting
-        from apysc import Point2D
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
@@ -290,7 +288,6 @@ class Graphics(
             Created line graphic instance.
         """
         from apysc import LineDashSetting
-        from apysc import Point2D
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
@@ -341,7 +338,6 @@ class Graphics(
             Created line graphic instance.
         """
         from apysc import LineRoundDotSetting
-        from apysc import Point2D
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
@@ -390,7 +386,6 @@ class Graphics(
             Created line graphic instance.
         """
         from apysc import LineDashDotSetting
-        from apysc import Point2D
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
@@ -405,6 +400,29 @@ class Graphics(
         self._run_all_revert_methods(snapshot_name=snapshot_name)
         self.add_child(child=line)
         return line
+
+    def draw_polygon(
+            self, points: Union[List[Point2D], Array[Point2D]]) -> Polygon:
+        """
+        Draw polygon vector graphic. This is similar to Polyline
+        class (created by move_to or line_to, or other interface),
+        but unlike that, end point and start one will be connected.
+
+        Parameters
+        ----------
+        points : list of Point2D or Array.
+            Polygon vertex points.
+
+        Returns
+        -------
+        polygon : Polygon
+            Created polygon graphic instance.
+        """
+        if isinstance(points, list):
+            points = Array(points)
+        polygon: Polygon = Polygon(parent=self, points=points)
+        self.add_child(polygon)
+        return polygon
 
     def __repr__(self) -> str:
         """

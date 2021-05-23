@@ -12,7 +12,8 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Int, LineDotSetting
+from apysc import Int
+from apysc import LineDotSetting
 from apysc import Number
 from apysc import Rectangle
 from apysc import Sprite

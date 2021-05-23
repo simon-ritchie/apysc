@@ -8,3 +8,4 @@ test_output
 /dist
 /doc/memo.md
 /apysc.egg-info
+/docs_src/build

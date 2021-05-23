@@ -4,10 +4,10 @@ Command example:
 $ python build_docs.py
 """
 
-from logging import Logger
-import subprocess as sp
-import shutil
 import os
+import shutil
+import subprocess as sp
+from logging import Logger
 
 from apysc.console import loggers
 

@@ -14,9 +14,9 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+from datetime import datetime
 from typing import Dict
 from typing import List
-from datetime import datetime
 
 from recommonmark.parser import CommonMarkParser
 from typing_extensions import Final

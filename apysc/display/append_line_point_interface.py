@@ -2,8 +2,9 @@
 """
 
 from typing import Union
-from apysc.display.points_2d_interface import Points2DInterface
+
 from apysc import Int
+from apysc.display.points_2d_interface import Points2DInterface
 
 
 class AppendLinePointInterface(Points2DInterface):
@@ -22,9 +23,9 @@ class AppendLinePointInterface(Points2DInterface):
         y : int or Int
             Y-coordinate.
         """
+        from apysc import Point2D
         from apysc.expression import expression_file_util
         from apysc.type import value_util
-        from apysc import Point2D
         if not hasattr(self, '_points_var_name'):
             raise AttributeError(
                 '_points_var_name attribute is not set. Please add '

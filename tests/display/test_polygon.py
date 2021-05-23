@@ -2,7 +2,12 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Polygon, Stage, Sprite, Array, Point2D, LineDotSetting
+from apysc import Array
+from apysc import LineDotSetting
+from apysc import Point2D
+from apysc import Polygon
+from apysc import Sprite
+from apysc import Stage
 from apysc.display.stage import get_stage_variable_name
 from apysc.expression import expression_file_util
 from apysc.expression import var_names

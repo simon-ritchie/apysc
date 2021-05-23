@@ -6,15 +6,19 @@ $ python draw_polygon/main.py
 """
 
 import sys
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
 
-from apysc import Line, Polygon, LineJoints, Point2D, LineRoundDotSetting, MouseEvent
-from apysc import LineDotSetting
+from apysc import LineJoints
+from apysc import LineRoundDotSetting
+from apysc import MouseEvent
+from apysc import Point2D
+from apysc import Polygon
 from apysc import Sprite
 from apysc import Stage
 from apysc.file import file_util

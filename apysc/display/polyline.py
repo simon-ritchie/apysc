@@ -2,12 +2,10 @@
 """
 
 from typing import Any
-from typing import Union
 
 from apysc import Array
-from apysc import Int
-from apysc.display.line_base import LineBase
 from apysc.display.append_line_point_interface import AppendLinePointInterface
+from apysc.display.line_base import LineBase
 from apysc.geom.point2d import Point2D
 
 _Graphics = Any

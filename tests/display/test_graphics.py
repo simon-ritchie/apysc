@@ -3,13 +3,14 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Array, Polygon
+from apysc import Array
 from apysc import Line
 from apysc import LineDashDotSetting
 from apysc import LineDashSetting
 from apysc import LineDotSetting
 from apysc import LineRoundDotSetting
 from apysc import Point2D
+from apysc import Polygon
 from apysc import Polyline
 from apysc import Sprite
 from apysc import Stage

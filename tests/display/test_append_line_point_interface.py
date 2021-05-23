@@ -2,8 +2,8 @@ from random import randint
 
 from retrying import retry
 
-from apysc.display.append_line_point_interface import AppendLinePointInterface
 from apysc import Int
+from apysc.display.append_line_point_interface import AppendLinePointInterface
 from apysc.expression import expression_file_util
 from tests.testing_helper import assert_raises
 

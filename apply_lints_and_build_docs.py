@@ -1,7 +1,7 @@
-"""Apply each lints to all modules.
+"""Apply each lints to all modules and build documentation.
 
 Command example:
-$ python apply_lints.py
+$ python apply_lints_and_build_docs.py
 """
 
 import shutil
@@ -68,8 +68,17 @@ def _main() -> None:
     """Entry point of this command.
     """
     shutil.rmtree('./build/', ignore_errors=True)
+    logger.info(msg='Documentation build started.')
+    process: sp.Popen = sp.Popen(
+        ['python', 'build_docs.py'], stdout=sp.PIPE, stderr=sp.PIPE)
     for lint_command in lint_commands:
         _run_lint_command(lint_command=lint_command)
+    stdout: bytes
+    stderr: bytes
+    logger.info(msg='Waiting documentation build completion...')
+    stdout, stderr = process.communicate()
+    print(stdout.decode())
+    print(stderr.decode())
 
 
 def _run_lint_command(lint_command: LintCommand) -> str:

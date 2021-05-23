@@ -13,14 +13,12 @@ from apysc.display.line_alpha_interface import LineAlphaInterface
 from apysc.display.line_color_interface import LineColorInterface
 from apysc.display.line_thickness_interface import LineThicknessInterface
 from apysc.display.width_interface import WidthInterface
+from apysc.display.line_base import LineBase
 
 _Graphics = Any
 
 
-class Rectangle(
-        GraphicBase, WidthInterface, HeightInterface, FillColorInterface,
-        FillAlphaInterface, LineColorInterface, LineThicknessInterface,
-        LineAlphaInterface):
+class Rectangle(LineBase, WidthInterface, HeightInterface):
 
     def __init__(
             self, parent: _Graphics,
@@ -57,17 +55,10 @@ class Rectangle(
         size_validation.validate_size_is_gte_zero(size=height)
         self._update_width_and_skip_appending_exp(value=width)
         self._update_height_and_skip_appending_exp(value=height)
-        self._set_initial_fill_color_if_not_blank(
-            fill_color=parent_graphics.fill_color)
-        self._update_fill_alpha_and_skip_appending_exp(
-            value=parent_graphics.fill_alpha)
-        self._set_initial_line_color_if_not_blank(
-            line_color=parent_graphics.line_color)
-        self._update_line_thickness_and_skip_appending_exp(
-            value=parent_graphics.line_thickness)
-        self._update_line_alpha_and_skip_appending_exp(
-            value=parent_graphics.line_alpha)
+        self._set_initial_basic_values(parent=parent)
         self._append_constructor_expression()
+        self._set_line_setting_if_not_none_value_exists(
+            parent_graphics=parent_graphics)
 
     def __repr__(self) -> str:
         """

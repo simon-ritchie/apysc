@@ -12,7 +12,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Int
+from apysc import Int, LineDotSetting
 from apysc import Number
 from apysc import Rectangle
 from apysc import Sprite
@@ -143,6 +143,11 @@ def main() -> None:
     height: Int = rectangle.height
     height = Int(200)
     assert_not_equal(expected=height, actual=rectangle.height)
+
+    sprite.graphics.line_style(
+        color='#fff', thickness=5, dot_setting=LineDotSetting(dot_size=5))
+    rectangle = sprite.graphics.draw_rect(
+        x=650, y=150, width=50, height=50)
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)

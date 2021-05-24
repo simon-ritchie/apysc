@@ -18,6 +18,12 @@ logger: Logger = loggers.get_info_logger()
 def _main() -> None:
     """Entry point of this command.
     """
+    shutil.rmtree('./docs_src/build/', ignore_errors=True)
+    os.makedirs('./docs_src/build/', exist_ok=True)
+
+    logger.info(msg='Document\'s scripts execution started...')
+    _exec_document_script()
+
     logger.info(msg='Sphix build command started...')
     os.chdir('./docs_src/')
     complete_process: sp.CompletedProcess = sp.run(
@@ -35,6 +41,13 @@ def _main() -> None:
     _replace_static_path()
 
     logger.info(msg='Build completed!')
+
+
+def _exec_document_script() -> None:
+    """
+    Execute each scripts in the documents.
+    """
+    pass
 
 
 def _replace_static_path() -> None:

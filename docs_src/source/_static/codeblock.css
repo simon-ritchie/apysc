@@ -1,0 +1,8 @@
+/* Code block style settings. */
+
+/* Override normal object and parentheses color. */
+.highlight .nn,
+.highlight .n,
+.highlight .p {
+    color: #ccc !important;
+}

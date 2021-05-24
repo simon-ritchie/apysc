@@ -35,5 +35,5 @@ save_expressions_overall_html(
 
 This code will create each HTML and js files to `dest_dir_path` (`output/quick_start_stage_creation/`). You can confirm result by opening `index.html` (`output/quick_start_stage_creation/index.html`).
 
-<iframe src="static/tmp.html">
+<iframe src="static/tmp.html"></iframe>
 

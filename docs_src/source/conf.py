@@ -17,9 +17,11 @@
 from datetime import datetime
 from typing import Dict
 from typing import List
-
-from recommonmark.parser import CommonMarkParser
 from typing_extensions import Final
+
+from sphinx.application import Sphinx
+from recommonmark.parser import CommonMarkParser
+from recommonmark.transform import AutoStructify
 
 # -- Project information -----------------------------------------------------
 
@@ -67,9 +69,28 @@ html_theme: Final[str] = 'groundwork'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path: Final[List[str]] = ['_static', 'static']
+html_static_path: Final[List[str]] = ['_static']
 
 html_css_files: Final[List[str]] = [
+    'base.css',
     'codeblock.css',
     'iframe.css',
 ]
+
+
+def setup(sphinx: Sphinx) -> None:
+    """
+    Function called when sphinx build is started.
+
+    Parameters
+    ----------
+    sphinx : Sphinx
+        Sphinx instance.
+    """
+    sphinx.add_config_value(
+        name='recommonmark_config',
+        default={
+            'auto_toc_tree_section': 'Contents',
+        },
+        rebuild=True)
+    sphinx.add_transform(AutoStructify)

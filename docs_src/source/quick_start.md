@@ -25,15 +25,16 @@ stage = Stage(stage_width=300, stage_height=180, background_color='#333')
 Then you can export each HTML and js filed by `save_expressions_overall_html` function (in this case, only the black background stage will be displayed).
 
 ```py
+# runnable
 from apysc import Stage
 from apysc import save_expressions_overall_html
 
 stage = Stage(stage_width=300, stage_height=180, background_color='#333')
 save_expressions_overall_html(
-    dest_dir_path='output/quick_start_stage_creation/')
+    dest_dir_path='quick_start_stage_creation/')
 ```
 
-This code will create each HTML and js files to `dest_dir_path` (`output/quick_start_stage_creation/`). You can confirm result by opening `index.html` (`output/quick_start_stage_creation/index.html`).
+This code will create each HTML and js files to `dest_dir_path`. You can confirm an exported result by opening `index.html` (`quick_start_stage_creation/index.html`).
 
-<iframe src="static/tmp.html"></iframe>
+<iframe src="static/quick_start_stage_creation/index.html"></iframe>
 

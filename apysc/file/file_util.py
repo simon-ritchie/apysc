@@ -1,4 +1,21 @@
 """Files' common utilities implementation.
+
+Mainly following interfaces are defined:
+
+- empty_directory
+    Empty specified directory.
+- read_txt
+    Read specified file's text.
+- save_plain_txt
+    Save plain text string to file.
+- append_plain_txt
+    Append plain text string to file.
+- remove_file_if_exists
+    Remove specified file if exists.
+- get_abs_directory_path_from_file_path
+    Get an absolute directory path of specified file.
+- get_abs_module_dir_path
+    Get a specified module's abosulute directory path.
 """
 
 import os

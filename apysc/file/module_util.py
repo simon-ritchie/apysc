@@ -17,7 +17,7 @@ def get_module_paths_recursively(
         Directory path to search modules.
     module_paths : list of str or None
         Current Python module paths (only used by recursive
-        function call).
+        function calls).
 
     Returns
     -------

@@ -1,6 +1,7 @@
 import os
 import shutil
 from random import randint
+from typing import List
 
 from retrying import retry
 
@@ -88,3 +89,12 @@ def test_append_plain_txt() -> None:
     file_util.append_plain_txt(txt='World!', file_path=tmp_file_path)
     txt: str = file_util.read_txt(file_path=tmp_file_path)
     assert txt == 'Hello World!'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_get_specified_ext_file_paths_recursively() -> None:
+    file_paths: List[str] = file_util.get_specified_ext_file_paths_recursively(
+        extension='md', dir_path='./docs_src/')
+    assert './docs_src/source/index.md' in file_paths
+    assert './docs_src/source/quick_start.md' in file_paths
+    assert './docs_src/source/conf.py' not in file_paths

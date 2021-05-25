@@ -1,7 +1,12 @@
+from random import randint
+
+from retrying import retry
+
 from typing import List
 from apysc.file import module_util
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_module_paths_recursively() -> None:
     module_paths: List[str] = module_util.get_module_paths_recursively(
         dir_path='./apysc/jslib/')

@@ -16,11 +16,14 @@ Mainly following interfaces are defined:
     Get an absolute directory path of specified file.
 - get_abs_module_dir_path
     Get a specified module's abosulute directory path.
+- get_specified_ext_file_paths_recursively
+    Get specified extension file paths recursively.
 """
 
 import os
 import shutil
 from types import ModuleType
+from typing import List, Optional
 
 
 def empty_directory(directory_path: str) -> None:
@@ -143,3 +146,42 @@ def get_abs_module_dir_path(module: ModuleType) -> str:
     abs_module_dir_path: str = os.path.dirname(module.__file__)
     abs_module_dir_path += '/'
     return abs_module_dir_path
+
+
+def get_specified_ext_file_paths_recursively(
+        extension: str, dir_path: str = './',
+        file_paths: Optional[List[str]] = None) -> List[str]:
+    """
+    Get specified extension file paths recursively.
+
+    Parameters
+    ----------
+    extension : str
+        Target file extension (e.g., '.md', 'md', and so on).
+    dir_path : str
+        Directory path to search files recursively.
+    file_paths : list of str or None
+        Current file paths (only used for recursive function calls).
+
+    Returns
+    -------
+    file_paths : list of str
+        File paths that end with target extension.
+    """
+    if file_paths is None:
+        file_paths = []
+    if not extension.startswith('.'):
+        extension = f'.{extension}'
+    file_or_dir_names: List[str] = os.listdir(dir_path)
+    for file_or_dir_name in file_or_dir_names:
+        file_or_dir_path: str = os.path.join(dir_path, file_or_dir_name)
+        if os.path.isdir(file_or_dir_path):
+            file_paths = get_specified_ext_file_paths_recursively(
+                extension=extension,
+                dir_path=file_or_dir_path,
+                file_paths=file_paths)
+            continue
+        if not file_or_dir_path.endswith(extension):
+            continue
+        file_paths.append(file_or_dir_path)
+    return file_paths

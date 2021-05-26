@@ -102,6 +102,7 @@ def _get_runnable_scripts_in_md_code_blocks(md_file_path: str) -> List[str]:
     from apysc.file.file_util import read_txt
     md_txt: str = read_txt(file_path=md_file_path)
     code_blocks: List[_CodeBlock] = _get_code_blocks_from_txt(md_txt=md_txt)
+    runnable_scripts: List[str] = []
     for code_block in code_blocks:
         if code_block.code_type != 'py':
             continue
@@ -109,7 +110,8 @@ def _get_runnable_scripts_in_md_code_blocks(md_file_path: str) -> List[str]:
             continue
         code: str = code_block.code
         code = _replace_html_saving_export_path_by_doc_path(code=code)
-    pass
+        runnable_scripts.append(code)
+    return runnable_scripts
 
 
 def _replace_html_saving_export_path_by_doc_path(code: str) -> str:

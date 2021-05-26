@@ -5,6 +5,7 @@ from typing import List
 import build_docs
 from build_docs import _CodeBlock
 from tests.testing_helper import assert_attrs
+from apysc.file import file_util
 
 
 def test__replace_static_path_recursively() -> None:
@@ -94,3 +95,43 @@ save_expressions_overall_html(
     expected: str = """save_expressions_overall_html(
     dest_dir_path='./docs_src/_static/quick_start_stage_creation/')"""
     assert expected in code
+
+
+def test__get_runnable_scripts_in_md_code_blocks() -> None:
+    tmp_md_file_path: str = (
+        '../tmp_test__get_runnable_scripts_in_md_code_blocks.md')
+    md_txt: str = """Hello
+
+```py
+print(100)
+```
+
+World!
+
+```py
+# runnable
+print(200)
+save_expressions_overall_html(
+    dest_dir_path='quick_start_stage_creation/')
+```
+
+```
+# runnable
+print(300)
+```
+"""
+    with open(tmp_md_file_path, 'w') as f:
+        f.write(md_txt)
+    runnable_scripts: List[str] = \
+        build_docs._get_runnable_scripts_in_md_code_blocks(
+            md_file_path=tmp_md_file_path)
+    assert len(runnable_scripts) == 1
+    assert runnable_scripts == (
+        ['print(200)'
+         '\nsave_expressions_overall_html('
+         "\n    dest_dir_path='./docs_src/_static/"
+         "quick_start_stage_creation/')"
+        ]
+    )
+
+    file_util.remove_file_if_exists(file_path=tmp_md_file_path)

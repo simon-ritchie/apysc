@@ -3,6 +3,8 @@ import shutil
 from typing import List
 
 import build_docs
+from build_docs import _CodeBlock
+from tests.testing_helper import assert_attrs
 
 
 def test__replace_static_path_recursively() -> None:
@@ -32,3 +34,17 @@ def test__replace_static_path_recursively() -> None:
         assert 'static' in file_txt
 
     shutil.rmtree(tmp_dir_1, ignore_errors=True)
+
+
+class Test_CodeBlock:
+
+    def test___init__(self) -> None:
+        code_block: _CodeBlock = _CodeBlock(
+            code_type='py', code='print(100)', runnable=True)
+        assert_attrs(
+            expected_attrs={
+                'code_type': 'py',
+                'code': 'print(100)',
+                'runnable': True
+            },
+            any_obj=code_block)

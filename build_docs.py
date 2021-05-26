@@ -47,7 +47,58 @@ def _exec_document_script() -> None:
     """
     Execute each scripts in the documents.
     """
+    from apysc.file import file_util
+    md_file_paths: List[str] = \
+        file_util.get_specified_ext_file_paths_recursively(
+            extension='.md', dir_path='./docs_src/')
+    for md_file_path in md_file_paths:
+        runnable_scripts: List[str] = _get_runnable_scripts_in_md_code_blocks(
+            md_file_path=md_file_path)
+        pass
     pass
+
+
+def _get_runnable_scripts_in_md_code_blocks(md_file_path: str) -> List[str]:
+    """
+    Get runnable Python scripts in the markdown code blocks.
+
+    Parameters
+    ----------
+    md_file_path : str
+        Target markdown file path.
+
+    Returns
+    -------
+    runnable_scripts : list of str
+        Runnable Python scripts in code blocks.
+        Code blocks with the `# runnable` inline comment
+        at the begining of the block will be targeted.
+    """
+    pass
+
+
+class _CodeBlock:
+
+    code_type: str
+    code: str
+    runnable: bool
+
+    def __init__(self, code_type: str, code: str, runnable: bool) -> None:
+        """
+        Code block data class.
+
+        Parameters
+        ----------
+        code_type : str
+            Code type (e.g., 'py', 'sql', '', or something else).
+        code : str
+            Code in the target code block.
+        runnable : bool
+            If runnable code block, this will be True.
+        """
+        self.code_type = code_type
+        self.code = code
+        self.runnable = runnable
 
 
 def _replace_static_path() -> None:

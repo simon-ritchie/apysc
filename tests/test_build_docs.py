@@ -81,3 +81,16 @@ def test__get_code_blocks_from_txt() -> None:
     assert code_blocks[2].code_type == ''
     assert code_blocks[2].code == '$ ls -l'
     assert not code_blocks[2].runnable
+
+
+def test__replace_html_saving_export_path_by_doc_path() -> None:
+    code: str = """from apysc import Stage
+from apysc import save_expressions_overall_html
+
+stage = Stage(stage_width=300, stage_height=180, background_color='#333')
+save_expressions_overall_html(
+    dest_dir_path='./quick_start_stage_creation')"""
+    code = build_docs._replace_html_saving_export_path_by_doc_path(code=code)
+    expected: str = """save_expressions_overall_html(
+    dest_dir_path='./docs_src/_static/quick_start_stage_creation/')"""
+    assert expected in code

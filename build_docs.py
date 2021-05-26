@@ -5,10 +5,11 @@ $ python build_docs.py
 """
 
 import os
+import re
 import shutil
 import subprocess as sp
 from logging import Logger
-from typing import List
+from typing import List, Match, Optional
 
 from apysc.console import loggers
 
@@ -101,7 +102,57 @@ def _get_runnable_scripts_in_md_code_blocks(md_file_path: str) -> List[str]:
     from apysc.file.file_util import read_txt
     md_txt: str = read_txt(file_path=md_file_path)
     code_blocks: List[_CodeBlock] = _get_code_blocks_from_txt(md_txt=md_txt)
+    for code_block in code_blocks:
+        if code_block.code_type != 'py':
+            continue
+        if not code_block.runnable:
+            continue
+        code: str = code_block.code
+        code = _replace_html_saving_export_path_by_doc_path(code=code)
     pass
+
+
+def _replace_html_saving_export_path_by_doc_path(code: str) -> str:
+    """
+    Replace html saving interace's export path argument value
+    in code by document path.
+
+    Parameters
+    ----------
+    code : str
+        Target Python code.
+
+    Returns
+    -------
+    code : str
+        Replaced code. html saving interface argument,
+        for example, `save_expressions_overall_html` `dest_dir_path`
+        will be replaced by './docs_src/_static/<original_path>/'.
+    """
+    match: Optional[Match] = re.search(
+        pattern=(
+            r"save_expressions_overall_html\(.+?dest_dir_path='(.+?)'\)"
+        ),
+        string=code,
+        flags=re.MULTILINE | re.DOTALL)
+    if match is None:
+        return code
+    original_path: str = match.group(1)
+    while original_path.startswith('.'):
+        original_path = original_path.replace('.', '', 1)
+    if original_path.startswith('/'):
+        original_path = original_path.replace('/', '', 1)
+    if not original_path.endswith('/'):
+        original_path += '/'
+
+    code = re.sub(
+        pattern=(
+            r"(save_expressions_overall_html\(.+?dest_dir_path=).+?\)"
+        ),
+        repl=rf"\1'./docs_src/_static/{original_path}')",
+        string=code, count=1,
+        flags=re.MULTILINE | re.DOTALL)
+    return code
 
 
 def _get_code_blocks_from_txt(md_txt: str) -> List[_CodeBlock]:

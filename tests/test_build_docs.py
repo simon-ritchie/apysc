@@ -48,3 +48,36 @@ class Test_CodeBlock:
                 'runnable': True
             },
             any_obj=code_block)
+
+
+def test__get_code_blocks_from_txt() -> None:
+    md_txt: str = (
+        'Hello'
+        '\n\n```py'
+        '\nprint(100)'
+        '\nprint(200)'
+        '\n```'
+        '\n\nWorld'
+        '\n```py'
+        '\n# runnable'
+        '\nprint(300)'
+        '\n```'
+        '\n'
+        '\n```'
+        '\n$ ls -l'
+        '\n```'
+    )
+    code_blocks: List[_CodeBlock] = build_docs._get_code_blocks_from_txt(
+        md_txt=md_txt)
+    assert len(code_blocks) == 3
+
+    assert code_blocks[0].code_type == 'py'
+    assert code_blocks[0].code == 'print(100)\nprint(200)'
+    assert not code_blocks[0].runnable
+
+    assert code_blocks[1].code == 'print(300)'
+    assert code_blocks[1].runnable
+
+    assert code_blocks[2].code_type == ''
+    assert code_blocks[2].code == '$ ls -l'
+    assert not code_blocks[2].runnable

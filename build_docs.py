@@ -58,25 +58,6 @@ def _exec_document_script() -> None:
     pass
 
 
-def _get_runnable_scripts_in_md_code_blocks(md_file_path: str) -> List[str]:
-    """
-    Get runnable Python scripts in the markdown code blocks.
-
-    Parameters
-    ----------
-    md_file_path : str
-        Target markdown file path.
-
-    Returns
-    -------
-    runnable_scripts : list of str
-        Runnable Python scripts in code blocks.
-        Code blocks with the `# runnable` inline comment
-        at the begining of the block will be targeted.
-    """
-    pass
-
-
 class _CodeBlock:
 
     code_type: str
@@ -99,6 +80,75 @@ class _CodeBlock:
         self.code_type = code_type
         self.code = code
         self.runnable = runnable
+
+
+def _get_runnable_scripts_in_md_code_blocks(md_file_path: str) -> List[str]:
+    """
+    Get runnable Python scripts in the markdown code blocks.
+
+    Parameters
+    ----------
+    md_file_path : str
+        Target markdown file path.
+
+    Returns
+    -------
+    runnable_scripts : list of str
+        Runnable Python scripts in code blocks.
+        Code blocks with the `# runnable` inline comment
+        at the begining of the block will be targeted.
+    """
+    from apysc.file.file_util import read_txt
+    md_txt: str = read_txt(file_path=md_file_path)
+    code_blocks: List[_CodeBlock] = _get_code_blocks_from_txt(md_txt=md_txt)
+    pass
+
+
+def _get_code_blocks_from_txt(md_txt: str) -> List[_CodeBlock]:
+    """
+    Get code blocks from a markdown text.
+
+    Parameters
+    ----------
+    md_txt : str
+        Target markdown text.
+
+    Returns
+    -------
+    code_blocks : list of _CodeBlock
+        Code blocks in a markdown text.
+    """
+    is_code_block: bool = False
+    code_block_line_num: int = 0
+    lines: List[str] = md_txt.splitlines()
+    code_type: str = ''
+    code: str = ''
+    runnable: bool = False
+    code_blocks: List[_CodeBlock] = []
+    for line in lines:
+        if not is_code_block and line.startswith('```'):
+            code_type = line.replace('```', '')
+            code_type = code_type.split(':')[0]
+            is_code_block = True
+            continue
+        if not is_code_block:
+            continue
+        if line.startswith('```'):
+            code_blocks.append(_CodeBlock(
+                code_type= code_type, code=code, runnable=runnable))
+            is_code_block = False
+            code_block_line_num = 0
+            code = ''
+            runnable = False
+            continue
+        code_block_line_num += 1
+        if code_block_line_num == 1 and line == '# runnable':
+            runnable = True
+            continue
+        if code != '':
+            code += '\n'
+        code += line
+    return code_blocks
 
 
 def _replace_static_path() -> None:

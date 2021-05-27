@@ -29,7 +29,9 @@ Then you can export each HTML and js filed by `save_expressions_overall_html` fu
 from apysc import Stage
 from apysc import save_expressions_overall_html
 
-stage = Stage(stage_width=300, stage_height=180, background_color='#333')
+stage = Stage(
+    stage_width=300, stage_height=180, background_color='#333',
+    stage_elem_id='stage')
 save_expressions_overall_html(
     dest_dir_path='quick_start_stage_creation/')
 ```

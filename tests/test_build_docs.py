@@ -1,6 +1,9 @@
+from random import randint
 import os
 import shutil
 from typing import List
+
+from retrying import retry
 
 import build_docs
 from build_docs import _CodeBlock
@@ -8,6 +11,7 @@ from tests.testing_helper import assert_attrs
 from apysc.file import file_util
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__replace_static_path_recursively() -> None:
     tmp_dir_1: str = '../.tmp_test_build_docs/'
     shutil.rmtree(tmp_dir_1, ignore_errors=True)
@@ -39,6 +43,7 @@ def test__replace_static_path_recursively() -> None:
 
 class Test_CodeBlock:
 
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         code_block: _CodeBlock = _CodeBlock(
             code_type='py', code='print(100)', runnable=True)
@@ -51,6 +56,7 @@ class Test_CodeBlock:
             any_obj=code_block)
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_code_blocks_from_txt() -> None:
     md_txt: str = (
         'Hello'
@@ -84,6 +90,7 @@ def test__get_code_blocks_from_txt() -> None:
     assert not code_blocks[2].runnable
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__replace_html_saving_export_path_by_doc_path() -> None:
     code: str = """from apysc import Stage
 from apysc import save_expressions_overall_html
@@ -97,6 +104,7 @@ save_expressions_overall_html(
     assert expected in code
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_runnable_scripts_in_md_code_blocks() -> None:
     tmp_md_file_path: str = (
         '../tmp_test__get_runnable_scripts_in_md_code_blocks.md')
@@ -135,3 +143,14 @@ print(300)
     )
 
     file_util.remove_file_if_exists(file_path=tmp_md_file_path)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__exec_document_script() -> None:
+    executed_scripts: List[str] = build_docs._exec_document_script(
+        limit_count=10)
+    assert len(executed_scripts) == 1
+    for executed_script in executed_scripts:
+        if 'save_expressions_overall_html' not in executed_script:
+            continue
+        assert './docs_src/_static/' in executed_script

@@ -44,19 +44,46 @@ def _main() -> None:
     logger.info(msg='Build completed!')
 
 
-def _exec_document_script() -> None:
+def _exec_document_script(
+        limit_count: Optional[int] = None) -> List[str]:
     """
-    Execute each scripts in the documents.
+    Execute each runnable scripts in the documents.
+
+    Parameters
+    ----------
+    limit_count : int or None, optional
+        Limitation of script execution count.
+
+    Returns
+    -------
+    executed_scripts : list of str
+        List of executed Python scripts.
     """
     from apysc.file import file_util
     md_file_paths: List[str] = \
         file_util.get_specified_ext_file_paths_recursively(
             extension='.md', dir_path='./docs_src/')
+    count: int = 0
+    is_limit: bool = False
+    executed_scripts: List[str] = []
     for md_file_path in md_file_paths:
         runnable_scripts: List[str] = _get_runnable_scripts_in_md_code_blocks(
             md_file_path=md_file_path)
-        pass
-    pass
+        for runnable_script in runnable_scripts:
+            print()
+            print('-' * 20)
+            logger.info(
+                msg=(f'Executing document script: \n{runnable_script}'))
+            print('-' * 20)
+            exec(runnable_script)
+            executed_scripts.append(runnable_script)
+            count += 1
+            if limit_count is not None and count == limit_count:
+                is_limit = True
+                break
+        if is_limit:
+            break
+    return executed_scripts
 
 
 class _CodeBlock:

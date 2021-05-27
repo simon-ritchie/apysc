@@ -100,7 +100,7 @@ save_expressions_overall_html(
     dest_dir_path='./quick_start_stage_creation')"""
     code = build_docs._replace_html_saving_export_path_by_doc_path(code=code)
     expected: str = """save_expressions_overall_html(
-    dest_dir_path='./docs_src/_static/quick_start_stage_creation/')"""
+    dest_dir_path='./docs_src/source/_static/quick_start_stage_creation/')"""
     assert expected in code
 
 
@@ -137,7 +137,7 @@ print(300)
     assert runnable_scripts == (
         ['print(200)'
          '\nsave_expressions_overall_html('
-         "\n    dest_dir_path='./docs_src/_static/"
+         "\n    dest_dir_path='./docs_src/source/_static/"
          "quick_start_stage_creation/')"
         ]
     )
@@ -153,4 +153,4 @@ def test__exec_document_script() -> None:
     for executed_script in executed_scripts:
         if 'save_expressions_overall_html' not in executed_script:
             continue
-        assert './docs_src/_static/' in executed_script
+        assert './docs_src/source/_static/' in executed_script

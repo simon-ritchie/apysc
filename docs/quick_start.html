@@ -59,16 +59,19 @@
 </pre></div>
 </div>
 <p>Then you can export each HTML and js filed by <code class="docutils literal notranslate"><span class="pre">save_expressions_overall_html</span></code> function (in this case, only the black background stage will be displayed).</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># runnable</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
 <span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_expressions_overall_html</span>
 
-<span class="n">stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span><span class="n">stage_width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">)</span>
+<span class="n">stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 <span class="n">save_expressions_overall_html</span><span class="p">(</span>
-    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;output/quick_start_stage_creation/&#39;</span><span class="p">)</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;quick_start_stage_creation/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This code will create each HTML and js files to <code class="docutils literal notranslate"><span class="pre">dest_dir_path</span></code> (<code class="docutils literal notranslate"><span class="pre">output/quick_start_stage_creation/</span></code>). You can confirm result by opening <code class="docutils literal notranslate"><span class="pre">index.html</span></code> (<code class="docutils literal notranslate"><span class="pre">output/quick_start_stage_creation/index.html</span></code>).</p>
-<iframe src="static/tmp.html"></iframe></section>
+<p>This code will create each HTML and js files to <code class="docutils literal notranslate"><span class="pre">dest_dir_path</span></code>. You can confirm an exported result by opening <code class="docutils literal notranslate"><span class="pre">index.html</span></code> (<code class="docutils literal notranslate"><span class="pre">quick_start_stage_creation/index.html</span></code>).</p>
+<iframe src="static/quick_start_stage_creation/index.html"></iframe></section>
 </section>
 
 

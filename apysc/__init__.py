@@ -44,5 +44,6 @@ from apysc.event.document_mouse_wheel_interface import \
     unbind_wheel_event_all_from_document  # isort:skip # noqa
 from apysc.event.document_mouse_wheel_interface import \
     unbind_wheel_event_from_document  # isort:skip # noqa
+from apysc.html.exporter import save_expressions_overall_html  # isort:skip # noqa
 
 __version__: str = '0.12.10'

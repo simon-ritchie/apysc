@@ -10,3 +10,4 @@ test_output
 /apysc.egg-info
 /docs_src/build
 /tmp.py
+/tmp_*.py

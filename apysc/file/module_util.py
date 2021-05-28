@@ -4,11 +4,16 @@ Mainly following interfaces are defined:
 
 - get_module_paths_recursively
     Get all module paths under the specified directory.
+- save_tmp_module_and_run_script
+    Save temporary Python module and run that script.
 """
 
 import os
+import traceback
 from typing import List
 from typing import Optional
+from datetime import datetime
+import subprocess as sp
 
 
 def get_module_paths_recursively(
@@ -46,3 +51,28 @@ def get_module_paths_recursively(
             continue
         module_paths.append(file_or_dir_path)
     return module_paths
+
+
+def save_tmp_module_and_run_script(script: str) -> str:
+    """
+    Save temporary Python module and run that script.
+
+    Parameters
+    ----------
+    script : str
+        Python script string.
+
+    Returns
+    -------
+    stdout : str
+        Result stdout string.
+    """
+    tmp_mod_path: str = f'./{datetime.now().timestamp()}.py'
+    with open(tmp_mod_path, 'w') as f:
+        f.write(script)
+    process: sp.CompletedProcess = sp.run(
+        f'python {tmp_mod_path}', shell=True,
+        stdout=sp.PIPE, stderr=sp.STDOUT)
+    stdout:str = process.stdout.decode('utf-8')
+    os.remove(tmp_mod_path)
+    return stdout

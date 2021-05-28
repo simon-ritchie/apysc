@@ -17,3 +17,13 @@ def test_get_module_paths_recursively() -> None:
     module_paths = module_util.get_module_paths_recursively(
         dir_path='./tests/')
     assert './tests/file/test_module_util.py' in module_paths
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_save_tmp_module_and_run_script() -> None:
+    script: str = (
+        'from apysc import Int'
+        '\nprint(Int(10))'
+    )
+    stdout: str = module_util.save_tmp_module_and_run_script(script=script)
+    assert stdout == '10\n'

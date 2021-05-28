@@ -8,10 +8,12 @@ Mainly following interfaces and defined.
     Escape double quotations.
 - wrap_by_double_quotation_if_value_is_string
     Wrap specified by double quotation if value is a string.
+- substitute_file_by_pattern
+    Substitute text file by regular expression pattern.
 """
 
-
-from typing import TypeVar
+import re
+from typing import Any, TypeVar
 
 
 def escape_str(string: str) -> str:
@@ -72,3 +74,30 @@ def wrap_by_double_quotation_if_value_is_string(value: T) -> T:
         return value
     value = f'"{value}"'  # type: ignore
     return value  # type: ignore
+
+
+def substitute_file_by_pattern(
+        file_path: str, pattern: str, repl: str,
+        flags: Any) -> None:
+    """
+    Substitute text file by regular expression pattern.
+
+    Parameters
+    ----------
+    file_path : str
+        Target file path.
+    pattern : str
+        Regular expression pattern.
+    repl : str
+        String that replace matched pattern one.
+    flags : Any
+        Regular expression flags.
+    """
+    from apysc.file import file_util
+    string: str = file_util.read_txt(file_path=file_path)
+    string = re.sub(
+        pattern=pattern,
+        repl=repl,
+        string=string,
+        flags=flags)
+    file_util.save_plain_txt(txt=string, file_path=file_path)

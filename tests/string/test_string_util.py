@@ -1,8 +1,11 @@
+import os
 from random import randint
+import re
 
 from retrying import retry
 
 from apysc.string import string_util
+from apysc.file import file_util
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -28,3 +31,24 @@ def test_escape_double_quotation() -> None:
     string: str = string_util.escape_double_quotation(
         string='"Hello", "World!"')
     assert string == '\\"Hello\\", \\"World!\\"'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_substitute_file_by_pattern() -> None:
+    tmp_file_path: str = '../tmp_test_string_util.txt'
+    with open(tmp_file_path, 'w') as f:
+        f.write(
+            'a = 1 + 1'
+            '\nprint(200)'
+            '\nb = a * 10')
+    string_util.substitute_file_by_pattern(
+        file_path=tmp_file_path,
+        pattern=r'^print.+?\n',
+        repl='',
+        flags=re.MULTILINE)
+    txt: str = file_util.read_txt(file_path=tmp_file_path)
+    assert txt == (
+        'a = 1 + 1'
+        '\nb = a * 10'
+    )
+    os.remove(tmp_file_path)

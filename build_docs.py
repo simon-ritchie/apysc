@@ -29,7 +29,7 @@ def _main() -> None:
     logger.info(msg='Document\'s scripts execution started...')
     _exec_document_script()
 
-    logger.info(msg='Sphix build command started...')
+    logger.info(msg='Sphinx build command started...')
     os.chdir('./docs_src/')
     complete_process: sp.CompletedProcess = sp.run(
         'make html', shell=True,

@@ -1,4 +1,9 @@
 """Module related common utilities.
+
+Mainly following interfaces are defined:
+
+- get_module_paths_recursively
+    Get all module paths under the specified directory.
 """
 
 import os

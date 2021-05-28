@@ -21,6 +21,10 @@ Python 3.6 or later.
 $ pip install apysc
 ```
 
+## How to start
+
+Please see [apysc documentation](https://simon-ritchie.github.io/apysc/index.html) and [Quick start](https://simon-ritchie.github.io/apysc/quick_start.html) page.
+
 ## License
 
 This library is released under the MIT License.

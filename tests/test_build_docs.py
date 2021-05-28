@@ -149,7 +149,7 @@ print(300)
 def test__exec_document_script() -> None:
     executed_scripts: List[str] = build_docs._exec_document_script(
         limit_count=10)
-    assert len(executed_scripts) == 1
+    assert len(executed_scripts) <= 10
     for executed_script in executed_scripts:
         if 'save_expressions_overall_html' not in executed_script:
             continue

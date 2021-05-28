@@ -199,7 +199,7 @@ def _replace_html_saving_export_path_by_doc_path(code: str) -> str:
     """
     match: Optional[Match] = re.search(
         pattern=(
-            r"save_expressions_overall_html\(.+?dest_dir_path='(.+?)'\)"
+            r"save_expressions_overall_html\(.*?dest_dir_path='(.+?)'\)"
         ),
         string=code,
         flags=re.MULTILINE | re.DOTALL)
@@ -215,7 +215,7 @@ def _replace_html_saving_export_path_by_doc_path(code: str) -> str:
 
     code = re.sub(
         pattern=(
-            r"(save_expressions_overall_html\(.+?dest_dir_path=).+?\)"
+            r"(save_expressions_overall_html\(.*?dest_dir_path=).+?\)"
         ),
         repl=rf"\1'./docs_src/source/_static/{original_path}')",
         string=code, count=1,

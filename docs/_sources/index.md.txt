@@ -5,3 +5,4 @@ Welcome to apysc's documentation!
 ## Contents
 
 - [Quick start](quick_start.md)
+- [Stage](stage.md)

@@ -67,7 +67,7 @@ def save_tmp_module_and_run_script(script: str) -> str:
     stdout : str
         Result stdout string.
     """
-    tmp_mod_path: str = f'./{datetime.now().timestamp()}.py'
+    tmp_mod_path: str = f'./tmp_{datetime.now().timestamp()}.py'
     with open(tmp_mod_path, 'w') as f:
         f.write(script)
     process: sp.CompletedProcess = sp.run(

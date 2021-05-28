@@ -17,11 +17,11 @@
 from datetime import datetime
 from typing import Dict
 from typing import List
-from typing_extensions import Final
 
-from sphinx.application import Sphinx
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
+from sphinx.application import Sphinx
+from typing_extensions import Final
 
 # -- Project information -----------------------------------------------------
 

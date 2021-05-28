@@ -13,7 +13,8 @@ Mainly following interfaces and defined.
 """
 
 import re
-from typing import Any, TypeVar
+from typing import Any
+from typing import TypeVar
 
 
 def escape_str(string: str) -> str:

@@ -1,8 +1,9 @@
 """Module related common utilities.
 """
 
-from typing import List, Optional
 import os
+from typing import List
+from typing import Optional
 
 
 def get_module_paths_recursively(

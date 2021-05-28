@@ -1,8 +1,8 @@
 from random import randint
+from typing import List
 
 from retrying import retry
 
-from typing import List
 from apysc.file import module_util
 
 

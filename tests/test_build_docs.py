@@ -1,14 +1,14 @@
-from random import randint
 import os
 import shutil
+from random import randint
 from typing import List
 
 from retrying import retry
 
 import build_docs
+from apysc.file import file_util
 from build_docs import _CodeBlock
 from tests.testing_helper import assert_attrs
-from apysc.file import file_util
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -139,7 +139,7 @@ print(300)
          '\nsave_expressions_overall_html('
          "\n    dest_dir_path='./docs_src/source/_static/"
          "quick_start_stage_creation/')"
-        ]
+         ]
     )
 
     file_util.remove_file_if_exists(file_path=tmp_md_file_path)

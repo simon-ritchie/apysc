@@ -9,7 +9,9 @@ import re
 import shutil
 import subprocess as sp
 from logging import Logger
-from typing import List, Match, Optional
+from typing import List
+from typing import Match
+from typing import Optional
 
 from typing_extensions import Final
 
@@ -252,7 +254,7 @@ def _get_code_blocks_from_txt(md_txt: str) -> List[_CodeBlock]:
             continue
         if line.startswith('```'):
             code_blocks.append(_CodeBlock(
-                code_type= code_type, code=code, runnable=runnable))
+                code_type=code_type, code=code, runnable=runnable))
             is_code_block = False
             code_block_line_num = 0
             code = ''

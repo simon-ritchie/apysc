@@ -43,7 +43,9 @@ def save_expressions_overall_html(
         to_append_html='<html>', dest_html='', indent_num=0)
     html_str = _append_head_to_html_str(html_str=html_str)
     html_str = html_util.append_html_to_str(
-        to_append_html='<body style="margin: 0;">', dest_html=html_str, indent_num=0)
+        to_append_html='<body style="margin: 0;">',
+        dest_html=html_str,
+        indent_num=0)
     html_str = _append_stage_global_variable_to_html(html_str=html_str)
     html_str = _append_expression_to_html_str(html_str=html_str)
     html_str = html_util.append_html_to_str(

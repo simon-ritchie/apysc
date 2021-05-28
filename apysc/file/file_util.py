@@ -23,7 +23,8 @@ Mainly following interfaces are defined:
 import os
 import shutil
 from types import ModuleType
-from typing import List, Optional
+from typing import List
+from typing import Optional
 
 
 def empty_directory(directory_path: str) -> None:

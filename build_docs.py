@@ -11,6 +11,8 @@ import subprocess as sp
 from logging import Logger
 from typing import List, Match, Optional
 
+from typing_extensions import Final
+
 from apysc.console import loggers
 
 logger: Logger = loggers.get_info_logger()
@@ -41,7 +43,42 @@ def _main() -> None:
     logger.info(msg='Replacing `_static` paths by `static`...')
     _replace_static_path()
 
+    logger.info(
+        msg='Removing `# runnable` inline comment from code blocks...')
+    _remove_runnable_inline_comment_from_code_blocks()
+
     logger.info(msg='Build completed!')
+
+
+def _remove_runnable_inline_comment_from_code_blocks(
+        dir_path: str = './docs/') -> None:
+    """
+    Remove `# runnable` inline comment from each exported documents'
+    code blocks recursively.
+
+    Parameters
+    ----------
+    dir_path : str, default './docs/'
+        Target directory path.
+    """
+    from apysc.string import string_util
+    RUNNABLE_COMMENT_CODE: Final[str] = (
+        r'<span></span><span class="c1"># runnable</span>'
+    )
+    file_or_dir_names: List[str] = os.listdir(dir_path)
+    for file_or_dir_name in file_or_dir_names:
+        file_or_dir_path: str = os.path.join(dir_path, file_or_dir_name)
+        if os.path.isdir(file_or_dir_path):
+            _remove_runnable_inline_comment_from_code_blocks(
+                dir_path=file_or_dir_path)
+            continue
+        if not file_or_dir_path.endswith('.html'):
+            continue
+        string_util.substitute_file_by_pattern(
+            file_path=file_or_dir_path,
+            pattern=RUNNABLE_COMMENT_CODE,
+            repl='',
+            flags=re.MULTILINE)
 
 
 def _exec_document_script(

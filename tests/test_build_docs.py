@@ -154,3 +154,37 @@ def test__exec_document_script() -> None:
         if 'save_expressions_overall_html' not in executed_script:
             continue
         assert './docs_src/source/_static/' in executed_script
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__remove_runnable_inline_comment_from_code_blocks() -> None:
+    tmp_dir_path: str = '../tmp_test_build_docs/'
+    shutil.rmtree(tmp_dir_path, ignore_errors=True)
+    tmp_subdir_path: str = os.path.join(tmp_dir_path, 'subdir/')
+    os.makedirs(tmp_subdir_path)
+    tmp_html_path_1: str = os.path.join(tmp_dir_path, 'tmp_1.html')
+    tmp_html_path_2: str = os.path.join(tmp_subdir_path, 'tmp_2.html')
+    tmp_txt_path_1: str = os.path.join(tmp_dir_path, 'tmp_1.txt')
+    html_txt: str = (
+        '<span>a</span>'
+        '<span></span><span class="c1"># runnable</span>'
+        '\n<span>b</span>'
+    )
+    for file_path in (tmp_html_path_1, tmp_html_path_2, tmp_txt_path_1):
+        with open(file_path, 'w') as f:
+            f.write(html_txt)
+    build_docs._remove_runnable_inline_comment_from_code_blocks(
+        dir_path=tmp_dir_path)
+    expected: str = (
+        '<span>a</span>'
+        '\n<span>b</span>'
+    )
+    for file_path in (tmp_html_path_1, tmp_html_path_2):
+        with open(file_path) as f:
+            txt: str = f.read()
+        assert txt == expected
+    with open(tmp_txt_path_1) as f:
+        txt = f.read()
+        assert txt == html_txt
+
+    shutil.rmtree(tmp_dir_path, ignore_errors=True)

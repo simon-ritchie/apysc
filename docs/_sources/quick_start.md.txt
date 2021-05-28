@@ -39,8 +39,7 @@ save_expressions_overall_html(
 
 This code will create each HTML and js files to `dest_dir_path`. You can confirm an exported result by opening `index.html` (`quick_start_stage_creation/index.html`), as follows:
 
-<iframe src="static/quick_start_stage_creation/index.html"
-width="300" height="180"></iframe>
+<iframe src="static/quick_start_stage_creation/index.html" width="300" height="180"></iframe>
 
 ## Add sprite container and vector graphics
 
@@ -72,7 +71,6 @@ save_expressions_overall_html(
     dest_dir_path='quick_start_sprite_graphics/')
 ```
 
-<iframe src="static/quick_start_sprite_graphics/index.html"
-width="250" height="150"></iframe>
+<iframe src="static/quick_start_sprite_graphics/index.html" width="250" height="150"></iframe>
 
 For more details of `Sprite`, `Graphics`, and so on, please see each interfaces documentation pages.

@@ -9,11 +9,10 @@ Mainly following interfaces are defined:
 """
 
 import os
-import traceback
+import subprocess as sp
+from datetime import datetime
 from typing import List
 from typing import Optional
-from datetime import datetime
-import subprocess as sp
 
 
 def get_module_paths_recursively(
@@ -73,6 +72,6 @@ def save_tmp_module_and_run_script(script: str) -> str:
     process: sp.CompletedProcess = sp.run(
         f'python {tmp_mod_path}', shell=True,
         stdout=sp.PIPE, stderr=sp.STDOUT)
-    stdout:str = process.stdout.decode('utf-8')
+    stdout: str = process.stdout.decode('utf-8')
     os.remove(tmp_mod_path)
     return stdout

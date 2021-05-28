@@ -9,3 +9,8 @@ span.pre {
 a {
     color: #0af !important;
 }
+
+/* Hide side menu `This Page` section. */
+div[role=note] {
+    display: none;
+}

@@ -77,6 +77,8 @@ html_css_files: Final[List[str]] = [
     'iframe.css',
 ]
 
+html_logo: Final[str] = '_static/logo_for_document.png'
+
 
 def setup(sphinx: Sphinx) -> None:
     """

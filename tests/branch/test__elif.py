@@ -18,7 +18,10 @@ class TestElif:
     def test__append_enter_expression(self) -> None:
         expression_file_util.remove_expression_file()
         boolean_1: Boolean = Boolean(True)
-        with raises(ValueError, match=r'Elif'):  # type: ignore
+        with raises(
+                ValueError,
+                match=r'Elif interface can only use right '
+                      r'after If or Elif'):  # type: ignore
             with Elif(boolean_1, locals(), globals()):
                 pass
 
@@ -39,7 +42,10 @@ class TestElif:
 
         with If(boolean_1, locals(), globals()):
             pass
-        with pytest.raises(ValueError):  # type: ignore
+        with pytest.raises(
+                ValueError,
+                match=r'Elif expression\'s condition argument '
+                      r'can\'t be set None.'):  # type: ignore
             with Elif(None, locals(), globals()):
                 pass
 

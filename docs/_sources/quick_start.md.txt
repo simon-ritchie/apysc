@@ -17,6 +17,7 @@ $ pip install apysc
 `Stage` instance is apysc's space for displaying each graphics. You can set arguments of `stage_width` for width setting, `stage_height` for height setting, and `background_color` for background.
 
 ```py
+# runnable
 from apysc import Stage
 
 stage = Stage(stage_width=300, stage_height=180, background_color='#333')

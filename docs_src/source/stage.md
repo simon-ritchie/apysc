@@ -28,7 +28,9 @@ Stage class has a `background_color` option, and this will change stage's backgr
 from apysc import Stage
 from apysc import save_expressions_overall_html
 
-stage: Stage = Stage(background_color='#333')
+stage: Stage = Stage(
+    background_color='#333',
+    stage_elem_id='stage')
 
 save_expressions_overall_html(dest_dir_path='stage_background_color/')
 ```
@@ -48,7 +50,8 @@ from apysc import save_expressions_overall_html
 
 stage: Stage = Stage(
     stage_width=500, stage_height=50,
-    background_color='#333')
+    background_color='#333',
+    stage_elem_id='stage')
 
 save_expressions_overall_html(dest_dir_path='stage_size/')
 ```

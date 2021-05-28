@@ -42,9 +42,9 @@ This code will create each HTML and js files to `dest_dir_path`. You can confirm
 <iframe src="static/quick_start_stage_creation/index.html"
 width="300" height="180"></iframe>
 
-## Add `Sprite` container and vector graphics
+## Add sprite container and vector graphics
 
-`Sprite` class is container of each display objects, and it can make vector graphics with graphics property.
+`Sprite` class is basic container object of each display objects, and it can make vector graphics with graphics property.
 
 ```py
 # runnable
@@ -55,7 +55,6 @@ from apysc import save_expressions_overall_html
 stage: Stage = Stage(
     stage_width=250, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: Sprite = Sprite(stage)
 sprite: Sprite = Sprite(stage)
 
 # Draw polyline vector graphics.

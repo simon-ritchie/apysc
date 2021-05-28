@@ -6,3 +6,13 @@
 .highlight .p {
     color: #ccc !important;
 }
+
+/* Override digit code style. */
+.highlight .mi {
+    color: #cc3333 !important;
+}
+
+/* Override string code style. */
+.highlight .s1 {
+    color: #7eca36 !important;
+}

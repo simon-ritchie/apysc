@@ -2,5 +2,10 @@
 
 /* Inline code block style stting. */
 span.pre {
-    color: #e22 !important;
+    color: #e66 !important;
+}
+
+/* Link style setting. */
+a {
+    color: #0af !important;
 }

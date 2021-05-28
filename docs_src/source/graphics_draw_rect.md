@@ -83,7 +83,6 @@ def on_click(e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments.
     """
-    from apysc import Int
     rectangle: Rectangle = e.this
     rectangle.x = Int(100)
 

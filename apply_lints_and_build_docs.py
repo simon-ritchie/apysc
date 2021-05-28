@@ -77,8 +77,12 @@ def _main() -> None:
     stderr: bytes
     logger.info(msg='Waiting documentation build completion...')
     stdout, stderr = process.communicate()
-    print(stdout.decode())
-    print(stderr.decode())
+    stdout_str: str = stdout.decode()
+    stderr_str: str = stderr.decode()
+    for string in (stdout_str, stderr_str):
+        if 'Traceback' not in string:
+            continue
+        print(string)
 
 
 def _run_lint_command(lint_command: LintCommand) -> str:

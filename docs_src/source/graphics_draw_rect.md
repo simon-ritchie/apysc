@@ -1,6 +1,6 @@
 # Graphics draw_rect interface
 
-This page will explain `Graphics` `draw_rect` method interface.
+This page will explain `Graphics` class `draw_rect` method interface.
 
 ## What interface is this?
 

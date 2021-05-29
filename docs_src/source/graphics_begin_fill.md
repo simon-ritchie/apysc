@@ -23,16 +23,16 @@ stage: Stage = Stage(
     stage_elem_id='stage')
 sprite: Sprite = Sprite(stage=stage)
 
-# Set blue fill color and draw first rectangle.
+# Set blue fill color and draw the first rectangle.
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 
-# Draw second rectangle (fill color setting will be maintained).
+# Draw the second rectangle (fill color setting will be maintained).
 sprite.graphics.draw_rect(
     x=150, y=50, width=50, height=50)
 
-# Set other fill color and draw third rectangle.
+# Set the other fill color and draw the third rectangle.
 sprite.graphics.begin_fill(color='#f0a')
 sprite.graphics.draw_rect(
     x=250, y=50, width=50, height=50)
@@ -77,4 +77,49 @@ save_expressions_overall_html(
 
 <iframe src="static/graphics_begin_fill_color_setting_clear/index.html" width="150" height="150"></iframe>
 
+Color code is acceptable like the following list:
 
+- Six characters, e.g., `#00aaff`.
+- Three characters, e.g., `#0af` (this will be interpreted as `#00aaff`).
+- Single character, e.g., `#5` (this will be interpreted as `#000005`).
+- Skipped `#` symbol, e.g., `0af` (this will be interpreted as `#00aaff`).
+- Blank string, e.g., `''` (this will clear fill color setting).
+
+```py
+# runnable
+from apysc import Sprite
+from apysc import Stage
+from apysc import save_expressions_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=450,
+    stage_height=150,
+    stage_elem_id='stage')
+sprite: Sprite = Sprite(stage=stage)
+
+# Six characters fill color setting (a cyan color).
+sprite.graphics.begin_fill(color='#00aaff')
+sprite.graphics.draw_rect(
+    x=50, y=50, width=50, height=50)
+
+# Three characters fill color setting (a magenta color).
+sprite.graphics.begin_fill(color='#f0a')
+sprite.graphics.draw_rect(
+    x=150, y=50, width=50, height=50)
+
+# Single characters fill color setting (a black color).
+sprite.graphics.begin_fill(color='#0')
+sprite.graphics.draw_rect(
+    x=250, y=50, width=50, height=50)
+
+# Fill color that Skipped `#` symbol is also acceptable.
+sprite.graphics.begin_fill(color='999')
+sprite.graphics.draw_rect(
+    x=350, y=50, width=50, height=50)
+
+save_expressions_overall_html(
+    dest_dir_path='graphics_begin_fill_acceptable_color_settings/')
+```
+
+<iframe src="static/graphics_begin_fill_acceptable_color_settings/index.html" width="450" height="150"></iframe>

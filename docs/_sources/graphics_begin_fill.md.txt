@@ -45,7 +45,32 @@ save_expressions_overall_html(
 
 ## Fill color setting
 
-A Fill color will be set by the `color` argument, and this is required one. If you want to clear fill color, then specify a blank string to this argument.
+A fill color will be set by the `color` argument, and this is required one.
+
+```py
+# runnable
+from apysc import Sprite
+from apysc import Stage
+from apysc import save_expressions_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+sprite: Sprite = Sprite(stage=stage)
+
+# Set a cyan fill color and draw rectangle.
+sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+
+save_expressions_overall_html(
+    dest_dir_path='graphics_begin_fill_fill_color/')
+```
+
+<iframe src="static/graphics_begin_fill_fill_color/index.html" width="150" height="150"></iframe>
+
+If you want to clear fill color, then specify a blank string to this argument.
 
 For example, since the following code will clear fill color setting, so A result rectangle is invisible.
 

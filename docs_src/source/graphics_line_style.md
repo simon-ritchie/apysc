@@ -42,3 +42,7 @@ save_expressions_overall_html(
 ```
 
 <iframe src="static/graphics_line_style_basics/index.html" width="200" height="162"></iframe>
+
+## Line color setting
+
+A line color will be set by the `color` argument, and this is required one.

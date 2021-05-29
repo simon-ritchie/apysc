@@ -23,7 +23,7 @@ $ pip install apysc
 
 ## How to start
 
-Please see [apysc documentation](https://simon-ritchie.github.io/apysc/index.html) and [Quick start](https://simon-ritchie.github.io/apysc/quick_start.html) page.
+Please see [apysc documentation](https://simon-ritchie.github.io/apysc/index.html) and [quick start](https://simon-ritchie.github.io/apysc/quick_start.html) page.
 
 ## License
 

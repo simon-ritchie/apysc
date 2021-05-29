@@ -23,7 +23,7 @@ from apysc import Stage
 stage = Stage(stage_width=300, stage_height=180, background_color='#333')
 ```
 
-Then you can export each HTML and js filed by `save_expressions_overall_html` function (in this case, only the black background stage will be displayed).
+Then you can export each HTML and js files by the `save_expressions_overall_html` function (in this case, only the black background stage will be displayed).
 
 ```py
 # runnable

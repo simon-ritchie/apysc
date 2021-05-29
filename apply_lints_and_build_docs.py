@@ -83,6 +83,7 @@ def _main() -> None:
         if 'Traceback' not in string:
             continue
         print(string)
+    logger.info(msg='Ended.')
 
 
 def _run_lint_command(lint_command: LintCommand) -> str:

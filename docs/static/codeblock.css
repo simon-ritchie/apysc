@@ -8,7 +8,7 @@
 }
 
 /* Override digit code style. */
-.highlight .mi {
+.highlight .mi, .highlight .mf {
     color: #cc3333 !important;
 }
 

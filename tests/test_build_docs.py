@@ -1,12 +1,13 @@
+import hashlib
 import os
 import shutil
 from random import randint
 from typing import List
-import hashlib
 
 from retrying import retry
 
 import build_docs
+from apysc.display.stage import get_stage_elem_id
 from apysc.file import file_util
 from build_docs import _CodeBlock
 from tests.testing_helper import assert_attrs
@@ -161,6 +162,12 @@ def test__exec_document_script() -> None:
         if 'save_expressions_overall_html' not in executed_script:
             continue
         assert './docs_src/source/_static/' in executed_script
+
+    stage_elem_id: str = get_stage_elem_id()
+    if stage_elem_id != 'stage':
+        raise AssertionError(
+            'Stage element id is not `stage` (retry as the test '
+            'may be conflicting).')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

@@ -4,15 +4,16 @@ Command example:
 $ python build_docs.py
 """
 
+import hashlib
 import os
 import re
 import shutil
 import subprocess as sp
 from logging import Logger
-from typing import List, Tuple
+from typing import List
 from typing import Match
 from typing import Optional
-import hashlib
+from typing import Tuple
 
 from typing_extensions import Final
 

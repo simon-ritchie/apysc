@@ -69,3 +69,34 @@ save_expressions_overall_html(
 ```
 
 <iframe src="static/graphics_line_style_line_color/index.html" width="200" height="102"></iframe>
+
+If you want to clear line color, then specify a blank string to this argument.
+
+For example, since the following code will clear line color setting, so a result line graphics is invisible.
+
+```py
+# runnable
+from apysc import Sprite
+from apysc import Stage
+from apysc import save_expressions_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=200,
+    stage_height=102,
+    stage_elem_id='stage')
+sprite: Sprite = Sprite(stage=stage)
+
+# Set a cyan line color.
+sprite.graphics.line_style(color='#0af', thickness=4)
+
+# Clear the line color by specifying a blank string.
+sprite.graphics.line_style(color='', thickness=4)
+sprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)
+
+save_expressions_overall_html(
+    dest_dir_path='graphics_line_style_clear_line_color/')
+```
+
+<iframe src="static/graphics_line_style_clear_line_color/index.html" width="200" height="102"></iframe>
+

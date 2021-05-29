@@ -60,7 +60,7 @@ stage: Stage = Stage(
     stage_elem_id='stage')
 sprite: Sprite = Sprite(stage=stage)
 
-# Set a cyan fill color and draw rectangle.
+# Set a cyan fill color and draw the rectangle.
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
@@ -72,7 +72,7 @@ save_expressions_overall_html(
 
 If you want to clear fill color, then specify a blank string to this argument.
 
-For example, since the following code will clear fill color setting, so A result rectangle is invisible.
+For example, since the following code will clear fill color setting, so a result rectangle graphic is invisible.
 
 ```py
 # runnable

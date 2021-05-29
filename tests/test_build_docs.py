@@ -188,3 +188,18 @@ def test__remove_runnable_inline_comment_from_code_blocks() -> None:
         assert txt == html_txt
 
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__read_md_file_hashed_val_from_file() -> None:
+    tmp_hash_file_path: str = '../tmp_test_build_docs.md'
+    file_util.remove_file_if_exists(file_path=tmp_hash_file_path)
+    hashed_val: str = build_docs._read_md_file_hashed_val_from_file(
+        hash_file_path=tmp_hash_file_path)
+    assert hashed_val == ''
+
+    file_util.save_plain_txt(txt='1234567890', file_path=tmp_hash_file_path)
+    hashed_val = build_docs._read_md_file_hashed_val_from_file(
+        hash_file_path=tmp_hash_file_path)
+    assert hashed_val == '1234567890'
+    file_util.remove_file_if_exists(file_path=tmp_hash_file_path)

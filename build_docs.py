@@ -103,6 +103,7 @@ def _exec_document_script(
     md_file_paths: List[str] = \
         file_util.get_specified_ext_file_paths_recursively(
             extension='.md', dir_path='./docs_src/')
+    md_file_paths = _slice_md_file_by_hashed_val(md_file_paths=md_file_paths)
     count: int = 0
     is_limit: bool = False
     executed_scripts: List[str] = []
@@ -117,7 +118,9 @@ def _exec_document_script(
             print('-' * 20)
             stdout: str = module_util.save_tmp_module_and_run_script(
                 script=runnable_script)
-            print(stdout)
+            if 'Traceback' in stdout:
+                raise Exception(
+                    f'Error occurred while executing script:\n{stdout}')
             executed_scripts.append(runnable_script)
             count += 1
             if limit_count is not None and count == limit_count:
@@ -126,6 +129,60 @@ def _exec_document_script(
         if is_limit:
             break
     return executed_scripts
+
+
+HASHED_VALS_DIR_PATH: Final[str] = './docs_src/hashed_vals/'
+
+
+def _slice_md_file_by_hashed_val(md_file_paths: List[str]) -> List[str]:
+    """
+    Slice markdown file paths by hashed values (remove unchanged
+    documents from list).
+
+    Parameters
+    ----------
+    md_file_paths : list of str
+        Target markdown file paths.
+
+    Returns
+    -------
+    md_file_paths : list of str
+        Sliced markdown file paths.
+    """
+    for md_file_path in md_file_paths:
+        under_source_file_path: str = md_file_path.split('/source/', 1)[1]
+        hash_file_path: str = os.path.join(
+            HASHED_VALS_DIR_PATH,
+            under_source_file_path,
+        )
+        hash_file_dir_path: str = os.path.dirname(hash_file_path)
+        os.makedirs(hash_file_dir_path, exist_ok=True)
+        saved_hashed_val: str = _read_md_file_hashed_val_from_file(
+            hash_file_path=hash_file_path)
+    pass
+
+
+def _read_md_file_hashed_val_from_file(hash_file_path: str) -> str:
+    """
+    Read the markdown file hashed value from the saved file.
+
+    Parameters
+    ----------
+    hash_file_path : str
+        Target hash file path.
+
+    Returns
+    -------
+    hashed_val : str
+        Hashed string value. If file does not exist, then blank string
+        will be returned.
+    """
+    from apysc.file import file_util
+    if not os.path.exists(hash_file_path):
+        return ''
+    hashed_val: str = file_util.read_txt(file_path=hash_file_path)
+    hashed_val = hashed_val.strip()
+    return hashed_val
 
 
 class _CodeBlock:

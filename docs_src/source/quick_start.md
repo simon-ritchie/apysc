@@ -1,6 +1,6 @@
 # Quick start
 
-This page will explain the first step of apysc's journey.
+This page will explain the first step of the apysc library journey.
 
 ## Installing
 

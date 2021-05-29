@@ -1,6 +1,6 @@
 # apysc documentation
 
-Welcome to apysc's documentation!
+Welcome to apysc documentation!
 
 ## Contents
 

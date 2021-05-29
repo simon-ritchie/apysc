@@ -1,12 +1,12 @@
 # Stage
 
-This page will explain `Stage` class.
+This page will explain the `Stage` class.
 
 ## What is Stage
 
-Stage is apysc's overall drawing area (it's like a view port or canvas, or something else) and a container of all elements.
+The `Stage` is the apysc overall drawing area (it's like a viewport or canvas, or something else) and a container of all elements.
 
-Stage must be created at the first of apysc project (this will run cleaning up processes).
+The `Stage` must be created at the first of the apysc project (this will run cleaning up processes).
 
 ## Create stage
 
@@ -21,7 +21,7 @@ stage: Stage = Stage()
 
 ## Stage background color setting
 
-Stage class has a `background_color` option, and this will change stage's background color.
+`Stage` class has a `background_color` option, and this will change the stage's background color.
 
 ```py
 # runnable

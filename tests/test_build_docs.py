@@ -221,3 +221,61 @@ def test__get_md_under_source_file_path() -> None:
     under_source_file_path: str = build_docs._get_md_under_source_file_path(
         md_file_path='./doc_src/source/any/path.md')
     assert under_source_file_path == 'any/path.md'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__slice_md_file_by_hashed_val() -> None:
+    original_hashed_vals_dir_path: str = build_docs.HASHED_VALS_DIR_PATH
+    build_docs.HASHED_VALS_DIR_PATH = '../tmp_test_build_docs_3/hashed_vals/'
+    shutil.rmtree(build_docs.HASHED_VALS_DIR_PATH, ignore_errors=True)
+    os.makedirs(build_docs.HASHED_VALS_DIR_PATH, exist_ok=True)
+    tmp_hash_file_path_1: str = os.path.join(
+        build_docs.HASHED_VALS_DIR_PATH,
+        'tmp_1.md'
+    )
+    file_util.save_plain_txt(
+        txt=hashlib.sha1('0123'.encode()).hexdigest(),
+        file_path=tmp_hash_file_path_1)
+
+    tmp_hash_file_path_2: str = os.path.join(
+        build_docs.HASHED_VALS_DIR_PATH,
+        'tmp_2.md'
+    )
+    file_util.save_plain_txt(
+        txt=hashlib.sha1('4567'.encode()).hexdigest(),
+        file_path=tmp_hash_file_path_2)
+
+    tmp_src_dir_path: str = '../tmp_test_build_docs_4/source/'
+    shutil.rmtree(tmp_src_dir_path, ignore_errors=True)
+    os.makedirs(tmp_src_dir_path, exist_ok=True)
+    tmp_md_file_path_1: str = os.path.join(
+        tmp_src_dir_path, 'tmp_1.md')
+    tmp_md_file_path_2: str = os.path.join(
+        tmp_src_dir_path, 'tmp_2.md')
+    tmp_md_file_path_3: str = os.path.join(
+        tmp_src_dir_path, 'tmp_3.md')
+    md_file_paths: List[str] = [
+        tmp_md_file_path_1,
+        tmp_md_file_path_2,
+        tmp_md_file_path_3,
+    ]
+    with open(tmp_md_file_path_1, 'w') as f:
+        f.write('0123')
+    with open(tmp_md_file_path_2, 'w') as f:
+        f.write('0000')
+    with open(tmp_md_file_path_3, 'w') as f:
+        f.write('890')
+    sliced_md_file_paths: List[str]
+    hashed_vals: List[str]
+    sliced_md_file_paths, hashed_vals = \
+        build_docs._slice_md_file_by_hashed_val(
+            md_file_paths=md_file_paths)
+    assert sliced_md_file_paths == [tmp_md_file_path_2, tmp_md_file_path_3]
+    assert hashed_vals == [
+        hashlib.sha1('0000'.encode()).hexdigest(),
+        hashlib.sha1('890'.encode()).hexdigest(),
+    ]
+
+    shutil.rmtree(tmp_src_dir_path, ignore_errors=True)
+    shutil.rmtree(build_docs.HASHED_VALS_DIR_PATH, ignore_errors=True)
+    build_docs.HASHED_VALS_DIR_PATH = original_hashed_vals_dir_path

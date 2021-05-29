@@ -5,6 +5,9 @@ Welcome to apysc documentation!
 ## Contents
 
 - [Quick start](quick_start.md)
+
+**Basic classes**
+
 - [Stage class](stage.md)
 
 **Graphics class**

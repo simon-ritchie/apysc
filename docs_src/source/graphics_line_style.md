@@ -204,3 +204,46 @@ save_expressions_overall_html(
 ```
 
 <iframe src="static/graphics_line_style_alpha/index.html" width="150" height="150"></iframe>
+
+## Line cap setting
+
+Line cap setting will change line edge style. This can be set by the `cap` argument and `LineCaps` enum values are acceptable.
+
+There are three `LineCaps` options, as follows:
+
+- BUTT: This is the default value, and no cap will be applied.
+- ROUND: This will change the line edge to the rounded one.
+- SQUARE: This is similar to BUTT, but the line length will be increased by the squared edge.
+
+```py
+# runnable
+from apysc import Sprite
+from apysc import Stage
+from apysc import LineCaps
+from apysc import save_expressions_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=200,
+    stage_height=180,
+    stage_elem_id='stage')
+sprite: Sprite = Sprite(stage=stage)
+
+# BUTT caps setting (default).
+sprite.graphics.line_style(color='#0af', thickness=20, cap=LineCaps.BUTT)
+sprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)
+
+# ROUND caps setting.
+sprite.graphics.line_style(color='#0af', thickness=20, cap=LineCaps.ROUND)
+sprite.graphics.draw_line(x_start=50, x_end=150, y_start=90, y_end=90)
+
+# SQUARE caps setting (same line length setting as BUTT line,
+# but this will be longer for the caps).
+sprite.graphics.line_style(color='#0af', thickness=20, cap=LineCaps.SQUARE)
+sprite.graphics.draw_line(x_start=50, x_end=150, y_start=130, y_end=130)
+
+save_expressions_overall_html(
+    dest_dir_path='graphics_line_style_caps/')
+```
+
+<iframe src="static/graphics_line_style_caps/index.html" width="200" height="180"></iframe>

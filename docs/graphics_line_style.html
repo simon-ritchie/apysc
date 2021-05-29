@@ -229,6 +229,46 @@
 </pre></div>
 </div>
 <iframe src="static/graphics_line_style_alpha/index.html" width="150" height="150"></iframe></section>
+<section id="line-cap-setting">
+<h2>Line cap setting<a class="headerlink" href="#line-cap-setting" title="Permalink to this headline">¶</a></h2>
+<p>Line cap setting will change line edge style. This can be set by the <code class="docutils literal notranslate"><span class="pre">cap</span></code> argument and <code class="docutils literal notranslate"><span class="pre">LineCaps</span></code> enum values are acceptable.</p>
+<p>There are three <code class="docutils literal notranslate"><span class="pre">LineCaps</span></code> options, as follows:</p>
+<ul class="simple">
+<li><p>BUTT: This is the default value, and no cap will be applied.</p></li>
+<li><p>ROUND: This will change the line edge to the rounded one.</p></li>
+<li><p>SQUARE: This is similar to BUTT, but the line length will be increased by the squared edge.</p></li>
+</ul>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">LineCaps</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_expressions_overall_html</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">Sprite</span> <span class="o">=</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+
+<span class="c1"># BUTT caps setting (default).</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">cap</span><span class="o">=</span><span class="n">LineCaps</span><span class="o">.</span><span class="n">BUTT</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span><span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># ROUND caps setting.</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">cap</span><span class="o">=</span><span class="n">LineCaps</span><span class="o">.</span><span class="n">ROUND</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span><span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="c1"># SQUARE caps setting (same line length setting as BUTT line,</span>
+<span class="c1"># but this will be longer for the caps).</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">cap</span><span class="o">=</span><span class="n">LineCaps</span><span class="o">.</span><span class="n">SQUARE</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span><span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">130</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">130</span><span class="p">)</span>
+
+<span class="n">save_expressions_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_caps/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/graphics_line_style_caps/index.html" width="200" height="180"></iframe></section>
 </section>
 
 
@@ -249,6 +289,7 @@
 <li><a class="reference internal" href="#line-color-setting">Line-color setting</a></li>
 <li><a class="reference internal" href="#line-thickness-setting">Line thickness setting</a></li>
 <li><a class="reference internal" href="#line-alpha-opacity-setting">Line alpha (opacity) setting</a></li>
+<li><a class="reference internal" href="#line-cap-setting">Line cap setting</a></li>
 </ul>
 </li>
 </ul>

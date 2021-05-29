@@ -279,3 +279,20 @@ def test__slice_md_file_by_hashed_val() -> None:
     shutil.rmtree(tmp_src_dir_path, ignore_errors=True)
     shutil.rmtree(build_docs.HASHED_VALS_DIR_PATH, ignore_errors=True)
     build_docs.HASHED_VALS_DIR_PATH = original_hashed_vals_dir_path
+
+
+def test__save_md_hashed_val() -> None:
+    original_hashed_vals_dir_path: str = build_docs.HASHED_VALS_DIR_PATH
+    build_docs.HASHED_VALS_DIR_PATH = '../tmp_test_build_docs_5/hashed_vals/'
+    expected_file_path: str = os.path.join(
+        build_docs.HASHED_VALS_DIR_PATH,
+        'any/path.md')
+    file_util.remove_file_if_exists(file_path=expected_file_path)
+    build_docs._save_md_hashed_val(
+        md_file_path='./docs_src/source/any/path.md', hashed_val='1234')
+    hashed_val: str = build_docs._read_md_file_hashed_val_from_file(
+        hash_file_path=expected_file_path)
+    assert hashed_val == '1234'
+
+    build_docs.HASHED_VALS_DIR_PATH = original_hashed_vals_dir_path
+    file_util.remove_file_if_exists(file_path=expected_file_path)

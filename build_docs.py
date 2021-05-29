@@ -125,6 +125,8 @@ def _exec_document_script(
                 raise Exception(
                     f'Error occurred while executing script:\n{stdout}')
             executed_scripts.append(runnable_script)
+            _save_md_hashed_val(
+                md_file_path=md_file_path, hashed_val=hashed_val)
             count += 1
             if limit_count is not None and count == limit_count:
                 is_limit = True
@@ -132,6 +134,26 @@ def _exec_document_script(
         if is_limit:
             break
     return executed_scripts
+
+
+def _save_md_hashed_val(md_file_path: str, hashed_val: str) -> None:
+    """
+    Save markdown hashed string value to file.
+
+    Parameters
+    ----------
+    md_file_path : str
+        Original markdown file path.
+    hashed_val : str
+        Hashed markdown text value.
+    """
+    from apysc.file import file_util
+    under_source_file_path: str = _get_md_under_source_file_path(
+        md_file_path=md_file_path)
+    dest_path: str = os.path.join(
+        HASHED_VALS_DIR_PATH, under_source_file_path,
+    )
+    file_util.save_plain_txt(txt=hashed_val, file_path=dest_path)
 
 
 HASHED_VALS_DIR_PATH: Final[str] = './docs_src/hashed_vals/'

@@ -26,6 +26,9 @@ class TestBeginFillInterface:
         assert begin_fill_interface.fill_color == String('#333333')
         assert begin_fill_interface.fill_alpha == 0.3
 
+        begin_fill_interface.begin_fill(color='')
+        assert begin_fill_interface.fill_color == ''
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_fill_color(self) -> None:
         begin_fill_interface: BeginFillInterface = BeginFillInterface()

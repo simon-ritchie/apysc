@@ -115,7 +115,9 @@ def _exec_document_script(
             logger.info(
                 msg=(f'Executing document script: \n{runnable_script}'))
             print('-' * 20)
-            module_util.save_tmp_module_and_run_script(script=runnable_script)
+            stdout: str = module_util.save_tmp_module_and_run_script(
+                script=runnable_script)
+            print(stdout)
             executed_scripts.append(runnable_script)
             count += 1
             if limit_count is not None and count == limit_count:

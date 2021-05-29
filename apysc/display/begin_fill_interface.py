@@ -41,8 +41,9 @@ class BeginFillInterface(RevertInterface):
         from apysc.validation import number_validation
         self._initialize_fill_color_if_not_initialized()
         self._initialize_fill_alpha_if_not_initialized()
-        color = color_util.complement_hex_color(
-            hex_color_code=color)
+        if color != '':
+            color = color_util.complement_hex_color(
+                hex_color_code=color)
         self._fill_color.value = color
         number_validation.validate_num(num=alpha)
         if not isinstance(alpha, Number):

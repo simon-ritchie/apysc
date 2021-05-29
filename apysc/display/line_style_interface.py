@@ -96,8 +96,9 @@ class LineStyleInterface(RevertInterface):
         self._initialize_line_thickness_if_not_initialized()
         self._initialize_line_alpha_if_not_initialized()
 
-        color = color_util.complement_hex_color(
-            hex_color_code=color)
+        if color != '':
+            color = color_util.complement_hex_color(
+                hex_color_code=color)
         self._line_color.value = color
         number_validation.validate_integer(integer=thickness)
         number_validation.validate_num_is_gt_zero(num=thickness)

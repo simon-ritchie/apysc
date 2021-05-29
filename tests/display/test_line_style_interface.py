@@ -70,6 +70,10 @@ class TestLineStyleInterface:
         assert line_style_interface._line_dash_dot_setting == \
             line_dash_dot_setting
 
+        line_style_interface.line_style(
+            color='')
+        assert line_style_interface.line_color == ''
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_color(self) -> None:
         line_style_interface: LineStyleInterface = LineStyleInterface()

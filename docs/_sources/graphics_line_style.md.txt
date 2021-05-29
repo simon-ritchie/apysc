@@ -43,7 +43,7 @@ save_expressions_overall_html(
 
 <iframe src="static/graphics_line_style_basics/index.html" width="200" height="162"></iframe>
 
-## Line color setting
+## Line-color setting
 
 A line color will be set by the `color` argument, and this is required one.
 
@@ -60,7 +60,7 @@ stage: Stage = Stage(
     stage_elem_id='stage')
 sprite: Sprite = Sprite(stage=stage)
 
-# Set a cyan line color and draw line.
+# Set a cyan line color and draw the line.
 sprite.graphics.line_style(color='#0af', thickness=4)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)
 
@@ -72,7 +72,7 @@ save_expressions_overall_html(
 
 If you want to clear line color, then specify a blank string to this argument.
 
-For example, since the following code will clear line color setting, so a result line graphics is invisible.
+For example, since the following code will clear line color setting, so a result line graphic is invisible.
 
 ```py
 # runnable
@@ -138,3 +138,38 @@ save_expressions_overall_html(
 ```
 
 <iframe src="static/graphics_line_style_line_color_color_code/index.html" width="200" height="162"></iframe>
+
+## Line thickness setting
+
+Line thickness can be set by the `thickness` argument. It can accept greater than or equal to 1.
+
+```py
+# runnable
+from apysc import Sprite
+from apysc import Stage
+from apysc import save_expressions_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=200,
+    stage_height=165,
+    stage_elem_id='stage')
+sprite: Sprite = Sprite(stage=stage)
+
+# Set 1-pixel line thickness.
+sprite.graphics.line_style(color='#00aaff', thickness=1)
+sprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)
+
+# Set 4-pixel line thickness.
+sprite.graphics.line_style(color='#00aaff', thickness=4)
+sprite.graphics.draw_line(x_start=50, x_end=150, y_start=80, y_end=80)
+
+# Set 10-pixel line thickness.
+sprite.graphics.line_style(color='#00aaff', thickness=10)
+sprite.graphics.draw_line(x_start=50, x_end=150, y_start=110, y_end=110)
+
+save_expressions_overall_html(
+    dest_dir_path='graphics_line_style_thickness/')
+```
+
+<iframe src="static/graphics_line_style_thickness/index.html" width="200" height="165"></iframe>

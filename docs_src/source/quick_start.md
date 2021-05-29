@@ -4,9 +4,9 @@ This page will explain the first step of apysc's journey.
 
 ## Installing
 
-To use apysc library, Python 3.6 or later version is required.
+To use apysc library, Python 3.6 or the later version is required.
 
-You can use pip command to install apysc.
+You can use the pip command to install apysc.
 
 ```
 $ pip install apysc
@@ -43,7 +43,7 @@ This code will create each HTML and js files to `dest_dir_path`. You can confirm
 
 ## Add sprite container and vector graphics
 
-`Sprite` class is basic container object of each display objects, and it can make vector graphics with graphics property.
+`Sprite` class is the basic container object of each display object, and it can make vector graphics with graphics property.
 
 ```py
 # runnable
@@ -73,4 +73,4 @@ save_expressions_overall_html(
 
 <iframe src="static/quick_start_sprite_graphics/index.html" width="250" height="150"></iframe>
 
-For more details of `Sprite`, `Graphics`, and so on, please see each interfaces documentation pages.
+For more details of `Sprite` and `Graphics` and so on, please see each interface documentation page.

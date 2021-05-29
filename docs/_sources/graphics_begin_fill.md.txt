@@ -1,14 +1,14 @@
 # Graphics begin_fill interface
 
-This page will explain `Graphics` class `begin_fill` method interface.
+This page will explain the `Graphics` class `begin_fill` method interface.
 
 ## What interface is this?
 
-`begin_fill` interface will set the fill color and fill alpha settings. This setting will be maintained until it is called again or called `clear` method.
+`begin_fill` interface will set the fill color and fill alpha settings. This setting will be maintained until it is called again or called the `clear` method.
 
 ## Basic usage
 
-Draw vector graphics interfaces (e.g., `draw_rect`) will use these fill settings when they are creating, so `begin_fill` method needs to be called before calling each drawing interface.
+Draw vector graphics interfaces (e.g., `draw_rect`) will use these fill settings when they are creating, so the `begin_fill` method needs to be called before calling each drawing interface.
 
 ```py
 # runnable
@@ -45,7 +45,7 @@ save_expressions_overall_html(
 
 ## Fill color setting
 
-A Fill color will be set by `color` argument, and this is required one. If you want to clear fill color, then specify a blank string to this argument.
+A Fill color will be set by the `color` argument, and this is required one. If you want to clear fill color, then specify a blank string to this argument.
 
 For example, since the following code will clear fill color setting, so A result rectangle is invisible.
 
@@ -123,3 +123,9 @@ save_expressions_overall_html(
 ```
 
 <iframe src="static/graphics_begin_fill_acceptable_color_settings/index.html" width="450" height="150"></iframe>
+
+## Fill color alpha (opacity) setting
+
+Fill color alpha (opacity) can be set by the `alpha` argument. It can accept 0.0 (transparent) to 1.0 (opaque).
+
+

@@ -1,6 +1,6 @@
 # Graphics draw_rect interface
 
-This page will explain `Graphics` class `draw_rect` method interface.
+This page will explain the `Graphics` class `draw_rect` method interface.
 
 ## What interface is this?
 
@@ -58,7 +58,7 @@ save_expressions_overall_html(
 
 `draw_rect` interface will return `Rectangle` instance. You can update each setting or bind events.
 
-For instance, following script will set mouse event to `Rectangle`, and updating x position in handler (`on_click`).
+For instance, the following script will set mouse event to `Rectangle` and updating x position in handler (`on_click`).
 
 ```py
 # runnable
@@ -74,7 +74,7 @@ from apysc import save_expressions_overall_html
 
 def on_click(e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
     """
-    Handler that will be called when rectangle is clicked.
+    The handler that it will be called when the rectangle is clicked.
 
     Parameters
     ----------

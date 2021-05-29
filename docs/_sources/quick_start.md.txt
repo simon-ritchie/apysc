@@ -4,7 +4,7 @@ This page will explain the first step of apysc's journey.
 
 ## Installing
 
-To use apysc library, Python 3.6 or the later version is required.
+To use apysc library Python 3.6 or the later version is required.
 
 You can use the pip command to install apysc.
 

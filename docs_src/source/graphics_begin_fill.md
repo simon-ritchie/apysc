@@ -128,4 +128,33 @@ save_expressions_overall_html(
 
 Fill color alpha (opacity) can be set by the `alpha` argument. It can accept 0.0 (transparent) to 1.0 (opaque).
 
+```py
+# runnable
+from apysc import Sprite
+from apysc import Stage
+from apysc import save_expressions_overall_html
 
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=200,
+    stage_height=200,
+    stage_elem_id='stage')
+sprite: Sprite = Sprite(stage=stage)
+
+sprite.graphics.begin_fill(color='#00aaff', alpha=0.2)
+sprite.graphics.draw_rect(
+    x=50, y=75, width=50, height=50)
+sprite.graphics.draw_rect(
+    x=75, y=50, width=50, height=50)
+sprite.graphics.draw_rect(
+    x=75, y=75, width=50, height=50)
+sprite.graphics.draw_rect(
+    x=75, y=100, width=50, height=50)
+sprite.graphics.draw_rect(
+    x=100, y=75, width=50, height=50)
+
+save_expressions_overall_html(
+    dest_dir_path='graphics_begin_fill_alpha_setting/')
+```
+
+<iframe src="static/graphics_begin_fill_alpha_setting/index.html" width="200" height="200"></iframe>

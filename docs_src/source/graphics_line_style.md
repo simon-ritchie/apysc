@@ -100,3 +100,41 @@ save_expressions_overall_html(
 
 <iframe src="static/graphics_line_style_clear_line_color/index.html" width="200" height="102"></iframe>
 
+Color code is acceptable like the following list (same as `begin_fill` interface `color` argument):
+
+- Six characters, e.g., `#00aaff`.
+- Three characters, e.g., `#0af` (this will be interpreted as `#00aaff`).
+- Single character, e.g., `#5` (this will be interpreted as `#000005`).
+- Skipped `#` symbol, e.g., `0af` (this will be interpreted as `#00aaff`).
+- Blank string, e.g., `''` (this will clear line color setting).
+
+```py
+# runnable
+from apysc import Sprite
+from apysc import Stage
+from apysc import save_expressions_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=200,
+    stage_height=162,
+    stage_elem_id='stage')
+sprite: Sprite = Sprite(stage=stage)
+
+# The six characters line color setting (a cyan color).
+sprite.graphics.line_style(color='#00aaff', thickness=4)
+sprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)
+
+# The three characters line color setting (a magenta color).
+sprite.graphics.line_style(color='#f0a', thickness=4)
+sprite.graphics.draw_line(x_start=50, x_end=150, y_start=80, y_end=80)
+
+# The one character line color setting (a black color).
+sprite.graphics.line_style(color='#5', thickness=4)
+sprite.graphics.draw_line(x_start=50, x_end=150, y_start=110, y_end=110)
+
+save_expressions_overall_html(
+    dest_dir_path='graphics_line_style_line_color_color_code/')
+```
+
+<iframe src="static/graphics_line_style_line_color_color_code/index.html" width="200" height="162"></iframe>

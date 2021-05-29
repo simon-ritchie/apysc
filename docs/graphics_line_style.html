@@ -132,7 +132,43 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_clear_line_color/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_line_style_clear_line_color/index.html" width="200" height="102"></iframe></section>
+<iframe src="static/graphics_line_style_clear_line_color/index.html" width="200" height="102"></iframe><p>Color code is acceptable like the following list (same as <code class="docutils literal notranslate"><span class="pre">begin_fill</span></code> interface <code class="docutils literal notranslate"><span class="pre">color</span></code> argument):</p>
+<ul class="simple">
+<li><p>Six characters, e.g., <code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>.</p></li>
+<li><p>Three characters, e.g., <code class="docutils literal notranslate"><span class="pre">#0af</span></code> (this will be interpreted as <code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>).</p></li>
+<li><p>Single character, e.g., <code class="docutils literal notranslate"><span class="pre">#5</span></code> (this will be interpreted as <code class="docutils literal notranslate"><span class="pre">#000005</span></code>).</p></li>
+<li><p>Skipped <code class="docutils literal notranslate"><span class="pre">#</span></code> symbol, e.g., <code class="docutils literal notranslate"><span class="pre">0af</span></code> (this will be interpreted as <code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>).</p></li>
+<li><p>Blank string, e.g., <code class="docutils literal notranslate"><span class="pre">''</span></code> (this will clear line color setting).</p></li>
+</ul>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_expressions_overall_html</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">162</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">Sprite</span> <span class="o">=</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+
+<span class="c1"># The six characters line color setting (a cyan color).</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#00aaff&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span><span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># The three characters line color setting (a magenta color).</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#f0a&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span><span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+
+<span class="c1"># The one character line color setting (a black color).</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#5&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span><span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">110</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">110</span><span class="p">)</span>
+
+<span class="n">save_expressions_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_line_color_color_code/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/graphics_line_style_line_color_color_code/index.html" width="200" height="162"></iframe></section>
 </section>
 
 

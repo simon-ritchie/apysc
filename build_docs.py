@@ -9,7 +9,7 @@ import re
 import shutil
 import subprocess as sp
 from logging import Logger
-from typing import List
+from typing import List, Tuple
 from typing import Match
 from typing import Optional
 import hashlib
@@ -104,11 +104,13 @@ def _exec_document_script(
     md_file_paths: List[str] = \
         file_util.get_specified_ext_file_paths_recursively(
             extension='.md', dir_path='./docs_src/')
-    md_file_paths = _slice_md_file_by_hashed_val(md_file_paths=md_file_paths)
+    hashed_vals: List[str]
+    md_file_paths, hashed_vals = _slice_md_file_by_hashed_val(
+        md_file_paths=md_file_paths)
     count: int = 0
     is_limit: bool = False
     executed_scripts: List[str] = []
-    for md_file_path in md_file_paths:
+    for md_file_path, hashed_val in zip(md_file_paths, hashed_vals):
         runnable_scripts: List[str] = _get_runnable_scripts_in_md_code_blocks(
             md_file_path=md_file_path)
         for runnable_script in runnable_scripts:
@@ -135,7 +137,8 @@ def _exec_document_script(
 HASHED_VALS_DIR_PATH: Final[str] = './docs_src/hashed_vals/'
 
 
-def _slice_md_file_by_hashed_val(md_file_paths: List[str]) -> List[str]:
+def _slice_md_file_by_hashed_val(
+        md_file_paths: List[str]) -> Tuple[List[str], List[str]]:
     """
     Slice markdown file paths by hashed values (remove unchanged
     documents from list).
@@ -147,11 +150,16 @@ def _slice_md_file_by_hashed_val(md_file_paths: List[str]) -> List[str]:
 
     Returns
     -------
-    md_file_paths : list of str
+    sliced_md_file_paths : list of str
         Sliced markdown file paths.
+    hashed_vals : list of str
+        Hashed values.
     """
+    sliced_md_file_paths: List[str] = []
+    hashed_vals: List[str] = []
     for md_file_path in md_file_paths:
-        under_source_file_path: str = md_file_path.split('/source/', 1)[1]
+        under_source_file_path: str = _get_md_under_source_file_path(
+            md_file_path=md_file_path)
         hash_file_path: str = os.path.join(
             HASHED_VALS_DIR_PATH,
             under_source_file_path,
@@ -162,7 +170,33 @@ def _slice_md_file_by_hashed_val(md_file_paths: List[str]) -> List[str]:
             hash_file_path=hash_file_path)
         md_hashed_val: str = _read_md_file_and_hash_txt(
             md_file_path=md_file_path)
-    pass
+        if saved_hashed_val == md_hashed_val:
+            print(
+                'Skipped markdown file since it is not changed: '
+                f'{md_file_path}')
+            continue
+        sliced_md_file_paths.append(md_file_path)
+        hashed_vals.append(md_hashed_val)
+    return sliced_md_file_paths, hashed_vals
+
+
+def _get_md_under_source_file_path(md_file_path: str) -> str:
+    """
+    Get a markdown file path under the source directory.
+
+    Parameters
+    ----------
+    md_file_path : str
+        Target markdown file path.
+
+    Returns
+    -------
+    under_source_file_path : str
+        File path that under the document source directory,
+        e.g., './doc_src/source/any/path.md' will be 'any/path.md'.
+    """
+    under_source_file_path: str = md_file_path.split('/source/', 1)[1]
+    return under_source_file_path
 
 
 def _read_md_file_and_hash_txt(md_file_path: str) -> str:

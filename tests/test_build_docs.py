@@ -214,3 +214,10 @@ def test__read_md_file_and_hash_txt() -> None:
     hashed_val: str = build_docs._read_md_file_and_hash_txt(
         md_file_path=tmp_file_path)
     assert hashed_val == hashlib.sha1('1234567890'.encode()).hexdigest()
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_md_under_source_file_path() -> None:
+    under_source_file_path: str = build_docs._get_md_under_source_file_path(
+        md_file_path='./doc_src/source/any/path.md')
+    assert under_source_file_path == 'any/path.md'

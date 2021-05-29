@@ -157,15 +157,15 @@ stage: Stage = Stage(
 sprite: Sprite = Sprite(stage=stage)
 
 # Set 1-pixel line thickness.
-sprite.graphics.line_style(color='#00aaff', thickness=1)
+sprite.graphics.line_style(color='#0af', thickness=1)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)
 
 # Set 4-pixel line thickness.
-sprite.graphics.line_style(color='#00aaff', thickness=4)
+sprite.graphics.line_style(color='#0af', thickness=4)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=80, y_end=80)
 
 # Set 10-pixel line thickness.
-sprite.graphics.line_style(color='#00aaff', thickness=10)
+sprite.graphics.line_style(color='#0af', thickness=10)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=110, y_end=110)
 
 save_expressions_overall_html(
@@ -173,3 +173,34 @@ save_expressions_overall_html(
 ```
 
 <iframe src="static/graphics_line_style_thickness/index.html" width="200" height="165"></iframe>
+
+## Line alpha (opacity) setting
+
+A line alpha (opacity) can be set by the `alpha` argument. It can accept 0.0 (transparent) to 1.0 (opaque).
+
+```py
+# runnable
+from apysc import Sprite
+from apysc import Stage
+from apysc import save_expressions_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+sprite: Sprite = Sprite(stage=stage)
+
+# Draw the cyan line from upper-left to lower-right.
+sprite.graphics.line_style(color='#0af', thickness=15, alpha=0.3)
+sprite.graphics.draw_line(x_start=50, x_end=100, y_start=50, y_end=100)
+
+# Draw the magenta line from upper-right to lower-left.
+sprite.graphics.line_style(color='#f0a', thickness=15, alpha=0.3)
+sprite.graphics.draw_line(x_start=100, x_end=50, y_start=50, y_end=100)
+
+save_expressions_overall_html(
+    dest_dir_path='graphics_line_style_alpha/')
+```
+
+<iframe src="static/graphics_line_style_alpha/index.html" width="150" height="150"></iframe>

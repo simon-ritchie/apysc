@@ -45,7 +45,7 @@ save_expressions_overall_html(
 
 ## Fill color setting
 
-A fill color will be set by the `color` argument, and this is required one.
+A fill color can be set by the `color` argument, and this is required one.
 
 ```py
 # runnable

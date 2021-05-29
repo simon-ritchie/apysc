@@ -185,15 +185,15 @@
 <span class="n">sprite</span><span class="p">:</span> <span class="n">Sprite</span> <span class="o">=</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 
 <span class="c1"># Set 1-pixel line thickness.</span>
-<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#00aaff&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span><span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
 <span class="c1"># Set 4-pixel line thickness.</span>
-<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#00aaff&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span><span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
 
 <span class="c1"># Set 10-pixel line thickness.</span>
-<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#00aaff&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span><span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">110</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">110</span><span class="p">)</span>
 
 <span class="n">save_expressions_overall_html</span><span class="p">(</span>
@@ -201,6 +201,34 @@
 </pre></div>
 </div>
 <iframe src="static/graphics_line_style_thickness/index.html" width="200" height="165"></iframe></section>
+<section id="line-alpha-opacity-setting">
+<h2>Line alpha (opacity) setting<a class="headerlink" href="#line-alpha-opacity-setting" title="Permalink to this headline">¶</a></h2>
+<p>A line alpha (opacity) can be set by the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> argument. It can accept 0.0 (transparent) to 1.0 (opaque).</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_expressions_overall_html</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">Sprite</span> <span class="o">=</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+
+<span class="c1"># Draw the cyan line from upper-left to lower-right.</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span><span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Draw the magenta line from upper-right to lower-left.</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#f0a&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span><span class="n">x_start</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">save_expressions_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_alpha/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/graphics_line_style_alpha/index.html" width="150" height="150"></iframe></section>
 </section>
 
 
@@ -220,6 +248,7 @@
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li><a class="reference internal" href="#line-color-setting">Line-color setting</a></li>
 <li><a class="reference internal" href="#line-thickness-setting">Line thickness setting</a></li>
+<li><a class="reference internal" href="#line-alpha-opacity-setting">Line alpha (opacity) setting</a></li>
 </ul>
 </li>
 </ul>

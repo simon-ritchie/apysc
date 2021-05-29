@@ -12,6 +12,7 @@ from logging import Logger
 from typing import List
 from typing import Match
 from typing import Optional
+import hashlib
 
 from typing_extensions import Final
 
@@ -159,7 +160,29 @@ def _slice_md_file_by_hashed_val(md_file_paths: List[str]) -> List[str]:
         os.makedirs(hash_file_dir_path, exist_ok=True)
         saved_hashed_val: str = _read_md_file_hashed_val_from_file(
             hash_file_path=hash_file_path)
+        md_hashed_val: str = _read_md_file_and_hash_txt(
+            md_file_path=md_file_path)
     pass
+
+
+def _read_md_file_and_hash_txt(md_file_path: str) -> str:
+    """
+    Read markdown file and hash that text.
+
+    Parameters
+    ----------
+    md_file_path : str
+        Target markdown file path.
+
+    Returns
+    -------
+    hashed_val : str
+        Hashed string value.
+    """
+    from apysc.file import file_util
+    md_txt: str = file_util.read_txt(file_path=md_file_path)
+    hashed_val: str = hashlib.sha1(md_txt.encode()).hexdigest()
+    return hashed_val
 
 
 def _read_md_file_hashed_val_from_file(hash_file_path: str) -> str:

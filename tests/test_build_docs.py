@@ -2,6 +2,7 @@ import os
 import shutil
 from random import randint
 from typing import List
+import hashlib
 
 from retrying import retry
 
@@ -192,7 +193,7 @@ def test__remove_runnable_inline_comment_from_code_blocks() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__read_md_file_hashed_val_from_file() -> None:
-    tmp_hash_file_path: str = '../tmp_test_build_docs.md'
+    tmp_hash_file_path: str = '../tmp_test_build_docs_1.md'
     file_util.remove_file_if_exists(file_path=tmp_hash_file_path)
     hashed_val: str = build_docs._read_md_file_hashed_val_from_file(
         hash_file_path=tmp_hash_file_path)
@@ -203,3 +204,13 @@ def test__read_md_file_hashed_val_from_file() -> None:
         hash_file_path=tmp_hash_file_path)
     assert hashed_val == '1234567890'
     file_util.remove_file_if_exists(file_path=tmp_hash_file_path)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__read_md_file_and_hash_txt() -> None:
+    tmp_file_path: str = '../test_build_docs_2.md'
+    file_util.save_plain_txt(
+        txt='1234567890', file_path=tmp_file_path)
+    hashed_val: str = build_docs._read_md_file_and_hash_txt(
+        md_file_path=tmp_file_path)
+    assert hashed_val == hashlib.sha1('1234567890'.encode()).hexdigest()

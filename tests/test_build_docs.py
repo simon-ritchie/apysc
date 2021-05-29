@@ -148,6 +148,12 @@ print(300)
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__exec_document_script() -> None:
+    hash_file_path: str = os.path.join(
+        build_docs.HASHED_VALS_DIR_PATH,
+        'quick_start.md',
+    )
+    file_util.remove_file_if_exists(file_path=hash_file_path)
+
     executed_scripts: List[str] = build_docs._exec_document_script(
         limit_count=10)
     assert len(executed_scripts) <= 10
@@ -254,10 +260,13 @@ def test__slice_md_file_by_hashed_val() -> None:
         tmp_src_dir_path, 'tmp_2.md')
     tmp_md_file_path_3: str = os.path.join(
         tmp_src_dir_path, 'tmp_3.md')
+    tmp_md_file_path_4: str = os.path.join(
+        build_docs.HASHED_VALS_DIR_PATH, 'tmp_4.md')
     md_file_paths: List[str] = [
         tmp_md_file_path_1,
         tmp_md_file_path_2,
         tmp_md_file_path_3,
+        tmp_md_file_path_4,
     ]
     with open(tmp_md_file_path_1, 'w') as f:
         f.write('0123')

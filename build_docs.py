@@ -180,6 +180,8 @@ def _slice_md_file_by_hashed_val(
     sliced_md_file_paths: List[str] = []
     hashed_vals: List[str] = []
     for md_file_path in md_file_paths:
+        if '/hashed_vals/' in md_file_path:
+            continue
         under_source_file_path: str = _get_md_under_source_file_path(
             md_file_path=md_file_path)
         hash_file_path: str = os.path.join(

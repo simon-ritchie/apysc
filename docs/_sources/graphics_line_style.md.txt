@@ -247,3 +247,54 @@ save_expressions_overall_html(
 ```
 
 <iframe src="static/graphics_line_style_caps/index.html" width="200" height="180"></iframe>
+
+## Line joints setting
+
+Line joints setting will change the line vertices style. This can be set by the `joints` argument and `LineJoints` enum values are acceptable. Mainly this argument will be used by `Polyline` class (`move_to` and `line_to` interfaces).
+
+There are three LineJoints enum values, as follows:
+
+- MITER: This setting will set the style like a picture frame vertices. This is the default style setting.
+- ROUND: This setting will set the rounded vertices style.
+- BEVEL: This setting will set a sloping vertices style.
+
+```py
+# runnable
+from apysc import Sprite
+from apysc import Stage
+from apysc import LineJoints
+from apysc import save_expressions_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=350,
+    stage_height=150,
+    stage_elem_id='stage')
+sprite: Sprite = Sprite(stage=stage)
+
+# Set MITER joints setting and draw the polyline.
+sprite.graphics.line_style(
+    color='#0af', thickness=10, joints=LineJoints.MITER)
+sprite.graphics.move_to(x=50, y=100)
+sprite.graphics.line_to(x=75, y=50)
+sprite.graphics.line_to(x=100, y=100)
+
+# Set ROUND joints setting and draw the polyline.
+sprite.graphics.line_style(
+    color='#0af', thickness=10, joints=LineJoints.ROUND)
+sprite.graphics.move_to(x=150, y=100)
+sprite.graphics.line_to(x=175, y=50)
+sprite.graphics.line_to(x=200, y=100)
+
+# Set BEVEL joints setting and draw the polyline.
+sprite.graphics.line_style(
+    color='#0af', thickness=10, joints=LineJoints.BEVEL)
+sprite.graphics.move_to(x=250, y=100)
+sprite.graphics.line_to(x=275, y=50)
+sprite.graphics.line_to(x=300, y=100)
+
+save_expressions_overall_html(
+    dest_dir_path='graphics_line_style_joints/')
+```
+
+<iframe src="static/graphics_line_style_joints/index.html" width="350" height="150"></iframe>

@@ -49,8 +49,8 @@
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">move_to</span></code> and <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interfaces are both having x and y arguments.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">LineDashDotSetting</span>
 <span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
 <span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
 <span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_expressions_overall_html</span>
@@ -67,7 +67,7 @@
 <span class="c1"># Move to x=50, y=50 point (no drawing).</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
-<span class="c1"># Draw the line from the current point (0, 0) to the</span>
+<span class="c1"># Draw the line from the current point (50, 50) to the</span>
 <span class="c1"># destination point (250, 50).</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
@@ -75,7 +75,42 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_move_to_and_line_to_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_move_to_and_line_to_basic_usage/index.html" width="300" height=100></iframe></section>
+<iframe src="static/graphics_move_to_and_line_to_basic_usage/index.html" width="300" height="100"></iframe><p>If you call the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interface sequentially, then the result line will become the polyline.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_expressions_overall_html</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">Sprite</span> <span class="o">=</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Move to x=50, y=50 point (no drawing).</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># Draw the line from the current point (50, 50) to the</span>
+<span class="c1"># destination point (150, 50).</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># Draw the line from the current point (250, 50) to the</span>
+<span class="c1"># destination point (50, 150). This will change the line</span>
+<span class="c1"># to the polyline.</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+
+<span class="c1"># Finally the polyline becomes Z shape by drawing to</span>
+<span class="c1"># destination point (150, 150).</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+
+<span class="n">save_expressions_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_move_to_and_line_to_basic_usage_polyline/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/graphics_move_to_and_line_to_basic_usage_polyline/index.html" width="200" height="200"></iframe></section>
 </section>
 
 

@@ -121,7 +121,7 @@ save_expressions_overall_html(
 
 ## Polyline instance
 
-`move_to` and `line_to` interfaces will return `Polyline` instance. You can update each setting or bind events to that interface.
+`move_to` and `line_to` interfaces will return `Polyline` instance. You can update each setting or bind events to that instance.
 
 For instance, the following script will set the mouse event to `Polyline` and updating the line color, and set dot style in the handler (`on_line_click`).
 

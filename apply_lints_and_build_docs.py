@@ -67,7 +67,9 @@ lint_commands: List[LintCommand] = [
 def _main() -> None:
     """Entry point of this command.
     """
+    from build_docs import HASHED_VALS_DIR_PATH
     shutil.rmtree('./build/', ignore_errors=True)
+    shutil.rmtree(HASHED_VALS_DIR_PATH, ignore_errors=True)
     logger.info(msg='Documentation build started.')
     process: sp.Popen = sp.Popen(
         ['python', 'build_docs.py'], stdout=sp.PIPE, stderr=sp.PIPE)

@@ -58,7 +58,7 @@ save_expressions_overall_html(
 
 `draw_rect` interface will return `Rectangle` instance. You can update each setting or bind events.
 
-For instance, the following script will set mouse event to `Rectangle` and updating x position in handler (`on_click`).
+For instance, the following script will set the mouse event to `Rectangle` and updating x position in the handler (`on_click`).
 
 ```py
 # runnable

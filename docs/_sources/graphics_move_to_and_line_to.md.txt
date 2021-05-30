@@ -118,3 +118,59 @@ save_expressions_overall_html(
 ```
 
 <iframe src="static/graphics_move_to_and_line_to_multi_move_to_calling/index.html" width="250" height="150"></iframe>
+
+## Polyline instance
+
+`move_to` and `line_to` interfaces will return `Polyline` instance. You can update each setting or bind events to that interface.
+
+For instance, the following script will set the mouse event to `Polyline` and updating the line color, and set dot style in the handler (`on_line_click`).
+
+```py
+# runnable
+from typing import Any, Dict
+from apysc import Sprite
+from apysc import String
+from apysc import Stage
+from apysc import MouseEvent
+from apysc import Polyline
+from apysc import LineDotSetting
+from apysc import save_expressions_overall_html
+
+
+def on_line_click(
+        e: MouseEvent[Polyline], options: Dict[str, Any]) -> None:
+    """
+    The handler that this will be called when the line instance
+    is clicked.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        The event instance.
+    options : dict
+        Optional arguments.
+    """
+    polyline: Polyline = e.this
+    polyline.line_color = String('#f0a')
+    polyline.line_dot_setting = LineDotSetting(dot_size=5)
+
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=200,
+    stage_height=100,
+    stage_elem_id='stage')
+sprite: Sprite = Sprite(stage=stage)
+
+sprite.graphics.line_style(color='#0af', thickness=30)
+polyline: Polyline = sprite.graphics.move_to(x=50, y=50)
+sprite.graphics.line_to(x=150, y=50)
+polyline.click(on_line_click)
+
+save_expressions_overall_html(
+    dest_dir_path='graphics_move_to_and_line_to_polyline/')
+```
+
+If you click the following line, line style will be updated:
+
+<iframe src="static/graphics_move_to_and_line_to_polyline/index.html" width="200" height="100"></iframe>

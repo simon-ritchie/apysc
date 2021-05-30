@@ -271,7 +271,7 @@
 <iframe src="static/graphics_line_style_caps/index.html" width="200" height="180"></iframe></section>
 <section id="line-joints-setting">
 <h2>Line joints setting<a class="headerlink" href="#line-joints-setting" title="Permalink to this headline">¶</a></h2>
-<p>Line joints setting will change the line vertices style. This can be set by the <code class="docutils literal notranslate"><span class="pre">joints</span></code> argument and <code class="docutils literal notranslate"><span class="pre">LineJoints</span></code> enum values are acceptable. Mainly this argument will be used by <code class="docutils literal notranslate"><span class="pre">Polyline</span></code> class (<code class="docutils literal notranslate"><span class="pre">move_to</span></code> and <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interfaces).</p>
+<p>Line joints setting will change the line vertices style. This can be set by the <code class="docutils literal notranslate"><span class="pre">joints</span></code> argument and <code class="docutils literal notranslate"><span class="pre">LineJoints</span></code> enum values are acceptable. Mainly this argument will be used by the <code class="docutils literal notranslate"><span class="pre">Polyline</span></code> class (<code class="docutils literal notranslate"><span class="pre">move_to</span></code> and <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interfaces).</p>
 <p>There are three LineJoints enum values, as follows:</p>
 <ul class="simple">
 <li><p>MITER: This setting will set the style like a picture frame vertices. This is the default style setting.</p></li>
@@ -317,6 +317,45 @@
 </pre></div>
 </div>
 <iframe src="static/graphics_line_style_joints/index.html" width="350" height="150"></iframe></section>
+<section id="line-dot-setting">
+<h2>Line dot setting<a class="headerlink" href="#line-dot-setting" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">LineDotSetting</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_expressions_overall_html</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">160</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">Sprite</span> <span class="o">=</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+
+<span class="c1"># Set the line dot settings with 2-pixel dot size and draw the dotted line.</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">dot_setting</span><span class="o">=</span><span class="n">LineDotSetting</span><span class="p">(</span><span class="n">dot_size</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># Set the line dot settings with 5-pixel dot size and draw the dotted line.</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">dot_setting</span><span class="o">=</span><span class="n">LineDotSetting</span><span class="p">(</span><span class="n">dot_size</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+
+<span class="c1"># Set the line dot settings with 10-pixel dot size and draw the dotted line.</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">dot_setting</span><span class="o">=</span><span class="n">LineDotSetting</span><span class="p">(</span><span class="n">dot_size</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">110</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">110</span><span class="p">)</span>
+
+<span class="n">save_expressions_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_line_dot_setting/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/graphics_line_style_line_dot_setting/index.html" width="300" height="160"></iframe><p>Notes: This setting will be ignored by <code class="docutils literal notranslate"><span class="pre">draw_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>, and <code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code> interfaces.</p>
+</section>
 </section>
 
 
@@ -339,6 +378,7 @@
 <li><a class="reference internal" href="#line-alpha-opacity-setting">Line alpha (opacity) setting</a></li>
 <li><a class="reference internal" href="#line-cap-setting">Line cap setting</a></li>
 <li><a class="reference internal" href="#line-joints-setting">Line joints setting</a></li>
+<li><a class="reference internal" href="#line-dot-setting">Line dot setting</a></li>
 </ul>
 </li>
 </ul>

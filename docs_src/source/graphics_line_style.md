@@ -250,7 +250,7 @@ save_expressions_overall_html(
 
 ## Line joints setting
 
-Line joints setting will change the line vertices style. This can be set by the `joints` argument and `LineJoints` enum values are acceptable. Mainly this argument will be used by `Polyline` class (`move_to` and `line_to` interfaces).
+Line joints setting will change the line vertices style. This can be set by the `joints` argument and `LineJoints` enum values are acceptable. Mainly this argument will be used by the `Polyline` class (`move_to` and `line_to` interfaces).
 
 There are three LineJoints enum values, as follows:
 
@@ -298,3 +298,45 @@ save_expressions_overall_html(
 ```
 
 <iframe src="static/graphics_line_style_joints/index.html" width="350" height="150"></iframe>
+
+## Line dot setting
+
+```py
+# runnable
+from apysc import Sprite
+from apysc import Stage
+from apysc import LineDotSetting
+from apysc import save_expressions_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=300,
+    stage_height=160,
+    stage_elem_id='stage')
+sprite: Sprite = Sprite(stage=stage)
+
+# Set the line dot settings with 2-pixel dot size and draw the dotted line.
+sprite.graphics.line_style(
+    color='#0af', thickness=5, dot_setting=LineDotSetting(dot_size=2))
+sprite.graphics.move_to(x=50, y=50)
+sprite.graphics.line_to(x=250, y=50)
+
+# Set the line dot settings with 5-pixel dot size and draw the dotted line.
+sprite.graphics.line_style(
+    color='#0af', thickness=5, dot_setting=LineDotSetting(dot_size=5))
+sprite.graphics.move_to(x=50, y=80)
+sprite.graphics.line_to(x=250, y=80)
+
+# Set the line dot settings with 10-pixel dot size and draw the dotted line.
+sprite.graphics.line_style(
+    color='#0af', thickness=5, dot_setting=LineDotSetting(dot_size=10))
+sprite.graphics.move_to(x=50, y=110)
+sprite.graphics.line_to(x=250, y=110)
+
+save_expressions_overall_html(
+    dest_dir_path='graphics_line_style_line_dot_setting/')
+```
+
+<iframe src="static/graphics_line_style_line_dot_setting/index.html" width="300" height="160"></iframe>
+
+Notes: This setting will be ignored by `draw_line`, `draw_dotted_line`, `draw_dashed_line`, `draw_round_dotted_line`, and `draw_dash_dotted_line` interfaces.

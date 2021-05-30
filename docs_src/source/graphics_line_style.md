@@ -374,3 +374,43 @@ save_expressions_overall_html(
 <iframe src="static/graphics_line_style_line_dot_setting_rectangle/index.html" width="250" height="150"></iframe>
 
 Notes: This setting will be ignored by `draw_line`, `draw_dotted_line`, `draw_dashed_line`, `draw_round_dotted_line`, and `draw_dash_dotted_line` interfaces.
+
+## Line dash setting
+
+Line dash setting will change line to dashed line. This can be set by the `dash_setting` argument. This argument accepts the `LineDashSetting` and can change dash size and space size by the `dash_size` and `space_size` arguments.
+
+```py
+# runnable
+from apysc import LineDashSetting
+from apysc import Sprite
+from apysc import Stage
+from apysc import save_expressions_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=300,
+    stage_height=130,
+    stage_elem_id='stage')
+sprite: Sprite = Sprite(stage=stage)
+
+# Set 10-pixel dash size and 3-pixel space size and draw the line.
+sprite.graphics.line_style(
+    color='#0af', thickness=3,
+    dash_setting=LineDashSetting(dash_size=10, space_size=3))
+sprite.graphics.move_to(x=50, y=50)
+sprite.graphics.line_to(x=250, y=50)
+
+# Set 15-pixel dash size and 5-pixel space size and draw the line.
+sprite.graphics.line_style(
+    color='#0af', thickness=3,
+    dash_setting=LineDashSetting(dash_size=15, space_size=5))
+sprite.graphics.move_to(x=50, y=80)
+sprite.graphics.line_to(x=250, y=80)
+
+save_expressions_overall_html(
+    dest_dir_path='graphics_line_style_line_dash_setting/')
+```
+
+<iframe src="static/graphics_line_style_line_dash_setting/index.html" width="300" height="130"></iframe>
+
+Notes: This setting will be ignored by `draw_line`, `draw_dotted_line`, `draw_dashed_line`, `draw_round_dotted_line`, and `draw_dash_dotted_line` interfaces.

@@ -9,7 +9,9 @@ import re
 import shutil
 import subprocess as sp
 from logging import Logger
-from typing import List, Match, Optional
+from typing import List
+from typing import Match
+from typing import Optional
 
 from typing_extensions import Final
 from typing_extensions import TypedDict

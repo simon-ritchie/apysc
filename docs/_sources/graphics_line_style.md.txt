@@ -301,6 +301,8 @@ save_expressions_overall_html(
 
 ## Line dot setting
 
+Line dot setting will change line to dotted line. This can be set by the `dot_setting` argument. This argument accepts the `LineDotSetting` and can change dot size by the `dot_size` argument (a value that greater than or equal to 1 is acceptable).
+
 ```py
 # runnable
 from apysc import Sprite
@@ -338,5 +340,37 @@ save_expressions_overall_html(
 ```
 
 <iframe src="static/graphics_line_style_line_dot_setting/index.html" width="300" height="160"></iframe>
+
+This setting (or other similar settings) will also be applied to the `Rectangle` or other graphics classes.
+
+```py
+# runnable
+from apysc import Sprite
+from apysc import Stage
+from apysc import LineDotSetting
+from apysc import save_expressions_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=250,
+    stage_height=150,
+    stage_elem_id='stage')
+sprite: Sprite = Sprite(stage=stage)
+
+# Set the line dot setting with 2-pixel dot size and draw the rectangle.
+# Fill color setting is skipped.
+sprite.graphics.line_style(
+    color='#0af', thickness=5, dot_setting=LineDotSetting(dot_size=2))
+sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+
+# Draw the rectangle with the dotted line setting and the fill color.
+sprite.graphics.begin_fill(color='#038')
+sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
+
+save_expressions_overall_html(
+    dest_dir_path='graphics_line_style_line_dot_setting_rectangle/')
+```
+
+<iframe src="static/graphics_line_style_line_dot_setting_rectangle/index.html" width="250" height="150"></iframe>
 
 Notes: This setting will be ignored by `draw_line`, `draw_dotted_line`, `draw_dashed_line`, `draw_round_dotted_line`, and `draw_dash_dotted_line` interfaces.

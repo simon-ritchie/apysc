@@ -40,6 +40,8 @@ save_expressions_overall_html(
 
 <iframe src="static/graphics_move_to_and_line_to_basic_usage/index.html" width="300" height="100"></iframe>
 
+## Sequential calling of the line_to interface.
+
 If you call the `line_to` interface sequentially, then the result line will become the polyline.
 
 ```py
@@ -74,7 +76,45 @@ sprite.graphics.line_to(x=50, y=150)
 sprite.graphics.line_to(x=150, y=150)
 
 save_expressions_overall_html(
-    dest_dir_path='graphics_move_to_and_line_to_basic_usage_polyline/')
+    dest_dir_path='graphics_move_to_and_line_to_sequential_calling/')
 ```
 
-<iframe src="static/graphics_move_to_and_line_to_basic_usage_polyline/index.html" width="200" height="200"></iframe>
+<iframe src="static/graphics_move_to_and_line_to_sequential_calling/index.html" width="200" height="200"></iframe>
+
+## move_to interface calling after line_to interface calling
+
+If you call the `move_to` interface after calling the `line_to` interface, then a new line instance will be created.
+
+```py
+# runnable
+from apysc import Sprite
+from apysc import Stage
+from apysc import save_expressions_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=250,
+    stage_height=150,
+    stage_elem_id='stage')
+sprite: Sprite = Sprite(stage=stage)
+
+sprite.graphics.line_style(color='#0af', thickness=5)
+
+# First move_to interface calling.
+sprite.graphics.move_to(x=50, y=50)
+sprite.graphics.line_to(x=100, y=50)
+sprite.graphics.line_to(x=50, y=100)
+sprite.graphics.line_to(x=100, y=100)
+
+# Second move_to interface calling. This will create a new
+# polyline instance.
+sprite.graphics.move_to(x=150, y=50)
+sprite.graphics.line_to(x=200, y=50)
+sprite.graphics.line_to(x=150, y=100)
+sprite.graphics.line_to(x=200, y=100)
+
+save_expressions_overall_html(
+    dest_dir_path='graphics_move_to_and_line_to_multi_move_to_calling/')
+```
+
+<iframe src="static/graphics_move_to_and_line_to_multi_move_to_calling/index.html" width="250" height="150"></iframe>

@@ -75,7 +75,10 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_move_to_and_line_to_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_move_to_and_line_to_basic_usage/index.html" width="300" height="100"></iframe><p>If you call the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interface sequentially, then the result line will become the polyline.</p>
+<iframe src="static/graphics_move_to_and_line_to_basic_usage/index.html" width="300" height="100"></iframe></section>
+<section id="sequential-calling-of-the-line-to-interface">
+<h2>Sequential calling of the line_to interface.<a class="headerlink" href="#sequential-calling-of-the-line-to-interface" title="Permalink to this headline">¶</a></h2>
+<p>If you call the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interface sequentially, then the result line will become the polyline.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
 <span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
@@ -107,10 +110,45 @@
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 
 <span class="n">save_expressions_overall_html</span><span class="p">(</span>
-    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_move_to_and_line_to_basic_usage_polyline/&#39;</span><span class="p">)</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_move_to_and_line_to_sequential_calling/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_move_to_and_line_to_basic_usage_polyline/index.html" width="200" height="200"></iframe></section>
+<iframe src="static/graphics_move_to_and_line_to_sequential_calling/index.html" width="200" height="200"></iframe></section>
+<section id="move-to-interface-calling-after-line-to-interface-calling">
+<h2>move_to interface calling after line_to interface calling<a class="headerlink" href="#move-to-interface-calling-after-line-to-interface-calling" title="Permalink to this headline">¶</a></h2>
+<p>If you call the <code class="docutils literal notranslate"><span class="pre">move_to</span></code> interface after calling the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interface, then a new line instance will be created.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_expressions_overall_html</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">Sprite</span> <span class="o">=</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># First move_to interface calling.</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Second move_to interface calling. This will create a new</span>
+<span class="c1"># polyline instance.</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">save_expressions_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_move_to_and_line_to_multi_move_to_calling/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/graphics_move_to_and_line_to_multi_move_to_calling/index.html" width="250" height="150"></iframe></section>
 </section>
 
 
@@ -128,6 +166,8 @@
 <li><a class="reference internal" href="#">Graphics move_to and line_to interfaces</a><ul>
 <li><a class="reference internal" href="#what-interfaces-are-they">What interfaces are they?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#sequential-calling-of-the-line-to-interface">Sequential calling of the line_to interface.</a></li>
+<li><a class="reference internal" href="#move-to-interface-calling-after-line-to-interface-calling">move_to interface calling after line_to interface calling</a></li>
 </ul>
 </li>
 </ul>

@@ -4,10 +4,12 @@ Command example:
 $ python apply_lints_and_build_docs.py
 """
 
+import os
+import re
 import shutil
 import subprocess as sp
 from logging import Logger
-from typing import List
+from typing import List, Match, Optional
 
 from typing_extensions import Final
 from typing_extensions import TypedDict
@@ -70,6 +72,7 @@ def _main() -> None:
     from build_docs import HASHED_VALS_DIR_PATH
     shutil.rmtree('./build/', ignore_errors=True)
     shutil.rmtree(HASHED_VALS_DIR_PATH, ignore_errors=True)
+    _remove_tmp_py_module()
     logger.info(msg='Documentation build started.')
     process: sp.Popen = sp.Popen(
         ['python', 'build_docs.py'], stdout=sp.PIPE, stderr=sp.PIPE)
@@ -86,6 +89,23 @@ def _main() -> None:
             continue
         print(string)
     logger.info(msg='Ended.')
+
+
+def _remove_tmp_py_module() -> None:
+    """
+    Remove temporary Python modules (`tmp_<any_string>.py` file
+    will become deletion target).
+    """
+    file_names: List[str] = os.listdir('./')
+    for file_name in file_names:
+        if not os.path.isfile(file_name):
+            continue
+        match: Optional[Match] = re.search(
+            pattern=r'tmp_.+\.py$',
+            string=file_name)
+        if match is None:
+            continue
+        os.remove(file_name)
 
 
 def _run_lint_command(lint_command: LintCommand) -> str:

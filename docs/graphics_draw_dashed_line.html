@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Graphics draw_dotted_line interface &#8212; apysc  documentation</title>
+    <title>Graphics draw_dashed_line interface &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -18,8 +18,7 @@
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Graphics draw_dashed_line interface" href="graphics_draw_dashed_line.html" />
-    <link rel="prev" title="Graphics draw_line interface" href="graphics_draw_line.html" /> 
+    <link rel="prev" title="Graphics draw_dotted_line interface" href="graphics_draw_dotted_line.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,13 +27,10 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="graphics_draw_dashed_line.html" title="Graphics draw_dashed_line interface"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="graphics_draw_line.html" title="Graphics draw_line interface"
+          <a href="graphics_draw_dotted_line.html" title="Graphics draw_dotted_line interface"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Graphics draw_dotted_line interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Graphics draw_dashed_line interface</a></li> 
       </ul>
     </div>  
 
@@ -43,16 +39,16 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="graphics-draw-dotted-line-interface">
-<h1>Graphics draw_dotted_line interface<a class="headerlink" href="#graphics-draw-dotted-line-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code> method interface.</p>
+  <section id="graphics-draw-dashed-line-interface">
+<h1>Graphics draw_dashed_line interface<a class="headerlink" href="#graphics-draw-dashed-line-interface" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code> method interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code> interface will draw the simple straight dotted-line graphics. This interface will ignore <code class="docutils literal notranslate"><span class="pre">dot_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">dash_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">round_dot_setting</span></code>, and <code class="docutils literal notranslate"><span class="pre">dash_dot_setting</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code> interface will draw the simple straight dashed-line graphics. This interface will ignore <code class="docutils literal notranslate"><span class="pre">dot_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">dash_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">round_dot_setting</span></code>, and <code class="docutils literal notranslate"><span class="pre">dash_dot_setting</span></code>.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code> interface has basic coordinates arguments of <code class="docutils literal notranslate"><span class="pre">x_start</span></code>, <code class="docutils literal notranslate"><span class="pre">y_start</span></code>, <code class="docutils literal notranslate"><span class="pre">x_end</span></code> and <code class="docutils literal notranslate"><span class="pre">y_end</span></code>. That also has <code class="docutils literal notranslate"><span class="pre">dot_size</span></code> argument and it will set line dot size.</p>
+<p><code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code> interface has basic coordinates arguments of <code class="docutils literal notranslate"><span class="pre">x_start</span></code>, <code class="docutils literal notranslate"><span class="pre">y_start</span></code>, <code class="docutils literal notranslate"><span class="pre">x_end</span></code> and <code class="docutils literal notranslate"><span class="pre">y_end</span></code>. That also has <code class="docutils literal notranslate"><span class="pre">dash_size</span></code> and <code class="docutils literal notranslate"><span class="pre">space_size</span></code> arguments to determine dash style (line dash size and the space size between each dash).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
 <span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
@@ -65,23 +61,23 @@
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 <span class="n">sprite</span><span class="p">:</span> <span class="n">Sprite</span> <span class="o">=</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 
-<span class="c1"># Set 2-pixel dot size and draw line.</span>
+<span class="c1"># Set 5-pixel dash setting and draw the line.</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span>
     <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_dotted_line</span><span class="p">(</span>
-    <span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">dot_size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_dashed_line</span><span class="p">(</span>
+    <span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">dash_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">space_size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="c1"># Set 5-pixel dot size and draw line.</span>
-<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span>
-    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_dotted_line</span><span class="p">(</span>
-    <span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">dot_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1"># Set 10-pixel dash setting and draw the line.</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_dashed_line</span><span class="p">(</span>
+    <span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
+    <span class="n">dash_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">space_size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">save_expressions_overall_html</span><span class="p">(</span>
-    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_dotted_line_basic_usage/&#39;</span><span class="p">)</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_dashed_line_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_draw_dotted_line_basic_usage/index.html" width="250" height="130"></iframe></section>
+<iframe src="static/graphics_draw_dashed_line_basic_usage/index.html" width="250" height=130></iframe></section>
 </section>
 
 
@@ -96,7 +92,7 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Graphics draw_dotted_line interface</a><ul>
+<li><a class="reference internal" href="#">Graphics draw_dashed_line interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 </ul>
@@ -104,15 +100,12 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="graphics_draw_line.html"
-                        title="previous chapter">Graphics draw_line interface</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="graphics_draw_dashed_line.html"
-                        title="next chapter">Graphics draw_dashed_line interface</a></p>
+  <p class="topless"><a href="graphics_draw_dotted_line.html"
+                        title="previous chapter">Graphics draw_dotted_line interface</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/graphics_draw_dotted_line.md.txt"
+      <li><a href="_sources/graphics_draw_dashed_line.md.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -137,13 +130,10 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="graphics_draw_dashed_line.html" title="Graphics draw_dashed_line interface"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="graphics_draw_line.html" title="Graphics draw_line interface"
+          <a href="graphics_draw_dotted_line.html" title="Graphics draw_dotted_line interface"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Graphics draw_dotted_line interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Graphics draw_dashed_line interface</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

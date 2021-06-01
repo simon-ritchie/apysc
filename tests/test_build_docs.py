@@ -27,10 +27,13 @@ def test__replace_static_path_recursively() -> None:
             'href="_static/groundwork.css" />')
     js_path: str = os.path.join(tmp_dir_2, 'test.js')
     with open(js_path, 'w') as f:
-        f.write('""_static/groundwork.css""')
+        f.write('"_static/groundwork.css"')
     pkl_path: str = os.path.join(tmp_dir_1, 'test.pkl')
     with open(pkl_path, 'w') as f:
         f.write('')
+    jslib_path: str = os.path.join(tmp_dir_1, 'jquery.min.js')
+    with open(jslib_path, 'w') as f:
+        f.write('"_static/groundwork.css"')
 
     build_docs._replace_static_path_recursively(dir_path=tmp_dir_1)
     target_file_paths: List[str] = [html_path, js_path]
@@ -39,6 +42,10 @@ def test__replace_static_path_recursively() -> None:
             file_txt: str = f.read()
         assert '_static' not in file_txt
         assert 'static' in file_txt
+
+    with open(jslib_path) as f:
+        file_txt = f.read()
+        assert '_static' in file_txt
 
     shutil.rmtree(tmp_dir_1, ignore_errors=True)
 

@@ -10,7 +10,7 @@ import re
 import shutil
 import subprocess as sp
 from logging import Logger
-from typing import List
+from typing import Any, Dict, List
 from typing import Match
 from typing import Optional
 from typing import Tuple
@@ -18,8 +18,13 @@ from typing import Tuple
 from typing_extensions import Final
 
 from apysc.console import loggers
+from apysc.jslib import jslib_util
 
 logger: Logger = loggers.get_info_logger()
+
+_jslib_file_names: List[str] = jslib_util.get_jslib_file_names()
+_jslib_file_name_keys_dict: Dict[str, Any] = {
+    jslib_file_name: None for jslib_file_name in _jslib_file_names}
 
 
 def _main() -> None:
@@ -432,6 +437,8 @@ def _replace_static_path_recursively(dir_path: str) -> None:
     file_or_dir_names: List[str] = os.listdir(dir_path)
     file_extensions: List[str] = ['.html', '.js']
     for file_or_dir_name in file_or_dir_names:
+        if file_or_dir_name in _jslib_file_name_keys_dict:
+            continue
         file_or_dir_path: str = os.path.join(dir_path, file_or_dir_name)
         if os.path.isdir(file_or_dir_path):
             _replace_static_path_recursively(dir_path=file_or_dir_path)

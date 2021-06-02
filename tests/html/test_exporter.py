@@ -33,7 +33,8 @@ def test__export_js_libs() -> None:
 
 def test__append_head_to_html_str() -> None:
     html_str: str = '<html>'
-    html_str = exporter._append_head_to_html_str(html_str=html_str)
+    html_str = exporter._append_head_to_html_str(
+        html_str=html_str, js_lib_dir_path='./')
 
     expected_str: str = '<html>\n<head>\n'
     assert html_str.startswith(expected_str)
@@ -47,6 +48,12 @@ def test__append_head_to_html_str() -> None:
 
     expected_str = '</head>'
     assert html_str.endswith(expected_str)
+
+    html_str = exporter._append_head_to_html_str(
+        html_str=html_str, js_lib_dir_path='../')
+    expected_str = \
+        '  <script type="text/javascript" src="../jquery.min.js"></script>'
+    assert expected_str in html_str
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=300)
@@ -65,13 +72,15 @@ def test_save_expressions_overall_html() -> None:
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
     Stage(stage_elem_id='test_stage')
     exporter.save_expressions_overall_html(
-        dest_dir_path=tmp_dir_path, minify=False)
+        dest_dir_path=tmp_dir_path, minify=False,
+        js_lib_dir_path='../')
     expected_index_file_path: str = os.path.join(tmp_dir_path, 'index.html')
     assert os.path.isfile(expected_index_file_path)
     html_str: str = file_util.read_txt(file_path=expected_index_file_path)
     assert html_str.startswith('<html>\n<head>')
     assert html_str.endswith('\n</html>')
     assert 'id="test_stage"' in html_str
+    assert 'text/javascript" src="../jquery.min.js' in html_str
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
     exporter.save_expressions_overall_html(

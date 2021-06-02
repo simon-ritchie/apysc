@@ -17,7 +17,8 @@ info_logger: Logger = loggers.get_info_logger()
 
 
 def save_expressions_overall_html(
-        dest_dir_path: str, minify: bool = True) -> None:
+        dest_dir_path: str, minify: bool = True,
+        js_lib_dir_path: str = './') -> None:
     """
     Save each expressions html under the specified directory path.
 
@@ -32,6 +33,12 @@ def save_expressions_overall_html(
     minify : bool, default True
         Boolean value whether minify HTML and js or not.
         False setting is useful when debugging.
+    js_lib_dir_path : str, default './'
+        JavaScript libraries directory path. This setting will be
+        applied to JavaScript source path in HTML.
+        If not specified, then the same directory with HTML will be set.
+        This setting is maybe useful to set common js lib directory,
+        such as Django's static (static_collected) directory.
     """
     from apysc.file import file_util
     from apysc.html import html_util
@@ -41,7 +48,8 @@ def save_expressions_overall_html(
     _ = _export_js_libs(dest_dir_path=dest_dir_path)
     html_str: str = html_util.append_html_to_str(
         to_append_html='<html>', dest_html='', indent_num=0)
-    html_str = _append_head_to_html_str(html_str=html_str)
+    html_str = _append_head_to_html_str(
+        html_str=html_str, js_lib_dir_path=js_lib_dir_path)
     html_str = html_util.append_html_to_str(
         to_append_html='<body style="margin: 0;">',
         dest_html=html_str,
@@ -389,7 +397,8 @@ def _get_var_name_from_line(line: str) -> str:
     return var_name
 
 
-def _append_head_to_html_str(html_str: str) -> str:
+def _append_head_to_html_str(
+        html_str: str, js_lib_dir_path: str) -> str:
     """
     Append head tag section to specified html string.
 
@@ -397,6 +406,8 @@ def _append_head_to_html_str(html_str: str) -> str:
     ----------
     html_str : str
         Target HTML string.
+    js_lib_dir_path : str
+        JavaScript libraries directory path.
 
     Returns
     -------
@@ -415,7 +426,7 @@ def _append_head_to_html_str(html_str: str) -> str:
         html_str = html_util.append_html_to_str(
             to_append_html=(
                 '<script type="text/javascript" '
-                f'src="./{jslib_file_name}"></script>'),
+                f'src="{js_lib_dir_path}{jslib_file_name}"></script>'),
             dest_html=html_str, indent_num=1)
     html_str = html_util.append_html_to_str(
         to_append_html='</head>', dest_html=html_str, indent_num=0)

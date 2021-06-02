@@ -10,7 +10,9 @@ import re
 import shutil
 import subprocess as sp
 from logging import Logger
-from typing import Any, Dict, List
+from typing import Any
+from typing import Dict
+from typing import List
 from typing import Match
 from typing import Optional
 from typing import Tuple

@@ -20,7 +20,7 @@ def test__export_js_libs() -> None:
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
     saved_js_file_paths: List[str] = exporter._export_js_libs(
-        dest_dir_path=tmp_dir_path)
+        dest_dir_path=tmp_dir_path, skip_js_lib_exporting=False)
     for saved_js_file_path in saved_js_file_paths:
         assert os.path.isfile(saved_js_file_path)
 
@@ -29,6 +29,11 @@ def test__export_js_libs() -> None:
     assert expected_file_path in saved_js_file_paths
 
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
+
+    saved_js_file_paths = exporter._export_js_libs(
+        dest_dir_path=tmp_dir_path, skip_js_lib_exporting=True)
+    assert saved_js_file_paths == []
+    assert not os.path.exists(tmp_dir_path)
 
 
 def test__append_head_to_html_str() -> None:
@@ -87,6 +92,17 @@ def test_save_expressions_overall_html() -> None:
         dest_dir_path=tmp_dir_path, minify=True)
     html_str = file_util.read_txt(file_path=expected_index_file_path)
     assert html_str.startswith('<html><head>')
+
+    shutil.rmtree(tmp_dir_path, ignore_errors=True)
+    exporter.save_expressions_overall_html(
+        dest_dir_path=tmp_dir_path,
+        skip_js_lib_exporting=True)
+    file_names: List[str] = os.listdir(tmp_dir_path)
+    for file_name in file_names:
+        file_path: str = os.path.join(tmp_dir_path, file_name)
+        if not os.path.isfile(file_path):
+            continue
+        assert not file_name.endswith('.js')
 
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 

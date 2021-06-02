@@ -18,7 +18,8 @@ info_logger: Logger = loggers.get_info_logger()
 
 def save_expressions_overall_html(
         dest_dir_path: str, minify: bool = True,
-        js_lib_dir_path: str = './') -> None:
+        js_lib_dir_path: str = './',
+        skip_js_lib_exporting: bool = False) -> None:
     """
     Save each expressions html under the specified directory path.
 
@@ -39,13 +40,19 @@ def save_expressions_overall_html(
         If not specified, then the same directory with HTML will be set.
         This setting is maybe useful to set common js lib directory,
         such as Django's static (static_collected) directory.
+        It is recommended to set True value to `skip_js_lib_exporting`
+        argument if this argument is set.
+    skip_js_lib_exporting : bool, default False
+        If True is set, then JavaScript libraries will not be exported.
     """
     from apysc.file import file_util
     from apysc.html import html_util
     info_logger.info(msg='Overall exporting started...')
     file_util.empty_directory(directory_path=dest_dir_path)
     info_logger.info(msg='JavaScript libraries exporting...')
-    _ = _export_js_libs(dest_dir_path=dest_dir_path)
+    _ = _export_js_libs(
+        dest_dir_path=dest_dir_path,
+        skip_js_lib_exporting=skip_js_lib_exporting)
     html_str: str = html_util.append_html_to_str(
         to_append_html='<html>', dest_html='', indent_num=0)
     html_str = _append_head_to_html_str(
@@ -433,7 +440,8 @@ def _append_head_to_html_str(
     return html_str
 
 
-def _export_js_libs(dest_dir_path: str) -> List[str]:
+def _export_js_libs(
+        dest_dir_path: str, skip_js_lib_exporting: bool) -> List[str]:
     """
     Export JavaScript libraries to a specified directory.
 
@@ -441,12 +449,17 @@ def _export_js_libs(dest_dir_path: str) -> List[str]:
     ----------
     dest_dir_path : str
         Directory path to export JavaScript libraries.
+    skip_js_lib_exporting : bool
+        If True is set, then JavaScript libraries will not be exported.
 
     Returns
     -------
     saved_js_file_paths : str
         Saved JavaScript file paths.
     """
+    if skip_js_lib_exporting:
+        return []
+
     from apysc.jslib import jslib_util
     jslib_file_names: List[str] = jslib_util.get_jslib_file_names()
     saved_js_file_paths: List[str] = []

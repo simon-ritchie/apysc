@@ -325,14 +325,42 @@ def _get_runnable_scripts_in_md_code_blocks(md_file_path: str) -> List[str]:
             continue
         code: str = code_block.code
         code = _replace_html_saving_export_path_by_doc_path(code=code)
+        code = _append_js_lib_path_and_skip_settings(code=code)
         runnable_scripts.append(code)
     return runnable_scripts
+
+
+def _append_js_lib_path_and_skip_settings(code: str) -> str:
+    """
+    Append JavaScript libraries exporting directory path
+    setting (js_lib_dir_path) and skipping setting
+    (skip_js_lib_exporting) arguments in the code.
+
+    Parameters
+    ----------
+    code : str
+        Target Python code.
+
+    Returns
+    -------
+    code : str
+        Settings appended code.
+    """
+    code = re.sub(
+        pattern=(
+            r'(save_expressions_overall_html\(.+?)\)'
+        ),
+        repl=r"\1,\n    js_lib_dir_path='../', skip_js_lib_exporting=True)",
+        string=code,
+        count=1,
+        flags=re.MULTILINE | re.DOTALL)
+    return code
 
 
 def _replace_html_saving_export_path_by_doc_path(code: str) -> str:
     """
     Replace html saving interace's export path argument value
-    in code by document path.
+    in the code by document path.
 
     Parameters
     ----------

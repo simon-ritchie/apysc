@@ -17,6 +17,7 @@
 from datetime import datetime
 from typing import Dict
 from typing import List
+import warnings
 
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
@@ -89,6 +90,12 @@ def setup(sphinx: Sphinx) -> None:
     sphinx : Sphinx
         Sphinx instance.
     """
+    warnings.filterwarnings(
+        action='ignore',
+        category=UserWarning,
+        message=r'.*Container node skipped.*',
+    )
+
     sphinx.add_config_value(
         name='recommonmark_config',
         default={

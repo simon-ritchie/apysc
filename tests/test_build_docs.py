@@ -147,7 +147,8 @@ print(300)
         ['print(200)'
          '\nsave_expressions_overall_html('
          "\n    dest_dir_path='./docs_src/source/_static/"
-         "quick_start_stage_creation/')"
+         "quick_start_stage_creation/',"
+         "\n    js_lib_dir_path='../', skip_js_lib_exporting=True)"
          ]
     )
 
@@ -321,6 +322,7 @@ def test__save_md_hashed_val() -> None:
     file_util.remove_file_if_exists(file_path=expected_file_path)
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_js_lib_path_and_skip_settings() -> None:
     """_append_js_lib_path_and_skip_settings 関数のテスト。
     """

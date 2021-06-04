@@ -14,10 +14,10 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+import warnings
 from datetime import datetime
 from typing import Dict
 from typing import List
-import warnings
 
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify

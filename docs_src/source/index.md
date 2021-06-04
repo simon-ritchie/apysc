@@ -19,6 +19,7 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 
 **Graphics class**
 
+- [Graphics class](graphics.md)
 - [Graphics class begin fill interface](graphics_begin_fill.md)
 - [Graphics class line style interface](graphics_line_style.md)
 - [Graphics class draw rect interface](graphics_draw_rect.md)

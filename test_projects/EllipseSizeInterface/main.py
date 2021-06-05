@@ -48,8 +48,13 @@ def main() -> None:
         x=150, y=50, width=50, height=50)
     rectangle_2.ellipse_size = Int(20)
 
+    rectangle_3: Rectangle = sprite.graphics.draw_rect(
+        x=250, y=50, width=50, height=50)
+    rectangle_3.ellipse_width = Int(10)
+    rectangle_3.ellipse_height = Int(25)
+
     exporter.save_expressions_overall_html(
-        dest_dir_path=_DEST_DIR_PATH)
+        dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
 if __name__ == '__main__':

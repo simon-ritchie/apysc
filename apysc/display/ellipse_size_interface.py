@@ -6,7 +6,7 @@ from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
 
 
-class RadiusInterface(VariableNameInterface, RevertInterface):
+class EllipseSizeInterface(VariableNameInterface, RevertInterface):
 
     _radius: Int
 

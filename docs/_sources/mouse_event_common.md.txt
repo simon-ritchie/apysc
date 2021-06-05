@@ -1,6 +1,6 @@
 # Common mouse event interfaces
 
-This page will explain the common mouse event interfaces, like `this`, .
+This page will explain the common mouse event interfaces, like `this`.
 
 ## Basic binding usage
 
@@ -33,7 +33,7 @@ sprite.graphics.begin_fill(color='#0af')
 
 def on_rectangle_click(e: MouseEvent, options: Dict[str, Any]) -> None:
     """
-    The handler that will be called when the rectangle is clicked.
+    The handler will be called when the rectangle is clicked.
 
     Parameters
     ----------
@@ -58,6 +58,70 @@ save_expressions_overall_html(
     dest_dir_path='mouse_event_common_basic_binding_usage/')
 ```
 
-If you click the following rectangle, the rectancle color will be changed to the specified options color.
+If you click the following rectangle, the rectangle color will be changed to the specified options color.
 
 <iframe src="static/mouse_event_common_basic_binding_usage/index.html" width="150" height="150"></iframe>
+
+There are the `click`, `mousedown`, `mouseup`, `mouseover`, `mouseout`, and `mousemove` mouse event binding interfaces that the `DisplayObject` instance has.
+
+## Basic unbinding usage
+
+Each `DisplayObject` instance has the `unbind_<event_name>` interfaces, for example, `unbind_click` or `unbind_mousedown` or something else.
+
+These interfaces can unbind the single handler setting (remove binding setting).
+
+For example, the following code will unbind the click event, so the handler function will not be called.
+
+```py
+# runnable
+from typing import Any, Dict
+
+from apysc import Sprite
+from apysc import Stage
+from apysc import Rectangle
+from apysc import MouseEvent
+from apysc import String
+from apysc import save_expressions_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+
+sprite: Sprite = Sprite(stage=stage)
+sprite.graphics.begin_fill(color='#0af')
+
+
+def on_rectangle_click(e: MouseEvent, options: Dict[str, Any]) -> None:
+    """
+    The handler will be called when the rectangle is clicked.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Event instance.
+    options : dict
+        Optional arguments.
+    """
+    # Change the clicked rectangle color to the passed color.
+    rectangle: Rectangle = e.this
+    color: String = String(options['color'])
+    rectangle.fill_color = color
+
+
+rectangle: Rectangle = sprite.graphics.draw_rect(
+    x=50, y=50, width=50, height=50)
+rectangle.click(
+    handler=on_rectangle_click,
+    options={'color': '#f0a'})
+
+rectangle.unbind_click(handler=on_rectangle_click)
+
+save_expressions_overall_html(
+    dest_dir_path='mouse_event_common_basic_unbinding_usage/')
+```
+
+When you click the following rectangle, nothing will happen.
+
+<iframe src="static/mouse_event_common_basic_unbinding_usage/index.html" width="150" height="150"></iframe>

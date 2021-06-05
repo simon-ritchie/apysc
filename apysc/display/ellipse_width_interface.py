@@ -19,6 +19,20 @@ class EllipseWidthInterface(VariableNameInterface, RevertInterface):
             return
         self._ellipse_width = Int(0)
 
+    @property
+    def ellipse_width(self) -> Int:
+        """
+        Get ellipse size value.
+
+        Returns
+        -------
+        ellipse_width : Int
+            Ellipse width value.
+        """
+        from apysc.type import value_util
+        self._initialize_ellipse_width_if_not_initialized()
+        return value_util.get_copy(value=self._ellipse_width)
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make value's snapshot.

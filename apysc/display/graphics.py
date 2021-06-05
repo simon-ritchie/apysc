@@ -81,7 +81,7 @@ class Graphics(
             width: Union[int, Int],
             height: Union[int, Int]) -> Rectangle:
         """
-        Draw rectangle vector graphic.
+        Draw rectangle vector graphics.
 
         Parameters
         ----------
@@ -101,6 +101,47 @@ class Graphics(
         """
         rectangle: Rectangle = Rectangle(
             parent=self, x=x, y=y, width=width, height=height)
+        self.add_child(child=rectangle)
+        return rectangle
+
+    def draw_round_rect(
+            self, x: Union[int, Int],
+            y: Union[int, Int],
+            width: Union[int, Int],
+            height: Union[int, Int],
+            ellipse_width: Union[int, Int],
+            ellipse_height: Union[int, Int]) -> Rectangle:
+        """
+        Draw rounded rectangle vector graphics.
+
+        Parameters
+        ----------
+        x : int or Int
+            X position to start drawing.
+        y : int or Int
+            Y position to start drawing.
+        width : int or Int
+            Rectangle width.
+        height : int or Int
+            Rectangle height.
+        ellipse_width : int or Int
+            Ellipse width of the rectangle corner.
+        ellipse_height : int or Int
+            Ellipse height of the rectangle corner.
+
+        Returns
+        -------
+        rectangle : Rectangle
+            Created rectangle.
+        """
+        rectangle: Rectangle = Rectangle(
+            parent=self, x=x, y=y, width=width, height=height)
+        if isinstance(ellipse_width, int):
+            ellipse_width = Int(ellipse_width)
+        if isinstance(ellipse_height, int):
+            ellipse_height = Int(ellipse_height)
+        rectangle.ellipse_width = ellipse_width
+        rectangle.ellipse_height = ellipse_height
         self.add_child(child=rectangle)
         return rectangle
 
@@ -173,7 +214,7 @@ class Graphics(
             x_end: Union[int, Int],
             y_end: Union[int, Int]) -> Line:
         """
-        Draw normal line vector graphic.
+        Draw normal line vector graphics.
 
         Notes
         -----
@@ -215,7 +256,7 @@ class Graphics(
             y_end: Union[int, Int],
             dot_size: Union[int, Int]) -> Line:
         """
-        Draw dotted line vector graphic.
+        Draw dotted line vector graphics.
 
         Notes
         -----
@@ -262,7 +303,7 @@ class Graphics(
             dash_size: Union[int, Int],
             space_size: Union[int, Int]) -> Line:
         """
-        Draw dashed line vector graphic.
+        Draw dashed line vector graphics.
 
         Notes
         -----
@@ -312,7 +353,7 @@ class Graphics(
             round_size: Union[int, Int],
             space_size: Union[int, Int]) -> Line:
         """
-        Draw round dotted line vector graphic.
+        Draw round dotted line vector graphics.
 
         Notes
         -----
@@ -363,7 +404,7 @@ class Graphics(
             dash_size: Union[int, Int],
             space_size: Union[int, Int]) -> Line:
         """
-        Draw dash dotted (1-dot chain) line vector graphic.
+        Draw dash dotted (1-dot chain) line vector graphics.
 
         Parameters
         ----------
@@ -406,7 +447,7 @@ class Graphics(
     def draw_polygon(
             self, points: Union[List[Point2D], Array[Point2D]]) -> Polygon:
         """
-        Draw polygon vector graphic. This is similar to Polyline
+        Draw polygon vector graphics. This is similar to Polyline
         class (created by move_to or line_to, or other interface),
         but unlike that, end point and start one will be connected.
 

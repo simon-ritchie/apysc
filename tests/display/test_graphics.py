@@ -272,3 +272,18 @@ class TestGraphics:
             [Point2D(50, 50), Point2D(150, 50), Point2D(100, 100)])
         assert polygon.fill_color == '#333333'
         assert sprite.graphics._children == [polygon]
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_draw_round_rect(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        rectangle: Rectangle = sprite.graphics.draw_round_rect(
+            x=50, y=100, width=150, height=200, ellipse_width=20,
+            ellipse_height=30)
+        assert rectangle.x == 50
+        assert rectangle.y == 100
+        assert rectangle.width == 150
+        assert rectangle.height == 200
+        assert rectangle.ellipse_width == 20
+        assert rectangle.ellipse_height == 30
+        assert sprite.graphics._children == [rectangle]

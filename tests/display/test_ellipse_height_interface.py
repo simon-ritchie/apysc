@@ -56,3 +56,15 @@ class TestEllipseHeightInterface:
             f'{ellipse_height.variable_name});'
         )
         assert expected in expression
+
+    def test__make_snapshot(self) -> None:
+        interface: EllipseHeightInterface = EllipseHeightInterface()
+        interface.variable_name = 'test_ellipse_height_interface'
+        interface.ellipse_height = Int(10)
+        snapshot_name: str = interface._get_next_snapshot_name()
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert interface._ellipse_height_snapshots[snapshot_name] == 10
+
+        interface.ellipse_height = Int(20)
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert interface._ellipse_height_snapshots[snapshot_name] == 10

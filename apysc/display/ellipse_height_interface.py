@@ -48,6 +48,28 @@ class EllipseHeightInterface(VariableNameInterface, RevertInterface):
             number_validation.validate_integer(integer=value)
             value = Int(value)
         self._ellipse_height = value
+        self._append_ellipse_height_update_expression()
+
+    def _append_ellipse_height_update_expression(self) -> None:
+        """
+        Append ellipse height updating expression.
+        """
+        from apysc.expression import expression_file_util
+        from apysc.type import value_util
+        self._initialize_ellipse_height_if_not_initialized()
+        if hasattr(self, '_ellipse_width'):
+            width_value_str: str = value_util.get_value_str_for_expression(
+                value=getattr(self, '_ellipse_width'))
+        else:
+            width_value_str: str = value_util.get_value_str_for_expression(
+                value=0)
+        height_value_str: str = value_util.get_value_str_for_expression(
+            value=self._ellipse_height)
+        expression: str = (
+            f'{self.variable_name}.radius({width_value_str}, '
+            f'{height_value_str});'
+        )
+        expression_file_util.append_js_expression(expression=expression)
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

@@ -1,6 +1,7 @@
 """Class implementation for ellipse size interface.
 """
 
+from typing import Dict
 from apysc import Int
 from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
@@ -64,6 +65,8 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
+    _ellipse_size_snapshots: Dict[str, int]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make value's snapshot.
@@ -73,7 +76,13 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
-        pass
+        if not hasattr(self, '_ellipse_size_snapshots'):
+            self._ellipse_size_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._initialize_ellipse_size_if_not_initialized()
+        self._ellipse_size_snapshots[snapshot_name] = int(
+            self._ellipse_size._value)
 
     def _revert(self, snapshot_name: str) -> None:
         """

@@ -21,7 +21,7 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
     @property
     def ellipse_size(self) -> Int:
         """
-        Get a ellipse size value.
+        Get ellipse size value.
 
         Returns
         -------
@@ -31,6 +31,23 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
         from apysc.type import value_util
         self._initialize_ellipse_size_if_not_initialized()
         return value_util.get_copy(value=self._ellipse_size)
+
+    @ellipse_size.setter
+    def ellipse_size(self, value: Int) -> None:
+        """
+        Update ellipse size value. This inteface will updates
+        both of ellipse width and ellipse height attributes.
+
+        Parameters
+        ----------
+        value : int or Int
+            Ellipse size value.
+        """
+        from apysc.validation import number_validation
+        if not isinstance(value, Int):
+            number_validation.validate_integer(integer=value)
+            value = Int(value)
+        self._ellipse_size = value
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

@@ -99,3 +99,7 @@ class EllipseHeightInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._ellipse_height._value = self._ellipse_height_snapshots[
+            snapshot_name]

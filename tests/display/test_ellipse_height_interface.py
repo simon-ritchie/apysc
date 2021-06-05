@@ -24,5 +24,8 @@ class TestEllipseHeightInterface:
         interface.variable_name = 'test_ellipse_height_interface'
         assert interface.ellipse_height == 0
 
-        interface._ellipse_height.value = 10
+        interface.ellipse_height = Int(10)
         assert interface.ellipse_height == 10
+
+        interface.ellipse_height = 20  # type: ignore
+        assert interface.ellipse_height == 20

@@ -8,11 +8,13 @@ from apysc import Int
 from apysc.display.height_interface import HeightInterface
 from apysc.display.line_base import LineBase
 from apysc.display.width_interface import WidthInterface
+from apysc.display.ellipse_size_interface import EllipseSizeInterface
 
 _Graphics = Any
 
 
-class Rectangle(LineBase, WidthInterface, HeightInterface):
+class Rectangle(
+        LineBase, WidthInterface, HeightInterface, EllipseSizeInterface):
 
     def __init__(
             self, parent: _Graphics,

@@ -45,10 +45,18 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
             Ellipse size value.
         """
         from apysc.validation import number_validation
+        from apysc.display.ellipse_width_interface import \
+            EllipseWidthInterface
+        from apysc.display.ellipse_height_interface import \
+            EllipseHeightInterface
         if not isinstance(value, Int):
             number_validation.validate_integer(integer=value)
             value = Int(value)
         self._ellipse_size = value
+        if isinstance(self, EllipseWidthInterface):
+            self._ellipse_width = value
+        if isinstance(self, EllipseHeightInterface):
+            self._ellipse_height = value
         self._append_ellipse_size_update_expression()
 
     def _append_ellipse_size_update_expression(self) -> None:

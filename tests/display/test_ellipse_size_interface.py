@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 from apysc.display.ellipse_size_interface import EllipseSizeInterface
-from apysc import Int
+from apysc import Int, Stage, Sprite, Rectangle
 from apysc.expression import expression_file_util
 
 
@@ -30,6 +30,14 @@ class TestEllipseSizeInterface:
 
         interface.ellipse_size = 20  # type: ignore
         assert interface.ellipse_size == 20
+
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        rectangle: Rectangle = sprite.graphics.draw_rect(
+            x=50, y=50, width=50, height=50)
+        rectangle.ellipse_size = Int(10)
+        assert rectangle.ellipse_width == 10
+        assert rectangle.ellipse_height == 10
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ellipse_size_update_expression(self) -> None:

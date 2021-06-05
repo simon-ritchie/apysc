@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc.display.radius_interface import RadiusInterface
+from apysc.display.ellipse_size_interface import RadiusInterface
 
 
 class TestRadiusInterface:

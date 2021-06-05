@@ -50,3 +50,65 @@ save_expressions_overall_html(
 ```
 
 <iframe src="static/graphics_call_interfaces_from_sprite_instance/index.html" width="250" height="180"></iframe>
+
+## Return values
+
+Each interface will return created graphic instances (e.g., `Rectangle`, `Polyline`, and so on). These instances have the basic `DisplayObject` attributes and methods, like x, y, fill_alpha, visible, or something else.
+
+For example, you can set event and coordinates updating to these instances, as follows:
+
+```py
+# runnable
+from typing import Any, Dict
+
+from apysc import Stage, Sprite
+from apysc import Int, Number, String
+from apysc import Rectangle
+from apysc import MouseEvent
+from apysc import save_expressions_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=200,
+    stage_height=200,
+    stage_elem_id='stage')
+
+sprite: Sprite = Sprite(stage=stage)
+
+
+def on_rectangle_click(
+        e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
+    """
+    A Handler that called when the rectangle is clicked.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rectangle: Rectangle = e.this
+
+    # Update the coordinates, fill alpha, and fill color.
+    rectangle.x = Int(100)
+    rectangle.y = Int(100)
+    rectangle.fill_alpha = Number(0.5)
+    rectangle.fill_color = String('#f0a')
+
+
+# drew_rect interface will return Rectangle instance.
+sprite.graphics.begin_fill(color='#0af')
+rectangle: Rectangle = sprite.graphics.draw_rect(
+    x=50, y=50, width=50, height=50)
+
+# Bind click event to the rectangle.
+rectangle.click(on_rectangle_click)
+
+save_expressions_overall_html(
+    dest_dir_path='graphics_return_values/')
+```
+
+If you click the following rectangle, that rectangle will change x and y coordinates, fill color, and alpha (opacity) values.
+
+<iframe src="static/graphics_return_values/index.html" width="200" height="200"></iframe>

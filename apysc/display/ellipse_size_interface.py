@@ -93,4 +93,7 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
-        pass
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._ellipse_size._value = self._ellipse_size_snapshots[
+            snapshot_name]

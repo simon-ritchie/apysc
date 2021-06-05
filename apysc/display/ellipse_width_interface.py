@@ -99,4 +99,7 @@ class EllipseWidthInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
-        pass
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._ellipse_width._value = self._ellipse_width_snapshots[
+            snapshot_name]

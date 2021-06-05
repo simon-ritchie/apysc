@@ -11,3 +11,4 @@ test_output
 /docs_src/build
 /tmp.py
 /tmp_*.py
+/tmp.md

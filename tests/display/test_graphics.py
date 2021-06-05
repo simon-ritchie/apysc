@@ -4,6 +4,7 @@ from typing import Optional
 from retrying import retry
 
 from apysc import Array
+from apysc import Int
 from apysc import Line
 from apysc import LineDashDotSetting
 from apysc import LineDashSetting
@@ -284,6 +285,6 @@ class TestGraphics:
         assert rectangle.y == 100
         assert rectangle.width == 150
         assert rectangle.height == 200
-        assert rectangle.ellipse_width == 20
-        assert rectangle.ellipse_height == 30
+        assert rectangle.ellipse_width == Int(20)
+        assert rectangle.ellipse_height == Int(30)
         assert sprite.graphics._children == [rectangle]

@@ -3,8 +3,8 @@ from random import randint
 from retrying import retry
 
 from apysc import Int
-from apysc.expression import expression_file_util
 from apysc.display.ellipse_height_interface import EllipseHeightInterface
+from apysc.expression import expression_file_util
 
 
 class TestEllipseHeightInterface:

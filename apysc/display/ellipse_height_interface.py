@@ -2,6 +2,7 @@
 """
 
 from typing import Dict
+
 from apysc import Int
 from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
@@ -44,8 +45,8 @@ class EllipseHeightInterface(VariableNameInterface, RevertInterface):
             Ellipse height value.
         """
         from apysc.validation import number_validation
-        if not isinstance(value, Int):
-            number_validation.validate_integer(integer=value)
+        number_validation.validate_integer(integer=value)
+        if isinstance(value, int):
             value = Int(value)
         self._ellipse_height = value
         self._append_ellipse_height_update_expression()
@@ -61,7 +62,7 @@ class EllipseHeightInterface(VariableNameInterface, RevertInterface):
             width_value_str: str = value_util.get_value_str_for_expression(
                 value=getattr(self, '_ellipse_width'))
         else:
-            width_value_str: str = value_util.get_value_str_for_expression(
+            width_value_str = value_util.get_value_str_for_expression(
                 value=0)
         height_value_str: str = value_util.get_value_str_for_expression(
             value=self._ellipse_height)

@@ -2,8 +2,11 @@ from random import randint
 
 from retrying import retry
 
+from apysc import Int
+from apysc import Rectangle
+from apysc import Sprite
+from apysc import Stage
 from apysc.display.ellipse_size_interface import EllipseSizeInterface
-from apysc import Int, Stage, Sprite, Rectangle
 from apysc.expression import expression_file_util
 
 
@@ -36,8 +39,8 @@ class TestEllipseSizeInterface:
         rectangle: Rectangle = sprite.graphics.draw_rect(
             x=50, y=50, width=50, height=50)
         rectangle.ellipse_size = Int(10)
-        assert rectangle.ellipse_width == 10
-        assert rectangle.ellipse_height == 10
+        assert rectangle.ellipse_width == Int(10)
+        assert rectangle.ellipse_height == Int(10)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ellipse_size_update_expression(self) -> None:

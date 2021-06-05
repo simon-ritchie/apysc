@@ -2,6 +2,7 @@
 """
 
 from typing import Dict
+
 from apysc import Int
 from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
@@ -44,8 +45,8 @@ class EllipseWidthInterface(VariableNameInterface, RevertInterface):
             Ellipse width value.
         """
         from apysc.validation import number_validation
-        if not isinstance(value, Int):
-            number_validation.validate_integer(integer=value)
+        number_validation.validate_integer(integer=value)
+        if isinstance(value, int):
             value = Int(value)
         self._ellipse_width = value
         self._append_ellipse_width_update_expression()

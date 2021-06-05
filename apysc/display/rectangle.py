@@ -5,12 +5,12 @@ from typing import Any
 from typing import Union
 
 from apysc import Int
+from apysc.display.ellipse_height_interface import EllipseHeightInterface
+from apysc.display.ellipse_size_interface import EllipseSizeInterface
+from apysc.display.ellipse_width_interface import EllipseWidthInterface
 from apysc.display.height_interface import HeightInterface
 from apysc.display.line_base import LineBase
 from apysc.display.width_interface import WidthInterface
-from apysc.display.ellipse_size_interface import EllipseSizeInterface
-from apysc.display.ellipse_width_interface import EllipseWidthInterface
-from apysc.display.ellipse_height_interface import EllipseHeightInterface
 
 _Graphics = Any
 

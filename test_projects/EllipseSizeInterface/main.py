@@ -13,12 +13,9 @@ import os
 from types import ModuleType
 
 from apysc import Int
-from apysc import Number
 from apysc import Rectangle
 from apysc import Sprite
 from apysc import Stage
-from apysc import String
-from apysc import assert_not_equal
 from apysc.file import file_util
 from apysc.html import exporter
 

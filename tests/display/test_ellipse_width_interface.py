@@ -2,9 +2,9 @@ from random import randint
 
 from retrying import retry
 
+from apysc import Int
 from apysc.display.ellipse_width_interface import EllipseWidthInterface
 from apysc.expression import expression_file_util
-from apysc import Int
 
 
 class TestEllipseWidthInterface:
@@ -50,7 +50,7 @@ class TestEllipseWidthInterface:
         setattr(interface, '_ellipse_height', ellipse_height)
         interface.ellipse_width = ellipse_width
         expression = expression_file_util.get_current_expression()
-        expected: str = (
+        expected = (
             f'{interface.variable_name}.radius({ellipse_width.variable_name}'
             f', {ellipse_height.variable_name});'
         )

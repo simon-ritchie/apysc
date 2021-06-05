@@ -22,7 +22,7 @@ class EllipseWidthInterface(VariableNameInterface, RevertInterface):
     @property
     def ellipse_width(self) -> Int:
         """
-        Get ellipse size value.
+        Get ellipse width value.
 
         Returns
         -------

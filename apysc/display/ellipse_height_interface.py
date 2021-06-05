@@ -19,6 +19,20 @@ class EllipseHeightInterface(VariableNameInterface, RevertInterface):
             return
         self._ellipse_height = Int(0)
 
+    @property
+    def ellipse_height(self) -> Int:
+        """
+        Get ellipse height value.
+
+        Returns
+        -------
+        ellipse_height : Int
+            Ellipse height value.
+        """
+        from apysc.type import value_util
+        self._initialize_ellipse_height_if_not_initialized()
+        return value_util.get_copy(value=self._ellipse_height)
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make value's snapshot.

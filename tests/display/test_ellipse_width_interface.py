@@ -3,6 +3,7 @@ from random import randint
 from retrying import retry
 
 from apysc.display.ellipse_width_interface import EllipseWidthInterface
+from apysc import Int
 
 
 class TestEllipseWidthInterface:
@@ -23,5 +24,8 @@ class TestEllipseWidthInterface:
         interface.variable_name = 'test_ellipse_width_interface'
         assert interface.ellipse_width == 0
 
-        interface._ellipse_width.value = 10
+        interface.ellipse_width = Int(10)
         assert interface.ellipse_width == 10
+
+        interface.ellipse_width = 20  # type: ignore
+        assert interface.ellipse_width == 20

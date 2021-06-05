@@ -33,6 +33,22 @@ class EllipseWidthInterface(VariableNameInterface, RevertInterface):
         self._initialize_ellipse_width_if_not_initialized()
         return value_util.get_copy(value=self._ellipse_width)
 
+    @ellipse_width.setter
+    def ellipse_width(self, value: Int) -> None:
+        """
+        Update ellipse width value.
+
+        Parameters
+        ----------
+        value : int or Int
+            Ellipse width value.
+        """
+        from apysc.validation import number_validation
+        if not isinstance(value, Int):
+            number_validation.validate_integer(integer=value)
+            value = Int(value)
+        self._ellipse_width = value
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make value's snapshot.

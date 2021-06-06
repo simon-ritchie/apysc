@@ -32,3 +32,20 @@ class TestCircle:
             ),
             string=expression, flags=re.MULTILINE | re.DOTALL)
         assert match is not None
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___init__(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        sprite.graphics.begin_fill(color='#0af')
+        sprite.graphics.line_style(color='#fff')
+        circle: Circle = Circle(
+            parent=sprite.graphics,
+            x=50,
+            y=100,
+            radius=30)
+        assert circle.x == 50
+        assert circle.y == 100
+        assert circle.radius == 30
+        assert circle.fill_color == '#00aaff'
+        assert circle.line_color == '#ffffff'

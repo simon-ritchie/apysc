@@ -26,16 +26,16 @@ class Rectangle(
             width: Union[int, Int],
             height: Union[int, Int]) -> None:
         """
-        Create a rectangle vector graphic.
+        Create a rectangle vector graphics.
 
         Parameters
         ----------
         parent : Graphics
-            Graphics instance to link this graphic.
+            Graphics instance to link this graphics.
         x : int or Int
-            X position to start drawing.
+            X-coordinate to start drawing.
         y : int or Int
-            Y position to start drawing.
+            Y-coordinate to start drawing.
         width : int or Int
             Rectangle width.
         height : int or Int
@@ -75,7 +75,7 @@ class Rectangle(
 
     def _append_constructor_expression(self) -> None:
         """
-        Append constructor expression to file.
+        Append constructor expression to the file.
         """
         from apysc.display.stage import get_stage_variable_name
         from apysc.expression import expression_file_util

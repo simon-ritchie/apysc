@@ -151,7 +151,7 @@ def main() -> None:
         x=650, y=150, width=50, height=50)
 
     exporter.save_expressions_overall_html(
-        dest_dir_path=_DEST_DIR_PATH)
+        dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
 def _another_func(stage: Stage, sprite: Sprite) -> None:

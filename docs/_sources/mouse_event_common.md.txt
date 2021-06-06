@@ -145,7 +145,7 @@ from apysc import save_expressions_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
-    stage_width=200,
+    stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
@@ -201,6 +201,62 @@ save_expressions_overall_html(
     dest_dir_path='mouse_event_common_unbind_all_event_handlers/')
 ```
 
-If you click the following rectangle, also nothing will happen.
+If you click the following rectangle, also nothing will happen (no color change and no x-coordinate change).
 
-<iframe src="static/mouse_event_common_unbind_all_event_handlers/index.html" width="200" height="150"></iframe>
+<iframe src="static/mouse_event_common_unbind_all_event_handlers/index.html" width="150" height="150"></iframe>
+
+## Handler argument names and types
+
+Handler function (or method) first argument name is required to be `e`, not `evt` or `event`. And that argument type will be `MouseEvent`.
+
+Also, a second argument name is required to be `options`. This argument type will be `dict`. If you skipped options argument specification at binding the event, then this argument will become a blank dictionary (`{}`).
+
+## MouseEvent this attribute
+
+`MouseEvent` instance has the `this` attribute, and this will be an instance that the event handler is set. For example, if you bind the click event to the rectangle instance, the `this` attribute will be that rectangle instance.
+
+## MouseEvent generic type settings
+
+If you know that one of the handlers will only be used by an instance of a particular type, you can set generic type settings to the `MouseEvent` type annotation (e.g., `MouseEvent[Rectangle]`).
+
+This is useful to determine the `this` attribute type and will be checked by the `mypy`, `Pylance`, or other type checkers.
+
+```py
+# runnable
+from typing import Any, Dict
+
+from apysc import Sprite
+from apysc import Stage
+from apysc import Rectangle
+from apysc import MouseEvent
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=200,
+    stage_height=150,
+    stage_elem_id='stage')
+
+sprite: Sprite = Sprite(stage=stage)
+sprite.graphics.begin_fill(color='#0af')
+
+
+def on_rectangle_mousedown(
+        e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
+    """
+    The handler will be called when the rectangle is mouse downed.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Event instance.
+    options : dict
+        Optional arguments.
+    """
+    rectangle = e.this
+    rectangle.x += 50
+
+
+rectangle: Rectangle = sprite.graphics.draw_rect(
+    x=50, y=50, width=50, height=50)
+rectangle.mousedown(handler=on_rectangle_mousedown)
+```

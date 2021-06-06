@@ -354,7 +354,7 @@ def on_mousemove(
     options : dict
         Optional arguments.
     """
-    trace('local_x:', e.local_x, 'local_y):', e.local_y)
+    trace('local_x:', e.local_x, 'local_y:', e.local_y)
 
 
 rectangle: Rectangle = sprite.graphics.draw_rect(

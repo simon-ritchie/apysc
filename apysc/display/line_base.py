@@ -17,8 +17,6 @@ from apysc.display.line_dot_setting_interface import LineDotSettingInterface
 from apysc.display.line_joints_interface import LineJointsInterface
 from apysc.display.line_round_dot_setting_interface import \
     LineRoundDotSettingInterface
-from apysc.display.x_interface import XInterface
-from apysc.display.y_interface import YInterface
 
 _Graphics = Any
 
@@ -26,7 +24,6 @@ _Graphics = Any
 class LineBase(
         GraphicBase, FillColorInterface, FillAlphaInterface,
         LineColorInterface, LineAlphaInterface,
-        XInterface, YInterface,
         LineJointsInterface, LineDotSettingInterface,
         LineDashSettingInterface, LineRoundDotSettingInterface,
         LineDashDotSettingInterface, ABC):

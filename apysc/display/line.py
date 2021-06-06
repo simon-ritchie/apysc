@@ -4,12 +4,14 @@
 from typing import Any
 
 from apysc.display.line_base import LineBase
+from apysc.display.x_interface import XInterface
+from apysc.display.y_interface import YInterface
 
 _Graphics = Any
 _Point2D = Any
 
 
-class Line(LineBase):
+class Line(LineBase, XInterface, YInterface):
 
     _start_point: _Point2D
     _end_point: _Point2D

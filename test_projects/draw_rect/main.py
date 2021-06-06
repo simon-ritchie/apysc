@@ -1,4 +1,4 @@
-"""Test project for draw_rect interface.
+"""Test project for the draw_rect interface.
 
 Command examples:
 $ python test_projects/draw_rect/main.py
@@ -151,7 +151,7 @@ def main() -> None:
         x=650, y=150, width=50, height=50)
 
     exporter.save_expressions_overall_html(
-        dest_dir_path=_DEST_DIR_PATH, minify=False)
+        dest_dir_path=_DEST_DIR_PATH)
 
 
 def _another_func(stage: Stage, sprite: Sprite) -> None:

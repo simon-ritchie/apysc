@@ -54,6 +54,8 @@ class Circle(LineBase, RadiusInterface):
         from apysc.display.stage import get_stage_variable_name
         from apysc.expression import expression_file_util
         from apysc.type import value_util
+        from apysc.display import graphics_expression
+        INDENT_NUM: int = 2
         stage_variable_name: str = get_stage_variable_name()
         radius_str: str = value_util.get_value_str_for_expression(
             value=self._radius)
@@ -63,7 +65,7 @@ class Circle(LineBase, RadiusInterface):
             '\n  .attr({'
         )
         expression = self._append_basic_vals_expression(
-            expression=expression, indent_num=2)
+            expression=expression, indent_num=INDENT_NUM)
         expression += '\n  });'
         expression_file_util.append_js_expression(expression=expression)
 

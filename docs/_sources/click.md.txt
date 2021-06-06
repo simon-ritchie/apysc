@@ -63,7 +63,7 @@ rectangle: Rectangle = sprite.graphics.draw_rect(
 rectangle.click(handler=on_click)
 
 save_expressions_overall_html(
-    dest_dir_path='click_basic_usage_of_the_click_interface')
+    dest_dir_path='click_basic_usage_of_the_click_interface/')
 ```
 
 If you click the following rectangle, the rectangle color will become the magenta color.
@@ -116,12 +116,68 @@ def on_click(
 
 
 rectangle: Rectangle = sprite.graphics.draw_rect(
-    x=50, y=100, width=50, height=50)
+    x=50, y=50, width=50, height=50)
 rectangle.click(handler=on_click)
 rectangle.unbind_click(handler=on_click)
 
 save_expressions_overall_html(
-    dest_dir_path='click_basic_usage_of_the_unbind_click_interface')
+    dest_dir_path='click_basic_usage_of_the_unbind_click_interface/')
 ```
 
 <iframe src="static/click_basic_usage_of_the_unbind_click_interface/index.html" width="150" height="150"></iframe>
+
+
+## Unbind all the click event handlers
+
+`unbind_click_all` interface can unbind all the click event handlers from the `DisplayObject` instance.
+
+Following example is removing all the click event by the `unbind_click_all` method (if you click the rectangle, nothing will happen).
+
+```py
+# runnable
+from typing import Any, Dict
+
+from apysc import Sprite
+from apysc import Stage
+from apysc import Rectangle
+from apysc import MouseEvent
+from apysc import String
+from apysc import save_expressions_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+
+sprite: Sprite = Sprite(stage=stage)
+sprite.graphics.begin_fill(color='#0af')
+
+
+def on_click(
+        e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
+    """
+    The handler will be called when the rectangle is clicked.
+    the rectangle.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Event instance.
+    options : dict
+        Optional arguments.
+    """
+    rectangle: Rectangle = e.this
+    rectangle.fill_color = String('#f0a')
+
+
+rectangle: Rectangle = sprite.graphics.draw_rect(
+    x=50, y=50, width=50, height=50)
+rectangle.click(handler=on_click)
+rectangle.unbind_click_all()
+
+save_expressions_overall_html(
+    dest_dir_path='click_unbind_all_the_click_event_handlers/')
+```
+
+<iframe src="static/click_unbind_all_the_click_event_handlers/index.html" width="150" height="150"></iframe>

@@ -24,5 +24,8 @@ class TestCxInterface:
         interface.variable_name = 'test_cx_interface'
         assert interface.cx == 0
 
-        interface._cx = Int(10)
+        interface.cx = Int(10)
         assert interface.cx == 10
+
+        interface.cx = 20  # type: ignore
+        assert interface.cx == 20

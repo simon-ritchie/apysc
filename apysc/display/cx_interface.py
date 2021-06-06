@@ -34,6 +34,22 @@ class CxInterface(VariableNameInterface, RevertInterface):
         self._initialize_cx_if_not_initialized()
         return value_util.get_copy(value=self._cx)
 
+    @cx.setter
+    def cx(self, value: Int) -> None:
+        """
+        Update center x-coordinate.
+
+        Parameters
+        ----------
+        value : int or Int
+            Center x-coordinate value.
+        """
+        from apysc.validation import number_validation
+        number_validation.validate_integer(integer=value)
+        if not isinstance(value, Int):
+            value = Int(value)
+        self._cx = value
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make value's snapshot.

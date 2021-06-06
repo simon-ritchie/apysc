@@ -1,4 +1,4 @@
-"""Class implementation for x position interface.
+"""Class implementation for x-coordinate interface.
 """
 
 from typing import Dict

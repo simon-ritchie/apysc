@@ -65,6 +65,8 @@ class RadiusInterface(VariableNameInterface, RevertInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
+    _radius_snapshots: Dict[str, int]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make value's snapshot.
@@ -74,6 +76,12 @@ class RadiusInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not hasattr(self, '_radius_snapshots'):
+            self._radius_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._initialize_radius_if_not_initialized()
+        self._radius_snapshots[snapshot_name] = int(self._radius._value)
 
     def _revert(self, snapshot_name: str) -> None:
         """

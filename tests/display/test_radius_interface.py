@@ -16,3 +16,12 @@ class TestRadiusInterface:
 
         interface._radius = Int(10)
         assert interface._radius == 10
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_radius(self) -> None:
+        interface: RadiusInterface = RadiusInterface()
+        interface.variable_name = 'test_radius_interface'
+        assert interface.radius == 0
+
+        interface._radius = Int(10)
+        assert interface.radius == 10

@@ -20,6 +20,20 @@ class RadiusInterface(VariableNameInterface, RevertInterface):
             return
         self._radius = Int(0)
 
+    @property
+    def radius(self) -> Int:
+        """
+        Get radius value.
+
+        Returns
+        -------
+        radius : Int
+            Radius value.
+        """
+        from apysc.type import value_util
+        self._initialize_radius_if_not_initialized()
+        return value_util.get_copy(value=self._radius)
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make value's snapshot.

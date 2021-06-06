@@ -260,3 +260,56 @@ rectangle: Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 rectangle.mousedown(handler=on_rectangle_mousedown)
 ```
+
+## MouseEvent stage_x and stage_y attributes
+
+MouseEvent instance has the `stage_x` and `stage_y` attributes. These attributes are absolute coordinates from the upper-left position of the stage.
+
+```py
+# runnable
+from typing import Any, Dict
+
+from apysc import Sprite
+from apysc import Stage
+from apysc import Rectangle
+from apysc import MouseEvent
+from apysc import trace
+from apysc import save_expressions_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=200,
+    stage_elem_id='stage')
+
+sprite: Sprite = Sprite(stage=stage)
+sprite.graphics.begin_fill(color='#0af')
+
+
+def on_mousemove(
+        e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
+    """
+    The handler will be called when the mouse is moving on
+    the rectangle.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Event instance.
+    options : dict
+        Optional arguments.
+    """
+    trace('stage_x:', e.stage_x, 'stage_y:', e.stage_y)
+
+
+rectangle: Rectangle = sprite.graphics.draw_rect(
+    x=50, y=100, width=50, height=50)
+rectangle.mousemove(handler=on_mousemove)
+
+save_expressions_overall_html(
+    dest_dir_path='mouse_event_common_stage_x_and_stage_y')
+```
+
+If you open the DevTools console on Chrome (press F12) and move the mouse cursor on the following rectangle, you can check the `stage_x` and `stage_y` coordinates. The rectangle is positioned at `(50, 100)`, so the `stage_x` will become the range of 50 to 100, and `stage_y` will become 100 to 150.
+
+<iframe src="static/mouse_event_common_stage_x_and_stage_y/index.html" width="150" height="200"></iframe>

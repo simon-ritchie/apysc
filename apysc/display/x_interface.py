@@ -4,7 +4,6 @@
 from typing import Dict
 
 from apysc import Int
-from apysc.type.number_value_interface import NumberValueInterface
 from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
 
@@ -46,6 +45,7 @@ class XInterface(VariableNameInterface, RevertInterface):
             X potision value.
         """
         from apysc.validation import number_validation
+        from apysc.type.number_value_interface import NumberValueInterface
         if not isinstance(value, NumberValueInterface):
             number_validation.validate_integer(integer=value)
             value = Int(value=value)

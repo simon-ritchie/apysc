@@ -23,5 +23,8 @@ class TestRadiusInterface:
         interface.variable_name = 'test_radius_interface'
         assert interface.radius == 0
 
-        interface._radius = Int(10)
+        interface.radius = Int(10)
         assert interface.radius == 10
+
+        interface.radius = 20  # type: ignore
+        assert interface.radius == 20

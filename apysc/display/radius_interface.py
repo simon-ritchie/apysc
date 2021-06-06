@@ -34,6 +34,22 @@ class RadiusInterface(VariableNameInterface, RevertInterface):
         self._initialize_radius_if_not_initialized()
         return value_util.get_copy(value=self._radius)
 
+    @radius.setter
+    def radius(self, value: Int) -> None:
+        """
+        Update radius value.
+
+        Parameters
+        ----------
+        value : int or Int
+            Radius value.
+        """
+        from apysc.validation import number_validation
+        number_validation.validate_integer(integer=value)
+        if not isinstance(value, Int):
+            value = Int(value)
+        self._radius = value
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make value's snapshot.

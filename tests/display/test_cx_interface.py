@@ -3,6 +3,7 @@ from random import randint
 from retrying import retry
 
 from apysc.display.cx_interface import CxInterface
+from apysc.expression import expression_file_util
 from apysc import Int
 
 
@@ -29,3 +30,16 @@ class TestCxInterface:
 
         interface.cx = 20  # type: ignore
         assert interface.cx == 20
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_cx_update_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface: CxInterface = CxInterface()
+        interface.variable_name = 'test_cx_interface'
+        cx: Int = Int(10)
+        interface.cx = cx
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface.variable_name}.cx({cx.variable_name});'
+        )
+        assert expected in expression

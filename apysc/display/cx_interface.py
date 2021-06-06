@@ -49,6 +49,21 @@ class CxInterface(VariableNameInterface, RevertInterface):
         if not isinstance(value, Int):
             value = Int(value)
         self._cx = value
+        self._append_cx_update_expression()
+
+    def _append_cx_update_expression(self) -> None:
+        """
+        Append cx position updating expression.
+        """
+        from apysc.expression import expression_file_util
+        from apysc.type import value_util
+        self._initialize_cx_if_not_initialized()
+        value_str: str = value_util.get_value_str_for_expression(
+            value=self._cx)
+        expression: str = (
+            f'{self.variable_name}.cx({value_str});'
+        )
+        expression_file_util.append_js_expression(expression=expression)
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

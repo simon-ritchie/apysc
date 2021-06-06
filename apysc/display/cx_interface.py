@@ -20,6 +20,20 @@ class CxInterface(VariableNameInterface, RevertInterface):
             return
         self._cx = Int(0)
 
+    @property
+    def cx(self) -> Int:
+        """
+        Get a center x-coordinate.
+
+        Parameters
+        ----------
+        cx : Int
+            Center x-coordinate.
+        """
+        from apysc.type import value_util
+        self._initialize_cx_if_not_initialized()
+        return value_util.get_copy(value=self._cx)
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make value's snapshot.

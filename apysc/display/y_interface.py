@@ -23,12 +23,12 @@ class YInterface(VariableNameInterface, RevertInterface):
     @property
     def y(self) -> Int:
         """
-        Get y position.
+        Get a y-coordinate.
 
         Returns
         -------
         y : Int
-            Y position.
+            Y-coordinate.
         """
         from apysc.type import value_util
         self._initialize_y_if_not_initialized()
@@ -37,12 +37,12 @@ class YInterface(VariableNameInterface, RevertInterface):
     @y.setter
     def y(self, value: Int) -> None:
         """
-        Update y position.
+        Update y-coordinate.
 
         Parameters
         ----------
         value : int or Int
-            Y position value.
+            Y-coordinate value.
         """
         from apysc.type.number_value_interface import NumberValueInterface
         from apysc.validation import number_validation

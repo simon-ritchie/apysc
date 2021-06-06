@@ -75,7 +75,7 @@ If you click the following rectangle, the rectangle color will become the magent
 
 `unbind_click` interface can remove the binding click event from the `DisplayObject` instance.
 
-Following example is removing the click event by the `unbind_click` method (if you click the rectangle, nothing will happen).
+The following example is removing the click event by the `unbind_click` method (if you click the rectangle, nothing will happen).
 
 ```py
 # runnable
@@ -131,7 +131,7 @@ save_expressions_overall_html(
 
 `unbind_click_all` interface can unbind all the click event handlers from the `DisplayObject` instance.
 
-Following example is removing all the click event by the `unbind_click_all` method (if you click the rectangle, nothing will happen).
+The following example is removing all the click events by the `unbind_click_all` method (if you click the rectangle, nothing will happen).
 
 ```py
 # runnable

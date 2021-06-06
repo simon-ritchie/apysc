@@ -92,3 +92,6 @@ class RadiusInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._radius._value = self._radius_snapshots[snapshot_name]

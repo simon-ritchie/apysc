@@ -14,3 +14,16 @@ a {
 div[role=note] {
     display: none;
 }
+
+/* Document heading style settings. */
+div.body h1, div.body h2, div.body h3, div.body h4, div.body h5,
+div.body h6 {
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 5px;
+}
+
+/* Document subheading style settings. */
+div.body h2, div.body h3, div.body h4, div.body h5,
+div.body h6 {
+    margin-top: 30px;
+}

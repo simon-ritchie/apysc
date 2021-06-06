@@ -1,7 +1,7 @@
 """Class implementation for radius value interface.
 """
 
-from typing import Dict
+from typing import Dict, Union
 
 from apysc import Int
 from apysc.type.revert_interface import RevertInterface
@@ -46,10 +46,27 @@ class RadiusInterface(VariableNameInterface, RevertInterface):
         """
         from apysc.validation import number_validation
         number_validation.validate_integer(integer=value)
-        if not isinstance(value, Int):
-            value = Int(value)
+        value = self._get_converted_radius_int(radius=value)
         self._radius = value
         self._append_radius_update_expression()
+
+    def _get_converted_radius_int(self, radius: Union[int, Int]) -> Int:
+        """
+        Get a radius converted Int instance.
+
+        Parameters
+        ----------
+        radius : int or Int
+            Radius value.
+
+        Returns
+        -------
+        radius : Int
+            Type converted radius value.
+        """
+        if not isinstance(radius, Int):
+            return Int(radius)
+        return radius
 
     def _append_radius_update_expression(self) -> None:
         """

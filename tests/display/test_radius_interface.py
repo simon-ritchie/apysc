@@ -70,3 +70,14 @@ class TestRadiusInterface:
         interface.radius = Int(20)
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface.radius == 20
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_converted_radius_int(self) -> None:
+        interface: RadiusInterface = RadiusInterface()
+        radius: Int = interface._get_converted_radius_int(radius=10)
+        assert radius == 10
+        assert isinstance(radius, Int)
+
+        radius = interface._get_converted_radius_int(radius=Int(20))
+        assert radius == 20
+        assert isinstance(radius, Int)

@@ -3,7 +3,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Array
+from apysc import Array, Circle
 from apysc import Int
 from apysc import Line
 from apysc import LineDashDotSetting
@@ -288,3 +288,14 @@ class TestGraphics:
         assert rectangle.ellipse_width == Int(20)
         assert rectangle.ellipse_height == Int(30)
         assert sprite.graphics._children == [rectangle]
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_draw_circle(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        circle: Circle = sprite.graphics.draw_circle(
+            x=50, y=100, radius=30)
+        assert circle.x == 50
+        assert circle.y == 100
+        assert circle.radius == 30
+        assert sprite.graphics._children == [circle]

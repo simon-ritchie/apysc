@@ -16,6 +16,7 @@ from apysc.display.line_style_interface import LineStyleInterface
 from apysc.display.polygon import Polygon
 from apysc.display.polyline import Polyline
 from apysc.display.rectangle import Rectangle
+from apysc.display.circle import Circle
 from apysc.geom.point2d import Point2D
 from apysc.type.variable_name_interface import VariableNameInterface
 
@@ -81,7 +82,7 @@ class Graphics(
             width: Union[int, Int],
             height: Union[int, Int]) -> Rectangle:
         """
-        Draw rectangle vector graphics.
+        Draw a rectangle vector graphics.
 
         Parameters
         ----------
@@ -112,14 +113,14 @@ class Graphics(
             ellipse_width: Union[int, Int],
             ellipse_height: Union[int, Int]) -> Rectangle:
         """
-        Draw rounded rectangle vector graphics.
+        Draw a rounded rectangle vector graphics.
 
         Parameters
         ----------
         x : int or Int
-            X position to start drawing.
+            X-coordinate to start drawing.
         y : int or Int
-            Y position to start drawing.
+            Y-coordinate to start drawing.
         width : int or Int
             Rectangle width.
         height : int or Int
@@ -144,6 +145,32 @@ class Graphics(
         rectangle.ellipse_height = ellipse_height
         self.add_child(child=rectangle)
         return rectangle
+
+    def draw_circle(
+            self,
+            x: Union[int, Int],
+            y: Union[int, Int],
+            radius: Union[int, Int]) -> Circle:
+        """
+        Draw a circle vector graphics.
+
+        Parameters
+        ----------
+        x : int or Int
+            X-coordinate of the circle center.
+        y : int or Int
+            Y-coordinate of the circle center.
+        radius : int or Int
+            Circle radius.
+
+        Returns
+        -------
+        circle : Circle
+            Created circle graphics instance.
+        """
+        circle: Circle = Circle(parent=self, x=x, y=y, radius=radius)
+        self.add_child(child=circle)
+        return circle
 
     def line_to(self, x: Union[int, Int], y: Union[int, Int]) -> Polyline:
         """
@@ -214,7 +241,7 @@ class Graphics(
             x_end: Union[int, Int],
             y_end: Union[int, Int]) -> Line:
         """
-        Draw normal line vector graphics.
+        Draw a normal line vector graphics.
 
         Notes
         -----
@@ -256,7 +283,7 @@ class Graphics(
             y_end: Union[int, Int],
             dot_size: Union[int, Int]) -> Line:
         """
-        Draw dotted line vector graphics.
+        Draw a dotted line vector graphics.
 
         Notes
         -----
@@ -303,7 +330,7 @@ class Graphics(
             dash_size: Union[int, Int],
             space_size: Union[int, Int]) -> Line:
         """
-        Draw dashed line vector graphics.
+        Draw a dashed line vector graphics.
 
         Notes
         -----
@@ -353,7 +380,7 @@ class Graphics(
             round_size: Union[int, Int],
             space_size: Union[int, Int]) -> Line:
         """
-        Draw round dotted line vector graphics.
+        Draw a round dotted line vector graphics.
 
         Notes
         -----
@@ -404,7 +431,7 @@ class Graphics(
             dash_size: Union[int, Int],
             space_size: Union[int, Int]) -> Line:
         """
-        Draw dash dotted (1-dot chain) line vector graphics.
+        Draw a dash dotted (1-dot chain) line vector graphics.
 
         Parameters
         ----------
@@ -447,7 +474,7 @@ class Graphics(
     def draw_polygon(
             self, points: Union[List[Point2D], Array[Point2D]]) -> Polygon:
         """
-        Draw polygon vector graphics. This is similar to Polyline
+        Draw a polygon vector graphics. This is similar to Polyline
         class (created by move_to or line_to, or other interface),
         but unlike that, end point and start one will be connected.
 

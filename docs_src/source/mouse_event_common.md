@@ -313,3 +313,58 @@ save_expressions_overall_html(
 If you open the DevTools console on Chrome (press F12) and move the mouse cursor on the following rectangle, you can check the `stage_x` and `stage_y` coordinates. The rectangle is positioned at `(50, 100)`, so the `stage_x` will become the range of 50 to 100, and `stage_y` will become 100 to 150.
 
 <iframe src="static/mouse_event_common_stage_x_and_stage_y/index.html" width="150" height="200"></iframe>
+
+## MouseEvent local_x and local_y attributes
+
+MouseEvent instance also has `local_x` and `local_y` attributes. These attributes are the local coordinates from the event registered instance position.
+
+The following example will show that local_x and local_y will become the coordinates in the rectangle area (both `local_x` and `local_y` will be the range of 0 to 50, because the rectangle size is 50-pixel).
+
+```py
+# runnable
+from typing import Any, Dict
+
+from apysc import Sprite
+from apysc import Stage
+from apysc import Rectangle
+from apysc import MouseEvent
+from apysc import trace
+from apysc import save_expressions_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+
+sprite: Sprite = Sprite(stage=stage)
+sprite.graphics.begin_fill(color='#0af')
+
+
+def on_mousemove(
+        e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
+    """
+    The handler will be called when the mouse is moving on
+    the rectangle.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Event instance.
+    options : dict
+        Optional arguments.
+    """
+    trace('local_x:', e.local_x, 'local_y):', e.local_y)
+
+
+rectangle: Rectangle = sprite.graphics.draw_rect(
+    x=50, y=50, width=50, height=50)
+rectangle.mousemove(handler=on_mousemove)
+
+save_expressions_overall_html(
+    dest_dir_path='mouse_event_common_local_x_and_local_y')
+```
+
+Please check on Chrome DevTools (press F12) and move the mouse cursor on the following rectangle.
+
+<iframe src="static/mouse_event_common_local_x_and_local_y/index.html" width="150" height="150"></iframe>

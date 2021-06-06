@@ -49,3 +49,15 @@ class TestCircle:
         assert circle.radius == 30
         assert circle.fill_color == '#00aaff'
         assert circle.line_color == '#ffffff'
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___repr__(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        circle: Circle = Circle(
+            parent=sprite.graphics,
+            x=50,
+            y=100,
+            radius=30)
+        repr_str: str = repr(circle)
+        assert repr_str == f"Circle('{circle.variable_name}')"

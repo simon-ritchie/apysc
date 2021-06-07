@@ -65,6 +65,8 @@ class CxInterface(VariableNameInterface, RevertInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
+    _cx_snapshots: Dict[str, int]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make value's snapshot.
@@ -74,6 +76,12 @@ class CxInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not hasattr(self, '_cx_snapshots'):
+            self._cx_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._initialize_cx_if_not_initialized()
+        self._cx_snapshots[snapshot_name] = int(self._cx._value)
 
     def _revert(self, snapshot_name: str) -> None:
         """

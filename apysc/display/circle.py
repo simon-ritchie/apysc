@@ -8,11 +8,12 @@ from apysc import Int
 from apysc.display.radius_interface import RadiusInterface
 from apysc.display.line_base import LineBase
 from apysc.display.cx_interface import CxInterface
+from apysc.display.cy_interface import CyInterface
 
 _Graphics = Any
 
 
-class Circle(CxInterface, LineBase, RadiusInterface):
+class Circle(CxInterface, CyInterface, LineBase, RadiusInterface):
 
     def __init__(
             self,

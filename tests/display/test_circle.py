@@ -76,3 +76,4 @@ class TestCircle:
         assert circle.y == 100
         expression: str = expression_file_util.get_current_expression()
         assert f'{circle.variable_name}.cx(' in expression
+        assert f'{circle.variable_name}.cy(' in expression

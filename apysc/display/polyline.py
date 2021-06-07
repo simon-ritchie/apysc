@@ -7,13 +7,11 @@ from apysc import Array
 from apysc.display.append_line_point_interface import AppendLinePointInterface
 from apysc.display.line_base import LineBase
 from apysc.geom.point2d import Point2D
-from apysc.display.x_interface import XInterface
-from apysc.display.y_interface import YInterface
 
 _Graphics = Any
 
 
-class Polyline(LineBase, AppendLinePointInterface, XInterface, YInterface):
+class Polyline(LineBase, AppendLinePointInterface):
 
     def __init__(
             self, parent: _Graphics, points: Array[Point2D]) -> None:

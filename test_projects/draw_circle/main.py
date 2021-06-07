@@ -41,7 +41,7 @@ def main() -> None:
     sprite: Sprite = Sprite(stage=stage)
 
     sprite.graphics.begin_fill(color='0af')
-    sprite.graphics.draw_circle(x=75, y=75, radius=50)
+    circle = sprite.graphics.draw_circle(x=75, y=75, radius=50)
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)

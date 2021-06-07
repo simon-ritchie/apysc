@@ -92,3 +92,6 @@ class CyInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._cy._value = self._cy_snapshots[snapshot_name]

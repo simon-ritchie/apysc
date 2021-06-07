@@ -21,7 +21,7 @@ class CxInterface(VariableNameInterface, RevertInterface):
         self._cx = Int(0)
 
     @property
-    def cx(self) -> Int:
+    def x(self) -> Int:
         """
         Get a center x-coordinate.
 
@@ -34,8 +34,8 @@ class CxInterface(VariableNameInterface, RevertInterface):
         self._initialize_cx_if_not_initialized()
         return value_util.get_copy(value=self._cx)
 
-    @cx.setter
-    def cx(self, value: Int) -> None:
+    @x.setter
+    def x(self, value: Int) -> None:
         """
         Update center x-coordinate.
 

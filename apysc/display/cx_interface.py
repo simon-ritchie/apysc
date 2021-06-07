@@ -92,3 +92,6 @@ class CxInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._cx._value = self._cx_snapshots[snapshot_name]

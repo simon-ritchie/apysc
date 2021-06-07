@@ -65,6 +65,8 @@ class CyInterface(VariableNameInterface, RevertInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
+    _cy_snapshots: Dict[str, int]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
@@ -74,6 +76,12 @@ class CyInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not hasattr(self, '_cy_snapshots'):
+            self._cy_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._initialize_cy_if_not_initialized()
+        self._cy_snapshots[snapshot_name] = int(self._cy._value)
 
     def _revert(self, snapshot_name: str) -> None:
         """

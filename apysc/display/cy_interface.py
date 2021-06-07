@@ -20,6 +20,20 @@ class CyInterface(VariableNameInterface, RevertInterface):
             return
         self._cy = Int(0)
 
+    @property
+    def y(self) -> Int:
+        """
+        Get a center y-coordinate.
+
+        Returns
+        -------
+        y : Int
+            Center y-coordinate.
+        """
+        from apysc.type import value_util
+        self._initialize_cy_if_not_initialized()
+        return value_util.get_copy(value=self._cy)
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make value's snapshot.

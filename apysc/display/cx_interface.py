@@ -25,9 +25,9 @@ class CxInterface(VariableNameInterface, RevertInterface):
         """
         Get a center x-coordinate.
 
-        Parameters
-        ----------
-        cx : Int
+        Returns
+        -------
+        x : Int
             Center x-coordinate.
         """
         from apysc.type import value_util

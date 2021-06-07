@@ -17,3 +17,12 @@ class TestCyInterface:
         interface._cy = Int(10)
         interface._initialize_cy_if_not_initialized()
         assert interface._cy == 10
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_y(self) -> None:
+        interface: CyInterface = CyInterface()
+        interface.variable_name = 'test_cy_interface'
+        assert interface.y == 0
+
+        interface._cy = Int(10)
+        assert interface.y == 10

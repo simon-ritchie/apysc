@@ -7,11 +7,12 @@ from typing import Union
 from apysc import Int
 from apysc.display.radius_interface import RadiusInterface
 from apysc.display.line_base import LineBase
+from apysc.display.cx_interface import CxInterface
 
 _Graphics = Any
 
 
-class Circle(LineBase, RadiusInterface):
+class Circle(CxInterface, LineBase, RadiusInterface):
 
     def __init__(
             self,
@@ -39,13 +40,35 @@ class Circle(LineBase, RadiusInterface):
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.CIRCLE)
         super(Circle, self).__init__(
-            parent=parent, x=x, y=y, variable_name=variable_name)
+            parent=parent, x=0, y=0, variable_name=variable_name)
         size_validation.validate_size_is_gt_zero(size=radius)
         self._radius = self._get_converted_radius_int(radius=radius)
         self._set_initial_basic_values(parent=parent)
         self._append_constructor_expression()
+        self._set_center_coordinates(x=x, y=y)
         self._set_line_setting_if_not_none_value_exists(
             parent_graphics=parent)
+
+    def _set_center_coordinates(
+            self,
+            x: Union[int, Int],
+            y: Union[int, Int]) -> None:
+        """
+        Set a center x-coordinate and a center y-coordinate.
+
+        Parameters
+        ----------
+        x : int or Int
+            X-coordinate of the circle center.
+        y : int or Int
+            Y-coordinate of the circle center.
+        """
+        if not isinstance(x, Int):
+            x = Int(x)
+        if not isinstance(y, Int):
+            y = Int(y)
+        self.x = x
+        self.y = y
 
     def _append_constructor_expression(self) -> None:
         """

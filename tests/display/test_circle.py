@@ -61,3 +61,18 @@ class TestCircle:
             radius=30)
         repr_str: str = repr(circle)
         assert repr_str == f"Circle('{circle.variable_name}')"
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__set_center_coordinates(self) -> None:
+        expression_file_util.remove_expression_file()
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        circle: Circle = Circle(
+            parent=sprite.graphics,
+            x=50,
+            y=100,
+            radius=30)
+        assert circle.x == 50
+        assert circle.y == 100
+        expression: str = expression_file_util.get_current_expression()
+        assert f'{circle.variable_name}.cx(' in expression

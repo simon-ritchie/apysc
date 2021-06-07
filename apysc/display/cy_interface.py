@@ -34,9 +34,25 @@ class CyInterface(VariableNameInterface, RevertInterface):
         self._initialize_cy_if_not_initialized()
         return value_util.get_copy(value=self._cy)
 
+    @y.setter
+    def y(self, value: Int) -> None:
+        """
+        Update a center y-coordinate.
+
+        Parameters
+        ----------
+        value : int or Int
+            Center y-coordinate value.
+        """
+        from apysc.validation import number_validation
+        number_validation.validate_integer(integer=value)
+        if not isinstance(value, Int):
+            value = Int(value)
+        self._cy = value
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
-        Make value's snapshot.
+        Make a value's snapshot.
 
         Parameters
         ----------
@@ -46,7 +62,7 @@ class CyInterface(VariableNameInterface, RevertInterface):
 
     def _revert(self, snapshot_name: str) -> None:
         """
-        Revert value if snapshot exists.
+        Revert a value if snapshot exists.
 
         Parameters
         ----------

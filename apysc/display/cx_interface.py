@@ -37,7 +37,7 @@ class CxInterface(VariableNameInterface, RevertInterface):
     @x.setter
     def x(self, value: Int) -> None:
         """
-        Update center x-coordinate.
+        Update a center x-coordinate.
 
         Parameters
         ----------
@@ -69,7 +69,7 @@ class CxInterface(VariableNameInterface, RevertInterface):
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
-        Make value's snapshot.
+        Make a value's snapshot.
 
         Parameters
         ----------
@@ -85,7 +85,7 @@ class CxInterface(VariableNameInterface, RevertInterface):
 
     def _revert(self, snapshot_name: str) -> None:
         """
-        Revert value if snapshot exists.
+        Revert a value if snapshot exists.
 
         Parameters
         ----------

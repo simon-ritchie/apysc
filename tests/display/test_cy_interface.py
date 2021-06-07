@@ -24,5 +24,8 @@ class TestCyInterface:
         interface.variable_name = 'test_cy_interface'
         assert interface.y == 0
 
-        interface._cy = Int(10)
+        interface.y = Int(10)
         assert interface.y == 10
+
+        interface.y = 20  # type: ignore
+        assert interface.y == 20

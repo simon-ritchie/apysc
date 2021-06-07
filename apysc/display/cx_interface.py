@@ -1,4 +1,4 @@
-"""Class implementation for center x-coordinate interface.
+"""Class implementation for the center x-coordinate interface.
 """
 
 from typing import Dict

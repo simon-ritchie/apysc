@@ -44,7 +44,7 @@ save_expressions_overall_html(
 
 <iframe src="static/graphics_draw_circle_basic_usage/index.html" width="350" height="200"></iframe>
 
-# Return value
+## Return value
 
 The return value of the `draw_circle` interface is the instance of the `Circle` class.
 

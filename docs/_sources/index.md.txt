@@ -5,7 +5,7 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 ## Project links
 
 - [GitHub](https://github.com/simon-ritchie/apysc)
-  - Star gazers are very welcome! It empowers developer motivation.
+  - Clicks on the GitHub star are very welcome! It empowers developer motivation.
 - [Twitter](https://twitter.com/apysc)
   - The progress and updates will be informed on Twitter. Please follow!
 - [PyPI](https://pypi.org/project/apysc/)
@@ -25,6 +25,7 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 - [Graphics class line style interface](graphics_line_style.md)
 - [Graphics class draw rect interface](graphics_draw_rect.md)
 - [Graphics class draw round rect interface](graphics_draw_round_rect.md)
+- [Graphics class draw circle interface](graphics_draw_circle.md)
 - [Graphics class move to and line to interfaces](graphics_move_to_and_line_to.md)
 - [Graphics class draw line interface](graphics_draw_line.md)
 - [Graphics class draw dotted line interface](graphics_draw_dotted_line.md)

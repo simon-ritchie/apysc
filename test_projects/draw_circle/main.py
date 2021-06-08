@@ -6,13 +6,14 @@ $ python draw_circle/main.py
 """
 
 import sys
+from typing import Any, Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
 
-from apysc import Int, Circle
+from apysc import Int, Circle, MouseEvent
 from apysc import LineDotSetting
 from apysc import Number
 from apysc import Rectangle
@@ -41,10 +42,32 @@ def main() -> None:
     sprite: Sprite = Sprite(stage=stage)
 
     sprite.graphics.begin_fill(color='0af')
-    circle = sprite.graphics.draw_circle(x=75, y=75, radius=100)
+    circle: Circle = sprite.graphics.draw_circle(x=100, y=100, radius=100)
+    circle.click(on_circle_click)
+
+    sprite.graphics.begin_fill(color='')
+    sprite.graphics.line_style(
+        color='#fff', thickness=3,
+        dot_setting=LineDotSetting(dot_size=3))
+    circle: Circle = sprite.graphics.draw_circle(x=250, y=100, radius=100)
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
+
+
+def on_circle_click(e: MouseEvent[Circle], options: Dict[str, Any]) -> None:
+    """
+    The handler called when the circle is clicked.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    e.this.x += 50
+    e.this.y += 25
 
 
 if __name__ == '__main__':

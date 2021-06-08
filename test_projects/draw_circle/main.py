@@ -6,21 +6,19 @@ $ python draw_circle/main.py
 """
 
 import sys
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
 
-from apysc import Int, Circle, MouseEvent
+from apysc import Circle
 from apysc import LineDotSetting
-from apysc import Number
-from apysc import Rectangle
+from apysc import MouseEvent
 from apysc import Sprite
 from apysc import Stage
-from apysc import String
-from apysc import assert_not_equal
 from apysc.file import file_util
 from apysc.html import exporter
 
@@ -49,7 +47,7 @@ def main() -> None:
     sprite.graphics.line_style(
         color='#fff', thickness=3,
         dot_setting=LineDotSetting(dot_size=3))
-    circle: Circle = sprite.graphics.draw_circle(x=250, y=100, radius=100)
+    circle = sprite.graphics.draw_circle(x=250, y=100, radius=100)
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH)

@@ -2,9 +2,9 @@ from random import randint
 
 from retrying import retry
 
+from apysc import Int
 from apysc.display.cx_interface import CxInterface
 from apysc.expression import expression_file_util
-from apysc import Int
 
 
 class TestCxInterface:

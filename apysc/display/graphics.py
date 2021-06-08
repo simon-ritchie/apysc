@@ -10,13 +10,13 @@ from apysc import Array
 from apysc import Int
 from apysc.display.begin_fill_interface import BeginFillInterface
 from apysc.display.child_interface import ChildInterface
+from apysc.display.circle import Circle
 from apysc.display.graphics_clear_interface import GraphicsClearInterface
 from apysc.display.line import Line
 from apysc.display.line_style_interface import LineStyleInterface
 from apysc.display.polygon import Polygon
 from apysc.display.polyline import Polyline
 from apysc.display.rectangle import Rectangle
-from apysc.display.circle import Circle
 from apysc.geom.point2d import Point2D
 from apysc.type.variable_name_interface import VariableNameInterface
 

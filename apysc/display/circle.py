@@ -5,10 +5,10 @@ from typing import Any
 from typing import Union
 
 from apysc import Int
-from apysc.display.radius_interface import RadiusInterface
-from apysc.display.line_base import LineBase
 from apysc.display.cx_interface import CxInterface
 from apysc.display.cy_interface import CyInterface
+from apysc.display.line_base import LineBase
+from apysc.display.radius_interface import RadiusInterface
 
 _Graphics = Any
 
@@ -78,7 +78,6 @@ class Circle(CxInterface, CyInterface, LineBase, RadiusInterface):
         from apysc.display.stage import get_stage_variable_name
         from apysc.expression import expression_file_util
         from apysc.type import value_util
-        from apysc.display import graphics_expression
         INDENT_NUM: int = 2
         stage_variable_name: str = get_stage_variable_name()
         radius_str: str = value_util.get_value_str_for_expression(

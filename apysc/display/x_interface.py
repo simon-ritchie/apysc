@@ -44,8 +44,8 @@ class XInterface(VariableNameInterface, RevertInterface):
         value : int or Int
             X-coordinate value.
         """
-        from apysc.validation import number_validation
         from apysc.type.number_value_interface import NumberValueInterface
+        from apysc.validation import number_validation
         if not isinstance(value, NumberValueInterface):
             number_validation.validate_integer(integer=value)
             value = Int(value=value)

@@ -1,12 +1,15 @@
-from random import randint
-from typing import Match, Optional
 import re
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
-from apysc import Circle, Stage, Sprite
-from apysc.expression import expression_file_util
+from apysc import Circle
+from apysc import Sprite
+from apysc import Stage
 from apysc.display.stage import get_stage_variable_name
+from apysc.expression import expression_file_util
 
 
 class TestCircle:

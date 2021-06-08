@@ -2,8 +2,8 @@ from random import randint
 
 from retrying import retry
 
-from apysc.display.cy_interface import CyInterface
 from apysc import Int
+from apysc.display.cy_interface import CyInterface
 from apysc.expression import expression_file_util
 
 

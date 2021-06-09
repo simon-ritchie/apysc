@@ -32,6 +32,7 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 - [Graphics class draw dashed line interface](graphics_draw_dashed_line.md)
 - [Graphics class draw round dotted line interface](graphics_draw_round_dotted_line.md)
 - [Graphics class draw dash dotted line interface](graphics_draw_dash_dotted_line.md)
+- [Graphics class draw polygon interface](graphics_draw_polygon.md)
 
 **Mouse event binding**
 

@@ -75,4 +75,4 @@ class Polygon(LineBase, AppendLinePointInterface):
             expression=expression, indent_num=2)
         expression += '\n  });'
         expression_file_util.append_js_expression(expression=expression)
-        self._points_var_name = stage_variable_name
+        self._points_var_name = points_var_name

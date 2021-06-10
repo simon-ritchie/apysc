@@ -1,10 +1,13 @@
 """Implementation of VariableNameInterface class.
 """
 
+from typing import List
+
 
 class VariableNameInterface:
 
     _variable_name: str
+    _variable_name_history: List[str]
 
     @property
     def variable_name(self) -> str:
@@ -30,4 +33,7 @@ class VariableNameInterface:
         """
         from apysc.validation import string_validation
         string_validation.validate_not_empty_string(string=variable_name)
+        if not hasattr(self, '_variable_name_history'):
+            self._variable_name_history = []
         self._variable_name = variable_name
+        self._variable_name_history.append(variable_name)

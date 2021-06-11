@@ -51,3 +51,21 @@ class TestWidthAndHeightInterfacesForEllipse:
 
         interface.height = 20  # type: ignore
         assert interface.height == 20
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_ellipse_width_and_height_update_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface: WidthAndHeightInterfacesForEllipse = \
+            WidthAndHeightInterfacesForEllipse()
+        interface.variable_name = \
+            'test_width_and_height_interfaces_for_ellipse'
+        width: Int = Int(10)
+        interface.width = width
+        height: Int = Int(20)
+        interface.height = height
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface.variable_name}.radius('
+            f'{width.variable_name}, {height.variable_name});'
+        )
+        assert expected in expression

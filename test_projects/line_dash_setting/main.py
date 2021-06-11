@@ -50,7 +50,7 @@ def main() -> None:
     sprite.graphics.line_to(x=250, y=60)
     polyline.click(on_polyline_click)
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

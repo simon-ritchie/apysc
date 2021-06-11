@@ -103,7 +103,7 @@ def main() -> None:
     result = any_value_10 >= 11
     assert_false(result)
 
-    exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    exporter.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 if __name__ == '__main__':

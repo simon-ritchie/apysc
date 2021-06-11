@@ -76,7 +76,7 @@ def main() -> None:
     boolean_14: Boolean = Boolean(False)
     stage.click(on_stage_clicked, options={'boolean_14': boolean_14})
 
-    exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    exporter.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 def on_stage_clicked(e: MouseEvent, options: Dict[str, Any]) -> None:

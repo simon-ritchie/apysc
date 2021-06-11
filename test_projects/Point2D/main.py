@@ -54,7 +54,7 @@ def main() -> None:
     assert_equal(expected=70, actual=point.x)
     assert_equal(expected=80, actual=point.y)
 
-    exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    exporter.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 if __name__ == '__main__':

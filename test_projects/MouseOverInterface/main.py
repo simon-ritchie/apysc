@@ -55,7 +55,7 @@ def main() -> None:
     rectangle_3.mouseover(handler=on_rectangle_3_mouse_over)
     rectangle_3.unbind_mouseover_all()
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

@@ -61,7 +61,7 @@ def main() -> None:
     rectangle_3.click(on_rectangle_3_or_4_click)
     rectangle_4.click(on_rectangle_3_or_4_click)
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

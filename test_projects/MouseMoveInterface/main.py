@@ -55,7 +55,7 @@ def main() -> None:
     rectangle_3.mousemove(handler=on_rectangle_3_mouse_move)
     rectangle_3.unbind_mousemove_all()
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

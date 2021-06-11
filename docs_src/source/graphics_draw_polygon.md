@@ -16,7 +16,7 @@ from apysc import Sprite
 from apysc import Stage
 from apysc import Point2D
 from apysc import Array
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -44,7 +44,7 @@ sprite.graphics.draw_polygon(
         Point2D(x=200, y=75),
     ]))
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_draw_polygon_basic_usage/')
 ```
 
@@ -60,7 +60,7 @@ from apysc import Sprite
 from apysc import Stage
 from apysc import Point2D
 from apysc import Array
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -84,7 +84,7 @@ sprite.graphics.move_to(x=175, y=50)
 sprite.graphics.line_to(x=150, y=100)
 sprite.graphics.line_to(x=200, y=100)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_draw_polygon_line_to_difference_1/')
 ```
 
@@ -98,7 +98,7 @@ from apysc import Sprite
 from apysc import Stage
 from apysc import Point2D
 from apysc import Array
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -125,7 +125,7 @@ sprite.graphics.move_to(x=175, y=50)
 sprite.graphics.line_to(x=150, y=100)
 sprite.graphics.line_to(x=200, y=100)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_draw_polygon_line_to_difference_2/')
 ```
 
@@ -144,7 +144,7 @@ from apysc import Stage
 from apysc import Point2D
 from apysc import Array
 from apysc import Polygon
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -166,7 +166,7 @@ polygon: Polygon = sprite.graphics.draw_polygon(
 # Append the point and change to the rectangle dynamically.
 polygon.append_line_point(x=100, y=75)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_draw_polygon_append_line_point/')
 ```
 

@@ -348,7 +348,7 @@ def _append_js_lib_path_and_skip_settings(code: str) -> str:
     """
     code = re.sub(
         pattern=(
-            r'(save_expressions_overall_html\(.+?)\)'
+            r'(save_overall_html\(.+?)\)'
         ),
         repl=r"\1,\n    js_lib_dir_path='../', skip_js_lib_exporting=True)",
         string=code,
@@ -371,12 +371,12 @@ def _replace_html_saving_export_path_by_doc_path(code: str) -> str:
     -------
     code : str
         Replaced code. html saving interface argument,
-        for example, `save_expressions_overall_html` `dest_dir_path`
+        for example, `save_overall_html` `dest_dir_path`
         will be replaced by './docs_src/_static/<original_path>/'.
     """
     match: Optional[Match] = re.search(
         pattern=(
-            r"save_expressions_overall_html\(.*?dest_dir_path='(.+?)'\)"
+            r"save_overall_html\(.*?dest_dir_path='(.+?)'\)"
         ),
         string=code,
         flags=re.MULTILINE | re.DOTALL)
@@ -392,7 +392,7 @@ def _replace_html_saving_export_path_by_doc_path(code: str) -> str:
 
     code = re.sub(
         pattern=(
-            r"(save_expressions_overall_html\(.*?dest_dir_path=).+?\)"
+            r"(save_overall_html\(.*?dest_dir_path=).+?\)"
         ),
         repl=rf"\1'./docs_src/source/_static/{original_path}')",
         string=code, count=1,

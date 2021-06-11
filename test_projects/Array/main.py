@@ -154,7 +154,7 @@ def main() -> None:
     array_28: Array = Array([1, 2])
     stage.click(on_stage_clicked, options={'array_28': array_28})
 
-    exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    exporter.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 def on_stage_clicked(e: MouseEvent, options: Dict[str, Any]) -> None:

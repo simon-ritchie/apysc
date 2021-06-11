@@ -46,7 +46,7 @@ def main() -> None:
     sprite_1.graphics.begin_fill(color='#0af')
     sprite_1.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

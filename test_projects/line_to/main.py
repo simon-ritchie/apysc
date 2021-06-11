@@ -54,7 +54,7 @@ def main() -> None:
     polyline.x = Int(200)
     polyline.y = Int(200)
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

@@ -46,7 +46,7 @@ def main() -> None:
     string_3: String = rectangle_1.fill_color
     assert_not_equal(expected=string_2, actual=string_3)
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

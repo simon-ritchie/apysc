@@ -44,7 +44,7 @@ def main() -> None:
         int_1 += 10
     assert_equal(expected=20, actual=int_1)
 
-    exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    exporter.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 if __name__ == '__main__':

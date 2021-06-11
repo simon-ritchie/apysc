@@ -50,7 +50,7 @@ def main() -> None:
         int_2 += 50
     assert_equal(expected=10, actual=int_2)
 
-    exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    exporter.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 if __name__ == '__main__':

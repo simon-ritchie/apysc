@@ -27,7 +27,7 @@ from apysc import MouseEvent
 from apysc import Sprite
 from apysc import Stage
 from apysc import String
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 
 def on_mousedown(
@@ -77,7 +77,7 @@ rectangle: Rectangle = sprite.graphics.draw_rect(
 rectangle.mousedown(on_mousedown)
 rectangle.mouseup(on_mouseup)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='mousedown_and_mouseup_basic_usage/')
 ```
 
@@ -98,7 +98,7 @@ from apysc import MouseEvent
 from apysc import Sprite
 from apysc import Stage
 from apysc import String
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 
 def on_mousedown(
@@ -149,7 +149,7 @@ rectangle: Rectangle = sprite.graphics.draw_rect(
 rectangle.mousedown(on_mousedown)
 rectangle.mouseup(on_mouseup)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='mousedown_and_mouseup_unbind_interfaces/')
 ```
 

@@ -50,7 +50,7 @@ def main() -> None:
         hex_color_code=String('#555555'))
     assert_equal(expected='#555555', actual=string_4)
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

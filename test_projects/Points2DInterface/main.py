@@ -41,7 +41,7 @@ def main() -> None:
     interface.points[1] = Point2D(50, 60)
     assert_equal(expected=Point2D(50, 60), actual=interface.points[1])
 
-    exporter.save_expressions_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    exporter.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 if __name__ == '__main__':

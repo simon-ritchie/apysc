@@ -60,7 +60,7 @@ def main() -> None:
         x=350, y=400, width=50, height=50)
     rectangle_4.click(on_rectangle_4_click)
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

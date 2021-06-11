@@ -102,13 +102,13 @@ def test__get_code_blocks_from_txt() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__replace_html_saving_export_path_by_doc_path() -> None:
     code: str = """from apysc import Stage
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage = Stage(stage_width=300, stage_height=180, background_color='#333')
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='./quick_start_stage_creation')"""
     code = build_docs._replace_html_saving_export_path_by_doc_path(code=code)
-    expected: str = """save_expressions_overall_html(
+    expected: str = """save_overall_html(
     dest_dir_path='./docs_src/source/_static/quick_start_stage_creation/')"""
     assert expected in code
 
@@ -128,7 +128,7 @@ World!
 ```py
 # runnable
 print(200)
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='quick_start_stage_creation/')
 ```
 
@@ -167,7 +167,7 @@ def test__exec_document_script() -> None:
         limit_count=10)
     assert len(executed_scripts) <= 10
     for executed_script in executed_scripts:
-        if 'save_expressions_overall_html' not in executed_script:
+        if 'save_overall_html' not in executed_script:
             continue
         assert './docs_src/source/_static/' in executed_script
 
@@ -327,12 +327,12 @@ def test__append_js_lib_path_and_skip_settings() -> None:
     """_append_js_lib_path_and_skip_settings 関数のテスト。
     """
     code: str = """print(200)
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='quick_start_stage_creation/')"""
     code = build_docs._append_js_lib_path_and_skip_settings(
         code=code)
     expected: str = """print(200)
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='quick_start_stage_creation/',
     js_lib_dir_path='../', skip_js_lib_exporting=True)"""
     assert code == expected

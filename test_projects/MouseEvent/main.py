@@ -59,7 +59,7 @@ def main() -> None:
         x=50, y=50, width=50, height=50)
     rectangle_2.click(on_rectangle_2_clicked)
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

@@ -49,7 +49,7 @@ def main() -> None:
         dot_setting=LineDotSetting(dot_size=3))
     circle = sprite.graphics.draw_circle(x=250, y=100, radius=100)
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

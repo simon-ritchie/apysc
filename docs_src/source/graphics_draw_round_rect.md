@@ -16,7 +16,7 @@ This interface also has `ellipse_width` and `ellipse_height` arguments to set th
 # runnable
 from apysc import Sprite
 from apysc import Stage
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -40,7 +40,7 @@ sprite.graphics.draw_round_rect(
 sprite.graphics.draw_round_rect(
     x=250, y=50, width=50, height=50, ellipse_width=5, ellipse_height=20)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_draw_round_rect_basic_usage/')
 ```
 
@@ -58,7 +58,7 @@ from apysc import Sprite
 from apysc import Stage
 from apysc import Rectangle
 from apysc import Int
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -76,7 +76,7 @@ rectangle: Rectangle = sprite.graphics.draw_round_rect(
 # attributes dynamically.
 rectangle.ellipse_width = Int(20)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_draw_round_rect_return_value/')
 ```
 

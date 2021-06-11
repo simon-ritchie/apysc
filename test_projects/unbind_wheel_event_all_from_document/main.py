@@ -42,7 +42,7 @@ def main() -> None:
     bind_wheel_event_to_document(handler=on_document_wheel_2)
     unbind_wheel_event_all_from_document()
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

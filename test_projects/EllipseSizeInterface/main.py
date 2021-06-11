@@ -50,7 +50,7 @@ def main() -> None:
     rectangle_3.ellipse_width = Int(10)
     rectangle_3.ellipse_height = Int(25)
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

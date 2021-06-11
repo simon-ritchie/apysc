@@ -50,7 +50,7 @@ def main() -> None:
         x_start=50, y_start=80, x_end=350, y_end=80)
     line_2.click(on_line_click, options={'sprite': sprite})
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

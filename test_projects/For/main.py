@@ -63,7 +63,7 @@ def main() -> None:
         expected={'a': 20, 'b': 40},
         actual=dict_1)
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

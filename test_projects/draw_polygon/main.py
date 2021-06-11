@@ -53,7 +53,7 @@ def main() -> None:
         points=[Point2D(200, 50), Point2D(300, 50), Point2D(250, 100)])
     polygon_2.click(on_polygon_click)
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

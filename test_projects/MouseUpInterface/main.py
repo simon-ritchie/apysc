@@ -54,7 +54,7 @@ def main() -> None:
     rectangle_3.mouseup(on_rectangle_3_mouse_up)
     rectangle_3.unbind_mouseup_all()
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

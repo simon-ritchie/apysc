@@ -71,7 +71,7 @@ def main() -> None:
     del dict_4[string_2]
     assert_dicts_equal(expected={'b': 20}, actual=dict_4)
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

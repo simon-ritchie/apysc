@@ -19,7 +19,7 @@ from apysc import Stage
 from apysc import Rectangle
 from apysc import MouseEvent
 from apysc import String
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -54,7 +54,7 @@ rectangle.click(
     handler=on_rectangle_click,
     options={'color': '#f0a'})
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='mouse_event_common_basic_binding_usage/')
 ```
 
@@ -81,7 +81,7 @@ from apysc import Stage
 from apysc import Rectangle
 from apysc import MouseEvent
 from apysc import String
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -118,7 +118,7 @@ rectangle.click(
 
 rectangle.unbind_click(handler=on_rectangle_click)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='mouse_event_common_basic_unbinding_usage/')
 ```
 
@@ -141,7 +141,7 @@ from apysc import Stage
 from apysc import Rectangle
 from apysc import MouseEvent
 from apysc import String
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -197,7 +197,7 @@ rectangle.click(handler=change_x_on_rectangle_click)
 
 rectangle.unbind_click_all()
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='mouse_event_common_unbind_all_event_handlers/')
 ```
 
@@ -274,7 +274,7 @@ from apysc import Stage
 from apysc import Rectangle
 from apysc import MouseEvent
 from apysc import trace
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -306,7 +306,7 @@ rectangle: Rectangle = sprite.graphics.draw_rect(
     x=50, y=100, width=50, height=50)
 rectangle.mousemove(handler=on_mousemove)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='mouse_event_common_stage_x_and_stage_y')
 ```
 
@@ -329,7 +329,7 @@ from apysc import Stage
 from apysc import Rectangle
 from apysc import MouseEvent
 from apysc import trace
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -361,7 +361,7 @@ rectangle: Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 rectangle.mousemove(handler=on_mousemove)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='mouse_event_common_local_x_and_local_y')
 ```
 

@@ -66,7 +66,7 @@ def main() -> None:
     string_5: String = String('Hello!')
     stage.click(on_stage_clicked, options={'string_5': string_5})
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

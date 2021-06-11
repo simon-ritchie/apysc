@@ -14,7 +14,7 @@ This page will explain the `Graphics` class `draw_dashed_line` method interface.
 # runnable
 from apysc import Sprite
 from apysc import Stage
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -35,7 +35,7 @@ sprite.graphics.draw_dashed_line(
     x_start=50, y_start=80, x_end=200, y_end=80,
     dash_size=10, space_size=2)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_draw_dashed_line_basic_usage/')
 ```
 

@@ -110,7 +110,7 @@ def main() -> None:
     int_15: Int = Int(10)
     stage.click(on_stage_clicked, options={'int_15': int_15})
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

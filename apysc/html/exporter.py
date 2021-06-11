@@ -16,12 +16,13 @@ from apysc.console import loggers
 info_logger: Logger = loggers.get_info_logger()
 
 
-def save_expressions_overall_html(
+def save_overall_html(
         dest_dir_path: str, minify: bool = True,
         js_lib_dir_path: str = './',
         skip_js_lib_exporting: bool = False) -> None:
     """
-    Save each expressions html under the specified directory path.
+    Save the overall html and js files under the specified
+    directory path.
 
     Notes
     -----

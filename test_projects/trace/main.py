@@ -34,7 +34,7 @@ def main() -> None:
         stage_width=100, stage_height=100)
     trace(stage, 100, "Hello!")
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

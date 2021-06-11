@@ -16,7 +16,7 @@ This page will explain the `Graphics` class `draw_dash_dotted_line` method inter
 # runnable
 from apysc import Sprite
 from apysc import Stage
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -36,7 +36,7 @@ sprite.graphics.draw_dash_dotted_line(
     x_start=50, y_start=80, x_end=200, y_end=80,
     dot_size=5, dash_size=10, space_size=5)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_draw_dash_dotted_line_basic_usage/')
 ```
 

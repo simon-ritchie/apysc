@@ -42,7 +42,7 @@ def main() -> None:
     child_1: DisplayObject = sprite_1.get_child_at(index=0)
     assert_undefined(actual=child_1)
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

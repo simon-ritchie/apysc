@@ -150,7 +150,7 @@ def main() -> None:
     rectangle = sprite.graphics.draw_rect(
         x=650, y=150, width=50, height=50)
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

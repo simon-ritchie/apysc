@@ -45,7 +45,7 @@ def main() -> None:
         dash_size=10, space_size=5)
     line_1.click(on_line_click, options={'sprite': sprite})
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

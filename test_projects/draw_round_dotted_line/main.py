@@ -41,7 +41,7 @@ def main() -> None:
         x_start=50, y_start=50, x_end=350, y_end=50,
         round_size=10, space_size=5)
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

@@ -41,7 +41,7 @@ def main() -> None:
     _: Line = sprite.graphics.draw_dotted_line(
         x_start=50, y_start=50, x_end=350, y_end=50, dot_size=5)
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

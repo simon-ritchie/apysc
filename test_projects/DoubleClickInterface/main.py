@@ -55,7 +55,7 @@ def main() -> None:
     rectangle_3.dblclick(handler=on_rectangle_3_dblclick)
     rectangle_3.unbind_dblclick_all()
 
-    exporter.save_expressions_overall_html(
+    exporter.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

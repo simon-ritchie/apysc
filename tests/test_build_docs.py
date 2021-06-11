@@ -145,7 +145,7 @@ print(300)
     assert len(runnable_scripts) == 1
     assert runnable_scripts == (
         ['print(200)'
-         '\nsave_expressions_overall_html('
+         '\nsave_overall_html('
          "\n    dest_dir_path='./docs_src/source/_static/"
          "quick_start_stage_creation/',"
          "\n    js_lib_dir_path='../', skip_js_lib_exporting=True)"

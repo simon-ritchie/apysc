@@ -44,6 +44,22 @@ class WidthAndHeightInterfacesForEllipse(
         self._initialize_width_and_height_if_not_initialized()
         return value_util.get_copy(value=self._width)
 
+    @width.setter
+    def width(self, value: Int) -> None:
+        """
+        Update a ellipse width value.
+
+        Parameters
+        ----------
+        value : Int
+            Ellipse width value.
+        """
+        from apysc.validation import number_validation
+        if not isinstance(value, Int):
+            number_validation.validate_integer(integer=value)
+            value = Int(value)
+        self._width = value
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make the values' snapshots.

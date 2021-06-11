@@ -46,5 +46,8 @@ class TestWidthAndHeightInterfacesForEllipse:
             'test_width_and_height_interfaces_for_ellipse'
         assert interface.height == 0
 
-        interface._height = Int(10)
-        assert interface._height == 10
+        interface.height = Int(10)
+        assert interface.height == 10
+
+        interface.height = 20  # type: ignore
+        assert interface.height == 20

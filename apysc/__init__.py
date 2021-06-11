@@ -48,4 +48,4 @@ from apysc.event.document_mouse_wheel_interface import \
 
 from apysc.html.exporter import save_expressions_overall_html  # isort:skip # noqa
 
-__version__: str = '0.13.1'
+__version__: str = '0.14.0'

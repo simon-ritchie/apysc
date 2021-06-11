@@ -1,4 +1,4 @@
-# Click and unbind_click interface
+# Click interface
 
 This page will explain the `click` and `unbind_click` interfaces.
 
@@ -18,7 +18,7 @@ Common mouse event interfaces are described by the following page.
 
 Each `DisplayObject` instance has the `click` method, and you can bind handlers by that.
 
-The following example will bind the click event to the rectangle.
+The following example will bind the click event handler to the rectangle.
 
 ```py
 # runnable

@@ -37,4 +37,5 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 **Mouse event binding**
 
 - [Common mouse event interfaces](mouse_event_common.md)
-- [Click and unbind click interface](click.md)
+- [Click interface](click.md)
+- [Mousedown and mouseup interfaces](mousedown_and_mouseup.md)

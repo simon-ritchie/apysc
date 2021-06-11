@@ -1,6 +1,6 @@
 import re
 from random import randint
-from typing import Any
+from typing import Any, Tuple
 from typing import Match
 from typing import Optional
 
@@ -13,6 +13,7 @@ from apysc import Number
 from apysc.expression import expression_file_util
 from apysc.expression import var_names
 from apysc.type.number_value_interface import NumberValueInterface
+from apysc.display.x_interface import XInterface
 from tests import testing_helper
 
 
@@ -323,6 +324,47 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
+    def _make_x_interface_instance(self) -> Tuple[XInterface, str]:
+        """
+        Make the x interface instance and it's x value variable name.
+
+        Returns
+        -------
+        x_interface : XInterface
+            Created x interface instance.
+        x_variable_name : str
+            Variable name of the x_interface x attribute.
+        """
+        x_interface: XInterface = XInterface()
+        x_interface.variable_name = 'test_x_interface'
+        x_interface.x = Int(10)
+        x_variable_name: str = x_interface._x.variable_name
+        return x_interface, x_variable_name
+
+    def _assert_substitution_expression_to_prev_var_exists(
+            self, x_interface: XInterface,
+            previous_x_variable_name: str) -> None:
+        """
+        Assert the substitution expression to the previous x
+        variable name exists.
+
+        Parameters
+        ----------
+        x_interface : XInterface
+            Targe x interface instance.
+        previous_x_variable_name : str
+            Variable name before a calculation.
+
+        Raises
+        ------
+        AssertionError
+            If the substitution expression does not exist.
+        """
+        expression = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{previous_x_variable_name} = {x_interface._x.variable_name};')
+        assert expected in expression
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___iadd__(self) -> None:
         expression_file_util.remove_expression_file()
@@ -344,6 +386,13 @@ class TestNumberValueInterface:
             string=expression,
             flags=re.MULTILINE | re.DOTALL)
         assert match is not None
+
+        expression_file_util.remove_expression_file()
+        x_interface, previous_variable_name = self._make_x_interface_instance()
+        x_interface.x += 20
+        self._assert_substitution_expression_to_prev_var_exists(
+            x_interface=x_interface,
+            previous_x_variable_name=previous_variable_name)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___isub__(self) -> None:

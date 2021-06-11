@@ -63,7 +63,7 @@ def on_rectangle_click(
         Optional arguments dictionary.
     """
     rectangle = e.this
-    rectangle.x += 50
+    rectangle.y += 50
 
 
 if __name__ == '__main__':

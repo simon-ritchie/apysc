@@ -105,3 +105,14 @@ def test_append_substitution_expression() -> None:
         f'{int_2.variable_name} = {int_1.variable_name};'
     )
     assert expected in expression
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_append_substitution_expression_with_names() -> None:
+    expression_file_util.remove_expression_file()
+    expression_variables_util.append_substitution_expression_with_names(
+        left_variable_name='i_5',
+        right_variable_name='i_6')
+    expression: str = expression_file_util.get_current_expression()
+    expected: str = 'i_5 = i_6'
+    assert expected in expression

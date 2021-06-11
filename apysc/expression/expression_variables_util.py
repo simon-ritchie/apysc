@@ -160,7 +160,7 @@ def append_substitution_expression(
         left_value: VariableNameInterface,
         right_value: VariableNameInterface) -> None:
     """
-    Append substitution expression between two variables.
+    Append a substitution expression between two variables.
 
     Parameters
     ----------
@@ -172,5 +172,30 @@ def append_substitution_expression(
     from apysc.expression import expression_file_util
     expression: str = (
         f'{left_value.variable_name} = {right_value.variable_name};'
+    )
+    expression_file_util.append_js_expression(expression=expression)
+
+
+def append_substitution_expression_with_names(
+        left_variable_name: str,
+        right_variable_name: str) -> None:
+    """
+    Append a substitution expression between two variable names.
+
+    Notes
+    -----
+    If the left or the right variable names are blank, then
+    expression appending will be skipped.
+
+    Parameters
+    ----------
+    left_variable_name : str
+        Left-side variable name.
+    right_variable_name : str
+        Right-side variable name.
+    """
+    from apysc.expression import expression_file_util
+    expression: str = (
+        f'{left_variable_name} = {right_variable_name};'
     )
     expression_file_util.append_js_expression(expression=expression)

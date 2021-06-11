@@ -30,6 +30,20 @@ class WidthAndHeightInterfacesForEllipse(
         if not hasattr(self, '_height'):
             self._height = Int(0)
 
+    @property
+    def width(self) -> Int:
+        """
+        Get a ellipse width value.
+
+        Returns
+        -------
+        width : Int
+            Ellipse width.
+        """
+        from apysc.type import value_util
+        self._initialize_width_and_height_if_not_initialized()
+        return value_util.get_copy(value=self._width)
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make the values' snapshots.

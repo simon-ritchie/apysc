@@ -25,7 +25,7 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
     @property
     def ellipse_size(self) -> Int:
         """
-        Get ellipse size value.
+        Get a ellipse size value.
 
         Returns
         -------
@@ -39,8 +39,8 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
     @ellipse_size.setter
     def ellipse_size(self, value: Int) -> None:
         """
-        Update ellipse size value. This inteface will updates
-        both of ellipse width and ellipse height attributes.
+        Update a ellipse size value. This inteface will updates
+        both of the ellipse width and ellipse height attributes.
 
         Parameters
         ----------

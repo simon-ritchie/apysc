@@ -1,4 +1,4 @@
-"""Implementations of Rectangle class.
+"""Implementations of the Rectangle class.
 """
 
 from typing import Any

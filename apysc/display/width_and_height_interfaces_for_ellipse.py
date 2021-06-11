@@ -106,7 +106,8 @@ class WidthAndHeightInterfacesForEllipse(
             value=self._height)
         expression: str = (
             f'{self.variable_name}.radius('
-            f'{width_value_str}, {height_value_str});'
+            f'parseInt({width_value_str} / 2), '
+            f'parseInt({height_value_str}) / 2);'
         )
         expression_file_util.append_js_expression(expression=expression)
 

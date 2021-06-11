@@ -116,3 +116,16 @@ def test_append_substitution_expression_with_names() -> None:
     expression: str = expression_file_util.get_current_expression()
     expected: str = 'i_5 = i_6'
     assert expected in expression
+
+    expression_file_util.remove_expression_file()
+    expression_variables_util.append_substitution_expression_with_names(
+        left_variable_name='',
+        right_variable_name='i_6')
+    expression = expression_file_util.get_current_expression()
+    assert ' = i_6' not in expression
+
+    expression_variables_util.append_substitution_expression_with_names(
+        left_variable_name='i_5',
+        right_variable_name='')
+    expression = expression_file_util.get_current_expression()
+    assert 'i_5 = ' not in expression

@@ -195,6 +195,8 @@ def append_substitution_expression_with_names(
         Right-side variable name.
     """
     from apysc.expression import expression_file_util
+    if left_variable_name == '' or right_variable_name == '':
+        return
     expression: str = (
         f'{left_variable_name} = {right_variable_name};'
     )

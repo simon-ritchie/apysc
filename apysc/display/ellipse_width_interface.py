@@ -1,4 +1,4 @@
-"""Class implementation for ellipse width interface.
+"""Class implementation for ellipse the width interface.
 """
 
 from typing import Dict
@@ -76,7 +76,7 @@ class EllipseWidthInterface(VariableNameInterface, RevertInterface):
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
-        Make value's snapshot.
+        Make the value's snapshot.
 
         Parameters
         ----------
@@ -93,7 +93,7 @@ class EllipseWidthInterface(VariableNameInterface, RevertInterface):
 
     def _revert(self, snapshot_name: str) -> None:
         """
-        Revert value if snapshot exists.
+        Revert the value if the snapshot exists.
 
         Parameters
         ----------

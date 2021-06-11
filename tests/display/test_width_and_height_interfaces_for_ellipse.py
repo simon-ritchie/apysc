@@ -69,3 +69,22 @@ class TestWidthAndHeightInterfacesForEllipse:
             f'{width.variable_name}, {height.variable_name});'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__make_snapshot(self) -> None:
+        interface: WidthAndHeightInterfacesForEllipse = \
+            WidthAndHeightInterfacesForEllipse()
+        interface.variable_name = \
+            'test_width_and_height_interfaces_for_ellipse'
+        interface.width = Int(10)
+        interface.height = Int(20)
+        snapshot_name: str = interface._get_next_snapshot_name()
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert interface._width_snapshots[snapshot_name] == 10
+        assert interface._height_snapshots[snapshot_name] == 20
+
+        interface.width = Int(30)
+        interface.height = Int(40)
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert interface._width_snapshots[snapshot_name] == 10
+        assert interface._height_snapshots[snapshot_name] == 20

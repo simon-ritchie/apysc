@@ -110,6 +110,9 @@ class WidthAndHeightInterfacesForEllipse(
         )
         expression_file_util.append_js_expression(expression=expression)
 
+    _width_snapshots: Dict[str, int]
+    _height_snapshots: Dict[str, int]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make the values' snapshots.
@@ -119,6 +122,15 @@ class WidthAndHeightInterfacesForEllipse(
         snapshot_name : str
             Target snapshot name.
         """
+        if not hasattr(self, '_width_snapshots'):
+            self._width_snapshots = {}
+        if not hasattr(self, '_height_snapshots'):
+            self._height_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._initialize_width_and_height_if_not_initialized()
+        self._width_snapshots[snapshot_name] = int(self._width._value)
+        self._height_snapshots[snapshot_name] = int(self._height._value)
 
     def _revert(self, snapshot_name: str) -> None:
         """

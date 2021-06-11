@@ -7,21 +7,18 @@ $ python incremental_calculation_in_a_handler/main.py
 """
 
 import sys
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
 
-from apysc import Int, MouseEvent
-from apysc import LineDotSetting
-from apysc import Number
+from apysc import MouseEvent
 from apysc import Rectangle
 from apysc import Sprite
 from apysc import Stage
-from apysc import String
-from apysc import assert_not_equal
 from apysc.file import file_util
 from apysc.html import exporter
 

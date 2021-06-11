@@ -141,3 +141,7 @@ class WidthAndHeightInterfacesForEllipse(
         snapshot_name : str
             Target snapshot name.
         """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._width._value = self._width_snapshots[snapshot_name]
+        self._height._value = self._height_snapshots[snapshot_name]

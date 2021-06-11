@@ -4,6 +4,7 @@ from retrying import retry
 
 from apysc.display.width_and_height_interfaces_for_ellipse import \
     WidthAndHeightInterfacesForEllipse
+from apysc.expression import expression_file_util
 from apysc import Int
 
 
@@ -36,3 +37,14 @@ class TestWidthAndHeightInterfacesForEllipse:
 
         interface.width = 20  # type: ignore
         assert interface.width == 20
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_height(self) -> None:
+        interface: WidthAndHeightInterfacesForEllipse = \
+            WidthAndHeightInterfacesForEllipse()
+        interface.variable_name = \
+            'test_width_and_height_interfaces_for_ellipse'
+        assert interface.height == 0
+
+        interface._height = Int(10)
+        assert interface._height == 10

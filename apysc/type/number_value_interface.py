@@ -384,9 +384,13 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             Incremental subtraction result value.
         """
         from apysc.expression import expression_variables_util
+        previous_variable_name: str = self._get_previous_variable_name()
         result: NumberValueInterface = self - other
         expression_variables_util.append_substitution_expression(
             left_value=self, right_value=result)
+        expression_variables_util.append_substitution_expression_with_names(
+            left_variable_name=previous_variable_name,
+            right_variable_name=self.variable_name)
         result.variable_name = self.variable_name
         return result
 

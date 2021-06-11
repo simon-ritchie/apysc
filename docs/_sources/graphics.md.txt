@@ -16,7 +16,7 @@ Sprite (object container) instance has the `graphics` attribute so with this att
 # runnable
 from apysc import Sprite
 from apysc import Stage
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -45,7 +45,7 @@ sprite.graphics.draw_dashed_line(
     x_start=50, y_start=130, x_end=200, y_end=130,
     dash_size=10, space_size=5)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_call_interfaces_from_sprite_instance/')
 ```
 
@@ -65,7 +65,7 @@ from apysc import Stage, Sprite
 from apysc import Int, Number, String
 from apysc import Rectangle
 from apysc import MouseEvent
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -105,7 +105,7 @@ rectangle: Rectangle = sprite.graphics.draw_rect(
 # Bind click event to the rectangle.
 rectangle.click(on_rectangle_click)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_return_values/')
 ```
 

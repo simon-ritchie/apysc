@@ -15,7 +15,7 @@ This page will explain the `Graphics` class `draw_circle` method interface.
 from apysc import Sprite
 from apysc import Stage
 from apysc import LineDotSetting
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -38,7 +38,7 @@ sprite.graphics.draw_circle(x=250, y=100, radius=100)
 # Draw the inner circle.
 sprite.graphics.draw_circle(x=250, y=100, radius=50)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_draw_circle_basic_usage/')
 ```
 
@@ -56,7 +56,7 @@ from apysc import Sprite
 from apysc import Stage
 from apysc import Circle
 from apysc import Int
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -73,7 +73,7 @@ circle: Circle = sprite.graphics.draw_circle(x=200, y=200, radius=30)
 # Update circle radius to become the bigger one.
 circle.radius = Int(150)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_draw_circle_return_value/')
 ```
 

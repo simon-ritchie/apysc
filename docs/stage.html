@@ -66,13 +66,13 @@
 <p><code class="docutils literal notranslate"><span class="pre">Stage</span></code> class has a <code class="docutils literal notranslate"><span class="pre">background_color</span></code> option, and this will change the stage’s background color.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_expressions_overall_html</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
 
 <span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 
-<span class="n">save_expressions_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;stage_background_color/&#39;</span><span class="p">)</span>
+<span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;stage_background_color/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This will create HTML with black background stage, as follows:</p>
@@ -82,14 +82,14 @@
 <p>Stage class has options to set stage width and stage height (arguments of <code class="docutils literal notranslate"><span class="pre">stage_width</span></code> and <code class="docutils literal notranslate"><span class="pre">stage_height</span></code>). These settings will change stage sizes.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_expressions_overall_html</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
 
 <span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 
-<span class="n">save_expressions_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;stage_size/&#39;</span><span class="p">)</span>
+<span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;stage_size/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The Previous script will create a horizontal stage, as follows:</p>

@@ -26,13 +26,13 @@ stage: Stage = Stage()
 ```py
 # runnable
 from apysc import Stage
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
     stage_elem_id='stage')
 
-save_expressions_overall_html(dest_dir_path='stage_background_color/')
+save_overall_html(dest_dir_path='stage_background_color/')
 ```
 
 This will create HTML with black background stage, as follows:
@@ -46,14 +46,14 @@ Stage class has options to set stage width and stage height (arguments of `stage
 ```py
 # runnable
 from apysc import Stage
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     stage_width=500, stage_height=50,
     background_color='#333',
     stage_elem_id='stage')
 
-save_expressions_overall_html(dest_dir_path='stage_size/')
+save_overall_html(dest_dir_path='stage_size/')
 ```
 
 The Previous script will create a horizontal stage, as follows:

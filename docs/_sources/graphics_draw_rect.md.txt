@@ -14,7 +14,7 @@ This page will explain the `Graphics` class `draw_rect` method interface.
 # runnable
 from apysc import Stage
 from apysc import Sprite
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -25,7 +25,7 @@ sprite: Sprite = Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(x=50, y=50, width=100, height=50)
 
-save_expressions_overall_html(dest_dir_path='graphics_draw_rect_basic_usage/')
+save_overall_html(dest_dir_path='graphics_draw_rect_basic_usage/')
 ```
 
 The previous script will draw horizontal rectangle graphics.
@@ -38,7 +38,7 @@ Notes: `begin_fill` call (fill color setting) is necessary before `draw_rect` in
 # runnable
 from apysc import Stage
 from apysc import Sprite
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -48,7 +48,7 @@ stage: Stage = Stage(
 sprite: Sprite = Sprite(stage=stage)
 sprite.graphics.draw_rect(x=50, y=50, width=100, height=50)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_draw_rect_basic_usage_skipped_begin_fill/')
 ```
 
@@ -69,7 +69,7 @@ from apysc import Sprite
 from apysc import Rectangle
 from apysc import MouseEvent
 from apysc import Int
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 
 def on_click(e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
@@ -99,7 +99,7 @@ rectangle: Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 rectangle.click(on_click)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_draw_rect_rectangle/')
 ```
 

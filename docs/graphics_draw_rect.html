@@ -56,7 +56,7 @@
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
 <span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_expressions_overall_html</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
 
 <span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
@@ -67,7 +67,7 @@
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
-<span class="n">save_expressions_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_rect_basic_usage/&#39;</span><span class="p">)</span>
+<span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_rect_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The previous script will draw horizontal rectangle graphics.</p>
@@ -75,7 +75,7 @@
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
 <span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_expressions_overall_html</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
 
 <span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
@@ -85,7 +85,7 @@
 <span class="n">sprite</span><span class="p">:</span> <span class="n">Sprite</span> <span class="o">=</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
-<span class="n">save_expressions_overall_html</span><span class="p">(</span>
+<span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_rect_basic_usage_skipped_begin_fill/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -102,7 +102,7 @@
 <span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Rectangle</span>
 <span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">MouseEvent</span>
 <span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_expressions_overall_html</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
 
 
 <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">MouseEvent</span><span class="p">[</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -132,7 +132,7 @@
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">rectangle</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">on_click</span><span class="p">)</span>
 
-<span class="n">save_expressions_overall_html</span><span class="p">(</span>
+<span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_rect_rectangle/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>

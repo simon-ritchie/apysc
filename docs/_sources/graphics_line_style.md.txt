@@ -14,7 +14,7 @@ Draw vector graphics interfaces (e.g., `draw_rect` `line_to` and so on) will use
 # runnable
 from apysc import Sprite
 from apysc import Stage
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -37,7 +37,7 @@ sprite.graphics.line_style(color='#0af', thickness=3)
 sprite.graphics.move_to(x=50, y=110)
 sprite.graphics.line_to(x=150, y=110)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_line_style_basics/')
 ```
 
@@ -51,7 +51,7 @@ A line color will be set by the `color` argument, and this is required one.
 # runnable
 from apysc import Sprite
 from apysc import Stage
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -64,7 +64,7 @@ sprite: Sprite = Sprite(stage=stage)
 sprite.graphics.line_style(color='#0af', thickness=4)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_line_style_line_color/')
 ```
 
@@ -78,7 +78,7 @@ For example, since the following code will clear line color setting, so a result
 # runnable
 from apysc import Sprite
 from apysc import Stage
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -94,7 +94,7 @@ sprite.graphics.line_style(color='#0af', thickness=4)
 sprite.graphics.line_style(color='', thickness=4)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=50, y_end=50)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_line_style_clear_line_color/')
 ```
 
@@ -112,7 +112,7 @@ Color code is acceptable like the following list (same as `begin_fill` interface
 # runnable
 from apysc import Sprite
 from apysc import Stage
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -133,7 +133,7 @@ sprite.graphics.draw_line(x_start=50, x_end=150, y_start=80, y_end=80)
 sprite.graphics.line_style(color='#5', thickness=4)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=110, y_end=110)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_line_style_line_color_color_code/')
 ```
 
@@ -147,7 +147,7 @@ Line thickness can be set by the `thickness` argument. It can accept greater tha
 # runnable
 from apysc import Sprite
 from apysc import Stage
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -168,7 +168,7 @@ sprite.graphics.draw_line(x_start=50, x_end=150, y_start=80, y_end=80)
 sprite.graphics.line_style(color='#0af', thickness=10)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=110, y_end=110)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_line_style_thickness/')
 ```
 
@@ -182,7 +182,7 @@ A line alpha (opacity) can be set by the `alpha` argument. It can accept 0.0 (tr
 # runnable
 from apysc import Sprite
 from apysc import Stage
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -199,7 +199,7 @@ sprite.graphics.draw_line(x_start=50, x_end=100, y_start=50, y_end=100)
 sprite.graphics.line_style(color='#f0a', thickness=15, alpha=0.3)
 sprite.graphics.draw_line(x_start=100, x_end=50, y_start=50, y_end=100)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_line_style_alpha/')
 ```
 
@@ -220,7 +220,7 @@ There are three `LineCaps` options, as follows:
 from apysc import Sprite
 from apysc import Stage
 from apysc import LineCaps
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -242,7 +242,7 @@ sprite.graphics.draw_line(x_start=50, x_end=150, y_start=90, y_end=90)
 sprite.graphics.line_style(color='#0af', thickness=20, cap=LineCaps.SQUARE)
 sprite.graphics.draw_line(x_start=50, x_end=150, y_start=130, y_end=130)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_line_style_caps/')
 ```
 
@@ -263,7 +263,7 @@ There are three LineJoints enum values, as follows:
 from apysc import Sprite
 from apysc import Stage
 from apysc import LineJoints
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -293,7 +293,7 @@ sprite.graphics.move_to(x=250, y=100)
 sprite.graphics.line_to(x=275, y=50)
 sprite.graphics.line_to(x=300, y=100)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_line_style_joints/')
 ```
 
@@ -308,7 +308,7 @@ Line dot setting will change line to dotted line. This can be set by the `dot_se
 from apysc import Sprite
 from apysc import Stage
 from apysc import LineDotSetting
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -335,7 +335,7 @@ sprite.graphics.line_style(
 sprite.graphics.move_to(x=50, y=110)
 sprite.graphics.line_to(x=250, y=110)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_line_style_line_dot_setting/')
 ```
 
@@ -348,7 +348,7 @@ This setting (or other similar settings) will also be applied to the `Rectangle`
 from apysc import Sprite
 from apysc import Stage
 from apysc import LineDotSetting
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -367,7 +367,7 @@ sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 sprite.graphics.begin_fill(color='#038')
 sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_line_style_line_dot_setting_rectangle/')
 ```
 
@@ -384,7 +384,7 @@ Line dash setting will change the line to the dashed line. This can be set by th
 from apysc import LineDashSetting
 from apysc import Sprite
 from apysc import Stage
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -407,7 +407,7 @@ sprite.graphics.line_style(
 sprite.graphics.move_to(x=50, y=80)
 sprite.graphics.line_to(x=250, y=80)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_line_style_line_dash_setting/')
 ```
 
@@ -424,7 +424,7 @@ Line round dot setting will change the line to the round dotted line. This can b
 from apysc import LineRoundDotSetting
 from apysc import Sprite
 from apysc import Stage
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -447,7 +447,7 @@ sprite.graphics.line_style(
 sprite.graphics.move_to(x=50, y=80)
 sprite.graphics.line_to(x=250, y=80)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_line_style_line_round_dot_setting/')
 ```
 
@@ -466,7 +466,7 @@ Line dash-dot setting will change the line to the dash-dotted line (also called 
 from apysc import LineDashDotSetting
 from apysc import Sprite
 from apysc import Stage
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -491,7 +491,7 @@ sprite.graphics.line_style(
 sprite.graphics.move_to(x=50, y=80)
 sprite.graphics.line_to(x=250, y=80)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_line_style_line_dash_dot_setting/')
 ```
 

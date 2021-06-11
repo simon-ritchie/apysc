@@ -16,7 +16,7 @@ Calling the `move_to` interface after the calling of `line_to`, then a new line 
 # runnable
 from apysc import Sprite
 from apysc import Stage
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -34,7 +34,7 @@ sprite.graphics.move_to(x=50, y=50)
 # destination point (250, 50).
 sprite.graphics.line_to(x=250, y=50)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_move_to_and_line_to_basic_usage/')
 ```
 
@@ -48,7 +48,7 @@ If you call the `line_to` interface sequentially, then the result line will beco
 # runnable
 from apysc import Sprite
 from apysc import Stage
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -75,7 +75,7 @@ sprite.graphics.line_to(x=50, y=150)
 # destination point (150, 150).
 sprite.graphics.line_to(x=150, y=150)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_move_to_and_line_to_sequential_calling/')
 ```
 
@@ -89,7 +89,7 @@ If you call the `move_to` interface after calling the `line_to` interface, then 
 # runnable
 from apysc import Sprite
 from apysc import Stage
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -113,7 +113,7 @@ sprite.graphics.line_to(x=200, y=50)
 sprite.graphics.line_to(x=150, y=100)
 sprite.graphics.line_to(x=200, y=100)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_move_to_and_line_to_multi_move_to_calling/')
 ```
 
@@ -134,7 +134,7 @@ from apysc import Stage
 from apysc import MouseEvent
 from apysc import Polyline
 from apysc import LineDotSetting
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 
 def on_line_click(
@@ -167,7 +167,7 @@ polyline: Polyline = sprite.graphics.move_to(x=50, y=50)
 sprite.graphics.line_to(x=150, y=50)
 polyline.click(on_line_click)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='graphics_move_to_and_line_to_polyline/')
 ```
 

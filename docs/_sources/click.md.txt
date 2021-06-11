@@ -29,7 +29,7 @@ from apysc import Stage
 from apysc import Rectangle
 from apysc import MouseEvent
 from apysc import String
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -62,7 +62,7 @@ rectangle: Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 rectangle.click(handler=on_click)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='click_basic_usage_of_the_click_interface/')
 ```
 
@@ -86,7 +86,7 @@ from apysc import Stage
 from apysc import Rectangle
 from apysc import MouseEvent
 from apysc import String
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -120,7 +120,7 @@ rectangle: Rectangle = sprite.graphics.draw_rect(
 rectangle.click(handler=on_click)
 rectangle.unbind_click(handler=on_click)
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='click_basic_usage_of_the_unbind_click_interface/')
 ```
 
@@ -142,7 +142,7 @@ from apysc import Stage
 from apysc import Rectangle
 from apysc import MouseEvent
 from apysc import String
-from apysc import save_expressions_overall_html
+from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',
@@ -176,7 +176,7 @@ rectangle: Rectangle = sprite.graphics.draw_rect(
 rectangle.click(handler=on_click)
 rectangle.unbind_click_all()
 
-save_expressions_overall_html(
+save_overall_html(
     dest_dir_path='click_unbind_all_the_click_event_handlers/')
 ```
 

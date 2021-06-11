@@ -50,11 +50,16 @@ class Ellipse(
             type_name=var_names.ELLIPSE)
         super(Ellipse, self).__init__(
             parent=parent, x=0, y=0, variable_name=variable_name)
+        size_validation.validate_size_is_gt_zero(size=width)
+        size_validation.validate_size_is_gt_zero(size=height)
         self._width = get_copied_int_from_builtin_val(integer=width)
         self._height = get_copied_int_from_builtin_val(integer=height)
         self._set_initial_basic_values(parent=parent)
         self._append_constructor_expression()
-        pass
+        self.x = get_copied_int_from_builtin_val(integer=x)
+        self.y = get_copied_int_from_builtin_val(integer=y)
+        self._set_line_setting_if_not_none_value_exists(
+            parent_graphics=parent)
 
     def _append_constructor_expression(self) -> None:
         """

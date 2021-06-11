@@ -52,3 +52,12 @@ class TestEllipse:
         assert ellipse.x == 50
         assert ellipse.y == 100
         assert isinstance(ellipse.line_dot_setting, LineDotSetting)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___repr__(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        ellipse: Ellipse = Ellipse(
+            parent=sprite.graphics, x=50, y=100, width=150, height=200)
+        repr_str: str = repr(ellipse)
+        assert repr_str == f"Ellipse('{ellipse.variable_name}')"

@@ -85,4 +85,15 @@ class Ellipse(
         expression_file_util.append_js_expression(expression=expression)
 
     def __repr__(self) -> str:
-        pass
+        """
+        Get a string representation of this instance (for the sake of
+        debugging).
+
+        Returns
+        -------
+        repr_str : str
+            Type name and variable name will be set
+            (e.g., `Ellipse('<variable_name>')`).
+        """
+        repr_str: str = f"Ellipse('{self.variable_name}')"
+        return repr_str

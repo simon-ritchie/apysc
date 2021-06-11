@@ -42,15 +42,32 @@ def main() -> None:
         stage_width=1000, stage_height=500)
     sprite: Sprite = Sprite(stage=stage)
     sprite.graphics.begin_fill(color='#0af')
-    rectangle: Rectangle = sprite.graphics.draw_rect(
+
+    # The test pattern for the inscremental addition interface.
+    rectangle_1: Rectangle = sprite.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
-    rectangle.click(on_rectangle_click)
+    rectangle_1.click(on_rectangle_1_click)
+
+    # The test pattern for the incremental subtraction interface.
+    rectangle_2: Rectangle = sprite.graphics.draw_rect(
+        x=150, y=400, width=50, height=50)
+    rectangle_2.click(on_rectangle_2_click)
+
+    # The test pattern for the incremental multiplication interface.
+    rectangle_3: Rectangle = sprite.graphics.draw_rect(
+        x=250, y=50, width=50, height=50)
+    rectangle_3.click(on_rectangle_3_click)
+
+    # The test pattern for the incremental true division interface.
+    rectangle_4: Rectangle = sprite.graphics.draw_rect(
+        x=350, y=400, width=50, height=50)
+    rectangle_4.click(on_rectangle_4_click)
 
     exporter.save_expressions_overall_html(
         dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
-def on_rectangle_click(
+def on_rectangle_1_click(
         e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
     """
     The handler called when a rectangle is clicked.
@@ -62,8 +79,56 @@ def on_rectangle_click(
     options : dict
         Optional arguments dictionary.
     """
-    rectangle = e.this
+    rectangle: Rectangle = e.this
     rectangle.y += 50
+
+
+def on_rectangle_2_click(
+        e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
+    """
+    The handler called when a rectangle is clicked.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rectangle: Rectangle = e.this
+    rectangle.y -= 50
+
+
+def on_rectangle_3_click(
+        e: MouseEvent, options: Dict[str, Any]) -> None:
+    """
+    The handler called when a rectangle is clicked.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rectangle: Rectangle = e.this
+    rectangle.y *= 2
+
+
+def on_rectangle_4_click(
+        e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
+    """
+    The handler called when a rectangle is clicked.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rectangle: Rectangle = e.this
+    rectangle.y /= 2
 
 
 if __name__ == '__main__':

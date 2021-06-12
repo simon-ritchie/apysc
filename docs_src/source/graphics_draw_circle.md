@@ -4,11 +4,11 @@ This page will explain the `Graphics` class `draw_circle` method interface.
 
 ## What interface is this?
 
-`draw_circle` interface will draw vector circle graphics.
+`draw_circle` interface will draw the vector circle graphics.
 
 ## Basic usage
 
-`draw_circle` interface has `x`, `y`, and `radius` arguments. `x` and `y` are the circle center coordinates. The circle width and height will be twice the `radius`.
+`draw_circle` interface has the `x`, `y`, and `radius` arguments. `x` and `y` are the circle center coordinates. The circle width and height will be twice the `radius`.
 
 ```py
 # runnable

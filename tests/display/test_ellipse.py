@@ -1,15 +1,19 @@
-from random import randint
-from typing import Match, Optional
 import re
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
-from apysc import Ellipse, Stage, Sprite, LineDotSetting
+from apysc import Ellipse
+from apysc import LineDotSetting
+from apysc import Sprite
+from apysc import Stage
+from apysc.display.stage import get_stage_variable_name
+from apysc.expression import expression_file_util
+from apysc.expression import var_names
 from tests.display.test_graphics_expression import \
     assert_fill_attr_expression_exists
-from apysc.expression import expression_file_util
-from apysc.display.stage import get_stage_variable_name
-from apysc.expression import var_names
 
 
 class TestEllipse:

@@ -5,11 +5,11 @@ from typing import Any
 from typing import Union
 
 from apysc import Int
-from apysc.display.width_and_height_interfaces_for_ellipse import \
-    WidthAndHeightInterfacesForEllipse
-from apysc.display.line_base import LineBase
 from apysc.display.cx_interface import CxInterface
 from apysc.display.cy_interface import CyInterface
+from apysc.display.line_base import LineBase
+from apysc.display.width_and_height_interfaces_for_ellipse import \
+    WidthAndHeightInterfacesForEllipse
 
 _Graphics = Any
 
@@ -41,11 +41,11 @@ class Ellipse(
         height : int or Int
             Ellipse height.
         """
+        from apysc.converter.to_apysc_val_from_builtin import \
+            get_copied_int_from_builtin_val
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names
         from apysc.validation import size_validation
-        from apysc.converter.to_apysc_val_from_builtin import \
-            get_copied_int_from_builtin_val
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.ELLIPSE)
         super(Ellipse, self).__init__(

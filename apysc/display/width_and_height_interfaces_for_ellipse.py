@@ -66,8 +66,8 @@ class WidthAndHeightInterfacesForEllipse(
         """
         Get a ellipse height value.
 
-        Parameters
-        ----------
+        Returns
+        -------
         height : Int
             Ellipse height.
         """

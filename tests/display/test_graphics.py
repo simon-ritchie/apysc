@@ -3,8 +3,9 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Array, Ellipse
+from apysc import Array
 from apysc import Circle
+from apysc import Ellipse
 from apysc import Int
 from apysc import Line
 from apysc import LineDashDotSetting

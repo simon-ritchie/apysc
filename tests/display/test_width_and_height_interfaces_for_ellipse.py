@@ -2,10 +2,10 @@ from random import randint
 
 from retrying import retry
 
+from apysc import Int
 from apysc.display.width_and_height_interfaces_for_ellipse import \
     WidthAndHeightInterfacesForEllipse
 from apysc.expression import expression_file_util
-from apysc import Int
 
 
 class TestWidthAndHeightInterfacesForEllipse:

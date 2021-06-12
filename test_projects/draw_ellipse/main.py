@@ -47,7 +47,7 @@ def main() -> None:
     sprite.graphics.begin_fill(color='')
     sprite.graphics.line_style(
         color='#fff', thickness=3, dot_setting=LineDotSetting(dot_size=3))
-    ellipse: Ellipse = sprite.graphics.draw_ellipse(
+    sprite.graphics.draw_ellipse(
         x=200, y=25, width=100, height=50)
 
     exporter.save_overall_html(

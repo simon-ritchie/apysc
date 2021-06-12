@@ -3,7 +3,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Array
+from apysc import Array, Ellipse
 from apysc import Circle
 from apysc import Int
 from apysc import Line
@@ -300,3 +300,15 @@ class TestGraphics:
         assert circle.y == 100
         assert circle.radius == 30
         assert sprite.graphics._children == [circle]
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_draw_ellipse(self) -> None:
+        stage: Stage = Stage()
+        sprite: Sprite = Sprite(stage=stage)
+        ellipse: Ellipse = sprite.graphics.draw_ellipse(
+            x=50, y=100, width=150, height=200)
+        assert ellipse.x == 50
+        assert ellipse.y == 100
+        assert ellipse.width == 150
+        assert ellipse.height == 200
+        assert sprite.graphics._children == [ellipse]

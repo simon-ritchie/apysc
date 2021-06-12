@@ -11,6 +11,7 @@ from apysc import Int
 from apysc.display.begin_fill_interface import BeginFillInterface
 from apysc.display.child_interface import ChildInterface
 from apysc.display.circle import Circle
+from apysc.display.ellipse import Ellipse
 from apysc.display.graphics_clear_interface import GraphicsClearInterface
 from apysc.display.line import Line
 from apysc.display.line_style_interface import LineStyleInterface
@@ -172,9 +173,39 @@ class Graphics(
         self.add_child(child=circle)
         return circle
 
+    def draw_ellipse(
+            self,
+            x: Union[int, Int],
+            y: Union[int, Int],
+            width: Union[int, Int],
+            height: Union[int, Int]) -> Ellipse:
+        """
+        Draw a ellipse vector graphics.
+
+        Parameters
+        ----------
+        x : int or Int
+            X-coordinate of the ellipse center.
+        y : int or Int
+            Y-coordinate of the ellipse center.
+        width : int or Int
+            Ellipse width.
+        height : int or Int
+            Ellipse height.
+
+        Returns
+        -------
+        ellipse : Ellipse
+            Created ellipse graphics instance.
+        """
+        ellipse: Ellipse = Ellipse(
+            parent=self, x=x, y=y, width=width, height=height)
+        self.add_child(child=ellipse)
+        return ellipse
+
     def line_to(self, x: Union[int, Int], y: Union[int, Int]) -> Polyline:
         """
-        Draw line from previous point to specified point (initial
+        Draw a line from previous point to specified point (initial
         point is x = 0, y = 0).
 
         Parameters
@@ -201,7 +232,7 @@ class Graphics(
 
     def move_to(self, x: Union[int, Int], y: Union[int, Int]) -> Polyline:
         """
-        Move line position to specified point.
+        Move a line position to specified point.
 
         Parameters
         ----------

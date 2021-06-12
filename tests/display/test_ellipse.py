@@ -27,8 +27,7 @@ class TestEllipse:
         match: Optional[Match] = re.search(
             pattern=(
                 rf'var {ellipse.variable_name} = {stage_variable_name}'
-                r'\n  \.ellipse\(parseInt\(.+?/ 2\), '
-                r'parseInt\(.+? / 2\)\)'
+                r'\n  \.ellipse\(.+?, .+?\)'
                 r'\n  .attr\(\{.*?'
                 r'\n  \}\);'
             ),

@@ -75,8 +75,7 @@ class Ellipse(
             value=self._height)
         expression: str = (
             f'var {self.variable_name} = {stage_variable_name}'
-            f'\n  .ellipse(parseInt({width_str} / 2), '
-            f'parseInt({height_str} / 2))'
+            f'\n  .ellipse({width_str}, {height_str})'
             '\n  .attr({'
         )
         expression = self._append_basic_vals_expression(

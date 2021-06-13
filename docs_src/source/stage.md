@@ -2,11 +2,11 @@
 
 This page will explain the `Stage` class.
 
-## What is Stage
+## What is the Stage
 
 The `Stage` is the apysc overall drawing area (it's like a viewport or canvas, or something else) and a container of all elements.
 
-The `Stage` must be created at the first of the apysc project (this will run cleaning up processes).
+The `Stage` must be created at the first of the apysc project (this will run cleaning up files).
 
 ## Create stage
 

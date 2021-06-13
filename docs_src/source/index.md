@@ -14,9 +14,13 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 
 - [Quick start](quick_start.md)
 
-**Basic classes**
+**Stage**
 
 - [Stage class](stage.md)
+
+**DisplayObject**
+
+- [DisplayObject class](display_object.md)
 
 **Graphics class**
 

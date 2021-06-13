@@ -6,6 +6,7 @@ from retrying import retry
 from apysc import Sprite
 from apysc import Stage
 from tests import testing_helper
+from apysc.expression import expression_file_util
 
 
 class TestParentInterface:
@@ -24,14 +25,14 @@ class TestParentInterface:
     def test_remove_from_parent(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
-        stage.add_child(child=sprite)
         sprite.remove_from_parent()
         assert stage.num_children == 0
+        assert sprite.parent is None
 
-        testing_helper.assert_raises(
-            expected_error_class=ValueError,
-            func_or_method=sprite.remove_from_parent,
-        )
+        expression_file_util.remove_expression_file()
+        sprite.remove_from_parent()
+        expression: str = expression_file_util.get_current_expression()
+        assert f'removeElement({sprite.variable_name}' in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:

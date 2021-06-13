@@ -63,14 +63,16 @@ class ParentInterface(RevertInterface):
         ValueError
             If this instance is not added to any parent.
         """
-        if self._parent is None:
-            raise ValueError(
-                'This instance is not added to any parent.')
         from apysc.display.child_interface import ChildInterface
+        from apysc.display.child_interface import \
+            append_expression_of_remove_child
         from apysc.display.display_object import DisplayObject
-        parent: ChildInterface = self._parent
+        parent: Optional[ChildInterface] = self._parent
         child: DisplayObject = self  # type: ignore
-        parent.remove_child(child=child)
+        if parent is not None:
+            parent.remove_child(child=child)
+        else:
+            append_expression_of_remove_child(child=child)
 
     _parent_snapshots: Dict[str, Optional[Any]]
 

@@ -1,8 +1,8 @@
 # Click interface
 
-This page will explain the `click` and `unbind_click` interfaces.
+This page will explain the `click` interface.
 
-## What interfaces are these?
+## What interface is this?
 
 `click` interface will bind the click event to any `DisplayObject` instance (e.g., `Sprite`, `Rectangle`, and so on). If you mouse down on that instance and also mouse up, the registered handler function will be called.
 

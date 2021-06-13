@@ -4,7 +4,7 @@ This page will explain the `mousedown` and `mouseup` interfaces.
 
 ## What interfaces are these?
 
-The `mousedown` interface will bind the event handler called when a user mouse downed on a `DisplayObject` instance. Conversely, the `mouseup` interface will bind the event handler called when a user mouse upped on a `DisplayObject` one.
+The `mousedown` interface will bind the event handler would be called when a user mouse downed on a `DisplayObject` instance. Conversely, the `mouseup` interface will bind the event handler called when a user mouse upped on a `DisplayObject` one.
 
 ## See also
 
@@ -85,9 +85,9 @@ save_overall_html(
 
 ## Unbind interfaces
 
-The `unbind_mousedown` and `unbind_mouseup` interfaces will unbind each registered handler from `DisplayObject`.
+The `unbind_mousedown` and `unbind_mouseup` interfaces will unbind each registered handler from the `DisplayObject`.
 
-The following example will unbind handlers in the `on_mousedown` and `on_mouseup` function so these handlers will be called only once.
+The following example will unbind handlers in the `on_mousedown` and `on_mouseup` functions so these handlers will be called only once.
 
 ```py
 # runnable

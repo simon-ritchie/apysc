@@ -12,6 +12,7 @@ from apysc.loop._for import For  # isort:skip # noqa
 from apysc.display.display_object import DisplayObject  # isort:skip # noqa
 from apysc.display._document import document  # isort:skip # noqa
 from apysc.display.sprite import Sprite  # isort:skip # noqa
+from apysc.display.graphics import Graphics  # isort:skip # noqa
 from apysc.display.stage import Stage  # isort:skip # noqa
 from apysc.display.rectangle import Rectangle  # isort:skip # noqa
 from apysc.display.circle import Circle  # isort:skip # noqa

@@ -21,6 +21,7 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 **DisplayObject**
 
 - [DisplayObject class](display_object.md)
+- [DisplayObject class x and y interfaces](display_object_x_and_y.md)
 
 **Graphics class**
 

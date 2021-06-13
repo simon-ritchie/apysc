@@ -14,7 +14,6 @@ from apysc import Stage
 from apysc import Sprite
 from apysc import Circle
 from apysc import DisplayObject
-from apysc import save_overall_html
 
 stage: Stage = Stage(
     background_color='#333',

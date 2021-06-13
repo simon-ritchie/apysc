@@ -92,7 +92,6 @@ class TestGraphics:
         expected: str = (
             f'var {sprite.graphics.variable_name} = '
             f'{stage.variable_name}.nested();'
-            f'\n{sprite.variable_name}.add({sprite.graphics.variable_name});'
         )
         assert expected in expression
 

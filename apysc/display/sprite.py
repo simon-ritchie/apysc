@@ -44,6 +44,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
             stage=stage, variable_name=variable_name)
         self._append_constructor_expression()
         self.graphics = Graphics(parent=self)
+        stage.add_child(child=self)
 
     def _append_constructor_expression(self) -> bool:
         """

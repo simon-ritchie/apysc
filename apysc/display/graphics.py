@@ -8,6 +8,7 @@ from typing import Union
 
 from apysc import Array
 from apysc import Int
+from apysc.display.display_object import DisplayObject
 from apysc.display.begin_fill_interface import BeginFillInterface
 from apysc.display.child_interface import ChildInterface
 from apysc.display.circle import Circle
@@ -23,6 +24,7 @@ from apysc.type.variable_name_interface import VariableNameInterface
 
 
 class Graphics(
+        DisplayObject,
         BeginFillInterface, LineStyleInterface, VariableNameInterface,
         GraphicsClearInterface, ChildInterface):
 
@@ -63,6 +65,7 @@ class Graphics(
         self._line_thickness = Int(1.0)
         self._children = Array([])
         self._append_constructor_expression()
+        self.parent_sprite.add_child(self)
 
     def _append_constructor_expression(self) -> None:
         """
@@ -70,10 +73,8 @@ class Graphics(
         """
         from apysc.expression import expression_file_util
         stage_name: str = self.parent_sprite.stage.variable_name
-        parent_name: str = self.parent_sprite.variable_name
         expression: str = (
             f'var {self.variable_name} = {stage_name}.nested();'
-            f'\n{parent_name}.add({self.variable_name});'
         )
         expression_file_util.append_js_expression(expression=expression)
 

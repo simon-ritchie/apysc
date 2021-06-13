@@ -90,10 +90,16 @@ class ChildInterface(RevertInterface):
             Child object to remove.
         """
         from apysc.expression import expression_file_util
-        parent_name: str = child.parent.variable_name  # type: ignore
+        from apysc.expression import var_names
+        from apysc.expression import expression_variables_util
+        parent_name: str = expression_variables_util.get_next_variable_name(
+            type_name=var_names.PARENT)
         child_name: str = child.variable_name
         expression: str = (
-            f'{parent_name}.removeElement({child_name});'
+            f'var {parent_name} = {child_name}.parent();'
+            f'\nif ({parent_name}) {{'
+            f'\n  {parent_name}.removeElement({child_name});'
+            '\n}'
         )
         expression_file_util.append_js_expression(expression=expression)
 

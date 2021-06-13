@@ -5,6 +5,7 @@ from typing_extensions import Final
 
 DOCUMENT: Final[str] = 'document'
 DISPLAY_OBJECT: Final[str] = 'do'
+PARENT: Final[str] = 'parent'
 GRAPHICS: Final[str] = 'g'
 POINT2D: Final[str] = 'p2d'
 RECTANGLE: Final[str] = 'rect'

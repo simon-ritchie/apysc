@@ -1,4 +1,6 @@
 from random import randint
+from typing import Match, Optional
+import re
 
 from retrying import retry
 
@@ -9,7 +11,7 @@ from apysc import Sprite
 from apysc import Stage
 from apysc.display.child_interface import ChildInterface
 from apysc.display.display_object import DisplayObject
-from apysc.expression import expression_file_util
+from apysc.expression import expression_file_util, var_names
 
 
 class TestChildInterface:
@@ -53,11 +55,19 @@ class TestChildInterface:
         sprite: Sprite = Sprite(stage=stage)
         stage.add_child(child=sprite)
         stage.remove_child(child=sprite)
-        expected: str = (
-            f'{stage.variable_name}.removeElement({sprite.variable_name});'
-        )
         expression: str = expression_file_util.get_current_expression()
-        assert expected in expression
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'var {var_names.PARENT}_.+? = '
+                rf'{sprite.variable_name}.parent\(\);'
+                rf'\nif \({var_names.PARENT}_.+?\) {{'
+                rf'\n  {var_names.PARENT}_.+?.removeElement\('
+                rf'{sprite.variable_name}\);'
+                r'\n}'
+            ),
+            string=expression,
+            flags=re.MULTILINE | re.DOTALL)
+        assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_contains(self) -> None:

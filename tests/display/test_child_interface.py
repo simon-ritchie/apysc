@@ -28,17 +28,6 @@ class TestChildInterface:
         assert sprite.parent == stage
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__append_expression_of_add_child(self) -> None:
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
-        stage.add_child(child=sprite)
-        expected: str = (
-            f'{stage.variable_name}.add({sprite.variable_name});'
-        )
-        expression: str = expression_file_util.get_current_expression()
-        assert expected in expression
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_remove_child(self) -> None:
         stage: Stage = Stage()
         sprite_1: Sprite = Sprite(stage=stage)
@@ -48,26 +37,6 @@ class TestChildInterface:
         stage.remove_child(child=sprite_2)
         assert stage._children == Array([sprite_1])
         assert sprite_2.parent is None
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__append_expression_of_remove_child(self) -> None:
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
-        stage.add_child(child=sprite)
-        stage.remove_child(child=sprite)
-        expression: str = expression_file_util.get_current_expression()
-        match: Optional[Match] = re.search(
-            pattern=(
-                rf'var {var_names.PARENT}_.+? = '
-                rf'{sprite.variable_name}.parent\(\);'
-                rf'\nif \({var_names.PARENT}_.+?\) {{'
-                rf'\n  {var_names.PARENT}_.+?.removeElement\('
-                rf'{sprite.variable_name}\);'
-                r'\n}'
-            ),
-            string=expression,
-            flags=re.MULTILINE | re.DOTALL)
-        assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_contains(self) -> None:
@@ -233,3 +202,36 @@ class TestChildInterface:
         stage.remove_child(child=sprite_1)
         stage._run_all_revert_methods(snapshot_name=snapshot_name_1)
         assert stage._children == [100]
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_append_expression_of_add_child() -> None:
+    stage: Stage = Stage()
+    sprite: Sprite = Sprite(stage=stage)
+    stage.add_child(child=sprite)
+    expected: str = (
+        f'{stage.variable_name}.add({sprite.variable_name});'
+    )
+    expression: str = expression_file_util.get_current_expression()
+    assert expected in expression
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_append_expression_of_remove_child() -> None:
+    stage: Stage = Stage()
+    sprite: Sprite = Sprite(stage=stage)
+    stage.add_child(child=sprite)
+    stage.remove_child(child=sprite)
+    expression: str = expression_file_util.get_current_expression()
+    match: Optional[Match] = re.search(
+        pattern=(
+            rf'var {var_names.PARENT}_.+? = '
+            rf'{sprite.variable_name}.parent\(\);'
+            rf'\nif \({var_names.PARENT}_.+?\) {{'
+            rf'\n  {var_names.PARENT}_.+?.removeElement\('
+            rf'{sprite.variable_name}\);'
+            r'\n}'
+        ),
+        string=expression,
+        flags=re.MULTILINE | re.DOTALL)
+    assert match is not None

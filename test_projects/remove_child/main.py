@@ -30,7 +30,7 @@ def main() -> None:
     Entry point of this test project.
     """
     stage: Stage = Stage(
-        background_color='#111',
+        background_color='#333',
         stage_width=1000, stage_height=500)
 
     sprite_1: Sprite = Sprite(stage=stage)

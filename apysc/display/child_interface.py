@@ -35,7 +35,7 @@ class ChildInterface(RevertInterface):
             child.remove_from_parent()
         self._children.append(child)
         child.parent = self
-        self._append_expression_of_add_child(child=child)
+        append_expression_of_add_child(child=child)
 
     def _initialize_children_if_not_initialized(self) -> None:
         """
@@ -44,23 +44,6 @@ class ChildInterface(RevertInterface):
         if hasattr(self, '_children'):
             return
         self._children = Array([])
-
-    def _append_expression_of_add_child(self, child: DisplayObject) -> None:
-        """
-        Append expression of add_child (add) to file.
-
-        Parameters
-        ----------
-        child : DisplayObject
-            Child object to add.
-        """
-        from apysc.expression import expression_file_util
-        parent_name: str = child.parent.variable_name  # type: ignore
-        child_name: str = child.variable_name
-        expression: str = (
-            f'{parent_name}.add({child_name});'
-        )
-        expression_file_util.append_js_expression(expression=expression)
 
     def remove_child(self, child: DisplayObject) -> None:
         """
@@ -72,36 +55,13 @@ class ChildInterface(RevertInterface):
             Child instance to remove.
         """
         self._initialize_children_if_not_initialized()
-        self._append_expression_of_remove_child(child=child)
+        append_expression_of_remove_child(child=child)
         for child_ in self._children.value:
             if child_ != child:
                 continue
             self._children.remove(child)
             child.parent = None
             return
-
-    def _append_expression_of_remove_child(self, child: DisplayObject) -> None:
-        """
-        Append expression of remove_child (removeElement) to file.
-
-        Parameters
-        ----------
-        child : DisplayObject
-            Child object to remove.
-        """
-        from apysc.expression import expression_file_util
-        from apysc.expression import var_names
-        from apysc.expression import expression_variables_util
-        parent_name: str = expression_variables_util.get_next_variable_name(
-            type_name=var_names.PARENT)
-        child_name: str = child.variable_name
-        expression: str = (
-            f'var {parent_name} = {child_name}.parent();'
-            f'\nif ({parent_name}) {{'
-            f'\n  {parent_name}.removeElement({child_name});'
-            '\n}'
-        )
-        expression_file_util.append_js_expression(expression=expression)
 
     def contains(self, child: DisplayObject) -> Boolean:
         """
@@ -269,3 +229,45 @@ class ChildInterface(RevertInterface):
             if not isinstance(child, RevertInterface):
                 continue
             child._run_all_revert_methods(snapshot_name=snapshot_name)
+
+
+def append_expression_of_add_child(child: DisplayObject) -> None:
+    """
+    Append expression of add_child (add) to file.
+
+    Parameters
+    ----------
+    child : DisplayObject
+        Child object to add.
+    """
+    from apysc.expression import expression_file_util
+    parent_name: str = child.parent.variable_name  # type: ignore
+    child_name: str = child.variable_name
+    expression: str = (
+        f'{parent_name}.add({child_name});'
+    )
+    expression_file_util.append_js_expression(expression=expression)
+
+
+def append_expression_of_remove_child(child: DisplayObject) -> None:
+    """
+    Append expression of remove_child (removeElement) to file.
+
+    Parameters
+    ----------
+    child : DisplayObject
+        Child object to remove.
+    """
+    from apysc.expression import expression_file_util
+    from apysc.expression import var_names
+    from apysc.expression import expression_variables_util
+    parent_name: str = expression_variables_util.get_next_variable_name(
+        type_name=var_names.PARENT)
+    child_name: str = child.variable_name
+    expression: str = (
+        f'var {parent_name} = {child_name}.parent();'
+        f'\nif ({parent_name}) {{'
+        f'\n  {parent_name}.removeElement({child_name});'
+        '\n}'
+    )
+    expression_file_util.append_js_expression(expression=expression)

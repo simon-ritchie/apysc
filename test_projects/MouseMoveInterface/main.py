@@ -19,9 +19,9 @@ from apysc import Rectangle
 from apysc import Sprite
 from apysc import Stage
 from apysc import assert_equal
+from apysc import save_overall_html
 from apysc import trace
 from apysc.file import file_util
-from apysc.html import exporter
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -55,8 +55,7 @@ def main() -> None:
     rectangle_3.mousemove(handler=on_rectangle_3_mouse_move)
     rectangle_3.unbind_mousemove_all()
 
-    exporter.save_overall_html(
-        dest_dir_path=_DEST_DIR_PATH)
+    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 def on_rectangle_1_mouse_move(e: MouseEvent, options: Dict[str, Any]) -> None:

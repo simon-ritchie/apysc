@@ -20,8 +20,8 @@ from apysc import Sprite
 from apysc import Stage
 from apysc import String
 from apysc import assert_not_equal
+from apysc import save_overall_html
 from apysc.file import file_util
-from apysc.html import exporter
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -150,8 +150,7 @@ def main() -> None:
     rectangle = sprite.graphics.draw_rect(
         x=650, y=150, width=50, height=50)
 
-    exporter.save_overall_html(
-        dest_dir_path=_DEST_DIR_PATH)
+    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 def _another_func(stage: Stage, sprite: Sprite) -> None:

@@ -22,9 +22,9 @@ from apysc import Stage
 from apysc import String
 from apysc import assert_dicts_equal
 from apysc import assert_equal
+from apysc import save_overall_html
 from apysc import trace
 from apysc.file import file_util
-from apysc.html import exporter
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -71,8 +71,7 @@ def main() -> None:
     del dict_4[string_2]
     assert_dicts_equal(expected={'b': 20}, actual=dict_4)
 
-    exporter.save_overall_html(
-        dest_dir_path=_DEST_DIR_PATH)
+    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 def on_stage_click(e: MouseEvent, options: Dict[str, Any]) -> None:

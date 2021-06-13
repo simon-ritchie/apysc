@@ -19,8 +19,8 @@ from apysc import LineDotSetting
 from apysc import MouseEvent
 from apysc import Sprite
 from apysc import Stage
+from apysc import save_overall_html
 from apysc.file import file_util
-from apysc.html import exporter
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -45,8 +45,7 @@ def main() -> None:
         dash_size=10, space_size=5)
     line_1.click(on_line_click, options={'sprite': sprite})
 
-    exporter.save_overall_html(
-        dest_dir_path=_DEST_DIR_PATH)
+    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 def on_line_click(e: MouseEvent[Line], options: Dict[str, Any]) -> None:

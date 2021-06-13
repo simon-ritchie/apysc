@@ -20,9 +20,9 @@ from apysc import Sprite
 from apysc import Stage
 from apysc import String
 from apysc import assert_equal
+from apysc import save_overall_html
 from apysc import trace
 from apysc.file import file_util
-from apysc.html import exporter
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -65,8 +65,7 @@ def main() -> None:
     rectangle_4.click(on_rectangle_4_1_clicked)
     rectangle_4.click(on_rectangle_4_2_clicked)
 
-    exporter.save_overall_html(
-        dest_dir_path=_DEST_DIR_PATH)
+    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 def on_stage_clicked(e: Event, options: Dict[str, Any]) -> None:

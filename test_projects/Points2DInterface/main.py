@@ -16,9 +16,9 @@ from apysc import Array
 from apysc import Point2D
 from apysc import Stage
 from apysc import assert_equal
+from apysc import save_overall_html
 from apysc.display.points_2d_interface import Points2DInterface
 from apysc.file import file_util
-from apysc.html import exporter
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -41,7 +41,7 @@ def main() -> None:
     interface.points[1] = Point2D(50, 60)
     assert_equal(expected=Point2D(50, 60), actual=interface.points[1])
 
-    exporter.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 if __name__ == '__main__':

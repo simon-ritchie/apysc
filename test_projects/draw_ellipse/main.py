@@ -19,8 +19,8 @@ from apysc import LineDotSetting
 from apysc import MouseEvent
 from apysc import Sprite
 from apysc import Stage
+from apysc import save_overall_html
 from apysc.file import file_util
-from apysc.html import exporter
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -50,8 +50,7 @@ def main() -> None:
     sprite.graphics.draw_ellipse(
         x=200, y=25, width=100, height=50)
 
-    exporter.save_overall_html(
-        dest_dir_path=_DEST_DIR_PATH)
+    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 def on_ellipse_click(

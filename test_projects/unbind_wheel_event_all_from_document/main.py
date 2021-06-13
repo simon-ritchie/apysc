@@ -18,10 +18,10 @@ from types import ModuleType
 from apysc import Stage
 from apysc import WheelEvent
 from apysc import bind_wheel_event_to_document
+from apysc import save_overall_html
 from apysc import trace
 from apysc import unbind_wheel_event_all_from_document
 from apysc.file import file_util
-from apysc.html import exporter
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -42,8 +42,7 @@ def main() -> None:
     bind_wheel_event_to_document(handler=on_document_wheel_2)
     unbind_wheel_event_all_from_document()
 
-    exporter.save_overall_html(
-        dest_dir_path=_DEST_DIR_PATH)
+    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 def on_document_wheel_1(e: WheelEvent, options: Dict[str, Any]) -> None:

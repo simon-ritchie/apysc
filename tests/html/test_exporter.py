@@ -7,6 +7,7 @@ from retrying import retry
 
 from apysc import Stage
 from apysc import document
+from apysc import save_overall_html
 from apysc.expression import expression_file_util
 from apysc.expression import js_functions
 from apysc.expression.event_handler_scope import HandlerScope
@@ -76,7 +77,7 @@ def test_save_overall_html() -> None:
     tmp_dir_path: str = '../.tmp_apysc_test_exporter/'
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
     Stage(stage_elem_id='test_stage')
-    exporter.save_overall_html(
+    save_overall_html(
         dest_dir_path=tmp_dir_path, minify=False,
         js_lib_dir_path='../')
     expected_index_file_path: str = os.path.join(tmp_dir_path, 'index.html')
@@ -88,13 +89,13 @@ def test_save_overall_html() -> None:
     assert 'text/javascript" src="../jquery.min.js' in html_str
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
-    exporter.save_overall_html(
+    save_overall_html(
         dest_dir_path=tmp_dir_path, minify=True)
     html_str = file_util.read_txt(file_path=expected_index_file_path)
     assert html_str.startswith('<html><head>')
 
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
-    exporter.save_overall_html(
+    save_overall_html(
         dest_dir_path=tmp_dir_path,
         skip_js_lib_exporting=True)
     file_names: List[str] = os.listdir(tmp_dir_path)

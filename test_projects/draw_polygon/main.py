@@ -21,8 +21,8 @@ from apysc import Point2D
 from apysc import Polygon
 from apysc import Sprite
 from apysc import Stage
+from apysc import save_overall_html
 from apysc.file import file_util
-from apysc.html import exporter
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -53,8 +53,7 @@ def main() -> None:
         points=[Point2D(200, 50), Point2D(300, 50), Point2D(250, 100)])
     polygon_2.click(on_polygon_click)
 
-    exporter.save_overall_html(
-        dest_dir_path=_DEST_DIR_PATH)
+    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 def on_polygon_click(

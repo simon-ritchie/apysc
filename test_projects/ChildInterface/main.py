@@ -21,9 +21,9 @@ from apysc import assert_equal
 from apysc import assert_false
 from apysc import assert_true
 from apysc import assert_undefined
+from apysc import save_overall_html
 from apysc.display.display_object import DisplayObject
 from apysc.file import file_util
-from apysc.html import exporter
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -57,8 +57,7 @@ def main() -> None:
     child_2: DisplayObject = sprite_1.get_child_at(index=1)
     assert_undefined(actual=child_2)
 
-    exporter.save_overall_html(
-        dest_dir_path=_DEST_DIR_PATH)
+    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 if __name__ == '__main__':

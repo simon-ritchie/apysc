@@ -16,8 +16,8 @@ from apysc import Int
 from apysc import Point2D
 from apysc import Stage
 from apysc import assert_equal
+from apysc import save_overall_html
 from apysc.file import file_util
-from apysc.html import exporter
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -54,7 +54,7 @@ def main() -> None:
     assert_equal(expected=70, actual=point.x)
     assert_equal(expected=80, actual=point.y)
 
-    exporter.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 if __name__ == '__main__':

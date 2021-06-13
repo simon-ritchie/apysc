@@ -15,9 +15,9 @@ from types import ModuleType
 from apysc import Stage
 from apysc import String
 from apysc import assert_equal
+from apysc import save_overall_html
 from apysc.color import color_util
 from apysc.file import file_util
-from apysc.html import exporter
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -50,8 +50,7 @@ def main() -> None:
         hex_color_code=String('#555555'))
     assert_equal(expected='#555555', actual=string_4)
 
-    exporter.save_overall_html(
-        dest_dir_path=_DEST_DIR_PATH)
+    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 if __name__ == '__main__':

@@ -19,8 +19,8 @@ from apysc import assert_dicts_equal
 from apysc import assert_dicts_not_equal
 from apysc import assert_equal
 from apysc import assert_not_equal
+from apysc import save_overall_html
 from apysc.file import file_util
-from apysc.html import exporter
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -60,8 +60,7 @@ def main() -> None:
     assert_not_equal(
         expected={'a': 10}, actual=Dictionary({'a': 11}))
 
-    exporter.save_overall_html(
-        dest_dir_path=_DEST_DIR_PATH)
+    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 if __name__ == '__main__':

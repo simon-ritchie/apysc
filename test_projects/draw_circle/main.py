@@ -19,8 +19,8 @@ from apysc import LineDotSetting
 from apysc import MouseEvent
 from apysc import Sprite
 from apysc import Stage
+from apysc import save_overall_html
 from apysc.file import file_util
-from apysc.html import exporter
 
 this_module: ModuleType = sys.modules[__name__]
 
@@ -49,8 +49,7 @@ def main() -> None:
         dot_setting=LineDotSetting(dot_size=3))
     circle = sprite.graphics.draw_circle(x=250, y=100, radius=100)
 
-    exporter.save_overall_html(
-        dest_dir_path=_DEST_DIR_PATH)
+    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 def on_circle_click(e: MouseEvent[Circle], options: Dict[str, Any]) -> None:

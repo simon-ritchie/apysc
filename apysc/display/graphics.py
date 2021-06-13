@@ -8,10 +8,10 @@ from typing import Union
 
 from apysc import Array
 from apysc import Int
-from apysc.display.display_object import DisplayObject
 from apysc.display.begin_fill_interface import BeginFillInterface
 from apysc.display.child_interface import ChildInterface
 from apysc.display.circle import Circle
+from apysc.display.display_object import DisplayObject
 from apysc.display.ellipse import Ellipse
 from apysc.display.graphics_clear_interface import GraphicsClearInterface
 from apysc.display.line import Line

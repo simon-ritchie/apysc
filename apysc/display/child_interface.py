@@ -259,8 +259,8 @@ def append_expression_of_remove_child(child: DisplayObject) -> None:
         Child object to remove.
     """
     from apysc.expression import expression_file_util
-    from apysc.expression import var_names
     from apysc.expression import expression_variables_util
+    from apysc.expression import var_names
     parent_name: str = expression_variables_util.get_next_variable_name(
         type_name=var_names.PARENT)
     child_name: str = child.variable_name

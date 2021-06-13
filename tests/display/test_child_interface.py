@@ -1,6 +1,7 @@
-from random import randint
-from typing import Match, Optional
 import re
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
@@ -11,7 +12,8 @@ from apysc import Sprite
 from apysc import Stage
 from apysc.display.child_interface import ChildInterface
 from apysc.display.display_object import DisplayObject
-from apysc.expression import expression_file_util, var_names
+from apysc.expression import expression_file_util
+from apysc.expression import var_names
 
 
 class TestChildInterface:

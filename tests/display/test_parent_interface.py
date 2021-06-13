@@ -5,7 +5,6 @@ from retrying import retry
 
 from apysc import Sprite
 from apysc import Stage
-from tests import testing_helper
 from apysc.expression import expression_file_util
 
 

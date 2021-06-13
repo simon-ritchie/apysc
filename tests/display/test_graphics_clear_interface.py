@@ -41,4 +41,4 @@ class TestGraphicsClearInterface:
         testing_helper.assert_attrs(
             expected_attrs=expected_attrs,
             any_obj=sprite.graphics)
-        assert sprite.num_children == 0
+        assert sprite.graphics.num_children == 0

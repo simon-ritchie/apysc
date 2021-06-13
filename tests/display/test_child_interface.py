@@ -22,7 +22,6 @@ class TestChildInterface:
     def test_add_child(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
-        stage.add_child(child=sprite)
         assert stage._children == Array([sprite])
         assert sprite.parent == stage
 
@@ -68,7 +67,7 @@ class TestChildInterface:
         assert stage.contains(child=sprite_1)
 
         sprite_2: Sprite = Sprite(stage=stage)
-        assert not stage.contains(child=sprite_2)
+        assert not sprite_1.contains(child=sprite_2)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_contains_expression(self) -> None:
@@ -97,7 +96,7 @@ class TestChildInterface:
 
         sprite_3: Sprite = Sprite(stage=stage)
         sprite_1.add_child(child=sprite_3)
-        assert sprite_1.num_children == 1
+        assert sprite_1.num_children == 2
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_get_child_at(self) -> None:
@@ -121,7 +120,7 @@ class TestChildInterface:
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{num_children_1.variable_name} = '
-            f'{stage.variable_name}.children().length - 0;'
+            f'{stage.variable_name}.children().length;'
         )
         assert expected in expression
 
@@ -131,7 +130,7 @@ class TestChildInterface:
         expression = expression_file_util.get_current_expression()
         expected = (
             f'{num_children_2.variable_name} = '
-            f'{sprite_1.variable_name}.children().length - 1;'
+            f'{sprite_1.variable_name}.children().length;'
         )
         assert expected in expression
 
@@ -147,7 +146,7 @@ class TestChildInterface:
         expected: str = (
             f'var {child_1.variable_name} = '
             f'{stage.variable_name}.children()'
-            f'[{int_1.variable_name} + 0];'
+            f'[{int_1.variable_name}];'
         )
         assert expected in expression
 
@@ -157,7 +156,7 @@ class TestChildInterface:
         expression = expression_file_util.get_current_expression()
         expected = (
             f'var {child_2.variable_name} = '
-            f'{sprite_1.variable_name}.children()[0 + 1];'
+            f'{sprite_1.variable_name}.children()[0];'
         )
         assert expected in expression
 
@@ -191,7 +190,7 @@ class TestChildInterface:
         assert stage._snapshot_exists(
             snapshot_name=snapshot_name_1)
         assert sprite_1._children_snapshots[snapshot_name_1] == [
-            sprite_2]
+            sprite_1.graphics, sprite_2]
 
         stage.remove_child(child=sprite_1)
         stage._run_all_make_snapshot_methods(
@@ -215,7 +214,7 @@ class TestChildInterface:
         sprite_1.remove_child(child=sprite_2)
         stage._run_all_revert_methods(snapshot_name=snapshot_name_1)
         assert stage._children == [sprite_1, 100]
-        assert sprite_1._children == [sprite_2]
+        assert sprite_1._children == [sprite_1.graphics, sprite_2]
         assert not stage._snapshot_exists(
             snapshot_name=snapshot_name_1)
         assert not sprite_1._snapshot_exists(

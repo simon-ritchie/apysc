@@ -25,7 +25,6 @@ def test_validate_parent_instance() -> None:
 def test_validate_parent_contains_chils() -> None:
     stage: Stage = Stage()
     sprite_1: Sprite = Sprite(stage=stage)
-    stage.add_child(child=sprite_1)
     parent_validation.validate_parent_contains_child(
         parent=stage, child=sprite_1)
 
@@ -34,7 +33,7 @@ def test_validate_parent_contains_chils() -> None:
         expected_error_class=ValueError,
         func_or_method=parent_validation.validate_parent_contains_child,
         kwargs={
-            'parent': stage,
+            'parent': sprite_1,
             'child': sprite_2,
         })
 

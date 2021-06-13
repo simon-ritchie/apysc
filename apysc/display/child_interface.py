@@ -17,7 +17,6 @@ class ChildInterface(RevertInterface):
 
     _children: Array[DisplayObject]
     _variable_name: str
-    _js_child_adjust_num: int = 0
     stage: Any
 
     def add_child(self, child: DisplayObject) -> None:
@@ -32,6 +31,8 @@ class ChildInterface(RevertInterface):
         from apysc.validation import display_validation
         self._initialize_children_if_not_initialized()
         display_validation.validate_display_object(display_object=child)
+        if child.parent is not None:
+            child.remove_from_parent()
         self._children.append(child)
         child.parent = self
         self._append_expression_of_add_child(child=child)
@@ -167,8 +168,7 @@ class ChildInterface(RevertInterface):
         from apysc.expression import expression_file_util
         expression: str = (
             f'{num_children.variable_name} = '
-            f'{self._variable_name}.children().length'
-            f' - {self._js_child_adjust_num};'
+            f'{self._variable_name}.children().length;'
         )
         expression_file_util.append_js_expression(expression=expression)
 
@@ -217,7 +217,7 @@ class ChildInterface(RevertInterface):
         expression: str = (
             f'var {child.variable_name} = '
             f'{self._variable_name}.children()'
-            f'[{index_str} + {self._js_child_adjust_num}];'
+            f'[{index_str}];'
         )
         print(expression)
         expression_file_util.append_js_expression(expression=expression)

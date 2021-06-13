@@ -33,9 +33,6 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names
 
-        # Graphics sprite child cound of 1.
-        self._js_child_adjust_num = 1
-
         if variable_name is None:
             variable_name = expression_variables_util.\
                 get_next_variable_name(type_name=var_names.SPRITE)

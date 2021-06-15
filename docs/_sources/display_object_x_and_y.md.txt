@@ -1,4 +1,4 @@
-# Display object x and y interface
+# Display object x and y interfaces
 
 This page will explain the `DisplayObject` class `x` and `y` property interfaces.
 

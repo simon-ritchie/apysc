@@ -7,18 +7,20 @@ $ python event_binding_to_multi_instances/main.py
 """
 
 import sys
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
 
-from apysc import MouseEvent, trace
+from apysc import MouseEvent
 from apysc import Rectangle
 from apysc import Sprite
 from apysc import Stage
 from apysc import save_overall_html
+from apysc import trace
 from apysc.file import file_util
 
 this_module: ModuleType = sys.modules[__name__]

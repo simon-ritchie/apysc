@@ -524,6 +524,14 @@ class TestNumberValueInterface:
             x_interface=x_interface,
             previous_x_variable_name=previous_variable_name)
 
+        expression_file_util.remove_expression_file()
+        x_interface, previous_variable_name = self._make_x_interface_instance()
+        x: Int = x_interface.x
+        x /= 2
+        self._assert_substitution_expression_to_prev_var_not_exist(
+            x_interface=x_interface,
+            previous_x_variable_name=previous_variable_name)
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___str__(self) -> None:
         interface_1: NumberValueInterface = NumberValueInterface(

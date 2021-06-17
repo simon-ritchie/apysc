@@ -49,6 +49,8 @@ class EllipseHeightInterface(VariableNameInterface, RevertInterface):
         if isinstance(value, int):
             value = Int(value)
         self._ellipse_height = value
+        self._ellipse_height.\
+            _append_incremental_calc_substitution_expression()
         self._append_ellipse_height_update_expression()
 
     def _append_ellipse_height_update_expression(self) -> None:

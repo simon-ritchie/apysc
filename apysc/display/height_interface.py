@@ -46,6 +46,7 @@ class HeightInterface(VariableNameInterface, RevertInterface):
             Height value to set.
         """
         self._update_height_and_skip_appending_exp(value=value)
+        self._height._append_incremental_calc_substitution_expression()
         self._append_height_update_expression()
 
     def _append_height_update_expression(self) -> None:

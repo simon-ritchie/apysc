@@ -52,6 +52,7 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
         if not isinstance(value, NumberValueInterface):
             value = Number(value=value)
         self._update_fill_alpha_and_skip_appending_exp(value=value)
+        self._fill_alpha._append_incremental_calc_substitution_expression()
         self._append_fill_alpha_update_expression()
 
     def _append_fill_alpha_update_expression(self) -> None:

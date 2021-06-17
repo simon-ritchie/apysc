@@ -46,6 +46,8 @@ class LineThicknessInterface(VariableNameInterface, RevertInterface):
             Line thickness to set.
         """
         self._update_line_thickness_and_skip_appending_exp(value=value)
+        self._line_thickness.\
+            _append_incremental_calc_substitution_expression()
         self._append_line_thickness_update_expression()
 
     def _append_line_thickness_update_expression(self) -> None:

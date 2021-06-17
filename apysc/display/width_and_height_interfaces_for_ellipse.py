@@ -59,6 +59,7 @@ class WidthAndHeightInterfacesForEllipse(
             number_validation.validate_integer(integer=value)
             value = Int(value)
         self._width = value
+        self._width._append_incremental_calc_substitution_expression()
         self._append_ellipse_width_and_height_update_expression()
 
     @property
@@ -90,6 +91,7 @@ class WidthAndHeightInterfacesForEllipse(
             number_validation.validate_integer(integer=value)
             value = Int(value)
         self._height = value
+        self._height._append_incremental_calc_substitution_expression()
         self._append_ellipse_width_and_height_update_expression()
 
     def _append_ellipse_width_and_height_update_expression(self) -> None:

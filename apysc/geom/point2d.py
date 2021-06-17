@@ -84,6 +84,7 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         if isinstance(value, int):
             value = Int(value)
         self._x = value
+        self._x._append_incremental_calc_substitution_expression()
         self._append_x_setter_expression(value=value)
 
     def _append_x_getter_expression(self, x: Int) -> None:
@@ -146,6 +147,7 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         if isinstance(value, int):
             value = Int(value)
         self._y = value
+        self._y._append_incremental_calc_substitution_expression()
         self._append_y_setter_expression(value=value)
 
     def _append_y_getter_expression(self, y: Int) -> None:

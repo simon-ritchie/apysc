@@ -46,6 +46,7 @@ class WidthInterface(VariableNameInterface, RevertInterface):
             Width value to set.
         """
         self._update_width_and_skip_appending_exp(value=value)
+        self._width._append_incremental_calc_substitution_expression()
         self._append_width_update_expression()
 
     def _append_width_update_expression(self) -> None:

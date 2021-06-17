@@ -54,6 +54,10 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
         self._ellipse_size = value
         self._ellipse_width = value
         self._ellipse_height = value
+        self._ellipse_size._append_incremental_calc_substitution_expression()
+        self._ellipse_width._append_incremental_calc_substitution_expression()
+        self._ellipse_height.\
+            _append_incremental_calc_substitution_expression()
         self._append_ellipse_size_update_expression()
 
     def _append_ellipse_size_update_expression(self) -> None:

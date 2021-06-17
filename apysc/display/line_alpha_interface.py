@@ -45,6 +45,7 @@ class LineAlphaInterface(VariableNameInterface, RevertInterface):
             Line alpha (opacity) to set.
         """
         self._update_line_alpha_and_skip_appending_exp(value=value)
+        self._line_alpha._append_incremental_calc_substitution_expression()
         self._append_line_alpha_update_expression()
 
     def _append_line_alpha_update_expression(self) -> None:

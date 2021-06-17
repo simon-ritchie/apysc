@@ -49,6 +49,7 @@ class CyInterface(VariableNameInterface, RevertInterface):
         if not isinstance(value, Int):
             value = Int(value)
         self._cy = value
+        self._cy._append_incremental_calc_substitution_expression()
         self._append_cy_update_expression()
 
     def _append_cy_update_expression(self) -> None:

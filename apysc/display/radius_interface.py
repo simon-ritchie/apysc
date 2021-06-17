@@ -49,6 +49,7 @@ class RadiusInterface(VariableNameInterface, RevertInterface):
         number_validation.validate_integer(integer=value)
         value = self._get_converted_radius_int(radius=value)
         self._radius = value
+        self._radius._append_incremental_calc_substitution_expression()
         self._append_radius_update_expression()
 
     def _get_converted_radius_int(self, radius: Union[int, Int]) -> Int:

@@ -49,6 +49,7 @@ class CxInterface(VariableNameInterface, RevertInterface):
         if not isinstance(value, Int):
             value = Int(value)
         self._cx = value
+        self._cx._append_incremental_calc_substitution_expression()
         self._append_cx_update_expression()
 
     def _append_cx_update_expression(self) -> None:

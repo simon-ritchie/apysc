@@ -366,6 +366,30 @@ class TestNumberValueInterface:
             f'{previous_x_variable_name} = {x_interface._x.variable_name};')
         assert expected in expression
 
+    def _assert_substitution_expression_to_prev_var_not_exist(
+            self, x_interface: XInterface,
+            previous_x_variable_name: str) -> None:
+        """
+        Assert the substitution expression to the previous x
+        variable name does not exist.
+
+        Parameters
+        ----------
+        x_interface : XInterface
+            Targe x interface instance.
+        previous_x_variable_name : str
+            Variable name before a calculation.
+
+        Raises
+        ------
+        AssertionError
+            If the substitution expression exists.
+        """
+        expression = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{previous_x_variable_name} = {x_interface._x.variable_name};')
+        assert expected not in expression
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___iadd__(self) -> None:
         expression_file_util.remove_expression_file()
@@ -392,6 +416,14 @@ class TestNumberValueInterface:
         x_interface, previous_variable_name = self._make_x_interface_instance()
         x_interface.x += 20
         self._assert_substitution_expression_to_prev_var_exists(
+            x_interface=x_interface,
+            previous_x_variable_name=previous_variable_name)
+
+        expression_file_util.remove_expression_file()
+        x_interface, previous_variable_name = self._make_x_interface_instance()
+        x: Int = x_interface.x
+        x += 20
+        self._assert_substitution_expression_to_prev_var_not_exist(
             x_interface=x_interface,
             previous_x_variable_name=previous_variable_name)
 
@@ -847,3 +879,14 @@ class TestNumberValueInterface:
         converted_val = interface_1._convert_other_val_to_int_or_number(
             other='Hello')
         assert converted_val == 'Hello'
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_incremental_calc_substitution_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        x_interface, previous_variable_name = \
+            self._make_x_interface_instance()
+        x_interface.x += 10
+        self._assert_substitution_expression_to_prev_var_exists(
+            x_interface=x_interface,
+            previous_x_variable_name=previous_variable_name)
+        assert x_interface._x._incremental_calc_prev_name == ''

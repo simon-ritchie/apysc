@@ -46,19 +46,19 @@ def main() -> None:
     rectangle_1.click(on_rectangle_1_click)
 
     # The test pattern for the incremental subtraction interface.
-    rectangle_2: Rectangle = sprite.graphics.draw_rect(
-        x=150, y=400, width=50, height=50)
-    rectangle_2.click(on_rectangle_2_click)
+    # rectangle_2: Rectangle = sprite.graphics.draw_rect(
+    #     x=150, y=400, width=50, height=50)
+    # rectangle_2.click(on_rectangle_2_click)
 
-    # The test pattern for the incremental multiplication interface.
-    rectangle_3: Rectangle = sprite.graphics.draw_rect(
-        x=250, y=50, width=50, height=50)
-    rectangle_3.click(on_rectangle_3_click)
+    # # The test pattern for the incremental multiplication interface.
+    # rectangle_3: Rectangle = sprite.graphics.draw_rect(
+    #     x=250, y=50, width=50, height=50)
+    # rectangle_3.click(on_rectangle_3_click)
 
-    # The test pattern for the incremental true division interface.
-    rectangle_4: Rectangle = sprite.graphics.draw_rect(
-        x=350, y=400, width=50, height=50)
-    rectangle_4.click(on_rectangle_4_click)
+    # # The test pattern for the incremental true division interface.
+    # rectangle_4: Rectangle = sprite.graphics.draw_rect(
+    #     x=350, y=400, width=50, height=50)
+    # rectangle_4.click(on_rectangle_4_click)
 
     save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 

@@ -50,6 +50,7 @@ class YInterface(VariableNameInterface, RevertInterface):
             number_validation.validate_integer(integer=value)
             value = Int(value=value)
         self._y = value
+        self._y._append_incremental_calc_substitution_expression()
         self._append_y_update_expression()
 
     def _append_y_update_expression(self) -> None:

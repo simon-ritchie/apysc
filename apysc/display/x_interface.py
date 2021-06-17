@@ -50,6 +50,7 @@ class XInterface(VariableNameInterface, RevertInterface):
             number_validation.validate_integer(integer=value)
             value = Int(value=value)
         self._x = value
+        self._x._append_incremental_calc_substitution_expression()
         self._append_x_update_expression()
 
     def _append_x_update_expression(self) -> None:

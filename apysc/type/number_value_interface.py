@@ -344,6 +344,19 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         )
         expression_file_util.append_js_expression(expression=expression)
 
+    _incremental_calc_prev_name: str = ''
+
+    def _append_incremental_calc_substitution_expression(self) -> None:
+        """
+        Append a incremental calculation's substitution expression
+        to file. This method will be called from the each interface.
+        """
+        from apysc.expression import expression_variables_util
+        expression_variables_util.append_substitution_expression_with_names(
+            left_variable_name=self._incremental_calc_prev_name,
+            right_variable_name=self.variable_name)
+        self._incremental_calc_prev_name = ''
+
     def __iadd__(self, other: Union[int, float, Any]) -> Any:
         """
         Method for incremental addition.
@@ -351,7 +364,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         Parameters
         ----------
         other : int or float or NumberValueInterface
-            Other value for incremental addition.
+            Other value for` incremental addition.
 
         Returns
         -------
@@ -359,13 +372,10 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             Incremental addition result value.
         """
         from apysc.expression import expression_variables_util
-        previous_variable_name: str = self._get_previous_variable_name()
+        self._incremental_calc_prev_name = self._get_previous_variable_name()
         result: NumberValueInterface = self + other
         expression_variables_util.append_substitution_expression(
             left_value=self, right_value=result)
-        expression_variables_util.append_substitution_expression_with_names(
-            left_variable_name=previous_variable_name,
-            right_variable_name=self.variable_name)
         result.variable_name = self.variable_name
         return result
 

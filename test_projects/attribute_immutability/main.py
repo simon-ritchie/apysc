@@ -12,14 +12,12 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Int, trace
-from apysc import LineDotSetting
-from apysc import Number
+from apysc import Int
 from apysc import Rectangle
 from apysc import Sprite
 from apysc import Stage
-from apysc import String
-from apysc import assert_not_equal, assert_equal
+from apysc import assert_equal
+from apysc import assert_not_equal
 from apysc import save_overall_html
 from apysc.file import file_util
 

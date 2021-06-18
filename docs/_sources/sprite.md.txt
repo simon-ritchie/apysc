@@ -71,8 +71,8 @@ def on_sprite_click(
 
 stage: Stage = Stage(
     background_color='#333',
-    stage_width=150,
-    stage_height=150,
+    stage_width=250,
+    stage_height=250,
     stage_elem_id='stage')
 
 sprite: Sprite = Sprite(stage=stage)
@@ -83,5 +83,7 @@ sprite.click(on_sprite_click)
 
 save_overall_html(dest_dir_path='sprite_move_instances_simultaneously/')
 ```
+
+<iframe src="static/sprite_move_instances_simultaneously/index.html" width="250" height="250"></iframe>
 
 The subsequent pages will explain the other interfaces, such as the `add_child` interface.

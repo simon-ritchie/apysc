@@ -26,6 +26,10 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 - [DisplayObject class visible interface](display_object_visible.md)
 - [DisplayObject class mouse event binding interfaces](display_object_mouse_event.md)
 
+**Sprite**
+
+- [Sprite class](sprite.md)
+
 **Graphics class**
 
 - [Graphics class](graphics.md)

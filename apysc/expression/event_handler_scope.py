@@ -8,23 +8,23 @@ from typing import Any
 
 class HandlerScope:
     """
-    Class for handler scope. This is used at with statement.
+    Class for a handler scope. This is used at a with statement.
     """
 
     def __init__(self) -> None:
         """
-        Class for handler scope. This is used at with statement.
+        Class for a handler scope. This is used at a with statement.
         """
 
     def __enter__(self) -> None:
         """
-        Enter and set event handler scope setting.
+        Enter and set an event handler scope setting.
         """
         _increment_scope_count()
 
     def __exit__(self, *args: Any) -> None:
         """
-        Exit and remove event handler scope setting.
+        Exit and remove an event handler scope setting.
 
         Parameters
         ----------
@@ -32,6 +32,39 @@ class HandlerScope:
             Positional arguments.
         """
         _decrement_scope_count()
+
+
+class TemporaryNotHandlerScope:
+    """
+    Class temporarily sets up a scope that is not a handler.
+    This is used at a with statement.
+    """
+
+    _original_scope_count: int
+
+    def __init__(self) -> None:
+        """
+        Class temporarily sets up a scope that is not a handler.
+        This is used at a with statement.
+        """
+        self._original_scope_count = get_current_event_handler_scope_count()
+
+    def __enter__(self) -> None:
+        """
+        Enter and set the scope count to zero.
+        """
+        _save_current_scope_count(count=0)
+
+    def __exit__(self, *args: Any) -> None:
+        """
+        Exit and revert the scope count.
+
+        Parameters
+        ----------
+        *args : list
+            Positional arguments.
+        """
+        _save_current_scope_count(count=self._original_scope_count)
 
 
 def _increment_scope_count() -> None:

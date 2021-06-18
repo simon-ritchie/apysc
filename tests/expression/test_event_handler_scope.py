@@ -4,7 +4,7 @@ from retrying import retry
 
 from apysc.expression import event_handler_scope
 from apysc.expression import expression_file_util
-from apysc.expression.event_handler_scope import HandlerScope
+from apysc.expression.event_handler_scope import HandlerScope, TemporaryNotHandlerScope
 from apysc.file import file_util
 
 
@@ -125,3 +125,32 @@ class TestHandlerScope:
         assert scope_count == 0
 
         file_util.remove_file_if_exists(file_path=file_path)
+
+
+class TestTemporaryNotHandlerScope:
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___init__(self) -> None:
+        event_handler_scope._save_current_scope_count(count=1)
+        scope: TemporaryNotHandlerScope = TemporaryNotHandlerScope()
+        event_handler_scope._save_current_scope_count(count=0)
+        assert scope._original_scope_count == 1
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___enter__(self) -> None:
+        event_handler_scope._save_current_scope_count(count=1)
+        with TemporaryNotHandlerScope():
+            scope_count: int = event_handler_scope.\
+                get_current_event_handler_scope_count()
+            assert scope_count == 0
+        event_handler_scope._save_current_scope_count(count=0)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___exit__(self) -> None:
+        event_handler_scope._save_current_scope_count(count=1)
+        with TemporaryNotHandlerScope():
+            pass
+        scope_count: int = event_handler_scope.\
+            get_current_event_handler_scope_count()
+        assert scope_count == 1
+        event_handler_scope._save_current_scope_count(count=0)

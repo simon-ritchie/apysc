@@ -16,7 +16,7 @@ def test_get_module_paths_recursively() -> None:
 
     module_paths = module_util.get_module_paths_recursively(
         dir_path='./tests/')
-    assert './tests/file/test_module_util.py' in module_paths
+    assert './tests/_file/test_module_util.py' in module_paths
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

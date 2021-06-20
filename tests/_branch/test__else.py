@@ -14,7 +14,7 @@ from apysc._expression.last_scope import LastScope
 
 class TestElse:
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @retry(stop_max_attempt_number=15, wait_fixed=1000)
     def test__append_enter_expression(self) -> None:
         expression_file_util.remove_expression_file()
         last_scope.reset()

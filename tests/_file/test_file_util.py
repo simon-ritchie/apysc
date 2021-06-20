@@ -71,7 +71,7 @@ def test_remove_file_if_exists() -> None:
 def test_get_abs_module_dir_path() -> None:
     abs_module_dir_path: str = file_util.get_abs_module_dir_path(
         module=file_util)
-    assert abs_module_dir_path.endswith('/apysc/file/')
+    assert abs_module_dir_path.endswith('/apysc/_file/')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

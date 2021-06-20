@@ -8,7 +8,7 @@ from apysc.type.any_value import AnyValue  # isort:skip # noqa
 from apysc._branch._if import If  # isort:skip # noqa
 from apysc._branch._elif import Elif  # isort:skip # noqa
 from apysc._branch._else import Else  # isort:skip # noqa
-from apysc.loop._for import For  # isort:skip # noqa
+from apysc._loop._for import For  # isort:skip # noqa
 from apysc._display.display_object import DisplayObject  # isort:skip # noqa
 from apysc._display._document import document  # isort:skip # noqa
 from apysc._display.sprite import Sprite  # isort:skip # noqa

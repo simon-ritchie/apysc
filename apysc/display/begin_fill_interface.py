@@ -36,7 +36,7 @@ class BeginFillInterface(RevertInterface):
             Color opacity (0.0 to 1.0).
         """
         from apysc._color import color_util
-        from apysc.converter import cast
+        from apysc._converter import cast
         from apysc.validation import color_validation
         from apysc.validation import number_validation
         self._initialize_fill_color_if_not_initialized()

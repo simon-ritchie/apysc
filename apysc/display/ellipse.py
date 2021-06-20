@@ -41,7 +41,7 @@ class Ellipse(
         height : int or Int
             Ellipse height.
         """
-        from apysc.converter.to_apysc_val_from_builtin import \
+        from apysc._converter.to_apysc_val_from_builtin import \
             get_copied_int_from_builtin_val
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names

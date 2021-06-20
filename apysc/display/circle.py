@@ -64,7 +64,7 @@ class Circle(CxInterface, CyInterface, LineBase, RadiusInterface):
         y : int or Int
             Y-coordinate of the circle center.
         """
-        from apysc.converter.to_apysc_val_from_builtin import \
+        from apysc._converter.to_apysc_val_from_builtin import \
             get_copied_int_from_builtin_val
         self.x = get_copied_int_from_builtin_val(integer=x)
         self.y = get_copied_int_from_builtin_val(integer=y)

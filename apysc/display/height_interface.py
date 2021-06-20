@@ -69,7 +69,7 @@ class HeightInterface(VariableNameInterface, RevertInterface):
         value : int or Int
             Height value to set.
         """
-        from apysc.converter import cast
+        from apysc._converter import cast
         from apysc.validation import size_validation
         self._initialize_height_if_not_initialized()
         value = cast.to_int_from_float(int_or_float=value)

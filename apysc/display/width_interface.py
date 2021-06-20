@@ -69,7 +69,7 @@ class WidthInterface(VariableNameInterface, RevertInterface):
         value : int or Int
             Width value to set.
         """
-        from apysc.converter import cast
+        from apysc._converter import cast
         from apysc.validation import size_validation
         self._initialize_width_if_not_initialized()
         value = cast.to_int_from_float(int_or_float=value)

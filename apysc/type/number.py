@@ -19,7 +19,7 @@ class Number(NumberValueInterface):
             Initial floating point number value. If int or Int value
             is specified, that value will be cast to float.
         """
-        from apysc.converter import cast
+        from apysc._converter import cast
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names
         from apysc.expression.event_handler_scope import \
@@ -43,7 +43,7 @@ class Number(NumberValueInterface):
             Any number value to set. If float or Number value is specified,
             that value will be cast to integer.
         """
-        from apysc.converter import cast
+        from apysc._converter import cast
         from apysc.validation import number_validation
         number_validation.validate_num(num=value)
         if isinstance(value, NumberValueInterface):

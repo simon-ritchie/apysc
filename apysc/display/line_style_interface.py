@@ -86,7 +86,7 @@ class LineStyleInterface(RevertInterface):
             will be 1-dot chained.
         """
         from apysc._color import color_util
-        from apysc.converter import cast
+        from apysc._converter import cast
         from apysc.type.number_value_interface import NumberValueInterface
         from apysc.validation import color_validation
         from apysc.validation import display_validation

@@ -58,7 +58,7 @@ class Boolean(CopyInterface, RevertInterface):
         result : bool
             Converted boolean value.
         """
-        from apysc.converter import cast
+        from apysc._converter import cast
         from apysc.type.number_value_interface import NumberValueInterface
         from apysc.validation import bool_validation
         if isinstance(value, (int, float, NumberValueInterface)):

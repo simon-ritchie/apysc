@@ -23,16 +23,19 @@ class Int(NumberValueInterface):
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names
         from apysc.type import type_util
-        is_number_specified: bool = type_util.is_number(
-            value=value)
-        TYPE_NAME: str = var_names.INT
-        self.variable_name = expression_variables_util.get_next_variable_name(
-            type_name=TYPE_NAME)
-        super(Int, self).__init__(value=value, type_name=TYPE_NAME)
-        self._value = cast.to_int_from_float(int_or_float=self.value)
-        self.append_constructor_expression()
-        self._append_cast_expression(
-            is_number_specified=is_number_specified)
+        from apysc.expression.event_handler_scope import \
+            TemporaryNotHandlerScope
+        with TemporaryNotHandlerScope():
+            is_number_specified: bool = type_util.is_number(
+                value=value)
+            TYPE_NAME: str = var_names.INT
+            self.variable_name = expression_variables_util.\
+                get_next_variable_name(type_name=TYPE_NAME)
+            super(Int, self).__init__(value=value, type_name=TYPE_NAME)
+            self._value = cast.to_int_from_float(int_or_float=self.value)
+            self.append_constructor_expression()
+            self._append_cast_expression(
+                is_number_specified=is_number_specified)
 
     def _append_cast_expression(
             self, is_number_specified: bool) -> None:

@@ -29,15 +29,18 @@ class Boolean(CopyInterface, RevertInterface):
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names
         from apysc.validation import number_validation
-        TYPE_NAME: str = var_names.BOOLEAN
-        number_validation.validate_int_is_zero_or_one(integer=value)
-        self._initial_value = value
-        value_: bool = self._get_bool_from_arg_value(value=value)
-        self._value = value_
-        self._type_name = TYPE_NAME
-        self.variable_name = expression_variables_util.get_next_variable_name(
-            type_name=TYPE_NAME)
-        self._append_constructor_expression()
+        from apysc.expression.event_handler_scope import \
+            TemporaryNotHandlerScope
+        with TemporaryNotHandlerScope():
+            TYPE_NAME: str = var_names.BOOLEAN
+            number_validation.validate_int_is_zero_or_one(integer=value)
+            self._initial_value = value
+            value_: bool = self._get_bool_from_arg_value(value=value)
+            self._value = value_
+            self._type_name = TYPE_NAME
+            self.variable_name = expression_variables_util.\
+                get_next_variable_name(type_name=TYPE_NAME)
+            self._append_constructor_expression()
 
     def _get_bool_from_arg_value(
             self, value: Union[bool, int, Int, Any]) -> bool:

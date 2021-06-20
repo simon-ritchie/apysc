@@ -27,14 +27,17 @@ class String(CopyInterface, RevertInterface):
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names
         from apysc.validation import string_validation
-        TYPE_NAME: str = var_names.STRING
-        string_validation.validate_string_type(string=value)
-        self._initial_value = value
-        self._type_name = TYPE_NAME
-        self._value = self._get_str_value(value=value)
-        self.variable_name = expression_variables_util.get_next_variable_name(
-            type_name=TYPE_NAME)
-        self._append_constructor_expression()
+        from apysc.expression.event_handler_scope import \
+            TemporaryNotHandlerScope
+        with TemporaryNotHandlerScope():
+            TYPE_NAME: str = var_names.STRING
+            string_validation.validate_string_type(string=value)
+            self._initial_value = value
+            self._type_name = TYPE_NAME
+            self._value = self._get_str_value(value=value)
+            self.variable_name = expression_variables_util.\
+                get_next_variable_name(type_name=TYPE_NAME)
+            self._append_constructor_expression()
 
     def _append_constructor_expression(self) -> None:
         """

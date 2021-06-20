@@ -20,12 +20,15 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
             Copied instance.
         """
         from apysc.expression import expression_variables_util
-        result: CopyInterface = deepcopy(self)
-        result.variable_name = \
-            expression_variables_util.get_next_variable_name(
-                type_name=self.type_name)
-        self._append_copy_expression(
-            result_variable_name=result.variable_name)
+        from apysc.expression.event_handler_scope import \
+            TemporaryNotHandlerScope
+        with TemporaryNotHandlerScope():
+            result: CopyInterface = deepcopy(self)
+            result.variable_name = \
+                expression_variables_util.get_next_variable_name(
+                    type_name=self.type_name)
+            self._append_copy_expression(
+                result_variable_name=result.variable_name)
         return result
 
     def _append_copy_expression(self, result_variable_name: str) -> None:

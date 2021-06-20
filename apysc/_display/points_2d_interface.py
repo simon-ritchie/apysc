@@ -5,7 +5,7 @@ from typing import Dict
 from typing import Tuple
 
 from apysc import Array
-from apysc.geom.point2d import Point2D
+from apysc._geom.point2d import Point2D
 from apysc.type.revert_interface import RevertInterface
 from apysc.type.variable_name_interface import VariableNameInterface
 

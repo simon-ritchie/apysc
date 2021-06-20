@@ -19,7 +19,7 @@ from apysc._display.line_style_interface import LineStyleInterface
 from apysc._display.polygon import Polygon
 from apysc._display.polyline import Polyline
 from apysc._display.rectangle import Rectangle
-from apysc.geom.point2d import Point2D
+from apysc._geom.point2d import Point2D
 from apysc.type.variable_name_interface import VariableNameInterface
 
 

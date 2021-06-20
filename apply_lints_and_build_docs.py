@@ -16,7 +16,7 @@ from typing import Optional
 from typing_extensions import Final
 from typing_extensions import TypedDict
 
-from apysc.console import loggers
+from apysc._console import loggers
 
 logger: Logger = loggers.get_info_logger()
 

@@ -7,7 +7,7 @@ from apysc import Boolean
 from apysc import Dictionary
 from apysc import Int
 from apysc import Point2D
-from apysc.console import assertion
+from apysc._console import assertion
 from apysc.expression import expression_file_util
 
 

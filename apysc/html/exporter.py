@@ -11,7 +11,7 @@ from typing import Pattern
 
 from html_minifier.minify import Minifier
 
-from apysc.console import loggers
+from apysc._console import loggers
 
 info_logger: Logger = loggers.get_info_logger()
 

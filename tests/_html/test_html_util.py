@@ -7,8 +7,8 @@ from retrying import retry
 
 from apysc import String
 from apysc._expression import expression_file_util
-from apysc.html import html_util
-from apysc.html.html_util import ScriptLineUtil
+from apysc._html import html_util
+from apysc._html.html_util import ScriptLineUtil
 from tests import testing_helper
 
 

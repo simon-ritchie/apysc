@@ -292,7 +292,7 @@ def wrap_expression_by_script_tag(expression: str) -> str:
     expression : str
         Wrapped expression string.
     """
-    from apysc.html import html_const
+    from apysc._html import html_const
     expression = (
         f'{html_const.SCRIPT_START_TAG}'
         f'\n{expression}'

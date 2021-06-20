@@ -47,7 +47,7 @@ def save_overall_html(
         If True is set, then JavaScript libraries will not be exported.
     """
     from apysc._file import file_util
-    from apysc.html import html_util
+    from apysc._html import html_util
     info_logger.info(msg='Overall exporting started...')
     file_util.empty_directory(directory_path=dest_dir_path)
     info_logger.info(msg='JavaScript libraries exporting...')
@@ -117,8 +117,8 @@ def _append_stage_global_variable_to_html(html_str: str) -> str:
         After appended HTML string.
     """
     from apysc._display.stage import get_stage_elem_id
-    from apysc.html import html_const
-    from apysc.html import html_util
+    from apysc._html import html_const
+    from apysc._html import html_util
     html_str = html_util.append_html_to_str(
         to_append_html=html_const.SCRIPT_START_TAG,
         dest_html=html_str, indent_num=0)
@@ -210,8 +210,8 @@ def _append_expression_to_html_str(html_str: str) -> str:
     """
     from apysc._expression import expression_file_util
     from apysc._file import file_util
-    from apysc.html import html_const
-    from apysc.html import html_util
+    from apysc._html import html_const
+    from apysc._html import html_util
     info_logger.info(msg='Reading basic expression file...')
     expression: str = file_util.read_txt(
         file_path=expression_file_util.EXPRESSION_FILE_PATH)
@@ -422,8 +422,8 @@ def _append_head_to_html_str(
     html_str : str
         HTML string after appended.
     """
-    from apysc.html import html_util
-    from apysc.jslib import jslib_util
+    from apysc._html import html_util
+    from apysc._jslib import jslib_util
     html_str = html_util.append_html_to_str(
         to_append_html='<head>', dest_html=html_str, indent_num=0)
     html_str = html_util.append_html_to_str(
@@ -461,7 +461,7 @@ def _export_js_libs(
     if skip_js_lib_exporting:
         return []
 
-    from apysc.jslib import jslib_util
+    from apysc._jslib import jslib_util
     jslib_file_names: List[str] = jslib_util.get_jslib_file_names()
     saved_js_file_paths: List[str] = []
     for jslib_file_name in jslib_file_names:

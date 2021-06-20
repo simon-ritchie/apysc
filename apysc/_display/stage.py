@@ -55,7 +55,7 @@ class Stage(
         """
         from apysc import Array
         from apysc._color import color_util
-        from apysc.html import html_util
+        from apysc._html import html_util
         from apysc.validation import string_validation
         expression_file_util.empty_expression_dir()
         self.stage = self

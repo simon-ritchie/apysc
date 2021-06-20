@@ -20,7 +20,7 @@ from typing import Tuple
 from typing_extensions import Final
 
 from apysc._console import loggers
-from apysc.jslib import jslib_util
+from apysc._jslib import jslib_util
 
 logger: Logger = loggers.get_info_logger()
 

@@ -49,6 +49,6 @@ from apysc._event.document_mouse_wheel_interface import \
 from apysc._event.document_mouse_wheel_interface import \
     unbind_wheel_event_from_document  # isort:skip # noqa
 
-from apysc.html.exporter import save_overall_html  # isort:skip # noqa
+from apysc._html.exporter import save_overall_html  # isort:skip # noqa
 
 __version__: str = '0.19.0'

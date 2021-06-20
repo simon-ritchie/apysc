@@ -25,7 +25,7 @@ def complement_hex_color(
     complemented_hex_color_code : str or String
         Result hex color code. e.g., '#ff0000', '#666666, '#000000'
     """
-    from apysc.html import html_util
+    from apysc._html import html_util
     from apysc.validation import color_validation
     hex_color_code = html_util.remove_first_selector_symbol_char(
         str_val=hex_color_code)

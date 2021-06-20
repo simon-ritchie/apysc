@@ -44,7 +44,7 @@ class VisibleInterface(VariableNameInterface, RevertInterface):
         value : Boolean
             Boolean value to set.
         """
-        from apysc.validation import bool_validation
+        from apysc._validation import bool_validation
         bool_validation.validate_bool(value=value)
         if isinstance(value, bool):
             value = Boolean(value)

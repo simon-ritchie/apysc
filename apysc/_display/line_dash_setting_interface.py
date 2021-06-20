@@ -45,7 +45,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         value : LineDashSetting or None
             Line dash setting to set.
         """
-        from apysc.validation import display_validation
+        from apysc._validation import display_validation
         self._update_line_dash_setting_and_skip_appending_exp(value=value)
         self._append_line_dash_setting_update_expression()
         display_validation.validate_multiple_line_settings_isnt_set(

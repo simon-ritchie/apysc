@@ -313,7 +313,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         value : *
             Any value to append.
         """
-        from apysc.validation import number_validation
+        from apysc._validation import number_validation
         number_validation.validate_integer(integer=index)
         from apysc import Int
         if isinstance(index, Int):

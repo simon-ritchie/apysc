@@ -44,7 +44,7 @@ class EllipseWidthInterface(VariableNameInterface, RevertInterface):
         value : int or Int
             Ellipse width value.
         """
-        from apysc.validation import number_validation
+        from apysc._validation import number_validation
         number_validation.validate_integer(integer=value)
         if isinstance(value, int):
             value = Int(value)

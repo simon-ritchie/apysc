@@ -30,7 +30,7 @@ class Boolean(CopyInterface, RevertInterface):
         from apysc._expression import var_names
         from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
-        from apysc.validation import number_validation
+        from apysc._validation import number_validation
         with TemporaryNotHandlerScope():
             TYPE_NAME: str = var_names.BOOLEAN
             number_validation.validate_int_is_zero_or_one(integer=value)
@@ -60,7 +60,7 @@ class Boolean(CopyInterface, RevertInterface):
         """
         from apysc._converter import cast
         from apysc._type.number_value_interface import NumberValueInterface
-        from apysc.validation import bool_validation
+        from apysc._validation import bool_validation
         if isinstance(value, (int, float, NumberValueInterface)):
             result: bool = cast.to_bool_from_int(integer=value)  # type: ignore
         elif isinstance(value, Boolean):

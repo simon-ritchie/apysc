@@ -1,4 +1,4 @@
-from apysc.validation import bool_validation
+from apysc._validation import bool_validation
 from tests import testing_helper
 
 

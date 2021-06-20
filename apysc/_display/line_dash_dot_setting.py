@@ -27,7 +27,7 @@ class LineDashDotSetting(Dictionary):
         """
         from apysc._converter.to_apysc_val_from_builtin import \
             get_copied_int_from_builtin_val
-        from apysc.validation import number_validation
+        from apysc._validation import number_validation
         number_validation.validate_nums_are_int_and_gt_zero(
             nums=[dot_size, dash_size, space_size])
         dot_size_: Int = get_copied_int_from_builtin_val(integer=dot_size)

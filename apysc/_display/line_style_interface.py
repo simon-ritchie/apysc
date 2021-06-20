@@ -88,9 +88,9 @@ class LineStyleInterface(RevertInterface):
         from apysc._color import color_util
         from apysc._converter import cast
         from apysc._type.number_value_interface import NumberValueInterface
-        from apysc.validation import color_validation
-        from apysc.validation import display_validation
-        from apysc.validation import number_validation
+        from apysc._validation import color_validation
+        from apysc._validation import display_validation
+        from apysc._validation import number_validation
 
         self._initialize_line_color_if_not_initialized()
         self._initialize_line_thickness_if_not_initialized()
@@ -127,7 +127,7 @@ class LineStyleInterface(RevertInterface):
         joints : LineJoints or None, default None
             Line vertices (joints) style setting.
         """
-        from apysc.validation.display_validation import validate_line_joints
+        from apysc._validation.display_validation import validate_line_joints
         if joints is None:
             joints = LineJoints.MITER
         validate_line_joints(joints=joints)
@@ -142,7 +142,7 @@ class LineStyleInterface(RevertInterface):
         cap : LineCaps or None, default None
             Line cap (edge style) setting.
         """
-        from apysc.validation.display_validation import validate_line_cap
+        from apysc._validation.display_validation import validate_line_cap
         if cap is None:
             cap = LineCaps.BUTT
         validate_line_cap(cap=cap)

@@ -1,5 +1,5 @@
 from apysc import Point2D
-from apysc.validation import geom_validation
+from apysc._validation import geom_validation
 from tests.testing_helper import assert_raises
 
 

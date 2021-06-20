@@ -52,7 +52,7 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
             Line round setting to set.
         """
         from apysc import LineCaps
-        from apysc.validation import display_validation
+        from apysc._validation import display_validation
         self._update_line_round_dot_setting_and_skip_appending_exp(
             value=value)
         if value is not None:

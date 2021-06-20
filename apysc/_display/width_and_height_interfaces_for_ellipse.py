@@ -54,7 +54,7 @@ class WidthAndHeightInterfacesForEllipse(
         value : int or Int
             Ellipse width value.
         """
-        from apysc.validation import number_validation
+        from apysc._validation import number_validation
         if not isinstance(value, Int):
             number_validation.validate_integer(integer=value)
             value = Int(value)
@@ -86,7 +86,7 @@ class WidthAndHeightInterfacesForEllipse(
         value : int or Int
             Ellipse height value.
         """
-        from apysc.validation import number_validation
+        from apysc._validation import number_validation
         if not isinstance(value, Int):
             number_validation.validate_integer(integer=value)
             value = Int(value)

@@ -44,7 +44,7 @@ class Rectangle(
         from apysc._display.graphics import Graphics
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc.validation import size_validation
+        from apysc._validation import size_validation
         parent_graphics: Graphics = parent
         variable_name: str = expression_variables_util.\
             get_next_variable_name(type_name=var_names.RECTANGLE)

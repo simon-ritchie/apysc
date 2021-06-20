@@ -35,9 +35,9 @@ class GraphicBase(DisplayObject):
             js expression.
         """
         from apysc._display.graphics import Graphics
-        from apysc.validation import display_validation
-        from apysc.validation import number_validation
-        from apysc.validation import string_validation
+        from apysc._validation import display_validation
+        from apysc._validation import number_validation
+        from apysc._validation import string_validation
 
         display_validation.validate_graphics(graphics=parent)
         self.parent_graphics: Graphics = parent

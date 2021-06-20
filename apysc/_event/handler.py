@@ -57,7 +57,7 @@ def get_handler_name(
         + function or method name) + instance's variable name.
     """
     from apysc._callable import callable_util
-    from apysc.validation.variable_name_validation import \
+    from apysc._validation.variable_name_validation import \
         validate_variable_name_interface_type
     class_name: str = callable_util.get_method_class_name(method=handler)
     if class_name != '':
@@ -91,7 +91,7 @@ def append_handler_expression(
     from apysc._expression.event_handler_scope import HandlerScope
     from apysc._expression.indent_num import Indent
     from apysc._type import revert_interface
-    from apysc.validation.event_validation import validate_event
+    from apysc._validation.event_validation import validate_event
     validate_event(e=e)
     variables: List[Any] = [*handler_data['options'].values()]
     snapshot_name: str = revert_interface.make_variables_snapshots(
@@ -126,7 +126,7 @@ def append_unbinding_expression(
         Event type to unbind.
     """
     from apysc._expression import expression_file_util
-    from apysc.validation import event_validation
+    from apysc._validation import event_validation
     event_validation.validate_event_type(event_type=event_type)
     expression: str = (
         f'{this.variable_name}.off("{event_type.value}", {handler_name});'
@@ -148,7 +148,7 @@ def append_unbinding_all_expression(
         Event type to unbind.
     """
     from apysc._expression import expression_file_util
-    from apysc.validation import event_validation
+    from apysc._validation import event_validation
     event_validation.validate_event_type(event_type=event_type)
     expression: str = (
         f'{this.variable_name}.off("{event_type.value}");'

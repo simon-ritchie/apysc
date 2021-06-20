@@ -28,7 +28,7 @@ class ChildInterface(RevertInterface):
         child : DisplayObject
             Child instance to add.
         """
-        from apysc.validation import display_validation
+        from apysc._validation import display_validation
         self._initialize_children_if_not_initialized()
         display_validation.validate_display_object(display_object=child)
         if child.parent is not None:

@@ -69,7 +69,7 @@ class Int(NumberValueInterface):
             that value will be cast to integer.
         """
         from apysc._converter import cast
-        from apysc.validation import number_validation
+        from apysc._validation import number_validation
         number_validation.validate_num(num=value)  # type: ignore
         if isinstance(value, NumberValueInterface):
             value._value = cast.to_int_from_float(int_or_float=value._value)

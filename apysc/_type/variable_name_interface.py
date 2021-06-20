@@ -31,7 +31,7 @@ class VariableNameInterface:
         variable_name : str
             Variable name to set.
         """
-        from apysc.validation import string_validation
+        from apysc._validation import string_validation
         string_validation.validate_not_empty_string(string=variable_name)
         if not hasattr(self, '_variable_name_history'):
             self._variable_name_history = []

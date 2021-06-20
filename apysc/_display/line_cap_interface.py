@@ -73,7 +73,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         value : String or LineCaps
             Line cap style setting to set.
         """
-        from apysc.validation.display_validation import validate_line_cap
+        from apysc._validation.display_validation import validate_line_cap
         if not isinstance(value, (String, LineCaps)):
             raise TypeError(
                 'Not supported line_cap type specified: '

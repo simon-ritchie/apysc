@@ -1,5 +1,5 @@
 from apysc import String
-from apysc.validation import color_validation
+from apysc._validation import color_validation
 from tests import testing_helper
 
 

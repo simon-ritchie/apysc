@@ -79,8 +79,8 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
             Fill opacity to set.
         """
         from apysc._converter import cast
-        from apysc.validation import color_validation
-        from apysc.validation import number_validation
+        from apysc._validation import color_validation
+        from apysc._validation import number_validation
         self._initialize_fill_alpha_if_not_initialized()
         number_validation.validate_num(num=value)
         if not isinstance(value, Number):

@@ -1,7 +1,7 @@
 from apysc import Event
 from apysc import EventType
 from apysc import Int
-from apysc.validation import event_validation
+from apysc._validation import event_validation
 from tests import testing_helper
 
 

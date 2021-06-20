@@ -29,7 +29,7 @@ class EventInterfaceBase:
         TypeError
             If this instance is not a VariableNameInterface.
         """
-        from apysc.validation.variable_name_validation import \
+        from apysc._validation.variable_name_validation import \
             validate_variable_name_interface_type
         return validate_variable_name_interface_type(instance=self)
 

@@ -45,7 +45,7 @@ class Ellipse(
             get_copied_int_from_builtin_val
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc.validation import size_validation
+        from apysc._validation import size_validation
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.ELLIPSE)
         super(Ellipse, self).__init__(

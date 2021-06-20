@@ -87,7 +87,7 @@ def to_bool_from_int(integer: Union[int, Int]) -> bool:
     ValueError
         If argument value isn't zero or one.
     """
-    from apysc.validation import number_validation
+    from apysc._validation import number_validation
     number_validation.validate_int_is_zero_or_one(integer=integer)
     if integer == 0:
         return False

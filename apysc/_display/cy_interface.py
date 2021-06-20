@@ -44,7 +44,7 @@ class CyInterface(VariableNameInterface, RevertInterface):
         value : int or Int
             Center y-coordinate value.
         """
-        from apysc.validation import number_validation
+        from apysc._validation import number_validation
         number_validation.validate_integer(integer=value)
         if not isinstance(value, Int):
             value = Int(value)

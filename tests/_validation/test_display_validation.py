@@ -12,7 +12,7 @@ from apysc import Sprite
 from apysc import Stage
 from apysc import String
 from apysc._display.display_object import DisplayObject
-from apysc.validation import display_validation
+from apysc._validation import display_validation
 from tests import testing_helper
 from tests.testing_helper import assert_raises
 

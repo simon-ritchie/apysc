@@ -45,7 +45,7 @@ class RadiusInterface(VariableNameInterface, RevertInterface):
         value : int or Int
             Radius value.
         """
-        from apysc.validation import number_validation
+        from apysc._validation import number_validation
         number_validation.validate_integer(integer=value)
         value = self._get_converted_radius_int(radius=value)
         self._radius = value

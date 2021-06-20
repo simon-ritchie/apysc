@@ -68,8 +68,8 @@ class LineAlphaInterface(VariableNameInterface, RevertInterface):
         value : float or Number
             Line alpha (opacity) to set.
         """
-        from apysc.validation import color_validation
-        from apysc.validation import number_validation
+        from apysc._validation import color_validation
+        from apysc._validation import number_validation
         number_validation.validate_num(num=value)
         color_validation.validate_alpha_range(alpha=value)
         if isinstance(value, float):

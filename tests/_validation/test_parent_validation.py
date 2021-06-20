@@ -4,7 +4,7 @@ from retrying import retry
 
 from apysc import Sprite
 from apysc import Stage
-from apysc.validation import parent_validation
+from apysc._validation import parent_validation
 from tests import testing_helper
 
 

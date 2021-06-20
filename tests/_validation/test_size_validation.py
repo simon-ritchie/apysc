@@ -1,4 +1,4 @@
-from apysc.validation import size_validation
+from apysc._validation import size_validation
 from tests import testing_helper
 
 

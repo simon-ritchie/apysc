@@ -48,7 +48,7 @@ class ParentInterface(RevertInterface):
             If specified instance is not None and hasn't `ChildInterface`
             interfaces.
         """
-        from apysc.validation import parent_validation
+        from apysc._validation import parent_validation
         parent_validation.validate_parent_instance(parent=value)
         parent_validation.validate_parent_contains_child(
             parent=value, child=self)

@@ -27,7 +27,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         type_name : str
             This instance expression's type name (e.g., int, number).
         """
-        from apysc.validation import number_validation
+        from apysc._validation import number_validation
         number_validation.validate_num(num=value)
         self._initial_value = value
         if isinstance(value, NumberValueInterface):
@@ -89,7 +89,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         value : int or float or NumberValueInterface
             Any number value to set.
         """
-        from apysc.validation import number_validation
+        from apysc._validation import number_validation
         number_validation.validate_num(num=value)
         if isinstance(value, NumberValueInterface):
             value_ = value._value

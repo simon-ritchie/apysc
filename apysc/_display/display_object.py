@@ -28,8 +28,8 @@ class DisplayObject(
             js expression.
         """
         from apysc import Stage
-        from apysc.validation import display_validation
-        from apysc.validation import string_validation
+        from apysc._validation import display_validation
+        from apysc._validation import string_validation
         self._stage_cls: Type[Stage] = Stage
         self.stage: Stage = stage
         display_validation.validate_stage(stage=stage)

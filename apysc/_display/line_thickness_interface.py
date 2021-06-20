@@ -71,7 +71,7 @@ class LineThicknessInterface(VariableNameInterface, RevertInterface):
         value : int or Int
             Line thickness to set.
         """
-        from apysc.validation import number_validation
+        from apysc._validation import number_validation
         number_validation.validate_integer(integer=value)
         number_validation.validate_num_is_gte_zero(num=value)
         if isinstance(value, int):

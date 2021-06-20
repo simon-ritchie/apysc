@@ -28,7 +28,7 @@ class String(CopyInterface, RevertInterface):
         from apysc._expression import var_names
         from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
-        from apysc.validation import string_validation
+        from apysc._validation import string_validation
         with TemporaryNotHandlerScope():
             TYPE_NAME: str = var_names.STRING
             string_validation.validate_string_type(string=value)
@@ -91,7 +91,7 @@ class String(CopyInterface, RevertInterface):
         value : str or String
             Any string value to set.
         """
-        from apysc.validation import string_validation
+        from apysc._validation import string_validation
         string_validation.validate_string_type(string=value)
         self._value = self._get_str_value(value=value)
         self._append_value_setter_expression(value=value)
@@ -128,7 +128,7 @@ class String(CopyInterface, RevertInterface):
         result : String
             Concatenated result string.
         """
-        from apysc.validation import string_validation
+        from apysc._validation import string_validation
         string_validation.validate_string_type(string=other)
         if isinstance(other, String):
             value: str = self._value + other.value
@@ -176,7 +176,7 @@ class String(CopyInterface, RevertInterface):
             Repeated result string.
         """
         from apysc import Int
-        from apysc.validation import number_validation
+        from apysc._validation import number_validation
         number_validation.validate_integer(integer=other)
         if isinstance(other, Int):
             value: int = other.value  # type: ignore
@@ -397,7 +397,7 @@ class String(CopyInterface, RevertInterface):
             Comparison result.
         """
         from apysc import Boolean
-        from apysc.validation import string_validation
+        from apysc._validation import string_validation
         string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
         result: Boolean = Boolean(self._value < value)
@@ -441,7 +441,7 @@ class String(CopyInterface, RevertInterface):
             Comparison result.
         """
         from apysc import Boolean
-        from apysc.validation import string_validation
+        from apysc._validation import string_validation
         string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
         result: Boolean = Boolean(self._value <= value)
@@ -485,7 +485,7 @@ class String(CopyInterface, RevertInterface):
             Comparison result.
         """
         from apysc import Boolean
-        from apysc.validation import string_validation
+        from apysc._validation import string_validation
         string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
         result: Boolean = Boolean(self._value > value)
@@ -529,7 +529,7 @@ class String(CopyInterface, RevertInterface):
             Comparison result.
         """
         from apysc import Boolean
-        from apysc.validation import string_validation
+        from apysc._validation import string_validation
         string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
         result: Boolean = Boolean(self._value >= value)

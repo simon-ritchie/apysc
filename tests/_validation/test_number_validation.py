@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 from apysc import Int
-from apysc.validation import number_validation
+from apysc._validation import number_validation
 from tests import testing_helper
 
 

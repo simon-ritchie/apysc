@@ -56,7 +56,7 @@ def get_handler_name(
         Handler name (method path + class name (if handler is method)
         + function or method name) + instance's variable name.
     """
-    from apysc.callable import callable_util
+    from apysc._callable import callable_util
     from apysc.validation.variable_name_validation import \
         validate_variable_name_interface_type
     class_name: str = callable_util.get_method_class_name(method=handler)

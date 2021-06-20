@@ -1,6 +1,6 @@
 # Sprite class add_child and remove_child interfaces
 
-This page will explain the `Sprite` class `add_child` and `remove_child` method interfaces.
+This page will explain the `Sprite` class (or the other container class, like the `Graphics`) `add_child` and `remove_child` method interfaces.
 
 ## What interfaces are these?
 
@@ -8,7 +8,7 @@ The `add_child` and `remove_child` will add or remove a `DisplayObject` child in
 
 ## Automatic addition of the children
 
-Each `DisplayObject` instance will be added to a parent at the constructor. For example, a `Sprite` instance will be added to a parent stage basically, and graphics instances will be added to a parent `Sprite` instance.
+Each `DisplayObject` instance will be added to a parent at the constructor. For example, a `Sprite` instance will be added to a parent stage basically, and `graphics` instances will be added to a parent `Sprite` instance. The `Rectangle` or the other `DisplayObject` instances, like the `Circle`, behaves in the same way (they will be added to a `graphics` container instance automatically).
 
 If you need to adjust a parent, then it will be necessary to call the `add_child` or `remove_child` interfaces manually (for instance, set a `Sprite` parent to the other `Sprite`).
 
@@ -131,3 +131,4 @@ save_overall_html(dest_dir_path='sprite_basic_usage_of_add_child/')
 ## See also
 
 - [DisplayObject class parent interfaces](display_object_parent.md)
+- [Sprite class contains interface](sprite_contains.md)

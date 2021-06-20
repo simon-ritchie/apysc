@@ -18,7 +18,7 @@
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Graphics" href="graphics.html" />
+    <link rel="next" title="Sprite class contains interface" href="sprite_contains.html" />
     <link rel="prev" title="Sprite" href="sprite.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -28,7 +28,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="graphics.html" title="Graphics"
+          <a href="sprite_contains.html" title="Sprite class contains interface"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="sprite.html" title="Sprite"
@@ -45,14 +45,14 @@
             
   <section id="sprite-class-add-child-and-remove-child-interfaces">
 <h1>Sprite class add_child and remove_child interfaces<a class="headerlink" href="#sprite-class-add-child-and-remove-child-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class <code class="docutils literal notranslate"><span class="pre">add_child</span></code> and <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> method interfaces.</p>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class (or the other container class, like the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code>) <code class="docutils literal notranslate"><span class="pre">add_child</span></code> and <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> method interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">add_child</span></code> and <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> will add or remove a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> child instance from a <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> container instance. A removed <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance will not be displayed.</p>
 </section>
 <section id="automatic-addition-of-the-children">
 <h2>Automatic addition of the children<a class="headerlink" href="#automatic-addition-of-the-children" title="Permalink to this headline">¶</a></h2>
-<p>Each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance will be added to a parent at the constructor. For example, a <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance will be added to a parent stage basically, and graphics instances will be added to a parent <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance.</p>
+<p>Each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance will be added to a parent at the constructor. For example, a <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance will be added to a parent stage basically, and <code class="docutils literal notranslate"><span class="pre">graphics</span></code> instances will be added to a parent <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance. The <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> or the other <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instances, like the <code class="docutils literal notranslate"><span class="pre">Circle</span></code>, behaves in the same way (they will be added to a <code class="docutils literal notranslate"><span class="pre">graphics</span></code> container instance automatically).</p>
 <p>If you need to adjust a parent, then it will be necessary to call the <code class="docutils literal notranslate"><span class="pre">add_child</span></code> or <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> interfaces manually (for instance, set a <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> parent to the other <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>).</p>
 </section>
 <section id="basic-usage-of-the-remove-child-interface">
@@ -167,6 +167,7 @@
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="display_object_parent.html"><span class="doc">DisplayObject class parent interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="sprite_contains.html"><span class="doc">Sprite class contains interface</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -197,8 +198,8 @@
   <p class="topless"><a href="sprite.html"
                         title="previous chapter">Sprite</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="graphics.html"
-                        title="next chapter">Graphics</a></p>
+  <p class="topless"><a href="sprite_contains.html"
+                        title="next chapter">Sprite class contains interface</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -227,7 +228,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="graphics.html" title="Graphics"
+          <a href="sprite_contains.html" title="Sprite class contains interface"
              >next</a> |</li>
         <li class="right" >
           <a href="sprite.html" title="Sprite"

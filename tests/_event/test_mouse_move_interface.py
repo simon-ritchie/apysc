@@ -8,7 +8,7 @@ from apysc import EventType
 from apysc import MouseEvent
 from apysc._event.mouse_move_interface import MouseMoveInterface
 from apysc._expression import expression_file_util
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class _TestMouseMove(MouseMoveInterface, VariableNameInterface):

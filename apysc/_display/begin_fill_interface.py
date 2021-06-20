@@ -12,7 +12,7 @@ from typing import Union
 
 from apysc import Number
 from apysc import String
-from apysc.type.revert_interface import RevertInterface
+from apysc._type.revert_interface import RevertInterface
 
 StrOrString = TypeVar('StrOrString', str, String)
 
@@ -65,7 +65,7 @@ class BeginFillInterface(RevertInterface):
             Current fill color (hexadecimal string, e.g., '#00aaff').
             If not be set, blank string will be returned.
         """
-        from apysc.type import value_util
+        from apysc._type import value_util
         self._initialize_fill_color_if_not_initialized()
         fill_color: String = value_util.get_copy(value=self._fill_color)
         return fill_color
@@ -89,7 +89,7 @@ class BeginFillInterface(RevertInterface):
             Current fill color opacity (0.0 to 1.0).
             If not be set, 1.0 will be returned.
         """
-        from apysc.type import value_util
+        from apysc._type import value_util
         self._initialize_fill_alpha_if_not_initialized()
         fill_alpha: Number = value_util.get_copy(value=self._fill_alpha)
         return fill_alpha

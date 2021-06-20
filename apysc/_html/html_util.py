@@ -25,7 +25,7 @@ from typing import Tuple
 from typing import TypeVar
 
 from apysc import String
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 StrOrString = TypeVar('StrOrString', str, String)
 
@@ -50,7 +50,7 @@ def remove_first_selector_symbol_char(
     TypeError
         If other than str or String type value is passed.
     """
-    from apysc.type import value_util
+    from apysc._type import value_util
     if isinstance(str_val, str):
         if str_val.startswith('.') or str_val.startswith('#'):
             str_val = str_val[1:]  # type: ignore

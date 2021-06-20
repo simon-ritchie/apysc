@@ -12,9 +12,9 @@ from typing import Union
 from apysc import Boolean
 from apysc import Int
 from apysc import String
-from apysc.type.copy_interface import CopyInterface
-from apysc.type.revert_interface import RevertInterface
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.copy_interface import CopyInterface
+from apysc._type.revert_interface import RevertInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 T = TypeVar('T')
 
@@ -72,7 +72,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         Append constructor expression to file.
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         expression: str = f'var {self.variable_name} = '
         if isinstance(self._initial_value, Array):
             expression += f'{self._initial_value.variable_name};'
@@ -162,7 +162,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             Iterable value (list, tuple, or Array) to set.
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         expression: str = f'{self.variable_name} = '
         if isinstance(value, Array):
             expression += f'{value.variable_name};'
@@ -207,7 +207,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             Any value to append.
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         value_str: str = value_util.get_value_str_for_expression(value=value)
         expression: str = (
             f'{self.variable_name}.push({value_str});'
@@ -245,7 +245,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             Other array-like value to concatenate.
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         value_str: str = value_util.get_value_str_for_expression(
             value=other_arr)
         expression: str = (
@@ -291,7 +291,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             Other array-like value to concatenate.
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         value_str: str = value_util.get_value_str_for_expression(
             value=other_arr)
         expression: str = (
@@ -355,7 +355,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             Any value to append.
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         value_str: str = value_util.get_value_str_for_expression(value=value)
         index_str: str = value_util.get_value_str_for_expression(value=index)
         expression: str = (
@@ -415,7 +415,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         from apysc._expression import expression_file_util
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
-        from apysc.type import value_util
+        from apysc._type import value_util
         index_var_name: str = expression_variables_util.\
             get_next_variable_name(type_name=var_names.INDEX)
         value_str: str = value_util.get_value_str_for_expression(value=value)
@@ -454,7 +454,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             Index to remove value.
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         index_str: str = value_util.get_value_str_for_expression(value=index)
         expression: str = (
             f'{self.variable_name}.splice({index_str}, 1);'
@@ -665,7 +665,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         """
         from apysc import AnyValue
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         value_: VariableNameInterface
         if not isinstance(value, VariableNameInterface):
             value_ = AnyValue(None)
@@ -715,7 +715,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             Any value to set.
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         index_str: str = value_util.get_value_str_for_expression(
             value=index)
         value_str: str = value_util.get_value_str_for_expression(
@@ -822,7 +822,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             Separator string.
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         sep_str: str = value_util.get_value_str_for_expression(value=sep)
         expression: str = (
             f'{joined.variable_name} = {self.variable_name}'
@@ -893,7 +893,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             Any value to search.
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         value_str: str = value_util.get_value_str_for_expression(
             value=value)
         expression: str = (

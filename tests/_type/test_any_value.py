@@ -7,7 +7,7 @@ from apysc import Boolean
 from apysc import Int
 from apysc._expression import expression_file_util
 from apysc._expression import var_names
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class TestAnyValue:

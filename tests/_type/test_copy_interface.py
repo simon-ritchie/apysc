@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 from apysc._expression import expression_file_util
-from apysc.type.copy_interface import CopyInterface
+from apysc._type.copy_interface import CopyInterface
 
 
 class TestCopyInterface:

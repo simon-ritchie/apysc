@@ -11,7 +11,7 @@ from typing_extensions import TypedDict
 
 from apysc._event.event import Event
 from apysc._event.event_type import EventType
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 Event_ = Any
 
@@ -90,7 +90,7 @@ def append_handler_expression(
     from apysc._expression import expression_file_util
     from apysc._expression.event_handler_scope import HandlerScope
     from apysc._expression.indent_num import Indent
-    from apysc.type import revert_interface
+    from apysc._type import revert_interface
     from apysc.validation.event_validation import validate_event
     validate_event(e=e)
     variables: List[Any] = [*handler_data['options'].values()]

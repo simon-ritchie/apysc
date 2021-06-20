@@ -381,7 +381,7 @@ def _make_arrays_or_dicts_comparison_expression(
         Result expression string.
     """
     from apysc._string import string_util
-    from apysc.type import value_util
+    from apysc._type import value_util
     expected_exp_str: str = value_util.get_value_str_for_expression(
         value=expected)
     actual_exp_str: str = value_util.get_value_str_for_expression(
@@ -414,7 +414,7 @@ def _trace_arrays_or_dicts_assertion_info(
     """
     from apysc import Array
     from apysc import Dictionary
-    from apysc.type import value_util
+    from apysc._type import value_util
     expected_exp_str: str = value_util.get_value_str_for_expression(
         value=expected)
     if isinstance(expected, dict):
@@ -473,7 +473,7 @@ def _actual_value_type_is_dict(actual: Any) -> bool:
     result : bool
         If actual value type is Dictionary, True will be returned.
     """
-    from apysc.type.dictionary_structure import DictionaryStructure
+    from apysc._type.dictionary_structure import DictionaryStructure
     if isinstance(actual, DictionaryStructure):
         return True
     return False
@@ -525,7 +525,7 @@ def _get_expected_and_actual_strs(
         Actual value's string. If value is string, this will be
         wrapped by double quotation.
     """
-    from apysc.type import value_util
+    from apysc._type import value_util
     expected_str: str = value_util.get_value_str_for_expression(
         value=expected)
     actual_str: str = value_util.get_value_str_for_expression(value=actual)
@@ -546,7 +546,7 @@ def _trace_info(interface_label: str, expected: Any, actual: Any) -> None:
         Actual value.
     """
     from apysc import trace
-    from apysc.type.variable_name_interface import VariableNameInterface
+    from apysc._type.variable_name_interface import VariableNameInterface
     info: str = f'[{interface_label}]'
     if isinstance(expected, VariableNameInterface):
         info += f'\nExpected variable name: {expected.variable_name}'

@@ -20,7 +20,7 @@ from apysc._display.polygon import Polygon
 from apysc._display.polyline import Polyline
 from apysc._display.rectangle import Rectangle
 from apysc._geom.point2d import Point2D
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class Graphics(

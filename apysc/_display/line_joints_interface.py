@@ -7,8 +7,8 @@ from typing import Union
 
 from apysc import String
 from apysc._display.line_joints import LineJoints
-from apysc.type.revert_interface import RevertInterface
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.revert_interface import RevertInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class LineJointsInterface(VariableNameInterface, RevertInterface):
@@ -77,7 +77,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         Append line cap updating expression to file.
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         joints_name: str = value_util.get_value_str_for_expression(
             value=self._line_joints)
         expression: str = (

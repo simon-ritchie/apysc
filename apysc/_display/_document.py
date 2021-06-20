@@ -1,7 +1,7 @@
 """Document (overall window) class implementation.
 """
 
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class Document(VariableNameInterface):

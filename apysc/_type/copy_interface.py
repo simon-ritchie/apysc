@@ -4,8 +4,8 @@
 from copy import deepcopy
 from typing import Any
 
-from apysc.type.type_name_interface import TypeNameInterface
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.type_name_interface import TypeNameInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class CopyInterface(TypeNameInterface, VariableNameInterface):

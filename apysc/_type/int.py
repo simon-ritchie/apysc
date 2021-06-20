@@ -4,7 +4,7 @@
 from typing import Any
 from typing import Union
 
-from apysc.type.number_value_interface import NumberValueInterface
+from apysc._type.number_value_interface import NumberValueInterface
 
 
 class Int(NumberValueInterface):
@@ -24,7 +24,7 @@ class Int(NumberValueInterface):
         from apysc._expression import var_names
         from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
-        from apysc.type import type_util
+        from apysc._type import type_util
         with TemporaryNotHandlerScope():
             is_number_specified: bool = type_util.is_number(
                 value=value)

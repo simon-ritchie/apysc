@@ -6,9 +6,9 @@ from typing import Dict
 from typing import Union
 
 from apysc import Int
-from apysc.type.copy_interface import CopyInterface
-from apysc.type.revert_interface import RevertInterface
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.copy_interface import CopyInterface
+from apysc._type.revert_interface import RevertInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class Boolean(CopyInterface, RevertInterface):
@@ -59,7 +59,7 @@ class Boolean(CopyInterface, RevertInterface):
             Converted boolean value.
         """
         from apysc._converter import cast
-        from apysc.type.number_value_interface import NumberValueInterface
+        from apysc._type.number_value_interface import NumberValueInterface
         from apysc.validation import bool_validation
         if isinstance(value, (int, float, NumberValueInterface)):
             result: bool = cast.to_bool_from_int(integer=value)  # type: ignore
@@ -75,7 +75,7 @@ class Boolean(CopyInterface, RevertInterface):
         Append constructor expression to file.
         """
         from apysc._expression import expression_file_util
-        from apysc.type.variable_name_interface import VariableNameInterface
+        from apysc._type.variable_name_interface import VariableNameInterface
         expression: str = f'var {self.variable_name} = '
         if isinstance(self._initial_value, VariableNameInterface):
             expression += f'Boolean({self._initial_value.variable_name});'
@@ -107,7 +107,7 @@ class Boolean(CopyInterface, RevertInterface):
         value : bool or int or Boolean or Int
             Any boolean value to set.
         """
-        from apysc.type.variable_name_interface import VariableNameInterface
+        from apysc._type.variable_name_interface import VariableNameInterface
         self._set_value_and_skip_expression_appending(value=value)
         if isinstance(value, VariableNameInterface):
             self._append_value_setter_expression(value=value)
@@ -125,7 +125,7 @@ class Boolean(CopyInterface, RevertInterface):
             Any value to set.
         """
         from apysc._expression import expression_file_util
-        from apysc.type.variable_name_interface import VariableNameInterface
+        from apysc._type.variable_name_interface import VariableNameInterface
         expression: str = f'{self.variable_name} = '
         if isinstance(value, VariableNameInterface):
             expression += f'Boolean({value._variable_name});'

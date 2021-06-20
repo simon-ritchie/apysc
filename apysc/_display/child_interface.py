@@ -10,7 +10,7 @@ from apysc import Array
 from apysc import Boolean
 from apysc import Int
 from apysc._display.display_object import DisplayObject
-from apysc.type.revert_interface import RevertInterface
+from apysc._type.revert_interface import RevertInterface
 
 
 class ChildInterface(RevertInterface):
@@ -178,7 +178,7 @@ class ChildInterface(RevertInterface):
             Child's index (start from 0).
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         index_str: str = value_util.get_value_str_for_expression(value=index)
         expression: str = (
             f'var {child.variable_name} = '

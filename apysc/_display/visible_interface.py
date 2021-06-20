@@ -4,8 +4,8 @@
 from typing import Dict
 
 from apysc import Boolean
-from apysc.type.revert_interface import RevertInterface
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.revert_interface import RevertInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class VisibleInterface(VariableNameInterface, RevertInterface):
@@ -30,7 +30,7 @@ class VisibleInterface(VariableNameInterface, RevertInterface):
         result : Boolean
             If this instance is visible, True will be returned.
         """
-        from apysc.type import value_util
+        from apysc._type import value_util
         self._initialize_visible_if_not_initialized()
         return value_util.get_copy(value=self._visible)
 

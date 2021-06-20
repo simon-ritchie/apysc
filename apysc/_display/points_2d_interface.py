@@ -6,8 +6,8 @@ from typing import Tuple
 
 from apysc import Array
 from apysc._geom.point2d import Point2D
-from apysc.type.revert_interface import RevertInterface
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.revert_interface import RevertInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class Points2DInterface(VariableNameInterface, RevertInterface):

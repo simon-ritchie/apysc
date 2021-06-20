@@ -8,7 +8,7 @@ from apysc._display.child_interface import ChildInterface
 from apysc._display.display_object import DisplayObject
 from apysc._display.graphics import Graphics
 from apysc._display.stage import Stage
-from apysc.type.revert_interface import RevertInterface
+from apysc._type.revert_interface import RevertInterface
 
 
 class Sprite(DisplayObject, ChildInterface, RevertInterface):
@@ -58,7 +58,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
         """
         from apysc._display.stage import get_stage_variable_name
         from apysc._expression import expression_file_util
-        from apysc.type import type_util
+        from apysc._type import type_util
         is_same_class_instance: bool = type_util.is_same_class_instance(
             class_=Sprite, instance=self)
         if not is_same_class_instance:

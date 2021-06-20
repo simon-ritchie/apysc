@@ -6,8 +6,8 @@ from typing import List
 from retrying import retry
 
 from apysc import Int
-from apysc.type import revert_interface
-from apysc.type.revert_interface import RevertInterface
+from apysc._type import revert_interface
+from apysc._type.revert_interface import RevertInterface
 
 
 class NotRevertableValue:

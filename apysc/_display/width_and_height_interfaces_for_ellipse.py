@@ -10,8 +10,8 @@ can't use this interface.
 from typing import Dict
 
 from apysc import Int
-from apysc.type.revert_interface import RevertInterface
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.revert_interface import RevertInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class WidthAndHeightInterfacesForEllipse(
@@ -40,7 +40,7 @@ class WidthAndHeightInterfacesForEllipse(
         width : Int
             Ellipse width.
         """
-        from apysc.type import value_util
+        from apysc._type import value_util
         self._initialize_width_and_height_if_not_initialized()
         return value_util.get_copy(value=self._width)
 
@@ -72,7 +72,7 @@ class WidthAndHeightInterfacesForEllipse(
         height : Int
             Ellipse height.
         """
-        from apysc.type import value_util
+        from apysc._type import value_util
         self._initialize_width_and_height_if_not_initialized()
         return value_util.get_copy(value=self._height)
 
@@ -100,7 +100,7 @@ class WidthAndHeightInterfacesForEllipse(
         to the file.
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         self._initialize_width_and_height_if_not_initialized()
         width_value_str: str = value_util.get_value_str_for_expression(
             value=self._width)

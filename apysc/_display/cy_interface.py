@@ -4,8 +4,8 @@
 from typing import Dict
 
 from apysc import Int
-from apysc.type.revert_interface import RevertInterface
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.revert_interface import RevertInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class CyInterface(VariableNameInterface, RevertInterface):
@@ -30,7 +30,7 @@ class CyInterface(VariableNameInterface, RevertInterface):
         y : Int
             Center y-coordinate.
         """
-        from apysc.type import value_util
+        from apysc._type import value_util
         self._initialize_cy_if_not_initialized()
         return value_util.get_copy(value=self._cy)
 
@@ -57,7 +57,7 @@ class CyInterface(VariableNameInterface, RevertInterface):
         Append cy position updating expression.
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         self._initialize_cy_if_not_initialized()
         value_str: str = value_util.get_value_str_for_expression(
             value=self._cy)

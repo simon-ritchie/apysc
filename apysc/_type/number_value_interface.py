@@ -5,9 +5,9 @@ from typing import Any
 from typing import Dict
 from typing import Union
 
-from apysc.type.copy_interface import CopyInterface
-from apysc.type.revert_interface import RevertInterface
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.copy_interface import CopyInterface
+from apysc._type.revert_interface import RevertInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class NumberValueInterface(CopyInterface, RevertInterface):
@@ -154,7 +154,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             Other value to add.
         """
         from apysc._expression import expression_file_util
-        from apysc.type.value_util import get_value_str_for_expression
+        from apysc._type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'var {result.variable_name} = '
@@ -199,7 +199,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             Other value to subtract.
         """
         from apysc._expression import expression_file_util
-        from apysc.type.value_util import get_value_str_for_expression
+        from apysc._type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'var {result.variable_name} = '
@@ -244,7 +244,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             Other value to multiply.
         """
         from apysc._expression import expression_file_util
-        from apysc.type.value_util import get_value_str_for_expression
+        from apysc._type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'var {result.variable_name} = '
@@ -290,7 +290,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             Other value for true division.
         """
         from apysc._expression import expression_file_util
-        from apysc.type.value_util import get_value_str_for_expression
+        from apysc._type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'{result.variable_name} = {self.variable_name} / '
@@ -336,7 +336,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             Other value for floor division.
         """
         from apysc._expression import expression_file_util
-        from apysc.type.value_util import get_value_str_for_expression
+        from apysc._type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'{result.variable_name} = '

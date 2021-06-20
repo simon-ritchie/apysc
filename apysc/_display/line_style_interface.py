@@ -19,7 +19,7 @@ from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dot_setting import LineDotSetting
 from apysc._display.line_joints import LineJoints
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
-from apysc.type.revert_interface import RevertInterface
+from apysc._type.revert_interface import RevertInterface
 
 StrOrString = TypeVar('StrOrString', str, String)
 
@@ -87,7 +87,7 @@ class LineStyleInterface(RevertInterface):
         """
         from apysc._color import color_util
         from apysc._converter import cast
-        from apysc.type.number_value_interface import NumberValueInterface
+        from apysc._type.number_value_interface import NumberValueInterface
         from apysc.validation import color_validation
         from apysc.validation import display_validation
         from apysc.validation import number_validation
@@ -238,7 +238,7 @@ class LineStyleInterface(RevertInterface):
             Current line color (hexadecimal string, e.g., '#00aaff').
             If not be set, blank string will be returned.
         """
-        from apysc.type import value_util
+        from apysc._type import value_util
         self._initialize_line_color_if_not_initialized()
         return value_util.get_copy(value=self._line_color)
 
@@ -252,7 +252,7 @@ class LineStyleInterface(RevertInterface):
         line_thickness : Int
             Current line thickness.
         """
-        from apysc.type import value_util
+        from apysc._type import value_util
         self._initialize_line_thickness_if_not_initialized()
         return value_util.get_copy(value=self._line_thickness)
 
@@ -267,7 +267,7 @@ class LineStyleInterface(RevertInterface):
             Current line opacity (0.0 to 1.0).
             If not be set, None will be returned.
         """
-        from apysc.type import value_util
+        from apysc._type import value_util
         self._initialize_line_alpha_if_not_initialized()
         return value_util.get_copy(value=self._line_alpha)
 

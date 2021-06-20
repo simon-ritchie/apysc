@@ -5,7 +5,7 @@ from retrying import retry
 
 from apysc import Number
 from apysc._expression import expression_file_util
-from apysc.type import type_util
+from apysc._type import type_util
 from tests import testing_helper
 
 

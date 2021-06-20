@@ -5,8 +5,8 @@ from typing import Dict
 from typing import Union
 
 from apysc import Int
-from apysc.type.revert_interface import RevertInterface
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.revert_interface import RevertInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class LineThicknessInterface(VariableNameInterface, RevertInterface):
@@ -32,7 +32,7 @@ class LineThicknessInterface(VariableNameInterface, RevertInterface):
         line_thickness : Int
             Current line thickness.
         """
-        from apysc.type import value_util
+        from apysc._type import value_util
         return value_util.get_copy(value=self._line_thickness)
 
     @line_thickness.setter

@@ -15,7 +15,7 @@ from apysc import Number
 from apysc import String
 from apysc._expression import expression_file_util
 from apysc._expression import var_names
-from apysc.type.any_value import AnyValue
+from apysc._type.any_value import AnyValue
 from tests.testing_helper import assert_raises
 
 

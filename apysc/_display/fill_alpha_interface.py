@@ -5,9 +5,9 @@ from typing import Any
 from typing import Dict
 
 from apysc import Number
-from apysc.type.number_value_interface import NumberValueInterface
-from apysc.type.revert_interface import RevertInterface
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.number_value_interface import NumberValueInterface
+from apysc._type.revert_interface import RevertInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class FillAlphaInterface(VariableNameInterface, RevertInterface):
@@ -32,7 +32,7 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
         fill_alpha : Number
             Current fill opacity (0.0 to 1.0).
         """
-        from apysc.type import value_util
+        from apysc._type import value_util
         self._initialize_fill_alpha_if_not_initialized()
         fill_alpha: Number = value_util.get_copy(
             value=self._fill_alpha)
@@ -60,7 +60,7 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
         Append fill alpha updating expression.
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         value_str: str = value_util.get_value_str_for_expression(
             value=self._fill_alpha)
         expression: str = (

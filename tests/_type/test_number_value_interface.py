@@ -14,7 +14,7 @@ from apysc import Number
 from apysc._display.x_interface import XInterface
 from apysc._expression import expression_file_util
 from apysc._expression import var_names
-from apysc.type.number_value_interface import NumberValueInterface
+from apysc._type.number_value_interface import NumberValueInterface
 from tests import testing_helper
 
 

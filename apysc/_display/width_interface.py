@@ -5,8 +5,8 @@ from typing import Dict
 from typing import Union
 
 from apysc import Int
-from apysc.type.revert_interface import RevertInterface
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.revert_interface import RevertInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class WidthInterface(VariableNameInterface, RevertInterface):
@@ -31,7 +31,7 @@ class WidthInterface(VariableNameInterface, RevertInterface):
         width : Int
             This instance's width.
         """
-        from apysc.type import value_util
+        from apysc._type import value_util
         self._initialize_width_if_not_initialized()
         return value_util.get_copy(value=self._width)
 

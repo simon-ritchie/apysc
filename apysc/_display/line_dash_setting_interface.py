@@ -5,8 +5,8 @@ from typing import Dict
 from typing import Optional
 
 from apysc._display.line_dash_setting import LineDashSetting
-from apysc.type.revert_interface import RevertInterface
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.revert_interface import RevertInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class LineDashSettingInterface(VariableNameInterface, RevertInterface):

@@ -20,7 +20,7 @@ def validate_bool(value: Union[bool, Boolean]) -> None:
     ValueError
         If specified value isn't bool or Boolean type.
     """
-    from apysc.type import type_util
+    from apysc._type import type_util
     is_bool: bool = type_util.is_bool(value=value)
     if is_bool:
         return

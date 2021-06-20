@@ -5,9 +5,9 @@ from typing import Any
 from typing import Dict
 
 from apysc import Boolean
-from apysc.type.copy_interface import CopyInterface
-from apysc.type.revert_interface import RevertInterface
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.copy_interface import CopyInterface
+from apysc._type.revert_interface import RevertInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class AnyValue(CopyInterface, RevertInterface):
@@ -38,7 +38,7 @@ class AnyValue(CopyInterface, RevertInterface):
         Append constructor expression to file.
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         expression: str = f'var {self.variable_name} = '
         if isinstance(self._value, VariableNameInterface):
             expression += f'{self._value.variable_name};'
@@ -109,7 +109,7 @@ class AnyValue(CopyInterface, RevertInterface):
             Calculated result value.
         """
         from apysc._expression import expression_file_util
-        from apysc.type.value_util import get_value_str_for_expression
+        from apysc._type.value_util import get_value_str_for_expression
         value_str: str = get_value_str_for_expression(value=other)
         result: AnyValue = self._copy()
         expression: str = (
@@ -210,7 +210,7 @@ class AnyValue(CopyInterface, RevertInterface):
             Floor division result value.
         """
         from apysc._expression import expression_file_util
-        from apysc.type.value_util import get_value_str_for_expression
+        from apysc._type.value_util import get_value_str_for_expression
         result: AnyValue = self._copy()
         value_str: str = get_value_str_for_expression(value=other)
         expression: str = (
@@ -234,7 +234,7 @@ class AnyValue(CopyInterface, RevertInterface):
             JavaScript arithmetic operator, like '+=', '*=', and so on.
         """
         from apysc._expression import expression_file_util
-        from apysc.type.value_util import get_value_str_for_expression
+        from apysc._type.value_util import get_value_str_for_expression
         value_str: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'{self.variable_name} {operator} {value_str};'
@@ -333,7 +333,7 @@ class AnyValue(CopyInterface, RevertInterface):
             since correct comparison is not possible.
         """
         from apysc._expression import expression_file_util
-        from apysc.type.value_util import get_value_str_for_expression
+        from apysc._type.value_util import get_value_str_for_expression
         result: Boolean = Boolean(False)
         value_str: str = get_value_str_for_expression(value=other)
         expression: str = (

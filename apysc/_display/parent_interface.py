@@ -5,7 +5,7 @@ from typing import Any
 from typing import Dict
 from typing import Optional
 
-from apysc.type.revert_interface import RevertInterface
+from apysc._type.revert_interface import RevertInterface
 
 
 class ParentInterface(RevertInterface):

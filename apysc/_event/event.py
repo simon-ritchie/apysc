@@ -5,7 +5,7 @@ from typing import Generic
 from typing import Optional
 from typing import TypeVar
 
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 T = TypeVar('T', bound=VariableNameInterface)
 
@@ -54,7 +54,7 @@ class Event(Generic[T], VariableNameInterface):
             - If type_name is not None and self instance is Event type.
             - If type_name is None and self instance is not Event type.
         """
-        from apysc.type import type_util
+        from apysc._type import type_util
         if type_name is not None:
             if type_util.is_same_class_instance(Event, self):
                 raise ValueError(

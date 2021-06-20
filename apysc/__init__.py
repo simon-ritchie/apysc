@@ -1,10 +1,10 @@
-from apysc.type.int import Int  # isort:skip # noqa
-from apysc.type.number import Number  # isort:skip # noqa
-from apysc.type.boolean import Boolean  # isort:skip # noqa
-from apysc.type.string import String  # isort:skip # noqa
-from apysc.type.array import Array  # isort:skip # noqa
-from apysc.type.dictionary import Dictionary  # isort:skip # noqa
-from apysc.type.any_value import AnyValue  # isort:skip # noqa
+from apysc._type.int import Int  # isort:skip # noqa
+from apysc._type.number import Number  # isort:skip # noqa
+from apysc._type.boolean import Boolean  # isort:skip # noqa
+from apysc._type.string import String  # isort:skip # noqa
+from apysc._type.array import Array  # isort:skip # noqa
+from apysc._type.dictionary import Dictionary  # isort:skip # noqa
+from apysc._type.any_value import AnyValue  # isort:skip # noqa
 from apysc._branch._if import If  # isort:skip # noqa
 from apysc._branch._elif import Elif  # isort:skip # noqa
 from apysc._branch._else import Else  # isort:skip # noqa

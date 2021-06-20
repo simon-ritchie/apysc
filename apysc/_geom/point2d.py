@@ -6,9 +6,9 @@ from typing import Dict
 from typing import Union
 
 from apysc import Int
-from apysc.type.dictionary_structure import DictionaryStructure
-from apysc.type.revert_interface import RevertInterface
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.dictionary_structure import DictionaryStructure
+from apysc._type.revert_interface import RevertInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 _int = Union[int, Int]
 

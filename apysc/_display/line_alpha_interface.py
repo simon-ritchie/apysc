@@ -5,8 +5,8 @@ from typing import Dict
 from typing import Union
 
 from apysc import Number
-from apysc.type.revert_interface import RevertInterface
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.revert_interface import RevertInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class LineAlphaInterface(VariableNameInterface, RevertInterface):
@@ -31,7 +31,7 @@ class LineAlphaInterface(VariableNameInterface, RevertInterface):
         line_alpha : Number
             Current line alpha (opacity. 0.0 to 1.0).
         """
-        from apysc.type import value_util
+        from apysc._type import value_util
         return value_util.get_copy(value=self._line_alpha)
 
     @line_alpha.setter

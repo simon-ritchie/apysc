@@ -4,7 +4,7 @@
 from typing import Any
 from typing import Union
 
-from apysc.type.number_value_interface import NumberValueInterface
+from apysc._type.number_value_interface import NumberValueInterface
 
 
 class Number(NumberValueInterface):

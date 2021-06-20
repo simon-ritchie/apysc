@@ -8,7 +8,7 @@ from typing import Optional
 from apysc._event.event_type import EventType
 from apysc._event.handler import Handler
 from apysc._event.handler import HandlerData
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class EventInterfaceBase:
@@ -117,7 +117,7 @@ class EventInterfaceBase:
             Event type to bind.
         """
         from apysc._expression import expression_file_util
-        from apysc.type.variable_name_interface import VariableNameInterface
+        from apysc._type.variable_name_interface import VariableNameInterface
         self_instance: VariableNameInterface = \
             self._validate_self_is_variable_name_interface()
         expression: str = (

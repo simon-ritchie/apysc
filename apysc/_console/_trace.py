@@ -17,7 +17,7 @@ def trace(*args: Any) -> None:
     """
     from apysc._expression import expression_file_util
     from apysc._string import string_util
-    from apysc.type.variable_name_interface import VariableNameInterface
+    from apysc._type.variable_name_interface import VariableNameInterface
 
     expression: str = 'console.log('
     arg_strs: List[str] = []

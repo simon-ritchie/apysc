@@ -8,9 +8,9 @@ from typing import Union
 from apysc import Int
 from apysc import Number
 from apysc import String
-from apysc.type.copy_interface import CopyInterface
-from apysc.type.dictionary_structure import DictionaryStructure
-from apysc.type.revert_interface import RevertInterface
+from apysc._type.copy_interface import CopyInterface
+from apysc._type.dictionary_structure import DictionaryStructure
+from apysc._type.revert_interface import RevertInterface
 
 Key = Union[str, int, float, String, Int, Number]
 
@@ -48,7 +48,7 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         Append constructor expression to file.
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         value_str: str = value_util.get_value_str_for_expression(
             value=self._initial_value)
         expression: str = f'var {self.variable_name} = {value_str};'
@@ -133,7 +133,7 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
             Dictionary value to set.
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         value_str: str = value_util.get_value_str_for_expression(value=value)
         expression: str = f'{self.variable_name} = {value_str};'
         expression_file_util.append_js_expression(expression=expression)
@@ -288,8 +288,8 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         """
         from apysc import AnyValue
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
-        from apysc.type.variable_name_interface import VariableNameInterface
+        from apysc._type import value_util
+        from apysc._type.variable_name_interface import VariableNameInterface
         if not isinstance(value, VariableNameInterface):
             value = AnyValue(None)
         key_str: str = value_util.get_value_str_for_expression(value=key)
@@ -347,7 +347,7 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
             Any value to set.
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         key_str: str = value_util.get_value_str_for_expression(value=key)
         value_str: str = value_util.get_value_str_for_expression(value=value)
         expression: str = (
@@ -379,7 +379,7 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
             Dictionary key to delete.
         """
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         key_str: str = value_util.get_value_str_for_expression(value=key)
         expression: str = (
             f'delete {self.variable_name}[{key_str}];'

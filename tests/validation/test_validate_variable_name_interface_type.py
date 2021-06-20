@@ -1,5 +1,5 @@
 from apysc import Int
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 from apysc.validation import variable_name_validation
 from tests.testing_helper import assert_raises
 

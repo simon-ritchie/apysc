@@ -25,7 +25,7 @@ class AppendLinePointInterface(Points2DInterface):
         """
         from apysc import Point2D
         from apysc._expression import expression_file_util
-        from apysc.type import value_util
+        from apysc._type import value_util
         if not hasattr(self, '_points_var_name'):
             raise AttributeError(
                 '_points_var_name attribute is not set. Please add '

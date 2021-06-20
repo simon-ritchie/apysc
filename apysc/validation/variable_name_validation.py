@@ -3,7 +3,7 @@
 
 from typing import Any
 
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 def validate_variable_name_interface_type(

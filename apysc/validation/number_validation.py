@@ -39,7 +39,7 @@ def validate_num(
     ValueError
         If specified value is not integer and float value.
     """
-    from apysc.type.number_value_interface import NumberValueInterface
+    from apysc._type.number_value_interface import NumberValueInterface
     if isinstance(
             num,
             (int, float, NumberValueInterface)):

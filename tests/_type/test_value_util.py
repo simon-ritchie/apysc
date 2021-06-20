@@ -4,7 +4,7 @@ from retrying import retry
 
 from apysc import Array
 from apysc import Int
-from apysc.type import value_util
+from apysc._type import value_util
 from tests.testing_helper import assert_raises
 
 

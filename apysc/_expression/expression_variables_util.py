@@ -12,7 +12,7 @@ Mainly following interfaces are defined:
 import os
 from typing import List
 
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 def get_next_variable_name(type_name: str) -> str:

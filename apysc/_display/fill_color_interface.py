@@ -5,8 +5,8 @@ from typing import Dict
 from typing import Union
 
 from apysc import String
-from apysc.type.revert_interface import RevertInterface
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.revert_interface import RevertInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class FillColorInterface(VariableNameInterface, RevertInterface):
@@ -24,7 +24,7 @@ class FillColorInterface(VariableNameInterface, RevertInterface):
             Current fill color (hexadecimal string, e.g., '#00aaff').
             If not be set, None will be returned.
         """
-        from apysc.type import value_util
+        from apysc._type import value_util
         self._initialize_fill_color_if_not_initialized()
         fill_color: String = value_util.get_copy(value=self._fill_color)
         return fill_color

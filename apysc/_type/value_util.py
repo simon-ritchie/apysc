@@ -38,7 +38,7 @@ def get_value_str_for_expression(value: Any) -> str:
         e.g., '[10, "Hello!", true, any_variable]'.
         None will be Nan.
     """
-    from apysc.type.variable_name_interface import VariableNameInterface
+    from apysc._type.variable_name_interface import VariableNameInterface
     if isinstance(value, VariableNameInterface):
         return value.variable_name
     if isinstance(value, bool):
@@ -115,7 +115,7 @@ def _get_value_str_from_iterable(value: Union[list, tuple, Array]) -> str:
         Converted string, e.g., '[10, "Hello!", true, any_variable]'.
     """
     from apysc import Array
-    from apysc.type.variable_name_interface import VariableNameInterface
+    from apysc._type.variable_name_interface import VariableNameInterface
     if isinstance(value, Array):
         value_: List[Any] = value.value  # type: ignore
     elif isinstance(value, tuple):
@@ -152,7 +152,7 @@ def get_copy(value: T) -> T:
         Copied value. If value is not instance of CopyInterface,
         then argument value will be returned directly.
     """
-    from apysc.type.copy_interface import CopyInterface
+    from apysc._type.copy_interface import CopyInterface
     if not isinstance(value, CopyInterface):
         return value
     return value._copy()

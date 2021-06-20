@@ -10,7 +10,7 @@ from apysc import Int
 from apysc._event import handler
 from apysc._event.handler import HandlerData
 from apysc._expression import expression_file_util
-from apysc.type.variable_name_interface import VariableNameInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 from tests import testing_helper
 
 

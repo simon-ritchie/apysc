@@ -11,7 +11,7 @@ from retrying import retry
 from apysc import Boolean
 from apysc import Int
 from apysc import Number
-from apysc.display.x_interface import XInterface
+from apysc._display.x_interface import XInterface
 from apysc.expression import expression_file_util
 from apysc.expression import var_names
 from apysc.type.number_value_interface import NumberValueInterface

@@ -116,7 +116,7 @@ def _append_stage_global_variable_to_html(html_str: str) -> str:
     html_str : str
         After appended HTML string.
     """
-    from apysc.display.stage import get_stage_elem_id
+    from apysc._display.stage import get_stage_elem_id
     from apysc.html import html_const
     from apysc.html import html_util
     html_str = html_util.append_html_to_str(
@@ -140,7 +140,7 @@ def get_entry_point_func_name() -> str:
     entry_point_func_name : str
         An entry point function name.
     """
-    from apysc.display.stage import get_stage_variable_name
+    from apysc._display.stage import get_stage_variable_name
     stage_variable_name: str = get_stage_variable_name()
     entry_point_func_name: str = f'main_{stage_variable_name}'
     return entry_point_func_name

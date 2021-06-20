@@ -22,7 +22,7 @@ def validate_parent_instance(parent: Optional[Any]) -> None:
     """
     if parent is None:
         return
-    from apysc.display.child_interface import ChildInterface
+    from apysc._display.child_interface import ChildInterface
     if isinstance(parent, ChildInterface):
         return
     raise ValueError(
@@ -48,8 +48,8 @@ def validate_parent_contains_child(
         If parent not contains specified child. If parent is None,
         check will be skipped.
     """
-    from apysc.display.child_interface import ChildInterface
-    from apysc.display.display_object import DisplayObject
+    from apysc._display.child_interface import ChildInterface
+    from apysc._display.display_object import DisplayObject
     parent_: Optional[ChildInterface] = parent
     child_: DisplayObject = child
     if parent_ is None:

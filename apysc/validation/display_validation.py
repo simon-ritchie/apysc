@@ -62,7 +62,7 @@ def validate_display_object(display_object: Any) -> None:
         If specified instance is not DisplayObject type or it's subclass
         type.
     """
-    from apysc.display.display_object import DisplayObject
+    from apysc._display.display_object import DisplayObject
     if isinstance(display_object, DisplayObject):
         return
     raise ValueError(
@@ -105,7 +105,7 @@ def validate_graphics(graphics: Any) -> None:
     ValueError
         If specified instance is not Graphics type.
     """
-    from apysc.display.graphics import Graphics
+    from apysc._display.graphics import Graphics
     if isinstance(graphics, Graphics):
         return
     raise ValueError(
@@ -190,15 +190,15 @@ def validate_multiple_line_settings_isnt_set(any_instance: Any) -> None:
     ValueError
         If multiple line settings are set.
     """
-    from apysc.display.line_dash_dot_setting_interface import \
+    from apysc._display.line_dash_dot_setting_interface import \
         LineDashDotSettingInterface
-    from apysc.display.line_dash_setting_interface import \
+    from apysc._display.line_dash_setting_interface import \
         LineDashSettingInterface
-    from apysc.display.line_dot_setting_interface import \
+    from apysc._display.line_dot_setting_interface import \
         LineDotSettingInterface
-    from apysc.display.line_round_dot_setting_interface import \
+    from apysc._display.line_round_dot_setting_interface import \
         LineRoundDotSettingInterface
-    from apysc.display.line_style_interface import LineStyleInterface
+    from apysc._display.line_style_interface import LineStyleInterface
     valid_setting_names: List[str] = []
     if isinstance(
             any_instance, (LineStyleInterface, LineDotSettingInterface)):

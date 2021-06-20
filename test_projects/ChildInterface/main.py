@@ -22,7 +22,7 @@ from apysc import assert_false
 from apysc import assert_true
 from apysc import assert_undefined
 from apysc import save_overall_html
-from apysc.display.display_object import DisplayObject
+from apysc import DisplayObject
 from apysc.file import file_util
 
 this_module: ModuleType = sys.modules[__name__]

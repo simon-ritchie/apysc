@@ -48,7 +48,7 @@ def append_js_expression(expression: str) -> None:
     from apysc._expression import indent_num
     from apysc._expression import last_scope
     from apysc._file import file_util
-    from apysc.string import indent_util
+    from apysc._string import indent_util
     current_indent_num: int = indent_num.get_current_indent_num()
     expression = indent_util.append_spaces_to_expression(
         expression=expression, indent_num=current_indent_num)

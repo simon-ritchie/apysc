@@ -50,7 +50,7 @@ def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
         Message to display when assertion failed.
     """
     from apysc._expression import expression_file_util
-    from apysc.string import string_util
+    from apysc._string import string_util
     if _actual_value_type_is_array(actual=actual):
         assert_arrays_equal(expected=expected, actual=actual, msg=msg)
         return
@@ -91,7 +91,7 @@ def assert_not_equal(expected: Any, actual: Any, msg: str = '') -> None:
         Message to display when assertion failed.
     """
     from apysc._expression import expression_file_util
-    from apysc.string import string_util
+    from apysc._string import string_util
     if _actual_value_type_is_array(actual=actual):
         assert_arrays_not_equal(expected=expected, actual=actual, msg=msg)
         return
@@ -129,7 +129,7 @@ def assert_true(
         Message to display when assertion failed.
     """
     from apysc._expression import expression_file_util
-    from apysc.string import string_util
+    from apysc._string import string_util
     _trace_info(
         interface_label='assert_true', expected='true', actual=actual)
     _, actual_str = _get_expected_and_actual_strs(
@@ -163,7 +163,7 @@ def assert_false(
         Message to display when assertion failed.
     """
     from apysc._expression import expression_file_util
-    from apysc.string import string_util
+    from apysc._string import string_util
     _trace_info(
         interface_label='assert_false', expected='false', actual=actual)
     _, actual_str = _get_expected_and_actual_strs(
@@ -315,7 +315,7 @@ def assert_defined(actual: Any, msg: str = '') -> None:
         Message to display when assertion failed.
     """
     from apysc._expression import expression_file_util
-    from apysc.string import string_util
+    from apysc._string import string_util
     _trace_info(
         interface_label='assert_defined', expected='other than undefined',
         actual=actual)
@@ -341,7 +341,7 @@ def assert_undefined(actual: Any, msg: str = '') -> None:
         Message to display when assertion failed.
     """
     from apysc._expression import expression_file_util
-    from apysc.string import string_util
+    from apysc._string import string_util
     _trace_info(
         interface_label='assert_undefined', expected='undefined',
         actual=actual)
@@ -380,7 +380,7 @@ def _make_arrays_or_dicts_comparison_expression(
     expression : str
         Result expression string.
     """
-    from apysc.string import string_util
+    from apysc._string import string_util
     from apysc.type import value_util
     expected_exp_str: str = value_util.get_value_str_for_expression(
         value=expected)

@@ -114,7 +114,7 @@ def append_html_to_str(
     result : str
         HTML appended string.
     """
-    from apysc.string import indent_util
+    from apysc._string import indent_util
     result: str = dest_html
     if result != '':
         result += '\n'
@@ -148,7 +148,7 @@ def append_indent_to_each_script_line(html: str, indent_num: int) -> str:
     result_html : str
         Indentation added html string.
     """
-    from apysc.string import indent_util
+    from apysc._string import indent_util
     each_lines: List[str] = html.splitlines()
     result_html: str = ''
     script_line_util: ScriptLineUtil = ScriptLineUtil(html=html)

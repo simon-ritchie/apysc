@@ -1,4 +1,4 @@
-from apysc.string import indent_util
+from apysc._string import indent_util
 
 
 def test_make_spaces_for_html() -> None:

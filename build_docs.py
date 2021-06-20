@@ -72,7 +72,7 @@ def _remove_runnable_inline_comment_from_code_blocks(
     dir_path : str, default './docs/'
         Target directory path.
     """
-    from apysc.string import string_util
+    from apysc._string import string_util
     RUNNABLE_COMMENT_CODE: Final[str] = (
         r'<span></span><span class="c1"># runnable</span>'
     )

@@ -87,3 +87,7 @@ save_overall_html(dest_dir_path='sprite_move_instances_simultaneously/')
 <iframe src="static/sprite_move_instances_simultaneously/index.html" width="250" height="250"></iframe>
 
 The subsequent pages will explain the other interfaces, such as the `add_child` interface.
+
+## See also
+
+- [Sprite class add child and remove child interfaces](sprite_add_child_and_remove_child.md)

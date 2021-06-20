@@ -1,0 +1,65 @@
+# Sprite class add_child and remove_child interfaces
+
+This page will explain the `Sprite` class `add_child` and `remove_child` method interfaces.
+
+## What interfaces are these?
+
+The `add_child` and `remove_child` will add or remove a `DisplayObject` child instance from a `Sprite` container instance. A removed `DisplayObject` instance will not be displayed.
+
+## Automatic addition of the children
+
+Each `DisplayObject` instance will be added to a parent at the constructor. For example, a `Sprite` instance will be added to a parent stage basically, and graphics instances will be added to a parent `Sprite` instance.
+
+If you need to adjust a parent, then it will be necessary to call the `add_child` or `remove_child` interfaces manually (for instance, set a `Sprite` parent to the other `Sprite`).
+
+## Basic usage of the remove_child interface
+
+The `remove_child` interface will remove a child from a parent `Sprite` instance. A removed `DisplayObject` instance will not be displayed on a stage.
+
+For example, the following code will call the `remove_child` interface in the click handler, so if you click the rectangle, that one will be removed.
+
+```py
+# runnable
+from typing import Any
+from typing import Dict
+
+from apysc import MouseEvent
+from apysc import Sprite
+from apysc import Stage
+from apysc import Rectangle
+from apysc import save_overall_html
+
+
+def on_sprite_click(
+        e: MouseEvent[Sprite], options: Dict[str, Any]) -> None:
+    """
+    The handler would be called when the sprite instance is clicked.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    sprite: Sprite = e.this
+    rectangle: Rectangle = options['rectangle']
+    sprite.remove_child(child=rectangle)
+
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+
+sprite: Sprite = Sprite(stage=stage)
+sprite.graphics.begin_fill(color='#0af')
+rectangle: Rectangle = sprite.graphics.draw_rect(
+    x=50, y=50, width=50, height=50)
+sprite.click(on_sprite_click, options={'rectangle': rectangle})
+
+save_overall_html(dest_dir_path='sprite_basic_usage_of_remove_child/')
+```
+
+

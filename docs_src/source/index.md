@@ -29,6 +29,7 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 **Sprite**
 
 - [Sprite class](sprite.md)
+- [Sprite class add child and remove child interfaces](sprite_add_child_and_remove_child.md)
 
 **Graphics class**
 

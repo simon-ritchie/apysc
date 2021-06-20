@@ -7,8 +7,8 @@ from retrying import retry
 from apysc import Event
 from apysc import EventType
 from apysc import Int
-from apysc.event import handler
-from apysc.event.handler import HandlerData
+from apysc._event import handler
+from apysc._event.handler import HandlerData
 from apysc.expression import expression_file_util
 from apysc.type.variable_name_interface import VariableNameInterface
 from tests import testing_helper
@@ -55,7 +55,7 @@ def test_get_handler_name() -> None:
     handler_name: str = handler.get_handler_name(
         handler=test_instance.on_click_1,
         instance=test_instance)
-    assert 'tests_event_test_handler' in handler_name
+    assert 'tests__event_test_handler' in handler_name
     assert '_TestClass1_' in handler_name
     assert 'on_click_1_' in handler_name
     assert handler_name.endswith(f'_{test_instance.variable_name}')

@@ -9,7 +9,7 @@ from apysc import bind_wheel_event_to_document
 from apysc import document
 from apysc import unbind_wheel_event_all_from_document
 from apysc import unbind_wheel_event_from_document
-from apysc.event.handler import get_handler_name
+from apysc._event.handler import get_handler_name
 from apysc.expression import expression_file_util
 from apysc.expression import var_names
 

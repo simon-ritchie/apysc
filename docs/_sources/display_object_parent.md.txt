@@ -62,3 +62,7 @@ save_overall_html(
 ```
 
 <iframe src="static/display_object_remove_from_parent_basic_usage/index.html" width="150" height="150"></iframe>
+
+## See also
+
+- [Sprite class add child and remove child interfaces](sprite_add_child_and_remove_child.md)

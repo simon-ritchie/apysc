@@ -4,7 +4,7 @@
 from typing import Any
 from typing import Dict
 
-from apysc.branch.if_base import IfBase
+from apysc._branch.if_base import IfBase
 
 
 class Else(IfBase):

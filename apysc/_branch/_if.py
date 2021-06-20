@@ -1,7 +1,7 @@
 """If branch instruction implementations.
 """
 
-from apysc.branch.if_base import IfBase
+from apysc._branch.if_base import IfBase
 
 
 class If(IfBase):

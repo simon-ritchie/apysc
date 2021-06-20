@@ -28,9 +28,9 @@ class Boolean(CopyInterface, RevertInterface):
         """
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names
-        from apysc.validation import number_validation
         from apysc.expression.event_handler_scope import \
             TemporaryNotHandlerScope
+        from apysc.validation import number_validation
         with TemporaryNotHandlerScope():
             TYPE_NAME: str = var_names.BOOLEAN
             number_validation.validate_int_is_zero_or_one(integer=value)

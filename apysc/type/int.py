@@ -22,9 +22,9 @@ class Int(NumberValueInterface):
         from apysc.converter import cast
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names
-        from apysc.type import type_util
         from apysc.expression.event_handler_scope import \
             TemporaryNotHandlerScope
+        from apysc.type import type_util
         with TemporaryNotHandlerScope():
             is_number_specified: bool = type_util.is_number(
                 value=value)

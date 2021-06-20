@@ -26,9 +26,9 @@ class String(CopyInterface, RevertInterface):
         """
         from apysc.expression import expression_variables_util
         from apysc.expression import var_names
-        from apysc.validation import string_validation
         from apysc.expression.event_handler_scope import \
             TemporaryNotHandlerScope
+        from apysc.validation import string_validation
         with TemporaryNotHandlerScope():
             TYPE_NAME: str = var_names.STRING
             string_validation.validate_string_type(string=value)

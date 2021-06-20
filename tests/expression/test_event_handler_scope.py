@@ -4,7 +4,8 @@ from retrying import retry
 
 from apysc.expression import event_handler_scope
 from apysc.expression import expression_file_util
-from apysc.expression.event_handler_scope import HandlerScope, TemporaryNotHandlerScope
+from apysc.expression.event_handler_scope import HandlerScope
+from apysc.expression.event_handler_scope import TemporaryNotHandlerScope
 from apysc.file import file_util
 
 

@@ -318,7 +318,7 @@ If you open the DevTools console on Chrome (press F12) and move the mouse cursor
 
 MouseEvent instance also has `local_x` and `local_y` attributes. These attributes are the local coordinates from the event registered instance position.
 
-The following example will show that local_x and local_y will become the coordinates in the rectangle area (both `local_x` and `local_y` will be the range of 0 to 50, because the rectangle size is 50-pixel).
+The following example will show that local_x and local_y will become the coordinates in the rectangle area (both `local_x` and `local_y` will be a range of 0 to 50 because the rectangle size is 50-pixel).
 
 ```py
 # runnable
@@ -368,3 +368,10 @@ save_overall_html(
 Please check on Chrome DevTools (press F12) and move the mouse cursor on the following rectangle.
 
 <iframe src="static/mouse_event_common_local_x_and_local_y/index.html" width="150" height="150"></iframe>
+
+## See also
+
+- [Click interface](click.md)
+- [Mousedown and mouseup interfaces](mousedown_and_mouseup.md)
+- [Mouseover and mouseout interfaces](mouseover_and_mouseout.md)
+- [Mousemove interface](mousemove.md)

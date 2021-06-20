@@ -64,4 +64,70 @@ save_overall_html(dest_dir_path='sprite_basic_usage_of_remove_child/')
 
 <iframe src="static/sprite_basic_usage_of_remove_child/index.html" width="150" height="150"></iframe>
 
+## The basic usage of the add_child interface
 
+The `add_child` interface will add a removed child again or add a child to the other container instance.
+
+The following code example will remove the rectangle from the first `Sprite` container (be positioned to the left) when you click the rectangle, and then add it to the second `Sprite` container (be positioned to the right).
+
+```py
+# runnable
+from typing import Any
+from typing import Dict
+
+from apysc import MouseEvent
+from apysc import Sprite
+from apysc import Stage
+from apysc import Rectangle
+from apysc import Int
+from apysc import save_overall_html
+
+
+def on_sprite_click(
+        e: MouseEvent[Sprite], options: Dict[str, Any]) -> None:
+    """
+    The handler would be called when the sprite instance is clicked.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    first_sprite: Sprite = e.this
+    rectangle: Rectangle = options['rectangle']
+    second_sprite: Sprite = options['second_sprite']
+    first_sprite.remove_child(child=rectangle)
+    second_sprite.add_child(child=rectangle)
+
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=250,
+    stage_height=150,
+    stage_elem_id='stage')
+
+first_sprite: Sprite = Sprite(stage=stage)
+first_sprite.graphics.begin_fill(color='#0af')
+first_sprite.x = Int(50)
+first_sprite.y = Int(50)
+rectangle: Rectangle = first_sprite.graphics.draw_rect(
+    x=0, y=0, width=50, height=50)
+
+second_sprite: Sprite = Sprite(stage=stage)
+second_sprite.x = Int(150)
+second_sprite.y = Int(50)
+
+first_sprite.click(
+    on_sprite_click,
+    options={'rectangle': rectangle, 'second_sprite': second_sprite})
+
+save_overall_html(dest_dir_path='sprite_basic_usage_of_add_child/')
+```
+
+<iframe src="static/sprite_basic_usage_of_add_child/index.html" width="250" height="150"></iframe>
+
+## See also
+
+- [DisplayObject class parent interfaces](display_object_parent.md)

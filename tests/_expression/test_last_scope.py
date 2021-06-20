@@ -6,7 +6,7 @@ from retrying import retry
 from apysc._expression import last_scope
 from apysc._expression.expression_file_util import LAST_SCOPE_FILE_PATH
 from apysc._expression.last_scope import LastScope
-from apysc.file import file_util
+from apysc._file import file_util
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

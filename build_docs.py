@@ -107,8 +107,8 @@ def _exec_document_script(
     executed_scripts : list of str
         List of executed Python scripts.
     """
-    from apysc.file import file_util
-    from apysc.file import module_util
+    from apysc._file import file_util
+    from apysc._file import module_util
     md_file_paths: List[str] = \
         file_util.get_specified_ext_file_paths_recursively(
             extension='.md', dir_path='./docs_src/')
@@ -155,7 +155,7 @@ def _save_md_hashed_val(md_file_path: str, hashed_val: str) -> None:
     hashed_val : str
         Hashed markdown text value.
     """
-    from apysc.file import file_util
+    from apysc._file import file_util
     under_source_file_path: str = _get_md_under_source_file_path(
         md_file_path=md_file_path)
     dest_path: str = os.path.join(
@@ -245,7 +245,7 @@ def _read_md_file_and_hash_txt(md_file_path: str) -> str:
     hashed_val : str
         Hashed string value.
     """
-    from apysc.file import file_util
+    from apysc._file import file_util
     md_txt: str = file_util.read_txt(file_path=md_file_path)
     hashed_val: str = hashlib.sha1(md_txt.encode()).hexdigest()
     return hashed_val
@@ -266,7 +266,7 @@ def _read_md_file_hashed_val_from_file(hash_file_path: str) -> str:
         Hashed string value. If file does not exist, then blank string
         will be returned.
     """
-    from apysc.file import file_util
+    from apysc._file import file_util
     if not os.path.exists(hash_file_path):
         return ''
     hashed_val: str = file_util.read_txt(file_path=hash_file_path)
@@ -314,7 +314,7 @@ def _get_runnable_scripts_in_md_code_blocks(md_file_path: str) -> List[str]:
         Code blocks with the `# runnable` inline comment
         at the begining of the block will be targeted.
     """
-    from apysc.file.file_util import read_txt
+    from apysc._file.file_util import read_txt
     md_txt: str = read_txt(file_path=md_file_path)
     code_blocks: List[_CodeBlock] = _get_code_blocks_from_txt(md_txt=md_txt)
     runnable_scripts: List[str] = []

@@ -46,7 +46,7 @@ def save_overall_html(
     skip_js_lib_exporting : bool, default False
         If True is set, then JavaScript libraries will not be exported.
     """
-    from apysc.file import file_util
+    from apysc._file import file_util
     from apysc.html import html_util
     info_logger.info(msg='Overall exporting started...')
     file_util.empty_directory(directory_path=dest_dir_path)
@@ -188,7 +188,7 @@ def _save_html(
     file_name : str
         HTML file name. e.g., 'index.html'
     """
-    from apysc.file import file_util
+    from apysc._file import file_util
     os.makedirs(dir_path, exist_ok=True)
     file_path: str = os.path.join(dir_path, file_name)
     file_util.save_plain_txt(txt=html_str, file_path=file_path)
@@ -209,7 +209,7 @@ def _append_expression_to_html_str(html_str: str) -> str:
         HTML string after appended expressions.
     """
     from apysc._expression import expression_file_util
-    from apysc.file import file_util
+    from apysc._file import file_util
     from apysc.html import html_const
     from apysc.html import html_util
     info_logger.info(msg='Reading basic expression file...')

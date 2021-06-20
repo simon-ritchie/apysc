@@ -21,7 +21,7 @@ def get_current_indent_num() -> int:
     current_indent_num : int
         Current indent number.
     """
-    from apysc.file import file_util
+    from apysc._file import file_util
     file_path: str = _get_indent_num_file_path()
     if not os.path.isfile(file_path):
         return 0
@@ -62,7 +62,7 @@ class Indent:
         Method to be used by with statement.
         This method will increment indentation number.
         """
-        from apysc.file import file_util
+        from apysc._file import file_util
         file_path: str = _get_indent_num_file_path()
         current_indent_num: int = get_current_indent_num()
         current_indent_num += 1
@@ -79,7 +79,7 @@ class Indent:
         *args : list
             Any positional arguments.
         """
-        from apysc.file import file_util
+        from apysc._file import file_util
         file_path: str = _get_indent_num_file_path()
         current_indent_num: int = get_current_indent_num()
         current_indent_num -= 1
@@ -94,7 +94,7 @@ def reset() -> None:
     Reset current indent number.
     """
     from apysc._expression import expression_file_util
-    from apysc.file import file_util
+    from apysc._file import file_util
     file_util.remove_file_if_exists(
         file_path=expression_file_util.INDENT_NUM_FILE_PATH)
     file_util.remove_file_if_exists(

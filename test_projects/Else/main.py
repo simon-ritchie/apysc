@@ -18,7 +18,7 @@ from apysc import Int
 from apysc import Stage
 from apysc import assert_equal
 from apysc import save_overall_html
-from apysc.file import file_util
+from apysc._file import file_util
 
 this_module: ModuleType = sys.modules[__name__]
 

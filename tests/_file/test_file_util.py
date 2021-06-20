@@ -5,7 +5,7 @@ from typing import List
 
 from retrying import retry
 
-from apysc.file import file_util
+from apysc._file import file_util
 from tests import testing_helper
 
 

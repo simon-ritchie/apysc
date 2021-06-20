@@ -94,7 +94,7 @@ def substitute_file_by_pattern(
     flags : Any
         Regular expression flags.
     """
-    from apysc.file import file_util
+    from apysc._file import file_util
     string: str = file_util.read_txt(file_path=file_path)
     string = re.sub(
         pattern=pattern,

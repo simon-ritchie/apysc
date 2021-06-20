@@ -82,7 +82,7 @@ class Stage(
         """
         Save stage element id to expression directory's file.
         """
-        from apysc.file import file_util
+        from apysc._file import file_util
         file_util.save_plain_txt(
             txt=self._stage_elem_id,
             file_path=_STAGE_ELEM_ID_FILE_PATH)
@@ -178,7 +178,7 @@ def get_stage_elem_id() -> str:
         Current stage's element id. If stage is not instantiated yet,
         blank string will be set.
     """
-    from apysc.file import file_util
+    from apysc._file import file_util
     if not os.path.isfile(_STAGE_ELEM_ID_FILE_PATH):
         return ''
     stage_elem_id: str = file_util.read_txt(

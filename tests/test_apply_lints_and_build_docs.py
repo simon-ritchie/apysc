@@ -2,7 +2,7 @@ import os
 
 import apply_lints_and_build_docs
 from apply_lints_and_build_docs import LintCommand
-from apysc.file import file_util
+from apysc._file import file_util
 
 
 def test__run_lint_command() -> None:

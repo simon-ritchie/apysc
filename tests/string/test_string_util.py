@@ -4,7 +4,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc.file import file_util
+from apysc._file import file_util
 from apysc.string import string_util
 
 

@@ -103,7 +103,7 @@ def _read_variable_names(type_name: str) -> List[str]:
         Target type name's variable names.
         e.g., if type name is sprite, `['sprite_1', 'sprite_2', ...]`.
     """
-    from apysc.file import file_util
+    from apysc._file import file_util
     file_path: str = get_variable_names_file_path(
         type_name=type_name)
     if not os.path.isfile(file_path):
@@ -123,7 +123,7 @@ def _save_next_variable_name_to_file(type_name: str) -> None:
     type_name : str
         Any type name, e.g., `sprite`.
     """
-    from apysc.file import file_util
+    from apysc._file import file_util
     file_path: str = get_variable_names_file_path(
         type_name=type_name)
     next_variable_num: int = _get_next_variable_num(

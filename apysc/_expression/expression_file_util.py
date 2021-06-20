@@ -32,7 +32,7 @@ def empty_expression_dir() -> None:
     """
     Remove expression directory (EXPRESSION_ROOT_DIR) to initialize.
     """
-    from apysc.file import file_util
+    from apysc._file import file_util
     file_util.empty_directory(directory_path=EXPRESSION_ROOT_DIR)
 
 
@@ -47,7 +47,7 @@ def append_js_expression(expression: str) -> None:
     """
     from apysc._expression import indent_num
     from apysc._expression import last_scope
-    from apysc.file import file_util
+    from apysc._file import file_util
     from apysc.string import indent_util
     current_indent_num: int = indent_num.get_current_indent_num()
     expression = indent_util.append_spaces_to_expression(
@@ -132,7 +132,7 @@ def _get_current_expression(file_path: str) -> str:
     current_expression : str
         Current expression's string.
     """
-    from apysc.file import file_util
+    from apysc._file import file_util
     if not os.path.isfile(file_path):
         return ''
     current_expression: str = file_util.read_txt(
@@ -145,7 +145,7 @@ def remove_expression_file() -> None:
     """
     Remove expression file.
     """
-    from apysc.file import file_util
+    from apysc._file import file_util
     file_util.remove_file_if_exists(file_path=EXPRESSION_FILE_PATH)
     file_util.remove_file_if_exists(
         file_path=EVENT_HANDLER_SCOPE_COUNT_FILE_PATH)

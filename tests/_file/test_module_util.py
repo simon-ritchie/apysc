@@ -3,7 +3,7 @@ from typing import List
 
 from retrying import retry
 
-from apysc.file import module_util
+from apysc._file import module_util
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

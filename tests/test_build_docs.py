@@ -8,7 +8,7 @@ from retrying import retry
 
 import build_docs
 from apysc._display.stage import get_stage_elem_id
-from apysc.file import file_util
+from apysc._file import file_util
 from build_docs import _CodeBlock
 from tests.testing_helper import assert_attrs
 

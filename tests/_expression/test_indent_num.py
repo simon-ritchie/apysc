@@ -7,7 +7,7 @@ from apysc._expression import expression_file_util
 from apysc._expression import indent_num
 from apysc._expression.expression_file_util import INDENT_NUM_FILE_PATH
 from apysc._expression.indent_num import Indent
-from apysc.file import file_util
+from apysc._file import file_util
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

@@ -46,7 +46,7 @@ def test_complement_hex_color() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_complement_hex_color_expression() -> None:
     from apysc import String
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     expression_file_util.remove_expression_file()
 
     string_1: String = String('#333')

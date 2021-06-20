@@ -29,8 +29,8 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         y : int or Int
             Y-coordinate.
         """
-        from apysc.expression import expression_variables_util
-        from apysc.expression import var_names
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
         from apysc.validation.number_validation import validate_integer
         validate_integer(integer=x)
         validate_integer(integer=y)
@@ -48,7 +48,7 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         """
         Append constructor expression to file.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'var {self.variable_name} = {{'
             f'"x": {self._x.variable_name}, "y": {self._y.variable_name}}};'
@@ -96,7 +96,7 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         x : Int
             Target x value.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{x.variable_name} = '
             f'{self.variable_name}["x"];'
@@ -112,7 +112,7 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         value : Int
             X-coordinate to set.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{self.variable_name}["x"] = {value.variable_name};'
         )
@@ -159,7 +159,7 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         y : Int
             Target y value.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{y.variable_name} = '
             f'{self.variable_name}["y"];'
@@ -175,7 +175,7 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         value : Int
             Y-coordinate to set.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{self.variable_name}["y"] = {value.variable_name};'
         )

@@ -31,8 +31,8 @@ class Line(LineBase):
             Line end point.
         """
         from apysc._display.graphics import Graphics
-        from apysc.expression import expression_variables_util
-        from apysc.expression import var_names
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
         from apysc.validation import geom_validation
         geom_validation.validate_point_2d_type(point=start_point)
         geom_validation.validate_point_2d_type(point=end_point)
@@ -53,7 +53,7 @@ class Line(LineBase):
         Append constructor expression to file.
         """
         from apysc._display.stage import get_stage_variable_name
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         stage_variable_name: str = get_stage_variable_name()
         points_str: str = self._make_points_expression()
         expression: str = (

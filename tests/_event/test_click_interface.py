@@ -8,7 +8,7 @@ from apysc import EventType
 from apysc import MouseEvent
 from apysc._event.click_interface import ClickInterface
 from apysc._event.handler import get_handler_name
-from apysc.expression import expression_file_util
+from apysc._expression import expression_file_util
 from apysc.type.variable_name_interface import VariableNameInterface
 from tests import testing_helper
 

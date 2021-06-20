@@ -12,8 +12,8 @@ from apysc import Sprite
 from apysc import Stage
 from apysc._display.child_interface import ChildInterface
 from apysc._display.display_object import DisplayObject
-from apysc.expression import expression_file_util
-from apysc.expression import var_names
+from apysc._expression import expression_file_util
+from apysc._expression import var_names
 
 
 class TestChildInterface:

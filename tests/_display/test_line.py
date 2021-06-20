@@ -11,8 +11,8 @@ from apysc import Point2D
 from apysc import Sprite
 from apysc import Stage
 from apysc._display.stage import get_stage_variable_name
-from apysc.expression import expression_file_util
-from apysc.expression import var_names
+from apysc._expression import expression_file_util
+from apysc._expression import var_names
 from tests._display.test_graphics_expression import \
     assert_stroke_attr_expression_exists
 

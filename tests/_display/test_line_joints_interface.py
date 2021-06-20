@@ -8,7 +8,7 @@ from retrying import retry
 from apysc import LineJoints
 from apysc import String
 from apysc._display.line_joints_interface import LineJointsInterface
-from apysc.expression import expression_file_util
+from apysc._expression import expression_file_util
 from tests.testing_helper import assert_raises
 
 

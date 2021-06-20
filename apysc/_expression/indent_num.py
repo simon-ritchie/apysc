@@ -43,8 +43,8 @@ def _get_indent_num_file_path() -> str:
     file_path : str
         Indent number file path.
     """
-    from apysc.expression import event_handler_scope
-    from apysc.expression import expression_file_util
+    from apysc._expression import event_handler_scope
+    from apysc._expression import expression_file_util
     event_handler_scope_count: int = \
         event_handler_scope.get_current_event_handler_scope_count()
     if event_handler_scope_count == 0:
@@ -93,7 +93,7 @@ def reset() -> None:
     """
     Reset current indent number.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     from apysc.file import file_util
     file_util.remove_file_if_exists(
         file_path=expression_file_util.INDENT_NUM_FILE_PATH)

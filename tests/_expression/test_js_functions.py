@@ -1,6 +1,6 @@
 from typing import List
 
-from apysc.expression import js_functions
+from apysc._expression import js_functions
 
 
 def test_get_js_functions() -> None:

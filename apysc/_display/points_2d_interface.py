@@ -72,8 +72,8 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
             2-dimensional JavaScript array variable, like
             '[[x_1, y_1], [x_2, y_2], ...]'.
         """
-        from apysc.expression import expression_variables_util
-        from apysc.expression import var_names
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
         self._initialize_points_if_not_initialized()
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.ARRAY)
@@ -102,7 +102,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         value : Array
             Points value to set.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{self._points.variable_name} = {value.variable_name};'
         )

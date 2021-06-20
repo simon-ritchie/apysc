@@ -45,8 +45,8 @@ def append_js_expression(expression: str) -> None:
     expression : str
         JavaScript Expression string.
     """
-    from apysc.expression import indent_num
-    from apysc.expression import last_scope
+    from apysc._expression import indent_num
+    from apysc._expression import last_scope
     from apysc.file import file_util
     from apysc.string import indent_util
     current_indent_num: int = indent_num.get_current_indent_num()
@@ -71,7 +71,7 @@ def _get_expression_file_path() -> str:
     file_path : str
         Expression file path.
     """
-    from apysc.expression import event_handler_scope
+    from apysc._expression import event_handler_scope
     event_handler_scope_count: int = \
         event_handler_scope.get_current_event_handler_scope_count()
     if event_handler_scope_count == 0:

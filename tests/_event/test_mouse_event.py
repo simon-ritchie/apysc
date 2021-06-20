@@ -10,8 +10,8 @@ from apysc import MouseEvent
 from apysc import Sprite
 from apysc import Stage
 from apysc._display.stage import get_stage_elem_str
-from apysc.expression import expression_file_util
-from apysc.expression import var_names
+from apysc._expression import expression_file_util
+from apysc._expression import var_names
 
 
 class TestMouseEvent:

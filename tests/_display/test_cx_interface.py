@@ -4,7 +4,7 @@ from retrying import retry
 
 from apysc import Int
 from apysc._display.cx_interface import CxInterface
-from apysc.expression import expression_file_util
+from apysc._expression import expression_file_util
 
 
 class TestCxInterface:

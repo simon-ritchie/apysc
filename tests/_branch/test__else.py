@@ -7,9 +7,9 @@ from apysc import Boolean
 from apysc import Else
 from apysc import If
 from apysc import Int
-from apysc.expression import expression_file_util
-from apysc.expression import last_scope
-from apysc.expression.last_scope import LastScope
+from apysc._expression import expression_file_util
+from apysc._expression import last_scope
+from apysc._expression.last_scope import LastScope
 
 
 class TestElse:

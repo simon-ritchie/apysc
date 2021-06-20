@@ -208,7 +208,7 @@ def _append_expression_to_html_str(html_str: str) -> str:
     html_str : str
         HTML string after appended expressions.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     from apysc.file import file_util
     from apysc.html import html_const
     from apysc.html import html_util
@@ -256,7 +256,7 @@ def _append_event_handler_expressions(expression: str) -> str:
     expression : str
         Result expression string.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     event_handler_scope_expression: str = \
         expression_file_util.get_current_event_handler_scope_expression()
     expression = f'{expression}\n{event_handler_scope_expression}'
@@ -304,7 +304,7 @@ def _append_common_js_functions(expression: str) -> str:
     expression : str
         Expression string that common functions are appended.
     """
-    from apysc.expression import js_functions
+    from apysc._expression import js_functions
     js_function_strs: List[str] = js_functions.get_js_functions()
     js_function_strs.reverse()
     for js_function in js_function_strs:

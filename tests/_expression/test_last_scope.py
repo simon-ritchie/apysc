@@ -3,9 +3,9 @@ from random import randint
 
 from retrying import retry
 
-from apysc.expression import last_scope
-from apysc.expression.expression_file_util import LAST_SCOPE_FILE_PATH
-from apysc.expression.last_scope import LastScope
+from apysc._expression import last_scope
+from apysc._expression.expression_file_util import LAST_SCOPE_FILE_PATH
+from apysc._expression.last_scope import LastScope
 from apysc.file import file_util
 
 

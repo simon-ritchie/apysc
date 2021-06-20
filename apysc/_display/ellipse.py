@@ -43,8 +43,8 @@ class Ellipse(
         """
         from apysc._converter.to_apysc_val_from_builtin import \
             get_copied_int_from_builtin_val
-        from apysc.expression import expression_variables_util
-        from apysc.expression import var_names
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
         from apysc.validation import size_validation
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.ELLIPSE)
@@ -66,7 +66,7 @@ class Ellipse(
         Append a constructor expression to the file.
         """
         from apysc._display.stage import get_stage_variable_name
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type import value_util
         stage_variable_name: str = get_stage_variable_name()
         width_str: str = value_util.get_value_str_for_expression(

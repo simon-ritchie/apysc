@@ -54,7 +54,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         """
         Append line cap updating expression to file.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type import value_util
         cap_name: str = value_util.get_value_str_for_expression(
             value=self._line_cap)

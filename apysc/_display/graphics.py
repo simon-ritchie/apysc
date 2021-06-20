@@ -48,8 +48,8 @@ class Graphics(
         from apysc import Number
         from apysc import Sprite
         from apysc import String
-        from apysc.expression import expression_variables_util
-        from apysc.expression import var_names
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
         from apysc.validation import display_validation
 
         display_validation.validate_sprite(sprite=parent)
@@ -71,7 +71,7 @@ class Graphics(
         """
         Append constructor expression to file.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         stage_name: str = self.parent_sprite.stage.variable_name
         expression: str = (
             f'var {self.variable_name} = {stage_name}.nested();'

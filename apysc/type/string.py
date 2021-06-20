@@ -24,9 +24,9 @@ class String(CopyInterface, RevertInterface):
         value : str or String
             Initial string value.
         """
-        from apysc.expression import expression_variables_util
-        from apysc.expression import var_names
-        from apysc.expression.event_handler_scope import \
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
         from apysc.validation import string_validation
         with TemporaryNotHandlerScope():
@@ -43,7 +43,7 @@ class String(CopyInterface, RevertInterface):
         """
         Append constructor expression to file.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = f'var {self.variable_name} = '
         if isinstance(self._initial_value, String):
             expression += f'{self._initial_value.variable_name};'
@@ -106,7 +106,7 @@ class String(CopyInterface, RevertInterface):
         value : str or String
             Any string value to set.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = f'{self.variable_name} = '
         if isinstance(value, String):
             expression += f'{value.variable_name};'
@@ -152,7 +152,7 @@ class String(CopyInterface, RevertInterface):
         other : str or String
             Other string value to concatenate.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
@@ -201,7 +201,7 @@ class String(CopyInterface, RevertInterface):
             String repetition number.
         """
         from apysc import Int
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = f'var {result.variable_name} = "";'
         expression += '\nfor (var i = 0; i < '
         if isinstance(other, Int):
@@ -227,7 +227,7 @@ class String(CopyInterface, RevertInterface):
         result : String
             Concatenated result string.
         """
-        from apysc.expression import expression_variables_util
+        from apysc._expression import expression_variables_util
         result: String = self + other
         expression_variables_util.append_substitution_expression(
             left_value=self, right_value=result)
@@ -248,7 +248,7 @@ class String(CopyInterface, RevertInterface):
         result : String
             Repetition result string.
         """
-        from apysc.expression import expression_variables_util
+        from apysc._expression import expression_variables_util
         result: String = self * other
         expression_variables_util.append_substitution_expression(
             left_value=self, right_value=result)
@@ -328,7 +328,7 @@ class String(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} === {other.variable_name};'
@@ -375,7 +375,7 @@ class String(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} !== {other.variable_name};'
@@ -419,7 +419,7 @@ class String(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} < {other.variable_name};'
@@ -463,7 +463,7 @@ class String(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} <= {other.variable_name};'
@@ -507,7 +507,7 @@ class String(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} > {other.variable_name};'
@@ -551,7 +551,7 @@ class String(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} >= {other.variable_name};'

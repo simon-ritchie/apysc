@@ -27,8 +27,8 @@ class Event(Generic[T], VariableNameInterface):
         type_name : str or None, default None
             Type name to set. Only specify when inherit this class.
         """
-        from apysc.expression import expression_variables_util
-        from apysc.expression import var_names
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
         self._validate_type_name_and_self_type(type_name=type_name)
         self._this = this
         if type_name is None:
@@ -70,7 +70,7 @@ class Event(Generic[T], VariableNameInterface):
         """
         Stop event propagation.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{self.variable_name}.stopPropagation();'
         )
@@ -80,7 +80,7 @@ class Event(Generic[T], VariableNameInterface):
         """
         Prevent event's default behavior.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{self.variable_name}.preventDefault();'
         )

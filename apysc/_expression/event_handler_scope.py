@@ -95,7 +95,7 @@ def _save_current_scope_count(count: int) -> None:
     count : int
         Scope count ot save.
     """
-    from apysc.expression.expression_file_util import \
+    from apysc._expression.expression_file_util import \
         EVENT_HANDLER_SCOPE_COUNT_FILE_PATH
     from apysc.file import file_util
     file_util.save_plain_txt(
@@ -115,7 +115,7 @@ def get_current_event_handler_scope_count() -> int:
         or call other handler in handler's function, then
         2 or more count will be returned.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     from apysc.file import file_util
     file_path: str = expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH
     if not os.path.isfile(file_path):

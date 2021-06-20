@@ -1,5 +1,5 @@
 from apysc import document
-from apysc.expression import var_names
+from apysc._expression import var_names
 
 
 class TestDocument:

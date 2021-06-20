@@ -49,7 +49,7 @@ def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     from apysc.string import string_util
     if _actual_value_type_is_array(actual=actual):
         assert_arrays_equal(expected=expected, actual=actual, msg=msg)
@@ -90,7 +90,7 @@ def assert_not_equal(expected: Any, actual: Any, msg: str = '') -> None:
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     from apysc.string import string_util
     if _actual_value_type_is_array(actual=actual):
         assert_arrays_not_equal(expected=expected, actual=actual, msg=msg)
@@ -128,7 +128,7 @@ def assert_true(
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     from apysc.string import string_util
     _trace_info(
         interface_label='assert_true', expected='true', actual=actual)
@@ -162,7 +162,7 @@ def assert_false(
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     from apysc.string import string_util
     _trace_info(
         interface_label='assert_false', expected='false', actual=actual)
@@ -199,7 +199,7 @@ def assert_arrays_equal(
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     _trace_arrays_or_dicts_assertion_info(
         interface_label='assert_arrays_equal',
         expected=expected, actual=actual)
@@ -229,7 +229,7 @@ def assert_arrays_not_equal(
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     _trace_arrays_or_dicts_assertion_info(
         interface_label='assert_arrays_not_equal',
         expected=expected, actual=actual)
@@ -260,7 +260,7 @@ def assert_dicts_equal(expected: Any, actual: Any, msg: str = '') -> None:
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     _trace_arrays_or_dicts_assertion_info(
         interface_label='assert_dicts_equal',
         expected=expected, actual=actual)
@@ -292,7 +292,7 @@ def assert_dicts_not_equal(
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     _trace_arrays_or_dicts_assertion_info(
         interface_label='assert_dicts_not_equal',
         expected=expected, actual=actual)
@@ -314,7 +314,7 @@ def assert_defined(actual: Any, msg: str = '') -> None:
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     from apysc.string import string_util
     _trace_info(
         interface_label='assert_defined', expected='other than undefined',
@@ -340,7 +340,7 @@ def assert_undefined(actual: Any, msg: str = '') -> None:
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     from apysc.string import string_util
     _trace_info(
         interface_label='assert_undefined', expected='undefined',

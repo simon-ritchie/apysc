@@ -87,9 +87,9 @@ def append_handler_expression(
     e : Event
         Created event instance.
     """
-    from apysc.expression import expression_file_util
-    from apysc.expression.event_handler_scope import HandlerScope
-    from apysc.expression.indent_num import Indent
+    from apysc._expression import expression_file_util
+    from apysc._expression.event_handler_scope import HandlerScope
+    from apysc._expression.indent_num import Indent
     from apysc.type import revert_interface
     from apysc.validation.event_validation import validate_event
     validate_event(e=e)
@@ -125,7 +125,7 @@ def append_unbinding_expression(
     event_type : EventType
         Event type to unbind.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     from apysc.validation import event_validation
     event_validation.validate_event_type(event_type=event_type)
     expression: str = (
@@ -147,7 +147,7 @@ def append_unbinding_all_expression(
     event_type : EventType
         Event type to unbind.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     from apysc.validation import event_validation
     event_validation.validate_event_type(event_type=event_type)
     expression: str = (

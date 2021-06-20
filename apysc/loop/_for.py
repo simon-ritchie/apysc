@@ -14,7 +14,7 @@ from apysc import Dictionary
 from apysc import Int
 from apysc import Number
 from apysc import String
-from apysc.expression.indent_num import Indent
+from apysc._expression.indent_num import Indent
 
 T = TypeVar('T', Int, String, Number)
 
@@ -123,9 +123,9 @@ class For(Generic[T]):
         traceback : *
             Traceback value.
         """
-        from apysc.expression import expression_file_util
-        from apysc.expression import last_scope
-        from apysc.expression.last_scope import LastScope
+        from apysc._expression import expression_file_util
+        from apysc._expression import last_scope
+        from apysc._expression.last_scope import LastScope
         from apysc.type import revert_interface
         revert_interface.revert_each_scope_vars(
             snapshot_name=self._snapshot_name,
@@ -143,7 +143,7 @@ class For(Generic[T]):
         i : Int
             Loop index value.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         i_name: str = i.variable_name
         expression: str = (
             f'var length = {self._arr_or_dict.variable_name}.length;\n'
@@ -160,7 +160,7 @@ class For(Generic[T]):
         key : String
             Loop (dictionary) key value.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         key_name: str = key.variable_name
         expression: str = (
             f'for (var {key_name} in {self._arr_or_dict.variable_name}) {{'

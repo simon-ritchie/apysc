@@ -26,9 +26,9 @@ class Boolean(CopyInterface, RevertInterface):
             Initial boolean value. 0 or 1 are acceptable for integer
             value.
         """
-        from apysc.expression import expression_variables_util
-        from apysc.expression import var_names
-        from apysc.expression.event_handler_scope import \
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
         from apysc.validation import number_validation
         with TemporaryNotHandlerScope():
@@ -74,7 +74,7 @@ class Boolean(CopyInterface, RevertInterface):
         """
         Append constructor expression to file.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type.variable_name_interface import VariableNameInterface
         expression: str = f'var {self.variable_name} = '
         if isinstance(self._initial_value, VariableNameInterface):
@@ -124,7 +124,7 @@ class Boolean(CopyInterface, RevertInterface):
         value : bool or VariableNameInterface
             Any value to set.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type.variable_name_interface import VariableNameInterface
         expression: str = f'{self.variable_name} = '
         if isinstance(value, VariableNameInterface):
@@ -268,7 +268,7 @@ class Boolean(CopyInterface, RevertInterface):
         other : Boolean or Int
             Other value to compare.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         other_str: str = other.variable_name
         if isinstance(other, Int):
             other_str = f'Boolean({other_str});'
@@ -311,7 +311,7 @@ class Boolean(CopyInterface, RevertInterface):
         other : Boolean or Int
             Other value to compare.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         other_str: str = other.variable_name
         if isinstance(other, Int):
             other_str = f'Boolean({other_str});'
@@ -345,7 +345,7 @@ class Boolean(CopyInterface, RevertInterface):
         result : Boolean
             Result Boolean value.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{result.variable_name} = '
             f'!{self.variable_name};'

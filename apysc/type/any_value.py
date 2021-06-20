@@ -24,8 +24,8 @@ class AnyValue(CopyInterface, RevertInterface):
         value : *
             Initial any value.
         """
-        from apysc.expression import expression_variables_util
-        from apysc.expression import var_names
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
         TYPE_NAME: str = var_names.ANY
         self._value = value
         self.variable_name = expression_variables_util.get_next_variable_name(
@@ -37,7 +37,7 @@ class AnyValue(CopyInterface, RevertInterface):
         """
         Append constructor expression to file.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type import value_util
         expression: str = f'var {self.variable_name} = '
         if isinstance(self._value, VariableNameInterface):
@@ -82,7 +82,7 @@ class AnyValue(CopyInterface, RevertInterface):
         value : *
             Any value to set.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = f'{self.variable_name} = '
         if isinstance(value, VariableNameInterface):
             expression += f'{value.variable_name};'
@@ -108,7 +108,7 @@ class AnyValue(CopyInterface, RevertInterface):
         result : AnyValue
             Calculated result value.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type.value_util import get_value_str_for_expression
         value_str: str = get_value_str_for_expression(value=other)
         result: AnyValue = self._copy()
@@ -209,7 +209,7 @@ class AnyValue(CopyInterface, RevertInterface):
         result : AnyValue
             Floor division result value.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type.value_util import get_value_str_for_expression
         result: AnyValue = self._copy()
         value_str: str = get_value_str_for_expression(value=other)
@@ -233,7 +233,7 @@ class AnyValue(CopyInterface, RevertInterface):
         operator : str
             JavaScript arithmetic operator, like '+=', '*=', and so on.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type.value_util import get_value_str_for_expression
         value_str: str = get_value_str_for_expression(value=other)
         expression: str = (
@@ -332,7 +332,7 @@ class AnyValue(CopyInterface, RevertInterface):
             Comparison result. This will always be False on Python
             since correct comparison is not possible.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type.value_util import get_value_str_for_expression
         result: Boolean = Boolean(False)
         value_str: str = get_value_str_for_expression(value=other)

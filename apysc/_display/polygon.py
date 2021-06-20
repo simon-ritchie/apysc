@@ -27,8 +27,8 @@ class Polygon(LineBase, AppendLinePointInterface):
             List of polygon vertex points.
         """
         from apysc._display.graphics import Graphics
-        from apysc.expression import expression_variables_util
-        from apysc.expression import var_names
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
         parent_graphics: Graphics = parent
         variable_name: str = expression_variables_util.get_next_variable_name(
             type_name=var_names.POLYGON)
@@ -59,7 +59,7 @@ class Polygon(LineBase, AppendLinePointInterface):
         Append constructor expression to file.
         """
         from apysc._display.stage import get_stage_variable_name
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         stage_variable_name: str = get_stage_variable_name()
         points_var_name: str
         points_expression: str

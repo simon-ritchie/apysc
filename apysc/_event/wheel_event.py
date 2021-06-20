@@ -17,7 +17,7 @@ class WheelEvent(Event):
         Not supported each SVG elements' mouse wheel event currently, only
         supported document (overall screen) mouse wheel.
         """
-        from apysc.expression import var_names
+        from apysc._expression import var_names
         super(WheelEvent, self).__init__(
             this=None,
             type_name=var_names.WHEEL_EVENT)
@@ -60,7 +60,7 @@ class WheelEvent(Event):
         delta_x : Int
             Target delta x value.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{delta_x.variable_name} = '
             f'{self.variable_name}.deltaX;'
@@ -90,7 +90,7 @@ class WheelEvent(Event):
         delta_y : Int
             Target delta y value.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{delta_y.variable_name} = '
             f'{self.variable_name}.deltaY;'

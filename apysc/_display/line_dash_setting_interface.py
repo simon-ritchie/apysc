@@ -72,7 +72,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         """
         Append line dash setting updating expression to file.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         if self._line_dash_setting is None:
             setting_str: str = '""'
         else:

@@ -9,7 +9,7 @@ from typing import Optional
 from typing import Type
 
 from apysc import Boolean
-from apysc.expression.indent_num import Indent
+from apysc._expression.indent_num import Indent
 
 
 class IfBase(ABC):
@@ -105,7 +105,7 @@ class IfBase(ABC):
         """
         Append if branch instruction end expression to file.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression_file_util.append_js_expression(expression='}')
 
     @abstractmethod
@@ -123,8 +123,8 @@ class IfBase(ABC):
         result : bool
             If last scope is If or Else, then True will be returned.
         """
-        from apysc.expression import last_scope
-        from apysc.expression.last_scope import LastScope
+        from apysc._expression import last_scope
+        from apysc._expression.last_scope import LastScope
         last_scope_: LastScope = last_scope.get_last_scope()
         if last_scope_ != LastScope.IF and last_scope_ != LastScope.ELIF:
             return False

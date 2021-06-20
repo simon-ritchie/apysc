@@ -15,7 +15,7 @@ def trace(*args: Any) -> None:
     *args : list
         Any arguments to display to console.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     from apysc.string import string_util
     from apysc.type.variable_name_interface import VariableNameInterface
 

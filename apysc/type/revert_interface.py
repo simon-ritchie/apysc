@@ -169,8 +169,8 @@ class RevertInterface(ABC):
         snapshot_name : str
             Next snapshot name.
         """
-        from apysc.expression import expression_variables_util
-        from apysc.expression.var_names import SNAPSHOT
+        from apysc._expression import expression_variables_util
+        from apysc._expression.var_names import SNAPSHOT
         snapshot_name: str = expression_variables_util.get_next_variable_name(
             type_name=SNAPSHOT)
         return snapshot_name

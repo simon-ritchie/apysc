@@ -55,7 +55,7 @@ class VisibleInterface(VariableNameInterface, RevertInterface):
         """
         Append visible property updating expression to file.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = f'{self.variable_name}.'
         if self._visible:
             expression += 'show();'

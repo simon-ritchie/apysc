@@ -59,7 +59,7 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
         """
         Append fill alpha updating expression.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type import value_util
         value_str: str = value_util.get_value_str_for_expression(
             value=self._fill_alpha)

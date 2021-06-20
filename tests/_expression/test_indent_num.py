@@ -2,11 +2,11 @@ from random import randint
 
 from retrying import retry
 
-from apysc.expression import event_handler_scope
-from apysc.expression import expression_file_util
-from apysc.expression import indent_num
-from apysc.expression.expression_file_util import INDENT_NUM_FILE_PATH
-from apysc.expression.indent_num import Indent
+from apysc._expression import event_handler_scope
+from apysc._expression import expression_file_util
+from apysc._expression import indent_num
+from apysc._expression.expression_file_util import INDENT_NUM_FILE_PATH
+from apysc._expression.indent_num import Indent
 from apysc.file import file_util
 
 

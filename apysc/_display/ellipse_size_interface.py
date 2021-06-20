@@ -64,7 +64,7 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
         """
         Append an ellipse size updating expression.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type import value_util
         self._initialize_ellipse_size_if_not_initialized()
         value_str: str = value_util.get_value_str_for_expression(

@@ -30,8 +30,8 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
             js expression. It is not necessary to specify any
             string except when Sprite subclass will be instantiated.
         """
-        from apysc.expression import expression_variables_util
-        from apysc.expression import var_names
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
 
         if variable_name is None:
             variable_name = expression_variables_util.\
@@ -57,7 +57,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
             If expression appended, then True will be set.
         """
         from apysc._display.stage import get_stage_variable_name
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type import type_util
         is_same_class_instance: bool = type_util.is_same_class_instance(
             class_=Sprite, instance=self)

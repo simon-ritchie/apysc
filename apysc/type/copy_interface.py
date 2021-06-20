@@ -19,8 +19,8 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
         result : *
             Copied instance.
         """
-        from apysc.expression import expression_variables_util
-        from apysc.expression.event_handler_scope import \
+        from apysc._expression import expression_variables_util
+        from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
         with TemporaryNotHandlerScope():
             result: CopyInterface = deepcopy(self)
@@ -40,7 +40,7 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
         result_variable_name : str
             Copied value's variable name.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'var {result_variable_name} = '
             f'cpy({self.variable_name});'

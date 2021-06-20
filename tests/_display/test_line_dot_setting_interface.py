@@ -7,8 +7,8 @@ from retrying import retry
 
 from apysc import LineDotSetting
 from apysc._display.line_dot_setting_interface import LineDotSettingInterface
-from apysc.expression import expression_file_util
-from apysc.expression import var_names
+from apysc._expression import expression_file_util
+from apysc._expression import var_names
 from tests.testing_helper import assert_raises
 
 

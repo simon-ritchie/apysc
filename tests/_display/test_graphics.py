@@ -19,7 +19,7 @@ from apysc import Sprite
 from apysc import Stage
 from apysc._display.graphics import Graphics
 from apysc._display.graphics import Rectangle
-from apysc.expression import expression_file_util
+from apysc._expression import expression_file_util
 from tests import testing_helper
 
 

@@ -4,7 +4,7 @@ from retrying import retry
 
 from apysc import Boolean
 from apysc._display.visible_interface import VisibleInterface
-from apysc.expression import expression_file_util
+from apysc._expression import expression_file_util
 
 
 class _TestVisible(VisibleInterface):

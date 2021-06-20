@@ -148,7 +148,7 @@ def get_variable_names_file_path(type_name: str) -> str:
     file_path : str
         Specified type name's target file path.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     file_path: str = os.path.join(
         expression_file_util.EXPRESSION_ROOT_DIR,
         f'variables_{type_name}.txt',
@@ -169,7 +169,7 @@ def append_substitution_expression(
     right_value : VariableNameInterface
         Any right value.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     expression: str = (
         f'{left_value.variable_name} = {right_value.variable_name};'
     )
@@ -194,7 +194,7 @@ def append_substitution_expression_with_names(
     right_variable_name : str
         Right-side variable name.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     if left_variable_name == '' or right_variable_name == '':
         return
     expression: str = (

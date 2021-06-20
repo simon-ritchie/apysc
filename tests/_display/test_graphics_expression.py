@@ -12,7 +12,7 @@ from apysc import Sprite
 from apysc import Stage
 from apysc._display import graphics_expression
 from apysc._display.graphics import Graphics
-from apysc.expression import var_names
+from apysc._expression import var_names
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

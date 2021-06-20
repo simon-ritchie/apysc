@@ -10,7 +10,7 @@ from retrying import retry
 from apysc import Array
 from apysc import Point2D
 from apysc._display.points_2d_interface import Points2DInterface
-from apysc.expression import expression_file_util
+from apysc._expression import expression_file_util
 
 
 class TestPoints2DInterface:

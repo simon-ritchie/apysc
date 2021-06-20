@@ -10,7 +10,7 @@ class Document(VariableNameInterface):
         """
         Document (overall window) class.
         """
-        from apysc.expression import var_names
+        from apysc._expression import var_names
         self.variable_name = var_names.DOCUMENT
 
 

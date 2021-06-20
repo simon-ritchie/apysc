@@ -24,7 +24,7 @@ class MouseEvent(Generic[T], Event):
         this : VariableNameInterface
             Instance that listening event (e.g., Sprite).
         """
-        from apysc.expression import var_names
+        from apysc._expression import var_names
         super(MouseEvent, self).__init__(
             this=this, type_name=var_names.MOUSE_EVENT)
 
@@ -64,7 +64,7 @@ class MouseEvent(Generic[T], Event):
             Target x-coordinate value.
         """
         from apysc._display.stage import get_stage_elem_str
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{x.variable_name} = {self.variable_name}.pageX - '
             f'{get_stage_elem_str()}.offset().left;'
@@ -95,7 +95,7 @@ class MouseEvent(Generic[T], Event):
             Target y-coordinate value.
         """
         from apysc._display.stage import get_stage_elem_str
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{y.variable_name} = {self.variable_name}.pageY - '
             f'{get_stage_elem_str()}.offset().top;'
@@ -127,7 +127,7 @@ class MouseEvent(Generic[T], Event):
         x : Int
             Target x-coordinate value.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         stage_x: Int = self.stage_x
         this: T = self.this
         expression: str = (
@@ -161,7 +161,7 @@ class MouseEvent(Generic[T], Event):
         y : Int
             Target y-coordinate value.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         stage_y: Int = self.stage_y
         this: T = self.this
         expression: str = (

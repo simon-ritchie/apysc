@@ -7,7 +7,7 @@ from apysc import Rectangle
 from apysc import Sprite
 from apysc import Stage
 from apysc._display.ellipse_size_interface import EllipseSizeInterface
-from apysc.expression import expression_file_util
+from apysc._expression import expression_file_util
 
 
 class TestEllipseSizeInterface:

@@ -10,8 +10,8 @@ from retrying import retry
 from apysc import Boolean
 from apysc import Int
 from apysc import String
-from apysc.expression import expression_file_util
-from apysc.expression import var_names
+from apysc._expression import expression_file_util
+from apysc._expression import var_names
 from tests import testing_helper
 
 

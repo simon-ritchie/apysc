@@ -41,7 +41,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         """
         Append current value's constructor expression to file.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         if isinstance(self._initial_value, NumberValueInterface):
             value_: Union[int, float, str] = self._initial_value.variable_name
         else:
@@ -107,7 +107,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         value : int or float or NumberValueInterface
             Any number value to set.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         if isinstance(value, NumberValueInterface):
             right_value: Union[str, int, float] = value.variable_name
         else:
@@ -153,7 +153,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : int or float or NumberValueInterface
             Other value to add.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
@@ -198,7 +198,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : int or float or NumberValueInterface
             Other value to subtract.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
@@ -243,7 +243,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : int or float or NumberValueInterface
             Other value to multiply.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
@@ -289,7 +289,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : int or float or NumberValueInterface
             Other value for true division.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
@@ -335,7 +335,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : int or float or NumberValueInterface
             Other value for floor division.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
@@ -351,7 +351,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         Append a incremental calculation's substitution expression
         to file. This method will be called from the each interface.
         """
-        from apysc.expression import expression_variables_util
+        from apysc._expression import expression_variables_util
         expression_variables_util.append_substitution_expression_with_names(
             left_variable_name=self._incremental_calc_prev_name,
             right_variable_name=self.variable_name)
@@ -371,7 +371,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         result : NumberValueInterface
             Incremental addition result value.
         """
-        from apysc.expression import expression_variables_util
+        from apysc._expression import expression_variables_util
         self._incremental_calc_prev_name = self._get_previous_variable_name()
         result: NumberValueInterface = self + other
         expression_variables_util.append_substitution_expression(
@@ -393,7 +393,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         result : NumberValueInterface
             Incremental subtraction result value.
         """
-        from apysc.expression import expression_variables_util
+        from apysc._expression import expression_variables_util
         self._incremental_calc_prev_name = self._get_previous_variable_name()
         result: NumberValueInterface = self - other
         expression_variables_util.append_substitution_expression(
@@ -415,7 +415,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         result : NumberValueInterface
             Incremental multiplication result value.
         """
-        from apysc.expression import expression_variables_util
+        from apysc._expression import expression_variables_util
         self._incremental_calc_prev_name = self._get_previous_variable_name()
         result: NumberValueInterface = self * other
         expression_variables_util.append_substitution_expression(
@@ -437,7 +437,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         result : NumberValueInterface
             Incremental true division result value.
         """
-        from apysc.expression import expression_variables_util
+        from apysc._expression import expression_variables_util
         self._incremental_calc_prev_name = self._get_previous_variable_name()
         result: NumberValueInterface = self / other
         result._incremental_calc_prev_name = self._incremental_calc_prev_name
@@ -542,7 +542,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} === {other.variable_name};'
@@ -587,7 +587,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} !== {other.variable_name};'
@@ -633,7 +633,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} < {other.variable_name};'
@@ -679,7 +679,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} <= {other.variable_name};'
@@ -725,7 +725,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} > {other.variable_name};'
@@ -771,7 +771,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} >= {other.variable_name};'

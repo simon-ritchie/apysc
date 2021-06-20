@@ -8,9 +8,9 @@ from retrying import retry
 from apysc import Stage
 from apysc import document
 from apysc import save_overall_html
-from apysc.expression import expression_file_util
-from apysc.expression import js_functions
-from apysc.expression.event_handler_scope import HandlerScope
+from apysc._expression import expression_file_util
+from apysc._expression import js_functions
+from apysc._expression.event_handler_scope import HandlerScope
 from apysc.file import file_util
 from apysc.html import exporter
 

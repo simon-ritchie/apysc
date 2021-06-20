@@ -8,7 +8,7 @@ from apysc import Dictionary
 from apysc import Int
 from apysc import Point2D
 from apysc._console import assertion
-from apysc.expression import expression_file_util
+from apysc._expression import expression_file_util
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

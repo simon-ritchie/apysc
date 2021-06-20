@@ -20,9 +20,9 @@ class Int(NumberValueInterface):
             that value will be cast to integer.
         """
         from apysc._converter import cast
-        from apysc.expression import expression_variables_util
-        from apysc.expression import var_names
-        from apysc.expression.event_handler_scope import \
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
         from apysc.type import type_util
         with TemporaryNotHandlerScope():
@@ -48,7 +48,7 @@ class Int(NumberValueInterface):
             Boolean value whether a specified value is Number
             instance or not.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         if not is_number_specified:
             return
         expression: str = (

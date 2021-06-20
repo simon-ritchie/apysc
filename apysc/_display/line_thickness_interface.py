@@ -54,7 +54,7 @@ class LineThicknessInterface(VariableNameInterface, RevertInterface):
         """
         Append line thickness update expression.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{self.variable_name}.attr({{"stroke-width": '
             f'{self.line_thickness}}});'

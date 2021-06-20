@@ -137,7 +137,7 @@ class TestRevertInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_next_snapshot_name(self) -> None:
-        from apysc.expression.var_names import SNAPSHOT
+        from apysc._expression.var_names import SNAPSHOT
         revertable_value = RevertableValue1()
         snapshot_name_1: str = revertable_value._get_next_snapshot_name()
         assert snapshot_name_1.startswith(SNAPSHOT)

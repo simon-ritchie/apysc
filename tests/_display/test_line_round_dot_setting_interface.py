@@ -9,7 +9,7 @@ from apysc import LineCaps
 from apysc import LineRoundDotSetting
 from apysc._display.line_round_dot_setting_interface import \
     LineRoundDotSettingInterface
-from apysc.expression import expression_file_util
+from apysc._expression import expression_file_util
 from tests.testing_helper import assert_raises
 
 

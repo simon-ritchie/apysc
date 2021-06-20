@@ -4,7 +4,7 @@ from retrying import retry
 
 from apysc import String
 from apysc._display.fill_color_interface import FillColorInterface
-from apysc.expression import expression_file_util
+from apysc._expression import expression_file_util
 
 
 class TestFillColorInterface:

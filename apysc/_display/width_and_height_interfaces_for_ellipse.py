@@ -99,7 +99,7 @@ class WidthAndHeightInterfacesForEllipse(
         Append an ellipse width and height updating expression
         to the file.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type import value_util
         self._initialize_width_and_height_if_not_initialized()
         width_value_str: str = value_util.get_value_str_for_expression(

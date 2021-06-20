@@ -20,9 +20,9 @@ class Number(NumberValueInterface):
             is specified, that value will be cast to float.
         """
         from apysc._converter import cast
-        from apysc.expression import expression_variables_util
-        from apysc.expression import var_names
-        from apysc.expression.event_handler_scope import \
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
         with TemporaryNotHandlerScope():
             TYPE_NAME: str = var_names.NUMBER

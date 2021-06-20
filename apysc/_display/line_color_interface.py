@@ -46,7 +46,7 @@ class LineColorInterface(VariableNameInterface, RevertInterface):
         """
         Append line color updating expression.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{self.variable_name}.stroke("{self.line_color}");'
         )

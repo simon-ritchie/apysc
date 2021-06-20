@@ -9,7 +9,7 @@ from apysc import Stage
 from apysc._display import stage
 from apysc._display.display_object import DisplayObject
 from apysc._display.stage import _STAGE_ELEM_ID_FILE_PATH
-from apysc.expression import expression_file_util
+from apysc._expression import expression_file_util
 from apysc.file import file_util
 from tests import testing_helper
 

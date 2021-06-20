@@ -7,7 +7,7 @@ from retrying import retry
 from apysc import EventType
 from apysc import MouseEvent
 from apysc._event.mouse_out_interface import MouseOutInterface
-from apysc.expression import expression_file_util
+from apysc._expression import expression_file_util
 from apysc.type.variable_name_interface import VariableNameInterface
 
 

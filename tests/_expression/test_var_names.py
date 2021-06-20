@@ -3,7 +3,7 @@ from typing import Any
 from typing import List
 from typing import Tuple
 
-from apysc.expression import var_names
+from apysc._expression import var_names
 
 
 def test_const_values_not_duplicated() -> None:

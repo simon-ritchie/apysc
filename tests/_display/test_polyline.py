@@ -16,7 +16,7 @@ from apysc import Polyline
 from apysc import Sprite
 from apysc import Stage
 from apysc._display.stage import get_stage_variable_name
-from apysc.expression import expression_file_util
+from apysc._expression import expression_file_util
 from tests._display.test_graphics_expression import \
     assert_fill_attr_expression_exists
 from tests._display.test_graphics_expression import \

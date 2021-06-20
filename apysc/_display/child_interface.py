@@ -99,7 +99,7 @@ class ChildInterface(RevertInterface):
         child : DisplayObject
             Child instance to check.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{result.variable_name} = '
             f'{self._variable_name}.has({child.variable_name});'
@@ -131,7 +131,7 @@ class ChildInterface(RevertInterface):
         num_children : Int
             Current children number.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{num_children.variable_name} = '
             f'{self._variable_name}.children().length;'
@@ -152,8 +152,8 @@ class ChildInterface(RevertInterface):
         child : DisplayObject
             Target index child instance.
         """
-        from apysc.expression import expression_variables_util
-        from apysc.expression import var_names
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
         self._initialize_children_if_not_initialized()
         if self.num_children > index:
             child: DisplayObject = self._children[index]
@@ -177,7 +177,7 @@ class ChildInterface(RevertInterface):
         index : int or Int
             Child's index (start from 0).
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type import value_util
         index_str: str = value_util.get_value_str_for_expression(value=index)
         expression: str = (
@@ -240,7 +240,7 @@ def append_expression_of_add_child(child: DisplayObject) -> None:
     child : DisplayObject
         Child object to add.
     """
-    from apysc.expression import expression_file_util
+    from apysc._expression import expression_file_util
     parent_name: str = child.parent.variable_name  # type: ignore
     child_name: str = child.variable_name
     expression: str = (
@@ -258,9 +258,9 @@ def append_expression_of_remove_child(child: DisplayObject) -> None:
     child : DisplayObject
         Child object to remove.
     """
-    from apysc.expression import expression_file_util
-    from apysc.expression import expression_variables_util
-    from apysc.expression import var_names
+    from apysc._expression import expression_file_util
+    from apysc._expression import expression_variables_util
+    from apysc._expression import var_names
     parent_name: str = expression_variables_util.get_next_variable_name(
         type_name=var_names.PARENT)
     child_name: str = child.variable_name

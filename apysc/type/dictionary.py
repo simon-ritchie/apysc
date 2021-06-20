@@ -29,9 +29,9 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         value : dict or Dictionary
             Initial dictionary value.
         """
-        from apysc.expression import expression_variables_util
-        from apysc.expression import var_names
-        from apysc.expression.event_handler_scope import \
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
+        from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
         with TemporaryNotHandlerScope():
             TYPE_NAME: str = var_names.DICTIONARY
@@ -47,7 +47,7 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         """
         Append constructor expression to file.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type import value_util
         value_str: str = value_util.get_value_str_for_expression(
             value=self._initial_value)
@@ -132,7 +132,7 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         value : dict or Dictionary.
             Dictionary value to set.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type import value_util
         value_str: str = value_util.get_value_str_for_expression(value=value)
         expression: str = f'{self.variable_name} = {value_str};'
@@ -216,7 +216,7 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         length : Int
             Created length Int variable.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         expression: str = (
             f'{length.variable_name} = '
             f'Object.keys({self.variable_name}).length;'
@@ -287,7 +287,7 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
             Specified key's value.
         """
         from apysc import AnyValue
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type import value_util
         from apysc.type.variable_name_interface import VariableNameInterface
         if not isinstance(value, VariableNameInterface):
@@ -346,7 +346,7 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         value : *
             Any value to set.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type import value_util
         key_str: str = value_util.get_value_str_for_expression(value=key)
         value_str: str = value_util.get_value_str_for_expression(value=value)
@@ -378,7 +378,7 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         key : Key
             Dictionary key to delete.
         """
-        from apysc.expression import expression_file_util
+        from apysc._expression import expression_file_util
         from apysc.type import value_util
         key_str: str = value_util.get_value_str_for_expression(value=key)
         expression: str = (

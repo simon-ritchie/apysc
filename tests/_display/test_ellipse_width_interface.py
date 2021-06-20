@@ -4,7 +4,7 @@ from retrying import retry
 
 from apysc import Int
 from apysc._display.ellipse_width_interface import EllipseWidthInterface
-from apysc.expression import expression_file_util
+from apysc._expression import expression_file_util
 
 
 class TestEllipseWidthInterface:

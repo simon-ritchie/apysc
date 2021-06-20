@@ -3,7 +3,7 @@
 
 
 from apysc import Int
-from apysc.event.event import Event
+from apysc._event.event import Event
 
 
 class WheelEvent(Event):

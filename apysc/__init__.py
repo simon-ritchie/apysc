@@ -27,10 +27,10 @@ from apysc._display.line_dash_setting import LineDashSetting  # isort:skip # noq
 from apysc._display.line_round_dot_setting import LineRoundDotSetting  # isort:skip # noqa
 from apysc._display.line_dash_dot_setting import LineDashDotSetting  # isort:skip # noqa
 from apysc.geom.point2d import Point2D  # isort:skip # noqa
-from apysc.event.event import Event  # isort:skip # noqa
-from apysc.event.mouse_event import MouseEvent  # isort:skip # noqa
-from apysc.event.wheel_event import WheelEvent  # isort:skip # noqa
-from apysc.event.event_type import EventType  # isort:skip # noqa
+from apysc._event.event import Event  # isort:skip # noqa
+from apysc._event.mouse_event import MouseEvent  # isort:skip # noqa
+from apysc._event.wheel_event import WheelEvent  # isort:skip # noqa
+from apysc._event.event_type import EventType  # isort:skip # noqa
 from apysc._console._trace import trace  # isort:skip # noqa
 from apysc._console.assertion import assert_equal  # isort:skip # noqa
 from apysc._console.assertion import assert_not_equal  # isort:skip # noqa
@@ -42,11 +42,11 @@ from apysc._console.assertion import assert_dicts_equal  # isort:skip # noqa
 from apysc._console.assertion import assert_dicts_not_equal  # isort:skip # noqa
 from apysc._console.assertion import assert_defined  # isort:skip # noqa
 from apysc._console.assertion import assert_undefined  # isort:skip # noqa
-from apysc.event.document_mouse_wheel_interface import \
+from apysc._event.document_mouse_wheel_interface import \
     bind_wheel_event_to_document  # isort:skip # noqa
-from apysc.event.document_mouse_wheel_interface import \
+from apysc._event.document_mouse_wheel_interface import \
     unbind_wheel_event_all_from_document  # isort:skip # noqa
-from apysc.event.document_mouse_wheel_interface import \
+from apysc._event.document_mouse_wheel_interface import \
     unbind_wheel_event_from_document  # isort:skip # noqa
 
 from apysc.html.exporter import save_overall_html  # isort:skip # noqa

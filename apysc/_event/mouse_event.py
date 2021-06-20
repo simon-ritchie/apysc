@@ -5,7 +5,7 @@ from typing import Generic
 from typing import TypeVar
 
 from apysc import Int
-from apysc.event.event import Event
+from apysc._event.event import Event
 from apysc.type.variable_name_interface import VariableNameInterface
 
 T = TypeVar('T', bound=VariableNameInterface)

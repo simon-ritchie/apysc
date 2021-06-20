@@ -9,8 +9,8 @@ from typing import Union
 from typing_extensions import Protocol
 from typing_extensions import TypedDict
 
-from apysc.event.event import Event
-from apysc.event.event_type import EventType
+from apysc._event.event import Event
+from apysc._event.event_type import EventType
 from apysc.type.variable_name_interface import VariableNameInterface
 
 Event_ = Any

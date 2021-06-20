@@ -11,7 +11,7 @@ from apysc import Int
 from apysc._display.child_interface import ChildInterface
 from apysc._display.height_interface import HeightInterface
 from apysc._display.width_interface import WidthInterface
-from apysc.event.mouse_event_interfaces import MouseEventInterfaces
+from apysc._event.mouse_event_interfaces import MouseEventInterfaces
 from apysc.expression import expression_file_util
 from apysc.type.variable_name_interface import VariableNameInterface
 

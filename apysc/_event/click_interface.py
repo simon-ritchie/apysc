@@ -5,9 +5,9 @@ from typing import Any
 from typing import Dict
 from typing import Optional
 
-from apysc.event.event_interface_base import EventInterfaceBase
-from apysc.event.handler import Handler
-from apysc.event.handler import HandlerData
+from apysc._event.event_interface_base import EventInterfaceBase
+from apysc._event.handler import Handler
+from apysc._event.handler import HandlerData
 
 
 class ClickInterface(EventInterfaceBase):
@@ -34,8 +34,8 @@ class ClickInterface(EventInterfaceBase):
         """
         from apysc import EventType
         from apysc import MouseEvent
-        from apysc.event.handler import append_handler_expression
-        from apysc.event.handler import get_handler_name
+        from apysc._event.handler import append_handler_expression
+        from apysc._event.handler import get_handler_name
         from apysc.type.variable_name_interface import VariableNameInterface
         self_instance: VariableNameInterface = \
             self._validate_self_is_variable_name_interface()

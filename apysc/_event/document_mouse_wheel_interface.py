@@ -49,9 +49,9 @@ def bind_wheel_event_to_document(
         Handler's name.
     """
     from apysc import document
-    from apysc.event.handler import HandlerData
-    from apysc.event.handler import append_handler_expression
-    from apysc.event.handler import get_handler_name
+    from apysc._event.handler import HandlerData
+    from apysc._event.handler import append_handler_expression
+    from apysc._event.handler import get_handler_name
     from apysc.expression import expression_file_util
     name: str = get_handler_name(handler=handler, instance=document)
     expression: str = (
@@ -81,7 +81,7 @@ def unbind_wheel_event_from_document(handler: WheelHandler) -> None:
         Callable to unbind.
     """
     from apysc import document
-    from apysc.event.handler import get_handler_name
+    from apysc._event.handler import get_handler_name
     from apysc.expression import expression_file_util
     name: str = get_handler_name(handler=handler, instance=document)
     expression: str = (

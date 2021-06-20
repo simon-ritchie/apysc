@@ -8,7 +8,7 @@ from apysc._display.parent_interface import ParentInterface
 from apysc._display.visible_interface import VisibleInterface
 from apysc._display.x_interface import XInterface
 from apysc._display.y_interface import YInterface
-from apysc.event.mouse_event_interfaces import MouseEventInterfaces
+from apysc._event.mouse_event_interfaces import MouseEventInterfaces
 
 
 class DisplayObject(

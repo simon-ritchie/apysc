@@ -5,9 +5,9 @@ from typing import Any
 from typing import Dict
 from typing import Optional
 
-from apysc.event.event_type import EventType
-from apysc.event.handler import Handler
-from apysc.event.handler import HandlerData
+from apysc._event.event_type import EventType
+from apysc._event.handler import Handler
+from apysc._event.handler import HandlerData
 from apysc.type.variable_name_interface import VariableNameInterface
 
 
@@ -49,7 +49,7 @@ class EventInterfaceBase:
         options : dict or None, default None
             Optional arguments dictionary to be passed to handler.
         """
-        from apysc.event.handler import get_handler_name
+        from apysc._event.handler import get_handler_name
         name: str = get_handler_name(handler=handler, instance=self)
         if options is None:
             options = {}
@@ -73,8 +73,8 @@ class EventInterfaceBase:
         handlers_dict : dict
             Dictionary that has handler's data.
         """
-        from apysc.event.handler import append_unbinding_expression
-        from apysc.event.handler import get_handler_name
+        from apysc._event.handler import append_unbinding_expression
+        from apysc._event.handler import get_handler_name
         self_instance: VariableNameInterface = \
             self._validate_self_is_variable_name_interface()
         name: str = get_handler_name(handler=handler, instance=self)
@@ -97,7 +97,7 @@ class EventInterfaceBase:
         handlers_dict : dict
             Dictionary that has handler's data.
         """
-        from apysc.event.handler import append_unbinding_all_expression
+        from apysc._event.handler import append_unbinding_all_expression
         self_instance: VariableNameInterface = \
             self._validate_self_is_variable_name_interface()
         handlers_dict.clear()

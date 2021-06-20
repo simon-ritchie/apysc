@@ -54,7 +54,7 @@ class Stage(
             If None is set, random integer will be applied.
         """
         from apysc import Array
-        from apysc.color import color_util
+        from apysc._color import color_util
         from apysc.html import html_util
         from apysc.validation import string_validation
         expression_file_util.empty_expression_dir()

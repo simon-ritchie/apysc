@@ -79,7 +79,7 @@ class FillColorInterface(VariableNameInterface, RevertInterface):
         value : String
             Fill color to set.
         """
-        from apysc.color import color_util
+        from apysc._color import color_util
         value = color_util.complement_hex_color(
             hex_color_code=value)
         self._initialize_fill_color_if_not_initialized()

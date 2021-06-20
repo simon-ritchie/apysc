@@ -79,7 +79,7 @@ class LineColorInterface(VariableNameInterface, RevertInterface):
         value : String
             Line color to set.
         """
-        from apysc.color import color_util
+        from apysc._color import color_util
         value = color_util.complement_hex_color(
             hex_color_code=value)
         self._initialize_line_color_if_not_initialized()

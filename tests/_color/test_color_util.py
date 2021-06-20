@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc.color import color_util
+from apysc._color import color_util
 
 
 def test__fill_one_digit_hex_color_code() -> None:

@@ -35,7 +35,7 @@ class BeginFillInterface(RevertInterface):
         alpha : float or Number, default 1.0
             Color opacity (0.0 to 1.0).
         """
-        from apysc.color import color_util
+        from apysc._color import color_util
         from apysc.converter import cast
         from apysc.validation import color_validation
         from apysc.validation import number_validation

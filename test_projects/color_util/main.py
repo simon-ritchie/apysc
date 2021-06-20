@@ -16,7 +16,7 @@ from apysc import Stage
 from apysc import String
 from apysc import assert_equal
 from apysc import save_overall_html
-from apysc.color import color_util
+from apysc._color import color_util
 from apysc.file import file_util
 
 this_module: ModuleType = sys.modules[__name__]

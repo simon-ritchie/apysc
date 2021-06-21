@@ -12,6 +12,19 @@ from apysc._file import file_util
 from build_docs import _CodeBlock
 from tests.testing_helper import assert_attrs
 
+_CHECKOUT_FILE_PATHS: List[str] = [
+    'docs_src/source/_static/quick_start_sprite_graphics/index.html',
+    'docs_src/source/_static/quick_start_stage_creation/index.html',
+]
+
+
+def teardown() -> None:
+    """
+    The function would be called when the test ended.
+    """
+    for checkout_file_path in _CHECKOUT_FILE_PATHS:
+        os.system(f'git checkout {checkout_file_path}')
+
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__replace_static_path_recursively() -> None:

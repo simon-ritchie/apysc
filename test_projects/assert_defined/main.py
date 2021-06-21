@@ -12,13 +12,13 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
+from apysc import DisplayObject
 from apysc import Int
 from apysc import Sprite
 from apysc import Stage
 from apysc import assert_defined
 from apysc import assert_undefined
 from apysc import save_overall_html
-from apysc import DisplayObject
 from apysc._file import file_util
 
 this_module: ModuleType = sys.modules[__name__]

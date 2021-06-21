@@ -29,7 +29,32 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
                     type_name=self.type_name)
             self._append_copy_expression(
                 result_variable_name=result.variable_name)
+        self._append_value_updating_cpy_exp_to_handler_scope(
+            result_variable_name=result.variable_name)
         return result
+
+    def _append_value_updating_cpy_exp_to_handler_scope(
+            self, result_variable_name: str) -> None:
+        """
+        Append a value updating copy expression to the file
+        if the current scope is an event handler's one.
+
+        Parameters
+        ----------
+        result_variable_name : str
+            Copied value's variable name.
+        """
+        from apysc._expression import event_handler_scope
+        from apysc._expression import expression_file_util
+        evt_handler_scope_count: int = event_handler_scope.\
+            get_current_event_handler_scope_count()
+        if evt_handler_scope_count == 0:
+            return
+        expression: str = (
+            f'{result_variable_name} = '
+            f'cpy({self.variable_name});'
+        )
+        expression_file_util.append_js_expression(expression=expression)
 
     def _append_copy_expression(self, result_variable_name: str) -> None:
         """

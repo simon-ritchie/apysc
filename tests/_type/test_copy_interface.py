@@ -1,9 +1,13 @@
 from random import randint
+from typing import Match, Optional
+import re
 
 from retrying import retry
 
+from apysc import Int
 from apysc._expression import expression_file_util
 from apysc._type.copy_interface import CopyInterface
+from apysc._expression.event_handler_scope import HandlerScope
 
 
 class TestCopyInterface:
@@ -30,3 +34,18 @@ class TestCopyInterface:
             f'cpy({interface.variable_name});'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_value_updating_cpy_exp_to_handler_scope(self) -> None:
+        expression_file_util.remove_expression_file()
+        int_1: Int = Int(10)
+        with HandlerScope():
+            int_2: Int = int_1._copy()
+        expression: str = \
+            expression_file_util.get_current_event_handler_scope_expression()
+        pattern: str = (
+            rf'^{int_2.variable_name} = cpy\({int_1.variable_name}\);')
+        match: Optional[Match] = re.search(
+            pattern=pattern,
+            string=expression, flags=re.MULTILINE)
+        assert match is not None

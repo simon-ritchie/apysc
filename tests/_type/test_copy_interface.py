@@ -1,13 +1,14 @@
-from random import randint
-from typing import Match, Optional
 import re
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
 from apysc import Int
 from apysc._expression import expression_file_util
-from apysc._type.copy_interface import CopyInterface
 from apysc._expression.event_handler_scope import HandlerScope
+from apysc._type.copy_interface import CopyInterface
 
 
 class TestCopyInterface:

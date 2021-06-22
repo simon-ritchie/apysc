@@ -14,11 +14,11 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 
 - [Quick start](quick_start.md)
 
-**Stage**
+**Stage class**
 
 - [Stage class](stage.md)
 
-**DisplayObject**
+**DisplayObject class**
 
 - [DisplayObject class](display_object.md)
 - [DisplayObject class x and y interfaces](display_object_x_and_y.md)
@@ -26,7 +26,7 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 - [DisplayObject class visible interface](display_object_visible.md)
 - [DisplayObject class mouse event binding interfaces](display_object_mouse_event.md)
 
-**Sprite**
+**Sprite class**
 
 - [Sprite class](sprite.md)
 - [Sprite class add child and remove child interfaces](sprite_add_child_and_remove_child.md)
@@ -50,7 +50,7 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 - [Graphics class draw dash dotted line interface](graphics_draw_dash_dotted_line.md)
 - [Graphics class draw polygon interface](graphics_draw_polygon.md)
 
-**Mouse event binding**
+**MouseEvent class and mouse event binding**
 
 - [Common mouse event interfaces](mouse_event_common.md)
 - [Click interface](click.md)

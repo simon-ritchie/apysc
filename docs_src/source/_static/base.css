@@ -27,3 +27,8 @@ div.body h2, div.body h3, div.body h4, div.body h5,
 div.body h6 {
     margin-top: 30px;
 }
+
+/* Document horizontal line style settings */
+hr {
+    border: 1px solid #555;
+}

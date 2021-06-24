@@ -1,4 +1,4 @@
-# Int and Number common arithmetic operators
+# Int and Number common arithmetic operations
 
 This page will explain the `Int` and `Number` classes common arithmetic operations, like addition, multiplication, or incremental addition.
 
@@ -189,7 +189,7 @@ Also, you can use the `/=` operator.
 
 ```py
 # runnable
-from apysc import Int, Number
+from apysc import Number
 
 number_1: Number = Number(10)
 number_1 /= 4

@@ -39,6 +39,7 @@ The HTML and JavaScript exporting interfaces.
 The documents for the numerical values. The apysc library has the `Int` and `Number` classes for the numerical values.
 
 - [Int and Number classes common arithmetic operations](int_and_number_arithmetic_operations.md)
+- [Int and Number classes common comparison operations](int_and_number_comparison_operations.md)
 
 ---
 

@@ -12,9 +12,9 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 
 ## Contents
 
-**Quick start**
+**Quick start guide**
 
-- [Quick start](quick_start.md)
+- [Quick start guide](quick_start.md)
 
 ---
 
@@ -40,6 +40,7 @@ The documents for the numerical values. The apysc library has the `Int` and `Num
 
 - [Int and Number classes common arithmetic operations](int_and_number_arithmetic_operations.md)
 - [Int and Number classes common comparison operations](int_and_number_comparison_operations.md)
+- [Int and Number classes common value interface](int_and_number_value_interface.md)
 
 ---
 

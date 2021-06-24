@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Int and Number common value interface &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DisplayObject" href="display_object.html" />
+    <link rel="prev" title="Int and Number common comparison operations" href="int_and_number_comparison_operations.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="display_object.html" title="DisplayObject"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="int_and_number_comparison_operations.html" title="Int and Number common comparison operations"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Int and Number common value interface</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="int-and-number-common-value-interface">
+<h1>Int and Number common value interface<a class="headerlink" href="#int-and-number-common-value-interface" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Int</span></code> and <code class="docutils literal notranslate"><span class="pre">Number</span></code> classes common <code class="docutils literal notranslate"><span class="pre">value</span></code> interface.</p>
+<section id="what-interface-is-this">
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">value</span></code> getter interface will return the numeric value of the <code class="docutils literal notranslate"><span class="pre">Int</span></code> or <code class="docutils literal notranslate"><span class="pre">Number</span></code> values. And the setter interface will update these numeric values.</p>
+<p>A return value of the getter interface will become a Python built-in value, like the <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p>
+</section>
+<section id="basic-usage-of-the-getter-interface">
+<h2>Basic usage of the getter interface<a class="headerlink" href="#basic-usage-of-the-getter-interface" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">value</span></code> getter interface will return the Python built-in value.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
+
+<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">int_1</span><span class="o">.</span><span class="n">value</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Number</span>
+
+<span class="n">number_1</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="mf">10.5</span><span class="p">)</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">number_1</span><span class="o">.</span><span class="n">value</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="basic-usage-of-the-setter-interface">
+<h2>Basic usage of the setter interface<a class="headerlink" href="#basic-usage-of-the-setter-interface" title="Permalink to this headline">¶</a></h2>
+<p>You can update the <code class="docutils literal notranslate"><span class="pre">Int</span></code> and <code class="docutils literal notranslate"><span class="pre">Number</span></code> numeric values with the <code class="docutils literal notranslate"><span class="pre">value</span></code> setter interface. Python built-in values and <code class="docutils literal notranslate"><span class="pre">Int</span></code> or <code class="docutils literal notranslate"><span class="pre">Number</span></code> values are acceptable:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
+
+<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_1</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">20</span>
+</pre></div>
+</div>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
+
+<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_1</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">20</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Int and Number common value interface</a><ul>
+<li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
+<li><a class="reference internal" href="#basic-usage-of-the-getter-interface">Basic usage of the getter interface</a></li>
+<li><a class="reference internal" href="#basic-usage-of-the-setter-interface">Basic usage of the setter interface</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="int_and_number_comparison_operations.html"
+                        title="previous chapter">Int and Number common comparison operations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="display_object.html"
+                        title="next chapter">DisplayObject</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/int_and_number_value_interface.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="display_object.html" title="DisplayObject"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="int_and_number_comparison_operations.html" title="Int and Number common comparison operations"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Int and Number common value interface</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

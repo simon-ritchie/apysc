@@ -1,4 +1,4 @@
-# Quick start
+# Quick start guide
 
 This page will explain the first step of the apysc library journey.
 

@@ -42,13 +42,10 @@ from apysc._console.assertion import assert_dicts_equal  # isort:skip # noqa
 from apysc._console.assertion import assert_dicts_not_equal  # isort:skip # noqa
 from apysc._console.assertion import assert_defined  # isort:skip # noqa
 from apysc._console.assertion import assert_undefined  # isort:skip # noqa
-from apysc._event.document_mouse_wheel_interface import \
-    bind_wheel_event_to_document  # isort:skip # noqa
-from apysc._event.document_mouse_wheel_interface import \
-    unbind_wheel_event_all_from_document  # isort:skip # noqa
-from apysc._event.document_mouse_wheel_interface import \
-    unbind_wheel_event_from_document  # isort:skip # noqa
-
+from apysc._event.document_mouse_wheel_interface import bind_wheel_event_to_document  # isort:skip # noqa
+from apysc._event.document_mouse_wheel_interface import unbind_wheel_event_all_from_document  # isort:skip # noqa
+from apysc._event.document_mouse_wheel_interface import unbind_wheel_event_from_document  # isort:skip # noqa
 from apysc._html.exporter import save_overall_html  # isort:skip # noqa
+from apysc._expression.expression_file_util import append_js_expression  # isort:skip # noqa
 
 __version__: str = '0.21.1'

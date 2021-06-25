@@ -4,11 +4,11 @@ Mainly following interfaces are defined:
 
 - empty_expression_dir : Remove expression directory
     (EXPRESSION_ROOT_DIR) to initialize.
-- append_js_expression : Append js expression to file.
+- append_js_expression : Append js expression to the file.
 - get_current_expression : Get current expression string.
 - get_current_event_handler_scope_expression : Get a current
     event handler scope's expression string from a file.
-- remove_expression_file : Remove expression file.
+- remove_expression_file : Remove the expression file.
 """
 
 import os
@@ -38,7 +38,7 @@ def empty_expression_dir() -> None:
 
 def append_js_expression(expression: str) -> None:
     """
-    Append js expression to file.
+    Append js expression to the file.
 
     Parameters
     ----------

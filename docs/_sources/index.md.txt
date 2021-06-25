@@ -41,6 +41,7 @@ The HTML and JavaScript exporting interfaces.
 - [Int and Number classes](int_and_number.md)
 - [Int and Number classes common arithmetic operations](int_and_number_arithmetic_operations.md)
 - [Int and Number classes common comparison operations](int_and_number_comparison_operations.md)
+- [String class comparison operations](string_comparison_operations.md)
 
 ---
 

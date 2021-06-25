@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>String class comparison operations &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DisplayObject" href="display_object.html" />
+    <link rel="prev" title="Int and Number common comparison operations" href="int_and_number_comparison_operations.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="display_object.html" title="DisplayObject"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="int_and_number_comparison_operations.html" title="Int and Number common comparison operations"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">String class comparison operations</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="string-class-comparison-operations">
+<h1>String class comparison operations<a class="headerlink" href="#string-class-comparison-operations" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">String</span></code> class comparison operations, like the <code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>.</p>
+<section id="comparison-return-value-type">
+<h2>Comparison return value type<a class="headerlink" href="#comparison-return-value-type" title="Permalink to this headline">¶</a></h2>
+<p>Each <code class="docutils literal notranslate"><span class="pre">String</span></code> class comparison operations will return a <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value, not a Python built-in <code class="docutils literal notranslate"><span class="pre">bool</span></code> value.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span>
+
+<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">==</span> <span class="s1">&#39;Hello&#39;</span>
+<span class="k">assert</span> <span class="n">result</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">Boolean</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="acceptable-comparison-other-value-types">
+<h2>Acceptable comparison other value types<a class="headerlink" href="#acceptable-comparison-other-value-types" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">str</span></code> or <code class="docutils literal notranslate"><span class="pre">String</span></code> types of a comparison other value (comparison right-side value) types are acceptable, for instance:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span>
+
+<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">==</span> <span class="s1">&#39;Hello&#39;</span>
+<span class="k">assert</span> <span class="n">result</span>
+</pre></div>
+</div>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span>
+
+<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="n">string_2</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">==</span> <span class="n">string_2</span>
+<span class="k">assert</span> <span class="n">result</span>
+</pre></div>
+</div>
+</section>
+<section id="equal-comparison">
+<h2>Equal comparison<a class="headerlink" href="#equal-comparison" title="Permalink to this headline">¶</a></h2>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator for the equal comparison:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span>
+
+<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">==</span> <span class="s1">&#39;Hello&#39;</span>
+<span class="k">assert</span> <span class="n">result</span>
+</pre></div>
+</div>
+</section>
+<section id="not-equal-comparison">
+<h2>Not equal comparison<a class="headerlink" href="#not-equal-comparison" title="Permalink to this headline">¶</a></h2>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">!=</span></code> operator for the not equal comparison:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span>
+
+<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">!=</span> <span class="s1">&#39;World&#39;</span>
+<span class="k">assert</span> <span class="n">result</span>
+</pre></div>
+</div>
+</section>
+<section id="less-than-or-greater-than-comparison">
+<h2>Less than or greater than comparison<a class="headerlink" href="#less-than-or-greater-than-comparison" title="Permalink to this headline">¶</a></h2>
+<p>You can use each less than, less than or equal, greater than, greater than or equal comparison, with the <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> operators, like the Python built-in <code class="docutils literal notranslate"><span class="pre">str</span></code> value. Sometimes these operations are useful to compare date (or datetime) string.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span>
+
+<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;1970-01-05&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">&lt;</span> <span class="s1">&#39;1970-01-06&#39;</span>
+<span class="k">assert</span> <span class="n">result</span>
+</pre></div>
+</div>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span>
+
+<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;1970-01-05&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">&lt;=</span> <span class="s1">&#39;1970-01-05&#39;</span>
+<span class="k">assert</span> <span class="n">result</span>
+</pre></div>
+</div>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span>
+
+<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;1970-01-05&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">&gt;</span> <span class="s1">&#39;1970-01-04&#39;</span>
+<span class="k">assert</span> <span class="n">result</span>
+</pre></div>
+</div>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span>
+
+<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;1970-01-05&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">&gt;=</span> <span class="s1">&#39;1970-01-05&#39;</span>
+<span class="k">assert</span> <span class="n">result</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">String class comparison operations</a><ul>
+<li><a class="reference internal" href="#comparison-return-value-type">Comparison return value type</a></li>
+<li><a class="reference internal" href="#acceptable-comparison-other-value-types">Acceptable comparison other value types</a></li>
+<li><a class="reference internal" href="#equal-comparison">Equal comparison</a></li>
+<li><a class="reference internal" href="#not-equal-comparison">Not equal comparison</a></li>
+<li><a class="reference internal" href="#less-than-or-greater-than-comparison">Less than or greater than comparison</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="int_and_number_comparison_operations.html"
+                        title="previous chapter">Int and Number common comparison operations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="display_object.html"
+                        title="next chapter">DisplayObject</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/string_comparison_operations.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="display_object.html" title="DisplayObject"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="int_and_number_comparison_operations.html" title="Int and Number common comparison operations"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">String class comparison operations</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

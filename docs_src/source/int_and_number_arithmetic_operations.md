@@ -208,3 +208,25 @@ int_1: Int = Int(10)
 int_1 = int_1 // 4
 assert int_1 == 2
 ```
+
+## Modulo
+
+You can use the modulo operation with the `%` operator.
+
+```py
+# runnable
+from apysc import Int
+
+int_1: Int = Int(10)
+int_2: int = int_1 % 3
+assert int_2 == 1
+```
+
+```py
+# runnable
+from apysc import Number
+
+number_1: Number = Number(10.5)
+number_2: Number = number_1 % 3
+assert number_2 == 1.5
+```

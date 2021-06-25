@@ -913,3 +913,31 @@ class TestNumberValueInterface:
             x_interface=x_interface,
             previous_x_variable_name=previous_variable_name)
         assert x_interface._x._incremental_calc_prev_name == ''
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_modulo_expression(self) -> None:
+        expression_file_util.remove_expression_file()
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=10, type_name='test_interface')
+        interface_1.variable_name = 'test_interface_1'
+        interface_2: NumberValueInterface = interface_1 % 10
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface_2.variable_name} = '
+            f'{interface_1.variable_name} % 10;'
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___mod__(self) -> None:
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=10, type_name='test_interface')
+        interface_1.variable_name = 'test_interface_1'
+        interface_2: NumberValueInterface = interface_1 % 3
+        assert interface_2 == 1
+
+        interface_1: NumberValueInterface = NumberValueInterface(
+            value=10.5, type_name='test_interface')
+        interface_1.variable_name = 'test_interface_1'
+        interface_3: NumberValueInterface = interface_1 % Int(3)
+        assert interface_3 == 1.5

@@ -446,6 +446,51 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         result.variable_name = self.variable_name
         return result
 
+    def __mod__(self, other: Union[int, float, Any]) -> Any:
+        """
+        Method for the modulo operation.
+
+        Parameters
+        ----------
+        other : int or float or NumberValueInterface
+            Other value to be used in the modulo operation.
+
+        Returns
+        -------
+        result : NumberValueInterface
+            Modulo operation result value.
+        """
+        if isinstance(other, NumberValueInterface):
+            value: Union[int, float] = self._value % other._value
+        else:
+            value = self._value % other
+        result: NumberValueInterface = self._copy()
+        result.set_value_and_skip_expression_appending(value=value)
+        self._append_modulo_expression(result=result, other=other)
+        return result
+
+    def _append_modulo_expression(
+            self, result: VariableNameInterface,
+            other: Union[int, float, Any]) -> None:
+        """
+        Append a module expression to the file.
+
+        Parameters
+        ----------
+        result : NumberValueInterface
+            Modulo operation result value.
+        other : int or float or NumberValueInterface
+            Other value to be used in the modulo operation.
+        """
+        from apysc._expression import expression_file_util
+        from apysc._type.value_util import get_value_str_for_expression
+        right_value: str = get_value_str_for_expression(value=other)
+        expression: str = (
+            f'var {result.variable_name} = '
+            f'{self.variable_name} % {right_value};'
+        )
+        expression_file_util.append_js_expression(expression=expression)
+
     def __str__(self) -> str:
         """
         String conversion method.

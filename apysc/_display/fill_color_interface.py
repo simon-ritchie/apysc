@@ -46,11 +46,11 @@ class FillColorInterface(VariableNameInterface, RevertInterface):
         """
         Append fill color updating expression.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{self.variable_name}.fill("{self.fill_color}");'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def _set_initial_fill_color_if_not_blank(
             self, fill_color: Union[str, String]) -> None:

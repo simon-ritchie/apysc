@@ -102,11 +102,11 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         value : Array
             Points value to set.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{self._points.variable_name} = {value.variable_name};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     _points_snapshots: Dict[str, Array]
 

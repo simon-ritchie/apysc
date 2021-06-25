@@ -53,11 +53,11 @@ class HeightInterface(VariableNameInterface, RevertInterface):
         """
         Append height updating expression.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{self.variable_name}.height({self.height});'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def _update_height_and_skip_appending_exp(
             self, value: Union[int, Int]) -> None:

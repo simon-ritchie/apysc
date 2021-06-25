@@ -13,6 +13,7 @@ from apysc._expression import js_functions
 from apysc._expression.event_handler_scope import HandlerScope
 from apysc._file import file_util
 from apysc._html import exporter
+from apysc import append_js_expression
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=300)
@@ -264,7 +265,7 @@ def test__append_event_handler_expressions() -> None:
     expression_file_util.remove_expression_file()
 
     with HandlerScope():
-        expression_file_util.append_js_expression(
+        append_js_expression(
             expression='console.log("world!");')
     expression: str = exporter._append_event_handler_expressions(
         expression='console.log("Hello!");')

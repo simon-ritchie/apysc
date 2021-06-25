@@ -46,11 +46,11 @@ class LineColorInterface(VariableNameInterface, RevertInterface):
         """
         Append line color updating expression.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{self.variable_name}.stroke("{self.line_color}");'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def _set_initial_line_color_if_not_blank(
             self, line_color: Union[str, String]) -> None:

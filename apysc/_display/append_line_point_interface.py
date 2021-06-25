@@ -24,7 +24,7 @@ class AppendLinePointInterface(Points2DInterface):
             Y-coordinate.
         """
         from apysc import Point2D
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type import value_util
         if not hasattr(self, '_points_var_name'):
             raise AttributeError(
@@ -38,4 +38,4 @@ class AppendLinePointInterface(Points2DInterface):
             f'{self._points_var_name}.push([{x_name}, {y_name}]);'
             f'\n{self.variable_name}.plot({self._points_var_name});'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)

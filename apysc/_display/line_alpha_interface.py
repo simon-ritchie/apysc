@@ -52,11 +52,11 @@ class LineAlphaInterface(VariableNameInterface, RevertInterface):
         """
         Append line alpha updating expression.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{self.variable_name}.stroke({{opacity: {self.line_alpha}}});'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def _update_line_alpha_and_skip_appending_exp(
             self, value: Union[float, Number]) -> None:

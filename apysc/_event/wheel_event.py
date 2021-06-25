@@ -60,12 +60,12 @@ class WheelEvent(Event):
         delta_x : Int
             Target delta x value.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{delta_x.variable_name} = '
             f'{self.variable_name}.deltaX;'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     @property
     def delta_y(self) -> Int:
@@ -90,9 +90,9 @@ class WheelEvent(Event):
         delta_y : Int
             Target delta y value.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{delta_y.variable_name} = '
             f'{self.variable_name}.deltaY;'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)

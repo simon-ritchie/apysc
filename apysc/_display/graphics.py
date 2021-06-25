@@ -71,12 +71,12 @@ class Graphics(
         """
         Append constructor expression to file.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         stage_name: str = self.parent_sprite.stage.variable_name
         expression: str = (
             f'var {self.variable_name} = {stage_name}.nested();'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def draw_rect(
             self, x: Union[int, Int],

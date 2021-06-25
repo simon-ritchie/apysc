@@ -53,11 +53,11 @@ class WidthInterface(VariableNameInterface, RevertInterface):
         """
         Append width updating expression.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{self.variable_name}.width({self.width});'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def _update_width_and_skip_appending_exp(
             self, value: Union[int, Int]) -> None:

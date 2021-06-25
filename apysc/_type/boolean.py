@@ -74,7 +74,7 @@ class Boolean(CopyInterface, RevertInterface):
         """
         Append constructor expression to file.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type.variable_name_interface import VariableNameInterface
         expression: str = f'var {self.variable_name} = '
         if isinstance(self._initial_value, VariableNameInterface):
@@ -83,7 +83,7 @@ class Boolean(CopyInterface, RevertInterface):
             expression += 'true;'
         else:
             expression += 'false;'
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     @property
     def value(self) -> Union[bool, int, Any]:
@@ -124,7 +124,7 @@ class Boolean(CopyInterface, RevertInterface):
         value : bool or VariableNameInterface
             Any value to set.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type.variable_name_interface import VariableNameInterface
         expression: str = f'{self.variable_name} = '
         if isinstance(value, VariableNameInterface):
@@ -133,7 +133,7 @@ class Boolean(CopyInterface, RevertInterface):
             expression += 'true;'
         else:
             expression += 'false;'
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def _set_value_and_skip_expression_appending(
             self, value: Union[bool, int, Int, Any]) -> None:
@@ -268,7 +268,7 @@ class Boolean(CopyInterface, RevertInterface):
         other : Boolean or Int
             Other value to compare.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         other_str: str = other.variable_name
         if isinstance(other, Int):
             other_str = f'Boolean({other_str});'
@@ -276,7 +276,7 @@ class Boolean(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'{self.variable_name} === {other_str};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __ne__(self, other: Any) -> Any:
         """
@@ -311,7 +311,7 @@ class Boolean(CopyInterface, RevertInterface):
         other : Boolean or Int
             Other value to compare.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         other_str: str = other.variable_name
         if isinstance(other, Int):
             other_str = f'Boolean({other_str});'
@@ -319,7 +319,7 @@ class Boolean(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'{self.variable_name} !== {other_str};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     @property
     def not_(self) -> Any:
@@ -345,9 +345,9 @@ class Boolean(CopyInterface, RevertInterface):
         result : Boolean
             Result Boolean value.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{result.variable_name} = '
             f'!{self.variable_name};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)

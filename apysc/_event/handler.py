@@ -87,7 +87,7 @@ def append_handler_expression(
     e : Event
         Created event instance.
     """
-    from apysc._expression import expression_file_util
+    from apysc import append_js_expression
     from apysc._expression.event_handler_scope import HandlerScope
     from apysc._expression.indent_num import Indent
     from apysc._type import revert_interface
@@ -101,10 +101,10 @@ def append_handler_expression(
         expression: str = (
             f'function {handler_name}({e.variable_name}) {{'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
         with Indent():
             handler_data['handler'](e=e, options=handler_data['options'])
-        expression_file_util.append_js_expression(expression='}')
+        append_js_expression(expression='}')
 
     revert_interface.revert_variables(
         snapshot_name=snapshot_name, variables=variables)
@@ -125,13 +125,13 @@ def append_unbinding_expression(
     event_type : EventType
         Event type to unbind.
     """
-    from apysc._expression import expression_file_util
+    from apysc import append_js_expression
     from apysc._validation import event_validation
     event_validation.validate_event_type(event_type=event_type)
     expression: str = (
         f'{this.variable_name}.off("{event_type.value}", {handler_name});'
     )
-    expression_file_util.append_js_expression(expression=expression)
+    append_js_expression(expression=expression)
 
 
 def append_unbinding_all_expression(
@@ -147,10 +147,10 @@ def append_unbinding_all_expression(
     event_type : EventType
         Event type to unbind.
     """
-    from apysc._expression import expression_file_util
+    from apysc import append_js_expression
     from apysc._validation import event_validation
     event_validation.validate_event_type(event_type=event_type)
     expression: str = (
         f'{this.variable_name}.off("{event_type.value}");'
     )
-    expression_file_util.append_js_expression(expression=expression)
+    append_js_expression(expression=expression)

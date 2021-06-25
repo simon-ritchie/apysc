@@ -116,7 +116,7 @@ class EventInterfaceBase:
         event_type : EventType
             Event type to bind.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type.variable_name_interface import VariableNameInterface
         self_instance: VariableNameInterface = \
             self._validate_self_is_variable_name_interface()
@@ -124,4 +124,4 @@ class EventInterfaceBase:
             f'{self_instance.variable_name}'
             f'.{event_type.value}({name});'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)

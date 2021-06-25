@@ -15,7 +15,7 @@ def trace(*args: Any) -> None:
     *args : list
         Any arguments to display to console.
     """
-    from apysc._expression import expression_file_util
+    from apysc import append_js_expression
     from apysc._string import string_util
     from apysc._type.variable_name_interface import VariableNameInterface
 
@@ -29,4 +29,4 @@ def trace(*args: Any) -> None:
         arg_strs.append(f'"{arg}"')
     expression += ', '.join(arg_strs)
     expression += ');'
-    expression_file_util.append_js_expression(expression=expression)
+    append_js_expression(expression=expression)

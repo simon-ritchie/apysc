@@ -65,7 +65,7 @@ def _append_complement_hex_color_expression(
     hex_color_code : String
         Complemented hex color code string.
     """
-    from apysc._expression import expression_file_util
+    from apysc import append_js_expression
     hex_color_code_: String = hex_color_code
     var_name: str = hex_color_code_.variable_name
     expression: str = (
@@ -76,7 +76,7 @@ def _append_complement_hex_color_expression(
         f'\n  {var_name} = {var_name}.repeat(2);'
         '\n}'
     )
-    expression_file_util.append_js_expression(expression=expression)
+    append_js_expression(expression=expression)
 
 
 def _fill_three_digit_hex_color_code(hex_color_code: str) -> str:

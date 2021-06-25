@@ -169,11 +169,11 @@ def append_substitution_expression(
     right_value : VariableNameInterface
         Any right value.
     """
-    from apysc._expression import expression_file_util
+    from apysc import append_js_expression
     expression: str = (
         f'{left_value.variable_name} = {right_value.variable_name};'
     )
-    expression_file_util.append_js_expression(expression=expression)
+    append_js_expression(expression=expression)
 
 
 def append_substitution_expression_with_names(
@@ -194,10 +194,10 @@ def append_substitution_expression_with_names(
     right_variable_name : str
         Right-side variable name.
     """
-    from apysc._expression import expression_file_util
+    from apysc import append_js_expression
     if left_variable_name == '' or right_variable_name == '':
         return
     expression: str = (
         f'{left_variable_name} = {right_variable_name};'
     )
-    expression_file_util.append_js_expression(expression=expression)
+    append_js_expression(expression=expression)

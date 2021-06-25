@@ -56,7 +56,7 @@ class CxInterface(VariableNameInterface, RevertInterface):
         """
         Append cx position updating expression.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type import value_util
         self._initialize_cx_if_not_initialized()
         value_str: str = value_util.get_value_str_for_expression(
@@ -64,7 +64,7 @@ class CxInterface(VariableNameInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name}.cx({value_str});'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     _cx_snapshots: Dict[str, int]
 

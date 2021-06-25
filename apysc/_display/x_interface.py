@@ -57,7 +57,7 @@ class XInterface(VariableNameInterface, RevertInterface):
         """
         Append x position updating expression.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type import value_util
         self._initialize_x_if_not_initialized()
         value_str: str = value_util.get_value_str_for_expression(
@@ -65,7 +65,7 @@ class XInterface(VariableNameInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name}.x({value_str});'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     _x_snapshots: Dict[str, int]
 

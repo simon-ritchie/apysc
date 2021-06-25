@@ -59,14 +59,14 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
         """
         Append fill alpha updating expression.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type import value_util
         value_str: str = value_util.get_value_str_for_expression(
             value=self._fill_alpha)
         expression: str = (
             f'{self.variable_name}.fill({{opacity: {value_str}}});'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def _update_fill_alpha_and_skip_appending_exp(
             self, value: Any) -> None:

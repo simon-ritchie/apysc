@@ -47,12 +47,12 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         """
         Append constructor expression to file.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type import value_util
         value_str: str = value_util.get_value_str_for_expression(
             value=self._initial_value)
         expression: str = f'var {self.variable_name} = {value_str};'
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def _get_dict_value(
             self, value: Union[Dict[Key, Any], Any]) -> Dict[Any, Any]:
@@ -132,11 +132,11 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         value : dict or Dictionary.
             Dictionary value to set.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type import value_util
         value_str: str = value_util.get_value_str_for_expression(value=value)
         expression: str = f'{self.variable_name} = {value_str};'
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     _value_snapshot: Dict[str, Dict[Key, Any]]
 
@@ -216,12 +216,12 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         length : Int
             Created length Int variable.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{length.variable_name} = '
             f'Object.keys({self.variable_name}).length;'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __len__(self) -> None:
         """
@@ -287,7 +287,7 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
             Specified key's value.
         """
         from apysc import AnyValue
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type import value_util
         from apysc._type.variable_name_interface import VariableNameInterface
         if not isinstance(value, VariableNameInterface):
@@ -297,7 +297,7 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
             f'var {value.variable_name} = '
             f'{self.variable_name}[{key_str}];'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def _validate_key_type_is_str_or_numeric(self, key: Key) -> None:
         """
@@ -346,14 +346,14 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         value : *
             Any value to set.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type import value_util
         key_str: str = value_util.get_value_str_for_expression(value=key)
         value_str: str = value_util.get_value_str_for_expression(value=value)
         expression: str = (
             f'{self.variable_name}[{key_str}] = {value_str};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __delitem__(self, key: Key) -> None:
         """
@@ -378,10 +378,10 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         key : Key
             Dictionary key to delete.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type import value_util
         key_str: str = value_util.get_value_str_for_expression(value=key)
         expression: str = (
             f'delete {self.variable_name}[{key_str}];'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)

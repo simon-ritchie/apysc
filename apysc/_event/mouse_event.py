@@ -64,12 +64,12 @@ class MouseEvent(Generic[T], Event):
             Target x-coordinate value.
         """
         from apysc._display.stage import get_stage_elem_str
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{x.variable_name} = {self.variable_name}.pageX - '
             f'{get_stage_elem_str()}.offset().left;'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     @property
     def stage_y(self) -> Int:
@@ -95,12 +95,12 @@ class MouseEvent(Generic[T], Event):
             Target y-coordinate value.
         """
         from apysc._display.stage import get_stage_elem_str
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{y.variable_name} = {self.variable_name}.pageY - '
             f'{get_stage_elem_str()}.offset().top;'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     @property
     def local_x(self) -> Int:
@@ -127,14 +127,14 @@ class MouseEvent(Generic[T], Event):
         x : Int
             Target x-coordinate value.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         stage_x: Int = self.stage_x
         this: T = self.this
         expression: str = (
             f'{x.variable_name} = {stage_x.variable_name} - '
             f'get_total_x({this.variable_name});'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     @property
     def local_y(self) -> Int:
@@ -161,11 +161,11 @@ class MouseEvent(Generic[T], Event):
         y : Int
             Target y-coordinate value.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         stage_y: Int = self.stage_y
         this: T = self.this
         expression: str = (
             f'{y.variable_name} = {stage_y.variable_name} - '
             f'get_total_y({this.variable_name});'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)

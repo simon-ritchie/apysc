@@ -115,8 +115,9 @@ class Stage(
         """
         Append stage constructor expression to file.
         """
+        from apysc import append_js_expression
         expression: str = self._make_constructor_expression()
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def _make_constructor_expression(self) -> str:
         """

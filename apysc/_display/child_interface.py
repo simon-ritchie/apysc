@@ -99,12 +99,12 @@ class ChildInterface(RevertInterface):
         child : DisplayObject
             Child instance to check.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{result.variable_name} = '
             f'{self._variable_name}.has({child.variable_name});'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     @property
     def num_children(self) -> Int:
@@ -131,12 +131,12 @@ class ChildInterface(RevertInterface):
         num_children : Int
             Current children number.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{num_children.variable_name} = '
             f'{self._variable_name}.children().length;'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def get_child_at(self, index: Union[int, Int]) -> DisplayObject:
         """
@@ -177,7 +177,7 @@ class ChildInterface(RevertInterface):
         index : int or Int
             Child's index (start from 0).
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type import value_util
         index_str: str = value_util.get_value_str_for_expression(value=index)
         expression: str = (
@@ -186,7 +186,7 @@ class ChildInterface(RevertInterface):
             f'[{index_str}];'
         )
         print(expression)
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     _children_snapshots: Dict[str, List[Any]]
 
@@ -240,13 +240,13 @@ def append_expression_of_add_child(child: DisplayObject) -> None:
     child : DisplayObject
         Child object to add.
     """
-    from apysc._expression import expression_file_util
+    from apysc import append_js_expression
     parent_name: str = child.parent.variable_name  # type: ignore
     child_name: str = child.variable_name
     expression: str = (
         f'{parent_name}.add({child_name});'
     )
-    expression_file_util.append_js_expression(expression=expression)
+    append_js_expression(expression=expression)
 
 
 def append_expression_of_remove_child(child: DisplayObject) -> None:
@@ -258,7 +258,7 @@ def append_expression_of_remove_child(child: DisplayObject) -> None:
     child : DisplayObject
         Child object to remove.
     """
-    from apysc._expression import expression_file_util
+    from apysc import append_js_expression
     from apysc._expression import expression_variables_util
     from apysc._expression import var_names
     parent_name: str = expression_variables_util.get_next_variable_name(
@@ -270,4 +270,4 @@ def append_expression_of_remove_child(child: DisplayObject) -> None:
         f'\n  {parent_name}.removeElement({child_name});'
         '\n}'
     )
-    expression_file_util.append_js_expression(expression=expression)
+    append_js_expression(expression=expression)

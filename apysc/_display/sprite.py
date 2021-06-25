@@ -57,7 +57,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
             If expression appended, then True will be set.
         """
         from apysc._display.stage import get_stage_variable_name
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type import type_util
         is_same_class_instance: bool = type_util.is_same_class_instance(
             class_=Sprite, instance=self)
@@ -67,7 +67,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
         expression: str = (
             f'\nvar {self.variable_name} = {stage_variable_name}.nested();'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
         return True
 
     def _make_snapshot(self, snapshot_name: str) -> None:

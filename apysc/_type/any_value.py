@@ -37,7 +37,7 @@ class AnyValue(CopyInterface, RevertInterface):
         """
         Append constructor expression to file.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type import value_util
         expression: str = f'var {self.variable_name} = '
         if isinstance(self._value, VariableNameInterface):
@@ -46,7 +46,7 @@ class AnyValue(CopyInterface, RevertInterface):
             value_str: str = value_util.get_value_str_for_expression(
                 value=self._value)
             expression += f'{value_str};'
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     @property
     def value(self) -> Any:
@@ -82,13 +82,13 @@ class AnyValue(CopyInterface, RevertInterface):
         value : *
             Any value to set.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = f'{self.variable_name} = '
         if isinstance(value, VariableNameInterface):
             expression += f'{value.variable_name};'
         else:
             expression += f'{value};'
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def _append_arithmetic_operation_expression(
             self, other: Any, operator: str) -> VariableNameInterface:
@@ -108,7 +108,7 @@ class AnyValue(CopyInterface, RevertInterface):
         result : AnyValue
             Calculated result value.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type.value_util import get_value_str_for_expression
         value_str: str = get_value_str_for_expression(value=other)
         result: AnyValue = self._copy()
@@ -116,7 +116,7 @@ class AnyValue(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'{self.variable_name} {operator} {value_str};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
         return result
 
     def __add__(self, other: Any) -> Any:
@@ -209,7 +209,7 @@ class AnyValue(CopyInterface, RevertInterface):
         result : AnyValue
             Floor division result value.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type.value_util import get_value_str_for_expression
         result: AnyValue = self._copy()
         value_str: str = get_value_str_for_expression(value=other)
@@ -217,7 +217,7 @@ class AnyValue(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'parseInt({self.variable_name} / {value_str});'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
         return result
 
     def _append_incremental_arithmetic_operation_expression(
@@ -233,13 +233,13 @@ class AnyValue(CopyInterface, RevertInterface):
         operator : str
             JavaScript arithmetic operator, like '+=', '*=', and so on.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type.value_util import get_value_str_for_expression
         value_str: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'{self.variable_name} {operator} {value_str};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __iadd__(self, other: Any) -> Any:
         """
@@ -332,7 +332,7 @@ class AnyValue(CopyInterface, RevertInterface):
             Comparison result. This will always be False on Python
             since correct comparison is not possible.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type.value_util import get_value_str_for_expression
         result: Boolean = Boolean(False)
         value_str: str = get_value_str_for_expression(value=other)
@@ -340,7 +340,7 @@ class AnyValue(CopyInterface, RevertInterface):
             f'{result.variable_name} = '
             f'{self.variable_name} {comparison_operator} {value_str};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
         return result
 
     def __eq__(self, other: Any) -> Any:

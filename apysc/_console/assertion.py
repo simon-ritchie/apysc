@@ -49,7 +49,7 @@ def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc._expression import expression_file_util
+    from apysc import append_js_expression
     from apysc._string import string_util
     if _actual_value_type_is_array(actual=actual):
         assert_arrays_equal(expected=expected, actual=actual, msg=msg)
@@ -68,7 +68,7 @@ def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
     expression: str = (
         f'console.assert({expected_str} === {actual_str}, "{msg}");'
     )
-    expression_file_util.append_js_expression(expression=expression)
+    append_js_expression(expression=expression)
 
 
 def assert_not_equal(expected: Any, actual: Any, msg: str = '') -> None:
@@ -90,7 +90,7 @@ def assert_not_equal(expected: Any, actual: Any, msg: str = '') -> None:
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc._expression import expression_file_util
+    from apysc import append_js_expression
     from apysc._string import string_util
     if _actual_value_type_is_array(actual=actual):
         assert_arrays_not_equal(expected=expected, actual=actual, msg=msg)
@@ -108,7 +108,7 @@ def assert_not_equal(expected: Any, actual: Any, msg: str = '') -> None:
     expression: str = (
         f'console.assert({expected_str} !== {actual_str}, "{msg}");'
     )
-    expression_file_util.append_js_expression(expression=expression)
+    append_js_expression(expression=expression)
 
 
 def assert_true(
@@ -128,7 +128,7 @@ def assert_true(
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc._expression import expression_file_util
+    from apysc import append_js_expression
     from apysc._string import string_util
     _trace_info(
         interface_label='assert_true', expected='true', actual=actual)
@@ -142,7 +142,7 @@ def assert_true(
     expression = _add_equal_if_type_strict_setting_is_true(
         expression=expression, type_strict=type_strict)
     expression += f' true, "{msg}");'
-    expression_file_util.append_js_expression(expression=expression)
+    append_js_expression(expression=expression)
 
 
 def assert_false(
@@ -162,7 +162,7 @@ def assert_false(
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc._expression import expression_file_util
+    from apysc import append_js_expression
     from apysc._string import string_util
     _trace_info(
         interface_label='assert_false', expected='false', actual=actual)
@@ -176,7 +176,7 @@ def assert_false(
     expression = _add_equal_if_type_strict_setting_is_true(
         expression=expression, type_strict=type_strict)
     expression += f' false, "{msg}");'
-    expression_file_util.append_js_expression(expression=expression)
+    append_js_expression(expression=expression)
 
 
 def assert_arrays_equal(
@@ -199,14 +199,14 @@ def assert_arrays_equal(
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc._expression import expression_file_util
+    from apysc import append_js_expression
     _trace_arrays_or_dicts_assertion_info(
         interface_label='assert_arrays_equal',
         expected=expected, actual=actual)
 
     expression: str = _make_arrays_or_dicts_comparison_expression(
         expected=expected, actual=actual, msg=msg, not_condition=False)
-    expression_file_util.append_js_expression(expression=expression)
+    append_js_expression(expression=expression)
 
 
 def assert_arrays_not_equal(
@@ -229,14 +229,14 @@ def assert_arrays_not_equal(
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc._expression import expression_file_util
+    from apysc import append_js_expression
     _trace_arrays_or_dicts_assertion_info(
         interface_label='assert_arrays_not_equal',
         expected=expected, actual=actual)
 
     expression: str = _make_arrays_or_dicts_comparison_expression(
         expected=expected, actual=actual, msg=msg, not_condition=True)
-    expression_file_util.append_js_expression(expression=expression)
+    append_js_expression(expression=expression)
 
 
 def assert_dicts_equal(expected: Any, actual: Any, msg: str = '') -> None:
@@ -260,14 +260,14 @@ def assert_dicts_equal(expected: Any, actual: Any, msg: str = '') -> None:
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc._expression import expression_file_util
+    from apysc import append_js_expression
     _trace_arrays_or_dicts_assertion_info(
         interface_label='assert_dicts_equal',
         expected=expected, actual=actual)
 
     expression: str = _make_arrays_or_dicts_comparison_expression(
         expected=expected, actual=actual, msg=msg, not_condition=False)
-    expression_file_util.append_js_expression(expression=expression)
+    append_js_expression(expression=expression)
 
 
 def assert_dicts_not_equal(
@@ -292,14 +292,14 @@ def assert_dicts_not_equal(
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc._expression import expression_file_util
+    from apysc import append_js_expression
     _trace_arrays_or_dicts_assertion_info(
         interface_label='assert_dicts_not_equal',
         expected=expected, actual=actual)
 
     expression: str = _make_arrays_or_dicts_comparison_expression(
         expected=expected, actual=actual, msg=msg, not_condition=True)
-    expression_file_util.append_js_expression(expression=expression)
+    append_js_expression(expression=expression)
 
 
 def assert_defined(actual: Any, msg: str = '') -> None:
@@ -314,7 +314,7 @@ def assert_defined(actual: Any, msg: str = '') -> None:
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc._expression import expression_file_util
+    from apysc import append_js_expression
     from apysc._string import string_util
     _trace_info(
         interface_label='assert_defined', expected='other than undefined',
@@ -326,7 +326,7 @@ def assert_defined(actual: Any, msg: str = '') -> None:
     expression: str = (
         f'console.assert(!_.isUndefined({actual_str}), "{msg}");'
     )
-    expression_file_util.append_js_expression(expression=expression)
+    append_js_expression(expression=expression)
 
 
 def assert_undefined(actual: Any, msg: str = '') -> None:
@@ -340,7 +340,7 @@ def assert_undefined(actual: Any, msg: str = '') -> None:
     msg : str, optional
         Message to display when assertion failed.
     """
-    from apysc._expression import expression_file_util
+    from apysc import append_js_expression
     from apysc._string import string_util
     _trace_info(
         interface_label='assert_undefined', expected='undefined',
@@ -352,7 +352,7 @@ def assert_undefined(actual: Any, msg: str = '') -> None:
     expression: str = (
         f'console.assert(_.isUndefined({actual_str}), "{msg}");'
     )
-    expression_file_util.append_js_expression(expression=expression)
+    append_js_expression(expression=expression)
 
 
 def _make_arrays_or_dicts_comparison_expression(

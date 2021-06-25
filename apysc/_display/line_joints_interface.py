@@ -76,7 +76,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         """
         Append line cap updating expression to file.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type import value_util
         joints_name: str = value_util.get_value_str_for_expression(
             value=self._line_joints)
@@ -84,7 +84,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
             f'{self.variable_name}.attr'
             f'({{"stroke-linejoin": {joints_name}}});'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     _line_joints_snapshots: Dict[str, str]
 

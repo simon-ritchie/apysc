@@ -41,7 +41,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         """
         Append current value's constructor expression to file.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         if isinstance(self._initial_value, NumberValueInterface):
             value_: Union[int, float, str] = self._initial_value.variable_name
         else:
@@ -49,7 +49,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         expression: str = (
             f'var {self.variable_name} = {value_};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     @property
     def value(self) -> Union[int, float, Any]:
@@ -107,7 +107,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         value : int or float or NumberValueInterface
             Any number value to set.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         if isinstance(value, NumberValueInterface):
             right_value: Union[str, int, float] = value.variable_name
         else:
@@ -115,7 +115,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name} = {right_value};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __add__(self, other: Union[int, float, Any]) -> Any:
         """
@@ -153,14 +153,14 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : int or float or NumberValueInterface
             Other value to add.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'var {result.variable_name} = '
             f'{self.variable_name} + {right_value};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __sub__(self, other: Union[int, float, Any]) -> Any:
         """
@@ -198,14 +198,14 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : int or float or NumberValueInterface
             Other value to subtract.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'var {result.variable_name} = '
             f'{self.variable_name} - {right_value};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __mul__(self, other: Union[int, float, Any]) -> Any:
         """
@@ -243,14 +243,14 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : int or float or NumberValueInterface
             Other value to multiply.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'var {result.variable_name} = '
             f'{self.variable_name} * {right_value};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __truediv__(self, other: Union[int, float, Any]) -> Any:
         """
@@ -289,14 +289,14 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : int or float or NumberValueInterface
             Other value for true division.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'{result.variable_name} = {self.variable_name} / '
             f'{right_value};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __floordiv__(self, other: Union[int, float, Any]) -> Any:
         """
@@ -335,14 +335,14 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : int or float or NumberValueInterface
             Other value for floor division.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'{result.variable_name} = '
             f'parseInt({self.variable_name} / {right_value});'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     _incremental_calc_prev_name: str = ''
 
@@ -482,14 +482,14 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : int or float or NumberValueInterface
             Other value to be used in the modulo operation.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'var {result.variable_name} = '
             f'{self.variable_name} % {right_value};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __str__(self) -> str:
         """
@@ -587,12 +587,12 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} === {other.variable_name};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __ne__(self, other: Any) -> Any:
         """
@@ -632,12 +632,12 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} !== {other.variable_name};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __lt__(self, other: Any) -> Any:
         """
@@ -678,12 +678,12 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} < {other.variable_name};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __le__(self, other: Any) -> Any:
         """
@@ -724,12 +724,12 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} <= {other.variable_name};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __gt__(self, other: Any) -> Any:
         """
@@ -770,12 +770,12 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} > {other.variable_name};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __ge__(self, other: Any) -> Any:
         """
@@ -816,12 +816,12 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} >= {other.variable_name};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     _value_snapshots: Dict[str, Union[int, float]]
 

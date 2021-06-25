@@ -123,7 +123,7 @@ class For(Generic[T]):
         traceback : *
             Traceback value.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._expression import last_scope
         from apysc._expression.last_scope import LastScope
         from apysc._type import revert_interface
@@ -131,7 +131,7 @@ class For(Generic[T]):
             snapshot_name=self._snapshot_name,
             locals_=self._locals, globals_=self._globals)
         self._indent.__exit__()
-        expression_file_util.append_js_expression(expression='}')
+        append_js_expression(expression='}')
         last_scope.set_last_scope(value=LastScope.FOR)
 
     def _append_arr_enter_expression(self, i: Int) -> None:
@@ -143,13 +143,13 @@ class For(Generic[T]):
         i : Int
             Loop index value.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         i_name: str = i.variable_name
         expression: str = (
             f'var length = {self._arr_or_dict.variable_name}.length;\n'
             f'for ({i_name} = 0; {i_name} < length; {i_name}++) {{'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def _append_dict_enter_expression(self, key: String) -> None:
         """
@@ -160,9 +160,9 @@ class For(Generic[T]):
         key : String
             Loop (dictionary) key value.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         key_name: str = key.variable_name
         expression: str = (
             f'for (var {key_name} in {self._arr_or_dict.variable_name}) {{'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)

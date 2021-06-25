@@ -22,7 +22,7 @@ from apysc import Stage
 from apysc import assert_true
 from apysc import save_overall_html
 from apysc import trace
-from apysc._expression import expression_file_util
+from apysc import append_js_expression
 from apysc._file import file_util
 
 this_module: ModuleType = sys.modules[__name__]
@@ -42,7 +42,7 @@ def main() -> None:
         stage_width=1000, stage_height=500)
     stage_elem_id: str = stage.stage_elem_id
     stage_elem_str: str = f'$("#{stage_elem_id}")'
-    expression_file_util.append_js_expression(
+    append_js_expression(
         f'{stage_elem_str}.css("margin-left", "150px");')
 
     sprite_1: Sprite = Sprite(stage=stage)

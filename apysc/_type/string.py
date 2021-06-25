@@ -43,13 +43,13 @@ class String(CopyInterface, RevertInterface):
         """
         Append constructor expression to file.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = f'var {self.variable_name} = '
         if isinstance(self._initial_value, String):
             expression += f'{self._initial_value.variable_name};'
         else:
             expression += f'"{self._value}";'
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def _get_str_value(self, value: Union[str, Any]) -> str:
         """
@@ -106,13 +106,13 @@ class String(CopyInterface, RevertInterface):
         value : str or String
             Any string value to set.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = f'{self.variable_name} = '
         if isinstance(value, String):
             expression += f'{value.variable_name};'
         else:
             expression += f'"{value}";'
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __add__(self, other: Union[str, Any]) -> Any:
         """
@@ -152,14 +152,14 @@ class String(CopyInterface, RevertInterface):
         other : str or String
             Other string value to concatenate.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'var {result.variable_name} = '
             f'{self.variable_name} + {right_value};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __mul__(self, other: Union[int, Any]) -> Any:
         """
@@ -201,7 +201,7 @@ class String(CopyInterface, RevertInterface):
             String repetition number.
         """
         from apysc import Int
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = f'var {result.variable_name} = "";'
         expression += '\nfor (var i = 0; i < '
         if isinstance(other, Int):
@@ -211,7 +211,7 @@ class String(CopyInterface, RevertInterface):
         expression += '; i++) {'
         expression += f'\n  {result.variable_name} += {self.variable_name};'
         expression += '\n}'
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __iadd__(self, other: Union[str, Any]) -> Any:
         """
@@ -328,12 +328,12 @@ class String(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} === {other.variable_name};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __ne__(self, other: Any) -> Any:
         """
@@ -375,12 +375,12 @@ class String(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} !== {other.variable_name};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __lt__(self, other: Union[str, Any]) -> Any:
         """
@@ -419,12 +419,12 @@ class String(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} < {other.variable_name};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __le__(self, other: Union[str, Any]) -> Any:
         """
@@ -463,12 +463,12 @@ class String(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} <= {other.variable_name};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __gt__(self, other: Union[str, Any]) -> Any:
         """
@@ -507,12 +507,12 @@ class String(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} > {other.variable_name};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __ge__(self, other: Union[str, Any]) -> Any:
         """
@@ -551,12 +551,12 @@ class String(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} >= {other.variable_name};'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def __int__(self) -> int:
         """

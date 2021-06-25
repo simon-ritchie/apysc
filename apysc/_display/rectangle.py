@@ -78,7 +78,7 @@ class Rectangle(
         Append constructor expression to the file.
         """
         from apysc._display.stage import get_stage_variable_name
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         variable_name: str = self.variable_name
         stage_variable_name: str = get_stage_variable_name()
         expression: str = (
@@ -88,7 +88,7 @@ class Rectangle(
         )
         attrs_str: str = self._make_rect_attrs_expression()
         expression += f'{attrs_str};'
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     def _make_rect_attrs_expression(self) -> str:
         """

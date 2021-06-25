@@ -64,7 +64,7 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
         """
         Append an ellipse size updating expression.
         """
-        from apysc._expression import expression_file_util
+        from apysc import append_js_expression
         from apysc._type import value_util
         self._initialize_ellipse_size_if_not_initialized()
         value_str: str = value_util.get_value_str_for_expression(
@@ -72,7 +72,7 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name}.radius({value_str});'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        append_js_expression(expression=expression)
 
     _ellipse_size_snapshots: Dict[str, int]
 

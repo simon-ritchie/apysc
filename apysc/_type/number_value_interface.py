@@ -132,7 +132,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             Addition result value.
         """
         if isinstance(other, NumberValueInterface):
-            value: Union[int, float, Any] = self._value + other.value
+            value: Union[int, float, Any] = self._value + other._value
         else:
             value = self._value + other
         result: NumberValueInterface = self._copy()
@@ -177,7 +177,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             Subtraction result value.
         """
         if isinstance(other, NumberValueInterface):
-            value: Union[int, float, Any] = self._value - other.value
+            value: Union[int, float, Any] = self._value - other._value
         else:
             value = self._value - other
         result: NumberValueInterface = self._copy()
@@ -222,7 +222,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
             Multiplication result value.
         """
         if isinstance(other, NumberValueInterface):
-            value: Union[int, float, Any] = self._value * other.value
+            value: Union[int, float, Any] = self._value * other._value
         else:
             value = self._value * other
         result: NumberValueInterface = self._copy()
@@ -269,7 +269,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         from apysc import Number
         result: Number = Number(value=self)
         if isinstance(other, NumberValueInterface):
-            value: Union[int, float, Any] = result._value / other.value
+            value: Union[int, float, Any] = result._value / other._value
         else:
             value = result._value / other
         result.set_value_and_skip_expression_appending(value=value)
@@ -315,7 +315,7 @@ class NumberValueInterface(CopyInterface, RevertInterface):
         from apysc import Int
         result: Int = Int(value=self)
         if isinstance(other, NumberValueInterface):
-            value: Union[int, float, Any] = self._value // other.value
+            value: Union[int, float, Any] = self._value // other._value
         else:
             value = self._value // other
         result.set_value_and_skip_expression_appending(value=value)

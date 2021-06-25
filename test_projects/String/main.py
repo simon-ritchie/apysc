@@ -66,6 +66,14 @@ def main() -> None:
     string_5: String = String('Hello!')
     stage.click(on_stage_clicked, options={'string_5': string_5})
 
+    string_6: String = String('1970-01-05')
+    assert_true(actual=string_6 == '1970-01-05')
+    assert_true(actual=string_6 != '1970-01-03')
+    assert_true(actual=string_6 < '1970-01-06')
+    assert_true(actual=string_6 <= '1970-01-05')
+    assert_true(actual=string_6 > '1970-01-04')
+    assert_true(actual=string_6 >= '1970-01-05')
+
     save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

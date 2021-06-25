@@ -19,10 +19,10 @@ from apysc import MouseEvent
 from apysc import Rectangle
 from apysc import Sprite
 from apysc import Stage
+from apysc import append_js_expression
 from apysc import assert_true
 from apysc import save_overall_html
 from apysc import trace
-from apysc import append_js_expression
 from apysc._file import file_util
 
 this_module: ModuleType = sys.modules[__name__]

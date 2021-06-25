@@ -58,8 +58,8 @@ class Polygon(LineBase, AppendLinePointInterface):
         """
         Append constructor expression to file.
         """
-        from apysc._display.stage import get_stage_variable_name
         from apysc import append_js_expression
+        from apysc._display.stage import get_stage_variable_name
         stage_variable_name: str = get_stage_variable_name()
         points_var_name: str
         points_expression: str

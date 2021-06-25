@@ -73,8 +73,8 @@ class Circle(CxInterface, CyInterface, LineBase, RadiusInterface):
         """
         Append a construcor expression to the file.
         """
-        from apysc._display.stage import get_stage_variable_name
         from apysc import append_js_expression
+        from apysc._display.stage import get_stage_variable_name
         from apysc._type import value_util
         stage_variable_name: str = get_stage_variable_name()
         radius_str: str = value_util.get_value_str_for_expression(

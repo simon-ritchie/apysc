@@ -6,12 +6,12 @@ from typing import Optional
 
 from retrying import retry
 
+from apysc import append_js_expression
 from apysc._expression import event_handler_scope
 from apysc._expression import expression_file_util
 from apysc._expression import indent_num
 from apysc._expression.event_handler_scope import HandlerScope
 from apysc._expression.indent_num import Indent
-from apysc import append_js_expression
 from apysc._file import file_util
 
 

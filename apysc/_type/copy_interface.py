@@ -44,8 +44,8 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
         result_variable_name : str
             Copied value's variable name.
         """
-        from apysc._expression import event_handler_scope
         from apysc import append_js_expression
+        from apysc._expression import event_handler_scope
         evt_handler_scope_count: int = event_handler_scope.\
             get_current_event_handler_scope_count()
         if evt_handler_scope_count == 0:

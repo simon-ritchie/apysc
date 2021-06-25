@@ -77,8 +77,8 @@ class Rectangle(
         """
         Append constructor expression to the file.
         """
-        from apysc._display.stage import get_stage_variable_name
         from apysc import append_js_expression
+        from apysc._display.stage import get_stage_variable_name
         variable_name: str = self.variable_name
         stage_variable_name: str = get_stage_variable_name()
         expression: str = (

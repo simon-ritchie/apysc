@@ -56,8 +56,8 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
         appended : bool
             If expression appended, then True will be set.
         """
-        from apysc._display.stage import get_stage_variable_name
         from apysc import append_js_expression
+        from apysc._display.stage import get_stage_variable_name
         from apysc._type import type_util
         is_same_class_instance: bool = type_util.is_same_class_instance(
             class_=Sprite, instance=self)

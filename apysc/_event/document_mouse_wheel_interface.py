@@ -48,11 +48,11 @@ def bind_wheel_event_to_document(
     name : str
         Handler's name.
     """
+    from apysc import append_js_expression
     from apysc import document
     from apysc._event.handler import HandlerData
     from apysc._event.handler import append_handler_expression
     from apysc._event.handler import get_handler_name
-    from apysc import append_js_expression
     name: str = get_handler_name(handler=handler, instance=document)
     expression: str = (
         f'$({document.variable_name}).on("mousewheel", {name});'
@@ -80,9 +80,9 @@ def unbind_wheel_event_from_document(handler: WheelHandler) -> None:
     handler : WheelHandler
         Callable to unbind.
     """
+    from apysc import append_js_expression
     from apysc import document
     from apysc._event.handler import get_handler_name
-    from apysc import append_js_expression
     name: str = get_handler_name(handler=handler, instance=document)
     expression: str = (
         f'$({document.variable_name}).off("mousewheel", {name});'
@@ -94,8 +94,8 @@ def unbind_wheel_event_all_from_document() -> None:
     """
     Unbind all wheel event from document (overall window).
     """
-    from apysc import document
     from apysc import append_js_expression
+    from apysc import document
     expression: str = (
         f'$({document.variable_name}).off("mousewheel");'
     )

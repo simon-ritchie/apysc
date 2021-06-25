@@ -936,7 +936,7 @@ class TestNumberValueInterface:
         interface_2: NumberValueInterface = interface_1 % 3
         assert interface_2 == 1
 
-        interface_1: NumberValueInterface = NumberValueInterface(
+        interface_1 = NumberValueInterface(
             value=10.5, type_name='test_interface')
         interface_1.variable_name = 'test_interface_1'
         interface_3: NumberValueInterface = interface_1 % Int(3)

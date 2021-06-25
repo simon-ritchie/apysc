@@ -110,6 +110,12 @@ def main() -> None:
     int_15: Int = Int(10)
     stage.click(on_stage_clicked, options={'int_15': int_15})
 
+    int_16: Int = Int(10)
+    int_17: Int = int_16 % 3
+    assert_equal(expected=1, actual=int_17)
+    int_18: Int = int_16 % Int(3)
+    assert_equal(expected=1, actual=int_18)
+
     save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 

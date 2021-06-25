@@ -75,6 +75,12 @@ def main() -> None:
     number_11 /= 2
     assert_equal(expected=5.3, actual=number_11)
 
+    number_12: Number = Number(value=10.5)
+    number_13: Number = number_12 % 3
+    assert_equal(expected=number_13, actual=1.5)
+    number_14: Number = number_12 % Int(3)
+    assert_equal(expected=number_14, actual=1.5)
+
     save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

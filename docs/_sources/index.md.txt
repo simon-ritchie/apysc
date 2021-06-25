@@ -36,14 +36,12 @@ The HTML and JavaScript exporting interfaces.
 
 **apysc data type common documents**
 
-- [Why not using the Python built-in data type in the apysc library?](why_not_using_python_builtin_data_type.md)
-
 ---
 
-**Int and Number classes**
+**apysc basic data classes**
 
-The documents for the numerical values. The apysc library has the `Int` and `Number` classes for the numerical values.
-
+- [Why not using the Python built-in data type in the apysc library?](why_not_using_python_builtin_data_type.md)
+- [Int and Number classes](int_and_number.md)
 - [Int and Number classes common arithmetic operations](int_and_number_arithmetic_operations.md)
 - [Int and Number classes common comparison operations](int_and_number_comparison_operations.md)
 - [Int and Number classes common value interface](int_and_number_value_interface.md)

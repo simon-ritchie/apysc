@@ -42,7 +42,8 @@ def test__export_js_libs() -> None:
 def test__append_head_to_html_str() -> None:
     html_str: str = '<html>'
     html_str = exporter._append_head_to_html_str(
-        html_str=html_str, js_lib_dir_path='./')
+        html_str=html_str, js_lib_dir_path='./',
+        embed_js_libs=False)
 
     expected_str: str = '<html>\n<head>\n'
     assert html_str.startswith(expected_str)
@@ -58,7 +59,8 @@ def test__append_head_to_html_str() -> None:
     assert html_str.endswith(expected_str)
 
     html_str = exporter._append_head_to_html_str(
-        html_str=html_str, js_lib_dir_path='../')
+        html_str=html_str, js_lib_dir_path='../',
+        embed_js_libs=False)
     expected_str = \
         '  <script type="text/javascript" src="../jquery.min.js"></script>'
     assert expected_str in html_str

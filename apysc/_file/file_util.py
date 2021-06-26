@@ -22,10 +22,10 @@ Mainly following interfaces are defined:
 
 import os
 import shutil
+import traceback
 from types import ModuleType
 from typing import List
 from typing import Optional
-import traceback
 
 
 def empty_directory(directory_path: str) -> None:

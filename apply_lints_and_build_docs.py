@@ -1,4 +1,4 @@
-"""Apply each lints to all modules and build documentation.
+"""Apply each lint to all modules and build documentation.
 
 Command example:
 $ python apply_lints_and_build_docs.py

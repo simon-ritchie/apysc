@@ -17,7 +17,9 @@ info_logger: Logger = loggers.get_info_logger()
 
 
 def save_overall_html(
-        dest_dir_path: str, minify: bool = True,
+        dest_dir_path: str,
+        html_file_name: str = 'index.html',
+        minify: bool = True,
         js_lib_dir_path: str = './',
         skip_js_lib_exporting: bool = False) -> None:
     """
@@ -32,6 +34,8 @@ def save_overall_html(
     ----------
     dest_dir_path : str
         Destination directory path to save each html and js files.
+    html_file_name : str, default 'index.html'
+        The output HTML file name.
     minify : bool, default True
         Boolean value whether minify HTML and js or not.
         False setting is useful when debugging.
@@ -72,8 +76,8 @@ def save_overall_html(
     html_str = _minify_html(html_str=html_str, minify=minify)
     info_logger.info(msg='HTML saving started...')
     _save_html(
-        html_str=html_str, dir_path=dest_dir_path, file_name='index.html')
-    file_path: str = os.path.join(dest_dir_path, 'index.html')
+        html_str=html_str, dir_path=dest_dir_path, file_name=html_file_name)
+    file_path: str = os.path.join(dest_dir_path, html_file_name)
     info_logger.info(
         msg=f'All files were exported! \nFile path is : {file_path}')
 

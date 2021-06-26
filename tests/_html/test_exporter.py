@@ -107,6 +107,13 @@ def test_save_overall_html() -> None:
         assert not file_name.endswith('.js')
 
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
+    save_overall_html(
+        dest_dir_path=tmp_dir_path,
+        html_file_name='root.html')
+    expected_file_path: str = os.path.join(tmp_dir_path, 'root.html')
+    assert os.path.isfile(expected_file_path)
+
+    shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

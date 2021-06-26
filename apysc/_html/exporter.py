@@ -24,7 +24,7 @@ def save_overall_html(
         skip_js_lib_exporting: bool = False,
         embed_js_libs: bool = False) -> None:
     """
-    Save the overall html and js files under the specified
+    Save the overall HTML and js files under the specified
     directory path.
 
     Notes

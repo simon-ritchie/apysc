@@ -63,7 +63,7 @@ def read_txt(file_path: str) -> str:
         except Exception:
             err_msg: str = (
                 f'{traceback.format_exc()}'
-                '\nFailed the file reading: {file_path}'
+                f'\nFailed the file reading: {file_path}'
             )
             raise Exception(err_msg)
     return txt

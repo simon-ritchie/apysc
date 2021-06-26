@@ -25,6 +25,7 @@ import shutil
 from types import ModuleType
 from typing import List
 from typing import Optional
+import traceback
 
 
 def empty_directory(directory_path: str) -> None:
@@ -57,7 +58,14 @@ def read_txt(file_path: str) -> str:
         Target file's text.
     """
     with open(file_path, 'r') as f:
-        txt: str = f.read()
+        try:
+            txt: str = f.read()
+        except Exception:
+            err_msg: str = (
+                f'{traceback.format_exc()}'
+                '\nFailed the file reading: {file_path}'
+            )
+            raise Exception(err_msg)
     return txt
 
 

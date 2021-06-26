@@ -34,6 +34,11 @@ def test_read_txt() -> None:
     assert txt == 'To be, or not to be, that is the question.'
     os.remove(tmp_file_path)
 
+    testing_helper.assert_raises(
+        expected_error_class=Exception,
+        func_or_method=file_util.read_txt,
+        kwargs={'file_path': '../not_existing_file.txt'})
+
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_save_plain_txt() -> None:

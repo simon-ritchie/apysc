@@ -57,7 +57,7 @@ def read_txt(file_path: str) -> str:
     txt : str
         Target file's text.
     """
-    with open(file_path, 'r') as f:
+    with open(file_path, 'r', encoding='utf-8') as f:
         try:
             txt: str = f.read()
         except Exception:
@@ -83,7 +83,7 @@ def save_plain_txt(txt: str, file_path: str) -> None:
     dir_path: str = get_abs_directory_path_from_file_path(
         file_path=file_path)
     os.makedirs(dir_path, exist_ok=True)
-    with open(file_path, 'w') as f:
+    with open(file_path, 'w', encoding='utf-8') as f:
         f.write(txt)
 
 
@@ -101,7 +101,7 @@ def append_plain_txt(txt: str, file_path: str) -> None:
     dir_path: str = get_abs_directory_path_from_file_path(
         file_path=file_path)
     os.makedirs(dir_path, exist_ok=True)
-    with open(file_path, 'a') as f:
+    with open(file_path, 'a', encoding='utf-8') as f:
         f.write(txt)
 
 

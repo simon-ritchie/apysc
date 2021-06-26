@@ -1,0 +1,78 @@
+# String class addition and multiplication operations
+
+This page will explain the `String` class addition and multiplication operations.
+
+## Addition
+
+The `String` class addition operation (`+`) will return the concatenated `String` value:
+
+```py
+# runnable
+from apysc import String
+
+string_1: String = String('Hello')
+string_2: String = string_1 + ' World!'
+assert string_2 == 'Hello World!'
+assert isinstance(string_2, String)
+```
+
+Also, the `+=` operator is supported:
+
+```py
+# runnable
+from apysc import String
+
+string_1: String = String('Hello')
+string_1 += ' World!'
+assert string_1 == 'Hello World!'
+```
+
+A `String` value + Python built-in `str` operation is supported. Similarly, a `String` value + `String` value operation is also supported:
+
+```py
+# runnable
+from apysc import String
+
+string_1: String = String('Hello')
+string_2: String = String(' World!')
+string_3: String = string_1 + string_2
+assert string_3 == 'Hello World!'
+```
+
+But a Python built-in `str` + `String` value is not supported, for instance, the following code will raise the error:
+
+```py
+from apysc import String
+
+string_1: String = String(' World!')
+string_2: String = 'Hello' + string_1
+```
+
+```
+TypeError: must be str, not String
+```
+
+## Multiplication
+
+The `String` class multiplication operation (`*`) will return the repeated `String` value, same behaviors as the Python built-in `str` value:
+
+```py
+# runnable
+from apysc import String
+
+string_1: String = String('Hello')
+string_2: String = string_1 * 3
+assert string_2 == 'HelloHelloHello'
+```
+
+The `int` or `Int` values are acceptable at the operation's right-side value:
+
+```py
+# runnable
+from apysc import String, Int
+
+string_1: String = String('Hello')
+int_1: Int = Int(3)
+string_2: String = string_1 * int_1
+assert string_2 == 'HelloHelloHello'
+```

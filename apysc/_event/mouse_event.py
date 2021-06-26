@@ -11,7 +11,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 T = TypeVar('T', bound=VariableNameInterface)
 
 
-class MouseEvent(Generic[T], Event):
+class MouseEvent(Event, Generic[T]):
 
     _this: T
 

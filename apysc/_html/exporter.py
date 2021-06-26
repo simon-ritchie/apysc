@@ -21,7 +21,8 @@ def save_overall_html(
         html_file_name: str = 'index.html',
         minify: bool = True,
         js_lib_dir_path: str = './',
-        skip_js_lib_exporting: bool = False) -> None:
+        skip_js_lib_exporting: bool = False,
+        embed_js_libs: bool = False) -> None:
     """
     Save the overall html and js files under the specified
     directory path.
@@ -49,6 +50,13 @@ def save_overall_html(
         argument if this argument is set.
     skip_js_lib_exporting : bool, default False
         If True is set, then JavaScript libraries will not be exported.
+    embed_js_libs: bool, default False
+        Option to embed the JavaScript libraries script to the
+        output HTML or not.
+        If True, the output HTML will be bigger but only one HTML
+        file will be exported. This option will occasionally be useful
+        when you share the exported file, or use the output file with
+        iframe tag and avoid the CORS error.
     """
     from apysc._file import file_util
     from apysc._html import html_util
@@ -61,7 +69,8 @@ def save_overall_html(
     html_str: str = html_util.append_html_to_str(
         to_append_html='<html>', dest_html='', indent_num=0)
     html_str = _append_head_to_html_str(
-        html_str=html_str, js_lib_dir_path=js_lib_dir_path)
+        html_str=html_str, js_lib_dir_path=js_lib_dir_path,
+        embed_js_libs=embed_js_libs)
     html_str = html_util.append_html_to_str(
         to_append_html='<body style="margin: 0;">',
         dest_html=html_str,
@@ -410,7 +419,8 @@ def _get_var_name_from_line(line: str) -> str:
 
 
 def _append_head_to_html_str(
-        html_str: str, js_lib_dir_path: str) -> str:
+        html_str: str, js_lib_dir_path: str,
+        embed_js_libs: bool) -> str:
     """
     Append head tag section to specified html string.
 
@@ -420,6 +430,9 @@ def _append_head_to_html_str(
         Target HTML string.
     js_lib_dir_path : str
         JavaScript libraries directory path.
+    embed_js_libs: bool, default False
+        Option to embed the JavaScript libraries script to the
+        output HTML or not.
 
     Returns
     -------
@@ -435,13 +448,59 @@ def _append_head_to_html_str(
         dest_html=html_str, indent_num=1)
     jslib_file_names: List[str] = jslib_util.get_jslib_file_names()
     for jslib_file_name in jslib_file_names:
+        html_str = _append_jslib_str_to_html(
+            html_str=html_str,
+            js_lib_dir_path=js_lib_dir_path,
+            jslib_file_name=jslib_file_name,
+            embed_js_libs=embed_js_libs)
+    html_str = html_util.append_html_to_str(
+        to_append_html='</head>', dest_html=html_str, indent_num=0)
+    return html_str
+
+
+def _append_jslib_str_to_html(
+        html_str: str, js_lib_dir_path: str,
+        jslib_file_name: str,
+        embed_js_libs: bool) -> str:
+    """
+    Append JavaScript libraries script string to HTML.
+
+    Parameters
+    ----------
+    html_str : str
+        A HTML string to be appended.
+    js_lib_dir_path : str
+        Target libraries directory path.
+        If the `embed_js_libs` option is True, then this setting
+        will be ignored.
+    jslib_file_name : str
+        Target JavaScript library file name.
+    embed_js_libs: bool, default False
+        Option to embed the JavaScript libraries script to the
+        output HTML or not.
+
+    Returns
+    -------
+    html_str : str
+        Result HTML string.
+    """
+    from apysc._html import html_util
+    from apysc._jslib import jslib_util
+    if not embed_js_libs:
         html_str = html_util.append_html_to_str(
             to_append_html=(
                 '<script type="text/javascript" '
                 f'src="{js_lib_dir_path}{jslib_file_name}"></script>'),
             dest_html=html_str, indent_num=1)
+        return html_str
+
+    js_script: str = (
+        '<script type="text/javascript">'
+        f'\n  {jslib_util.read_jslib_str(jslib_name=jslib_file_name)}'
+        '\n  </script>'
+    )
     html_str = html_util.append_html_to_str(
-        to_append_html='</head>', dest_html=html_str, indent_num=0)
+        to_append_html=js_script, dest_html=html_str, indent_num=1)
     return html_str
 
 

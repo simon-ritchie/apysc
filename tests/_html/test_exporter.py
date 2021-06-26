@@ -1,7 +1,8 @@
 import os
 import shutil
 from random import randint
-from typing import List
+from typing import List, Match, Optional
+import re
 
 from retrying import retry
 
@@ -281,3 +282,35 @@ def test__append_event_handler_expressions() -> None:
         '\nconsole.log("world!");'
     )
     assert expression == expected
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__append_jslib_str_to_html() -> None:
+    html_str: str = exporter._append_jslib_str_to_html(
+        html_str='<body>',
+        js_lib_dir_path='./',
+        jslib_file_name='jquery.min.js',
+        embed_js_libs=False)
+    expected: str = (
+        '<body>'
+        '\n  <script type="text/javascript" src="./jquery.min.js">'
+        '</script>'
+    )
+    assert html_str == expected
+
+    html_str = exporter._append_jslib_str_to_html(
+        html_str='<body>',
+        js_lib_dir_path='./',
+        jslib_file_name='jquery.min.js',
+        embed_js_libs=True)
+    match: Optional[Match] = re.search(
+        pattern=(
+            r'\<body\>'
+            r'\n  \<script type="text/javascript"\>'
+            r'\n  .*\/\*\! jQuery.*'
+            r'\n  \</script\>'
+
+        ),
+        string=html_str,
+        flags=re.MULTILINE | re.DOTALL)
+    assert match is not None

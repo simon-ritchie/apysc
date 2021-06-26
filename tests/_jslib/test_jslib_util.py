@@ -3,23 +3,29 @@ import shutil
 from typing import Any
 from typing import Dict
 from typing import List
+from random import randint
+
+from retrying import retry
 
 from apysc._jslib import jslib_util
 from tests import testing_helper
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_jslib_file_names() -> None:
     jslib_file_names: List[str] = jslib_util.get_jslib_file_names()
     assert 'jquery.min.js' in jslib_file_names
     assert 'svg.min.js' in jslib_file_names
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_jslib_abs_dir_path() -> None:
     jslib_abs_dir_path: str = jslib_util.get_jslib_abs_dir_path()
     file_names: List[str] = os.listdir(jslib_abs_dir_path)
     assert 'jquery.min.js' in file_names
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_export_jslib_to_specified_dir() -> None:
     tmp_dir_path: str = '../.tmp_apysc_jslib_util_test/'
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
@@ -42,3 +48,9 @@ def test_export_jslib_to_specified_dir() -> None:
         kwargs=kwargs)
 
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_read_jslib_str() -> None:
+    jslib_str: str = 'jquery.min.js'
+    assert jslib_str != ''

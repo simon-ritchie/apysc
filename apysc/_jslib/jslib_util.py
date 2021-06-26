@@ -1,4 +1,15 @@
 """Common JavaScript library utility implementations.
+
+Mainly the following interfaces are defined:
+
+- get_jslib_file_names
+    Get the JavaScript libraries file names.
+- get_jslib_abs_dir_path
+    Get the Javascript library's absolute directory path.
+- export_jslib_to_specified_dir
+    Export a JavaScript library to specified directory.
+- read_jslib_str
+    Read a JavaScript library file str.
 """
 
 import os
@@ -10,7 +21,7 @@ from typing import List
 
 def get_jslib_file_names() -> List[str]:
     """
-    Get JavaScript libraries file names.
+    Get the JavaScript libraries file names.
 
     Returns
     -------
@@ -31,7 +42,7 @@ def get_jslib_file_names() -> List[str]:
 
 def get_jslib_abs_dir_path() -> str:
     """
-    Get a Javascript library's absolute directory path.
+    Get the Javascript library's absolute directory path.
 
     Returns
     -------
@@ -47,7 +58,7 @@ def get_jslib_abs_dir_path() -> str:
 def export_jslib_to_specified_dir(
         dest_dir_path: str, jslib_name: str) -> str:
     """
-    Export JavaScript library to specified directory.
+    Export a JavaScript library to specified directory.
 
     Parameters
     ----------
@@ -76,3 +87,24 @@ def export_jslib_to_specified_dir(
     dest_file_path: str = os.path.join(dest_dir_path, jslib_name)
     shutil.copyfile(src_file_path, dest_file_path)
     return dest_file_path
+
+
+def read_jslib_str(jslib_name: str) -> str:
+    """
+    Read a JavaScript library file str.
+
+    Parameters
+    ----------
+    jslib_name : str
+        JavaScript file name to read.
+
+    Returns
+    -------
+    jslib_str : str
+        Read JavaScript library string.
+    """
+    from apysc._file import file_util
+    dir_path: str = get_jslib_abs_dir_path()
+    file_path:str = os.path.join(dir_path, jslib_name)
+    jslib_str: str = file_util.read_txt(file_path=file_path)
+    return jslib_str

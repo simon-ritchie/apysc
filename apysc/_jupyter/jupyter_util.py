@@ -29,7 +29,9 @@ def display_on_jupyter(
     -----
     This interface requires the Jupyter library (e.g., `notebook` package).
     """
-    from IPython.display import display, IFrame
+    from IPython.display import IFrame
+    from IPython.display import display
+
     from apysc import save_overall_html
     save_overall_html(
         dest_dir_path=dest_dir_path,
@@ -39,4 +41,4 @@ def display_on_jupyter(
         embed_js_libs=True)
     display(
         IFrame(src=f'./{html_file_name}',
-        width=stage._width._value, height=stage._height._value))
+               width=stage._width._value, height=stage._height._value))

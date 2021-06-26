@@ -105,6 +105,6 @@ def read_jslib_str(jslib_name: str) -> str:
     """
     from apysc._file import file_util
     dir_path: str = get_jslib_abs_dir_path()
-    file_path:str = os.path.join(dir_path, jslib_name)
+    file_path: str = os.path.join(dir_path, jslib_name)
     jslib_str: str = file_util.read_txt(file_path=file_path)
     return jslib_str

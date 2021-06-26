@@ -1,8 +1,10 @@
 import os
+import re
 import shutil
 from random import randint
-from typing import List, Match, Optional
-import re
+from typing import List
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 

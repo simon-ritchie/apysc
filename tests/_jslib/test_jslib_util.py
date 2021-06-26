@@ -1,9 +1,9 @@
 import os
 import shutil
+from random import randint
 from typing import Any
 from typing import Dict
 from typing import List
-from random import randint
 
 from retrying import retry
 

@@ -1,1 +1,1 @@
-include apysc/jslib/*
+include apysc/_jslib/*

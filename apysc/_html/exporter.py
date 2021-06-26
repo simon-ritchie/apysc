@@ -34,7 +34,7 @@ def save_overall_html(
     Parameters
     ----------
     dest_dir_path : str
-        Destination directory path to save each html and js files.
+        Destination directory path to save each HTML and js files.
     html_file_name : str, default 'index.html'
         The output HTML file name.
     minify : bool, default True

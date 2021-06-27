@@ -10,9 +10,9 @@ Mainly the following interfaces are defined:
 """
 
 import os
+import shutil
 from datetime import datetime
 from random import randint
-import shutil
 
 from apysc._display.stage import Stage
 

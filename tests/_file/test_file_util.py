@@ -34,10 +34,13 @@ def test_read_txt() -> None:
     assert txt == 'To be, or not to be, that is the question.'
     os.remove(tmp_file_path)
 
+    with open(tmp_file_path, 'w', encoding='cp932') as f:
+        f.write('猫')
     testing_helper.assert_raises(
         expected_error_class=Exception,
         func_or_method=file_util.read_txt,
-        kwargs={'file_path': '../not_existing_file.txt'})
+        kwargs={'file_path': tmp_file_path})
+    os.remove(tmp_file_path)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

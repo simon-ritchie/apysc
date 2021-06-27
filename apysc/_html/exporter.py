@@ -22,7 +22,8 @@ def save_overall_html(
         minify: bool = True,
         js_lib_dir_path: str = './',
         skip_js_lib_exporting: bool = False,
-        embed_js_libs: bool = False) -> None:
+        embed_js_libs: bool = False,
+        verbose: int = 1) -> None:
     """
     Save the overall HTML and js files under the specified
     directory path.
@@ -57,12 +58,16 @@ def save_overall_html(
         file will be exported. This option will occasionally be useful
         when you share the exported file, or use the output file with
         iframe tag and avoid the CORS error.
+    verbose : int, default 1
+        The Logging setting. If 0 is specified, then logging message
+        will not be displayed. If 1 or the other value is specified,
+        message will be displayed normally.
     """
     from apysc._file import file_util
     from apysc._html import html_util
-    info_logger.info(msg='Overall exporting started...')
+    _display_info(msg='Overall exporting started...', verbose=verbose)
     file_util.empty_directory(directory_path=dest_dir_path)
-    info_logger.info(msg='JavaScript libraries exporting...')
+    _display_info(msg='JavaScript libraries exporting...', verbose=verbose)
     _ = _export_js_libs(
         dest_dir_path=dest_dir_path,
         skip_js_lib_exporting=skip_js_lib_exporting)
@@ -76,19 +81,44 @@ def save_overall_html(
         dest_html=html_str,
         indent_num=0)
     html_str = _append_stage_global_variable_to_html(html_str=html_str)
-    html_str = _append_expression_to_html_str(html_str=html_str)
+    html_str = _append_expression_to_html_str(
+        html_str=html_str, verbose=verbose)
     html_str = html_util.append_html_to_str(
         to_append_html='</body>', dest_html=html_str, indent_num=0)
     html_str = _append_entry_point_function_call(html_str=html_str)
     html_str = html_util.append_html_to_str(
         to_append_html='</html>', dest_html=html_str, indent_num=0)
     html_str = _minify_html(html_str=html_str, minify=minify)
-    info_logger.info(msg='HTML saving started...')
+    _display_info(msg='HTML saving started...', verbose=verbose)
     _save_html(
         html_str=html_str, dir_path=dest_dir_path, file_name=html_file_name)
     file_path: str = os.path.join(dest_dir_path, html_file_name)
-    info_logger.info(
-        msg=f'All files were exported! \nFile path is : {file_path}')
+    _display_info(
+        msg=f'All files were exported! \nFile path is : {file_path}',
+        verbose=verbose)
+
+
+def _display_info(msg: str, verbose: int) -> str:
+    """
+    Display a info log message.
+
+    Parameters
+    ----------
+    msg : str
+        A message to display.
+    verbose : int
+        If 0 is specified, message will not be displayed.
+        1 or the other value will display the message.
+
+    Returns
+    -------
+    msg : str
+        Displayed message.
+    """
+    if verbose == 0:
+        return ''
+    info_logger.info(msg=msg)
+    return msg
 
 
 def _minify_html(html_str: str, minify: bool) -> str:
@@ -207,7 +237,7 @@ def _save_html(
     file_util.save_plain_txt(txt=html_str, file_path=file_path)
 
 
-def _append_expression_to_html_str(html_str: str) -> str:
+def _append_expression_to_html_str(html_str: str, verbose: int) -> str:
     """
     Append expression strings to a specified HTML string.
 
@@ -215,6 +245,8 @@ def _append_expression_to_html_str(html_str: str) -> str:
     ----------
     html_str : str
         Target HTML string.
+    verbose : int, default 1
+        The Logging setting.
 
     Returns
     -------
@@ -225,20 +257,21 @@ def _append_expression_to_html_str(html_str: str) -> str:
     from apysc._file import file_util
     from apysc._html import html_const
     from apysc._html import html_util
-    info_logger.info(msg='Reading basic expression file...')
+    _display_info(msg='Reading basic expression file...', verbose=verbose)
     expression: str = file_util.read_txt(
         file_path=expression_file_util.EXPRESSION_FILE_PATH)
-    info_logger.info(msg='Appending common js functions...')
+    _display_info(msg='Appending common js functions...', verbose=verbose)
     expression = _append_common_js_functions(expression=expression)
-    info_logger.info(msg='Appending event handler expressions...')
+    _display_info(
+        msg='Appending event handler expressions...', verbose=verbose)
     expression = _append_event_handler_expressions(expression=expression)
-    info_logger.info(msg='Removing unused variables...')
+    _display_info(msg='Removing unused variables...', verbose=verbose)
     expression = _remove_unused_js_vars(expression=expression)
-    info_logger.info(msg='Removing blank lines...')
+    _display_info(msg='Removing blank lines...', verbose=verbose)
     expression = _remove_blank_lines(expression=expression)
     expression = html_util.wrap_expression_by_script_tag(
         expression=expression)
-    info_logger.info(msg='Appending indentations...')
+    _display_info(msg='Appending indentations...', verbose=verbose)
     expression = html_util.append_indent_to_each_script_line(
         html=expression, indent_num=1)
     entry_point_func_name: str = get_entry_point_func_name()

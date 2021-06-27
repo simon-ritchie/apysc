@@ -73,7 +73,7 @@ def test__append_expression_to_html_str() -> None:
     html_str: str = '<html>\n<body>'
     stage: Stage = Stage(stage_elem_id='test_stage')
     html_str = exporter._append_expression_to_html_str(
-        html_str=html_str)
+        html_str=html_str, verbose=1)
     assert 'id="test_stage"' in html_str
     assert f'function main_{stage.variable_name}() {{' in html_str
 
@@ -318,3 +318,12 @@ def test__append_jslib_str_to_html() -> None:
         string=html_str,
         flags=re.MULTILINE | re.DOTALL)
     assert match is not None
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__display_info() -> None:
+    msg: str = exporter._display_info(msg='Hello', verbose=0)
+    assert msg == ''
+
+    msg = exporter._display_info(msg='Hello', verbose=1)
+    assert msg == 'Hello'

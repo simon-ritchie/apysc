@@ -10,13 +10,16 @@ Mainly the following interfaces are defined:
 """
 
 import os
+from datetime import datetime
+from random import randint
+import shutil
 
 from apysc._display.stage import Stage
 
+_TMP_ROOT_DIR_PATH: str = './'
 
-def _save_overall_html(
-        html_file_name: str, dest_dir_path: str,
-        minify: bool) -> None:
+
+def _save_overall_html(html_file_name: str, minify: bool) -> None:
     """
     Save the overall HTML file.
 
@@ -24,12 +27,14 @@ def _save_overall_html(
     ----------
     html_file_name : str, default 'index.html'
         The output HTML file name.
-    dest_dir_path : str
-        Destination directory path to save HTML.
     minify : bool, default True
         Boolean value whether minify a HTML or not.
     """
     from apysc import save_overall_html
+    timestamp: float = datetime.now().timestamp()
+    random_int: int = randint(10000, 100000)
+    dest_dir_path: str = (
+        f'{_TMP_ROOT_DIR_PATH}tmp_apysc_jupyter_{timestamp}{random_int}/')
     save_overall_html(
         dest_dir_path=dest_dir_path,
         html_file_name=html_file_name,
@@ -37,12 +42,14 @@ def _save_overall_html(
         skip_js_lib_exporting=True,
         embed_js_libs=True,
         verbose=0)
+    src_file_path: str = os.path.join(dest_dir_path, html_file_name)
+    shutil.copy(src_file_path, html_file_name)
+    shutil.rmtree(dest_dir_path, ignore_errors=True)
 
 
 def display_on_jupyter(
         stage: Stage,
         html_file_name: str,
-        dest_dir_path: str = './',
         minify: bool = True) -> None:
     """
     Save the overall HTML and display it on the Jupyter.
@@ -57,8 +64,6 @@ def display_on_jupyter(
         Target stage instance.
     html_file_name : str, default 'index.html'
         The output HTML file name.
-    dest_dir_path : str
-        Destination directory path to save HTML.
     minify : bool, default True
         Boolean value whether minify a HTML or not.
         False setting is useful when debugging.
@@ -71,7 +76,7 @@ def display_on_jupyter(
     from IPython.display import display
 
     _save_overall_html(
-        html_file_name=html_file_name, dest_dir_path=dest_dir_path,
+        html_file_name=html_file_name,
         minify=minify)
     display(
         IFrame(src=f'./{html_file_name}',
@@ -80,7 +85,6 @@ def display_on_jupyter(
 
 def display_on_colaboratory(
         html_file_name: str,
-        dest_dir_path: str = './',
         minify: bool = True) -> None:
     """
     Save the overall HTML and display it on the Google Colaboratory.
@@ -89,8 +93,6 @@ def display_on_colaboratory(
     ----------
     html_file_name : str, default 'index.html'
         The output HTML file name.
-    dest_dir_path : str
-        Destination directory path to save HTML.
     minify : bool, default True
         Boolean value whether minify a HTML or not.
         False setting is useful when debugging.
@@ -100,8 +102,7 @@ def display_on_colaboratory(
 
     from apysc._file import file_util
     _save_overall_html(
-        html_file_name=html_file_name, dest_dir_path=dest_dir_path,
+        html_file_name=html_file_name,
         minify=minify)
-    file_path: str = os.path.join(dest_dir_path, html_file_name)
-    html_str: str = file_util.read_txt(file_path=file_path)
+    html_str: str = file_util.read_txt(file_path=html_file_name)
     display(HTML(html_str))

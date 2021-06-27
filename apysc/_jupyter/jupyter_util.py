@@ -29,8 +29,8 @@ def display_on_jupyter(
     from IPython.display import HTML
     from IPython.display import display
 
-    from apysc._file import file_util
     from apysc import save_overall_html
+    from apysc._file import file_util
     save_overall_html(
         dest_dir_path=dest_dir_path,
         html_file_name=html_file_name,

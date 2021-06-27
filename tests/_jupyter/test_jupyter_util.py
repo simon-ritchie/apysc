@@ -4,8 +4,8 @@ from random import randint
 
 from retrying import retry
 
-from apysc._jupyter import jupyter_util
 from apysc import Stage
+from apysc._jupyter import jupyter_util
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

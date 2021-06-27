@@ -2,11 +2,10 @@
 The module that is implemented each Jupyter interface and definition.
 """
 
-from apysc._display.stage import Stage
+import os
 
 
 def display_on_jupyter(
-        stage: Stage,
         html_file_name: str,
         dest_dir_path: str = './',
         minify: bool = True) -> None:
@@ -15,8 +14,6 @@ def display_on_jupyter(
 
     Parameters
     ----------
-    stage : Stage
-        Target stage instance.
     html_file_name : str, default 'index.html'
         The output HTML file name.
     dest_dir_path : str
@@ -29,9 +26,10 @@ def display_on_jupyter(
     -----
     This interface requires the Jupyter library (e.g., `notebook` package).
     """
-    from IPython.display import IFrame
+    from IPython.display import HTML
     from IPython.display import display
 
+    from apysc._file import file_util
     from apysc import save_overall_html
     save_overall_html(
         dest_dir_path=dest_dir_path,
@@ -40,6 +38,6 @@ def display_on_jupyter(
         skip_js_lib_exporting=True,
         embed_js_libs=True,
         verbose=0)
-    display(
-        IFrame(src=f'./{html_file_name}',
-               width=stage._width._value, height=stage._height._value))
+    file_path: str = os.path.join(dest_dir_path, html_file_name)
+    html_str: str = file_util.read_txt(file_path=file_path)
+    display(HTML(html_str))

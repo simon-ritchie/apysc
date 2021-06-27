@@ -51,7 +51,7 @@ def _main() -> None:
     shutil.rmtree('./docs/', ignore_errors=True)
     shutil.copytree(src='./docs_src/build/html/', dst='./docs/')
 
-    logger.info(msg='Replacing `_static` paths by `static`...')
+    logger.info(msg='Replacing `_static` and `_images` paths by `static`...')
     _replace_static_path()
 
     logger.info(
@@ -452,6 +452,7 @@ def _replace_static_path() -> None:
     Replace document `_static` paths by `static`.
     """
     shutil.move(src='./docs/_static/', dst='./docs/static/')
+    shutil.move(src='./docs/_images/', dst='./docs/images/')
     _replace_static_path_recursively(dir_path='./docs/')
 
 
@@ -479,6 +480,7 @@ def _replace_static_path_recursively(dir_path: str) -> None:
         with open(file_or_dir_path) as f:
             file_txt: str = f.read()
         file_txt = file_txt.replace('_static', 'static')
+        file_txt = file_txt.replace('_images', 'images')
         with open(file_or_dir_path, 'w') as f:
             f.write(file_txt)
 

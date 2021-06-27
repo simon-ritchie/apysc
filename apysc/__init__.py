@@ -50,4 +50,4 @@ from apysc._expression.expression_file_util import append_js_expression  # isort
 from apysc._jupyter.jupyter_util import display_on_jupyter  # isort:skip # noqa
 from apysc._jupyter.jupyter_util import display_on_colaboratory  # isort:skip # noqa
 
-__version__: str = '0.24.2'
+__version__: str = '0.24.3'

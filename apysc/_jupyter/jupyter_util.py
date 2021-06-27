@@ -47,6 +47,10 @@ def display_on_jupyter(
     """
     Save the overall HTML and display it on the Jupyter.
 
+    Notes
+    -----
+    Currently not supported the Jupyter on the VS Code.
+
     Parameters
     ----------
     stage : Stage

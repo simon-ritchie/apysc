@@ -14,7 +14,8 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Circle, Int
+from apysc import Circle
+from apysc import Int
 from apysc import LineDotSetting
 from apysc import MouseEvent
 from apysc import Sprite

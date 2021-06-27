@@ -38,7 +38,8 @@ def display_on_jupyter(
         html_file_name=html_file_name,
         minify=minify,
         skip_js_lib_exporting=True,
-        embed_js_libs=True)
+        embed_js_libs=True,
+        verbose=0)
     display(
         IFrame(src=f'./{html_file_name}',
                width=stage._width._value, height=stage._height._value))

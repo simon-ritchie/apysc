@@ -23,9 +23,9 @@ Also, this interface uses the `IPython.display.IFrame` interface. If you encount
 
 ## Basic usage
 
-You can use the `display_on_jupyter` interface instead of the `save_overall_html` function.
+You can use the `display_on_jupyter` interface to display an output HTML instead of the `save_overall_html` function.
 
-The `html_file_name` argument is required to be unique if you need to output multiple HTML, otherwise the HTML file will be overwritten:
+The `html_file_name` argument is required to be unique if you need to output multiple HTML otherwise the HTML file will be overwritten:
 
 ```py
 from apysc import Stage, Sprite, display_on_jupyter

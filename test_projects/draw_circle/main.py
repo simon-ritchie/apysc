@@ -14,7 +14,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Circle
+from apysc import Circle, Int
 from apysc import LineDotSetting
 from apysc import MouseEvent
 from apysc import Sprite
@@ -40,21 +40,22 @@ def main() -> None:
     sprite: Sprite = Sprite(stage=stage)
 
     sprite.graphics.begin_fill(color='0af')
-    circle: Circle = sprite.graphics.draw_circle(x=100, y=100, radius=100)
-    circle.click(on_circle_click)
+    circle_1: Circle = sprite.graphics.draw_circle(x=100, y=100, radius=100)
+    circle_1.click(on_circle_1_click)
 
     sprite.graphics.begin_fill(color='')
     sprite.graphics.line_style(
         color='#fff', thickness=3,
         dot_setting=LineDotSetting(dot_size=3))
-    circle = sprite.graphics.draw_circle(x=250, y=100, radius=100)
+    circle_2 = sprite.graphics.draw_circle(x=250, y=100, radius=100)
+    circle_2.click(on_circle_2_click)
 
     save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_circle_click(e: MouseEvent[Circle], options: Dict[str, Any]) -> None:
+def on_circle_1_click(e: MouseEvent[Circle], options: Dict[str, Any]) -> None:
     """
-    The handler called when the circle is clicked.
+    The handler would be called when the circle is clicked.
 
     Parameters
     ----------
@@ -65,6 +66,20 @@ def on_circle_click(e: MouseEvent[Circle], options: Dict[str, Any]) -> None:
     """
     e.this.x += 50
     e.this.y += 25
+
+
+def on_circle_2_click(e: MouseEvent[Circle], options: Dict[str, Any]) -> None:
+    """
+    The handler would be called when the circle is clicked.
+
+    Parameters
+    ----------
+    e : MouseEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    e.this.radius = Int(110)
 
 
 if __name__ == '__main__':

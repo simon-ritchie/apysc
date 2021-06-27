@@ -81,7 +81,7 @@ class Circle(CxInterface, CyInterface, LineBase, RadiusInterface):
             value=self._radius)
         expression: str = (
             f'var {self.variable_name} = {stage_variable_name}'
-            f'\n  .circle({radius_str})'
+            f'\n  .circle({radius_str} * 2)'
             '\n  .attr({'
         )
         expression = self._append_basic_vals_expression(

@@ -97,7 +97,7 @@ save_overall_html(
 
 ## Bundle each JavaScript library to the signle HTML file by the embed_js_libs option
 
-You can bundle each JavaScript library to the single output HTML file by the `embed_js_libs` optional argument. This option maybe useful when you need to pass the output file to the other members.
+You can bundle each JavaScript library to the single output HTML file by the `embed_js_libs` optional argument. This option will maybe be useful when you need to pass the output file to the other members.
 
 ```py
 from apysc import Stage

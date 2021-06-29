@@ -83,7 +83,7 @@
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 
 <span class="n">save_overall_html</span><span class="p">(</span>
-    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;save_overall_html_interface_minify/&#39;</span><span class="p">,</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;dest_dir/&#39;</span><span class="p">,</span>
     <span class="n">minify</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -103,12 +103,30 @@
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 
 <span class="n">save_overall_html</span><span class="p">(</span>
-    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;save_overall_html_interface_js_path/&#39;</span><span class="p">,</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;dest_dir/&#39;</span><span class="p">,</span>
     <span class="n">js_lib_dir_path</span><span class="o">=</span><span class="s1">&#39;static/js/&#39;</span><span class="p">,</span>
     <span class="n">skip_js_lib_exporting</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Notes: The <code class="docutils literal notranslate"><span class="pre">js_lib_dir_path</span></code> option will not change the js files exporting destination directory currently.</p>
+</section>
+<section id="change-the-html-file-name-by-the-html-file-name-option">
+<h2>Change the HTML file name by the html_file_name option<a class="headerlink" href="#change-the-html-file-name-by-the-html-file-name-option" title="Permalink to this headline">¶</a></h2>
+<p>If you need to change the output HTML file name, then use the <code class="docutils literal notranslate"><span class="pre">html_file_name</span></code> optional argument. This argument will change the HTML file name from <code class="docutils literal notranslate"><span class="pre">index.html</span></code> to any other name.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+
+<span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;dest_dir/&#39;</span><span class="p">,</span>
+    <span class="n">html_file_name</span><span class="o">=</span><span class="s1">&#39;chart.html&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -129,6 +147,7 @@
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li><a class="reference internal" href="#minify-the-html">Minify the HTML</a></li>
 <li><a class="reference internal" href="#javascript-libs-directory-path-setting-and-skip-option">JavaScript libs directory path setting and skip option</a></li>
+<li><a class="reference internal" href="#change-the-html-file-name-by-the-html-file-name-option">Change the HTML file name by the html_file_name option</a></li>
 </ul>
 </li>
 </ul>

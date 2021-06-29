@@ -46,7 +46,7 @@ stage: Stage = Stage(
     stage_elem_id='stage')
 
 save_overall_html(
-    dest_dir_path='save_overall_html_interface_minify/',
+    dest_dir_path='dest_dir/',
     minify=False)
 ```
 
@@ -69,9 +69,28 @@ stage: Stage = Stage(
     stage_elem_id='stage')
 
 save_overall_html(
-    dest_dir_path='save_overall_html_interface_js_path/',
+    dest_dir_path='dest_dir/',
     js_lib_dir_path='static/js/',
     skip_js_lib_exporting=True)
 ```
 
 Notes: The `js_lib_dir_path` option will not change the js files exporting destination directory currently.
+
+## Change the HTML file name by the html_file_name option
+
+If you need to change the output HTML file name, then use the `html_file_name` optional argument. This argument will change the HTML file name from `index.html` to any other name.
+
+```py
+from apysc import Stage
+from apysc import save_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+
+save_overall_html(
+    dest_dir_path='dest_dir/',
+    html_file_name='chart.html')
+```

@@ -113,3 +113,22 @@ save_overall_html(
     dest_dir_path='dest_dir/',
     embed_js_libs=True)
 ```
+
+## Change the stdout setting by the verbose option
+
+The `verbose` optional argument will change the exporting stdout behavior. If 0 is specified to this option, the stdout will not be displayed. If 1 or the other values is specified, the stdout will be displayed.
+
+```py
+from apysc import Stage
+from apysc import save_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+
+save_overall_html(
+    dest_dir_path='dest_dir/',
+    verbose=0)
+```

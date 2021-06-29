@@ -146,6 +146,24 @@
 </pre></div>
 </div>
 </section>
+<section id="change-the-stdout-setting-by-the-verbose-option">
+<h2>Change the stdout setting by the verbose option<a class="headerlink" href="#change-the-stdout-setting-by-the-verbose-option" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">verbose</span></code> optional argument will change the exporting stdout behavior. If 0 is specified to this option, the stdout will not be displayed. If 1 or the other values is specified, the stdout will be displayed.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+
+<span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;dest_dir/&#39;</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -167,6 +185,7 @@
 <li><a class="reference internal" href="#javascript-libs-directory-path-setting-and-skip-option">JavaScript libs directory path setting and skip option</a></li>
 <li><a class="reference internal" href="#change-the-html-file-name-by-the-html-file-name-option">Change the HTML file name by the html_file_name option</a></li>
 <li><a class="reference internal" href="#bundle-each-javascript-library-to-the-signle-html-file-by-the-embed-js-libs-option">Bundle each JavaScript library to the signle HTML file by the embed_js_libs option</a></li>
+<li><a class="reference internal" href="#change-the-stdout-setting-by-the-verbose-option">Change the stdout setting by the verbose option</a></li>
 </ul>
 </li>
 </ul>

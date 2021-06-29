@@ -94,3 +94,22 @@ save_overall_html(
     dest_dir_path='dest_dir/',
     html_file_name='chart.html')
 ```
+
+## Bundle each JavaScript library to the signle HTML file by the embed_js_libs option
+
+You can bundle each JavaScript library to the single output HTML file by the `embed_js_libs` optional argument. This option maybe useful when you need to pass the output file to the other members.
+
+```py
+from apysc import Stage
+from apysc import save_overall_html
+
+stage: Stage = Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+
+save_overall_html(
+    dest_dir_path='dest_dir/',
+    embed_js_libs=True)
+```

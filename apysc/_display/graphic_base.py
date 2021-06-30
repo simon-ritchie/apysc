@@ -6,11 +6,13 @@ from typing import Union
 
 from apysc import Int
 from apysc._display.display_object import DisplayObject
+from apysc._display.rotate_around_center_interface import \
+    RotateAroundCenterInterface
 
 _Graphics = Any
 
 
-class GraphicBase(DisplayObject):
+class GraphicBase(DisplayObject, RotateAroundCenterInterface):
 
     _variable_name: str
 

@@ -12,7 +12,7 @@ from apysc._display.rotate_around_center_interface import \
 _Graphics = Any
 
 
-class GraphicBase(DisplayObject, RotateAroundCenterInterface):
+class GraphicsBase(DisplayObject, RotateAroundCenterInterface):
 
     _variable_name: str
 

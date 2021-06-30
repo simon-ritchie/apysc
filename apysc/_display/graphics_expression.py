@@ -1,7 +1,7 @@
 """Graphics class related expression implementations.
 """
 
-from apysc._display.graphic_base import GraphicBase
+from apysc._display.graphic_base import GraphicsBase
 from apysc._display.graphics import Graphics
 
 
@@ -63,13 +63,13 @@ def append_fill_opacity_expression(
 
 
 def append_x_expression(
-        graphic: GraphicBase, expression: str, indent_num: int) -> str:
+        graphic: GraphicsBase, expression: str, indent_num: int) -> str:
     """
     Append x position expression to specified expression's string.
 
     Parameters
     ----------
-    graphic : GraphicBase
+    graphic : GraphicsBase
         Target graphic instance, for example, Rectangle.
     expression : str
         Expression string to be appended x position expression.
@@ -90,13 +90,13 @@ def append_x_expression(
 
 
 def append_y_expression(
-        graphic: GraphicBase, expression: str, indent_num: int) -> str:
+        graphic: GraphicsBase, expression: str, indent_num: int) -> str:
     """
     Append y position expression to specified expression's string.
 
     Parameters
     ----------
-    graphic : GraphicBase
+    graphic : GraphicsBase
         Target graphic instance, for example, Rectangle.
     expression : str
         Expression string to be appended y position expression.

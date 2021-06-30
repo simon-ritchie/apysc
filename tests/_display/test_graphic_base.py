@@ -5,7 +5,7 @@ from retrying import retry
 from apysc import Int
 from apysc import Sprite
 from apysc import Stage
-from apysc._display.graphic_base import GraphicBase
+from apysc._display.graphic_base import GraphicsBase
 from tests import testing_helper
 
 
@@ -15,7 +15,7 @@ class TestGraphicBase:
     def test___init__(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
-        graphic_base: GraphicBase = GraphicBase(
+        graphic_base: GraphicsBase = GraphicsBase(
             parent=sprite.graphics, x=Int(100), y=Int(200),
             variable_name='test_graphic')
         testing_helper.assert_attrs(
@@ -26,7 +26,7 @@ class TestGraphicBase:
             },
             any_obj=graphic_base)
 
-        graphic_base = GraphicBase(
+        graphic_base = GraphicsBase(
             parent=sprite.graphics, x=300, y=400,
             variable_name='test_graphic')
         testing_helper.assert_attrs(
@@ -41,7 +41,7 @@ class TestGraphicBase:
     def test_x(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
-        graphic_base: GraphicBase = GraphicBase(
+        graphic_base: GraphicsBase = GraphicsBase(
             parent=sprite.graphics, x=Int(100), y=Int(200),
             variable_name='test_graphic')
         graphic_base.x = Int(300)
@@ -51,7 +51,7 @@ class TestGraphicBase:
     def test_y(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
-        graphic_base: GraphicBase = GraphicBase(
+        graphic_base: GraphicsBase = GraphicsBase(
             parent=sprite.graphics, x=Int(100), y=Int(200),
             variable_name='test_graphic')
         graphic_base.y = Int(400)
@@ -61,7 +61,7 @@ class TestGraphicBase:
     def test_variable_name(self) -> None:
         stage: Stage = Stage()
         sprite: Sprite = Sprite(stage=stage)
-        graphic_base: GraphicBase = GraphicBase(
+        graphic_base: GraphicsBase = GraphicsBase(
             parent=sprite.graphics, x=Int(100), y=Int(200),
             variable_name='test_graphic_1')
         assert graphic_base.variable_name == 'test_graphic_1'

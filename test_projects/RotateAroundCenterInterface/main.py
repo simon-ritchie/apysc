@@ -6,21 +6,18 @@ $ python RotateAroundCenterInterface/main.py
 """
 
 import sys
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
 
-from apysc import Int, MouseEvent, trace
-from apysc import LineDotSetting
-from apysc import Number
+from apysc import MouseEvent
 from apysc import Rectangle
 from apysc import Sprite
 from apysc import Stage
-from apysc import String
-from apysc import assert_not_equal
 from apysc import save_overall_html
 from apysc._file import file_util
 

@@ -1,7 +1,7 @@
 """Class implementation for the rotate_around_center interface.
 """
 
-from typing import Dict, Union
+from typing import Union
 
 from apysc import Int
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -27,9 +27,9 @@ class RotateAroundCenterInterface(VariableNameInterface):
         additional_rotation : int or Int
             The value to add.
         """
-        from apysc._validation import number_validation
         from apysc import append_js_expression
         from apysc._type import value_util
+        from apysc._validation import number_validation
         number_validation.validate_integer(
             integer=additional_rotation)
         value_str: str = value_util.get_value_str_for_expression(

@@ -1,7 +1,6 @@
 from random import randint
 
 from retrying import retry
-import pytest
 
 from apysc._display.rotate_around_center_interface import \
     RotateAroundCenterInterface

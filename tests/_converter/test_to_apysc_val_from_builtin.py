@@ -1,7 +1,12 @@
+from random import randint
+
+from retrying import retry
+
 from apysc import Int
 from apysc._converter import to_apysc_val_from_builtin
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_copied_int_from_builtin_val() -> None:
     copied: Int = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
         integer=10)

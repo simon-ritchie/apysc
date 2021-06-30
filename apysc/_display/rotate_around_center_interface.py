@@ -16,9 +16,11 @@ class RotateAroundCenterInterface(VariableNameInterface):
 
         Notes
         -----
-        This interface value is a relative value, not a absolute value,
-        so if you call this value multiple times, total rotation will
-        be cumulative.
+        - This interface value is a relative value, not a absolute value,
+            so if you call this value multiple times, total rotation will
+            be cumulative.
+        - This interface is not supported by the container instance, such
+            as the `Sprite` class due to the HTML (SVG) specification.
 
         Parameters
         ----------

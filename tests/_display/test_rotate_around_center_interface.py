@@ -16,11 +16,7 @@ class TestRotateAroundCenterInterface:
         interface: RotateAroundCenterInterface = RotateAroundCenterInterface()
         interface.variable_name = 'test_rotate_around_center_interface'
 
-        expected_err: str = r'This getter interface is not supported.'
-        with pytest.raises(ValueError, match=expected_err):  # type: ignore
-            _ = interface.rotate_around_center
-
-        interface.rotate_around_center = 10
+        interface.rotate_around_center(additional_rotation=10)
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             'test_rotate_around_center_interface.rotate(10);'

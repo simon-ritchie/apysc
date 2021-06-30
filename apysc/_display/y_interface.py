@@ -1,4 +1,4 @@
-"""Class implementation for y-coordinate interface.
+"""Class implementation for the y-coordinate interface.
 """
 
 from typing import Dict

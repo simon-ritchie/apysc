@@ -78,6 +78,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   Install:
+    needs: Deploy
+
     runs-on: ubuntu-latest
 
     # Time out minutes setting.

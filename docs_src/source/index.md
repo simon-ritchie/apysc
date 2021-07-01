@@ -49,15 +49,16 @@ The HTML and JavaScript exporting interfaces.
 
 ---
 
-**DisplayObject class**
+**DisplayObject and GraphicsBase classes**
 
-The `DisplayObject` class is the base class for each display object.
+The `DisplayObject` class is the base class for each display object. The `GraphicsBase` class is the `DisplayObject` subclass, and the base class of each graphics class, such as the `Rectangle`.
 
 - [DisplayObject class](display_object.md)
 - [DisplayObject class x and y interfaces](display_object_x_and_y.md)
 - [DisplayObject class parent interfaces](display_object_parent.md)
 - [DisplayObject class visible interface](display_object_visible.md)
 - [DisplayObject class mouse event binding interfaces](display_object_mouse_event.md)
+- [GraphicsBase class rotate around center interface](graphics_base_rotate_around_center.md)
 
 ---
 

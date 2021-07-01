@@ -7,7 +7,7 @@ jobs:
   Deploy:
     runs-on: ubuntu-latest
 
-    # Jobs time out minutes setting.
+    # Time out minutes setting.
     timeout-minutes: 15
 
     steps:
@@ -76,3 +76,28 @@ jobs:
           STATUS: ${{ env.COVERAGE }}
           COLOR: 0088FF
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  Install:
+    runs-on: ubuntu-latest
+
+    # Time out minutes setting.
+    timeout-minutes: 10
+
+    steps:
+
+      # Install linux necessary packages.
+      - run: sudo apt install build-essential
+
+      # Set Python version.
+      - name: Set Python version
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+
+      # Install the apysc library.
+      - name: Install the apysc library
+        run: pip install apysc
+
+      # Run the package import script.
+      - name: Run the package import script
+        run: python -c "from apysc import *"

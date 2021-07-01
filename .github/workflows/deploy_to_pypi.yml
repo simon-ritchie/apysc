@@ -97,6 +97,7 @@ jobs:
           python-version: 3.6
 
       # Install the apysc library.
+      - run: sleep 30
       - name: Install the apysc library
         run: pip install apysc
 

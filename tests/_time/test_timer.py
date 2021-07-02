@@ -37,3 +37,5 @@ class TestTimer:
             any_obj=timer)
         assert timer.variable_name.startswith(f'{var_names.TIMER}_')
         assert 'on_timer' in timer._handler_name
+        assert isinstance(timer._delay, Number)
+        assert isinstance(timer._repeat_count, Int)

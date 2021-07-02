@@ -1,11 +1,12 @@
 """Class implementation for the timer.
 """
 
-from typing import Union
+from typing import Any, Dict, Optional, Union
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._event.handler import Handler
 from apysc import Int, Number
 from apysc._type.number_value_interface import NumberValueInterface
+from apysc._event.handler import HandlerData
 
 
 class Timer(VariableNameInterface):
@@ -13,12 +14,14 @@ class Timer(VariableNameInterface):
     _handler: Handler
     _delay: Number
     _repeat_count: Int
+    _handler_data: HandlerData
 
     def __init__(
             self,
             handler: Handler,
             delay: Union[int, float, NumberValueInterface],
-            repeat_count: Union[int, Int] = 0) -> None:
+            repeat_count: Union[int, Int] = 0,
+            options: Optional[Dict[str, Any]] = None) -> None:
         """
         Timer class to handle function calling at regular intervals.
 
@@ -32,6 +35,8 @@ class Timer(VariableNameInterface):
             Max count of a handler's call. If the handler's calling
             count has reached this value, then a timer will stop.
             If 0 is specified, then a timer will loop forever.
+        options : dict or None, default None
+            Optional arguments dictionary to pass the the handler.
         """
         from apysc._expression import var_names
         from apysc._expression import expression_variables_util
@@ -44,3 +49,9 @@ class Timer(VariableNameInterface):
         self._repeat_count = repeat_count
         self.variable_name = expression_variables_util.get_next_variable_name(
             type_name=var_names.TIMER)
+        if options is None:
+            options = {}
+        self._handler_data = {
+            'handler': self._handler,
+            'options': options,
+        }

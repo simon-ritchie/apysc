@@ -29,6 +29,10 @@ class TestTimer:
                 '_handler': self.on_timer,
                 '_delay': Number(33.3),
                 '_repeat_count': Int(10),
+                '_handler_data': {
+                    'handler': self.on_timer,
+                    'options': {},
+                }
             },
             any_obj=timer)
         assert timer.variable_name.startswith(f'{var_names.TIMER}_')

@@ -15,6 +15,7 @@ class Timer(VariableNameInterface):
     _delay: Number
     _repeat_count: Int
     _handler_data: HandlerData
+    _handler_name: str
 
     def __init__(
             self,
@@ -40,6 +41,7 @@ class Timer(VariableNameInterface):
         """
         from apysc._expression import var_names
         from apysc._expression import expression_variables_util
+        from apysc._event.handler import get_handler_name
         self._handler = handler
         if not isinstance(delay, Number):
             delay = Number(delay)
@@ -55,3 +57,4 @@ class Timer(VariableNameInterface):
             'handler': self._handler,
             'options': options,
         }
+        self._handler_name = get_handler_name(handler=handler, instance=self)

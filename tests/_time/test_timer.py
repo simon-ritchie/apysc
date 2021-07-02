@@ -32,7 +32,8 @@ class TestTimer:
                 '_handler_data': {
                     'handler': self.on_timer,
                     'options': {},
-                }
+                },
             },
             any_obj=timer)
         assert timer.variable_name.startswith(f'{var_names.TIMER}_')
+        assert 'on_timer' in timer._handler_name

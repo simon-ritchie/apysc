@@ -28,4 +28,11 @@ class _FPSDefinition:
 
 
 class FPS(Enum):
-    pass
+
+    FPS_10 = _FPSDefinition(fps=10, milisecond_intervals=100)
+    FPS_15 = _FPSDefinition(fps=15, milisecond_intervals=66.6666667)
+    FPS_20 = _FPSDefinition(fps=20, milisecond_intervals=50)
+    FPS_25 = _FPSDefinition(fps=25, milisecond_intervals=40)
+    FPS_30 = _FPSDefinition(fps=30, milisecond_intervals=33.3333333)
+    FPS_45 = _FPSDefinition(fps=45, milisecond_intervals=22.2222222)
+    FPS_60 = _FPSDefinition(fps=60, milisecond_intervals=16.6666667)

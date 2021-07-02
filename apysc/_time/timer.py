@@ -26,6 +26,12 @@ class Timer(VariableNameInterface):
         ----------
         handler : Handler
             A handler would be called at regular intervals.
+        delay : int or float or Int or Number
+            A delay between each handler's calling in milisecond.
+        repeat_count : int or Int
+            Max count of a handler's call. If the handler's calling
+            count has reached this value, then a timer will stop.
+            If 0 is specified, then a timer will loop forever.
         """
         self._handler = handler
         if not isinstance(delay, Number):

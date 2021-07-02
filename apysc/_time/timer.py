@@ -20,7 +20,7 @@ class Timer(VariableNameInterface):
             delay: Union[int, float, NumberValueInterface],
             repeat_count: Union[int, Int] = 0) -> None:
         """
-        Time class to handle function calling at regular intervals.
+        Timer class to handle function calling at regular intervals.
 
         Parameters
         ----------
@@ -33,6 +33,8 @@ class Timer(VariableNameInterface):
             count has reached this value, then a timer will stop.
             If 0 is specified, then a timer will loop forever.
         """
+        from apysc._expression import var_names
+        from apysc._expression import expression_variables_util
         self._handler = handler
         if not isinstance(delay, Number):
             delay = Number(delay)
@@ -40,3 +42,5 @@ class Timer(VariableNameInterface):
         if not isinstance(repeat_count, Int):
             repeat_count = Int(repeat_count)
         self._repeat_count = repeat_count
+        self.variable_name = expression_variables_util.get_next_variable_name(
+            type_name=var_names.TIMER)

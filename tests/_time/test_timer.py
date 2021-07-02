@@ -1,6 +1,7 @@
 from typing import Any, Dict
 from apysc import Timer, Event, Number, Int
 from tests.testing_helper import assert_attrs
+from apysc._expression import var_names
 
 
 class TestTimer:
@@ -30,3 +31,4 @@ class TestTimer:
                 '_repeat_count': Int(10),
             },
             any_obj=timer)
+        assert timer.variable_name.startswith(f'{var_names.TIMER}_')

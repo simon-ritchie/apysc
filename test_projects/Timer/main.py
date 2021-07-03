@@ -14,7 +14,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Else
+from apysc import Else, FPS
 from apysc import If
 from apysc import MouseEvent
 from apysc import Rectangle
@@ -64,6 +64,14 @@ def main() -> None:
         handler=on_timer_2, delay=16.6, repeat_count=100,
         options={'rect': rectangle_3})
     timer_2.start()
+
+    sprite.graphics.begin_fill(color='#f0a')
+    rectangle_4: Rectangle = sprite.graphics.draw_rect(
+        x=350, y=50, width=50, height=50)
+    timer_3: Timer = Timer(
+        handler=on_timer_1, delay=FPS.FPS_60,
+        options={'rect': rectangle_4})
+    timer_3.start()
 
     save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 

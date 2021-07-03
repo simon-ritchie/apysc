@@ -191,6 +191,7 @@ class Timer(VariableNameInterface):
         """
         from apysc._expression import expression_file_util
         from apysc._type import value_util
+        from apysc._expression.indent_num import Indent
         current_count_val_str: str = value_util.get_value_str_for_expression(
             value=self._current_count)
         repeat_count_val_str: str = value_util.get_value_str_for_expression(
@@ -199,8 +200,11 @@ class Timer(VariableNameInterface):
             f'if ({repeat_count_val_str} !== 0 '
             f'&& {current_count_val_str} === {repeat_count_val_str}) {{'
             f'\n{self._get_stop_expression(indent_num=1)}'
-            '\n}'
         )
+        expression_file_util.append_js_expression(expression=expression)
+        with Indent():
+            self._running.value = False
+        expression = '\n}'
         expression_file_util.append_js_expression(expression=expression)
 
     def stop(self) -> None:

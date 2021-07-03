@@ -36,15 +36,23 @@ def main() -> None:
     sprite.graphics.begin_fill(color='#0af')
     rectangle_1: Rectangle = sprite.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
-    timer: Timer = Timer(
+    timer_1: Timer = Timer(
         handler=on_timer_1, delay=16.6,
         options={'rect': rectangle_1})
-    timer.start()
+    timer_1.start()
 
     sprite.graphics.begin_fill(color='#f0a')
     rectangle_2: Rectangle = sprite.graphics.draw_rect(
         x=150, y=50, width=50, height=50)
     rectangle_2.click(on_rectangle_click)
+
+    sprite.graphics.begin_fill(color='#a0f')
+    rectangle_3: Rectangle = sprite.graphics.draw_rect(
+        x=250, y=50, width=50, height=50)
+    timer_2: Timer = Timer(
+        handler=on_timer_2, delay=16.6, repeat_count=100,
+        options={'rect': rectangle_3})
+    timer_2.start()
 
     save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
@@ -68,6 +76,21 @@ def on_timer_1(e: TimerEvent, options: Dict[str, Any]) -> None:
         rect: Rectangle = options['rect']
         rect.y += 1
         assert_true(e.this.running)
+
+
+def on_timer_2(e: TimerEvent, options: Dict[str, Any]) -> None:
+    """
+    The handler would be called from a timer instance.
+
+    Parameters
+    ----------
+    e : TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rect: Rectangle = options['rect']
+    rect.y += 1
 
 
 def on_rectangle_click(

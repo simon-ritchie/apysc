@@ -115,3 +115,20 @@ class Timer(VariableNameInterface):
         """
         from apysc._type import value_util
         return value_util.get_copy(value=self._running)
+
+    def start(self) -> None:
+        """
+        Start this timer.
+        """
+        from apysc._expression import expression_file_util
+        from apysc._type import value_util
+        self._running.value = True
+        delay_val_str: str = value_util.get_value_str_for_expression(
+            value=self._delay)
+        expression: str = (
+            f'if (_.isUndefined({self.variable_name})) {{'
+            f'\n  var {self.variable_name} = setInterval('
+            f'{self._handler_name}, {delay_val_str});'
+            '\n}'
+        )
+        expression_file_util.append_js_expression(expression=expression)

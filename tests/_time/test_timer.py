@@ -79,8 +79,27 @@ class TestTimer:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_running(self) -> None:
-        timer: Timer = Timer(
-            handler=self.on_timer, delay=33.3)
-        assert timer.running == False
+        timer: Timer = Timer(handler=self.on_timer, delay=33.3)
+        assert not timer.running
         assert isinstance(timer.running, Boolean)
         assert timer._running.variable_name != timer.running.variable_name
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_start(self) -> None:
+        expression_file_util.remove_expression_file()
+        timer: Timer = Timer(handler=self.on_timer, delay=33.3)
+        timer.start()
+        assert timer.running
+        expression: str = expression_file_util.get_current_expression()
+        pattern: str = (
+            rf'if \(_\.isUndefined\({timer.variable_name}\)\) {{'
+            rf'\n  var {timer.variable_name} = setInterval\('
+            rf'{timer._handler_name}, {var_names.NUMBER}_.+?\);'
+            r'\n}'
+        )
+        match: Optional[Match] = re.search(
+            pattern=pattern,
+            string=expression,
+            flags=re.MULTILINE | re.DOTALL,
+        )
+        assert match is not None

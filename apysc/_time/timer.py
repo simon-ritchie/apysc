@@ -1,12 +1,18 @@
 """Class implementation for the timer.
 """
 
-from typing import Any, Dict, Optional, Union
-from apysc._type.variable_name_interface import VariableNameInterface
+from typing import Any
+from typing import Dict
+from typing import Optional
+from typing import Union
+
+from apysc import Boolean
+from apysc import Int
+from apysc import Number
 from apysc._event.handler import Handler
-from apysc import Int, Number, Boolean
-from apysc._type.number_value_interface import NumberValueInterface
 from apysc._event.handler import HandlerData
+from apysc._type.number_value_interface import NumberValueInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class Timer(VariableNameInterface):
@@ -41,18 +47,18 @@ class Timer(VariableNameInterface):
         options : dict or None, default None
             Optional arguments dictionary to pass the the handler.
         """
-        from apysc._expression import var_names
-        from apysc._expression import expression_variables_util
-        from apysc._event.handler import get_handler_name
-        from apysc._event.handler import append_handler_expression
         from apysc import TimerEvent
+        from apysc._event.handler import append_handler_expression
+        from apysc._event.handler import get_handler_name
+        from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
         from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
         from apysc._validation import number_validation
         with TemporaryNotHandlerScope():
             self.variable_name = \
                 expression_variables_util.get_next_variable_name(
-                type_name=var_names.TIMER)
+                    type_name=var_names.TIMER)
             self._handler_name = get_handler_name(
                 handler=handler, instance=self)
             handler = self._wrap_handler(handler=handler)
@@ -190,8 +196,8 @@ class Timer(VariableNameInterface):
         to the file.
         """
         from apysc._expression import expression_file_util
-        from apysc._type import value_util
         from apysc._expression.indent_num import Indent
+        from apysc._type import value_util
         current_count_val_str: str = value_util.get_value_str_for_expression(
             value=self._current_count)
         repeat_count_val_str: str = value_util.get_value_str_for_expression(
@@ -224,6 +230,11 @@ class Timer(VariableNameInterface):
         ----------
         indent_num : int
             Indentation number to append.
+
+        Returns
+        -------
+        expression : str
+            Stop interface expression string.
         """
         from apysc._string import indent_util
         expression: str = (

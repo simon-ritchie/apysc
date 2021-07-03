@@ -6,15 +6,26 @@ $ python Timer/main.py
 """
 
 import sys
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
 
-from apysc import Timer, Stage, Sprite, Rectangle, TimerEvent, MouseEvent, assert_true, trace, If, Boolean, Else, assert_false
+from apysc import Else
+from apysc import If
+from apysc import MouseEvent
+from apysc import Rectangle
+from apysc import Sprite
+from apysc import Stage
+from apysc import Timer
+from apysc import TimerEvent
+from apysc import assert_false
+from apysc import assert_true
 from apysc import save_overall_html
+from apysc import trace
 from apysc._file import file_util
 
 this_module: ModuleType = sys.modules[__name__]

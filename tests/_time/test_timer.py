@@ -1,15 +1,22 @@
-from random import randint
 import re
+from random import randint
+from typing import Any
+from typing import Dict
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
-from typing import Any, Dict, Match, Optional
-from apysc import Timer, Event, Number, Int, Boolean, Stage
-from tests.testing_helper import assert_attrs
-from apysc._expression import var_names
-from apysc._expression import expression_file_util
-from apysc._event.handler import Handler
+from apysc import Boolean
+from apysc import Event
+from apysc import Int
+from apysc import Number
+from apysc import Timer
 from apysc import TimerEvent
+from apysc._event.handler import Handler
+from apysc._expression import expression_file_util
+from apysc._expression import var_names
+from tests.testing_helper import assert_attrs
 
 
 class TestTimer:

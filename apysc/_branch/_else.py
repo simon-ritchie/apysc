@@ -1,8 +1,9 @@
 """Else branch instruction implementation.
 """
 
-from typing import Any, Optional
+from typing import Any
 from typing import Dict
+from typing import Optional
 
 from apysc._branch.if_base import IfBase
 

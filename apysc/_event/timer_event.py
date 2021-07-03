@@ -15,7 +15,7 @@ class TimerEvent(Event):
 
         Parameters
         ----------
-        timer : Timer
+        this : Timer
             Target timer instance.
         """
         from apysc._expression import var_names

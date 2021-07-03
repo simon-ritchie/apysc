@@ -1,10 +1,12 @@
 from random import randint
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 from retrying import retry
 
-from apysc import TimerEvent, Event
+from apysc import Event
 from apysc import Timer
+from apysc import TimerEvent
 from apysc._expression import var_names
 
 

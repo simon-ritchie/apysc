@@ -27,4 +27,10 @@ class TestTimerEvent:
         timer: Timer = Timer(handler=self.on_timer, delay=33)
         event: TimerEvent = TimerEvent(this=timer)
         assert event.variable_name.startswith(f'{var_names.TIMER_EVENT}_')
+        assert event._this == timer
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_this(self) -> None:
+        timer: Timer = Timer(handler=self.on_timer, delay=33)
+        event: TimerEvent = TimerEvent(this=timer)
         assert event.this == timer

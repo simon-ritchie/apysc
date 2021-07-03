@@ -21,3 +21,15 @@ class TimerEvent(Event):
         from apysc._expression import var_names
         super(TimerEvent, self).__init__(
             this=this, type_name=var_names.TIMER_EVENT)
+
+    @property
+    def this(self) -> Timer:
+        """
+        Get a timer instance that listening this event.
+
+        Returns
+        -------
+        this : TImer
+            Instance that listening this event.
+        """
+        return self._this

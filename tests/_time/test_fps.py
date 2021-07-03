@@ -12,15 +12,21 @@ class TestFPSDefinition:
         assert_attrs(
             expected_attrs={
                 '_fps': 30,
-                '_milisecond_interval': 33.3333,
+                '_milisecond_intervals': 33.3333,
             },
             any_obj=definition)
+
+    def test_milisecond_interval(self) -> None:
+        definition: FPSDefinition = FPSDefinition(
+            fps=30,
+            milisecond_intervals=33.3333)
+        assert definition.milisecond_intervals == 33.3333
 
 
 def test_FPS() -> None:
     for fps in FPS:
         fps_definition: FPSDefinition = fps.value
         one_second: float = \
-            fps_definition._fps * fps_definition._milisecond_interval
+            fps_definition._fps * fps_definition._milisecond_intervals
         assert one_second > 999.9
         assert one_second < 1000.1

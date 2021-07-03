@@ -8,7 +8,7 @@ from typing import Union
 class FPSDefinition:
 
     _fps: int
-    _milisecond_interval: Union[int, float]
+    _milisecond_intervals: Union[int, float]
 
     def __init__(
             self, fps: int,
@@ -21,10 +21,22 @@ class FPSDefinition:
         fps : int
             FPS value, such as 30, 60.
         milisecond_intervals : int or float
-            FPS value in milisecond intervals, such as 33, 16.
+            FPS value in milisecond intervals, such as 33.333...
         """
         self._fps = fps
-        self._milisecond_interval = milisecond_intervals
+        self._milisecond_intervals = milisecond_intervals
+
+    @property
+    def milisecond_intervals(self) -> float:
+        """
+        Get a FPS value in milisecond intervals.
+
+        Returns
+        -------
+        milisecond_interval : float
+            FPS value in milisecond intervals, such as 33.333...
+        """
+        return self._milisecond_intervals
 
 
 class FPS(Enum):

@@ -1,7 +1,7 @@
 """Else branch instruction implementation.
 """
 
-from typing import Any
+from typing import Any, Optional
 from typing import Dict
 
 from apysc._branch.if_base import IfBase
@@ -11,17 +11,17 @@ class Else(IfBase):
 
     def __init__(
             self,
-            locals_: Dict[str, Any],
-            globals_: Dict[str, Any]) -> None:
+            locals_: Optional[Dict[str, Any]] = None,
+            globals_: Optional[Dict[str, Any]] = None) -> None:
         """
         A class to append else branch instruction expression.
 
         Parameters
         ----------
-        locals_ : dict
+        locals_ : dict or None, default None
             Current scope's local variables. Set locals() value to
             this argument.
-        globals_ : dict
+        globals_ : dict or None, default None
             Current scope's golobal variables. Set golobals() value
             to this argument.
         """

@@ -57,3 +57,12 @@ class TestTimer:
             flags=re.MULTILINE,
         )
         assert match is not None
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_delay(self) -> None:
+        timer: Timer = Timer(
+            handler=self.on_timer,
+            delay=33.3)
+        assert timer.delay == 33.3
+        assert isinstance(timer.delay, Number)
+        assert timer._delay.variable_name != timer.delay.variable_name

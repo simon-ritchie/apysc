@@ -33,7 +33,7 @@ class Timer(VariableNameInterface):
         delay : int or float or Int or Number
             A delay between each handler's calling in milisecond.
         repeat_count : int or Int
-            Max count of a handler's call. If the handler's calling
+            Max count of a handler's calling. If the handler's calling
             count has reached this value, then a timer will stop.
             If 0 is specified, then a timer will loop forever.
         options : dict or None, default None
@@ -70,3 +70,16 @@ class Timer(VariableNameInterface):
                 handler_data=self._handler_data,
                 handler_name=self._handler_name,
                 e=e)
+
+    @property
+    def delay(self) -> Number:
+        """
+        Get a delay value.
+
+        Returns
+        -------
+        delay : Number
+            A delay value of each handler's calling in milisecond.
+        """
+        from apysc._type import value_util
+        return value_util.get_copy(value=self._delay)

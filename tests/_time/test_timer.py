@@ -126,14 +126,6 @@ class TestTimer:
         timer: Timer = Timer(handler=self.on_timer, delay=33.3)
         timer.start()
         timer.stop()
-        assert not timer.running
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__append_stop_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
-        timer: Timer = Timer(handler=self.on_timer, delay=33.3)
-        timer.start()
-        timer.stop()
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'if (!_.isUndefined({timer.variable_name})) {{'
@@ -142,3 +134,36 @@ class TestTimer:
             '\n}'
         )
         assert expected in expression
+        assert not timer.running
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_stop_expression(self) -> None:
+        expression_file_util.empty_expression_dir()
+        timer: Timer = Timer(handler=self.on_timer, delay=33.3)
+        expression: str = timer._get_stop_expression(indent_num=1)
+        expected: str = (
+            f'  if (!_.isUndefined({timer.variable_name})) {{'
+            f'\n    clearInterval({timer.variable_name});'
+            f'\n    {timer.variable_name} = undefined;'
+            '\n  }'
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_count_branch_expression(self) -> None:
+        expression_file_util.empty_expression_dir()
+        timer: Timer = Timer(
+            handler=self.on_timer, delay=33.3, repeat_count=5)
+        timer.start()
+        expression: str = \
+            expression_file_util.get_current_event_handler_scope_expression()
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'  if \({var_names.INT}_.+? !== 0 && '
+                rf'{var_names.INT}_.+? === {var_names.INT}_.+?\) {{'
+                r'\n    if \(.*?'
+                r'\n  }'
+            ),
+            string=expression,
+            flags=re.MULTILINE | re.DOTALL)
+        assert match is not None

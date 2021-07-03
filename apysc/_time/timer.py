@@ -180,25 +180,54 @@ class Timer(VariableNameInterface):
             e.this._current_count += 1
             e.this._current_count._value = 0
             handler.__call__(e=e, options=options)
+            self._append_count_branch_expression()
 
         return wrapped
+
+    def _append_count_branch_expression(self) -> None:
+        """
+        Append the timer stopping expression by the counting
+        to the file.
+        """
+        from apysc._expression import expression_file_util
+        from apysc._type import value_util
+        current_count_val_str: str = value_util.get_value_str_for_expression(
+            value=self._current_count)
+        repeat_count_val_str: str = value_util.get_value_str_for_expression(
+            value=self._repeat_count)
+        expression: str = (
+            f'if ({repeat_count_val_str} !== 0 '
+            f'&& {current_count_val_str} === {repeat_count_val_str}) {{'
+            f'\n{self._get_stop_expression(indent_num=1)}'
+            '\n}'
+        )
+        expression_file_util.append_js_expression(expression=expression)
 
     def stop(self) -> None:
         """
         Stop this timer.
         """
-        self._running.value = False
-        self._append_stop_expression()
-
-    def _append_stop_expression(self) -> None:
-        """
-        Append the timer stop expression to the file.
-        """
         from apysc._expression import expression_file_util
+        self._running.value = False
+        expression: str = self._get_stop_expression(indent_num=0)
+        expression_file_util.append_js_expression(expression=expression)
+
+    def _get_stop_expression(self, indent_num: int) -> str:
+        """
+        Get a stop interface expression string.
+
+        Parameters
+        ----------
+        indent_num : int
+            Indentation number to append.
+        """
+        from apysc._string import indent_util
         expression: str = (
             f'if (!_.isUndefined({self.variable_name})) {{'
             f'\n  clearInterval({self.variable_name});'
             f'\n  {self.variable_name} = undefined;'
             '\n}'
         )
-        expression_file_util.append_js_expression(expression=expression)
+        expression = indent_util.append_spaces_to_expression(
+            expression=expression, indent_num=indent_num)
+        return expression

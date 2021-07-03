@@ -46,13 +46,16 @@ class Timer(VariableNameInterface):
         from apysc import TimerEvent
         from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
+        from apysc._validation import number_validation
         with TemporaryNotHandlerScope():
             self._handler = handler
             if not isinstance(delay, Number):
                 delay = Number(delay)
+            number_validation.validate_num_is_gte_zero(num=delay)
             self._delay = delay
             if not isinstance(repeat_count, Int):
                 repeat_count = Int(repeat_count)
+            number_validation.validate_num_is_gte_zero(num=repeat_count)
             self._repeat_count = repeat_count
             self.variable_name = \
                 expression_variables_util.get_next_variable_name(

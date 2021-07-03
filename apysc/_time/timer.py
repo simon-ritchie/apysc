@@ -14,6 +14,7 @@ class Timer(VariableNameInterface):
     _handler: Handler
     _delay: Number
     _repeat_count: Int
+    _current_count: Int
     _handler_data: HandlerData
     _handler_name: str
     _running: Boolean
@@ -62,6 +63,7 @@ class Timer(VariableNameInterface):
                 expression_variables_util.get_next_variable_name(
                 type_name=var_names.TIMER)
             self._running = Boolean(False)
+            self._current_count = Int(0)
             if options is None:
                 options = {}
             self._handler_data = {
@@ -115,6 +117,19 @@ class Timer(VariableNameInterface):
         """
         from apysc._type import value_util
         return value_util.get_copy(value=self._running)
+
+    @property
+    def current_count(self) -> Int:
+        """
+        Get a current timer count.
+
+        Returns
+        -------
+        current_count : Int
+            A current timer count.
+        """
+        from apysc._type import value_util
+        return value_util.get_copy(value=self._current_count)
 
     def start(self) -> None:
         """

@@ -103,3 +103,11 @@ class TestTimer:
             flags=re.MULTILINE | re.DOTALL,
         )
         assert match is not None
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_current_count(self) -> None:
+        timer: Timer = Timer(handler=self.on_timer, delay=33.3)
+        assert timer.current_count == 0
+        assert isinstance(timer.current_count, Int)
+        assert timer._current_count.variable_name \
+            != timer.current_count.variable_name

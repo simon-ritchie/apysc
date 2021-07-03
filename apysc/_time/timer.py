@@ -44,23 +44,29 @@ class Timer(VariableNameInterface):
         from apysc._event.handler import get_handler_name
         from apysc._event.handler import append_handler_expression
         from apysc import TimerEvent
-        self._handler = handler
-        if not isinstance(delay, Number):
-            delay = Number(delay)
-        self._delay = delay
-        if not isinstance(repeat_count, Int):
-            repeat_count = Int(repeat_count)
-        self._repeat_count = repeat_count
-        self.variable_name = expression_variables_util.get_next_variable_name(
-            type_name=var_names.TIMER)
-        if options is None:
-            options = {}
-        self._handler_data = {
-            'handler': self._handler,
-            'options': options,
-        }
-        self._handler_name = get_handler_name(handler=handler, instance=self)
-        e: TimerEvent = TimerEvent(this=self)
-        append_handler_expression(
-            handler_data=self._handler_data, handler_name=self._handler_name,
-            e=e)
+        from apysc._expression.event_handler_scope import \
+            TemporaryNotHandlerScope
+        with TemporaryNotHandlerScope():
+            self._handler = handler
+            if not isinstance(delay, Number):
+                delay = Number(delay)
+            self._delay = delay
+            if not isinstance(repeat_count, Int):
+                repeat_count = Int(repeat_count)
+            self._repeat_count = repeat_count
+            self.variable_name = \
+                expression_variables_util.get_next_variable_name(
+                type_name=var_names.TIMER)
+            if options is None:
+                options = {}
+            self._handler_data = {
+                'handler': self._handler,
+                'options': options,
+            }
+            self._handler_name = get_handler_name(
+                handler=handler, instance=self)
+            e: TimerEvent = TimerEvent(this=self)
+            append_handler_expression(
+                handler_data=self._handler_data,
+                handler_name=self._handler_name,
+                e=e)

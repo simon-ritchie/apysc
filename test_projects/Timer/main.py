@@ -13,7 +13,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Timer, Stage, Sprite, Rectangle, TimerEvent, MouseEvent, assert_true, trace
+from apysc import Timer, Stage, Sprite, Rectangle, TimerEvent, MouseEvent, assert_true, trace, If, Boolean, Else, assert_false
 from apysc import save_overall_html
 from apysc._file import file_util
 
@@ -60,10 +60,14 @@ def on_timer_1(e: TimerEvent, options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rect: Rectangle = options['rect']
-    rect.y += 1
-    assert_true(e.this.running)
-    trace('current count:', e.this.current_count)
+    with If(e.this.current_count >= 100):
+        e.this.stop()
+        trace('Stapped!')
+        assert_false(e.this.running)
+    with Else():
+        rect: Rectangle = options['rect']
+        rect.y += 1
+        assert_true(e.this.running)
 
 
 def on_rectangle_click(

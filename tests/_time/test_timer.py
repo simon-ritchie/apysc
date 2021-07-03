@@ -4,7 +4,7 @@ import re
 from retrying import retry
 
 from typing import Any, Dict, Match, Optional
-from apysc import Timer, Event, Number, Int, Boolean
+from apysc import Timer, Event, Number, Int, Boolean, Stage
 from tests.testing_helper import assert_attrs
 from apysc._expression import var_names
 from apysc._expression import expression_file_util
@@ -28,7 +28,7 @@ class TestTimer:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         timer: Timer = Timer(
             handler=self.on_timer,
             delay=33.3,
@@ -37,10 +37,6 @@ class TestTimer:
             expected_attrs={
                 '_delay': Number(33.3),
                 '_repeat_count': Int(10),
-                # '_handler_data': {
-                #     'handler': self.on_timer,
-                #     'options': {},
-                # },
             },
             any_obj=timer)
         assert callable(timer._handler)
@@ -90,7 +86,7 @@ class TestTimer:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_start(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         timer: Timer = Timer(handler=self.on_timer, delay=33.3)
         timer.start()
         assert timer.running
@@ -123,3 +119,18 @@ class TestTimer:
         e: TimerEvent = TimerEvent(this=timer)
         wrapped.__call__(e=e, options={})
         assert timer.current_count == 0
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_stop(self) -> None:
+        expression_file_util.empty_expression_dir()
+        timer: Timer = Timer(handler=self.on_timer, delay=33.3)
+        timer.start()
+        timer.stop()
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'if (!_.isUndefined({timer.variable_name})) {{'
+            f'\n  clearInterval({timer.variable_name});'
+            f'\n  {timer.variable_name} = undefined;'
+            '\n}'
+        )
+        assert expected in expression

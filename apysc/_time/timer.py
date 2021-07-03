@@ -182,3 +182,17 @@ class Timer(VariableNameInterface):
             handler.__call__(e=e, options=options)
 
         return wrapped
+
+    def stop(self) -> None:
+        """
+        Stop this timer.
+        """
+        from apysc._expression import expression_file_util
+        self._running.value = False
+        expression: str = (
+            f'if (!_.isUndefined({self.variable_name})) {{'
+            f'\n  clearInterval({self.variable_name});'
+            f'\n  {self.variable_name} = undefined;'
+            '\n}'
+        )
+        expression_file_util.append_js_expression(expression=expression)

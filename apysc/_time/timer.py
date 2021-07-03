@@ -9,9 +9,9 @@ from typing import Union
 from apysc import Boolean
 from apysc import Int
 from apysc import Number
-from apysc._time.fps import FPS
 from apysc._event.handler import Handler
 from apysc._event.handler import HandlerData
+from apysc._time.fps import FPS
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
@@ -101,6 +101,11 @@ class Timer(VariableNameInterface):
         delay : int or float or Int or Number or FPS
             A delay between each handler's calling in milisecond
             or FPS value.
+
+        Returns
+        -------
+        delay : Number
+            Converted delay value.
         """
         from apysc._time.fps import FPSDefinition
         if isinstance(delay, FPS):

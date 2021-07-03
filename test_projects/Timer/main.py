@@ -14,7 +14,8 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Else, FPS
+from apysc import FPS
+from apysc import Else
 from apysc import If
 from apysc import MouseEvent
 from apysc import Rectangle

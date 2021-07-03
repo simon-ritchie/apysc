@@ -7,6 +7,7 @@ from typing import Optional
 
 from retrying import retry
 
+from apysc import FPS
 from apysc import Boolean
 from apysc import Event
 from apysc import Int
@@ -17,7 +18,6 @@ from apysc._event.handler import Handler
 from apysc._expression import expression_file_util
 from apysc._expression import var_names
 from tests.testing_helper import assert_attrs
-from apysc import FPS
 
 
 class TestTimer:

@@ -4,7 +4,7 @@ import re
 from retrying import retry
 
 from typing import Any, Dict, Match, Optional
-from apysc import Timer, Event, Number, Int
+from apysc import Timer, Event, Number, Int, Boolean
 from tests.testing_helper import assert_attrs
 from apysc._expression import var_names
 from apysc._expression import expression_file_util
@@ -76,3 +76,11 @@ class TestTimer:
         assert isinstance(timer.repeat_count, Int)
         assert timer._repeat_count.variable_name \
             != timer.repeat_count.variable_name
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_running(self) -> None:
+        timer: Timer = Timer(
+            handler=self.on_timer, delay=33.3)
+        assert timer.running == False
+        assert isinstance(timer.running, Boolean)
+        assert timer._running.variable_name != timer.running.variable_name

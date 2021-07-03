@@ -4,7 +4,7 @@
 from typing import Any, Dict, Optional, Union
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._event.handler import Handler
-from apysc import Int, Number
+from apysc import Int, Number, Boolean
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._event.handler import HandlerData
 
@@ -16,6 +16,7 @@ class Timer(VariableNameInterface):
     _repeat_count: Int
     _handler_data: HandlerData
     _handler_name: str
+    _running: Boolean
 
     def __init__(
             self,
@@ -60,6 +61,7 @@ class Timer(VariableNameInterface):
             self.variable_name = \
                 expression_variables_util.get_next_variable_name(
                 type_name=var_names.TIMER)
+            self._running = Boolean(False)
             if options is None:
                 options = {}
             self._handler_data = {
@@ -100,3 +102,16 @@ class Timer(VariableNameInterface):
         """
         from apysc._type import value_util
         return value_util.get_copy(value=self._repeat_count)
+
+    @property
+    def running(self) -> Boolean:
+        """
+        Get a boolean value whether this timer is running or not.
+
+        Returns
+        -------
+        running : Boolean.
+            A boolean value whether this timer is running or not.
+        """
+        from apysc._type import value_util
+        return value_util.get_copy(value=self._running)

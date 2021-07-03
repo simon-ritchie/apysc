@@ -1,4 +1,4 @@
-"""Class implementation for mouse event.
+"""Class implementation for the mouse event.
 """
 
 from typing import Generic

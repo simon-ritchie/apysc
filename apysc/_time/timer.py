@@ -50,6 +50,12 @@ class Timer(VariableNameInterface):
             TemporaryNotHandlerScope
         from apysc._validation import number_validation
         with TemporaryNotHandlerScope():
+            self.variable_name = \
+                expression_variables_util.get_next_variable_name(
+                type_name=var_names.TIMER)
+            self._handler_name = get_handler_name(
+                handler=handler, instance=self)
+            handler = self._wrap_handler(handler=handler)
             self._handler = handler
             if not isinstance(delay, Number):
                 delay = Number(delay)
@@ -59,9 +65,6 @@ class Timer(VariableNameInterface):
                 repeat_count = Int(repeat_count)
             number_validation.validate_num_is_gte_zero(num=repeat_count)
             self._repeat_count = repeat_count
-            self.variable_name = \
-                expression_variables_util.get_next_variable_name(
-                type_name=var_names.TIMER)
             self._running = Boolean(False)
             self._current_count = Int(0)
             if options is None:
@@ -70,8 +73,6 @@ class Timer(VariableNameInterface):
                 'handler': self._handler,
                 'options': options,
             }
-            self._handler_name = get_handler_name(
-                handler=handler, instance=self)
             e: TimerEvent = TimerEvent(this=self)
             append_handler_expression(
                 handler_data=self._handler_data,
@@ -147,3 +148,37 @@ class Timer(VariableNameInterface):
             '\n}'
         )
         expression_file_util.append_js_expression(expression=expression)
+
+    def _wrap_handler(self, handler: Handler) -> Handler:
+        """
+        Wrap a handler to update a current count value when
+        it is called.
+
+        Parameters
+        ----------
+        handler : Handler
+            Target handler.
+
+        Returns
+        -------
+        wrapped : Handler
+            Wrapped handler.
+        """
+        from apysc import TimerEvent
+
+        def wrapped(e: TimerEvent, options: Dict[str, Any]) -> None:
+            """
+            Wrapped handler.
+
+            Parameters
+            ----------
+            e : TimerEvent
+                Event instance.
+            options : dict
+                Optional arguments dictionary.
+            """
+            e.this._current_count += 1
+            e.this._current_count._value = 0
+            handler.__call__(e=e, options=options)
+
+        return wrapped

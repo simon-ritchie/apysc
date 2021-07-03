@@ -8,6 +8,8 @@ from apysc import Timer, Event, Number, Int, Boolean
 from tests.testing_helper import assert_attrs
 from apysc._expression import var_names
 from apysc._expression import expression_file_util
+from apysc._event.handler import Handler
+from apysc import TimerEvent
 
 
 class TestTimer:
@@ -33,15 +35,17 @@ class TestTimer:
             repeat_count=10)
         assert_attrs(
             expected_attrs={
-                '_handler': self.on_timer,
                 '_delay': Number(33.3),
                 '_repeat_count': Int(10),
-                '_handler_data': {
-                    'handler': self.on_timer,
-                    'options': {},
-                },
+                # '_handler_data': {
+                #     'handler': self.on_timer,
+                #     'options': {},
+                # },
             },
             any_obj=timer)
+        assert callable(timer._handler)
+        assert callable(timer._handler_data['handler'])
+        assert timer._handler_data['options'] == {}
         assert timer.variable_name.startswith(f'{var_names.TIMER}_')
         assert 'on_timer' in timer._handler_name
         assert isinstance(timer._delay, Number)
@@ -111,3 +115,11 @@ class TestTimer:
         assert isinstance(timer.current_count, Int)
         assert timer._current_count.variable_name \
             != timer.current_count.variable_name
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__wrap_handler(self) -> None:
+        timer: Timer = Timer(handler=self.on_timer, delay=33.3)
+        wrapped: Handler = timer._wrap_handler(handler=self.on_timer)
+        e: TimerEvent = TimerEvent(this=timer)
+        wrapped.__call__(e=e, options={})
+        assert timer.current_count == 0

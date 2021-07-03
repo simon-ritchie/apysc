@@ -13,7 +13,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Timer, Stage, Sprite, Rectangle, TimerEvent, MouseEvent, assert_true
+from apysc import Timer, Stage, Sprite, Rectangle, TimerEvent, MouseEvent, assert_true, trace
 from apysc import save_overall_html
 from apysc._file import file_util
 
@@ -46,7 +46,7 @@ def main() -> None:
         x=150, y=50, width=50, height=50)
     rectangle_2.click(on_rectangle_click)
 
-    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
 def on_timer_1(e: TimerEvent, options: Dict[str, Any]) -> None:
@@ -63,6 +63,7 @@ def on_timer_1(e: TimerEvent, options: Dict[str, Any]) -> None:
     rect: Rectangle = options['rect']
     rect.y += 1
     assert_true(e.this.running)
+    trace('current count:', e.this.current_count)
 
 
 def on_rectangle_click(

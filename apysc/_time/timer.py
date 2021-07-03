@@ -187,8 +187,14 @@ class Timer(VariableNameInterface):
         """
         Stop this timer.
         """
-        from apysc._expression import expression_file_util
         self._running.value = False
+        self._append_stop_expression()
+
+    def _append_stop_expression(self) -> None:
+        """
+        Append the timer stop expression to the file.
+        """
+        from apysc._expression import expression_file_util
         expression: str = (
             f'if (!_.isUndefined({self.variable_name})) {{'
             f'\n  clearInterval({self.variable_name});'

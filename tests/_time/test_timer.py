@@ -126,6 +126,14 @@ class TestTimer:
         timer: Timer = Timer(handler=self.on_timer, delay=33.3)
         timer.start()
         timer.stop()
+        assert not timer.running
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_stop_expression(self) -> None:
+        expression_file_util.empty_expression_dir()
+        timer: Timer = Timer(handler=self.on_timer, delay=33.3)
+        timer.start()
+        timer.stop()
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'if (!_.isUndefined({timer.variable_name})) {{'

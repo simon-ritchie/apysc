@@ -83,3 +83,17 @@ class Timer(VariableNameInterface):
         """
         from apysc._type import value_util
         return value_util.get_copy(value=self._delay)
+
+    @property
+    def repeat_count(self) -> Int:
+        """
+        Get a max count value of a handler's calling.
+
+        Returns
+        -------
+        repeat_count : Int
+            Max count of a handler's calling. If 0 is set, then a
+            timer will loop forever.
+        """
+        from apysc._type import value_util
+        return value_util.get_copy(value=self._repeat_count)

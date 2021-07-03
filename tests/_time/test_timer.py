@@ -66,3 +66,13 @@ class TestTimer:
         assert timer.delay == 33.3
         assert isinstance(timer.delay, Number)
         assert timer._delay.variable_name != timer.delay.variable_name
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_repeat_count(self) -> None:
+        timer: Timer = Timer(
+            handler=self.on_timer,
+            delay=33.3, repeat_count=3)
+        assert timer.repeat_count == 3
+        assert isinstance(timer.repeat_count, Int)
+        assert timer._repeat_count.variable_name \
+            != timer.repeat_count.variable_name

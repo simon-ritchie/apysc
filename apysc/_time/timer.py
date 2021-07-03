@@ -42,6 +42,8 @@ class Timer(VariableNameInterface):
         from apysc._expression import var_names
         from apysc._expression import expression_variables_util
         from apysc._event.handler import get_handler_name
+        from apysc._event.handler import append_handler_expression
+        from apysc import TimerEvent
         self._handler = handler
         if not isinstance(delay, Number):
             delay = Number(delay)
@@ -58,3 +60,7 @@ class Timer(VariableNameInterface):
             'options': options,
         }
         self._handler_name = get_handler_name(handler=handler, instance=self)
+        e: TimerEvent = TimerEvent(this=self)
+        append_handler_expression(
+            handler_data=self._handler_data, handler_name=self._handler_name,
+            e=e)

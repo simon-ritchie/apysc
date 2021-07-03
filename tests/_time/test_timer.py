@@ -1,7 +1,13 @@
-from typing import Any, Dict
+from random import randint
+import re
+
+from retrying import retry
+
+from typing import Any, Dict, Match, Optional
 from apysc import Timer, Event, Number, Int
 from tests.testing_helper import assert_attrs
 from apysc._expression import var_names
+from apysc._expression import expression_file_util
 
 
 class TestTimer:
@@ -17,9 +23,10 @@ class TestTimer:
         options : dict
             Optional arguments dictionary.
         """
-        pass
 
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
+        expression_file_util.remove_expression_file()
         timer: Timer = Timer(
             handler=self.on_timer,
             delay=33.3,
@@ -39,3 +46,14 @@ class TestTimer:
         assert 'on_timer' in timer._handler_name
         assert isinstance(timer._delay, Number)
         assert isinstance(timer._repeat_count, Int)
+
+        expression: str = \
+            expression_file_util.get_current_event_handler_scope_expression()
+        match: Optional[Match] = re.search(
+            pattern=(
+                r'function .*on_timer.*\('
+            ),
+            string=expression,
+            flags=re.MULTILINE,
+        )
+        assert match is not None

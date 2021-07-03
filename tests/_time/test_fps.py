@@ -1,12 +1,12 @@
 from apysc import FPS
-from apysc._time.fps import _FPSDefinition
+from apysc._time.fps import FPSDefinition
 from tests.testing_helper import assert_attrs
 
 
-class Test_FPSDefinition:
+class TestFPSDefinition:
 
     def test___init__(self) -> None:
-        definition: _FPSDefinition = _FPSDefinition(
+        definition: FPSDefinition = FPSDefinition(
             fps=30,
             milisecond_intervals=33.3333)
         assert_attrs(
@@ -19,7 +19,7 @@ class Test_FPSDefinition:
 
 def test_FPS() -> None:
     for fps in FPS:
-        fps_definition: _FPSDefinition = fps.value
+        fps_definition: FPSDefinition = fps.value
         one_second: float = \
             fps_definition._fps * fps_definition._milisecond_interval
         assert one_second > 999.9

@@ -17,6 +17,7 @@ from apysc._event.handler import Handler
 from apysc._expression import expression_file_util
 from apysc._expression import var_names
 from tests.testing_helper import assert_attrs
+from apysc import FPS
 
 
 class TestTimer:
@@ -174,3 +175,20 @@ class TestTimer:
             string=expression,
             flags=re.MULTILINE | re.DOTALL)
         assert match is not None
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__convert_delay_to_number(self) -> None:
+        timer: Timer = Timer(
+            handler=self.on_timer, delay=33.3)
+        assert timer.delay == 33.3
+        assert isinstance(timer.delay, Number)
+
+        timer = Timer(
+            handler=self.on_timer, delay=Number(33.3))
+        assert timer.delay == 33.3
+        assert isinstance(timer.delay, Number)
+
+        timer = Timer(
+            handler=self.on_timer, delay=FPS.FPS_60)
+        assert timer.delay == 16.6666667
+        assert isinstance(timer.delay, Number)

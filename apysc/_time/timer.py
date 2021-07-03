@@ -9,6 +9,7 @@ from typing import Union
 from apysc import Boolean
 from apysc import Int
 from apysc import Number
+from apysc._time.fps import FPS
 from apysc._event.handler import Handler
 from apysc._event.handler import HandlerData
 from apysc._type.number_value_interface import NumberValueInterface
@@ -28,7 +29,7 @@ class Timer(VariableNameInterface):
     def __init__(
             self,
             handler: Handler,
-            delay: Union[int, float, NumberValueInterface],
+            delay: Union[int, float, NumberValueInterface, FPS],
             repeat_count: Union[int, Int] = 0,
             options: Optional[Dict[str, Any]] = None) -> None:
         """
@@ -38,8 +39,13 @@ class Timer(VariableNameInterface):
         ----------
         handler : Handler
             A handler would be called at regular intervals.
-        delay : int or float or Int or Number
-            A delay between each handler's calling in milisecond.
+        delay : int or float or Int or Number or FPS
+            A delay between each handler's calling in milisecond
+            or FPS value.
+            If `FPS` value is specified, then this value will be
+            a milisecond calculated with that FPS value (e.g., if
+            the `FPS_60` value is specified, then `delay` will be
+            16.6666667).
         repeat_count : int or Int
             Max count of a handler's calling. If the handler's calling
             count has reached this value, then a timer will stop.
@@ -63,8 +69,7 @@ class Timer(VariableNameInterface):
                 handler=handler, instance=self)
             handler = self._wrap_handler(handler=handler)
             self._handler = handler
-            if not isinstance(delay, Number):
-                delay = Number(delay)
+            delay = self._convert_delay_to_number(delay=delay)
             number_validation.validate_num_is_gte_zero(num=delay)
             self._delay = delay
             if not isinstance(repeat_count, Int):
@@ -84,6 +89,26 @@ class Timer(VariableNameInterface):
                 handler_data=self._handler_data,
                 handler_name=self._handler_name,
                 e=e)
+
+    def _convert_delay_to_number(
+            self,
+            delay: Union[int, float, NumberValueInterface, FPS]) -> Number:
+        """
+        Convert each type of delay value to a `Number` value.
+
+        Parameters
+        ----------
+        delay : int or float or Int or Number or FPS
+            A delay between each handler's calling in milisecond
+            or FPS value.
+        """
+        from apysc._time.fps import FPSDefinition
+        if isinstance(delay, FPS):
+            fps_definition: FPSDefinition = delay.value
+            delay = fps_definition.milisecond_intervals
+        if not isinstance(delay, Number):
+            delay = Number(delay)
+        return delay
 
     @property
     def delay(self) -> Number:

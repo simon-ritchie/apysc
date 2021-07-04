@@ -109,3 +109,4 @@ The `Graphics` class handles each vector graphics drawing.
 **Branch instruction**
 
 - [If class](if.md)
+- [Elif class](elif.md)

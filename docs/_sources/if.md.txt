@@ -8,7 +8,11 @@ Before reading on, maybe it is useful to read the following page (the `If` class
 
 ## What is the If class?
 
-The `If` class is the apysc branch instruction class. It will behave like the Python built-in `if` keyword. The `If` class will be used at the `with` statement, as follows:
+The `If` class is the apysc branch instruction class. It will behave like the Python built-in `if` keyword.
+
+## Basic usage
+
+The `If` class will be used at the `with` statement, as follows:
 
 ```py
 # runnable
@@ -20,4 +24,4 @@ with If(condition):
     ...
 ```
 
-The `If` class need to pass the `Boolean` value as the condition.
+The `If` class requires passing the `Boolean` value as the condition.

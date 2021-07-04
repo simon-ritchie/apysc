@@ -46,3 +46,12 @@ class TestTimerEvent:
             expected_error_class=NotImplementedError,
             func_or_method=event.stop_propagation,
             match=r'stop_propagation')
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_prevent_default(self) -> None:
+        timer: Timer = Timer(handler=self.on_timer, delay=33)
+        event: TimerEvent = TimerEvent(this=timer)
+        assert_raises(
+            expected_error_class=NotImplementedError,
+            func_or_method=event.prevent_default,
+            match=r'prevent_default')

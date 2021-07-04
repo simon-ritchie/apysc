@@ -39,5 +39,13 @@ class TimerEvent(Event):
         This interface is disabled by the `TimerEvent`.
         """
         raise NotImplementedError(
-            'TimerEvent class is not supported the `stop_propagation` '
+            '`TimerEvent` class is not supported the `stop_propagation` '
+            'interface.')
+
+    def prevent_default(self) -> None:
+        """
+        This interface is disabled by the `TimerEvent`.
+        """
+        raise NotImplementedError(
+            '`TimerEvent` class is not supported the `prevent_default`'
             'interface.')

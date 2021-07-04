@@ -39,3 +39,9 @@ with If(condition, locals_=locals(), globals_=globals()):
     int_1 += 10
 assert int_1 == 10
 ```
+
+## See also
+
+- [If class](if.md)
+- [Elif class](elif.md)
+- [Else class](else.md)

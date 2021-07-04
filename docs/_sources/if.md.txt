@@ -25,3 +25,9 @@ with If(condition):
 ```
 
 The `If` class requires passing the `Boolean` value as the condition.
+
+## See also
+
+- [Elif class](elif.md)
+- [Else class](else.md)
+- [Each branch instruction class scope variables reverting setting](branch_instruction_variables_reverting_setting.md)

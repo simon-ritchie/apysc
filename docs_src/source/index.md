@@ -105,3 +105,7 @@ The `Graphics` class handles each vector graphics drawing.
 - [Mousemove interface](mousemove.md)
 
 ---
+
+**Branch instruction**
+
+- [If class](if.md)

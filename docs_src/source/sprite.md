@@ -4,11 +4,11 @@ This page will explain the `Sprite` class.
 
 ## What is the Sprite
 
-The `Sprite` class is the container of each `DisplayObject` instance. It also has the `Graphics` class interfaces and can draw each vector graphics.
+The `Sprite` class is the container of each `DisplayObject` instance. It also has the `Graphics` class interfaces and can draw each vector graphic.
 
 ## graphics attribute interfaces
 
-The `Sprite` instance has the `graphics` attribute and you can draw each vector graphics with it. For example, the following code will draw the cyan color rectangle.
+The `Sprite` instance has the `graphics` attribute and you can draw each vector graphic with it. For example, the following code will draw the cyan color rectangle.
 
 ```py
 # runnable

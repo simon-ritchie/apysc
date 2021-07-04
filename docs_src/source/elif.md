@@ -12,7 +12,7 @@ The `Elif` class is the apysc branch instruction class. It will behave like the 
 
 ## Basic usage
 
-The `Elif` class will be used at the `with` statement. The `Elif` class statement is only acceptable to implement right after the `If` class statement.
+The `Elif` class will be used at the `with` statement. The `Elif` class statement is only acceptable to implement right after the `If` or `Elif` classes statement.
 
 ```py
 # runnable

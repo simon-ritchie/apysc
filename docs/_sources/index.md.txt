@@ -111,6 +111,7 @@ The `Graphics` class handles each vector graphics drawing.
 - [If class](if.md)
 - [Elif class](elif.md)
 - [Else class](else.md)
+- [Each branch instruction class scope variables reverting setting](branch_instruction_variables_reverting_setting.md)
 
 ---
 

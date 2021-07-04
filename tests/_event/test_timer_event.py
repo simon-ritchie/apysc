@@ -8,6 +8,7 @@ from apysc import Event
 from apysc import Timer
 from apysc import TimerEvent
 from apysc._expression import var_names
+from tests.testing_helper import assert_raises
 
 
 class TestTimerEvent:
@@ -36,3 +37,12 @@ class TestTimerEvent:
         timer: Timer = Timer(handler=self.on_timer, delay=33)
         event: TimerEvent = TimerEvent(this=timer)
         assert event.this == timer
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_stop_propagation(self) -> None:
+        timer: Timer = Timer(handler=self.on_timer, delay=33)
+        event: TimerEvent = TimerEvent(this=timer)
+        assert_raises(
+            expected_error_class=NotImplementedError,
+            func_or_method=event.stop_propagation,
+            match=r'stop_propagation')

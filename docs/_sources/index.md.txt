@@ -46,6 +46,7 @@ The HTML and JavaScript exporting interfaces.
 - [String class](string.md)
 - [String class comparison operations](string_comparison_operations.md)
 - [String class addition and multiplication operations](string_addition_and_multiplication.md)
+- [Boolean class](boolean.md)
 
 ---
 

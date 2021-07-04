@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Boolean &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DisplayObject" href="display_object.html" />
+    <link rel="prev" title="String class addition and multiplication operations" href="string_addition_and_multiplication.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="display_object.html" title="DisplayObject"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="string_addition_and_multiplication.html" title="String class addition and multiplication operations"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Boolean</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="boolean">
+<h1>Boolean<a class="headerlink" href="#boolean" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> class.</p>
+<p>Before reading on, maybe it is useful to read the following page:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="why_not_using_python_builtin_data_type.html"><span class="doc">Why not using the Python built-in data type in the apysc library?</span></a></p></li>
+</ul>
+<section id="what-is-the-boolean-class">
+<h2>What is the Boolean class?<a class="headerlink" href="#what-is-the-boolean-class" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> class is the apysc boolean class. It can accept <code class="docutils literal notranslate"><span class="pre">bool</span></code> or <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> values at the constructor, as follows:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span>
+
+<span class="n">bool_1</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">bool_1</span>
+
+<span class="n">bool_2</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="n">bool_2</span>
+
+<span class="n">bool_3</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="n">bool_1</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">bool_3</span>
+</pre></div>
+</div>
+</section>
+<section id="boolean-comparison">
+<h2>Boolean comparison<a class="headerlink" href="#boolean-comparison" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> comparison interface will behave like the Python built-in <code class="docutils literal notranslate"><span class="pre">bool</span></code> value.</p>
+<p>You can compare it with the equal comparison operator (<code class="docutils literal notranslate"><span class="pre">=</span></code>), and the <code class="docutils literal notranslate"><span class="pre">Boolean</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">Int</span></code> types are acceptable, as follows:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Int</span>
+
+<span class="n">bool_1</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">bool_1</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">bool_1</span> <span class="o">==</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">bool_1</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">bool_1</span> <span class="o">==</span> <span class="n">Int</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Also, the not equal comparison operator (<code class="docutils literal notranslate"><span class="pre">!=</span></code>) is supported, as follows:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Int</span>
+
+<span class="n">bool_1</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">bool_1</span> <span class="o">!=</span> <span class="kc">False</span>
+<span class="k">assert</span> <span class="n">bool_1</span> <span class="o">!=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">bool_1</span> <span class="o">!=</span> <span class="mi">0</span>
+<span class="k">assert</span> <span class="n">bool_1</span> <span class="o">!=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can skip the comparison operator, as follows:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span>
+
+<span class="n">bool_1</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">bool_1</span>
+
+<span class="n">bool_2</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="n">bool_2</span>
+</pre></div>
+</div>
+</section>
+<section id="reverse-a-boolean-value">
+<h2>Reverse a Boolean value<a class="headerlink" href="#reverse-a-boolean-value" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">not_</span></code> property will return the reversed <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span>
+
+<span class="n">bool_1</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">bool_2</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">bool_1</span><span class="o">.</span><span class="n">not_</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="n">bool_2</span>
+
+<span class="n">bool_3</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">bool_2</span><span class="o">.</span><span class="n">not_</span>
+<span class="k">assert</span> <span class="n">bool_3</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Boolean</a><ul>
+<li><a class="reference internal" href="#what-is-the-boolean-class">What is the Boolean class?</a></li>
+<li><a class="reference internal" href="#boolean-comparison">Boolean comparison</a></li>
+<li><a class="reference internal" href="#reverse-a-boolean-value">Reverse a Boolean value</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="string_addition_and_multiplication.html"
+                        title="previous chapter">String class addition and multiplication operations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="display_object.html"
+                        title="next chapter">DisplayObject</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/boolean.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="display_object.html" title="DisplayObject"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="string_addition_and_multiplication.html" title="String class addition and multiplication operations"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Boolean</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

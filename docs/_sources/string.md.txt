@@ -8,7 +8,7 @@ Before reading on, maybe it is useful to read the following page:
 
 ## What is the String class?
 
-The `String` class is the apysc string class. It can accept `str` or `String` values at the constructor, as follows
+The `String` class is the apysc string class. It can accept `str` or `String` values at the constructor, as follows:
 
 ```py
 # runnable

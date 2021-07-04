@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Else &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Timer" href="timer.html" />
+    <link rel="prev" title="Elif" href="elif.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="timer.html" title="Timer"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="elif.html" title="Elif"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Else</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="else">
+<h1>Else<a class="headerlink" href="#else" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Else</span></code> class.</p>
+<p>Before reading on, maybe it is useful to read the following page (the <code class="docutils literal notranslate"><span class="pre">Else</span></code> class will be used for the same reason of each apysc data type):</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="why_not_using_python_builtin_data_type.html"><span class="doc">Why not using the Python built-in data type in the apysc library?</span></a></p></li>
+</ul>
+<section id="what-is-the-else-class">
+<h2>What is the Else class?<a class="headerlink" href="#what-is-the-else-class" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Else</span></code> class is the apysc branch instruction class. It will behave like the Python built-in <code class="docutils literal notranslate"><span class="pre">else</span></code> keyword.</p>
+</section>
+<section id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Else</span></code> class will be used at the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement. The <code class="docutils literal notranslate"><span class="pre">Else</span></code> class statement is only acceptable to implement right after the <code class="docutils literal notranslate"><span class="pre">If</span></code> or <code class="docutils literal notranslate"><span class="pre">Elif</span></code> classes statement.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">If</span><span class="p">,</span> <span class="n">Else</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Boolean</span>
+
+<span class="n">condition</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">If</span><span class="p">(</span><span class="n">condition</span><span class="p">):</span>
+    <span class="n">int_1</span> <span class="o">+=</span> <span class="mi">10</span>
+<span class="k">with</span> <span class="n">Else</span><span class="p">():</span>
+    <span class="n">int_1</span> <span class="o">+=</span> <span class="mi">20</span>
+</pre></div>
+</div>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<p>if you insert the code between the <code class="docutils literal notranslate"><span class="pre">If</span></code> (or <code class="docutils literal notranslate"><span class="pre">Elif</span></code>) and <code class="docutils literal notranslate"><span class="pre">Else</span></code> statements, then exceptions will be raised:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">If</span><span class="p">,</span> <span class="n">Else</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Boolean</span>
+
+<span class="n">condition</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">If</span><span class="p">(</span><span class="n">condition</span><span class="p">):</span>
+    <span class="n">int_1</span> <span class="o">+=</span> <span class="mi">10</span>
+<span class="c1"># If there is a code implementation between the `If` and `Else`, then</span>
+<span class="c1"># exceptions will be raised.</span>
+<span class="n">int_2</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">Else</span><span class="p">():</span>
+    <span class="n">int_1</span> <span class="o">+=</span> <span class="mi">20</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">ValueError</span><span class="p">:</span> <span class="n">Else</span> <span class="n">interface</span> <span class="n">can</span> <span class="n">only</span> <span class="n">use</span> <span class="n">right</span> <span class="n">after</span> <span class="n">If</span> <span class="ow">or</span> <span class="n">Elif</span> <span class="n">interfaces</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Else</a><ul>
+<li><a class="reference internal" href="#what-is-the-else-class">What is the Else class?</a></li>
+<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="elif.html"
+                        title="previous chapter">Elif</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="timer.html"
+                        title="next chapter">Timer</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/else.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="timer.html" title="Timer"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="elif.html" title="Elif"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Else</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

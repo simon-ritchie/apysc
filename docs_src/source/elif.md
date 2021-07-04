@@ -31,7 +31,7 @@ with Elif(condition_2):
 
 ## Notes
 
-If you insert the code between the `If` and `Elif` statements, then exceptions will be raised:
+If you insert the code between the `If` (or `Elif`) and `Elif` statements, then exceptions will be raised:
 
 ```py
 from apysc import Boolean, Int

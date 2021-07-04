@@ -110,6 +110,7 @@ The `Graphics` class handles each vector graphics drawing.
 
 - [If class](if.md)
 - [Elif class](elif.md)
+- [Else class](else.md)
 
 ---
 

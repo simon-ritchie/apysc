@@ -84,11 +84,11 @@ class MouseEventInterfaceBase:
             this=self_instance, handler_name=name,
             event_type=event_type)
 
-    def _unbind_all_events(
+    def _unbind_all_mouse_events(
             self, event_type: EventType,
             handlers_dict: Dict[str, HandlerData]) -> None:
         """
-        Unbind specified all event type's events.
+        Unbind specified all mouse event type's event.
 
         Parameters
         ----------

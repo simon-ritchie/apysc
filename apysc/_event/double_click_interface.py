@@ -82,6 +82,6 @@ class DoubleClickInterface(MouseEventInterfaceBase):
         """
         from apysc import EventType
         self._initialize_dblclick_handlers_if_not_initialized()
-        self._unbind_all_events(
+        self._unbind_all_mouse_events(
             event_type=EventType.DBLCLICK,
             handlers_dict=self._dblclick_handlers)

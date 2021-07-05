@@ -82,5 +82,5 @@ class ClickInterface(MouseEventInterfaceBase):
         """
         from apysc import EventType
         self._initialize_click_handlers_if_not_initialized()
-        self._unbind_all_events(
+        self._unbind_all_mouse_events(
             event_type=EventType.CLICK, handlers_dict=self._click_handlers)

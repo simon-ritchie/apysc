@@ -76,7 +76,7 @@ class TestMouseEventInterfaceBase:
         }
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__unbind_event(self) -> None:
+    def test__unbind_mouse_event(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestClickInterface = _TestClickInterface()
         interface_1.click(handler=self.on_click_1)
@@ -91,12 +91,12 @@ class TestMouseEventInterfaceBase:
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__unbind_all_events(self) -> None:
+    def test__unbind_all_mouse_events(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestClickInterface = _TestClickInterface()
         interface_1.click(handler=self.on_click_1)
         interface_1.click(handler=self.on_click_2)
-        interface_1._unbind_all_events(
+        interface_1._unbind_all_mouse_events(
             event_type=EventType.CLICK,
             handlers_dict=interface_1._click_handlers)
         expression: str = expression_file_util.get_current_expression()

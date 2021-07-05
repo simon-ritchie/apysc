@@ -82,6 +82,6 @@ class MouseOverInterface(MouseEventInterfaceBase):
         """
         from apysc import EventType
         self._initialize_mouse_over_handlers_if_not_initialized()
-        self._unbind_all_events(
+        self._unbind_all_mouse_events(
             event_type=EventType.MOUSEOVER,
             handlers_dict=self._mouse_over_handlers)

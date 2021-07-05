@@ -276,3 +276,19 @@ class Timer(VariableNameInterface):
         expression = indent_util.append_spaces_to_expression(
             expression=expression, indent_num=indent_num)
         return expression
+
+    def timer_complete(
+            self, handler: Handler,
+            options: Optional[Dict[str, Any]]) -> None:
+        """
+        Add a timer complete event listener setting.
+
+        Parameters
+        ----------
+        handler : Handler
+            A callable would be called when the timer is complete.
+        options : dict or None, default None
+            Optional arguments dictionary to be passed to handler.
+        """
+        
+        pass

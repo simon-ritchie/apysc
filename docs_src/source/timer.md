@@ -65,6 +65,6 @@ sprite.click(on_sprite_click, options={'rectangle': rectangle})
 save_overall_html(dest_dir_path='timer_basic_usage/')
 ```
 
-If you click the following rectangle, then timer will be started, and the rectangle x value will be increased by the timer.
+If you click the following rectangle, then the timer will be started, and the rectangle x value will be increased by the timer.
 
 <iframe src="static/timer_basic_usage/index.html" width="350" height="150"></iframe>

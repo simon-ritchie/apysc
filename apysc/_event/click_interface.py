@@ -5,7 +5,7 @@ from typing import Any
 from typing import Dict
 from typing import Optional
 
-from apysc._event.event_interface_base import EventInterfaceBase
+from apysc._event.basic_event_interface_base import EventInterfaceBase
 from apysc._event.handler import Handler
 from apysc._event.handler import HandlerData
 
@@ -18,12 +18,12 @@ class ClickInterface(EventInterfaceBase):
             self, handler: Handler,
             options: Optional[Dict[str, Any]] = None) -> str:
         """
-        Add click event listener setting.
+        Add a click event listener setting.
 
         Parameters
         ----------
         handler : Handler
-            Callable that called when this instance is clicked.
+            A callable would be called when this instance is clicked.
         options : dict or None, default None
             Optional arguments dictionary to be passed to handler.
 

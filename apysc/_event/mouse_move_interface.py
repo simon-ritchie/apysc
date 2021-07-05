@@ -72,7 +72,7 @@ class MouseMoveInterface(MouseEventInterfaceBase):
         """
         from apysc import EventType
         self._initialize_mouse_move_handlers_if_not_initialized()
-        self._unbind_event(
+        self._unbind_mouse_event(
             handler=handler, event_type=EventType.MOUSEMOVE,
             handlers_dict=self._mouse_move_handlers)
 

@@ -72,7 +72,7 @@ class MouseDownInterface(MouseEventInterfaceBase):
         """
         from apysc import EventType
         self._initialize_mouse_down_handlers_if_not_initialized()
-        self._unbind_event(
+        self._unbind_mouse_event(
             handler=handler, event_type=EventType.MOUSEDOWN,
             handlers_dict=self._mouse_down_handlers)
 

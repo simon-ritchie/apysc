@@ -80,7 +80,7 @@ class TestMouseEventInterfaceBase:
         expression_file_util.remove_expression_file()
         interface_1: _TestClickInterface = _TestClickInterface()
         interface_1.click(handler=self.on_click_1)
-        interface_1._unbind_event(
+        interface_1._unbind_mouse_event(
             handler=self.on_click_1,
             event_type=EventType.CLICK,
             handlers_dict=interface_1._click_handlers)

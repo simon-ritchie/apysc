@@ -58,11 +58,11 @@ class MouseEventInterfaceBase:
             'options': options,
         }
 
-    def _unbind_event(
+    def _unbind_mouse_event(
             self, handler: Handler, event_type: EventType,
             handlers_dict: Dict[str, HandlerData]) -> None:
         """
-        Unbind specified handler's event.
+        Unbind specified handler's mouse event.
 
         Parameters
         ----------

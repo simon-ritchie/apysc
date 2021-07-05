@@ -4,7 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import EventType
+from apysc import MouseEventType
 from apysc import MouseEvent
 from apysc._event.mouse_down_interface import MouseDownInterface
 from apysc._expression import expression_file_util
@@ -83,8 +83,8 @@ class TestMouseDownInterface:
         assert interface_1._mouse_down_handlers == {}
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.off("{EventType.MOUSEDOWN.value}", '
-            f'{name});')
+            f'{interface_1.variable_name}.off('
+            f'"{MouseEventType.MOUSEDOWN.value}", {name});')
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -97,6 +97,7 @@ class TestMouseDownInterface:
         assert interface_1._mouse_down_handlers == {}
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.off("{EventType.MOUSEDOWN.value}");'
+            f'{interface_1.variable_name}.off('
+            f'"{MouseEventType.MOUSEDOWN.value}");'
         )
         assert expected in expression

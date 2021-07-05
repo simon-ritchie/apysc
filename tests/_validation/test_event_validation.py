@@ -1,5 +1,5 @@
 from apysc import Event
-from apysc import EventType
+from apysc import MouseEventType
 from apysc import Int
 from apysc._validation import event_validation
 from tests import testing_helper
@@ -23,6 +23,6 @@ def test_validate_event_type() -> None:
         func_or_method=event_validation.validate_event_type,
         kwargs={'mouse_event_type': 100})
 
-    mouse_event_type: EventType = event_validation.validate_event_type(
-        mouse_event_type=EventType.CLICK)
-    assert isinstance(mouse_event_type, EventType)
+    mouse_event_type: MouseEventType = event_validation.validate_event_type(
+        mouse_event_type=MouseEventType.CLICK)
+    assert isinstance(mouse_event_type, MouseEventType)

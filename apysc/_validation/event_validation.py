@@ -9,7 +9,7 @@ Mainly following interfaces are defined.
 from typing import Any
 
 from apysc import Event
-from apysc import EventType
+from apysc import MouseEventType
 
 
 def validate_event(e: Any) -> Event:
@@ -37,21 +37,21 @@ def validate_event(e: Any) -> Event:
         f'Specified instance is not Event type: {type(e)}')
 
 
-def validate_event_type(mouse_event_type: Any) -> EventType:
+def validate_event_type(mouse_event_type: Any) -> MouseEventType:
     """
-    Validate whether specified value is EventType one or not.
+    Validate whether specified value is MouseEventType one or not.
 
     Parameters
     ----------
-    mouse_event_type : EventType
-        EventType value to check.
+    mouse_event_type : MouseEventType
+        EventTMouseEventTypeype value to check.
 
     Returns
     -------
-    mouse_event_type : EventType
-        EventType value.
+    mouse_event_type : MouseEventType
+        MouseEventType value.
     """
-    if isinstance(mouse_event_type, EventType):
+    if isinstance(mouse_event_type, MouseEventType):
         return mouse_event_type
     raise ValueError(
-        f'Specified value is not EventType: {type(mouse_event_type)}')
+        f'Specified value is not a MouseEventType: {type(mouse_event_type)}')

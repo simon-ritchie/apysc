@@ -4,7 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import EventType
+from apysc import MouseEventType
 from apysc import MouseEvent
 from apysc._event.mouse_up_interface import MouseUpInterface
 from apysc._expression import expression_file_util
@@ -81,8 +81,8 @@ class TestMouseUpInterface:
         assert interface_1._mouse_up_handlers == {}
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.off("{EventType.MOUSEUP.value}", '
-            f'{name});'
+            f'{interface_1.variable_name}.off('
+            f'"{MouseEventType.MOUSEUP.value}", {name});'
         )
         assert expected in expression
 
@@ -97,6 +97,6 @@ class TestMouseUpInterface:
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{interface_1.variable_name}.off('
-            f'"{EventType.MOUSEUP.value}");'
+            f'"{MouseEventType.MOUSEUP.value}");'
         )
         assert expected in expression

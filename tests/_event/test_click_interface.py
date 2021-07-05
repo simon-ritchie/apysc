@@ -4,7 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import EventType
+from apysc import MouseEventType
 from apysc import MouseEvent
 from apysc._event.click_interface import ClickInterface
 from apysc._event.handler import get_handler_name
@@ -100,7 +100,7 @@ class TestClickInterface:
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{interface_2.variable_name}.off('
-            f'"{EventType.CLICK.value}", {handler_name});'
+            f'"{MouseEventType.CLICK.value}", {handler_name});'
         )
         assert expected in expression
 
@@ -119,6 +119,6 @@ class TestClickInterface:
         assert interface_2._click_handlers == {}
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'{interface_2.variable_name}.off("{EventType.CLICK.value}");'
+            f'{interface_2.variable_name}.off("{MouseEventType.CLICK.value}");'
         )
         assert expected in expression

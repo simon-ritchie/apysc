@@ -5,7 +5,7 @@ from typing import Any
 from typing import Dict
 from typing import Optional
 
-from apysc._event.mouse_event_type import EventType
+from apysc._event.mouse_event_type import MouseEventType
 from apysc._event.handler import Handler
 from apysc._event.handler import HandlerData
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -59,7 +59,7 @@ class MouseEventInterfaceBase:
         }
 
     def _unbind_mouse_event(
-            self, handler: Handler, mouse_event_type: EventType,
+            self, handler: Handler, mouse_event_type: MouseEventType,
             handlers_dict: Dict[str, HandlerData]) -> None:
         """
         Unbind specified handler's mouse event.
@@ -68,7 +68,7 @@ class MouseEventInterfaceBase:
         ----------
         handler : Handler
             Callable to be unbinded.
-        mouse_event_type : EventType
+        mouse_event_type : MouseEventType
             Event type to unbind.
         handlers_dict : dict
             Dictionary that has handler's data.
@@ -85,14 +85,14 @@ class MouseEventInterfaceBase:
             mouse_event_type=mouse_event_type)
 
     def _unbind_all_mouse_events(
-            self, mouse_event_type: EventType,
+            self, mouse_event_type: MouseEventType,
             handlers_dict: Dict[str, HandlerData]) -> None:
         """
         Unbind specified all mouse event type's event.
 
         Parameters
         ----------
-        mouse_event_type : EventType
+        mouse_event_type : MouseEventType
             Event type to unbind.
         handlers_dict : dict
             Dictionary that has handler's data.
@@ -105,7 +105,7 @@ class MouseEventInterfaceBase:
             this=self_instance, mouse_event_type=mouse_event_type)
 
     def _append_mouse_event_binding_expression(
-            self, name: str, mouse_event_type: EventType) -> None:
+            self, name: str, mouse_event_type: MouseEventType) -> None:
         """
         Append a mouse event binding expression to the file.
 
@@ -113,7 +113,7 @@ class MouseEventInterfaceBase:
         ----------
         name : str
             Handler's name.
-        mouse_event_type : EventType
+        mouse_event_type : MouseEventType
             Event type to bind.
         """
         from apysc import append_js_expression

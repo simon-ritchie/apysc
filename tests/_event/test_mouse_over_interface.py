@@ -4,7 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import EventType
+from apysc import MouseEventType
 from apysc import MouseEvent
 from apysc._event.mouse_over_interface import MouseOverInterface
 from apysc._expression import expression_file_util
@@ -80,8 +80,8 @@ class TestMouseOverInterface:
         assert interface_1._mouse_over_handlers == {}
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.off("{EventType.MOUSEOVER.value}", '
-            f'{name});'
+            f'{interface_1.variable_name}.off('
+            f'"{MouseEventType.MOUSEOVER.value}", {name});'
         )
         assert expected in expression
 
@@ -95,6 +95,7 @@ class TestMouseOverInterface:
         assert interface_1._mouse_over_handlers == {}
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.off("{EventType.MOUSEOVER.value}");'
+            f'{interface_1.variable_name}.off('
+            f'"{MouseEventType.MOUSEOVER.value}");'
         )
         assert expected in expression

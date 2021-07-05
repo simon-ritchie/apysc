@@ -4,7 +4,7 @@
 from enum import Enum
 
 
-class EventType(Enum):
+class MouseEventType(Enum):
 
     CLICK = 'click'
     DBLCLICK = 'dblclick'

@@ -10,7 +10,7 @@ from typing_extensions import Protocol
 from typing_extensions import TypedDict
 
 from apysc._event.event import Event
-from apysc._event.mouse_event_type import EventType
+from apysc._event.mouse_event_type import MouseEventType
 from apysc._type.variable_name_interface import VariableNameInterface
 
 Event_ = Any
@@ -112,7 +112,7 @@ def append_handler_expression(
 
 def append_unbinding_expression(
         this: VariableNameInterface, handler_name: str,
-        mouse_event_type: EventType) -> None:
+        mouse_event_type: MouseEventType) -> None:
     """
     Append event unbinding expression to file.
 
@@ -122,7 +122,7 @@ def append_unbinding_expression(
         Instance that event is binded.
     handler_name : str
         Target handler's name.
-    mouse_event_type : EventType
+    mouse_event_type : MouseEventType
         Event type to unbind.
     """
     from apysc import append_js_expression
@@ -137,7 +137,7 @@ def append_unbinding_expression(
 
 def append_unbinding_all_expression(
         this: VariableNameInterface,
-        mouse_event_type: EventType) -> None:
+        mouse_event_type: MouseEventType) -> None:
     """
     Append all events unbinding expression to file.
 
@@ -145,7 +145,7 @@ def append_unbinding_all_expression(
     ----------
     this : VariableNameInterface
         Instance that events are binded.
-    mouse_event_type : EventType
+    mouse_event_type : MouseEventType
         Event type to unbind.
     """
     from apysc import append_js_expression

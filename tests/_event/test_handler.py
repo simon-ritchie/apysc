@@ -5,7 +5,7 @@ from typing import Dict
 from retrying import retry
 
 from apysc import Event
-from apysc import EventType
+from apysc import MouseEventType
 from apysc import Int
 from apysc._event import handler
 from apysc._event.handler import HandlerData
@@ -102,10 +102,10 @@ def test_append_unbinding_expression() -> None:
     int_1: Int = Int(10)
     handler.append_unbinding_expression(
         this=int_1, handler_name='on_click_1',
-        mouse_event_type=EventType.CLICK)
+        mouse_event_type=MouseEventType.CLICK)
     expression: str = expression_file_util.get_current_expression()
     expected: str = (
-        f'{int_1.variable_name}.off("{EventType.CLICK.value}", '
+        f'{int_1.variable_name}.off("{MouseEventType.CLICK.value}", '
         'on_click_1);'
     )
     assert expected in expression
@@ -116,9 +116,9 @@ def test_append_unbinding_all_expression() -> None:
     expression_file_util.remove_expression_file()
     int_1: Int = Int(10)
     handler.append_unbinding_all_expression(
-        this=int_1, mouse_event_type=EventType.CLICK)
+        this=int_1, mouse_event_type=MouseEventType.CLICK)
     expression: str = expression_file_util.get_current_expression()
     expected: str = (
-        f'{int_1.variable_name}.off("{EventType.CLICK.value}");'
+        f'{int_1.variable_name}.off("{MouseEventType.CLICK.value}");'
     )
     assert expected in expression

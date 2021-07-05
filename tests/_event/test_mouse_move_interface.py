@@ -4,7 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import EventType
+from apysc import MouseEventType
 from apysc import MouseEvent
 from apysc._event.mouse_move_interface import MouseMoveInterface
 from apysc._expression import expression_file_util
@@ -84,8 +84,8 @@ class TestMouseMoveInterface:
         assert interface_1._mouse_move_handlers == {}
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.off("{EventType.MOUSEMOVE.value}", '
-            f'{name});'
+            f'{interface_1.variable_name}.off('
+            f'"{MouseEventType.MOUSEMOVE.value}", {name});'
         )
         assert expected in expression
 
@@ -99,6 +99,7 @@ class TestMouseMoveInterface:
         assert interface_1._mouse_move_handlers == {}
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.off("{EventType.MOUSEMOVE.value}");'
+            f'{interface_1.variable_name}.off('
+            f'"{MouseEventType.MOUSEMOVE.value}");'
         )
         assert expected in expression

@@ -4,7 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import EventType
+from apysc import MouseEventType
 from apysc import MouseEvent
 from apysc._event.click_interface import ClickInterface
 from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
@@ -82,12 +82,12 @@ class TestMouseEventInterfaceBase:
         interface_1.click(handler=self.on_click_1)
         interface_1._unbind_mouse_event(
             handler=self.on_click_1,
-            mouse_event_type=EventType.CLICK,
+            mouse_event_type=MouseEventType.CLICK,
             handlers_dict=interface_1._click_handlers)
         assert interface_1._click_handlers == {}
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.off("{EventType.CLICK.value}",')
+            f'{interface_1.variable_name}.off("{MouseEventType.CLICK.value}",')
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -97,11 +97,11 @@ class TestMouseEventInterfaceBase:
         interface_1.click(handler=self.on_click_1)
         interface_1.click(handler=self.on_click_2)
         interface_1._unbind_all_mouse_events(
-            mouse_event_type=EventType.CLICK,
+            mouse_event_type=MouseEventType.CLICK,
             handlers_dict=interface_1._click_handlers)
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.off("{EventType.CLICK.value}");'
+            f'{interface_1.variable_name}.off("{MouseEventType.CLICK.value}");'
         )
         assert expected in expression
         assert interface_1._click_handlers == {}
@@ -112,10 +112,10 @@ class TestMouseEventInterfaceBase:
         interface_1: _TestClickInterface = _TestClickInterface()
         name: str = interface_1.click(handler=self.on_click_1)
         interface_1._append_mouse_event_binding_expression(
-            name=name, mouse_event_type=EventType.CLICK)
+            name=name, mouse_event_type=MouseEventType.CLICK)
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{interface_1.variable_name}.'
-            f'{EventType.CLICK.value}({name});'
+            f'{MouseEventType.CLICK.value}({name});'
         )
         assert expected in expression

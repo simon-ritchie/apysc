@@ -1,4 +1,4 @@
-"""Class implementation for each event interfaces' base class.
+"""Class implementation for each mouse event interface's base class.
 """
 
 from typing import Any

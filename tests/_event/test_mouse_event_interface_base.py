@@ -7,7 +7,7 @@ from retrying import retry
 from apysc import EventType
 from apysc import MouseEvent
 from apysc._event.click_interface import ClickInterface
-from apysc._event.basic_event_interface_base import EventInterfaceBase
+from apysc._event.mouse_event_interface_base import EventInterfaceBase
 from apysc._event.handler import HandlerData
 from apysc._event.handler import get_handler_name
 from apysc._expression import expression_file_util

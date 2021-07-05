@@ -45,7 +45,7 @@ class MouseUpInterface(MouseEventInterfaceBase):
             handler=handler, handlers_dict=self._mouse_up_handlers,
             options=options)
         self._append_mouse_event_binding_expression(
-            name=name, event_type=EventType.MOUSEUP)
+            name=name, mouse_event_type=EventType.MOUSEUP)
         e: MouseEvent = MouseEvent(this=self_instance)
         append_handler_expression(
             handler_data=self._mouse_up_handlers[name],
@@ -73,7 +73,7 @@ class MouseUpInterface(MouseEventInterfaceBase):
         from apysc import EventType
         self._initialize_mouse_up_handlers_if_not_initialized()
         self._unbind_mouse_event(
-            handler=handler, event_type=EventType.MOUSEUP,
+            handler=handler, mouse_event_type=EventType.MOUSEUP,
             handlers_dict=self._mouse_up_handlers)
 
     def unbind_mouseup_all(self) -> None:
@@ -83,5 +83,5 @@ class MouseUpInterface(MouseEventInterfaceBase):
         from apysc import EventType
         self._initialize_mouse_up_handlers_if_not_initialized()
         self._unbind_all_mouse_events(
-            event_type=EventType.MOUSEUP,
+            mouse_event_type=EventType.MOUSEUP,
             handlers_dict=self._mouse_up_handlers)

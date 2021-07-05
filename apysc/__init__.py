@@ -31,7 +31,7 @@ from apysc._event.event import Event  # isort:skip # noqa
 from apysc._event.mouse_event import MouseEvent  # isort:skip # noqa
 from apysc._event.wheel_event import WheelEvent  # isort:skip # noqa
 from apysc._event.timer_event import TimerEvent  # isort:skip # noqa
-from apysc._event.event_type import EventType  # isort:skip # noqa
+from apysc._event.mouse_event_type import EventType  # isort:skip # noqa
 from apysc._console._trace import trace  # isort:skip # noqa
 from apysc._console.assertion import assert_equal  # isort:skip # noqa
 from apysc._console.assertion import assert_not_equal  # isort:skip # noqa

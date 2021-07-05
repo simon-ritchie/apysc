@@ -10,7 +10,7 @@ from typing_extensions import Protocol
 from typing_extensions import TypedDict
 
 from apysc._event.event import Event
-from apysc._event.event_type import EventType
+from apysc._event.mouse_event_type import EventType
 from apysc._type.variable_name_interface import VariableNameInterface
 
 Event_ = Any
@@ -112,7 +112,7 @@ def append_handler_expression(
 
 def append_unbinding_expression(
         this: VariableNameInterface, handler_name: str,
-        event_type: EventType) -> None:
+        mouse_event_type: EventType) -> None:
     """
     Append event unbinding expression to file.
 
@@ -122,21 +122,22 @@ def append_unbinding_expression(
         Instance that event is binded.
     handler_name : str
         Target handler's name.
-    event_type : EventType
+    mouse_event_type : EventType
         Event type to unbind.
     """
     from apysc import append_js_expression
     from apysc._validation import event_validation
-    event_validation.validate_event_type(event_type=event_type)
+    event_validation.validate_event_type(mouse_event_type=mouse_event_type)
     expression: str = (
-        f'{this.variable_name}.off("{event_type.value}", {handler_name});'
+        f'{this.variable_name}.off("{mouse_event_type.value}", '
+        f'{handler_name});'
     )
     append_js_expression(expression=expression)
 
 
 def append_unbinding_all_expression(
         this: VariableNameInterface,
-        event_type: EventType) -> None:
+        mouse_event_type: EventType) -> None:
     """
     Append all events unbinding expression to file.
 
@@ -144,13 +145,13 @@ def append_unbinding_all_expression(
     ----------
     this : VariableNameInterface
         Instance that events are binded.
-    event_type : EventType
+    mouse_event_type : EventType
         Event type to unbind.
     """
     from apysc import append_js_expression
     from apysc._validation import event_validation
-    event_validation.validate_event_type(event_type=event_type)
+    event_validation.validate_event_type(mouse_event_type=mouse_event_type)
     expression: str = (
-        f'{this.variable_name}.off("{event_type.value}");'
+        f'{this.variable_name}.off("{mouse_event_type.value}");'
     )
     append_js_expression(expression=expression)

@@ -1,4 +1,4 @@
-"""Definitions of event type.
+"""Definitions of the mouse event type.
 """
 
 from enum import Enum

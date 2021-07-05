@@ -37,21 +37,21 @@ def validate_event(e: Any) -> Event:
         f'Specified instance is not Event type: {type(e)}')
 
 
-def validate_event_type(event_type: Any) -> EventType:
+def validate_event_type(mouse_event_type: Any) -> EventType:
     """
     Validate whether specified value is EventType one or not.
 
     Parameters
     ----------
-    event_type : EventType
+    mouse_event_type : EventType
         EventType value to check.
 
     Returns
     -------
-    event_type : EventType
+    mouse_event_type : EventType
         EventType value.
     """
-    if isinstance(event_type, EventType):
-        return event_type
+    if isinstance(mouse_event_type, EventType):
+        return mouse_event_type
     raise ValueError(
-        f'Specified value is not EventType: {type(event_type)}')
+        f'Specified value is not EventType: {type(mouse_event_type)}')

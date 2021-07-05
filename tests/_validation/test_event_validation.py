@@ -21,8 +21,8 @@ def test_validate_event_type() -> None:
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         func_or_method=event_validation.validate_event_type,
-        kwargs={'event_type': 100})
+        kwargs={'mouse_event_type': 100})
 
-    event_type: EventType = event_validation.validate_event_type(
-        event_type=EventType.CLICK)
-    assert isinstance(event_type, EventType)
+    mouse_event_type: EventType = event_validation.validate_event_type(
+        mouse_event_type=EventType.CLICK)
+    assert isinstance(mouse_event_type, EventType)

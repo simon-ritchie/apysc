@@ -45,7 +45,7 @@ class MouseOverInterface(MouseEventInterfaceBase):
             handler=handler, handlers_dict=self._mouse_over_handlers,
             options=options)
         self._append_mouse_event_binding_expression(
-            name=name, event_type=EventType.MOUSEOVER)
+            name=name, mouse_event_type=EventType.MOUSEOVER)
         e: MouseEvent = MouseEvent(this=self_instance)
         append_handler_expression(
             handler_data=self._mouse_over_handlers[name],
@@ -73,7 +73,7 @@ class MouseOverInterface(MouseEventInterfaceBase):
         from apysc import EventType
         self._initialize_mouse_over_handlers_if_not_initialized()
         self._unbind_mouse_event(
-            handler=handler, event_type=EventType.MOUSEOVER,
+            handler=handler, mouse_event_type=EventType.MOUSEOVER,
             handlers_dict=self._mouse_over_handlers)
 
     def unbind_mouseover_all(self) -> None:
@@ -83,5 +83,5 @@ class MouseOverInterface(MouseEventInterfaceBase):
         from apysc import EventType
         self._initialize_mouse_over_handlers_if_not_initialized()
         self._unbind_all_mouse_events(
-            event_type=EventType.MOUSEOVER,
+            mouse_event_type=EventType.MOUSEOVER,
             handlers_dict=self._mouse_over_handlers)

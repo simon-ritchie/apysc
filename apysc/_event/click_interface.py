@@ -45,7 +45,7 @@ class ClickInterface(MouseEventInterfaceBase):
             handler=handler, handlers_dict=self._click_handlers,
             options=options)
         self._append_mouse_event_binding_expression(
-            name=name, event_type=EventType.CLICK)
+            name=name, mouse_event_type=EventType.CLICK)
         e: MouseEvent = MouseEvent(this=self_instance)
         append_handler_expression(
             handler_data=self._click_handlers[name],
@@ -73,7 +73,7 @@ class ClickInterface(MouseEventInterfaceBase):
         from apysc import EventType
         self._initialize_click_handlers_if_not_initialized()
         self._unbind_mouse_event(
-            handler=handler, event_type=EventType.CLICK,
+            handler=handler, mouse_event_type=EventType.CLICK,
             handlers_dict=self._click_handlers)
 
     def unbind_click_all(self) -> None:
@@ -83,4 +83,5 @@ class ClickInterface(MouseEventInterfaceBase):
         from apysc import EventType
         self._initialize_click_handlers_if_not_initialized()
         self._unbind_all_mouse_events(
-            event_type=EventType.CLICK, handlers_dict=self._click_handlers)
+            mouse_event_type=EventType.CLICK,
+            handlers_dict=self._click_handlers)

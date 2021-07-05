@@ -5,7 +5,7 @@ from typing import Any
 from typing import Dict
 from typing import Optional
 
-from apysc._event.event_type import EventType
+from apysc._event.mouse_event_type import EventType
 from apysc._event.handler import Handler
 from apysc._event.handler import HandlerData
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -59,7 +59,7 @@ class MouseEventInterfaceBase:
         }
 
     def _unbind_mouse_event(
-            self, handler: Handler, event_type: EventType,
+            self, handler: Handler, mouse_event_type: EventType,
             handlers_dict: Dict[str, HandlerData]) -> None:
         """
         Unbind specified handler's mouse event.
@@ -68,7 +68,7 @@ class MouseEventInterfaceBase:
         ----------
         handler : Handler
             Callable to be unbinded.
-        event_type : EventType
+        mouse_event_type : EventType
             Event type to unbind.
         handlers_dict : dict
             Dictionary that has handler's data.
@@ -82,17 +82,17 @@ class MouseEventInterfaceBase:
             del handlers_dict[name]
         append_unbinding_expression(
             this=self_instance, handler_name=name,
-            event_type=event_type)
+            mouse_event_type=mouse_event_type)
 
     def _unbind_all_mouse_events(
-            self, event_type: EventType,
+            self, mouse_event_type: EventType,
             handlers_dict: Dict[str, HandlerData]) -> None:
         """
         Unbind specified all mouse event type's event.
 
         Parameters
         ----------
-        event_type : EventType
+        mouse_event_type : EventType
             Event type to unbind.
         handlers_dict : dict
             Dictionary that has handler's data.
@@ -102,10 +102,10 @@ class MouseEventInterfaceBase:
             self._validate_self_is_variable_name_interface()
         handlers_dict.clear()
         append_unbinding_all_expression(
-            this=self_instance, event_type=event_type)
+            this=self_instance, mouse_event_type=mouse_event_type)
 
     def _append_mouse_event_binding_expression(
-            self, name: str, event_type: EventType) -> None:
+            self, name: str, mouse_event_type: EventType) -> None:
         """
         Append a mouse event binding expression to the file.
 
@@ -113,7 +113,7 @@ class MouseEventInterfaceBase:
         ----------
         name : str
             Handler's name.
-        event_type : EventType
+        mouse_event_type : EventType
             Event type to bind.
         """
         from apysc import append_js_expression
@@ -122,6 +122,6 @@ class MouseEventInterfaceBase:
             self._validate_self_is_variable_name_interface()
         expression: str = (
             f'{self_instance.variable_name}'
-            f'.{event_type.value}({name});'
+            f'.{mouse_event_type.value}({name});'
         )
         append_js_expression(expression=expression)

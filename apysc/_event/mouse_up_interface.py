@@ -41,7 +41,7 @@ class MouseUpInterface(MouseEventInterfaceBase):
             self._validate_self_is_variable_name_interface()
         self._initialize_mouse_up_handlers_if_not_initialized()
         name: str = get_handler_name(handler=handler, instance=self)
-        self._set_handler_data(
+        self._set_mouse_event_handler_data(
             handler=handler, handlers_dict=self._mouse_up_handlers,
             options=options)
         self._append_event_binding_expression(

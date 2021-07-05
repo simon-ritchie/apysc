@@ -33,17 +33,17 @@ class MouseEventInterfaceBase:
             validate_variable_name_interface_type
         return validate_variable_name_interface_type(instance=self)
 
-    def _set_handler_data(
+    def _set_mouse_event_handler_data(
             self, handler: Handler,
             handlers_dict: Dict[str, HandlerData],
             options: Optional[Dict[str, Any]]) -> None:
         """
-        Set handler's data to the given dictionary.
+        Set a handler's data to the given dictionary.
 
         Parameters
         ----------
         handler : Handler
-            Callable that called when event is dispatched.
+            Callable would be called when event is dispatched.
         handlers_dict : dict
             Dictionary to be set handler's data.
         options : dict or None, default None

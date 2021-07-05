@@ -59,10 +59,10 @@ class TestMouseEventInterfaceBase:
             match='Specified instance type is not VariableNameInterface')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__set_handler_data(self) -> None:
+    def test__set_mouse_event_handler_data(self) -> None:
         handlers_dict: Dict[str, HandlerData] = {}
         interface_1: _TestClickInterface = _TestClickInterface()
-        interface_1._set_handler_data(
+        interface_1._set_mouse_event_handler_data(
             handler=self.on_click_1,
             handlers_dict=handlers_dict,
             options=None)

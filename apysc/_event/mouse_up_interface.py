@@ -44,7 +44,7 @@ class MouseUpInterface(MouseEventInterfaceBase):
         self._set_mouse_event_handler_data(
             handler=handler, handlers_dict=self._mouse_up_handlers,
             options=options)
-        self._append_event_binding_expression(
+        self._append_mouse_event_binding_expression(
             name=name, event_type=EventType.MOUSEUP)
         e: MouseEvent = MouseEvent(this=self_instance)
         append_handler_expression(

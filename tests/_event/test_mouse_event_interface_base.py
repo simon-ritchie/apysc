@@ -107,11 +107,11 @@ class TestMouseEventInterfaceBase:
         assert interface_1._click_handlers == {}
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__append_event_binding_expression(self) -> None:
+    def test__append_mouse_event_binding_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestClickInterface = _TestClickInterface()
         name: str = interface_1.click(handler=self.on_click_1)
-        interface_1._append_event_binding_expression(
+        interface_1._append_mouse_event_binding_expression(
             name=name, event_type=EventType.CLICK)
         expression: str = expression_file_util.get_current_expression()
         expected: str = (

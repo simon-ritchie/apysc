@@ -44,7 +44,7 @@ class MouseOutInterface(MouseEventInterfaceBase):
         self._set_mouse_event_handler_data(
             handler=handler, handlers_dict=self._mouse_out_handlers,
             options=options)
-        self._append_event_binding_expression(
+        self._append_mouse_event_binding_expression(
             name=name, event_type=EventType.MOUSEOUT)
         e: MouseEvent = MouseEvent(this=self_instance)
         append_handler_expression(

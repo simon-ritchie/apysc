@@ -104,10 +104,10 @@ class MouseEventInterfaceBase:
         append_unbinding_all_expression(
             this=self_instance, event_type=event_type)
 
-    def _append_event_binding_expression(
+    def _append_mouse_event_binding_expression(
             self, name: str, event_type: EventType) -> None:
         """
-        Append event binding expression to file.
+        Append a mouse event binding expression to the file.
 
         Parameters
         ----------

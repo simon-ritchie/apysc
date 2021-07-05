@@ -5,12 +5,12 @@ from typing import Any
 from typing import Dict
 from typing import Optional
 
-from apysc._event.mouse_event_interface_base import EventInterfaceBase
+from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
 from apysc._event.handler import Handler
 from apysc._event.handler import HandlerData
 
 
-class MouseDownInterface(EventInterfaceBase):
+class MouseDownInterface(MouseEventInterfaceBase):
 
     _mouse_down_handlers: Dict[str, HandlerData]
 

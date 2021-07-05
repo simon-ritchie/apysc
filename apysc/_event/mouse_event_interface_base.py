@@ -11,7 +11,7 @@ from apysc._event.handler import HandlerData
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class EventInterfaceBase:
+class MouseEventInterfaceBase:
 
     def _validate_self_is_variable_name_interface(
             self) -> VariableNameInterface:

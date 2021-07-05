@@ -7,7 +7,7 @@ from retrying import retry
 from apysc import EventType
 from apysc import MouseEvent
 from apysc._event.click_interface import ClickInterface
-from apysc._event.mouse_event_interface_base import EventInterfaceBase
+from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
 from apysc._event.handler import HandlerData
 from apysc._event.handler import get_handler_name
 from apysc._expression import expression_file_util
@@ -23,7 +23,7 @@ class _TestClickInterface(ClickInterface, VariableNameInterface):
         self.variable_name = 'test_click_interface'
 
 
-class TestEventInterfaceBase:
+class TestMouseEventInterfaceBase:
 
     def on_click_1(self, e: MouseEvent, options: Dict[str, Any]) -> None:
         """
@@ -51,7 +51,7 @@ class TestEventInterfaceBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_validate_self_is_variable_name_interface(self) -> None:
-        interface_1: EventInterfaceBase = EventInterfaceBase()
+        interface_1: MouseEventInterfaceBase = MouseEventInterfaceBase()
         testing_helper.assert_raises(
             expected_error_class=TypeError,
             func_or_method=interface_1.

@@ -77,9 +77,8 @@ class CustomEventInterface:
         name : str
             Handler's name.
         """
-        from apysc._validation import variable_name_validation
-        self_instance: VariableNameInterface = variable_name_validation.\
-            validate_variable_name_interface_type(instance=self)
         custom_event_type_str: str = self._get_custom_event_type_str(
             custom_event_type=custom_event_type)
+        self._initialize_custom_event_handlers_if_not_initialized(
+            custom_event_type_str=custom_event_type_str)
         pass

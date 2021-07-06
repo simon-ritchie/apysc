@@ -4,6 +4,7 @@
 from typing_extensions import Final
 
 DOCUMENT: Final[str] = 'document'
+BLANK_OBJECT: Final[str] = 'bo'
 DISPLAY_OBJECT: Final[str] = 'do'
 PARENT: Final[str] = 'parent'
 GRAPHICS: Final[str] = 'g'

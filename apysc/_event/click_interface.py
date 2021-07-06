@@ -25,7 +25,7 @@ class ClickInterface(MouseEventInterfaceBase):
         handler : Handler
             A callable would be called when this instance is clicked.
         options : dict or None, default None
-            Optional arguments dictionary to be passed to handler.
+            Optional arguments dictionary to be passed to a handler.
 
         Returns
         -------
@@ -54,7 +54,7 @@ class ClickInterface(MouseEventInterfaceBase):
 
     def _initialize_click_handlers_if_not_initialized(self) -> None:
         """
-        Initialize _click_handlers attribute if it is not
+        Initialize _click_handlers attribute if it hasn't been
         initialized yet.
         """
         if hasattr(self, '_click_handlers'):

@@ -4,6 +4,6 @@
 from enum import Enum
 
 
-class CustomEventYype(Enum):
+class CustomEventType(Enum):
 
     TIMER_COMPLETE = 'timer_complete'

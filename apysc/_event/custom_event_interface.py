@@ -20,14 +20,20 @@ class CustomEventInterface:
         _CustomEventType, Dict[_HandlerName, HandlerData]]
 
     def _initialize_custom_event_handlers_if_not_initialized(
-            self) -> None:
+            self, custom_event_type_str: str) -> None:
         """
         Initialize the _custom_event_handlers data if it hasn't been
         initialized yet.
 
         Parameters
         ----------
+        custom_event_type_str : str
+            Target custom event type string.
         """
+        if not hasattr(self, '_custom_event_handlers'):
+            self._custom_event_handlers = {}
+        if custom_event_type_str not in self._custom_event_handlers:
+            self._custom_event_handlers[custom_event_type_str] = {}
 
     def _get_custom_event_type_str(
             self,

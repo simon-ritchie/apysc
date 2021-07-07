@@ -25,3 +25,16 @@ class BlankObjectInterface:
         )
         expression_file_util.append_js_expression(expression=expression)
         self._is_blank_object_initialized = True
+
+    @property
+    def blank_object_variable_name(self) -> str:
+        """
+        Get a blank object variable name.
+
+        Returns
+        -------
+        blank_object_variable_name : str
+            A blank object variable name.
+        """
+        self._initialize_blank_object_if_not_initialized()
+        return self._blank_object_variable_name

@@ -21,3 +21,11 @@ class TestBlankObjectInterface:
             f'var {interface._blank_object_variable_name} = {{}};'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_blank_object_variable_name(self) -> None:
+        interface: BlankObjectInterface = BlankObjectInterface()
+        blank_object_variable_name: str = interface.blank_object_variable_name
+        assert blank_object_variable_name.startswith(
+            f'{var_names.BLANK_OBJECT}_'
+        )

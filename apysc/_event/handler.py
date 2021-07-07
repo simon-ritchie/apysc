@@ -76,7 +76,7 @@ def append_handler_expression(
         handler_data: HandlerData, handler_name: str,
         e: Event) -> None:
     """
-    Append handler's expression to file.
+    Append a handler's expression to the file.
 
     Parameters
     ----------

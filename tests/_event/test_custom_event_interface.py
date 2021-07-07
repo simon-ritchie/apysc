@@ -83,3 +83,19 @@ class TestCustomEventInterface:
             f'.on("test_custom_event", {name});'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_bind_custom_event(self) -> None:
+        expression_file_util.empty_expression_dir()
+        interface: _TestObject = _TestObject()
+        e: Event = Event(this=interface)
+        name: str = interface.bind_custom_event(
+            custom_event_type='test_custom_event',
+            handler=self.on_custom_event,
+            e=e)
+        expression: str = expression_file_util.\
+            get_current_event_handler_scope_expression()
+        expected: str = (
+            f'function {name}({e.variable_name}) {{'
+        )
+        assert expected in expression

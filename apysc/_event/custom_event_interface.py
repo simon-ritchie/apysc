@@ -1,7 +1,7 @@
 """Class implementation for the custom event interface.
 """
 
-from typing import Any, Union
+from typing import Any, List, Union
 from typing import Dict
 from typing import Optional
 
@@ -107,6 +107,7 @@ class CustomEventInterface(BlankObjectInterface):
             Handler's name.
         """
         from apysc._event.handler import get_handler_name
+        from apysc._event.handler import append_handler_expression
         custom_event_type_str: str = self._get_custom_event_type_str(
             custom_event_type=custom_event_type)
         self._initialize_custom_event_handlers_if_not_initialized(
@@ -117,6 +118,10 @@ class CustomEventInterface(BlankObjectInterface):
         name: str = get_handler_name(handler=handler, instance=self)
         self._append_custom_event_binding_expression(
             custom_event_type_str=custom_event_type_str, name=name)
+        handler_data: HandlerData = self._custom_event_handlers[
+            custom_event_type_str][name]
+        append_handler_expression(
+            handler_data=handler_data, handler_name=name, e=e)
         return name
 
     def _append_custom_event_binding_expression(

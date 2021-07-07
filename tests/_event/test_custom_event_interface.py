@@ -1,3 +1,4 @@
+from apysc._expression import expression_file_util
 from random import randint
 from typing import Any, Dict
 
@@ -66,3 +67,19 @@ class TestCustomEventInterface:
         }
         assert interface._custom_event_handlers['test_custom_event'][name] == \
             expected
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_custom_event_binding_expression(self) -> None:
+        expression_file_util.empty_expression_dir()
+        interface: _TestObject = _TestObject()
+        e: Event = Event(this=interface)
+        name: str = interface.bind_custom_event(
+            custom_event_type='test_custom_event',
+            handler=self.on_custom_event,
+            e=e)
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'$({interface.blank_object_variable_name})'
+            f'.on("test_custom_event", {name});'
+        )
+        assert expected in expression

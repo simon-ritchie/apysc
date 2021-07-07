@@ -7,7 +7,6 @@ from typing import Optional
 
 from apysc._event.handler import Handler
 from apysc._event.handler import HandlerData
-from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._event.custom_event_type import CustomEventType
 from apysc._type.blank_object_interface import BlankObjectInterface
 from apysc._event.event import Event
@@ -116,5 +115,26 @@ class CustomEventInterface(BlankObjectInterface):
             handler=handler, custom_event_type_str=custom_event_type_str,
             options=options)
         name: str = get_handler_name(handler=handler, instance=self)
-        # self._append_custom_event_binding_expression()
+        self._append_custom_event_binding_expression(
+            custom_event_type_str=custom_event_type_str, name=name)
         return name
+
+    def _append_custom_event_binding_expression(
+            self, custom_event_type_str: str, name: str) -> None:
+        """
+        Append a custom event binding expression to the file.
+
+        Parameters
+        ----------
+        custom_event_type_str : str
+            Target custom event type string.
+        name : str
+            Handler's name.
+        """
+        from apysc import append_js_expression
+        blank_object_variable_name: str = self.blank_object_variable_name
+        expression: str = (
+            f'$({blank_object_variable_name})'
+            f'.on("{custom_event_type_str}", {name});'
+        )
+        append_js_expression(expression=expression)

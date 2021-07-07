@@ -46,7 +46,7 @@ class MouseEventInterfaceBase:
             Callable would be called when event is dispatched.
         handlers_dict : dict
             Dictionary to be set handler's data.
-        options : dict or None, default None
+        options : dict or None
             Optional arguments dictionary to be passed to handler.
         """
         from apysc._event.handler import get_handler_name

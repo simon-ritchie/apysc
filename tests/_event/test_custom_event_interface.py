@@ -1,12 +1,36 @@
 from random import randint
+from typing import Any, Dict
 
 from retrying import retry
 
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.custom_event_type import CustomEventType
+from apysc import Event
+from apysc._type.variable_name_interface import VariableNameInterface
+
+
+class _TestObject(CustomEventInterface, VariableNameInterface):
+
+    def __init__(self) -> None:
+        """
+        Test object class.
+        """
+        self.variable_name = 'test_object'
 
 
 class TestCustomEventInterface:
+
+    def on_custom_event(self, e: Event, options: Dict[str, Any]) -> None:
+        """
+        The test handler.
+
+        Parameters
+        ----------
+        e : Event
+            Event instance.
+        options : dict
+            Optional arguments dictionary.
+        """
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_custom_event_type_str(self) -> None:
@@ -27,3 +51,18 @@ class TestCustomEventInterface:
         interface._initialize_custom_event_handlers_if_not_initialized(
             custom_event_type_str='test_custom_event')
         assert 'test_custom_event' in interface._custom_event_handlers
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__set_custom_event_handler_data(self) -> None:
+        interface: _TestObject = _TestObject()
+        e: Event = Event(this=interface)
+        name: str = interface.bind_custom_event(
+            custom_event_type='test_custom_event',
+            handler=self.on_custom_event,
+            e=e)
+        expected: Dict[str, Any] = {
+            'handler': self.on_custom_event,
+            'options': {},
+        }
+        assert interface._custom_event_handlers['test_custom_event'][name] == \
+            expected

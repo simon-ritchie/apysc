@@ -14,8 +14,9 @@ class BlankObjectInterface:
         Initialize a blank object value if it hasn't been
         initialized yet.
         """
-        from apysc._expression import var_names, expression_file_util
+        from apysc._expression import expression_file_util
         from apysc._expression import expression_variables_util
+        from apysc._expression import var_names
         from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
         if self._is_blank_object_initialized:

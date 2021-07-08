@@ -5,8 +5,8 @@ from typing import Dict
 from retrying import retry
 
 from apysc import Event
-from apysc import MouseEventType
 from apysc import Int
+from apysc import MouseEventType
 from apysc._event import handler
 from apysc._event.handler import HandlerData
 from apysc._expression import expression_file_util

@@ -4,8 +4,8 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import MouseEventType
 from apysc import MouseEvent
+from apysc import MouseEventType
 from apysc._event.mouse_down_interface import MouseDownInterface
 from apysc._expression import expression_file_util
 from apysc._type.variable_name_interface import VariableNameInterface

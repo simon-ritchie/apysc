@@ -2,8 +2,9 @@ from random import randint
 
 from retrying import retry
 
+from apysc._expression import expression_file_util
+from apysc._expression import var_names
 from apysc._type.blank_object_interface import BlankObjectInterface
-from apysc._expression import var_names, expression_file_util
 
 
 class TestBlankObjectInterface:

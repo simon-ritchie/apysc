@@ -5,9 +5,9 @@ from typing import Any
 from typing import Dict
 from typing import Optional
 
-from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
 from apysc._event.handler import Handler
 from apysc._event.handler import HandlerData
+from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
 
 
 class MouseOverInterface(MouseEventInterfaceBase):
@@ -32,8 +32,8 @@ class MouseOverInterface(MouseEventInterfaceBase):
         name : str
             Handler's name.
         """
-        from apysc import MouseEventType
         from apysc import MouseEvent
+        from apysc import MouseEventType
         from apysc._event.handler import append_handler_expression
         from apysc._event.handler import get_handler_name
         from apysc._type.variable_name_interface import VariableNameInterface

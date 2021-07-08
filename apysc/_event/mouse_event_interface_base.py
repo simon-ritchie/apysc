@@ -5,9 +5,9 @@ from typing import Any
 from typing import Dict
 from typing import Optional
 
-from apysc._event.mouse_event_type import MouseEventType
 from apysc._event.handler import Handler
 from apysc._event.handler import HandlerData
+from apysc._event.mouse_event_type import MouseEventType
 from apysc._type.variable_name_interface import VariableNameInterface
 
 

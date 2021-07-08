@@ -1,12 +1,13 @@
-from apysc._expression import expression_file_util
 from random import randint
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 from retrying import retry
 
+from apysc import Event
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.custom_event_type import CustomEventType
-from apysc import Event
+from apysc._expression import expression_file_util
 from apysc._type.variable_name_interface import VariableNameInterface
 
 

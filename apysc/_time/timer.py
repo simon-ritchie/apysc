@@ -9,12 +9,12 @@ from typing import Union
 from apysc import Boolean
 from apysc import Int
 from apysc import Number
+from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.handler import Handler
 from apysc._event.handler import HandlerData
 from apysc._time.fps import FPS
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._event.custom_event_interface import CustomEventInterface
 
 
 class Timer(VariableNameInterface, CustomEventInterface):
@@ -226,10 +226,10 @@ class Timer(VariableNameInterface, CustomEventInterface):
         Append the timer stopping expression by the counting
         to the file.
         """
+        from apysc._event.custom_event_type import CustomEventType
         from apysc._expression import expression_file_util
         from apysc._expression.indent_num import Indent
         from apysc._type import value_util
-        from apysc._event.custom_event_type import CustomEventType
         current_count_val_str: str = value_util.get_value_str_for_expression(
             value=self._current_count)
         repeat_count_val_str: str = value_util.get_value_str_for_expression(
@@ -299,8 +299,8 @@ class Timer(VariableNameInterface, CustomEventInterface):
         name : str
             Handler's name.
         """
-        from apysc._event.custom_event_type import CustomEventType
         from apysc import TimerEvent
+        from apysc._event.custom_event_type import CustomEventType
         e: TimerEvent = TimerEvent(this=self)
         name: str = self.bind_custom_event(
             custom_event_type=CustomEventType.TIMER_COMPLETE,

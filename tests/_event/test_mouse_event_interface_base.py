@@ -4,12 +4,12 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import MouseEventType
 from apysc import MouseEvent
+from apysc import MouseEventType
 from apysc._event.click_interface import ClickInterface
-from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
 from apysc._event.handler import HandlerData
 from apysc._event.handler import get_handler_name
+from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
 from apysc._expression import expression_file_util
 from apysc._type.variable_name_interface import VariableNameInterface
 from tests import testing_helper

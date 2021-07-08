@@ -9,17 +9,15 @@ from retrying import retry
 
 from apysc import FPS
 from apysc import Boolean
-from apysc import Event
 from apysc import Int
 from apysc import Number
 from apysc import Timer
 from apysc import TimerEvent
+from apysc._event.custom_event_type import CustomEventType
 from apysc._event.handler import Handler
 from apysc._expression import expression_file_util
 from apysc._expression import var_names
 from tests.testing_helper import assert_attrs
-from apysc._event.custom_event_type import CustomEventType
-from apysc._event.handler import HandlerData
 
 
 class TestTimer:

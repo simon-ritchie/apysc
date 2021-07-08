@@ -12,18 +12,11 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Int
-from apysc import LineDotSetting
-from apysc import Number
-from apysc import Rectangle
-from apysc import Sprite
 from apysc import Stage
-from apysc import String
-from apysc import assert_not_equal
 from apysc import save_overall_html
+from apysc._expression import expression_file_util
 from apysc._file import file_util
 from apysc._type.blank_object_interface import BlankObjectInterface
-from apysc._expression import expression_file_util
 
 this_module: ModuleType = sys.modules[__name__]
 

@@ -74,6 +74,17 @@ def main() -> None:
         options={'rect': rectangle_4})
     timer_3.start()
 
+    sprite.graphics.begin_fill(color='#a0f')
+    rectangle_5: Rectangle = sprite.graphics.draw_rect(
+        x=450, y=50, width=50, height=50)
+    timer_4: Timer = Timer(
+        handler=on_timer_2, delay=FPS.FPS_60, repeat_count=100,
+        options={'rect': rectangle_5})
+    timer_4.timer_complete(
+        on_timer_complete,
+        options={'msg': 'Triggered timer complete event!'})
+    timer_4.start()
+
     save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
@@ -130,6 +141,20 @@ def on_rectangle_click(
         delay=33.3,
         options={'rect': e.this})
     timer.start()
+
+
+def on_timer_complete(e: TimerEvent, options: Dict[str, Any]) -> None:
+    """
+    The handler would be called when a timer complete.
+
+    Parameters
+    ----------
+    e : TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    trace(options['msg'])
 
 
 if __name__ == '__main__':

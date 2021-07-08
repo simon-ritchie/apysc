@@ -14,9 +14,10 @@ from apysc._event.handler import HandlerData
 from apysc._time.fps import FPS
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._event.custom_event_interface import CustomEventInterface
 
 
-class Timer(VariableNameInterface):
+class Timer(VariableNameInterface, CustomEventInterface):
 
     _handler: Handler
     _delay: Number
@@ -228,6 +229,7 @@ class Timer(VariableNameInterface):
         from apysc._expression import expression_file_util
         from apysc._expression.indent_num import Indent
         from apysc._type import value_util
+        from apysc._event.custom_event_type import CustomEventType
         current_count_val_str: str = value_util.get_value_str_for_expression(
             value=self._current_count)
         repeat_count_val_str: str = value_util.get_value_str_for_expression(
@@ -240,6 +242,8 @@ class Timer(VariableNameInterface):
         expression_file_util.append_js_expression(expression=expression)
         with Indent():
             self._running.value = False
+            self.trigger_custom_event(
+                custom_event_type=CustomEventType.TIMER_COMPLETE)
         expression = '\n}'
         expression_file_util.append_js_expression(expression=expression)
 
@@ -279,7 +283,7 @@ class Timer(VariableNameInterface):
 
     def timer_complete(
             self, handler: Handler,
-            options: Optional[Dict[str, Any]]) -> None:
+            options: Optional[Dict[str, Any]] = None) -> str:
         """
         Add a timer complete event listener setting.
 
@@ -289,6 +293,18 @@ class Timer(VariableNameInterface):
             A callable would be called when the timer is complete.
         options : dict or None, default None
             Optional arguments dictionary to be passed to handler.
+
+        Returns
+        -------
+        name : str
+            Handler's name.
         """
-        
-        pass
+        from apysc._event.custom_event_type import CustomEventType
+        from apysc import TimerEvent
+        e: TimerEvent = TimerEvent(this=self)
+        name: str = self.bind_custom_event(
+            custom_event_type=CustomEventType.TIMER_COMPLETE,
+            handler=handler,
+            e=e,
+            options=options)
+        return name

@@ -18,17 +18,32 @@ from apysc._event.handler import Handler
 from apysc._expression import expression_file_util
 from apysc._expression import var_names
 from tests.testing_helper import assert_attrs
+from apysc._event.custom_event_type import CustomEventType
+from apysc._event.handler import HandlerData
 
 
 class TestTimer:
 
-    def on_timer(self, e: Event, options: Dict[str, Any]) -> None:
+    def on_timer(self, e: TimerEvent, options: Dict[str, Any]) -> None:
         """
         The handler for the timer event.
 
         Parameters
         ----------
-        e : Event
+        e : TimerEvent
+            Event instance.
+        options : dict
+            Optional arguments dictionary.
+        """
+
+    def on_timer_complete(
+            self, e: TimerEvent, options: Dict[str, Any]) -> None:
+        """
+        Ther handler for the timer complete event.
+
+        Parameters
+        ----------
+        e : TimerEvent
             Event instance.
         options : dict
             Optional arguments dictionary.
@@ -176,6 +191,17 @@ class TestTimer:
             flags=re.MULTILINE | re.DOTALL)
         assert match is not None
 
+        event_type: str = CustomEventType.TIMER_COMPLETE.value
+        match = re.search(
+            pattern=(
+                rf'\$\({timer.blank_object_variable_name}\)'
+                rf'\.trigger\("{event_type}"\);'
+            ),
+            string=expression,
+            flags=re.MULTILINE,
+        )
+        assert match is not None
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__convert_delay_to_number(self) -> None:
         timer: Timer = Timer(
@@ -192,3 +218,14 @@ class TestTimer:
             handler=self.on_timer, delay=FPS.FPS_60)
         assert timer.delay == 16.6666667
         assert isinstance(timer.delay, Number)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_timer_complete(self) -> None:
+        expression_file_util.empty_expression_dir()
+        timer: Timer = Timer(
+            handler=self.on_timer, delay=33.3)
+        name: str = timer.timer_complete(handler=self.on_timer_complete)
+        assert isinstance(
+            timer._custom_event_handlers[
+                CustomEventType.TIMER_COMPLETE.value][name],
+            dict)

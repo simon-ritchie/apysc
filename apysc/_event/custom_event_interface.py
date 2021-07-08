@@ -143,3 +143,23 @@ class CustomEventInterface(BlankObjectInterface):
             f'.on("{custom_event_type_str}", {name});'
         )
         append_js_expression(expression=expression)
+
+    def trigger_custom_event(
+            self, custom_event_type: Union[CustomEventType, str]) -> None:
+        """
+        Add a custom event trigger setting.
+
+        Parameters
+        ----------
+        custom_event_type : CustomEventType or str
+            Target custom event type.
+        """
+        from apysc import append_js_expression
+        blank_object_variable_name: str = self.blank_object_variable_name
+        custom_event_type_str: str = self._get_custom_event_type_str(
+            custom_event_type=custom_event_type)
+        expression: str = (
+            f'$({blank_object_variable_name})'
+            f'.trigger("{custom_event_type_str}");'
+        )
+        append_js_expression(expression=expression)

@@ -14,9 +14,9 @@ Creating stage is simple, like this:
 
 ```py
 # runnable
-from apysc import Stage
+import apysc as ap
 
-stage: Stage = Stage()
+stage: ap.Stage = ap.Stage()
 ```
 
 ## Stage background color setting
@@ -25,14 +25,13 @@ stage: Stage = Stage()
 
 ```py
 # runnable
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_elem_id='stage')
 
-save_overall_html(dest_dir_path='stage_background_color/')
+ap.save_overall_html(dest_dir_path='stage_background_color/')
 ```
 
 This will create HTML with black background stage, as follows:
@@ -45,15 +44,14 @@ Stage class has options to set stage width and stage height (arguments of `stage
 
 ```py
 # runnable
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     stage_width=500, stage_height=50,
     background_color='#333',
     stage_elem_id='stage')
 
-save_overall_html(dest_dir_path='stage_size/')
+ap.save_overall_html(dest_dir_path='stage_size/')
 ```
 
 The Previous script will create a horizontal stage, as follows:
@@ -66,9 +64,9 @@ Stage element id (HTML id) can be set by `stage_elem_id` argument. If this will 
 
 ```py
 # runnable
-from apysc import Stage
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_elem_id='line_chart_1')
 ```

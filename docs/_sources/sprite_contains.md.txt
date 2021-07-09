@@ -15,17 +15,11 @@ The following example will check whether the first rectangle is a child of the `
 from typing import Any
 from typing import Dict
 
-from apysc import MouseEvent
-from apysc import Sprite
-from apysc import Stage
-from apysc import Rectangle
-from apysc import Boolean
-from apysc import If
-from apysc import save_overall_html, trace
+import apysc as ap
 
 
 def on_sprite_click(
-        e: MouseEvent[Sprite], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Sprite], options: Dict[str, Any]) -> None:
     """
     The handler would be called when the sprite instance is clicked.
 
@@ -36,23 +30,23 @@ def on_sprite_click(
     options : dict
         Optional arguments dictionary.
     """
-    sprite: Sprite = e.this
-    rectangle_1: Rectangle = options['rectangle_1']
-    condition: Boolean = sprite.graphics.contains(child=rectangle_1)
-    with If(condition):
+    sprite: ap.Sprite = e.this
+    rectangle_1: ap.Rectangle = options['rectangle_1']
+    condition: ap.Boolean = sprite.graphics.contains(child=rectangle_1)
+    with ap.If(condition):
         sprite.remove_child(child=rectangle_1)
-        trace('Removed the rectangle!')
+        ap.trace('Removed the rectangle!')
 
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
-rectangle_1: Rectangle = sprite.graphics.draw_rect(
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 sprite.graphics.draw_rect(
     x=150, y=50, width=50, height=50)
@@ -60,7 +54,7 @@ sprite.click(
     on_sprite_click,
     options={'rectangle_1': rectangle_1})
 
-save_overall_html(dest_dir_path='sprite_contains_basic_usage/')
+ap.save_overall_html(dest_dir_path='sprite_contains_basic_usage/')
 ```
 
 <iframe src="static/sprite_contains_basic_usage/index.html" width="250" height="150"></iframe>

@@ -12,21 +12,19 @@ The `Sprite` instance has the `graphics` attribute and you can draw each vector 
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-save_overall_html(dest_dir_path='sprite_graphics_attribute/')
+ap.save_overall_html(dest_dir_path='sprite_graphics_attribute/')
 ```
 
 <iframe src="static/sprite_graphics_attribute/index.html" width="150" height="150"></iframe>
@@ -47,14 +45,11 @@ The `Sprite` class is a container and if you move that coordinates, then childre
 # runnable
 from typing import Any, Dict
 
-from apysc import Sprite
-from apysc import Stage
-from apysc import MouseEvent
-from apysc import save_overall_html
+import apysc as ap
 
 
 def on_sprite_click(
-        e: MouseEvent[Sprite], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Sprite], options: Dict[str, Any]) -> None:
     """
     The handler would be called when the sprite instance is clicked.
 
@@ -65,23 +60,23 @@ def on_sprite_click(
     options : dict
         Optional arguments dictionary.
     """
-    sprite: Sprite = e.this
+    sprite: ap.Sprite = e.this
     sprite.y += 50
 
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=250,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 sprite.click(on_sprite_click)
 
-save_overall_html(dest_dir_path='sprite_move_instances_simultaneously/')
+ap.save_overall_html(dest_dir_path='sprite_move_instances_simultaneously/')
 ```
 
 <iframe src="static/sprite_move_instances_simultaneously/index.html" width="250" height="250"></iframe>

@@ -8,21 +8,21 @@ The `String` class addition operation (`+`) will return the concatenated `String
 
 ```py
 # runnable
-from apysc import String
+import apysc as ap
 
-string_1: String = String('Hello')
-string_2: String = string_1 + ' World!'
+string_1: ap.String = ap.String('Hello')
+string_2: ap.String = string_1 + ' World!'
 assert string_2 == 'Hello World!'
-assert isinstance(string_2, String)
+assert isinstance(string_2, ap.String)
 ```
 
 Also, the `+=` operator is supported:
 
 ```py
 # runnable
-from apysc import String
+import apysc as ap
 
-string_1: String = String('Hello')
+string_1: ap.String = ap.String('Hello')
 string_1 += ' World!'
 assert string_1 == 'Hello World!'
 ```
@@ -31,21 +31,21 @@ A `String` value + Python built-in `str` operation is supported. Similarly, a `S
 
 ```py
 # runnable
-from apysc import String
+import apysc as ap
 
-string_1: String = String('Hello')
-string_2: String = String(' World!')
-string_3: String = string_1 + string_2
+string_1: ap.String = ap.String('Hello')
+string_2: ap.String = ap.String(' World!')
+string_3: ap.String = string_1 + string_2
 assert string_3 == 'Hello World!'
 ```
 
 But a Python built-in `str` + `String` value is not supported, for instance, the following code will raise the error:
 
 ```py
-from apysc import String
+import apysc as ap
 
-string_1: String = String(' World!')
-string_2: String = 'Hello' + string_1
+string_1: ap.String = ap.String(' World!')
+string_2: ap.String = 'Hello' + string_1
 ```
 
 ```
@@ -58,10 +58,10 @@ The `String` class multiplication operation (`*`) will return the repeated `Stri
 
 ```py
 # runnable
-from apysc import String
+import apysc as ap
 
-string_1: String = String('Hello')
-string_2: String = string_1 * 3
+string_1: ap.String = ap.String('Hello')
+string_2: ap.String = string_1 * 3
 assert string_2 == 'HelloHelloHello'
 ```
 
@@ -69,10 +69,10 @@ The `int` or `Int` values are acceptable at the operation's right-side value:
 
 ```py
 # runnable
-from apysc import String, Int
+import apysc as ap
 
-string_1: String = String('Hello')
-int_1: Int = Int(3)
-string_2: String = string_1 * int_1
+string_1: ap.String = ap.String('Hello')
+int_1: ap.Int = ap.Int(3)
+string_2: ap.String = string_1 * int_1
 assert string_2 == 'HelloHelloHello'
 ```

@@ -22,15 +22,11 @@ The following example will bind the mouse over and handler and mouse out one to 
 # runnable
 from typing import Any, Dict
 
-from apysc import Sprite
-from apysc import Stage
-from apysc import String
-from apysc import Rectangle
-from apysc import MouseEvent
-from apysc import save_overall_html
+import apysc as ap
 
 
-def on_mouseover(e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
+def on_mouseover(
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
     """
     The handler would be called when the cursor is over
     the rectangle.
@@ -42,13 +38,14 @@ def on_mouseover(e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: Rectangle = e.this
+    rectangle: ap.Rectangle = e.this
 
     # Change the rectangle fill color to magenta.
-    rectangle.fill_color = String('#f0a')
+    rectangle.fill_color = ap.String('#f0a')
 
 
-def on_mouseout(e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
+def on_mouseout(
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
     """
     The handler would be called when the cursor is outed
     from the rectangle.
@@ -60,29 +57,29 @@ def on_mouseout(e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: Rectangle = e.this
+    rectangle: ap.Rectangle = e.this
 
     # Revert the rectangle fill color.
-    rectangle.fill_color = String('#0af')
+    rectangle.fill_color = ap.String('#0af')
 
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 sprite.graphics.begin_fill(color='#0af')
-rectangle: Rectangle = sprite.graphics.draw_rect(
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 
 # Bind the mouse over and mouse out event handlers to the rectangle.
 rectangle.mouseover(on_mouseover)
 rectangle.mouseout(on_mouseout)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='mouseover_and_mouseout_basic_usage/')
 ```
 
@@ -98,15 +95,11 @@ The following example will unbind handlers in the `on_mouseover` and `on_mouseou
 # runnable
 from typing import Any, Dict
 
-from apysc import Sprite
-from apysc import Stage
-from apysc import String
-from apysc import Rectangle
-from apysc import MouseEvent
-from apysc import save_overall_html
+import apysc as ap
 
 
-def on_mouseover(e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
+def on_mouseover(
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
     """
     The handler would be called when the cursor is over
     the rectangle.
@@ -118,14 +111,15 @@ def on_mouseover(e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: Rectangle = e.this
-    rectangle.fill_color = String('#f0a')
+    rectangle: ap.Rectangle = e.this
+    rectangle.fill_color = ap.String('#f0a')
 
     # Unbind the mouseover handler.
     rectangle.unbind_mouseover(handler=on_mouseover)
 
 
-def on_mouseout(e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
+def on_mouseout(
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
     """
     The handler would be called when the cursor is outed
     from the rectangle.
@@ -137,28 +131,28 @@ def on_mouseout(e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: Rectangle = e.this
-    rectangle.fill_color = String('#0af')
+    rectangle: ap.Rectangle = e.this
+    rectangle.fill_color = ap.String('#0af')
 
     rectangle.unbind_mouseout(handler=on_mouseout)
 
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 sprite.graphics.begin_fill(color='#0af')
-rectangle: Rectangle = sprite.graphics.draw_rect(
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 
 rectangle.mouseover(on_mouseover)
 rectangle.mouseout(on_mouseout)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='mouseover_and_mouseout_unbind_interfaces/')
 ```
 

@@ -21,17 +21,11 @@ The following example will append a new rectangle when you click the sprite (rec
 from typing import Any
 from typing import Dict
 
-from apysc import MouseEvent
-from apysc import Rectangle
-from apysc import Sprite
-from apysc import Stage
-from apysc import Int
-from apysc import save_overall_html
-from apysc import trace
+import apysc as ap
 
 
 def on_sprite_click(
-        e: MouseEvent[Sprite], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Sprite], options: Dict[str, Any]) -> None:
     """
     The handler would be called when the sprite instance is clicked.
 
@@ -42,31 +36,31 @@ def on_sprite_click(
     options : dict
         Optional arguments dictionary.
     """
-    sprite: Sprite = e.this
-    rectangle_x: Int = (sprite.num_children - 1) * 100 + 50
-    new_rect: Rectangle = sprite.graphics.draw_rect(
+    sprite: ap.Sprite = e.this
+    rectangle_x: ap.Int = (sprite.num_children - 1) * 100 + 50
+    new_rect: ap.Rectangle = sprite.graphics.draw_rect(
         x=rectangle_x,
         y=50, width=50, height=50)
     sprite.add_child(new_rect)
-    trace(
+    ap.trace(
         'Current sprite children number:', sprite.num_children,
         'rectangle x:', rectangle_x)
 
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=450,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
-rectangle_1: Rectangle = sprite.graphics.draw_rect(
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 sprite.add_child(rectangle_1)
 sprite.click(on_sprite_click)
 
-save_overall_html(dest_dir_path='sprite_num_children_basic_usage/')
+ap.save_overall_html(dest_dir_path='sprite_num_children_basic_usage/')
 ```
 
 <iframe src="static/sprite_num_children_basic_usage/index.html" width="450" height="150"></iframe>

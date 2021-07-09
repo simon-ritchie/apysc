@@ -50,38 +50,38 @@
 <h2>Addition<a class="headerlink" href="#addition" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">String</span></code> class addition operation (<code class="docutils literal notranslate"><span class="pre">+</span></code>) will return the concatenated <code class="docutils literal notranslate"><span class="pre">String</span></code> value:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
-<span class="n">string_2</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">+</span> <span class="s1">&#39; World!&#39;</span>
+<span class="n">string_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="n">string_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">+</span> <span class="s1">&#39; World!&#39;</span>
 <span class="k">assert</span> <span class="n">string_2</span> <span class="o">==</span> <span class="s1">&#39;Hello World!&#39;</span>
-<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">string_2</span><span class="p">,</span> <span class="n">String</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">string_2</span><span class="p">,</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Also, the <code class="docutils literal notranslate"><span class="pre">+=</span></code> operator is supported:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="n">string_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
 <span class="n">string_1</span> <span class="o">+=</span> <span class="s1">&#39; World!&#39;</span>
 <span class="k">assert</span> <span class="n">string_1</span> <span class="o">==</span> <span class="s1">&#39;Hello World!&#39;</span>
 </pre></div>
 </div>
 <p>A <code class="docutils literal notranslate"><span class="pre">String</span></code> value + Python built-in <code class="docutils literal notranslate"><span class="pre">str</span></code> operation is supported. Similarly, a <code class="docutils literal notranslate"><span class="pre">String</span></code> value + <code class="docutils literal notranslate"><span class="pre">String</span></code> value operation is also supported:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
-<span class="n">string_2</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39; World!&#39;</span><span class="p">)</span>
-<span class="n">string_3</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">+</span> <span class="n">string_2</span>
+<span class="n">string_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="n">string_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39; World!&#39;</span><span class="p">)</span>
+<span class="n">string_3</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">+</span> <span class="n">string_2</span>
 <span class="k">assert</span> <span class="n">string_3</span> <span class="o">==</span> <span class="s1">&#39;Hello World!&#39;</span>
 </pre></div>
 </div>
 <p>But a Python built-in <code class="docutils literal notranslate"><span class="pre">str</span></code> + <code class="docutils literal notranslate"><span class="pre">String</span></code> value is not supported, for instance, the following code will raise the error:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39; World!&#39;</span><span class="p">)</span>
-<span class="n">string_2</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="s1">&#39;Hello&#39;</span> <span class="o">+</span> <span class="n">string_1</span>
+<span class="n">string_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39; World!&#39;</span><span class="p">)</span>
+<span class="n">string_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="s1">&#39;Hello&#39;</span> <span class="o">+</span> <span class="n">string_1</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">TypeError</span><span class="p">:</span> <span class="n">must</span> <span class="n">be</span> <span class="nb">str</span><span class="p">,</span> <span class="ow">not</span> <span class="n">String</span>
@@ -92,20 +92,20 @@
 <h2>Multiplication<a class="headerlink" href="#multiplication" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">String</span></code> class multiplication operation (<code class="docutils literal notranslate"><span class="pre">*</span></code>) will return the repeated <code class="docutils literal notranslate"><span class="pre">String</span></code> value, same behaviors as the Python built-in <code class="docutils literal notranslate"><span class="pre">str</span></code> value:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
-<span class="n">string_2</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="n">string_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="n">string_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">*</span> <span class="mi">3</span>
 <span class="k">assert</span> <span class="n">string_2</span> <span class="o">==</span> <span class="s1">&#39;HelloHelloHello&#39;</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">Int</span></code> values are acceptable at the operation’s right-side value:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">string_2</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">*</span> <span class="n">int_1</span>
+<span class="n">string_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">string_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">*</span> <span class="n">int_1</span>
 <span class="k">assert</span> <span class="n">string_2</span> <span class="o">==</span> <span class="s1">&#39;HelloHelloHello&#39;</span>
 </pre></div>
 </div>

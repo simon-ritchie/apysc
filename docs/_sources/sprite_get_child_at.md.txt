@@ -12,27 +12,23 @@ The following code example is adding the rectangle to the sprite container. The 
 
 ```py
 # runnable
-from apysc import DisplayObject
-from apysc import Rectangle
-from apysc import Sprite
-from apysc import Stage
-from apysc import Graphics
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=450,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
-rectangle_1: Rectangle = sprite.graphics.draw_rect(
+rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 sprite.add_child(rectangle_1)
 
-first_child: DisplayObject = sprite.get_child_at(index=0)
-assert isinstance(first_child, Graphics)
+first_child: ap.DisplayObject = sprite.get_child_at(index=0)
+assert isinstance(first_child, ap.Graphics)
 
-second_child: DisplayObject = sprite.get_child_at(index=1)
-assert isinstance(second_child, Rectangle)
+second_child: ap.DisplayObject = sprite.get_child_at(index=1)
+assert isinstance(second_child, ap.Rectangle)
 ```

@@ -14,16 +14,15 @@ The following code example will export the HTML and JavaScript files, and the bl
 
 ```py
 # runnable
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='save_overall_html_interface_basic_usage/')
 ```
 
@@ -36,16 +35,15 @@ The preceding code will export the `save_overall_html_interface_basic_usage/inde
 The `save_overall_html` function has the `minify` optional argument (default is True). If this value is True an output HTML (`index.html`) will be minified. The `False` setting will be useful for the debug.
 
 ```py
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='dest_dir/',
     minify=False)
 ```
@@ -59,16 +57,15 @@ This is sometimes useful when you want to export the HTML with specified JavaScr
 Also, the `skip_js_lib_exporting` option will maybe be useful when you want to skip the already exported js files.
 
 ```py
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='dest_dir/',
     js_lib_dir_path='static/js/',
     skip_js_lib_exporting=True)
@@ -81,16 +78,15 @@ Notes: The `js_lib_dir_path` option will not change the js files exporting desti
 If you need to change the output HTML file name, then use the `html_file_name` optional argument. This argument will change the HTML file name from `index.html` to any other name.
 
 ```py
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='dest_dir/',
     html_file_name='chart.html')
 ```
@@ -100,16 +96,15 @@ save_overall_html(
 You can bundle each JavaScript library to the single output HTML file by the `embed_js_libs` optional argument. This option will maybe be useful when you need to pass the output file to the other members.
 
 ```py
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='dest_dir/',
     embed_js_libs=True)
 ```
@@ -119,16 +114,15 @@ save_overall_html(
 The `verbose` optional argument will change the exporting stdout behavior. If 0 is specified to this option, the stdout will not be displayed. If 1 or the other values is specified, the stdout will be displayed.
 
 ```py
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='dest_dir/',
     verbose=0)
 ```

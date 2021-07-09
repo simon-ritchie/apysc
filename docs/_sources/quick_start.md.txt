@@ -18,22 +18,21 @@ $ pip install apysc
 
 ```py
 # runnable
-from apysc import Stage
+import apysc as ap
 
-stage = Stage(stage_width=300, stage_height=180, background_color='#333')
+stage = ap.Stage(stage_width=300, stage_height=180, background_color='#333')
 ```
 
 Then you can export each HTML and js files by the `save_overall_html` function (in this case, only the black background stage will be displayed).
 
 ```py
 # runnable
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     stage_width=300, stage_height=180, background_color='#333',
     stage_elem_id='stage')
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='quick_start_stage_creation/')
 ```
 
@@ -43,18 +42,16 @@ This code will create each HTML and js files to `dest_dir_path`. You can confirm
 
 ## Add sprite container and vector graphics
 
-`Sprite` class is the basic container object of each display object, and it can make vector graphics with graphics property.
+`Sprite` class is the basic container object of each display object, and it can make vector graphics with the `graphics` property.
 
 ```py
 # runnable
-from apysc import Stage
-from apysc import Sprite
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     stage_width=250, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: Sprite = Sprite(stage)
+sprite: ap.Sprite = ap.Sprite(stage)
 
 # Draw polyline vector graphics.
 sprite.graphics.line_style(color='#fff', thickness=3)
@@ -67,7 +64,7 @@ sprite.graphics.line_to(x=100, y=100)
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='quick_start_sprite_graphics/')
 ```
 

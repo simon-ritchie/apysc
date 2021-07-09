@@ -68,7 +68,7 @@ ap.save_overall_html(dest_dir_path='timer_delay_basic_usage/')
 
 ## Set the FPS enum value to the delay argument
 
-You can also pass the `FPS` (frames per second) enum value to the `delay` argument. If the `FPS.FPS_60` is specified, timer delay will be 60 frames per second (16.6666667 milliseconds). Likely, the `FPS.FPS_30` is specified, timer delay will be 30 frames per second (33.3333333 milliseconds).
+You can also pass the `FPS` (frames per second) enum value to the `delay` argument. If the `FPS.FPS_60` is specified, a timer delay will be 60 frames per second (16.6666667 milliseconds). Likely, the `FPS.FPS_30` is specified, a timer delay will be 30 frames per second (33.3333333 milliseconds).
 
 ```py
 # runnable

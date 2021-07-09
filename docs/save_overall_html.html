@@ -55,16 +55,15 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">save_overall_html</span></code> function need at least one argument, <code class="docutils literal notranslate"><span class="pre">dest_dir_path</span></code>. This argument will determine a directory path to save HTML and JavaScript files.</p>
 <p>The following code example will export the HTML and JavaScript files, and the blank stage (150 px width and height) will be displayed on the HTML.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 
-<span class="n">save_overall_html</span><span class="p">(</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;save_overall_html_interface_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -73,16 +72,15 @@
 <section id="minify-the-html">
 <h2>Minify the HTML<a class="headerlink" href="#minify-the-html" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">save_overall_html</span></code> function has the <code class="docutils literal notranslate"><span class="pre">minify</span></code> optional argument (default is True). If this value is True an output HTML (<code class="docutils literal notranslate"><span class="pre">index.html</span></code>) will be minified. The <code class="docutils literal notranslate"><span class="pre">False</span></code> setting will be useful for the debug.</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 
-<span class="n">save_overall_html</span><span class="p">(</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;dest_dir/&#39;</span><span class="p">,</span>
     <span class="n">minify</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -93,16 +91,15 @@
 <p>If you want to adjust the JavaScript library paths, then set the <code class="docutils literal notranslate"><span class="pre">js_lib_dir_path</span></code> optional argument. This option will override the JavaScript library paths in an exported HTML (<code class="docutils literal notranslate"><span class="pre">index.html</span></code>).</p>
 <p>This is sometimes useful when you want to export the HTML with specified JavaScript library paths, for instance, the Django library static directory.</p>
 <p>Also, the <code class="docutils literal notranslate"><span class="pre">skip_js_lib_exporting</span></code> option will maybe be useful when you want to skip the already exported js files.</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 
-<span class="n">save_overall_html</span><span class="p">(</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;dest_dir/&#39;</span><span class="p">,</span>
     <span class="n">js_lib_dir_path</span><span class="o">=</span><span class="s1">&#39;static/js/&#39;</span><span class="p">,</span>
     <span class="n">skip_js_lib_exporting</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -113,16 +110,15 @@
 <section id="change-the-html-file-name-by-the-html-file-name-option">
 <h2>Change the HTML file name by the html_file_name option<a class="headerlink" href="#change-the-html-file-name-by-the-html-file-name-option" title="Permalink to this headline">¶</a></h2>
 <p>If you need to change the output HTML file name, then use the <code class="docutils literal notranslate"><span class="pre">html_file_name</span></code> optional argument. This argument will change the HTML file name from <code class="docutils literal notranslate"><span class="pre">index.html</span></code> to any other name.</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 
-<span class="n">save_overall_html</span><span class="p">(</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;dest_dir/&#39;</span><span class="p">,</span>
     <span class="n">html_file_name</span><span class="o">=</span><span class="s1">&#39;chart.html&#39;</span><span class="p">)</span>
 </pre></div>
@@ -131,16 +127,15 @@
 <section id="bundle-each-javascript-library-to-the-signle-html-file-by-the-embed-js-libs-option">
 <h2>Bundle each JavaScript library to the signle HTML file by the embed_js_libs option<a class="headerlink" href="#bundle-each-javascript-library-to-the-signle-html-file-by-the-embed-js-libs-option" title="Permalink to this headline">¶</a></h2>
 <p>You can bundle each JavaScript library to the single output HTML file by the <code class="docutils literal notranslate"><span class="pre">embed_js_libs</span></code> optional argument. This option will maybe be useful when you need to pass the output file to the other members.</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 
-<span class="n">save_overall_html</span><span class="p">(</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;dest_dir/&#39;</span><span class="p">,</span>
     <span class="n">embed_js_libs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -149,16 +144,15 @@
 <section id="change-the-stdout-setting-by-the-verbose-option">
 <h2>Change the stdout setting by the verbose option<a class="headerlink" href="#change-the-stdout-setting-by-the-verbose-option" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">verbose</span></code> optional argument will change the exporting stdout behavior. If 0 is specified to this option, the stdout will not be displayed. If 1 or the other values is specified, the stdout will be displayed.</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 
-<span class="n">save_overall_html</span><span class="p">(</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;dest_dir/&#39;</span><span class="p">,</span>
     <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>

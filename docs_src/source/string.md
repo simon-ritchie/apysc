@@ -12,12 +12,12 @@ The `String` class is the apysc string class. It can accept `str` or `String` va
 
 ```py
 # runnable
-from apysc import String
+import apysc as ap
 
-string_1: String = String('Hello')
+string_1: ap.String = ap.String('Hello')
 assert string_1 == 'Hello'
 
-string_2: String = String(string_1)
+string_2: ap.String = ap.String(string_1)
 assert string_2 == 'Hello'
 ```
 

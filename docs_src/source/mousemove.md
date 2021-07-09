@@ -23,14 +23,11 @@ The following example will bind the mouse move event handler to the circle and i
 from typing import Any
 from typing import Dict
 
-from apysc import MouseEvent
-from apysc import Sprite
-from apysc import Stage
-from apysc import Circle
-from apysc import save_overall_html
+import apysc as ap
 
 
-def on_mousemove(e: MouseEvent[Circle], options: Dict[str, Any]) -> None:
+def on_mousemove(
+        e: ap.MouseEvent[ap.Circle], options: Dict[str, Any]) -> None:
     """
     The handler would be called when a mouse cursor is moved
     on the circle.
@@ -42,23 +39,23 @@ def on_mousemove(e: MouseEvent[Circle], options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    circle: Circle = e.this
+    circle: ap.Circle = e.this
     circle.x = e.stage_x
     circle.y = e.stage_y
 
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=200,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
-circle: Circle = sprite.graphics.draw_circle(x=100, y=100, radius=100)
+circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=100)
 circle.mousemove(on_mousemove)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='mousemove_basic_usage/')
 ```
 
@@ -75,14 +72,11 @@ In the following example, if you click the circle then the mouse move event hand
 from typing import Any
 from typing import Dict
 
-from apysc import MouseEvent
-from apysc import Sprite
-from apysc import Stage
-from apysc import Circle
-from apysc import save_overall_html
+import apysc as ap
 
 
-def on_mousemove(e: MouseEvent[Circle], options: Dict[str, Any]) -> None:
+def on_mousemove(
+        e: ap.MouseEvent[ap.Circle], options: Dict[str, Any]) -> None:
     """
     The handler would be called when a mouse cursor is moved
     on the circle.
@@ -94,12 +88,12 @@ def on_mousemove(e: MouseEvent[Circle], options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    circle: Circle = e.this
+    circle: ap.Circle = e.this
     circle.x = e.stage_x
     circle.y = e.stage_y
 
 
-def on_click(e: MouseEvent[Circle], options: Dict[str, Any]) -> None:
+def on_click(e: ap.MouseEvent[ap.Circle], options: Dict[str, Any]) -> None:
     """
     The handler would be called when the circle is clicked.
 
@@ -110,23 +104,23 @@ def on_click(e: MouseEvent[Circle], options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    circle: Circle = e.this
+    circle: ap.Circle = e.this
     circle.unbind_mousemove(handler=on_mousemove)
 
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=200,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
-circle: Circle = sprite.graphics.draw_circle(x=100, y=100, radius=100)
+circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=100)
 circle.mousemove(on_mousemove)
 circle.click(on_click)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='mousemove_unbind_interface/')
 ```
 

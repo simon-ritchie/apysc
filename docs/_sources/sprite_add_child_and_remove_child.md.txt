@@ -23,15 +23,11 @@ For example, the following code will call the `remove_child` interface in the cl
 from typing import Any
 from typing import Dict
 
-from apysc import MouseEvent
-from apysc import Sprite
-from apysc import Stage
-from apysc import Rectangle
-from apysc import save_overall_html
+import apysc as ap
 
 
 def on_sprite_click(
-        e: MouseEvent[Sprite], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Sprite], options: Dict[str, Any]) -> None:
     """
     The handler would be called when the sprite instance is clicked.
 
@@ -42,24 +38,24 @@ def on_sprite_click(
     options : dict
         Optional arguments dictionary.
     """
-    sprite: Sprite = e.this
-    rectangle: Rectangle = options['rectangle']
+    sprite: ap.Sprite = e.this
+    rectangle: ap.Rectangle = options['rectangle']
     sprite.remove_child(child=rectangle)
 
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
-rectangle: Rectangle = sprite.graphics.draw_rect(
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 sprite.click(on_sprite_click, options={'rectangle': rectangle})
 
-save_overall_html(dest_dir_path='sprite_basic_usage_of_remove_child/')
+ap.save_overall_html(dest_dir_path='sprite_basic_usage_of_remove_child/')
 ```
 
 <iframe src="static/sprite_basic_usage_of_remove_child/index.html" width="150" height="150"></iframe>
@@ -75,16 +71,11 @@ The following code example will remove the rectangle from the first `Sprite` con
 from typing import Any
 from typing import Dict
 
-from apysc import MouseEvent
-from apysc import Sprite
-from apysc import Stage
-from apysc import Rectangle
-from apysc import Int
-from apysc import save_overall_html
+import apysc as ap
 
 
 def on_sprite_click(
-        e: MouseEvent[Sprite], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Sprite], options: Dict[str, Any]) -> None:
     """
     The handler would be called when the sprite instance is clicked.
 
@@ -95,35 +86,35 @@ def on_sprite_click(
     options : dict
         Optional arguments dictionary.
     """
-    first_sprite: Sprite = e.this
-    rectangle: Rectangle = options['rectangle']
-    second_sprite: Sprite = options['second_sprite']
+    first_sprite: ap.Sprite = e.this
+    rectangle: ap.Rectangle = options['rectangle']
+    second_sprite: ap.Sprite = options['second_sprite']
     first_sprite.remove_child(child=rectangle)
     second_sprite.add_child(child=rectangle)
 
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=150,
     stage_elem_id='stage')
 
-first_sprite: Sprite = Sprite(stage=stage)
+first_sprite: ap.Sprite = ap.Sprite(stage=stage)
 first_sprite.graphics.begin_fill(color='#0af')
-first_sprite.x = Int(50)
-first_sprite.y = Int(50)
-rectangle: Rectangle = first_sprite.graphics.draw_rect(
+first_sprite.x = ap.Int(50)
+first_sprite.y = ap.Int(50)
+rectangle: ap.Rectangle = first_sprite.graphics.draw_rect(
     x=0, y=0, width=50, height=50)
 
-second_sprite: Sprite = Sprite(stage=stage)
-second_sprite.x = Int(150)
-second_sprite.y = Int(50)
+second_sprite: ap.Sprite = ap.Sprite(stage=stage)
+second_sprite.x = ap.Int(150)
+second_sprite.y = ap.Int(50)
 
 first_sprite.click(
     on_sprite_click,
     options={'rectangle': rectangle, 'second_sprite': second_sprite})
 
-save_overall_html(dest_dir_path='sprite_basic_usage_of_add_child/')
+ap.save_overall_html(dest_dir_path='sprite_basic_usage_of_add_child/')
 ```
 
 <iframe src="static/sprite_basic_usage_of_add_child/index.html" width="250" height="150"></iframe>

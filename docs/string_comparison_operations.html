@@ -48,34 +48,34 @@
 <p>This page will explain the <code class="docutils literal notranslate"><span class="pre">String</span></code> class comparison operations, like the <code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>.</p>
 <section id="comparison-return-value-type">
 <h2>Comparison return value type<a class="headerlink" href="#comparison-return-value-type" title="Permalink to this headline">¶</a></h2>
-<p>Each <code class="docutils literal notranslate"><span class="pre">String</span></code> class comparison operations will return a <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value, not a Python built-in <code class="docutils literal notranslate"><span class="pre">bool</span></code> value.</p>
+<p>Each <code class="docutils literal notranslate"><span class="pre">String</span></code> class comparison operation will return a <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value, not a Python built-in <code class="docutils literal notranslate"><span class="pre">bool</span></code> value.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">==</span> <span class="s1">&#39;Hello&#39;</span>
+<span class="n">string_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">==</span> <span class="s1">&#39;Hello&#39;</span>
 <span class="k">assert</span> <span class="n">result</span>
-<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">Boolean</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
-<section id="acceptable-comparison-other-value-types">
-<h2>Acceptable comparison other value types<a class="headerlink" href="#acceptable-comparison-other-value-types" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">str</span></code> or <code class="docutils literal notranslate"><span class="pre">String</span></code> types of a comparison other value (comparison right-side value) types are acceptable, for instance:</p>
+<section id="acceptable-comparison-right-side-value-types">
+<h2>Acceptable comparison right-side value types<a class="headerlink" href="#acceptable-comparison-right-side-value-types" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">str</span></code> or <code class="docutils literal notranslate"><span class="pre">String</span></code> types of comparison other value (comparison right-side value) types are acceptable, for instance:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">==</span> <span class="s1">&#39;Hello&#39;</span>
+<span class="n">string_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">==</span> <span class="s1">&#39;Hello&#39;</span>
 <span class="k">assert</span> <span class="n">result</span>
 </pre></div>
 </div>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
-<span class="n">string_2</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">==</span> <span class="n">string_2</span>
+<span class="n">string_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="n">string_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">==</span> <span class="n">string_2</span>
 <span class="k">assert</span> <span class="n">result</span>
 </pre></div>
 </div>
@@ -84,10 +84,10 @@
 <h2>Equal comparison<a class="headerlink" href="#equal-comparison" title="Permalink to this headline">¶</a></h2>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator for the equal comparison:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">==</span> <span class="s1">&#39;Hello&#39;</span>
+<span class="n">string_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">==</span> <span class="s1">&#39;Hello&#39;</span>
 <span class="k">assert</span> <span class="n">result</span>
 </pre></div>
 </div>
@@ -96,46 +96,46 @@
 <h2>Not equal comparison<a class="headerlink" href="#not-equal-comparison" title="Permalink to this headline">¶</a></h2>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">!=</span></code> operator for the not equal comparison:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">!=</span> <span class="s1">&#39;World&#39;</span>
+<span class="n">string_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">!=</span> <span class="s1">&#39;World&#39;</span>
 <span class="k">assert</span> <span class="n">result</span>
 </pre></div>
 </div>
 </section>
 <section id="less-than-or-greater-than-comparison">
 <h2>Less than or greater than comparison<a class="headerlink" href="#less-than-or-greater-than-comparison" title="Permalink to this headline">¶</a></h2>
-<p>You can use each less than, less than or equal, greater than, greater than or equal comparison, with the <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> operators, like the Python built-in <code class="docutils literal notranslate"><span class="pre">str</span></code> value. Sometimes these operations are useful to compare date (or datetime) string.</p>
+<p>You can use each less than, less than or equal, greater than, greater than or equal comparison, with the <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> operators, like the Python built-in <code class="docutils literal notranslate"><span class="pre">str</span></code> value. Sometimes these operations are useful to compare with the date (or date-time) string.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;1970-01-05&#39;</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">&lt;</span> <span class="s1">&#39;1970-01-06&#39;</span>
+<span class="n">string_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;1970-01-05&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">&lt;</span> <span class="s1">&#39;1970-01-06&#39;</span>
 <span class="k">assert</span> <span class="n">result</span>
 </pre></div>
 </div>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;1970-01-05&#39;</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">&lt;=</span> <span class="s1">&#39;1970-01-05&#39;</span>
+<span class="n">string_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;1970-01-05&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">&lt;=</span> <span class="s1">&#39;1970-01-05&#39;</span>
 <span class="k">assert</span> <span class="n">result</span>
 </pre></div>
 </div>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;1970-01-05&#39;</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">&gt;</span> <span class="s1">&#39;1970-01-04&#39;</span>
+<span class="n">string_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;1970-01-05&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">&gt;</span> <span class="s1">&#39;1970-01-04&#39;</span>
 <span class="k">assert</span> <span class="n">result</span>
 </pre></div>
 </div>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">string_1</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;1970-01-05&#39;</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">&gt;=</span> <span class="s1">&#39;1970-01-05&#39;</span>
+<span class="n">string_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;1970-01-05&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">string_1</span> <span class="o">&gt;=</span> <span class="s1">&#39;1970-01-05&#39;</span>
 <span class="k">assert</span> <span class="n">result</span>
 </pre></div>
 </div>
@@ -156,7 +156,7 @@
   <ul>
 <li><a class="reference internal" href="#">String class comparison operations</a><ul>
 <li><a class="reference internal" href="#comparison-return-value-type">Comparison return value type</a></li>
-<li><a class="reference internal" href="#acceptable-comparison-other-value-types">Acceptable comparison other value types</a></li>
+<li><a class="reference internal" href="#acceptable-comparison-right-side-value-types">Acceptable comparison right-side value types</a></li>
 <li><a class="reference internal" href="#equal-comparison">Equal comparison</a></li>
 <li><a class="reference internal" href="#not-equal-comparison">Not equal comparison</a></li>
 <li><a class="reference internal" href="#less-than-or-greater-than-comparison">Less than or greater than comparison</a></li>

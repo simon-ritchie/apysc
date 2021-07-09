@@ -14,17 +14,15 @@ This interface also has `ellipse_width` and `ellipse_height` arguments to set th
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=350,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 
 # Set 10-pixel ellipse size and draw the rectangle.
@@ -40,7 +38,7 @@ sprite.graphics.draw_round_rect(
 sprite.graphics.draw_round_rect(
     x=250, y=50, width=50, height=50, ellipse_width=5, ellipse_height=20)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_draw_round_rect_basic_usage/')
 ```
 
@@ -54,29 +52,25 @@ save_overall_html(
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import Rectangle
-from apysc import Int
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 
-rectangle: Rectangle = sprite.graphics.draw_round_rect(
+rectangle: ap.Rectangle = sprite.graphics.draw_round_rect(
     x=50, y=50, width=50, height=50, ellipse_width=10, ellipse_height=10)
 
 # You can update the ellipse_width and ellipse_height
 # attributes dynamically.
-rectangle.ellipse_width = Int(20)
+rectangle.ellipse_width = ap.Int(20)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_draw_round_rect_return_value/')
 ```
 

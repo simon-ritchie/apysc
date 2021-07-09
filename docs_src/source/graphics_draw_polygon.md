@@ -12,39 +12,35 @@ This page will explain the `Graphics` class `draw_polygon` method interface.
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import Point2D
-from apysc import Array
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 # Draw the triangle with the draw_polygon interface.
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_polygon(
-    points=Array([
-        Point2D(x=75, y=50),
-        Point2D(x=50, y=100),
-        Point2D(x=100, y=100),
+    points=ap.Array([
+        ap.Point2D(x=75, y=50),
+        ap.Point2D(x=50, y=100),
+        ap.Point2D(x=100, y=100),
     ]))
 
 # Draw the diamond shape with the draw_polygon interface.
 sprite.graphics.draw_polygon(
-    points=Array([
-        Point2D(x=175, y=50),
-        Point2D(x=150, y=75),
-        Point2D(x=175, y=100),
-        Point2D(x=200, y=75),
+    points=ap.Array([
+        ap.Point2D(x=175, y=50),
+        ap.Point2D(x=150, y=75),
+        ap.Point2D(x=175, y=100),
+        ap.Point2D(x=200, y=75),
     ]))
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_draw_polygon_basic_usage/')
 ```
 
@@ -56,27 +52,23 @@ If you set the fill color, then the `draw_polygon` interface will be slightly si
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import Point2D
-from apysc import Array
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 
 # Draw the triangle with the draw_polygon interface.
 sprite.graphics.draw_polygon(
-    points=Array([
-        Point2D(x=75, y=50),
-        Point2D(x=50, y=100),
-        Point2D(x=100, y=100),
+    points=ap.Array([
+        ap.Point2D(x=75, y=50),
+        ap.Point2D(x=50, y=100),
+        ap.Point2D(x=100, y=100),
     ]))
 
 # Draw the triangle with the move_to and line_to interfaces.
@@ -84,7 +76,7 @@ sprite.graphics.move_to(x=175, y=50)
 sprite.graphics.line_to(x=150, y=100)
 sprite.graphics.line_to(x=200, y=100)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_draw_polygon_line_to_difference_1/')
 ```
 
@@ -94,19 +86,15 @@ But there is a difference that whether the closing of the paths is necessary or 
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import Point2D
-from apysc import Array
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 
 # Set the line style to see the difference.
@@ -114,10 +102,10 @@ sprite.graphics.line_style(color='#fff', thickness=3)
 
 # Draw the triangle with the draw_polygon interface.
 sprite.graphics.draw_polygon(
-    points=Array([
-        Point2D(x=75, y=50),
-        Point2D(x=50, y=100),
-        Point2D(x=100, y=100),
+    points=ap.Array([
+        ap.Point2D(x=75, y=50),
+        ap.Point2D(x=50, y=100),
+        ap.Point2D(x=100, y=100),
     ]))
 
 # Draw the triangle with the move_to and line_to interfaces.
@@ -125,7 +113,7 @@ sprite.graphics.move_to(x=175, y=50)
 sprite.graphics.line_to(x=150, y=100)
 sprite.graphics.line_to(x=200, y=100)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_draw_polygon_line_to_difference_2/')
 ```
 
@@ -139,34 +127,29 @@ For instance, the following code is appending the point and change from the tria
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import Point2D
-from apysc import Array
-from apysc import Polygon
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 
 # Draw the triangle.
-polygon: Polygon = sprite.graphics.draw_polygon(
-    points=Array([
-        Point2D(x=75, y=50),
-        Point2D(x=50, y=75),
-        Point2D(x=75, y=100),
+polygon: ap.Polygon = sprite.graphics.draw_polygon(
+    points=ap.Array([
+        ap.Point2D(x=75, y=50),
+        ap.Point2D(x=50, y=75),
+        ap.Point2D(x=75, y=100),
     ]))
 
 # Append the point and change to the rectangle dynamically.
 polygon.append_line_point(x=100, y=75)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_draw_polygon_append_line_point/')
 ```
 

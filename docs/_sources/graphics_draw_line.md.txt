@@ -12,21 +12,19 @@ This page will explain the `Graphics` class `draw_line` method interface.
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=100,
     stage_elem_id='stage')
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 sprite.graphics.line_style(color='#0af', thickness=5)
 sprite.graphics.draw_line(x_start=50, y_start=50, x_end=150, y_end=50)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_draw_line_basic_usage/')
 ```
 
@@ -38,25 +36,22 @@ This interface will ignore `dot_setting`, `dash_setting`, `round_dot_setting`, a
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import LineDotSetting
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=100,
     stage_elem_id='stage')
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 # dot_setting will be ignored, and the result line will not be dotted.
 sprite.graphics.line_style(
     color='#0af', thickness=5,
-    dot_setting=LineDotSetting(dot_size=5))
+    dot_setting=ap.LineDotSetting(dot_size=5))
 sprite.graphics.draw_line(x_start=50, y_start=50, x_end=150, y_end=50)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_draw_line_ignored_dot_setting/')
 ```
 
@@ -68,28 +63,24 @@ save_overall_html(
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import String
-from apysc import Stage
-from apysc import Line
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=100,
     stage_elem_id='stage')
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 sprite.graphics.line_style(
     color='#0af', thickness=5)
-line: Line = sprite.graphics.draw_line(
+line: ap.Line = sprite.graphics.draw_line(
     x_start=50, y_start=50, x_end=150, y_end=50)
 
 # Update the line color from cyan to magenta.
-line.line_color = String('#f0a')
+line.line_color = ap.String('#f0a')
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_draw_line_line_instance/')
 ```
 

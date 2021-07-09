@@ -12,16 +12,14 @@ This page will explain the `Graphics` class `draw_round_dotted_line` method inte
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=130,
     stage_elem_id='stage')
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 # Set 5-pixel round size and draw the line.
 sprite.graphics.line_style(color='#0af')
@@ -34,7 +32,7 @@ sprite.graphics.draw_round_dotted_line(
     x_start=50, y_start=80, x_end=200, y_end=80,
     round_size=10, space_size=5)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_draw_round_dotted_line_basic_usage/')
 ```
 
@@ -48,16 +46,14 @@ If you want to align the left line position with other lines, then subtract half
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=270,
     stage_height=130,
     stage_elem_id='stage')
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 # Set 5-pixel round size and draw the line.
 sprite.graphics.line_style(color='#0af')
@@ -70,7 +66,7 @@ sprite.graphics.draw_round_dotted_line(
 sprite.graphics.draw_line(
     x_start=45, y_start=80, x_end=225, y_end=80)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_draw_round_dotted_line_notes/')
 ```
 

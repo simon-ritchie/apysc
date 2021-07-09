@@ -12,18 +12,15 @@ This page will explain the `Graphics` class `draw_ellipse` method interface.
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import LineDotSetting
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=325,
     stage_height=200,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 # Set the cyan fill color and draw the ellipse.
 sprite.graphics.begin_fill(color='#0af')
@@ -32,10 +29,10 @@ sprite.graphics.draw_ellipse(x=125, y=100, width=150, height=100)
 # Set the only dotted-line style and draw the ellipse.
 sprite.graphics.begin_fill(color='')
 sprite.graphics.line_style(
-    color='#fff', thickness=3, dot_setting=LineDotSetting(dot_size=3))
+    color='#fff', thickness=3, dot_setting=ap.LineDotSetting(dot_size=3))
 sprite.graphics.draw_ellipse(x=200, y=100, width=150, height=100)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_draw_ellipse_basic_usage/')
 ```
 
@@ -53,16 +50,11 @@ The following code example will bind the click event handler and if you click th
 # runnable
 from typing import Any, Dict
 
-from apysc import Sprite
-from apysc import Stage
-from apysc import Ellipse
-from apysc import MouseEvent
-from apysc import LineDotSetting
-from apysc import save_overall_html
+import apysc as ap
 
 
 def on_ellipse_click(
-        e: MouseEvent[Ellipse], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Ellipse], options: Dict[str, Any]) -> None:
     """
     The handler would be called when the ellipse is clicked.
 
@@ -73,25 +65,25 @@ def on_ellipse_click(
     options : dict
         Optional arguments dictionary.
     """
-    ellipse: Ellipse = e.this
+    ellipse: ap.Ellipse = e.this
     ellipse.width += 15
     ellipse.height += 10
 
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=200,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 sprite.graphics.begin_fill(color='#0af')
-ellipse: Ellipse = sprite.graphics.draw_ellipse(
+ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(
     x=125, y=100, width=150, height=100)
 ellipse.click(on_ellipse_click)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_draw_ellipse_return_value/')
 ```
 

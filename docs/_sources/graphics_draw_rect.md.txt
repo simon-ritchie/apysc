@@ -12,20 +12,18 @@ This page will explain the `Graphics` class `draw_rect` method interface.
 
 ```py
 # runnable
-from apysc import Stage
-from apysc import Sprite
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=150,
     stage_elem_id='stage')
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(x=50, y=50, width=100, height=50)
 
-save_overall_html(dest_dir_path='graphics_draw_rect_basic_usage/')
+ap.save_overall_html(dest_dir_path='graphics_draw_rect_basic_usage/')
 ```
 
 The previous script will draw horizontal rectangle graphics.
@@ -36,19 +34,17 @@ Notes: `begin_fill` call (fill color setting) is necessary before `draw_rect` in
 
 ```py
 # runnable
-from apysc import Stage
-from apysc import Sprite
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=150,
     stage_elem_id='stage')
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.draw_rect(x=50, y=50, width=100, height=50)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_draw_rect_basic_usage_skipped_begin_fill/')
 ```
 
@@ -64,15 +60,10 @@ For instance, the following script will set the mouse event to `Rectangle` and u
 # runnable
 from typing import Any, Dict
 
-from apysc import Stage
-from apysc import Sprite
-from apysc import Rectangle
-from apysc import MouseEvent
-from apysc import Int
-from apysc import save_overall_html
+import apysc as ap
 
 
-def on_click(e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
+def on_click(e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
     """
     The handler that it will be called when the rectangle is clicked.
 
@@ -83,23 +74,23 @@ def on_click(e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments.
     """
-    rectangle: Rectangle = e.this
-    rectangle.x = Int(100)
+    rectangle: ap.Rectangle = e.this
+    rectangle.x = ap.Int(100)
 
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=150,
     stage_elem_id='stage')
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 sprite.graphics.begin_fill(color='#0af')
-rectangle: Rectangle = sprite.graphics.draw_rect(
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 rectangle.click(on_click)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_draw_rect_rectangle/')
 ```
 

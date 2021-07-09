@@ -2,7 +2,7 @@
 
 This page will explain the `Sprite` class.
 
-## What is the Sprite
+## What is the Sprite?
 
 The `Sprite` class is the container of each `DisplayObject` instance. It also has the `Graphics` class interfaces and can draw each vector graphic.
 

@@ -2,7 +2,7 @@
 
 This page will explain the `Timer` class.
 
-## What is the Timer
+## What is the Timer?
 
 The `Timer` class will handle the timer's tick. You can call a handler at any intervals by it.
 

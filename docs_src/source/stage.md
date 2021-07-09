@@ -2,7 +2,7 @@
 
 This page will explain the `Stage` class.
 
-## What is the Stage
+## What is the Stage?
 
 The `Stage` is the apysc overall drawing area (it's like a viewport or canvas, or something else) and a container of all elements.
 

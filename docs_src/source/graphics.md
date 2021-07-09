@@ -2,7 +2,7 @@
 
 This page will explain the `Graphics` class.
 
-## What is Graphics
+## What is Graphics?
 
 The `Graphics` is the class to handle each vector graphics interface. This interface has the draw rectangle interface, draw line interface, or something else.
 

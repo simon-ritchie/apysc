@@ -2,7 +2,7 @@
 
 This page will explain the `DisplayObject` class.
 
-## What is the DisplayObject
+## What is the DisplayObject?
 
 The `DisplayObject` is the apysc base class for each display class, such as  `Sprite`, `Rectanble`, `Circle`, or something else.
 

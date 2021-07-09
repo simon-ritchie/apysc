@@ -12,15 +12,15 @@ The `Boolean` class is the apysc boolean class. It can accept `bool` or `Boolean
 
 ```py
 # runnable
-from apysc import Boolean
+import apysc as ap
 
-bool_1: Boolean = Boolean(True)
+bool_1: ap.Boolean = ap.Boolean(True)
 assert bool_1
 
-bool_2: Boolean = Boolean(False)
+bool_2: ap.Boolean = ap.Boolean(False)
 assert not bool_2
 
-bool_3: Boolean = Boolean(bool_1)
+bool_3: ap.Boolean = ap.Boolean(bool_1)
 assert bool_3
 ```
 
@@ -32,38 +32,38 @@ You can compare it with the equal comparison operator (`=`), and the `Boolean`, 
 
 ```py
 # runnable
-from apysc import Boolean, Int
+import apysc as ap
 
-bool_1: Boolean = Boolean(True)
+bool_1: ap.Boolean = ap.Boolean(True)
 assert bool_1 == True
-assert bool_1 == Boolean(True)
+assert bool_1 == ap.Boolean(True)
 assert bool_1 == 1
-assert bool_1 == Int(1)
+assert bool_1 == ap.Int(1)
 ```
 
 Also, the not equal comparison operator (`!=`) is supported, as follows:
 
 ```py
 # runnable
-from apysc import Boolean, Int
+import apysc as ap
 
-bool_1: Boolean = Boolean(True)
+bool_1: ap.Boolean = ap.Boolean(True)
 assert bool_1 != False
-assert bool_1 != Boolean(False)
+assert bool_1 != ap.Boolean(False)
 assert bool_1 != 0
-assert bool_1 != Int(0)
+assert bool_1 != ap.Int(0)
 ```
 
 You can skip the comparison operator, as follows:
 
 ```py
 # runnable
-from apysc import Boolean
+import apysc as ap
 
-bool_1: Boolean = Boolean(True)
+bool_1: ap.Boolean = ap.Boolean(True)
 assert bool_1
 
-bool_2: Boolean = Boolean(False)
+bool_2: ap.Boolean = ap.Boolean(False)
 assert not bool_2
 ```
 
@@ -73,12 +73,12 @@ The `not_` property will return the reversed `Boolean` value:
 
 ```py
 # runnable
-from apysc import Boolean
+import apysc as ap
 
-bool_1: Boolean = Boolean(True)
-bool_2: Boolean = bool_1.not_
+bool_1: ap.Boolean = ap.Boolean(True)
+bool_2: ap.Boolean = bool_1.not_
 assert not bool_2
 
-bool_3: Boolean = bool_2.not_
+bool_3: ap.Boolean = bool_2.not_
 assert bool_3
 ```

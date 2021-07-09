@@ -14,18 +14,18 @@ The `value` getter interface will return the Python built-in value.
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10)
+int_1: ap.Int = ap.Int(10)
 value = int_1.value
 assert isinstance(value, int)
 ```
 
 ```py
 # runnable
-from apysc import Number
+import apysc as ap
 
-number_1: Number = Number(10.5)
+number_1: ap.Number = ap.Number(10.5)
 value = number_1.value
 assert isinstance(value, float)
 ```
@@ -36,18 +36,18 @@ You can update the apysc basic data class values with the `value` setter interfa
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10)
+int_1: ap.Int = ap.Int(10)
 int_1.value = 20
 assert int_1 == 20
 ```
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10)
-int_1.value = Int(20)
+int_1: ap.Int = ap.Int(10)
+int_1.value = ap.Int(20)
 assert int_1 == 20
 ```

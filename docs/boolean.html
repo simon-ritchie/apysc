@@ -54,15 +54,15 @@
 <h2>What is the Boolean class?<a class="headerlink" href="#what-is-the-boolean-class" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> class is the apysc boolean class. It can accept <code class="docutils literal notranslate"><span class="pre">bool</span></code> or <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> values at the constructor, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">bool_1</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">bool_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">bool_1</span>
 
-<span class="n">bool_2</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">bool_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="k">assert</span> <span class="ow">not</span> <span class="n">bool_2</span>
 
-<span class="n">bool_3</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="n">bool_1</span><span class="p">)</span>
+<span class="n">bool_3</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="n">bool_1</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">bool_3</span>
 </pre></div>
 </div>
@@ -72,34 +72,34 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> comparison interface will behave like the Python built-in <code class="docutils literal notranslate"><span class="pre">bool</span></code> value.</p>
 <p>You can compare it with the equal comparison operator (<code class="docutils literal notranslate"><span class="pre">=</span></code>), and the <code class="docutils literal notranslate"><span class="pre">Boolean</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">Int</span></code> types are acceptable, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">bool_1</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">bool_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">bool_1</span> <span class="o">==</span> <span class="kc">True</span>
-<span class="k">assert</span> <span class="n">bool_1</span> <span class="o">==</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">bool_1</span> <span class="o">==</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">bool_1</span> <span class="o">==</span> <span class="mi">1</span>
-<span class="k">assert</span> <span class="n">bool_1</span> <span class="o">==</span> <span class="n">Int</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">bool_1</span> <span class="o">==</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Also, the not equal comparison operator (<code class="docutils literal notranslate"><span class="pre">!=</span></code>) is supported, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">bool_1</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">bool_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">bool_1</span> <span class="o">!=</span> <span class="kc">False</span>
-<span class="k">assert</span> <span class="n">bool_1</span> <span class="o">!=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">bool_1</span> <span class="o">!=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">bool_1</span> <span class="o">!=</span> <span class="mi">0</span>
-<span class="k">assert</span> <span class="n">bool_1</span> <span class="o">!=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">bool_1</span> <span class="o">!=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You can skip the comparison operator, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">bool_1</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">bool_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">bool_1</span>
 
-<span class="n">bool_2</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">bool_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="k">assert</span> <span class="ow">not</span> <span class="n">bool_2</span>
 </pre></div>
 </div>
@@ -108,13 +108,13 @@
 <h2>Reverse a Boolean value<a class="headerlink" href="#reverse-a-boolean-value" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">not_</span></code> property will return the reversed <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">bool_1</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">bool_2</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">bool_1</span><span class="o">.</span><span class="n">not_</span>
+<span class="n">bool_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">bool_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">bool_1</span><span class="o">.</span><span class="n">not_</span>
 <span class="k">assert</span> <span class="ow">not</span> <span class="n">bool_2</span>
 
-<span class="n">bool_3</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">bool_2</span><span class="o">.</span><span class="n">not_</span>
+<span class="n">bool_3</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">bool_2</span><span class="o">.</span><span class="n">not_</span>
 <span class="k">assert</span> <span class="n">bool_3</span>
 </pre></div>
 </div>

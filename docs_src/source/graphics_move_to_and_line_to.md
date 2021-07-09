@@ -14,16 +14,14 @@ Calling the `move_to` interface after the calling of `line_to`, then a new line 
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=300,
     stage_height=100,
     stage_elem_id='stage')
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 sprite.graphics.line_style(color='#0af', thickness=5)
 
@@ -34,7 +32,7 @@ sprite.graphics.move_to(x=50, y=50)
 # destination point (250, 50).
 sprite.graphics.line_to(x=250, y=50)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_move_to_and_line_to_basic_usage/')
 ```
 
@@ -46,16 +44,14 @@ If you call the `line_to` interface sequentially, then the result line will beco
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=200,
     stage_elem_id='stage')
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 sprite.graphics.line_style(color='#0af', thickness=5)
 
@@ -75,7 +71,7 @@ sprite.graphics.line_to(x=50, y=150)
 # destination point (150, 150).
 sprite.graphics.line_to(x=150, y=150)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_move_to_and_line_to_sequential_calling/')
 ```
 
@@ -87,16 +83,14 @@ If you call the `move_to` interface after calling the `line_to` interface, then 
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=150,
     stage_elem_id='stage')
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 sprite.graphics.line_style(color='#0af', thickness=5)
 
@@ -113,7 +107,7 @@ sprite.graphics.line_to(x=200, y=50)
 sprite.graphics.line_to(x=150, y=100)
 sprite.graphics.line_to(x=200, y=100)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_move_to_and_line_to_multi_move_to_calling/')
 ```
 
@@ -128,17 +122,12 @@ For instance, the following script will set the mouse event to `Polyline` and up
 ```py
 # runnable
 from typing import Any, Dict
-from apysc import Sprite
-from apysc import String
-from apysc import Stage
-from apysc import MouseEvent
-from apysc import Polyline
-from apysc import LineDotSetting
-from apysc import save_overall_html
+
+import apysc as ap
 
 
 def on_line_click(
-        e: MouseEvent[Polyline], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Polyline], options: Dict[str, Any]) -> None:
     """
     The handler that this will be called when the line instance
     is clicked.
@@ -150,24 +139,24 @@ def on_line_click(
     options : dict
         Optional arguments.
     """
-    polyline: Polyline = e.this
-    polyline.line_color = String('#f0a')
-    polyline.line_dot_setting = LineDotSetting(dot_size=5)
+    polyline: ap.Polyline = e.this
+    polyline.line_color = ap.String('#f0a')
+    polyline.line_dot_setting = ap.LineDotSetting(dot_size=5)
 
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=100,
     stage_elem_id='stage')
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 sprite.graphics.line_style(color='#0af', thickness=30)
-polyline: Polyline = sprite.graphics.move_to(x=50, y=50)
+polyline: ap.Polyline = sprite.graphics.move_to(x=50, y=50)
 sprite.graphics.line_to(x=150, y=50)
 polyline.click(on_line_click)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_move_to_and_line_to_polyline/')
 ```
 

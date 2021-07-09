@@ -14,24 +14,19 @@ For instance, the `click` event can be set as follows:
 # runnable
 from typing import Any, Dict
 
-from apysc import Sprite
-from apysc import Stage
-from apysc import Rectangle
-from apysc import MouseEvent
-from apysc import String
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 
 
-def on_rectangle_click(e: MouseEvent, options: Dict[str, Any]) -> None:
+def on_rectangle_click(e: ap.MouseEvent, options: Dict[str, Any]) -> None:
     """
     The handler will be called when the rectangle is clicked.
 
@@ -43,18 +38,18 @@ def on_rectangle_click(e: MouseEvent, options: Dict[str, Any]) -> None:
         Optional arguments.
     """
     # Change the clicked rectangle color to the passed color.
-    rectangle: Rectangle = e.this
-    color: String = String(options['color'])
+    rectangle: ap.Rectangle = e.this
+    color: ap.String = ap.String(options['color'])
     rectangle.fill_color = color
 
 
-rectangle: Rectangle = sprite.graphics.draw_rect(
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 rectangle.click(
     handler=on_rectangle_click,
     options={'color': '#f0a'})
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='mouse_event_common_basic_binding_usage/')
 ```
 
@@ -76,24 +71,19 @@ For example, the following code will unbind the click event, so the handler func
 # runnable
 from typing import Any, Dict
 
-from apysc import Sprite
-from apysc import Stage
-from apysc import Rectangle
-from apysc import MouseEvent
-from apysc import String
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 
 
-def on_rectangle_click(e: MouseEvent, options: Dict[str, Any]) -> None:
+def on_rectangle_click(e: ap.MouseEvent, options: Dict[str, Any]) -> None:
     """
     The handler will be called when the rectangle is clicked.
 
@@ -105,12 +95,12 @@ def on_rectangle_click(e: MouseEvent, options: Dict[str, Any]) -> None:
         Optional arguments.
     """
     # Change the clicked rectangle color to the passed color.
-    rectangle: Rectangle = e.this
-    color: String = String(options['color'])
+    rectangle: ap.Rectangle = e.this
+    color: ap.String = ap.String(options['color'])
     rectangle.fill_color = color
 
 
-rectangle: Rectangle = sprite.graphics.draw_rect(
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 rectangle.click(
     handler=on_rectangle_click,
@@ -118,7 +108,7 @@ rectangle.click(
 
 rectangle.unbind_click(handler=on_rectangle_click)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='mouse_event_common_basic_unbinding_usage/')
 ```
 
@@ -136,25 +126,20 @@ The following code is calling the `unbind_click_all` method, so all hander setti
 # runnable
 from typing import Any, Dict
 
-from apysc import Sprite
-from apysc import Stage
-from apysc import Rectangle
-from apysc import MouseEvent
-from apysc import String
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 
 
 def change_color_on_rectangle_click(
-        e: MouseEvent, options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent, options: Dict[str, Any]) -> None:
     """
     The handler will change the rectangle color and be called
     when the rectangle is clicked.
@@ -166,13 +151,13 @@ def change_color_on_rectangle_click(
     options : dict
         Optional arguments.
     """
-    rectangle: Rectangle = e.this
-    color: String = String(options['color'])
+    rectangle: ap.Rectangle = e.this
+    color: ap.String = ap.String(options['color'])
     rectangle.fill_color = color
 
 
 def change_x_on_rectangle_click(
-        e: MouseEvent, options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent, options: Dict[str, Any]) -> None:
     """
     The handler will change the rectangle x-coordinate and be called
     when the rectangle is clicked.
@@ -184,11 +169,11 @@ def change_x_on_rectangle_click(
     options : dict
         Optional arguments.
     """
-    rectangle: Rectangle = e.this
+    rectangle: ap.Rectangle = e.this
     rectangle.x += 50
 
 
-rectangle: Rectangle = sprite.graphics.draw_rect(
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 rectangle.click(
     handler=change_color_on_rectangle_click,
@@ -197,7 +182,7 @@ rectangle.click(handler=change_x_on_rectangle_click)
 
 rectangle.unbind_click_all()
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='mouse_event_common_unbind_all_event_handlers/')
 ```
 
@@ -225,23 +210,20 @@ This is useful to determine the `this` attribute type and will be checked by the
 # runnable
 from typing import Any, Dict
 
-from apysc import Sprite
-from apysc import Stage
-from apysc import Rectangle
-from apysc import MouseEvent
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 
 
 def on_rectangle_mousedown(
-        e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
     """
     The handler will be called when the rectangle is mouse downed.
 
@@ -256,7 +238,7 @@ def on_rectangle_mousedown(
     rectangle.x += 50
 
 
-rectangle: Rectangle = sprite.graphics.draw_rect(
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 rectangle.mousedown(handler=on_rectangle_mousedown)
 ```
@@ -269,25 +251,20 @@ MouseEvent instance has the `stage_x` and `stage_y` attributes. These attributes
 # runnable
 from typing import Any, Dict
 
-from apysc import Sprite
-from apysc import Stage
-from apysc import Rectangle
-from apysc import MouseEvent
-from apysc import trace
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=200,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 
 
 def on_mousemove(
-        e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
     """
     The handler will be called when the mouse is moving on
     the rectangle.
@@ -299,14 +276,14 @@ def on_mousemove(
     options : dict
         Optional arguments.
     """
-    trace('stage_x:', e.stage_x, 'stage_y:', e.stage_y)
+    ap.trace('stage_x:', e.stage_x, 'stage_y:', e.stage_y)
 
 
-rectangle: Rectangle = sprite.graphics.draw_rect(
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=100, width=50, height=50)
 rectangle.mousemove(handler=on_mousemove)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='mouse_event_common_stage_x_and_stage_y')
 ```
 
@@ -324,25 +301,20 @@ The following example will show that local_x and local_y will become the coordin
 # runnable
 from typing import Any, Dict
 
-from apysc import Sprite
-from apysc import Stage
-from apysc import Rectangle
-from apysc import MouseEvent
-from apysc import trace
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 
 
 def on_mousemove(
-        e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
     """
     The handler will be called when the mouse is moving on
     the rectangle.
@@ -354,14 +326,14 @@ def on_mousemove(
     options : dict
         Optional arguments.
     """
-    trace('local_x:', e.local_x, 'local_y:', e.local_y)
+    ap.trace('local_x:', e.local_x, 'local_y:', e.local_y)
 
 
-rectangle: Rectangle = sprite.graphics.draw_rect(
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 rectangle.mousemove(handler=on_mousemove)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='mouse_event_common_local_x_and_local_y')
 ```
 

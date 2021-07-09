@@ -50,27 +50,27 @@
 <h2>Common behaviors<a class="headerlink" href="#common-behaviors" title="Permalink to this headline">¶</a></h2>
 <p>You can calculate the <code class="docutils literal notranslate"><span class="pre">Int</span></code> and <code class="docutils literal notranslate"><span class="pre">Number</span></code> values with the Python built-in values, such as <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code>, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">int_1</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">+</span> <span class="mi">20</span>
 <span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">30</span>
 </pre></div>
 </div>
 <p>Also, arithmetic operations with the same types (e.g., <code class="docutils literal notranslate"><span class="pre">Int</span></code> and <code class="docutils literal notranslate"><span class="pre">Int</span></code>) are supported:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">int_2</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">int_1</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">+</span> <span class="n">int_2</span>
 <span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">30</span>
 </pre></div>
 </div>
 <p>Arithmetic operations are not supported if the left value is the Python built-in value. For instance, the following code will raise the exception:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="c1"># This will raise the error!</span>
 <span class="n">int_1</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">+</span> <span class="n">int_1</span>
@@ -84,43 +84,43 @@
 <h2>Addition<a class="headerlink" href="#addition" title="Permalink to this headline">¶</a></h2>
 <p>You can add values with the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">int_1</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">+</span> <span class="mi">20</span>
 <span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">30</span>
 </pre></div>
 </div>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">int_2</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">int_1</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">+</span> <span class="n">int_2</span>
 <span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">30</span>
 </pre></div>
 </div>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="n">Int</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">30</span>
 </pre></div>
 </div>
 <p>Also, you can use the <code class="docutils literal notranslate"><span class="pre">+=</span></code> operator.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">int_1</span> <span class="o">+=</span> <span class="mi">20</span>
 <span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">30</span>
 </pre></div>
 </div>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">int_2</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">int_1</span> <span class="o">+=</span> <span class="n">int_2</span>
 <span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">30</span>
 </pre></div>
@@ -130,27 +130,27 @@
 <h2>Subtraction<a class="headerlink" href="#subtraction" title="Permalink to this headline">¶</a></h2>
 <p>You can subtract values with the <code class="docutils literal notranslate"><span class="pre">-</span></code> operator.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
 <span class="n">int_1</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">-</span> <span class="mi">10</span>
 <span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">20</span>
 </pre></div>
 </div>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-<span class="n">int_2</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">int_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">int_1</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">-</span> <span class="n">int_2</span>
 <span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">10</span>
 </pre></div>
 </div>
 <p>Also, you can use the <code class="docutils literal notranslate"><span class="pre">-=</span></code> operator.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">int_1</span> <span class="o">-=</span> <span class="mi">30</span>
 <span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">20</span>
 </pre></div>
@@ -160,27 +160,27 @@
 <h2>Multiplication<a class="headerlink" href="#multiplication" title="Permalink to this headline">¶</a></h2>
 <p>You can multiply values with the <code class="docutils literal notranslate"><span class="pre">*</span></code> operator.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">int_1</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">*</span> <span class="mi">3</span>
 <span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">30</span>
 </pre></div>
 </div>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">int_2</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">int_1</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">*</span> <span class="n">int_2</span>
 <span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">50</span>
 </pre></div>
 </div>
 <p>Also, you can use the <code class="docutils literal notranslate"><span class="pre">*=</span></code> operator.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">int_1</span> <span class="o">*=</span> <span class="mi">3</span>
 <span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">30</span>
 </pre></div>
@@ -190,27 +190,27 @@
 <h2>Division<a class="headerlink" href="#division" title="Permalink to this headline">¶</a></h2>
 <p>You can divide values with the <code class="docutils literal notranslate"><span class="pre">/</span></code> operator. A return value will be a <code class="docutils literal notranslate"><span class="pre">Number</span></code> value, not an <code class="docutils literal notranslate"><span class="pre">Int</span></code> one.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Number</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">number_1</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">/</span> <span class="mi">4</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">number_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">/</span> <span class="mi">4</span>
 <span class="k">assert</span> <span class="n">number_1</span> <span class="o">==</span> <span class="mf">2.5</span>
 </pre></div>
 </div>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Number</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">int_2</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">number_1</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">/</span> <span class="n">int_2</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">number_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">/</span> <span class="n">int_2</span>
 <span class="k">assert</span> <span class="n">number_1</span> <span class="o">==</span> <span class="mf">2.5</span>
 </pre></div>
 </div>
 <p>Also, you can use the <code class="docutils literal notranslate"><span class="pre">/=</span></code> operator.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Number</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">number_1</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">number_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">number_1</span> <span class="o">/=</span> <span class="mi">4</span>
 <span class="k">assert</span> <span class="n">number_1</span> <span class="o">==</span> <span class="mf">2.5</span>
 </pre></div>
@@ -220,9 +220,9 @@
 <h2>Floor division<a class="headerlink" href="#floor-division" title="Permalink to this headline">¶</a></h2>
 <p>You can divide and floor values with the <code class="docutils literal notranslate"><span class="pre">//</span></code> operator. A return value will be an <code class="docutils literal notranslate"><span class="pre">Int</span></code> value, not a <code class="docutils literal notranslate"><span class="pre">Number</span></code> one.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">int_1</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">//</span> <span class="mi">4</span>
 <span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">2</span>
 </pre></div>
@@ -232,18 +232,18 @@
 <h2>Modulo<a class="headerlink" href="#modulo" title="Permalink to this headline">¶</a></h2>
 <p>You can use the modulo operation with the <code class="docutils literal notranslate"><span class="pre">%</span></code> operator.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">int_2</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">%</span> <span class="mi">3</span>
 <span class="k">assert</span> <span class="n">int_2</span> <span class="o">==</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Number</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">number_1</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="mf">10.5</span><span class="p">)</span>
-<span class="n">number_2</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="n">number_1</span> <span class="o">%</span> <span class="mi">3</span>
+<span class="n">number_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">10.5</span><span class="p">)</span>
+<span class="n">number_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">number_1</span> <span class="o">%</span> <span class="mi">3</span>
 <span class="k">assert</span> <span class="n">number_2</span> <span class="o">==</span> <span class="mf">1.5</span>
 </pre></div>
 </div>

@@ -58,11 +58,10 @@
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">If</span></code> class will be used at the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">If</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">condition</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">with</span> <span class="n">If</span><span class="p">(</span><span class="n">condition</span><span class="p">):</span>
+<span class="n">condition</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
 </div>

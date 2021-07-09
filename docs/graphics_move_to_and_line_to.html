@@ -55,16 +55,14 @@
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">move_to</span></code> and <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interfaces are both having x and y arguments.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
-<span class="n">sprite</span><span class="p">:</span> <span class="n">Sprite</span> <span class="o">=</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
@@ -75,7 +73,7 @@
 <span class="c1"># destination point (250, 50).</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
-<span class="n">save_overall_html</span><span class="p">(</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_move_to_and_line_to_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -84,16 +82,14 @@
 <h2>Sequential calling of the line_to interface.<a class="headerlink" href="#sequential-calling-of-the-line-to-interface" title="Permalink to this headline">¶</a></h2>
 <p>If you call the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interface sequentially, then the result line will become the polyline.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
-<span class="n">sprite</span><span class="p">:</span> <span class="n">Sprite</span> <span class="o">=</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
@@ -113,7 +109,7 @@
 <span class="c1"># destination point (150, 150).</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 
-<span class="n">save_overall_html</span><span class="p">(</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_move_to_and_line_to_sequential_calling/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -122,16 +118,14 @@
 <h2>move_to interface calling after line_to interface calling<a class="headerlink" href="#move-to-interface-calling-after-line-to-interface-calling" title="Permalink to this headline">¶</a></h2>
 <p>If you call the <code class="docutils literal notranslate"><span class="pre">move_to</span></code> interface after calling the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interface, then a new line instance will be created.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
-<span class="n">sprite</span><span class="p">:</span> <span class="n">Sprite</span> <span class="o">=</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
@@ -148,7 +142,7 @@
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 
-<span class="n">save_overall_html</span><span class="p">(</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_move_to_and_line_to_multi_move_to_calling/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -159,17 +153,12 @@
 <p>For instance, the following script will set the mouse event to <code class="docutils literal notranslate"><span class="pre">Polyline</span></code> and updating the line color, and set dot style in the handler (<code class="docutils literal notranslate"><span class="pre">on_line_click</span></code>).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">MouseEvent</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Polyline</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">LineDotSetting</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
+
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
 <span class="k">def</span> <span class="nf">on_line_click</span><span class="p">(</span>
-        <span class="n">e</span><span class="p">:</span> <span class="n">MouseEvent</span><span class="p">[</span><span class="n">Polyline</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Polyline</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler that this will be called when the line instance</span>
 <span class="sd">    is clicked.</span>
@@ -181,24 +170,24 @@
 <span class="sd">    options : dict</span>
 <span class="sd">        Optional arguments.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">polyline</span><span class="p">:</span> <span class="n">Polyline</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
-    <span class="n">polyline</span><span class="o">.</span><span class="n">line_color</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="s1">&#39;#f0a&#39;</span><span class="p">)</span>
-    <span class="n">polyline</span><span class="o">.</span><span class="n">line_dot_setting</span> <span class="o">=</span> <span class="n">LineDotSetting</span><span class="p">(</span><span class="n">dot_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">polyline</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Polyline</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
+    <span class="n">polyline</span><span class="o">.</span><span class="n">line_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;#f0a&#39;</span><span class="p">)</span>
+    <span class="n">polyline</span><span class="o">.</span><span class="n">line_dot_setting</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">LineDotSetting</span><span class="p">(</span><span class="n">dot_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
 
-<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
-<span class="n">sprite</span><span class="p">:</span> <span class="n">Sprite</span> <span class="o">=</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-<span class="n">polyline</span><span class="p">:</span> <span class="n">Polyline</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">polyline</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Polyline</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">polyline</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">on_line_click</span><span class="p">)</span>
 
-<span class="n">save_overall_html</span><span class="p">(</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_move_to_and_line_to_polyline/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>

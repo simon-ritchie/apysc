@@ -54,24 +54,19 @@
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
 
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Rectangle</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">MouseEvent</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 
-<span class="n">sprite</span><span class="p">:</span> <span class="n">Sprite</span> <span class="o">=</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">on_rectangle_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">on_rectangle_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler will be called when the rectangle is clicked.</span>
 
@@ -83,18 +78,18 @@
 <span class="sd">        Optional arguments.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Change the clicked rectangle color to the passed color.</span>
-    <span class="n">rectangle</span><span class="p">:</span> <span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
-    <span class="n">color</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">])</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
+    <span class="n">color</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">])</span>
     <span class="n">rectangle</span><span class="o">.</span><span class="n">fill_color</span> <span class="o">=</span> <span class="n">color</span>
 
 
-<span class="n">rectangle</span><span class="p">:</span> <span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">rectangle</span><span class="o">.</span><span class="n">click</span><span class="p">(</span>
     <span class="n">handler</span><span class="o">=</span><span class="n">on_rectangle_click</span><span class="p">,</span>
     <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#f0a&#39;</span><span class="p">})</span>
 
-<span class="n">save_overall_html</span><span class="p">(</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mouse_event_common_basic_binding_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -109,24 +104,19 @@
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
 
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Rectangle</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">MouseEvent</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 
-<span class="n">sprite</span><span class="p">:</span> <span class="n">Sprite</span> <span class="o">=</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">on_rectangle_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">on_rectangle_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler will be called when the rectangle is clicked.</span>
 
@@ -138,12 +128,12 @@
 <span class="sd">        Optional arguments.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Change the clicked rectangle color to the passed color.</span>
-    <span class="n">rectangle</span><span class="p">:</span> <span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
-    <span class="n">color</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">])</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
+    <span class="n">color</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">])</span>
     <span class="n">rectangle</span><span class="o">.</span><span class="n">fill_color</span> <span class="o">=</span> <span class="n">color</span>
 
 
-<span class="n">rectangle</span><span class="p">:</span> <span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">rectangle</span><span class="o">.</span><span class="n">click</span><span class="p">(</span>
     <span class="n">handler</span><span class="o">=</span><span class="n">on_rectangle_click</span><span class="p">,</span>
@@ -151,7 +141,7 @@
 
 <span class="n">rectangle</span><span class="o">.</span><span class="n">unbind_click</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">on_rectangle_click</span><span class="p">)</span>
 
-<span class="n">save_overall_html</span><span class="p">(</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mouse_event_common_basic_unbinding_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -164,25 +154,20 @@
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
 
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Rectangle</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">MouseEvent</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">String</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 
-<span class="n">sprite</span><span class="p">:</span> <span class="n">Sprite</span> <span class="o">=</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">change_color_on_rectangle_click</span><span class="p">(</span>
-        <span class="n">e</span><span class="p">:</span> <span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler will change the rectangle color and be called</span>
 <span class="sd">    when the rectangle is clicked.</span>
@@ -194,13 +179,13 @@
 <span class="sd">    options : dict</span>
 <span class="sd">        Optional arguments.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">rectangle</span><span class="p">:</span> <span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
-    <span class="n">color</span><span class="p">:</span> <span class="n">String</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">])</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
+    <span class="n">color</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">])</span>
     <span class="n">rectangle</span><span class="o">.</span><span class="n">fill_color</span> <span class="o">=</span> <span class="n">color</span>
 
 
 <span class="k">def</span> <span class="nf">change_x_on_rectangle_click</span><span class="p">(</span>
-        <span class="n">e</span><span class="p">:</span> <span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler will change the rectangle x-coordinate and be called</span>
 <span class="sd">    when the rectangle is clicked.</span>
@@ -212,11 +197,11 @@
 <span class="sd">    options : dict</span>
 <span class="sd">        Optional arguments.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">rectangle</span><span class="p">:</span> <span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
     <span class="n">rectangle</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">50</span>
 
 
-<span class="n">rectangle</span><span class="p">:</span> <span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">rectangle</span><span class="o">.</span><span class="n">click</span><span class="p">(</span>
     <span class="n">handler</span><span class="o">=</span><span class="n">change_color_on_rectangle_click</span><span class="p">,</span>
@@ -225,7 +210,7 @@
 
 <span class="n">rectangle</span><span class="o">.</span><span class="n">unbind_click_all</span><span class="p">()</span>
 
-<span class="n">save_overall_html</span><span class="p">(</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mouse_event_common_unbind_all_event_handlers/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -247,23 +232,20 @@
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
 
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Rectangle</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">MouseEvent</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 
-<span class="n">sprite</span><span class="p">:</span> <span class="n">Sprite</span> <span class="o">=</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">on_rectangle_mousedown</span><span class="p">(</span>
-        <span class="n">e</span><span class="p">:</span> <span class="n">MouseEvent</span><span class="p">[</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler will be called when the rectangle is mouse downed.</span>
 
@@ -278,7 +260,7 @@
     <span class="n">rectangle</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">50</span>
 
 
-<span class="n">rectangle</span><span class="p">:</span> <span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">rectangle</span><span class="o">.</span><span class="n">mousedown</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">on_rectangle_mousedown</span><span class="p">)</span>
 </pre></div>
@@ -290,25 +272,20 @@
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
 
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Rectangle</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">MouseEvent</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">trace</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 
-<span class="n">sprite</span><span class="p">:</span> <span class="n">Sprite</span> <span class="o">=</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">on_mousemove</span><span class="p">(</span>
-        <span class="n">e</span><span class="p">:</span> <span class="n">MouseEvent</span><span class="p">[</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler will be called when the mouse is moving on</span>
 <span class="sd">    the rectangle.</span>
@@ -320,14 +297,14 @@
 <span class="sd">    options : dict</span>
 <span class="sd">        Optional arguments.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">trace</span><span class="p">(</span><span class="s1">&#39;stage_x:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">stage_x</span><span class="p">,</span> <span class="s1">&#39;stage_y:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">stage_y</span><span class="p">)</span>
+    <span class="n">ap</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s1">&#39;stage_x:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">stage_x</span><span class="p">,</span> <span class="s1">&#39;stage_y:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">stage_y</span><span class="p">)</span>
 
 
-<span class="n">rectangle</span><span class="p">:</span> <span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">rectangle</span><span class="o">.</span><span class="n">mousemove</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">on_mousemove</span><span class="p">)</span>
 
-<span class="n">save_overall_html</span><span class="p">(</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mouse_event_common_stage_x_and_stage_y&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -340,25 +317,20 @@
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
 
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Sprite</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Stage</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Rectangle</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">MouseEvent</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">trace</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">save_overall_html</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">stage</span><span class="p">:</span> <span class="n">Stage</span> <span class="o">=</span> <span class="n">Stage</span><span class="p">(</span>
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 
-<span class="n">sprite</span><span class="p">:</span> <span class="n">Sprite</span> <span class="o">=</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">on_mousemove</span><span class="p">(</span>
-        <span class="n">e</span><span class="p">:</span> <span class="n">MouseEvent</span><span class="p">[</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler will be called when the mouse is moving on</span>
 <span class="sd">    the rectangle.</span>
@@ -370,14 +342,14 @@
 <span class="sd">    options : dict</span>
 <span class="sd">        Optional arguments.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">trace</span><span class="p">(</span><span class="s1">&#39;local_x:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">local_x</span><span class="p">,</span> <span class="s1">&#39;local_y:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">local_y</span><span class="p">)</span>
+    <span class="n">ap</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s1">&#39;local_x:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">local_x</span><span class="p">,</span> <span class="s1">&#39;local_y:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">local_y</span><span class="p">)</span>
 
 
-<span class="n">rectangle</span><span class="p">:</span> <span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">rectangle</span><span class="o">.</span><span class="n">mousemove</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">on_mousemove</span><span class="p">)</span>
 
-<span class="n">save_overall_html</span><span class="p">(</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mouse_event_common_local_x_and_local_y&#39;</span><span class="p">)</span>
 </pre></div>
 </div>

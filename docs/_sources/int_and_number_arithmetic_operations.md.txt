@@ -8,9 +8,9 @@ You can calculate the `Int` and `Number` values with the Python built-in values,
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10)
+int_1: ap.Int = ap.Int(10)
 int_1 = int_1 + 20
 assert int_1 == 30
 ```
@@ -19,10 +19,10 @@ Also, arithmetic operations with the same types (e.g., `Int` and `Int`) are supp
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10)
-int_2: Int = Int(20)
+int_1: ap.Int = ap.Int(10)
+int_2: ap.Int = ap.Int(20)
 int_1 = int_1 + int_2
 assert int_1 == 30
 ```
@@ -30,9 +30,9 @@ assert int_1 == 30
 Arithmetic operations are not supported if the left value is the Python built-in value. For instance, the following code will raise the exception:
 
 ```py
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10)
+int_1: ap.Int = ap.Int(10)
 
 # This will raise the error!
 int_1 = 20 + int_1
@@ -48,28 +48,28 @@ You can add values with the `+` operator.
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10)
+int_1: ap.Int = ap.Int(10)
 int_1 = int_1 + 20
 assert int_1 == 30
 ```
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10)
-int_2: Int = Int(20)
+int_1: ap.Int = ap.Int(10)
+int_2: ap.Int = ap.Int(20)
 int_1 = int_1 + int_2
 assert int_1 == 30
 ```
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10) + Int(20)
+int_1: ap.Int = ap.Int(10) + ap.Int(20)
 assert int_1 == 30
 ```
 
@@ -77,19 +77,19 @@ Also, you can use the `+=` operator.
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10)
+int_1: ap.Int = ap.Int(10)
 int_1 += 20
 assert int_1 == 30
 ```
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10)
-int_2: Int = Int(20)
+int_1: ap.Int = ap.Int(10)
+int_2: ap.Int = ap.Int(20)
 int_1 += int_2
 assert int_1 == 30
 ```
@@ -100,19 +100,19 @@ You can subtract values with the `-` operator.
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(30)
+int_1: ap.Int = ap.Int(30)
 int_1 = int_1 - 10
 assert int_1 == 20
 ```
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(30)
-int_2: Int = Int(20)
+int_1: ap.Int = ap.Int(30)
+int_2: ap.Int = ap.Int(20)
 int_1 = int_1 - int_2
 assert int_1 == 10
 ```
@@ -121,9 +121,9 @@ Also, you can use the `-=` operator.
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(50)
+int_1: ap.Int = ap.Int(50)
 int_1 -= 30
 assert int_1 == 20
 ```
@@ -134,19 +134,19 @@ You can multiply values with the `*` operator.
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10)
+int_1: ap.Int = ap.Int(10)
 int_1 = int_1 * 3
 assert int_1 == 30
 ```
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10)
-int_2: Int = Int(5)
+int_1: ap.Int = ap.Int(10)
+int_2: ap.Int = ap.Int(5)
 int_1 = int_1 * int_2
 assert int_1 == 50
 ```
@@ -155,9 +155,9 @@ Also, you can use the `*=` operator.
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10)
+int_1: ap.Int = ap.Int(10)
 int_1 *= 3
 assert int_1 == 30
 ```
@@ -168,20 +168,20 @@ You can divide values with the `/` operator. A return value will be a `Number` v
 
 ```py
 # runnable
-from apysc import Int, Number
+import apysc as ap
 
-int_1: Int = Int(10)
-number_1: Number = int_1 / 4
+int_1: ap.Int = ap.Int(10)
+number_1: ap.Number = int_1 / 4
 assert number_1 == 2.5
 ```
 
 ```py
 # runnable
-from apysc import Int, Number
+import apysc as ap
 
-int_1: Int = Int(10)
-int_2: Int = Int(4)
-number_1: Number = int_1 / int_2
+int_1: ap.Int = ap.Int(10)
+int_2: ap.Int = ap.Int(4)
+number_1: ap.Number = int_1 / int_2
 assert number_1 == 2.5
 ```
 
@@ -189,9 +189,9 @@ Also, you can use the `/=` operator.
 
 ```py
 # runnable
-from apysc import Number
+import apysc as ap
 
-number_1: Number = Number(10)
+number_1: ap.Number = ap.Number(10)
 number_1 /= 4
 assert number_1 == 2.5
 ```
@@ -202,9 +202,9 @@ You can divide and floor values with the `//` operator. A return value will be a
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10)
+int_1: ap.Int = ap.Int(10)
 int_1 = int_1 // 4
 assert int_1 == 2
 ```
@@ -215,18 +215,18 @@ You can use the modulo operation with the `%` operator.
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10)
+int_1: ap.Int = ap.Int(10)
 int_2: int = int_1 % 3
 assert int_2 == 1
 ```
 
 ```py
 # runnable
-from apysc import Number
+import apysc as ap
 
-number_1: Number = Number(10.5)
-number_2: Number = number_1 % 3
+number_1: ap.Number = ap.Number(10.5)
+number_2: ap.Number = number_1 % 3
 assert number_2 == 1.5
 ```

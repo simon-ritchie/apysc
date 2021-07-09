@@ -50,55 +50,55 @@
 <h2>Common behaviors<a class="headerlink" href="#common-behaviors" title="Permalink to this headline">¶</a></h2>
 <p>Each comparison operation will return a <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value, not a Python built-in <code class="docutils literal notranslate"><span class="pre">bool</span></code> value:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">10</span>
-<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">Boolean</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">10</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You can compare the <code class="docutils literal notranslate"><span class="pre">Int</span></code> or <code class="docutils literal notranslate"><span class="pre">Number</span></code> values with the Python built-in values, like the <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code>:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">20</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">20</span>
 <span class="k">assert</span> <span class="n">result</span>
 </pre></div>
 </div>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Number</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">number_1</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="mf">10.5</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">number_1</span> <span class="o">==</span> <span class="mf">10.5</span>
+<span class="n">number_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">10.5</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">number_1</span> <span class="o">==</span> <span class="mf">10.5</span>
 <span class="k">assert</span> <span class="n">result</span>
 </pre></div>
 </div>
 <p>Also, the comparison between the <code class="docutils literal notranslate"><span class="pre">Int</span></code> and <code class="docutils literal notranslate"><span class="pre">Int</span></code>, <code class="docutils literal notranslate"><span class="pre">Number</span></code> and <code class="docutils literal notranslate"><span class="pre">Number</span></code>, <code class="docutils literal notranslate"><span class="pre">Int</span></code> and <code class="docutils literal notranslate"><span class="pre">Number</span></code> are supported:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">int_2</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">==</span> <span class="n">int_2</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">==</span> <span class="n">int_2</span>
 <span class="k">assert</span> <span class="n">result</span>
 </pre></div>
 </div>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Number</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">number_1</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="mf">10.5</span><span class="p">)</span>
-<span class="n">number_2</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="mf">10.5</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">number_1</span> <span class="o">==</span> <span class="n">number_2</span>
+<span class="n">number_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">10.5</span><span class="p">)</span>
+<span class="n">number_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">10.5</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">number_1</span> <span class="o">==</span> <span class="n">number_2</span>
 <span class="k">assert</span> <span class="n">result</span>
 </pre></div>
 </div>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Number</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">number_1</span><span class="p">:</span> <span class="n">Number</span> <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">==</span> <span class="n">number_1</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">number_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">==</span> <span class="n">number_1</span>
 <span class="k">assert</span> <span class="n">result</span>
 </pre></div>
 </div>
@@ -107,10 +107,10 @@
 <h2>Equal comparison operator<a class="headerlink" href="#equal-comparison-operator" title="Permalink to this headline">¶</a></h2>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator for the equal comparison:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">10</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">10</span>
 <span class="k">assert</span> <span class="n">result</span>
 </pre></div>
 </div>
@@ -119,10 +119,10 @@
 <h2>Not equal comparison operator<a class="headerlink" href="#not-equal-comparison-operator" title="Permalink to this headline">¶</a></h2>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">!=</span></code> operator for the not equal comparison:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">!=</span> <span class="mi">15</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">!=</span> <span class="mi">15</span>
 <span class="k">assert</span> <span class="n">result</span>
 </pre></div>
 </div>
@@ -131,10 +131,10 @@
 <h2>Less than comparison operator<a class="headerlink" href="#less-than-comparison-operator" title="Permalink to this headline">¶</a></h2>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> operator for the less than comparison:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">&lt;</span> <span class="mi">11</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">&lt;</span> <span class="mi">11</span>
 <span class="k">assert</span> <span class="n">result</span>
 </pre></div>
 </div>
@@ -143,10 +143,10 @@
 <h2>Less than or equal comparison operator<a class="headerlink" href="#less-than-or-equal-comparison-operator" title="Permalink to this headline">¶</a></h2>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> operator for the less than or equal comparison:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">&lt;=</span> <span class="mi">10</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">&lt;=</span> <span class="mi">10</span>
 <span class="k">assert</span> <span class="n">result</span>
 </pre></div>
 </div>
@@ -155,10 +155,10 @@
 <h2>Greater than comparison operator<a class="headerlink" href="#greater-than-comparison-operator" title="Permalink to this headline">¶</a></h2>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> operator for the greater than comparison:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">&gt;</span> <span class="mi">9</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">&gt;</span> <span class="mi">9</span>
 <span class="k">assert</span> <span class="n">result</span>
 </pre></div>
 </div>
@@ -167,10 +167,10 @@
 <h2>Greater than or equal comparison operator<a class="headerlink" href="#greater-than-or-equal-comparison-operator" title="Permalink to this headline">¶</a></h2>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> operator for the greater than or equal comparison:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Int</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">result</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">&gt;=</span> <span class="mi">10</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">result</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_1</span> <span class="o">&gt;=</span> <span class="mi">10</span>
 <span class="k">assert</span> <span class="n">result</span>
 </pre></div>
 </div>

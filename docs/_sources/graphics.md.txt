@@ -14,17 +14,15 @@ Sprite (object container) instance has the `graphics` attribute so with this att
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=180,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 # Draw the white border and cyan color rectangle.
 sprite.graphics.line_style(color='#fff', thickness=5)
@@ -45,7 +43,7 @@ sprite.graphics.draw_dashed_line(
     x_start=50, y_start=130, x_end=200, y_end=130,
     dash_size=10, space_size=5)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_call_interfaces_from_sprite_instance/')
 ```
 
@@ -55,29 +53,25 @@ save_overall_html(
 
 Each interface will return created graphic instances (e.g., `Rectangle`, `Polyline`, and so on). These instances have the basic `DisplayObject` attributes and methods, like x, y, fill_alpha, visible, or something else.
 
-For example, you can set event and coordinates updating to these instances, as follows:
+For example, you can set an event and coordinates updating to these instances, as follows:
 
 ```py
 # runnable
 from typing import Any, Dict
 
-from apysc import Stage, Sprite
-from apysc import Int, Number, String
-from apysc import Rectangle
-from apysc import MouseEvent
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=200,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 
 def on_rectangle_click(
-        e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
     """
     A Handler that called when the rectangle is clicked.
 
@@ -88,24 +82,24 @@ def on_rectangle_click(
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: Rectangle = e.this
+    rectangle: ap.Rectangle = e.this
 
     # Update the coordinates, fill alpha, and fill color.
-    rectangle.x = Int(100)
-    rectangle.y = Int(100)
-    rectangle.fill_alpha = Number(0.5)
-    rectangle.fill_color = String('#f0a')
+    rectangle.x = ap.Int(100)
+    rectangle.y = ap.Int(100)
+    rectangle.fill_alpha = ap.Number(0.5)
+    rectangle.fill_color = ap.String('#f0a')
 
 
 # drew_rect interface will return Rectangle instance.
 sprite.graphics.begin_fill(color='#0af')
-rectangle: Rectangle = sprite.graphics.draw_rect(
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 
 # Bind click event to the rectangle.
 rectangle.click(on_rectangle_click)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_return_values/')
 ```
 

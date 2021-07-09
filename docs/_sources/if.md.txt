@@ -16,11 +16,10 @@ The `If` class will be used at the `with` statement, as follows:
 
 ```py
 # runnable
-from apysc import Boolean
-from apysc import If
+import apysc as ap
 
-condition: Boolean = Boolean(True)
-with If(condition):
+condition: ap.Boolean = ap.Boolean(True)
+with ap.If(condition):
     ...
 ```
 

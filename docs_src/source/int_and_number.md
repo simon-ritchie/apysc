@@ -12,26 +12,26 @@ The `Int` class is the apysc integer type. It can accept numeric values at the c
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10)
+int_1: ap.Int = ap.Int(10)
 assert int_1 == 10
 ```
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10)
-int_2: Int = Int(int_1)
+int_1: ap.Int = ap.Int(10)
+int_2: ap.Int = ap.Int(int_1)
 ```
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10)
-int_2: Int = Int(int_1)
+int_1: ap.Int = ap.Int(10)
+int_2: ap.Int = ap.Int(int_1)
 int_2 += 15
 assert int_2 == 25
 ```
@@ -40,9 +40,9 @@ If you specify a float value to the constructor argument, then a value will be f
 
 ```py
 # runnable
-from apysc import Int
+import apysc as ap
 
-int_1: Int = Int(10.5)
+int_1: ap.Int = ap.Int(10.5)
 assert int_1 == 10
 ```
 
@@ -52,12 +52,12 @@ The ``Number`` class is the apysc float type. It can accept numeric values at th
 
 ```py
 # runnable
-from apysc import Number
+import apysc as ap
 
-number_1: Number = Number(10.5)
+number_1: ap.Number = ap.Number(10.5)
 assert number_1 == 10.5
 
-number_2: Number = Number(number_1)
+number_2: ap.Number = ap.Number(number_1)
 number_2 += 10.5
 assert number_2 == 21
 ```

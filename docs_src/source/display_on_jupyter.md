@@ -8,13 +8,13 @@ The `display_on_jupyter` interface will display the apysc HTML on the Jupyter.
 
 ## Requirements
 
-This interface require the Jupyter library. If you are not installed Jupyter, you need to install it before going on (e.g., `pip install notebook`).
+This interface requires the Jupyter library. If you are not installed Jupyter, you need to install it before going on (e.g., `pip install notebook`).
 
 For more information, please see:
 
 - [Installing the Jupyter Software](https://jupyter.org/install)
 
-Also, this interface uses the `IPython.display.IFrame` interface. If you encountered that interface error, please update Jupyter version.
+Also, this interface uses the `IPython.display.IFrame` interface. If you encountered that interface error, please update the Jupyter version.
 
 ## Notes
 
@@ -28,18 +28,18 @@ You can use the `display_on_jupyter` interface to display an output HTML instead
 The `html_file_name` argument is required to be unique if you need to output multiple HTML otherwise the HTML file will be overwritten:
 
 ```py
-from apysc import Stage, Sprite, display_on_jupyter
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     stage_width=250, stage_height=150, background_color='#333')
-sprite = Sprite(stage=stage)
+sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 sprite.graphics.begin_fill(color='#f0a')
 sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 
-display_on_jupyter(stage=stage, html_file_name='jupyter_sample_1.html')
+ap.display_on_jupyter(stage=stage, html_file_name='jupyter_sample_1.html')
 ```
 
 ![](_static/jupyter_notebook_interface.png)

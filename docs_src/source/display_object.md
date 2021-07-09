@@ -10,24 +10,21 @@ You can verify the inheritance of the `DisplayObject` with each instance by the 
 
 ```py
 # runnable
-from apysc import Stage
-from apysc import Sprite
-from apysc import Circle
-from apysc import DisplayObject
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=200,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
-circle: Circle = sprite.graphics.draw_circle(x=100, y=100, radius=100)
+circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=100)
 
 # Verify each instance type.
-assert isinstance(sprite, DisplayObject)
-assert isinstance(circle, DisplayObject)
+assert isinstance(sprite, ap.DisplayObject)
+assert isinstance(circle, ap.DisplayObject)
 ```
 
 This class is used for the common interfaces or the creation of the new display object with the `DisplayObject` inheritance.

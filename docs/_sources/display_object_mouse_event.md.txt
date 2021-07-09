@@ -18,16 +18,11 @@ The following example will bind the click event handler and if you click the rec
 # runnable
 from typing import Any, Dict
 
-from apysc import Rectangle
-from apysc import Sprite
-from apysc import Stage
-from apysc import String
-from apysc import MouseEvent
-from apysc import save_overall_html
+import apysc as ap
 
 
 def on_click(
-        e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
     """
     The handler would be called when the rectangle is clicked.
 
@@ -38,23 +33,23 @@ def on_click(
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: Rectangle = e.this
-    rectangle.fill_color = String('#f0a')
+    rectangle: ap.Rectangle = e.this
+    rectangle.fill_color = ap.String('#f0a')
 
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
-rectangle: Rectangle = sprite.graphics.draw_rect(
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 rectangle.click(on_click)
 
-save_overall_html(dest_dir_path='display_object_mouse_event_basic_usage/')
+ap.save_overall_html(dest_dir_path='display_object_mouse_event_basic_usage/')
 ```
 
 <iframe src="static/display_object_mouse_event_basic_usage/index.html" width="150" height="150"></iframe>

@@ -12,16 +12,14 @@ Draw vector graphics interfaces (e.g., `draw_rect`) will use these fill settings
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=350,
     stage_height=150,
     stage_elem_id='stage')
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 # Set blue fill color and draw the first rectangle.
 sprite.graphics.begin_fill(color='#0af')
@@ -37,7 +35,7 @@ sprite.graphics.begin_fill(color='#f0a')
 sprite.graphics.draw_rect(
     x=250, y=50, width=50, height=50)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_begin_fill_basic_usage/')
 ```
 
@@ -49,22 +47,20 @@ A fill color can be set by the `color` argument, and this is required.
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 # Set a cyan fill color and draw the rectangle.
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_begin_fill_fill_color/')
 ```
 
@@ -76,16 +72,14 @@ For example, since the following code will clear fill color setting, so a result
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 sprite.graphics.begin_fill(color='#0af')
 
@@ -96,7 +90,7 @@ sprite.graphics.begin_fill(color='')
 sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_begin_fill_color_setting_clear/')
 ```
 
@@ -112,16 +106,14 @@ Color code is acceptable like the following list:
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=450,
     stage_height=150,
     stage_elem_id='stage')
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 # Six characters fill color setting (a cyan color).
 sprite.graphics.begin_fill(color='#00aaff')
@@ -143,7 +135,7 @@ sprite.graphics.begin_fill(color='999')
 sprite.graphics.draw_rect(
     x=350, y=50, width=50, height=50)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_begin_fill_acceptable_color_settings/')
 ```
 
@@ -155,16 +147,14 @@ Fill color alpha (opacity) can be set by the `alpha` argument. It can accept 0.0
 
 ```py
 # runnable
-from apysc import Sprite
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=200,
     stage_elem_id='stage')
-sprite: Sprite = Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 sprite.graphics.begin_fill(color='#00aaff', alpha=0.2)
 sprite.graphics.draw_rect(
@@ -178,7 +168,7 @@ sprite.graphics.draw_rect(
 sprite.graphics.draw_rect(
     x=100, y=75, width=50, height=50)
 
-save_overall_html(
+ap.save_overall_html(
     dest_dir_path='graphics_begin_fill_alpha_setting/')
 ```
 

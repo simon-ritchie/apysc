@@ -51,12 +51,12 @@
 <p>Regardless of the condition, the code in each branch instruction will be executed and variables will be updated.</p>
 <p>For example, the following code of the condition is the <code class="docutils literal notranslate"><span class="pre">False</span></code> but the value of int will be 20 on the Python:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">If</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Boolean</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">condition</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">condition</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="n">If</span><span class="p">(</span><span class="n">condition</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition</span><span class="p">):</span>
     <span class="n">int_1</span> <span class="o">+=</span> <span class="mi">10</span>
 <span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">20</span>
 </pre></div>
@@ -68,12 +68,12 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">If</span></code>, <code class="docutils literal notranslate"><span class="pre">Elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">Else</span></code> classes have the arguments of the <code class="docutils literal notranslate"><span class="pre">locals_</span></code> and <code class="docutils literal notranslate"><span class="pre">globals_</span></code> (basically set the <code class="docutils literal notranslate"><span class="pre">locals()</span></code> and <code class="docutils literal notranslate"><span class="pre">globals</span></code> built-in functions return value). If these arguments are specified, then the scope variables will be reverted when each scope (e.g, <code class="docutils literal notranslate"><span class="pre">If</span></code> scope) is ended.</p>
 <p>This is occasionally useful when you don’t want to update the variables in each branch instruction scope.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">If</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Boolean</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">condition</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">condition</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="n">If</span><span class="p">(</span><span class="n">condition</span><span class="p">,</span> <span class="n">locals_</span><span class="o">=</span><span class="nb">locals</span><span class="p">(),</span> <span class="n">globals_</span><span class="o">=</span><span class="nb">globals</span><span class="p">()):</span>
+<span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition</span><span class="p">,</span> <span class="n">locals_</span><span class="o">=</span><span class="nb">locals</span><span class="p">(),</span> <span class="n">globals_</span><span class="o">=</span><span class="nb">globals</span><span class="p">()):</span>
     <span class="n">int_1</span> <span class="o">+=</span> <span class="mi">10</span>
 <span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">10</span>
 </pre></div>

@@ -58,16 +58,15 @@
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Elif</span></code> class will be used at the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement. The <code class="docutils literal notranslate"><span class="pre">Elif</span></code> class statement is only acceptable to implement right after the <code class="docutils literal notranslate"><span class="pre">If</span></code> or <code class="docutils literal notranslate"><span class="pre">Elif</span></code> classes statement.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Int</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">If</span><span class="p">,</span> <span class="n">Elif</span>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
-<span class="n">condition_1</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">condition_2</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">with</span> <span class="n">If</span><span class="p">(</span><span class="n">condition_1</span><span class="p">):</span>
+<span class="n">condition_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">condition_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition_1</span><span class="p">):</span>
     <span class="n">int_1</span> <span class="o">+=</span> <span class="mi">20</span>
-<span class="k">with</span> <span class="n">Elif</span><span class="p">(</span><span class="n">condition_2</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">Elif</span><span class="p">(</span><span class="n">condition_2</span><span class="p">):</span>
     <span class="n">int_1</span> <span class="o">+=</span> <span class="mi">30</span>
 </pre></div>
 </div>
@@ -75,18 +74,17 @@
 <section id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
 <p>If you insert the code between the <code class="docutils literal notranslate"><span class="pre">If</span></code> (or <code class="docutils literal notranslate"><span class="pre">Elif</span></code>) and <code class="docutils literal notranslate"><span class="pre">Elif</span></code> statements, then exceptions will be raised:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Int</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">If</span><span class="p">,</span> <span class="n">Elif</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
-<span class="n">condition_1</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">condition_2</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">with</span> <span class="n">If</span><span class="p">(</span><span class="n">condition_1</span><span class="p">):</span>
+<span class="n">condition_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">condition_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition_1</span><span class="p">):</span>
     <span class="n">int_1</span> <span class="o">+=</span> <span class="mi">20</span>
 <span class="c1"># Code inserting between the `If` and `Elif` will raise an exception.</span>
-<span class="n">int_2</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-<span class="k">with</span> <span class="n">Elif</span><span class="p">(</span><span class="n">condition_2</span><span class="p">):</span>
+<span class="n">int_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">Elif</span><span class="p">(</span><span class="n">condition_2</span><span class="p">):</span>
     <span class="n">int_1</span> <span class="o">+=</span> <span class="mi">30</span>
 </pre></div>
 </div>
@@ -94,23 +92,22 @@
 </pre></div>
 </div>
 <p>Also, the condition (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value) can not be created at the <code class="docutils literal notranslate"><span class="pre">Elif</span></code> constructor position (the same goes for the comparison operators), for instance:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Int</span>
-<span class="kn">from</span> <span class="nn">apysc</span> <span class="kn">import</span> <span class="n">If</span><span class="p">,</span> <span class="n">Elif</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">int_1</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
-<span class="n">condition_1</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">condition_2</span><span class="p">:</span> <span class="n">Boolean</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">with</span> <span class="n">If</span><span class="p">(</span><span class="n">condition_1</span><span class="p">):</span>
+<span class="n">condition_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">condition_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition_1</span><span class="p">):</span>
     <span class="n">int_1</span> <span class="o">+=</span> <span class="mi">20</span>
-<span class="k">with</span> <span class="n">Elif</span><span class="p">(</span><span class="n">int_1</span> <span class="o">==</span> <span class="mi">10</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">Elif</span><span class="p">(</span><span class="n">int_1</span> <span class="o">==</span> <span class="mi">10</span><span class="p">):</span>
     <span class="n">int_1</span> <span class="o">+=</span> <span class="mi">30</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ValueError: Elif interface can only use right after If or Elif interfaces.
 
 Maybe you are using Int or String, or anything else comparison expression at Elif constructor (e.g., `with Elif(any_value == 10, ...):`).
-Currently that specifying expression directly is not supported so please define condition seperately as follows:
+Currently, that specifying expression directly is not supported so please define condition separately as follows:
 condition: Boolean = any_value == 10
 ...
 with Elif(condition, ....):

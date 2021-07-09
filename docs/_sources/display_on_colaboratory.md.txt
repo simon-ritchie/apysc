@@ -21,18 +21,18 @@ You can use the `display_on_colaboratory` interface to display an output HTML in
 The `html_file_name` argument is required to be unique if you need to output multiple HTML otherwise the HTML file will be overwritten:
 
 ```py
-from apysc import Stage, Sprite, display_on_colaboratory
+import apysc as ap
 
-stage: Stage = Stage(
+stage: ap.Stage = ap.Stage(
     stage_width=250, stage_height=150, background_color='#333')
-sprite = Sprite(stage=stage)
+sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 sprite.graphics.begin_fill(color='#f0a')
 sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 
-display_on_colaboratory(html_file_name='jupyter_test_1.html')
+ap.display_on_colaboratory(html_file_name='jupyter_test_1.html')
 ```
 
 ![](_static/colaboratory_interface.png)

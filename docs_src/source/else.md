@@ -16,14 +16,14 @@ The `Else` class will be used at the `with` statement. The `Else` class statemen
 
 ```py
 # runnable
-from apysc import If, Else, Int, Boolean
+import apysc as ap
 
-condition: Boolean = Boolean(False)
-int_1: Int = Int(10)
+condition: ap.Boolean = ap.Boolean(False)
+int_1: ap.Int = ap.Int(10)
 
-with If(condition):
+with ap.If(condition):
     int_1 += 10
-with Else():
+with ap.Else():
     int_1 += 20
 ```
 
@@ -32,17 +32,17 @@ with Else():
 if you insert the code between the `If` (or `Elif`) and `Else` statements, then exceptions will be raised:
 
 ```py
-from apysc import If, Else, Int, Boolean
+import apysc as ap
 
-condition: Boolean = Boolean(False)
-int_1: Int = Int(10)
+condition: ap.Boolean = ap.Boolean(False)
+int_1: ap.Int = ap.Int(10)
 
-with If(condition):
+with ap.If(condition):
     int_1 += 10
 # If there is a code implementation between the `If` and `Else`, then
 # exceptions will be raised.
-int_2: Int = Int(20)
-with Else():
+int_2: ap.Int = ap.Int(20)
+with ap.Else():
     int_1 += 20
 ```
 

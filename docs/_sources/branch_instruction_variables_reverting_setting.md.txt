@@ -10,12 +10,12 @@ For example, the following code of the condition is the `False` but the value of
 
 ```py
 # runnable
-from apysc import If, Int, Boolean
+import apysc as ap
 
-condition: Boolean = Boolean(False)
-int_1: Int = Int(10)
+condition: ap.Boolean = ap.Boolean(False)
+int_1: ap.Int = ap.Int(10)
 
-with If(condition):
+with ap.If(condition):
     int_1 += 10
 assert int_1 == 20
 ```
@@ -30,12 +30,12 @@ This is occasionally useful when you don't want to update the variables in each 
 
 ```py
 # runnable
-from apysc import If, Int, Boolean
+import apysc as ap
 
-condition: Boolean = Boolean(False)
-int_1: Int = Int(10)
+condition: ap.Boolean = ap.Boolean(False)
+int_1: ap.Int = ap.Int(10)
 
-with If(condition, locals_=locals(), globals_=globals()):
+with ap.If(condition, locals_=locals(), globals_=globals()):
     int_1 += 10
 assert int_1 == 10
 ```

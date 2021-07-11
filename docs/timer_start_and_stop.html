@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Timer class repeat_count setting &#8212; apysc  documentation</title>
+    <title>Timer class start and stop interfaces &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -18,8 +18,7 @@
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Timer class start and stop interfaces" href="timer_start_and_stop.html" />
-    <link rel="prev" title="Timer class delay setting" href="timer_delay.html" /> 
+    <link rel="prev" title="Timer class repeat_count setting" href="timer_repeat_count.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,13 +27,10 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="timer_start_and_stop.html" title="Timer class start and stop interfaces"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="timer_delay.html" title="Timer class delay setting"
+          <a href="timer_repeat_count.html" title="Timer class repeat_count setting"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Timer class repeat_count setting</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Timer class start and stop interfaces</a></li> 
       </ul>
     </div>  
 
@@ -43,17 +39,16 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="timer-class-repeat-count-setting">
-<h1>Timer class repeat_count setting<a class="headerlink" href="#timer-class-repeat-count-setting" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Timer</span></code> class <code class="docutils literal notranslate"><span class="pre">repeat_count</span></code> argument setting.</p>
-<section id="what-argument-is-this">
-<h2>What argument is this?<a class="headerlink" href="#what-argument-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">repeat_count</span></code> argument setting will determine the max handler calling number. If you specify the 10 value, then a timer will call the handler 10 times and will stop.</p>
+  <section id="timer-class-start-and-stop-interfaces">
+<h1>Timer class start and stop interfaces<a class="headerlink" href="#timer-class-start-and-stop-interfaces" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Timer</span></code> class <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">stop</span></code> method interfaces.</p>
+<section id="what-interfaces-are-these">
+<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">start</span></code> method interface will start a timer. Conversely, the <code class="docutils literal notranslate"><span class="pre">stop</span></code> method interface will stop a timer.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>You can set the <code class="docutils literal notranslate"><span class="pre">repeat_count</span></code> parameter at the <code class="docutils literal notranslate"><span class="pre">Timer</span></code> constructor. The following example will set the timer with the 100 times <code class="docutils literal notranslate"><span class="pre">repeat_count</span></code> value when you click the rectangle.</p>
-<p>If the rectangle moved 100 times (100-pixels to the right) then the timer will stop.</p>
+<p>Each <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">stop</span></code> method has the no arguments. The following example will start the time when you click the rectangle and stop when the timer count is reached 100.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
 
@@ -92,6 +87,10 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;rectangle&#39;</span><span class="p">]</span>
     <span class="n">rectangle</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">timer</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
+    <span class="n">condition</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="n">current_count</span> <span class="o">==</span> <span class="mi">100</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition</span><span class="p">):</span>
+        <span class="n">timer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 
 
 <span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
@@ -103,10 +102,10 @@
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">rectangle</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">on_rectangle_click</span><span class="p">)</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;timer_repeat_count_basic_usage/&#39;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;timer_start_and_stop_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/timer_repeat_count_basic_usage/index.html" width="250" height="150"></iframe></section>
+<iframe src="static/timer_start_and_stop_basic_usage/index.html" width="250" height="150"></iframe></section>
 </section>
 
 
@@ -121,23 +120,20 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Timer class repeat_count setting</a><ul>
-<li><a class="reference internal" href="#what-argument-is-this">What argument is this?</a></li>
+<li><a class="reference internal" href="#">Timer class start and stop interfaces</a><ul>
+<li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="timer_delay.html"
-                        title="previous chapter">Timer class delay setting</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="timer_start_and_stop.html"
-                        title="next chapter">Timer class start and stop interfaces</a></p>
+  <p class="topless"><a href="timer_repeat_count.html"
+                        title="previous chapter">Timer class repeat_count setting</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/timer_repeat_count.md.txt"
+      <li><a href="_sources/timer_start_and_stop.md.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -162,13 +158,10 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="timer_start_and_stop.html" title="Timer class start and stop interfaces"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="timer_delay.html" title="Timer class delay setting"
+          <a href="timer_repeat_count.html" title="Timer class repeat_count setting"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Timer class repeat_count setting</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Timer class start and stop interfaces</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

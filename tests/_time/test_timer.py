@@ -79,6 +79,9 @@ class TestTimer:
         )
         assert match is not None
 
+        expression = expression_file_util.get_current_expression()
+        assert f'var {timer.variable_name};' in expression
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_delay(self) -> None:
         timer: Timer = Timer(
@@ -114,7 +117,7 @@ class TestTimer:
         expression: str = expression_file_util.get_current_expression()
         pattern: str = (
             rf'if \(_\.isUndefined\({timer.variable_name}\)\) {{'
-            rf'\n  var {timer.variable_name} = setInterval\('
+            rf'\n  {timer.variable_name} = setInterval\('
             rf'{timer._handler_name}, {var_names.NUMBER}_.+?\);'
             r'\n}'
         )

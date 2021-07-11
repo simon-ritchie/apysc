@@ -62,6 +62,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
         from apysc._validation import number_validation
+        from apysc import append_js_expression
         with TemporaryNotHandlerScope():
             self.variable_name = \
                 expression_variables_util.get_next_variable_name(
@@ -90,6 +91,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
                 handler_data=self._handler_data,
                 handler_name=self._handler_name,
                 e=e)
+            append_js_expression(expression=f'var {self.variable_name};')
 
     def _convert_delay_to_number(
             self,
@@ -179,8 +181,8 @@ class Timer(VariableNameInterface, CustomEventInterface):
         delay_val_str: str = value_util.get_value_str_for_expression(
             value=self._delay)
         expression: str = (
-            f'if (_.isUndefined({self.variable_name})) {{'
-            f'\n  var {self.variable_name} = setInterval('
+            f'\nif (_.isUndefined({self.variable_name})) {{'
+            f'\n  {self.variable_name} = setInterval('
             f'{self._handler_name}, {delay_val_str});'
             '\n}'
         )

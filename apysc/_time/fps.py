@@ -41,10 +41,15 @@ class FPSDefinition:
 
 class FPS(Enum):
 
+    FPS_5 = FPSDefinition(fps=5, milisecond_intervals=200)
     FPS_10 = FPSDefinition(fps=10, milisecond_intervals=100)
     FPS_15 = FPSDefinition(fps=15, milisecond_intervals=66.6666667)
     FPS_20 = FPSDefinition(fps=20, milisecond_intervals=50)
     FPS_25 = FPSDefinition(fps=25, milisecond_intervals=40)
     FPS_30 = FPSDefinition(fps=30, milisecond_intervals=33.3333333)
+    FPS_35 = FPSDefinition(fps=35, milisecond_intervals=28.5714286)
+    FPS_40 = FPSDefinition(fps=40, milisecond_intervals=25)
     FPS_45 = FPSDefinition(fps=45, milisecond_intervals=22.2222222)
+    FPS_50 = FPSDefinition(fps=50, milisecond_intervals=20)
+    FPS_55 = FPSDefinition(fps=55, milisecond_intervals=18.1818182)
     FPS_60 = FPSDefinition(fps=60, milisecond_intervals=16.6666667)

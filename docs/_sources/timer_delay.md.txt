@@ -109,3 +109,7 @@ ap.save_overall_html(dest_dir_path='timer_delay_fps_enum/')
 ```
 
 <iframe src="static/timer_delay_fps_enum/index.html" width="150" height="150"></iframe>
+
+## See also
+
+- [FPS enum](fps.md)

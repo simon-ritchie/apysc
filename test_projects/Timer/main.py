@@ -69,9 +69,20 @@ def main() -> None:
         handler=on_timer_2, delay=ap.FPS.FPS_60, repeat_count=100,
         options={'rect': rectangle_5})
     timer_4.timer_complete(
-        on_timer_complete,
+        on_timer_complete_1,
         options={'msg': 'Triggered timer complete event!'})
     timer_4.start()
+
+    sprite.graphics.begin_fill(color='#0af')
+    rectangle_6: ap.Rectangle = sprite.graphics.draw_rect(
+        x=550, y=50, width=50, height=50)
+    timer_5: ap.Timer = ap.Timer(
+        handler=on_timer_2, delay=ap.FPS.FPS_60,
+        repeat_count=100,
+        options={'rect': rectangle_6})
+    timer_5.timer_complete(
+        handler=on_timer_complete_2, options={'timer': timer_5})
+    timer_5.start()
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
@@ -131,7 +142,7 @@ def on_rectangle_click(
     timer.start()
 
 
-def on_timer_complete(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer_complete_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
     """
     The handler would be called when a timer complete.
 
@@ -143,6 +154,23 @@ def on_timer_complete(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
         Optional arguments dictionary.
     """
     ap.trace(options['msg'])
+
+
+def on_timer_complete_2(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+    """
+    The handler would be called when a timer complete.
+
+    Parameters
+    ----------
+    e : TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    ap.trace('Timer complete!')
+    timer: ap.Timer = options['timer']
+    timer.reset()
+    timer.start()
 
 
 if __name__ == '__main__':

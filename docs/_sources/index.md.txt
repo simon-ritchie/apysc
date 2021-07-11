@@ -119,6 +119,7 @@ The `Graphics` class handles each vector graphics drawing.
 **Timer**
 
 - [Timer class](timer.md)
+- [TimerEvent class](timer_event.md)
 - [Timer class delay setting](timer_delay.md)
 - [Timer class repeat count setting](timer_repeat_count.md)
 - [Timer class start and stop interfaces](timer_start_and_stop.md)

@@ -120,5 +120,6 @@ The `Graphics` class handles each vector graphics drawing.
 
 - [Timer class](timer.md)
 - [Timer class delay setting](timer_delay.md)
+- [Timer class repeat count setting](timer_repeat_count.md)
 
 ---

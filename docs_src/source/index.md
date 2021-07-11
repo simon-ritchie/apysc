@@ -124,5 +124,6 @@ The `Graphics` class handles each vector graphics drawing.
 - [FPS enum](fps.md)
 - [Timer class repeat count setting](timer_repeat_count.md)
 - [Timer class start and stop interfaces](timer_start_and_stop.md)
+- [Timer class timer complete interface](timer_complete.md)
 
 ---

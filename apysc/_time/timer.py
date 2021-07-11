@@ -55,6 +55,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
             Optional arguments dictionary to pass the the handler.
         """
         from apysc import TimerEvent
+        from apysc import append_js_expression
         from apysc._event.handler import append_handler_expression
         from apysc._event.handler import get_handler_name
         from apysc._expression import expression_variables_util
@@ -62,7 +63,6 @@ class Timer(VariableNameInterface, CustomEventInterface):
         from apysc._expression.event_handler_scope import \
             TemporaryNotHandlerScope
         from apysc._validation import number_validation
-        from apysc import append_js_expression
         with TemporaryNotHandlerScope():
             self.variable_name = \
                 expression_variables_util.get_next_variable_name(

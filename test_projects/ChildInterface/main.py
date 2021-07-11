@@ -12,17 +12,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Boolean
-from apysc import DisplayObject
-from apysc import Int
-from apysc import Sprite
-from apysc import Stage
-from apysc import assert_defined
-from apysc import assert_equal
-from apysc import assert_false
-from apysc import assert_true
-from apysc import assert_undefined
-from apysc import save_overall_html
+import apysc as ap
 from apysc._file import file_util
 
 this_module: ModuleType = sys.modules[__name__]
@@ -37,27 +27,27 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    stage: Stage = Stage(background_color='#333')
-    sprite_1: Sprite = Sprite(stage=stage)
+    stage: ap.Stage = ap.Stage(background_color='#333')
+    sprite_1: ap.Sprite = ap.Sprite(stage=stage)
     stage.add_child(sprite_1)
-    sprite_2: Sprite = Sprite(stage=stage)
+    sprite_2: ap.Sprite = ap.Sprite(stage=stage)
     sprite_1.add_child(sprite_2)
-    bool_1: Boolean = stage.contains(child=sprite_1)
-    assert_true(actual=bool_1)
-    bool_2: Boolean = sprite_1.contains(child=sprite_2)
-    assert_true(actual=bool_2)
-    bool_3: Boolean = stage.contains(child=sprite_2)
-    assert_false(actual=bool_3)
+    bool_1: ap.Boolean = stage.contains(child=sprite_1)
+    ap.assert_true(actual=bool_1)
+    bool_2: ap.Boolean = sprite_1.contains(child=sprite_2)
+    ap.assert_true(actual=bool_2)
+    bool_3: ap.Boolean = stage.contains(child=sprite_2)
+    ap.assert_false(actual=bool_3)
 
-    num_children: Int = sprite_1.num_children
-    assert_equal(expected=1, actual=num_children)
+    num_children: ap.Int = sprite_1.num_children
+    ap.assert_equal(expected=1, actual=num_children)
 
-    child_1: DisplayObject = sprite_1.get_child_at(index=0)
-    assert_defined(actual=child_1)
-    child_2: DisplayObject = sprite_1.get_child_at(index=1)
-    assert_undefined(actual=child_2)
+    child_1: ap.DisplayObject = sprite_1.get_child_at(index=0)
+    ap.assert_defined(actual=child_1)
+    child_2: ap.DisplayObject = sprite_1.get_child_at(index=1)
+    ap.assert_undefined(actual=child_2)
 
-    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 if __name__ == '__main__':

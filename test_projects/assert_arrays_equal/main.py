@@ -13,13 +13,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Array
-from apysc import Stage
-from apysc import assert_arrays_equal
-from apysc import assert_arrays_not_equal
-from apysc import assert_equal
-from apysc import assert_not_equal
-from apysc import save_overall_html
+import apysc as ap
 from apysc._file import file_util
 
 this_module: ModuleType = sys.modules[__name__]
@@ -34,43 +28,43 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    _: Stage = Stage(background_color='#333')
+    _: ap.Stage = ap.Stage(background_color='#333')
 
-    assert_arrays_equal(
+    ap.assert_arrays_equal(
         expected=[1, 2, 3], actual=[1, 2, 3])
-    assert_arrays_equal(
+    ap.assert_arrays_equal(
         expected=(1, 2, 3), actual=[1, 2, 3])
-    assert_arrays_equal(
+    ap.assert_arrays_equal(
         expected=[1, 2, 3], actual=(1, 2, 3))
-    assert_arrays_equal(
+    ap.assert_arrays_equal(
         expected=(1, 2, 3), actual=(1, 2, 3))
-    assert_arrays_equal(
-        expected=Array([1, 2, 3]), actual=[1, 2, 3])
-    assert_arrays_equal(
-        expected=[1, 2, 3], actual=Array([1, 2, 3]))
-    assert_arrays_equal(
-        expected=Array([1, 2, 3]), actual=Array([1, 2, 3]))
+    ap.assert_arrays_equal(
+        expected=ap.Array([1, 2, 3]), actual=[1, 2, 3])
+    ap.assert_arrays_equal(
+        expected=[1, 2, 3], actual=ap.Array([1, 2, 3]))
+    ap.assert_arrays_equal(
+        expected=ap.Array([1, 2, 3]), actual=ap.Array([1, 2, 3]))
 
-    assert_arrays_not_equal(
+    ap.assert_arrays_not_equal(
         expected=[1, 2, 3], actual=[1, 2])
-    assert_arrays_not_equal(
+    ap.assert_arrays_not_equal(
         expected=(1, 2, 3), actual=[1, 2])
-    assert_arrays_not_equal(
-        expected=[1, 2, 3], actual=Array([1, 2]))
-    assert_arrays_not_equal(
-        expected=Array([1, 2, 3]), actual=Array([1, 2]))
+    ap.assert_arrays_not_equal(
+        expected=[1, 2, 3], actual=ap.Array([1, 2]))
+    ap.assert_arrays_not_equal(
+        expected=ap.Array([1, 2, 3]), actual=ap.Array([1, 2]))
 
-    assert_equal(
-        expected=Array([1, 2, 3]), actual=Array([1, 2, 3]))
-    assert_equal(
-        expected=[1, 2, 3], actual=Array([1, 2, 3]))
+    ap.assert_equal(
+        expected=ap.Array([1, 2, 3]), actual=ap.Array([1, 2, 3]))
+    ap.assert_equal(
+        expected=[1, 2, 3], actual=ap.Array([1, 2, 3]))
 
-    assert_not_equal(
-        expected=Array([1, 2, 3]), actual=Array([1, 2]))
-    assert_not_equal(
-        expected=[1, 2, 3], actual=Array([1, 2]))
+    ap.assert_not_equal(
+        expected=ap.Array([1, 2, 3]), actual=ap.Array([1, 2]))
+    ap.assert_not_equal(
+        expected=[1, 2, 3], actual=ap.Array([1, 2]))
 
-    save_overall_html(
+    ap.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)
 
 

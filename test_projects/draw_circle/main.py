@@ -14,13 +14,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Circle
-from apysc import Int
-from apysc import LineDotSetting
-from apysc import MouseEvent
-from apysc import Sprite
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 from apysc._file import file_util
 
 this_module: ModuleType = sys.modules[__name__]
@@ -35,26 +29,28 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    stage: Stage = Stage(
+    stage: ap.Stage = ap.Stage(
         background_color='#333',
         stage_width=1000, stage_height=500)
-    sprite: Sprite = Sprite(stage=stage)
+    sprite: ap.Sprite = ap.Sprite(stage=stage)
 
     sprite.graphics.begin_fill(color='0af')
-    circle_1: Circle = sprite.graphics.draw_circle(x=100, y=100, radius=100)
+    circle_1: ap.Circle = sprite.graphics.draw_circle(
+        x=100, y=100, radius=100)
     circle_1.click(on_circle_1_click)
 
     sprite.graphics.begin_fill(color='')
     sprite.graphics.line_style(
         color='#fff', thickness=3,
-        dot_setting=LineDotSetting(dot_size=3))
+        dot_setting=ap.LineDotSetting(dot_size=3))
     circle_2 = sprite.graphics.draw_circle(x=250, y=100, radius=100)
     circle_2.click(on_circle_2_click)
 
-    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_circle_1_click(e: MouseEvent[Circle], options: Dict[str, Any]) -> None:
+def on_circle_1_click(
+        e: ap.MouseEvent[ap.Circle], options: Dict[str, Any]) -> None:
     """
     The handler would be called when the circle is clicked.
 
@@ -69,7 +65,8 @@ def on_circle_1_click(e: MouseEvent[Circle], options: Dict[str, Any]) -> None:
     e.this.y += 25
 
 
-def on_circle_2_click(e: MouseEvent[Circle], options: Dict[str, Any]) -> None:
+def on_circle_2_click(
+        e: ap.MouseEvent[ap.Circle], options: Dict[str, Any]) -> None:
     """
     The handler would be called when the circle is clicked.
 
@@ -80,7 +77,7 @@ def on_circle_2_click(e: MouseEvent[Circle], options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    e.this.radius = Int(110)
+    e.this.radius = ap.Int(110)
 
 
 if __name__ == '__main__':

@@ -12,10 +12,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Stage
-from apysc import String
-from apysc import assert_equal
-from apysc import save_overall_html
+import apysc as ap
 from apysc._color import color_util
 from apysc._file import file_util
 
@@ -31,26 +28,26 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    _: Stage = Stage(
+    _: ap.Stage = ap.Stage(
         background_color='#333')
 
-    string_1: String = color_util.complement_hex_color(
-        hex_color_code=String('333'))
-    assert_equal(expected='#333333', actual=string_1)
+    string_1: ap.String = color_util.complement_hex_color(
+        hex_color_code=ap.String('333'))
+    ap.assert_equal(expected='#333333', actual=string_1)
 
-    string_2: String = color_util.complement_hex_color(
-        hex_color_code=String('#5'))
-    assert_equal(expected='#000005', actual=string_2)
+    string_2: ap.String = color_util.complement_hex_color(
+        hex_color_code=ap.String('#5'))
+    ap.assert_equal(expected='#000005', actual=string_2)
 
-    string_3: String = color_util.complement_hex_color(
-        hex_color_code=String('#333'))
-    assert_equal(expected='#333333', actual=string_3)
+    string_3: ap.String = color_util.complement_hex_color(
+        hex_color_code=ap.String('#333'))
+    ap.assert_equal(expected='#333333', actual=string_3)
 
-    string_4: String = color_util.complement_hex_color(
-        hex_color_code=String('#555555'))
-    assert_equal(expected='#555555', actual=string_4)
+    string_4: ap.String = color_util.complement_hex_color(
+        hex_color_code=ap.String('#555555'))
+    ap.assert_equal(expected='#555555', actual=string_4)
 
-    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 if __name__ == '__main__':

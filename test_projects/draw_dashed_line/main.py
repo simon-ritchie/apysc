@@ -14,12 +14,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Line
-from apysc import LineDotSetting
-from apysc import MouseEvent
-from apysc import Sprite
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 from apysc._file import file_util
 
 this_module: ModuleType = sys.modules[__name__]
@@ -34,21 +29,21 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    stage: Stage = Stage(
+    stage: ap.Stage = ap.Stage(
         background_color='#333',
         stage_width=1000, stage_height=500)
-    sprite: Sprite = Sprite(stage=stage)
+    sprite: ap.Sprite = ap.Sprite(stage=stage)
     sprite.graphics.line_style(
-        color='#0af', thickness=10, dot_setting=LineDotSetting(dot_size=3))
-    line_1: Line = sprite.graphics.draw_dashed_line(
+        color='#0af', thickness=10, dot_setting=ap.LineDotSetting(dot_size=3))
+    line_1: ap.Line = sprite.graphics.draw_dashed_line(
         x_start=50, y_start=50, x_end=350, y_end=50,
         dash_size=10, space_size=5)
     line_1.click(on_line_click, options={'sprite': sprite})
 
-    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_line_click(e: MouseEvent[Line], options: Dict[str, Any]) -> None:
+def on_line_click(e: ap.MouseEvent[ap.Line], options: Dict[str, Any]) -> None:
     """
     Handler that called when line is clicked.
 
@@ -59,8 +54,8 @@ def on_line_click(e: MouseEvent[Line], options: Dict[str, Any]) -> None:
     options : dict
         Optional parameters.
     """
-    sprite: Sprite = options['sprite']
-    _: Line = sprite.graphics.draw_dashed_line(
+    sprite: ap.Sprite = options['sprite']
+    _: ap.Line = sprite.graphics.draw_dashed_line(
         x_start=50, y_start=80, x_end=350, y_end=80,
         dash_size=10, space_size=5)
 

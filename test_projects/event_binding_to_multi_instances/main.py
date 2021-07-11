@@ -15,12 +15,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import MouseEvent
-from apysc import Rectangle
-from apysc import Sprite
-from apysc import Stage
-from apysc import save_overall_html
-from apysc import trace
+import apysc as ap
 from apysc._file import file_util
 
 this_module: ModuleType = sys.modules[__name__]
@@ -35,22 +30,22 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    stage: Stage = Stage(
+    stage: ap.Stage = ap.Stage(
         background_color='#333',
         stage_width=1000, stage_height=500)
-    sprite: Sprite = Sprite(stage=stage)
+    sprite: ap.Sprite = ap.Sprite(stage=stage)
     sprite.graphics.begin_fill(color='#0af')
-    rectangle_1: Rectangle = sprite.graphics.draw_rect(
+    rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
     rectangle_1.click(on_click)
-    rectangle_2: Rectangle = sprite.graphics.draw_rect(
+    rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
         x=150, y=50, width=50, height=50)
     rectangle_2.click(on_click)
 
-    save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
-def on_click(e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
+def on_click(e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
     """
     The handler would be called when a rectangle is clicked.
 
@@ -61,8 +56,8 @@ def on_click(e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: Rectangle = e.this
-    trace(rectangle.x)
+    rectangle: ap.Rectangle = e.this
+    ap.trace(rectangle.x)
 
 
 if __name__ == '__main__':

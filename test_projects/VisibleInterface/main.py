@@ -14,12 +14,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Boolean
-from apysc import MouseEvent
-from apysc import Rectangle
-from apysc import Sprite
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 from apysc._file import file_util
 
 this_module: ModuleType = sys.modules[__name__]
@@ -34,23 +29,23 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    stage: Stage = Stage(background_color='#333', stage_height=300)
+    stage: ap.Stage = ap.Stage(background_color='#333', stage_height=300)
 
-    sprite_1: Sprite = Sprite(stage=stage)
+    sprite_1: ap.Sprite = ap.Sprite(stage=stage)
     sprite_1.graphics.begin_fill(color='#0af')
-    rectangle_1: Rectangle = sprite_1.graphics.draw_rect(
+    rectangle_1: ap.Rectangle = sprite_1.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
-    rectangle_2: Rectangle = sprite_1.graphics.draw_rect(
+    rectangle_2: ap.Rectangle = sprite_1.graphics.draw_rect(
         x=150, y=50, width=50, height=50)
-    rectangle_2.visible = Boolean(False)
+    rectangle_2.visible = ap.Boolean(False)
 
-    sprite_2: Sprite = Sprite(stage=stage)
+    sprite_2: ap.Sprite = ap.Sprite(stage=stage)
     sprite_2.graphics.begin_fill(color='#f0a')
-    rectangle_3: Rectangle = sprite_2.graphics.draw_rect(
+    rectangle_3: ap.Rectangle = sprite_2.graphics.draw_rect(
         x=50, y=150, width=50, height=50)
-    rectangle_4: Rectangle = sprite_2.graphics.draw_rect(
+    rectangle_4: ap.Rectangle = sprite_2.graphics.draw_rect(
         x=150, y=150, width=50, height=50)
-    sprite_2.visible = Boolean(False)
+    sprite_2.visible = ap.Boolean(False)
 
     rectangle_1.click(
         on_rectangle_1_click,
@@ -61,10 +56,10 @@ def main() -> None:
     rectangle_3.click(on_rectangle_3_or_4_click)
     rectangle_4.click(on_rectangle_3_or_4_click)
 
-    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_rectangle_1_click(e: MouseEvent, options: Dict[str, Any]) -> None:
+def on_rectangle_1_click(e: ap.MouseEvent, options: Dict[str, Any]) -> None:
     """
     Handler that called when rectangle_1 is clicked.
 
@@ -75,16 +70,16 @@ def on_rectangle_1_click(e: MouseEvent, options: Dict[str, Any]) -> None:
     options : dict
         Optional values.
     """
-    sprite_2: Sprite = options['sprite_2']
-    sprite_2.visible = Boolean(True)
-    rectangle_3: Rectangle = options['rectangle_3']
-    rectangle_3.visible = Boolean(True)
-    rectangle_4: Rectangle = options['rectangle_4']
-    rectangle_4.visible = Boolean(True)
+    sprite_2: ap.Sprite = options['sprite_2']
+    sprite_2.visible = ap.Boolean(True)
+    rectangle_3: ap.Rectangle = options['rectangle_3']
+    rectangle_3.visible = ap.Boolean(True)
+    rectangle_4: ap.Rectangle = options['rectangle_4']
+    rectangle_4.visible = ap.Boolean(True)
 
 
 def on_rectangle_3_or_4_click(
-        e: MouseEvent[Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
     """
     Handler that called when rectangle_3 or rectangle_4 is clicked.
 
@@ -95,7 +90,7 @@ def on_rectangle_3_or_4_click(
     options : dict
         Optional values.
     """
-    e.this.visible = Boolean(False)
+    e.this.visible = ap.Boolean(False)
 
 
 if __name__ == '__main__':

@@ -12,8 +12,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Stage
-from apysc import save_overall_html
+import apysc as ap
 from apysc._expression import expression_file_util
 from apysc._file import file_util
 from apysc._type.blank_object_interface import BlankObjectInterface
@@ -30,7 +29,7 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    _: Stage = Stage(
+    _: ap.Stage = ap.Stage(
         background_color='#333',
         stage_width=1000, stage_height=500)
 
@@ -41,7 +40,7 @@ def main() -> None:
     )
     expression_file_util.append_js_expression(expression=expression)
 
-    save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
 if __name__ == '__main__':

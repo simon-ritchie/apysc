@@ -12,12 +12,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Number
-from apysc import Rectangle
-from apysc import Sprite
-from apysc import Stage
-from apysc import assert_equal
-from apysc import save_overall_html
+import apysc as ap
 from apysc._file import file_util
 
 this_module: ModuleType = sys.modules[__name__]
@@ -32,20 +27,20 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    stage: Stage = Stage(background_color='#333')
-    sprite_1: Sprite = Sprite(stage=stage)
+    stage: ap.Stage = ap.Stage(background_color='#333')
+    sprite_1: ap.Sprite = ap.Sprite(stage=stage)
     sprite_1.graphics.begin_fill(color='#aaa', alpha=0.5)
-    rectangle: Rectangle = sprite_1.graphics.draw_rect(
+    rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
-    fill_alpha_1: Number = rectangle.fill_alpha
-    assert_equal(
+    fill_alpha_1: ap.Number = rectangle.fill_alpha
+    ap.assert_equal(
         expected=0.5, actual=fill_alpha_1)
-    rectangle.fill_alpha = Number(0.3)
-    fill_alpha_2: Number = rectangle.fill_alpha
-    assert_equal(
+    rectangle.fill_alpha = ap.Number(0.3)
+    fill_alpha_2: ap.Number = rectangle.fill_alpha
+    ap.assert_equal(
         expected=0.3, actual=fill_alpha_2)
 
-    save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
 if __name__ == '__main__':

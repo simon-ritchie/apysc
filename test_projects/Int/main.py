@@ -14,16 +14,7 @@ sys.path.append('./')
 import os
 from types import ModuleType
 
-from apysc import Boolean
-from apysc import If
-from apysc import Int
-from apysc import MouseEvent
-from apysc import Number
-from apysc import Stage
-from apysc import assert_equal
-from apysc import assert_true
-from apysc import save_overall_html
-from apysc import trace
+import apysc as ap
 from apysc._file import file_util
 
 this_module: ModuleType = sys.modules[__name__]
@@ -38,88 +29,88 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    stage: Stage = Stage(background_color='#333')
+    stage: ap.Stage = ap.Stage(background_color='#333')
 
-    int_1: Int = Int(10)
-    assert_equal(expected=10, actual=int_1)
+    int_1: ap.Int = ap.Int(10)
+    ap.assert_equal(expected=10, actual=int_1)
 
-    int_2: Int = int_1 + 20
-    assert_equal(expected=30, actual=int_2)
+    int_2: ap.Int = int_1 + 20
+    ap.assert_equal(expected=30, actual=int_2)
 
-    int_3: Int = int_1 + int_2
-    assert_equal(expected=40, actual=int_3)
+    int_3: ap.Int = int_1 + int_2
+    ap.assert_equal(expected=40, actual=int_3)
 
-    int_4: Int = Int(40) - 10
-    assert_equal(expected=30, actual=int_4)
+    int_4: ap.Int = ap.Int(40) - 10
+    ap.assert_equal(expected=30, actual=int_4)
 
-    int_5: Int = int_4 - int_1
-    assert_equal(expected=20, actual=int_5)
+    int_5: ap.Int = int_4 - int_1
+    ap.assert_equal(expected=20, actual=int_5)
 
-    number_1: Number = int_1 / 4
-    assert_equal(expected=2.5, actual=number_1)
+    number_1: ap.Number = int_1 / 4
+    ap.assert_equal(expected=2.5, actual=number_1)
 
-    number_2: Number = int_1 / int_3
-    assert_equal(expected=0.25, actual=number_2)
+    number_2: ap.Number = int_1 / int_3
+    ap.assert_equal(expected=0.25, actual=number_2)
 
-    int_6: Int = Int(30.5)
-    assert_equal(expected=30, actual=int_6)
+    int_6: ap.Int = ap.Int(30.5)
+    ap.assert_equal(expected=30, actual=int_6)
 
-    int_7: Int = Int(Number(60.5))
-    assert_equal(expected=60, actual=int_7)
+    int_7: ap.Int = ap.Int(ap.Number(60.5))
+    ap.assert_equal(expected=60, actual=int_7)
 
-    int_8: Int = Int(10) // 4
-    assert_equal(expected=2, actual=int_8)
+    int_8: ap.Int = ap.Int(10) // 4
+    ap.assert_equal(expected=2, actual=int_8)
 
-    int_9: Int = Int(10) // Int(3)
-    assert_equal(expected=3, actual=int_9)
+    int_9: ap.Int = ap.Int(10) // ap.Int(3)
+    ap.assert_equal(expected=3, actual=int_9)
 
-    int_10: Int = Int(10)
+    int_10: ap.Int = ap.Int(10)
     int_10 += 5
-    assert_equal(expected=15, actual=int_10)
+    ap.assert_equal(expected=15, actual=int_10)
 
-    int_11: Int = Int(10)
+    int_11: ap.Int = ap.Int(10)
     int_11 -= 3
-    assert_equal(expected=7, actual=int_11)
+    ap.assert_equal(expected=7, actual=int_11)
 
-    int_12: Int = Int(10)
+    int_12: ap.Int = ap.Int(10)
     int_12 *= 3
-    assert_equal(expected=30, actual=int_12)
+    ap.assert_equal(expected=30, actual=int_12)
 
-    int_13: Int = Int(10)
+    int_13: ap.Int = ap.Int(10)
     int_13 /= 4
-    assert_equal(expected=2.5, actual=int_13)
+    ap.assert_equal(expected=2.5, actual=int_13)
 
-    int_14: Int = Int(10)
-    boolean_1: Boolean = Boolean(False)
-    with If(boolean_1, locals(), globals()):
+    int_14: ap.Int = ap.Int(10)
+    boolean_1: ap.Boolean = ap.Boolean(False)
+    with ap.If(boolean_1, locals(), globals()):
         int_14 += 10
-    assert_equal(expected=10, actual=int_14)
+    ap.assert_equal(expected=10, actual=int_14)
 
-    with If(boolean_1, locals(), globals()):
+    with ap.If(boolean_1, locals(), globals()):
         int_14 -= 10
-    assert_equal(expected=10, actual=int_14)
+    ap.assert_equal(expected=10, actual=int_14)
 
-    with If(boolean_1, locals(), globals()):
+    with ap.If(boolean_1, locals(), globals()):
         int_14 *= 2
-    assert_equal(expected=10, actual=int_14)
+    ap.assert_equal(expected=10, actual=int_14)
 
-    with If(boolean_1, locals(), globals()):
+    with ap.If(boolean_1, locals(), globals()):
         int_14 /= 2
-    assert_equal(expected=10, actual=int_14)
+    ap.assert_equal(expected=10, actual=int_14)
 
-    int_15: Int = Int(10)
+    int_15: ap.Int = ap.Int(10)
     stage.click(on_stage_clicked, options={'int_15': int_15})
 
-    int_16: Int = Int(10)
-    int_17: Int = int_16 % 3
-    assert_equal(expected=1, actual=int_17)
-    int_18: Int = int_16 % Int(3)
-    assert_equal(expected=1, actual=int_18)
+    int_16: ap.Int = ap.Int(10)
+    int_17: ap.Int = int_16 % 3
+    ap.assert_equal(expected=1, actual=int_17)
+    int_18: ap.Int = int_16 % ap.Int(3)
+    ap.assert_equal(expected=1, actual=int_18)
 
-    save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
-def on_stage_clicked(e: MouseEvent, options: Dict[str, Any]) -> None:
+def on_stage_clicked(e: ap.MouseEvent, options: Dict[str, Any]) -> None:
     """
     Test handler that called when stage is clicked.
 
@@ -130,15 +121,15 @@ def on_stage_clicked(e: MouseEvent, options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    trace('stage clicked!')
-    int_15: Int = options['int_15']
+    ap.trace('stage clicked!')
+    int_15: ap.Int = options['int_15']
     int_15 += 5
-    assert_true(int_15 == 15)
-    assert_true(int_15 != 16)
-    assert_true(int_15 < 16)
-    assert_true(int_15 <= 15)
-    assert_true(int_15 > 14)
-    assert_true(int_15 >= 15)
+    ap.assert_true(int_15 == 15)
+    ap.assert_true(int_15 != 16)
+    ap.assert_true(int_15 < 16)
+    ap.assert_true(int_15 <= 15)
+    ap.assert_true(int_15 > 14)
+    ap.assert_true(int_15 >= 15)
 
 
 if __name__ == '__main__':

@@ -53,4 +53,4 @@ from apysc._jupyter.jupyter_util import display_on_colaboratory  # isort:skip # 
 from apysc._time.fps import FPS  # isort:skip # noqa
 from apysc._time.timer import Timer  # isort:skip # noqa
 
-__version__: str = '0.27.10'
+__version__: str = '0.27.11'

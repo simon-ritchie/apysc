@@ -237,7 +237,7 @@ class TestTimer:
         timer._current_count._value = 10
         timer.reset()
         assert timer.current_count == 0
-        assert timer.running
+        assert not timer.running
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{timer._current_count.variable_name} = 0;'

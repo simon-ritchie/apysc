@@ -283,11 +283,10 @@ class Timer(VariableNameInterface, CustomEventInterface):
 
     def reset(self) -> None:
         """
-        Reset the timer count and restart this timer.
+        Reset the timer count and stop this timer.
         """
         self.stop()
         self._current_count.value = 0
-        self.start()
 
     def timer_complete(
             self, handler: Handler,

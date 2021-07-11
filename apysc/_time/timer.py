@@ -281,6 +281,14 @@ class Timer(VariableNameInterface, CustomEventInterface):
             expression=expression, indent_num=indent_num)
         return expression
 
+    def reset(self) -> None:
+        """
+        Reset the timer count and restart this timer.
+        """
+        self.stop()
+        self._current_count.value = 0
+        self.start()
+
     def timer_complete(
             self, handler: Handler,
             options: Optional[Dict[str, Any]] = None) -> str:

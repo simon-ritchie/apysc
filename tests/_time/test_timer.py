@@ -227,3 +227,19 @@ class TestTimer:
             timer._custom_event_handlers[
                 CustomEventType.TIMER_COMPLETE.value][name],
             dict)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_reset(self) -> None:
+        expression_file_util.empty_expression_dir()
+        timer: Timer = Timer(
+            handler=self.on_timer, delay=33.3)
+        timer.start()
+        timer._current_count._value = 10
+        timer.reset()
+        assert timer.current_count == 0
+        assert timer.running
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{timer._current_count.variable_name} = 0;'
+        )
+        assert expected in expression

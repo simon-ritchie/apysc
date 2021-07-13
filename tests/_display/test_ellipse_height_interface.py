@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Int
+import apysc as ap
 from apysc._display.ellipse_height_interface import EllipseHeightInterface
 from apysc._expression import expression_file_util
 
@@ -15,7 +15,7 @@ class TestEllipseHeightInterface:
         interface._initialize_ellipse_height_if_not_initialized()
         assert interface._ellipse_height == 0
 
-        interface._ellipse_height = Int(10)
+        interface._ellipse_height = ap.Int(10)
         interface._initialize_ellipse_height_if_not_initialized()
         assert interface._ellipse_height == 10
 
@@ -25,7 +25,7 @@ class TestEllipseHeightInterface:
         interface.variable_name = 'test_ellipse_height_interface'
         assert interface.ellipse_height == 0
 
-        interface.ellipse_height = Int(10)
+        interface.ellipse_height = ap.Int(10)
         assert interface.ellipse_height == 10
 
         interface.ellipse_height = 20  # type: ignore
@@ -36,7 +36,7 @@ class TestEllipseHeightInterface:
         expression_file_util.remove_expression_file()
         interface: EllipseHeightInterface = EllipseHeightInterface()
         interface.variable_name = 'test_ellipse_height_interface'
-        ellipse_height: Int = Int(10)
+        ellipse_height: ap.Int = ap.Int(10)
         interface.ellipse_height = ellipse_height
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
@@ -46,7 +46,7 @@ class TestEllipseHeightInterface:
         assert expected in expression
 
         expression_file_util.remove_expression_file()
-        ellipse_width: Int = Int(20)
+        ellipse_width: ap.Int = ap.Int(20)
         setattr(interface, '_ellipse_width', ellipse_width)
         interface.ellipse_height = ellipse_height
         expression = expression_file_util.get_current_expression()
@@ -60,25 +60,25 @@ class TestEllipseHeightInterface:
     def test__make_snapshot(self) -> None:
         interface: EllipseHeightInterface = EllipseHeightInterface()
         interface.variable_name = 'test_ellipse_height_interface'
-        interface.ellipse_height = Int(10)
+        interface.ellipse_height = ap.Int(10)
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface._ellipse_height_snapshots[snapshot_name] == 10
 
-        interface.ellipse_height = Int(20)
+        interface.ellipse_height = ap.Int(20)
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface._ellipse_height_snapshots[snapshot_name] == 10
 
     def test__revert(self) -> None:
         interface: EllipseHeightInterface = EllipseHeightInterface()
         interface.variable_name = 'test_ellipse_height_interface'
-        interface.ellipse_height = Int(10)
+        interface.ellipse_height = ap.Int(10)
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        interface.ellipse_height = Int(20)
+        interface.ellipse_height = ap.Int(20)
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface.ellipse_height == 10
 
-        interface.ellipse_height = Int(20)
+        interface.ellipse_height = ap.Int(20)
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface.ellipse_height == 20

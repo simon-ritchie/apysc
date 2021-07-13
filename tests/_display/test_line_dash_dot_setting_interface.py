@@ -5,7 +5,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import LineDashDotSetting
+import apysc as ap
 from apysc._display.line_dash_dot_setting_interface import \
     LineDashDotSettingInterface
 from apysc._expression import expression_file_util
@@ -21,17 +21,17 @@ class TestLineDashDotSettingInterface:
         interface._initialize_line_dash_dot_setting_if_not_initialized()
         assert interface._line_dash_dot_setting is None
 
-        interface._line_dash_dot_setting = LineDashDotSetting(
+        interface._line_dash_dot_setting = ap.LineDashDotSetting(
             dot_size=5, dash_size=10, space_size=7)
         interface._initialize_line_dash_dot_setting_if_not_initialized()
         assert isinstance(
-            interface._line_dash_dot_setting, LineDashDotSetting)
+            interface._line_dash_dot_setting, ap.LineDashDotSetting)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_dash_dot_setting(self) -> None:
         interface: LineDashDotSettingInterface = LineDashDotSettingInterface()
         interface.variable_name = 'test_line_dash_dot_setting_interface'
-        line_dash_dot_setting: LineDashDotSetting = LineDashDotSetting(
+        line_dash_dot_setting: ap.LineDashDotSetting = ap.LineDashDotSetting(
             dot_size=5, dash_size=10, space_size=7)
         interface._line_dash_dot_setting = line_dash_dot_setting
         assert interface.line_dash_dot_setting == line_dash_dot_setting
@@ -49,7 +49,7 @@ class TestLineDashDotSettingInterface:
             value=None)
         assert interface._line_dash_dot_setting is None
 
-        line_dash_dot_setting: LineDashDotSetting = LineDashDotSetting(
+        line_dash_dot_setting: ap.LineDashDotSetting = ap.LineDashDotSetting(
             dot_size=5, dash_size=10, space_size=7)
         interface._update_line_dash_dot_setting_and_skip_appending_exp(
             value=line_dash_dot_setting)
@@ -76,7 +76,7 @@ class TestLineDashDotSettingInterface:
         assert expected in expression
 
         expression_file_util.remove_expression_file()
-        interface._line_dash_dot_setting = LineDashDotSetting(
+        interface._line_dash_dot_setting = ap.LineDashDotSetting(
             dot_size=5, dash_size=10, space_size=7)
         interface._append_line_dash_dot_setting_update_expression()
         expression = expression_file_util.get_current_expression()
@@ -94,7 +94,7 @@ class TestLineDashDotSettingInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         interface: LineDashDotSettingInterface = LineDashDotSettingInterface()
-        line_dash_dot_setting: LineDashDotSetting = LineDashDotSetting(
+        line_dash_dot_setting: ap.LineDashDotSetting = ap.LineDashDotSetting(
             dot_size=5, dash_size=10, space_size=7)
         interface._line_dash_dot_setting = line_dash_dot_setting
         snapshot_name: str = interface._get_next_snapshot_name()
@@ -110,7 +110,7 @@ class TestLineDashDotSettingInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         interface: LineDashDotSettingInterface = LineDashDotSettingInterface()
-        line_dash_dot_setting: LineDashDotSetting = LineDashDotSetting(
+        line_dash_dot_setting: ap.LineDashDotSetting = ap.LineDashDotSetting(
             dot_size=5, dash_size=10, space_size=7)
         interface._line_dash_dot_setting = line_dash_dot_setting
         snapshot_name: str = interface._get_next_snapshot_name()

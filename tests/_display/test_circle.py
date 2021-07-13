@@ -5,9 +5,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Circle
-from apysc import Sprite
-from apysc import Stage
+import apysc as ap
 from apysc._display.stage import get_stage_variable_name
 from apysc._expression import expression_file_util
 
@@ -17,10 +15,10 @@ class TestCircle:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
         expression_file_util.remove_expression_file()
-        stage: Stage = Stage()
+        stage: ap.Stage = ap.Stage()
         stage_variable_name: str = get_stage_variable_name()
-        sprite: Sprite = Sprite(stage=stage)
-        circle: Circle = Circle(
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        circle: ap.Circle = ap.Circle(
             parent=sprite.graphics,
             x=50,
             y=100,
@@ -38,11 +36,11 @@ class TestCircle:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
         sprite.graphics.begin_fill(color='#0af')
         sprite.graphics.line_style(color='#fff')
-        circle: Circle = Circle(
+        circle: ap.Circle = ap.Circle(
             parent=sprite.graphics,
             x=50,
             y=100,
@@ -55,9 +53,9 @@ class TestCircle:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
-        circle: Circle = Circle(
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        circle: ap.Circle = ap.Circle(
             parent=sprite.graphics,
             x=50,
             y=100,
@@ -68,9 +66,9 @@ class TestCircle:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_center_coordinates(self) -> None:
         expression_file_util.remove_expression_file()
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
-        circle: Circle = Circle(
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        circle: ap.Circle = ap.Circle(
             parent=sprite.graphics,
             x=50,
             y=100,

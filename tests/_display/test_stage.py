@@ -4,8 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import Array
-from apysc import Stage
+import apysc as ap
 from apysc._display import stage
 from apysc._display.display_object import DisplayObject
 from apysc._display.stage import _STAGE_ELEM_ID_FILE_PATH
@@ -18,7 +17,7 @@ class TestStage:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        stage: Stage = Stage(
+        stage: ap.Stage = ap.Stage(
             stage_width=500,
             stage_height=300,
             background_color='#000000',
@@ -37,7 +36,7 @@ class TestStage:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_constructor_expression(self) -> None:
-        stage: Stage = Stage(
+        stage: ap.Stage = ap.Stage(
             stage_width=100, stage_height=200,
             background_color='#333333',
             add_to='#line-graph',
@@ -55,7 +54,7 @@ class TestStage:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__create_stage_elem_id_if_none(self) -> None:
-        stage: Stage = Stage()
+        stage: ap.Stage = ap.Stage()
         result_id: str = stage._create_stage_elem_id_if_none(
             stage_elem_id='line-graph')
         assert result_id == 'line-graph'
@@ -70,7 +69,7 @@ class TestStage:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_style_str(self) -> None:
-        stage: Stage = Stage(
+        stage: ap.Stage = ap.Stage(
             stage_width=200, stage_height=300, background_color='#333')
         style: str = stage._make_style_str()
         expected_style: str = (
@@ -80,7 +79,7 @@ class TestStage:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
-        stage: Stage = Stage()
+        stage: ap.Stage = ap.Stage()
         expected_expression: str = stage._make_constructor_expression()
         expected_expression = expected_expression.strip()
         with open(expression_file_util.EXPRESSION_FILE_PATH, 'r') as f:
@@ -91,20 +90,20 @@ class TestStage:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_stage_elem_id(self) -> None:
-        stage: Stage = Stage(stage_elem_id='#line-graph')
+        stage: ap.Stage = ap.Stage(stage_elem_id='#line-graph')
         assert stage.stage_elem_id == 'line-graph'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_add_child(self) -> None:
-        stage: Stage = Stage()
+        stage: ap.Stage = ap.Stage()
         display_object: DisplayObject = DisplayObject(
             stage=stage, variable_name='test_display_object_1')
         stage.add_child(child=display_object)
-        assert stage._children == Array([display_object])
+        assert stage._children == ap.Array([display_object])
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__save_stage_elem_id_to_expression_file(self) -> None:
-        Stage(stage_elem_id='line-graph')
+        ap.Stage(stage_elem_id='line-graph')
         stage_elem_id: str = file_util.read_txt(
             file_path=_STAGE_ELEM_ID_FILE_PATH)
         assert stage_elem_id == 'line-graph'
@@ -116,21 +115,21 @@ def test_get_stage_elem_id() -> None:
     stage_elem_id: str = stage.get_stage_elem_id()
     assert stage_elem_id == ''
 
-    Stage(stage_elem_id='line-graph')
+    ap.Stage(stage_elem_id='line-graph')
     stage_elem_id = stage.get_stage_elem_id()
     assert stage_elem_id == 'line-graph'
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_stage_variable_name() -> None:
-    Stage(stage_elem_id='line-graph')
+    ap.Stage(stage_elem_id='line-graph')
     stage_variable_name: str = stage.get_stage_variable_name()
     assert stage_variable_name == 'line_graph'
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_stage_elem_str() -> None:
-    stage_: Stage = Stage()
+    stage_: ap.Stage = ap.Stage()
     stage_elem_str: str = stage.get_stage_elem_str()
     expected: str = f'$("#{stage_.stage_elem_id}")'
     assert stage_elem_str == expected

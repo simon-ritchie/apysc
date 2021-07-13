@@ -7,8 +7,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Boolean
-from apysc import Int
+import apysc as ap
 from apysc._branch.if_base import IfBase
 from apysc._expression import expression_file_util
 from apysc._expression import indent_num
@@ -39,7 +38,7 @@ class TestIfBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        condition: Boolean = Boolean(True)
+        condition: ap.Boolean = ap.Boolean(True)
         locals_: Dict[str, Any] = {'value1': 10}
         globals_: Dict[str, Any] = {'value2': 20}
         instance: IfSubClass = IfSubClass(
@@ -64,8 +63,8 @@ class TestIfBase:
     def test___enter__(self) -> None:
         expression_file_util.remove_expression_file()
         indent_num.reset()
-        int_1: Int = Int(10)
-        condition: Boolean = Boolean(True)
+        int_1: ap.Int = ap.Int(10)
+        condition: ap.Boolean = ap.Boolean(True)
         locals_: Dict[str, Any] = {'value1': int_1}
         globals_: Dict[str, Any] = {'value2': 20}
         instance: IfSubClass
@@ -81,8 +80,8 @@ class TestIfBase:
     def test___exit__(self) -> None:
         expression_file_util.remove_expression_file()
         indent_num.reset()
-        int_1: Int = Int(10)
-        condition: Boolean = Boolean(True)
+        int_1: ap.Int = ap.Int(10)
+        condition: ap.Boolean = ap.Boolean(True)
         locals_: Dict[str, Any] = {'value1': int_1}
         globals_: Dict[str, Any] = {'value2': 20}
         instance: IfSubClass
@@ -104,7 +103,7 @@ class TestIfBase:
     def test__append_exit_expression(self) -> None:
         expression_file_util.remove_expression_file()
         indent_num.reset()
-        with IfSubClass(condition=Boolean(True), locals_={}, globals_={}):
+        with IfSubClass(condition=ap.Boolean(True), locals_={}, globals_={}):
             pass
         expression: str = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -116,7 +115,7 @@ class TestIfBase:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__last_scope_is_if_or_elif(self) -> None:
         last_scope.reset()
-        boolean_1: Boolean = Boolean(True)
+        boolean_1: ap.Boolean = ap.Boolean(True)
         if_instance: IfSubClass = IfSubClass(
             condition=boolean_1, locals_=locals(), globals_=globals())
         result: bool = if_instance._last_scope_is_if_or_elif()

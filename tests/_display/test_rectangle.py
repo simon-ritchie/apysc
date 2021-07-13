@@ -6,10 +6,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Number
-from apysc import Rectangle
-from apysc import Sprite
-from apysc import Stage
+import apysc as ap
 from apysc._display.stage import get_stage_variable_name
 from apysc._expression import expression_file_util
 from apysc._expression import var_names
@@ -32,11 +29,11 @@ class TestRectangle:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
         sprite.graphics.begin_fill(color='#333', alpha=0.75)
         sprite.graphics.line_style(color='#aaa', thickness=3, alpha=0.3)
-        rectangle: Rectangle = Rectangle(
+        rectangle: ap.Rectangle = ap.Rectangle(
             parent=sprite.graphics,
             x=100, y=200, width=300, height=400)
         testing_helper.assert_attrs(
@@ -54,25 +51,25 @@ class TestRectangle:
             },
             any_obj=rectangle)
 
-        sprite.graphics.begin_fill(color='#333', alpha=Number(0.5))
-        rectanble = Rectangle(
+        sprite.graphics.begin_fill(color='#333', alpha=ap.Number(0.5))
+        rectanble = ap.Rectangle(
             parent=sprite.graphics, x=100, y=200, width=300, height=400)
         assert rectanble._fill_alpha == 0.5
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
-        rectangle_: Rectangle = sprite.graphics.draw_rect(
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        rectangle_: ap.Rectangle = sprite.graphics.draw_rect(
             x=50, y=50, width=50, height=50)
         repr_str: str = repr(rectangle_)
         assert repr_str == f"Rectangle('{rectangle_.variable_name}')"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_rect_attrs_expression(self) -> None:
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
-        _: Rectangle = Rectangle(
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        _: ap.Rectangle = ap.Rectangle(
             parent=sprite.graphics,
             x=100, y=200,
             width=150, height=50)
@@ -86,8 +83,8 @@ class TestRectangle:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_append_constructor_expression(self) -> None:
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
         sprite.graphics.begin_fill(color='#333', alpha=0.5)
         sprite.graphics.draw_rect(x=100, y=200, width=300, height=400)
         graphics_name: str = sprite.graphics.variable_name

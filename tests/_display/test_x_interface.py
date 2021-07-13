@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Int
+import apysc as ap
 from apysc._display.x_interface import XInterface
 from apysc._expression import expression_file_util
 from apysc._type import value_util
@@ -14,10 +14,10 @@ class TestXInterface:
     def test_x(self) -> None:
         x_interface = XInterface()
         x_interface.variable_name = 'test_x_interface'
-        x_interface.x = Int(100)
+        x_interface.x = ap.Int(100)
         assert x_interface.x == 100
 
-        x: Int = x_interface.x
+        x: ap.Int = x_interface.x
         assert x == x_interface._x
         assert x.variable_name != x_interface._x.variable_name
 
@@ -29,7 +29,7 @@ class TestXInterface:
         x_interface = XInterface()
         x_interface.variable_name = 'test_x_interface'
         expression_file_util.remove_expression_file()
-        x_interface.x = Int(200)
+        x_interface.x = ap.Int(200)
         expression: str = expression_file_util.get_current_expression()
         value_str: str = value_util.get_value_str_for_expression(
             value=x_interface._x)
@@ -43,7 +43,7 @@ class TestXInterface:
         x_interface._initialize_x_if_not_initialized()
         assert x_interface.x == 0
 
-        x_interface.x = Int(100)
+        x_interface.x = ap.Int(100)
         x_interface._initialize_x_if_not_initialized()
         assert x_interface.x == 100
 
@@ -51,13 +51,13 @@ class TestXInterface:
     def test__make_snapshot(self) -> None:
         x_interface = XInterface()
         x_interface.variable_name = 'test_x_interface'
-        x_interface.x = Int(100)
+        x_interface.x = ap.Int(100)
         snapshot_name: str = 'snapshot_1'
         x_interface._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
         assert x_interface._x_snapshots[snapshot_name] == 100
 
-        x_interface.x = Int(150)
+        x_interface.x = ap.Int(150)
         x_interface._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
         assert x_interface._x_snapshots[snapshot_name] == 100
@@ -66,16 +66,16 @@ class TestXInterface:
     def test__revert(self) -> None:
         x_interface = XInterface()
         x_interface.variable_name = 'test_x_interface'
-        x_interface.x = Int(100)
+        x_interface.x = ap.Int(100)
         snapshot_name: str = 'snapshot_1'
         x_interface._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
-        x_interface.x = Int(150)
+        x_interface.x = ap.Int(150)
         x_interface._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert x_interface.x == 100
 
-        x_interface.x = Int(150)
+        x_interface.x = ap.Int(150)
         x_interface._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert x_interface.x == 150

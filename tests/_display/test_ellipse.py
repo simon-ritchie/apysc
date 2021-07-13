@@ -5,10 +5,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Ellipse
-from apysc import LineDotSetting
-from apysc import Sprite
-from apysc import Stage
+import apysc as ap
 from apysc._display.stage import get_stage_variable_name
 from apysc._expression import expression_file_util
 from apysc._expression import var_names
@@ -20,11 +17,11 @@ class TestEllipse:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
         sprite.graphics.begin_fill(color='#0af')
         stage_variable_name: str = get_stage_variable_name()
-        ellipse: Ellipse = Ellipse(
+        ellipse: ap.Ellipse = ap.Ellipse(
             parent=sprite.graphics,
             x=50, y=100, width=150, height=200)
         expression: str = expression_file_util.get_current_expression()
@@ -42,25 +39,25 @@ class TestEllipse:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
         sprite.graphics.line_style(
             color='#fff',
-            dot_setting=LineDotSetting(dot_size=5))
-        ellipse: Ellipse = Ellipse(
+            dot_setting=ap.LineDotSetting(dot_size=5))
+        ellipse: ap.Ellipse = ap.Ellipse(
             parent=sprite.graphics, x=50, y=100, width=150, height=200)
         assert ellipse.variable_name.startswith(f'{var_names.ELLIPSE}_')
         assert ellipse.width == 150
         assert ellipse.height == 200
         assert ellipse.x == 50
         assert ellipse.y == 100
-        assert isinstance(ellipse.line_dot_setting, LineDotSetting)
+        assert isinstance(ellipse.line_dot_setting, ap.LineDotSetting)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
-        ellipse: Ellipse = Ellipse(
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ellipse: ap.Ellipse = ap.Ellipse(
             parent=sprite.graphics, x=50, y=100, width=150, height=200)
         repr_str: str = repr(ellipse)
         assert repr_str == f"Ellipse('{ellipse.variable_name}')"

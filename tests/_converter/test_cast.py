@@ -1,5 +1,4 @@
-from apysc import Int
-from apysc import Number
+import apysc as ap
 from apysc._converter import cast
 
 
@@ -12,8 +11,8 @@ def test_to_int_from_float() -> None:
     assert isinstance(int_val_2, int)
     assert int_val_2 == 200
 
-    int_val_3: Int = cast.to_int_from_float(int_or_float=Number(10.5))
-    assert isinstance(int_val_3, Int)
+    int_val_3: ap.Int = cast.to_int_from_float(int_or_float=ap.Number(10.5))
+    assert isinstance(int_val_3, ap.Int)
     assert int_val_3 == 10
 
 
@@ -25,8 +24,8 @@ def test_to_float_from_int() -> None:
     float_val_2: float = cast.to_float_from_int(int_or_float=100.5)
     assert float_val_2 == 100.5
 
-    number_val_1: Number = cast.to_float_from_int(int_or_float=Int(10))
-    assert isinstance(number_val_1, Number)
+    number_val_1: ap.Number = cast.to_float_from_int(int_or_float=ap.Int(10))
+    assert isinstance(number_val_1, ap.Number)
     assert number_val_1 == 10.0
 
 

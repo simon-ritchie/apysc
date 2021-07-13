@@ -5,9 +5,7 @@ from typing import Dict
 import pytest
 from retrying import retry
 
-from apysc import Boolean
-from apysc import If
-from apysc import Int
+import apysc as ap
 from apysc._expression import expression_file_util
 from apysc._expression import indent_num
 from apysc._expression import last_scope
@@ -19,10 +17,10 @@ class TestIf:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        boolean_1: Boolean = Boolean(True)
+        boolean_1: ap.Boolean = ap.Boolean(True)
         locals_: Dict[str, Any] = locals()
         globals_: Dict[str, Any] = globals()
-        if_: If = If(
+        if_: ap.If = ap.If(
             condition=boolean_1, locals_=locals_, globals_=globals_)
         assert if_._condition
         testing_helper.assert_attrs(
@@ -36,12 +34,12 @@ class TestIf:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___enter__(self) -> None:
         indent_num.reset()
-        int_1: Int = Int(10)
-        int_2: Int = Int(20)
+        int_1: ap.Int = ap.Int(10)
+        int_2: ap.Int = ap.Int(20)
         locals_: Dict[str, Any] = {'value1': int_1}
         globals_: Dict[str, Any] = {'value2': int_2}
-        boolean_1: Boolean = Boolean(True)
-        with If(condition=boolean_1, locals_=locals_, globals_=globals_):
+        boolean_1: ap.Boolean = ap.Boolean(True)
+        with ap.If(condition=boolean_1, locals_=locals_, globals_=globals_):
             current_indent_num: int = indent_num.get_current_indent_num()
             assert current_indent_num == 1
         snapshot_name: str = list(int_1._value_snapshots.keys())[0]
@@ -51,14 +49,14 @@ class TestIf:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___exit__(self) -> None:
         indent_num.reset()
-        int_1: Int = Int(10)
-        int_2: Int = Int(20)
+        int_1: ap.Int = ap.Int(10)
+        int_2: ap.Int = ap.Int(20)
         locals_: Dict[str, Any] = {'value1': int_1}
         globals_: Dict[str, Any] = {'value2': int_2}
-        boolean_1: Boolean = Boolean(True)
+        boolean_1: ap.Boolean = ap.Boolean(True)
         last_scope_: LastScope = last_scope.get_last_scope()
         assert last_scope_ == LastScope.NORMAL
-        with If(condition=boolean_1, locals_=locals_, globals_=globals_):
+        with ap.If(condition=boolean_1, locals_=locals_, globals_=globals_):
             int_1.value = 100
             int_2.value = 200
             last_scope_ = last_scope.get_last_scope()
@@ -77,9 +75,9 @@ class TestIf:
     def test__append_enter_expression(self) -> None:
         expression_file_util.remove_expression_file()
         indent_num.reset()
-        int_1: Int = Int(10)
-        boolean_1: Boolean = Boolean(True)
-        with If(condition=boolean_1, locals_=locals(), globals_=globals()):
+        int_1: ap.Int = ap.Int(10)
+        boolean_1: ap.Boolean = ap.Boolean(True)
+        with ap.If(condition=boolean_1, locals_=locals(), globals_=globals()):
             int_1.value = 20
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
@@ -89,16 +87,16 @@ class TestIf:
         assert expected in expression
 
         with pytest.raises(ValueError):  # type: ignore
-            with If(None, locals(), globals()):
+            with ap.If(None, locals(), globals()):
                 pass
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_exit_expression(self) -> None:
         expression_file_util.remove_expression_file()
         indent_num.reset()
-        boolean_1: Boolean = Boolean(True)
-        int_1: Int = Int(10)
-        with If(condition=boolean_1, locals_=locals(), globals_=globals()):
+        boolean_1: ap.Boolean = ap.Boolean(True)
+        int_1: ap.Int = ap.Int(10)
+        with ap.If(condition=boolean_1, locals_=locals(), globals_=globals()):
             int_1.value = 20
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
@@ -110,7 +108,7 @@ class TestIf:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_last_scope(self) -> None:
-        with If(Boolean(True), locals(), globals()):
+        with ap.If(ap.Boolean(True), locals(), globals()):
             pass
         last_scope_: LastScope = last_scope.get_last_scope()
         assert last_scope_ == LastScope.IF

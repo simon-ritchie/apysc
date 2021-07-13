@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Boolean
+import apysc as ap
 from apysc._display.visible_interface import VisibleInterface
 from apysc._expression import expression_file_util
 
@@ -31,11 +31,11 @@ class TestVisibleInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_visible(self) -> None:
         interface_1: _TestVisible = _TestVisible()
-        result: Boolean = interface_1.visible
+        result: ap.Boolean = interface_1.visible
         assert result
         assert interface_1._visible.variable_name != result.variable_name
 
-        bool_1: Boolean = Boolean(False)
+        bool_1: ap.Boolean = ap.Boolean(False)
         interface_1.visible = bool_1
         assert not interface_1.visible
         assert interface_1._visible.variable_name == bool_1.variable_name
@@ -47,7 +47,7 @@ class TestVisibleInterface:
     def test__append_visible_update_expression(self) -> None:
         expression_file_util.remove_expression_file()
         interface_1: _TestVisible = _TestVisible()
-        interface_1.visible = Boolean(True)
+        interface_1.visible = ap.Boolean(True)
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{interface_1.variable_name}.show();'
@@ -55,7 +55,7 @@ class TestVisibleInterface:
         assert expected in expression
 
         expression_file_util.remove_expression_file()
-        interface_1.visible = Boolean(False)
+        interface_1.visible = ap.Boolean(False)
         expression = expression_file_util.get_current_expression()
         expected = (
             f'{interface_1.variable_name}.hide();'
@@ -70,7 +70,7 @@ class TestVisibleInterface:
             snapshot_name=snapshot_name)
         assert interface_1._visible_snapshots == {snapshot_name: True}
 
-        interface_1.visible = Boolean(False)
+        interface_1.visible = ap.Boolean(False)
         interface_1._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
         assert interface_1._visible_snapshots == {snapshot_name: True}
@@ -83,6 +83,6 @@ class TestVisibleInterface:
 
         interface_1._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
-        interface_1.visible = Boolean(False)
+        interface_1.visible = ap.Boolean(False)
         interface_1._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface_1.visible

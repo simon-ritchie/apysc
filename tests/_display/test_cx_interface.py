@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Int
+import apysc as ap
 from apysc._display.cx_interface import CxInterface
 from apysc._expression import expression_file_util
 
@@ -15,7 +15,7 @@ class TestCxInterface:
         interface._initialize_cx_if_not_initialized()
         assert interface._cx == 0
 
-        interface._cx = Int(10)
+        interface._cx = ap.Int(10)
         interface._initialize_cx_if_not_initialized()
         assert interface._cx == 10
 
@@ -25,7 +25,7 @@ class TestCxInterface:
         interface.variable_name = 'test_cx_interface'
         assert interface.x == 0
 
-        interface.x = Int(10)
+        interface.x = ap.Int(10)
         assert interface.x == 10
 
         interface.x = 20  # type: ignore
@@ -36,7 +36,7 @@ class TestCxInterface:
         expression_file_util.remove_expression_file()
         interface: CxInterface = CxInterface()
         interface.variable_name = 'test_cx_interface'
-        x: Int = Int(10)
+        x: ap.Int = ap.Int(10)
         interface.x = x
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
@@ -48,12 +48,12 @@ class TestCxInterface:
     def test__make_snapshot(self) -> None:
         interface: CxInterface = CxInterface()
         interface.variable_name = 'test_cx_interface'
-        interface.x = Int(10)
+        interface.x = ap.Int(10)
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface._cx_snapshots[snapshot_name] == 10
 
-        interface.x = Int(20)
+        interface.x = ap.Int(20)
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface._cx_snapshots[snapshot_name] == 10
 
@@ -61,13 +61,13 @@ class TestCxInterface:
     def test__revert(self) -> None:
         interface: CxInterface = CxInterface()
         interface.variable_name = 'test_cx_interface'
-        interface.x = Int(10)
+        interface.x = ap.Int(10)
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        interface.x = Int(20)
+        interface.x = ap.Int(20)
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface.x == 10
 
-        interface.x = Int(20)
+        interface.x = ap.Int(20)
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface.x == 20

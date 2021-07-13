@@ -1,7 +1,7 @@
 from typing import Any
 from typing import Dict
 
-from apysc import Boolean
+import apysc as ap
 from apysc._callable import callable_util
 
 
@@ -55,7 +55,7 @@ def test_get_method_class_name() -> None:
         method=print)
     assert class_name == ''
 
-    bool_1: Boolean = Boolean(True)
+    bool_1: ap.Boolean = ap.Boolean(True)
     class_name = callable_util.get_method_class_name(
         method=bool_1._get_bool_from_arg_value)
     assert class_name == 'Boolean'

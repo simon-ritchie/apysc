@@ -3,8 +3,7 @@ from random import randint
 import pytest
 from retrying import retry
 
-from apysc import Sprite
-from apysc import Stage
+import apysc as ap
 from apysc._expression import expression_file_util
 
 
@@ -12,8 +11,8 @@ class TestParentInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_parent(self) -> None:
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
         stage.add_child(child=sprite)
         assert sprite.parent == stage
 
@@ -22,8 +21,8 @@ class TestParentInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_remove_from_parent(self) -> None:
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
         sprite.remove_from_parent()
         assert stage.num_children == 0
         assert sprite.parent is None
@@ -35,8 +34,8 @@ class TestParentInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
         stage.add_child(child=sprite)
         snapshot_name: str = 'snapshot_1'
         sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -48,8 +47,8 @@ class TestParentInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
         stage.add_child(child=sprite)
         snapshot_name: str = 'snapshot_1'
         sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)

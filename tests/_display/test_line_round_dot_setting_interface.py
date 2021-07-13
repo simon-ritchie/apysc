@@ -5,8 +5,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import LineCaps
-from apysc import LineRoundDotSetting
+import apysc as ap
 from apysc._display.line_round_dot_setting_interface import \
     LineRoundDotSettingInterface
 from apysc._expression import expression_file_util
@@ -23,43 +22,44 @@ class TestLineRoundDotSettingInterface:
         interface._initialize_line_round_dot_setting_if_not_initialized()
         assert interface._line_round_dot_setting is None
 
-        interface._line_round_dot_setting = LineRoundDotSetting(
+        interface._line_round_dot_setting = ap.LineRoundDotSetting(
             round_size=10, space_size=5)
         interface._initialize_line_round_dot_setting_if_not_initialized()
         assert isinstance(
-            interface._line_round_dot_setting, LineRoundDotSetting)
+            interface._line_round_dot_setting, ap.LineRoundDotSetting)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_round_dot_setting(self) -> None:
         interface: LineRoundDotSettingInterface = \
             LineRoundDotSettingInterface()
-        line_round_dot_setting: Optional[LineRoundDotSetting] = \
+        line_round_dot_setting: Optional[ap.LineRoundDotSetting] = \
             interface.line_round_dot_setting
         assert line_round_dot_setting is None
 
-        interface._line_round_dot_setting = LineRoundDotSetting(
+        interface._line_round_dot_setting = ap.LineRoundDotSetting(
             round_size=10, space_size=5)
         line_round_dot_setting = interface.line_round_dot_setting
-        assert isinstance(line_round_dot_setting, LineRoundDotSetting)
+        assert isinstance(line_round_dot_setting, ap.LineRoundDotSetting)
 
         interface.variable_name = 'test_line_round_dot_setting_interface'
-        line_round_dot_setting = LineRoundDotSetting(
+        line_round_dot_setting = ap.LineRoundDotSetting(
             round_size=10, space_size=5)
         interface.line_round_dot_setting = line_round_dot_setting
         assert interface.line_round_dot_setting == line_round_dot_setting
-        assert interface.line_cap.value == LineCaps.ROUND.value
+        assert interface.line_cap.value == ap.LineCaps.ROUND.value
         assert interface.line_thickness == 10
 
         interface.line_round_dot_setting = None
-        assert interface.line_cap.value == LineCaps.BUTT.value
+        assert interface.line_cap.value == ap.LineCaps.BUTT.value
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_round_dot_setting_and_skip_appending_exp(
             self) -> None:
         interface: LineRoundDotSettingInterface = \
             LineRoundDotSettingInterface()
-        line_round_dot_setting: LineRoundDotSetting = LineRoundDotSetting(
-            round_size=10, space_size=5)
+        line_round_dot_setting: ap.LineRoundDotSetting = \
+            ap.LineRoundDotSetting(
+                round_size=10, space_size=5)
         interface._update_line_round_dot_setting_and_skip_appending_exp(
             value=line_round_dot_setting)
         assert interface._line_round_dot_setting == line_round_dot_setting
@@ -81,8 +81,8 @@ class TestLineRoundDotSettingInterface:
         interface: LineRoundDotSettingInterface = \
             LineRoundDotSettingInterface()
         interface.variable_name = 'test_line_round_dot_setting_interface'
-        line_round_dot_setting: LineRoundDotSetting = LineRoundDotSetting(
-            round_size=10, space_size=5)
+        line_round_dot_setting: ap.LineRoundDotSetting = \
+            ap.LineRoundDotSetting(round_size=10, space_size=5)
         interface.line_round_dot_setting = line_round_dot_setting
         expression: str = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -108,8 +108,8 @@ class TestLineRoundDotSettingInterface:
         interface: LineRoundDotSettingInterface = \
             LineRoundDotSettingInterface()
         interface.variable_name = 'test_line_round_dot_setting_interface'
-        line_round_dot_setting: LineRoundDotSetting = LineRoundDotSetting(
-            round_size=10, space_size=5)
+        line_round_dot_setting: ap.LineRoundDotSetting = \
+            ap.LineRoundDotSetting(round_size=10, space_size=5)
         interface.line_round_dot_setting = line_round_dot_setting
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -128,8 +128,8 @@ class TestLineRoundDotSettingInterface:
         interface.variable_name = 'test_line_round_dot_setting_interface'
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
-        line_round_dot_setting: LineRoundDotSetting = LineRoundDotSetting(
-            round_size=10, space_size=5)
+        line_round_dot_setting: ap.LineRoundDotSetting = \
+            ap.LineRoundDotSetting(round_size=10, space_size=5)
         interface.line_round_dot_setting = line_round_dot_setting
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         interface.line_round_dot_setting = None

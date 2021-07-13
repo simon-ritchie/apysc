@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import String
+import apysc as ap
 from apysc._display.fill_color_interface import FillColorInterface
 from apysc._expression import expression_file_util
 
@@ -13,11 +13,11 @@ class TestFillColorInterface:
     def test_fill_color(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
-        string_1: String = String('#333')
+        string_1: ap.String = ap.String('#333')
         fill_color_interface.fill_color = string_1
         assert fill_color_interface.fill_color == '#333333'
 
-        string_2: String = fill_color_interface.fill_color
+        string_2: ap.String = fill_color_interface.fill_color
         assert string_1.variable_name != string_2.variable_name
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -25,7 +25,7 @@ class TestFillColorInterface:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
         expression_file_util.remove_expression_file()
-        fill_color_interface.fill_color = String('#666')
+        fill_color_interface.fill_color = ap.String('#666')
         expression: str = expression_file_util.get_current_expression()
         expected: str = 'test_fill_color_interface.fill("#666666");'
         assert expected in expression
@@ -36,7 +36,7 @@ class TestFillColorInterface:
         fill_color_interface.variable_name = 'test_fill_color_interface'
         expression_file_util.remove_expression_file()
         fill_color_interface._update_fill_color_and_skip_appending_exp(
-            value=String('#333'))
+            value=ap.String('#333'))
         assert fill_color_interface.fill_color == '#333333'
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
@@ -49,7 +49,7 @@ class TestFillColorInterface:
         fill_color_interface.variable_name = 'test_fill_color_interface'
         fill_color_interface._initialize_fill_color_if_not_initialized()
         assert fill_color_interface.fill_color == ''
-        fill_color_interface.fill_color = String('#333')
+        fill_color_interface.fill_color = ap.String('#333')
         fill_color_interface._initialize_fill_color_if_not_initialized()
         assert fill_color_interface.fill_color == '#333333'
 
@@ -57,7 +57,7 @@ class TestFillColorInterface:
     def test__make_snapshot(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
-        fill_color_interface.fill_color = String('#333333')
+        fill_color_interface.fill_color = ap.String('#333333')
         snapshot_name: str = 'snapshot_1'
         fill_color_interface._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
@@ -66,7 +66,7 @@ class TestFillColorInterface:
             == '#333333'
         )
 
-        fill_color_interface.fill_color = String('#222222')
+        fill_color_interface.fill_color = ap.String('#222222')
         fill_color_interface._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
         assert (
@@ -78,16 +78,16 @@ class TestFillColorInterface:
     def test__revert(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
-        fill_color_interface.fill_color = String('#333333')
+        fill_color_interface.fill_color = ap.String('#333333')
         snapshot_name: str = 'snapshot_1'
         fill_color_interface._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
-        fill_color_interface.fill_color = String('#222222')
+        fill_color_interface.fill_color = ap.String('#222222')
         fill_color_interface._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert fill_color_interface.fill_color == '#333333'
 
-        fill_color_interface.fill_color = String('#222222')
+        fill_color_interface.fill_color = ap.String('#222222')
         fill_color_interface._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert fill_color_interface.fill_color == '#222222'

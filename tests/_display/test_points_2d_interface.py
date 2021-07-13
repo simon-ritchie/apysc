@@ -7,8 +7,7 @@ from typing import Optional
 import pytest
 from retrying import retry
 
-from apysc import Array
-from apysc import Point2D
+import apysc as ap
 from apysc._display.points_2d_interface import Points2DInterface
 from apysc._expression import expression_file_util
 
@@ -30,11 +29,11 @@ class TestPoints2DInterface:
         interface.variable_name = 'test_point_2d_interface'
         assert interface.points == []
 
-        interface.points = Array([Point2D(10, 20), Point2D(30, 40)])
-        assert interface.points == [Point2D(10, 20), Point2D(30, 40)]
+        interface.points = ap.Array([ap.Point2D(10, 20), ap.Point2D(30, 40)])
+        assert interface.points == [ap.Point2D(10, 20), ap.Point2D(30, 40)]
 
         with pytest.raises(ValueError):  # type: ignore
-            interface.points = Array([10, 20])
+            interface.points = ap.Array([10, 20])
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_points_update_expression(self) -> None:
@@ -43,7 +42,7 @@ class TestPoints2DInterface:
         interface.variable_name = 'test_point_2d_interface'
         interface._initialize_points_if_not_initialized()
         pre_var_name: str = interface.points.variable_name
-        arr_1: Array = Array([Point2D(10, 20)])
+        arr_1: ap.Array = ap.Array([ap.Point2D(10, 20)])
         interface.points = arr_1
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
@@ -54,13 +53,14 @@ class TestPoints2DInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         interface: Points2DInterface = Points2DInterface()
-        point_1: Point2D = Point2D(10, 20)
-        interface.points = Array([point_1])
+        point_1: ap.Point2D = ap.Point2D(10, 20)
+        interface.points = ap.Array([point_1])
         interface.variable_name = 'test_point_2d_interface'
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface._points._value_snapshots == {snapshot_name: [point_1]}
-        assert interface._points_snapshots == {snapshot_name: Array([point_1])}
+        assert interface._points_snapshots == {
+            snapshot_name: ap.Array([point_1])}
 
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
 
@@ -68,13 +68,13 @@ class TestPoints2DInterface:
     def test__revert(self) -> None:
         interface: Points2DInterface = Points2DInterface()
         interface.variable_name = 'test_point_2d_interface'
-        point_1: Point2D = Point2D(10, 20)
-        interface.points = Array([point_1])
+        point_1: ap.Point2D = ap.Point2D(10, 20)
+        interface.points = ap.Array([point_1])
         snapshot_name: str = point_1._get_next_snapshot_name()
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
 
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        interface.points = Array([])
+        interface.points = ap.Array([])
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         interface.points == [point_1]
 

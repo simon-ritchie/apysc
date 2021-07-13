@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Int
+import apysc as ap
 from apysc._display.height_interface import HeightInterface
 from apysc._expression import expression_file_util
 
@@ -13,7 +13,7 @@ class TestHeightInterface:
     def test_height(self) -> None:
         height_interface: HeightInterface = HeightInterface()
         height_interface.variable_name = 'test_height_interface'
-        height_interface.height = Int(200)
+        height_interface.height = ap.Int(200)
         assert height_interface.height == 200
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -21,7 +21,7 @@ class TestHeightInterface:
         height_interface: HeightInterface = HeightInterface()
         height_interface.variable_name = 'test_height_interface'
         expression_file_util.remove_expression_file()
-        height_interface.height = Int(300)
+        height_interface.height = ap.Int(300)
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             'test_height_interface.height(300);'
@@ -33,7 +33,7 @@ class TestHeightInterface:
         height_interface: HeightInterface = HeightInterface()
         expression_file_util.remove_expression_file()
         height_interface._update_height_and_skip_appending_exp(
-            value=Int(300))
+            value=ap.Int(300))
         assert height_interface.height == 300
 
         expression: str = expression_file_util.get_current_expression()
@@ -50,7 +50,7 @@ class TestHeightInterface:
         height_interface._initialize_height_if_not_initialized()
         assert height_interface.height == 0
 
-        height_interface.height = Int(10)
+        height_interface.height = ap.Int(10)
         height_interface._initialize_height_if_not_initialized()
         assert height_interface.height == 10
 
@@ -58,13 +58,13 @@ class TestHeightInterface:
     def test__make_snapshot(self) -> None:
         height_interface: HeightInterface = HeightInterface()
         height_interface.variable_name = 'test_height_interface'
-        height_interface.height = Int(10)
+        height_interface.height = ap.Int(10)
         snapshot_name: str = 'snapshot_1'
         height_interface._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
         assert height_interface._height_snapshots[snapshot_name] == 10
 
-        height_interface.height = Int(5)
+        height_interface.height = ap.Int(5)
         height_interface._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
         assert height_interface._height_snapshots[snapshot_name] == 10
@@ -73,16 +73,16 @@ class TestHeightInterface:
     def test__revert(self) -> None:
         height_interface: HeightInterface = HeightInterface()
         height_interface.variable_name = 'test_height_interface'
-        height_interface.height = Int(10)
+        height_interface.height = ap.Int(10)
         snapshot_name: str = 'snapshot_1'
         height_interface._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
-        height_interface.height = Int(5)
+        height_interface.height = ap.Int(5)
         height_interface._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert height_interface.height == 10
 
-        height_interface.height = Int(5)
+        height_interface.height = ap.Int(5)
         height_interface._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert height_interface.height == 5

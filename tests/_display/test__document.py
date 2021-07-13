@@ -1,8 +1,8 @@
-from apysc import document
+import apysc as ap
 from apysc._expression import var_names
 
 
 class TestDocument:
 
     def test___init__(self) -> None:
-        assert document.variable_name == var_names.DOCUMENT
+        assert ap.document.variable_name == var_names.DOCUMENT

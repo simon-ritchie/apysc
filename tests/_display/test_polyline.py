@@ -6,15 +6,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Array
-from apysc import LineCaps
-from apysc import LineDashSetting
-from apysc import LineDotSetting
-from apysc import LineJoints
-from apysc import Point2D
-from apysc import Polyline
-from apysc import Sprite
-from apysc import Stage
+import apysc as ap
 from apysc._display.stage import get_stage_variable_name
 from apysc._expression import expression_file_util
 from tests._display.test_graphics_expression import \
@@ -44,15 +36,15 @@ class TestPolyline:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
         sprite.graphics.begin_fill(color='0af', alpha=0.5)
         sprite.graphics.line_style(
-            color='f0a', thickness=2, alpha=0.7, cap=LineCaps.ROUND,
-            joints=LineJoints.BEVEL,
-            dot_setting=LineDotSetting(dot_size=10))
-        points: Array = Array([Point2D(10, 20), Point2D(30, 40)])
-        polyline: Polyline = Polyline(
+            color='f0a', thickness=2, alpha=0.7, cap=ap.LineCaps.ROUND,
+            joints=ap.LineJoints.BEVEL,
+            dot_setting=ap.LineDotSetting(dot_size=10))
+        points: ap.Array = ap.Array([ap.Point2D(10, 20), ap.Point2D(30, 40)])
+        polyline: ap.Polyline = ap.Polyline(
             parent=sprite.graphics,
             points=points)
         assert_attrs(
@@ -65,26 +57,26 @@ class TestPolyline:
                 '_line_alpha': 0.7,
                 '_x': 0,
                 '_y': 0,
-                '_line_cap': LineCaps.ROUND.value,
-                '_line_joints': LineJoints.BEVEL.value,
+                '_line_cap': ap.LineCaps.ROUND.value,
+                '_line_joints': ap.LineJoints.BEVEL.value,
             },
             any_obj=polyline)
         assert polyline.line_dot_setting.dot_size == 10  # type: ignore
 
         sprite.graphics.line_style(
             color='f0a',
-            dash_setting=LineDashSetting(dash_size=10, space_size=5))
-        polyline = Polyline(
+            dash_setting=ap.LineDashSetting(dash_size=10, space_size=5))
+        polyline = ap.Polyline(
             parent=sprite.graphics,
             points=points)
         assert polyline.line_dash_setting.dash_size == 10  # type: ignore
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
-        points: Array = Array([Point2D(10, 20), Point2D(30, 40)])
-        polyline: Polyline = Polyline(
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        points: ap.Array = ap.Array([ap.Point2D(10, 20), ap.Point2D(30, 40)])
+        polyline: ap.Polyline = ap.Polyline(
             parent=sprite.graphics,
             points=points)
         repr_str: str = repr(polyline)
@@ -96,14 +88,14 @@ class TestPolyline:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
         expression_file_util.remove_expression_file()
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
         sprite.graphics.begin_fill(color='#0af')
         sprite.graphics.line_style(
-            color='#f0a', cap=LineCaps.ROUND, joints=LineJoints.BEVEL,
-            dot_setting=LineDotSetting(dot_size=10))
-        points: Array = Array([Point2D(10, 20), Point2D(30, 40)])
-        polyline: Polyline = Polyline(
+            color='#f0a', cap=ap.LineCaps.ROUND, joints=ap.LineJoints.BEVEL,
+            dot_setting=ap.LineDotSetting(dot_size=10))
+        points: ap.Array = ap.Array([ap.Point2D(10, 20), ap.Point2D(30, 40)])
+        polyline: ap.Polyline = ap.Polyline(
             parent=sprite.graphics,
             points=points)
         stage_variable_name: str = get_stage_variable_name()
@@ -135,12 +127,12 @@ class TestPolyline:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_append_line_point(self) -> None:
         expression_file_util.remove_expression_file()
-        stage: Stage = Stage()
-        sprite: Sprite = Sprite(stage=stage)
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
         sprite.graphics.begin_fill(color='#0af')
         sprite.graphics.line_style(color='#f0a')
-        points: Array = Array([Point2D(10, 20), Point2D(30, 40)])
-        polyline: Polyline = Polyline(
+        points: ap.Array = ap.Array([ap.Point2D(10, 20), ap.Point2D(30, 40)])
+        polyline: ap.Polyline = ap.Polyline(
             parent=sprite.graphics,
             points=points)
         polyline.append_line_point(x=50, y=60)

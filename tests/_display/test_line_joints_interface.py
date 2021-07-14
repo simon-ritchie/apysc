@@ -31,8 +31,7 @@ class TestLineJointsInterface:
         assert interface.line_joints == ap.LineJoints.MITER.value
 
         interface.line_joints = ap.LineJoints.BEVEL
-        assert interface.line_joints == \
-            ap.LineJoints.BEVEL.value  # type: ignore
+        assert interface.line_joints == ap.LineJoints.BEVEL.value  # type: ignore # noqa
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_joints_and_skip_appending_exp(self) -> None:
@@ -95,10 +94,8 @@ class TestLineJointsInterface:
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         interface.line_joints = ap.LineJoints.BEVEL
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
-        assert interface.line_joints == \
-            ap.LineJoints.MITER.value  # type: ignore
+        assert interface.line_joints == ap.LineJoints.MITER.value  # type: ignore # noqa
 
         interface.line_joints = ap.LineJoints.BEVEL
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
-        assert interface.line_joints == \
-            ap.LineJoints.BEVEL.value  # type: ignore
+        assert interface.line_joints == ap.LineJoints.BEVEL.value  # type: ignore # noqa

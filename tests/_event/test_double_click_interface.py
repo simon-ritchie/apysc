@@ -4,8 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import MouseEvent
-from apysc import MouseEventType
+import apysc as ap
 from apysc._event.double_click_interface import DoubleClickInterface
 from apysc._expression import expression_file_util
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -23,7 +22,7 @@ class _TestDoubleClick(DoubleClickInterface, VariableNameInterface):
 class TestDoubleClickInterface:
 
     def on_double_click_1(
-            self, e: MouseEvent, options: Dict[str, Any]) -> None:
+            self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Test handler for double click event.
 
@@ -36,7 +35,7 @@ class TestDoubleClickInterface:
         """
 
     def on_double_click_2(
-            self, e: MouseEvent, options: Dict[str, Any]) -> None:
+            self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Test handler for double click event.
 
@@ -96,6 +95,6 @@ class TestDoubleClickInterface:
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{interface_1.variable_name}.off('
-            f'"{MouseEventType.DBLCLICK.value}");'
+            f'"{ap.MouseEventType.DBLCLICK.value}");'
         )
         assert expected in expression

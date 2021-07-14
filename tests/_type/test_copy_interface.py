@@ -5,7 +5,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Int
+import apysc as ap
 from apysc._expression import expression_file_util
 from apysc._expression.event_handler_scope import HandlerScope
 from apysc._type.copy_interface import CopyInterface
@@ -39,9 +39,9 @@ class TestCopyInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_value_updating_cpy_exp_to_handler_scope(self) -> None:
         expression_file_util.remove_expression_file()
-        int_1: Int = Int(10)
+        int_1: ap.Int = ap.Int(10)
         with HandlerScope():
-            int_2: Int = int_1._copy()
+            int_2: ap.Int = int_1._copy()
         expression: str = \
             expression_file_util.get_current_event_handler_scope_expression()
         pattern: str = (

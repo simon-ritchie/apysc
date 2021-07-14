@@ -4,8 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import MouseEvent
-from apysc import MouseEventType
+import apysc as ap
 from apysc._event.mouse_over_interface import MouseOverInterface
 from apysc._expression import expression_file_util
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -21,7 +20,8 @@ class _TestMouseOver(MouseOverInterface, VariableNameInterface):
 
 class TestMouseOverInterface:
 
-    def on_mouse_over_1(self, e: MouseEvent, options: Dict[str, Any]) -> None:
+    def on_mouse_over_1(
+            self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Mouse over handler method for testing.
 
@@ -33,7 +33,8 @@ class TestMouseOverInterface:
             Optional arguments dictionary.
         """
 
-    def on_mouse_over_2(self, e: MouseEvent, options: Dict[str, Any]) -> None:
+    def on_mouse_over_2(
+            self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Mouse over handler method for testing.
 
@@ -81,7 +82,7 @@ class TestMouseOverInterface:
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{interface_1.variable_name}.off('
-            f'"{MouseEventType.MOUSEOVER.value}", {name});'
+            f'"{ap.MouseEventType.MOUSEOVER.value}", {name});'
         )
         assert expected in expression
 
@@ -96,6 +97,6 @@ class TestMouseOverInterface:
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{interface_1.variable_name}.off('
-            f'"{MouseEventType.MOUSEOVER.value}");'
+            f'"{ap.MouseEventType.MOUSEOVER.value}");'
         )
         assert expected in expression

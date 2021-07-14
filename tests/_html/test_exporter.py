@@ -8,10 +8,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Stage
-from apysc import append_js_expression
-from apysc import document
-from apysc import save_overall_html
+import apysc as ap
 from apysc._expression import expression_file_util
 from apysc._expression import js_functions
 from apysc._expression.event_handler_scope import HandlerScope
@@ -71,7 +68,7 @@ def test__append_head_to_html_str() -> None:
 @retry(stop_max_attempt_number=5, wait_fixed=300)
 def test__append_expression_to_html_str() -> None:
     html_str: str = '<html>\n<body>'
-    stage: Stage = Stage(stage_elem_id='test_stage')
+    stage: ap.Stage = ap.Stage(stage_elem_id='test_stage')
     html_str = exporter._append_expression_to_html_str(
         html_str=html_str, verbose=1)
     assert 'id="test_stage"' in html_str
@@ -82,8 +79,8 @@ def test__append_expression_to_html_str() -> None:
 def test_save_overall_html() -> None:
     tmp_dir_path: str = '../.tmp_apysc_test_exporter/'
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
-    Stage(stage_elem_id='test_stage')
-    save_overall_html(
+    ap.Stage(stage_elem_id='test_stage')
+    ap.save_overall_html(
         dest_dir_path=tmp_dir_path, minify=False,
         js_lib_dir_path='../')
     expected_index_file_path: str = os.path.join(tmp_dir_path, 'index.html')
@@ -95,13 +92,13 @@ def test_save_overall_html() -> None:
     assert 'text/javascript" src="../jquery.min.js' in html_str
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
 
-    save_overall_html(
+    ap.save_overall_html(
         dest_dir_path=tmp_dir_path, minify=True)
     html_str = file_util.read_txt(file_path=expected_index_file_path)
     assert html_str.startswith('<html><head>')
 
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
-    save_overall_html(
+    ap.save_overall_html(
         dest_dir_path=tmp_dir_path,
         skip_js_lib_exporting=True)
     file_names: List[str] = os.listdir(tmp_dir_path)
@@ -112,7 +109,7 @@ def test_save_overall_html() -> None:
         assert not file_name.endswith('.js')
 
     shutil.rmtree(tmp_dir_path, ignore_errors=True)
-    save_overall_html(
+    ap.save_overall_html(
         dest_dir_path=tmp_dir_path,
         html_file_name='root.html')
     expected_file_path: str = os.path.join(tmp_dir_path, 'root.html')
@@ -123,14 +120,14 @@ def test_save_overall_html() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_entry_point_function_call() -> None:
-    stage: Stage = Stage()
+    stage: ap.Stage = ap.Stage()
     html_str: str = '<html>'
     html_str = exporter._append_entry_point_function_call(
         html_str=html_str)
     expected: str = (
         '<html>'
         '\n<script type="text/javascript">'
-        f'\n$({document.variable_name}).ready(function() {{'
+        f'\n$({ap.document.variable_name}).ready(function() {{'
         f'\n  main_{stage.variable_name}();'
         '\n});'
         '\n</script>'
@@ -140,7 +137,7 @@ def test__append_entry_point_function_call() -> None:
 
 @retry(stop_max_attempt_number=5, wait_fixed=300)
 def test__append_stage_global_variable_to_html() -> None:
-    Stage(stage_elem_id='test_stage')
+    ap.Stage(stage_elem_id='test_stage')
     html_str: str = '<html>'
     html_str = exporter._append_stage_global_variable_to_html(
         html_str=html_str)
@@ -155,7 +152,7 @@ def test__append_stage_global_variable_to_html() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_entry_point_func_name() -> None:
-    stage: Stage = Stage()
+    stage: ap.Stage = ap.Stage()
     entry_point_func_name: str = exporter.get_entry_point_func_name()
     expected: str = f'main_{stage.variable_name}'
     assert entry_point_func_name == expected
@@ -277,7 +274,7 @@ def test__append_event_handler_expressions() -> None:
     expression_file_util.remove_expression_file()
 
     with HandlerScope():
-        append_js_expression(
+        ap.append_js_expression(
             expression='console.log("world!");')
     expression: str = exporter._append_event_handler_expressions(
         expression='console.log("Hello!");')

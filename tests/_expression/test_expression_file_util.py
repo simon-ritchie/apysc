@@ -6,7 +6,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import append_js_expression
+import apysc as ap
 from apysc._expression import event_handler_scope
 from apysc._expression import expression_file_util
 from apysc._expression import indent_num
@@ -31,14 +31,14 @@ def test_empty_expression_dir() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_remove_expression_file() -> None:
-    append_js_expression(
+    ap.append_js_expression(
         expression='console.log("Hello!");')
     assert os.path.isfile(expression_file_util.EXPRESSION_FILE_PATH)
     file_util.save_plain_txt(
         txt='',
         file_path=expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH)
     with HandlerScope():
-        append_js_expression(
+        ap.append_js_expression(
             expression='console.log("Hello!");')
     expression_file_util.remove_expression_file()
     assert not os.path.exists(expression_file_util.EXPRESSION_FILE_PATH)
@@ -51,7 +51,7 @@ def test_remove_expression_file() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_current_expression() -> None:
     expression_file_util.remove_expression_file()
-    append_js_expression(
+    ap.append_js_expression(
         'console.log("Hello!");'
     )
     expression: str = expression_file_util.get_current_expression()
@@ -66,7 +66,7 @@ def test_get_current_expression() -> None:
 def test_append_js_expression() -> None:
     indent_num.reset()
     expression_file_util.remove_expression_file()
-    append_js_expression(expression='var num = 100;')
+    ap.append_js_expression(expression='var num = 100;')
     expression: str = expression_file_util.get_current_expression()
     match: Optional[Match] = re.search(
         pattern=r'^var num = 100;',
@@ -76,7 +76,7 @@ def test_append_js_expression() -> None:
 
     expression_file_util.remove_expression_file()
     with Indent():
-        append_js_expression(
+        ap.append_js_expression(
             expression='var num_1 = 100;\nvar num_2 = 200;\nvar num_3 = 300;')
         expression = expression_file_util.get_current_expression()
         match = re.search(
@@ -85,7 +85,7 @@ def test_append_js_expression() -> None:
             flags=re.MULTILINE)
 
     event_handler_scope._increment_scope_count()
-    append_js_expression('console.log("Hello!");')
+    ap.append_js_expression('console.log("Hello!");')
     expression = \
         expression_file_util.get_current_event_handler_scope_expression()
     assert 'console.log("Hello!");' in expression
@@ -95,7 +95,7 @@ def test_append_js_expression() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_current_expression() -> None:
     expression_file_util.remove_expression_file()
-    append_js_expression(
+    ap.append_js_expression(
         expression='console.log("Hello!");')
     current_expression: str = expression_file_util._get_current_expression(
         file_path=expression_file_util.EXPRESSION_FILE_PATH)

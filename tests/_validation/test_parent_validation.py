@@ -2,8 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Sprite
-from apysc import Stage
+import apysc as ap
 from apysc._validation import parent_validation
 from tests import testing_helper
 
@@ -11,7 +10,7 @@ from tests import testing_helper
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_validate_parent_instance() -> None:
     parent_validation.validate_parent_instance(parent=None)
-    stage: Stage = Stage()
+    stage: ap.Stage = ap.Stage()
     parent_validation.validate_parent_instance(parent=stage)
     testing_helper.assert_raises(
         expected_error_class=ValueError,
@@ -23,12 +22,12 @@ def test_validate_parent_instance() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_validate_parent_contains_chils() -> None:
-    stage: Stage = Stage()
-    sprite_1: Sprite = Sprite(stage=stage)
+    stage: ap.Stage = ap.Stage()
+    sprite_1: ap.Sprite = ap.Sprite(stage=stage)
     parent_validation.validate_parent_contains_child(
         parent=stage, child=sprite_1)
 
-    sprite_2: Sprite = Sprite(stage=stage)
+    sprite_2: ap.Sprite = ap.Sprite(stage=stage)
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         func_or_method=parent_validation.validate_parent_contains_child,

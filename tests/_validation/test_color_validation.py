@@ -1,4 +1,4 @@
-from apysc import String
+import apysc as ap
 from apysc._validation import color_validation
 from tests import testing_helper
 
@@ -22,7 +22,7 @@ def test_validate_hex_color_code_format() -> None:
 
     color_validation.validate_hex_color_code_format(hex_color_code='333')
     color_validation.validate_hex_color_code_format(
-        hex_color_code=String('333'))
+        hex_color_code=ap.String('333'))
 
 
 def test_validate_alpha_range() -> None:

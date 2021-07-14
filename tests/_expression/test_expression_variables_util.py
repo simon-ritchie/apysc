@@ -3,7 +3,7 @@ from typing import List
 
 from retrying import retry
 
-from apysc import Int
+import apysc as ap
 from apysc._expression import expression_file_util
 from apysc._expression import expression_variables_util
 from apysc._expression import indent_num
@@ -96,8 +96,8 @@ def test_get_next_variable_name() -> None:
 def test_append_substitution_expression() -> None:
     indent_num.reset()
     expression_file_util.remove_expression_file()
-    int_1: Int = Int(10)
-    int_2: Int = Int(20)
+    int_1: ap.Int = ap.Int(10)
+    int_2: ap.Int = ap.Int(20)
     expression_variables_util.append_substitution_expression(
         left_value=int_2, right_value=int_1)
     expression: str = expression_file_util.get_current_expression()

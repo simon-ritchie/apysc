@@ -4,9 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import Event
-from apysc import Int
-from apysc import MouseEventType
+import apysc as ap
 from apysc._event import handler
 from apysc._event.handler import HandlerData
 from apysc._expression import expression_file_util
@@ -22,7 +20,7 @@ class _TestClass1(VariableNameInterface):
         """
         self.variable_name = 'test_class_1'
 
-    def on_click_1(self, e: Event, options: Dict[str, Any]) -> None:
+    def on_click_1(self, e: ap.Event, options: Dict[str, Any]) -> None:
         """
         Test handler.
 
@@ -34,7 +32,7 @@ class _TestClass1(VariableNameInterface):
             Optional arguments dictionary.
         """
 
-    def on_click_2(self, e: Event, options: Dict[str, Any]) -> None:
+    def on_click_2(self, e: ap.Event, options: Dict[str, Any]) -> None:
         """
         Test handler.
 
@@ -45,7 +43,7 @@ class _TestClass1(VariableNameInterface):
         options : dict
             Optional arguments dictionary.
         """
-        int_1: Int = options['int_1']
+        int_1: ap.Int = options['int_1']
         int_1.value = 20
 
 
@@ -65,14 +63,14 @@ def test_get_handler_name() -> None:
 def test_append_handler_expression() -> None:
     expression_file_util.remove_expression_file()
     test_instance: _TestClass1 = _TestClass1()
-    int_1: Int = Int(10)
+    int_1: ap.Int = ap.Int(10)
     handler_data: HandlerData = {
         'handler': test_instance.on_click_2,
         'options': {'int_1': int_1},
     }
     handler_name: str = handler.get_handler_name(
         handler=handler_data['handler'], instance=test_instance)
-    e: Event = Event(this=test_instance)
+    e: ap.Event = ap.Event(this=test_instance)
     handler.append_handler_expression(
         handler_data=handler_data, handler_name=handler_name,
         e=e)
@@ -99,13 +97,13 @@ def test_append_handler_expression() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_unbinding_expression() -> None:
     expression_file_util.remove_expression_file()
-    int_1: Int = Int(10)
+    int_1: ap.Int = ap.Int(10)
     handler.append_unbinding_expression(
         this=int_1, handler_name='on_click_1',
-        mouse_event_type=MouseEventType.CLICK)
+        mouse_event_type=ap.MouseEventType.CLICK)
     expression: str = expression_file_util.get_current_expression()
     expected: str = (
-        f'{int_1.variable_name}.off("{MouseEventType.CLICK.value}", '
+        f'{int_1.variable_name}.off("{ap.MouseEventType.CLICK.value}", '
         'on_click_1);'
     )
     assert expected in expression
@@ -114,11 +112,11 @@ def test_append_unbinding_expression() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_unbinding_all_expression() -> None:
     expression_file_util.remove_expression_file()
-    int_1: Int = Int(10)
+    int_1: ap.Int = ap.Int(10)
     handler.append_unbinding_all_expression(
-        this=int_1, mouse_event_type=MouseEventType.CLICK)
+        this=int_1, mouse_event_type=ap.MouseEventType.CLICK)
     expression: str = expression_file_util.get_current_expression()
     expected: str = (
-        f'{int_1.variable_name}.off("{MouseEventType.CLICK.value}");'
+        f'{int_1.variable_name}.off("{ap.MouseEventType.CLICK.value}");'
     )
     assert expected in expression

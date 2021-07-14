@@ -4,7 +4,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Stage
+import apysc as ap
 from apysc._jupyter import jupyter_util
 
 
@@ -13,7 +13,7 @@ def test_display_on_jupyter() -> None:
     original_tmp_root_dir: str = jupyter_util._TMP_ROOT_DIR_PATH
     jupyter_util._TMP_ROOT_DIR_PATH = '../tmp_test_1/'
 
-    stage: Stage = Stage()
+    stage: ap.Stage = ap.Stage()
     jupyter_util.display_on_jupyter(
         stage=stage,
         html_file_name='test_file.html')
@@ -28,7 +28,7 @@ def test_display_on_jupyter() -> None:
 def test__save_overall_html() -> None:
     original_tmp_root_dir: str = jupyter_util._TMP_ROOT_DIR_PATH
     jupyter_util._TMP_ROOT_DIR_PATH = '../tmp_test_2/'
-    _: Stage = Stage()
+    _: ap.Stage = ap.Stage()
     jupyter_util._save_overall_html(
         html_file_name='test_file.html',
         minify=True)
@@ -44,7 +44,7 @@ def test_display_on_colaboratory() -> None:
     original_tmp_root_dir: str = jupyter_util._TMP_ROOT_DIR_PATH
     jupyter_util._TMP_ROOT_DIR_PATH = '../tmp_test_3/'
 
-    _: Stage = Stage()
+    _: ap.Stage = ap.Stage()
     jupyter_util.display_on_colaboratory(
         html_file_name='test_file.html')
     assert os.path.isfile('test_file.html')

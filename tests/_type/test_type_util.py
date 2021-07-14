@@ -1,6 +1,4 @@
-from apysc import Boolean
-from apysc import Int
-from apysc import Number
+import apysc as ap
 from apysc._type import type_util
 
 
@@ -16,24 +14,24 @@ def test_is_float_or_number() -> None:
     result: bool = type_util.is_float_or_number(value=100.5)
     assert result
 
-    result = type_util.is_float_or_number(value=Number(value=10.5))
+    result = type_util.is_float_or_number(value=ap.Number(value=10.5))
     assert result
 
     result = type_util.is_float_or_number(value=100)
     assert not result
 
-    result = type_util.is_float_or_number(value=Int(value=10))
+    result = type_util.is_float_or_number(value=ap.Int(value=10))
     assert not result
 
 
 def test_is_number() -> None:
-    result: bool = type_util.is_number(value=Number(value=10.5))
+    result: bool = type_util.is_number(value=ap.Number(value=10.5))
     assert result
 
     result = type_util.is_number(value=10.5)
     assert not result
 
-    result = type_util.is_number(value=Int(value=10))
+    result = type_util.is_number(value=ap.Int(value=10))
     assert not result
 
 
@@ -42,7 +40,7 @@ def test_is_bool() -> None:
     assert result
     result = type_util.is_bool(value=False)
     assert result
-    result = type_util.is_bool(value=Boolean(True))
+    result = type_util.is_bool(value=ap.Boolean(True))
     assert result
     result = type_util.is_bool(value=1)
     assert not result

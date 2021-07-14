@@ -1,11 +1,11 @@
-from apysc import String
+import apysc as ap
 from apysc._validation import string_validation
 from tests import testing_helper
 
 
 def test_validate_string_type() -> None:
     string_validation.validate_string_type(string='Hello!')
-    string_validation.validate_string_type(string=String('Hello!'))
+    string_validation.validate_string_type(string=ap.String('Hello!'))
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         func_or_method=string_validation.validate_string_type,

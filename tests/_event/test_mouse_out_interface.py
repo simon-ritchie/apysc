@@ -4,8 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import MouseEvent
-from apysc import MouseEventType
+import apysc as ap
 from apysc._event.mouse_out_interface import MouseOutInterface
 from apysc._expression import expression_file_util
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -22,7 +21,7 @@ class _TestMouseOut(MouseOutInterface, VariableNameInterface):
 class TestMouseOutInterface:
 
     def on_mouse_out_1(
-            self, e: MouseEvent, options: Dict[str, Any]) -> None:
+            self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Mouse out handler method for testing.
 
@@ -35,7 +34,7 @@ class TestMouseOutInterface:
         """
 
     def on_mouse_out_2(
-            self, e: MouseEvent, options: Dict[str, Any]) -> None:
+            self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Mouse out handler method for testing.
 
@@ -87,7 +86,7 @@ class TestMouseOutInterface:
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{interface_1.variable_name}.off'
-            f'("{MouseEventType.MOUSEOUT.value}", {name});'
+            f'("{ap.MouseEventType.MOUSEOUT.value}", {name});'
         )
         assert expected in expression
 
@@ -102,6 +101,6 @@ class TestMouseOutInterface:
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{interface_1.variable_name}.off('
-            f'"{MouseEventType.MOUSEOUT.value}");'
+            f'"{ap.MouseEventType.MOUSEOUT.value}");'
         )
         assert expected in expression

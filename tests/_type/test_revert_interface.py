@@ -5,7 +5,7 @@ from typing import List
 
 from retrying import retry
 
-from apysc import Int
+import apysc as ap
 from apysc._type import revert_interface
 from apysc._type.revert_interface import RevertInterface
 
@@ -209,9 +209,9 @@ class TestRevertInterface:
 
 
 def test_make_snapshots_of_each_scope_vars() -> None:
-    int_1: Int = Int(10)
-    int_2: Int = Int(20)
-    int_3: Int = Int(40)
+    int_1: ap.Int = ap.Int(10)
+    int_2: ap.Int = ap.Int(20)
+    int_3: ap.Int = ap.Int(40)
     locals_: Dict[str, Any] = {
         'value1': int_1,
         'value2': int_2,
@@ -230,9 +230,9 @@ def test_make_snapshots_of_each_scope_vars() -> None:
 
 
 def test_revert_each_scope_vars() -> None:
-    int_1: Int = Int(10)
-    int_2: Int = Int(20)
-    int_3: Int = Int(40)
+    int_1: ap.Int = ap.Int(10)
+    int_2: ap.Int = ap.Int(20)
+    int_3: ap.Int = ap.Int(40)
     locals_: Dict[str, Any] = {
         'value1': int_1,
         'value2': int_2,
@@ -256,8 +256,8 @@ def test_revert_each_scope_vars() -> None:
 
 
 def test_make_variables_snapshots() -> None:
-    int_1: Int = Int(10)
-    int_2: Int = Int(20)
+    int_1: ap.Int = ap.Int(10)
+    int_2: ap.Int = ap.Int(20)
     variables: List[Any] = [int_1, int_2, int_1, 100]
     snapshot_name: str = revert_interface.make_variables_snapshots(
         variables=variables)
@@ -266,8 +266,8 @@ def test_make_variables_snapshots() -> None:
 
 
 def test_revert_variables() -> None:
-    int_1: Int = Int(10)
-    int_2: Int = Int(20)
+    int_1: ap.Int = ap.Int(10)
+    int_2: ap.Int = ap.Int(20)
     variables: List[Any] = [int_1, int_2, int_1, 100]
     snapshot_name: str = revert_interface.make_variables_snapshots(
         variables=variables)

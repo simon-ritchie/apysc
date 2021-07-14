@@ -8,9 +8,7 @@ from typing import Tuple
 import pytest
 from retrying import retry
 
-from apysc import Boolean
-from apysc import Int
-from apysc import Number
+import apysc as ap
 from apysc._display.x_interface import XInterface
 from apysc._expression import expression_file_util
 from apysc._expression import var_names
@@ -255,7 +253,7 @@ class TestNumberValueInterface:
         interface_1.variable_name = 'test_interface_0'
         interface_2: NumberValueInterface = interface_1 / 4
         assert interface_2.value == 2.5
-        assert isinstance(interface_2, Number)
+        assert isinstance(interface_2, ap.Number)
 
         interface_3: NumberValueInterface = interface_2 / interface_1
         assert interface_3.value == 0.25
@@ -291,7 +289,7 @@ class TestNumberValueInterface:
         interface_1.variable_name = 'test_interface_0'
         interface_2: NumberValueInterface = interface_1 // 4
         assert interface_2.value == 2
-        assert isinstance(interface_2, Int)
+        assert isinstance(interface_2, ap.Int)
 
         interface_3: NumberValueInterface = NumberValueInterface(
             value=6, type_name='test_interface')
@@ -338,7 +336,7 @@ class TestNumberValueInterface:
         """
         x_interface: XInterface = XInterface()
         x_interface.variable_name = 'test_x_interface'
-        x_interface.x = Int(10)
+        x_interface.x = ap.Int(10)
         x_variable_name: str = x_interface._x.variable_name
         return x_interface, x_variable_name
 
@@ -396,7 +394,7 @@ class TestNumberValueInterface:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_1.variable_name = 'test_interface_0'
-        int_1: Int = Int(5)
+        int_1: ap.Int = ap.Int(5)
         interface_1 += int_1
         assert interface_1.value == 15
         assert interface_1.variable_name == 'test_interface_0'
@@ -421,7 +419,7 @@ class TestNumberValueInterface:
 
         expression_file_util.remove_expression_file()
         x_interface, previous_variable_name = self._make_x_interface_instance()
-        x: Int = x_interface.x
+        x: ap.Int = x_interface.x
         x += 20
         self._assert_substitution_expression_to_prev_var_not_exist(
             x_interface=x_interface,
@@ -456,7 +454,7 @@ class TestNumberValueInterface:
 
         expression_file_util.remove_expression_file()
         x_interface, previous_variable_name = self._make_x_interface_instance()
-        x: Int = x_interface.x
+        x: ap.Int = x_interface.x
         x -= 20
         self._assert_substitution_expression_to_prev_var_not_exist(
             x_interface=x_interface,
@@ -492,7 +490,7 @@ class TestNumberValueInterface:
 
         expression_file_util.remove_expression_file()
         x_interface, previous_variable_name = self._make_x_interface_instance()
-        x: Int = x_interface.x
+        x: ap.Int = x_interface.x
         x *= 2
         self._assert_substitution_expression_to_prev_var_not_exist(
             x_interface=x_interface,
@@ -526,7 +524,7 @@ class TestNumberValueInterface:
 
         expression_file_util.remove_expression_file()
         x_interface, previous_variable_name = self._make_x_interface_instance()
-        x: Int = x_interface.x
+        x: ap.Int = x_interface.x
         x /= 2
         self._assert_substitution_expression_to_prev_var_not_exist(
             x_interface=x_interface,
@@ -555,8 +553,8 @@ class TestNumberValueInterface:
         assert not interface_1 == 11
         assert not interface_1 == interface_3
 
-        assert isinstance(interface_1 == 10, Boolean)
-        assert isinstance(interface_1 == interface_2, Boolean)
+        assert isinstance(interface_1 == 10, ap.Boolean)
+        assert isinstance(interface_1 == interface_2, ap.Boolean)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___ne__(self) -> None:
@@ -569,8 +567,8 @@ class TestNumberValueInterface:
         assert interface_1 != 11
         assert interface_1 != interface_2
 
-        assert isinstance(interface_1 != 11, Boolean)
-        assert isinstance(interface_1 != interface_2, Boolean)
+        assert isinstance(interface_1 != 11, ap.Boolean)
+        assert isinstance(interface_1 != interface_2, ap.Boolean)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___lt__(self) -> None:
@@ -588,8 +586,8 @@ class TestNumberValueInterface:
         assert interface_1 < interface_2
         assert not interface_1 < 10
         assert not interface_1 < interface_3
-        assert isinstance(interface_1 < 11, Boolean)
-        assert isinstance(interface_1 < interface_2, Boolean)
+        assert isinstance(interface_1 < 11, ap.Boolean)
+        assert isinstance(interface_1 < interface_2, ap.Boolean)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___le__(self) -> None:
@@ -613,8 +611,8 @@ class TestNumberValueInterface:
         assert not interface_1 <= 9
         assert not interface_1 <= interface_4
 
-        assert isinstance(interface_1 <= 10, Boolean)
-        assert isinstance(interface_1 <= interface_2, Boolean)
+        assert isinstance(interface_1 <= 10, ap.Boolean)
+        assert isinstance(interface_1 <= interface_2, ap.Boolean)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___gt__(self) -> None:
@@ -633,8 +631,8 @@ class TestNumberValueInterface:
         assert not interface_1 > 10
         assert not interface_1 > interface_3
 
-        assert isinstance(interface_1 > 9, Boolean)
-        assert isinstance(interface_1 > interface_2, Boolean)
+        assert isinstance(interface_1 > 9, ap.Boolean)
+        assert isinstance(interface_1 > interface_2, ap.Boolean)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___ge__(self) -> None:
@@ -658,8 +656,8 @@ class TestNumberValueInterface:
         assert not interface_1 >= 11
         assert not interface_1 >= interface_4
 
-        assert isinstance(interface_1 >= 10, Boolean)
-        assert isinstance(interface_1 >= interface_2, Boolean)
+        assert isinstance(interface_1 >= 10, ap.Boolean)
+        assert isinstance(interface_1 >= interface_2, ap.Boolean)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___int__(self) -> None:
@@ -718,7 +716,7 @@ class TestNumberValueInterface:
         interface_2: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_2.variable_name = 'test_interface_2'
-        result: Boolean = interface_1 == interface_2
+        result: ap.Boolean = interface_1 == interface_2
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{result.variable_name} = '
@@ -747,7 +745,7 @@ class TestNumberValueInterface:
         interface_2: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_2.variable_name = 'test_interface_2'
-        result: Boolean = interface_1 != interface_2
+        result: ap.Boolean = interface_1 != interface_2
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{result.variable_name} = '
@@ -778,7 +776,7 @@ class TestNumberValueInterface:
         interface_2: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_2.variable_name = 'test_interface_2'
-        result: Boolean = interface_1 < interface_2
+        result: ap.Boolean = interface_1 < interface_2
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{result.variable_name} = '
@@ -807,7 +805,7 @@ class TestNumberValueInterface:
         interface_2: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_2.variable_name = 'test_interface_2'
-        result: Boolean = interface_1 <= interface_2
+        result: ap.Boolean = interface_1 <= interface_2
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{result.variable_name} = '
@@ -836,7 +834,7 @@ class TestNumberValueInterface:
         interface_2: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_2.variable_name = 'test_interface_2'
-        result: Boolean = interface_1 > interface_2
+        result: ap.Boolean = interface_1 > interface_2
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{result.variable_name} = '
@@ -865,7 +863,7 @@ class TestNumberValueInterface:
         interface_2: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_2.variable_name = 'test_interface_2'
-        result: Boolean = interface_1 >= interface_2
+        result: ap.Boolean = interface_1 >= interface_2
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{result.variable_name} = '
@@ -891,12 +889,12 @@ class TestNumberValueInterface:
             value=10, type_name='test_interface')
         converted_val: Any = interface_1._convert_other_val_to_int_or_number(
             other=10)
-        assert isinstance(converted_val, Int)
+        assert isinstance(converted_val, ap.Int)
         assert converted_val == 10
 
         converted_val = interface_1._convert_other_val_to_int_or_number(
             other=10.5)
-        assert isinstance(converted_val, Number)
+        assert isinstance(converted_val, ap.Number)
         assert converted_val == 10.5
 
         converted_val = interface_1._convert_other_val_to_int_or_number(
@@ -939,5 +937,5 @@ class TestNumberValueInterface:
         interface_1 = NumberValueInterface(
             value=10.5, type_name='test_interface')
         interface_1.variable_name = 'test_interface_1'
-        interface_3: NumberValueInterface = interface_1 % Int(3)
+        interface_3: NumberValueInterface = interface_1 % ap.Int(3)
         assert interface_3 == 1.5

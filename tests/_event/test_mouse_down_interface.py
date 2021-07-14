@@ -4,8 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import MouseEvent
-from apysc import MouseEventType
+import apysc as ap
 from apysc._event.mouse_down_interface import MouseDownInterface
 from apysc._expression import expression_file_util
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -21,7 +20,8 @@ class _TestMouseDown(MouseDownInterface, VariableNameInterface):
 
 class TestMouseDownInterface:
 
-    def on_mouse_down_1(self, e: MouseEvent, options: Dict[str, Any]) -> None:
+    def on_mouse_down_1(
+            self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Mouse down handler method for testing.
 
@@ -33,7 +33,8 @@ class TestMouseDownInterface:
             Optional arguments dictionary.
         """
 
-    def on_mouse_down_2(self, e: MouseEvent, options: Dict[str, Any]) -> None:
+    def on_mouse_down_2(
+            self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Mouse down handler method for testing.
 
@@ -84,7 +85,7 @@ class TestMouseDownInterface:
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{interface_1.variable_name}.off('
-            f'"{MouseEventType.MOUSEDOWN.value}", {name});')
+            f'"{ap.MouseEventType.MOUSEDOWN.value}", {name});')
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -98,6 +99,6 @@ class TestMouseDownInterface:
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{interface_1.variable_name}.off('
-            f'"{MouseEventType.MOUSEDOWN.value}");'
+            f'"{ap.MouseEventType.MOUSEDOWN.value}");'
         )
         assert expected in expression

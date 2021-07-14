@@ -5,7 +5,7 @@ from typing import Tuple
 
 from retrying import retry
 
-from apysc import String
+import apysc as ap
 from apysc._expression import expression_file_util
 from apysc._html import html_util
 from apysc._html.html_util import ScriptLineUtil
@@ -29,12 +29,12 @@ def test_remove_first_selector_symbol_char() -> None:
     assert str_val_3 == 'line-graph'
     assert isinstance(str_val_3, str)
 
-    str_val_4: String = String('.line-graph')
-    str_val_5: String = html_util.remove_first_selector_symbol_char(
+    str_val_4: ap.String = ap.String('.line-graph')
+    str_val_5: ap.String = html_util.remove_first_selector_symbol_char(
         str_val=str_val_4)
     assert str_val_4.variable_name != str_val_5.variable_name
     assert str_val_5 == 'line-graph'
-    assert isinstance(str_val_5, String)
+    assert isinstance(str_val_5, ap.String)
 
     testing_helper.assert_raises(
         expected_error_class=TypeError,
@@ -177,8 +177,8 @@ def test_wrap_expression_by_script_tag() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_remove_first_selector_symbol_char_expression() -> None:
     expression_file_util.remove_expression_file()
-    str_val_1: String = String('.line-graph')
-    str_val_2: String = html_util.remove_first_selector_symbol_char(
+    str_val_1: ap.String = ap.String('.line-graph')
+    str_val_2: ap.String = html_util.remove_first_selector_symbol_char(
         str_val=str_val_1)
     var_name: str = str_val_2.variable_name
     expression: str = expression_file_util.get_current_expression()

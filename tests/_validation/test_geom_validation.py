@@ -1,10 +1,10 @@
-from apysc import Point2D
+import apysc as ap
 from apysc._validation import geom_validation
 from tests.testing_helper import assert_raises
 
 
 def test_validate_point_2d_type() -> None:
-    point: Point2D = Point2D(x=10, y=20)
+    point: ap.Point2D = ap.Point2D(x=10, y=20)
     geom_validation.validate_point_2d_type(point=point)
 
     assert_raises(

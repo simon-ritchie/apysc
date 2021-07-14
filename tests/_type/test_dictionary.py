@@ -8,11 +8,7 @@ from typing import Optional
 
 from retrying import retry
 
-from apysc import Boolean
-from apysc import Dictionary
-from apysc import Int
-from apysc import Number
-from apysc import String
+import apysc as ap
 from apysc._expression import expression_file_util
 from apysc._expression import var_names
 from apysc._type.any_value import AnyValue
@@ -23,18 +19,18 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__validate_acceptable_value_type(self) -> None:
-        dict_1: Dictionary = Dictionary(value={})
-        _: Dictionary = Dictionary(value=dict_1)
+        dict_1: ap.Dictionary = ap.Dictionary(value={})
+        _: ap.Dictionary = ap.Dictionary(value=dict_1)
 
         assert_raises(
             expected_error_class=TypeError,
-            func_or_method=Dictionary,
+            func_or_method=ap.Dictionary,
             kwargs={'value': 10},
             match='Not acceptable value type is specified')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_dict_value(self) -> None:
-        dict_1: Dictionary = Dictionary(value={'a': 10})
+        dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10})
         dict_val: Dict[Any, Any] = dict_1._get_dict_value(value={'a': 20})
         assert dict_val == {'a': 20}
         assert isinstance(dict_val, dict)
@@ -46,7 +42,7 @@ class TestDictionary:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
         expression_file_util.remove_expression_file()
-        dict_1: Dictionary = Dictionary(value={'a': 10})
+        dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10})
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'var {dict_1.variable_name} = {{"a": 10}};'
@@ -55,8 +51,8 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        dict_1: Dictionary = Dictionary(value={'a': 10})
-        dict_2: Dictionary = Dictionary(value=dict_1)
+        dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10})
+        dict_2: ap.Dictionary = ap.Dictionary(value=dict_1)
         assert dict_2._initial_value == dict_1
         assert dict_2.type_name == var_names.DICTIONARY
         assert dict_2.variable_name.startswith(f'{var_names.DICTIONARY}_')
@@ -64,13 +60,13 @@ class TestDictionary:
 
         assert_raises(
             expected_error_class=TypeError,
-            func_or_method=Dictionary,
+            func_or_method=ap.Dictionary,
             kwargs={'value': 10},
             match='Not acceptable value type is specified.')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_value(self) -> None:
-        dict_1: Dictionary = Dictionary(value={'a': 10})
+        dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10})
         assert dict_1.value == {'a': 10}
 
         dict_1.value = {'b': 20}
@@ -79,7 +75,7 @@ class TestDictionary:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_value_setter_expression(self) -> None:
         expression_file_util.remove_expression_file()
-        dict_1: Dictionary = Dictionary(value={'a': 10})
+        dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10})
         dict_1.value = {'b': 20}
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
@@ -89,7 +85,7 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
-        dict_1: Dictionary = Dictionary(value={'a': 10})
+        dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10})
         snapshot_name: str = dict_1._get_next_snapshot_name()
         dict_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert dict_1._value_snapshot == {snapshot_name: {'a': 10}}
@@ -100,7 +96,7 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
-        dict_1: Dictionary = Dictionary(value={'a': 10})
+        dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10})
         snapshot_name: str = dict_1._get_next_snapshot_name()
         dict_1._run_all_revert_methods(snapshot_name=snapshot_name)
         dict_1._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -113,26 +109,26 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___str__(self) -> None:
-        dict_1: Dictionary = Dictionary(value={'a': 10})
+        dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10})
         assert str(dict_1) == "{'a': 10}"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
-        dict_1: Dictionary = Dictionary(value={'a': 10})
-        assert repr(dict_1) == "Dictionary({'a': 10})"
+        dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10})
+        assert repr(dict_1) == "ap.Dictionary({'a': 10})"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_length(self) -> None:
-        dict_1: Dictionary = Dictionary(value={'a': 10, 'b': 20})
-        length: Int = dict_1.length
+        dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10, 'b': 20})
+        length: ap.Int = dict_1.length
         assert length == 2
-        assert isinstance(length, Int)
+        assert isinstance(length, ap.Int)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_length_expression(self) -> None:
         expression_file_util.remove_expression_file()
-        dict_1: Dictionary = Dictionary(value={'a': 10, 'b': 20})
-        length: Int = dict_1.length
+        dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10, 'b': 20})
+        length: ap.Int = dict_1.length
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{length.variable_name} = '
@@ -142,29 +138,29 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___len__(self) -> None:
-        dict_1: Dictionary = Dictionary(value={'a': 10, 'b': 20})
+        dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10, 'b': 20})
         assert_raises(
             expected_error_class=Exception,
             func_or_method=dict_1.__len__,
-            match='Dictionary instance can\'t apply len function.')
+            match='ap.Dictionary instance can\'t apply len function.')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__validate_key_type_is_str_or_numeric(self) -> None:
-        dict_1: Dictionary = Dictionary(value={'a': 10})
+        dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10})
         acceptables: List[Any] = [
-            'Hello', String('Hello'), 10, Int(10), 20.5, Number(20.5)]
+            'Hello', ap.String('Hello'), 10, ap.Int(10), 20.5, ap.Number(20.5)]
         for acceptable in acceptables:
             dict_1._validate_key_type_is_str_or_numeric(key=acceptable)
         assert_raises(
             expected_error_class=ValueError,
             func_or_method=dict_1._validate_key_type_is_str_or_numeric,
-            kwargs={'key': Boolean(True)},
+            kwargs={'key': ap.Boolean(True)},
             match='Unsupported key type is specified')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___getitem__(self) -> None:
-        string_1: String = String('b')
-        dict_1: Dictionary = Dictionary(
+        string_1: ap.String = ap.String('b')
+        dict_1: ap.Dictionary = ap.Dictionary(
             value={'a': 10, 'b': 20, 3: 30, 4.5: 40})
         value: Any = dict_1['a']
         assert value == 10
@@ -180,8 +176,8 @@ class TestDictionary:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_getitem_expression(self) -> None:
         expression_file_util.remove_expression_file()
-        int_1: Int = Int(20)
-        dict_1: Dictionary = Dictionary({'a': 10, 'b': int_1})
+        int_1: ap.Int = ap.Int(20)
+        dict_1: ap.Dictionary = ap.Dictionary({'a': 10, 'b': int_1})
         _: Any = dict_1['a']
         expression: str = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -192,7 +188,7 @@ class TestDictionary:
             string=expression, flags=re.MULTILINE)
         assert match is not None
 
-        str_1: String = String('b')
+        str_1: ap.String = ap.String('b')
         value: Any = dict_1[str_1]
         expression = expression_file_util.get_current_expression()
         expected: str = (
@@ -203,19 +199,19 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___setitem__(self) -> None:
-        dict_1: Dictionary = Dictionary({'a': 10})
+        dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
         dict_1['b'] = 20
         assert dict_1['b'] == 20
 
-        string_1: String = String('a')
+        string_1: ap.String = ap.String('a')
         dict_1[string_1] = 30
         assert dict_1[string_1] == 30
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_setitem_expression(self) -> None:
         expression_file_util.remove_expression_file()
-        dict_1: Dictionary = Dictionary({'a': 10})
-        string_1: String = String('b')
+        dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
+        string_1: ap.String = ap.String('b')
         dict_1[string_1] = 20
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
@@ -225,8 +221,8 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_builtin_type_key(self) -> None:
-        dict_1: Dictionary = Dictionary({})
-        key: Any = dict_1._get_builtin_type_key(key=Int(10))
+        dict_1: ap.Dictionary = ap.Dictionary({})
+        key: Any = dict_1._get_builtin_type_key(key=ap.Int(10))
         assert isinstance(key, int)
         assert key == 10
 
@@ -236,16 +232,16 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___delitem__(self) -> None:
-        dict_1: Dictionary = Dictionary({'a': 10})
-        string_1: String = String('a')
+        dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
+        string_1: ap.String = ap.String('a')
         del dict_1[string_1]
         assert dict_1.value == {}
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_delitem_expression(self) -> None:
         expression_file_util.remove_expression_file()
-        dict_1: Dictionary = Dictionary({'a': 10})
-        string_1: String = String('a')
+        dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
+        string_1: ap.String = ap.String('a')
         del dict_1[string_1]
         expression: str = expression_file_util.get_current_expression()
         expected: str = (

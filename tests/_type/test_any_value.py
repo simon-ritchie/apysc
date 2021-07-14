@@ -2,9 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc import AnyValue
-from apysc import Boolean
-from apysc import Int
+import apysc as ap
 from apysc._expression import expression_file_util
 from apysc._expression import var_names
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -14,14 +12,14 @@ class TestAnyValue:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        any_value: AnyValue = AnyValue(100)
+        any_value: ap.AnyValue = ap.AnyValue(100)
         assert any_value._value == 100
         assert any_value.variable_name.startswith(var_names.ANY)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
         expression_file_util.remove_expression_file()
-        any_value_1: AnyValue = AnyValue(100)
+        any_value_1: ap.AnyValue = ap.AnyValue(100)
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{any_value_1.variable_name} = 100;'
@@ -29,8 +27,8 @@ class TestAnyValue:
         assert expected in expression
 
         expression_file_util.remove_expression_file()
-        int_1: Int = Int(10)
-        any_value_2: AnyValue = AnyValue(int_1)
+        int_1: ap.Int = ap.Int(10)
+        any_value_2: ap.AnyValue = ap.AnyValue(int_1)
         expression = expression_file_util.get_current_expression()
         expected = (
             f'{any_value_2.variable_name} = {int_1.variable_name};'
@@ -38,7 +36,7 @@ class TestAnyValue:
         assert expected in expression
 
         expression_file_util.remove_expression_file()
-        any_value_3 = AnyValue(None)
+        any_value_3 = ap.AnyValue(None)
         expression = expression_file_util.get_current_expression()
         expected = (
             f'var {any_value_3.variable_name} = NaN;'
@@ -48,7 +46,7 @@ class TestAnyValue:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_value_setter_expression(self) -> None:
         expression_file_util.remove_expression_file()
-        any_value: AnyValue = AnyValue(100)
+        any_value: ap.AnyValue = ap.AnyValue(100)
         any_value.value = 200
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
@@ -56,7 +54,7 @@ class TestAnyValue:
         )
         assert expected in expression
 
-        int_1: Int = Int(300)
+        int_1: ap.Int = ap.Int(300)
         any_value.value = int_1
         expression = expression_file_util.get_current_expression()
         expected = (
@@ -66,12 +64,12 @@ class TestAnyValue:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_value(self) -> None:
-        any_value: AnyValue = AnyValue(100)
+        any_value: ap.AnyValue = ap.AnyValue(100)
         any_value.value = 200
         assert any_value.value == 200
 
     def _assert_arithmetic_operation_dunder_method_expression(
-            self, any_value: AnyValue, result: VariableNameInterface,
+            self, any_value: ap.AnyValue, result: VariableNameInterface,
             other: VariableNameInterface,
             expected_operator: str) -> None:
         """
@@ -105,10 +103,10 @@ class TestAnyValue:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___add__(self) -> None:
         expression_file_util.remove_expression_file()
-        any_value: AnyValue = AnyValue(100)
-        int_1: Int = Int(200)
+        any_value: ap.AnyValue = ap.AnyValue(100)
+        int_1: ap.Int = ap.Int(200)
         result: VariableNameInterface = any_value + int_1
-        assert isinstance(result, AnyValue)
+        assert isinstance(result, ap.AnyValue)
         self._assert_arithmetic_operation_dunder_method_expression(
             any_value=any_value, result=result, other=int_1,
             expected_operator='+')
@@ -116,10 +114,10 @@ class TestAnyValue:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___sub__(self) -> None:
         expression_file_util.remove_expression_file()
-        any_value: AnyValue = AnyValue(100)
-        int_1: Int = Int(200)
+        any_value: ap.AnyValue = ap.AnyValue(100)
+        int_1: ap.Int = ap.Int(200)
         result: VariableNameInterface = any_value - int_1
-        assert isinstance(result, AnyValue)
+        assert isinstance(result, ap.AnyValue)
         self._assert_arithmetic_operation_dunder_method_expression(
             any_value=any_value, result=result, other=int_1,
             expected_operator='-')
@@ -127,8 +125,8 @@ class TestAnyValue:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_arithmetic_operation_expression(self) -> None:
         expression_file_util.remove_expression_file()
-        any_value: AnyValue = AnyValue(100)
-        int_1: Int = Int(200)
+        any_value: ap.AnyValue = ap.AnyValue(100)
+        int_1: ap.Int = ap.Int(200)
         result: VariableNameInterface = \
             any_value._append_arithmetic_operation_expression(
                 other=int_1, operator='/')
@@ -142,10 +140,10 @@ class TestAnyValue:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___mul__(self) -> None:
         expression_file_util.remove_expression_file()
-        any_value: AnyValue = AnyValue(100)
-        int_1: Int = Int(200)
+        any_value: ap.AnyValue = ap.AnyValue(100)
+        int_1: ap.Int = ap.Int(200)
         result: VariableNameInterface = any_value * int_1
-        assert isinstance(result, AnyValue)
+        assert isinstance(result, ap.AnyValue)
         self._assert_arithmetic_operation_dunder_method_expression(
             any_value=any_value, result=result, other=int_1,
             expected_operator='*')
@@ -153,10 +151,10 @@ class TestAnyValue:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___truediv__(self) -> None:
         expression_file_util.remove_expression_file()
-        any_value: AnyValue = AnyValue(100)
-        int_1: Int = Int(200)
+        any_value: ap.AnyValue = ap.AnyValue(100)
+        int_1: ap.Int = ap.Int(200)
         result: VariableNameInterface = any_value / int_1
-        assert isinstance(result, AnyValue)
+        assert isinstance(result, ap.AnyValue)
         self._assert_arithmetic_operation_dunder_method_expression(
             any_value=any_value, result=result, other=int_1,
             expected_operator='/')
@@ -164,10 +162,10 @@ class TestAnyValue:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___floordiv__(self) -> None:
         expression_file_util.remove_expression_file()
-        any_value: AnyValue = AnyValue(200)
-        int_1: Int = Int(100)
+        any_value: ap.AnyValue = ap.AnyValue(200)
+        int_1: ap.Int = ap.Int(100)
         result: VariableNameInterface = any_value // int_1
-        assert isinstance(result, AnyValue)
+        assert isinstance(result, ap.AnyValue)
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{result.variable_name} = '
@@ -179,8 +177,8 @@ class TestAnyValue:
     def test__append_incremental_arithmetic_operation_expression(
             self) -> None:
         expression_file_util.remove_expression_file()
-        any_value: AnyValue = AnyValue(200)
-        int_1: Int = Int(100)
+        any_value: ap.AnyValue = ap.AnyValue(200)
+        int_1: ap.Int = ap.Int(100)
         any_value._append_incremental_arithmetic_operation_expression(
             other=int_1, operator='*=')
         expression: str = expression_file_util.get_current_expression()
@@ -190,7 +188,7 @@ class TestAnyValue:
         assert expected in expression
 
     def _assert_incremental_arithmetic_operation_result(
-            self, any_value: AnyValue, before_var_name: str,
+            self, any_value: ap.AnyValue, before_var_name: str,
             other_value: VariableNameInterface,
             expected_operator: str) -> None:
         """
@@ -220,9 +218,9 @@ class TestAnyValue:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___iadd__(self) -> None:
         expression_file_util.remove_expression_file()
-        any_value: AnyValue = AnyValue(200)
+        any_value: ap.AnyValue = ap.AnyValue(200)
         before_var_name: str = any_value.variable_name
-        int_1: Int = Int(100)
+        int_1: ap.Int = ap.Int(100)
         any_value += int_1
         self._assert_incremental_arithmetic_operation_result(
             any_value=any_value, before_var_name=before_var_name,
@@ -231,9 +229,9 @@ class TestAnyValue:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___isub__(self) -> None:
         expression_file_util.remove_expression_file()
-        any_value: AnyValue = AnyValue(200)
+        any_value: ap.AnyValue = ap.AnyValue(200)
         before_var_name: str = any_value.variable_name
-        int_1: Int = Int(100)
+        int_1: ap.Int = ap.Int(100)
         any_value -= int_1
         self._assert_incremental_arithmetic_operation_result(
             any_value=any_value, before_var_name=before_var_name,
@@ -242,9 +240,9 @@ class TestAnyValue:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___imul__(self) -> None:
         expression_file_util.remove_expression_file()
-        any_value: AnyValue = AnyValue(200)
+        any_value: ap.AnyValue = ap.AnyValue(200)
         before_var_name: str = any_value.variable_name
-        int_1: Int = Int(100)
+        int_1: ap.Int = ap.Int(100)
         any_value *= int_1
         self._assert_incremental_arithmetic_operation_result(
             any_value=any_value, before_var_name=before_var_name,
@@ -253,16 +251,16 @@ class TestAnyValue:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___itruediv__(self) -> None:
         expression_file_util.remove_expression_file()
-        any_value: AnyValue = AnyValue(200)
+        any_value: ap.AnyValue = ap.AnyValue(200)
         before_var_name: str = any_value.variable_name
-        int_1: Int = Int(100)
+        int_1: ap.Int = ap.Int(100)
         any_value /= int_1
         self._assert_incremental_arithmetic_operation_result(
             any_value=any_value, before_var_name=before_var_name,
             other_value=int_1, expected_operator='/=')
 
     def _assert_comparison_operation_result(
-            self, any_value: AnyValue, result: Boolean,
+            self, any_value: ap.AnyValue, result: ap.Boolean,
             other: VariableNameInterface,
             expected_comparison_operator: str) -> None:
         """
@@ -281,7 +279,7 @@ class TestAnyValue:
             Expected comparison operator string, like '!==', '>=',
             and so on.
         """
-        assert isinstance(result, Boolean)
+        assert isinstance(result, ap.Boolean)
         expression = expression_file_util.get_current_expression()
         expected: str = (
             f'{result.variable_name} = {any_value.variable_name} '
@@ -292,9 +290,9 @@ class TestAnyValue:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_comparison_expression(self) -> None:
         expression_file_util.remove_expression_file()
-        any_value: AnyValue = AnyValue(200)
-        int_1: Int = Int(100)
-        result: Boolean = any_value._append_comparison_expression(
+        any_value: ap.AnyValue = ap.AnyValue(200)
+        int_1: ap.Int = ap.Int(100)
+        result: ap.Boolean = any_value._append_comparison_expression(
             comparison_operator='<=', other=int_1)
         self._assert_comparison_operation_result(
             any_value=any_value, result=result,
@@ -303,9 +301,9 @@ class TestAnyValue:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:
         expression_file_util.remove_expression_file()
-        any_value: AnyValue = AnyValue(200)
-        int_1: Int = Int(100)
-        result: Boolean = any_value == int_1
+        any_value: ap.AnyValue = ap.AnyValue(200)
+        int_1: ap.Int = ap.Int(100)
+        result: ap.Boolean = any_value == int_1
         self._assert_comparison_operation_result(
             any_value=any_value, result=result, other=int_1,
             expected_comparison_operator='===')
@@ -313,9 +311,9 @@ class TestAnyValue:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___ne__(self) -> None:
         expression_file_util.remove_expression_file()
-        any_value: AnyValue = AnyValue(200)
-        int_1: Int = Int(100)
-        result: Boolean = any_value != int_1
+        any_value: ap.AnyValue = ap.AnyValue(200)
+        int_1: ap.Int = ap.Int(100)
+        result: ap.Boolean = any_value != int_1
         self._assert_comparison_operation_result(
             any_value=any_value, result=result, other=int_1,
             expected_comparison_operator='!==')
@@ -323,9 +321,9 @@ class TestAnyValue:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___lt__(self) -> None:
         expression_file_util.remove_expression_file()
-        any_value: AnyValue = AnyValue(200)
-        int_1: Int = Int(100)
-        result: Boolean = any_value < int_1
+        any_value: ap.AnyValue = ap.AnyValue(200)
+        int_1: ap.Int = ap.Int(100)
+        result: ap.Boolean = any_value < int_1
         self._assert_comparison_operation_result(
             any_value=any_value, result=result, other=int_1,
             expected_comparison_operator='<')
@@ -333,9 +331,9 @@ class TestAnyValue:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___le__(self) -> None:
         expression_file_util.remove_expression_file()
-        any_value: AnyValue = AnyValue(200)
-        int_1: Int = Int(100)
-        result: Boolean = any_value <= int_1
+        any_value: ap.AnyValue = ap.AnyValue(200)
+        int_1: ap.Int = ap.Int(100)
+        result: ap.Boolean = any_value <= int_1
         self._assert_comparison_operation_result(
             any_value=any_value, result=result, other=int_1,
             expected_comparison_operator='<=')
@@ -343,9 +341,9 @@ class TestAnyValue:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___gt__(self) -> None:
         expression_file_util.remove_expression_file()
-        any_value: AnyValue = AnyValue(200)
-        int_1: Int = Int(100)
-        result: Boolean = any_value > int_1
+        any_value: ap.AnyValue = ap.AnyValue(200)
+        int_1: ap.Int = ap.Int(100)
+        result: ap.Boolean = any_value > int_1
         self._assert_comparison_operation_result(
             any_value=any_value, result=result, other=int_1,
             expected_comparison_operator='>')
@@ -353,16 +351,16 @@ class TestAnyValue:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___ge__(self) -> None:
         expression_file_util.remove_expression_file()
-        any_value: AnyValue = AnyValue(200)
-        int_1: Int = Int(100)
-        result: Boolean = any_value >= int_1
+        any_value: ap.AnyValue = ap.AnyValue(200)
+        int_1: ap.Int = ap.Int(100)
+        result: ap.Boolean = any_value >= int_1
         self._assert_comparison_operation_result(
             any_value=any_value, result=result, other=int_1,
             expected_comparison_operator='>=')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
-        any_value: AnyValue = AnyValue(200)
+        any_value: ap.AnyValue = ap.AnyValue(200)
         snapshot_name: str = any_value._get_next_snapshot_name()
         any_value._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
@@ -375,7 +373,7 @@ class TestAnyValue:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
-        any_value: AnyValue = AnyValue(200)
+        any_value: ap.AnyValue = ap.AnyValue(200)
         snapshot_name: str = any_value._get_next_snapshot_name()
         any_value._run_all_revert_methods(snapshot_name=snapshot_name)
 

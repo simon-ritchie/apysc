@@ -3,8 +3,7 @@ from random import randint
 import pytest
 from retrying import retry
 
-from apysc import Int
-from apysc import WheelEvent
+import apysc as ap
 from apysc._expression import expression_file_util
 from apysc._expression import var_names
 from tests import testing_helper
@@ -14,28 +13,28 @@ class TestWheelEvent:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        e: WheelEvent = WheelEvent()
+        e: ap.WheelEvent = ap.WheelEvent()
         assert e.variable_name.startswith(f'{var_names.WHEEL_EVENT}_')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_this(self) -> None:
-        e: WheelEvent = WheelEvent()
+        e: ap.WheelEvent = ap.WheelEvent()
         with pytest.raises(
                 Exception, match='WheelEvent'):  # type: ignore
             e.this
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_delta_y(self) -> None:
-        e: WheelEvent = WheelEvent()
-        delta_y: Int = e.delta_y
-        assert isinstance(delta_y, Int)
+        e: ap.WheelEvent = ap.WheelEvent()
+        delta_y: ap.Int = e.delta_y
+        assert isinstance(delta_y, ap.Int)
         assert delta_y == 0
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_delta_y_getter_expression(self) -> None:
         expression_file_util.remove_expression_file()
-        e: WheelEvent = WheelEvent()
-        delta_y: Int = e.delta_y
+        e: ap.WheelEvent = ap.WheelEvent()
+        delta_y: ap.Int = e.delta_y
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{delta_y.variable_name} = '
@@ -45,16 +44,16 @@ class TestWheelEvent:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_delta_x(self) -> None:
-        e: WheelEvent = WheelEvent()
-        delta_x: Int = e.delta_x
-        assert isinstance(delta_x, Int)
+        e: ap.WheelEvent = ap.WheelEvent()
+        delta_x: ap.Int = e.delta_x
+        assert isinstance(delta_x, ap.Int)
         assert delta_x == 0
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_delta_x_getter_expression(self) -> None:
         expression_file_util.remove_expression_file()
-        e: WheelEvent = WheelEvent()
-        delta_x: Int = e.delta_x
+        e: ap.WheelEvent = ap.WheelEvent()
+        delta_x: ap.Int = e.delta_x
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{delta_x.variable_name} = '
@@ -64,7 +63,7 @@ class TestWheelEvent:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_prevent_default(self) -> None:
-        e: WheelEvent = WheelEvent()
+        e: ap.WheelEvent = ap.WheelEvent()
         testing_helper.assert_raises(
             expected_error_class=Exception,
             func_or_method=e.prevent_default)

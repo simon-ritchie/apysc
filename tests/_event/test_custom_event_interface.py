@@ -4,7 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import Event
+import apysc as ap
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.custom_event_type import CustomEventType
 from apysc._expression import expression_file_util
@@ -22,7 +22,7 @@ class _TestObject(CustomEventInterface, VariableNameInterface):
 
 class TestCustomEventInterface:
 
-    def on_custom_event(self, e: Event, options: Dict[str, Any]) -> None:
+    def on_custom_event(self, e: ap.Event, options: Dict[str, Any]) -> None:
         """
         The test handler.
 
@@ -57,7 +57,7 @@ class TestCustomEventInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_custom_event_handler_data(self) -> None:
         interface: _TestObject = _TestObject()
-        e: Event = Event(this=interface)
+        e: ap.Event = ap.Event(this=interface)
         name: str = interface.bind_custom_event(
             custom_event_type='test_custom_event',
             handler=self.on_custom_event,
@@ -73,7 +73,7 @@ class TestCustomEventInterface:
     def test__append_custom_event_binding_expression(self) -> None:
         expression_file_util.empty_expression_dir()
         interface: _TestObject = _TestObject()
-        e: Event = Event(this=interface)
+        e: ap.Event = ap.Event(this=interface)
         name: str = interface.bind_custom_event(
             custom_event_type='test_custom_event',
             handler=self.on_custom_event,
@@ -89,7 +89,7 @@ class TestCustomEventInterface:
     def test_bind_custom_event(self) -> None:
         expression_file_util.empty_expression_dir()
         interface: _TestObject = _TestObject()
-        e: Event = Event(this=interface)
+        e: ap.Event = ap.Event(this=interface)
         name: str = interface.bind_custom_event(
             custom_event_type='test_custom_event',
             handler=self.on_custom_event,

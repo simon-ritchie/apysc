@@ -2,15 +2,14 @@ from random import randint
 
 from retrying import retry
 
-from apysc import Array
-from apysc import Int
+import apysc as ap
 from apysc._type import value_util
 from tests.testing_helper import assert_raises
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_value_str_for_expression() -> None:
-    int_val: Int = Int(value=10)
+    int_val: ap.Int = ap.Int(value=10)
     value_str: str = value_util.get_value_str_for_expression(
         value=int_val)
     assert value_str == int_val.variable_name
@@ -42,8 +41,8 @@ def test_get_value_str_for_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_copy() -> None:
-    int_val: Int = Int(value=10)
-    copied_val_1: Int = value_util.get_copy(value=int_val)
+    int_val: ap.Int = ap.Int(value=10)
+    copied_val_1: ap.Int = value_util.get_copy(value=int_val)
     assert int_val == copied_val_1
     assert int_val.variable_name != copied_val_1.variable_name
 
@@ -53,7 +52,7 @@ def test_get_copy() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_value_str_from_iterable() -> None:
-    int_1: Int = Int(value=10)
+    int_1: ap.Int = ap.Int(value=10)
     value_str: str = value_util._get_value_str_from_iterable(
         value=[100, True, int_1, (1000, 2000), 'Hello!'])
     expected: str = (
@@ -64,7 +63,7 @@ def test__get_value_str_from_iterable() -> None:
     value_str = value_util._get_value_str_from_iterable(value=(10, 20))
     assert value_str == '[10, 20]'
 
-    array_1: Array = Array([30, 40])
+    array_1: ap.Array = ap.Array([30, 40])
     value_str = value_util._get_value_str_from_iterable(value=array_1)
     assert value_str == '[30, 40]'
 
@@ -77,7 +76,7 @@ def test__validate_dict_key_type() -> None:
     assert_raises(
         expected_error_class=TypeError,
         func_or_method=value_util._validate_dict_key_type,
-        kwargs={'key': Int(10)},
+        kwargs={'key': ap.Int(10)},
         match='Dictionary key type only supports str and int')
 
 

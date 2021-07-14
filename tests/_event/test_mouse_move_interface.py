@@ -4,8 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import MouseEvent
-from apysc import MouseEventType
+import apysc as ap
 from apysc._event.mouse_move_interface import MouseMoveInterface
 from apysc._expression import expression_file_util
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -21,7 +20,8 @@ class _TestMouseMove(MouseMoveInterface, VariableNameInterface):
 
 class TestMouseMoveInterface:
 
-    def on_mouse_move_1(self, e: MouseEvent, options: Dict[str, Any]) -> None:
+    def on_mouse_move_1(
+            self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Mouse move handler method for testing.
 
@@ -33,7 +33,8 @@ class TestMouseMoveInterface:
             Optional arguments dictionary.
         """
 
-    def on_mouse_move_2(self, e: MouseEvent, options: Dict[str, Any]) -> None:
+    def on_mouse_move_2(
+            self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Mouse move handler method for testing.
 
@@ -85,7 +86,7 @@ class TestMouseMoveInterface:
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{interface_1.variable_name}.off('
-            f'"{MouseEventType.MOUSEMOVE.value}", {name});'
+            f'"{ap.MouseEventType.MOUSEMOVE.value}", {name});'
         )
         assert expected in expression
 
@@ -100,6 +101,6 @@ class TestMouseMoveInterface:
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{interface_1.variable_name}.off('
-            f'"{MouseEventType.MOUSEMOVE.value}");'
+            f'"{ap.MouseEventType.MOUSEMOVE.value}");'
         )
         assert expected in expression

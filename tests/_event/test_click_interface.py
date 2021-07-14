@@ -4,8 +4,7 @@ from typing import Dict
 
 from retrying import retry
 
-from apysc import MouseEvent
-from apysc import MouseEventType
+import apysc as ap
 from apysc._event.click_interface import ClickInterface
 from apysc._event.handler import get_handler_name
 from apysc._expression import expression_file_util
@@ -24,7 +23,7 @@ class _TestClickInterface(ClickInterface, VariableNameInterface):
 
 class TestClickInterface:
 
-    def on_click_1(self, e: MouseEvent, options: Dict[str, Any]) -> None:
+    def on_click_1(self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Click handler method for testing.
 
@@ -36,7 +35,7 @@ class TestClickInterface:
             Optional arguments dictionary.
         """
 
-    def on_click_2(self, e: MouseEvent, options: Dict[str, Any]) -> None:
+    def on_click_2(self, e: ap.MouseEvent, options: Dict[str, Any]) -> None:
         """
         Click handler method for testing.
 
@@ -100,7 +99,7 @@ class TestClickInterface:
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
             f'{interface_2.variable_name}.off('
-            f'"{MouseEventType.CLICK.value}", {handler_name});'
+            f'"{ap.MouseEventType.CLICK.value}", {handler_name});'
         )
         assert expected in expression
 
@@ -119,6 +118,7 @@ class TestClickInterface:
         assert interface_2._click_handlers == {}
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'{interface_2.variable_name}.off("{MouseEventType.CLICK.value}");'
+            f'{interface_2.variable_name}.off('
+            f'"{ap.MouseEventType.CLICK.value}");'
         )
         assert expected in expression

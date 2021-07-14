@@ -115,7 +115,7 @@ class TestDictionary:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
         dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10})
-        assert repr(dict_1) == "ap.Dictionary({'a': 10})"
+        assert repr(dict_1) == "Dictionary({'a': 10})"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_length(self) -> None:
@@ -142,7 +142,7 @@ class TestDictionary:
         assert_raises(
             expected_error_class=Exception,
             func_or_method=dict_1.__len__,
-            match='ap.Dictionary instance can\'t apply len function.')
+            match='Dictionary instance can\'t apply len function.')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__validate_key_type_is_str_or_numeric(self) -> None:

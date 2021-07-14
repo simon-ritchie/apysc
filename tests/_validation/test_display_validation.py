@@ -77,7 +77,7 @@ def test_validate_line_cap() -> None:
         expected_error_class=ValueError,
         func_or_method=display_validation.validate_line_cap,
         kwargs={'cap': 'square'},
-        match='Specified cap style type is not ap.LineCaps or ap.String one: ')
+        match='Specified cap style type is not LineCaps or String one: ')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -97,7 +97,7 @@ def test_validate_line_joints() -> None:
         expected_error_class=ValueError,
         func_or_method=display_validation.validate_line_joints,
         kwargs={'joints': 'miter'},
-        match=r'Specified joints type is not ap.LineJoints or ap.String one: ')
+        match=r'Specified joints type is not LineJoints or String one: ')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -118,7 +118,7 @@ def test_validate_multiple_line_settings_isnt_set() -> None:
         func_or_method=display_validation.
         validate_multiple_line_settings_isnt_set,
         kwargs={'any_instance': sprite.graphics},
-        match=r"'ap.LineDotSetting', 'ap.LineDashSetting'")
+        match=r"'LineDotSetting', 'LineDashSetting'")
     delattr(sprite.graphics, '_line_dot_setting')
 
     sprite.graphics._line_round_dot_setting = ap.LineRoundDotSetting(
@@ -128,7 +128,7 @@ def test_validate_multiple_line_settings_isnt_set() -> None:
         func_or_method=display_validation.
         validate_multiple_line_settings_isnt_set,
         kwargs={'any_instance': sprite.graphics},
-        match=r"'ap.LineDashSetting', 'ap.LineRoundDotSetting'")
+        match=r"'LineDashSetting', 'LineRoundDotSetting'")
     delattr(sprite.graphics, '_line_dash_setting')
 
     sprite.graphics._line_dash_dot_setting = ap.LineDashDotSetting(
@@ -138,5 +138,5 @@ def test_validate_multiple_line_settings_isnt_set() -> None:
         func_or_method=display_validation.
         validate_multiple_line_settings_isnt_set,
         kwargs={'any_instance': sprite.graphics},
-        match=r"'ap.LineRoundDotSetting', 'ap.LineDashDotSetting'")
+        match=r"'LineRoundDotSetting', 'LineDashDotSetting'")
     delattr(sprite.graphics, '_line_round_dot_setting')

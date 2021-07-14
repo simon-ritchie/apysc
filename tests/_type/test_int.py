@@ -113,4 +113,4 @@ class TestInt:
     def test___repr__(self) -> None:
         int_1: ap.Int = ap.Int(3)
         repr_str: str = repr(int_1)
-        assert repr_str == 'ap.Int(3)'
+        assert repr_str == 'Int(3)'

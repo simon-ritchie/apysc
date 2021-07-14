@@ -261,7 +261,7 @@ class TestString:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
         string_1: ap.String = ap.String(value='Hello!')
-        assert repr(string_1) == "ap.String('Hello!')"
+        assert repr(string_1) == "String('Hello!')"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:

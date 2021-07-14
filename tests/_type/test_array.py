@@ -560,8 +560,8 @@ class TestArray:
                 ap.Array([4, 5])])
         string: str = str(array_1)
         assert string == (
-            "['1', 2, ap.Int(3), ap.Number(10.5), ap.Boolean(True), "
-            "String('Hello!'), ap.Array([4, 5])]")
+            "['1', 2, Int(3), Number(10.5), Boolean(True), "
+            "String('Hello!'), Array([4, 5])]")
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:

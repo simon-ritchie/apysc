@@ -99,4 +99,4 @@ class TestNumber:
     def test___repr__(self) -> None:
         number_1: ap.Number = ap.Number(value=10.5)
         repr_str: str = repr(number_1)
-        assert repr_str == 'ap.Number(10.5)'
+        assert repr_str == 'Number(10.5)'

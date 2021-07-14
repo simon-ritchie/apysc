@@ -46,7 +46,7 @@ class TestBoolean:
         boolean_1: ap.Boolean = ap.Boolean(value=int_1)
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'{boolean_1.variable_name} = ap.Boolean({int_1.variable_name});'
+            f'{boolean_1.variable_name} = Boolean({int_1.variable_name});'
         )
         assert expected in expression
 
@@ -103,7 +103,7 @@ class TestBoolean:
         boolean_1.value = int_1
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
-            f'{boolean_1.variable_name} = ap.Boolean({int_1.variable_name});'
+            f'{boolean_1.variable_name} = Boolean({int_1.variable_name});'
         )
         assert expected in expression
 
@@ -141,7 +141,7 @@ class TestBoolean:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
         boolean: ap.Boolean = ap.Boolean(True)
-        assert repr(boolean) == 'ap.Boolean(True)'
+        assert repr(boolean) == 'Boolean(True)'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
@@ -230,7 +230,7 @@ class TestBoolean:
         expected = (
             f'{result.variable_name} = '
             f'{boolean_1.variable_name} === '
-            f'ap.Boolean({int_1.variable_name});'
+            f'Boolean({int_1.variable_name});'
         )
         assert expected in expression
 
@@ -275,7 +275,7 @@ class TestBoolean:
         expected = (
             f'{result.variable_name} = '
             f'{boolean_1.variable_name} !== '
-            f'ap.Boolean({int_1.variable_name});'
+            f'Boolean({int_1.variable_name});'
         )
         assert expected in expression
 

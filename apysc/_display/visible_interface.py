@@ -3,14 +3,14 @@
 
 from typing import Dict
 
-from apysc import Boolean
+import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class VisibleInterface(VariableNameInterface, RevertInterface):
 
-    _visible: Boolean
+    _visible: ap.Boolean
 
     def _initialize_visible_if_not_initialized(self) -> None:
         """
@@ -18,10 +18,10 @@ class VisibleInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_visible'):
             return
-        self._visible = Boolean(True)
+        self._visible = ap.Boolean(True)
 
     @property
-    def visible(self) -> Boolean:
+    def visible(self) -> ap.Boolean:
         """
         Get a visibility of this instance.
 
@@ -35,7 +35,7 @@ class VisibleInterface(VariableNameInterface, RevertInterface):
         return value_util.get_copy(value=self._visible)
 
     @visible.setter
-    def visible(self, value: Boolean) -> None:
+    def visible(self, value: ap.Boolean) -> None:
         """
         Update visibility of this instance.
 
@@ -47,7 +47,7 @@ class VisibleInterface(VariableNameInterface, RevertInterface):
         from apysc._validation import bool_validation
         bool_validation.validate_bool(value=value)
         if isinstance(value, bool):
-            value = Boolean(value)
+            value = ap.Boolean(value)
         self._visible = value
         self._append_visible_update_expression()
 
@@ -55,13 +55,12 @@ class VisibleInterface(VariableNameInterface, RevertInterface):
         """
         Append visible property updating expression to file.
         """
-        from apysc import append_js_expression
         expression: str = f'{self.variable_name}.'
         if self._visible:
             expression += 'show();'
         else:
             expression += 'hide();'
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     _visible_snapshots: Dict[str, bool]
 

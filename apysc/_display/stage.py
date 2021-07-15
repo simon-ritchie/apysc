@@ -7,7 +7,7 @@ from datetime import datetime
 from typing import Any
 from typing import Optional
 
-from apysc import Int
+import apysc as ap
 from apysc._display.child_interface import ChildInterface
 from apysc._display.height_interface import HeightInterface
 from apysc._display.width_interface import WidthInterface
@@ -53,7 +53,6 @@ class Stage(
             ID attribute set to stage html element (e.g., 'line-graph').
             If None is set, random integer will be applied.
         """
-        from apysc import Array
         from apysc._color import color_util
         from apysc._html import html_util
         from apysc._validation import string_validation
@@ -67,8 +66,8 @@ class Stage(
         self._stage_elem_id = html_util.remove_first_selector_symbol_char(
             str_val=self._stage_elem_id)
         self.variable_name = get_stage_variable_name()
-        self._update_width_and_skip_appending_exp(value=Int(stage_width))
-        self._update_height_and_skip_appending_exp(value=Int(stage_height))
+        self._update_width_and_skip_appending_exp(value=ap.Int(stage_width))
+        self._update_height_and_skip_appending_exp(value=ap.Int(stage_height))
 
         background_color = color_util.complement_hex_color(
             hex_color_code=background_color)
@@ -76,7 +75,7 @@ class Stage(
         string_validation.validate_not_empty_string(string=add_to)
         self._add_to = add_to
         self._append_constructor_expression()
-        self._children = Array([])
+        self._children = ap.Array([])
 
     def _save_stage_elem_id_to_expression_file(self) -> None:
         """
@@ -115,9 +114,8 @@ class Stage(
         """
         Append stage constructor expression to file.
         """
-        from apysc import append_js_expression
         expression: str = self._make_constructor_expression()
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def _make_constructor_expression(self) -> str:
         """

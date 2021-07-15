@@ -4,7 +4,7 @@
 from typing import Any
 from typing import Union
 
-from apysc import Int
+import apysc as ap
 from apysc._display.ellipse_height_interface import EllipseHeightInterface
 from apysc._display.ellipse_size_interface import EllipseSizeInterface
 from apysc._display.ellipse_width_interface import EllipseWidthInterface
@@ -21,10 +21,10 @@ class Rectangle(
 
     def __init__(
             self, parent: _Graphics,
-            x: Union[int, Int],
-            y: Union[int, Int],
-            width: Union[int, Int],
-            height: Union[int, Int]) -> None:
+            x: Union[int, ap.Int],
+            y: Union[int, ap.Int],
+            width: Union[int, ap.Int],
+            height: Union[int, ap.Int]) -> None:
         """
         Create a rectangle vector graphics.
 
@@ -77,7 +77,6 @@ class Rectangle(
         """
         Append constructor expression to the file.
         """
-        from apysc import append_js_expression
         from apysc._display.stage import get_stage_variable_name
         variable_name: str = self.variable_name
         stage_variable_name: str = get_stage_variable_name()
@@ -88,7 +87,7 @@ class Rectangle(
         )
         attrs_str: str = self._make_rect_attrs_expression()
         expression += f'{attrs_str};'
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def _make_rect_attrs_expression(self) -> str:
         """

@@ -4,14 +4,14 @@
 from typing import Dict
 from typing import Union
 
-from apysc import Int
+import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class WidthInterface(VariableNameInterface, RevertInterface):
 
-    _width: Int
+    _width: ap.Int
 
     def _initialize_width_if_not_initialized(self) -> None:
         """
@@ -19,10 +19,10 @@ class WidthInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_width'):
             return
-        self._width = Int(0)
+        self._width = ap.Int(0)
 
     @property
-    def width(self) -> Int:
+    def width(self) -> ap.Int:
         """
         Get this instance's width.
 
@@ -36,7 +36,7 @@ class WidthInterface(VariableNameInterface, RevertInterface):
         return value_util.get_copy(value=self._width)
 
     @width.setter
-    def width(self, value: Int) -> None:
+    def width(self, value: ap.Int) -> None:
         """
         Update this instance's width.
 
@@ -53,14 +53,13 @@ class WidthInterface(VariableNameInterface, RevertInterface):
         """
         Append width updating expression.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{self.variable_name}.width({self.width});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def _update_width_and_skip_appending_exp(
-            self, value: Union[int, Int]) -> None:
+            self, value: Union[int, ap.Int]) -> None:
         """
         Update width value and skip appending expression to file.
 
@@ -76,7 +75,7 @@ class WidthInterface(VariableNameInterface, RevertInterface):
         size_validation.validate_size_is_int(size=value)
         size_validation.validate_size_is_gte_zero(size=value)
         if isinstance(value, int):
-            value = Int(value)
+            value = ap.Int(value)
         self._width = value
 
     _width_snapshots: Dict[str, int]

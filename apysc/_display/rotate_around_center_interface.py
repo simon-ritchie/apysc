@@ -3,14 +3,14 @@
 
 from typing import Union
 
-from apysc import Int
+import apysc as ap
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class RotateAroundCenterInterface(VariableNameInterface):
 
     def rotate_around_center(
-            self, additional_rotation: Union[int, Int]) -> None:
+            self, additional_rotation: Union[int, ap.Int]) -> None:
         """
         Add a rotation value around the center of this instance.
 
@@ -27,7 +27,6 @@ class RotateAroundCenterInterface(VariableNameInterface):
         additional_rotation : int or Int
             The value to add.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         from apysc._validation import number_validation
         number_validation.validate_integer(
@@ -37,4 +36,4 @@ class RotateAroundCenterInterface(VariableNameInterface):
         expression: str = (
             f'{self.variable_name}.rotate({value_str});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)

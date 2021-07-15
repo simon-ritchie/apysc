@@ -9,7 +9,7 @@ can't use this interface.
 
 from typing import Dict
 
-from apysc import Int
+import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
@@ -17,8 +17,8 @@ from apysc._type.variable_name_interface import VariableNameInterface
 class WidthAndHeightInterfacesForEllipse(
         VariableNameInterface, RevertInterface):
 
-    _width: Int
-    _height: Int
+    _width: ap.Int
+    _height: ap.Int
 
     def _initialize_width_and_height_if_not_initialized(self) -> None:
         """
@@ -26,12 +26,12 @@ class WidthAndHeightInterfacesForEllipse(
         initialized yet.
         """
         if not hasattr(self, '_width'):
-            self._width = Int(0)
+            self._width = ap.Int(0)
         if not hasattr(self, '_height'):
-            self._height = Int(0)
+            self._height = ap.Int(0)
 
     @property
-    def width(self) -> Int:
+    def width(self) -> ap.Int:
         """
         Get a ellipse width value.
 
@@ -45,7 +45,7 @@ class WidthAndHeightInterfacesForEllipse(
         return value_util.get_copy(value=self._width)
 
     @width.setter
-    def width(self, value: Int) -> None:
+    def width(self, value: ap.Int) -> None:
         """
         Update a ellipse width value.
 
@@ -55,15 +55,15 @@ class WidthAndHeightInterfacesForEllipse(
             Ellipse width value.
         """
         from apysc._validation import number_validation
-        if not isinstance(value, Int):
+        if not isinstance(value, ap.Int):
             number_validation.validate_integer(integer=value)
-            value = Int(value)
+            value = ap.Int(value)
         self._width = value
         self._width._append_incremental_calc_substitution_expression()
         self._append_ellipse_width_and_height_update_expression()
 
     @property
-    def height(self) -> Int:
+    def height(self) -> ap.Int:
         """
         Get a ellipse height value.
 
@@ -77,7 +77,7 @@ class WidthAndHeightInterfacesForEllipse(
         return value_util.get_copy(value=self._height)
 
     @height.setter
-    def height(self, value: Int) -> None:
+    def height(self, value: ap.Int) -> None:
         """
         Update a ellipse height value.
 
@@ -87,9 +87,9 @@ class WidthAndHeightInterfacesForEllipse(
             Ellipse height value.
         """
         from apysc._validation import number_validation
-        if not isinstance(value, Int):
+        if not isinstance(value, ap.Int):
             number_validation.validate_integer(integer=value)
-            value = Int(value)
+            value = ap.Int(value)
         self._height = value
         self._height._append_incremental_calc_substitution_expression()
         self._append_ellipse_width_and_height_update_expression()
@@ -99,7 +99,6 @@ class WidthAndHeightInterfacesForEllipse(
         Append an ellipse width and height updating expression
         to the file.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         self._initialize_width_and_height_if_not_initialized()
         width_value_str: str = value_util.get_value_str_for_expression(
@@ -111,7 +110,7 @@ class WidthAndHeightInterfacesForEllipse(
             f'parseInt({width_value_str} / 2), '
             f'parseInt({height_value_str}) / 2);'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     _width_snapshots: Dict[str, int]
     _height_snapshots: Dict[str, int]

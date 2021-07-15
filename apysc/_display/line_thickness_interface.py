@@ -4,14 +4,14 @@
 from typing import Dict
 from typing import Union
 
-from apysc import Int
+import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class LineThicknessInterface(VariableNameInterface, RevertInterface):
 
-    _line_thickness: Int
+    _line_thickness: ap.Int
 
     def _initialize_line_thickness_if_not_initialized(self) -> None:
         """
@@ -20,10 +20,10 @@ class LineThicknessInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_line_thickness'):
             return
-        self._line_thickness = Int(1)
+        self._line_thickness = ap.Int(1)
 
     @property
-    def line_thickness(self) -> Int:
+    def line_thickness(self) -> ap.Int:
         """
         Get this instance's line thickness.
 
@@ -36,7 +36,7 @@ class LineThicknessInterface(VariableNameInterface, RevertInterface):
         return value_util.get_copy(value=self._line_thickness)
 
     @line_thickness.setter
-    def line_thickness(self, value: Int) -> None:
+    def line_thickness(self, value: ap.Int) -> None:
         """
         Update this instance's line thickness.
 
@@ -54,15 +54,14 @@ class LineThicknessInterface(VariableNameInterface, RevertInterface):
         """
         Append line thickness update expression.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{self.variable_name}.attr({{"stroke-width": '
             f'{self.line_thickness}}});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def _update_line_thickness_and_skip_appending_exp(
-            self, value: Union[int, Int]) -> None:
+            self, value: Union[int, ap.Int]) -> None:
         """
         Update line thickness and skip appending expression to file.
 
@@ -75,7 +74,7 @@ class LineThicknessInterface(VariableNameInterface, RevertInterface):
         number_validation.validate_integer(integer=value)
         number_validation.validate_num_is_gte_zero(num=value)
         if isinstance(value, int):
-            value = Int(value)
+            value = ap.Int(value)
         self._line_thickness = value
 
     _line_thickness_snapshots: Dict[str, int]

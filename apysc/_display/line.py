@@ -52,7 +52,7 @@ class Line(LineBase):
         """
         Append constructor expression to file.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         from apysc._display.stage import get_stage_variable_name
         stage_variable_name: str = get_stage_variable_name()
         points_str: str = self._make_points_expression()
@@ -67,7 +67,7 @@ class Line(LineBase):
         expression = self._append_basic_vals_expression(
             expression=expression, indent_num=2)
         expression += '\n  });'
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def _make_points_expression(self) -> str:
         """
@@ -78,9 +78,9 @@ class Line(LineBase):
         expression : str
             Each points expression.
         """
-        from apysc import Point2D
-        start_point: Point2D = self._start_point
-        end_point: Point2D = self._end_point
+        import apysc as ap
+        start_point: ap.Point2D = self._start_point
+        end_point: ap.Point2D = self._end_point
         expression: str = (
             f'{start_point.x.variable_name}, '
             f'{start_point.y.variable_name}, '

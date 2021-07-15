@@ -3,7 +3,7 @@
 
 from typing import Optional
 
-from apysc import Array
+import apysc as ap
 from apysc._display.child_interface import ChildInterface
 from apysc._display.display_object import DisplayObject
 from apysc._display.graphics import Graphics
@@ -36,7 +36,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
         if variable_name is None:
             variable_name = expression_variables_util.\
                 get_next_variable_name(type_name=var_names.SPRITE)
-        self._children = Array([])
+        self._children = ap.Array([])
         super(Sprite, self).__init__(
             stage=stage, variable_name=variable_name)
         self._append_constructor_expression()
@@ -56,7 +56,6 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
         appended : bool
             If expression appended, then True will be set.
         """
-        from apysc import append_js_expression
         from apysc._display.stage import get_stage_variable_name
         from apysc._type import type_util
         is_same_class_instance: bool = type_util.is_same_class_instance(
@@ -67,7 +66,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
         expression: str = (
             f'\nvar {self.variable_name} = {stage_variable_name}.nested();'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
         return True
 
     def _make_snapshot(self, snapshot_name: str) -> None:

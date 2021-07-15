@@ -2,7 +2,7 @@
 """
 
 
-from apysc import Int
+import apysc as ap
 from apysc._event.event import Event
 
 
@@ -38,7 +38,7 @@ class WheelEvent(Event):
             'WheelEvent instance isn\'t supported this interface.')
 
     @property
-    def delta_x(self) -> Int:
+    def delta_x(self) -> ap.Int:
         """
         Horizontal mouse wheel value.
 
@@ -47,11 +47,11 @@ class WheelEvent(Event):
         delta_x : Int
             Delta x value.
         """
-        delta_x: Int = Int(0)
+        delta_x: ap.Int = ap.Int(0)
         self._append_delta_x_getter_expression(delta_x=delta_x)
         return delta_x
 
-    def _append_delta_x_getter_expression(self, delta_x: Int) -> None:
+    def _append_delta_x_getter_expression(self, delta_x: ap.Int) -> None:
         """
         Append delta_x getter property's expression to file.
 
@@ -60,15 +60,14 @@ class WheelEvent(Event):
         delta_x : Int
             Target delta x value.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{delta_x.variable_name} = '
             f'{self.variable_name}.deltaX;'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     @property
-    def delta_y(self) -> Int:
+    def delta_y(self) -> ap.Int:
         """
         Vertical mouse wheel value.
 
@@ -77,11 +76,11 @@ class WheelEvent(Event):
         delta_y : Int
             Delta y value.
         """
-        delta_y: Int = Int(0)
+        delta_y: ap.Int = ap.Int(0)
         self._append_delta_y_getter_expression(delta_y=delta_y)
         return delta_y
 
-    def _append_delta_y_getter_expression(self, delta_y: Int) -> None:
+    def _append_delta_y_getter_expression(self, delta_y: ap.Int) -> None:
         """
         Append delta_y getter property's expression to file.
 
@@ -90,9 +89,8 @@ class WheelEvent(Event):
         delta_y : Int
             Target delta y value.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{delta_y.variable_name} = '
             f'{self.variable_name}.deltaY;'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)

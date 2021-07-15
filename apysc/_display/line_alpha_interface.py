@@ -4,14 +4,14 @@
 from typing import Dict
 from typing import Union
 
-from apysc import Number
+import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class LineAlphaInterface(VariableNameInterface, RevertInterface):
 
-    _line_alpha: Number
+    _line_alpha: ap.Number
 
     def _initialize_line_alpha_if_not_initialized(self) -> None:
         """
@@ -19,10 +19,10 @@ class LineAlphaInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_line_alpha'):
             return
-        self._line_alpha = Number(1.0)
+        self._line_alpha = ap.Number(1.0)
 
     @property
-    def line_alpha(self) -> Number:
+    def line_alpha(self) -> ap.Number:
         """
         Get this instance's line alpha (opacity).
 
@@ -35,7 +35,7 @@ class LineAlphaInterface(VariableNameInterface, RevertInterface):
         return value_util.get_copy(value=self._line_alpha)
 
     @line_alpha.setter
-    def line_alpha(self, value: Number) -> None:
+    def line_alpha(self, value: ap.Number) -> None:
         """
         Update this instance's line alpha (opacity).
 
@@ -52,14 +52,13 @@ class LineAlphaInterface(VariableNameInterface, RevertInterface):
         """
         Append line alpha updating expression.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{self.variable_name}.stroke({{opacity: {self.line_alpha}}});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def _update_line_alpha_and_skip_appending_exp(
-            self, value: Union[float, Number]) -> None:
+            self, value: Union[float, ap.Number]) -> None:
         """
         Update line alpha and skip appending expression to file.
 
@@ -73,7 +72,7 @@ class LineAlphaInterface(VariableNameInterface, RevertInterface):
         number_validation.validate_num(num=value)
         color_validation.validate_alpha_range(alpha=value)
         if isinstance(value, float):
-            value = Number(value)
+            value = ap.Number(value)
         self._line_alpha = value
 
     _line_alpha_snapshots: Dict[str, float]

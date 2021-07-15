@@ -3,16 +3,16 @@
 
 from typing import Dict
 
-from apysc import Int
+import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class EllipseSizeInterface(VariableNameInterface, RevertInterface):
 
-    _ellipse_size: Int
-    _ellipse_width: Int
-    _ellipse_height: Int
+    _ellipse_size: ap.Int
+    _ellipse_width: ap.Int
+    _ellipse_height: ap.Int
 
     def _initialize_ellipse_size_if_not_initialized(self) -> None:
         """
@@ -20,10 +20,10 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_ellipse_size'):
             return
-        self._ellipse_size = Int(0)
+        self._ellipse_size = ap.Int(0)
 
     @property
-    def ellipse_size(self) -> Int:
+    def ellipse_size(self) -> ap.Int:
         """
         Get a ellipse size value.
 
@@ -37,7 +37,7 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
         return value_util.get_copy(value=self._ellipse_size)
 
     @ellipse_size.setter
-    def ellipse_size(self, value: Int) -> None:
+    def ellipse_size(self, value: ap.Int) -> None:
         """
         Update a ellipse size value. This inteface will updates
         both of the ellipse width and ellipse height attributes.
@@ -48,9 +48,9 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
             Ellipse size value.
         """
         from apysc._validation import number_validation
-        if not isinstance(value, Int):
+        if not isinstance(value, ap.Int):
             number_validation.validate_integer(integer=value)
-            value = Int(value)
+            value = ap.Int(value)
         self._ellipse_size = value
         self._ellipse_width = value
         self._ellipse_height = value
@@ -64,7 +64,6 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
         """
         Append an ellipse size updating expression.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         self._initialize_ellipse_size_if_not_initialized()
         value_str: str = value_util.get_value_str_for_expression(
@@ -72,7 +71,7 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name}.radius({value_str});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     _ellipse_size_snapshots: Dict[str, int]
 

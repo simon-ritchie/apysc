@@ -51,15 +51,15 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         value : LineRoundDotSetting or None
             Line round setting to set.
         """
-        from apysc import LineCaps
+        import apysc as ap
         from apysc._validation import display_validation
         self._update_line_round_dot_setting_and_skip_appending_exp(
             value=value)
         if value is not None:
-            self.line_cap = LineCaps.ROUND
+            self.line_cap = ap.LineCaps.ROUND
             self.line_thickness = value.round_size
         else:
-            self.line_cap = LineCaps.BUTT
+            self.line_cap = ap.LineCaps.BUTT
         self._append_line_round_dot_setting_update_expression()
         display_validation.validate_multiple_line_settings_isnt_set(
             any_instance=self)
@@ -85,7 +85,7 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         """
         Append line round dot setting updating expression to file.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         if self._line_round_dot_setting is None:
             setting_str: str = '""'
         else:
@@ -99,7 +99,7 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         expression: str = (
             f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     _line_round_dot_setting_snapshots: Dict[
         str, Optional[LineRoundDotSetting]]

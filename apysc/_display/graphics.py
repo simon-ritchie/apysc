@@ -6,8 +6,7 @@ from typing import List
 from typing import Optional
 from typing import Union
 
-from apysc import Array
-from apysc import Int
+import apysc as ap
 from apysc._display.begin_fill_interface import BeginFillInterface
 from apysc._display.child_interface import ChildInterface
 from apysc._display.circle import Circle
@@ -44,26 +43,22 @@ class Graphics(
             Variable name to set. Specified only when subclass
             instantiation.
         """
-        from apysc import Array
-        from apysc import Number
-        from apysc import Sprite
-        from apysc import String
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
         from apysc._validation import display_validation
 
         display_validation.validate_sprite(sprite=parent)
-        self.parent_sprite: Sprite = parent
+        self.parent_sprite: ap.Sprite = parent
         if variable_name is None:
             variable_name = expression_variables_util.get_next_variable_name(
                 type_name=var_names.GRAPHICS)
         self.variable_name = variable_name
-        self._fill_color = String('')
-        self._fill_alpha = Number(1.0)
-        self._line_color = String('')
-        self._line_alpha = Number(1.0)
-        self._line_thickness = Int(1.0)
-        self._children = Array([])
+        self._fill_color = ap.String('')
+        self._fill_alpha = ap.Number(1.0)
+        self._line_color = ap.String('')
+        self._line_alpha = ap.Number(1.0)
+        self._line_thickness = ap.Int(1.0)
+        self._children = ap.Array([])
         self._append_constructor_expression()
         self.parent_sprite.add_child(self)
 
@@ -71,18 +66,17 @@ class Graphics(
         """
         Append constructor expression to file.
         """
-        from apysc import append_js_expression
         stage_name: str = self.parent_sprite.stage.variable_name
         expression: str = (
             f'var {self.variable_name} = {stage_name}.nested();'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def draw_rect(
-            self, x: Union[int, Int],
-            y: Union[int, Int],
-            width: Union[int, Int],
-            height: Union[int, Int]) -> Rectangle:
+            self, x: Union[int, ap.Int],
+            y: Union[int, ap.Int],
+            width: Union[int, ap.Int],
+            height: Union[int, ap.Int]) -> Rectangle:
         """
         Draw a rectangle vector graphics.
 
@@ -108,12 +102,12 @@ class Graphics(
         return rectangle
 
     def draw_round_rect(
-            self, x: Union[int, Int],
-            y: Union[int, Int],
-            width: Union[int, Int],
-            height: Union[int, Int],
-            ellipse_width: Union[int, Int],
-            ellipse_height: Union[int, Int]) -> Rectangle:
+            self, x: Union[int, ap.Int],
+            y: Union[int, ap.Int],
+            width: Union[int, ap.Int],
+            height: Union[int, ap.Int],
+            ellipse_width: Union[int, ap.Int],
+            ellipse_height: Union[int, ap.Int]) -> Rectangle:
         """
         Draw a rounded rectangle vector graphics.
 
@@ -140,9 +134,9 @@ class Graphics(
         rectangle: Rectangle = Rectangle(
             parent=self, x=x, y=y, width=width, height=height)
         if isinstance(ellipse_width, int):
-            ellipse_width = Int(ellipse_width)
+            ellipse_width = ap.Int(ellipse_width)
         if isinstance(ellipse_height, int):
-            ellipse_height = Int(ellipse_height)
+            ellipse_height = ap.Int(ellipse_height)
         rectangle.ellipse_width = ellipse_width
         rectangle.ellipse_height = ellipse_height
         self.add_child(child=rectangle)
@@ -150,9 +144,9 @@ class Graphics(
 
     def draw_circle(
             self,
-            x: Union[int, Int],
-            y: Union[int, Int],
-            radius: Union[int, Int]) -> Circle:
+            x: Union[int, ap.Int],
+            y: Union[int, ap.Int],
+            radius: Union[int, ap.Int]) -> Circle:
         """
         Draw a circle vector graphics.
 
@@ -176,10 +170,10 @@ class Graphics(
 
     def draw_ellipse(
             self,
-            x: Union[int, Int],
-            y: Union[int, Int],
-            width: Union[int, Int],
-            height: Union[int, Int]) -> Ellipse:
+            x: Union[int, ap.Int],
+            y: Union[int, ap.Int],
+            width: Union[int, ap.Int],
+            height: Union[int, ap.Int]) -> Ellipse:
         """
         Draw a ellipse vector graphics.
 
@@ -204,7 +198,9 @@ class Graphics(
         self.add_child(child=ellipse)
         return ellipse
 
-    def line_to(self, x: Union[int, Int], y: Union[int, Int]) -> Polyline:
+    def line_to(
+            self, x: Union[int, ap.Int],
+            y: Union[int, ap.Int]) -> Polyline:
         """
         Draw a line from previous point to specified point (initial
         point is x = 0, y = 0).
@@ -221,17 +217,17 @@ class Graphics(
         line : Polyline
             Line graphic instance.
         """
-        from apysc import Array
         if self._current_line is None:
             self._current_line = Polyline(
                 parent=self,
-                points=Array([Point2D(x=0, y=0), Point2D(x=x, y=y)]))
+                points=ap.Array([Point2D(x=0, y=0), Point2D(x=x, y=y)]))
             self.add_child(self._current_line)
         else:
             self._current_line.append_line_point(x=x, y=y)
         return self._current_line
 
-    def move_to(self, x: Union[int, Int], y: Union[int, Int]) -> Polyline:
+    def move_to(
+            self, x: Union[int, ap.Int], y: Union[int, ap.Int]) -> Polyline:
         """
         Move a line position to specified point.
 
@@ -247,9 +243,8 @@ class Graphics(
         line : Polyline
             Line graphic instance.
         """
-        from apysc import Array
         self._current_line = Polyline(
-            parent=self, points=Array([Point2D(x=x, y=y)]))
+            parent=self, points=ap.Array([Point2D(x=x, y=y)]))
         return self._current_line
 
     def _reset_each_line_settings(self) -> None:
@@ -268,10 +263,10 @@ class Graphics(
 
     def draw_line(
             self,
-            x_start: Union[int, Int],
-            y_start: Union[int, Int],
-            x_end: Union[int, Int],
-            y_end: Union[int, Int]) -> Line:
+            x_start: Union[int, ap.Int],
+            y_start: Union[int, ap.Int],
+            x_end: Union[int, ap.Int],
+            y_end: Union[int, ap.Int]) -> Line:
         """
         Draw a normal line vector graphics.
 
@@ -309,11 +304,11 @@ class Graphics(
 
     def draw_dotted_line(
             self,
-            x_start: Union[int, Int],
-            y_start: Union[int, Int],
-            x_end: Union[int, Int],
-            y_end: Union[int, Int],
-            dot_size: Union[int, Int]) -> Line:
+            x_start: Union[int, ap.Int],
+            y_start: Union[int, ap.Int],
+            x_end: Union[int, ap.Int],
+            y_end: Union[int, ap.Int],
+            dot_size: Union[int, ap.Int]) -> Line:
         """
         Draw a dotted line vector graphics.
 
@@ -340,11 +335,10 @@ class Graphics(
         line : Line
             Created line graphic instance.
         """
-        from apysc import LineDotSetting
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
-        self._line_dot_setting = LineDotSetting(dot_size=dot_size)
+        self._line_dot_setting = ap.LineDotSetting(dot_size=dot_size)
         line: Line = Line(
             parent=self,
             start_point=Point2D(x=x_start, y=y_start),
@@ -355,12 +349,12 @@ class Graphics(
 
     def draw_dashed_line(
             self,
-            x_start: Union[int, Int],
-            y_start: Union[int, Int],
-            x_end: Union[int, Int],
-            y_end: Union[int, Int],
-            dash_size: Union[int, Int],
-            space_size: Union[int, Int]) -> Line:
+            x_start: Union[int, ap.Int],
+            y_start: Union[int, ap.Int],
+            x_end: Union[int, ap.Int],
+            y_end: Union[int, ap.Int],
+            dash_size: Union[int, ap.Int],
+            space_size: Union[int, ap.Int]) -> Line:
         """
         Draw a dashed line vector graphics.
 
@@ -389,11 +383,10 @@ class Graphics(
         line : Line
             Created line graphic instance.
         """
-        from apysc import LineDashSetting
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
-        self._line_dash_setting = LineDashSetting(
+        self._line_dash_setting = ap.LineDashSetting(
             dash_size=dash_size, space_size=space_size)
         line: Line = Line(
             parent=self,
@@ -405,12 +398,12 @@ class Graphics(
 
     def draw_round_dotted_line(
             self,
-            x_start: Union[int, Int],
-            y_start: Union[int, Int],
-            x_end: Union[int, Int],
-            y_end: Union[int, Int],
-            round_size: Union[int, Int],
-            space_size: Union[int, Int]) -> Line:
+            x_start: Union[int, ap.Int],
+            y_start: Union[int, ap.Int],
+            x_end: Union[int, ap.Int],
+            y_end: Union[int, ap.Int],
+            round_size: Union[int, ap.Int],
+            space_size: Union[int, ap.Int]) -> Line:
         """
         Draw a round dotted line vector graphics.
 
@@ -439,11 +432,10 @@ class Graphics(
         line : Line
             Created line graphic instance.
         """
-        from apysc import LineRoundDotSetting
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
-        self._line_round_dot_setting = LineRoundDotSetting(
+        self._line_round_dot_setting = ap.LineRoundDotSetting(
             round_size=round_size, space_size=space_size)
         line: Line = Line(
             parent=self,
@@ -455,13 +447,13 @@ class Graphics(
 
     def draw_dash_dotted_line(
             self,
-            x_start: Union[int, Int],
-            y_start: Union[int, Int],
-            x_end: Union[int, Int],
-            y_end: Union[int, Int],
-            dot_size: Union[int, Int],
-            dash_size: Union[int, Int],
-            space_size: Union[int, Int]) -> Line:
+            x_start: Union[int, ap.Int],
+            y_start: Union[int, ap.Int],
+            x_end: Union[int, ap.Int],
+            y_end: Union[int, ap.Int],
+            dot_size: Union[int, ap.Int],
+            dash_size: Union[int, ap.Int],
+            space_size: Union[int, ap.Int]) -> Line:
         """
         Draw a dash dotted (1-dot chain) line vector graphics.
 
@@ -487,11 +479,10 @@ class Graphics(
         line : Line
             Created line graphic instance.
         """
-        from apysc import LineDashDotSetting
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         self._reset_each_line_settings()
-        self._line_dash_dot_setting = LineDashDotSetting(
+        self._line_dash_dot_setting = ap.LineDashDotSetting(
             dot_size=dot_size,
             dash_size=dash_size,
             space_size=space_size)
@@ -504,7 +495,7 @@ class Graphics(
         return line
 
     def draw_polygon(
-            self, points: Union[List[Point2D], Array[Point2D]]) -> Polygon:
+            self, points: Union[List[Point2D], ap.Array[Point2D]]) -> Polygon:
         """
         Draw a polygon vector graphics. This is similar to Polyline
         class (created by move_to or line_to, or other interface),
@@ -521,7 +512,7 @@ class Graphics(
             Created polygon graphic instance.
         """
         if isinstance(points, list):
-            points = Array(points)
+            points = ap.Array(points)
         polygon: Polygon = Polygon(parent=self, points=points)
         self.add_child(polygon)
         return polygon

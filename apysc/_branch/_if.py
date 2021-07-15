@@ -10,14 +10,14 @@ class If(IfBase):
         """
         Append if branch instruction start expression to file.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         if self._condition is None:
             raise ValueError(
                 'If expression\'s condition argument can\'t be set None.')
         expression: str = (
             f'if ({self._condition.variable_name}) {{'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def _set_last_scope(self) -> None:
         """

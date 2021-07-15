@@ -4,7 +4,7 @@
 from typing import Any
 from typing import Dict
 
-from apysc import Number
+import apysc as ap
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -12,7 +12,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 class FillAlphaInterface(VariableNameInterface, RevertInterface):
 
-    _fill_alpha: Number
+    _fill_alpha: ap.Number
 
     def _initialize_fill_alpha_if_not_initialized(self) -> None:
         """
@@ -20,10 +20,10 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_fill_alpha'):
             return
-        self._fill_alpha = Number(1.0)
+        self._fill_alpha = ap.Number(1.0)
 
     @property
-    def fill_alpha(self) -> Number:
+    def fill_alpha(self) -> ap.Number:
         """
         Get this instance's fill opacity.
 
@@ -34,13 +34,13 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
         """
         from apysc._type import value_util
         self._initialize_fill_alpha_if_not_initialized()
-        fill_alpha: Number = value_util.get_copy(
+        fill_alpha: ap.Number = value_util.get_copy(
             value=self._fill_alpha)
         return fill_alpha
 
     @fill_alpha.setter
     def fill_alpha(
-            self, value: Number) -> None:
+            self, value: ap.Number) -> None:
         """
         Update this instance's fill opacity.
 
@@ -50,7 +50,7 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
             Fill opacity to set.
         """
         if not isinstance(value, NumberValueInterface):
-            value = Number(value=value)
+            value = ap.Number(value=value)
         self._update_fill_alpha_and_skip_appending_exp(value=value)
         self._fill_alpha._append_incremental_calc_substitution_expression()
         self._append_fill_alpha_update_expression()
@@ -59,14 +59,13 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
         """
         Append fill alpha updating expression.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         value_str: str = value_util.get_value_str_for_expression(
             value=self._fill_alpha)
         expression: str = (
             f'{self.variable_name}.fill({{opacity: {value_str}}});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def _update_fill_alpha_and_skip_appending_exp(
             self, value: Any) -> None:
@@ -83,10 +82,10 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
         from apysc._validation import number_validation
         self._initialize_fill_alpha_if_not_initialized()
         number_validation.validate_num(num=value)
-        if not isinstance(value, Number):
+        if not isinstance(value, ap.Number):
             value = cast.to_float_from_int(int_or_float=value)
             color_validation.validate_alpha_range(alpha=value)
-            value = Number(value=value)
+            value = ap.Number(value=value)
         color_validation.validate_alpha_range(alpha=value.value)
         self._fill_alpha = value
 

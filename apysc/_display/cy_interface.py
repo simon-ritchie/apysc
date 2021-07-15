@@ -3,14 +3,14 @@
 
 from typing import Dict
 
-from apysc import Int
+import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class CyInterface(VariableNameInterface, RevertInterface):
 
-    _cy: Int
+    _cy: ap.Int
 
     def _initialize_cy_if_not_initialized(self) -> None:
         """
@@ -18,10 +18,10 @@ class CyInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_cy'):
             return
-        self._cy = Int(0)
+        self._cy = ap.Int(0)
 
     @property
-    def y(self) -> Int:
+    def y(self) -> ap.Int:
         """
         Get a center y-coordinate.
 
@@ -35,7 +35,7 @@ class CyInterface(VariableNameInterface, RevertInterface):
         return value_util.get_copy(value=self._cy)
 
     @y.setter
-    def y(self, value: Int) -> None:
+    def y(self, value: ap.Int) -> None:
         """
         Update a center y-coordinate.
 
@@ -46,8 +46,8 @@ class CyInterface(VariableNameInterface, RevertInterface):
         """
         from apysc._validation import number_validation
         number_validation.validate_integer(integer=value)
-        if not isinstance(value, Int):
-            value = Int(value)
+        if not isinstance(value, ap.Int):
+            value = ap.Int(value)
         self._cy = value
         self._cy._append_incremental_calc_substitution_expression()
         self._append_cy_update_expression()
@@ -56,7 +56,6 @@ class CyInterface(VariableNameInterface, RevertInterface):
         """
         Append cy position updating expression.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         self._initialize_cy_if_not_initialized()
         value_str: str = value_util.get_value_str_for_expression(
@@ -64,7 +63,7 @@ class CyInterface(VariableNameInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name}.cy({value_str});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     _cy_snapshots: Dict[str, int]
 

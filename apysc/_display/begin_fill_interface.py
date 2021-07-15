@@ -10,21 +10,20 @@ from typing import Dict
 from typing import TypeVar
 from typing import Union
 
-from apysc import Number
-from apysc import String
+import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 
-StrOrString = TypeVar('StrOrString', str, String)
+StrOrString = TypeVar('StrOrString', str, ap.String)
 
 
 class BeginFillInterface(RevertInterface):
 
-    _fill_color: String
-    _fill_alpha: Number
+    _fill_color: ap.String
+    _fill_alpha: ap.Number
 
     def begin_fill(
             self, color: StrOrString,
-            alpha: Union[float, Number] = 1.0) -> None:
+            alpha: Union[float, ap.Number] = 1.0) -> None:
         """
         Set single color value for fill.
 
@@ -46,16 +45,16 @@ class BeginFillInterface(RevertInterface):
                 hex_color_code=color)
         self._fill_color.value = color
         number_validation.validate_num(num=alpha)
-        if not isinstance(alpha, Number):
+        if not isinstance(alpha, ap.Number):
             alpha = cast.to_float_from_int(int_or_float=alpha)
         color_validation.validate_alpha_range(alpha=alpha)
-        if isinstance(alpha, Number):
+        if isinstance(alpha, ap.Number):
             self._fill_alpha.value = alpha.value
         else:
             self._fill_alpha.value = alpha
 
     @property
-    def fill_color(self) -> String:
+    def fill_color(self) -> ap.String:
         """
         Get current fill color.
 
@@ -67,7 +66,7 @@ class BeginFillInterface(RevertInterface):
         """
         from apysc._type import value_util
         self._initialize_fill_color_if_not_initialized()
-        fill_color: String = value_util.get_copy(value=self._fill_color)
+        fill_color: ap.String = value_util.get_copy(value=self._fill_color)
         return fill_color
 
     def _initialize_fill_color_if_not_initialized(self) -> None:
@@ -76,10 +75,10 @@ class BeginFillInterface(RevertInterface):
         """
         if hasattr(self, '_fill_color'):
             return
-        self._fill_color = String('')
+        self._fill_color = ap.String('')
 
     @property
-    def fill_alpha(self) -> Number:
+    def fill_alpha(self) -> ap.Number:
         """
         Get current fill color opacity.
 
@@ -91,7 +90,7 @@ class BeginFillInterface(RevertInterface):
         """
         from apysc._type import value_util
         self._initialize_fill_alpha_if_not_initialized()
-        fill_alpha: Number = value_util.get_copy(value=self._fill_alpha)
+        fill_alpha: ap.Number = value_util.get_copy(value=self._fill_alpha)
         return fill_alpha
 
     def _initialize_fill_alpha_if_not_initialized(self) -> None:
@@ -100,7 +99,7 @@ class BeginFillInterface(RevertInterface):
         """
         if hasattr(self, '_fill_alpha'):
             return
-        self._fill_alpha = Number(1.0)
+        self._fill_alpha = ap.Number(1.0)
 
     _fill_color_snapshots: Dict[str, str]
     _fill_alpha_snapshots: Dict[str, float]

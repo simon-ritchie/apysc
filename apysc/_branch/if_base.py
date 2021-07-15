@@ -8,13 +8,13 @@ from typing import Dict
 from typing import Optional
 from typing import Type
 
-from apysc import Boolean
+import apysc as ap
 from apysc._expression.indent_num import Indent
 
 
 class IfBase(ABC):
 
-    _condition: Optional[Boolean]
+    _condition: Optional[ap.Boolean]
     _locals: Dict[str, Any]
     _globals: Dict[str, Any]
     _snapshot_name: str
@@ -22,7 +22,7 @@ class IfBase(ABC):
 
     def __init__(
             self,
-            condition: Optional[Boolean],
+            condition: Optional[ap.Boolean],
             locals_: Optional[Dict[str, Any]] = None,
             globals_: Optional[Dict[str, Any]] = None) -> None:
         """
@@ -105,8 +105,8 @@ class IfBase(ABC):
         """
         Append if branch instruction end expression to file.
         """
-        from apysc import append_js_expression
-        append_js_expression(expression='}')
+        import apysc as ap
+        ap.append_js_expression(expression='}')
 
     @abstractmethod
     def _set_last_scope(self) -> None:

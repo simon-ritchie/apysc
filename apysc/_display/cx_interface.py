@@ -3,14 +3,14 @@
 
 from typing import Dict
 
-from apysc import Int
+import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class CxInterface(VariableNameInterface, RevertInterface):
 
-    _cx: Int
+    _cx: ap.Int
 
     def _initialize_cx_if_not_initialized(self) -> None:
         """
@@ -18,10 +18,10 @@ class CxInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_cx'):
             return
-        self._cx = Int(0)
+        self._cx = ap.Int(0)
 
     @property
-    def x(self) -> Int:
+    def x(self) -> ap.Int:
         """
         Get a center x-coordinate.
 
@@ -35,7 +35,7 @@ class CxInterface(VariableNameInterface, RevertInterface):
         return value_util.get_copy(value=self._cx)
 
     @x.setter
-    def x(self, value: Int) -> None:
+    def x(self, value: ap.Int) -> None:
         """
         Update a center x-coordinate.
 
@@ -46,8 +46,8 @@ class CxInterface(VariableNameInterface, RevertInterface):
         """
         from apysc._validation import number_validation
         number_validation.validate_integer(integer=value)
-        if not isinstance(value, Int):
-            value = Int(value)
+        if not isinstance(value, ap.Int):
+            value = ap.Int(value)
         self._cx = value
         self._cx._append_incremental_calc_substitution_expression()
         self._append_cx_update_expression()
@@ -56,7 +56,6 @@ class CxInterface(VariableNameInterface, RevertInterface):
         """
         Append cx position updating expression.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         self._initialize_cx_if_not_initialized()
         value_str: str = value_util.get_value_str_for_expression(
@@ -64,7 +63,7 @@ class CxInterface(VariableNameInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name}.cx({value_str});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     _cx_snapshots: Dict[str, int]
 

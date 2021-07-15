@@ -4,7 +4,7 @@
 from typing import Any
 from typing import Union
 
-from apysc import Int
+import apysc as ap
 from apysc._display.display_object import DisplayObject
 from apysc._display.rotate_around_center_interface import \
     RotateAroundCenterInterface
@@ -18,8 +18,8 @@ class GraphicsBase(DisplayObject, RotateAroundCenterInterface):
 
     def __init__(
             self, parent: _Graphics,
-            x: Union[int, Int],
-            y: Union[int, Int],
+            x: Union[int, ap.Int],
+            y: Union[int, ap.Int],
             variable_name: str) -> None:
         """
         Vector graphic base class.
@@ -46,10 +46,10 @@ class GraphicsBase(DisplayObject, RotateAroundCenterInterface):
         number_validation.validate_integer(integer=x)
         number_validation.validate_integer(integer=y)
         if isinstance(x, int):
-            x = Int(x)
+            x = ap.Int(x)
         self._x = x
         if isinstance(y, int):
-            y = Int(y)
+            y = ap.Int(y)
         self._y = y
         string_validation.validate_not_empty_string(string=variable_name)
         self._variable_name = variable_name

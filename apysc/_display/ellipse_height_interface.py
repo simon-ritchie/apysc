@@ -3,14 +3,14 @@
 
 from typing import Dict
 
-from apysc import Int
+import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class EllipseHeightInterface(VariableNameInterface, RevertInterface):
 
-    _ellipse_height: Int
+    _ellipse_height: ap.Int
 
     def _initialize_ellipse_height_if_not_initialized(self) -> None:
         """
@@ -18,10 +18,10 @@ class EllipseHeightInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_ellipse_height'):
             return
-        self._ellipse_height = Int(0)
+        self._ellipse_height = ap.Int(0)
 
     @property
-    def ellipse_height(self) -> Int:
+    def ellipse_height(self) -> ap.Int:
         """
         Get ellipse height value.
 
@@ -35,7 +35,7 @@ class EllipseHeightInterface(VariableNameInterface, RevertInterface):
         return value_util.get_copy(value=self._ellipse_height)
 
     @ellipse_height.setter
-    def ellipse_height(self, value: Int) -> None:
+    def ellipse_height(self, value: ap.Int) -> None:
         """
         Update ellipse height value.
 
@@ -47,7 +47,7 @@ class EllipseHeightInterface(VariableNameInterface, RevertInterface):
         from apysc._validation import number_validation
         number_validation.validate_integer(integer=value)
         if isinstance(value, int):
-            value = Int(value)
+            value = ap.Int(value)
         self._ellipse_height = value
         self._ellipse_height.\
             _append_incremental_calc_substitution_expression()
@@ -57,7 +57,6 @@ class EllipseHeightInterface(VariableNameInterface, RevertInterface):
         """
         Append ellipse height updating expression.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         self._initialize_ellipse_height_if_not_initialized()
         if hasattr(self, '_ellipse_width'):
@@ -72,7 +71,7 @@ class EllipseHeightInterface(VariableNameInterface, RevertInterface):
             f'{self.variable_name}.radius({width_value_str}, '
             f'{height_value_str});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     _ellipse_height_snapshots: Dict[str, int]
 

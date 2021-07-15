@@ -4,17 +4,17 @@
 from typing import Dict
 from typing import Union
 
-from apysc import String
+import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class FillColorInterface(VariableNameInterface, RevertInterface):
 
-    _fill_color: String
+    _fill_color: ap.String
 
     @property
-    def fill_color(self) -> String:
+    def fill_color(self) -> ap.String:
         """
         Get this instance's fill color.
 
@@ -26,11 +26,11 @@ class FillColorInterface(VariableNameInterface, RevertInterface):
         """
         from apysc._type import value_util
         self._initialize_fill_color_if_not_initialized()
-        fill_color: String = value_util.get_copy(value=self._fill_color)
+        fill_color: ap.String = value_util.get_copy(value=self._fill_color)
         return fill_color
 
     @fill_color.setter
-    def fill_color(self, value: String) -> None:
+    def fill_color(self, value: ap.String) -> None:
         """
         Update this instance's fill color.
 
@@ -46,14 +46,13 @@ class FillColorInterface(VariableNameInterface, RevertInterface):
         """
         Append fill color updating expression.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{self.variable_name}.fill("{self.fill_color}");'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def _set_initial_fill_color_if_not_blank(
-            self, fill_color: Union[str, String]) -> None:
+            self, fill_color: Union[str, ap.String]) -> None:
         """
         Set initial fill color value if specified value is not
         blank string.
@@ -66,11 +65,11 @@ class FillColorInterface(VariableNameInterface, RevertInterface):
         if fill_color == '':
             return
         if isinstance(fill_color, str):
-            fill_color = String(fill_color)
+            fill_color = ap.String(fill_color)
         self._update_fill_color_and_skip_appending_exp(value=fill_color)
 
     def _update_fill_color_and_skip_appending_exp(
-            self, value: String) -> None:
+            self, value: ap.String) -> None:
         """
         Update fill color and skip appending expression to file.
 
@@ -92,7 +91,7 @@ class FillColorInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_fill_color'):
             return
-        self._fill_color = String('')
+        self._fill_color = ap.String('')
 
     _fill_color_snapshots: Dict[str, str]
 

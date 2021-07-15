@@ -4,9 +4,9 @@
 from typing import Any
 from typing import TypeVar
 
-from apysc import String
+import apysc as ap
 
-StrOrString = TypeVar('StrOrString', str, String)
+StrOrString = TypeVar('StrOrString', str, ap.String)
 
 
 def complement_hex_color(
@@ -32,7 +32,7 @@ def complement_hex_color(
 
     color_validation.validate_hex_color_code_format(
         hex_color_code=hex_color_code)
-    if isinstance(hex_color_code, String):
+    if isinstance(hex_color_code, ap.String):
         value_: str = hex_color_code.value
     else:
         value_ = hex_color_code
@@ -46,7 +46,7 @@ def complement_hex_color(
     value_ = value_.lower()
     value_ = f'#{value_}'
 
-    if isinstance(hex_color_code, String):
+    if isinstance(hex_color_code, ap.String):
         hex_color_code.value = value_
         _append_complement_hex_color_expression(
             hex_color_code=hex_color_code)
@@ -65,8 +65,8 @@ def _append_complement_hex_color_expression(
     hex_color_code : String
         Complemented hex color code string.
     """
-    from apysc import append_js_expression
-    hex_color_code_: String = hex_color_code
+    import apysc as ap
+    hex_color_code_: ap.String = hex_color_code
     var_name: str = hex_color_code_.variable_name
     expression: str = (
         f'var str_length = {var_name}.length;'
@@ -76,7 +76,7 @@ def _append_complement_hex_color_expression(
         f'\n  {var_name} = {var_name}.repeat(2);'
         '\n}'
     )
-    append_js_expression(expression=expression)
+    ap.append_js_expression(expression=expression)
 
 
 def _fill_three_digit_hex_color_code(hex_color_code: str) -> str:

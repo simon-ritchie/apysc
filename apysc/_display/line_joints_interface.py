@@ -5,7 +5,7 @@ from typing import Any
 from typing import Dict
 from typing import Union
 
-from apysc import String
+import apysc as ap
 from apysc._display.line_joints import LineJoints
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -13,7 +13,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 class LineJointsInterface(VariableNameInterface, RevertInterface):
 
-    _line_joints: String
+    _line_joints: ap.String
 
     def _initialize_line_joints_if_not_initialized(self) -> None:
         """
@@ -22,7 +22,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_line_joints'):
             return
-        self._line_joints = String(LineJoints.MITER.value)
+        self._line_joints = ap.String(LineJoints.MITER.value)
 
     @property
     def line_joints(self) -> Any:
@@ -51,7 +51,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         self._append_line_joints_update_expression()
 
     def _update_line_joints_and_skip_appending_exp(
-            self, value: Union[String, LineJoints]) -> None:
+            self, value: Union[ap.String, LineJoints]) -> None:
         """
         Update line joints and skip appending expression to file.
 
@@ -61,22 +61,21 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
             Line joints style setting to set.
         """
         from apysc._validation.display_validation import validate_line_joints
-        if not isinstance(value, (String, LineJoints)):
+        if not isinstance(value, (ap.String, LineJoints)):
             raise TypeError(
                 'Not supported line_joints type specified: '
                 f'{type(value)}'
                 '\nAcceptable ones are: String or LineJoints.')
         validate_line_joints(joints=value)
-        if isinstance(value, String):
+        if isinstance(value, ap.String):
             self._line_joints = value._copy()
         else:
-            self._line_joints = String(value.value)
+            self._line_joints = ap.String(value.value)
 
     def _append_line_joints_update_expression(self) -> None:
         """
         Append line cap updating expression to file.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         joints_name: str = value_util.get_value_str_for_expression(
             value=self._line_joints)
@@ -84,7 +83,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
             f'{self.variable_name}.attr'
             f'({{"stroke-linejoin": {joints_name}}});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     _line_joints_snapshots: Dict[str, str]
 

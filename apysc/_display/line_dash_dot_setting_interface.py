@@ -74,7 +74,7 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         """
         Append line dash dot setting updating expression to file.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         if self._line_dash_dot_setting is None:
             setting_str: str = '""'
         else:
@@ -93,7 +93,7 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     _line_dash_dot_setting_snapshots: Dict[str, Optional[LineDashDotSetting]]
 

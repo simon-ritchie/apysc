@@ -3,14 +3,14 @@
 
 from typing import Dict
 
-from apysc import Int
+import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class EllipseWidthInterface(VariableNameInterface, RevertInterface):
 
-    _ellipse_width: Int
+    _ellipse_width: ap.Int
 
     def _initialize_ellipse_width_if_not_initialized(self) -> None:
         """
@@ -18,10 +18,10 @@ class EllipseWidthInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_ellipse_width'):
             return
-        self._ellipse_width = Int(0)
+        self._ellipse_width = ap.Int(0)
 
     @property
-    def ellipse_width(self) -> Int:
+    def ellipse_width(self) -> ap.Int:
         """
         Get ellipse width value.
 
@@ -35,7 +35,7 @@ class EllipseWidthInterface(VariableNameInterface, RevertInterface):
         return value_util.get_copy(value=self._ellipse_width)
 
     @ellipse_width.setter
-    def ellipse_width(self, value: Int) -> None:
+    def ellipse_width(self, value: ap.Int) -> None:
         """
         Update ellipse width value.
 
@@ -47,7 +47,7 @@ class EllipseWidthInterface(VariableNameInterface, RevertInterface):
         from apysc._validation import number_validation
         number_validation.validate_integer(integer=value)
         if isinstance(value, int):
-            value = Int(value)
+            value = ap.Int(value)
         self._ellipse_width = value
         self._ellipse_width._append_incremental_calc_substitution_expression()
         self._append_ellipse_width_update_expression()
@@ -56,7 +56,6 @@ class EllipseWidthInterface(VariableNameInterface, RevertInterface):
         """
         Append ellipse width updating expression.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         self._initialize_ellipse_width_if_not_initialized()
         width_value_str: str = value_util.get_value_str_for_expression(
@@ -71,7 +70,7 @@ class EllipseWidthInterface(VariableNameInterface, RevertInterface):
             f'{self.variable_name}.radius({width_value_str}, '
             f'{height_value_str});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     _ellipse_width_snapshots: Dict[str, int]
 

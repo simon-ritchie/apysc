@@ -27,11 +27,11 @@ class DisplayObject(
             Variable name of this instance. This will be used to
             js expression.
         """
-        from apysc import Stage
+        import apysc as ap
         from apysc._validation import display_validation
         from apysc._validation import string_validation
-        self._stage_cls: Type[Stage] = Stage
-        self.stage: Stage = stage
+        self._stage_cls: Type[ap.Stage] = ap.Stage
+        self.stage: ap.Stage = stage
         display_validation.validate_stage(stage=stage)
         self._variable_name = variable_name
         string_validation.validate_not_empty_string(string=variable_name)

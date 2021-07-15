@@ -3,13 +3,12 @@
 
 from typing import Union
 
-from apysc import Dictionary
-from apysc import Int
+import apysc as ap
 
 
-class LineDotSetting(Dictionary):
+class LineDotSetting(ap.Dictionary):
 
-    def __init__(self, dot_size: Union[int, Int]) -> None:
+    def __init__(self, dot_size: Union[int, ap.Int]) -> None:
         """
         Dot setting class for line.
 
@@ -22,11 +21,11 @@ class LineDotSetting(Dictionary):
             get_copied_int_from_builtin_val
         from apysc._validation import number_validation
         number_validation.validate_nums_are_int_and_gt_zero(nums=[dot_size])
-        dot_size_: Int = get_copied_int_from_builtin_val(integer=dot_size)
+        dot_size_: ap.Int = get_copied_int_from_builtin_val(integer=dot_size)
         super(LineDotSetting, self).__init__({'dot_size': dot_size_})
 
     @property
-    def dot_size(self) -> Int:
+    def dot_size(self) -> ap.Int:
         """
         Get a dot size setting.
 

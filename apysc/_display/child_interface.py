@@ -6,16 +6,14 @@ from typing import Dict
 from typing import List
 from typing import Union
 
-from apysc import Array
-from apysc import Boolean
-from apysc import Int
+import apysc as ap
 from apysc._display.display_object import DisplayObject
 from apysc._type.revert_interface import RevertInterface
 
 
 class ChildInterface(RevertInterface):
 
-    _children: Array[DisplayObject]
+    _children: ap.Array[DisplayObject]
     _variable_name: str
     stage: Any
 
@@ -43,7 +41,7 @@ class ChildInterface(RevertInterface):
         """
         if hasattr(self, '_children'):
             return
-        self._children = Array([])
+        self._children = ap.Array([])
 
     def remove_child(self, child: DisplayObject) -> None:
         """
@@ -63,7 +61,7 @@ class ChildInterface(RevertInterface):
             child.parent = None
             return
 
-    def contains(self, child: DisplayObject) -> Boolean:
+    def contains(self, child: DisplayObject) -> ap.Boolean:
         """
         Get a boolean whether this instance contains specified child.
 
@@ -79,16 +77,16 @@ class ChildInterface(RevertInterface):
             be set.
         """
         self._initialize_children_if_not_initialized()
-        index: Int = self._children.index_of(value=child)
+        index: ap.Int = self._children.index_of(value=child)
         if index == -1:
-            result: Boolean = Boolean(False)
+            result: ap.Boolean = ap.Boolean(False)
         else:
-            result = Boolean(True)
+            result = ap.Boolean(True)
         self._append_contains_expression(result=result, child=child)
         return result
 
     def _append_contains_expression(
-            self, result: Boolean, child: DisplayObject) -> None:
+            self, result: ap.Boolean, child: DisplayObject) -> None:
         """
         Append contains method expression to file.
 
@@ -99,15 +97,14 @@ class ChildInterface(RevertInterface):
         child : DisplayObject
             Child instance to check.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{result.variable_name} = '
             f'{self._variable_name}.has({child.variable_name});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     @property
-    def num_children(self) -> Int:
+    def num_children(self) -> ap.Int:
         """
         Get a current children number.
 
@@ -117,12 +114,12 @@ class ChildInterface(RevertInterface):
             Current children number.
         """
         self._initialize_children_if_not_initialized()
-        num_children: Int = Int(value=self._children.length)
+        num_children: ap.Int = ap.Int(value=self._children.length)
         self._append_num_children_expression(num_children=num_children)
         return num_children
 
     def _append_num_children_expression(
-            self, num_children: Int) -> None:
+            self, num_children: ap.Int) -> None:
         """
         Append num_children method expression to file.
 
@@ -131,14 +128,13 @@ class ChildInterface(RevertInterface):
         num_children : Int
             Current children number.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{num_children.variable_name} = '
             f'{self._variable_name}.children().length;'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
-    def get_child_at(self, index: Union[int, Int]) -> DisplayObject:
+    def get_child_at(self, index: Union[int, ap.Int]) -> DisplayObject:
         """
         Get child at specified index.
 
@@ -166,7 +162,7 @@ class ChildInterface(RevertInterface):
         return child
 
     def _append_get_child_at_expression(
-            self, child: DisplayObject, index: Union[int, Int]) -> None:
+            self, child: DisplayObject, index: Union[int, ap.Int]) -> None:
         """
         Append get_child_at method expression to file.
 
@@ -177,7 +173,6 @@ class ChildInterface(RevertInterface):
         index : int or Int
             Child's index (start from 0).
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         index_str: str = value_util.get_value_str_for_expression(value=index)
         expression: str = (
@@ -185,8 +180,7 @@ class ChildInterface(RevertInterface):
             f'{self._variable_name}.children()'
             f'[{index_str}];'
         )
-        print(expression)
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     _children_snapshots: Dict[str, List[Any]]
 
@@ -240,13 +234,12 @@ def append_expression_of_add_child(child: DisplayObject) -> None:
     child : DisplayObject
         Child object to add.
     """
-    from apysc import append_js_expression
     parent_name: str = child.parent.variable_name  # type: ignore
     child_name: str = child.variable_name
     expression: str = (
         f'{parent_name}.add({child_name});'
     )
-    append_js_expression(expression=expression)
+    ap.append_js_expression(expression=expression)
 
 
 def append_expression_of_remove_child(child: DisplayObject) -> None:
@@ -258,7 +251,6 @@ def append_expression_of_remove_child(child: DisplayObject) -> None:
     child : DisplayObject
         Child object to remove.
     """
-    from apysc import append_js_expression
     from apysc._expression import expression_variables_util
     from apysc._expression import var_names
     parent_name: str = expression_variables_util.get_next_variable_name(
@@ -270,4 +262,4 @@ def append_expression_of_remove_child(child: DisplayObject) -> None:
         f'\n  {parent_name}.removeElement({child_name});'
         '\n}'
     )
-    append_js_expression(expression=expression)
+    ap.append_js_expression(expression=expression)

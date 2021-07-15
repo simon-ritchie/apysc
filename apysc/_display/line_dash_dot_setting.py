@@ -3,16 +3,15 @@
 
 from typing import Union
 
-from apysc import Dictionary
-from apysc import Int
+import apysc as ap
 
 
-class LineDashDotSetting(Dictionary):
+class LineDashDotSetting(ap.Dictionary):
 
     def __init__(
-            self, dot_size: Union[int, Int],
-            dash_size: Union[int, Int],
-            space_size: Union[int, Int]) -> None:
+            self, dot_size: Union[int, ap.Int],
+            dash_size: Union[int, ap.Int],
+            space_size: Union[int, ap.Int]) -> None:
         """
         Dash dot (1-dot chain) setting for line.
 
@@ -30,9 +29,9 @@ class LineDashDotSetting(Dictionary):
         from apysc._validation import number_validation
         number_validation.validate_nums_are_int_and_gt_zero(
             nums=[dot_size, dash_size, space_size])
-        dot_size_: Int = get_copied_int_from_builtin_val(integer=dot_size)
-        dash_size_: Int = get_copied_int_from_builtin_val(integer=dash_size)
-        space_size_: Int = get_copied_int_from_builtin_val(integer=space_size)
+        dot_size_: ap.Int = get_copied_int_from_builtin_val(integer=dot_size)
+        dash_size_: ap.Int = get_copied_int_from_builtin_val(integer=dash_size)
+        space_size_: ap.Int = get_copied_int_from_builtin_val(integer=space_size)
         super(LineDashDotSetting, self).__init__({
             'dot_size': dot_size_,
             'dash_size': dash_size_,
@@ -40,7 +39,7 @@ class LineDashDotSetting(Dictionary):
         })
 
     @property
-    def dot_size(self) -> Int:
+    def dot_size(self) -> ap.Int:
         """
         Get a dot size setting.
 
@@ -52,7 +51,7 @@ class LineDashDotSetting(Dictionary):
         return self['dot_size']
 
     @property
-    def dash_size(self) -> Int:
+    def dash_size(self) -> ap.Int:
         """
         Get a dash size setting.
 
@@ -64,7 +63,7 @@ class LineDashDotSetting(Dictionary):
         return self['dash_size']
 
     @property
-    def space_size(self) -> Int:
+    def space_size(self) -> ap.Int:
         """
         Get a space size setting.
 

@@ -14,12 +14,11 @@ Mainly following interfaces are defined.
 from typing import Any
 from typing import Union
 
-from apysc import Int
-from apysc import Number
+import apysc as ap
 
 
 def to_int_from_float(
-        int_or_float: Union[int, float, Int, Number]) -> Any:
+        int_or_float: Union[int, float, ap.Int, ap.Number]) -> Any:
     """
     Convert float value to int.
 
@@ -34,17 +33,15 @@ def to_int_from_float(
     int_val : int or Int
         Converted integer value.
     """
-    from apysc import Number
-    if isinstance(int_or_float, Number):
-        from apysc import Int
-        return Int(int_or_float)
+    if isinstance(int_or_float, ap.Number):
+        return ap.Int(int_or_float)
     if not isinstance(int_or_float, float):
         return int_or_float
     return int(int_or_float)
 
 
 def to_float_from_int(
-        int_or_float: Union[int, float, Int, Number]) -> Any:
+        int_or_float: Union[int, float, ap.Int, ap.Number]) -> Any:
     """
     Convert int value to float.
 
@@ -59,16 +56,14 @@ def to_float_from_int(
     float_val : float or Number
         Converted float value.
     """
-    from apysc import Int
-    if isinstance(int_or_float, Int):
-        from apysc import Number
-        return Number(int_or_float)
+    if isinstance(int_or_float, ap.Int):
+        return ap.Number(int_or_float)
     if not isinstance(int_or_float, int):
         return int_or_float
     return float(int_or_float)
 
 
-def to_bool_from_int(integer: Union[int, Int]) -> bool:
+def to_bool_from_int(integer: Union[int, ap.Int]) -> bool:
     """
     Convert int value to bool.
 

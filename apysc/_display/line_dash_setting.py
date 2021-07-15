@@ -3,15 +3,14 @@
 
 from typing import Union
 
-from apysc import Dictionary
-from apysc import Int
+import apysc as ap
 
 
-class LineDashSetting(Dictionary):
+class LineDashSetting(ap.Dictionary):
 
     def __init__(
-            self, dash_size: Union[int, Int],
-            space_size: Union[int, Int]) -> None:
+            self, dash_size: Union[int, ap.Int],
+            space_size: Union[int, ap.Int]) -> None:
         """
         Dash setting class for line.
 
@@ -27,15 +26,17 @@ class LineDashSetting(Dictionary):
         from apysc._validation import number_validation
         number_validation.validate_nums_are_int_and_gt_zero(
             nums=[dash_size, space_size])
-        dash_size_: Int = get_copied_int_from_builtin_val(integer=dash_size)
-        space_size_: Int = get_copied_int_from_builtin_val(integer=space_size)
+        dash_size_: ap.Int = get_copied_int_from_builtin_val(
+            integer=dash_size)
+        space_size_: ap.Int = get_copied_int_from_builtin_val(
+            integer=space_size)
         super(LineDashSetting, self).__init__({
             'dash_size': dash_size_,
             'space_size': space_size_,
         })
 
     @property
-    def dash_size(self) -> Int:
+    def dash_size(self) -> ap.Int:
         """
         Get a dash size setting.
 
@@ -47,7 +48,7 @@ class LineDashSetting(Dictionary):
         return self['dash_size']
 
     @property
-    def space_size(self) -> Int:
+    def space_size(self) -> ap.Int:
         """
         Get a space size setting.
 

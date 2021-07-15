@@ -218,9 +218,9 @@ def append_stroke_linecap_expression(
     expression : str
         After appended expression string.
     """
-    from apysc import LineCaps
+    import apysc as ap
     from apysc._string import indent_util
-    if graphics.line_cap == LineCaps.BUTT.value:
+    if graphics.line_cap == ap.LineCaps.BUTT.value:
         return expression
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (
@@ -248,9 +248,9 @@ def append_stroke_linejoin_expression(
     expression : str
         After appended expression string.
     """
-    from apysc import LineJoints
+    import apysc as ap
     from apysc._string import indent_util
-    if graphics.line_joints == LineJoints.MITER.value:
+    if graphics.line_joints == ap.LineJoints.MITER.value:
         return expression
     spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
     expression += (

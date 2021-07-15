@@ -4,14 +4,14 @@
 from typing import Dict
 from typing import Union
 
-from apysc import Int
+import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class HeightInterface(VariableNameInterface, RevertInterface):
 
-    _height: Int
+    _height: ap.Int
 
     def _initialize_height_if_not_initialized(self) -> None:
         """
@@ -19,10 +19,10 @@ class HeightInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_height'):
             return
-        self._height = Int(0)
+        self._height = ap.Int(0)
 
     @property
-    def height(self) -> Int:
+    def height(self) -> ap.Int:
         """
         Get this instance's height.
 
@@ -36,7 +36,7 @@ class HeightInterface(VariableNameInterface, RevertInterface):
         return value_util.get_copy(value=self._height)
 
     @height.setter
-    def height(self, value: Int) -> None:
+    def height(self, value: ap.Int) -> None:
         """
         Update this instance's height.
 
@@ -53,14 +53,13 @@ class HeightInterface(VariableNameInterface, RevertInterface):
         """
         Append height updating expression.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{self.variable_name}.height({self.height});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def _update_height_and_skip_appending_exp(
-            self, value: Union[int, Int]) -> None:
+            self, value: Union[int, ap.Int]) -> None:
         """
         Update height value and skip appending expression to file.
 
@@ -76,7 +75,7 @@ class HeightInterface(VariableNameInterface, RevertInterface):
         size_validation.validate_size_is_int(size=value)
         size_validation.validate_size_is_gte_zero(size=value)
         if isinstance(value, int):
-            value = Int(value)
+            value = ap.Int(value)
         self._height = value
 
     _height_snapshots: Dict[str, int]

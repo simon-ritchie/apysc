@@ -5,7 +5,7 @@ from typing import Any
 from typing import Dict
 from typing import Union
 
-from apysc import String
+import apysc as ap
 from apysc._display.line_caps import LineCaps
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -13,7 +13,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 class LineCapInterface(VariableNameInterface, RevertInterface):
 
-    _line_cap: String
+    _line_cap: ap.String
 
     def _initialize_line_cap_if_not_initialized(self) -> None:
         """
@@ -22,7 +22,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_line_cap'):
             return
-        self._line_cap = String(LineCaps.BUTT.value)
+        self._line_cap = ap.String(LineCaps.BUTT.value)
 
     @property
     def line_cap(self) -> Any:
@@ -54,17 +54,16 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         """
         Append line cap updating expression to file.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         cap_name: str = value_util.get_value_str_for_expression(
             value=self._line_cap)
         expression: str = (
             f'{self.variable_name}.attr({{"stroke-linecap": {cap_name}}});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def _update_line_cap_and_skip_appending_exp(
-            self, value: Union[String, LineCaps]) -> None:
+            self, value: Union[ap.String, LineCaps]) -> None:
         """
         Update line cap and skip appending expression to file.
 
@@ -74,16 +73,16 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
             Line cap style setting to set.
         """
         from apysc._validation.display_validation import validate_line_cap
-        if not isinstance(value, (String, LineCaps)):
+        if not isinstance(value, (ap.String, LineCaps)):
             raise TypeError(
                 'Not supported line_cap type specified: '
                 f'{type(value)}'
                 '\nAcceptable ones are: String or LineCaps.')
         validate_line_cap(cap=value)
-        if isinstance(value, String):
+        if isinstance(value, ap.String):
             self._line_cap = value._copy()
         else:
-            self._line_cap = String(value.value)
+            self._line_cap = ap.String(value.value)
 
     _line_cap_snapshots: Dict[str, str]
 

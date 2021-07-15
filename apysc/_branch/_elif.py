@@ -15,7 +15,7 @@ class Elif(IfBase):
         ValueError
             If the last scope is not If or Elif.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         if not self._last_scope_is_if_or_elif():
             raise ValueError(
                 'Elif interface can only use right after If or Elif '
@@ -35,7 +35,7 @@ class Elif(IfBase):
         expression: str = (
             f'else if ({self._condition.variable_name}) {{'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def _set_last_scope(self) -> None:
         """

@@ -3,10 +3,11 @@
 
 from typing import Union
 
-from apysc import Int
+import apysc as ap
 
 
-def get_copied_int_from_builtin_val(integer: Union[int, Int]) -> Int:
+def get_copied_int_from_builtin_val(
+        integer: Union[int, ap.Int]) -> ap.Int:
     """
     Get a copied Int value from Python built-in int.
 
@@ -21,7 +22,7 @@ def get_copied_int_from_builtin_val(integer: Union[int, Int]) -> Int:
         Copied Int value.
     """
     if isinstance(integer, int):
-        copied: Int = Int(integer)
+        copied: ap.Int = ap.Int(integer)
     else:
         copied = integer._copy()
     return copied

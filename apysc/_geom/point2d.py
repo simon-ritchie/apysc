@@ -5,18 +5,18 @@ from typing import Any
 from typing import Dict
 from typing import Union
 
-from apysc import Int
+import apysc as ap
 from apysc._type.dictionary_structure import DictionaryStructure
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
-_int = Union[int, Int]
+_int = Union[int, ap.Int]
 
 
 class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
 
-    _x: Int
-    _y: Int
+    _x: ap.Int
+    _y: ap.Int
 
     def __init__(self, x: _int, y: _int) -> None:
         """
@@ -35,9 +35,9 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         validate_integer(integer=x)
         validate_integer(integer=y)
         if isinstance(x, int):
-            x = Int(x)
+            x = ap.Int(x)
         if isinstance(y, int):
-            y = Int(y)
+            y = ap.Int(y)
         self._x = x
         self._y = y
         self.variable_name = expression_variables_util.get_next_variable_name(
@@ -48,15 +48,14 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         """
         Append constructor expression to file.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'var {self.variable_name} = {{'
             f'"x": {self._x.variable_name}, "y": {self._y.variable_name}}};'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     @property
-    def x(self) -> Int:
+    def x(self) -> ap.Int:
         """
         X-coordinate property.
 
@@ -65,12 +64,12 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         x : Int
             X-coordinate.
         """
-        x: Int = Int(self._x._value)
+        x: ap.Int = ap.Int(self._x._value)
         self._append_x_getter_expression(x=x)
         return x
 
     @x.setter
-    def x(self, value: Int) -> None:
+    def x(self, value: ap.Int) -> None:
         """
         Update x-coordinate property.
 
@@ -82,12 +81,12 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         from apysc._validation.number_validation import validate_integer
         validate_integer(integer=value)
         if isinstance(value, int):
-            value = Int(value)
+            value = ap.Int(value)
         self._x = value
         self._x._append_incremental_calc_substitution_expression()
         self._append_x_setter_expression(value=value)
 
-    def _append_x_getter_expression(self, x: Int) -> None:
+    def _append_x_getter_expression(self, x: ap.Int) -> None:
         """
         Append x property getter expression to file.
 
@@ -96,14 +95,13 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         x : Int
             Target x value.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{x.variable_name} = '
             f'{self.variable_name}["x"];'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
-    def _append_x_setter_expression(self, value: Int) -> None:
+    def _append_x_setter_expression(self, value: ap.Int) -> None:
         """
         Append x property setter expression to file.
 
@@ -112,14 +110,13 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         value : Int
             X-coordinate to set.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{self.variable_name}["x"] = {value.variable_name};'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     @property
-    def y(self) -> Int:
+    def y(self) -> ap.Int:
         """
         Y-coordinate property.
 
@@ -128,12 +125,12 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         y : Int
             Y-coordinate.
         """
-        y: Int = Int(self._y._value)
+        y: ap.Int = ap.Int(self._y._value)
         self._append_y_getter_expression(y=y)
         return y
 
     @y.setter
-    def y(self, value: Int) -> None:
+    def y(self, value: ap.Int) -> None:
         """
         Update y-coordinate property.
 
@@ -145,12 +142,12 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         from apysc._validation.number_validation import validate_integer
         validate_integer(integer=value)
         if isinstance(value, int):
-            value = Int(value)
+            value = ap.Int(value)
         self._y = value
         self._y._append_incremental_calc_substitution_expression()
         self._append_y_setter_expression(value=value)
 
-    def _append_y_getter_expression(self, y: Int) -> None:
+    def _append_y_getter_expression(self, y: ap.Int) -> None:
         """
         Append y property getter expression to file.
 
@@ -159,14 +156,13 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         y : Int
             Target y value.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{y.variable_name} = '
             f'{self.variable_name}["y"];'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
-    def _append_y_setter_expression(self, value: Int) -> None:
+    def _append_y_setter_expression(self, value: ap.Int) -> None:
         """
         Append y property setter expression to file.
 
@@ -175,11 +171,10 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         value : Int
             Y-coordinate to set.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{self.variable_name}["y"] = {value.variable_name};'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def __eq__(self, other: Any) -> Any:
         """
@@ -195,15 +190,14 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         result : Boolean
             Comparison result.
         """
-        from apysc import Boolean
-        result: Boolean
+        result: ap.Boolean
         if not isinstance(other, Point2D):
-            result = Boolean(False)
+            result = ap.Boolean(False)
             return result
         if other.x == self.x and other.y == self.y:
-            result = Boolean(True)
+            result = ap.Boolean(True)
             return result
-        result = Boolean(False)
+        result = ap.Boolean(False)
         return result
 
     def __ne__(self, other: Any) -> Any:
@@ -220,8 +214,7 @@ class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
         result : Boolean
             Comparison result.
         """
-        from apysc import Boolean
-        result: Boolean = self == other
+        result: ap.Boolean = self == other
         result = result.not_
         return result
 

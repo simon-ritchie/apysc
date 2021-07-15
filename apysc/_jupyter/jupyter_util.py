@@ -30,12 +30,12 @@ def _save_overall_html(html_file_name: str, minify: bool) -> None:
     minify : bool, default True
         Boolean value whether minify a HTML or not.
     """
-    from apysc import save_overall_html
+    import apysc as ap
     timestamp: float = datetime.now().timestamp()
     random_int: int = randint(10000, 100000)
     dest_dir_path: str = (
         f'{_TMP_ROOT_DIR_PATH}tmp_apysc_jupyter_{timestamp}{random_int}/')
-    save_overall_html(
+    ap.save_overall_html(
         dest_dir_path=dest_dir_path,
         html_file_name=html_file_name,
         minify=minify,

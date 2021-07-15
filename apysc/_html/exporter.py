@@ -203,10 +203,10 @@ def _append_entry_point_function_call(html_str: str) -> str:
     html_str : str
         After appended html string.
     """
-    from apysc import document
+    import apysc as ap
     html_str += (
         '\n<script type="text/javascript">'
-        f'\n$({document.variable_name}).ready(function() {{'
+        f'\n$({ap.document.variable_name}).ready(function() {{'
     )
     entry_point_func_name: str = get_entry_point_func_name()
     html_str += f'\n  {entry_point_func_name}();'

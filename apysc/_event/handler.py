@@ -87,7 +87,7 @@ def append_handler_expression(
     e : Event
         Created event instance.
     """
-    from apysc import append_js_expression
+    import apysc as ap
     from apysc._expression.event_handler_scope import HandlerScope
     from apysc._expression.indent_num import Indent
     from apysc._type import revert_interface
@@ -101,10 +101,10 @@ def append_handler_expression(
         expression: str = (
             f'function {handler_name}({e.variable_name}) {{'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
         with Indent():
             handler_data['handler'](e=e, options=handler_data['options'])
-        append_js_expression(expression='}')
+        ap.append_js_expression(expression='}')
 
     revert_interface.revert_variables(
         snapshot_name=snapshot_name, variables=variables)
@@ -125,14 +125,14 @@ def append_unbinding_expression(
     mouse_event_type : MouseEventType
         Event type to unbind.
     """
-    from apysc import append_js_expression
+    import apysc as ap
     from apysc._validation import event_validation
     event_validation.validate_event_type(mouse_event_type=mouse_event_type)
     expression: str = (
         f'{this.variable_name}.off("{mouse_event_type.value}", '
         f'{handler_name});'
     )
-    append_js_expression(expression=expression)
+    ap.append_js_expression(expression=expression)
 
 
 def append_unbinding_all_expression(
@@ -148,10 +148,10 @@ def append_unbinding_all_expression(
     mouse_event_type : MouseEventType
         Event type to unbind.
     """
-    from apysc import append_js_expression
+    import apysc as ap
     from apysc._validation import event_validation
     event_validation.validate_event_type(mouse_event_type=mouse_event_type)
     expression: str = (
         f'{this.variable_name}.off("{mouse_event_type.value}");'
     )
-    append_js_expression(expression=expression)
+    ap.append_js_expression(expression=expression)

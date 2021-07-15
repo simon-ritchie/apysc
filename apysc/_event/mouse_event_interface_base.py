@@ -116,7 +116,7 @@ class MouseEventInterfaceBase:
         mouse_event_type : MouseEventType
             Event type to bind.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         from apysc._type.variable_name_interface import VariableNameInterface
         self_instance: VariableNameInterface = \
             self._validate_self_is_variable_name_interface()
@@ -124,4 +124,4 @@ class MouseEventInterfaceBase:
             f'{self_instance.variable_name}'
             f'.{mouse_event_type.value}({name});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)

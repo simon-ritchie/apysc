@@ -4,7 +4,7 @@
 from typing import Generic
 from typing import TypeVar
 
-from apysc import Int
+import apysc as ap
 from apysc._event.event import Event
 from apysc._type.variable_name_interface import VariableNameInterface
 
@@ -41,7 +41,7 @@ class MouseEvent(Event, Generic[T]):
         return super(MouseEvent, self).this
 
     @property
-    def stage_x(self) -> Int:
+    def stage_x(self) -> ap.Int:
         """
         Get the x-coordinate of the stage reference.
 
@@ -50,11 +50,11 @@ class MouseEvent(Event, Generic[T]):
         x : Int
             x-coordinate.
         """
-        x: Int = Int(0)
+        x: ap.Int = ap.Int(0)
         self._append_stage_x_getter_expression(x=x)
         return x
 
-    def _append_stage_x_getter_expression(self, x: Int) -> None:
+    def _append_stage_x_getter_expression(self, x: ap.Int) -> None:
         """
         Append stage_x getter property expression to file.
 
@@ -63,16 +63,15 @@ class MouseEvent(Event, Generic[T]):
         x : Int
             Target x-coordinate value.
         """
-        from apysc import append_js_expression
         from apysc._display.stage import get_stage_elem_str
         expression: str = (
             f'{x.variable_name} = {self.variable_name}.pageX - '
             f'{get_stage_elem_str()}.offset().left;'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     @property
-    def stage_y(self) -> Int:
+    def stage_y(self) -> ap.Int:
         """
         Get the y-coordinate of the stage reference.
 
@@ -81,11 +80,11 @@ class MouseEvent(Event, Generic[T]):
         y : Int
             y-coordinate.
         """
-        y: Int = Int(0)
+        y: ap.Int = ap.Int(0)
         self._append_stage_y_getter_expression(y=y)
         return y
 
-    def _append_stage_y_getter_expression(self, y: Int) -> None:
+    def _append_stage_y_getter_expression(self, y: ap.Int) -> None:
         """
         Append stage_y getter property expression to file.
 
@@ -94,16 +93,15 @@ class MouseEvent(Event, Generic[T]):
         y : Int
             Target y-coordinate value.
         """
-        from apysc import append_js_expression
         from apysc._display.stage import get_stage_elem_str
         expression: str = (
             f'{y.variable_name} = {self.variable_name}.pageY - '
             f'{get_stage_elem_str()}.offset().top;'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     @property
-    def local_x(self) -> Int:
+    def local_x(self) -> ap.Int:
         """
         Get the local x-coordinate of the event listening instance.
         For example, if a Sprite instance is clicked, this value will be
@@ -114,11 +112,11 @@ class MouseEvent(Event, Generic[T]):
         x : Int
             x-coordinate.
         """
-        x: Int = Int(0)
+        x: ap.Int = ap.Int(0)
         self._append_local_x_getter_expression(x=x)
         return x
 
-    def _append_local_x_getter_expression(self, x: Int) -> None:
+    def _append_local_x_getter_expression(self, x: ap.Int) -> None:
         """
         Append local_x getter property expression to file.
 
@@ -127,17 +125,16 @@ class MouseEvent(Event, Generic[T]):
         x : Int
             Target x-coordinate value.
         """
-        from apysc import append_js_expression
-        stage_x: Int = self.stage_x
+        stage_x: ap.Int = self.stage_x
         this: T = self.this
         expression: str = (
             f'{x.variable_name} = {stage_x.variable_name} - '
             f'get_total_x({this.variable_name});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     @property
-    def local_y(self) -> Int:
+    def local_y(self) -> ap.Int:
         """
         Get the local y-coordinate of the event listening instance.
         For example, if a Sprite instance is clicked, this value will be
@@ -148,11 +145,11 @@ class MouseEvent(Event, Generic[T]):
         y : Int
             y-coordinate.
         """
-        y: Int = Int(0)
+        y: ap.Int = ap.Int(0)
         self._append_local_y_getter_expression(y=y)
         return y
 
-    def _append_local_y_getter_expression(self, y: Int) -> None:
+    def _append_local_y_getter_expression(self, y: ap.Int) -> None:
         """
         Append local_y getter property expression to file.
 
@@ -161,11 +158,10 @@ class MouseEvent(Event, Generic[T]):
         y : Int
             Target y-coordinate value.
         """
-        from apysc import append_js_expression
-        stage_y: Int = self.stage_y
+        stage_y: ap.Int = self.stage_y
         this: T = self.this
         expression: str = (
             f'{y.variable_name} = {stage_y.variable_name} - '
             f'get_total_y({this.variable_name});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)

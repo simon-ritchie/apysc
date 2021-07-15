@@ -137,13 +137,13 @@ class CustomEventInterface(BlankObjectInterface):
         name : str
             Handler's name.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         blank_object_variable_name: str = self.blank_object_variable_name
         expression: str = (
             f'$({blank_object_variable_name})'
             f'.on("{custom_event_type_str}", {name});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def trigger_custom_event(
             self, custom_event_type: Union[CustomEventType, str]) -> None:
@@ -155,7 +155,7 @@ class CustomEventInterface(BlankObjectInterface):
         custom_event_type : CustomEventType or str
             Target custom event type.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         blank_object_variable_name: str = self.blank_object_variable_name
         custom_event_type_str: str = self._get_custom_event_type_str(
             custom_event_type=custom_event_type)
@@ -163,4 +163,4 @@ class CustomEventInterface(BlankObjectInterface):
             f'$({blank_object_variable_name})'
             f'.trigger("{custom_event_type_str}");'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)

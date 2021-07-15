@@ -3,14 +3,14 @@
 
 from typing import Dict
 
-from apysc import Int
+import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class XInterface(VariableNameInterface, RevertInterface):
 
-    _x: Int
+    _x: ap.Int
 
     def _initialize_x_if_not_initialized(self) -> None:
         """
@@ -18,10 +18,10 @@ class XInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_x'):
             return
-        self._x = Int(0)
+        self._x = ap.Int(0)
 
     @property
-    def x(self) -> Int:
+    def x(self) -> ap.Int:
         """
         Get a x-coordinate.
 
@@ -35,7 +35,7 @@ class XInterface(VariableNameInterface, RevertInterface):
         return value_util.get_copy(value=self._x)
 
     @x.setter
-    def x(self, value: Int) -> None:
+    def x(self, value: ap.Int) -> None:
         """
         Update x-coordinate.
 
@@ -48,7 +48,7 @@ class XInterface(VariableNameInterface, RevertInterface):
         from apysc._validation import number_validation
         if not isinstance(value, NumberValueInterface):
             number_validation.validate_integer(integer=value)
-            value = Int(value=value)
+            value = ap.Int(value=value)
         self._x = value
         self._x._append_incremental_calc_substitution_expression()
         self._append_x_update_expression()
@@ -57,7 +57,6 @@ class XInterface(VariableNameInterface, RevertInterface):
         """
         Append x position updating expression.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         self._initialize_x_if_not_initialized()
         value_str: str = value_util.get_value_str_for_expression(
@@ -65,7 +64,7 @@ class XInterface(VariableNameInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name}.x({value_str});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     _x_snapshots: Dict[str, int]
 

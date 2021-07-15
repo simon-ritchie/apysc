@@ -70,21 +70,21 @@ class Event(Generic[T], VariableNameInterface):
         """
         Stop event propagation.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         expression: str = (
             f'{self.variable_name}.stopPropagation();'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def prevent_default(self) -> None:
         """
         Prevent event's default behavior.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         expression: str = (
             f'{self.variable_name}.preventDefault();'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     @property
     def this(self) -> T:

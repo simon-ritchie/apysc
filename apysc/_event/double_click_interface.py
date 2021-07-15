@@ -32,8 +32,7 @@ class DoubleClickInterface(MouseEventInterfaceBase):
         name : str
             Handler's name.
         """
-        from apysc import MouseEvent
-        from apysc import MouseEventType
+        import apysc as ap
         from apysc._event.handler import append_handler_expression
         from apysc._event.handler import get_handler_name
         from apysc._type.variable_name_interface import VariableNameInterface
@@ -45,8 +44,8 @@ class DoubleClickInterface(MouseEventInterfaceBase):
             handler=handler, handlers_dict=self._dblclick_handlers,
             options=options)
         self._append_mouse_event_binding_expression(
-            name=name, mouse_event_type=MouseEventType.DBLCLICK)
-        e: MouseEvent = MouseEvent(this=self_instance)
+            name=name, mouse_event_type=ap.MouseEventType.DBLCLICK)
+        e: ap.MouseEvent = ap.MouseEvent(this=self_instance)
         append_handler_expression(
             handler_data=self._dblclick_handlers[name],
             handler_name=name, e=e)
@@ -70,18 +69,18 @@ class DoubleClickInterface(MouseEventInterfaceBase):
         handler : Handler
             Callable to be unbinded.
         """
-        from apysc import MouseEventType
+        import apysc as ap
         self._initialize_dblclick_handlers_if_not_initialized()
         self._unbind_mouse_event(
-            handler=handler, mouse_event_type=MouseEventType.DBLCLICK,
+            handler=handler, mouse_event_type=ap.MouseEventType.DBLCLICK,
             handlers_dict=self._dblclick_handlers)
 
     def unbind_dblclick_all(self) -> None:
         """
         Unbind all double click events.
         """
-        from apysc import MouseEventType
+        import apysc as ap
         self._initialize_dblclick_handlers_if_not_initialized()
         self._unbind_all_mouse_events(
-            mouse_event_type=MouseEventType.DBLCLICK,
+            mouse_event_type=ap.MouseEventType.DBLCLICK,
             handlers_dict=self._dblclick_handlers)

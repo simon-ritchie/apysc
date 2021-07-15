@@ -10,9 +10,7 @@ from typing import Optional
 from typing import TypeVar
 from typing import Union
 
-from apysc import Int
-from apysc import Number
-from apysc import String
+import apysc as ap
 from apysc._display.line_caps import LineCaps
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
 from apysc._display.line_dash_setting import LineDashSetting
@@ -21,16 +19,16 @@ from apysc._display.line_joints import LineJoints
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
 from apysc._type.revert_interface import RevertInterface
 
-StrOrString = TypeVar('StrOrString', str, String)
+StrOrString = TypeVar('StrOrString', str, ap.String)
 
 
 class LineStyleInterface(RevertInterface):
 
-    _line_color: String
-    _line_thickness: Int
-    _line_alpha: Number
-    _line_cap: String
-    _line_joints: String
+    _line_color: ap.String
+    _line_thickness: ap.Int
+    _line_alpha: ap.Number
+    _line_cap: ap.String
+    _line_joints: ap.String
     _line_dot_setting: Optional[LineDotSetting]
     _line_dash_setting: Optional[LineDashSetting]
     _line_round_dot_setting: Optional[LineRoundDotSetting]
@@ -38,8 +36,8 @@ class LineStyleInterface(RevertInterface):
 
     def line_style(
             self, color: StrOrString,
-            thickness: Union[int, Int] = 1,
-            alpha: Union[float, Number] = 1.0,
+            thickness: Union[int, ap.Int] = 1,
+            alpha: Union[float, ap.Number] = 1.0,
             cap: Optional[LineCaps] = None,
             joints: Optional[LineJoints] = None,
             dot_setting: Optional[LineDotSetting] = None,
@@ -102,11 +100,11 @@ class LineStyleInterface(RevertInterface):
         self._line_color.value = color
         number_validation.validate_integer(integer=thickness)
         number_validation.validate_num_is_gt_zero(num=thickness)
-        self._line_thickness = Int(thickness)
+        self._line_thickness = ap.Int(thickness)
         number_validation.validate_num(num=alpha)
         if not isinstance(alpha, NumberValueInterface):
             alpha = cast.to_float_from_int(int_or_float=alpha)
-            alpha = Number(alpha)
+            alpha = ap.Number(alpha)
         color_validation.validate_alpha_range(alpha=alpha)
         self._line_alpha = alpha
         self._set_line_cap(cap=cap)
@@ -131,7 +129,7 @@ class LineStyleInterface(RevertInterface):
         if joints is None:
             joints = LineJoints.MITER
         validate_line_joints(joints=joints)
-        self._line_joints = String(joints.value)
+        self._line_joints = ap.String(joints.value)
 
     def _set_line_cap(self, cap: Optional[LineCaps]) -> None:
         """
@@ -146,7 +144,7 @@ class LineStyleInterface(RevertInterface):
         if cap is None:
             cap = LineCaps.BUTT
         validate_line_cap(cap=cap)
-        self._line_cap = String(cap.value)
+        self._line_cap = ap.String(cap.value)
 
     def _initialize_line_color_if_not_initialized(self) -> None:
         """
@@ -155,7 +153,7 @@ class LineStyleInterface(RevertInterface):
         """
         if hasattr(self, '_line_color'):
             return
-        self._line_color = String('')
+        self._line_color = ap.String('')
 
     def _initialize_line_thickness_if_not_initialized(self) -> None:
         """
@@ -164,7 +162,7 @@ class LineStyleInterface(RevertInterface):
         """
         if hasattr(self, '_line_thickness'):
             return
-        self._line_thickness = Int(1)
+        self._line_thickness = ap.Int(1)
 
     def _initialize_line_alpha_if_not_initialized(self) -> None:
         """
@@ -173,7 +171,7 @@ class LineStyleInterface(RevertInterface):
         """
         if hasattr(self, '_line_alpha'):
             return
-        self._line_alpha = Number(1.0)
+        self._line_alpha = ap.Number(1.0)
 
     def _initialize_line_cap_if_not_initialized(self) -> None:
         """
@@ -181,7 +179,7 @@ class LineStyleInterface(RevertInterface):
         """
         if hasattr(self, '_line_cap'):
             return
-        self._line_cap = String(LineCaps.BUTT.value)
+        self._line_cap = ap.String(LineCaps.BUTT.value)
 
     def _initialize_line_joints_if_not_initialized(self) -> None:
         """
@@ -189,7 +187,7 @@ class LineStyleInterface(RevertInterface):
         """
         if hasattr(self, '_line_joints'):
             return
-        self._line_joints = String(LineJoints.MITER.value)
+        self._line_joints = ap.String(LineJoints.MITER.value)
 
     def _initialize_line_dot_setting_if_not_initialized(self) -> None:
         """
@@ -228,7 +226,7 @@ class LineStyleInterface(RevertInterface):
         self._line_dash_dot_setting = None
 
     @property
-    def line_color(self) -> String:
+    def line_color(self) -> ap.String:
         """
         Get current line color.
 
@@ -243,7 +241,7 @@ class LineStyleInterface(RevertInterface):
         return value_util.get_copy(value=self._line_color)
 
     @property
-    def line_thickness(self) -> Int:
+    def line_thickness(self) -> ap.Int:
         """
         Get current line thickness.
 
@@ -257,7 +255,7 @@ class LineStyleInterface(RevertInterface):
         return value_util.get_copy(value=self._line_thickness)
 
     @property
-    def line_alpha(self) -> Number:
+    def line_alpha(self) -> ap.Number:
         """
         Get current line color opacity.
 
@@ -272,7 +270,7 @@ class LineStyleInterface(RevertInterface):
         return value_util.get_copy(value=self._line_alpha)
 
     @property
-    def line_cap(self) -> String:
+    def line_cap(self) -> ap.String:
         """
         Get current line cap (edge) style setting.
 
@@ -285,7 +283,7 @@ class LineStyleInterface(RevertInterface):
         return self._line_cap
 
     @property
-    def line_joints(self) -> String:
+    def line_joints(self) -> ap.String:
         """
         Get current line joints (vertices) style setting.
 

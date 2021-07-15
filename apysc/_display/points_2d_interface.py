@@ -4,7 +4,7 @@
 from typing import Dict
 from typing import Tuple
 
-from apysc import Array
+import apysc as ap
 from apysc._geom.point2d import Point2D
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -12,7 +12,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 class Points2DInterface(VariableNameInterface, RevertInterface):
 
-    _points: Array[Point2D]
+    _points: ap.Array[Point2D]
 
     def _initialize_points_if_not_initialized(self) -> None:
         """
@@ -20,10 +20,10 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_points'):
             return
-        self._points = Array([])
+        self._points = ap.Array([])
 
     @property
-    def points(self) -> Array[Point2D]:
+    def points(self) -> ap.Array[Point2D]:
         """
         Get current points.
 
@@ -36,7 +36,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         return self._points
 
     @points.setter
-    def points(self, value: Array[Point2D]) -> None:
+    def points(self, value: ap.Array[Point2D]) -> None:
         """
         Update points value.
 
@@ -93,7 +93,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         )
         return variable_name, expression
 
-    def _append_points_update_expression(self, value: Array) -> None:
+    def _append_points_update_expression(self, value: ap.Array) -> None:
         """
         Append points updating expression to file.
 
@@ -102,13 +102,12 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         value : Array
             Points value to set.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{self._points.variable_name} = {value.variable_name};'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
-    _points_snapshots: Dict[str, Array]
+    _points_snapshots: Dict[str, ap.Array]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

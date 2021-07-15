@@ -4,14 +4,14 @@
 from typing import Dict
 from typing import Union
 
-from apysc import Int
+import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class RadiusInterface(VariableNameInterface, RevertInterface):
 
-    _radius: Int
+    _radius: ap.Int
 
     def _initialize_radius_if_not_initialized(self) -> None:
         """
@@ -19,10 +19,10 @@ class RadiusInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_radius'):
             return
-        self._radius = Int(0)
+        self._radius = ap.Int(0)
 
     @property
-    def radius(self) -> Int:
+    def radius(self) -> ap.Int:
         """
         Get radius value.
 
@@ -36,7 +36,7 @@ class RadiusInterface(VariableNameInterface, RevertInterface):
         return value_util.get_copy(value=self._radius)
 
     @radius.setter
-    def radius(self, value: Int) -> None:
+    def radius(self, value: ap.Int) -> None:
         """
         Update radius value.
 
@@ -52,7 +52,7 @@ class RadiusInterface(VariableNameInterface, RevertInterface):
         self._radius._append_incremental_calc_substitution_expression()
         self._append_radius_update_expression()
 
-    def _get_converted_radius_int(self, radius: Union[int, Int]) -> Int:
+    def _get_converted_radius_int(self, radius: Union[int, ap.Int]) -> ap.Int:
         """
         Get a radius converted Int instance.
 
@@ -66,15 +66,14 @@ class RadiusInterface(VariableNameInterface, RevertInterface):
         radius : Int
             Type converted radius value.
         """
-        if not isinstance(radius, Int):
-            return Int(radius)
+        if not isinstance(radius, ap.Int):
+            return ap.Int(radius)
         return radius
 
     def _append_radius_update_expression(self) -> None:
         """
         Append radius value updating expression.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         self._initialize_radius_if_not_initialized()
         value_str: str = value_util.get_value_str_for_expression(
@@ -82,7 +81,7 @@ class RadiusInterface(VariableNameInterface, RevertInterface):
         expression: str = (
             f'{self.variable_name}.radius({value_str});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     _radius_snapshots: Dict[str, int]
 

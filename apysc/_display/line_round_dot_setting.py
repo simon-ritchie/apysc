@@ -3,15 +3,14 @@
 
 from typing import Union
 
-from apysc import Dictionary
-from apysc import Int
+import apysc as ap
 
 
-class LineRoundDotSetting(Dictionary):
+class LineRoundDotSetting(ap.Dictionary):
 
     def __init__(
-            self, round_size: Union[int, Int],
-            space_size: Union[int, Int]) -> None:
+            self, round_size: Union[int, ap.Int],
+            space_size: Union[int, ap.Int]) -> None:
         """
         Round dot setting class for line.
 
@@ -27,15 +26,15 @@ class LineRoundDotSetting(Dictionary):
         from apysc._validation import number_validation
         number_validation.validate_nums_are_int_and_gt_zero(
             nums=[round_size, space_size])
-        round_size_: Int = get_copied_int_from_builtin_val(integer=round_size)
-        space_size_: Int = get_copied_int_from_builtin_val(integer=space_size)
+        round_size_: ap.Int = get_copied_int_from_builtin_val(integer=round_size)
+        space_size_: ap.Int = get_copied_int_from_builtin_val(integer=space_size)
         super(LineRoundDotSetting, self).__init__({
             'round_size': round_size_,
             'space_size': space_size_,
         })
 
     @property
-    def round_size(self) -> Int:
+    def round_size(self) -> ap.Int:
         """
         Get a round size setting.
 
@@ -47,7 +46,7 @@ class LineRoundDotSetting(Dictionary):
         return self['round_size']
 
     @property
-    def space_size(self) -> Int:
+    def space_size(self) -> ap.Int:
         """
         Get a space size setting.
 

@@ -4,7 +4,7 @@
 from typing import Any
 from typing import Union
 
-from apysc import Int
+import apysc as ap
 from apysc._display.cx_interface import CxInterface
 from apysc._display.cy_interface import CyInterface
 from apysc._display.line_base import LineBase
@@ -18,9 +18,9 @@ class Circle(CxInterface, CyInterface, LineBase, RadiusInterface):
     def __init__(
             self,
             parent: _Graphics,
-            x: Union[int, Int],
-            y: Union[int, Int],
-            radius: Union[int, Int]) -> None:
+            x: Union[int, ap.Int],
+            y: Union[int, ap.Int],
+            radius: Union[int, ap.Int]) -> None:
         """
         Create a circle vector graphics.
 
@@ -52,8 +52,8 @@ class Circle(CxInterface, CyInterface, LineBase, RadiusInterface):
 
     def _set_center_coordinates(
             self,
-            x: Union[int, Int],
-            y: Union[int, Int]) -> None:
+            x: Union[int, ap.Int],
+            y: Union[int, ap.Int]) -> None:
         """
         Set a center x-coordinate and a center y-coordinate.
 
@@ -73,7 +73,6 @@ class Circle(CxInterface, CyInterface, LineBase, RadiusInterface):
         """
         Append a construcor expression to the file.
         """
-        from apysc import append_js_expression
         from apysc._display.stage import get_stage_variable_name
         from apysc._type import value_util
         stage_variable_name: str = get_stage_variable_name()
@@ -87,7 +86,7 @@ class Circle(CxInterface, CyInterface, LineBase, RadiusInterface):
         expression = self._append_basic_vals_expression(
             expression=expression, indent_num=2)
         expression += '\n  });'
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def __repr__(self) -> str:
         """

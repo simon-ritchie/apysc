@@ -3,7 +3,7 @@
 
 from typing import Any
 
-from apysc import Array
+import apysc as ap
 from apysc._display.append_line_point_interface import AppendLinePointInterface
 from apysc._display.line_base import LineBase
 from apysc._geom.point2d import Point2D
@@ -14,7 +14,7 @@ _Graphics = Any
 class Polyline(LineBase, AppendLinePointInterface):
 
     def __init__(
-            self, parent: _Graphics, points: Array[Point2D]) -> None:
+            self, parent: _Graphics, points: ap.Array[Point2D]) -> None:
         """
         Create a polyline vector graphic.
 
@@ -58,7 +58,6 @@ class Polyline(LineBase, AppendLinePointInterface):
         """
         Append constructor expression to file.
         """
-        from apysc import append_js_expression
         from apysc._display.stage import get_stage_variable_name
         stage_variable_name: str = get_stage_variable_name()
         points_var_name: str
@@ -74,5 +73,5 @@ class Polyline(LineBase, AppendLinePointInterface):
         expression = self._append_basic_vals_expression(
             expression=expression, indent_num=2)
         expression += '\n  });'
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
         self._points_var_name = points_var_name

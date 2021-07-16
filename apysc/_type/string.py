@@ -8,9 +8,10 @@ from typing import Union
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._event.custom_event_interface import CustomEventInterface
 
 
-class String(CopyInterface, RevertInterface):
+class String(CopyInterface, RevertInterface, CustomEventInterface):
 
     _initial_value: Union[str, Any]
     _value: str

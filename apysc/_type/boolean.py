@@ -9,9 +9,10 @@ import apysc as ap
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._event.custom_event_interface import CustomEventInterface
 
 
-class Boolean(CopyInterface, RevertInterface):
+class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
 
     _initial_value: Union[bool, int, Any]
     _value: bool

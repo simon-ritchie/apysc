@@ -5,14 +5,12 @@ from typing import Any
 from typing import Dict
 from typing import Union
 
-from apysc import Int
-from apysc import Number
-from apysc import String
+import apysc as ap
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.dictionary_structure import DictionaryStructure
 from apysc._type.revert_interface import RevertInterface
 
-Key = Union[str, int, float, String, Int, Number]
+Key = Union[str, int, float, ap.String, ap.Int, ap.Number]
 
 
 class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
@@ -47,12 +45,11 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         """
         Append constructor expression to file.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         value_str: str = value_util.get_value_str_for_expression(
             value=self._initial_value)
         expression: str = f'var {self.variable_name} = {value_str};'
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def _get_dict_value(
             self, value: Union[Dict[Key, Any], Any]) -> Dict[Any, Any]:
@@ -132,11 +129,10 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         value : dict or Dictionary.
             Dictionary value to set.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         value_str: str = value_util.get_value_str_for_expression(value=value)
         expression: str = f'{self.variable_name} = {value_str};'
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     _value_snapshot: Dict[str, Dict[Key, Any]]
 
@@ -194,7 +190,7 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         return repr_str
 
     @property
-    def length(self) -> Int:
+    def length(self) -> ap.Int:
         """
         Get length of this dictionary values.
 
@@ -203,11 +199,11 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         length : Int
             This dictionary value's length.
         """
-        length: Int = Int(len(self._value))
+        length: ap.Int = ap.Int(len(self._value))
         self._append_length_expression(length=length)
         return length
 
-    def _append_length_expression(self, length: Int) -> None:
+    def _append_length_expression(self, length: ap.Int) -> None:
         """
         Append length method expression to file.
 
@@ -216,12 +212,11 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         length : Int
             Created length Int variable.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{length.variable_name} = '
             f'Object.keys({self.variable_name}).length;'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def __len__(self) -> None:
         """
@@ -245,14 +240,14 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         value : *
             Specified key's value.
         """
-        from apysc import AnyValue
+        import apysc as ap
         self._validate_key_type_is_str_or_numeric(key=key)
         key_: Key = self._get_builtin_type_key(key=key)
         has_key: bool = key_ in self._value
         if has_key:
             value: Any = self._value[key_]
         else:
-            value = AnyValue(None)
+            value = ap.AnyValue(None)
         self._append_getitem_expression(key=key, value=value)
         return value
 
@@ -271,7 +266,7 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         key : str or int or float
             Built-in type's key.
         """
-        if isinstance(key, (String, Int, Number)):
+        if isinstance(key, (ap.String, ap.Int, ap.Number)):
             return key._value
         return key
 
@@ -286,18 +281,16 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         value : *
             Specified key's value.
         """
-        from apysc import AnyValue
-        from apysc import append_js_expression
         from apysc._type import value_util
         from apysc._type.variable_name_interface import VariableNameInterface
         if not isinstance(value, VariableNameInterface):
-            value = AnyValue(None)
+            value = ap.AnyValue(None)
         key_str: str = value_util.get_value_str_for_expression(value=key)
         expression: str = (
             f'var {value.variable_name} = '
             f'{self.variable_name}[{key_str}];'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def _validate_key_type_is_str_or_numeric(self, key: Key) -> None:
         """
@@ -314,7 +307,7 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         ValueError
             If key type is not str, String, int, Int, float, or Number.
         """
-        if isinstance(key, (str, String, int, Int, float, Number)):
+        if isinstance(key, (str, ap.String, int, ap.Int, float, ap.Number)):
             return
         raise ValueError(
             f'Unsupported key type is specified: {type(key)}, {key}'
@@ -346,14 +339,13 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         value : *
             Any value to set.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         key_str: str = value_util.get_value_str_for_expression(value=key)
         value_str: str = value_util.get_value_str_for_expression(value=value)
         expression: str = (
             f'{self.variable_name}[{key_str}] = {value_str};'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def __delitem__(self, key: Key) -> None:
         """
@@ -378,10 +370,9 @@ class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
         key : Key
             Dictionary key to delete.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         key_str: str = value_util.get_value_str_for_expression(value=key)
         expression: str = (
             f'delete {self.variable_name}[{key_str}];'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)

@@ -44,7 +44,7 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
         result_variable_name : str
             Copied value's variable name.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         from apysc._expression import event_handler_scope
         evt_handler_scope_count: int = event_handler_scope.\
             get_current_event_handler_scope_count()
@@ -54,7 +54,7 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
             f'{result_variable_name} = '
             f'cpy({self.variable_name});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def _append_copy_expression(self, result_variable_name: str) -> None:
         """
@@ -65,9 +65,9 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
         result_variable_name : str
             Copied value's variable name.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         expression: str = (
             f'var {result_variable_name} = '
             f'cpy({self.variable_name});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)

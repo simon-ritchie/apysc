@@ -5,7 +5,7 @@ from typing import Any
 from typing import Dict
 from typing import Union
 
-from apysc import Int
+import apysc as ap
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -16,7 +16,7 @@ class Boolean(CopyInterface, RevertInterface):
     _initial_value: Union[bool, int, Any]
     _value: bool
 
-    def __init__(self, value: Union[bool, int, Int, Any]) -> None:
+    def __init__(self, value: Union[bool, int, ap.Int, Any]) -> None:
         """
         Boolean class for apysc library.
 
@@ -43,7 +43,7 @@ class Boolean(CopyInterface, RevertInterface):
             self._append_constructor_expression()
 
     def _get_bool_from_arg_value(
-            self, value: Union[bool, int, Int, Any]) -> bool:
+            self, value: Union[bool, int, ap.Int, Any]) -> bool:
         """
         Get bool value from specified argument value.
 
@@ -74,7 +74,6 @@ class Boolean(CopyInterface, RevertInterface):
         """
         Append constructor expression to file.
         """
-        from apysc import append_js_expression
         from apysc._type.variable_name_interface import VariableNameInterface
         expression: str = f'var {self.variable_name} = '
         if isinstance(self._initial_value, VariableNameInterface):
@@ -83,7 +82,7 @@ class Boolean(CopyInterface, RevertInterface):
             expression += 'true;'
         else:
             expression += 'false;'
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     @property
     def value(self) -> Union[bool, int, Any]:
@@ -98,7 +97,7 @@ class Boolean(CopyInterface, RevertInterface):
         return self._value
 
     @value.setter
-    def value(self, value: Union[bool, int, Int, Any]) -> None:
+    def value(self, value: Union[bool, int, ap.Int, Any]) -> None:
         """
         Set boolean value.
 
@@ -124,7 +123,6 @@ class Boolean(CopyInterface, RevertInterface):
         value : bool or VariableNameInterface
             Any value to set.
         """
-        from apysc import append_js_expression
         from apysc._type.variable_name_interface import VariableNameInterface
         expression: str = f'{self.variable_name} = '
         if isinstance(value, VariableNameInterface):
@@ -133,10 +131,10 @@ class Boolean(CopyInterface, RevertInterface):
             expression += 'true;'
         else:
             expression += 'false;'
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def _set_value_and_skip_expression_appending(
-            self, value: Union[bool, int, Int, Any]) -> None:
+            self, value: Union[bool, int, ap.Int, Any]) -> None:
         """
         Update value attribute and skip expression appending.
 
@@ -223,7 +221,7 @@ class Boolean(CopyInterface, RevertInterface):
             result = Boolean(self._value == other._value)
             self._append_eq_expression(result=result, other=other)
             return result
-        elif isinstance(other, Int):
+        elif isinstance(other, ap.Int):
             other_ = bool(other.value)
             result = Boolean(self._value == other_)
         else:
@@ -247,7 +245,7 @@ class Boolean(CopyInterface, RevertInterface):
         ValueError
             If other value type is not Boolean, bool, Int, and int.
         """
-        ACCEPTABLE_TYPES: tuple = (Boolean, bool, Int, int)
+        ACCEPTABLE_TYPES: tuple = (Boolean, bool, ap.Int, int)
         if isinstance(other, ACCEPTABLE_TYPES):
             return
         raise ValueError(
@@ -268,15 +266,14 @@ class Boolean(CopyInterface, RevertInterface):
         other : Boolean or Int
             Other value to compare.
         """
-        from apysc import append_js_expression
         other_str: str = other.variable_name
-        if isinstance(other, Int):
+        if isinstance(other, ap.Int):
             other_str = f'Boolean({other_str});'
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} === {other_str};'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def __ne__(self, other: Any) -> Any:
         """
@@ -294,7 +291,7 @@ class Boolean(CopyInterface, RevertInterface):
         """
         result: Boolean = self == other
         result = result.not_
-        if isinstance(other, (Boolean, Int)):
+        if isinstance(other, (Boolean, ap.Int)):
             self._append_ne_expression(result=result, other=other)
         return result
 
@@ -311,15 +308,14 @@ class Boolean(CopyInterface, RevertInterface):
         other : Boolean or Int
             Other value to compare.
         """
-        from apysc import append_js_expression
         other_str: str = other.variable_name
-        if isinstance(other, Int):
+        if isinstance(other, ap.Int):
             other_str = f'Boolean({other_str});'
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} !== {other_str};'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     @property
     def not_(self) -> Any:
@@ -345,9 +341,8 @@ class Boolean(CopyInterface, RevertInterface):
         result : Boolean
             Result Boolean value.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{result.variable_name} = '
             f'!{self.variable_name};'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)

@@ -9,11 +9,14 @@ import apysc as ap
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.dictionary_structure import DictionaryStructure
 from apysc._type.revert_interface import RevertInterface
+from apysc._event.custom_event_interface import CustomEventInterface
 
 Key = Union[str, int, float, ap.String, ap.Int, ap.Number]
 
 
-class Dictionary(CopyInterface, RevertInterface, DictionaryStructure):
+class Dictionary(
+        CopyInterface, RevertInterface, DictionaryStructure,
+        CustomEventInterface):
 
     _initial_value: Union[Dict[Key, Any], Any]
     _value: Dict[Key, Any]

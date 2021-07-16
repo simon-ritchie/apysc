@@ -9,9 +9,7 @@ from typing import Optional
 from typing import TypeVar
 from typing import Union
 
-from apysc import Boolean
-from apysc import Int
-from apysc import String
+import apysc as ap
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -71,7 +69,6 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         """
         Append constructor expression to file.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         expression: str = f'var {self.variable_name} = '
         if isinstance(self._initial_value, Array):
@@ -80,7 +77,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             value_str: str = value_util.get_value_str_for_expression(
                 value=self._value)
             expression += f'{value_str};'
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def _get_list_value(
             self, value: Union[List[Any], tuple, Any]) -> List[Any]:
@@ -161,7 +158,6 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         value : list or tuple or Array
             Iterable value (list, tuple, or Array) to set.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         expression: str = f'{self.variable_name} = '
         if isinstance(value, Array):
@@ -170,7 +166,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             value_str: str = value_util.get_value_str_for_expression(
                 value=value)
             expression += f'{value_str};'
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def append(self, value: T) -> None:
         """
@@ -206,13 +202,12 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         value : *
             Any value to append.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         value_str: str = value_util.get_value_str_for_expression(value=value)
         expression: str = (
             f'{self.variable_name}.push({value_str});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def extend(self, other_arr: Union[List[T], tuple, Any]) -> None:
         """
@@ -244,14 +239,13 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         other_arr : list or tuple or Array
             Other array-like value to concatenate.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         value_str: str = value_util.get_value_str_for_expression(
             value=other_arr)
         expression: str = (
             f'{self.variable_name} = {self.variable_name}'
             f'.concat({value_str});')
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def concat(self, other_arr: Union[List[T], tuple, Any]) -> Any:
         """
@@ -290,7 +284,6 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         other_arr : list or tuple or Array
             Other array-like value to concatenate.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         value_str: str = value_util.get_value_str_for_expression(
             value=other_arr)
@@ -298,10 +291,10 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             f'var {concatenated.variable_name} = '
             f'{self.variable_name}.concat({value_str});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def insert(
-            self, index: Union[int, Int], value: T) -> None:
+            self, index: Union[int, ap.Int], value: T) -> None:
         """
         Insert value to this array at a specified index.
         This behaves same as insert_at method.
@@ -315,20 +308,19 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         """
         from apysc._validation import number_validation
         number_validation.validate_integer(integer=index)
-        from apysc import Int
-        if isinstance(index, Int):
+        if isinstance(index, ap.Int):
             index_: int = int(index.value)
         else:
             index_ = index
         value_: Any
-        if isinstance(value, Int):
+        if isinstance(value, ap.Int):
             value_ = int(value.value)
         else:
             value_ = value
         self._value.insert(index_, value_)
         self._append_insert_expression(index=index, value=value)
 
-    def insert_at(self, index: Union[int, Int], value: T) -> None:
+    def insert_at(self, index: Union[int, ap.Int], value: T) -> None:
         """
         Insert value to this array at a specified index.
         This behaves same as insert method.
@@ -343,7 +335,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         self.insert(index=index, value=value)
 
     def _append_insert_expression(
-            self, index: Union[int, Int], value: T) -> None:
+            self, index: Union[int, ap.Int], value: T) -> None:
         """
         Append insert method expression to file.
 
@@ -354,14 +346,13 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         value : *
             Any value to append.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         value_str: str = value_util.get_value_str_for_expression(value=value)
         index_str: str = value_util.get_value_str_for_expression(value=index)
         expression: str = (
             f'{self.variable_name}.splice({index_str}, 0, {value_str});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def pop(self) -> T:
         """
@@ -385,11 +376,10 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         value : *
             Removed value.
         """
-        from apysc import append_js_expression
         expression: str = f'{self.variable_name}.pop();'
         if isinstance(value, VariableNameInterface):
             expression = f'{value.variable_name} = {expression}'
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def remove(self, value: T) -> None:
         """
@@ -412,7 +402,6 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         value : Any
             Value to remove.
         """
-        from apysc import append_js_expression
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
         from apysc._type import value_util
@@ -423,9 +412,9 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             f'var {index_var_name} = _.indexOf'
             f'({self.variable_name}, {value_str});'
             f'\n{self.variable_name}.splice({index_var_name}, 1);')
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
-    def remove_at(self, index: Union[int, Int]) -> None:
+    def remove_at(self, index: Union[int, ap.Int]) -> None:
         """
         Remove specified index value from this array.
 
@@ -435,8 +424,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             Index to remove value.
         """
         self._validate_index_type_is_int(index=index)
-        from apysc import Int
-        if isinstance(index, Int):
+        if isinstance(index, ap.Int):
             index_: int = int(index.value)
         else:
             index_ = index
@@ -444,7 +432,8 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             del self._value[index_]
         self._append_remove_at_expression(index=index)
 
-    def _append_remove_at_expression(self, index: Union[int, Int]) -> None:
+    def _append_remove_at_expression(
+            self, index: Union[int, ap.Int]) -> None:
         """
         Append remove_at method expression to file.
 
@@ -453,13 +442,12 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         index : int or Int
             Index to remove value.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         index_str: str = value_util.get_value_str_for_expression(value=index)
         expression: str = (
             f'{self.variable_name}.splice({index_str}, 1);'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def reverse(self) -> None:
         """
@@ -472,11 +460,10 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         """
         Append reverse method expression to file.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{self.variable_name}.reverse();'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def sort(self, ascending: bool = True) -> None:
         """
@@ -497,16 +484,15 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         """
         Append sort method expression to file.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{self.variable_name}.sort();'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def slice(
             self,
-            start: Optional[Union[int, Int]] = None,
-            end: Optional[Union[int, Int]] = None) -> Any:
+            start: Optional[Union[int, ap.Int]] = None,
+            end: Optional[Union[int, ap.Int]] = None) -> Any:
         """
         Slice this array by specified start and end indexes.
 
@@ -534,12 +520,11 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         >>> arr.slice(end=2)
         [1, 2]
         """
-        from apysc import Int
-        if isinstance(start, Int):
+        if isinstance(start, ap.Int):
             start_: Optional[int] = int(start.value)
         else:
             start_ = start
-        if isinstance(end, Int):
+        if isinstance(end, ap.Int):
             end_: Optional[int] = int(end.value)
         else:
             end_ = end
@@ -552,8 +537,8 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
     def _append_slice_expression(
             self,
             sliced_arr: VariableNameInterface,
-            start: Optional[Union[int, Int]],
-            end: Optional[Union[int, Int]]) -> None:
+            start: Optional[Union[int, ap.Int]],
+            end: Optional[Union[int, ap.Int]]) -> None:
         """
         Append slice method expression to file.
 
@@ -566,7 +551,6 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         end : int or Int or None
             Slicing end index.
         """
-        from apysc import append_js_expression
         if start is None:
             start = 0
         expression: str = (
@@ -577,9 +561,9 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         if end is not None:
             expression += f', {end}'
         expression += ');'
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
-    def __getitem__(self, index: Union[int, Int]) -> T:
+    def __getitem__(self, index: Union[int, ap.Int]) -> T:
         """
         Get a specified index single value.
 
@@ -599,18 +583,17 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         ValueError
             If specified index type is not int and Int.
         """
-        from apysc import AnyValue
         self._validate_index_type_is_int(index=index)
         index_: int = self._get_builtin_int_from_index(index=index)
         value: Any
         if len(self._value) <= index:
-            value = AnyValue(None)
+            value = ap.AnyValue(None)
         else:
             value = self._value[index_]
         self._append_getitem_expression(index=index, value=value)
         return value
 
-    def _get_builtin_int_from_index(self, index: Union[int, Int]) -> int:
+    def _get_builtin_int_from_index(self, index: Union[int, ap.Int]) -> int:
         """
         Get Python builtin integer from index value.
 
@@ -624,12 +607,11 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         builtin_int_index : int
             Python builtin integer index value.
         """
-        from apysc import Int
-        if isinstance(index, Int):
+        if isinstance(index, ap.Int):
             return int(index.value)
         return index
 
-    def _validate_index_type_is_int(self, index: Union[int, Int]) -> None:
+    def _validate_index_type_is_int(self, index: Union[int, ap.Int]) -> None:
         """
         Validate whether index value type is int (or Int) or not.
 
@@ -643,15 +625,14 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         ValueError
             If index type is not int or Int type.
         """
-        from apysc import Int
-        if isinstance(index, (int, Int)):
+        if isinstance(index, (int, ap.Int)):
             return
         raise ValueError(
             'Currently indexing is only supported int or Int types.'
             ' If you need to slice array please use slice method.')
 
     def _append_getitem_expression(
-            self, index: Union[int, Int],
+            self, index: Union[int, ap.Int],
             value: T) -> None:
         """
         Append __getitem__ expression to file.
@@ -663,12 +644,10 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         value : *
             Specified index's value.
         """
-        from apysc import AnyValue
-        from apysc import append_js_expression
         from apysc._type import value_util
         value_: VariableNameInterface
         if not isinstance(value, VariableNameInterface):
-            value_ = AnyValue(None)
+            value_ = ap.AnyValue(None)
         else:
             value_ = value
         index_str: str = value_util.get_value_str_for_expression(
@@ -677,9 +656,9 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             f'var {value_.variable_name} = '
             f'{self.variable_name}[{index_str}];'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
-    def __setitem__(self, index: Union[int, Int], value: T) -> None:
+    def __setitem__(self, index: Union[int, ap.Int], value: T) -> None:
         """
         Set value to a specified index.
 
@@ -702,7 +681,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         self._append_setitem_expression(index=index, value=value)
 
     def _append_setitem_expression(
-            self, index: Union[int, Int], value: T) -> None:
+            self, index: Union[int, ap.Int], value: T) -> None:
         """
         Append __setitem__ method expression to file.
 
@@ -714,7 +693,6 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         value : *
             Any value to set.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         index_str: str = value_util.get_value_str_for_expression(
             value=index)
@@ -724,9 +702,9 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             f'{self.variable_name}[{index_str}] = '
             f'{value_str};'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
-    def __delitem__(self, index: Union[int, Int]) -> None:
+    def __delitem__(self, index: Union[int, ap.Int]) -> None:
         """
         Delete specified index value from this array.
 
@@ -744,7 +722,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         self.remove_at(index=index)
 
     @property
-    def length(self) -> Int:
+    def length(self) -> ap.Int:
         """
         Get length of this array.
 
@@ -753,11 +731,11 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         length : Int
             This array's length.
         """
-        length: Int = Int(len(self._value))
+        length: ap.Int = ap.Int(len(self._value))
         self._append_length_expression(length=length)
         return length
 
-    def _append_length_expression(self, length: Int) -> None:
+    def _append_length_expression(self, length: ap.Int) -> None:
         """
         Append length method expression to file.
 
@@ -766,11 +744,10 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         length : Int
             Created length Int variable.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{length.variable_name} = {self.variable_name}.length;'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def __len__(self) -> None:
         """
@@ -780,7 +757,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             'Array instance can\'t apply len function.'
             ' Please use length property instead.')
 
-    def join(self, sep: Union[str, String]) -> String:
+    def join(self, sep: Union[str, ap.String]) -> ap.String:
         """
         Join this array values with specified separator string.
 
@@ -800,17 +777,17 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         >>> arr.join(sep=', ')
         '1, 2, 3'
         """
-        if isinstance(sep, String):
+        if isinstance(sep, ap.String):
             sep_: str = sep.value
         else:
             sep_ = sep
         values_: List[Any] = [str(value) for value in self._value]
-        joined: String = String(sep_.join(values_))
+        joined: ap.String = ap.String(sep_.join(values_))
         self._append_join_expression(joined=joined, sep=sep)
         return joined
 
     def _append_join_expression(
-            self, joined: String, sep: Union[str, String]) -> None:
+            self, joined: ap.String, sep: Union[str, ap.String]) -> None:
         """
         Append join method expression to file.
 
@@ -821,14 +798,13 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         sep : str or String
             Separator string.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         sep_str: str = value_util.get_value_str_for_expression(value=sep)
         expression: str = (
             f'{joined.variable_name} = {self.variable_name}'
             f'.join({sep_str});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def __str__(self) -> str:
         """
@@ -855,7 +831,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         )
         return repr_str
 
-    def index_of(self, value: T) -> Int:
+    def index_of(self, value: T) -> ap.Int:
         """
         Search specified value's index and return it.
 
@@ -870,7 +846,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             Found position of index. If value is not contains,
             -1 will be returned.
         """
-        index: Int = Int(-1)
+        index: ap.Int = ap.Int(-1)
         try:
             index_: int = self._value.index(value)
         except Exception:
@@ -880,7 +856,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         return index
 
     def _append_index_of_expression(
-            self, index: Int, value: T) -> None:
+            self, index: ap.Int, value: T) -> None:
         """
         Append index_of method expression to file.
 
@@ -892,7 +868,6 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         value : *
             Any value to search.
         """
-        from apysc import append_js_expression
         from apysc._type import value_util
         value_str: str = value_util.get_value_str_for_expression(
             value=value)
@@ -900,7 +875,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
             f'{index.variable_name} = {self.variable_name}'
             f'.indexOf({value_str});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def __eq__(self, other: Any) -> Any:
         """
@@ -916,11 +891,11 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         result : Boolean
             Comparison result.
         """
-        result: Boolean
+        result: ap.Boolean
         if isinstance(other, Array):
-            result = Boolean(self.value == other.value)
+            result = ap.Boolean(self.value == other.value)
         else:
-            result = Boolean(self.value == other)
+            result = ap.Boolean(self.value == other)
             other = self._convert_other_val_to_array(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_eq_expression(result=result, other=other)
@@ -948,7 +923,7 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         return other
 
     def _append_eq_expression(
-            self, result: Boolean, other: VariableNameInterface) -> None:
+            self, result: ap.Boolean, other: VariableNameInterface) -> None:
         """
         Append __eq__ expression to file.
 
@@ -959,12 +934,11 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         other : Array
             Array's other value to compare.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{result.variable_name} = '
             f'_.isEqual({self.variable_name}, {other.variable_name});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def __ne__(self, other: Any) -> Any:
         """
@@ -980,14 +954,14 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         result : Boolean
             Comparison result.
         """
-        result: Boolean = self == other
+        result: ap.Boolean = self == other
         result = result.not_
         if isinstance(other, Array):
             self._append_ne_expression(result=result, other=other)
         return result
 
     def _append_ne_expression(
-            self, result: Boolean, other: VariableNameInterface) -> None:
+            self, result: ap.Boolean, other: VariableNameInterface) -> None:
         """
         Append __ne__ expression to file.
 
@@ -998,12 +972,11 @@ class Array(CopyInterface, RevertInterface, Generic[T]):
         other : Array
             Array's other value to compare.
         """
-        from apysc import append_js_expression
         expression: str = (
             f'{result.variable_name} = '
             f'!_.isEqual({self.variable_name}, {other.variable_name});'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def __bool__(self) -> bool:
         """

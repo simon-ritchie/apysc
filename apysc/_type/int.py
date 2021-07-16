@@ -48,13 +48,13 @@ class Int(NumberValueInterface):
             Boolean value whether a specified value is Number
             instance or not.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         if not is_number_specified:
             return
         expression: str = (
             f'{self.variable_name} = parseInt({self.variable_name}, 10);'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def set_value_and_skip_expression_appending(
             self,

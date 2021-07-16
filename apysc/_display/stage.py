@@ -11,10 +11,10 @@ import apysc as ap
 from apysc._display.child_interface import ChildInterface
 from apysc._display.height_interface import HeightInterface
 from apysc._display.width_interface import WidthInterface
+from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
 from apysc._expression import expression_file_util
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._event.custom_event_interface import CustomEventInterface
 
 _STAGE_ELEM_ID_FILE_PATH: str = os.path.join(
     expression_file_util.EXPRESSION_ROOT_DIR, 'stage_elem_id.txt',

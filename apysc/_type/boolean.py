@@ -6,10 +6,10 @@ from typing import Dict
 from typing import Union
 
 import apysc as ap
+from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._event.custom_event_interface import CustomEventInterface
 
 
 class Boolean(CopyInterface, RevertInterface, CustomEventInterface):

@@ -5,11 +5,11 @@
 from typing import Optional
 from typing import Union
 
-from apysc import Int
+import apysc as ap
 
 
 def validate_size_is_int(
-        size: Union[int, Int], err_msg: Optional[str] = None) -> None:
+        size: Union[int, ap.Int], err_msg: Optional[str] = None) -> None:
     """
     Check that whether size is integer or not.
 
@@ -25,7 +25,7 @@ def validate_size_is_int(
     ValueError
         If not integer value is specified.
     """
-    if isinstance(size, (int, Int)):
+    if isinstance(size, (int, ap.Int)):
         return
     if err_msg is None:
         err_msg = (
@@ -35,7 +35,7 @@ def validate_size_is_int(
 
 
 def validate_size_is_gt_zero(
-        size: Union[int, Int], err_msg: Optional[str] = None) -> None:
+        size: Union[int, ap.Int], err_msg: Optional[str] = None) -> None:
     """
     Check that whether size is greater than zero or not.
 
@@ -61,7 +61,7 @@ def validate_size_is_gt_zero(
 
 
 def validate_size_is_gte_zero(
-        size: Union[int, Int], err_msg: Optional[str] = None) -> None:
+        size: Union[int, ap.Int], err_msg: Optional[str] = None) -> None:
     """
     Check that whether size is greater than or equal to zero or not.
 

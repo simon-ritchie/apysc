@@ -19,7 +19,7 @@ def test__fill_three_digit_hex_color_code() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_complement_hex_color() -> None:
-    from apysc import String
+    import apysc as ap
     hex_color_code_1: str = color_util.complement_hex_color(
         hex_color_code='0')
     assert hex_color_code_1 == '#000000'
@@ -35,22 +35,22 @@ def test_complement_hex_color() -> None:
     assert hex_color_code_3 == '#ffcc00'
     assert isinstance(hex_color_code_3, str)
 
-    hex_color_code_4: String = String('#222')
-    hex_color_code_5: String = color_util.complement_hex_color(
+    hex_color_code_4: ap.String = ap.String('#222')
+    hex_color_code_5: ap.String = color_util.complement_hex_color(
         hex_color_code=hex_color_code_4)
     assert hex_color_code_5 == '#222222'
-    assert isinstance(hex_color_code_4, String)
+    assert isinstance(hex_color_code_4, ap.String)
     assert hex_color_code_4.variable_name != hex_color_code_5.variable_name
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_complement_hex_color_expression() -> None:
-    from apysc import String
+    import apysc as ap
     from apysc._expression import expression_file_util
     expression_file_util.remove_expression_file()
 
-    string_1: String = String('#333')
-    string_2: String = color_util.complement_hex_color(
+    string_1: ap.String = ap.String('#333')
+    string_2: ap.String = color_util.complement_hex_color(
         hex_color_code=string_1)
     expression: str = expression_file_util.get_current_expression()
     var_name: str = string_2.variable_name

@@ -19,8 +19,8 @@ def validate_point_2d_type(point: Any) -> None:
     ValueError
         If scpecified value's type is not Point2D.
     """
-    from apysc import Point2D
-    if isinstance(point, Point2D):
+    import apysc as ap
+    if isinstance(point, ap.Point2D):
         return
     raise ValueError(
         f'Specified value\'s type is not Point2D: {type(point)}')

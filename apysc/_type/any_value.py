@@ -8,9 +8,10 @@ import apysc as ap
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._event.custom_event_interface import CustomEventInterface
 
 
-class AnyValue(CopyInterface, RevertInterface):
+class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
 
     _value: Any
 

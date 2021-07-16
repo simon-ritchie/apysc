@@ -97,6 +97,12 @@ The `Graphics` class handles each vector graphics drawing.
 
 ---
 
+**Common event interfaces**
+
+- [Bind and trigger custom event interfaces](bind_and_trigger_custom_event.md)
+
+---
+
 **MouseEvent class and mouse event binding**
 
 - [Common mouse event interfaces](mouse_event_common.md)

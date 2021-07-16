@@ -9,11 +9,14 @@ import apysc as ap
 from apysc._type.dictionary_structure import DictionaryStructure
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._event.custom_event_interface import CustomEventInterface
 
 _int = Union[int, ap.Int]
 
 
-class Point2D(VariableNameInterface, RevertInterface, DictionaryStructure):
+class Point2D(
+        VariableNameInterface, RevertInterface, DictionaryStructure,
+        CustomEventInterface):
 
     _x: ap.Int
     _y: ap.Int

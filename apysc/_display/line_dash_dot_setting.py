@@ -31,7 +31,8 @@ class LineDashDotSetting(ap.Dictionary):
             nums=[dot_size, dash_size, space_size])
         dot_size_: ap.Int = get_copied_int_from_builtin_val(integer=dot_size)
         dash_size_: ap.Int = get_copied_int_from_builtin_val(integer=dash_size)
-        space_size_: ap.Int = get_copied_int_from_builtin_val(integer=space_size)
+        space_size_: ap.Int = get_copied_int_from_builtin_val(
+            integer=space_size)
         super(LineDashDotSetting, self).__init__({
             'dot_size': dot_size_,
             'dash_size': dash_size_,

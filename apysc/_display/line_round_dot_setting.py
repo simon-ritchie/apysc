@@ -26,8 +26,10 @@ class LineRoundDotSetting(ap.Dictionary):
         from apysc._validation import number_validation
         number_validation.validate_nums_are_int_and_gt_zero(
             nums=[round_size, space_size])
-        round_size_: ap.Int = get_copied_int_from_builtin_val(integer=round_size)
-        space_size_: ap.Int = get_copied_int_from_builtin_val(integer=space_size)
+        round_size_: ap.Int = get_copied_int_from_builtin_val(
+            integer=round_size)
+        space_size_: ap.Int = get_copied_int_from_builtin_val(
+            integer=space_size)
         super(LineRoundDotSetting, self).__init__({
             'round_size': round_size_,
             'space_size': space_size_,

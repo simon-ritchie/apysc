@@ -39,8 +39,8 @@ def validate_stage(stage: Any) -> None:
     ValueError
         If specified instance is not stage type.
     """
-    from apysc import Stage
-    if isinstance(stage, Stage):
+    import apysc as ap
+    if isinstance(stage, ap.Stage):
         return
     raise ValueError(
         f'Specified instance is not Stage type: {type(stage)}')
@@ -84,8 +84,8 @@ def validate_sprite(sprite: Any) -> None:
     ValueError
         If specified instance is not Sprite type.
     """
-    from apysc import Sprite
-    if isinstance(sprite, Sprite):
+    import apysc as ap
+    if isinstance(sprite, ap.Sprite):
         return
     raise ValueError(
         f'Specified instance is not Sprite type: {type(sprite)}')
@@ -127,12 +127,11 @@ def validate_line_cap(cap: Any) -> None:
         If specified cap setting type is not LineCaps or not defined
         string value.
     """
-    from apysc import LineCaps
-    from apysc import String
-    if isinstance(cap, LineCaps):
+    import apysc as ap
+    if isinstance(cap, ap.LineCaps):
         return
-    if isinstance(cap, String):
-        for line_cap in LineCaps:
+    if isinstance(cap, ap.String):
+        for line_cap in ap.LineCaps:
             if line_cap.value == cap:
                 return
         raise ValueError(
@@ -158,12 +157,11 @@ def validate_line_joints(joints: Any) -> None:
         If specified joints setting type is not LineJoints or not defined
         string value.
     """
-    from apysc import LineJoints
-    from apysc import String
-    if isinstance(joints, LineJoints):
+    import apysc as ap
+    if isinstance(joints, ap.LineJoints):
         return
-    if isinstance(joints, String):
-        for line_joints in LineJoints:
+    if isinstance(joints, ap.String):
+        for line_joints in ap.LineJoints:
             if line_joints.value == joints:
                 return
         raise ValueError(

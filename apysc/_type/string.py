@@ -43,13 +43,13 @@ class String(CopyInterface, RevertInterface):
         """
         Append constructor expression to file.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         expression: str = f'var {self.variable_name} = '
         if isinstance(self._initial_value, String):
             expression += f'{self._initial_value.variable_name};'
         else:
             expression += f'"{self._value}";'
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def _get_str_value(self, value: Union[str, Any]) -> str:
         """
@@ -106,13 +106,13 @@ class String(CopyInterface, RevertInterface):
         value : str or String
             Any string value to set.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         expression: str = f'{self.variable_name} = '
         if isinstance(value, String):
             expression += f'{value.variable_name};'
         else:
             expression += f'"{value}";'
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def __add__(self, other: Union[str, Any]) -> Any:
         """
@@ -152,14 +152,14 @@ class String(CopyInterface, RevertInterface):
         other : str or String
             Other string value to concatenate.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         from apysc._type.value_util import get_value_str_for_expression
         right_value: str = get_value_str_for_expression(value=other)
         expression: str = (
             f'var {result.variable_name} = '
             f'{self.variable_name} + {right_value};'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def __mul__(self, other: Union[int, Any]) -> Any:
         """
@@ -175,10 +175,10 @@ class String(CopyInterface, RevertInterface):
         result : String
             Repeated result string.
         """
-        from apysc import Int
+        import apysc as ap
         from apysc._validation import number_validation
         number_validation.validate_integer(integer=other)
-        if isinstance(other, Int):
+        if isinstance(other, ap.Int):
             value: int = other.value  # type: ignore
         else:
             value = other
@@ -200,18 +200,17 @@ class String(CopyInterface, RevertInterface):
         other : int or Int
             String repetition number.
         """
-        from apysc import Int
-        from apysc import append_js_expression
+        import apysc as ap
         expression: str = f'var {result.variable_name} = "";'
         expression += '\nfor (var i = 0; i < '
-        if isinstance(other, Int):
+        if isinstance(other, ap.Int):
             expression += f'{other.variable_name}'
         else:
             expression += f'{other}'
         expression += '; i++) {'
         expression += f'\n  {result.variable_name} += {self.variable_name};'
         expression += '\n}'
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def __iadd__(self, other: Union[str, Any]) -> Any:
         """
@@ -281,13 +280,13 @@ class String(CopyInterface, RevertInterface):
             Comparison result. If same value of str or String
             is specified, True will be returned.
         """
-        from apysc import Boolean
+        import apysc as ap
         if isinstance(other, str):
-            result: Boolean = Boolean(self._value == other)
+            result: ap.Boolean = ap.Boolean(self._value == other)
         elif isinstance(other, String):
-            result = Boolean(self._value == other._value)
+            result = ap.Boolean(self._value == other._value)
         else:
-            result = Boolean(False)
+            result = ap.Boolean(False)
         other = self._convert_other_val_to_string(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_eq_expression(result=result, other=other)
@@ -310,7 +309,6 @@ class String(CopyInterface, RevertInterface):
             will be String instance. Other type will be returned
             directly (not to be converted).
         """
-        from apysc import String
         if isinstance(other, str):
             return String(other)
         return other
@@ -328,12 +326,12 @@ class String(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} === {other.variable_name};'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def __ne__(self, other: Any) -> Any:
         """
@@ -350,13 +348,13 @@ class String(CopyInterface, RevertInterface):
             Comparison result. If not same value of str or String
             is specified, True will be returned.
         """
-        from apysc import Boolean
+        import apysc as ap
         if isinstance(other, str):
-            result: Boolean = Boolean(self._value != other)
+            result: ap.Boolean = ap.Boolean(self._value != other)
         elif isinstance(other, String):
-            result = Boolean(self._value != other._value)
+            result = ap.Boolean(self._value != other._value)
         else:
-            result = Boolean(True)
+            result = ap.Boolean(True)
         other = self._convert_other_val_to_string(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_ne_expression(result=result, other=other)
@@ -375,12 +373,12 @@ class String(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} !== {other.variable_name};'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def __lt__(self, other: Union[str, Any]) -> Any:
         """
@@ -396,11 +394,11 @@ class String(CopyInterface, RevertInterface):
         result : Boolean
             Comparison result.
         """
-        from apysc import Boolean
+        import apysc as ap
         from apysc._validation import string_validation
         string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
-        result: Boolean = Boolean(self._value < value)
+        result: ap.Boolean = ap.Boolean(self._value < value)
         other = self._convert_other_val_to_string(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_lt_expression(result=result, other=other)
@@ -419,12 +417,12 @@ class String(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} < {other.variable_name};'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def __le__(self, other: Union[str, Any]) -> Any:
         """
@@ -440,11 +438,11 @@ class String(CopyInterface, RevertInterface):
         result : Boolean
             Comparison result.
         """
-        from apysc import Boolean
+        import apysc as ap
         from apysc._validation import string_validation
         string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
-        result: Boolean = Boolean(self._value <= value)
+        result: ap.Boolean = ap.Boolean(self._value <= value)
         other = self._convert_other_val_to_string(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_le_expression(result=result, other=other)
@@ -463,12 +461,12 @@ class String(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} <= {other.variable_name};'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def __gt__(self, other: Union[str, Any]) -> Any:
         """
@@ -484,11 +482,11 @@ class String(CopyInterface, RevertInterface):
         result : Boolean
             Comparison result.
         """
-        from apysc import Boolean
+        import apysc as ap
         from apysc._validation import string_validation
         string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
-        result: Boolean = Boolean(self._value > value)
+        result: ap.Boolean = ap.Boolean(self._value > value)
         other = self._convert_other_val_to_string(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_gt_expression(result=result, other=other)
@@ -507,12 +505,12 @@ class String(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} > {other.variable_name};'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def __ge__(self, other: Union[str, Any]) -> Any:
         """
@@ -528,11 +526,11 @@ class String(CopyInterface, RevertInterface):
         result : Boolean
             Comparison result.
         """
-        from apysc import Boolean
+        import apysc as ap
         from apysc._validation import string_validation
         string_validation.validate_string_type(string=other)
         value: str = self._get_str_value(value=other)
-        result: Boolean = Boolean(self._value >= value)
+        result: ap.Boolean = ap.Boolean(self._value >= value)
         other = self._convert_other_val_to_string(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_ge_expression(result=result, other=other)
@@ -551,12 +549,12 @@ class String(CopyInterface, RevertInterface):
         other : VariableNameInterface
             Other value to compare.
         """
-        from apysc import append_js_expression
+        import apysc as ap
         expression: str = (
             f'{result.variable_name} = '
             f'{self.variable_name} >= {other.variable_name};'
         )
-        append_js_expression(expression=expression)
+        ap.append_js_expression(expression=expression)
 
     def __int__(self) -> int:
         """

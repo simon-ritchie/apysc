@@ -3,10 +3,10 @@
 
 from typing import Union
 
-from apysc import Boolean
+import apysc as ap
 
 
-def validate_bool(value: Union[bool, Boolean]) -> None:
+def validate_bool(value: Union[bool, ap.Boolean]) -> None:
     """
     Validate specified value is bool or Boolean type.
 

@@ -6,10 +6,9 @@ from typing import Tuple
 from typing import TypeVar
 from typing import Union
 
-from apysc import Number
-from apysc import String
+import apysc as ap
 
-StrOrString = TypeVar('StrOrString', str, String)
+StrOrString = TypeVar('StrOrString', str, ap.String)
 
 
 def validate_hex_color_code_format(hex_color_code: StrOrString) -> None:
@@ -27,12 +26,12 @@ def validate_hex_color_code_format(hex_color_code: StrOrString) -> None:
     ValueError
         If invalid hex color code specified.
     """
-    if not isinstance(hex_color_code, (str, String)):
+    if not isinstance(hex_color_code, (str, ap.String)):
         raise ValueError(
             'Hex color code only supports str type, specified: '
             f'{type(hex_color_code)}')
 
-    if isinstance(hex_color_code, String):
+    if isinstance(hex_color_code, ap.String):
         value_: str = hex_color_code.value
     else:
         value_ = hex_color_code
@@ -54,7 +53,7 @@ def validate_hex_color_code_format(hex_color_code: StrOrString) -> None:
             f'\nSupported characters: {hexdigits}')
 
 
-def validate_alpha_range(alpha: Union[float, Number]) -> None:
+def validate_alpha_range(alpha: Union[float, ap.Number]) -> None:
     """
     Validate specified alpha (opacity) value's range.
 

@@ -10,9 +10,9 @@ import sys
 sys.path.append('./')
 
 import os
+from types import ModuleType
 from typing import Any
 from typing import Dict
-from types import ModuleType
 
 import apysc as ap
 from apysc._file import file_util

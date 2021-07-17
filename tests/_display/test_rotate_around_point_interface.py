@@ -3,9 +3,9 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._expression import expression_file_util
 from apysc._display.rotate_around_point_interface import \
     RotateAroundPointInterface
+from apysc._expression import expression_file_util
 
 
 class _TestInterface(RotateAroundPointInterface):

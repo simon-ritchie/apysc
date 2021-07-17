@@ -66,3 +66,13 @@ ap.save_overall_html(dest_dir_path='timer_basic_usage/')
 If you click the following rectangle, then the timer will be started, and the rectangle x value will be increased by the timer.
 
 <iframe src="static/timer_basic_usage/index.html" width="350" height="150"></iframe>
+
+## See also
+
+- [TimerEvent class](timer_event.md)
+- [Timer class delay setting](timer_delay.md)
+- [FPS enum](fps.md)
+- [Timer class repeat count setting](timer_repeat_count.md)
+- [Timer class start and stop interfaces](timer_start_and_stop.md)
+- [Timer class timer complete interface](timer_complete.md)
+- [Timer class reset interface](timer_reset.md)

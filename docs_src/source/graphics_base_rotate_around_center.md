@@ -31,7 +31,7 @@ cyan_rect.rotate_around_center(additional_rotation=30)
 sprite.graphics.begin_fill(color='#f0a', alpha=0.5)
 magenta_rect: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
-# Append the rotation angle multiple times, and the result angle
+# Append the rotation angle multiple times, and the results angle
 # will be 60.
 magenta_rect.rotate_around_center(additional_rotation=30)
 magenta_rect.rotate_around_center(additional_rotation=30)
@@ -44,4 +44,4 @@ ap.save_overall_html(
 
 ## Notes
 
-This interface will support only the graphics instances. The container instances, such as the `Sprite` instance, are not supported (due toe the HTML (SVG) specification).
+This interface will support only the graphics instances. The container instances, such as the `Sprite` instance, are not supported (due to the HTML (SVG) specification).

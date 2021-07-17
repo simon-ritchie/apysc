@@ -1,8 +1,8 @@
-"""The test project for the RotateAroundCenterInterface.
+"""The test project for the RotateAroundPointInterface class.
 
 Command examples:
-$ python test_projects/RotateAroundCenterInterface/main.py
-$ python RotateAroundCenterInterface/main.py
+$ python test_projects/RotateAroundPointInterface/main.py
+$ python RotateAroundPointInterface/main.py
 """
 
 import sys
@@ -34,37 +34,37 @@ def main() -> None:
         stage_width=1000, stage_height=500)
 
     sprite: ap.Sprite = ap.Sprite(stage=stage)
-
     sprite.graphics.begin_fill(color='#0af', alpha=0.5)
     rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
-    rectangle_1.rotate_around_center(30)
 
-    sprite.graphics.begin_fill(color='#f0a', alpha=0.5)
     rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
-    rectangle_2.rotate_around_center(30)
-    rectangle_2.rotate_around_center(30)
 
-    sprite.click(on_sprite_click, options={'rectangle_1': rectangle_1})
+    timer: ap.Timer = ap.Timer(
+        handler=on_timer, delay=ap.FPS.FPS_60,
+        options={'rectangle_1': rectangle_1, 'rectangle_2': rectangle_2})
+    timer.start()
 
-    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_sprite_click(
-        e: ap.MouseEvent[ap.Sprite], options: Dict[str, Any]) -> None:
+def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
     """
-    The handler would be called when the sprite is clicked.
+    The handler would be called from the timer.
 
     Parameters
     ----------
-    e : MouseEvent
+    e : ap.TimerEvent
         Event instance.
     options : dict
         Optional arguments dictionary.
     """
     rectangle_1: ap.Rectangle = options['rectangle_1']
-    rectangle_1.rotate_around_center(10)
+    rectangle_1.rotate_around_point(additional_rotation=1, x=50, y=50)
+
+    rectangle_2: ap.Rectangle = options['rectangle_2']
+    rectangle_2.rotate_around_point(additional_rotation=1, x=100, y=100)
 
 
 if __name__ == '__main__':

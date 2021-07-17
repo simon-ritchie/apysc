@@ -8,11 +8,15 @@ import apysc as ap
 from apysc._display.display_object import DisplayObject
 from apysc._display.rotate_around_center_interface import \
     RotateAroundCenterInterface
+from apysc._display.rotate_around_point_interface import \
+    RotateAroundPointInterface
 
 _Graphics = Any
 
 
-class GraphicsBase(DisplayObject, RotateAroundCenterInterface):
+class GraphicsBase(
+        DisplayObject, RotateAroundCenterInterface,
+        RotateAroundPointInterface):
 
     _variable_name: str
 

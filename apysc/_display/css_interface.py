@@ -123,6 +123,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        self._initialize_css_if_not_initialized()
         if not hasattr(self, '_css_snapshot'):
             self._css_snapshot = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):

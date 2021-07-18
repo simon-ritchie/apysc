@@ -112,8 +112,22 @@ class CssInterface(VariableNameInterface, RevertInterface):
         )
         ap.append_js_expression(expression=expression)
 
+    _css_snapshot: Dict[str, Dict[str, ap.String]]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
-        pass
+        """
+        Make values' snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_css_snapshot'):
+            self._css_snapshot = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._css_snapshot[snapshot_name] = {**self._css}
 
     def _revert(self, snapshot_name: str) -> None:
         pass

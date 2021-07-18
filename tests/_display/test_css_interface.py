@@ -70,3 +70,17 @@ class TestCssInterface:
             f'{value.variable_name});'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__make_snapshot(self) -> None:
+        interface: _TestInterface = _TestInterface()
+        interface.set_css(name='display', value='none')
+        snapshot_name: str = interface._get_next_snapshot_name()
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert interface._css_snapshot[snapshot_name] == \
+            {'display': ap.String('none')}
+
+        interface.set_css(name='display', value='none')
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert interface._css_snapshot[snapshot_name] == \
+            {'display': ap.String('none')}

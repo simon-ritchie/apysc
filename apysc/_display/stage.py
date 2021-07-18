@@ -1,4 +1,9 @@
 """Stage (canvas) implementation.
+
+References
+----------
+- Stage document
+    - https://simon-ritchie.github.io/apysc/stage.html
 """
 
 import os
@@ -54,6 +59,11 @@ class Stage(
         stage_elem_id : str or None, optional
             ID attribute set to stage html element (e.g., 'line-graph').
             If None is set, random integer will be applied.
+
+        References
+        ----------
+        Stage document
+            https://simon-ritchie.github.io/apysc/stage.html
         """
         from apysc._color import color_util
         from apysc._html import html_util

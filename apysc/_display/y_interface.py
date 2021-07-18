@@ -29,6 +29,11 @@ class YInterface(VariableNameInterface, RevertInterface):
         -------
         y : Int
             Y-coordinate.
+
+        References
+        ----------
+        - Display object x and y interfaces document
+            - https://bit.ly/2ToA5ba
         """
         from apysc._type import value_util
         self._initialize_y_if_not_initialized()
@@ -43,6 +48,11 @@ class YInterface(VariableNameInterface, RevertInterface):
         ----------
         value : int or Int
             Y-coordinate value.
+
+        References
+        ----------
+        - Display object x and y interfaces document
+            - https://bit.ly/2ToA5ba
         """
         from apysc._type.number_value_interface import NumberValueInterface
         from apysc._validation import number_validation

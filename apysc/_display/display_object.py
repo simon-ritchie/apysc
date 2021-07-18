@@ -28,6 +28,11 @@ class DisplayObject(
         variable_name : str
             Variable name of this instance. This will be used to
             js expression.
+
+        References
+        ----------
+        - DisplayObject document
+            - https://simon-ritchie.github.io/apysc/display_object.html
         """
         import apysc as ap
         from apysc._validation import display_validation

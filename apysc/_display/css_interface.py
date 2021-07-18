@@ -34,6 +34,11 @@ class CssInterface(VariableNameInterface, RevertInterface):
         -------
         css : ap.String
             CSS value.
+
+        References
+        ----------
+        Display object get_css and set_css interfaces document
+            https://bit.ly/3wNgIWI
         """
         from apysc._converter import to_builtin_val_from_apysc
         self._initialize_css_if_not_initialized()
@@ -80,6 +85,11 @@ class CssInterface(VariableNameInterface, RevertInterface):
             CSS name (e.g., 'display').
         value : str or String
             A CSS value string (e.g., 'none').
+
+        References
+        ----------
+        Display object get_css and set_css interfaces document
+            https://bit.ly/3wNgIWI
         """
         from apysc._converter import to_apysc_val_from_builtin
         from apysc._converter import to_builtin_val_from_apysc

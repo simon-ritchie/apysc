@@ -71,6 +71,11 @@ def display_on_jupyter(
     Notes
     -----
     This interface requires the Jupyter library (e.g., `notebook` package).
+
+    References
+    ----------
+    - display_on_jupyter interface document
+        - https://simon-ritchie.github.io/apysc/display_on_jupyter.html
     """
     from IPython.display import IFrame
     from IPython.display import display
@@ -96,6 +101,11 @@ def display_on_colaboratory(
     minify : bool, default True
         Boolean value whether minify a HTML or not.
         False setting is useful when debugging.
+
+    References
+    ----------
+    display_on_colaboratory interface document
+        https://simon-ritchie.github.io/apysc/display_on_colaboratory.html
     """
     from IPython.display import HTML
     from IPython.display import display

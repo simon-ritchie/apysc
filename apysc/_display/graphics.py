@@ -42,6 +42,11 @@ class Graphics(
         variable_name : str or None, default None
             Variable name to set. Specified only when subclass
             instantiation.
+
+        References
+        ----------
+        - Graphics document
+            - https://simon-ritchie.github.io/apysc/graphics.html
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
@@ -97,6 +102,11 @@ class Graphics(
         -------
         rectangle : Rectangle
             Created rectangle.
+
+        References
+        ----------
+        - Graphics draw_rect interface document
+            - https://bit.ly/3zbSG9o
         """
         rectangle: Rectangle = Rectangle(
             parent=self, x=x, y=y, width=width, height=height)
@@ -132,6 +142,11 @@ class Graphics(
         -------
         rectangle : Rectangle
             Created rectangle.
+
+        References
+        ----------
+        - Graphics draw_round_rect interface document
+            - https://bit.ly/2ThGcxJ
         """
         rectangle: Rectangle = Rectangle(
             parent=self, x=x, y=y, width=width, height=height)
@@ -165,6 +180,11 @@ class Graphics(
         -------
         circle : Circle
             Created circle graphics instance.
+
+        References
+        ----------
+        - Graphics draw_circle interface document
+            - https://bit.ly/3it1q4y
         """
         circle: Circle = Circle(parent=self, x=x, y=y, radius=radius)
         self.add_child(child=circle)
@@ -194,6 +214,11 @@ class Graphics(
         -------
         ellipse : Ellipse
             Created ellipse graphics instance.
+
+        References
+        ----------
+        - Graphics draw_ellipse interface
+            - https://bit.ly/3xPVicP
         """
         ellipse: Ellipse = Ellipse(
             parent=self, x=x, y=y, width=width, height=height)
@@ -218,6 +243,11 @@ class Graphics(
         -------
         line : Polyline
             Line graphic instance.
+
+        References
+        ----------
+        - Graphics move_to and line_to interfaces document
+            - https://bit.ly/3eybhEP
         """
         if self._current_line is None:
             self._current_line = Polyline(
@@ -244,6 +274,11 @@ class Graphics(
         -------
         line : Polyline
             Line graphic instance.
+
+        References
+        ----------
+        - Graphics move_to and line_to interfaces document
+            - https://bit.ly/3eybhEP
         """
         self._current_line = Polyline(
             parent=self, points=ap.Array([Point2D(x=x, y=y)]))
@@ -292,6 +327,11 @@ class Graphics(
         -------
         line : Line
             Created line graphic instance.
+
+        References
+        ----------
+        - Graphics draw_line interface document
+            - https://bit.ly/3ey4pYe
         """
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -336,6 +376,11 @@ class Graphics(
         -------
         line : Line
             Created line graphic instance.
+
+        References
+        ----------
+        - Graphics draw_dotted_line interface document
+            - https://bit.ly/3ig7Tzy
         """
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -384,6 +429,11 @@ class Graphics(
         -------
         line : Line
             Created line graphic instance.
+
+        References
+        ----------
+        - Graphics draw_dashed_line interface document
+            - https://bit.ly/3ewoMF8
         """
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -433,6 +483,11 @@ class Graphics(
         -------
         line : Line
             Created line graphic instance.
+
+        References
+        ----------
+        - Graphics draw_round_dotted_line interface document
+            - https://bit.ly/3ri985m
         """
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -480,6 +535,11 @@ class Graphics(
         -------
         line : Line
             Created line graphic instance.
+
+        References
+        ----------
+        - Graphics draw_dash_dotted_line interface document
+            - https://bit.ly/3wKRtUZ
         """
         snapshot_name: str = self._get_next_snapshot_name()
         self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -512,6 +572,11 @@ class Graphics(
         -------
         polygon : Polygon
             Created polygon graphic instance.
+
+        References
+        ----------
+        - Graphics draw_polygon interface document
+            - https://bit.ly/3wHVZUk
         """
         if isinstance(points, list):
             points = ap.Array(points)

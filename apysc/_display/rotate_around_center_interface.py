@@ -26,6 +26,8 @@ class RotateAroundCenterInterface(VariableNameInterface):
         ----------
         additional_rotation : int or Int
             A value to add.
+
+        
         """
         from apysc._type import value_util
         from apysc._validation import number_validation

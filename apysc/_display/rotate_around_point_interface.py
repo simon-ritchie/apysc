@@ -31,6 +31,11 @@ class RotateAroundPointInterface(VariableNameInterface):
             Rotation point of a x-coordinate.
         y : int or Int
             Rotation point of a y-coordinate.
+
+        References
+        ----------
+        - GraphicsBase rotate_around_point interface document
+            - https://bit.ly/3z4Z4zg
         """
         from apysc._type import value_util
         from apysc._validation import number_validation

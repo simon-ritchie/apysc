@@ -62,6 +62,11 @@ def save_overall_html(
         The Logging setting. If 0 is specified, then logging message
         will not be displayed. If 1 or the other value is specified,
         message will be displayed normally.
+
+    References
+    ----------
+    - save_overall_html interface document
+        - https://simon-ritchie.github.io/apysc/save_overall_html.html
     """
     from apysc._file import file_util
     from apysc._html import html_util

@@ -82,6 +82,11 @@ class LineStyleInterface(RevertInterface):
         dash_dot_setting : LineDashDotSetting or None, default None
             Dash dot (1-dot chain) setting. If this is specified, line
             will be 1-dot chained.
+
+        References
+        ----------
+        - Graphics line_style interface document
+            - https://bit.ly/3zauILT
         """
         from apysc._color import color_util
         from apysc._converter import cast

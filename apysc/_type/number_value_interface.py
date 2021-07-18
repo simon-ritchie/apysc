@@ -62,6 +62,11 @@ class NumberValueInterface(
         -------
         value : int or float
             Current number value.
+
+        References
+        ----------
+        - apysc basic data classes common value interface
+            - https://bit.ly/3Be1aij
         """
         return self._value
 
@@ -74,6 +79,11 @@ class NumberValueInterface(
         ----------
         value : int or float or NumberValueInterface
             Any number value to set.
+
+        References
+        ----------
+        apysc basic data classes common value interface
+            https://bit.ly/3Be1aij
         """
         self.set_value_and_skip_expression_appending(value=value)
         if isinstance(value, NumberValueInterface):

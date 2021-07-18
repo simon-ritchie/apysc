@@ -24,6 +24,11 @@ class ParentInterface(RevertInterface):
             Parent instance that has a add_child and remove_child
             interfaces. If this instance not have parent instance (not
             added child), None will be returned.
+
+        References
+        ----------
+        - Display object parent interfaces document
+            - https://bit.ly/3wQX782
         """
         return self._parent
 
@@ -47,6 +52,11 @@ class ParentInterface(RevertInterface):
         ValueError
             If specified instance is not None and hasn't `ChildInterface`
             interfaces.
+
+        References
+        ----------
+        - Display object parent interfaces document
+            - https://bit.ly/3wQX782
         """
         from apysc._validation import parent_validation
         parent_validation.validate_parent_instance(parent=value)

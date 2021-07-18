@@ -105,6 +105,11 @@ class Dictionary(
         -------
         value : dict
             Current dict value.
+
+        References
+        ----------
+        - apysc basic data classes common value interface
+            - https://bit.ly/3Be1aij
         """
         return self._value
 
@@ -117,6 +122,11 @@ class Dictionary(
         ----------
         value : dict or Dictionary.
             Dictionary value to set.
+
+        References
+        ----------
+        apysc basic data classes common value interface
+            https://bit.ly/3Be1aij
         """
         self._validate_acceptable_value_type(value=value)
         self._value = self._get_dict_value(value=value)

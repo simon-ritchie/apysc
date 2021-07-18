@@ -33,6 +33,11 @@ class BeginFillInterface(RevertInterface):
             Hexadecimal color string. e.g., '#00aaff'
         alpha : float or Number, default 1.0
             Color opacity (0.0 to 1.0).
+
+        References
+        ----------
+        - Graphics begin_fill interface document
+            - https://bit.ly/3ikhNAh
         """
         from apysc._color import color_util
         from apysc._converter import cast

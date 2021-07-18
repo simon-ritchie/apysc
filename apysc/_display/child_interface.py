@@ -25,6 +25,11 @@ class ChildInterface(RevertInterface):
         ----------
         child : DisplayObject
             Child instance to add.
+
+        References
+        ----------
+        - Sprite class add_child and remove_child interfaces document
+            - https://bit.ly/2Ugk47G
         """
         from apysc._validation import display_validation
         self._initialize_children_if_not_initialized()
@@ -51,6 +56,11 @@ class ChildInterface(RevertInterface):
         ----------
         child : DisplayObject
             Child instance to remove.
+
+        References
+        ----------
+        - Sprite class add_child and remove_child interfaces document
+            - https://bit.ly/2Ugk47G
         """
         self._initialize_children_if_not_initialized()
         append_expression_of_remove_child(child=child)
@@ -75,6 +85,11 @@ class ChildInterface(RevertInterface):
         result : Boolean
             If this instance contains specified child, True will
             be set.
+
+        References
+        ----------
+        - Sprite class contains interface document
+            - https://simon-ritchie.github.io/apysc/sprite_contains.html
         """
         self._initialize_children_if_not_initialized()
         index: ap.Int = self._children.index_of(value=child)
@@ -112,6 +127,11 @@ class ChildInterface(RevertInterface):
         -------
         num_children : int
             Current children number.
+
+        References
+        ----------
+        - Sprite class num_children interface document
+            - https://simon-ritchie.github.io/apysc/sprite_num_children.html
         """
         self._initialize_children_if_not_initialized()
         num_children: ap.Int = ap.Int(value=self._children.length)
@@ -147,6 +167,11 @@ class ChildInterface(RevertInterface):
         -------
         child : DisplayObject
             Target index child instance.
+
+        References
+        ----------
+        - Sprite class get_child_at interface document
+            - https://bit.ly/3rggoi6
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names

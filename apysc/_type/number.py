@@ -18,6 +18,15 @@ class Number(NumberValueInterface):
         value : int or float or Int or Number
             Initial floating point number value. If int or Int value
             is specified, that value will be cast to float.
+
+        References
+        ----------
+        - Int and Number document
+            - https://simon-ritchie.github.io/apysc/int_and_number.html
+        - Int and Number common arithmetic operations document
+            - https://bit.ly/3evzcVj
+        - Int and Number common comparison operations document
+            - https://bit.ly/3zolw6T
         """
         from apysc._converter import cast
         from apysc._expression import expression_variables_util

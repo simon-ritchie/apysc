@@ -29,6 +29,11 @@ class XInterface(VariableNameInterface, RevertInterface):
         -------
         x : Int
             X-coordinate.
+
+        References
+        ----------
+        - Display object x and y interfaces document
+            - https://bit.ly/2ToA5ba
         """
         from apysc._type import value_util
         self._initialize_x_if_not_initialized()
@@ -43,6 +48,11 @@ class XInterface(VariableNameInterface, RevertInterface):
         ----------
         value : int or Int
             X-coordinate value.
+
+        References
+        ----------
+        - Display object x and y interfaces document
+            - https://bit.ly/2ToA5ba
         """
         from apysc._type.number_value_interface import NumberValueInterface
         from apysc._validation import number_validation

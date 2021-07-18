@@ -29,6 +29,11 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
             Variable name of this instance. This will be used to
             js expression. It is not necessary to specify any
             string except when Sprite subclass will be instantiated.
+
+        References
+        ----------
+        - Sprite document
+            - https://simon-ritchie.github.io/apysc/sprite.html
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names

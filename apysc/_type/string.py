@@ -24,6 +24,15 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         ----------
         value : str or String
             Initial string value.
+
+        References
+        ----------
+        - String document
+            - https://simon-ritchie.github.io/apysc/string.html
+        - String class comparison operations document
+            - https://bit.ly/3ewROEr
+        - String class addition and multiplication operations document
+            - https://bit.ly/2URRhWL
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
@@ -79,6 +88,11 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         -------
         value : str
             Current string value.
+
+        References
+        ----------
+        - apysc basic data classes common value interface
+            - https://bit.ly/3Be1aij
         """
         return self._value
 
@@ -91,6 +105,11 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         ----------
         value : str or String
             Any string value to set.
+
+        References
+        ----------
+        apysc basic data classes common value interface
+            https://bit.ly/3Be1aij
         """
         from apysc._validation import string_validation
         string_validation.validate_string_type(string=value)

@@ -133,6 +133,11 @@ class Array(
         -------
         value : list
             Current array value.
+
+        References
+        ----------
+        - apysc basic data classes common value interface
+            - https://bit.ly/3Be1aij
         """
         return self._value
 
@@ -145,6 +150,11 @@ class Array(
         ----------
         value : list or tuple or Array
             Iterable value (list, tuple, or Array) to set.
+
+        References
+        ----------
+        apysc basic data classes common value interface
+            https://bit.ly/3Be1aij
         """
         self._validate_acceptable_value_type(value=value)
         self._value = self._get_list_value(value=value)

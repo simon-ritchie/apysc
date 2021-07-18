@@ -26,6 +26,11 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         value : bool or int or Boolean or Int
             Initial boolean value. 0 or 1 are acceptable for integer
             value.
+
+        References
+        ----------
+        Boolean document
+            https://simon-ritchie.github.io/apysc/boolean.html
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names
@@ -94,6 +99,11 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         -------
         value : bool
             Current boolean value.
+
+        References
+        ----------
+        - apysc basic data classes common value interface
+            - https://bit.ly/3Be1aij
         """
         return self._value
 
@@ -106,6 +116,11 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         ----------
         value : bool or int or Boolean or Int
             Any boolean value to set.
+
+        References
+        ----------
+        apysc basic data classes common value interface
+            https://bit.ly/3Be1aij
         """
         from apysc._type.variable_name_interface import VariableNameInterface
         self._set_value_and_skip_expression_appending(value=value)

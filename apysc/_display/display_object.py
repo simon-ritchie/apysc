@@ -10,11 +10,12 @@ from apysc._display.x_interface import XInterface
 from apysc._display.y_interface import YInterface
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
+from apysc._display.css_interface import CssInterface
 
 
 class DisplayObject(
         XInterface, YInterface, ParentInterface, MouseEventInterfaces,
-        VisibleInterface, CustomEventInterface):
+        VisibleInterface, CustomEventInterface, CssInterface):
 
     def __init__(self, stage: Any, variable_name: str) -> None:
         """

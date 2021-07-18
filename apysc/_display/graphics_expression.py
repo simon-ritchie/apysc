@@ -1,8 +1,8 @@
 """Graphics class related expression implementations.
 """
 
-from apysc._display.graphics_base import GraphicsBase
 from apysc._display.graphics import Graphics
+from apysc._display.graphics_base import GraphicsBase
 
 
 def append_fill_expression(

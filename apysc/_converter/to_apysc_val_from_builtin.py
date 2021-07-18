@@ -1,4 +1,4 @@
-"""Each interface to get apysc values from Python built-in ones.
+"""Each interface to get an apysc value from a Python built-in one.
 """
 
 from typing import Union

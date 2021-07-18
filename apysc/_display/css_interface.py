@@ -88,6 +88,29 @@ class CssInterface(VariableNameInterface, RevertInterface):
         value_: ap.String = to_apysc_val_from_builtin.\
             get_copied_string_from_builtin_val(string=value)
         self._css[name_] = value_
+        self._append_set_css_expression(name=name, value=value)
+
+    def _append_set_css_expression(
+            self, name: Union[str, ap.String],
+            value: Union[str, ap.String]) -> None:
+        """
+        Append a css setter expression string to the file.
+
+        Parameters
+        ----------
+        name : str or String
+            CSS name (e.g., 'display').
+        value : str or String
+            A CSS value string (e.g., 'none').
+        """
+        from apysc._type import value_util
+        name_value_str: str = value_util.get_value_str_for_expression(
+            value=name)
+        value_str: str = value_util.get_value_str_for_expression(value=value)
+        expression: str = (
+            f'{self.variable_name}.css({name_value_str}, {value_str});'
+        )
+        ap.append_js_expression(expression=expression)
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass

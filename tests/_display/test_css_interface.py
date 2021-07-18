@@ -56,3 +56,17 @@ class TestCssInterface:
         name: ap.String = ap.String('display')
         interface.set_css(name=name, value='none')
         assert interface._css == {'display': ap.String('none')}
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_set_css_expression(self) -> None:
+        expression_file_util.empty_expression_dir()
+        interface: _TestInterface = _TestInterface()
+        name: ap.String = ap.String('display')
+        value: ap.String = ap.String('none')
+        interface.set_css(name=name, value=value)
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface.variable_name}.css({name.variable_name}, '
+            f'{value.variable_name});'
+        )
+        assert expected in expression

@@ -42,6 +42,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
         self._append_constructor_expression()
         self.graphics = Graphics(parent=self)
         stage.add_child(child=self)
+        self._set_overflow_visible_setting()
 
     def _append_constructor_expression(self) -> bool:
         """

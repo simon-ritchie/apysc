@@ -84,3 +84,17 @@ class TestCssInterface:
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface._css_snapshot[snapshot_name] == \
             {'display': ap.String('none')}
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__revert(self) -> None:
+        interface: _TestInterface = _TestInterface()
+        interface.set_css(name='display', value='none')
+        snapshot_name: str = interface._get_next_snapshot_name()
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        interface.set_css(name='display', value='')
+        interface._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert interface._css['display'] == 'none'
+
+        interface.set_css(name='display', value='')
+        interface._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert interface._css['display'] == ''

@@ -34,11 +34,10 @@ class CssInterface(VariableNameInterface, RevertInterface):
         css : ap.String
             CSS value.
         """
+        from apysc._converter import to_builtin_val_from_apysc
         self._initialize_css_if_not_initialized()
-        if isinstance(name, ap.String):
-            name_: str = name._value
-        else:
-            name_ = name
+        name_: str = to_builtin_val_from_apysc.get_builtin_str_from_apysc_val(
+            string=name)
         if name_ in self._css:
             css: ap.String = self._css[name_]._copy()
         else:
@@ -67,6 +66,28 @@ class CssInterface(VariableNameInterface, RevertInterface):
             f'{css_value_str} = {self.variable_name}.css({name_value_str});'
         )
         ap.append_js_expression(expression=expression)
+
+    def set_css(
+            self, name: Union[str, ap.String],
+            value: Union[str, ap.String]) -> None:
+        """
+        Set a specified value string to the CSS.
+
+        Parameters
+        ----------
+        name : str or String
+            CSS name (e.g., 'display').
+        value : str or String
+            A CSS value string (e.g., 'none').
+        """
+        from apysc._converter import to_builtin_val_from_apysc
+        from apysc._converter import to_apysc_val_from_builtin
+        self._initialize_css_if_not_initialized()
+        name_: str = to_builtin_val_from_apysc.get_builtin_str_from_apysc_val(
+            string=name)
+        value_: ap.String = to_apysc_val_from_builtin.\
+            get_copied_string_from_builtin_val(string=value)
+        self._css[name_] = value_
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         pass

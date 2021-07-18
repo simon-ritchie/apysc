@@ -56,4 +56,6 @@ class GraphicsBase(
             y = ap.Int(y)
         self._y = y
         string_validation.validate_not_empty_string(string=variable_name)
-        self._variable_name = variable_name
+        super(GraphicsBase, self).__init__(
+            stage=self.parent_graphics.stage,
+            variable_name=variable_name)

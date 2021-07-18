@@ -15,18 +15,20 @@ class TestGraphicsBase:
         sprite: ap.Sprite = ap.Sprite(stage=stage)
         graphics_base: GraphicsBase = GraphicsBase(
             parent=sprite.graphics, x=ap.Int(100), y=ap.Int(200),
-            variable_name='test_graphic')
+            variable_name='test_graphics')
         testing_helper.assert_attrs(
             expected_attrs={
                 'parent_graphics': sprite.graphics,
                 '_x': 100,
                 '_y': 200,
+                '_variable_name': 'test_graphics',
+                'stage': stage,
             },
             any_obj=graphics_base)
 
         graphics_base = GraphicsBase(
             parent=sprite.graphics, x=300, y=400,
-            variable_name='test_graphic')
+            variable_name='test_graphics')
         testing_helper.assert_attrs(
             expected_attrs={
                 'parent_graphics': sprite.graphics,
@@ -41,7 +43,7 @@ class TestGraphicsBase:
         sprite: ap.Sprite = ap.Sprite(stage=stage)
         graphics_base: GraphicsBase = GraphicsBase(
             parent=sprite.graphics, x=ap.Int(100), y=ap.Int(200),
-            variable_name='test_graphic')
+            variable_name='test_graphics')
         graphics_base.x = ap.Int(300)
         assert graphics_base.x == 300
 
@@ -51,7 +53,7 @@ class TestGraphicsBase:
         sprite: ap.Sprite = ap.Sprite(stage=stage)
         graphics_base: GraphicsBase = GraphicsBase(
             parent=sprite.graphics, x=ap.Int(100), y=ap.Int(200),
-            variable_name='test_graphic')
+            variable_name='test_graphics')
         graphics_base.y = ap.Int(400)
         assert graphics_base.y == 400
 
@@ -61,7 +63,7 @@ class TestGraphicsBase:
         sprite: ap.Sprite = ap.Sprite(stage=stage)
         graphics_base: GraphicsBase = GraphicsBase(
             parent=sprite.graphics, x=ap.Int(100), y=ap.Int(200),
-            variable_name='test_graphic_1')
-        assert graphics_base.variable_name == 'test_graphic_1'
-        graphics_base.variable_name = 'test_graphic_2'
-        assert graphics_base.variable_name == 'test_graphic_2'
+            variable_name='test_graphics_1')
+        assert graphics_base.variable_name == 'test_graphics_1'
+        graphics_base.variable_name = 'test_graphics_2'
+        assert graphics_base.variable_name == 'test_graphics_2'

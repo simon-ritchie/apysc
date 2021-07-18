@@ -52,7 +52,8 @@ class Graphics(
         if variable_name is None:
             variable_name = expression_variables_util.get_next_variable_name(
                 type_name=var_names.GRAPHICS)
-        self.variable_name = variable_name
+        super(Graphics, self).__init__(
+            stage=self.parent_sprite.stage, variable_name=variable_name)
         self._fill_color = ap.String('')
         self._fill_alpha = ap.Number(1.0)
         self._line_color = ap.String('')

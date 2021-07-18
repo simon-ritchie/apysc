@@ -1,7 +1,7 @@
 """Graphics class related expression implementations.
 """
 
-from apysc._display.graphic_base import GraphicsBase
+from apysc._display.graphics_base import GraphicsBase
 from apysc._display.graphics import Graphics
 
 

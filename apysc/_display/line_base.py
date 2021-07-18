@@ -7,7 +7,7 @@ from typing import Any
 
 from apysc._display.fill_alpha_interface import FillAlphaInterface
 from apysc._display.fill_color_interface import FillColorInterface
-from apysc._display.graphic_base import GraphicsBase
+from apysc._display.graphics_base import GraphicsBase
 from apysc._display.line_alpha_interface import LineAlphaInterface
 from apysc._display.line_color_interface import LineColorInterface
 from apysc._display.line_dash_dot_setting_interface import \

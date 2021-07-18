@@ -37,3 +37,9 @@ class DisplayObject(
         display_validation.validate_stage(stage=stage)
         self._variable_name = variable_name
         string_validation.validate_not_empty_string(string=variable_name)
+
+    def _set_overflow_visible_setting(self) -> None:
+        """
+        Set the `visible` value to the `overflow` CSS property.
+        """
+        self.set_css(name='overflow', value='visible')

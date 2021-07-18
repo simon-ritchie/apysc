@@ -1,7 +1,8 @@
 """Class implementation for the css interface.
 """
 
-from typing import Any, Dict, Union
+from typing import Dict
+from typing import Union
 
 import apysc as ap
 from apysc._type.revert_interface import RevertInterface
@@ -80,8 +81,8 @@ class CssInterface(VariableNameInterface, RevertInterface):
         value : str or String
             A CSS value string (e.g., 'none').
         """
-        from apysc._converter import to_builtin_val_from_apysc
         from apysc._converter import to_apysc_val_from_builtin
+        from apysc._converter import to_builtin_val_from_apysc
         self._initialize_css_if_not_initialized()
         name_: str = to_builtin_val_from_apysc.get_builtin_str_from_apysc_val(
             string=name)

@@ -25,7 +25,7 @@ class TestCssInterface:
 
         interface._css['display'] = ap.String('none')
         interface._initialize_css_if_not_initialized()
-        assert interface._css == {'display': 'none'}
+        assert interface._css == {'display': ap.String('none')}
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_get_css(self) -> None:

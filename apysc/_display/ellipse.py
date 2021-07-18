@@ -60,6 +60,7 @@ class Ellipse(
         self.y = get_copied_int_from_builtin_val(integer=y)
         self._set_line_setting_if_not_none_value_exists(
             parent_graphics=parent)
+        self._set_overflow_visible_setting()
 
     def _append_constructor_expression(self) -> None:
         """

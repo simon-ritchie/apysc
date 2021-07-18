@@ -49,6 +49,7 @@ class Circle(CxInterface, CyInterface, LineBase, RadiusInterface):
         self._set_center_coordinates(x=x, y=y)
         self._set_line_setting_if_not_none_value_exists(
             parent_graphics=parent)
+        self._set_overflow_visible_setting()
 
     def _set_center_coordinates(
             self,

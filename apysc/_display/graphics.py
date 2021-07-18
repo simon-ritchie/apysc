@@ -61,6 +61,7 @@ class Graphics(
         self._children = ap.Array([])
         self._append_constructor_expression()
         self.parent_sprite.add_child(self)
+        self._set_overflow_visible_setting()
 
     def _append_constructor_expression(self) -> None:
         """

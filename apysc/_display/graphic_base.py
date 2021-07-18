@@ -57,4 +57,3 @@ class GraphicsBase(
         self._y = y
         string_validation.validate_not_empty_string(string=variable_name)
         self._variable_name = variable_name
-        self._set_overflow_visible_setting()

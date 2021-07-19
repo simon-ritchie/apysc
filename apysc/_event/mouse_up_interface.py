@@ -31,6 +31,11 @@ class MouseUpInterface(MouseEventInterfaceBase):
         -------
         name : str
             Handler's name.
+
+        References
+        ----------
+        - Mousedown and mouseup interfaces document
+            - https://bit.ly/3zgjOnF
         """
         import apysc as ap
         from apysc._event.handler import append_handler_expression
@@ -68,6 +73,11 @@ class MouseUpInterface(MouseEventInterfaceBase):
         ----------
         handler : Handler
             Callable to be unbinded.
+
+        References
+        ----------
+        - Mousedown and mouseup interfaces document
+            - https://bit.ly/3zgjOnF
         """
         import apysc as ap
         self._initialize_mouse_up_handlers_if_not_initialized()
@@ -78,6 +88,11 @@ class MouseUpInterface(MouseEventInterfaceBase):
     def unbind_mouseup_all(self) -> None:
         """
         Unbind all mouse up events.
+
+        References
+        ----------
+        - Mousedown and mouseup interfaces document
+            - https://bit.ly/3zgjOnF
         """
         import apysc as ap
         self._initialize_mouse_up_handlers_if_not_initialized()

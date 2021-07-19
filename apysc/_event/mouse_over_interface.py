@@ -31,6 +31,11 @@ class MouseOverInterface(MouseEventInterfaceBase):
         -------
         name : str
             Handler's name.
+
+        References
+        ----------
+        - Mouseover and mouseout interfaces
+            - https://bit.ly/3hOtaBl
         """
         import apysc as ap
         from apysc._event.handler import append_handler_expression
@@ -68,6 +73,11 @@ class MouseOverInterface(MouseEventInterfaceBase):
         ----------
         handler : Handler
             Callable to be unbinded.
+
+        References
+        ----------
+        - Mouseover and mouseout interfaces
+            - https://bit.ly/3hOtaBl
         """
         import apysc as ap
         self._initialize_mouse_over_handlers_if_not_initialized()
@@ -78,6 +88,11 @@ class MouseOverInterface(MouseEventInterfaceBase):
     def unbind_mouseover_all(self) -> None:
         """
         Unbind all mouseover events.
+
+        References
+        ----------
+        - Mouseover and mouseout interfaces
+            - https://bit.ly/3hOtaBl
         """
         import apysc as ap
         self._initialize_mouse_over_handlers_if_not_initialized()

@@ -40,6 +40,14 @@ class FPSDefinition:
 
 
 class FPS(Enum):
+    """
+    Definition of the FPS enum.
+
+    References
+    ----------
+    - FPS enum document
+        - https://simon-ritchie.github.io/apysc/fps.html
+    """
 
     FPS_5 = FPSDefinition(fps=5, milisecond_intervals=200)
     FPS_10 = FPSDefinition(fps=10, milisecond_intervals=100)

@@ -17,6 +17,11 @@ class TimerEvent(Event):
         ----------
         this : Timer
             Target timer instance.
+
+        References
+        ----------
+        - TimerEvent class document
+            - https://simon-ritchie.github.io/apysc/timer_event.html
         """
         from apysc._expression import var_names
         super(TimerEvent, self).__init__(
@@ -31,6 +36,11 @@ class TimerEvent(Event):
         -------
         this : TImer
             Instance that listening this event.
+
+        References
+        ----------
+        - TimerEvent class document
+            - https://simon-ritchie.github.io/apysc/timer_event.html
         """
         return self._this
 

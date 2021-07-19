@@ -31,6 +31,11 @@ class MouseMoveInterface(MouseEventInterfaceBase):
         -------
         name : str
             Handler's name.
+
+        References
+        ----------
+        - Mousemove interface document
+            - https://simon-ritchie.github.io/apysc/mousemove.html
         """
         import apysc as ap
         from apysc._event.handler import append_handler_expression
@@ -68,6 +73,11 @@ class MouseMoveInterface(MouseEventInterfaceBase):
         ----------
         handler : Handler
             Callable to be unbinded.
+
+        References
+        ----------
+        - Mousemove interface document
+            - https://simon-ritchie.github.io/apysc/mousemove.html
         """
         import apysc as ap
         self._initialize_mouse_move_handlers_if_not_initialized()
@@ -78,6 +88,11 @@ class MouseMoveInterface(MouseEventInterfaceBase):
     def unbind_mousemove_all(self) -> None:
         """
         Unbind all mouse move events.
+
+        References
+        ----------
+        - Mousemove interface document
+            - https://simon-ritchie.github.io/apysc/mousemove.html
         """
         import apysc as ap
         self._initialize_mouse_move_handlers_if_not_initialized()

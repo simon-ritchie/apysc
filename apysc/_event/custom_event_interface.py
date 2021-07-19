@@ -106,6 +106,11 @@ class CustomEventInterface(BlankObjectInterface):
         -------
         name : str
             Handler's name.
+
+        References
+        ----------
+        - Bind and trigger the custom event document
+            - https://bit.ly/3rky7VI
         """
         from apysc._event.handler import append_handler_expression
         from apysc._event.handler import get_handler_name
@@ -154,6 +159,11 @@ class CustomEventInterface(BlankObjectInterface):
         ----------
         custom_event_type : CustomEventType or str
             Target custom event type.
+
+        References
+        ----------
+        - Bind and trigger the custom event document
+            - https://bit.ly/3rky7VI
         """
         import apysc as ap
         blank_object_variable_name: str = self.blank_object_variable_name

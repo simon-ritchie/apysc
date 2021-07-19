@@ -37,6 +37,11 @@ class MouseEvent(Event, Generic[T]):
         -------
         this : VariableNameInterface
             Instance that listening this event.
+
+        References
+        ----------
+        - Common mouse event interfaces document
+            - https://simon-ritchie.github.io/apysc/mouse_event_common.html
         """
         return super(MouseEvent, self).this
 
@@ -49,6 +54,11 @@ class MouseEvent(Event, Generic[T]):
         -------
         x : Int
             x-coordinate.
+
+        References
+        ----------
+        - Common mouse event interfaces document
+            - https://simon-ritchie.github.io/apysc/mouse_event_common.html
         """
         x: ap.Int = ap.Int(0)
         self._append_stage_x_getter_expression(x=x)
@@ -79,6 +89,11 @@ class MouseEvent(Event, Generic[T]):
         -------
         y : Int
             y-coordinate.
+
+        References
+        ----------
+        - Common mouse event interfaces document
+            - https://simon-ritchie.github.io/apysc/mouse_event_common.html
         """
         y: ap.Int = ap.Int(0)
         self._append_stage_y_getter_expression(y=y)
@@ -111,6 +126,11 @@ class MouseEvent(Event, Generic[T]):
         -------
         x : Int
             x-coordinate.
+
+        References
+        ----------
+        - Common mouse event interfaces document
+            - https://simon-ritchie.github.io/apysc/mouse_event_common.html
         """
         x: ap.Int = ap.Int(0)
         self._append_local_x_getter_expression(x=x)
@@ -144,6 +164,11 @@ class MouseEvent(Event, Generic[T]):
         -------
         y : Int
             y-coordinate.
+
+        References
+        ----------
+        - Common mouse event interfaces document
+            - https://simon-ritchie.github.io/apysc/mouse_event_common.html
         """
         y: ap.Int = ap.Int(0)
         self._append_local_y_getter_expression(y=y)

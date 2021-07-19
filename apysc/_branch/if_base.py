@@ -44,6 +44,17 @@ class IfBase(ABC):
             Current scope's global variables. Set golobals() value
             to this argument. This works the same way as the locals_
             argument.
+
+        References
+        ----------
+        - If document
+            - https://simon-ritchie.github.io/apysc/if.html
+        - Elif document
+            - https://simon-ritchie.github.io/apysc/elif.html
+        - Else document
+            - https://simon-ritchie.github.io/apysc/else.html
+        - Each branch instruction class scope variables reverting setting
+            - https://bit.ly/3rkAuaT
         """
         if locals_ is None:
             locals_ = {}

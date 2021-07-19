@@ -51,6 +51,19 @@ class Timer(VariableNameInterface, CustomEventInterface):
             If 0 is specified, then a timer will loop forever.
         options : dict or None, default None
             Optional arguments dictionary to pass the the handler.
+
+        References
+        ----------
+        - Timer document
+            - https://simon-ritchie.github.io/apysc/timer.html
+        - TimerEvent class document
+            - https://simon-ritchie.github.io/apysc/timer_event.html
+        - Timer class delay setting document
+            - https://simon-ritchie.github.io/apysc/timer_delay.html
+        - FPS enum document
+            - https://simon-ritchie.github.io/apysc/fps.html
+        - Timer class repeat_count setting
+            - https://simon-ritchie.github.io/apysc/timer_repeat_count.html
         """
         from apysc._event.handler import append_handler_expression
         from apysc._event.handler import get_handler_name
@@ -123,6 +136,11 @@ class Timer(VariableNameInterface, CustomEventInterface):
         -------
         delay : Number
             A delay value of each handler's calling in milisecond.
+
+        References
+        ----------
+        - Timer class delay setting document
+            - https://simon-ritchie.github.io/apysc/timer_delay.html
         """
         from apysc._type import value_util
         return value_util.get_copy(value=self._delay)
@@ -137,6 +155,11 @@ class Timer(VariableNameInterface, CustomEventInterface):
         repeat_count : Int
             Max count of a handler's calling. If 0 is set, then a
             timer will loop forever.
+
+        References
+        ----------
+        - Timer class repeat_count setting
+            - https://simon-ritchie.github.io/apysc/timer_repeat_count.html
         """
         from apysc._type import value_util
         return value_util.get_copy(value=self._repeat_count)
@@ -170,6 +193,11 @@ class Timer(VariableNameInterface, CustomEventInterface):
     def start(self) -> None:
         """
         Start this timer.
+
+        References
+        ----------
+        - Timer class start and stop interfaces
+            - https://simon-ritchie.github.io/apysc/timer_start_and_stop.html
         """
         from apysc._expression import expression_file_util
         from apysc._type import value_util
@@ -247,6 +275,9 @@ class Timer(VariableNameInterface, CustomEventInterface):
     def stop(self) -> None:
         """
         Stop this timer.
+
+        - Timer class start and stop interfaces
+            - https://simon-ritchie.github.io/apysc/timer_start_and_stop.html
         """
         from apysc._expression import expression_file_util
         self._running.value = False
@@ -281,6 +312,11 @@ class Timer(VariableNameInterface, CustomEventInterface):
     def reset(self) -> None:
         """
         Reset the timer count and stop this timer.
+
+        References
+        ----------
+        - Timer class reset interface document
+            - https://simon-ritchie.github.io/apysc/timer_reset.html
         """
         self.stop()
         self._current_count.value = 0
@@ -302,6 +338,11 @@ class Timer(VariableNameInterface, CustomEventInterface):
         -------
         name : str
             Handler's name.
+
+        References
+        ----------
+        - Timer class timer_complete interface document
+            - https://simon-ritchie.github.io/apysc/timer_complete.html
         """
         from apysc._event.custom_event_type import CustomEventType
         e: ap.TimerEvent = ap.TimerEvent(this=self)

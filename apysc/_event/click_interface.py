@@ -31,6 +31,11 @@ class ClickInterface(MouseEventInterfaceBase):
         -------
         name : str
             Handler's name.
+
+        References
+        ----------
+        - Click interface document
+            - https://simon-ritchie.github.io/apysc/click.html
         """
         import apysc as ap
         from apysc._event.handler import append_handler_expression
@@ -68,6 +73,11 @@ class ClickInterface(MouseEventInterfaceBase):
         ----------
         handler : Handler
             Callable to be unbinded.
+
+        References
+        ----------
+        - Click interface document
+            - https://simon-ritchie.github.io/apysc/click.html
         """
         import apysc as ap
         self._initialize_click_handlers_if_not_initialized()
@@ -78,6 +88,11 @@ class ClickInterface(MouseEventInterfaceBase):
     def unbind_click_all(self) -> None:
         """
         Unbind all click events.
+
+        References
+        ----------
+        - Click interface document
+            - https://simon-ritchie.github.io/apysc/click.html
         """
         import apysc as ap
         self._initialize_click_handlers_if_not_initialized()

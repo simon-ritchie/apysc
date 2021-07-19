@@ -25,6 +25,13 @@ class Else(IfBase):
         globals_ : dict or None, default None
             Current scope's golobal variables. Set golobals() value
             to this argument.
+
+        References
+        ----------
+        - Else document
+            - https://simon-ritchie.github.io/apysc/else.html
+        - Each branch instruction class scope variables reverting setting
+            - https://bit.ly/3rkAuaT
         """
         super().__init__(
             condition=None,

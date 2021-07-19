@@ -12,6 +12,18 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class String(CopyInterface, RevertInterface, CustomEventInterface):
+    """
+    String class for apysc library.
+
+    References
+    ----------
+    - String document
+        - https://simon-ritchie.github.io/apysc/string.html
+    - String class comparison operations document
+        - https://bit.ly/3ewROEr
+    - String class addition and multiplication operations document
+        - https://bit.ly/2URRhWL
+    """
 
     _initial_value: Union[str, Any]
     _value: str

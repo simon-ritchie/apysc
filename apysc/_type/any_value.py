@@ -12,6 +12,9 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
+    """
+    Class implementation of any value (value that can't determine type).
+    """
 
     _value: Any
 

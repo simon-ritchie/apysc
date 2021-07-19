@@ -5,6 +5,16 @@ from apysc._branch.if_base import IfBase
 
 
 class If(IfBase):
+    """
+    A class to append if branch instruction expression.
+
+    References
+    ----------
+    - If document
+        - https://simon-ritchie.github.io/apysc/if.html
+    - Each branch instruction class scope variables reverting setting
+        - https://bit.ly/3rkAuaT
+    """
 
     def _append_enter_expression(self) -> None:
         """

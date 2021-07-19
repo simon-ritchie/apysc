@@ -16,10 +16,18 @@ from apysc._event.mouse_event_interfaces import MouseEventInterfaces
 class DisplayObject(
         XInterface, YInterface, ParentInterface, MouseEventInterfaces,
         VisibleInterface, CustomEventInterface, CssInterface):
+    """
+    Display object (base) class for the common interfaces.
+
+    References
+    ----------
+    - DisplayObject document
+        - https://simon-ritchie.github.io/apysc/display_object.html
+    """
 
     def __init__(self, stage: Any, variable_name: str) -> None:
         """
-        Display object class for common interface.
+        Display object (base) class for the common interfaces.
 
         Parameters
         ----------

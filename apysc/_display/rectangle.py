@@ -18,6 +18,14 @@ _Graphics = Any
 class Rectangle(
         LineBase, WidthInterface, HeightInterface, EllipseSizeInterface,
         EllipseWidthInterface, EllipseHeightInterface):
+    """
+    The rectangle vector graphics class.
+
+    References
+    ----------
+    - Graphics draw_rect interface document
+        - https://simon-ritchie.github.io/apysc/graphics_draw_rect.html
+    """
 
     def __init__(
             self, parent: _Graphics,
@@ -40,6 +48,11 @@ class Rectangle(
             Rectangle width.
         height : int or Int
             Rectangle height.
+
+        References
+        ----------
+        - Graphics draw_rect interface document
+            - https://simon-ritchie.github.io/apysc/graphics_draw_rect.html
         """
         from apysc._display.graphics import Graphics
         from apysc._expression import expression_variables_util

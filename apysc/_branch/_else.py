@@ -9,6 +9,16 @@ from apysc._branch.if_base import IfBase
 
 
 class Else(IfBase):
+    """
+    A class to append else branch instruction expression.
+
+    References
+    ----------
+    - Else document
+        - https://simon-ritchie.github.io/apysc/else.html
+    - Each branch instruction class scope variables reverting setting
+        - https://bit.ly/3rkAuaT
+    """
 
     def __init__(
             self,

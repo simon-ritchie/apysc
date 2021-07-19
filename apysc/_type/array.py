@@ -20,13 +20,16 @@ T = TypeVar('T')
 
 class Array(
         CopyInterface, RevertInterface, CustomEventInterface, Generic[T]):
+    """
+    Array class for the apysc library.
+    """
 
     _initial_value: Union[List[Any], tuple, Any]
     _value: List[Any]
 
     def __init__(self, value: Union[List[T], tuple, range, Any]) -> None:
         """
-        Array class for apysc library.
+        Array class for the apysc library.
 
         Parameters
         ----------

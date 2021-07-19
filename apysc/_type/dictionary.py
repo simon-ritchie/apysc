@@ -17,13 +17,16 @@ Key = Union[str, int, float, ap.String, ap.Int, ap.Number]
 class Dictionary(
         CopyInterface, RevertInterface, DictionaryStructure,
         CustomEventInterface):
+    """
+    Dictionary class for the apysc library.
+    """
 
     _initial_value: Union[Dict[Key, Any], Any]
     _value: Dict[Key, Any]
 
     def __init__(self, value: Union[Dict[Key, Any], Any]) -> None:
         """
-        Dictionary class for apysc library.
+        Dictionary class for the apysc library.
 
         Parameters
         ----------

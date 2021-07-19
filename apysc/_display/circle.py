@@ -14,6 +14,14 @@ _Graphics = Any
 
 
 class Circle(CxInterface, CyInterface, LineBase, RadiusInterface):
+    """
+    The circle vector graphics class.
+
+    References
+    ----------
+    - Graphics draw_circle interface document
+        - https://bit.ly/36Sgmn3
+    """
 
     def __init__(
             self,
@@ -34,6 +42,11 @@ class Circle(CxInterface, CyInterface, LineBase, RadiusInterface):
             Y-coordinate of the circle center.
         radius : int or Int
             Circle radius.
+
+        References
+        ----------
+        - Graphics draw_circle interface document
+            - https://bit.ly/36Sgmn3
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names

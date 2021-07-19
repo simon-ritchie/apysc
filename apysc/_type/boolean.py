@@ -13,6 +13,14 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
+    """
+    Boolean class for the apysc library.
+
+    References
+    ----------
+    - Boolean document
+        - https://simon-ritchie.github.io/apysc/boolean.html
+    """
 
     _initial_value: Union[bool, int, Any]
     _value: bool
@@ -29,8 +37,8 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
 
         References
         ----------
-        Boolean document
-            https://simon-ritchie.github.io/apysc/boolean.html
+        - Boolean document
+            - https://simon-ritchie.github.io/apysc/boolean.html
         """
         from apysc._expression import expression_variables_util
         from apysc._expression import var_names

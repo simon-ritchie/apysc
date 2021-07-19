@@ -26,6 +26,14 @@ class Graphics(
         DisplayObject,
         BeginFillInterface, LineStyleInterface, VariableNameInterface,
         GraphicsClearInterface, ChildInterface):
+    """
+    Create a object that has each vector graphics interface.
+
+    References
+    ----------
+    - Graphics document
+        - https://simon-ritchie.github.io/apysc/graphics.html
+    """
 
     _current_line: Optional[Polyline] = None
 

@@ -12,6 +12,14 @@ from apysc._type.revert_interface import RevertInterface
 
 
 class Sprite(DisplayObject, ChildInterface, RevertInterface):
+    """
+    Basic display object that can be parent.
+
+    References
+    ----------
+    - Sprite document
+        - https://simon-ritchie.github.io/apysc/sprite.html
+    """
 
     graphics: Graphics
 

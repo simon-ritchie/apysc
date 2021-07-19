@@ -16,6 +16,9 @@ T = TypeVar('T', ap.Int, ap.String, ap.Number)
 
 
 class For(Generic[T]):
+    """
+    A class to append for the (loop) expression.
+    """
 
     _arr_or_dict: Union[ap.Array, ap.Dictionary]
     _locals: Dict[str, Any]
@@ -28,7 +31,7 @@ class For(Generic[T]):
             locals_: Optional[Dict[str, Any]] = None,
             globals_: Optional[Dict[str, Any]] = None) -> None:
         """
-        A class to append for (loop) expression.
+        A class to append for the (loop) expression.
 
         Parameters
         ----------

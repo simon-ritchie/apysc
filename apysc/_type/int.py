@@ -8,6 +8,18 @@ from apysc._type.number_value_interface import NumberValueInterface
 
 
 class Int(NumberValueInterface):
+    """
+    Integer class for the apysc library.
+
+    References
+    ----------
+    - Int and Number document
+        - https://simon-ritchie.github.io/apysc/int_and_number.html
+    - Int and Number common arithmetic operations document
+        - https://bit.ly/3evzcVj
+    - Int and Number common comparison operations document
+        - https://bit.ly/3zolw6T
+    """
 
     def __init__(self, value: Union[int, float, Any]) -> None:
         """

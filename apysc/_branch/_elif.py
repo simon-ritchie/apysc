@@ -5,6 +5,16 @@ from apysc._branch.if_base import IfBase
 
 
 class Elif(IfBase):
+    """
+    A class to append elif branch instruction expression.
+
+    References
+    ----------
+    - Elif document
+        - https://simon-ritchie.github.io/apysc/elif.html
+    - Each branch instruction class scope variables reverting setting
+        - https://bit.ly/3rkAuaT
+    """
 
     def _append_enter_expression(self) -> None:
         """

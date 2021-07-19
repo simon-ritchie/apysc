@@ -30,6 +30,14 @@ class Stage(
         ChildInterface, WidthInterface, HeightInterface,
         VariableNameInterface, MouseEventInterfaces,
         CustomEventInterface):
+    """
+    The Stage (overall viewport) class.
+
+    References
+    ----------
+    Stage document
+        https://simon-ritchie.github.io/apysc/stage.html
+    """
 
     _background_color: str
     _add_to: str
@@ -42,7 +50,7 @@ class Stage(
             add_to: str = 'body',
             stage_elem_id: Optional[str] = None) -> None:
         """
-        Create Stage (canvas) instance.
+        Create Stage (overall viewport) instance.
 
         Parameters
         ----------

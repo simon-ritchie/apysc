@@ -59,3 +59,53 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/graphics_base_rotate_around_point_basic_usage/index.html" width="150" height="150"></iframe>
+
+## Notes on using the container with relative coordinates
+
+Note that this interface's `x` and `y` coordinates are relative, so if you use the container like the `Sprite` instance, then the container coordinates will be ignored.
+
+The following example will set the container coordinates to `x=50` and `y=50`, and the child rectangle coordinates to `x=0` and `y=0`. The rectangle rotation coordinates are also `x=0` and `y=0` so the rotation point will be the upper-left of the rectangle.
+
+```py
+# runnable
+from typing import Any
+from typing import Dict
+
+import apysc as ap
+
+
+def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+    """
+    The handler would be called from the timer.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rectangle: ap.Rectangle = options['rectangle']
+    rectangle.rotate_around_point(additional_rotation=1, x=0, y=0)
+
+
+stage: ap.Stage = ap.Stage(
+    stage_width=150, stage_height=150, background_color='#333',
+    stage_elem_id='stage')
+sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+sprite.x = ap.Int(50)
+sprite.y = ap.Int(50)
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+    x=0, y=0, width=50, height=50)
+
+timer: ap.Timer = ap.Timer(
+    handler=on_timer, delay=ap.FPS.FPS_60,
+    options={'rectangle': rectangle})
+timer.start()
+
+ap.save_overall_html(
+    dest_dir_path='graphics_base_rotate_around_point_relative_coord/')
+```
+
+<iframe src="static/graphics_base_rotate_around_point_relative_coord/index.html" width="150" height="150"></iframe>

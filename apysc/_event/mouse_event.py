@@ -12,6 +12,14 @@ T = TypeVar('T', bound=VariableNameInterface)
 
 
 class MouseEvent(Event, Generic[T]):
+    """
+    Mouse event class.
+
+    References
+    ----------
+    - Common mouse event interfaces
+        - https://bit.ly/3eDWY1v
+    """
 
     _this: T
 
@@ -23,6 +31,11 @@ class MouseEvent(Event, Generic[T]):
         ----------
         this : VariableNameInterface
             Instance that listening event (e.g., Sprite).
+
+        References
+        ----------
+        - Common mouse event interfaces
+            - https://bit.ly/3eDWY1v
         """
         from apysc._expression import var_names
         super(MouseEvent, self).__init__(

@@ -12,6 +12,14 @@ _Graphics = Any
 
 
 class Polyline(LineBase, AppendLinePointInterface):
+    """
+    The polyline vector graphics class.
+
+    References
+    ----------
+    - Graphics move_to and line_to interfaces document
+        - https://bit.ly/3eybhEP
+    """
 
     def __init__(
             self, parent: _Graphics, points: ap.Array[Point2D]) -> None:
@@ -24,6 +32,11 @@ class Polyline(LineBase, AppendLinePointInterface):
             Graphics instance to link this graphic.
         points : Array of Point2D
             List of line points.
+
+        References
+        ----------
+        - Graphics move_to and line_to interfaces document
+            - https://bit.ly/3eybhEP
         """
         from apysc._display.graphics import Graphics
         from apysc._expression import expression_variables_util

@@ -17,6 +17,9 @@ Event_ = Any
 
 
 class Handler(Protocol):
+    """
+    Event handler's callable interface.
+    """
 
     def __call__(
             self, e: Event_,

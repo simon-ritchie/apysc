@@ -7,13 +7,21 @@ import apysc as ap
 
 
 class LineDashDotSetting(ap.Dictionary):
+    """
+    Dash dot (1-dot chain) setting for a line.
+
+    References
+    ----------
+    - Graphics line_style interface document
+        - https://bit.ly/3zauILT
+    """
 
     def __init__(
             self, dot_size: Union[int, ap.Int],
             dash_size: Union[int, ap.Int],
             space_size: Union[int, ap.Int]) -> None:
         """
-        Dash dot (1-dot chain) setting for line.
+        Dash dot (1-dot chain) setting for a line.
 
         Parameters
         ----------
@@ -23,6 +31,11 @@ class LineDashDotSetting(ap.Dictionary):
             Dash size.
         space_size : int or Int
             Blank space size between dots and dashes.
+
+        References
+        ----------
+        - Graphics line_style interface document
+            - https://bit.ly/3zauILT
         """
         from apysc._converter.to_apysc_val_from_builtin import \
             get_copied_int_from_builtin_val

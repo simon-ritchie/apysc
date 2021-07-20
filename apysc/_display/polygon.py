@@ -12,6 +12,14 @@ _Graphics = Any
 
 
 class Polygon(LineBase, AppendLinePointInterface):
+    """
+    The polygon vector graphics class.
+
+    References
+    ----------
+    - Graphics draw_polygon interface document
+        - https://bit.ly/3wHVZUk
+    """
 
     def __init__(self, parent: _Graphics, points: ap.Array[Point2D]) -> None:
         """
@@ -25,6 +33,11 @@ class Polygon(LineBase, AppendLinePointInterface):
             Graphics instance to link this graphic.
         points : Array of Point2D
             List of polygon vertex points.
+
+        References
+        ----------
+        - Graphics draw_polygon interface document
+            - https://bit.ly/3wHVZUk
         """
         from apysc._display.graphics import Graphics
         from apysc._expression import expression_variables_util

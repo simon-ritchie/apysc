@@ -17,6 +17,9 @@ _int = Union[int, ap.Int]
 class Point2D(
         VariableNameInterface, RevertInterface, DictionaryStructure,
         CustomEventInterface):
+    """
+    2-dimensional geometry point class.
+    """
 
     _x: ap.Int
     _y: ap.Int

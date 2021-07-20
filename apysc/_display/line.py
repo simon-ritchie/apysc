@@ -10,6 +10,22 @@ _Point2D = Any
 
 
 class Line(LineBase):
+    """
+    The line vector graphics class.
+
+    References
+    ----------
+    - Graphics draw_line interface document
+        - https://bit.ly/3ey4pYe
+    - Graphics draw_dotted_line interface document
+        - https://bit.ly/3ig7Tzy
+    - Graphics draw_dashed_line interface document
+        - https://bit.ly/3ewoMF8
+    - Graphics draw_round_dotted_line interface document
+        - https://bit.ly/3ri985m
+    - Graphics draw_dash_dotted_line interface document
+        - https://bit.ly/3wKRtUZ
+    """
 
     _start_point: _Point2D
     _end_point: _Point2D
@@ -29,6 +45,19 @@ class Line(LineBase):
             Line start point.
         end_point : Points2D
             Line end point.
+
+        References
+        ----------
+        - Graphics draw_line interface document
+            - https://bit.ly/3ey4pYe
+        - Graphics draw_dotted_line interface document
+            - https://bit.ly/3ig7Tzy
+        - Graphics draw_dashed_line interface document
+            - https://bit.ly/3ewoMF8
+        - Graphics draw_round_dotted_line interface document
+            - https://bit.ly/3ri985m
+        - Graphics draw_dash_dotted_line interface document
+            - https://bit.ly/3wKRtUZ
         """
         from apysc._display.graphics import Graphics
         from apysc._expression import expression_variables_util

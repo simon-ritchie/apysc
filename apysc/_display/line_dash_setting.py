@@ -7,12 +7,20 @@ import apysc as ap
 
 
 class LineDashSetting(ap.Dictionary):
+    """
+    Dash setting class for a line.
+
+    References
+    ----------
+    - Graphics line_style interface document
+        - https://bit.ly/3zauILT
+    """
 
     def __init__(
             self, dash_size: Union[int, ap.Int],
             space_size: Union[int, ap.Int]) -> None:
         """
-        Dash setting class for line.
+        Dash setting class for a line.
 
         Parameters
         ----------
@@ -20,6 +28,11 @@ class LineDashSetting(ap.Dictionary):
             Dash size.
         space_size : int or Int
             Blank space size between dashes.
+
+        References
+        ----------
+        - Graphics line_style interface document
+            - https://bit.ly/3zauILT
         """
         from apysc._converter.to_apysc_val_from_builtin import \
             get_copied_int_from_builtin_val

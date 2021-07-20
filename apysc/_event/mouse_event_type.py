@@ -5,6 +5,9 @@ from enum import Enum
 
 
 class MouseEventType(Enum):
+    """
+    Mouse event type definitions.
+    """
 
     CLICK = 'click'
     DBLCLICK = 'dblclick'

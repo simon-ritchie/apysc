@@ -6,6 +6,14 @@ from apysc._time.timer import Timer
 
 
 class TimerEvent(Event):
+    """
+    Timer event class.
+
+    References
+    ----------
+    - TimerEvent class document
+        - https://simon-ritchie.github.io/apysc/timer_event.html
+    """
 
     _this: Timer
 

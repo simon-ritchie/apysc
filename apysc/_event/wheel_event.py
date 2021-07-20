@@ -7,6 +7,9 @@ from apysc._event.event import Event
 
 
 class WheelEvent(Event):
+    """
+    Mouse wheel event class.
+    """
 
     def __init__(self) -> None:
         """

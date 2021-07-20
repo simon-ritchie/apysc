@@ -16,6 +16,22 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class Timer(VariableNameInterface, CustomEventInterface):
+    """
+    Timer class to handle function calling at regular intervals.
+
+    References
+    ----------
+    - Timer document
+        - https://simon-ritchie.github.io/apysc/timer.html
+    - TimerEvent class document
+        - https://simon-ritchie.github.io/apysc/timer_event.html
+    - Timer class delay setting document
+        - https://simon-ritchie.github.io/apysc/timer_delay.html
+    - FPS enum document
+        - https://simon-ritchie.github.io/apysc/fps.html
+    - Timer class repeat_count setting
+        - https://simon-ritchie.github.io/apysc/timer_repeat_count.html
+    """
 
     _handler: Handler
     _delay: ap.Number

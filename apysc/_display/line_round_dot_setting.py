@@ -7,6 +7,14 @@ import apysc as ap
 
 
 class LineRoundDotSetting(ap.Dictionary):
+    """
+    Round dot setting class for a line.
+
+    References
+    ----------
+    - Graphics line_style interface document
+        - https://bit.ly/3zauILT
+    """
 
     def __init__(
             self, round_size: Union[int, ap.Int],
@@ -20,6 +28,11 @@ class LineRoundDotSetting(ap.Dictionary):
             Dot round size.
         space_size : int or Int
             Blank space size between dots.
+
+        References
+        ----------
+        - Graphics line_style interface document
+            - https://bit.ly/3zauILT
         """
         from apysc._converter.to_apysc_val_from_builtin import \
             get_copied_int_from_builtin_val

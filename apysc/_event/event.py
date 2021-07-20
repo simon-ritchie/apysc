@@ -11,6 +11,9 @@ T = TypeVar('T', bound=VariableNameInterface)
 
 
 class Event(Generic[T], VariableNameInterface):
+    """
+    Basic event class.
+    """
 
     _this: T
 

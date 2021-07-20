@@ -17,6 +17,14 @@ _Graphics = Any
 class Ellipse(
         CxInterface, CyInterface, LineBase,
         WidthAndHeightInterfacesForEllipse):
+    """
+    The ellipse vector graphics class.
+
+    References
+    ----------
+    - Graphics draw_ellipse interface
+        - https://bit.ly/3xPVicP
+    """
 
     def __init__(
             self,
@@ -40,6 +48,11 @@ class Ellipse(
             Ellipse width.
         height : int or Int
             Ellipse height.
+
+        References
+        ----------
+        - Graphics draw_ellipse interface
+            - https://bit.ly/3xPVicP
         """
         from apysc._converter.to_apysc_val_from_builtin import \
             get_copied_int_from_builtin_val

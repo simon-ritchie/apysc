@@ -49,6 +49,7 @@ The HTML and JavaScript exporting interfaces.
 - [String class addition and multiplication operations](string_addition_and_multiplication.md)
 - [Boolean class](boolean.md)
 - [Array class](array.md)
+- [Array class append and push interfaces](array_append_and_push.md)
 
 ---
 

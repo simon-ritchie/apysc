@@ -55,6 +55,7 @@ The HTML and JavaScript exporting interfaces.
 - [Array class pop interface](array_pop.md)
 - [Array class remove and remove at interfaces](array_remove_and_remove_at.md)
 - [Array class sort interface](array_sort.md)
+- [Array class reverse interface](array_reverse.md)
 
 ---
 

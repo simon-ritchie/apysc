@@ -58,6 +58,7 @@ The HTML and JavaScript exporting interfaces.
 - [Array class reverse interface](array_reverse.md)
 - [Array class slice interface](array_slice.md)
 - [Array class length interface](array_length.md)
+- [Array class join interface](array_join.md)
 
 ---
 

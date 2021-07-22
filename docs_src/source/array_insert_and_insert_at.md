@@ -8,7 +8,7 @@ The `insert` and `insert_at` method interfaces will append any value at the spec
 
 ## Basic usage
 
-The `insert` and `insert_at` have the same argument, the `index` and `value`. The `index` argument accept an `int` and `Int` value.
+The `insert` and `insert_at` have the same argument, the `index` and `value`. The `index` argument accepts an `int` and `Int` value.
 
 ```py
 # runnable

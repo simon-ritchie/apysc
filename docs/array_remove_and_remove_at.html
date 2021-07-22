@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Array class pop interface &#8212; apysc  documentation</title>
+    <title>Array class remove and remove_at interfaces &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -18,8 +18,8 @@
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Array class remove and remove_at interfaces" href="array_remove_and_remove_at.html" />
-    <link rel="prev" title="Array class insert and insert_at interfaces" href="array_insert_and_insert_at.html" /> 
+    <link rel="next" title="DisplayObject" href="display_object.html" />
+    <link rel="prev" title="Array class pop interface" href="array_pop.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,13 +28,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="array_remove_and_remove_at.html" title="Array class remove and remove_at interfaces"
+          <a href="display_object.html" title="DisplayObject"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="array_insert_and_insert_at.html" title="Array class insert and insert_at interfaces"
+          <a href="array_pop.html" title="Array class pop interface"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Array class pop interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Array class remove and remove_at interfaces</a></li> 
       </ul>
     </div>  
 
@@ -43,22 +43,31 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="array-class-pop-interface">
-<h1>Array class pop interface<a class="headerlink" href="#array-class-pop-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Array</span></code> class <code class="docutils literal notranslate"><span class="pre">pop</span></code> method interface.</p>
-<section id="what-interface-is-this">
-<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">pop</span></code> method interface will remove the last value from an array and return that value.</p>
+  <section id="array-class-remove-and-remove-at-interfaces">
+<h1>Array class remove and remove_at interfaces<a class="headerlink" href="#array-class-remove-and-remove-at-interfaces" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Array</span></code> class <code class="docutils literal notranslate"><span class="pre">remove</span></code> and <code class="docutils literal notranslate"><span class="pre">remove_at</span></code> method interfaces.</p>
+<section id="what-interfaces-are-these">
+<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">remove</span></code> method will remove a specified value from an array, and the <code class="docutils literal notranslate"><span class="pre">remove_at</span></code> method will remove a specified index value from an array.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">pop</span></code> method accepts no arguments and returns the last value, as follows:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">remove</span></code> method requires target value at the first argument, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="n">last_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-<span class="k">assert</span> <span class="n">last_value</span> <span class="o">==</span> <span class="mi">3</span>
+<span class="n">arr</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">arr</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">remove_at</span></code> method requires index (<code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">Int</span></code> value) at the first argument, as follows:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">arr</span><span class="o">.</span><span class="n">remove_at</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">arr</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
@@ -76,23 +85,23 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Array class pop interface</a><ul>
-<li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
+<li><a class="reference internal" href="#">Array class remove and remove_at interfaces</a><ul>
+<li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="array_insert_and_insert_at.html"
-                        title="previous chapter">Array class insert and insert_at interfaces</a></p>
+  <p class="topless"><a href="array_pop.html"
+                        title="previous chapter">Array class pop interface</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="array_remove_and_remove_at.html"
-                        title="next chapter">Array class remove and remove_at interfaces</a></p>
+  <p class="topless"><a href="display_object.html"
+                        title="next chapter">DisplayObject</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/array_pop.md.txt"
+      <li><a href="_sources/array_remove_and_remove_at.md.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -117,13 +126,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="array_remove_and_remove_at.html" title="Array class remove and remove_at interfaces"
+          <a href="display_object.html" title="DisplayObject"
              >next</a> |</li>
         <li class="right" >
-          <a href="array_insert_and_insert_at.html" title="Array class insert and insert_at interfaces"
+          <a href="array_pop.html" title="Array class pop interface"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Array class pop interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Array class remove and remove_at interfaces</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

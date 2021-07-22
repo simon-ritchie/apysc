@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Array class append and push interfaces &#8212; apysc  documentation</title>
+    <title>Array class extend and concat interfaces &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -18,8 +18,8 @@
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Array class extend and concat interfaces" href="array_extend_and_concat.html" />
-    <link rel="prev" title="Array" href="array.html" /> 
+    <link rel="next" title="DisplayObject" href="display_object.html" />
+    <link rel="prev" title="Array class append and push interfaces" href="array_append_and_push.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,13 +28,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="array_extend_and_concat.html" title="Array class extend and concat interfaces"
+          <a href="display_object.html" title="DisplayObject"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="array.html" title="Array"
+          <a href="array_append_and_push.html" title="Array class append and push interfaces"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Array class append and push interfaces</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Array class extend and concat interfaces</a></li> 
       </ul>
     </div>  
 
@@ -43,24 +43,26 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="array-class-append-and-push-interfaces">
-<h1>Array class append and push interfaces<a class="headerlink" href="#array-class-append-and-push-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Array</span></code> class <code class="docutils literal notranslate"><span class="pre">append</span></code> and <code class="docutils literal notranslate"><span class="pre">push</span></code> method interfaces.</p>
+  <section id="array-class-extend-and-concat-interfaces">
+<h1>Array class extend and concat interfaces<a class="headerlink" href="#array-class-extend-and-concat-interfaces" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Array</span></code> class <code class="docutils literal notranslate"><span class="pre">extend</span></code> and <code class="docutils literal notranslate"><span class="pre">concat</span></code> method interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">append</span></code> and <code class="docutils literal notranslate"><span class="pre">push</span></code> method interfaces are both append any value to the end of an array. These interfaces behave as same (<code class="docutils literal notranslate"><span class="pre">append</span></code> is the similar interface to the Python built-in and the <code class="docutils literal notranslate"><span class="pre">push</span></code> interface is similar to the JavaScript).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">extend</span></code> and <code class="docutils literal notranslate"><span class="pre">concat</span></code> method interfaces are the two arrays’ concatenation interfaces.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">extend</span></code> method will update an original array in place and return the <code class="docutils literal notranslate"><span class="pre">None</span></code>. The <code class="docutils literal notranslate"><span class="pre">concat</span></code> method will return the concatenated array and an original one will not be updated.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">append</span></code> and <code class="docutils literal notranslate"><span class="pre">push</span></code> methods require the first argument of the <code class="docutils literal notranslate"><span class="pre">value</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">extend</span></code> and <code class="docutils literal notranslate"><span class="pre">concat</span></code> methods require other iterable objects, like the <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, or <code class="docutils literal notranslate"><span class="pre">Array</span></code> value at the first argument, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-<span class="n">arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">arr</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">arr</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">arr</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 
-<span class="n">arr</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">other_arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">other_arr</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 <span class="k">assert</span> <span class="n">arr</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -79,7 +81,7 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Array class append and push interfaces</a><ul>
+<li><a class="reference internal" href="#">Array class extend and concat interfaces</a><ul>
 <li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 </ul>
@@ -87,15 +89,15 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="array.html"
-                        title="previous chapter">Array</a></p>
+  <p class="topless"><a href="array_append_and_push.html"
+                        title="previous chapter">Array class append and push interfaces</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="array_extend_and_concat.html"
-                        title="next chapter">Array class extend and concat interfaces</a></p>
+  <p class="topless"><a href="display_object.html"
+                        title="next chapter">DisplayObject</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/array_append_and_push.md.txt"
+      <li><a href="_sources/array_extend_and_concat.md.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -120,13 +122,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="array_extend_and_concat.html" title="Array class extend and concat interfaces"
+          <a href="display_object.html" title="DisplayObject"
              >next</a> |</li>
         <li class="right" >
-          <a href="array.html" title="Array"
+          <a href="array_append_and_push.html" title="Array class append and push interfaces"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Array class append and push interfaces</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Array class extend and concat interfaces</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

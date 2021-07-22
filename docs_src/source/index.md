@@ -50,6 +50,7 @@ The HTML and JavaScript exporting interfaces.
 - [Boolean class](boolean.md)
 - [Array class](array.md)
 - [Array class append and push interfaces](array_append_and_push.md)
+- [Array class extend and concat interfaces](array_extend_and_concat.md)
 
 ---
 

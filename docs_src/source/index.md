@@ -59,6 +59,7 @@ The HTML and JavaScript exporting interfaces.
 - [Array class slice interface](array_slice.md)
 - [Array class length interface](array_length.md)
 - [Array class join interface](array_join.md)
+- [Array class index of interface](array_index_of.md)
 
 ---
 

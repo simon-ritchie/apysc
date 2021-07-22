@@ -60,6 +60,7 @@ The HTML and JavaScript exporting interfaces.
 - [Array class length interface](array_length.md)
 - [Array class join interface](array_join.md)
 - [Array class index of interface](array_index_of.md)
+- [Array class comparison interfaces](array_comparison.md)
 
 ---
 

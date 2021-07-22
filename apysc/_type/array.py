@@ -908,9 +908,9 @@ class Array(
         """
         result: ap.Boolean
         if isinstance(other, Array):
-            result = ap.Boolean(self.value == other.value)
+            result = ap.Boolean(self._value == other._value)
         else:
-            result = ap.Boolean(self.value == other)
+            result = ap.Boolean(self._value == other)
             other = self._convert_other_val_to_array(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_eq_expression(result=result, other=other)

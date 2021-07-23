@@ -14,7 +14,7 @@ The `For` class is the apysc for loop class. It will behave like the Python buil
 
 The `For` class will be used at the `with` statement. The `as` keyword value will be the `Int` type index (`i` variable).
 
-The following example will draw the three rectangles in the with `For` statement:
+The following example will draw the three rectangles in the `with For` block:
 
 ```py
 # runnable

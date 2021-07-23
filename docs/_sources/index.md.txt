@@ -140,6 +140,7 @@ The `Graphics` class handles each vector graphics drawing.
 **Loop**
 
 - [For loop class](for.md)
+- [Continue class](continue.md)
 
 ---
 

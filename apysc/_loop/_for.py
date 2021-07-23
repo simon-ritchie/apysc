@@ -93,6 +93,8 @@ class For(Generic[T]):
             Loop index or dictionary key.
         """
         from apysc._type import revert_interface
+        from apysc._loop import loop_count
+        loop_count.increment_current_loop_count()
         self._snapshot_name = \
             revert_interface.make_snapshots_of_each_scope_vars(
                 locals_=self._locals, globals_=self._globals)
@@ -129,6 +131,8 @@ class For(Generic[T]):
         from apysc._expression import last_scope
         from apysc._expression.last_scope import LastScope
         from apysc._type import revert_interface
+        from apysc._loop import loop_count
+        loop_count.decrement_current_loop_count()
         revert_interface.revert_each_scope_vars(
             snapshot_name=self._snapshot_name,
             locals_=self._locals, globals_=self._globals)

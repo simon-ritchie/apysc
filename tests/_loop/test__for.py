@@ -9,6 +9,7 @@ from apysc._expression import last_scope
 from apysc._expression.indent_num import Indent
 from apysc._expression.last_scope import LastScope
 from tests import testing_helper
+from apysc._loop import loop_count
 
 
 class TestFor:
@@ -60,6 +61,8 @@ class TestFor:
         with ap.For(arr, locals(), globals()) as i:
             current_indent_num: int = indent_num.get_current_indent_num()
             assert current_indent_num == 1
+            current_loop_count: int = loop_count.get_current_loop_count()
+            assert current_loop_count == 1
         assert isinstance(i, ap.Int)
 
         dict_val: ap.Dictionary = ap.Dictionary({'a': 10})
@@ -91,6 +94,8 @@ class TestFor:
         )
         assert expected in expression
         assert last_scope.get_last_scope() == LastScope.FOR
+        current_loop_count: int = loop_count.get_current_loop_count()
+        assert current_loop_count == 0
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_dict_enter_expression(self) -> None:

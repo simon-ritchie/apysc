@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>For &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Timer" href="timer.html" />
+    <link rel="prev" title="Each branch instruction class scope variables reverting setting" href="branch_instruction_variables_reverting_setting.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="timer.html" title="Timer"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="branch_instruction_variables_reverting_setting.html" title="Each branch instruction class scope variables reverting setting"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">For</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="for">
+<h1>For<a class="headerlink" href="#for" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">For</span></code> class.</p>
+<p>Before reading on, maybe it is useful to read the following page (the <code class="docutils literal notranslate"><span class="pre">For</span></code> class will be used for the same reason of each apysc data type):</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="why_not_using_python_builtin_data_type.html"><span class="doc">Why not using the Python built-in data type in the apysc library?</span></a></p></li>
+</ul>
+<section id="what-is-the-for-class">
+<h2>What is the For class?<a class="headerlink" href="#what-is-the-for-class" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">For</span></code> class is the apysc for loop class. It will behave like the Python built-in <code class="docutils literal notranslate"><span class="pre">for</span></code> keyword.</p>
+</section>
+<section id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">For</span></code> class will be used at the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement. The <code class="docutils literal notranslate"><span class="pre">as</span></code> keyword value will be the <code class="docutils literal notranslate"><span class="pre">Int</span></code> type index (<code class="docutils literal notranslate"><span class="pre">i</span></code> variable).</p>
+<p>The following example will draw the three rectangles in the with <code class="docutils literal notranslate"><span class="pre">For</span></code> statement:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">350</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+
+<span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">i</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span>
+<span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">For</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="k">as</span> <span class="n">i</span><span class="p">:</span>
+    <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">i</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;for_basic_usage/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/for_basic_usage/index.html" width="350" height="150"></iframe><p>The <code class="docutils literal notranslate"><span class="pre">For</span></code> class constructor’s first argument will accept an <code class="docutils literal notranslate"><span class="pre">Array</span></code> or <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value. If a <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> value is passed then the <code class="docutils literal notranslate"><span class="pre">as</span></code> keyword value will be a <code class="docutils literal notranslate"><span class="pre">String</span></code> value, not <code class="docutils literal notranslate"><span class="pre">Int</span></code>.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+
+<span class="n">dict_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span>
+    <span class="p">{</span><span class="s1">&#39;magenta&#39;</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;#f0a&#39;</span><span class="p">),</span> <span class="s1">&#39;cyan&#39;</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;#0af&#39;</span><span class="p">)})</span>
+<span class="n">key</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span>
+<span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">For</span><span class="p">(</span><span class="n">dict_val</span><span class="p">)</span> <span class="k">as</span> <span class="n">key</span><span class="p">:</span>
+    <span class="n">color</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">dict_val</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+    <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">condition_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;magenta&#39;</span>
+    <span class="n">condition_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;cyan&#39;</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition_1</span><span class="p">):</span>
+        <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">Elif</span><span class="p">(</span><span class="n">condition_2</span><span class="p">):</span>
+        <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;for_basic_usage_with_dict/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/for_basic_usage_with_dict/index.html" width="250" height="150"></iframe></section>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="branch_instruction_variables_reverting_setting.html"><span class="doc">Each branch instruction class scope variables reverting setting</span></a></p>
+<ul>
+<li><p>Notes: the <code class="docutils literal notranslate"><span class="pre">For</span></code> class also has the same arguments and behaves as the same way.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">For</a><ul>
+<li><a class="reference internal" href="#what-is-the-for-class">What is the For class?</a></li>
+<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="branch_instruction_variables_reverting_setting.html"
+                        title="previous chapter">Each branch instruction class scope variables reverting setting</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="timer.html"
+                        title="next chapter">Timer</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/for.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="timer.html" title="Timer"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="branch_instruction_variables_reverting_setting.html" title="Each branch instruction class scope variables reverting setting"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">For</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

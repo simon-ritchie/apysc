@@ -3,8 +3,8 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from tests.testing_helper import assert_raises
 from apysc._expression import expression_file_util
+from tests.testing_helper import assert_raises
 
 
 class TestContinue:

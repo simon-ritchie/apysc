@@ -2,9 +2,9 @@ from random import randint
 
 from retrying import retry
 
-from apysc._loop import loop_count
 from apysc._expression import expression_file_util
 from apysc._file import file_util
+from apysc._loop import loop_count
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

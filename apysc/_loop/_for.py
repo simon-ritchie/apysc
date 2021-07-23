@@ -101,7 +101,11 @@ class For(Generic[T]):
             i_or_key = ap.Int(0)
             self._append_arr_enter_expression(i=i_or_key)
         else:
-            i_or_key = ap.String('')
+            if self._arr_or_dict._value:
+                key: str = str(list(self._arr_or_dict._value.keys())[0])
+            else:
+                key = ''
+            i_or_key = ap.String(key)
             self._append_dict_enter_expression(key=i_or_key)
         self._indent.__enter__()
         return i_or_key  # type: ignore

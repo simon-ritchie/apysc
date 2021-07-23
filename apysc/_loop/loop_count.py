@@ -35,3 +35,16 @@ def increment_current_loop_count() -> None:
     current_loop_count: int = get_current_loop_count()
     with open(file_path, 'w') as f:
         f.write(str(current_loop_count + 1))
+
+
+def decrement_current_loop_count() -> None:
+    """
+    Decrement the current loop count number.
+    """
+    from apysc._expression import expression_file_util
+    file_path: str = expression_file_util.LOOP_COUNT_FILE_PATH
+    current_loop_count: int = get_current_loop_count()
+    current_loop_count -= 1
+    current_loop_count = max(0, current_loop_count)
+    with open(file_path, 'w') as f:
+        f.write(str(current_loop_count))

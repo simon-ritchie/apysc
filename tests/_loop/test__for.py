@@ -62,6 +62,19 @@ class TestFor:
             assert current_indent_num == 1
         assert isinstance(i, ap.Int)
 
+        dict_val: ap.Dictionary = ap.Dictionary({'a': 10})
+        with ap.For(dict_val) as key:
+            pass
+        assert isinstance(key, ap.String)
+        assert key == 'a'
+
+        dict_val = ap.Dictionary({})
+        with ap.For(dict_val) as key:
+            pass
+        assert isinstance(key, ap.String)
+        assert key == ''
+
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___exit__(self) -> None:
         indent_num.reset()

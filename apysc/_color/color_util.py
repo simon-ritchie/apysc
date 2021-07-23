@@ -33,7 +33,7 @@ def complement_hex_color(
     color_validation.validate_hex_color_code_format(
         hex_color_code=hex_color_code)
     if isinstance(hex_color_code, ap.String):
-        value_: str = hex_color_code.value
+        value_: str = hex_color_code._value
     else:
         value_ = hex_color_code
     char_len = len(value_)
@@ -47,7 +47,7 @@ def complement_hex_color(
     value_ = f'#{value_}'
 
     if isinstance(hex_color_code, ap.String):
-        hex_color_code.value = value_
+        hex_color_code._value = value_
         _append_complement_hex_color_expression(
             hex_color_code=hex_color_code)
     else:
@@ -66,6 +66,10 @@ def _append_complement_hex_color_expression(
         Complemented hex color code string.
     """
     import apysc as ap
+    from apysc._expression import var_names
+    from apysc._expression import expression_variables_util
+    index_name: str = expression_variables_util.get_next_variable_name(
+        type_name=var_names.INDEX)
     hex_color_code_: ap.String = hex_color_code
     var_name: str = hex_color_code_.variable_name
     expression: str = (
@@ -73,8 +77,14 @@ def _append_complement_hex_color_expression(
         '\nif (str_length === 1) {'
         f'\n  {var_name} = "00000" + {var_name};'
         '\n}else if (str_length === 3) {'
-        f'\n  {var_name} = {var_name}.repeat(2);'
+        f'\n  var {var_name}_ = "";'
+        f'\n  for (var {index_name} = 0; {index_name} < {var_name}.length; '
+        f'{index_name}++) {{'
+        f'\n    {var_name}_ += {var_name}[{index_name}].repeat(2);'
+        '\n  }'
+        f'\n  {var_name} = {var_name}_;'
         '\n}'
+        f'\n{var_name} = "#" + {var_name};'
     )
     ap.append_js_expression(expression=expression)
 

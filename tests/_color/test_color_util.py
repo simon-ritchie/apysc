@@ -1,4 +1,6 @@
 from random import randint
+from typing import List, Match, Optional
+import re
 
 from retrying import retry
 
@@ -54,10 +56,20 @@ def test__append_complement_hex_color_expression() -> None:
         hex_color_code=string_1)
     expression: str = expression_file_util.get_current_expression()
     var_name: str = string_2.variable_name
-    expected: str = f"""var str_length = {var_name}.length;
-if (str_length === 1) {{
-  {var_name} = "00000" + {var_name};
-}}else if (str_length === 3) {{
-  {var_name} = {var_name}.repeat(2);
-}}"""
-    assert expected in expression
+    expected_patterns: List[str] = [
+        rf'var str_length = {var_name}\.length;',
+        r'\nif \(str_length === 1\) {',
+        rf'\n  {var_name} = "00000" \+ {var_name};',
+        r'\n}else if \(str_length === 3\) {',
+        rf'\n  var {var_name}_ = "";',
+        rf'\n  for \(var .+? = 0; .+? < {var_name}\.length; .+?\+\+\) {{',
+        rf'\n    {var_name}_ \+= {var_name}\[.+?\]\.repeat\(2\);',
+        r'\n}',
+        rf'\n{var_name} = "#" \+ {var_name};'
+    ]
+    for expected_pattern in expected_patterns:
+        match: Optional[Match] = re.search(
+            pattern=expected_pattern,
+            string=expression,
+            flags=re.MULTILINE | re.DOTALL)
+        assert match is not None, expected_pattern

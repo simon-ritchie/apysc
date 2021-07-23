@@ -59,8 +59,8 @@ def remove_first_selector_symbol_char(
     if isinstance(str_val, ap.String):
         str_val_: ap.String = value_util.get_copy(
             value=str_val)
-        if str_val_.value.startswith('.') or str_val_.value.startswith('#'):
-            str_val_.value = str_val_.value[1:]
+        if str_val_._value.startswith('.') or str_val_._value.startswith('#'):
+            str_val_._value = str_val_._value[1:]
         _append_remove_first_selector_symbol_char_expression(
             str_val=str_val_)
         return str_val_  # type: ignore

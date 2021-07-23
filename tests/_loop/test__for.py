@@ -74,7 +74,6 @@ class TestFor:
         assert isinstance(key, ap.String)
         assert key == ''
 
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___exit__(self) -> None:
         indent_num.reset()

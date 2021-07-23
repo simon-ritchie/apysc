@@ -66,8 +66,8 @@ def _append_complement_hex_color_expression(
         Complemented hex color code string.
     """
     import apysc as ap
-    from apysc._expression import var_names
     from apysc._expression import expression_variables_util
+    from apysc._expression import var_names
     index_name: str = expression_variables_util.get_next_variable_name(
         type_name=var_names.INDEX)
     hex_color_code_: ap.String = hex_color_code

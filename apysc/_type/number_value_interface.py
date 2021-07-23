@@ -47,7 +47,7 @@ class NumberValueInterface(
         if isinstance(self._initial_value, NumberValueInterface):
             value_: Union[int, float, str] = self._initial_value.variable_name
         else:
-            value_ = self.value
+            value_ = self._value
         expression: str = (
             f'var {self.variable_name} = {value_};'
         )
@@ -512,7 +512,7 @@ class NumberValueInterface(
         string : str
             Converted value string.
         """
-        return str(self.value)
+        return str(self._value)
 
     def __int__(self) -> int:
         """
@@ -523,7 +523,7 @@ class NumberValueInterface(
         integer : int
             Converted integer value.
         """
-        return int(self.value)
+        return int(self._value)
 
     def __float__(self) -> float:
         """
@@ -534,7 +534,7 @@ class NumberValueInterface(
         float_ : float
             Converted float value.
         """
-        return float(self.value)
+        return float(self._value)
 
     def __eq__(self, other: Any) -> Any:
         """
@@ -553,9 +553,9 @@ class NumberValueInterface(
         """
         import apysc as ap
         if isinstance(other, NumberValueInterface):
-            result: ap.Boolean = ap.Boolean(self.value == other.value)
+            result: ap.Boolean = ap.Boolean(self._value == other._value)
         else:
-            result = ap.Boolean(self.value == other)
+            result = ap.Boolean(self._value == other)
         other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_eq_expression(result=result, other=other)
@@ -622,9 +622,9 @@ class NumberValueInterface(
         """
         import apysc as ap
         if isinstance(other, NumberValueInterface):
-            result: ap.Boolean = ap.Boolean(self.value != other.value)
+            result: ap.Boolean = ap.Boolean(self._value != other._value)
         else:
-            result = ap.Boolean(self.value != other)
+            result = ap.Boolean(self._value != other)
         other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_ne_expression(result=result, other=other)
@@ -668,9 +668,9 @@ class NumberValueInterface(
         """
         import apysc as ap
         if isinstance(other, NumberValueInterface):
-            result: ap.Boolean = ap.Boolean(self.value < other.value)
+            result: ap.Boolean = ap.Boolean(self._value < other._value)
         else:
-            result = ap.Boolean(self.value < other)
+            result = ap.Boolean(self._value < other)
         other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_lt_expression(result=result, other=other)
@@ -714,9 +714,9 @@ class NumberValueInterface(
         """
         import apysc as ap
         if isinstance(other, NumberValueInterface):
-            result: ap.Boolean = ap.Boolean(self.value <= other.value)
+            result: ap.Boolean = ap.Boolean(self._value <= other._value)
         else:
-            result = ap.Boolean(self.value <= other)
+            result = ap.Boolean(self._value <= other)
         other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_le_expression(result=result, other=other)
@@ -760,9 +760,9 @@ class NumberValueInterface(
         """
         import apysc as ap
         if isinstance(other, NumberValueInterface):
-            result: ap.Boolean = ap.Boolean(self.value > other.value)
+            result: ap.Boolean = ap.Boolean(self._value > other._value)
         else:
-            result = ap.Boolean(self.value > other)
+            result = ap.Boolean(self._value > other)
         other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, NumberValueInterface):
             self._append_gt_expression(result=result, other=other)
@@ -806,9 +806,9 @@ class NumberValueInterface(
         """
         import apysc as ap
         if isinstance(other, NumberValueInterface):
-            result: ap.Boolean = ap.Boolean(self.value >= other.value)
+            result: ap.Boolean = ap.Boolean(self._value >= other._value)
         else:
-            result = ap.Boolean(self.value >= other)
+            result = ap.Boolean(self._value >= other)
         other = self._convert_other_val_to_int_or_number(other=other)
         if isinstance(other, VariableNameInterface):
             self._append_ge_expression(result=result, other=other)

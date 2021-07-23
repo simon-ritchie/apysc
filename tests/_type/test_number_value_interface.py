@@ -162,7 +162,7 @@ class TestNumberValueInterface:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_1.variable_name = 'test_interface_0'
-        interface_1.set_value_and_skip_expression_appending(value=20)
+        interface_1._set_value_and_skip_expression_appending(value=20)
         assert interface_1.value == 20
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
@@ -173,7 +173,7 @@ class TestNumberValueInterface:
         interface_2: NumberValueInterface = NumberValueInterface(
             value=30, type_name='test_interface')
         interface_2.variable_name = 'test_interface_1'
-        interface_2.set_value_and_skip_expression_appending(
+        interface_2._set_value_and_skip_expression_appending(
             value=interface_1)
         assert interface_2.value == 20
         expression = expression_file_util.get_current_expression()

@@ -78,7 +78,7 @@ class TestNumber:
     def test_set_value_and_skip_expression_appending(self) -> None:
         expression_file_util.remove_expression_file()
         number_1: ap.Number = ap.Number(value=10.5)
-        number_1.set_value_and_skip_expression_appending(value=20.5)
+        number_1._set_value_and_skip_expression_appending(value=20.5)
         assert number_1.value == 20.5
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
@@ -87,7 +87,7 @@ class TestNumber:
         assert expected not in expression
 
         number_2: ap.Number = ap.Number(value=30.5)
-        number_2.set_value_and_skip_expression_appending(value=number_1)
+        number_2._set_value_and_skip_expression_appending(value=number_1)
         assert number_2.value == 20.5
         expression = expression_file_util.get_current_expression()
         expected = (

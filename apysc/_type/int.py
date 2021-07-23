@@ -77,7 +77,7 @@ class Int(NumberValueInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    def set_value_and_skip_expression_appending(
+    def _set_value_and_skip_expression_appending(
             self,
             value: Union[int, float, NumberValueInterface, Any]) -> None:
         """

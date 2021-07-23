@@ -70,7 +70,7 @@ class TestInt:
     def test_set_value_and_skip_expression_appending(self) -> None:
         expression_file_util.remove_expression_file()
         int_1: ap.Int = ap.Int(value=10)
-        int_1.set_value_and_skip_expression_appending(value=20.5)
+        int_1._set_value_and_skip_expression_appending(value=20.5)
         assert int_1.value == 20
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
@@ -79,7 +79,7 @@ class TestInt:
         assert expected not in expression
 
         int_2: ap.Int = ap.Int(value=30)
-        int_2.set_value_and_skip_expression_appending(value=int_1)
+        int_2._set_value_and_skip_expression_appending(value=int_1)
         expression = expression_file_util.get_current_expression()
         expected = (
             f'{int_2.variable_name} = {int_1.variable_name};'

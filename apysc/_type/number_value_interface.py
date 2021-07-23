@@ -85,13 +85,13 @@ class NumberValueInterface(
         apysc basic data classes common value interface
             https://bit.ly/3Be1aij
         """
-        self.set_value_and_skip_expression_appending(value=value)
+        self._set_value_and_skip_expression_appending(value=value)
         if isinstance(value, NumberValueInterface):
             self.append_value_setter_expression(value=value)
         else:
             self.append_value_setter_expression(value=self._value)
 
-    def set_value_and_skip_expression_appending(
+    def _set_value_and_skip_expression_appending(
             self, value: Union[int, float, Any]) -> None:
         """
         Update value attribute and skip expression appending.
@@ -148,7 +148,7 @@ class NumberValueInterface(
         else:
             value = self._value + other
         result: NumberValueInterface = self._copy()
-        result.set_value_and_skip_expression_appending(value=value)
+        result._set_value_and_skip_expression_appending(value=value)
         self._append_addition_expression(result=result, other=other)
         return result
 
@@ -193,7 +193,7 @@ class NumberValueInterface(
         else:
             value = self._value - other
         result: NumberValueInterface = self._copy()
-        result.set_value_and_skip_expression_appending(value=value)
+        result._set_value_and_skip_expression_appending(value=value)
         self._append_subtraction_expression(result=result, other=other)
         return result
 
@@ -238,7 +238,7 @@ class NumberValueInterface(
         else:
             value = self._value * other
         result: NumberValueInterface = self._copy()
-        result.set_value_and_skip_expression_appending(value=value)
+        result._set_value_and_skip_expression_appending(value=value)
         self._append_multiplication_expression(result=result, other=other)
         return result
 
@@ -284,7 +284,7 @@ class NumberValueInterface(
             value: Union[int, float, Any] = result._value / other._value
         else:
             value = result._value / other
-        result.set_value_and_skip_expression_appending(value=value)
+        result._set_value_and_skip_expression_appending(value=value)
         self._append_true_division_expression(result=result, other=other)
         return result
 
@@ -330,7 +330,7 @@ class NumberValueInterface(
             value: Union[int, float, Any] = self._value // other._value
         else:
             value = self._value // other
-        result.set_value_and_skip_expression_appending(value=value)
+        result._set_value_and_skip_expression_appending(value=value)
         self._append_floor_division_expression(result=result, other=other)
         return result
 
@@ -477,7 +477,7 @@ class NumberValueInterface(
         else:
             value = self._value % other
         result: NumberValueInterface = self._copy()
-        result.set_value_and_skip_expression_appending(value=value)
+        result._set_value_and_skip_expression_appending(value=value)
         self._append_modulo_expression(result=result, other=other)
         return result
 

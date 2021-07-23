@@ -53,7 +53,7 @@ class Number(NumberValueInterface):
             self._value = cast.to_float_from_int(int_or_float=self.value)
             self.append_constructor_expression()
 
-    def set_value_and_skip_expression_appending(
+    def _set_value_and_skip_expression_appending(
             self, value: Union[int, float, Any]) -> None:
         """
         Update value attribute and skip expression appending.

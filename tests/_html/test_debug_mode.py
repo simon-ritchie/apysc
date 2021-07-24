@@ -189,3 +189,13 @@ def test__increment_callable_count() -> None:
         module_name=__name__,
         class_=TestDebugInfo)
     assert callable_count == 1
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_callable_str() -> None:
+    callable_str: str = debug_mode._get_callable_str(
+        callable_=test__get_callable_str)
+    assert callable_str == 'test__get_callable_str'
+
+    callable_str = debug_mode._get_callable_str(callable_='any_func')
+    assert callable_str == 'any_func'

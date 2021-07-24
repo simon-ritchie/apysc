@@ -4,7 +4,7 @@ and JavaScript.
 
 import os
 import inspect
-from typing import Any, Callable, Dict, Optional, Type
+from typing import Any, Callable, Dict, Optional, Type, Union
 
 
 def set_debug_mode() -> None:
@@ -40,8 +40,29 @@ def is_debug_mode() -> bool:
     return False
 
 
+def _get_callable_str(callable_: Union[Callable, str]) -> str:
+    """
+    Get a callable string (label).
+
+    Parameters
+    ----------
+    callable_ : Callable or str
+        Target function or method or property name.
+
+    Returns
+    -------
+    callable_str : str
+        A callable string (label).
+    """
+    if isinstance(callable_, str):
+        callable_str: str = callable_
+    else:
+        callable_str = callable_.__name__
+    return callable_str
+
+
 def _get_callable_count_file_path(
-        callable_: Callable,
+        callable_: Union[Callable, str],
         module_name: str,
         class_: Optional[Type] = None) -> str:
     """
@@ -49,8 +70,8 @@ def _get_callable_count_file_path(
 
     Parameters
     ----------
-    callable_ : Callable
-        Target function or method.
+    callable_ : Callable or str
+        Target function or method or property name.
     module_name : str
         Module name. This value will be set the `__name__` value.
     class_ : Type or None, optional
@@ -68,15 +89,16 @@ def _get_callable_count_file_path(
         class_name: str = ''
     else:
         class_name = f'_{class_.__name__}'
+    callable_str: str = _get_callable_str(callable_=callable_)
     file_path: str = os.path.join(
         expression_file_util.EXPRESSION_ROOT_DIR,
-        f'callable_count_{module_path}{class_name}_{callable_.__name__}.txt'
+        f'callable_count_{module_path}{class_name}_{callable_str}.txt'
     )
     return file_path
 
 
 def _get_callable_count(
-        callable_: Callable,
+        callable_: Union[Callable, str],
         module_name: str,
         class_: Optional[Type] = None) -> int:
     """
@@ -84,8 +106,8 @@ def _get_callable_count(
 
     Parameters
     ----------
-    callable_ : Callable
-        Target function or method.
+    callable_ : Callable or str
+        Target function or method or property name.
     module_name : str
         Module name. This value will be set the `__name__` value.
     class_ : Type or None, optional
@@ -113,7 +135,7 @@ def _get_callable_count(
 
 
 def _increment_callable_count(
-        callable_: Callable,
+        callable_: Union[Callable, str],
         module_name: str,
         class_: Optional[Type] = None) -> None:
     """
@@ -121,8 +143,8 @@ def _increment_callable_count(
 
     Parameters
     ----------
-    callable_ : Callable
-        Target function or method.
+    callable_ : Callable or str
+        Target function or method or property name.
     module_name : str
         Module name. This value will be set the `__name__` value.
     class_ : Type or None, optional
@@ -144,7 +166,7 @@ class DebugInfo:
     expression file. This class is used at the `with` statement.
     """
 
-    _callable: Callable
+    _callable: Union[Callable, str]
     _locals: Dict[str, Any]
     _module_name: str
     _class: Optional[Type]
@@ -153,7 +175,8 @@ class DebugInfo:
     _callable_count: int
 
     def __init__(
-            self, callable_: Callable, locals_: Dict[str, Any],
+            self, callable_: Union[Callable, str],
+            locals_: Dict[str, Any],
             module_name: str,
             class_: Optional[Type] = None) -> None:
         """
@@ -168,8 +191,8 @@ class DebugInfo:
 
         Parameters
         ----------
-        callable_ : Callable
-            Target function or method.
+        callable_ : Callable or str
+            Target function or method or property name.
         locals_ : dict
             Local variables. This value will be set by the `locals()`
             function.
@@ -228,9 +251,10 @@ class DebugInfo:
                 if isinstance(argument, VariableNameInterface):
                     argument = f'{argument}({argument.variable_name})'
                 arguments_info += f'\n//    {argument_name} = {argument}'
+        callable_str: str = _get_callable_str(callable_=self._callable)
         expression: str = (
             f'{self._DIVIDER}'
-            f'\n// [{self._callable.__name__} {self._callable_count}] '
+            f'\n// [{callable_str} {self._callable_count}] '
             'started.'
             f'\n// module name: {self._module_name}'
             f'{class_info}'
@@ -251,8 +275,9 @@ class DebugInfo:
         if not ap.is_debug_mode():
             return
         class_info: str = self._get_class_info()
+        callable_str: str = _get_callable_str(callable_=self._callable)
         expression: str = (
-            f'// [{self._callable.__name__} {self._callable_count}] ended.'
+            f'// [{callable_str} {self._callable_count}] ended.'
             f'\n// module name: {self._module_name}'
             f'{class_info}'
             f'\n{self._DIVIDER}'

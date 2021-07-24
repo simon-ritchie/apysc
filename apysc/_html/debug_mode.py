@@ -194,8 +194,25 @@ class DebugInfo:
         The method will be called at the start of the with statement.
         """
         import apysc as ap
-        # expression: str = (
-        #     f'{self._DIVIDER}'
-        #     f'\n'
-        # )
+        if self._class is None:
+            class_info: str = ''
+        else:
+            class_info = f'\n// class: {self._class.__name__}'
+        if not self._locals:
+            arguments_info: str = ''
+        else:
+            arguments_info = '\n// arguments:'
+            for argument_name, argument in self._locals.items():
+                arguments_info += f'\n//    {argument_name} = {argument}'
+        expression: str = (
+            f'{self._DIVIDER}'
+            f'\n// [{self._callable.__name__} {self._callable_count}] '
+            'started.'
+            f'\n// module name: {self._module_name}'
+            f'{class_info}'
+            f'{arguments_info}'
+        )
+        ap.append_js_expression(expression=expression)
+
+    def __exit__(self, *args: Any) -> None:
         pass

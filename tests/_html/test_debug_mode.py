@@ -55,6 +55,19 @@ class TestDebugInfo:
             any_obj=debug_info,
         )
 
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___enter__(self) -> None:
+        expression_file_util.empty_expression_dir()
+        with ap.DebugInfo(
+                callable_=self.test___init__, locals_=locals(),
+                module_name=__name__, class_=TestDebugInfo):
+            pass
+        expression: str = expression_file_util.get_current_expression()
+        assert f'\n// [{self.test___init__.__name__}' in expression
+        assert f'\n// module name: {__name__}' in expression
+        assert f'\n// class: {TestDebugInfo.__name__}' in expression
+        assert f'\n// arguments:\n//    self = ' in expression
+
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_callable_count_file_path() -> None:

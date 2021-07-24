@@ -21,11 +21,14 @@ def get_copied_int_from_builtin_val(
     copied : Int
         Copied Int value.
     """
-    if isinstance(integer, int):
-        copied: ap.Int = ap.Int(integer)
-    else:
-        copied = integer._copy()
-    return copied
+    with ap.DebugInfo(
+            callable_=get_copied_int_from_builtin_val, locals_=locals(),
+            module_name=__name__):
+        if isinstance(integer, int):
+            copied: ap.Int = ap.Int(integer)
+        else:
+            copied = integer._copy()
+        return copied
 
 
 def get_copied_string_from_builtin_val(
@@ -43,8 +46,11 @@ def get_copied_string_from_builtin_val(
     copied : String
         Copied String value.
     """
-    if isinstance(string, str):
-        copied: ap.String = ap.String(string)
-    else:
-        copied = string._copy()
-    return copied
+    with ap.DebugInfo(
+            callable_=get_copied_string_from_builtin_val, locals_=locals(),
+            module_name=__name__):
+        if isinstance(string, str):
+            copied: ap.String = ap.String(string)
+        else:
+            copied = string._copy()
+        return copied

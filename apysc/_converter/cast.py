@@ -33,11 +33,14 @@ def to_int_from_float(
     int_val : int or Int
         Converted integer value.
     """
-    if isinstance(int_or_float, ap.Number):
-        return ap.Int(int_or_float)
-    if not isinstance(int_or_float, float):
-        return int_or_float
-    return int(int_or_float)
+    with ap.DebugInfo(
+            callable_=to_int_from_float, locals_=locals(),
+            module_name=__name__):
+        if isinstance(int_or_float, ap.Number):
+            return ap.Int(int_or_float)
+        if not isinstance(int_or_float, float):
+            return int_or_float
+        return int(int_or_float)
 
 
 def to_float_from_int(
@@ -56,11 +59,14 @@ def to_float_from_int(
     float_val : float or Number
         Converted float value.
     """
-    if isinstance(int_or_float, ap.Int):
-        return ap.Number(int_or_float)
-    if not isinstance(int_or_float, int):
-        return int_or_float
-    return float(int_or_float)
+    with ap.DebugInfo(
+            callable_=to_float_from_int, locals_=locals(),
+            module_name=__name__):
+        if isinstance(int_or_float, ap.Int):
+            return ap.Number(int_or_float)
+        if not isinstance(int_or_float, int):
+            return int_or_float
+        return float(int_or_float)
 
 
 def to_bool_from_int(integer: Union[int, ap.Int]) -> bool:
@@ -82,8 +88,11 @@ def to_bool_from_int(integer: Union[int, ap.Int]) -> bool:
     ValueError
         If argument value isn't zero or one.
     """
-    from apysc._validation import number_validation
-    number_validation.validate_int_is_zero_or_one(integer=integer)
-    if integer == 0:
-        return False
-    return True
+    with ap.DebugInfo(
+            callable_=to_bool_from_int, locals_=locals(),
+            module_name=__name__):
+        from apysc._validation import number_validation
+        number_validation.validate_int_is_zero_or_one(integer=integer)
+        if integer == 0:
+            return False
+        return True

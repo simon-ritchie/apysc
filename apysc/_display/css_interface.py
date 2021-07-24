@@ -40,16 +40,20 @@ class CssInterface(VariableNameInterface, RevertInterface):
         Display object get_css and set_css interfaces document
             https://bit.ly/3wNgIWI
         """
-        from apysc._converter import to_builtin_val_from_apysc
-        self._initialize_css_if_not_initialized()
-        name_: str = to_builtin_val_from_apysc.get_builtin_str_from_apysc_val(
-            string=name)
-        if name_ in self._css:
-            css: ap.String = self._css[name_]._copy()
-        else:
-            css = ap.String('')
-        self._append_get_css_expresion(name=name, css=css)
-        return css
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self.get_css, locals_=locals(),
+                module_name=__name__, class_=CssInterface):
+            from apysc._converter import to_builtin_val_from_apysc
+            self._initialize_css_if_not_initialized()
+            name_: str = to_builtin_val_from_apysc.get_builtin_str_from_apysc_val(
+                string=name)
+            if name_ in self._css:
+                css: ap.String = self._css[name_]._copy()
+            else:
+                css = ap.String('')
+            self._append_get_css_expresion(name=name, css=css)
+            return css
 
     def _append_get_css_expresion(
             self, name: Union[str, ap.String], css: ap.String) -> None:
@@ -63,15 +67,18 @@ class CssInterface(VariableNameInterface, RevertInterface):
         css : String
             CSS value.
         """
-        from apysc._type import value_util
-        name_value_str: str = value_util.get_value_str_for_expression(
-            value=name)
-        css_value_str: str = value_util.get_value_str_for_expression(
-            value=css)
-        expression: str = (
-            f'{css_value_str} = {self.variable_name}.css({name_value_str});'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_get_css_expresion, locals_=locals(),
+                module_name=__name__, class_=CssInterface):
+            from apysc._type import value_util
+            name_value_str: str = value_util.get_value_str_for_expression(
+                value=name)
+            css_value_str: str = value_util.get_value_str_for_expression(
+                value=css)
+            expression: str = (
+                f'{css_value_str} = {self.variable_name}.css({name_value_str});'
+            )
+            ap.append_js_expression(expression=expression)
 
     def set_css(
             self, name: Union[str, ap.String],
@@ -91,15 +98,18 @@ class CssInterface(VariableNameInterface, RevertInterface):
         Display object get_css and set_css interfaces document
             https://bit.ly/3wNgIWI
         """
-        from apysc._converter import to_apysc_val_from_builtin
-        from apysc._converter import to_builtin_val_from_apysc
-        self._initialize_css_if_not_initialized()
-        name_: str = to_builtin_val_from_apysc.get_builtin_str_from_apysc_val(
-            string=name)
-        value_: ap.String = to_apysc_val_from_builtin.\
-            get_copied_string_from_builtin_val(string=value)
-        self._css[name_] = value_
-        self._append_set_css_expression(name=name, value=value)
+        with ap.DebugInfo(
+                callable_=self.set_css, locals_=locals(),
+                module_name=__name__, class_=CssInterface):
+            from apysc._converter import to_apysc_val_from_builtin
+            from apysc._converter import to_builtin_val_from_apysc
+            self._initialize_css_if_not_initialized()
+            name_: str = to_builtin_val_from_apysc.get_builtin_str_from_apysc_val(
+                string=name)
+            value_: ap.String = to_apysc_val_from_builtin.\
+                get_copied_string_from_builtin_val(string=value)
+            self._css[name_] = value_
+            self._append_set_css_expression(name=name, value=value)
 
     def _append_set_css_expression(
             self, name: Union[str, ap.String],
@@ -114,14 +124,17 @@ class CssInterface(VariableNameInterface, RevertInterface):
         value : str or String
             A CSS value string (e.g., 'none').
         """
-        from apysc._type import value_util
-        name_value_str: str = value_util.get_value_str_for_expression(
-            value=name)
-        value_str: str = value_util.get_value_str_for_expression(value=value)
-        expression: str = (
-            f'{self.variable_name}.css({name_value_str}, {value_str});'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_set_css_expression, locals_=locals(),
+                module_name=__name__, class_=CssInterface):
+            from apysc._type import value_util
+            name_value_str: str = value_util.get_value_str_for_expression(
+                value=name)
+            value_str: str = value_util.get_value_str_for_expression(value=value)
+            expression: str = (
+                f'{self.variable_name}.css({name_value_str}, {value_str});'
+            )
+            ap.append_js_expression(expression=expression)
 
     _css_snapshot: Dict[str, Dict[str, ap.String]]
 

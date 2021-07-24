@@ -39,8 +39,39 @@ def is_debug_mode() -> bool:
     return False
 
 
-def _get_callable_count_file_path(callable_: Callable) -> str:
-    pass
+def _get_callable_count_file_path(
+        callable_: Callable,
+        module_name: str,
+        class_: Optional[Type]) -> str:
+    """
+    Get a specified callable count data file path.
+
+    Parameters
+    ----------
+    callable_ : Callable
+        Target function or method.
+    module_name : str
+        Module name. This value will be set the `__name__` value.
+    class_ : Type or None, optional
+        Target class type. If the target callable_ variable is not
+        a method, this argument will be ignored.
+
+    Returns
+    -------
+    file_path : str
+        Target file path.
+    """
+    from apysc._expression import expression_file_util
+    module_path: str = module_name.replace('.', '_')
+    if class_ is None:
+        class_name: str = ''
+    else:
+        class_name = f'_{class_.__name__}'
+    file_path: str = os.path.join(
+        expression_file_util.EXPRESSION_ROOT_DIR,
+        f'callable_count_{module_path}{class_name}_{callable_.__name__}.txt'
+    )
+    return file_path
 
 
 class DebugInfo:

@@ -27,12 +27,16 @@ def get_func_default_vals(func: Callable) -> Dict[str, Any]:
         at value. If argument has no default value, then `empty` object
         will be set.
     """
-    signature: Signature = inspect.signature(func)
-    default_vals: Dict[str, Any] = {}
-    parameter: Parameter
-    for arg_name, parameter in signature.parameters.items():
-        default_vals[arg_name] = parameter.default
-    return default_vals
+    import apysc as ap
+    with ap.DebugInfo(
+            callable_=get_func_default_vals, locals_=locals(),
+            module_name=__name__):
+        signature: Signature = inspect.signature(func)
+        default_vals: Dict[str, Any] = {}
+        parameter: Parameter
+        for arg_name, parameter in signature.parameters.items():
+            default_vals[arg_name] = parameter.default
+        return default_vals
 
 
 def get_arg_name_at(func: Callable, index: int) -> str:
@@ -51,14 +55,18 @@ def get_arg_name_at(func: Callable, index: int) -> str:
     arg_name : str
         Target index's argument name.
     """
-    signature: Signature = inspect.signature(func)
-    arg_name: str = ''
-    for i, target_idx_arg_name in enumerate(signature.parameters.keys()):
-        if i != index:
-            continue
-        arg_name = target_idx_arg_name
-        break
-    return arg_name
+    import apysc as ap
+    with ap.DebugInfo(
+            callable_=get_arg_name_at, locals_=locals(),
+            module_name=__name__):
+        signature: Signature = inspect.signature(func)
+        arg_name: str = ''
+        for i, target_idx_arg_name in enumerate(signature.parameters.keys()):
+            if i != index:
+                continue
+            arg_name = target_idx_arg_name
+            break
+        return arg_name
 
 
 def get_name_and_arg_value_dict_from_args(
@@ -82,12 +90,16 @@ def get_name_and_arg_value_dict_from_args(
         Dictionary that has an argument name at key and specified
         argument values at value.
     """
-    name_and_arg_value_dict: Dict[str, Any] = {}
-    for i, arg_value in enumerate(args):
-        arg_name: str = get_arg_name_at(func=func, index=i)
-        name_and_arg_value_dict[arg_name] = arg_value
-    name_and_arg_value_dict.update(kwargs)
-    return name_and_arg_value_dict
+    import apysc as ap
+    with ap.DebugInfo(
+            callable_=get_name_and_arg_value_dict_from_args, locals_=locals(),
+            module_name=__name__):
+        name_and_arg_value_dict: Dict[str, Any] = {}
+        for i, arg_value in enumerate(args):
+            arg_name: str = get_arg_name_at(func=func, index=i)
+            name_and_arg_value_dict[arg_name] = arg_value
+        name_and_arg_value_dict.update(kwargs)
+        return name_and_arg_value_dict
 
 
 def get_method_class_name(method: Callable) -> str:
@@ -106,11 +118,15 @@ def get_method_class_name(method: Callable) -> str:
         not a method (e.g., function), then blank string will be
         returned.
     """
-    if not inspect.ismethod(method):
-        return ''
-    class_name: str = ''
-    for class_ in inspect.getmro(type(method.__self__)):  # type: ignore
-        if method.__name__ not in class_.__dict__:
-            continue
-        class_name = class_.__name__
-    return class_name
+    import apysc as ap
+    with ap.DebugInfo(
+            callable_=get_method_class_name, locals_=locals(),
+            module_name=__name__):
+        if not inspect.ismethod(method):
+            return ''
+        class_name: str = ''
+        for class_ in inspect.getmro(type(method.__self__)):  # type: ignore
+            if method.__name__ not in class_.__dict__:
+                continue
+            class_name = class_.__name__
+        return class_name

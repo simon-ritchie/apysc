@@ -5,6 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import expression_file_util
 from apysc._file import file_util
+from tests.testing_helper import assert_attrs
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -31,3 +32,17 @@ def test_is_debug_mode() -> None:
     ap.set_debug_mode()
     result = ap.is_debug_mode()
     assert result
+
+
+class TestDebugInfo:
+
+    def test___init__(self) -> None:
+        debug_info: ap.DebugInfo = ap.DebugInfo(
+            callable_=self.test___init__, locals_=locals())
+        assert_attrs(
+            expected_attrs={
+                '_callable': self.test___init__,
+                '_locals': {'self': self},
+            },
+            any_obj=debug_info,
+        )

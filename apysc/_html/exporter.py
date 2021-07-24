@@ -130,6 +130,10 @@ def _minify_html(html_str: str, minify: bool) -> str:
     """
     Minify HTML and js string.
 
+    Notes
+    -----
+    If the debug mode setting is enabled, minifying will be skipped.
+
     Parameters
     ----------
     html_str : str
@@ -143,7 +147,10 @@ def _minify_html(html_str: str, minify: bool) -> str:
     html_str : str
         Result html string.
     """
+    import apysc as ap
     if not minify:
+        return html_str
+    if ap.is_debug_mode():
         return html_str
     minifier = Minifier(html=html_str)
     html_str = minifier.minify()

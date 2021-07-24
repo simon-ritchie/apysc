@@ -265,6 +265,11 @@ def test__minify_html() -> None:
     html_str = exporter._minify_html(html_str=html_str, minify=False)
     assert html_str.startswith('<html>\n<body>')
 
+    ap.set_debug_mode()
+    html_str = exporter._minify_html(html_str=html_str, minify=False)
+    assert html_str.startswith('<html>\n<body>')
+
+    expression_file_util.empty_expression_dir()
     html_str = exporter._minify_html(html_str=html_str, minify=True)
     assert html_str.startswith('<html><body>')
 

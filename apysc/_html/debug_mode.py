@@ -220,6 +220,8 @@ class DebugInfo:
             for argument_name, argument in self._locals.items():
                 if inspect.ismodule(argument):
                     continue
+                if argument_name.startswith('__'):
+                    continue
                 arguments_info += f'\n//    {argument_name} = {argument}'
         expression: str = (
             f'{self._DIVIDER}'

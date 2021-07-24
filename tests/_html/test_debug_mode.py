@@ -69,6 +69,7 @@ class TestDebugInfo:
         assert f'\n// [{self.test___init__.__name__}' not in expression
 
         ap.set_debug_mode()
+        __any_val__: str = 'Hello'
         with ap.DebugInfo(
                 callable_=self.test___init__, locals_=locals(),
                 module_name=__name__, class_=TestDebugInfo):

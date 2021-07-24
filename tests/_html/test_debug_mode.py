@@ -59,6 +59,7 @@ class TestDebugInfo:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___enter__(self) -> None:
+        import os  # noqa
         expression_file_util.empty_expression_dir()
         with ap.DebugInfo(
                 callable_=self.test___init__, locals_=locals(),

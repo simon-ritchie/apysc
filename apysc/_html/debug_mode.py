@@ -3,6 +3,7 @@ and JavaScript.
 """
 
 import os
+import inspect
 from typing import Any, Callable, Dict, Optional, Type
 
 
@@ -215,6 +216,8 @@ class DebugInfo:
         else:
             arguments_info = '\n// arguments:'
             for argument_name, argument in self._locals.items():
+                if inspect.ismodule(argument):
+                    continue
                 arguments_info += f'\n//    {argument_name} = {argument}'
         expression: str = (
             f'{self._DIVIDER}'

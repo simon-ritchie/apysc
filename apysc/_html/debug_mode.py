@@ -236,3 +236,11 @@ class DebugInfo:
             Positional arguments.
         """
         import apysc as ap
+        class_info: str = self._get_class_info()
+        expression: str = (
+            f'// [{self._callable.__name__} {self._callable_count}] ended.'
+            f'\n// module name: {self._module_name}'
+            f'{class_info}'
+            f'\n{self._DIVIDER}'
+        )
+        ap.append_js_expression(expression=expression)

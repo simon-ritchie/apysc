@@ -1,4 +1,6 @@
 from random import randint
+from typing import Match, Optional
+import re
 
 from retrying import retry
 
@@ -85,6 +87,22 @@ class TestDebugInfo:
         )
         class_info = debug_info._get_class_info()
         assert class_info == ''
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___exit__(self) -> None:
+        expression_file_util.empty_expression_dir()
+        with ap.DebugInfo(
+                callable_=self.test___init__, locals_=locals(),
+                module_name=__name__, class_=TestDebugInfo):
+            pass
+        expression: str = expression_file_util.get_current_expression()
+        callable_name: str = self.test___init__.__name__
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'// \[{callable_name} .+?\] ended\.'
+            ),
+            string=expression, flags=re.MULTILINE | re.DOTALL)
+        assert match is not None
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

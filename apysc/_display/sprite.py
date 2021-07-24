@@ -43,19 +43,22 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
         - Sprite document
             - https://simon-ritchie.github.io/apysc/sprite.html
         """
-        from apysc._expression import expression_variables_util
-        from apysc._expression import var_names
+        with ap.DebugInfo(
+                callable_=self.__init__, locals_=locals(),
+                module_name=__name__, class_=Sprite):
+            from apysc._expression import expression_variables_util
+            from apysc._expression import var_names
 
-        if variable_name is None:
-            variable_name = expression_variables_util.\
-                get_next_variable_name(type_name=var_names.SPRITE)
-        self._children = ap.Array([])
-        super(Sprite, self).__init__(
-            stage=stage, variable_name=variable_name)
-        self._append_constructor_expression()
-        self.graphics = Graphics(parent=self)
-        stage.add_child(child=self)
-        self._set_overflow_visible_setting()
+            if variable_name is None:
+                variable_name = expression_variables_util.\
+                    get_next_variable_name(type_name=var_names.SPRITE)
+            self._children = ap.Array([])
+            super(Sprite, self).__init__(
+                stage=stage, variable_name=variable_name)
+            self._append_constructor_expression()
+            self.graphics = Graphics(parent=self)
+            stage.add_child(child=self)
+            self._set_overflow_visible_setting()
 
     def _append_constructor_expression(self) -> bool:
         """

@@ -38,11 +38,16 @@ class TestDebugInfo:
 
     def test___init__(self) -> None:
         debug_info: ap.DebugInfo = ap.DebugInfo(
-            callable_=self.test___init__, locals_=locals())
+            callable_=self.test___init__,
+            locals_=locals(),
+            module_name=__name__,
+            class_=TestDebugInfo)
         assert_attrs(
             expected_attrs={
                 '_callable': self.test___init__,
                 '_locals': {'self': self},
+                '_module_name': __name__,
+                '_class': TestDebugInfo,
             },
             any_obj=debug_info,
         )

@@ -38,6 +38,7 @@ def test_is_debug_mode() -> None:
 
 class TestDebugInfo:
 
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         debug_info: ap.DebugInfo = ap.DebugInfo(
             callable_=self.test___init__,
@@ -55,6 +56,7 @@ class TestDebugInfo:
         )
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_callable_count_file_path() -> None:
     file_path: str = debug_mode._get_callable_count_file_path(
         callable_=TestDebugInfo.test___init__,
@@ -64,3 +66,35 @@ def test__get_callable_count_file_path() -> None:
     assert 'tests__html_test_debug_mode' in file_path
     assert 'TestDebugInfo' in file_path
     assert 'test___init__' in file_path
+
+    _ = debug_mode._get_callable_count_file_path(
+        callable_=TestDebugInfo.test___init__,
+        module_name=__name__)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_callable_count() -> None:
+    expression_file_util.empty_expression_dir()
+    callable_count: int = debug_mode._get_callable_count(
+        callable_=TestDebugInfo.test___init__,
+        module_name=__name__,
+        class_=TestDebugInfo)
+    assert callable_count == 0
+
+    file_path: str = debug_mode._get_callable_count_file_path(
+        callable_=TestDebugInfo.test___init__,
+        module_name=__name__,
+        class_=TestDebugInfo)
+    file_util.append_plain_txt(txt='', file_path=file_path)
+    callable_count = debug_mode._get_callable_count(
+        callable_=TestDebugInfo.test___init__,
+        module_name=__name__,
+        class_=TestDebugInfo)
+    assert callable_count == 0
+
+    file_util.append_plain_txt(txt='3', file_path=file_path)
+    callable_count = debug_mode._get_callable_count(
+        callable_=TestDebugInfo.test___init__,
+        module_name=__name__,
+        class_=TestDebugInfo)
+    assert callable_count == 3

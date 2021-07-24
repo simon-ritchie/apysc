@@ -42,7 +42,7 @@ def is_debug_mode() -> bool:
 def _get_callable_count_file_path(
         callable_: Callable,
         module_name: str,
-        class_: Optional[Type]) -> str:
+        class_: Optional[Type] = None) -> str:
     """
     Get a specified callable count data file path.
 
@@ -72,6 +72,43 @@ def _get_callable_count_file_path(
         f'callable_count_{module_path}{class_name}_{callable_.__name__}.txt'
     )
     return file_path
+
+
+def _get_callable_count(
+        callable_: Callable,
+        module_name: str,
+        class_: Optional[Type] = None) -> int:
+    """
+    Get a specified callable count number.
+
+    Parameters
+    ----------
+    callable_ : Callable
+        Target function or method.
+    module_name : str
+        Module name. This value will be set the `__name__` value.
+    class_ : Type or None, optional
+        Target class type. If the target callable_ variable is not
+        a method, this argument will be ignored.
+
+    Returns
+    -------
+    callable_count : int
+        Target count number.
+    """
+    file_path: str = _get_callable_count_file_path(
+        callable_=callable_,
+        module_name=module_name,
+        class_=class_)
+    if not os.path.isfile(file_path):
+        return 0
+    with open(file_path) as f:
+        txt: str = f.read()
+    try:
+        callable_count: int = int(txt)
+    except Exception:
+        return 0
+    return callable_count
 
 
 class DebugInfo:

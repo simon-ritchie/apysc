@@ -222,6 +222,8 @@ class DebugInfo:
                     continue
                 if argument_name.startswith('__'):
                     continue
+                if isinstance(argument, str) and argument == '':
+                    argument = "''"
                 arguments_info += f'\n//    {argument_name} = {argument}'
         expression: str = (
             f'{self._DIVIDER}'

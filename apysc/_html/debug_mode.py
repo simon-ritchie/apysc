@@ -210,6 +210,8 @@ class DebugInfo:
         The method will be called at the start of the with block.
         """
         import apysc as ap
+        if not ap.is_debug_mode():
+            return
         class_info: str = self._get_class_info()
         if not self._locals:
             arguments_info: str = ''
@@ -239,6 +241,8 @@ class DebugInfo:
             Positional arguments.
         """
         import apysc as ap
+        if not ap.is_debug_mode():
+            return
         class_info: str = self._get_class_info()
         expression: str = (
             f'// [{self._callable.__name__} {self._callable_count}] ended.'

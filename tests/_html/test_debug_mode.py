@@ -66,6 +66,14 @@ class TestDebugInfo:
                 module_name=__name__, class_=TestDebugInfo):
             pass
         expression: str = expression_file_util.get_current_expression()
+        assert f'\n// [{self.test___init__.__name__}' not in expression
+
+        ap.set_debug_mode()
+        with ap.DebugInfo(
+                callable_=self.test___init__, locals_=locals(),
+                module_name=__name__, class_=TestDebugInfo):
+            pass
+        expression = expression_file_util.get_current_expression()
         assert f'\n// [{self.test___init__.__name__}' in expression
         assert f'\n// module name: {__name__}' in expression
         assert f'\n// class: {TestDebugInfo.__name__}' in expression
@@ -99,6 +107,19 @@ class TestDebugInfo:
         expression: str = expression_file_util.get_current_expression()
         callable_name: str = self.test___init__.__name__
         match: Optional[Match] = re.search(
+            pattern=(
+                rf'// \[{callable_name} .+?\] ended\.'
+            ),
+            string=expression, flags=re.MULTILINE | re.DOTALL)
+        assert match is None
+
+        ap.set_debug_mode()
+        with ap.DebugInfo(
+                callable_=self.test___init__, locals_=locals(),
+                module_name=__name__, class_=TestDebugInfo):
+            pass
+        expression = expression_file_util.get_current_expression()
+        match = re.search(
             pattern=(
                 rf'// \[{callable_name} .+?\] ended\.'
             ),

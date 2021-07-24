@@ -111,12 +111,38 @@ def _get_callable_count(
     return callable_count
 
 
+def _increment_callable_count(
+        callable_: Callable,
+        module_name: str,
+        class_: Optional[Type] = None) -> None:
+    """
+    Increment a specified callable count number.
+
+    Parameters
+    ----------
+    callable_ : Callable
+        Target function or method.
+    module_name : str
+        Module name. This value will be set the `__name__` value.
+    class_ : Type or None, optional
+        Target class type. If the target callable_ variable is not
+        a method, this argument will be ignored.
+    """
+    callable_count: int = _get_callable_count(
+        callable_=callable_, module_name=module_name, class_=class_)
+    file_path: str = _get_callable_count_file_path(
+        callable_=callable_, module_name=module_name, class_=class_)
+    with open(file_path, 'w') as f:
+        f.write(str(callable_count + 1))
+
+
 class DebugInfo:
 
     _callable: Callable
     _locals: Dict[str, Any]
     _module_name: str
     _class: Optional[Type]
+    _DIVIDER: str = '/' * 70
 
     def __init__(
             self, callable_: Callable, locals_: Dict[str, Any],
@@ -149,3 +175,14 @@ class DebugInfo:
         self._locals = locals_
         self._module_name = module_name
         self._class = class_
+
+    def __enter__(self) -> None:
+        """
+        The method will be called at the start of the with statement.
+        """
+        import apysc as ap
+        # expression: str = (
+        #     f'{self._DIVIDER}'
+        #     f'\n'
+        # )
+        pass

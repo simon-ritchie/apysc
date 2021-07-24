@@ -98,3 +98,17 @@ def test__get_callable_count() -> None:
         module_name=__name__,
         class_=TestDebugInfo)
     assert callable_count == 3
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__increment_callable_count() -> None:
+    expression_file_util.empty_expression_dir()
+    debug_mode._increment_callable_count(
+        callable_=TestDebugInfo.test___init__,
+        module_name=__name__,
+        class_=TestDebugInfo)
+    callable_count: int = debug_mode._get_callable_count(
+        callable_=TestDebugInfo.test___init__,
+        module_name=__name__,
+        class_=TestDebugInfo)
+    assert callable_count == 1

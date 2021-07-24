@@ -216,7 +216,7 @@ class DebugInfo:
         if not self._locals:
             arguments_info: str = ''
         else:
-            arguments_info = '\n// arguments:'
+            arguments_info = '\n// arguments and variables:'
             for argument_name, argument in self._locals.items():
                 if inspect.ismodule(argument):
                     continue

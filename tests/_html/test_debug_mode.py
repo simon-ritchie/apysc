@@ -68,6 +68,24 @@ class TestDebugInfo:
         assert f'\n// class: {TestDebugInfo.__name__}' in expression
         assert f'\n// arguments:\n//    self = ' in expression
 
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_class_info(self) -> None:
+        debug_info: ap.DebugInfo = ap.DebugInfo(
+            callable_=self.test___init__,
+            locals_=locals(),
+            module_name=__name__,
+            class_=TestDebugInfo)
+        class_info: str = debug_info._get_class_info()
+        assert class_info == f'\n// class: {TestDebugInfo.__name__}'
+
+        debug_info = ap.DebugInfo(
+            callable_=self.test___init__,
+            locals_=locals(),
+            module_name=__name__,
+        )
+        class_info = debug_info._get_class_info()
+        assert class_info == ''
+
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_callable_count_file_path() -> None:

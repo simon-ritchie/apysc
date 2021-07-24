@@ -189,15 +189,27 @@ class DebugInfo:
         self._callable_count = _get_callable_count(
             callable_=callable_, module_name=module_name, class_=class_)
 
-    def __enter__(self) -> None:
+    def _get_class_info(self) -> str:
         """
-        The method will be called at the start of the with statement.
+        Get a class information string.
+
+        Returns
+        -------
+        class_info : str
+            Target class information string.
         """
-        import apysc as ap
         if self._class is None:
             class_info: str = ''
         else:
             class_info = f'\n// class: {self._class.__name__}'
+        return class_info
+
+    def __enter__(self) -> None:
+        """
+        The method will be called at the start of the with block.
+        """
+        import apysc as ap
+        class_info: str = self._get_class_info()
         if not self._locals:
             arguments_info: str = ''
         else:
@@ -215,4 +227,12 @@ class DebugInfo:
         ap.append_js_expression(expression=expression)
 
     def __exit__(self, *args: Any) -> None:
-        pass
+        """
+        The method will be called at the end of the with block.
+
+        Parameters
+        ----------
+        *args : list
+            Positional arguments.
+        """
+        import apysc as ap

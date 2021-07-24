@@ -71,6 +71,7 @@ class TestDebugInfo:
         ap.set_debug_mode()
         __any_val__: str = 'Hello'
         blank_str: str = ''  # noqa
+        int_val: ap.Int = ap.Int(10)
         with ap.DebugInfo(
                 callable_=self.test___init__, locals_=locals(),
                 module_name=__name__, class_=TestDebugInfo):
@@ -82,6 +83,7 @@ class TestDebugInfo:
         assert f'\n// arguments and variables:' in expression
         assert f'\n//    self ='
         assert f"\n//    blank_str = ''"
+        assert f"\n//    int_val = 10({int_val.variable_name})"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_class_info(self) -> None:

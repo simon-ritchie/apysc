@@ -210,6 +210,7 @@ class DebugInfo:
         The method will be called at the start of the with block.
         """
         import apysc as ap
+        from apysc._type.variable_name_interface import VariableNameInterface
         if not ap.is_debug_mode():
             return
         class_info: str = self._get_class_info()
@@ -224,6 +225,8 @@ class DebugInfo:
                     continue
                 if isinstance(argument, str) and argument == '':
                     argument = "''"
+                if isinstance(argument, VariableNameInterface):
+                    argument = f'{argument}({argument.variable_name})'
                 arguments_info += f'\n//    {argument_name} = {argument}'
         expression: str = (
             f'{self._DIVIDER}'

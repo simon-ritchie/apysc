@@ -32,9 +32,12 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
         ellipse_size : Int
             Ellipse size value.
         """
-        from apysc._type import value_util
-        self._initialize_ellipse_size_if_not_initialized()
-        return value_util.get_copy(value=self._ellipse_size)
+        with ap.DebugInfo(
+                callable_='ellipse_size', locals_=locals(),
+                module_name=__name__, class_=EllipseSizeInterface):
+            from apysc._type import value_util
+            self._initialize_ellipse_size_if_not_initialized()
+            return value_util.get_copy(value=self._ellipse_size)
 
     @ellipse_size.setter
     def ellipse_size(self, value: ap.Int) -> None:
@@ -47,31 +50,39 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
         value : int or Int
             Ellipse size value.
         """
-        from apysc._validation import number_validation
-        if not isinstance(value, ap.Int):
-            number_validation.validate_integer(integer=value)
-            value = ap.Int(value)
-        self._ellipse_size = value
-        self._ellipse_width = value
-        self._ellipse_height = value
-        self._ellipse_size._append_incremental_calc_substitution_expression()
-        self._ellipse_width._append_incremental_calc_substitution_expression()
-        self._ellipse_height.\
-            _append_incremental_calc_substitution_expression()
-        self._append_ellipse_size_update_expression()
+        with ap.DebugInfo(
+                callable_='ellipse_size', locals_=locals(),
+                module_name=__name__, class_=EllipseSizeInterface):
+            from apysc._validation import number_validation
+            if not isinstance(value, ap.Int):
+                number_validation.validate_integer(integer=value)
+                value = ap.Int(value)
+            self._ellipse_size = value
+            self._ellipse_width = value
+            self._ellipse_height = value
+            self._ellipse_size._append_incremental_calc_substitution_expression()
+            self._ellipse_width._append_incremental_calc_substitution_expression()
+            self._ellipse_height.\
+                _append_incremental_calc_substitution_expression()
+            self._append_ellipse_size_update_expression()
 
     def _append_ellipse_size_update_expression(self) -> None:
         """
         Append an ellipse size updating expression.
         """
-        from apysc._type import value_util
-        self._initialize_ellipse_size_if_not_initialized()
-        value_str: str = value_util.get_value_str_for_expression(
-            value=self._ellipse_size)
-        expression: str = (
-            f'{self.variable_name}.radius({value_str});'
-        )
-        ap.append_js_expression(expression=expression)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self._append_ellipse_size_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=EllipseSizeInterface):
+            from apysc._type import value_util
+            self._initialize_ellipse_size_if_not_initialized()
+            value_str: str = value_util.get_value_str_for_expression(
+                value=self._ellipse_size)
+            expression: str = (
+                f'{self.variable_name}.radius({value_str});'
+            )
+            ap.append_js_expression(expression=expression)
 
     _ellipse_size_snapshots: Dict[str, int]
 

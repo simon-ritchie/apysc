@@ -1,6 +1,9 @@
 """Elif (else if) branch instruction implementations.
 """
 
+from typing import Any, Dict, Optional
+
+import apysc as ap
 from apysc._branch.if_base import IfBase
 
 
@@ -15,6 +18,43 @@ class Elif(IfBase):
     - Each branch instruction class scope variables reverting setting
         - https://bit.ly/3rkAuaT
     """
+
+    def __init__(
+            self,
+            condition: Optional[ap.Boolean],
+            locals_: Optional[Dict[str, Any]] = None,
+            globals_: Optional[Dict[str, Any]] = None) -> None:
+        """
+        A class to append elif branch instruction expression.
+
+        Parameters
+        ----------
+        condition : Boolean or None
+            Boolean value to be used for judgment.
+        locals_ : dict or None, default None
+            Current scope's local variables. Set locals() value to
+            this argument. If specified, all local scope
+            VariableNameInterface variables (like Int, Sprite) will be
+            reverted ad the end of If scope. This setting is useful
+            when you don't want to update each variable by the
+            implementation of the If scope.
+        globals_ : dict or None, default None
+            Current scope's global variables. Set golobals() value
+            to this argument. This works the same way as the locals_
+            argument.
+
+        References
+        ----------
+        - Elif document
+            - https://simon-ritchie.github.io/apysc/elif.html
+        - Each branch instruction class scope variables reverting setting
+            - https://bit.ly/3rkAuaT
+        """
+        with ap.DebugInfo(
+                callable_=self.__init__, locals_=locals(),
+                module_name=__name__, class_=Elif):
+            super(Elif, self).__init__(
+                condition=condition, locals_=locals_, globals_=globals_)
 
     def _append_enter_expression(self) -> None:
         """

@@ -43,10 +43,14 @@ class Else(IfBase):
         - Each branch instruction class scope variables reverting setting
             - https://bit.ly/3rkAuaT
         """
-        super().__init__(
-            condition=None,
-            locals_=locals_,
-            globals_=globals_)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self.__init__, locals_=locals(),
+                module_name=__name__, class_=Else):
+            super().__init__(
+                condition=None,
+                locals_=locals_,
+                globals_=globals_)
 
     def _append_enter_expression(self) -> None:
         """

@@ -1,4 +1,5 @@
 from random import randint
+from typing import Any, Dict
 
 import pytest
 from pytest import raises
@@ -8,6 +9,7 @@ import apysc as ap
 from apysc._expression import expression_file_util
 from apysc._expression import last_scope
 from apysc._expression.last_scope import LastScope
+from tests.testing_helper import assert_attrs
 
 
 class TestElif:
@@ -56,3 +58,18 @@ class TestElif:
             pass
         last_scope_: LastScope = last_scope.get_last_scope()
         assert last_scope_ == LastScope.ELIF
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___init__(self) -> None:
+        boolean_1: ap.Boolean = ap.Boolean(True)
+        locals_: Dict[str, Any] = locals()
+        globals_: Dict[str, Any] = globals()
+        elif_: ap.Elif = ap.Elif(
+            condition=boolean_1, locals_=locals_, globals_=globals_)
+        assert_attrs(
+            expected_attrs={
+                '_condition': boolean_1,
+                '_locals': locals_,
+                '_globals': globals_,
+            },
+            any_obj=elif_)

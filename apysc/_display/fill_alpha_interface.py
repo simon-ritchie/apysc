@@ -32,11 +32,14 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
         fill_alpha : Number
             Current fill opacity (0.0 to 1.0).
         """
-        from apysc._type import value_util
-        self._initialize_fill_alpha_if_not_initialized()
-        fill_alpha: ap.Number = value_util.get_copy(
-            value=self._fill_alpha)
-        return fill_alpha
+        with ap.DebugInfo(
+                callable_='fill_alpha', locals_=locals(),
+                module_name=__name__, class_=FillAlphaInterface):
+            from apysc._type import value_util
+            self._initialize_fill_alpha_if_not_initialized()
+            fill_alpha: ap.Number = value_util.get_copy(
+                value=self._fill_alpha)
+            return fill_alpha
 
     @fill_alpha.setter
     def fill_alpha(
@@ -49,23 +52,30 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
         value : float or Number
             Fill opacity to set.
         """
-        if not isinstance(value, NumberValueInterface):
-            value = ap.Number(value=value)
-        self._update_fill_alpha_and_skip_appending_exp(value=value)
-        self._fill_alpha._append_incremental_calc_substitution_expression()
-        self._append_fill_alpha_update_expression()
+        with ap.DebugInfo(
+                callable_='fill_alpha', locals_=locals(),
+                module_name=__name__, class_=FillAlphaInterface):
+            if not isinstance(value, NumberValueInterface):
+                value = ap.Number(value=value)
+            self._update_fill_alpha_and_skip_appending_exp(value=value)
+            self._fill_alpha._append_incremental_calc_substitution_expression()
+            self._append_fill_alpha_update_expression()
 
     def _append_fill_alpha_update_expression(self) -> None:
         """
         Append fill alpha updating expression.
         """
-        from apysc._type import value_util
-        value_str: str = value_util.get_value_str_for_expression(
-            value=self._fill_alpha)
-        expression: str = (
-            f'{self.variable_name}.fill({{opacity: {value_str}}});'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_fill_alpha_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=FillAlphaInterface):
+            from apysc._type import value_util
+            value_str: str = value_util.get_value_str_for_expression(
+                value=self._fill_alpha)
+            expression: str = (
+                f'{self.variable_name}.fill({{opacity: {value_str}}});'
+            )
+            ap.append_js_expression(expression=expression)
 
     def _update_fill_alpha_and_skip_appending_exp(
             self, value: Any) -> None:

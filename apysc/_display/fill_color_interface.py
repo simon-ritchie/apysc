@@ -24,10 +24,13 @@ class FillColorInterface(VariableNameInterface, RevertInterface):
             Current fill color (hexadecimal string, e.g., '#00aaff').
             If not be set, None will be returned.
         """
-        from apysc._type import value_util
-        self._initialize_fill_color_if_not_initialized()
-        fill_color: ap.String = value_util.get_copy(value=self._fill_color)
-        return fill_color
+        with ap.DebugInfo(
+                callable_='fill_color', locals_=locals(),
+                module_name=__name__, class_=FillColorInterface):
+            from apysc._type import value_util
+            self._initialize_fill_color_if_not_initialized()
+            fill_color: ap.String = value_util.get_copy(value=self._fill_color)
+            return fill_color
 
     @fill_color.setter
     def fill_color(self, value: ap.String) -> None:
@@ -39,17 +42,24 @@ class FillColorInterface(VariableNameInterface, RevertInterface):
         value : String
             Fill color to set.
         """
-        self._update_fill_color_and_skip_appending_exp(value=value)
-        self._append_fill_color_update_expression()
+        with ap.DebugInfo(
+                callable_='fill_color', locals_=locals(),
+                module_name=__name__, class_=FillColorInterface):
+            self._update_fill_color_and_skip_appending_exp(value=value)
+            self._append_fill_color_update_expression()
 
     def _append_fill_color_update_expression(self) -> None:
         """
         Append fill color updating expression.
         """
-        expression: str = (
-            f'{self.variable_name}.fill("{self.fill_color}");'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_fill_color_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=FillColorInterface):
+            expression: str = (
+                f'{self.variable_name}.fill("{self.fill_color}");'
+            )
+            ap.append_js_expression(expression=expression)
 
     def _set_initial_fill_color_if_not_blank(
             self, fill_color: Union[str, ap.String]) -> None:

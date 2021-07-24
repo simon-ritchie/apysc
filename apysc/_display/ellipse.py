@@ -54,47 +54,54 @@ class Ellipse(
         - Graphics draw_ellipse interface
             - https://bit.ly/3xPVicP
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_int_from_builtin_val
-        from apysc._expression import expression_variables_util
-        from apysc._expression import var_names
-        from apysc._validation import size_validation
-        variable_name: str = expression_variables_util.get_next_variable_name(
-            type_name=var_names.ELLIPSE)
-        super(Ellipse, self).__init__(
-            parent=parent, x=0, y=0, variable_name=variable_name)
-        size_validation.validate_size_is_gt_zero(size=width)
-        size_validation.validate_size_is_gt_zero(size=height)
-        self._width = get_copied_int_from_builtin_val(integer=width)
-        self._height = get_copied_int_from_builtin_val(integer=height)
-        self._set_initial_basic_values(parent=parent)
-        self._append_constructor_expression()
-        self.x = get_copied_int_from_builtin_val(integer=x)
-        self.y = get_copied_int_from_builtin_val(integer=y)
-        self._set_line_setting_if_not_none_value_exists(
-            parent_graphics=parent)
-        self._set_overflow_visible_setting()
+        with ap.DebugInfo(
+                callable_=self.__init__, locals_=locals(),
+                module_name=__name__, class_=Ellipse):
+            from apysc._converter.to_apysc_val_from_builtin import \
+                get_copied_int_from_builtin_val
+            from apysc._expression import expression_variables_util
+            from apysc._expression import var_names
+            from apysc._validation import size_validation
+            variable_name: str = expression_variables_util.get_next_variable_name(
+                type_name=var_names.ELLIPSE)
+            super(Ellipse, self).__init__(
+                parent=parent, x=0, y=0, variable_name=variable_name)
+            size_validation.validate_size_is_gt_zero(size=width)
+            size_validation.validate_size_is_gt_zero(size=height)
+            self._width = get_copied_int_from_builtin_val(integer=width)
+            self._height = get_copied_int_from_builtin_val(integer=height)
+            self._set_initial_basic_values(parent=parent)
+            self._append_constructor_expression()
+            self.x = get_copied_int_from_builtin_val(integer=x)
+            self.y = get_copied_int_from_builtin_val(integer=y)
+            self._set_line_setting_if_not_none_value_exists(
+                parent_graphics=parent)
+            self._set_overflow_visible_setting()
 
     def _append_constructor_expression(self) -> None:
         """
         Append a constructor expression to the file.
         """
-        from apysc._display.stage import get_stage_variable_name
-        from apysc._type import value_util
-        stage_variable_name: str = get_stage_variable_name()
-        width_str: str = value_util.get_value_str_for_expression(
-            value=self._width)
-        height_str: str = value_util.get_value_str_for_expression(
-            value=self._height)
-        expression: str = (
-            f'var {self.variable_name} = {stage_variable_name}'
-            f'\n  .ellipse({width_str}, {height_str})'
-            '\n  .attr({'
-        )
-        expression = self._append_basic_vals_expression(
-            expression=expression, indent_num=2)
-        expression += '\n  });'
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_constructor_expression,
+                locals_=locals(),
+                module_name=__name__, class_=Ellipse):
+            from apysc._display.stage import get_stage_variable_name
+            from apysc._type import value_util
+            stage_variable_name: str = get_stage_variable_name()
+            width_str: str = value_util.get_value_str_for_expression(
+                value=self._width)
+            height_str: str = value_util.get_value_str_for_expression(
+                value=self._height)
+            expression: str = (
+                f'var {self.variable_name} = {stage_variable_name}'
+                f'\n  .ellipse({width_str}, {height_str})'
+                '\n  .attr({'
+            )
+            expression = self._append_basic_vals_expression(
+                expression=expression, indent_num=2)
+            expression += '\n  });'
+            ap.append_js_expression(expression=expression)
 
     def __repr__(self) -> str:
         """

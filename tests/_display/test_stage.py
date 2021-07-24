@@ -108,6 +108,12 @@ class TestStage:
             file_path=_STAGE_ELEM_ID_FILE_PATH)
         assert stage_elem_id == 'line-graph'
 
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___repr__(self) -> None:
+        stage_: ap.Stage = ap.Stage(stage_elem_id='stage_1')
+        repr_str: str = repr(stage_)
+        assert repr_str == "Stage('stage_1')"
+
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_stage_elem_id() -> None:

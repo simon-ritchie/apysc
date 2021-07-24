@@ -77,28 +77,25 @@ class Stage(
         from apysc._html import html_util
         from apysc._validation import string_validation
         expression_file_util.empty_expression_dir()
-        with ap.DebugInfo(
-                callable_=self.__init__, locals_=locals(),
-                module_name=__name__, class_=Stage):
-            self.stage = self
-            self._stage_elem_id = self._create_stage_elem_id_if_none(
-                stage_elem_id=stage_elem_id)
-            string_validation.validate_not_empty_string(
-                string=self._stage_elem_id)
-            self._save_stage_elem_id_to_expression_file()
-            self._stage_elem_id = html_util.remove_first_selector_symbol_char(
-                str_val=self._stage_elem_id)
-            self.variable_name = get_stage_variable_name()
-            self._update_width_and_skip_appending_exp(value=ap.Int(stage_width))
-            self._update_height_and_skip_appending_exp(value=ap.Int(stage_height))
+        self.stage = self
+        self._stage_elem_id = self._create_stage_elem_id_if_none(
+            stage_elem_id=stage_elem_id)
+        string_validation.validate_not_empty_string(
+            string=self._stage_elem_id)
+        self._save_stage_elem_id_to_expression_file()
+        self._stage_elem_id = html_util.remove_first_selector_symbol_char(
+            str_val=self._stage_elem_id)
+        self.variable_name = get_stage_variable_name()
+        self._update_width_and_skip_appending_exp(value=ap.Int(stage_width))
+        self._update_height_and_skip_appending_exp(value=ap.Int(stage_height))
 
-            background_color = color_util.complement_hex_color(
-                hex_color_code=background_color)
-            self._background_color = background_color
-            string_validation.validate_not_empty_string(string=add_to)
-            self._add_to = add_to
-            self._append_constructor_expression()
-            self._children = ap.Array([])
+        background_color = color_util.complement_hex_color(
+            hex_color_code=background_color)
+        self._background_color = background_color
+        string_validation.validate_not_empty_string(string=add_to)
+        self._add_to = add_to
+        self._append_constructor_expression()
+        self._children = ap.Array([])
 
     def _save_stage_elem_id_to_expression_file(self) -> None:
         """

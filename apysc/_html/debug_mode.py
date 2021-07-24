@@ -6,6 +6,8 @@ import os
 import inspect
 from typing import Any, Callable, Dict, Optional, Type, Union
 
+from apysc._expression.indent_num import Indent
+
 
 def set_debug_mode() -> None:
     """
@@ -173,6 +175,7 @@ class DebugInfo:
     _DIVIDER: str = '/' * 70
     _file_path: str
     _callable_count: int
+    _indent: Indent
 
     def __init__(
             self, callable_: Union[Callable, str],
@@ -212,6 +215,7 @@ class DebugInfo:
             callable_=callable_, module_name=module_name, class_=class_)
         self._callable_count = _get_callable_count(
             callable_=callable_, module_name=module_name, class_=class_)
+        self._indent = Indent()
 
     def _get_class_info(self) -> str:
         """
@@ -261,6 +265,7 @@ class DebugInfo:
             f'{arguments_info}'
         )
         ap.append_js_expression(expression=expression)
+        self._indent.__enter__()
 
     def __exit__(self, *args: Any) -> None:
         """
@@ -282,4 +287,5 @@ class DebugInfo:
             f'{class_info}'
             f'\n{self._DIVIDER}'
         )
+        self._indent.__exit__()
         ap.append_js_expression(expression=expression)

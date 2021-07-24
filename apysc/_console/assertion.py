@@ -50,25 +50,28 @@ def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
         Message to display when assertion failed.
     """
     import apysc as ap
-    from apysc._string import string_util
-    if _actual_value_type_is_array(actual=actual):
-        assert_arrays_equal(expected=expected, actual=actual, msg=msg)
-        return
-    if _actual_value_type_is_dict(actual=actual):
-        assert_dicts_equal(expected=expected, actual=actual, msg=msg)
-        return
+    with ap.DebugInfo(
+            callable_=assert_equal, locals_=locals(),
+            module_name=__name__):
+        from apysc._string import string_util
+        if _actual_value_type_is_array(actual=actual):
+            assert_arrays_equal(expected=expected, actual=actual, msg=msg)
+            return
+        if _actual_value_type_is_dict(actual=actual):
+            assert_dicts_equal(expected=expected, actual=actual, msg=msg)
+            return
 
-    _trace_info(
-        interface_label='assert_equal', expected=expected, actual=actual)
+        _trace_info(
+            interface_label='assert_equal', expected=expected, actual=actual)
 
-    expected_str, actual_str = _get_expected_and_actual_strs(
-        expected=expected, actual=actual)
+        expected_str, actual_str = _get_expected_and_actual_strs(
+            expected=expected, actual=actual)
 
-    msg = string_util.escape_str(string=msg)
-    expression: str = (
-        f'console.assert({expected_str} === {actual_str}, "{msg}");'
-    )
-    ap.append_js_expression(expression=expression)
+        msg = string_util.escape_str(string=msg)
+        expression: str = (
+            f'console.assert({expected_str} === {actual_str}, "{msg}");'
+        )
+        ap.append_js_expression(expression=expression)
 
 
 def assert_not_equal(expected: Any, actual: Any, msg: str = '') -> None:
@@ -91,24 +94,27 @@ def assert_not_equal(expected: Any, actual: Any, msg: str = '') -> None:
         Message to display when assertion failed.
     """
     import apysc as ap
-    from apysc._string import string_util
-    if _actual_value_type_is_array(actual=actual):
-        assert_arrays_not_equal(expected=expected, actual=actual, msg=msg)
-        return
-    if _actual_value_type_is_dict(actual=actual):
-        assert_dicts_not_equal(expected=expected, actual=actual, msg=msg)
-        return
+    with ap.DebugInfo(
+            callable_=assert_not_equal, locals_=locals(),
+            module_name=__name__):
+        from apysc._string import string_util
+        if _actual_value_type_is_array(actual=actual):
+            assert_arrays_not_equal(expected=expected, actual=actual, msg=msg)
+            return
+        if _actual_value_type_is_dict(actual=actual):
+            assert_dicts_not_equal(expected=expected, actual=actual, msg=msg)
+            return
 
-    _trace_info(
-        interface_label='assert_not_equal', expected=expected, actual=actual)
-    expected_str, actual_str = _get_expected_and_actual_strs(
-        expected=expected, actual=actual)
+        _trace_info(
+            interface_label='assert_not_equal', expected=expected, actual=actual)
+        expected_str, actual_str = _get_expected_and_actual_strs(
+            expected=expected, actual=actual)
 
-    msg = string_util.escape_str(string=msg)
-    expression: str = (
-        f'console.assert({expected_str} !== {actual_str}, "{msg}");'
-    )
-    ap.append_js_expression(expression=expression)
+        msg = string_util.escape_str(string=msg)
+        expression: str = (
+            f'console.assert({expected_str} !== {actual_str}, "{msg}");'
+        )
+        ap.append_js_expression(expression=expression)
 
 
 def assert_true(
@@ -129,20 +135,23 @@ def assert_true(
         Message to display when assertion failed.
     """
     import apysc as ap
-    from apysc._string import string_util
-    _trace_info(
-        interface_label='assert_true', expected='true', actual=actual)
-    _, actual_str = _get_expected_and_actual_strs(
-        expected='true', actual=actual)
+    with ap.DebugInfo(
+            callable_=assert_true, locals_=locals(),
+            module_name=__name__):
+        from apysc._string import string_util
+        _trace_info(
+            interface_label='assert_true', expected='true', actual=actual)
+        _, actual_str = _get_expected_and_actual_strs(
+            expected='true', actual=actual)
 
-    msg = string_util.escape_str(string=msg)
-    expression: str = (
-        f'console.assert({actual_str} =='
-    )
-    expression = _add_equal_if_type_strict_setting_is_true(
-        expression=expression, type_strict=type_strict)
-    expression += f' true, "{msg}");'
-    ap.append_js_expression(expression=expression)
+        msg = string_util.escape_str(string=msg)
+        expression: str = (
+            f'console.assert({actual_str} =='
+        )
+        expression = _add_equal_if_type_strict_setting_is_true(
+            expression=expression, type_strict=type_strict)
+        expression += f' true, "{msg}");'
+        ap.append_js_expression(expression=expression)
 
 
 def assert_false(
@@ -163,20 +172,23 @@ def assert_false(
         Message to display when assertion failed.
     """
     import apysc as ap
-    from apysc._string import string_util
-    _trace_info(
-        interface_label='assert_false', expected='false', actual=actual)
-    _, actual_str = _get_expected_and_actual_strs(
-        expected='false', actual=actual)
+    with ap.DebugInfo(
+            callable_=assert_false, locals_=locals(),
+            module_name=__name__):
+        from apysc._string import string_util
+        _trace_info(
+            interface_label='assert_false', expected='false', actual=actual)
+        _, actual_str = _get_expected_and_actual_strs(
+            expected='false', actual=actual)
 
-    msg = string_util.escape_str(string=msg)
-    expression: str = (
-        f'console.assert({actual_str} =='
-    )
-    expression = _add_equal_if_type_strict_setting_is_true(
-        expression=expression, type_strict=type_strict)
-    expression += f' false, "{msg}");'
-    ap.append_js_expression(expression=expression)
+        msg = string_util.escape_str(string=msg)
+        expression: str = (
+            f'console.assert({actual_str} =='
+        )
+        expression = _add_equal_if_type_strict_setting_is_true(
+            expression=expression, type_strict=type_strict)
+        expression += f' false, "{msg}");'
+        ap.append_js_expression(expression=expression)
 
 
 def assert_arrays_equal(
@@ -200,13 +212,16 @@ def assert_arrays_equal(
         Message to display when assertion failed.
     """
     import apysc as ap
-    _trace_arrays_or_dicts_assertion_info(
-        interface_label='assert_arrays_equal',
-        expected=expected, actual=actual)
+    with ap.DebugInfo(
+            callable_=assert_arrays_equal, locals_=locals(),
+            module_name=__name__):
+        _trace_arrays_or_dicts_assertion_info(
+            interface_label='assert_arrays_equal',
+            expected=expected, actual=actual)
 
-    expression: str = _make_arrays_or_dicts_comparison_expression(
-        expected=expected, actual=actual, msg=msg, not_condition=False)
-    ap.append_js_expression(expression=expression)
+        expression: str = _make_arrays_or_dicts_comparison_expression(
+            expected=expected, actual=actual, msg=msg, not_condition=False)
+        ap.append_js_expression(expression=expression)
 
 
 def assert_arrays_not_equal(
@@ -230,13 +245,16 @@ def assert_arrays_not_equal(
         Message to display when assertion failed.
     """
     import apysc as ap
-    _trace_arrays_or_dicts_assertion_info(
-        interface_label='assert_arrays_not_equal',
-        expected=expected, actual=actual)
+    with ap.DebugInfo(
+            callable_=assert_arrays_not_equal, locals_=locals(),
+            module_name=__name__):
+        _trace_arrays_or_dicts_assertion_info(
+            interface_label='assert_arrays_not_equal',
+            expected=expected, actual=actual)
 
-    expression: str = _make_arrays_or_dicts_comparison_expression(
-        expected=expected, actual=actual, msg=msg, not_condition=True)
-    ap.append_js_expression(expression=expression)
+        expression: str = _make_arrays_or_dicts_comparison_expression(
+            expected=expected, actual=actual, msg=msg, not_condition=True)
+        ap.append_js_expression(expression=expression)
 
 
 def assert_dicts_equal(expected: Any, actual: Any, msg: str = '') -> None:
@@ -261,13 +279,16 @@ def assert_dicts_equal(expected: Any, actual: Any, msg: str = '') -> None:
         Message to display when assertion failed.
     """
     import apysc as ap
-    _trace_arrays_or_dicts_assertion_info(
-        interface_label='assert_dicts_equal',
-        expected=expected, actual=actual)
+    with ap.DebugInfo(
+            callable_=assert_dicts_equal, locals_=locals(),
+            module_name=__name__):
+        _trace_arrays_or_dicts_assertion_info(
+            interface_label='assert_dicts_equal',
+            expected=expected, actual=actual)
 
-    expression: str = _make_arrays_or_dicts_comparison_expression(
-        expected=expected, actual=actual, msg=msg, not_condition=False)
-    ap.append_js_expression(expression=expression)
+        expression: str = _make_arrays_or_dicts_comparison_expression(
+            expected=expected, actual=actual, msg=msg, not_condition=False)
+        ap.append_js_expression(expression=expression)
 
 
 def assert_dicts_not_equal(
@@ -293,13 +314,16 @@ def assert_dicts_not_equal(
         Message to display when assertion failed.
     """
     import apysc as ap
-    _trace_arrays_or_dicts_assertion_info(
-        interface_label='assert_dicts_not_equal',
-        expected=expected, actual=actual)
+    with ap.DebugInfo(
+            callable_=assert_dicts_not_equal, locals_=locals(),
+            module_name=__name__):
+        _trace_arrays_or_dicts_assertion_info(
+            interface_label='assert_dicts_not_equal',
+            expected=expected, actual=actual)
 
-    expression: str = _make_arrays_or_dicts_comparison_expression(
-        expected=expected, actual=actual, msg=msg, not_condition=True)
-    ap.append_js_expression(expression=expression)
+        expression: str = _make_arrays_or_dicts_comparison_expression(
+            expected=expected, actual=actual, msg=msg, not_condition=True)
+        ap.append_js_expression(expression=expression)
 
 
 def assert_defined(actual: Any, msg: str = '') -> None:
@@ -315,18 +339,21 @@ def assert_defined(actual: Any, msg: str = '') -> None:
         Message to display when assertion failed.
     """
     import apysc as ap
-    from apysc._string import string_util
-    _trace_info(
-        interface_label='assert_defined', expected='other than undefined',
-        actual=actual)
-    _, actual_str = _get_expected_and_actual_strs(
-        expected='other than undefined', actual=actual)
+    with ap.DebugInfo(
+            callable_=assert_defined, locals_=locals(),
+            module_name=__name__):
+        from apysc._string import string_util
+        _trace_info(
+            interface_label='assert_defined', expected='other than undefined',
+            actual=actual)
+        _, actual_str = _get_expected_and_actual_strs(
+            expected='other than undefined', actual=actual)
 
-    msg = string_util.escape_str(string=msg)
-    expression: str = (
-        f'console.assert(!_.isUndefined({actual_str}), "{msg}");'
-    )
-    ap.append_js_expression(expression=expression)
+        msg = string_util.escape_str(string=msg)
+        expression: str = (
+            f'console.assert(!_.isUndefined({actual_str}), "{msg}");'
+        )
+        ap.append_js_expression(expression=expression)
 
 
 def assert_undefined(actual: Any, msg: str = '') -> None:
@@ -341,18 +368,21 @@ def assert_undefined(actual: Any, msg: str = '') -> None:
         Message to display when assertion failed.
     """
     import apysc as ap
-    from apysc._string import string_util
-    _trace_info(
-        interface_label='assert_undefined', expected='undefined',
-        actual=actual)
-    _, actual_str = _get_expected_and_actual_strs(
-        expected='undefined', actual=actual)
+    with ap.DebugInfo(
+            callable_=assert_undefined, locals_=locals(),
+            module_name=__name__):
+        from apysc._string import string_util
+        _trace_info(
+            interface_label='assert_undefined', expected='undefined',
+            actual=actual)
+        _, actual_str = _get_expected_and_actual_strs(
+            expected='undefined', actual=actual)
 
-    msg = string_util.escape_str(string=msg)
-    expression: str = (
-        f'console.assert(_.isUndefined({actual_str}), "{msg}");'
-    )
-    ap.append_js_expression(expression=expression)
+        msg = string_util.escape_str(string=msg)
+        expression: str = (
+            f'console.assert(_.isUndefined({actual_str}), "{msg}");'
+        )
+        ap.append_js_expression(expression=expression)
 
 
 def _make_arrays_or_dicts_comparison_expression(
@@ -380,22 +410,27 @@ def _make_arrays_or_dicts_comparison_expression(
     expression : str
         Result expression string.
     """
-    from apysc._string import string_util
-    from apysc._type import value_util
-    expected_exp_str: str = value_util.get_value_str_for_expression(
-        value=expected)
-    actual_exp_str: str = value_util.get_value_str_for_expression(
-        value=actual)
-    msg = string_util.escape_str(string=msg)
-    if not_condition:
-        not_condition_str: str = '!'
-    else:
-        not_condition_str = ''
-    expression: str = (
-        f'console.assert({not_condition_str}_.isEqual({expected_exp_str}, '
-        f'{actual_exp_str}), "{msg}");'
-    )
-    return expression
+    import apysc as ap
+    with ap.DebugInfo(
+            callable_=_make_arrays_or_dicts_comparison_expression,
+            locals_=locals(),
+            module_name=__name__):
+        from apysc._string import string_util
+        from apysc._type import value_util
+        expected_exp_str: str = value_util.get_value_str_for_expression(
+            value=expected)
+        actual_exp_str: str = value_util.get_value_str_for_expression(
+            value=actual)
+        msg = string_util.escape_str(string=msg)
+        if not_condition:
+            not_condition_str: str = '!'
+        else:
+            not_condition_str = ''
+        expression: str = (
+            f'console.assert({not_condition_str}_.isEqual({expected_exp_str}, '
+            f'{actual_exp_str}), "{msg}");'
+        )
+        return expression
 
 
 def _trace_arrays_or_dicts_assertion_info(
@@ -413,27 +448,30 @@ def _trace_arrays_or_dicts_assertion_info(
         Actual value.
     """
     import apysc as ap
-    from apysc._type import value_util
-    expected_exp_str: str = value_util.get_value_str_for_expression(
-        value=expected)
-    if isinstance(expected, dict):
-        expected_exp_str = expected_exp_str.replace('"', '')
-    actual_exp_str: str = value_util.get_value_str_for_expression(
-        value=actual)
-    if isinstance(actual, dict):
-        actual_exp_str = actual_exp_str.replace('"', '')
-    if isinstance(expected, (ap.Array, ap.Dictionary)):
-        value_str: str = value_util.get_value_str_for_expression(
-            value=expected.value)
-        value_str = value_str.replace('"', '')
-        expected_info_str: str = f'{expected_exp_str} ({value_str})'
-    else:
-        expected_info_str = expected_exp_str
-    actual_info_str = actual_exp_str
-    _trace_info(
-        interface_label=interface_label,
-        expected=expected_info_str,
-        actual=actual_info_str)
+    with ap.DebugInfo(
+            callable_=_trace_arrays_or_dicts_assertion_info, locals_=locals(),
+            module_name=__name__):
+        from apysc._type import value_util
+        expected_exp_str: str = value_util.get_value_str_for_expression(
+            value=expected)
+        if isinstance(expected, dict):
+            expected_exp_str = expected_exp_str.replace('"', '')
+        actual_exp_str: str = value_util.get_value_str_for_expression(
+            value=actual)
+        if isinstance(actual, dict):
+            actual_exp_str = actual_exp_str.replace('"', '')
+        if isinstance(expected, (ap.Array, ap.Dictionary)):
+            value_str: str = value_util.get_value_str_for_expression(
+                value=expected.value)
+            value_str = value_str.replace('"', '')
+            expected_info_str: str = f'{expected_exp_str} ({value_str})'
+        else:
+            expected_info_str = expected_exp_str
+        actual_info_str = actual_exp_str
+        _trace_info(
+            interface_label=interface_label,
+            expected=expected_info_str,
+            actual=actual_info_str)
 
 
 def _actual_value_type_is_array(actual: Any) -> bool:
@@ -545,10 +583,13 @@ def _trace_info(interface_label: str, expected: Any, actual: Any) -> None:
         Actual value.
     """
     import apysc as ap
-    from apysc._type.variable_name_interface import VariableNameInterface
-    info: str = f'[{interface_label}]'
-    if isinstance(expected, VariableNameInterface):
-        info += f'\nExpected variable name: {expected.variable_name}'
-    if isinstance(actual, VariableNameInterface):
-        info += f'\nActual variable name: {actual.variable_name}'
-    ap.trace(info, '\nExpected:', expected, 'actual:', actual)
+    with ap.DebugInfo(
+            callable_=_trace_info, locals_=locals(),
+            module_name=__name__):
+        from apysc._type.variable_name_interface import VariableNameInterface
+        info: str = f'[{interface_label}]'
+        if isinstance(expected, VariableNameInterface):
+            info += f'\nExpected variable name: {expected.variable_name}'
+        if isinstance(actual, VariableNameInterface):
+            info += f'\nActual variable name: {actual.variable_name}'
+        ap.trace(info, '\nExpected:', expected, 'actual:', actual)

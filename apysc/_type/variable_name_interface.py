@@ -19,6 +19,8 @@ class VariableNameInterface:
         variable_name : str
             A js variable name of this instance.
         """
+        if not hasattr(self, '_variable_name'):
+            return ''
         return self._variable_name
 
     @variable_name.setter

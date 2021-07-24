@@ -30,9 +30,12 @@ class CyInterface(VariableNameInterface, RevertInterface):
         y : Int
             Center y-coordinate.
         """
-        from apysc._type import value_util
-        self._initialize_cy_if_not_initialized()
-        return value_util.get_copy(value=self._cy)
+        with ap.DebugInfo(
+                callable_='y', locals_=locals(),
+                module_name=__name__, class_=CyInterface):
+            from apysc._type import value_util
+            self._initialize_cy_if_not_initialized()
+            return value_util.get_copy(value=self._cy)
 
     @y.setter
     def y(self, value: ap.Int) -> None:
@@ -44,26 +47,33 @@ class CyInterface(VariableNameInterface, RevertInterface):
         value : int or Int
             Center y-coordinate value.
         """
-        from apysc._validation import number_validation
-        number_validation.validate_integer(integer=value)
-        if not isinstance(value, ap.Int):
-            value = ap.Int(value)
-        self._cy = value
-        self._cy._append_incremental_calc_substitution_expression()
-        self._append_cy_update_expression()
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='y', locals_=locals(),
+                module_name=__name__, class_=CyInterface):
+            from apysc._validation import number_validation
+            number_validation.validate_integer(integer=value)
+            if not isinstance(value, ap.Int):
+                value = ap.Int(value)
+            self._cy = value
+            self._cy._append_incremental_calc_substitution_expression()
+            self._append_cy_update_expression()
 
     def _append_cy_update_expression(self) -> None:
         """
         Append cy position updating expression.
         """
-        from apysc._type import value_util
-        self._initialize_cy_if_not_initialized()
-        value_str: str = value_util.get_value_str_for_expression(
-            value=self._cy)
-        expression: str = (
-            f'{self.variable_name}.cy({value_str});'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_cy_update_expression, locals_=locals(),
+                module_name=__name__, class_=CyInterface):
+            from apysc._type import value_util
+            self._initialize_cy_if_not_initialized()
+            value_str: str = value_util.get_value_str_for_expression(
+                value=self._cy)
+            expression: str = (
+                f'{self.variable_name}.cy({value_str});'
+            )
+            ap.append_js_expression(expression=expression)
 
     _cy_snapshots: Dict[str, int]
 

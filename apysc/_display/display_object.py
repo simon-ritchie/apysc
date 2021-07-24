@@ -43,16 +43,23 @@ class DisplayObject(
             - https://simon-ritchie.github.io/apysc/display_object.html
         """
         import apysc as ap
-        from apysc._validation import display_validation
-        from apysc._validation import string_validation
-        self._stage_cls: Type[ap.Stage] = ap.Stage
-        self.stage: ap.Stage = stage
-        display_validation.validate_stage(stage=stage)
-        self._variable_name = variable_name
-        string_validation.validate_not_empty_string(string=variable_name)
+        with ap.DebugInfo(
+                callable_=self.__init__, locals_=locals(),
+                module_name=__name__, class_=DisplayObject):
+            from apysc._validation import display_validation
+            from apysc._validation import string_validation
+            self._stage_cls: Type[ap.Stage] = ap.Stage
+            self.stage: ap.Stage = stage
+            display_validation.validate_stage(stage=stage)
+            self._variable_name = variable_name
+            string_validation.validate_not_empty_string(string=variable_name)
 
     def _set_overflow_visible_setting(self) -> None:
         """
         Set the `visible` value to the `overflow` CSS property.
         """
-        self.set_css(name='overflow', value='visible')
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self._set_overflow_visible_setting, locals_=locals(),
+                module_name=__name__, class_=DisplayObject):
+            self.set_css(name='overflow', value='visible')

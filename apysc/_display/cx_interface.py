@@ -30,9 +30,13 @@ class CxInterface(VariableNameInterface, RevertInterface):
         x : Int
             Center x-coordinate.
         """
-        from apysc._type import value_util
-        self._initialize_cx_if_not_initialized()
-        return value_util.get_copy(value=self._cx)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='x', locals_=locals(),
+                module_name=__name__, class_=CxInterface):
+            from apysc._type import value_util
+            self._initialize_cx_if_not_initialized()
+            return value_util.get_copy(value=self._cx)
 
     @x.setter
     def x(self, value: ap.Int) -> None:
@@ -44,13 +48,17 @@ class CxInterface(VariableNameInterface, RevertInterface):
         value : int or Int
             Center x-coordinate value.
         """
-        from apysc._validation import number_validation
-        number_validation.validate_integer(integer=value)
-        if not isinstance(value, ap.Int):
-            value = ap.Int(value)
-        self._cx = value
-        self._cx._append_incremental_calc_substitution_expression()
-        self._append_cx_update_expression()
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='x', locals_=locals(),
+                module_name=__name__, class_=CxInterface):
+            from apysc._validation import number_validation
+            number_validation.validate_integer(integer=value)
+            if not isinstance(value, ap.Int):
+                value = ap.Int(value)
+            self._cx = value
+            self._cx._append_incremental_calc_substitution_expression()
+            self._append_cx_update_expression()
 
     def _append_cx_update_expression(self) -> None:
         """

@@ -137,12 +137,19 @@ def _increment_callable_count(
 
 
 class DebugInfo:
+    """
+    Save a debug information (append callable interface name
+    comment and arguments information) to the JavaScript
+    expression file. This class is used at the `with` statement.
+    """
 
     _callable: Callable
     _locals: Dict[str, Any]
     _module_name: str
     _class: Optional[Type]
     _DIVIDER: str = '/' * 70
+    _file_path: str
+    _callable_count: int
 
     def __init__(
             self, callable_: Callable, locals_: Dict[str, Any],
@@ -151,7 +158,7 @@ class DebugInfo:
         """
         Save a debug information (append callable interface name
         comment and arguments information) to the JavaScript
-        expression file.
+        expression file. This class is used at the `with` statement.
 
         Notes
         -----
@@ -175,6 +182,12 @@ class DebugInfo:
         self._locals = locals_
         self._module_name = module_name
         self._class = class_
+        self._file_path = _get_callable_count_file_path(
+            callable_=callable_, module_name=module_name, class_=class_)
+        _increment_callable_count(
+            callable_=callable_, module_name=module_name, class_=class_)
+        self._callable_count = _get_callable_count(
+            callable_=callable_, module_name=module_name, class_=class_)
 
     def __enter__(self) -> None:
         """

@@ -72,10 +72,13 @@ class BeginFillInterface(RevertInterface):
             Current fill color (hexadecimal string, e.g., '#00aaff').
             If not be set, blank string will be returned.
         """
-        from apysc._type import value_util
-        self._initialize_fill_color_if_not_initialized()
-        fill_color: ap.String = value_util.get_copy(value=self._fill_color)
-        return fill_color
+        with ap.DebugInfo(
+                callable_='fill_color', locals_=locals(),
+                module_name=__name__, class_=BeginFillInterface):
+            from apysc._type import value_util
+            self._initialize_fill_color_if_not_initialized()
+            fill_color: ap.String = value_util.get_copy(value=self._fill_color)
+            return fill_color
 
     def _initialize_fill_color_if_not_initialized(self) -> None:
         """
@@ -96,10 +99,13 @@ class BeginFillInterface(RevertInterface):
             Current fill color opacity (0.0 to 1.0).
             If not be set, 1.0 will be returned.
         """
-        from apysc._type import value_util
-        self._initialize_fill_alpha_if_not_initialized()
-        fill_alpha: ap.Number = value_util.get_copy(value=self._fill_alpha)
-        return fill_alpha
+        with ap.DebugInfo(
+                callable_='fill_alpha', locals_=locals(),
+                module_name=__name__, class_=BeginFillInterface):
+            from apysc._type import value_util
+            self._initialize_fill_alpha_if_not_initialized()
+            fill_alpha: ap.Number = value_util.get_copy(value=self._fill_alpha)
+            return fill_alpha
 
     def _initialize_fill_alpha_if_not_initialized(self) -> None:
         """

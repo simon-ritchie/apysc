@@ -181,6 +181,7 @@ def test__get_var_name_from_line() -> None:
 def test__target_js_variable_is_used() -> None:
     var_name: str = 'i_10'
     exp_lines: List[str] = [
+        '// i_10 info',
         'var i_10 = 20;'
     ]
     result: bool = exporter._target_js_variable_is_used(
@@ -188,6 +189,7 @@ def test__target_js_variable_is_used() -> None:
     assert not result
 
     exp_lines = [
+        '// any info.',
         'var i_10 = 20;',
         'i_20 = 30;',
         'b_5 = true;',

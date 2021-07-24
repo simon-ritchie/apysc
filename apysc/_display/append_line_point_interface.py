@@ -24,17 +24,20 @@ class AppendLinePointInterface(Points2DInterface):
             Y-coordinate.
         """
         import apysc as ap
-        from apysc._type import value_util
-        if not hasattr(self, '_points_var_name'):
-            raise AttributeError(
-                '_points_var_name attribute is not set. Please add '
-                'implementation to set that value when constructor or else.')
-        self.points.append(value=ap.Point2D(x=x, y=y))
-        expression: str
-        x_name: str = value_util.get_value_str_for_expression(value=x)
-        y_name: str = value_util.get_value_str_for_expression(value=y)
-        expression = (
-            f'{self._points_var_name}.push([{x_name}, {y_name}]);'
-            f'\n{self.variable_name}.plot({self._points_var_name});'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self.append_line_point, locals_=locals(),
+                module_name=__name__, class_=AppendLinePointInterface):
+            from apysc._type import value_util
+            if not hasattr(self, '_points_var_name'):
+                raise AttributeError(
+                    '_points_var_name attribute is not set. Please add '
+                    'implementation to set that value when constructor or else.')
+            self.points.append(value=ap.Point2D(x=x, y=y))
+            expression: str
+            x_name: str = value_util.get_value_str_for_expression(value=x)
+            y_name: str = value_util.get_value_str_for_expression(value=y)
+            expression = (
+                f'{self._points_var_name}.push([{x_name}, {y_name}]);'
+                f'\n{self.variable_name}.plot({self._points_var_name});'
+            )
+            ap.append_js_expression(expression=expression)

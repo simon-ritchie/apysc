@@ -39,24 +39,27 @@ class BeginFillInterface(RevertInterface):
         - Graphics begin_fill interface document
             - https://bit.ly/3ikhNAh
         """
-        from apysc._color import color_util
-        from apysc._converter import cast
-        from apysc._validation import color_validation
-        from apysc._validation import number_validation
-        self._initialize_fill_color_if_not_initialized()
-        self._initialize_fill_alpha_if_not_initialized()
-        if color != '':
-            color = color_util.complement_hex_color(
-                hex_color_code=color)
-        self._fill_color.value = color
-        number_validation.validate_num(num=alpha)
-        if not isinstance(alpha, ap.Number):
-            alpha = cast.to_float_from_int(int_or_float=alpha)
-        color_validation.validate_alpha_range(alpha=alpha)
-        if isinstance(alpha, ap.Number):
-            self._fill_alpha.value = alpha.value
-        else:
-            self._fill_alpha.value = alpha
+        with ap.DebugInfo(
+                callable_=self.begin_fill, locals_=locals(),
+                module_name=__name__, class_=BeginFillInterface):
+            from apysc._color import color_util
+            from apysc._converter import cast
+            from apysc._validation import color_validation
+            from apysc._validation import number_validation
+            self._initialize_fill_color_if_not_initialized()
+            self._initialize_fill_alpha_if_not_initialized()
+            if color != '':
+                color = color_util.complement_hex_color(
+                    hex_color_code=color)
+            self._fill_color.value = color
+            number_validation.validate_num(num=alpha)
+            if not isinstance(alpha, ap.Number):
+                alpha = cast.to_float_from_int(int_or_float=alpha)
+            color_validation.validate_alpha_range(alpha=alpha)
+            if isinstance(alpha, ap.Number):
+                self._fill_alpha.value = alpha.value
+            else:
+                self._fill_alpha.value = alpha
 
     @property
     def fill_color(self) -> ap.String:

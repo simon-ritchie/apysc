@@ -31,14 +31,17 @@ class ChildInterface(RevertInterface):
         - Sprite class add_child and remove_child interfaces document
             - https://bit.ly/2Ugk47G
         """
-        from apysc._validation import display_validation
-        self._initialize_children_if_not_initialized()
-        display_validation.validate_display_object(display_object=child)
-        if child.parent is not None:
-            child.remove_from_parent()
-        self._children.append(child)
-        child.parent = self
-        append_expression_of_add_child(child=child)
+        with ap.DebugInfo(
+                callable_=self.add_child, locals_=locals(),
+                module_name=__name__, class_=ChildInterface):
+            from apysc._validation import display_validation
+            self._initialize_children_if_not_initialized()
+            display_validation.validate_display_object(display_object=child)
+            if child.parent is not None:
+                child.remove_from_parent()
+            self._children.append(child)
+            child.parent = self
+            append_expression_of_add_child(child=child)
 
     def _initialize_children_if_not_initialized(self) -> None:
         """

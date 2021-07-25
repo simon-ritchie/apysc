@@ -250,8 +250,9 @@ class DebugInfo:
                     continue
                 if argument_name.startswith('__'):
                     continue
-                if isinstance(argument, str) and argument == '':
-                    argument = "''"
+                if isinstance(argument, str):
+                    argument = repr(argument)[1:-1]
+                    argument = f"'{argument}'"
                 if isinstance(argument, VariableNameInterface):
                     argument = f'{argument}({argument.variable_name})'
                 arguments_info += f'\n//    {argument_name} = {argument}'

@@ -34,8 +34,11 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         line_joints : String
             Line joints style setting.
         """
-        self._initialize_line_joints_if_not_initialized()
-        return self._line_joints._copy()
+        with ap.DebugInfo(
+                callable_='line_joints', locals_=locals(),
+                module_name=__name__, class_=LineJointsInterface):
+            self._initialize_line_joints_if_not_initialized()
+            return self._line_joints._copy()
 
     @line_joints.setter
     def line_joints(self, value: Any) -> None:
@@ -47,8 +50,12 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         value : String or LineJoints
             Line joints style setting to set.
         """
-        self._update_line_joints_and_skip_appending_exp(value=value)
-        self._append_line_joints_update_expression()
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='line_joints', locals_=locals(),
+                module_name=__name__, class_=LineJointsInterface):
+            self._update_line_joints_and_skip_appending_exp(value=value)
+            self._append_line_joints_update_expression()
 
     def _update_line_joints_and_skip_appending_exp(
             self, value: Union[ap.String, LineJoints]) -> None:
@@ -76,14 +83,19 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         """
         Append line cap updating expression to file.
         """
-        from apysc._type import value_util
-        joints_name: str = value_util.get_value_str_for_expression(
-            value=self._line_joints)
-        expression: str = (
-            f'{self.variable_name}.attr'
-            f'({{"stroke-linejoin": {joints_name}}});'
-        )
-        ap.append_js_expression(expression=expression)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self._append_line_joints_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=LineJointsInterface):
+            from apysc._type import value_util
+            joints_name: str = value_util.get_value_str_for_expression(
+                value=self._line_joints)
+            expression: str = (
+                f'{self.variable_name}.attr'
+                f'({{"stroke-linejoin": {joints_name}}});'
+            )
+            ap.append_js_expression(expression=expression)
 
     _line_joints_snapshots: Dict[str, str]
 

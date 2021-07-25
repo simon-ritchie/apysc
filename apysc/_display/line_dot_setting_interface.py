@@ -32,8 +32,12 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         line_dot_setting : LineDotSetting or None
             Lien dot setting.
         """
-        self._initialize_line_dot_setting_if_not_initialized()
-        return self._line_dot_setting
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='line_dot_setting', locals_=locals(),
+                module_name=__name__, class_=LineDotSettingInterface):
+            self._initialize_line_dot_setting_if_not_initialized()
+            return self._line_dot_setting
 
     @line_dot_setting.setter
     def line_dot_setting(self, value: Optional[LineDotSetting]) -> None:
@@ -45,11 +49,15 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         value : LineDotSetting or None
             Line dot setting to set.
         """
-        from apysc._validation import display_validation
-        self._update_line_dot_setting_and_skip_appending_exp(value=value)
-        self._append_line_dot_setting_update_expression()
-        display_validation.validate_multiple_line_settings_isnt_set(
-            any_instance=self)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=LineDotSettingInterface, locals_=locals(),
+                module_name=__name__, class_=LineDotSettingInterface):
+            from apysc._validation import display_validation
+            self._update_line_dot_setting_and_skip_appending_exp(value=value)
+            self._append_line_dot_setting_update_expression()
+            display_validation.validate_multiple_line_settings_isnt_set(
+                any_instance=self)
 
     def _update_line_dot_setting_and_skip_appending_exp(
             self, value: Optional[LineDotSetting]) -> None:
@@ -73,14 +81,18 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         Append line dot setting updating expression to file.
         """
         import apysc as ap
-        if self._line_dot_setting is None:
-            setting_str: str = '""'
-        else:
-            setting_str = self._line_dot_setting.dot_size.variable_name
-        expression: str = (
-            f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_line_dot_setting_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=LineDotSettingInterface):
+            if self._line_dot_setting is None:
+                setting_str: str = '""'
+            else:
+                setting_str = self._line_dot_setting.dot_size.variable_name
+            expression: str = (
+                f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
+            )
+            ap.append_js_expression(expression=expression)
 
     _line_dot_setting_snapshots: Dict[str, Optional[LineDotSetting]]
 

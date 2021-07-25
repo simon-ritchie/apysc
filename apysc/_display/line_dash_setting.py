@@ -34,19 +34,22 @@ class LineDashSetting(ap.Dictionary):
         - Graphics line_style interface document
             - https://bit.ly/3zauILT
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_int_from_builtin_val
-        from apysc._validation import number_validation
-        number_validation.validate_nums_are_int_and_gt_zero(
-            nums=[dash_size, space_size])
-        dash_size_: ap.Int = get_copied_int_from_builtin_val(
-            integer=dash_size)
-        space_size_: ap.Int = get_copied_int_from_builtin_val(
-            integer=space_size)
-        super(LineDashSetting, self).__init__({
-            'dash_size': dash_size_,
-            'space_size': space_size_,
-        })
+        with ap.DebugInfo(
+                callable_='__init__', locals_=locals(),
+                module_name=__name__, class_=LineDashSetting):
+            from apysc._converter.to_apysc_val_from_builtin import \
+                get_copied_int_from_builtin_val
+            from apysc._validation import number_validation
+            number_validation.validate_nums_are_int_and_gt_zero(
+                nums=[dash_size, space_size])
+            dash_size_: ap.Int = get_copied_int_from_builtin_val(
+                integer=dash_size)
+            space_size_: ap.Int = get_copied_int_from_builtin_val(
+                integer=space_size)
+            super(LineDashSetting, self).__init__({
+                'dash_size': dash_size_,
+                'space_size': space_size_,
+            })
 
     @property
     def dash_size(self) -> ap.Int:
@@ -58,7 +61,10 @@ class LineDashSetting(ap.Dictionary):
         dash_size : Int
             Dash size setting.
         """
-        return self['dash_size']
+        with ap.DebugInfo(
+                callable_='dash_size', locals_=locals(),
+                module_name=__name__, class_=LineDashSetting):
+            return self['dash_size']
 
     @property
     def space_size(self) -> ap.Int:
@@ -70,4 +76,7 @@ class LineDashSetting(ap.Dictionary):
         space_size : Int
             Space size setting.
         """
-        return self['space_size']
+        with ap.DebugInfo(
+                callable_='space_size', locals_=locals(),
+                module_name=__name__, class_=LineDashSetting):
+            return self['space_size']

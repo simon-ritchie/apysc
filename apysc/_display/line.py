@@ -70,8 +70,8 @@ class Line(LineBase):
             geom_validation.validate_point_2d_type(point=start_point)
             geom_validation.validate_point_2d_type(point=end_point)
             parent_graphics: Graphics = parent
-            variable_name: str = expression_variables_util.get_next_variable_name(
-                type_name=var_names.LINE)
+            variable_name: str = expression_variables_util.\
+                get_next_variable_name(type_name=var_names.LINE)
             super(Line, self).__init__(
                 parent=parent, x=0, y=0, variable_name=variable_name)
             self._start_point = start_point

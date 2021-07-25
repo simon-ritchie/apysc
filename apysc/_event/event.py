@@ -40,8 +40,8 @@ class Event(Generic[T], VariableNameInterface):
             self._this = this
             if type_name is None:
                 type_name = var_names.EVENT
-            self.variable_name = expression_variables_util.get_next_variable_name(
-                type_name=type_name)
+            self.variable_name = expression_variables_util.\
+                get_next_variable_name(type_name=type_name)
 
     def _validate_type_name_and_self_type(
             self, type_name: Optional[str]) -> None:

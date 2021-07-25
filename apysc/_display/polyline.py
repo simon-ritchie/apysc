@@ -45,8 +45,8 @@ class Polyline(LineBase, AppendLinePointInterface):
             from apysc._expression import expression_variables_util
             from apysc._expression import var_names
             parent_graphics: Graphics = parent
-            variable_name: str = expression_variables_util.get_next_variable_name(
-                type_name=var_names.POLYLINE)
+            variable_name: str = expression_variables_util.\
+                get_next_variable_name(type_name=var_names.POLYLINE)
             super(Polyline, self).__init__(
                 parent=parent, x=0, y=0,
                 variable_name=variable_name)

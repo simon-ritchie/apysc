@@ -73,16 +73,20 @@ class ParentInterface(RevertInterface):
         ValueError
             If this instance is not added to any parent.
         """
-        from apysc._display.child_interface import ChildInterface
-        from apysc._display.child_interface import \
-            append_expression_of_remove_child
-        from apysc._display.display_object import DisplayObject
-        parent: Optional[ChildInterface] = self._parent
-        child: DisplayObject = self  # type: ignore
-        if parent is not None:
-            parent.remove_child(child=child)
-        else:
-            append_expression_of_remove_child(child=child)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self.remove_from_parent, locals_=locals(),
+                module_name=__name__, class_=ParentInterface):
+            from apysc._display.child_interface import ChildInterface
+            from apysc._display.child_interface import \
+                append_expression_of_remove_child
+            from apysc._display.display_object import DisplayObject
+            parent: Optional[ChildInterface] = self._parent
+            child: DisplayObject = self  # type: ignore
+            if parent is not None:
+                parent.remove_child(child=child)
+            else:
+                append_expression_of_remove_child(child=child)
 
     _parent_snapshots: Dict[str, Optional[Any]]
 

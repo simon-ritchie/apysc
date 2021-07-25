@@ -32,8 +32,11 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         points : Array of Point2D
             Current points.
         """
-        self._initialize_points_if_not_initialized()
-        return self._points
+        with ap.DebugInfo(
+                callable_='points', locals_=locals(),
+                module_name=__name__, class_=Points2DInterface):
+            self._initialize_points_if_not_initialized()
+            return self._points
 
     @points.setter
     def points(self, value: ap.Array[Point2D]) -> None:
@@ -50,14 +53,19 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         ValueError
             If array contains not Point2D value.
         """
-        for point in value.value:
-            if isinstance(point, Point2D):
-                continue
-            raise ValueError(
-                f'Specified array contains not Point2D value: {type(point)}')
-        self._initialize_points_if_not_initialized()
-        self._append_points_update_expression(value=value)
-        self._points = value
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='points', locals_=locals(),
+                module_name=__name__, class_=Points2DInterface):
+            for point in value.value:
+                if isinstance(point, Point2D):
+                    continue
+                raise ValueError(
+                    'Specified array contains not Point2D value: '
+                    f'{type(point)}')
+            self._initialize_points_if_not_initialized()
+            self._append_points_update_expression(value=value)
+            self._points = value
 
     def _make_2dim_points_expression(self) -> Tuple[str, str]:
         """
@@ -102,10 +110,14 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         value : Array
             Points value to set.
         """
-        expression: str = (
-            f'{self._points.variable_name} = {value.variable_name};'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_points_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=Points2DInterface):
+            expression: str = (
+                f'{self._points.variable_name} = {value.variable_name};'
+            )
+            ap.append_js_expression(expression=expression)
 
     _points_snapshots: Dict[str, ap.Array]
 

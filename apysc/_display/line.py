@@ -59,45 +59,53 @@ class Line(LineBase):
         - Graphics draw_dash_dotted_line interface document
             - https://bit.ly/3wKRtUZ
         """
-        from apysc._display.graphics import Graphics
-        from apysc._expression import expression_variables_util
-        from apysc._expression import var_names
-        from apysc._validation import geom_validation
-        geom_validation.validate_point_2d_type(point=start_point)
-        geom_validation.validate_point_2d_type(point=end_point)
-        parent_graphics: Graphics = parent
-        variable_name: str = expression_variables_util.get_next_variable_name(
-            type_name=var_names.LINE)
-        super(Line, self).__init__(
-            parent=parent, x=0, y=0, variable_name=variable_name)
-        self._start_point = start_point
-        self._end_point = end_point
-        self._set_initial_basic_values(parent=parent)
-        self._append_constructor_expression()
-        self._set_line_setting_if_not_none_value_exists(
-            parent_graphics=parent_graphics)
-        self._set_overflow_visible_setting()
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__init__', locals_=locals(),
+                module_name=__name__, class_=Line):
+            from apysc._display.graphics import Graphics
+            from apysc._expression import expression_variables_util
+            from apysc._expression import var_names
+            from apysc._validation import geom_validation
+            geom_validation.validate_point_2d_type(point=start_point)
+            geom_validation.validate_point_2d_type(point=end_point)
+            parent_graphics: Graphics = parent
+            variable_name: str = expression_variables_util.get_next_variable_name(
+                type_name=var_names.LINE)
+            super(Line, self).__init__(
+                parent=parent, x=0, y=0, variable_name=variable_name)
+            self._start_point = start_point
+            self._end_point = end_point
+            self._set_initial_basic_values(parent=parent)
+            self._append_constructor_expression()
+            self._set_line_setting_if_not_none_value_exists(
+                parent_graphics=parent_graphics)
+            self._set_overflow_visible_setting()
 
     def _append_constructor_expression(self) -> None:
         """
         Append constructor expression to file.
         """
         import apysc as ap
-        from apysc._display.stage import get_stage_variable_name
-        stage_variable_name: str = get_stage_variable_name()
-        points_str: str = self._make_points_expression()
-        expression: str = (
-            f'var {self.variable_name} = {stage_variable_name}'
-            f'\n  .line({points_str})'
-            '\n  .attr({'
-        )
-        expression = self._append_basic_vals_expression(
-            expression=expression,
-            indent_num=2)
-        expression = self._append_basic_vals_expression(
-            expression=expression, indent_num=2)
-        expression += '\n  });'
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_constructor_expression,
+                locals_=locals(),
+                module_name=__name__, class_=Line):
+            from apysc._display.stage import get_stage_variable_name
+            stage_variable_name: str = get_stage_variable_name()
+            points_str: str = self._make_points_expression()
+            expression: str = (
+                f'var {self.variable_name} = {stage_variable_name}'
+                f'\n  .line({points_str})'
+                '\n  .attr({'
+            )
+            expression = self._append_basic_vals_expression(
+                expression=expression,
+                indent_num=2)
+            expression = self._append_basic_vals_expression(
+                expression=expression, indent_num=2)
+            expression += '\n  });'
+            ap.append_js_expression(expression=expression)
 
     def _make_points_expression(self) -> str:
         """

@@ -35,9 +35,12 @@ class YInterface(VariableNameInterface, RevertInterface):
         - Display object x and y interfaces document
             - https://bit.ly/2ToA5ba
         """
-        from apysc._type import value_util
-        self._initialize_y_if_not_initialized()
-        return value_util.get_copy(value=self._y)
+        with ap.DebugInfo(
+                callable_='y', locals_=locals(),
+                module_name=__name__, class_=YInterface):
+            from apysc._type import value_util
+            self._initialize_y_if_not_initialized()
+            return value_util.get_copy(value=self._y)
 
     @y.setter
     def y(self, value: ap.Int) -> None:
@@ -54,27 +57,34 @@ class YInterface(VariableNameInterface, RevertInterface):
         - Display object x and y interfaces document
             - https://bit.ly/2ToA5ba
         """
-        from apysc._type.number_value_interface import NumberValueInterface
-        from apysc._validation import number_validation
-        if not isinstance(value, NumberValueInterface):
-            number_validation.validate_integer(integer=value)
-            value = ap.Int(value=value)
-        self._y = value
-        self._y._append_incremental_calc_substitution_expression()
-        self._append_y_update_expression()
+        with ap.DebugInfo(
+                callable_='y', locals_=locals(),
+                module_name=__name__, class_=YInterface):
+            from apysc._type.number_value_interface import \
+                NumberValueInterface
+            from apysc._validation import number_validation
+            if not isinstance(value, NumberValueInterface):
+                number_validation.validate_integer(integer=value)
+                value = ap.Int(value=value)
+            self._y = value
+            self._y._append_incremental_calc_substitution_expression()
+            self._append_y_update_expression()
 
     def _append_y_update_expression(self) -> None:
         """
         Append y position updating expression.
         """
-        from apysc._type import value_util
-        self._initialize_y_if_not_initialized()
-        value_str: str = value_util.get_value_str_for_expression(
-            value=self._y)
-        expression: str = (
-            f'{self.variable_name}.y({value_str});'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_y_update_expression, locals_=locals(),
+                module_name=__name__, class_=YInterface):
+            from apysc._type import value_util
+            self._initialize_y_if_not_initialized()
+            value_str: str = value_util.get_value_str_for_expression(
+                value=self._y)
+            expression: str = (
+                f'{self.variable_name}.y({value_str});'
+            )
+            ap.append_js_expression(expression=expression)
 
     _y_snapshots: Dict[str, int]
 

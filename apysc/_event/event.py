@@ -30,14 +30,18 @@ class Event(Generic[T], VariableNameInterface):
         type_name : str or None, default None
             Type name to set. Only specify when inherit this class.
         """
-        from apysc._expression import expression_variables_util
-        from apysc._expression import var_names
-        self._validate_type_name_and_self_type(type_name=type_name)
-        self._this = this
-        if type_name is None:
-            type_name = var_names.EVENT
-        self.variable_name = expression_variables_util.get_next_variable_name(
-            type_name=type_name)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__init__', locals_=locals(),
+                module_name=__name__, class_=Event):
+            from apysc._expression import expression_variables_util
+            from apysc._expression import var_names
+            self._validate_type_name_and_self_type(type_name=type_name)
+            self._this = this
+            if type_name is None:
+                type_name = var_names.EVENT
+            self.variable_name = expression_variables_util.get_next_variable_name(
+                type_name=type_name)
 
     def _validate_type_name_and_self_type(
             self, type_name: Optional[str]) -> None:
@@ -74,20 +78,26 @@ class Event(Generic[T], VariableNameInterface):
         Stop event propagation.
         """
         import apysc as ap
-        expression: str = (
-            f'{self.variable_name}.stopPropagation();'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self.stop_propagation, locals_=locals(),
+                module_name=__name__, class_=Event):
+            expression: str = (
+                f'{self.variable_name}.stopPropagation();'
+            )
+            ap.append_js_expression(expression=expression)
 
     def prevent_default(self) -> None:
         """
         Prevent event's default behavior.
         """
         import apysc as ap
-        expression: str = (
-            f'{self.variable_name}.preventDefault();'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self.prevent_default, locals_=locals(),
+                module_name=__name__, class_=Event):
+            expression: str = (
+                f'{self.variable_name}.preventDefault();'
+            )
+            ap.append_js_expression(expression=expression)
 
     @property
     def this(self) -> T:

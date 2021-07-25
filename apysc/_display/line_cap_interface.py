@@ -34,8 +34,11 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         line_cap : String
             Line cap style setting.
         """
-        self._initialize_line_cap_if_not_initialized()
-        return self._line_cap._copy()
+        with ap.DebugInfo(
+                callable_='line_cap', locals_=locals(),
+                module_name=__name__, class_=LineCapInterface):
+            self._initialize_line_cap_if_not_initialized()
+            return self._line_cap._copy()
 
     @line_cap.setter
     def line_cap(self, value: Any) -> None:
@@ -47,20 +50,27 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         value : String or LineCaps
             Line cap style setting to set.
         """
-        self._update_line_cap_and_skip_appending_exp(value=value)
-        self._append_line_cap_update_expression()
+        with ap.DebugInfo(
+                callable_='line_cap', locals_=locals(),
+                module_name=__name__, class_=LineCapInterface):
+            self._update_line_cap_and_skip_appending_exp(value=value)
+            self._append_line_cap_update_expression()
 
     def _append_line_cap_update_expression(self) -> None:
         """
         Append line cap updating expression to file.
         """
-        from apysc._type import value_util
-        cap_name: str = value_util.get_value_str_for_expression(
-            value=self._line_cap)
-        expression: str = (
-            f'{self.variable_name}.attr({{"stroke-linecap": {cap_name}}});'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_line_cap_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=LineCapInterface):
+            from apysc._type import value_util
+            cap_name: str = value_util.get_value_str_for_expression(
+                value=self._line_cap)
+            expression: str = (
+                f'{self.variable_name}.attr({{"stroke-linecap": {cap_name}}});'
+            )
+            ap.append_js_expression(expression=expression)
 
     def _update_line_cap_and_skip_appending_exp(
             self, value: Union[ap.String, LineCaps]) -> None:

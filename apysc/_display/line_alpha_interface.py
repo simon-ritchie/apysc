@@ -31,8 +31,11 @@ class LineAlphaInterface(VariableNameInterface, RevertInterface):
         line_alpha : Number
             Current line alpha (opacity. 0.0 to 1.0).
         """
-        from apysc._type import value_util
-        return value_util.get_copy(value=self._line_alpha)
+        with ap.DebugInfo(
+                callable_='line_alpha', locals_=locals(),
+                module_name=__name__, class_=LineAlphaInterface):
+            from apysc._type import value_util
+            return value_util.get_copy(value=self._line_alpha)
 
     @line_alpha.setter
     def line_alpha(self, value: ap.Number) -> None:
@@ -44,18 +47,25 @@ class LineAlphaInterface(VariableNameInterface, RevertInterface):
         value : Number
             Line alpha (opacity) to set.
         """
-        self._update_line_alpha_and_skip_appending_exp(value=value)
-        self._line_alpha._append_incremental_calc_substitution_expression()
-        self._append_line_alpha_update_expression()
+        with ap.DebugInfo(
+                callable_='line_alpha', locals_=locals(),
+                module_name=__name__, class_=LineAlphaInterface):
+            self._update_line_alpha_and_skip_appending_exp(value=value)
+            self._line_alpha._append_incremental_calc_substitution_expression()
+            self._append_line_alpha_update_expression()
 
     def _append_line_alpha_update_expression(self) -> None:
         """
         Append line alpha updating expression.
         """
-        expression: str = (
-            f'{self.variable_name}.stroke({{opacity: {self.line_alpha}}});'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_line_alpha_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=LineAlphaInterface):
+            expression: str = (
+                f'{self.variable_name}.stroke({{opacity: {self.line_alpha}}});'
+            )
+            ap.append_js_expression(expression=expression)
 
     def _update_line_alpha_and_skip_appending_exp(
             self, value: Union[float, ap.Number]) -> None:

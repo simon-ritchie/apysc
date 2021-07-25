@@ -24,15 +24,19 @@ def append_fill_expression(
     expression : str
         After appended expression string.
     """
-    from apysc._string import indent_util
-    spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
-    if graphics.fill_color == '':
-        expression += f'\n{spaces}fill: "none",'
+    import apysc as ap
+    with ap.DebugInfo(
+            callable_=append_fill_expression, locals_=locals(),
+            module_name=__name__):
+        from apysc._string import indent_util
+        spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
+        if graphics.fill_color == '':
+            expression += f'\n{spaces}fill: "none",'
+            return expression
+        expression += (
+            f'\n{spaces}fill: {graphics.fill_color.variable_name},'
+        )
         return expression
-    expression += (
-        f'\n{spaces}fill: {graphics.fill_color.variable_name},'
-    )
-    return expression
 
 
 def append_fill_opacity_expression(
@@ -54,12 +58,16 @@ def append_fill_opacity_expression(
     expression : str
         After appended expression string.
     """
-    from apysc._string import indent_util
-    spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
-    expression += (
-        f'\n{spaces}"fill-opacity": {graphics.fill_alpha.variable_name},'
-    )
-    return expression
+    import apysc as ap
+    with ap.DebugInfo(
+            callable_=append_fill_opacity_expression, locals_=locals(),
+            module_name=__name__):
+        from apysc._string import indent_util
+        spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
+        expression += (
+            f'\n{spaces}"fill-opacity": {graphics.fill_alpha.variable_name},'
+        )
+        return expression
 
 
 def append_x_expression(
@@ -81,12 +89,16 @@ def append_x_expression(
     expression : str
         After appended expression string.
     """
-    from apysc._string import indent_util
-    spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
-    expression += (
-        f'\n{spaces}x: {graphic.x.variable_name},'
-    )
-    return expression
+    import apysc as ap
+    with ap.DebugInfo(
+            callable_=append_x_expression, locals_=locals(),
+            module_name=__name__):
+        from apysc._string import indent_util
+        spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
+        expression += (
+            f'\n{spaces}x: {graphic.x.variable_name},'
+        )
+        return expression
 
 
 def append_y_expression(
@@ -108,12 +120,16 @@ def append_y_expression(
     expression : str
         After appended expression string.
     """
-    from apysc._string import indent_util
-    spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
-    expression += (
-        f'\n{spaces}y: {graphic.y.variable_name},'
-    )
-    return expression
+    import apysc as ap
+    with ap.DebugInfo(
+            callable_=append_y_expression, locals_=locals(),
+            module_name=__name__):
+        from apysc._string import indent_util
+        spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
+        expression += (
+            f'\n{spaces}y: {graphic.y.variable_name},'
+        )
+        return expression
 
 
 def append_stroke_expression(
@@ -135,14 +151,18 @@ def append_stroke_expression(
     expression : str
         After appended expression string.
     """
-    from apysc._string import indent_util
-    if graphics.line_color == '':
+    import apysc as ap
+    with ap.DebugInfo(
+            callable_=append_stroke_expression, locals_=locals(),
+            module_name=__name__):
+        from apysc._string import indent_util
+        if graphics.line_color == '':
+            return expression
+        spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
+        expression += (
+            f'\n{spaces}stroke: {graphics.line_color.variable_name},'
+        )
         return expression
-    spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
-    expression += (
-        f'\n{spaces}stroke: {graphics.line_color.variable_name},'
-    )
-    return expression
 
 
 def append_stroke_width_expression(
@@ -164,12 +184,16 @@ def append_stroke_width_expression(
     expression : str
         After appended expression string.
     """
-    from apysc._string import indent_util
-    spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
-    expression += (
-        f'\n{spaces}"stroke-width": {graphics.line_thickness.variable_name},'
-    )
-    return expression
+    import apysc as ap
+    with ap.DebugInfo(
+            callable_=append_stroke_width_expression, locals_=locals(),
+            module_name=__name__):
+        from apysc._string import indent_util
+        spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
+        expression += (
+            f'\n{spaces}"stroke-width": {graphics.line_thickness.variable_name},'
+        )
+        return expression
 
 
 def append_stroke_opacity_expression(
@@ -191,12 +215,16 @@ def append_stroke_opacity_expression(
     expression : str
         After appended expression string.
     """
-    from apysc._string import indent_util
-    spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
-    expression += (
-        f'\n{spaces}"stroke-opacity": {graphics.line_alpha.variable_name},'
-    )
-    return expression
+    import apysc as ap
+    with ap.DebugInfo(
+            callable_=append_stroke_opacity_expression, locals_=locals(),
+            module_name=__name__):
+        from apysc._string import indent_util
+        spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
+        expression += (
+            f'\n{spaces}"stroke-opacity": {graphics.line_alpha.variable_name},'
+        )
+        return expression
 
 
 def append_stroke_linecap_expression(
@@ -219,14 +247,17 @@ def append_stroke_linecap_expression(
         After appended expression string.
     """
     import apysc as ap
-    from apysc._string import indent_util
-    if graphics.line_cap == ap.LineCaps.BUTT.value:
+    with ap.DebugInfo(
+            callable_=append_stroke_linecap_expression, locals_=locals(),
+            module_name=__name__):
+        from apysc._string import indent_util
+        if graphics.line_cap == ap.LineCaps.BUTT.value:
+            return expression
+        spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
+        expression += (
+            f'\n{spaces}"stroke-linecap": {graphics.line_cap.variable_name},'
+        )
         return expression
-    spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
-    expression += (
-        f'\n{spaces}"stroke-linecap": {graphics.line_cap.variable_name},'
-    )
-    return expression
 
 
 def append_stroke_linejoin_expression(
@@ -249,11 +280,14 @@ def append_stroke_linejoin_expression(
         After appended expression string.
     """
     import apysc as ap
-    from apysc._string import indent_util
-    if graphics.line_joints == ap.LineJoints.MITER.value:
+    with ap.DebugInfo(
+            callable_=append_stroke_linejoin_expression, locals_=locals(),
+            module_name=__name__):
+        from apysc._string import indent_util
+        if graphics.line_joints == ap.LineJoints.MITER.value:
+            return expression
+        spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
+        expression += (
+            f'\n{spaces}"stroke-linejoin": {graphics.line_joints.variable_name},'
+        )
         return expression
-    spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
-    expression += (
-        f'\n{spaces}"stroke-linejoin": {graphics.line_joints.variable_name},'
-    )
-    return expression

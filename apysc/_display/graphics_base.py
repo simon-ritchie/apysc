@@ -40,22 +40,26 @@ class GraphicsBase(
             Variable name of this instance. This will be used to
             js expression.
         """
-        from apysc._display.graphics import Graphics
-        from apysc._validation import display_validation
-        from apysc._validation import number_validation
-        from apysc._validation import string_validation
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self.__init__, locals_=locals(),
+                module_name=__name__, class_=GraphicsBase):
+            from apysc._display.graphics import Graphics
+            from apysc._validation import display_validation
+            from apysc._validation import number_validation
+            from apysc._validation import string_validation
 
-        display_validation.validate_graphics(graphics=parent)
-        self.parent_graphics: Graphics = parent
-        number_validation.validate_integer(integer=x)
-        number_validation.validate_integer(integer=y)
-        if isinstance(x, int):
-            x = ap.Int(x)
-        self._x = x
-        if isinstance(y, int):
-            y = ap.Int(y)
-        self._y = y
-        string_validation.validate_not_empty_string(string=variable_name)
-        super(GraphicsBase, self).__init__(
-            stage=self.parent_graphics.stage,
-            variable_name=variable_name)
+            display_validation.validate_graphics(graphics=parent)
+            self.parent_graphics: Graphics = parent
+            number_validation.validate_integer(integer=x)
+            number_validation.validate_integer(integer=y)
+            if isinstance(x, int):
+                x = ap.Int(x)
+            self._x = x
+            if isinstance(y, int):
+                y = ap.Int(y)
+            self._y = y
+            string_validation.validate_not_empty_string(string=variable_name)
+            super(GraphicsBase, self).__init__(
+                stage=self.parent_graphics.stage,
+                variable_name=variable_name)

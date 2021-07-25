@@ -60,8 +60,7 @@ class XInterface(VariableNameInterface, RevertInterface):
         with ap.DebugInfo(
                 callable_='x', locals_=locals(),
                 module_name=__name__, class_=XInterface):
-            from apysc._type.number_value_interface import \
-                NumberValueInterface
+            from apysc._type.number_value_interface import NumberValueInterface
             from apysc._validation import number_validation
             if not isinstance(value, NumberValueInterface):
                 number_validation.validate_integer(integer=value)

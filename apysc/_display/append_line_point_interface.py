@@ -31,7 +31,8 @@ class AppendLinePointInterface(Points2DInterface):
             if not hasattr(self, '_points_var_name'):
                 raise AttributeError(
                     '_points_var_name attribute is not set. Please add '
-                    'implementation to set that value when constructor or else.')
+                    'implementation to set that value when constructor '
+                    'or else.')
             self.points.append(value=ap.Point2D(x=x, y=y))
             expression: str
             x_name: str = value_util.get_value_str_for_expression(value=x)

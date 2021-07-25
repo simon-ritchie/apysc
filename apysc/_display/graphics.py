@@ -57,7 +57,7 @@ class Graphics(
             - https://simon-ritchie.github.io/apysc/graphics.html
         """
         with ap.DebugInfo(
-                callable_=self.__init__, locals_=locals(),
+                callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=Graphics):
             from apysc._expression import expression_variables_util
             from apysc._expression import var_names
@@ -66,8 +66,8 @@ class Graphics(
             display_validation.validate_sprite(sprite=parent)
             self.parent_sprite: ap.Sprite = parent
             if variable_name is None:
-                variable_name = expression_variables_util.get_next_variable_name(
-                    type_name=var_names.GRAPHICS)
+                variable_name = expression_variables_util.\
+                    get_next_variable_name(type_name=var_names.GRAPHICS)
             super(Graphics, self).__init__(
                 stage=self.parent_sprite.stage, variable_name=variable_name)
             self._fill_color = ap.String('')

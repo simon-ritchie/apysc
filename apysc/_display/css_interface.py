@@ -46,8 +46,8 @@ class CssInterface(VariableNameInterface, RevertInterface):
                 module_name=__name__, class_=CssInterface):
             from apysc._converter import to_builtin_val_from_apysc
             self._initialize_css_if_not_initialized()
-            name_: str = to_builtin_val_from_apysc.get_builtin_str_from_apysc_val(
-                string=name)
+            name_: str = to_builtin_val_from_apysc.\
+                get_builtin_str_from_apysc_val(string=name)
             if name_ in self._css:
                 css: ap.String = self._css[name_]._copy()
             else:
@@ -76,7 +76,8 @@ class CssInterface(VariableNameInterface, RevertInterface):
             css_value_str: str = value_util.get_value_str_for_expression(
                 value=css)
             expression: str = (
-                f'{css_value_str} = {self.variable_name}.css({name_value_str});'
+                f'{css_value_str} = {self.variable_name}.'
+                f'css({name_value_str});'
             )
             ap.append_js_expression(expression=expression)
 
@@ -104,8 +105,8 @@ class CssInterface(VariableNameInterface, RevertInterface):
             from apysc._converter import to_apysc_val_from_builtin
             from apysc._converter import to_builtin_val_from_apysc
             self._initialize_css_if_not_initialized()
-            name_: str = to_builtin_val_from_apysc.get_builtin_str_from_apysc_val(
-                string=name)
+            name_: str = to_builtin_val_from_apysc.\
+                get_builtin_str_from_apysc_val(string=name)
             value_: ap.String = to_apysc_val_from_builtin.\
                 get_copied_string_from_builtin_val(string=value)
             self._css[name_] = value_
@@ -130,7 +131,8 @@ class CssInterface(VariableNameInterface, RevertInterface):
             from apysc._type import value_util
             name_value_str: str = value_util.get_value_str_for_expression(
                 value=name)
-            value_str: str = value_util.get_value_str_for_expression(value=value)
+            value_str: str = value_util.get_value_str_for_expression(
+                value=value)
             expression: str = (
                 f'{self.variable_name}.css({name_value_str}, {value_str});'
             )

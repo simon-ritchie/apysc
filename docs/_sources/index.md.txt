@@ -5,7 +5,7 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 ## Project links
 
 - [GitHub](https://github.com/simon-ritchie/apysc)
-  - Clicks on the GitHub star are very welcome! It empowers developer motivation.
+  - Star gazers are very welcome!
 - [Twitter](https://twitter.com/apysc)
   - The progress and updates will be informed on Twitter. Please follow!
 - [PyPI](https://pypi.org/project/apysc/)

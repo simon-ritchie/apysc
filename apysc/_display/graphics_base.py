@@ -42,7 +42,7 @@ class GraphicsBase(
         """
         import apysc as ap
         with ap.DebugInfo(
-                callable_=self.__init__, locals_=locals(),
+                callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=GraphicsBase):
             from apysc._display.graphics import Graphics
             from apysc._validation import display_validation

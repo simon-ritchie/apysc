@@ -106,7 +106,9 @@ def assert_not_equal(expected: Any, actual: Any, msg: str = '') -> None:
             return
 
         _trace_info(
-            interface_label='assert_not_equal', expected=expected, actual=actual)
+            interface_label='assert_not_equal',
+            expected=expected,
+            actual=actual)
         expected_str, actual_str = _get_expected_and_actual_strs(
             expected=expected, actual=actual)
 

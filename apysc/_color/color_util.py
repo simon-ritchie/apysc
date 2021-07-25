@@ -87,14 +87,14 @@ def _append_complement_hex_color_expression(
             f'\n  {var_name} = "00000" + {var_name};'
             '\n}else if (str_length === 3) {'
             f'\n  var {var_name}_ = "";'
-            f'\n  for (var {index_name} = 0; {index_name} < {var_name}.length; '
+            f'\n  for (var {index_name} = 0; {index_name} < '
+            f'{var_name}.length; '
             f'{index_name}++) {{'
             f'\n    {var_name}_ += {var_name}[{index_name}].repeat(2);'
             '\n  }'
             f'\n  {var_name} = {var_name}_;'
             '\n}'
-            f'\n{var_name} = "#" + {var_name};'
-        )
+            f'\n{var_name} = "#" + {var_name};')
         ap.append_js_expression(expression=expression)
 
 

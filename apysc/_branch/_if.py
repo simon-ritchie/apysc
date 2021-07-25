@@ -1,7 +1,9 @@
 """If branch instruction implementations.
 """
 
-from typing import Any, Dict, Optional
+from typing import Any
+from typing import Dict
+from typing import Optional
 
 import apysc as ap
 from apysc._branch.if_base import IfBase
@@ -51,7 +53,7 @@ class If(IfBase):
             - https://bit.ly/3rkAuaT
         """
         with ap.DebugInfo(
-                callable_=self.__init__, locals_=locals(),
+                callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=If):
             super(If, self).__init__(
                 condition=condition, locals_=locals_, globals_=globals_)

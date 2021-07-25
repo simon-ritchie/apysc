@@ -191,7 +191,8 @@ def append_stroke_width_expression(
         from apysc._string import indent_util
         spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
         expression += (
-            f'\n{spaces}"stroke-width": {graphics.line_thickness.variable_name},'
+            f'\n{spaces}"stroke-width": '
+            f'{graphics.line_thickness.variable_name},'
         )
         return expression
 
@@ -288,6 +289,7 @@ def append_stroke_linejoin_expression(
             return expression
         spaces: str = indent_util.make_spaces_for_html(indent_num=indent_num)
         expression += (
-            f'\n{spaces}"stroke-linejoin": {graphics.line_joints.variable_name},'
+            f'\n{spaces}"stroke-linejoin": '
+            f'{graphics.line_joints.variable_name},'
         )
         return expression

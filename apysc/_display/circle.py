@@ -49,13 +49,13 @@ class Circle(CxInterface, CyInterface, LineBase, RadiusInterface):
             - https://bit.ly/36Sgmn3
         """
         with ap.DebugInfo(
-                callable_=self.__init__, locals_=locals(),
+                callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=Circle):
             from apysc._expression import expression_variables_util
             from apysc._expression import var_names
             from apysc._validation import size_validation
-            variable_name: str = expression_variables_util.get_next_variable_name(
-                type_name=var_names.CIRCLE)
+            variable_name: str = expression_variables_util.\
+                get_next_variable_name(type_name=var_names.CIRCLE)
             super(Circle, self).__init__(
                 parent=parent, x=0, y=0, variable_name=variable_name)
             size_validation.validate_size_is_gt_zero(size=radius)

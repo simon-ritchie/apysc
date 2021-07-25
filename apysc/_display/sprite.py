@@ -44,7 +44,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
             - https://simon-ritchie.github.io/apysc/sprite.html
         """
         with ap.DebugInfo(
-                callable_=self.__init__, locals_=locals(),
+                callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=Sprite):
             from apysc._expression import expression_variables_util
             from apysc._expression import var_names

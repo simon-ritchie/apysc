@@ -1,15 +1,15 @@
-from random import randint
-from typing import Match, Optional
 import re
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
 import apysc as ap
 from apysc._expression import expression_file_util
 from apysc._file import file_util
-from tests.testing_helper import assert_attrs
 from apysc._html import debug_mode
-from apysc._expression import expression_file_util
+from tests.testing_helper import assert_attrs
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -81,10 +81,10 @@ class TestDebugInfo:
         assert f'\n// [{self.test___init__.__name__}' in expression
         assert f'\n// module name: {__name__}' in expression
         assert f'\n// class: {TestDebugInfo.__name__}' in expression
-        assert f'\n// arguments and variables:' in expression
-        assert f'\n//    self ='
-        assert f"\n//    blank_str = ''"
-        assert f'\n//    a\nb'
+        assert '\n// arguments and variables:' in expression
+        assert '\n//    self ='
+        assert "\n//    blank_str = ''"
+        assert '\n//    a\nb'
         assert f"\n//    int_val = 10({int_val.variable_name})"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

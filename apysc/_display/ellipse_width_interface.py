@@ -55,7 +55,8 @@ class EllipseWidthInterface(VariableNameInterface, RevertInterface):
             if isinstance(value, int):
                 value = ap.Int(value)
             self._ellipse_width = value
-            self._ellipse_width._append_incremental_calc_substitution_expression()
+            self._ellipse_width.\
+                _append_incremental_calc_substitution_expression()
             self._append_ellipse_width_update_expression()
 
     def _append_ellipse_width_update_expression(self) -> None:
@@ -72,8 +73,9 @@ class EllipseWidthInterface(VariableNameInterface, RevertInterface):
             width_value_str: str = value_util.get_value_str_for_expression(
                 value=self._ellipse_width)
             if hasattr(self, '_ellipse_height'):
-                height_value_str: str = value_util.get_value_str_for_expression(
-                    value=getattr(self, '_ellipse_height'))
+                height_value_str: str = value_util.\
+                    get_value_str_for_expression(
+                        value=getattr(self, '_ellipse_height'))
             else:
                 height_value_str = value_util.get_value_str_for_expression(
                     value=0)

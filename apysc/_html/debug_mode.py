@@ -2,9 +2,14 @@
 and JavaScript.
 """
 
-import os
 import inspect
-from typing import Any, Callable, Dict, Optional, Type, Union
+import os
+from typing import Any
+from typing import Callable
+from typing import Dict
+from typing import Optional
+from typing import Type
+from typing import Union
 
 from apysc._expression.indent_num import Indent
 
@@ -49,7 +54,7 @@ def _get_callable_str(callable_: Union[Callable, str]) -> str:
     Parameters
     ----------
     callable_ : Callable or str
-        Target function or method or property name.
+        Target function or method or property or dunder method name.
 
     Returns
     -------
@@ -73,7 +78,7 @@ def _get_callable_count_file_path(
     Parameters
     ----------
     callable_ : Callable or str
-        Target function or method or property name.
+        Target function or method or property or dunder method name.
     module_name : str
         Module name. This value will be set the `__name__` value.
     class_ : Type or None, optional
@@ -109,7 +114,7 @@ def _get_callable_count(
     Parameters
     ----------
     callable_ : Callable or str
-        Target function or method or property name.
+        Target function or method or property or dunder method name.
     module_name : str
         Module name. This value will be set the `__name__` value.
     class_ : Type or None, optional
@@ -146,7 +151,7 @@ def _increment_callable_count(
     Parameters
     ----------
     callable_ : Callable or str
-        Target function or method or property name.
+        Target function or method or property or dunder method name.
     module_name : str
         Module name. This value will be set the `__name__` value.
     class_ : Type or None, optional
@@ -195,7 +200,7 @@ class DebugInfo:
         Parameters
         ----------
         callable_ : Callable or str
-            Target function or method or property name.
+            Target function or method or property or dunder method name.
         locals_ : dict
             Local variables. This value will be set by the `locals()`
             function.

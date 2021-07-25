@@ -54,24 +54,28 @@ class Rectangle(
         - Graphics draw_rect interface document
             - https://simon-ritchie.github.io/apysc/graphics_draw_rect.html
         """
-        from apysc._display.graphics import Graphics
-        from apysc._expression import expression_variables_util
-        from apysc._expression import var_names
-        from apysc._validation import size_validation
-        parent_graphics: Graphics = parent
-        variable_name: str = expression_variables_util.\
-            get_next_variable_name(type_name=var_names.RECTANGLE)
-        super(Rectangle, self).__init__(
-            parent=parent, x=x, y=y, variable_name=variable_name)
-        size_validation.validate_size_is_gte_zero(size=width)
-        size_validation.validate_size_is_gte_zero(size=height)
-        self._update_width_and_skip_appending_exp(value=width)
-        self._update_height_and_skip_appending_exp(value=height)
-        self._set_initial_basic_values(parent=parent)
-        self._append_constructor_expression()
-        self._set_line_setting_if_not_none_value_exists(
-            parent_graphics=parent_graphics)
-        self._set_overflow_visible_setting()
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__init__', locals_=locals(),
+                module_name=__name__, class_=Rectangle):
+            from apysc._display.graphics import Graphics
+            from apysc._expression import expression_variables_util
+            from apysc._expression import var_names
+            from apysc._validation import size_validation
+            parent_graphics: Graphics = parent
+            variable_name: str = expression_variables_util.\
+                get_next_variable_name(type_name=var_names.RECTANGLE)
+            super(Rectangle, self).__init__(
+                parent=parent, x=x, y=y, variable_name=variable_name)
+            size_validation.validate_size_is_gte_zero(size=width)
+            size_validation.validate_size_is_gte_zero(size=height)
+            self._update_width_and_skip_appending_exp(value=width)
+            self._update_height_and_skip_appending_exp(value=height)
+            self._set_initial_basic_values(parent=parent)
+            self._append_constructor_expression()
+            self._set_line_setting_if_not_none_value_exists(
+                parent_graphics=parent_graphics)
+            self._set_overflow_visible_setting()
 
     def __repr__(self) -> str:
         """
@@ -91,17 +95,22 @@ class Rectangle(
         """
         Append constructor expression to the file.
         """
-        from apysc._display.stage import get_stage_variable_name
-        variable_name: str = self.variable_name
-        stage_variable_name: str = get_stage_variable_name()
-        expression: str = (
-            f'var {variable_name} = {stage_variable_name}'
-            f'\n  .rect({self.width.variable_name}, '
-            f'{self.height.variable_name})'
-        )
-        attrs_str: str = self._make_rect_attrs_expression()
-        expression += f'{attrs_str};'
-        ap.append_js_expression(expression=expression)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self._append_constructor_expression,
+                locals_=locals(),
+                module_name=__name__, class_=Rectangle):
+            from apysc._display.stage import get_stage_variable_name
+            variable_name: str = self.variable_name
+            stage_variable_name: str = get_stage_variable_name()
+            expression: str = (
+                f'var {variable_name} = {stage_variable_name}'
+                f'\n  .rect({self.width.variable_name}, '
+                f'{self.height.variable_name})'
+            )
+            attrs_str: str = self._make_rect_attrs_expression()
+            expression += f'{attrs_str};'
+            ap.append_js_expression(expression=expression)
 
     def _make_rect_attrs_expression(self) -> str:
         """

@@ -32,13 +32,17 @@ class RotateAroundCenterInterface(VariableNameInterface):
         - GraphicsBase rotate_around_center interface document
             - https://bit.ly/3hP6d12
         """
-        from apysc._type import value_util
-        from apysc._validation import number_validation
-        number_validation.validate_integer(
-            integer=additional_rotation)
-        value_str: str = value_util.get_value_str_for_expression(
-            value=additional_rotation)
-        expression: str = (
-            f'{self.variable_name}.rotate({value_str});'
-        )
-        ap.append_js_expression(expression=expression)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self.rotate_around_center, locals_=locals(),
+                module_name=__name__, class_=RotateAroundCenterInterface):
+            from apysc._type import value_util
+            from apysc._validation import number_validation
+            number_validation.validate_integer(
+                integer=additional_rotation)
+            value_str: str = value_util.get_value_str_for_expression(
+                value=additional_rotation)
+            expression: str = (
+                f'{self.variable_name}.rotate({value_str});'
+            )
+            ap.append_js_expression(expression=expression)

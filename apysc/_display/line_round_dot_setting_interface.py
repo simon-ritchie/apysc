@@ -94,8 +94,7 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         """
         import apysc as ap
         with ap.DebugInfo(
-                callable_=self.\
-                    _append_line_round_dot_setting_update_expression,
+                callable_=self._append_line_round_dot_setting_update_expression,  # noqa
                 locals_=locals(),
                 module_name=__name__, class_=LineRoundDotSettingInterface):
             import apysc as ap

@@ -88,6 +88,14 @@ class TestDebugInfo:
         assert '\n//    a\nb'
         assert f"\n//    int_val = 10({int_val.variable_name})"
 
+        expression_file_util.empty_expression_dir()
+        with ap.DebugInfo(
+                callable_=self.test___init__, locals_={},
+                module_name=__name__, class_=TestDebugInfo):
+            pass
+        expression = expression_file_util.get_current_expression()
+        assert '\n// arguments and variables:' not in expression
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_class_info(self) -> None:
         debug_info: ap.DebugInfo = ap.DebugInfo(

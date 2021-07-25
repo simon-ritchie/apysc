@@ -24,10 +24,15 @@ class LineColorInterface(VariableNameInterface, RevertInterface):
             Current line color (hexadecimal string, e.g., '#00aaff').
             If not be set, blank string will be returned.
         """
-        from apysc._type import value_util
-        self._initialize_line_color_if_not_initialized()
-        line_color: ap.String = value_util.get_copy(value=self._line_color)
-        return line_color
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='line_color', locals_=locals(),
+                module_name=__name__, class_=LineColorInterface):
+            from apysc._type import value_util
+            self._initialize_line_color_if_not_initialized()
+            line_color: ap.String = value_util.get_copy(
+                value=self._line_color)
+            return line_color
 
     @line_color.setter
     def line_color(self, value: ap.String) -> None:
@@ -39,17 +44,24 @@ class LineColorInterface(VariableNameInterface, RevertInterface):
         value : str
             Line color to set.
         """
-        self._update_line_color_and_skip_appending_exp(value=value)
-        self._append_line_color_update_expression()
+        with ap.DebugInfo(
+                callable_='line_color', locals_=locals(),
+                module_name=__name__, class_=LineColorInterface):
+            self._update_line_color_and_skip_appending_exp(value=value)
+            self._append_line_color_update_expression()
 
     def _append_line_color_update_expression(self) -> None:
         """
         Append line color updating expression.
         """
-        expression: str = (
-            f'{self.variable_name}.stroke("{self.line_color}");'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_line_color_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=LineColorInterface):
+            expression: str = (
+                f'{self.variable_name}.stroke("{self.line_color}");'
+            )
+            ap.append_js_expression(expression=expression)
 
     def _set_initial_line_color_if_not_blank(
             self, line_color: Union[str, ap.String]) -> None:

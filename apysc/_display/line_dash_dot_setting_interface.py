@@ -32,8 +32,12 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         line_dash_dot_setting : LineDashDotSetting or None
             Dash dot (1-dot chain) setting.
         """
-        self._initialize_line_dash_dot_setting_if_not_initialized()
-        return self._line_dash_dot_setting
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='line_dash_dot_setting', locals_=locals(),
+                module_name=__name__, class_=LineDashDotSettingInterface):
+            self._initialize_line_dash_dot_setting_if_not_initialized()
+            return self._line_dash_dot_setting
 
     @line_dash_dot_setting.setter
     def line_dash_dot_setting(
@@ -46,11 +50,16 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         value : LineDashDotSetting or None
             Line dash dot (1-dot chain) setting to set.
         """
-        from apysc._validation import display_validation
-        self._update_line_dash_dot_setting_and_skip_appending_exp(value=value)
-        self._append_line_dash_dot_setting_update_expression()
-        display_validation.validate_multiple_line_settings_isnt_set(
-            any_instance=self)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='line_dash_dot_setting', locals_=locals(),
+                module_name=__name__, class_=LineDashDotSettingInterface):
+            from apysc._validation import display_validation
+            self._update_line_dash_dot_setting_and_skip_appending_exp(
+                value=value)
+            self._append_line_dash_dot_setting_update_expression()
+            display_validation.validate_multiple_line_settings_isnt_set(
+                any_instance=self)
 
     def _update_line_dash_dot_setting_and_skip_appending_exp(
             self, value: Optional[LineDashDotSetting]) -> None:
@@ -75,25 +84,30 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         Append line dash dot setting updating expression to file.
         """
         import apysc as ap
-        if self._line_dash_dot_setting is None:
-            setting_str: str = '""'
-        else:
-            dot_size_name: str = \
-                self._line_dash_dot_setting.dot_size.variable_name
-            dash_size_name: str = \
-                self._line_dash_dot_setting.dash_size.variable_name
-            space_size_name: str = \
-                self._line_dash_dot_setting.space_size.variable_name
-            setting_str = (
-                f'String({dot_size_name}) + " " + '
-                f'String({space_size_name}) + " " + '
-                f'String({dash_size_name}) + " " + '
-                f'String({space_size_name})'
+        with ap.DebugInfo(
+                callable_=self._append_line_dash_dot_setting_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=LineDashDotSetting):
+            import apysc as ap
+            if self._line_dash_dot_setting is None:
+                setting_str: str = '""'
+            else:
+                dot_size_name: str = \
+                    self._line_dash_dot_setting.dot_size.variable_name
+                dash_size_name: str = \
+                    self._line_dash_dot_setting.dash_size.variable_name
+                space_size_name: str = \
+                    self._line_dash_dot_setting.space_size.variable_name
+                setting_str = (
+                    f'String({dot_size_name}) + " " + '
+                    f'String({space_size_name}) + " " + '
+                    f'String({dash_size_name}) + " " + '
+                    f'String({space_size_name})'
+                )
+            expression: str = (
+                f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
             )
-        expression: str = (
-            f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
-        )
-        ap.append_js_expression(expression=expression)
+            ap.append_js_expression(expression=expression)
 
     _line_dash_dot_setting_snapshots: Dict[str, Optional[LineDashDotSetting]]
 

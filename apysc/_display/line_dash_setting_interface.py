@@ -32,8 +32,12 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         line_dash_setting : LineDashSetting or None
             Line dash setting.
         """
-        self._initialize_line_dash_setting_if_not_initialized()
-        return self._line_dash_setting
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='line_dash_setting', locals_=locals(),
+                module_name=__name__, class_=LineDashSettingInterface):
+            self._initialize_line_dash_setting_if_not_initialized()
+            return self._line_dash_setting
 
     @line_dash_setting.setter
     def line_dash_setting(self, value: Optional[LineDashSetting]) -> None:
@@ -45,11 +49,15 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         value : LineDashSetting or None
             Line dash setting to set.
         """
-        from apysc._validation import display_validation
-        self._update_line_dash_setting_and_skip_appending_exp(value=value)
-        self._append_line_dash_setting_update_expression()
-        display_validation.validate_multiple_line_settings_isnt_set(
-            any_instance=self)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='line_dash_setting', locals_=locals(),
+                module_name=__name__, class_=LineDashSettingInterface):
+            from apysc._validation import display_validation
+            self._update_line_dash_setting_and_skip_appending_exp(value=value)
+            self._append_line_dash_setting_update_expression()
+            display_validation.validate_multiple_line_settings_isnt_set(
+                any_instance=self)
 
     def _update_line_dash_setting_and_skip_appending_exp(
             self, value: Optional[LineDashSetting]) -> None:
@@ -73,18 +81,24 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         Append line dash setting updating expression to file.
         """
         import apysc as ap
-        if self._line_dash_setting is None:
-            setting_str: str = '""'
-        else:
-            setting_str = (
-                f'String({self._line_dash_setting.dash_size.variable_name})'
-                ' + " " + '
-                f'String({self._line_dash_setting.space_size.variable_name})'
+        with ap.DebugInfo(
+                callable_=self._append_line_dash_setting_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=LineDashSettingInterface):
+            if self._line_dash_setting is None:
+                setting_str: str = '""'
+            else:
+                setting_str = (
+                    'String('
+                    f'{self._line_dash_setting.dash_size.variable_name})'
+                    ' + " " + '
+                    'String('
+                    f'{self._line_dash_setting.space_size.variable_name})'
+                )
+            expression: str = (
+                f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
             )
-        expression: str = (
-            f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
-        )
-        ap.append_js_expression(expression=expression)
+            ap.append_js_expression(expression=expression)
 
     _line_dash_setting_snapshots: Dict[str, Optional[LineDashSetting]]
 

@@ -29,7 +29,7 @@ def main() -> None:
     """
     stage: ap.Stage = ap.Stage(
         background_color='#333',
-        stage_width=1000, stage_height=500)
+        stage_width=1000, stage_height=500, stage_elem_id='stage')
     ap.set_debug_mode()
 
     # Basic functional test case.

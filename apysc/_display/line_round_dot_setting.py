@@ -34,19 +34,22 @@ class LineRoundDotSetting(ap.Dictionary):
         - Graphics line_style interface document
             - https://bit.ly/3zauILT
         """
-        from apysc._converter.to_apysc_val_from_builtin import \
-            get_copied_int_from_builtin_val
-        from apysc._validation import number_validation
-        number_validation.validate_nums_are_int_and_gt_zero(
-            nums=[round_size, space_size])
-        round_size_: ap.Int = get_copied_int_from_builtin_val(
-            integer=round_size)
-        space_size_: ap.Int = get_copied_int_from_builtin_val(
-            integer=space_size)
-        super(LineRoundDotSetting, self).__init__({
-            'round_size': round_size_,
-            'space_size': space_size_,
-        })
+        with ap.DebugInfo(
+                callable_='__init__', locals_=locals(),
+                module_name=__name__, class_=LineRoundDotSetting):
+            from apysc._converter.to_apysc_val_from_builtin import \
+                get_copied_int_from_builtin_val
+            from apysc._validation import number_validation
+            number_validation.validate_nums_are_int_and_gt_zero(
+                nums=[round_size, space_size])
+            round_size_: ap.Int = get_copied_int_from_builtin_val(
+                integer=round_size)
+            space_size_: ap.Int = get_copied_int_from_builtin_val(
+                integer=space_size)
+            super(LineRoundDotSetting, self).__init__({
+                'round_size': round_size_,
+                'space_size': space_size_,
+            })
 
     @property
     def round_size(self) -> ap.Int:
@@ -58,7 +61,10 @@ class LineRoundDotSetting(ap.Dictionary):
         round_size : Int
             Round size setting.
         """
-        return self['round_size']
+        with ap.DebugInfo(
+                callable_='round_size', locals_=locals(),
+                module_name=__name__, class_=LineRoundDotSetting):
+            return self['round_size']
 
     @property
     def space_size(self) -> ap.Int:
@@ -70,4 +76,7 @@ class LineRoundDotSetting(ap.Dictionary):
         space_size : Int
             Blank space size between dots.
         """
-        return self['space_size']
+        with ap.DebugInfo(
+                callable_='space_size', locals_=locals(),
+                module_name=__name__, class_=LineRoundDotSetting):
+            return self['space_size']

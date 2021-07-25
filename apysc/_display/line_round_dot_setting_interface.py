@@ -30,10 +30,14 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         Returns
         -------
         line_round_dot_setting : LineRoundDotSetting or None
-            LKine round dot setting.
+            Line round dot setting.
         """
-        self._initialize_line_round_dot_setting_if_not_initialized()
-        return self._line_round_dot_setting
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='line_round_dot_setting', locals_=locals(),
+                module_name=__name__, class_=LineRoundDotSettingInterface):
+            self._initialize_line_round_dot_setting_if_not_initialized()
+            return self._line_round_dot_setting
 
     @line_round_dot_setting.setter
     def line_round_dot_setting(
@@ -52,17 +56,20 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
             Line round setting to set.
         """
         import apysc as ap
-        from apysc._validation import display_validation
-        self._update_line_round_dot_setting_and_skip_appending_exp(
-            value=value)
-        if value is not None:
-            self.line_cap = ap.LineCaps.ROUND
-            self.line_thickness = value.round_size
-        else:
-            self.line_cap = ap.LineCaps.BUTT
-        self._append_line_round_dot_setting_update_expression()
-        display_validation.validate_multiple_line_settings_isnt_set(
-            any_instance=self)
+        with ap.DebugInfo(
+                callable_='line_round_dot_setting', locals_=locals(),
+                module_name=__name__, class_=LineRoundDotSettingInterface):
+            from apysc._validation import display_validation
+            self._update_line_round_dot_setting_and_skip_appending_exp(
+                value=value)
+            if value is not None:
+                self.line_cap = ap.LineCaps.ROUND
+                self.line_thickness = value.round_size
+            else:
+                self.line_cap = ap.LineCaps.BUTT
+            self._append_line_round_dot_setting_update_expression()
+            display_validation.validate_multiple_line_settings_isnt_set(
+                any_instance=self)
 
     def _update_line_round_dot_setting_and_skip_appending_exp(
             self, value: Optional[LineRoundDotSetting]) -> None:
@@ -86,20 +93,26 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         Append line round dot setting updating expression to file.
         """
         import apysc as ap
-        if self._line_round_dot_setting is None:
-            setting_str: str = '""'
-        else:
-            round_size_name: str = \
-                self._line_round_dot_setting.round_size.variable_name
-            space_size_name: str = \
-                self._line_round_dot_setting.space_size.variable_name
-            setting_str = (
-                f'"1 " + String({round_size_name} + {space_size_name})'
+        with ap.DebugInfo(
+                callable_=self.\
+                    _append_line_round_dot_setting_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=LineRoundDotSettingInterface):
+            import apysc as ap
+            if self._line_round_dot_setting is None:
+                setting_str: str = '""'
+            else:
+                round_size_name: str = \
+                    self._line_round_dot_setting.round_size.variable_name
+                space_size_name: str = \
+                    self._line_round_dot_setting.space_size.variable_name
+                setting_str = (
+                    f'"1 " + String({round_size_name} + {space_size_name})'
+                )
+            expression: str = (
+                f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
             )
-        expression: str = (
-            f'{self.variable_name}.css("stroke-dasharray", {setting_str});'
-        )
-        ap.append_js_expression(expression=expression)
+            ap.append_js_expression(expression=expression)
 
     _line_round_dot_setting_snapshots: Dict[
         str, Optional[LineRoundDotSetting]]

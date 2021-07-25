@@ -40,9 +40,13 @@ class WidthAndHeightInterfacesForEllipse(
         width : Int
             Ellipse width.
         """
-        from apysc._type import value_util
-        self._initialize_width_and_height_if_not_initialized()
-        return value_util.get_copy(value=self._width)
+        with ap.DebugInfo(
+                callable_='width', locals_=locals(),
+                module_name=__name__,
+                class_=WidthAndHeightInterfacesForEllipse):
+            from apysc._type import value_util
+            self._initialize_width_and_height_if_not_initialized()
+            return value_util.get_copy(value=self._width)
 
     @width.setter
     def width(self, value: ap.Int) -> None:
@@ -54,13 +58,17 @@ class WidthAndHeightInterfacesForEllipse(
         value : int or Int
             Ellipse width value.
         """
-        from apysc._validation import number_validation
-        if not isinstance(value, ap.Int):
-            number_validation.validate_integer(integer=value)
-            value = ap.Int(value)
-        self._width = value
-        self._width._append_incremental_calc_substitution_expression()
-        self._append_ellipse_width_and_height_update_expression()
+        with ap.DebugInfo(
+                callable_='width', locals_=locals(),
+                module_name=__name__,
+                class_=WidthAndHeightInterfacesForEllipse):
+            from apysc._validation import number_validation
+            if not isinstance(value, ap.Int):
+                number_validation.validate_integer(integer=value)
+                value = ap.Int(value)
+            self._width = value
+            self._width._append_incremental_calc_substitution_expression()
+            self._append_ellipse_width_and_height_update_expression()
 
     @property
     def height(self) -> ap.Int:
@@ -72,9 +80,13 @@ class WidthAndHeightInterfacesForEllipse(
         height : Int
             Ellipse height.
         """
-        from apysc._type import value_util
-        self._initialize_width_and_height_if_not_initialized()
-        return value_util.get_copy(value=self._height)
+        with ap.DebugInfo(
+                callable_='height', locals_=locals(),
+                module_name=__name__,
+                class_=WidthAndHeightInterfacesForEllipse):
+            from apysc._type import value_util
+            self._initialize_width_and_height_if_not_initialized()
+            return value_util.get_copy(value=self._height)
 
     @height.setter
     def height(self, value: ap.Int) -> None:
@@ -86,31 +98,42 @@ class WidthAndHeightInterfacesForEllipse(
         value : int or Int
             Ellipse height value.
         """
-        from apysc._validation import number_validation
-        if not isinstance(value, ap.Int):
-            number_validation.validate_integer(integer=value)
-            value = ap.Int(value)
-        self._height = value
-        self._height._append_incremental_calc_substitution_expression()
-        self._append_ellipse_width_and_height_update_expression()
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='height', locals_=locals(),
+                module_name=__name__,
+                class_=WidthAndHeightInterfacesForEllipse):
+            from apysc._validation import number_validation
+            if not isinstance(value, ap.Int):
+                number_validation.validate_integer(integer=value)
+                value = ap.Int(value)
+            self._height = value
+            self._height._append_incremental_calc_substitution_expression()
+            self._append_ellipse_width_and_height_update_expression()
 
     def _append_ellipse_width_and_height_update_expression(self) -> None:
         """
         Append an ellipse width and height updating expression
         to the file.
         """
-        from apysc._type import value_util
-        self._initialize_width_and_height_if_not_initialized()
-        width_value_str: str = value_util.get_value_str_for_expression(
-            value=self._width)
-        height_value_str: str = value_util.get_value_str_for_expression(
-            value=self._height)
-        expression: str = (
-            f'{self.variable_name}.radius('
-            f'parseInt({width_value_str} / 2), '
-            f'parseInt({height_value_str}) / 2);'
-        )
-        ap.append_js_expression(expression=expression)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self._append_ellipse_width_and_height_update_expression,  # noqa
+                locals_=locals(),
+                module_name=__name__,
+                class_=WidthAndHeightInterfacesForEllipse):
+            from apysc._type import value_util
+            self._initialize_width_and_height_if_not_initialized()
+            width_value_str: str = value_util.get_value_str_for_expression(
+                value=self._width)
+            height_value_str: str = value_util.get_value_str_for_expression(
+                value=self._height)
+            expression: str = (
+                f'{self.variable_name}.radius('
+                f'parseInt({width_value_str} / 2), '
+                f'parseInt({height_value_str}) / 2);'
+            )
+            ap.append_js_expression(expression=expression)
 
     _width_snapshots: Dict[str, int]
     _height_snapshots: Dict[str, int]

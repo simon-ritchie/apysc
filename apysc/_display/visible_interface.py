@@ -30,9 +30,12 @@ class VisibleInterface(VariableNameInterface, RevertInterface):
         result : Boolean
             If this instance is visible, True will be returned.
         """
-        from apysc._type import value_util
-        self._initialize_visible_if_not_initialized()
-        return value_util.get_copy(value=self._visible)
+        with ap.DebugInfo(
+                callable_='visible', locals_=locals(),
+                module_name=__name__, class_=VisibleInterface):
+            from apysc._type import value_util
+            self._initialize_visible_if_not_initialized()
+            return value_util.get_copy(value=self._visible)
 
     @visible.setter
     def visible(self, value: ap.Boolean) -> None:
@@ -44,23 +47,30 @@ class VisibleInterface(VariableNameInterface, RevertInterface):
         value : Boolean
             Boolean value to set.
         """
-        from apysc._validation import bool_validation
-        bool_validation.validate_bool(value=value)
-        if isinstance(value, bool):
-            value = ap.Boolean(value)
-        self._visible = value
-        self._append_visible_update_expression()
+        with ap.DebugInfo(
+                callable_='visible', locals_=locals(),
+                module_name=__name__, class_=VisibleInterface):
+            from apysc._validation import bool_validation
+            bool_validation.validate_bool(value=value)
+            if isinstance(value, bool):
+                value = ap.Boolean(value)
+            self._visible = value
+            self._append_visible_update_expression()
 
     def _append_visible_update_expression(self) -> None:
         """
         Append visible property updating expression to file.
         """
-        expression: str = f'{self.variable_name}.'
-        if self._visible:
-            expression += 'show();'
-        else:
-            expression += 'hide();'
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_visible_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=VisibleInterface):
+            expression: str = f'{self.variable_name}.'
+            if self._visible:
+                expression += 'show();'
+            else:
+                expression += 'hide();'
+            ap.append_js_expression(expression=expression)
 
     _visible_snapshots: Dict[str, bool]
 

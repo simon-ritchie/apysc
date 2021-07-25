@@ -31,9 +31,12 @@ class WidthInterface(VariableNameInterface, RevertInterface):
         width : Int
             This instance's width.
         """
-        from apysc._type import value_util
-        self._initialize_width_if_not_initialized()
-        return value_util.get_copy(value=self._width)
+        with ap.DebugInfo(
+                callable_='width', locals_=locals(),
+                module_name=__name__, class_=WidthInterface):
+            from apysc._type import value_util
+            self._initialize_width_if_not_initialized()
+            return value_util.get_copy(value=self._width)
 
     @width.setter
     def width(self, value: ap.Int) -> None:
@@ -45,18 +48,25 @@ class WidthInterface(VariableNameInterface, RevertInterface):
         value : Int
             Width value to set.
         """
-        self._update_width_and_skip_appending_exp(value=value)
-        self._width._append_incremental_calc_substitution_expression()
-        self._append_width_update_expression()
+        with ap.DebugInfo(
+                callable_='width', locals_=locals(),
+                module_name=__name__, class_=WidthInterface):
+            self._update_width_and_skip_appending_exp(value=value)
+            self._width._append_incremental_calc_substitution_expression()
+            self._append_width_update_expression()
 
     def _append_width_update_expression(self) -> None:
         """
         Append width updating expression.
         """
-        expression: str = (
-            f'{self.variable_name}.width({self.width});'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_width_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=WidthInterface):
+            expression: str = (
+                f'{self.variable_name}.width({self.width});'
+            )
+            ap.append_js_expression(expression=expression)
 
     def _update_width_and_skip_appending_exp(
             self, value: Union[int, ap.Int]) -> None:

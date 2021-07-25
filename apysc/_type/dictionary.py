@@ -189,6 +189,8 @@ class Dictionary(
         string : str
             Converted value string.
         """
+        if not hasattr(self, '_value'):
+            return '{}'
         return str(self._value)
 
     def __repr__(self) -> str:

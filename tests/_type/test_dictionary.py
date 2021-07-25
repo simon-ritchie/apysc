@@ -112,6 +112,9 @@ class TestDictionary:
         dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10})
         assert str(dict_1) == "{'a': 10}"
 
+        del dict_1._value
+        assert str(dict_1) == '{}'
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
         dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10})

@@ -31,9 +31,12 @@ class RadiusInterface(VariableNameInterface, RevertInterface):
         radius : Int
             Radius value.
         """
-        from apysc._type import value_util
-        self._initialize_radius_if_not_initialized()
-        return value_util.get_copy(value=self._radius)
+        with ap.DebugInfo(
+                callable_='radius', locals_=locals(),
+                module_name=__name__, class_=RadiusInterface):
+            from apysc._type import value_util
+            self._initialize_radius_if_not_initialized()
+            return value_util.get_copy(value=self._radius)
 
     @radius.setter
     def radius(self, value: ap.Int) -> None:
@@ -45,12 +48,16 @@ class RadiusInterface(VariableNameInterface, RevertInterface):
         value : int or Int
             Radius value.
         """
-        from apysc._validation import number_validation
-        number_validation.validate_integer(integer=value)
-        value = self._get_converted_radius_int(radius=value)
-        self._radius = value
-        self._radius._append_incremental_calc_substitution_expression()
-        self._append_radius_update_expression()
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='radius', locals_=locals(),
+                module_name=__name__, class_=RadiusInterface):
+            from apysc._validation import number_validation
+            number_validation.validate_integer(integer=value)
+            value = self._get_converted_radius_int(radius=value)
+            self._radius = value
+            self._radius._append_incremental_calc_substitution_expression()
+            self._append_radius_update_expression()
 
     def _get_converted_radius_int(self, radius: Union[int, ap.Int]) -> ap.Int:
         """
@@ -66,22 +73,31 @@ class RadiusInterface(VariableNameInterface, RevertInterface):
         radius : Int
             Type converted radius value.
         """
-        if not isinstance(radius, ap.Int):
-            return ap.Int(radius)
-        return radius
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self._get_converted_radius_int, locals_=locals(),
+                module_name=__name__, class_=RadiusInterface):
+            if not isinstance(radius, ap.Int):
+                return ap.Int(radius)
+            return radius
 
     def _append_radius_update_expression(self) -> None:
         """
         Append radius value updating expression.
         """
-        from apysc._type import value_util
-        self._initialize_radius_if_not_initialized()
-        value_str: str = value_util.get_value_str_for_expression(
-            value=self._radius)
-        expression: str = (
-            f'{self.variable_name}.radius({value_str});'
-        )
-        ap.append_js_expression(expression=expression)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self._append_radius_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=RadiusInterface):
+            from apysc._type import value_util
+            self._initialize_radius_if_not_initialized()
+            value_str: str = value_util.get_value_str_for_expression(
+                value=self._radius)
+            expression: str = (
+                f'{self.variable_name}.radius({value_str});'
+            )
+            ap.append_js_expression(expression=expression)
 
     _radius_snapshots: Dict[str, int]
 

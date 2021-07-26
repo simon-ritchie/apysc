@@ -73,16 +73,20 @@ class MouseEventInterfaceBase:
         handlers_dict : dict
             Dictionary that has handler's data.
         """
-        from apysc._event.handler import append_unbinding_expression
-        from apysc._event.handler import get_handler_name
-        self_instance: VariableNameInterface = \
-            self._validate_self_is_variable_name_interface()
-        name: str = get_handler_name(handler=handler, instance=self)
-        if name in handlers_dict:
-            del handlers_dict[name]
-        append_unbinding_expression(
-            this=self_instance, handler_name=name,
-            mouse_event_type=mouse_event_type)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self._unbind_mouse_event, locals_=locals(),
+                module_name=__name__, class_=MouseEventInterfaceBase):
+            from apysc._event.handler import append_unbinding_expression
+            from apysc._event.handler import get_handler_name
+            self_instance: VariableNameInterface = \
+                self._validate_self_is_variable_name_interface()
+            name: str = get_handler_name(handler=handler, instance=self)
+            if name in handlers_dict:
+                del handlers_dict[name]
+            append_unbinding_expression(
+                this=self_instance, handler_name=name,
+                mouse_event_type=mouse_event_type)
 
     def _unbind_all_mouse_events(
             self, mouse_event_type: MouseEventType,
@@ -97,12 +101,16 @@ class MouseEventInterfaceBase:
         handlers_dict : dict
             Dictionary that has handler's data.
         """
-        from apysc._event.handler import append_unbinding_all_expression
-        self_instance: VariableNameInterface = \
-            self._validate_self_is_variable_name_interface()
-        handlers_dict.clear()
-        append_unbinding_all_expression(
-            this=self_instance, mouse_event_type=mouse_event_type)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self._unbind_all_mouse_events, locals_=locals(),
+                module_name=__name__, class_=MouseEventInterfaceBase):
+            from apysc._event.handler import append_unbinding_all_expression
+            self_instance: VariableNameInterface = \
+                self._validate_self_is_variable_name_interface()
+            handlers_dict.clear()
+            append_unbinding_all_expression(
+                this=self_instance, mouse_event_type=mouse_event_type)
 
     def _append_mouse_event_binding_expression(
             self, name: str, mouse_event_type: MouseEventType) -> None:
@@ -117,11 +125,16 @@ class MouseEventInterfaceBase:
             Event type to bind.
         """
         import apysc as ap
-        from apysc._type.variable_name_interface import VariableNameInterface
-        self_instance: VariableNameInterface = \
-            self._validate_self_is_variable_name_interface()
-        expression: str = (
-            f'{self_instance.variable_name}'
-            f'.{mouse_event_type.value}({name});'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_mouse_event_binding_expression,
+                locals_=locals(),
+                module_name=__name__, class_=MouseEventInterfaceBase):
+            from apysc._type.variable_name_interface import \
+                VariableNameInterface
+            self_instance: VariableNameInterface = \
+                self._validate_self_is_variable_name_interface()
+            expression: str = (
+                f'{self_instance.variable_name}'
+                f'.{mouse_event_type.value}({name});'
+            )
+            ap.append_js_expression(expression=expression)

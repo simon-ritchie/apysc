@@ -64,8 +64,8 @@ class Point2D(
                 module_name=__name__, class_=Point2D):
             expression: str = (
                 f'var {self.variable_name} = {{'
-                f'"x": {self._x.variable_name}, "y": {self._y.variable_name}}};'
-            )
+                f'"x": {self._x.variable_name}, '
+                f'"y": {self._y.variable_name}}};')
             ap.append_js_expression(expression=expression)
 
     @property

@@ -20,10 +20,13 @@ class WheelEvent(Event):
         Not supported each SVG elements' mouse wheel event currently, only
         supported document (overall screen) mouse wheel.
         """
-        from apysc._expression import var_names
-        super(WheelEvent, self).__init__(
-            this=None,
-            type_name=var_names.WHEEL_EVENT)
+        with ap.DebugInfo(
+                callable_='__init__', locals_=locals(),
+                module_name=__name__, class_=WheelEvent):
+            from apysc._expression import var_names
+            super(WheelEvent, self).__init__(
+                this=None,
+                type_name=var_names.WHEEL_EVENT)
 
     @property
     def this(self) -> None:
@@ -50,9 +53,12 @@ class WheelEvent(Event):
         delta_x : Int
             Delta x value.
         """
-        delta_x: ap.Int = ap.Int(0)
-        self._append_delta_x_getter_expression(delta_x=delta_x)
-        return delta_x
+        with ap.DebugInfo(
+                callable_='delta_x', locals_=locals(),
+                module_name=__name__, class_=WheelEvent):
+            delta_x: ap.Int = ap.Int(0)
+            self._append_delta_x_getter_expression(delta_x=delta_x)
+            return delta_x
 
     def _append_delta_x_getter_expression(self, delta_x: ap.Int) -> None:
         """
@@ -63,11 +69,15 @@ class WheelEvent(Event):
         delta_x : Int
             Target delta x value.
         """
-        expression: str = (
-            f'{delta_x.variable_name} = '
-            f'{self.variable_name}.deltaX;'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_delta_x_getter_expression,
+                locals_=locals(),
+                module_name=__name__, class_=WheelEvent):
+            expression: str = (
+                f'{delta_x.variable_name} = '
+                f'{self.variable_name}.deltaX;'
+            )
+            ap.append_js_expression(expression=expression)
 
     @property
     def delta_y(self) -> ap.Int:
@@ -79,9 +89,12 @@ class WheelEvent(Event):
         delta_y : Int
             Delta y value.
         """
-        delta_y: ap.Int = ap.Int(0)
-        self._append_delta_y_getter_expression(delta_y=delta_y)
-        return delta_y
+        with ap.DebugInfo(
+                callable_='delta_y', locals_=locals(),
+                module_name=__name__, class_=WheelEvent):
+            delta_y: ap.Int = ap.Int(0)
+            self._append_delta_y_getter_expression(delta_y=delta_y)
+            return delta_y
 
     def _append_delta_y_getter_expression(self, delta_y: ap.Int) -> None:
         """

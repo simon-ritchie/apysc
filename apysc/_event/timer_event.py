@@ -31,9 +31,13 @@ class TimerEvent(Event):
         - TimerEvent class document
             - https://simon-ritchie.github.io/apysc/timer_event.html
         """
-        from apysc._expression import var_names
-        super(TimerEvent, self).__init__(
-            this=this, type_name=var_names.TIMER_EVENT)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__init__', locals_=locals(),
+                module_name=__name__, class_=TimerEvent):
+            from apysc._expression import var_names
+            super(TimerEvent, self).__init__(
+                this=this, type_name=var_names.TIMER_EVENT)
 
     @property
     def this(self) -> Timer:

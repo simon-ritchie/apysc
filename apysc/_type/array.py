@@ -482,7 +482,8 @@ class Array(
             from apysc._type import value_util
             index_var_name: str = expression_variables_util.\
                 get_next_variable_name(type_name=var_names.INDEX)
-            value_str: str = value_util.get_value_str_for_expression(value=value)
+            value_str: str = value_util.get_value_str_for_expression(
+                value=value)
             expression: str = (
                 f'var {index_var_name} = _.indexOf'
                 f'({self.variable_name}, {value_str});'

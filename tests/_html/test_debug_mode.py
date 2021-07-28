@@ -89,6 +89,7 @@ class TestDebugInfo:
         assert f"\n//    int_val = 10({int_val.variable_name})"
 
         expression_file_util.empty_expression_dir()
+        ap.set_debug_mode()
         with ap.DebugInfo(
                 callable_=self.test___init__, locals_={},
                 module_name=__name__, class_=TestDebugInfo):

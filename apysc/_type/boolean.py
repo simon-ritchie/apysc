@@ -40,21 +40,24 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         - Boolean document
             - https://simon-ritchie.github.io/apysc/boolean.html
         """
-        from apysc._expression import expression_variables_util
-        from apysc._expression import var_names
-        from apysc._expression.event_handler_scope import \
-            TemporaryNotHandlerScope
-        from apysc._validation import number_validation
-        with TemporaryNotHandlerScope():
-            TYPE_NAME: str = var_names.BOOLEAN
-            number_validation.validate_int_is_zero_or_one(integer=value)
-            self._initial_value = value
-            value_: bool = self._get_bool_from_arg_value(value=value)
-            self._value = value_
-            self._type_name = TYPE_NAME
-            self.variable_name = expression_variables_util.\
-                get_next_variable_name(type_name=TYPE_NAME)
-            self._append_constructor_expression()
+        with ap.DebugInfo(
+                callable_='__init__', locals_=locals(),
+                module_name=__name__, class_=Boolean):
+            from apysc._expression import expression_variables_util
+            from apysc._expression import var_names
+            from apysc._expression.event_handler_scope import \
+                TemporaryNotHandlerScope
+            from apysc._validation import number_validation
+            with TemporaryNotHandlerScope():
+                TYPE_NAME: str = var_names.BOOLEAN
+                number_validation.validate_int_is_zero_or_one(integer=value)
+                self._initial_value = value
+                value_: bool = self._get_bool_from_arg_value(value=value)
+                self._value = value_
+                self._type_name = TYPE_NAME
+                self.variable_name = expression_variables_util.\
+                    get_next_variable_name(type_name=TYPE_NAME)
+                self._append_constructor_expression()
 
     def _get_bool_from_arg_value(
             self, value: Union[bool, int, ap.Int, Any]) -> bool:
@@ -72,31 +75,42 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         result : bool
             Converted boolean value.
         """
-        from apysc._converter import cast
-        from apysc._type.number_value_interface import NumberValueInterface
-        from apysc._validation import bool_validation
-        if isinstance(value, (int, float, NumberValueInterface)):
-            result: bool = cast.to_bool_from_int(integer=value)  # type: ignore
-        elif isinstance(value, Boolean):
-            result = value._value
-        else:
-            result = value
-        bool_validation.validate_bool(value=result)
-        return result
+        with ap.DebugInfo(
+                callable_=self._get_bool_from_arg_value,
+                locals_=locals(),
+                module_name=__name__, class_=Boolean):
+            from apysc._converter import cast
+            from apysc._type.number_value_interface import \
+                NumberValueInterface
+            from apysc._validation import bool_validation
+            if isinstance(value, (int, float, NumberValueInterface)):
+                result: bool = cast.to_bool_from_int(  # type: ignore
+                    integer=value)
+            elif isinstance(value, Boolean):
+                result = value._value
+            else:
+                result = value
+            bool_validation.validate_bool(value=result)
+            return result
 
     def _append_constructor_expression(self) -> None:
         """
         Append constructor expression to file.
         """
-        from apysc._type.variable_name_interface import VariableNameInterface
-        expression: str = f'var {self.variable_name} = '
-        if isinstance(self._initial_value, VariableNameInterface):
-            expression += f'Boolean({self._initial_value.variable_name});'
-        elif self._value:
-            expression += 'true;'
-        else:
-            expression += 'false;'
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_constructor_expression,
+                locals_=locals(),
+                module_name=__name__, class_=Boolean):
+            from apysc._type.variable_name_interface import \
+                VariableNameInterface
+            expression: str = f'var {self.variable_name} = '
+            if isinstance(self._initial_value, VariableNameInterface):
+                expression += f'Boolean({self._initial_value.variable_name});'
+            elif self._value:
+                expression += 'true;'
+            else:
+                expression += 'false;'
+            ap.append_js_expression(expression=expression)
 
     @property
     def value(self) -> Union[bool, int, Any]:
@@ -130,12 +144,16 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         apysc basic data classes common value interface
             https://bit.ly/3Be1aij
         """
-        from apysc._type.variable_name_interface import VariableNameInterface
-        self._set_value_and_skip_expression_appending(value=value)
-        if isinstance(value, VariableNameInterface):
-            self._append_value_setter_expression(value=value)
-        else:
-            self._append_value_setter_expression(value=self._value)
+        with ap.DebugInfo(
+                callable_='value', locals_=locals(),
+                module_name=__name__, class_=Boolean):
+            from apysc._type.variable_name_interface import \
+                VariableNameInterface
+            self._set_value_and_skip_expression_appending(value=value)
+            if isinstance(value, VariableNameInterface):
+                self._append_value_setter_expression(value=value)
+            else:
+                self._append_value_setter_expression(value=self._value)
 
     def _append_value_setter_expression(
             self, value: Union[bool, Any]) -> None:
@@ -147,15 +165,20 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         value : bool or VariableNameInterface
             Any value to set.
         """
-        from apysc._type.variable_name_interface import VariableNameInterface
-        expression: str = f'{self.variable_name} = '
-        if isinstance(value, VariableNameInterface):
-            expression += f'Boolean({value._variable_name});'
-        elif value:
-            expression += 'true;'
-        else:
-            expression += 'false;'
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_value_setter_expression,
+                locals_=locals(),
+                module_name=__name__, class_=Boolean):
+            from apysc._type.variable_name_interface import \
+                VariableNameInterface
+            expression: str = f'{self.variable_name} = '
+            if isinstance(value, VariableNameInterface):
+                expression += f'Boolean({value._variable_name});'
+            elif value:
+                expression += 'true;'
+            else:
+                expression += 'false;'
+            ap.append_js_expression(expression=expression)
 
     def _set_value_and_skip_expression_appending(
             self, value: Union[bool, int, ap.Int, Any]) -> None:
@@ -239,21 +262,24 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         result : Boolean
             Comparison result.
         """
-        self._validate_comparison_other_type(other=other)
-        result: Boolean
-        if isinstance(other, Boolean):
-            result = Boolean(self._value == other._value)
+        with ap.DebugInfo(
+                callable_='__eq__', locals_=locals(),
+                module_name=__name__, class_=Boolean):
+            self._validate_comparison_other_type(other=other)
+            result: Boolean
+            if isinstance(other, Boolean):
+                result = Boolean(self._value == other._value)
+                self._append_eq_expression(result=result, other=other)
+                return result
+            elif isinstance(other, ap.Int):
+                other_ = bool(other.value)
+                result = Boolean(self._value == other_)
+            else:
+                other = bool(other)
+                result = Boolean(self._value == other)
+                other = Boolean(other)
             self._append_eq_expression(result=result, other=other)
             return result
-        elif isinstance(other, ap.Int):
-            other_ = bool(other.value)
-            result = Boolean(self._value == other_)
-        else:
-            other = bool(other)
-            result = Boolean(self._value == other)
-            other = Boolean(other)
-        self._append_eq_expression(result=result, other=other)
-        return result
 
     def _validate_comparison_other_type(self, other: Any) -> None:
         """
@@ -290,14 +316,17 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         other : Boolean or Int
             Other value to compare.
         """
-        other_str: str = other.variable_name
-        if isinstance(other, ap.Int):
-            other_str = f'Boolean({other_str});'
-        expression: str = (
-            f'{result.variable_name} = '
-            f'{self.variable_name} === {other_str};'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_eq_expression, locals_=locals(),
+                module_name=__name__, class_=Boolean):
+            other_str: str = other.variable_name
+            if isinstance(other, ap.Int):
+                other_str = f'Boolean({other_str});'
+            expression: str = (
+                f'{result.variable_name} = '
+                f'{self.variable_name} === {other_str};'
+            )
+            ap.append_js_expression(expression=expression)
 
     def __ne__(self, other: Any) -> Any:
         """
@@ -313,11 +342,14 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         result : Boolean
             Comparison result.
         """
-        result: Boolean = self == other
-        result = result.not_
-        if isinstance(other, (Boolean, ap.Int)):
-            self._append_ne_expression(result=result, other=other)
-        return result
+        with ap.DebugInfo(
+                callable_='__ne__', locals_=locals(),
+                module_name=__name__, class_=Boolean):
+            result: Boolean = self == other
+            result = result.not_
+            if isinstance(other, (Boolean, ap.Int)):
+                self._append_ne_expression(result=result, other=other)
+            return result
 
     def _append_ne_expression(
             self, result: VariableNameInterface,
@@ -332,14 +364,17 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         other : Boolean or Int
             Other value to compare.
         """
-        other_str: str = other.variable_name
-        if isinstance(other, ap.Int):
-            other_str = f'Boolean({other_str});'
-        expression: str = (
-            f'{result.variable_name} = '
-            f'{self.variable_name} !== {other_str};'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_ne_expression, locals_=locals(),
+                module_name=__name__, class_=Boolean):
+            other_str: str = other.variable_name
+            if isinstance(other, ap.Int):
+                other_str = f'Boolean({other_str});'
+            expression: str = (
+                f'{result.variable_name} = '
+                f'{self.variable_name} !== {other_str};'
+            )
+            ap.append_js_expression(expression=expression)
 
     @property
     def not_(self) -> Any:
@@ -351,9 +386,12 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         result : Boolean
             Not condition Boolean value.
         """
-        result: Boolean = Boolean(not self)
-        self._append_not_prop_expression(result=result)
-        return result
+        with ap.DebugInfo(
+                callable_='not_', locals_=locals(),
+                module_name=__name__, class_=Boolean):
+            result: Boolean = Boolean(not self)
+            self._append_not_prop_expression(result=result)
+            return result
 
     def _append_not_prop_expression(
             self, result: VariableNameInterface) -> None:
@@ -365,8 +403,12 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         result : Boolean
             Result Boolean value.
         """
-        expression: str = (
-            f'{result.variable_name} = '
-            f'!{self.variable_name};'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_not_prop_expression,
+                locals_=locals(),
+                module_name=__name__, class_=Boolean):
+            expression: str = (
+                f'{result.variable_name} = '
+                f'!{self.variable_name};'
+            )
+            ap.append_js_expression(expression=expression)

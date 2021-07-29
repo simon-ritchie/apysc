@@ -623,9 +623,10 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         repr_str : str
             Representation string of this instance.
         """
-        repr_str: str = (
-            f"String('{self._value}')"
-        )
+        if not hasattr(self, '_value'):
+            repr_str: str = f"String('')"
+        else:
+            repr_str = f"String('{self._value}')"
         return repr_str
 
     _value_snapshots: Dict[str, str]

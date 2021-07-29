@@ -116,7 +116,8 @@ class Int(NumberValueInterface):
         repr_str : str
             Representation string of this instance.
         """
-        repr_str: str = (
-            f'Int({self._value})'
-        )
+        if not hasattr(self, '_value'):
+            repr_str: str = f'Int(0)'
+        else:
+            repr_str = f'Int({self._value})'
         return repr_str

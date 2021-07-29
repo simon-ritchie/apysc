@@ -114,3 +114,6 @@ class TestInt:
         int_1: ap.Int = ap.Int(3)
         repr_str: str = repr(int_1)
         assert repr_str == 'Int(3)'
+
+        del int_1._value
+        assert repr(int_1) == 'Int(0)'

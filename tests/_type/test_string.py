@@ -266,6 +266,9 @@ class TestString:
         string_1: ap.String = ap.String(value='Hello!')
         assert repr(string_1) == "String('Hello!')"
 
+        del string_1._value
+        assert repr(string_1) == "String('')"
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         string_1: ap.String = ap.String(value='Hello!')

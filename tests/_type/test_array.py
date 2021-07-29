@@ -571,6 +571,9 @@ class TestArray:
         array_1: ap.Array = ap.Array([1, 2])
         assert repr(array_1) == 'Array([1, 2])'
 
+        del array_1._value
+        assert repr(array_1) == 'Array([])'
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_index_of(self) -> None:
         array_1: ap.Array = ap.Array([1, 2, 3])

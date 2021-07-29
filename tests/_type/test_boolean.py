@@ -143,6 +143,9 @@ class TestBoolean:
         boolean: ap.Boolean = ap.Boolean(True)
         assert repr(boolean) == 'Boolean(True)'
 
+        del boolean._value
+        assert repr(boolean) == 'Boolean(False)'
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         boolean: ap.Boolean = ap.Boolean(True)

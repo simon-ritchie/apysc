@@ -213,9 +213,10 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         repr_str : str
             Representation string of this instance.
         """
-        repr_str: str = (
-            f'Boolean({self._value})'
-        )
+        if not hasattr(self, '_value'):
+            repr_str: str = f'Boolean(False)'
+        else:
+            repr_str = f'Boolean({self._value})'
         return repr_str
 
     _value_snapshots: Dict[str, bool]

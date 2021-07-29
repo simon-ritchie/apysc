@@ -120,6 +120,9 @@ class TestDictionary:
         dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10})
         assert repr(dict_1) == "Dictionary({'a': 10})"
 
+        del dict_1._value
+        assert repr(dict_1) == 'Dictionary({})'
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_length(self) -> None:
         dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10, 'b': 20})

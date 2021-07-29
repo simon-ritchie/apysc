@@ -957,9 +957,10 @@ class Array(
         repr_str : str
             Representation string of this instance.
         """
-        repr_str: str = (
-            f'Array({self._value})'
-        )
+        if not hasattr(self, '_value'):
+            repr_str: str = f'Array([])'
+        else:
+            repr_str = f'Array({self._value})'
         return repr_str
 
     def index_of(self, value: T) -> ap.Int:

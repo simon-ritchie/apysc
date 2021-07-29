@@ -100,3 +100,6 @@ class TestNumber:
         number_1: ap.Number = ap.Number(value=10.5)
         repr_str: str = repr(number_1)
         assert repr_str == 'Number(10.5)'
+
+        del number_1._value
+        assert repr(number_1) == 'Number(0)'

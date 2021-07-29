@@ -218,9 +218,10 @@ class Dictionary(
         repr_str : str
             Representation string of this instance.
         """
-        repr_str: str = (
-            f'Dictionary({self._value})'
-        )
+        if not hasattr(self, '_value'):
+            repr_str: str = 'Dictionary({})'
+        else:
+            repr_str = f'Dictionary({self._value})'
         return repr_str
 
     @property

@@ -40,23 +40,27 @@ class Int(NumberValueInterface):
         - Int and Number common comparison operations document
             - https://bit.ly/3zolw6T
         """
-        from apysc._converter import cast
-        from apysc._expression import expression_variables_util
-        from apysc._expression import var_names
-        from apysc._expression.event_handler_scope import \
-            TemporaryNotHandlerScope
-        from apysc._type import type_util
-        with TemporaryNotHandlerScope():
-            is_number_specified: bool = type_util.is_number(
-                value=value)
-            TYPE_NAME: str = var_names.INT
-            self.variable_name = expression_variables_util.\
-                get_next_variable_name(type_name=TYPE_NAME)
-            super(Int, self).__init__(value=value, type_name=TYPE_NAME)
-            self._value = cast.to_int_from_float(int_or_float=self.value)
-            self.append_constructor_expression()
-            self._append_cast_expression(
-                is_number_specified=is_number_specified)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__init__', locals_=locals(),
+                module_name=__name__, class_=Int):
+            from apysc._converter import cast
+            from apysc._expression import expression_variables_util
+            from apysc._expression import var_names
+            from apysc._expression.event_handler_scope import \
+                TemporaryNotHandlerScope
+            from apysc._type import type_util
+            with TemporaryNotHandlerScope():
+                is_number_specified: bool = type_util.is_number(
+                    value=value)
+                TYPE_NAME: str = var_names.INT
+                self.variable_name = expression_variables_util.\
+                    get_next_variable_name(type_name=TYPE_NAME)
+                super(Int, self).__init__(value=value, type_name=TYPE_NAME)
+                self._value = cast.to_int_from_float(int_or_float=self.value)
+                self.append_constructor_expression()
+                self._append_cast_expression(
+                    is_number_specified=is_number_specified)
 
     def _append_cast_expression(
             self, is_number_specified: bool) -> None:
@@ -70,12 +74,15 @@ class Int(NumberValueInterface):
             instance or not.
         """
         import apysc as ap
-        if not is_number_specified:
-            return
-        expression: str = (
-            f'{self.variable_name} = parseInt({self.variable_name}, 10);'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_cast_expression, locals_=locals(),
+                module_name=__name__, class_=Int):
+            if not is_number_specified:
+                return
+            expression: str = (
+                f'{self.variable_name} = parseInt({self.variable_name}, 10);'
+            )
+            ap.append_js_expression(expression=expression)
 
     def _set_value_and_skip_expression_appending(
             self,

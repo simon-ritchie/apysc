@@ -33,29 +33,37 @@ class Dictionary(
         value : dict or Dictionary
             Initial dictionary value.
         """
-        from apysc._expression import expression_variables_util
-        from apysc._expression import var_names
-        from apysc._expression.event_handler_scope import \
-            TemporaryNotHandlerScope
-        with TemporaryNotHandlerScope():
-            TYPE_NAME: str = var_names.DICTIONARY
-            self._validate_acceptable_value_type(value=value)
-            self._initial_value = value
-            self._type_name = TYPE_NAME
-            self._value = self._get_dict_value(value=value)
-            self.variable_name = expression_variables_util.\
-                get_next_variable_name(type_name=TYPE_NAME)
-            self._append_constructor_expression()
+        with ap.DebugInfo(
+                callable_='__init__', locals_=locals(),
+                module_name=__name__, class_=Dictionary):
+            from apysc._expression import expression_variables_util
+            from apysc._expression import var_names
+            from apysc._expression.event_handler_scope import \
+                TemporaryNotHandlerScope
+            with TemporaryNotHandlerScope():
+                TYPE_NAME: str = var_names.DICTIONARY
+                self._validate_acceptable_value_type(value=value)
+                self._initial_value = value
+                self._type_name = TYPE_NAME
+                self._value = self._get_dict_value(value=value)
+                self.variable_name = expression_variables_util.\
+                    get_next_variable_name(type_name=TYPE_NAME)
+                self._append_constructor_expression()
 
     def _append_constructor_expression(self) -> None:
         """
         Append constructor expression to file.
         """
-        from apysc._type import value_util
-        value_str: str = value_util.get_value_str_for_expression(
-            value=self._initial_value)
-        expression: str = f'var {self.variable_name} = {value_str};'
-        ap.append_js_expression(expression=expression)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self._append_constructor_expression,
+                locals_=locals(),
+                module_name=__name__, class_=Dictionary):
+            from apysc._type import value_util
+            value_str: str = value_util.get_value_str_for_expression(
+                value=self._initial_value)
+            expression: str = f'var {self.variable_name} = {value_str};'
+            ap.append_js_expression(expression=expression)
 
     def _get_dict_value(
             self, value: Union[Dict[Key, Any], Any]) -> Dict[Any, Any]:
@@ -131,9 +139,12 @@ class Dictionary(
         apysc basic data classes common value interface
             https://bit.ly/3Be1aij
         """
-        self._validate_acceptable_value_type(value=value)
-        self._value = self._get_dict_value(value=value)
-        self._append_value_setter_expression(value=value)
+        with ap.DebugInfo(
+                callable_='value', locals_=locals(),
+                module_name=__name__, class_=Dictionary):
+            self._validate_acceptable_value_type(value=value)
+            self._value = self._get_dict_value(value=value)
+            self._append_value_setter_expression(value=value)
 
     def _append_value_setter_expression(
             self, value: Union[Dict[Key, Any], Any]) -> None:
@@ -145,10 +156,15 @@ class Dictionary(
         value : dict or Dictionary.
             Dictionary value to set.
         """
-        from apysc._type import value_util
-        value_str: str = value_util.get_value_str_for_expression(value=value)
-        expression: str = f'{self.variable_name} = {value_str};'
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_value_setter_expression,
+                locals_=locals(),
+                module_name=__name__, class_=Dictionary):
+            from apysc._type import value_util
+            value_str: str = value_util.get_value_str_for_expression(
+                value=value)
+            expression: str = f'{self.variable_name} = {value_str};'
+            ap.append_js_expression(expression=expression)
 
     _value_snapshot: Dict[str, Dict[Key, Any]]
 
@@ -217,9 +233,12 @@ class Dictionary(
         length : Int
             This dictionary value's length.
         """
-        length: ap.Int = ap.Int(len(self._value))
-        self._append_length_expression(length=length)
-        return length
+        with ap.DebugInfo(
+                callable_='length', locals_=locals(),
+                module_name=__name__, class_=Dictionary):
+            length: ap.Int = ap.Int(len(self._value))
+            self._append_length_expression(length=length)
+            return length
 
     def _append_length_expression(self, length: ap.Int) -> None:
         """
@@ -230,11 +249,14 @@ class Dictionary(
         length : Int
             Created length Int variable.
         """
-        expression: str = (
-            f'{length.variable_name} = '
-            f'Object.keys({self.variable_name}).length;'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_length_expression, locals_=locals(),
+                module_name=__name__, class_=Dictionary):
+            expression: str = (
+                f'{length.variable_name} = '
+                f'Object.keys({self.variable_name}).length;'
+            )
+            ap.append_js_expression(expression=expression)
 
     def __len__(self) -> None:
         """
@@ -258,16 +280,18 @@ class Dictionary(
         value : *
             Specified key's value.
         """
-        import apysc as ap
-        self._validate_key_type_is_str_or_numeric(key=key)
-        key_: Key = self._get_builtin_type_key(key=key)
-        has_key: bool = key_ in self._value
-        if has_key:
-            value: Any = self._value[key_]
-        else:
-            value = ap.AnyValue(None)
-        self._append_getitem_expression(key=key, value=value)
-        return value
+        with ap.DebugInfo(
+                callable_='__getitem__', locals_=locals(),
+                module_name=__name__, class_=Dictionary):
+            self._validate_key_type_is_str_or_numeric(key=key)
+            key_: Key = self._get_builtin_type_key(key=key)
+            has_key: bool = key_ in self._value
+            if has_key:
+                value: Any = self._value[key_]
+            else:
+                value = ap.AnyValue(None)
+            self._append_getitem_expression(key=key, value=value)
+            return value
 
     def _get_builtin_type_key(self, key: Key) -> Key:
         """
@@ -299,16 +323,20 @@ class Dictionary(
         value : *
             Specified key's value.
         """
-        from apysc._type import value_util
-        from apysc._type.variable_name_interface import VariableNameInterface
-        if not isinstance(value, VariableNameInterface):
-            value = ap.AnyValue(None)
-        key_str: str = value_util.get_value_str_for_expression(value=key)
-        expression: str = (
-            f'var {value.variable_name} = '
-            f'{self.variable_name}[{key_str}];'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_getitem_expression, locals_=locals(),
+                module_name=__name__, class_=Dictionary):
+            from apysc._type import value_util
+            from apysc._type.variable_name_interface import \
+                VariableNameInterface
+            if not isinstance(value, VariableNameInterface):
+                value = ap.AnyValue(None)
+            key_str: str = value_util.get_value_str_for_expression(value=key)
+            expression: str = (
+                f'var {value.variable_name} = '
+                f'{self.variable_name}[{key_str}];'
+            )
+            ap.append_js_expression(expression=expression)
 
     def _validate_key_type_is_str_or_numeric(self, key: Key) -> None:
         """
@@ -342,9 +370,12 @@ class Dictionary(
         value : *
             Any value to set.
         """
-        key_: Key = self._get_builtin_type_key(key=key)
-        self._value[key_] = value
-        self._append_setitem_expression(key=key, value=value)
+        with ap.DebugInfo(
+                callable_='__setitem__', locals_=locals(),
+                module_name=__name__, class_=Dictionary):
+            key_: Key = self._get_builtin_type_key(key=key)
+            self._value[key_] = value
+            self._append_setitem_expression(key=key, value=value)
 
     def _append_setitem_expression(self, key: Key, value: Any) -> None:
         """
@@ -357,13 +388,17 @@ class Dictionary(
         value : *
             Any value to set.
         """
-        from apysc._type import value_util
-        key_str: str = value_util.get_value_str_for_expression(value=key)
-        value_str: str = value_util.get_value_str_for_expression(value=value)
-        expression: str = (
-            f'{self.variable_name}[{key_str}] = {value_str};'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_setitem_expression, locals_=locals(),
+                module_name=__name__, class_=Dictionary):
+            from apysc._type import value_util
+            key_str: str = value_util.get_value_str_for_expression(value=key)
+            value_str: str = value_util.get_value_str_for_expression(
+                value=value)
+            expression: str = (
+                f'{self.variable_name}[{key_str}] = {value_str};'
+            )
+            ap.append_js_expression(expression=expression)
 
     def __delitem__(self, key: Key) -> None:
         """
@@ -374,10 +409,13 @@ class Dictionary(
         key : Key
             Dictionary key to delete.
         """
-        key_: Key = self._get_builtin_type_key(key=key)
-        if key_ in self._value:
-            del self._value[key_]
-        self._append_delitem_expression(key=key)
+        with ap.DebugInfo(
+                callable_='__delitem__', locals_=locals(),
+                module_name=__name__, class_=Dictionary):
+            key_: Key = self._get_builtin_type_key(key=key)
+            if key_ in self._value:
+                del self._value[key_]
+            self._append_delitem_expression(key=key)
 
     def _append_delitem_expression(self, key: Key) -> None:
         """
@@ -388,9 +426,12 @@ class Dictionary(
         key : Key
             Dictionary key to delete.
         """
-        from apysc._type import value_util
-        key_str: str = value_util.get_value_str_for_expression(value=key)
-        expression: str = (
-            f'delete {self.variable_name}[{key_str}];'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_delitem_expression, locals_=locals(),
+                module_name=__name__, class_=Dictionary):
+            from apysc._type import value_util
+            key_str: str = value_util.get_value_str_for_expression(value=key)
+            expression: str = (
+                f'delete {self.variable_name}[{key_str}];'
+            )
+            ap.append_js_expression(expression=expression)

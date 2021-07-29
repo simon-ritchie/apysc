@@ -600,6 +600,8 @@ class NumberValueInterface(
         string : str
             Converted value string.
         """
+        if not hasattr(self, '_value'):
+            return '0'
         return str(self._value)
 
     def __int__(self) -> int:

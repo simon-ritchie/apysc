@@ -295,6 +295,8 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         result : str
             Python builtins str value.
         """
+        if not hasattr(self, '_value'):
+            return ''
         return self._value
 
     def __eq__(self, other: Any) -> Any:

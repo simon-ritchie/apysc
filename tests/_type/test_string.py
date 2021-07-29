@@ -46,7 +46,7 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         string_1: ap.String = ap.String(value='Hello!')
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
@@ -69,7 +69,7 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_value_setter_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         string_1: ap.String = ap.String(value='Hello!')
         string_1.value = 'World!'
         expression: str = expression_file_util.get_current_expression()
@@ -98,7 +98,7 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_addition_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         string_1: ap.String = ap.String(value='Hello!')
         string_2: ap.String = string_1 + ' World!'
         expression: str = expression_file_util.get_current_expression()
@@ -119,7 +119,7 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_multiplication_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         string_1: ap.String = ap.String(value='Hello!')
         string_2: ap.String = string_1 * 3
         expression: str = expression_file_util.get_current_expression()
@@ -141,7 +141,7 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___iadd__(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         string_1: ap.String = ap.String(value='Hello')
         original_variable_name: str = string_1.variable_name
         string_1 += ' World!'
@@ -160,7 +160,7 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___imul__(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         string_1: ap.String = ap.String(value='Hello!')
         original_variable_name: str = string_1.variable_name
         string_1 *= 3
@@ -181,6 +181,9 @@ class TestString:
         result: str = str(string_1)
         assert result == 'Hello!'
         assert isinstance(result, str)
+
+        del string_1._value
+        assert str(string_1) == ''
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:
@@ -292,7 +295,7 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_eq_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         string_1: ap.String = ap.String(value='Hello!')
         string_2: ap.String = ap.String(value='World!')
         result: ap.Boolean = string_1 == string_2
@@ -303,7 +306,7 @@ class TestString:
         )
         assert expected in expression
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         result = string_1 == 'Hello!'
         expression = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -318,7 +321,7 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ne_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         string_1: ap.String = ap.String(value='Hello!')
         string_2: ap.String = ap.String(value='World!')
         result: ap.Boolean = string_1 != string_2
@@ -329,7 +332,7 @@ class TestString:
         )
         assert expected in expression
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         result = string_1 != 'World!'
         expression = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -343,7 +346,7 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_lt_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         string_1: ap.String = ap.String(value='Hello!')
         string_2: ap.String = ap.String(value='World!')
         result: ap.Boolean = string_1 < string_2
@@ -354,7 +357,7 @@ class TestString:
         )
         assert expected in expression
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         result = string_1 < 'World!'
         expression = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -368,7 +371,7 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_le_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         string_1: ap.String = ap.String(value='Hello!')
         string_2: ap.String = ap.String(value='World!')
         result: ap.Boolean = string_1 <= string_2
@@ -379,7 +382,7 @@ class TestString:
         )
         assert expected in expression
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         result = string_1 <= 'World!'
         expression = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -393,7 +396,7 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_gt_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         string_1: ap.String = ap.String(value='Hello!')
         string_2: ap.String = ap.String(value='World!')
         result: ap.Boolean = string_1 > string_2
@@ -404,7 +407,7 @@ class TestString:
         )
         assert expected in expression
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         result = string_1 > 'World!'
         expression = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -418,7 +421,7 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ge_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         string_1: ap.String = ap.String(value='Hello!')
         string_2: ap.String = ap.String(value='World!')
         result: ap.Boolean = string_1 >= string_2
@@ -429,7 +432,7 @@ class TestString:
         )
         assert expected in expression
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         result = string_1 >= 'World!'
         expression = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(

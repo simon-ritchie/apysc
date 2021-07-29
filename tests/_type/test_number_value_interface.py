@@ -48,7 +48,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_value(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface: NumberValueInterface = NumberValueInterface(
             value=100, type_name='test_interface')
         interface.variable_name = 'test_number_value_interface'
@@ -60,7 +60,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_append_constructor_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=100, type_name='test_interface')
         interface_1.variable_name = 'test_number_value_interface_1'
@@ -84,7 +84,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_append_value_setter_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=100, type_name='test_interface')
         interface_1.variable_name = 'test_number_value_interface_1'
@@ -136,7 +136,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_addition_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_1.variable_name = 'test_interface_0'
@@ -158,7 +158,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_set_value_and_skip_expression_appending(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_1.variable_name = 'test_interface_0'
@@ -195,7 +195,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_subtraction_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=20, type_name='test_interface')
         interface_1.variable_name = 'test_interface_0'
@@ -227,7 +227,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_multiplication_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=20, type_name='test_interface')
         interface_1.variable_name = 'test_interface_0'
@@ -260,7 +260,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_true_division_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_1.variable_name = 'test_interface_0'
@@ -299,7 +299,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_floor_division_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_1.variable_name = 'test_interface_0'
@@ -390,7 +390,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___iadd__(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_1.variable_name = 'test_interface_0'
@@ -410,14 +410,14 @@ class TestNumberValueInterface:
             flags=re.MULTILINE | re.DOTALL)
         assert match is not None
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         x_interface, previous_variable_name = self._make_x_interface_instance()
         x_interface.x += 20
         self._assert_substitution_expression_to_prev_var_exists(
             x_interface=x_interface,
             previous_x_variable_name=previous_variable_name)
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         x_interface, previous_variable_name = self._make_x_interface_instance()
         x: ap.Int = x_interface.x
         x += 20
@@ -427,7 +427,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___isub__(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_1.variable_name = 'test_interface_0'
@@ -445,14 +445,14 @@ class TestNumberValueInterface:
             flags=re.MULTILINE | re.DOTALL)
         assert match is not None
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         x_interface, previous_variable_name = self._make_x_interface_instance()
         x_interface.x -= 5
         self._assert_substitution_expression_to_prev_var_exists(
             x_interface=x_interface,
             previous_x_variable_name=previous_variable_name)
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         x_interface, previous_variable_name = self._make_x_interface_instance()
         x: ap.Int = x_interface.x
         x -= 20
@@ -462,7 +462,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___imul__(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_1.variable_name = 'test_interface_0'
@@ -481,14 +481,14 @@ class TestNumberValueInterface:
         )
         assert match is not None
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         x_interface, previous_variable_name = self._make_x_interface_instance()
         x_interface.x *= 2
         self._assert_substitution_expression_to_prev_var_exists(
             x_interface=x_interface,
             previous_x_variable_name=previous_variable_name)
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         x_interface, previous_variable_name = self._make_x_interface_instance()
         x: ap.Int = x_interface.x
         x *= 2
@@ -498,7 +498,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___itruediv__(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_1.variable_name = 'test_interface_0'
@@ -515,14 +515,14 @@ class TestNumberValueInterface:
             flags=re.MULTILINE | re.DOTALL)
         assert match is not None
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         x_interface, previous_variable_name = self._make_x_interface_instance()
         x_interface.x /= 2
         self._assert_substitution_expression_to_prev_var_exists(
             x_interface=x_interface,
             previous_x_variable_name=previous_variable_name)
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         x_interface, previous_variable_name = self._make_x_interface_instance()
         x: ap.Int = x_interface.x
         x /= 2
@@ -535,6 +535,9 @@ class TestNumberValueInterface:
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         assert str(interface_1) == '10'
+
+        del interface_1._value
+        assert str(interface_1) == '0'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:
@@ -709,7 +712,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_eq_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_1.variable_name = 'test_interface_1'
@@ -724,7 +727,7 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         result = interface_1 == 10
         expression = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -738,7 +741,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ne_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_1.variable_name = 'test_interface_1'
@@ -754,7 +757,7 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         result = interface_1 != 20
         expression = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -769,7 +772,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_lt_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_1.variable_name = 'test_interface_1'
@@ -784,7 +787,7 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         result = interface_1 < 10
         expression = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -798,7 +801,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_le_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_1.variable_name = 'test_interface_1'
@@ -813,7 +816,7 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         result = interface_1 <= 10
         expression = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -827,7 +830,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_gt_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_1.variable_name = 'test_interface_1'
@@ -842,7 +845,7 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         result = interface_1 > 10
         expression = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -856,7 +859,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ge_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_1.variable_name = 'test_interface_1'
@@ -871,7 +874,7 @@ class TestNumberValueInterface:
         )
         assert expected in expression
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         result = interface_1 >= 10
         expression = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -903,7 +906,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_incremental_calc_substitution_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         x_interface, previous_variable_name = \
             self._make_x_interface_instance()
         x_interface.x += 10
@@ -914,7 +917,7 @@ class TestNumberValueInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_modulo_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=10, type_name='test_interface')
         interface_1.variable_name = 'test_interface_1'

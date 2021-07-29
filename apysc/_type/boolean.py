@@ -80,8 +80,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
                 locals_=locals(),
                 module_name=__name__, class_=Boolean):
             from apysc._converter import cast
-            from apysc._type.number_value_interface import \
-                NumberValueInterface
+            from apysc._type.number_value_interface import NumberValueInterface
             from apysc._validation import bool_validation
             if isinstance(value, (int, float, NumberValueInterface)):
                 result: bool = cast.to_bool_from_int(  # type: ignore

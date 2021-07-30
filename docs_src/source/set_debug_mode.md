@@ -30,7 +30,7 @@ int_1: ap.Int = ap.Int(10)
 ap.save_overall_html(dest_dir_path='set_debug_mode_basic_usage/')
 ```
 
-The exported HTML will be appended the information (Python's function and method calling, its module and class names, and argument information) as the JavaScript comment , like the following:
+The exported HTML will be appended the information (Python's function and method callings, its module and class names, and argument information) as the JavaScript comment, like the following:
 
 ```js
 ...

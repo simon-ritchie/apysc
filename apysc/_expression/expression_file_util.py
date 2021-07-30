@@ -8,7 +8,6 @@ Mainly following interfaces are defined:
 - get_current_expression : Get current expression string.
 - get_current_event_handler_scope_expression : Get a current
     event handler scope's expression string from a file.
-- remove_expression_file : Remove the expression file.
 """
 
 import os
@@ -143,15 +142,3 @@ def _get_current_expression(file_path: str) -> str:
         file_path=file_path)
     current_expression = current_expression.strip()
     return current_expression
-
-
-def remove_expression_file() -> None:
-    """
-    Remove expression file.
-    """
-    from apysc._file import file_util
-    file_util.remove_file_if_exists(file_path=EXPRESSION_FILE_PATH)
-    file_util.remove_file_if_exists(
-        file_path=EVENT_HANDLER_SCOPE_COUNT_FILE_PATH)
-    file_util.remove_file_if_exists(
-        file_path=EVENT_HANDLER_EXPRESSION_FILE_PATH)

@@ -30,25 +30,6 @@ def test_empty_expression_dir() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test_remove_expression_file() -> None:
-    ap.append_js_expression(
-        expression='console.log("Hello!");')
-    assert os.path.isfile(expression_file_util.EXPRESSION_FILE_PATH)
-    file_util.save_plain_txt(
-        txt='',
-        file_path=expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH)
-    with HandlerScope():
-        ap.append_js_expression(
-            expression='console.log("Hello!");')
-    expression_file_util.empty_expression_dir()
-    assert not os.path.exists(expression_file_util.EXPRESSION_FILE_PATH)
-    assert not os.path.exists(
-        expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH)
-    assert not os.path.exists(
-        expression_file_util.EVENT_HANDLER_EXPRESSION_FILE_PATH)
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_current_expression() -> None:
     expression_file_util.empty_expression_dir()
     ap.append_js_expression(

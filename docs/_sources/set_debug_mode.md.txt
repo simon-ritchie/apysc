@@ -93,3 +93,4 @@ The exported HTML will be appended the information (Python's function and method
 ## See also
 
 - [Unset debug mode interface](unset_debug_mode.md)
+- [DebugInfo class](debug_info.md)

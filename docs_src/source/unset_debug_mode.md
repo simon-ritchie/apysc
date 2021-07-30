@@ -98,3 +98,4 @@ The exported HTML will include the debug information at the first integer positi
 ## See also
 
 - [Set debug mode interface](set_debug_mode.md)
+- [DebugInfo class](debug_info.md)

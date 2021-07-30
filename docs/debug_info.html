@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>DebugInfo class &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="unset_debug_mode interface" href="unset_debug_mode.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="unset_debug_mode.html" title="unset_debug_mode interface"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DebugInfo class</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="debuginfo-class">
+<h1>DebugInfo class<a class="headerlink" href="#debuginfo-class" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">DebugInfo</span></code> class.</p>
+<section id="what-class-is-this">
+<h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">DebugInfo</span></code> class append the debug mode information exporting setting. This class will be used with the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement and cover the entire implementation of any callable (function or method) that needs to export the debug information.</p>
+</section>
+<section id="basic-usage-for-a-function-call">
+<h2>Basic usage for a function call<a class="headerlink" href="#basic-usage-for-a-function-call" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">DebugInfo</span></code> class constructor requires the <code class="docutils literal notranslate"><span class="pre">callable_</span></code>, <code class="docutils literal notranslate"><span class="pre">locals_</span></code>, and <code class="docutils literal notranslate"><span class="pre">module_name</span></code> arguments.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">callable_</span></code> argument needs to specify the target function (or method), and the <code class="docutils literal notranslate"><span class="pre">locals_</span></code> needs to specify the <code class="docutils literal notranslate"><span class="pre">locals()</span></code> built-in function return value (this will be used to inspect the function arguments). The module name needs to specify the <code class="docutils literal notranslate"><span class="pre">__name__</span></code> fixed value.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+
+<span class="k">def</span> <span class="nf">add_two</span><span class="p">(</span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add 2 to a specified integer.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    int_val : ap.Int</span>
+<span class="sd">        Target integer value.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    int_val : ap.Int</span>
+<span class="sd">        Added integer value.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">DebugInfo</span><span class="p">(</span>
+            <span class="n">callable_</span><span class="o">=</span><span class="n">add_two</span><span class="p">,</span> <span class="n">locals_</span><span class="o">=</span><span class="nb">locals</span><span class="p">(),</span> <span class="n">module_name</span><span class="o">=</span><span class="vm">__name__</span><span class="p">):</span>
+        <span class="n">int_val</span> <span class="o">+=</span> <span class="mi">10</span>
+        <span class="k">return</span> <span class="n">int_val</span>
+
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">set_debug_mode</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">int_val</span> <span class="o">=</span> <span class="n">add_two</span><span class="p">(</span><span class="n">int_val</span><span class="o">=</span><span class="n">int_val</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">minify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;debug_info_basic_usage_for_function/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This code will export the HTML with the debug info for the <code class="docutils literal notranslate"><span class="pre">add_two</span></code> function, as follows:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////</span>
+  <span class="c1">// [add_two 1] started.</span>
+  <span class="c1">// module name: __main__</span>
+  <span class="c1">// arguments and variables:</span>
+  <span class="c1">//    int_val = 10(i_11)</span>
+    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+    <span class="c1">// [__iadd__ 1] started.</span>
+    <span class="c1">// module name: apysc._type.number_value_interface</span>
+    <span class="c1">// class: NumberValueInterface</span>
+    <span class="c1">// arguments and variables:</span>
+    <span class="c1">//    other = 10</span>
+    <span class="c1">//    self = 10(i_11)</span>
+<span class="p">...</span>
+        <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+        <span class="c1">// [_append_addition_expression 1] started.</span>
+        <span class="c1">// module name: apysc._type.number_value_interface</span>
+        <span class="c1">// class: NumberValueInterface</span>
+        <span class="c1">// arguments and variables:</span>
+        <span class="c1">//    other = 10</span>
+        <span class="c1">//    result = 20(i_12)</span>
+        <span class="c1">//    self = 10(i_11)</span>
+          <span class="kd">var</span> <span class="nx">i_12</span> <span class="o">=</span> <span class="nx">i_11</span> <span class="o">+</span> <span class="mf">10</span><span class="p">;</span>
+        <span class="c1">// [_append_addition_expression 1] ended.</span>
+        <span class="c1">// module name: apysc._type.number_value_interface</span>
+        <span class="c1">// class: NumberValueInterface</span>
+        <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+<span class="p">...</span>
+    <span class="c1">// [__iadd__ 1] ended.</span>
+    <span class="c1">// module name: apysc._type.number_value_interface</span>
+    <span class="c1">// class: NumberValueInterface</span>
+    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+  <span class="c1">// [add_two 1] ended.</span>
+  <span class="c1">// module name: __main__</span>
+  <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+</pre></div>
+</div>
+</section>
+<section id="notes-about-the-debug-mode-setting">
+<h2>Notes about the debug mode setting<a class="headerlink" href="#notes-about-the-debug-mode-setting" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">DebugInfo</span></code> class setting will be ignored if the debug mode isn’t enabled, so you don’t need to drop that setting when debugging is ended.</p>
+</section>
+<section id="basic-usage-for-a-method-call">
+<h2>Basic usage for a method call<a class="headerlink" href="#basic-usage-for-a-method-call" title="Permalink to this headline">¶</a></h2>
+<p>If the <code class="docutils literal notranslate"><span class="pre">callable_</span></code> argument value is a method, then the <code class="docutils literal notranslate"><span class="pre">class_</span></code> argument is also required to export class information, as follows:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+
+<span class="k">class</span> <span class="nc">Calc</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">add_two</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add 2 to a specified integer.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        int_val : ap.Int</span>
+<span class="sd">            Target integer value.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        int_val : ap.Int</span>
+<span class="sd">            Added integer value.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">DebugInfo</span><span class="p">(</span>
+                <span class="n">callable_</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">add_two</span><span class="p">,</span> <span class="n">locals_</span><span class="o">=</span><span class="nb">locals</span><span class="p">(),</span>
+                <span class="n">module_name</span><span class="o">=</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="n">Calc</span><span class="p">):</span>
+            <span class="n">int_val</span> <span class="o">+=</span> <span class="mi">10</span>
+            <span class="k">return</span> <span class="n">int_val</span>
+
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">calc</span><span class="p">:</span> <span class="n">Calc</span> <span class="o">=</span> <span class="n">Calc</span><span class="p">()</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">set_debug_mode</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">int_val</span> <span class="o">=</span> <span class="n">calc</span><span class="o">.</span><span class="n">add_two</span><span class="p">(</span><span class="n">int_val</span><span class="o">=</span><span class="n">int_val</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">minify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;debug_info_basic_usage_for_method/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The class information will be appended to the exported HTML:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
+  <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+  <span class="c1">// [add_two 1] started.</span>
+  <span class="c1">// module name: __main__</span>
+  <span class="c1">// class: Calc</span>
+  <span class="c1">// arguments and variables:</span>
+  <span class="c1">//    int_val = 10(i_11)</span>
+  <span class="c1">//    self = &lt;__main__.Calc object at 0x7fb0835f0cc0&gt;</span>
+    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+    <span class="c1">// [__iadd__ 1] started.</span>
+    <span class="c1">// module name: apysc._type.number_value_interface</span>
+    <span class="c1">// class: NumberValueInterface</span>
+    <span class="c1">// arguments and variables:</span>
+    <span class="c1">//    other = 10</span>
+    <span class="c1">//    self = 10(i_11)</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+</section>
+<section id="notes-for-the-property-and-dunder-method">
+<h2>Notes for the property and dunder method<a class="headerlink" href="#notes-for-the-property-and-dunder-method" title="Permalink to this headline">¶</a></h2>
+<p>The class property can’t specify as the <code class="docutils literal notranslate"><span class="pre">callable_</span></code> argument value, so it is acceptable to specify a callable name to the <code class="docutils literal notranslate"><span class="pre">callable_</span></code> argument, as follows:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+
+<span class="k">class</span> <span class="nc">Coordinates</span><span class="p">:</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        X-coordinate property.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        x_val : ap.Int</span>
+<span class="sd">            Current X-coordinate value.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">DebugInfo</span><span class="p">(</span>
+                <span class="n">callable_</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">locals_</span><span class="o">=</span><span class="nb">locals</span><span class="p">(),</span> <span class="n">module_name</span><span class="o">=</span><span class="vm">__name__</span><span class="p">,</span>
+                <span class="n">class_</span><span class="o">=</span><span class="n">Coordinates</span><span class="p">):</span>
+            <span class="n">x_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">x_val</span>
+
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">coordinates</span><span class="p">:</span> <span class="n">Coordinates</span> <span class="o">=</span> <span class="n">Coordinates</span><span class="p">()</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">set_debug_mode</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">x</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">coordinates</span><span class="o">.</span><span class="n">x</span>
+<span class="n">x</span> <span class="o">+=</span> <span class="mi">10</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">minify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;debug_info_notes_for_property/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Also, the direct referring of the dunder method (e.g., <code class="docutils literal notranslate"><span class="pre">__init__</span></code>) will raise the mypy type check error, so these methods name string specification is also acceptable:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+
+<span class="k">class</span> <span class="nc">Coordinates</span><span class="p">:</span>
+
+    <span class="n">_x</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span>
+    <span class="n">_y</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The x and y coordinates data class.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x : ap.Int</span>
+<span class="sd">            X-coordinate.</span>
+<span class="sd">        y : ap.Int</span>
+<span class="sd">            Y-coordinate.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">DebugInfo</span><span class="p">(</span>
+                <span class="n">callable_</span><span class="o">=</span><span class="s1">&#39;__init__&#39;</span><span class="p">,</span> <span class="n">locals_</span><span class="o">=</span><span class="nb">locals</span><span class="p">(),</span>
+                <span class="n">module_name</span><span class="o">=</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="n">Coordinates</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="n">y</span>
+
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">x</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">y</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">set_debug_mode</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">coordinates</span><span class="p">:</span> <span class="n">Coordinates</span> <span class="o">=</span> <span class="n">Coordinates</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">minify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;debug_info_notes_for_dunder_method/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="set_debug_mode.html"><span class="doc">Set debug mode interface</span></a></p></li>
+<li><p><a class="reference internal" href="unset_debug_mode.html"><span class="doc">Unset debug mode interface</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">DebugInfo class</a><ul>
+<li><a class="reference internal" href="#what-class-is-this">What class is this?</a></li>
+<li><a class="reference internal" href="#basic-usage-for-a-function-call">Basic usage for a function call</a></li>
+<li><a class="reference internal" href="#notes-about-the-debug-mode-setting">Notes about the debug mode setting</a></li>
+<li><a class="reference internal" href="#basic-usage-for-a-method-call">Basic usage for a method call</a></li>
+<li><a class="reference internal" href="#notes-for-the-property-and-dunder-method">Notes for the property and dunder method</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="unset_debug_mode.html"
+                        title="previous chapter">unset_debug_mode interface</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/debug_info.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="unset_debug_mode.html" title="unset_debug_mode interface"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DebugInfo class</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

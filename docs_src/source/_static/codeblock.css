@@ -4,7 +4,9 @@
 .highlight .nn,
 .highlight .n,
 .highlight .p,
-.highlight .nx {
+.highlight .nx,
+.highlight .vm,
+.highlight .fm {
     color: #ccc !important;
 }
 

@@ -151,7 +151,10 @@ def get_copy(value: T) -> T:
         Copied value. If value is not instance of CopyInterface,
         then argument value will be returned directly.
     """
-    from apysc._type.copy_interface import CopyInterface
-    if not isinstance(value, CopyInterface):
-        return value
-    return value._copy()
+    with ap.DebugInfo(
+            callable_=get_copy, locals_=locals(),
+            module_name=__name__):
+        from apysc._type.copy_interface import CopyInterface
+        if not isinstance(value, CopyInterface):
+            return value
+        return value._copy()

@@ -30,7 +30,7 @@ def main() -> None:
     stage: ap.Stage = ap.Stage(
         background_color='#333',
         stage_width=1000, stage_height=500)
-    ap.set_debug_mode()
+    ap.set_debug_mode(stage=stage)
     _: ap.Sprite = ap.Sprite(stage=stage)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)

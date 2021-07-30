@@ -257,6 +257,7 @@ def test__remove_blank_lines() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__minify_html() -> None:
+    stage: ap.Stage = ap.Stage()
     html_str: str = (
         '<html>'
         '\n<body>'
@@ -267,7 +268,7 @@ def test__minify_html() -> None:
     html_str = exporter._minify_html(html_str=html_str, minify=False)
     assert html_str.startswith('<html>\n<body>')
 
-    ap.set_debug_mode()
+    ap.set_debug_mode(stage=stage)
     html_str = exporter._minify_html(html_str=html_str, minify=True)
     assert html_str.startswith('<html>\n<body>')
 

@@ -12,9 +12,10 @@ from typing import Type
 from typing import Union
 
 from apysc._expression.indent_num import Indent
+from apysc._display.stage import Stage
 
 
-def set_debug_mode() -> None:
+def set_debug_mode(stage: Stage) -> None:
     """
     Set the debug mode for the HTML and JavaScript debugging.
     If this functions is called, the following setting will be applied:

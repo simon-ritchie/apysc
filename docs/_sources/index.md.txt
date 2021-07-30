@@ -156,3 +156,9 @@ The `Graphics` class handles each vector graphics drawing.
 - [Timer class reset interface](timer_reset.md)
 
 ---
+
+**Debugging and testing**
+
+- [Trace function](trace.md)
+
+---

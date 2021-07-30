@@ -11,8 +11,8 @@ from typing import Optional
 from typing import Type
 from typing import Union
 
-from apysc._expression.indent_num import Indent
 from apysc._display.stage import Stage
+from apysc._expression.indent_num import Indent
 
 
 def set_debug_mode(stage: Stage) -> None:
@@ -21,6 +21,11 @@ def set_debug_mode(stage: Stage) -> None:
     If this functions is called, the following setting will be applied:
     - HTML minify setting will be disabled.
     - Per each interface JavaScript divider string will be appended.
+
+    Parameters
+    ----------
+    stage : Stage
+        A current project stage instance.
     """
     from apysc._expression import expression_file_util
     file_path: str = expression_file_util.DEBUG_MODE_SETTING_FILE_PATH

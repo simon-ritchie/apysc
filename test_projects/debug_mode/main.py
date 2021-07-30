@@ -32,8 +32,15 @@ def main() -> None:
         stage_width=1000, stage_height=500)
     ap.set_debug_mode(stage=stage)
     _: ap.Sprite = ap.Sprite(stage=stage)
+    int_1: ap.Int = ap.Int(10)
+    int_1 += 5
+    ap.unset_debug_mode()
 
-    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    int_2: ap.Int = ap.Int(30)
+    int_2 += 15
+
+    ap.save_overall_html(
+        dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
 if __name__ == '__main__':

@@ -89,7 +89,7 @@ class Number(NumberValueInterface):
             Representation string of this instance.
         """
         if not hasattr(self, '_value'):
-            repr_str: str = f'Number(0)'
+            repr_str: str = 'Number(0)'
         else:
             repr_str = f'Number({self._value})'
         return repr_str

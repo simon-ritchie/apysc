@@ -83,8 +83,8 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             from apysc._type.number_value_interface import NumberValueInterface
             from apysc._validation import bool_validation
             if isinstance(value, (int, float, NumberValueInterface)):
-                result: bool = cast.to_bool_from_int(  # type: ignore
-                    integer=value)
+                result: bool = cast.to_bool_from_int(
+                    integer=value)  # type: ignore
             elif isinstance(value, Boolean):
                 result = value._value
             else:
@@ -213,7 +213,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             Representation string of this instance.
         """
         if not hasattr(self, '_value'):
-            repr_str: str = f'Boolean(False)'
+            repr_str: str = 'Boolean(False)'
         else:
             repr_str = f'Boolean({self._value})'
         return repr_str

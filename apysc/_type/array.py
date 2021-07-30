@@ -958,7 +958,7 @@ class Array(
             Representation string of this instance.
         """
         if not hasattr(self, '_value'):
-            repr_str: str = f'Array([])'
+            repr_str: str = 'Array([])'
         else:
             repr_str = f'Array({self._value})'
         return repr_str

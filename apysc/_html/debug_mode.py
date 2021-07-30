@@ -27,8 +27,8 @@ def set_debug_mode(stage: Stage) -> None:
     stage : Stage
         A current project stage instance.
     """
-    from apysc._validation.display_validation import validate_stage
     from apysc._expression import expression_file_util
+    from apysc._validation.display_validation import validate_stage
     validate_stage(stage=stage)
     file_path: str = expression_file_util.DEBUG_MODE_SETTING_FILE_PATH
     with open(file_path, 'w') as f:

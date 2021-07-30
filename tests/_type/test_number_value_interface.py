@@ -83,7 +83,7 @@ class TestNumberValueInterface:
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test_append_value_setter_expression(self) -> None:
+    def test__append_value_setter_expression(self) -> None:
         expression_file_util.empty_expression_dir()
         interface_1: NumberValueInterface = NumberValueInterface(
             value=100, type_name='test_interface')

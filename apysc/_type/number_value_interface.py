@@ -100,9 +100,9 @@ class NumberValueInterface(
                 module_name=__name__, class_=NumberValueInterface):
             self._set_value_and_skip_expression_appending(value=value)
             if isinstance(value, NumberValueInterface):
-                self.append_value_setter_expression(value=value)
+                self._append_value_setter_expression(value=value)
             else:
-                self.append_value_setter_expression(value=self._value)
+                self._append_value_setter_expression(value=self._value)
 
     def _set_value_and_skip_expression_appending(
             self, value: Union[int, float, Any]) -> None:
@@ -122,7 +122,7 @@ class NumberValueInterface(
             value_ = value
         self._value = value_
 
-    def append_value_setter_expression(
+    def _append_value_setter_expression(
             self, value: Union[int, float, Any]) -> None:
         """
         Append value's setter expresion to file.
@@ -134,7 +134,7 @@ class NumberValueInterface(
         """
         import apysc as ap
         with ap.DebugInfo(
-                callable_=self.append_value_setter_expression,
+                callable_=self._append_value_setter_expression,
                 locals_=locals(),
                 module_name=__name__, class_=NumberValueInterface):
             if isinstance(value, NumberValueInterface):

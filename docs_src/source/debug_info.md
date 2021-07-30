@@ -211,7 +211,7 @@ class Coordinates:
 
     def __init__(self, x: ap.Int, y: ap.Int) -> None:
         """
-        The x and y coordinates data class.
+        The x and y coordinates class.
 
         Parameters
         ----------

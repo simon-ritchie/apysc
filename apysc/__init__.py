@@ -54,6 +54,7 @@ from apysc._jupyter.jupyter_util import display_on_colaboratory  # isort:skip # 
 from apysc._time.fps import FPS  # isort:skip # noqa
 from apysc._time.timer import Timer  # isort:skip # noqa
 from apysc._html.debug_mode import set_debug_mode  # isort:skip # noqa
+from apysc._html.debug_mode import unset_debug_mode  # isort:skip # noqa
 from apysc._html.debug_mode import is_debug_mode  # isort:skip # noqa
 from apysc._html.debug_mode import DebugInfo  # isort:skip # noqa
 

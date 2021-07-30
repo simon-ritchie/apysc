@@ -211,3 +211,12 @@ def test__get_callable_str() -> None:
 
     callable_str = debug_mode._get_callable_str(callable_='any_func')
     assert callable_str == 'any_func'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_unset_debug_mode() -> None:
+    stage: ap.Stage = ap.Stage()
+    ap.set_debug_mode(stage=stage)
+    assert ap.is_debug_mode()
+    ap.unset_debug_mode()
+    assert not ap.is_debug_mode()

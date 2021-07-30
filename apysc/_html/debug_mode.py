@@ -27,10 +27,22 @@ def set_debug_mode(stage: Stage) -> None:
     stage : Stage
         A current project stage instance.
     """
+    from apysc._validation.display_validation import validate_stage
     from apysc._expression import expression_file_util
+    validate_stage(stage=stage)
     file_path: str = expression_file_util.DEBUG_MODE_SETTING_FILE_PATH
     with open(file_path, 'w') as f:
         f.write('1')
+
+
+def unset_debug_mode() -> None:
+    """
+    Unset the debug mode for the HTML and JavaScript debugging.
+    """
+    from apysc._expression import expression_file_util
+    from apysc._file import file_util
+    file_path: str = expression_file_util.DEBUG_MODE_SETTING_FILE_PATH
+    file_util.remove_file_if_exists(file_path=file_path)
 
 
 def is_debug_mode() -> bool:

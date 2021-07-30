@@ -46,32 +46,40 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         - String class addition and multiplication operations document
             - https://bit.ly/2URRhWL
         """
-        from apysc._expression import expression_variables_util
-        from apysc._expression import var_names
-        from apysc._expression.event_handler_scope import \
-            TemporaryNotHandlerScope
-        from apysc._validation import string_validation
-        with TemporaryNotHandlerScope():
-            TYPE_NAME: str = var_names.STRING
-            string_validation.validate_string_type(string=value)
-            self._initial_value = value
-            self._type_name = TYPE_NAME
-            self._value = self._get_str_value(value=value)
-            self.variable_name = expression_variables_util.\
-                get_next_variable_name(type_name=TYPE_NAME)
-            self._append_constructor_expression()
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__init__', locals_=locals(),
+                module_name=__name__, class_=String):
+            from apysc._expression import expression_variables_util
+            from apysc._expression import var_names
+            from apysc._expression.event_handler_scope import \
+                TemporaryNotHandlerScope
+            from apysc._validation import string_validation
+            with TemporaryNotHandlerScope():
+                TYPE_NAME: str = var_names.STRING
+                string_validation.validate_string_type(string=value)
+                self._initial_value = value
+                self._type_name = TYPE_NAME
+                self._value = self._get_str_value(value=value)
+                self.variable_name = expression_variables_util.\
+                    get_next_variable_name(type_name=TYPE_NAME)
+                self._append_constructor_expression()
 
     def _append_constructor_expression(self) -> None:
         """
         Append constructor expression to file.
         """
         import apysc as ap
-        expression: str = f'var {self.variable_name} = '
-        if isinstance(self._initial_value, String):
-            expression += f'{self._initial_value.variable_name};'
-        else:
-            expression += f'"{self._value}";'
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_constructor_expression,
+                locals_=locals(),
+                module_name=__name__, class_=String):
+            expression: str = f'var {self.variable_name} = '
+            if isinstance(self._initial_value, String):
+                expression += f'{self._initial_value.variable_name};'
+            else:
+                expression += f'"{self._value}";'
+            ap.append_js_expression(expression=expression)
 
     def _get_str_value(self, value: Union[str, Any]) -> str:
         """
@@ -123,10 +131,14 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         apysc basic data classes common value interface
             https://bit.ly/3Be1aij
         """
-        from apysc._validation import string_validation
-        string_validation.validate_string_type(string=value)
-        self._value = self._get_str_value(value=value)
-        self._append_value_setter_expression(value=value)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='value', locals_=locals(),
+                module_name=__name__, class_=String):
+            from apysc._validation import string_validation
+            string_validation.validate_string_type(string=value)
+            self._value = self._get_str_value(value=value)
+            self._append_value_setter_expression(value=value)
 
     def _append_value_setter_expression(
             self, value: Union[str, Any]) -> None:
@@ -139,12 +151,16 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             Any string value to set.
         """
         import apysc as ap
-        expression: str = f'{self.variable_name} = '
-        if isinstance(value, String):
-            expression += f'{value.variable_name};'
-        else:
-            expression += f'"{value}";'
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_value_setter_expression,
+                locals_=locals(),
+                module_name=__name__, class_=String):
+            expression: str = f'{self.variable_name} = '
+            if isinstance(value, String):
+                expression += f'{value.variable_name};'
+            else:
+                expression += f'"{value}";'
+            ap.append_js_expression(expression=expression)
 
     def __add__(self, other: Union[str, Any]) -> Any:
         """
@@ -160,16 +176,20 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         result : String
             Concatenated result string.
         """
-        from apysc._validation import string_validation
-        string_validation.validate_string_type(string=other)
-        if isinstance(other, String):
-            value: str = self._value + other.value
-        else:
-            value = self._value + other
-        result: String = self._copy()
-        result._value = value
-        self._append_addition_expression(result=result, other=other)
-        return result
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__add__', locals_=locals(),
+                module_name=__name__, class_=String):
+            from apysc._validation import string_validation
+            string_validation.validate_string_type(string=other)
+            if isinstance(other, String):
+                value: str = self._value + other.value
+            else:
+                value = self._value + other
+            result: String = self._copy()
+            result._value = value
+            self._append_addition_expression(result=result, other=other)
+            return result
 
     def _append_addition_expression(
             self, result: VariableNameInterface,
@@ -185,13 +205,17 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             Other string value to concatenate.
         """
         import apysc as ap
-        from apysc._type.value_util import get_value_str_for_expression
-        right_value: str = get_value_str_for_expression(value=other)
-        expression: str = (
-            f'var {result.variable_name} = '
-            f'{self.variable_name} + {right_value};'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_addition_expression,
+                locals_=locals(),
+                module_name=__name__, class_=String):
+            from apysc._type.value_util import get_value_str_for_expression
+            right_value: str = get_value_str_for_expression(value=other)
+            expression: str = (
+                f'var {result.variable_name} = '
+                f'{self.variable_name} + {right_value};'
+            )
+            ap.append_js_expression(expression=expression)
 
     def __mul__(self, other: Union[int, Any]) -> Any:
         """
@@ -208,16 +232,19 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             Repeated result string.
         """
         import apysc as ap
-        from apysc._validation import number_validation
-        number_validation.validate_integer(integer=other)
-        if isinstance(other, ap.Int):
-            value: int = other.value  # type: ignore
-        else:
-            value = other
-        result: String = self._copy()
-        result._value = result._value * value
-        self._append_multiplication_expression(result=result, other=other)
-        return result
+        with ap.DebugInfo(
+                callable_='__mul__', locals_=locals(),
+                module_name=__name__, class_=String):
+            from apysc._validation import number_validation
+            number_validation.validate_integer(integer=other)
+            if isinstance(other, ap.Int):
+                value: int = other.value  # type: ignore
+            else:
+                value = other
+            result: String = self._copy()
+            result._value = result._value * value
+            self._append_multiplication_expression(result=result, other=other)
+            return result
 
     def _append_multiplication_expression(
             self, result: VariableNameInterface,
@@ -233,16 +260,21 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             String repetition number.
         """
         import apysc as ap
-        expression: str = f'var {result.variable_name} = "";'
-        expression += '\nfor (var i = 0; i < '
-        if isinstance(other, ap.Int):
-            expression += f'{other.variable_name}'
-        else:
-            expression += f'{other}'
-        expression += '; i++) {'
-        expression += f'\n  {result.variable_name} += {self.variable_name};'
-        expression += '\n}'
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_multiplication_expression,
+                locals_=locals(),
+                module_name=__name__, class_=String):
+            expression: str = f'var {result.variable_name} = "";'
+            expression += '\nfor (var i = 0; i < '
+            if isinstance(other, ap.Int):
+                expression += f'{other.variable_name}'
+            else:
+                expression += f'{other}'
+            expression += '; i++) {'
+            expression += (
+                f'\n  {result.variable_name} += {self.variable_name};')
+            expression += '\n}'
+            ap.append_js_expression(expression=expression)
 
     def __iadd__(self, other: Union[str, Any]) -> Any:
         """
@@ -258,12 +290,16 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         result : String
             Concatenated result string.
         """
-        from apysc._expression import expression_variables_util
-        result: String = self + other
-        expression_variables_util.append_substitution_expression(
-            left_value=self, right_value=result)
-        result.variable_name = self.variable_name
-        return result
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__iadd__', locals_=locals(),
+                module_name=__name__, class_=String):
+            from apysc._expression import expression_variables_util
+            result: String = self + other
+            expression_variables_util.append_substitution_expression(
+                left_value=self, right_value=result)
+            result.variable_name = self.variable_name
+            return result
 
     def __imul__(self, other: Union[int, Any]) -> Any:
         """
@@ -279,12 +315,16 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         result : String
             Repetition result string.
         """
-        from apysc._expression import expression_variables_util
-        result: String = self * other
-        expression_variables_util.append_substitution_expression(
-            left_value=self, right_value=result)
-        result.variable_name = self.variable_name
-        return result
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__imul__', locals_=locals(),
+                module_name=__name__, class_=String):
+            from apysc._expression import expression_variables_util
+            result: String = self * other
+            expression_variables_util.append_substitution_expression(
+                left_value=self, right_value=result)
+            result.variable_name = self.variable_name
+            return result
 
     def __str__(self) -> str:
         """
@@ -315,16 +355,19 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             is specified, True will be returned.
         """
         import apysc as ap
-        if isinstance(other, str):
-            result: ap.Boolean = ap.Boolean(self._value == other)
-        elif isinstance(other, String):
-            result = ap.Boolean(self._value == other._value)
-        else:
-            result = ap.Boolean(False)
-        other = self._convert_other_val_to_string(other=other)
-        if isinstance(other, VariableNameInterface):
-            self._append_eq_expression(result=result, other=other)
-        return result
+        with ap.DebugInfo(
+                callable_='__eq__', locals_=locals(),
+                module_name=__name__, class_=String):
+            if isinstance(other, str):
+                result: ap.Boolean = ap.Boolean(self._value == other)
+            elif isinstance(other, String):
+                result = ap.Boolean(self._value == other._value)
+            else:
+                result = ap.Boolean(False)
+            other = self._convert_other_val_to_string(other=other)
+            if isinstance(other, VariableNameInterface):
+                self._append_eq_expression(result=result, other=other)
+            return result
 
     def _convert_other_val_to_string(self, other: Any) -> Any:
         """
@@ -361,11 +404,14 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             Other value to compare.
         """
         import apysc as ap
-        expression: str = (
-            f'{result.variable_name} = '
-            f'{self.variable_name} === {other.variable_name};'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_eq_expression, locals_=locals(),
+                module_name=__name__, class_=String):
+            expression: str = (
+                f'{result.variable_name} = '
+                f'{self.variable_name} === {other.variable_name};'
+            )
+            ap.append_js_expression(expression=expression)
 
     def __ne__(self, other: Any) -> Any:
         """
@@ -383,16 +429,19 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             is specified, True will be returned.
         """
         import apysc as ap
-        if isinstance(other, str):
-            result: ap.Boolean = ap.Boolean(self._value != other)
-        elif isinstance(other, String):
-            result = ap.Boolean(self._value != other._value)
-        else:
-            result = ap.Boolean(True)
-        other = self._convert_other_val_to_string(other=other)
-        if isinstance(other, VariableNameInterface):
-            self._append_ne_expression(result=result, other=other)
-        return result
+        with ap.DebugInfo(
+                callable_='__ne__', locals_=locals(),
+                module_name=__name__, class_=String):
+            if isinstance(other, str):
+                result: ap.Boolean = ap.Boolean(self._value != other)
+            elif isinstance(other, String):
+                result = ap.Boolean(self._value != other._value)
+            else:
+                result = ap.Boolean(True)
+            other = self._convert_other_val_to_string(other=other)
+            if isinstance(other, VariableNameInterface):
+                self._append_ne_expression(result=result, other=other)
+            return result
 
     def _append_ne_expression(
             self, result: VariableNameInterface,
@@ -408,11 +457,14 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             Other value to compare.
         """
         import apysc as ap
-        expression: str = (
-            f'{result.variable_name} = '
-            f'{self.variable_name} !== {other.variable_name};'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_ne_expression, locals_=locals(),
+                module_name=__name__, class_=String):
+            expression: str = (
+                f'{result.variable_name} = '
+                f'{self.variable_name} !== {other.variable_name};'
+            )
+            ap.append_js_expression(expression=expression)
 
     def __lt__(self, other: Union[str, Any]) -> Any:
         """
@@ -429,14 +481,17 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             Comparison result.
         """
         import apysc as ap
-        from apysc._validation import string_validation
-        string_validation.validate_string_type(string=other)
-        value: str = self._get_str_value(value=other)
-        result: ap.Boolean = ap.Boolean(self._value < value)
-        other = self._convert_other_val_to_string(other=other)
-        if isinstance(other, VariableNameInterface):
-            self._append_lt_expression(result=result, other=other)
-        return result
+        with ap.DebugInfo(
+                callable_='__lt__', locals_=locals(),
+                module_name=__name__, class_=String):
+            from apysc._validation import string_validation
+            string_validation.validate_string_type(string=other)
+            value: str = self._get_str_value(value=other)
+            result: ap.Boolean = ap.Boolean(self._value < value)
+            other = self._convert_other_val_to_string(other=other)
+            if isinstance(other, VariableNameInterface):
+                self._append_lt_expression(result=result, other=other)
+            return result
 
     def _append_lt_expression(
             self, result: VariableNameInterface,
@@ -452,11 +507,14 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             Other value to compare.
         """
         import apysc as ap
-        expression: str = (
-            f'{result.variable_name} = '
-            f'{self.variable_name} < {other.variable_name};'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_lt_expression, locals_=locals(),
+                module_name=__name__, class_=String):
+            expression: str = (
+                f'{result.variable_name} = '
+                f'{self.variable_name} < {other.variable_name};'
+            )
+            ap.append_js_expression(expression=expression)
 
     def __le__(self, other: Union[str, Any]) -> Any:
         """
@@ -473,14 +531,17 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             Comparison result.
         """
         import apysc as ap
-        from apysc._validation import string_validation
-        string_validation.validate_string_type(string=other)
-        value: str = self._get_str_value(value=other)
-        result: ap.Boolean = ap.Boolean(self._value <= value)
-        other = self._convert_other_val_to_string(other=other)
-        if isinstance(other, VariableNameInterface):
-            self._append_le_expression(result=result, other=other)
-        return result
+        with ap.DebugInfo(
+                callable_='__le__', locals_=locals(),
+                module_name=__name__, class_=String):
+            from apysc._validation import string_validation
+            string_validation.validate_string_type(string=other)
+            value: str = self._get_str_value(value=other)
+            result: ap.Boolean = ap.Boolean(self._value <= value)
+            other = self._convert_other_val_to_string(other=other)
+            if isinstance(other, VariableNameInterface):
+                self._append_le_expression(result=result, other=other)
+            return result
 
     def _append_le_expression(
             self, result: VariableNameInterface,
@@ -496,11 +557,14 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             Other value to compare.
         """
         import apysc as ap
-        expression: str = (
-            f'{result.variable_name} = '
-            f'{self.variable_name} <= {other.variable_name};'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_le_expression, locals_=locals(),
+                module_name=__name__, class_=String):
+            expression: str = (
+                f'{result.variable_name} = '
+                f'{self.variable_name} <= {other.variable_name};'
+            )
+            ap.append_js_expression(expression=expression)
 
     def __gt__(self, other: Union[str, Any]) -> Any:
         """
@@ -517,14 +581,17 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             Comparison result.
         """
         import apysc as ap
-        from apysc._validation import string_validation
-        string_validation.validate_string_type(string=other)
-        value: str = self._get_str_value(value=other)
-        result: ap.Boolean = ap.Boolean(self._value > value)
-        other = self._convert_other_val_to_string(other=other)
-        if isinstance(other, VariableNameInterface):
-            self._append_gt_expression(result=result, other=other)
-        return result
+        with ap.DebugInfo(
+                callable_='__gt__', locals_=locals(),
+                module_name=__name__, class_=String):
+            from apysc._validation import string_validation
+            string_validation.validate_string_type(string=other)
+            value: str = self._get_str_value(value=other)
+            result: ap.Boolean = ap.Boolean(self._value > value)
+            other = self._convert_other_val_to_string(other=other)
+            if isinstance(other, VariableNameInterface):
+                self._append_gt_expression(result=result, other=other)
+            return result
 
     def _append_gt_expression(
             self, result: VariableNameInterface,
@@ -540,11 +607,14 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             Other value to compare.
         """
         import apysc as ap
-        expression: str = (
-            f'{result.variable_name} = '
-            f'{self.variable_name} > {other.variable_name};'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_gt_expression, locals_=locals(),
+                module_name=__name__, class_=String):
+            expression: str = (
+                f'{result.variable_name} = '
+                f'{self.variable_name} > {other.variable_name};'
+            )
+            ap.append_js_expression(expression=expression)
 
     def __ge__(self, other: Union[str, Any]) -> Any:
         """
@@ -561,14 +631,17 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             Comparison result.
         """
         import apysc as ap
-        from apysc._validation import string_validation
-        string_validation.validate_string_type(string=other)
-        value: str = self._get_str_value(value=other)
-        result: ap.Boolean = ap.Boolean(self._value >= value)
-        other = self._convert_other_val_to_string(other=other)
-        if isinstance(other, VariableNameInterface):
-            self._append_ge_expression(result=result, other=other)
-        return result
+        with ap.DebugInfo(
+                callable_='__ge__', locals_=locals(),
+                module_name=__name__, class_=String):
+            from apysc._validation import string_validation
+            string_validation.validate_string_type(string=other)
+            value: str = self._get_str_value(value=other)
+            result: ap.Boolean = ap.Boolean(self._value >= value)
+            other = self._convert_other_val_to_string(other=other)
+            if isinstance(other, VariableNameInterface):
+                self._append_ge_expression(result=result, other=other)
+            return result
 
     def _append_ge_expression(
             self, result: VariableNameInterface,
@@ -584,11 +657,14 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             Other value to compare.
         """
         import apysc as ap
-        expression: str = (
-            f'{result.variable_name} = '
-            f'{self.variable_name} >= {other.variable_name};'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_ge_expression, locals_=locals(),
+                module_name=__name__, class_=String):
+            expression: str = (
+                f'{result.variable_name} = '
+                f'{self.variable_name} >= {other.variable_name};'
+            )
+            ap.append_js_expression(expression=expression)
 
     def __int__(self) -> int:
         """

@@ -40,18 +40,22 @@ class Number(NumberValueInterface):
         - Int and Number common comparison operations document
             - https://bit.ly/3zolw6T
         """
-        from apysc._converter import cast
-        from apysc._expression import expression_variables_util
-        from apysc._expression import var_names
-        from apysc._expression.event_handler_scope import \
-            TemporaryNotHandlerScope
-        with TemporaryNotHandlerScope():
-            TYPE_NAME: str = var_names.NUMBER
-            self.variable_name = expression_variables_util.\
-                get_next_variable_name(type_name=TYPE_NAME)
-            super(Number, self).__init__(value=value, type_name=TYPE_NAME)
-            self._value = cast.to_float_from_int(int_or_float=self.value)
-            self.append_constructor_expression()
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__init__', locals_=locals(),
+                module_name=__name__, class_=Number):
+            from apysc._converter import cast
+            from apysc._expression import expression_variables_util
+            from apysc._expression import var_names
+            from apysc._expression.event_handler_scope import \
+                TemporaryNotHandlerScope
+            with TemporaryNotHandlerScope():
+                TYPE_NAME: str = var_names.NUMBER
+                self.variable_name = expression_variables_util.\
+                    get_next_variable_name(type_name=TYPE_NAME)
+                super(Number, self).__init__(value=value, type_name=TYPE_NAME)
+                self._value = cast.to_float_from_int(int_or_float=self.value)
+                self.append_constructor_expression()
 
     def _set_value_and_skip_expression_appending(
             self, value: Union[int, float, Any]) -> None:

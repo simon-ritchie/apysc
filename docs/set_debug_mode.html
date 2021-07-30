@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>set_debug_mode interface &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Trace interface" href="trace.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="trace.html" title="Trace interface"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">set_debug_mode interface</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="set-debug-mode-interface">
+<h1>set_debug_mode interface<a class="headerlink" href="#set-debug-mode-interface" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">set_debug_mode</span></code> function interface.</p>
+<section id="what-interface-is-this">
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">set_debug_mode</span></code> function interface will set the debug mode setting and the debug information (Python function or method calls and arguments information) will be appended to the exported HTML.</p>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<p>The debug mode setting will append lots of information to the HTML, so the exporting time will be longer and the HTML file will be bigger.</p>
+<p>Also, the <code class="docutils literal notranslate"><span class="pre">minify</span></code> setting will be ignored.</p>
+</section>
+<section id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p>You can set the debug mode by the <code class="docutils literal notranslate"><span class="pre">set_debug_mode</span></code> after the stage instantiation. This function requires the stage instance since the stage instance will reset the settings at first, including the debug mode.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">set_debug_mode</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;set_debug_mode_basic_usage/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The exported HTML will be appended the information (Python’s function and method calling, its module and class names, and argument information) as the JavaScript comment , like the following:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
+  <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+  <span class="c1">// [__init__ 1] started.</span>
+  <span class="c1">// module name: apysc._display.sprite</span>
+  <span class="c1">// class: Sprite</span>
+  <span class="c1">// arguments and variables:</span>
+  <span class="c1">//    variable_name = None</span>
+  <span class="c1">//    stage = Stage(&#39;stage&#39;)(stage)</span>
+  <span class="c1">//    self = Sprite(&#39;&#39;)()</span>
+    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+    <span class="c1">// [__init__ 2] started.</span>
+    <span class="c1">// module name: apysc._type.array</span>
+    <span class="c1">// class: Array</span>
+    <span class="c1">// arguments and variables:</span>
+    <span class="c1">//    value = []</span>
+    <span class="c1">//    self = []()</span>
+      <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+      <span class="c1">// [_append_constructor_expression 2] started.</span>
+      <span class="c1">// module name: apysc._type.array</span>
+      <span class="c1">// class: Array</span>
+      <span class="c1">// arguments and variables:</span>
+      <span class="c1">//    self = [](arr_2)</span>
+        <span class="kd">var</span> <span class="nx">arr_2</span> <span class="o">=</span> <span class="p">[];</span>
+      <span class="c1">// [_append_constructor_expression 2] ended.</span>
+      <span class="c1">// module name: apysc._type.array</span>
+      <span class="c1">// class: Array</span>
+      <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+    <span class="c1">// [__init__ 2] ended.</span>
+    <span class="c1">// module name: apysc._type.array</span>
+    <span class="c1">// class: Array</span>
+    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+    <span class="c1">// [__init__ 1] started.</span>
+    <span class="c1">// module name: apysc._display.display_object</span>
+    <span class="c1">// class: DisplayObject</span>
+    <span class="c1">// arguments and variables:</span>
+    <span class="c1">//    variable_name = &#39;sp_1&#39;</span>
+    <span class="c1">//    stage = Stage(&#39;stage&#39;)(stage)</span>
+    <span class="c1">//    self = Sprite(&#39;&#39;)()</span>
+    <span class="c1">// [__init__ 1] ended.</span>
+    <span class="c1">// module name: apysc._display.display_object</span>
+    <span class="c1">// class: DisplayObject</span>
+    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+    <span class="c1">// [_append_constructor_expression 1] started.</span>
+    <span class="c1">// module name: apysc._display.sprite</span>
+    <span class="c1">// class: Sprite</span>
+    <span class="c1">// arguments and variables:</span>
+    <span class="c1">//    self = Sprite(&#39;sp_1&#39;)(sp_1)</span>
+      <span class="kd">var</span> <span class="nx">sp_1</span> <span class="o">=</span> <span class="nx">stage</span><span class="p">.</span><span class="nx">nested</span><span class="p">();</span>
+    <span class="c1">// [_append_constructor_expression 1] ended.</span>
+    <span class="c1">// module name: apysc._display.sprite</span>
+    <span class="c1">// class: Sprite</span>
+    <span class="c1">//////////////////////////////////////////////////////////////////////</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">set_debug_mode interface</a><ul>
+<li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
+<li><a class="reference internal" href="#notes">Notes</a></li>
+<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="trace.html"
+                        title="previous chapter">Trace interface</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/set_debug_mode.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="trace.html" title="Trace interface"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">set_debug_mode interface</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

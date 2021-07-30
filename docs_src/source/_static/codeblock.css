@@ -3,7 +3,8 @@
 /* Override normal object and parentheses color. */
 .highlight .nn,
 .highlight .n,
-.highlight .p {
+.highlight .p,
+.highlight .nx {
     color: #ccc !important;
 }
 
@@ -20,4 +21,9 @@
 /* Override None or other value style. */
 .highlight .kc {
     color: #0088c3 !important;
+}
+
+/* Override JavaScript var keyword or other element style. */
+.highlight .kd {
+    color: #0af !important;
 }

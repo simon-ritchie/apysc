@@ -1,6 +1,6 @@
 # Trace interface
 
-This interface will explain the `trace` function interface.
+This page will explain the `trace` function interface.
 
 ## What interface is this?
 

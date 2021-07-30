@@ -332,3 +332,22 @@ def test__display_info() -> None:
 
     msg = exporter._display_info(msg='Hello', verbose=1)
     assert msg == 'Hello'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__display_debug_mode_ignoring_minify_setting_info() -> None:
+    stage: ap.Stage = ap.Stage()
+    ap.set_debug_mode(stage=stage)
+    msg: str = exporter._display_debug_mode_ignoring_minify_setting_info(
+        minify=False, verbose=1)
+    assert msg == ''
+
+    expression_file_util.empty_expression_dir()
+    msg = exporter._display_debug_mode_ignoring_minify_setting_info(
+        minify=True, verbose=1)
+    assert msg == ''
+
+    ap.set_debug_mode(stage=stage)
+    msg = exporter._display_debug_mode_ignoring_minify_setting_info(
+        minify=True, verbose=1)
+    assert msg != ''

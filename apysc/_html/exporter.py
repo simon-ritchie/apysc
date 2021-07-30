@@ -70,6 +70,8 @@ def save_overall_html(
     """
     from apysc._file import file_util
     from apysc._html import html_util
+    _display_debug_mode_ignoring_minify_setting_info(
+        minify=minify, verbose=verbose)
     _display_info(msg='Overall exporting started...', verbose=verbose)
     file_util.empty_directory(directory_path=dest_dir_path)
     _display_info(msg='JavaScript libraries exporting...', verbose=verbose)
@@ -103,9 +105,41 @@ def save_overall_html(
         verbose=verbose)
 
 
+def _display_debug_mode_ignoring_minify_setting_info(
+        minify: bool, verbose: int) -> str:
+    """
+    Display an information of ignoring minify setting if the
+    debug mode is enabled.
+
+    Parameters
+    ----------
+    minify : bool
+        Boolean value whether minify HTML and js or not.
+        False setting is useful when debugging.
+    verbose : int
+        If 0 is specified, message will not be displayed.
+        1 or the other value will display the message.
+
+    Returns
+    -------
+    msg : str
+        Displayed message.
+    """
+    import apysc as ap
+    if not minify:
+        return ''
+    if not ap.is_debug_mode():
+        return ''
+    msg: str = (
+        'The minify setting is ignored since the debug mode has been '
+        'enabled.')
+    _display_info(msg=msg, verbose=verbose)
+    return msg
+
+
 def _display_info(msg: str, verbose: int) -> str:
     """
-    Display a info log message.
+    Display an info log message.
 
     Parameters
     ----------

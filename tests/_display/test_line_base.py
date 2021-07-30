@@ -84,7 +84,7 @@ class TestLineBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_basic_vals_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite(stage=stage)
         sprite.graphics.begin_fill(color='#333', alpha=0.5)

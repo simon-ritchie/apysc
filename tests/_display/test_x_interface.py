@@ -28,7 +28,7 @@ class TestXInterface:
     def test__append_x_update_expression(self) -> None:
         x_interface = XInterface()
         x_interface.variable_name = 'test_x_interface'
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         x_interface.x = ap.Int(200)
         expression: str = expression_file_util.get_current_expression()
         value_str: str = value_util.get_value_str_for_expression(

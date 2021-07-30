@@ -20,7 +20,7 @@ class TestWidthInterface:
     def test__append_width_update_expression(self) -> None:
         width_interface: WidthInterface = WidthInterface()
         width_interface.variable_name = 'test_width_interface'
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         width_interface.width = ap.Int(200)
         expression: str = expression_file_util.get_current_expression()
         expected: str = 'test_width_interface.width(200);'
@@ -30,7 +30,7 @@ class TestWidthInterface:
     def test_update_width_and_skip_appending_exp(self) -> None:
         width_interface: WidthInterface = WidthInterface()
         width_interface.variable_name = 'test_width_interface'
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         width_interface._update_width_and_skip_appending_exp(
             value=ap.Int(300))
         assert width_interface.width == 300

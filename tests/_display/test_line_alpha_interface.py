@@ -20,7 +20,7 @@ class TestLineAlphaInterface:
     def test__append_line_alpha_update_expression(self) -> None:
         line_alpha_interface: LineAlphaInterface = LineAlphaInterface()
         line_alpha_interface.variable_name = 'test_line_alpha_interface'
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         line_alpha_interface.line_alpha = ap.Number(0.5)
         expression: str = expression_file_util.get_current_expression()
         expected: str = 'test_line_alpha_interface.stroke({opacity: 0.5});'
@@ -30,7 +30,7 @@ class TestLineAlphaInterface:
     def test__update_line_alpha_and_skip_appending_exp(self) -> None:
         line_alpha_interface: LineAlphaInterface = LineAlphaInterface()
         line_alpha_interface.variable_name = 'test_line_alpha_interface'
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         line_alpha_interface._update_line_alpha_and_skip_appending_exp(
             value=ap.Number(0.25))
         assert line_alpha_interface.line_alpha == 0.25

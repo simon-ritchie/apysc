@@ -11,11 +11,11 @@ from tests import testing_helper
 
 class TestNumber:
 
-    expression_file_util.remove_expression_file()
+    expression_file_util.empty_expression_dir()
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         number_1: ap.Number = ap.Number(value=100)
         assert number_1.value == 100.0
         assert type_util.is_same_class_instance(
@@ -42,7 +42,7 @@ class TestNumber:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_value(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         number_1: ap.Number = ap.Number(value=100.5)
         number_1.value = 200.5
         assert number_1.value == 200.5
@@ -76,7 +76,7 @@ class TestNumber:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_set_value_and_skip_expression_appending(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         number_1: ap.Number = ap.Number(value=10.5)
         number_1._set_value_and_skip_expression_appending(value=20.5)
         assert number_1.value == 20.5

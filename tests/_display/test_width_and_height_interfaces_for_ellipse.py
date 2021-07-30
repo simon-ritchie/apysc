@@ -54,7 +54,7 @@ class TestWidthAndHeightInterfacesForEllipse:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ellipse_width_and_height_update_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface: WidthAndHeightInterfacesForEllipse = \
             WidthAndHeightInterfacesForEllipse()
         interface.variable_name = \

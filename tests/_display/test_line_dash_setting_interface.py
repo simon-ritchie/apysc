@@ -44,7 +44,7 @@ class TestLineDashSettingInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_dash_setting_and_skip_appending_exp(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface: LineDashSettingInterface = LineDashSettingInterface()
         assert_raises(
             expected_error_class=TypeError,
@@ -68,7 +68,7 @@ class TestLineDashSettingInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_line_dash_setting_update_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface: LineDashSettingInterface = LineDashSettingInterface()
         interface._initialize_line_dash_setting_if_not_initialized()
         interface.variable_name = 'test_line_dash_interface'
@@ -81,7 +81,7 @@ class TestLineDashSettingInterface:
             string=expression, flags=re.MULTILINE)
         assert match is not None
 
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface._line_dash_setting = LineDashSetting(
             dash_size=10, space_size=5)
         interface._append_line_dash_setting_update_expression()

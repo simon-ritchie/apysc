@@ -73,7 +73,7 @@ class TestIf:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_enter_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         indent_num.reset()
         int_1: ap.Int = ap.Int(10)
         boolean_1: ap.Boolean = ap.Boolean(True)
@@ -92,7 +92,7 @@ class TestIf:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_exit_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         indent_num.reset()
         boolean_1: ap.Boolean = ap.Boolean(True)
         int_1: ap.Int = ap.Int(10)

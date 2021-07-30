@@ -29,7 +29,7 @@ class TestFillAlphaInterface:
     def test__append_fill_alpha_update_expression(self) -> None:
         fill_alpha_interface: FillAlphaInterface = FillAlphaInterface()
         fill_alpha_interface.variable_name = 'test_fill_alpha_interface'
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         fill_alpha_interface.fill_alpha = ap.Number(0.3)
         expression: str = expression_file_util.get_current_expression()
         value_str: str = value_util.get_value_str_for_expression(
@@ -43,7 +43,7 @@ class TestFillAlphaInterface:
     def test__update_fill_alpha_and_skip_appending_exp(self) -> None:
         fill_alpha_interface: FillAlphaInterface = FillAlphaInterface()
         fill_alpha_interface.variable_name = 'test_fill_alpha_interface'
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         fill_alpha_interface._update_fill_alpha_and_skip_appending_exp(
             value=0.25)
         assert fill_alpha_interface.fill_alpha == 0.25

@@ -278,7 +278,7 @@ def test__minify_html() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_event_handler_expressions() -> None:
-    expression_file_util.remove_expression_file()
+    expression_file_util.empty_expression_dir()
 
     with HandlerScope():
         ap.append_js_expression(

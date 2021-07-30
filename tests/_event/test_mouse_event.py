@@ -31,7 +31,7 @@ class TestMouseEvent:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_stage_x_getter_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         stage: ap.Stage = ap.Stage()
         mouse_event: ap.MouseEvent[ap.Stage] = ap.MouseEvent(this=stage)
         stage_x: ap.Int = mouse_event.stage_x

@@ -11,7 +11,7 @@ class TestRotateAroundCenterInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_rotate_around_center(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface: RotateAroundCenterInterface = RotateAroundCenterInterface()
         interface.variable_name = 'test_rotate_around_center_interface'
 

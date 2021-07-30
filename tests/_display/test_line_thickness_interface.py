@@ -24,7 +24,7 @@ class TestLineThicknessInterface:
             LineThicknessInterface()
         line_thickness_interface.variable_name = \
             'test_line_thickness_interface'
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         line_thickness_interface.line_thickness = ap.Int(2)
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
@@ -37,7 +37,7 @@ class TestLineThicknessInterface:
             LineThicknessInterface()
         line_thickness_interface.variable_name = \
             'test_line_thickness_interface'
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         line_thickness_interface._update_line_thickness_and_skip_appending_exp(
             value=ap.Int(5))
         assert line_thickness_interface.line_thickness == 5

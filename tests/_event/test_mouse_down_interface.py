@@ -58,7 +58,7 @@ class TestMouseDownInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_mousedown(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: _TestMouseDown = _TestMouseDown()
         name: str = interface_1.mousedown(
             handler=self.on_mouse_down_1,
@@ -77,7 +77,7 @@ class TestMouseDownInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_mousedown(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: _TestMouseDown = _TestMouseDown()
         name = interface_1.mousedown(handler=self.on_mouse_down_1)
         interface_1.unbind_mousedown(handler=self.on_mouse_down_1)
@@ -90,7 +90,7 @@ class TestMouseDownInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_mousedown_all(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: _TestMouseDown = _TestMouseDown()
         interface_1.mousedown(handler=self.on_mouse_down_1)
         interface_1.mousedown(handler=self.on_mouse_down_2)

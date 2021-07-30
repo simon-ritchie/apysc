@@ -40,7 +40,7 @@ def test_remove_expression_file() -> None:
     with HandlerScope():
         ap.append_js_expression(
             expression='console.log("Hello!");')
-    expression_file_util.remove_expression_file()
+    expression_file_util.empty_expression_dir()
     assert not os.path.exists(expression_file_util.EXPRESSION_FILE_PATH)
     assert not os.path.exists(
         expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH)
@@ -50,13 +50,13 @@ def test_remove_expression_file() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_current_expression() -> None:
-    expression_file_util.remove_expression_file()
+    expression_file_util.empty_expression_dir()
     ap.append_js_expression(
         'console.log("Hello!");'
     )
     expression: str = expression_file_util.get_current_expression()
     assert expression == 'console.log("Hello!");'
-    expression_file_util.remove_expression_file()
+    expression_file_util.empty_expression_dir()
 
     expression = expression_file_util.get_current_expression()
     assert expression == ''
@@ -65,7 +65,7 @@ def test_get_current_expression() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_js_expression() -> None:
     indent_num.reset()
-    expression_file_util.remove_expression_file()
+    expression_file_util.empty_expression_dir()
     ap.append_js_expression(expression='var num = 100;')
     expression: str = expression_file_util.get_current_expression()
     match: Optional[Match] = re.search(
@@ -74,7 +74,7 @@ def test_append_js_expression() -> None:
         flags=re.MULTILINE)
     assert match is not None
 
-    expression_file_util.remove_expression_file()
+    expression_file_util.empty_expression_dir()
     with Indent():
         ap.append_js_expression(
             expression='var num_1 = 100;\nvar num_2 = 200;\nvar num_3 = 300;')
@@ -89,26 +89,26 @@ def test_append_js_expression() -> None:
     expression = \
         expression_file_util.get_current_event_handler_scope_expression()
     assert 'console.log("Hello!");' in expression
-    expression_file_util.remove_expression_file()
+    expression_file_util.empty_expression_dir()
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_current_expression() -> None:
-    expression_file_util.remove_expression_file()
+    expression_file_util.empty_expression_dir()
     ap.append_js_expression(
         expression='console.log("Hello!");')
     current_expression: str = expression_file_util._get_current_expression(
         file_path=expression_file_util.EXPRESSION_FILE_PATH)
     assert current_expression == 'console.log("Hello!");'
 
-    expression_file_util.remove_expression_file()
+    expression_file_util.empty_expression_dir()
     current_expression = expression_file_util.get_current_expression()
     assert current_expression == ''
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_current_event_handler_scope_expression() -> None:
-    expression_file_util.remove_expression_file()
+    expression_file_util.empty_expression_dir()
     file_util.save_plain_txt(
         txt='console.log("Hello!");',
         file_path=expression_file_util.EVENT_HANDLER_EXPRESSION_FILE_PATH)
@@ -119,7 +119,7 @@ def test_get_current_event_handler_scope_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_expression_file_path() -> None:
-    expression_file_util.remove_expression_file()
+    expression_file_util.empty_expression_dir()
     file_path: str = expression_file_util._get_expression_file_path()
     assert file_path == expression_file_util.EXPRESSION_FILE_PATH
 
@@ -127,4 +127,4 @@ def test__get_expression_file_path() -> None:
     file_path = expression_file_util._get_expression_file_path()
     assert file_path == \
         expression_file_util.EVENT_HANDLER_EXPRESSION_FILE_PATH
-    expression_file_util.remove_expression_file()
+    expression_file_util.empty_expression_dir()

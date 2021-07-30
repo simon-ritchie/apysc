@@ -35,7 +35,7 @@ class TestLineJointsInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_joints_and_skip_appending_exp(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface: LineJointsInterface = LineJointsInterface()
         interface.variable_name = 'test_line_joints_interface'
         assert_raises(
@@ -57,7 +57,7 @@ class TestLineJointsInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_line_joints_update_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface: LineJointsInterface = LineJointsInterface()
         interface.variable_name = 'test_line_joints_interface'
         interface.line_joints = ap.LineJoints.BEVEL

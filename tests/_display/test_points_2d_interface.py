@@ -37,7 +37,7 @@ class TestPoints2DInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_points_update_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface: Points2DInterface = Points2DInterface()
         interface.variable_name = 'test_point_2d_interface'
         interface._initialize_points_if_not_initialized()

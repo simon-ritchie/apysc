@@ -57,7 +57,7 @@ class TestMouseMoveInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_mousemove(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: _TestMouseMove = _TestMouseMove()
         name: str = interface_1.mousemove(
             handler=self.on_mouse_move_1, options={'msg': 'Hello!'})
@@ -78,7 +78,7 @@ class TestMouseMoveInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_mousemove(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: _TestMouseMove = _TestMouseMove()
         name: str = interface_1.mousemove(handler=self.on_mouse_move_1)
         interface_1.unbind_mousemove(handler=self.on_mouse_move_1)
@@ -92,7 +92,7 @@ class TestMouseMoveInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_mousemove_all(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface_1: _TestMouseMove = _TestMouseMove()
         interface_1.mousemove(handler=self.on_mouse_move_1)
         interface_1.mousemove(handler=self.on_mouse_move_2)

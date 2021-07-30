@@ -24,7 +24,7 @@ class TestCopyInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_copy_expression(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         interface: CopyInterface = CopyInterface()
         interface.variable_name = 'test_copy_interface'
         interface._type_name = 'test_copy_interface'
@@ -38,7 +38,7 @@ class TestCopyInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_value_updating_cpy_exp_to_handler_scope(self) -> None:
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         int_1: ap.Int = ap.Int(10)
         with HandlerScope():
             int_2: ap.Int = int_1._copy()

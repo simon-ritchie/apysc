@@ -27,7 +27,7 @@ class TestYInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_y_update_expression(self) -> None:
         y_interface: YInterface = YInterface()
-        expression_file_util.remove_expression_file()
+        expression_file_util.empty_expression_dir()
         y_interface.variable_name = 'test_y_interface'
         y_interface.y = ap.Int(300)
         expression: str = expression_file_util.get_current_expression()

@@ -62,7 +62,38 @@ def main() -> None:
     sprite_2.graphics.draw_rect(x=450, y=50, width=50, height=50)
     sprite_2.click(on_sprite_2_click)
 
+    # The test pattern for the fill alpha.
+    rectangle_5: ap.Rectangle = sprite_1.graphics.draw_rect(
+        x=550, y=50, width=50, height=50)
+    alpha_direction: ap.Int = ap.Int(1)
+    timer_1: ap.Timer = ap.Timer(
+        on_timer_1, delay=ap.FPS.FPS_60,
+        options={
+            'rectangle': rectangle_5, 'alpha_direction': alpha_direction})
+    timer_1.start()
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
+
+
+def on_timer_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+    """
+    The handler will be called from the timer.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+    """
+    rectangle: ap.Rectangle = options['rectangle']
+    alpha_direction: ap.Int = options['alpha_direction']
+    current_alpha: ap.Number = rectangle.fill_alpha
+    condition_1: ap.Boolean = current_alpha < 0.0
+    condition_2: ap.Boolean = current_alpha > 1.0
+    with ap.If(condition_1):
+        alpha_direction.value = 1
+    with ap.Elif(condition_2):
+        alpha_direction.value = -1
+    rectangle.fill_alpha += alpha_direction * 0.03
+    rectangle.rotate_around_center(additional_rotation=1)
 
 
 def on_rectangle_1_click(

@@ -189,8 +189,6 @@ from typing import Any, Dict
 
 import apysc as ap
 
-alpha_direction: ap.Int = ap.Int(1)
-
 
 def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
     """
@@ -204,6 +202,15 @@ def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options['rectangle']
+    alpha_direction: ap.Int = options['alpha_direction']
+    current_alpha: ap.Number = rectangle.fill_alpha
+    condition_1: ap.Boolean = current_alpha < 0.0
+    condition_2: ap.Boolean = current_alpha > 1.0
+    with ap.If(condition_1):
+        alpha_direction.value = 1
+    with ap.Elif(condition_2):
+        alpha_direction.value = -1
+    rectangle.fill_alpha += alpha_direction * 0.03
     rectangle.rotate_around_center(additional_rotation=1)
 
 
@@ -213,6 +220,7 @@ stage: ap.Stage = ap.Stage(
 sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 sprite.graphics.begin_fill(color='#0af')
+alpha_direction: ap.Int = ap.Int(1)
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 timer: ap.Timer = ap.Timer(
@@ -221,7 +229,6 @@ timer: ap.Timer = ap.Timer(
 timer.start()
 
 ap.save_overall_html(
-    minify=False,
     dest_dir_path='what_apysc_can_do_timer_animation/')
 ```
 

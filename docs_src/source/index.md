@@ -14,6 +14,7 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 
 **Quick start guide**
 
+- [What apysc can do in its current implementation](what_apysc_can_do.md)
 - [Quick start guide](quick_start.md)
 - [Import conventions](import_conventions.md)
 

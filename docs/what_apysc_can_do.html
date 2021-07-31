@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>What apysc can do in its current implementation &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quick start guide" href="quick_start.html" />
+    <link rel="prev" title="apysc documentation" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="quick_start.html" title="Quick start guide"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="apysc documentation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">What apysc can do in its current implementation</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="what-apysc-can-do-in-its-current-implementation">
+<h1>What apysc can do in its current implementation<a class="headerlink" href="#what-apysc-can-do-in-its-current-implementation" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the current apysc implementation and functionality summary.</p>
+<section id="write-with-the-python-and-export-html-or-use-it-on-the-jupyter">
+<h2>Write with the Python and export HTML or use it on the Jupyter<a class="headerlink" href="#write-with-the-python-and-export-html-or-use-it-on-the-jupyter" title="Permalink to this headline">¶</a></h2>
+<p>The apysc library can write the front-end with the Python language and export the HTML or use it on the Jupyter notebook, JupyterLab, and Google Colaboratory!</p>
+<p>See also:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="save_overall_html.html"><span class="doc">Save overall html interface</span></a></p></li>
+<li><p><a class="reference internal" href="display_on_jupyter.html"><span class="doc">Display on the jupyter interface</span></a></p></li>
+<li><p><a class="reference internal" href="display_on_colaboratory.html"><span class="doc">Display on the Google Colaboratory interface</span></a></p></li>
+</ul>
+</section>
+<section id="draw-the-many-types-of-the-vector-graphics">
+<h2>Draw the many types of the vector graphics<a class="headerlink" href="#draw-the-many-types-of-the-vector-graphics" title="Permalink to this headline">¶</a></h2>
+<p>The apysc library can draw many types of vector graphics, like the rectangle, circle, line, and so on.</p>
+<!--
+
+```py
+# runnable
+import apysc as ap
+
+stage: ap.Stage = ap.Stage(
+    stage_width=650, stage_height=210, background_color='#333',
+    stage_elem_id='stage')
+sprite: ap.Sprite = ap.Sprite(stage=stage)
+
+sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+
+sprite.graphics.draw_round_rect(
+    x=150, y=50, width=50, height=50, ellipse_width=12, ellipse_height=12)
+
+sprite.graphics.draw_circle(x=275, y=75, radius=25)
+
+sprite.graphics.draw_ellipse(x=375, y=75, width=50, height=30)
+
+sprite.graphics.draw_polygon(
+    points=[
+        ap.Point2D(x=475, y=50),
+        ap.Point2D(x=450, y=100),
+        ap.Point2D(x=500, y=100),
+    ])
+
+sprite.graphics.begin_fill(color='')
+sprite.graphics.line_style(color='#eee', thickness=3)
+sprite.graphics.move_to(x=550, y=50)
+sprite.graphics.line_to(x=600, y=50)
+sprite.graphics.line_to(x=550, y=100)
+sprite.graphics.line_to(x=600, y=100)
+
+sprite.graphics.draw_line(x_start=50, y_start=130, x_end=600, y_end=130)
+sprite.graphics.draw_dotted_line(
+    x_start=50, y_start=130, x_end=600, y_end=130, dot_size=5)
+sprite.graphics.draw_round_dotted_line(
+    x_start=53, y_start=160, x_end=600, y_end=160, round_size=6, space_size=6)
+
+ap.save_overall_html(
+    dest_dir_path='what_apysc_can_do_draw_vector_graphics/')
+```
+
+--><iframe src="static/what_apysc_can_do_draw_vector_graphics/index.html" width="650" height="210"></iframe><p>See also:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="graphics.html"><span class="doc">Graphics class</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_begin_fill.html"><span class="doc">Graphics class begin fill interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_line_style.html"><span class="doc">Graphics class line style interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_rect.html"><span class="doc">Graphics class draw rect interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_round_rect.html"><span class="doc">Graphics class draw round rect interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_circle.html"><span class="doc">Graphics class draw circle interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_ellipse.html"><span class="doc">Graphics class draw ellipse interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_move_to_and_line_to.html"><span class="doc">Graphics class move to and line to interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_line.html"><span class="doc">Graphics class draw line interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_dotted_line.html"><span class="doc">Graphics class draw dotted line interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_dashed_line.html"><span class="doc">Graphics class draw dashed line interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_round_dotted_line.html"><span class="doc">Graphics class draw round dotted line interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_dash_dotted_line.html"><span class="doc">Graphics class draw dash dotted line interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_polygon.html"><span class="doc">Graphics class draw polygon interface</span></a></p></li>
+</ul>
+</section>
+<section id="set-each-mouse-event">
+<h2>Set each mouse event<a class="headerlink" href="#set-each-mouse-event" title="Permalink to this headline">¶</a></h2>
+<p>The apysc library supports each mouse event, like the click, mouse down, mouse over, mouse move, and so on.</p>
+<p>The click event example (please click the following rectangle):</p>
+<!--
+
+```py
+# runnable
+from typing import Any, Dict
+
+import apysc as ap
+
+
+def on_click(
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+    """
+    The handler will be called when the rectangle is clicked.
+
+    Parameters
+    ----------
+    e : ap.MouseEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    color: ap.String = e.this.fill_color
+    condition: ap.Boolean = color == '#00aaff'
+    with ap.If(condition):
+        e.this.fill_color = ap.String('#f0a')
+    with ap.Else():
+        e.this.fill_color = ap.String('#0af')
+
+
+stage: ap.Stage = ap.Stage(
+    stage_width=150, stage_height=150, background_color='#333',
+    stage_elem_id='stage')
+sprite: ap.Sprite = ap.Sprite(stage=stage)
+
+sprite.graphics.begin_fill(color='#0af')
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+    x=50, y=50, width=50, height=50)
+rectangle.click(on_click)
+
+ap.save_overall_html(
+    dest_dir_path='what_apysc_can_do_mouse_event_click/')
+```
+
+--><iframe src="static/what_apysc_can_do_mouse_event_click/index.html" width="150" height="150"></iframe><p>See also:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="mouse_event_common.html"><span class="doc">Common mouse event interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="click.html"><span class="doc">Click interface</span></a></p></li>
+<li><p><a class="reference internal" href="mousedown_and_mouseup.html"><span class="doc">Mousedown and mouseup interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="mouseover_and_mouseout.html"><span class="doc">Mouseover and mouseout interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="mousemove.html"><span class="doc">Mousemove interface</span></a></p></li>
+</ul>
+</section>
+<section id="the-timer-interface-and-animation">
+<h2>The timer interface and animation<a class="headerlink" href="#the-timer-interface-and-animation" title="Permalink to this headline">¶</a></h2>
+<p>You can use the timer-related interfaces and animate with those.</p>
+<!--
+
+```py
+# runnable
+from typing import Any, Dict
+
+import apysc as ap
+
+alpha_direction: ap.Int = ap.Int(1)
+
+
+def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+    """
+    The handler will be called from the timer.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rectangle: ap.Rectangle = options['rectangle']
+    rectangle.rotate_around_center(additional_rotation=1)
+
+
+stage: ap.Stage = ap.Stage(
+    stage_width=150, stage_height=150, background_color='#333',
+    stage_elem_id='stage')
+sprite: ap.Sprite = ap.Sprite(stage=stage)
+
+sprite.graphics.begin_fill(color='#0af')
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+    x=50, y=50, width=50, height=50)
+timer: ap.Timer = ap.Timer(
+    on_timer, delay=ap.FPS.FPS_60,
+    options={'rectangle': rectangle, 'alpha_direction': alpha_direction})
+timer.start()
+
+ap.save_overall_html(
+    minify=False,
+    dest_dir_path='what_apysc_can_do_timer_animation/')
+```
+
+--><iframe src="static/what_apysc_can_do_timer_animation/index.html" width="150" height="150"></iframe><p>See also:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="timer.html"><span class="doc">Timer class</span></a></p></li>
+<li><p><a class="reference internal" href="timer_event.html"><span class="doc">TimerEvent class</span></a></p></li>
+<li><p><a class="reference internal" href="timer_delay.html"><span class="doc">Timer class delay setting</span></a></p></li>
+<li><p><a class="reference internal" href="fps.html"><span class="doc">FPS enum</span></a></p></li>
+<li><p><a class="reference internal" href="timer_repeat_count.html"><span class="doc">Timer class repeat count setting</span></a></p></li>
+<li><p><a class="reference internal" href="timer_start_and_stop.html"><span class="doc">Timer class start and stop interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="timer_complete.html"><span class="doc">Timer class timer complete interface</span></a></p></li>
+<li><p><a class="reference internal" href="timer_reset.html"><span class="doc">Timer class reset interface</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What apysc can do in its current implementation</a><ul>
+<li><a class="reference internal" href="#write-with-the-python-and-export-html-or-use-it-on-the-jupyter">Write with the Python and export HTML or use it on the Jupyter</a></li>
+<li><a class="reference internal" href="#draw-the-many-types-of-the-vector-graphics">Draw the many types of the vector graphics</a></li>
+<li><a class="reference internal" href="#set-each-mouse-event">Set each mouse event</a></li>
+<li><a class="reference internal" href="#the-timer-interface-and-animation">The timer interface and animation</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">apysc documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="quick_start.html"
+                        title="next chapter">Quick start guide</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/what_apysc_can_do.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="quick_start.html" title="Quick start guide"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="apysc documentation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">What apysc can do in its current implementation</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

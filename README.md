@@ -21,6 +21,20 @@ Python 3.6 or later.
 $ pip install apysc
 ```
 
+## What apysc can do in its current implementation
+
+- Save HTML or use it on the Jupyter notebook, JupyterLab, and Google Colaboratory!
+- Draw the many types of vector graphics
+- Set each mouse event
+- Use the timer interface and animation
+- Basic control, like the for loop, if branch instruction, and so on
+
+For more details, please see the following document:
+
+[What apysc can do in its current implementation](https://simon-ritchie.github.io/apysc/what_apysc_can_do.html)
+
+![](https://github.com/simon-ritchie/apysc/blob/main/assets/vector_graphics_samples.png)
+
 ## How to start
 
 Please see [apysc documentation](https://simon-ritchie.github.io/apysc/index.html) and [quick start guide](https://simon-ritchie.github.io/apysc/quick_start.html) page.

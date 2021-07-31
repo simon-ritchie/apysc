@@ -123,6 +123,17 @@ class Calc:
             int_val += 10
             return int_val
 
+    def __repr__(self) -> str:
+        """
+        Get a representation string of this object.
+
+        Returns
+        -------
+        repr_str : str
+            Representation string.
+        """
+        return 'Calc()'
+
 
 stage: ap.Stage = ap.Stage(
     stage_width=150, stage_height=150, background_color='#333',
@@ -146,7 +157,7 @@ The class information will be appended to the exported HTML:
   // class: Calc
   // arguments and variables:
   //    int_val = 10(i_11)
-  //    self = <__main__.Calc object at 0x7fb0835f0cc0>
+  //    self = Calc()
     //////////////////////////////////////////////////////////////////////
     // [__iadd__ 1] started.
     // module name: apysc._type.number_value_interface

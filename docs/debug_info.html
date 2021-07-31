@@ -157,6 +157,17 @@
             <span class="n">int_val</span> <span class="o">+=</span> <span class="mi">10</span>
             <span class="k">return</span> <span class="n">int_val</span>
 
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get a representation string of this object.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        repr_str : str</span>
+<span class="sd">            Representation string.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s1">&#39;Calc()&#39;</span>
+
 
 <span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
@@ -178,7 +189,7 @@
   <span class="c1">// class: Calc</span>
   <span class="c1">// arguments and variables:</span>
   <span class="c1">//    int_val = 10(i_11)</span>
-  <span class="c1">//    self = &lt;__main__.Calc object at 0x7fb0835f0cc0&gt;</span>
+  <span class="c1">//    self = Calc()</span>
     <span class="c1">//////////////////////////////////////////////////////////////////////</span>
     <span class="c1">// [__iadd__ 1] started.</span>
     <span class="c1">// module name: apysc._type.number_value_interface</span>

@@ -82,6 +82,9 @@ def on_timer_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
     Parameters
     ----------
     e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options['rectangle']
     alpha_direction: ap.Int = options['alpha_direction']

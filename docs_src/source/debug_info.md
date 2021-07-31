@@ -195,6 +195,17 @@ class Coordinates:
             x_val: ap.Int = ap.Int(10)
             return x_val
 
+    def __repr__(self) -> str:
+        """
+        Get a representation string of this object.
+
+        Returns
+        -------
+        repr_str : str
+            Representation string.
+        """
+        return 'Coordinates()'
+
 
 stage: ap.Stage = ap.Stage(
     stage_width=150, stage_height=150, background_color='#333',
@@ -236,6 +247,25 @@ class Coordinates:
                 module_name=__name__, class_=Coordinates):
             self._x = x
             self._y = y
+
+    def __repr__(self) -> str:
+        """
+        Get a representation string of this object.
+
+        Returns
+        -------
+        repr_str : str
+            Representation string.
+        """
+        if hasattr(self, '_x'):
+            x: ap.Int = self._x
+        else:
+            x = ap.Int(0)
+        if hasattr(self, '_y'):
+            y: ap.Int = self._y
+        else:
+            y = ap.Int(0)
+        return f'Coordinates({x}, {y})'
 
 
 stage: ap.Stage = ap.Stage(

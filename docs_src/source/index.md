@@ -35,6 +35,7 @@ The HTML and JavaScript exporting interfaces.
 - [Save overall html interface](save_overall_html.md)
 - [Display on the jupyter interface](display_on_jupyter.md)
 - [Display on the Google Colaboratory interface](display_on_colaboratory.md)
+- [Append js expression interface](append_js_expression.md)
 
 ---
 

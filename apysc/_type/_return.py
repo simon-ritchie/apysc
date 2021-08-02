@@ -19,7 +19,6 @@ class Return:
         self._validate_current_scope_is_event_handler()
         ap.append_js_expression(expression='return;')
 
-
     def _validate_current_scope_is_event_handler(self) -> None:
         """
         Validate whether the current scope is an event handler

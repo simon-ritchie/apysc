@@ -15,8 +15,9 @@ class Return:
         -----
         This class can be instantiated only in an event handler scope.
         """
+        import apysc as ap
         self._validate_current_scope_is_event_handler()
-        pass
+        ap.append_js_expression(expression='return;')
 
 
     def _validate_current_scope_is_event_handler(self) -> None:

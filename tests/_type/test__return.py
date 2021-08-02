@@ -22,3 +22,12 @@ class TestReturn:
 
         with event_handler_scope.HandlerScope():
             _: ap.Return = ap.Return()
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___init__(self) -> None:
+        expression_file_util.empty_expression_dir()
+        with event_handler_scope.HandlerScope():
+            _: ap.Return = ap.Return()
+        expression: str = expression_file_util.\
+            get_current_event_handler_scope_expression()
+        assert 'return;' in expression

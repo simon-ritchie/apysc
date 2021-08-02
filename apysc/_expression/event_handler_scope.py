@@ -1,4 +1,4 @@
-"""Implementations for event handler's expression scope
+"""Implementations for the event handler's expression scope
 interfaces.
 """
 

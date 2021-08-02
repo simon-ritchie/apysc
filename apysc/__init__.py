@@ -57,5 +57,6 @@ from apysc._html.debug_mode import set_debug_mode  # isort:skip # noqa
 from apysc._html.debug_mode import unset_debug_mode  # isort:skip # noqa
 from apysc._html.debug_mode import is_debug_mode  # isort:skip # noqa
 from apysc._html.debug_mode import DebugInfo  # isort:skip # noqa
+from apysc._type._return import Return  # isort:skip # noqa
 
 __version__: str = '0.32.11'

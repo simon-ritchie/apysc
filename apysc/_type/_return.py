@@ -5,6 +5,11 @@
 class Return:
     """
     Class for the return expression.
+
+    References
+    ----------
+    - Return document
+        - https://simon-ritchie.github.io/apysc/return.html
     """
 
     def __init__(self) -> None:
@@ -14,6 +19,11 @@ class Return:
         Notes
         -----
         This class can be instantiated only in an event handler scope.
+
+        References
+        ----------
+        - Return document
+            - https://simon-ritchie.github.io/apysc/return.html
         """
         import apysc as ap
         self._validate_current_scope_is_event_handler()

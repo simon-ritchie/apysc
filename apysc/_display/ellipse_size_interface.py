@@ -16,7 +16,7 @@ class EllipseSizeInterface(VariableNameInterface, RevertInterface):
 
     def _initialize_ellipse_size_if_not_initialized(self) -> None:
         """
-        Initialize _ellipse_size attribute if it is not initialized yet.
+        Initialize _ellipse_size attribute it hasn't been initialized yet.
         """
         if hasattr(self, '_ellipse_size'):
             return

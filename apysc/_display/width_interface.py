@@ -15,7 +15,7 @@ class WidthInterface(VariableNameInterface, RevertInterface):
 
     def _initialize_width_if_not_initialized(self) -> None:
         """
-        Initialize _width attribute if it is not initialized yet.
+        Initialize _width attribute it hasn't been initialized yet.
         """
         if hasattr(self, '_width'):
             return

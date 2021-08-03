@@ -15,7 +15,7 @@ class RadiusInterface(VariableNameInterface, RevertInterface):
 
     def _initialize_radius_if_not_initialized(self) -> None:
         """
-        Initialize _radius attribute if it is not initialized yet.
+        Initialize _radius attribute it hasn't been initialized yet.
         """
         if hasattr(self, '_radius'):
             return

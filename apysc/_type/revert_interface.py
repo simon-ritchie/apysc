@@ -16,7 +16,7 @@ class RevertInterface(ABC):
 
     def _initialize_ss_exists_val_if_not_initialized(self) -> None:
         """
-        Initialize _snapshot_exists_ value if it is not initialized yet.
+        Initialize _snapshot_exists_ value it hasn't been initialized yet.
         """
         if hasattr(self, '_snapshot_exists_'):
             return

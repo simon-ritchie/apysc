@@ -192,7 +192,7 @@ class LineStyleInterface(RevertInterface):
 
     def _initialize_line_cap_if_not_initialized(self) -> None:
         """
-        Initialize _line_cap attribute if it is not initialized yet.
+        Initialize _line_cap attribute it hasn't been initialized yet.
         """
         if hasattr(self, '_line_cap'):
             return
@@ -200,7 +200,7 @@ class LineStyleInterface(RevertInterface):
 
     def _initialize_line_joints_if_not_initialized(self) -> None:
         """
-        Initialize _line_joints attribute if it is not initialized yet.
+        Initialize _line_joints attribute it hasn't been initialized yet.
         """
         if hasattr(self, '_line_joints'):
             return

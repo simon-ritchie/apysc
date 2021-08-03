@@ -14,7 +14,7 @@ class CxInterface(VariableNameInterface, RevertInterface):
 
     def _initialize_cx_if_not_initialized(self) -> None:
         """
-        Initialize _cx attribute if it is not initialized yet.
+        Initialize _cx attribute it hasn't been initialized yet.
         """
         if hasattr(self, '_cx'):
             return

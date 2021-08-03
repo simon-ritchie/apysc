@@ -14,7 +14,7 @@ class CyInterface(VariableNameInterface, RevertInterface):
 
     def _initialize_cy_if_not_initialized(self) -> None:
         """
-        Initialize _cy attribute if it is not initialized yet.
+        Initialize _cy attribute it hasn't been initialized yet.
         """
         if hasattr(self, '_cy'):
             return

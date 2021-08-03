@@ -38,6 +38,8 @@ class MouseOverInterface(MouseEventInterfaceBase):
             - https://bit.ly/3hOtaBl
         """
         import apysc as ap
+        from apysc._validation.variable_name_validation import \
+            validate_variable_name_interface_type
         with ap.DebugInfo(
                 callable_=self.mouseover, locals_=locals(),
                 module_name=__name__, class_=MouseOverInterface):
@@ -46,7 +48,7 @@ class MouseOverInterface(MouseEventInterfaceBase):
             from apysc._type.variable_name_interface import \
                 VariableNameInterface
             self_instance: VariableNameInterface = \
-                self._validate_self_is_variable_name_interface()
+                validate_variable_name_interface_type(instance=self)
             self._initialize_mouse_over_handlers_if_not_initialized()
             name: str = get_handler_name(handler=handler, instance=self)
             self._set_mouse_event_handler_data(

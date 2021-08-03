@@ -49,15 +49,6 @@ class TestMouseEventInterfaceBase:
         """
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test_validate_self_is_variable_name_interface(self) -> None:
-        interface_1: MouseEventInterfaceBase = MouseEventInterfaceBase()
-        testing_helper.assert_raises(
-            expected_error_class=TypeError,
-            func_or_method=interface_1.
-            _validate_self_is_variable_name_interface,
-            match='Specified instance type is not VariableNameInterface')
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_mouse_event_handler_data(self) -> None:
         handlers_dict: Dict[str, HandlerData] = {}
         interface_1: _TestClickInterface = _TestClickInterface()

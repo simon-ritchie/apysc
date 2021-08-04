@@ -63,6 +63,7 @@ The HTML and JavaScript exporting interfaces.
 - [Array class join interface](array_join.md)
 - [Array class index of interface](array_index_of.md)
 - [Array class comparison interfaces](array_comparison.md)
+- [Dictionary class](dictionary.md)
 - [Point2D class](point2d.md)
 
 ---

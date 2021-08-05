@@ -1069,14 +1069,14 @@ class Array(
     def _append_eq_expression(
             self, result: ap.Boolean, other: VariableNameInterface) -> None:
         """
-        Append __eq__ expression to file.
+        Append an __eq__ expression to the file.
 
         Parameters
         ----------
         result : Boolean
             Result boolean value.
         other : Array
-            Array's other value to compare.
+            Array other value to compare.
         """
         with ap.DebugInfo(
                 callable_=self._append_eq_expression, locals_=locals(),
@@ -1104,23 +1104,24 @@ class Array(
         with ap.DebugInfo(
                 callable_='__ne__', locals_=locals(),
                 module_name=__name__, class_=Array):
+            other = self._convert_other_val_to_array(other=other)
             result: ap.Boolean = self == other
             result = result.not_
-            if isinstance(other, Array):
+            if isinstance(other, VariableNameInterface):
                 self._append_ne_expression(result=result, other=other)
             return result
 
     def _append_ne_expression(
             self, result: ap.Boolean, other: VariableNameInterface) -> None:
         """
-        Append __ne__ expression to file.
+        Append a __ne__ expression to the file.
 
         Parameters
         ----------
         result : Boolean
             Result boolean value.
         other : Array
-            Array's other value to compare.
+            Array other value to compare.
         """
         with ap.DebugInfo(
                 callable_=self._append_ne_expression, locals_=locals(),

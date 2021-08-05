@@ -62,6 +62,21 @@ def main() -> None:
     del dict_4[string_2]
     ap.assert_dicts_equal(expected={'b': 20}, actual=dict_4)
 
+    dict_5: ap.Dictionary = ap.Dictionary({'a': 10})
+    dict_6: ap.Dictionary = ap.Dictionary({'a': 10})
+    result: ap.Boolean = dict_5 == dict_6
+    ap.assert_true(result)
+
+    result = dict_5 == {'a': 10}
+    ap.assert_true(result)
+
+    dict_7: ap.Dictionary = ap.Dictionary({'a': 20})
+    result = dict_5 != dict_7
+    ap.assert_true(result)
+
+    result = dict_5 != {'a': 20}
+    ap.assert_true(result)
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

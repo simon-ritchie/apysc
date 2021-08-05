@@ -10,6 +10,7 @@ from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.dictionary_structure import DictionaryStructure
 from apysc._type.revert_interface import RevertInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 Key = Union[str, int, float, ap.String, ap.Int, ap.Number]
 
@@ -328,8 +329,6 @@ class Dictionary(
                 callable_=self._append_getitem_expression, locals_=locals(),
                 module_name=__name__, class_=Dictionary):
             from apysc._type import value_util
-            from apysc._type.variable_name_interface import \
-                VariableNameInterface
             if not isinstance(value, VariableNameInterface):
                 value = ap.AnyValue(None)
             key_str: str = value_util.get_value_str_for_expression(value=key)
@@ -434,5 +433,101 @@ class Dictionary(
             key_str: str = value_util.get_value_str_for_expression(value=key)
             expression: str = (
                 f'delete {self.variable_name}[{key_str}];'
+            )
+            ap.append_js_expression(expression=expression)
+
+    def __eq__(self, other: Any) -> Any:
+        """
+        Equal comparison method.
+
+        Parameters
+        ----------
+        other : *
+            Other value to compare. dict or Dictionary types are acceptable.
+
+        Returns
+        -------
+        result : Boolean
+            Comparison result.
+        """
+        with ap.DebugInfo(
+                callable_='__eq__', locals_=locals(),
+                module_name=__name__, class_=Dictionary):
+            if isinstance(other, Dictionary):
+                result: ap.Boolean = ap.Boolean(self._value == other._value)
+            else:
+                result = ap.Boolean(self._value == other)
+                if isinstance(other, dict):
+                    other = Dictionary(other)
+            if isinstance(other, VariableNameInterface):
+                self._append_eq_expression(result=result, other=other)
+            return result
+
+    def _append_eq_expression(
+            self, result: ap.Boolean,
+            other: VariableNameInterface) -> None:
+        """
+        Append an __eq__ expression to the file.
+
+        Parameters
+        ----------
+        result : Boolean
+            Result boolean value.
+        other : Dictionary
+            Dictionary other value to compare.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_eq_expression, locals_=locals(),
+                module_name=__name__, class_=Dictionary):
+            expression: str = (
+                f'{result.variable_name} = '
+                f'_.isEqual({self.variable_name}, {other.variable_name});'
+            )
+            ap.append_js_expression(expression=expression)
+
+    def __ne__(self, other: Any) -> Any:
+        """
+        Noe equal comparison method.
+
+        Parameters
+        ----------
+        other : *
+            Other value to compare. dict or Dictionary types are acceptable.
+
+        Returns
+        -------
+        result : Boolean
+            Comparison result.
+        """
+        with ap.DebugInfo(
+                callable_='__ne__', locals_=locals(),
+                module_name=__name__, class_=Dictionary):
+            if isinstance(other, dict):
+                other = Dictionary(other)
+            result: ap.Boolean = self == other
+            result = result.not_
+            if isinstance(other, VariableNameInterface):
+                self._append_ne_expression(result=result, other=other)
+            return result
+
+    def _append_ne_expression(
+            self, result: ap.Boolean,
+            other: VariableNameInterface) -> None:
+        """
+        Append a __ne__ expression to the file.
+
+        Parameters
+        ----------
+        result : Boolean
+            Result boolean value.
+        other : Dictionary
+            Dictionary other value to compare.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_ne_expression, locals_=locals(),
+                module_name=__name__, class_=Dictionary):
+            expression: str = (
+                f'{result.variable_name} = '
+                f'!_.isEqual({self.variable_name}, {other.variable_name});'
             )
             ap.append_js_expression(expression=expression)

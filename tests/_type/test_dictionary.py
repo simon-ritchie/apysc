@@ -286,3 +286,35 @@ class TestDictionary:
 
         result = dict_1 == {'a': 20}
         assert not result
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_ne_expression(self) -> None:
+        expression_file_util.empty_expression_dir()
+        dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
+        dict_2: ap.Dictionary = ap.Dictionary({'a': 20})
+        result: ap.Boolean = dict_1 != dict_2
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{result.variable_name} = '
+            f'!_.isEqual({dict_1.variable_name}, {dict_2.variable_name});'
+        )
+        assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___ne__(self) -> None:
+        dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
+        dict_2: ap.Dictionary = ap.Dictionary({'a': 20})
+        result: ap.Boolean = dict_1 != dict_2
+        assert isinstance(result, ap.Boolean)
+        assert result
+
+        dict_3: ap.Dictionary = ap.Dictionary({'a': 10})
+        result = dict_1 != dict_3
+        assert not result
+
+        result = dict_1 != {'a': 20}
+        assert isinstance(result, ap.Boolean)
+        assert result
+
+        result = dict_1 != {'a': 10}
+        assert not result

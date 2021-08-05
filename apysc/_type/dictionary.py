@@ -484,3 +484,50 @@ class Dictionary(
                 f'_.isEqual({self.variable_name}, {other.variable_name});'
             )
             ap.append_js_expression(expression=expression)
+
+    def __ne__(self, other: Any) -> Any:
+        """
+        Noe equal comparison method.
+
+        Parameters
+        ----------
+        other : *
+            Other value to compare. dict or Dictionary types are acceptable.
+
+        Returns
+        -------
+        result : Boolean
+            Comparison result.
+        """
+        with ap.DebugInfo(
+                callable_='__ne__', locals_=locals(),
+                module_name=__name__, class_=Dictionary):
+            if isinstance(other, dict):
+                other = Dictionary(other)
+            result: ap.Boolean = self == other
+            result = result.not_
+            if isinstance(other, VariableNameInterface):
+                self._append_ne_expression(result=result, other=other)
+            return result
+
+    def _append_ne_expression(
+            self, result: ap.Boolean,
+            other: VariableNameInterface) -> None:
+        """
+        Append a __ne__ expression to the file.
+
+        Parameters
+        ----------
+        result : Boolean
+            Result boolean value.
+        other : Dictionary
+            Dictionary other value to compare.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_ne_expression, locals_=locals(),
+                module_name=__name__, class_=Dictionary):
+            expression: str = (
+                f'{result.variable_name} = '
+                f'!_.isEqual({self.variable_name}, {other.variable_name});'
+            )
+            ap.append_js_expression(expression=expression)

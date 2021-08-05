@@ -1104,9 +1104,10 @@ class Array(
         with ap.DebugInfo(
                 callable_='__ne__', locals_=locals(),
                 module_name=__name__, class_=Array):
+            other = self._convert_other_val_to_array(other=other)
             result: ap.Boolean = self == other
             result = result.not_
-            if isinstance(other, Array):
+            if isinstance(other, VariableNameInterface):
                 self._append_ne_expression(result=result, other=other)
             return result
 

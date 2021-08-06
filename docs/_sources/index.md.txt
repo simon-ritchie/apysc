@@ -172,3 +172,10 @@ The `Graphics` class handles each vector graphics drawing.
 - [DebugInfo class](debug_info.md)
 
 ---
+
+**Testing**
+
+- [JavaScript assertion interface common behavior](assertion_common_behavior.md)
+- [Assert equal and assert not equal interface](assert_equal_and_not_equal.md)
+
+---

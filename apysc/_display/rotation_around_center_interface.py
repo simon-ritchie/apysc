@@ -2,7 +2,7 @@
 interface.
 """
 
-from typing import Union
+from typing import Dict, Union
 
 import apysc as ap
 from apysc._type.revert_interface import RevertInterface
@@ -88,6 +88,8 @@ class RotationAroundCenterInterface(VariableNameInterface, RevertInterface):
             )
             ap.append_js_expression(expression=expression)
 
+    _rotation_around_center_snapshots: Dict[str, int]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
@@ -97,6 +99,13 @@ class RotationAroundCenterInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not hasattr(self, '_rotation_around_center_snapshots'):
+            self._rotation_around_center_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._initialize_rotation_around_center_if_not_initialized()
+        self._rotation_around_center_snapshots[snapshot_name] = int(
+            self._rotation_around_center._value)
 
     def _revert(self, snapshot_name: str) -> None:
         """

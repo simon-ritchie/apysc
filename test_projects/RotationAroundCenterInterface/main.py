@@ -38,6 +38,7 @@ def main() -> None:
     sprite.graphics.begin_fill(color='#0af', alpha=0.5)
     rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
+    rectangle_1.rotation_around_center = ap.Int(20)
     rectangle_1.rotation_around_center = ap.Int(45)
 
     rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(

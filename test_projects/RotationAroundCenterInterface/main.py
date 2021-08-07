@@ -38,33 +38,54 @@ def main() -> None:
     sprite.graphics.begin_fill(color='#0af', alpha=0.5)
     rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
-    rectangle_1.rotate_around_center(30)
+    rectangle_1.rotation_around_center = ap.Int(45)
 
-    sprite.graphics.begin_fill(color='#f0a', alpha=0.5)
     rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
-        x=50, y=50, width=50, height=50)
-    rectangle_2.rotate_around_center(30)
-    rectangle_2.rotate_around_center(30)
+        x=150, y=50, width=50, height=50)
+    timer_1: ap.Timer = ap.Timer(
+        on_timer_1, delay=ap.FPS.FPS_60,
+        options={'rectangle': rectangle_2})
+    timer_1.start()
 
-    sprite.click(on_sprite_click, options={'rectangle_1': rectangle_1})
+    rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
+        x=250, y=50, width=50, height=50)
+    timer_2: ap.Timer = ap.Timer(
+        on_timer_2, delay=ap.FPS.FPS_60,
+        options={'rectangle': rectangle_3})
+    timer_2.start()
 
-    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_sprite_click(
-        e: ap.MouseEvent[ap.Sprite], options: Dict[str, Any]) -> None:
+def on_timer_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
     """
-    The handler would be called when the sprite is clicked.
+    The handler will be called from a timer.
 
     Parameters
     ----------
-    e : MouseEvent
+    e : ap.TimerEvent
         Event instance.
     options : dict
         Optional arguments dictionary.
     """
-    rectangle_1: ap.Rectangle = options['rectangle_1']
-    rectangle_1.rotate_around_center(10)
+    rectangle: ap.Rectangle = options['rectangle']
+    rotation_around_center: ap.Int = rectangle.rotation_around_center
+    rectangle.rotation_around_center = rotation_around_center + 1
+
+
+def on_timer_2(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+    """
+    The handler will be called from a timer.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rectangle: ap.Rectangle = options['rectangle']
+    rectangle.rotation_around_center += 1
 
 
 if __name__ == '__main__':

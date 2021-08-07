@@ -9,7 +9,7 @@ from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class RotateAroundCenterInterface(VariableNameInterface, RevertInterface):
+class RotationAroundCenterInterface(VariableNameInterface, RevertInterface):
 
     _rotate_around_center: ap.Int
 

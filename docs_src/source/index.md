@@ -180,5 +180,6 @@ The `Graphics` class handles each vector graphics drawing.
 - [Assert true and assert false interfaces](assert_true_and_false.md)
 - [Assert arrays equal and arrays not equal interfaces](assert_arrays_equal_and_arrays_not_equal.md)
 - [Assert dicts equal and dicts not equal interfaces](assert_dicts_equal_and_dicts_not_equal.md)
+- [Assert defined and undefined interfaces](assert_defined_and_undefined.md)
 
 ---

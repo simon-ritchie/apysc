@@ -6,10 +6,10 @@ from typing import Union
 
 import apysc as ap
 from apysc._display.display_object import DisplayObject
-from apysc._display.rotation_around_center_interface import \
-    RotationAroundCenterInterface
 from apysc._display.rotate_around_point_interface import \
     RotateAroundPointInterface
+from apysc._display.rotation_around_center_interface import \
+    RotationAroundCenterInterface
 
 _Graphics = Any
 

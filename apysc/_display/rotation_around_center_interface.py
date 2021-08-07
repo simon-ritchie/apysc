@@ -2,7 +2,7 @@
 interface.
 """
 
-from typing import Dict, Union
+from typing import Dict
 
 import apysc as ap
 from apysc._type.revert_interface import RevertInterface

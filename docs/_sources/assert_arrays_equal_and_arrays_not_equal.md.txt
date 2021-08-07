@@ -14,7 +14,7 @@ The `assert_arrays_equal` function interface will assert specified two arrays ar
 
 Both of the `assert_arrays_equal` and `assert_arrays_not_equal` interfaces require the `expected` and `actual` arguments. The `msg` argument is optional.
 
-The `expected` argument can specify a Python built-in `list` value.
+The `expected` argument can specify a Python built-in `list` value and `Array` value.
 
 The following example (`assert_arrays_equal` and values are equal) will pass:
 
@@ -90,7 +90,7 @@ ap.save_overall_html(
 
 ## Notes for the assert_equal and assert_not_equal interfaces
 
-If an `Array` value is specified to the `assert_equal` or `assert_not_equal` interface `actual`, then the `assert_arrays_equal` or `assert_arrays_not_equal` interfaces will be called instead of the `assert_equal` or `assert_not_equal` interfaces automatically.
+If an `Array` value is specified to the `assert_equal` or `assert_not_equal` interface's `actual` value, then the `assert_arrays_equal` or `assert_arrays_not_equal` interfaces will be called instead of the `assert_equal` or `assert_not_equal` interfaces automatically.
 
 ```py
 # runnable

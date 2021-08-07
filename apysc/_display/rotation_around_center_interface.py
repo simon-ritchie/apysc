@@ -59,8 +59,6 @@ class RotationAroundCenterInterface(VariableNameInterface, RevertInterface):
                 value = ap.Int(value)
             before_value: ap.Int = self._rotation_around_center
             self._rotation_around_center = value
-            self._rotation_around_center.\
-                _append_incremental_calc_substitution_expression()
             self._append_rotation_around_center_update_expression(
                 before_value=before_value)
 

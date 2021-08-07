@@ -46,7 +46,7 @@ def on_timer(e: ap.TimerEvent, options: Dict[str, Any]):
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options['rectangle']
-    rectangle.rotate_around_center(additional_rotation=1)
+    rectangle.rotation_around_center += 1
 
 
 timer_1: ap.Timer = ap.Timer(
@@ -97,7 +97,7 @@ def on_timer(e: ap.TimerEvent, options: Dict[str, Any]):
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options['rectangle']
-    rectangle.rotate_around_center(additional_rotation=1)
+    rectangle.rotation_around_center +=1
 
 
 timer: ap.Timer = ap.Timer(

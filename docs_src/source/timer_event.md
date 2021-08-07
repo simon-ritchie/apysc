@@ -31,7 +31,7 @@ def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options['rectangle']
-    rectangle.rotate_around_center(additional_rotation=1)
+    rectangle.rotation_around_center += 1
 
 
 def on_timer_complete(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
@@ -89,7 +89,7 @@ def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options['rectangle']
-    rectangle.rotate_around_center(additional_rotation=1)
+    rectangle.rotation_around_center += 1
     ap.trace('Current timer count: ', e.this.current_count)
 
 

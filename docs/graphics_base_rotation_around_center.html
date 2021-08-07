@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>GraphicsBase rotate_around_center interface &#8212; apysc  documentation</title>
+    <title>GraphicsBase rotation_around_center interface &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -34,7 +34,7 @@
           <a href="display_object_mouse_event.html" title="Display object mouse event binding interfaces"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">GraphicsBase rotate_around_center interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">GraphicsBase rotation_around_center interface</a></li> 
       </ul>
     </div>  
 
@@ -43,16 +43,16 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="graphicsbase-rotate-around-center-interface">
-<h1>GraphicsBase rotate_around_center interface<a class="headerlink" href="#graphicsbase-rotate-around-center-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> class (base class of each graphics, such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>) <code class="docutils literal notranslate"><span class="pre">rotate_around_center</span></code> method interface.</p>
+  <section id="graphicsbase-rotation-around-center-interface">
+<h1>GraphicsBase rotation_around_center interface<a class="headerlink" href="#graphicsbase-rotation-around-center-interface" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> class (base class of each graphics, such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>) <code class="docutils literal notranslate"><span class="pre">rotation_around_center</span></code> property interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">rotate_around_center</span></code> method interface will append the rotation angle to its instance (rotate around its center point).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rotation_around_center</span></code> property interface can set the rotation angle to its instance (rotation value around its center point).</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">rotate_around_center</span></code> interface has the one <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">Int</span></code> value argument, <code class="docutils literal notranslate"><span class="pre">additional_rotation</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rotation_around_center</span></code> interface accepts the <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">Int</span></code> value.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -67,25 +67,25 @@
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">cyan_rect</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">cyan_rect</span><span class="o">.</span><span class="n">rotate_around_center</span><span class="p">(</span><span class="n">additional_rotation</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">cyan_rect</span><span class="o">.</span><span class="n">rotation_around_center</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
 
 <span class="c1"># Set the magenta fill color and draw the rectangle.</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#f0a&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">magenta_rect</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="c1"># Append the rotation angle multiple times, and the results angle</span>
-<span class="c1"># will be 60.</span>
-<span class="n">magenta_rect</span><span class="o">.</span><span class="n">rotate_around_center</span><span class="p">(</span><span class="n">additional_rotation</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-<span class="n">magenta_rect</span><span class="o">.</span><span class="n">rotate_around_center</span><span class="p">(</span><span class="n">additional_rotation</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="c1"># Append the rotation angle with the incremental addition (the result</span>
+<span class="c1"># rotation will be 60 degrees).</span>
+<span class="n">magenta_rect</span><span class="o">.</span><span class="n">rotation_around_center</span> <span class="o">+=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">magenta_rect</span><span class="o">.</span><span class="n">rotation_around_center</span> <span class="o">+=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
-    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_base_rotate_around_center_basic_usage/&#39;</span><span class="p">)</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_base_rotation_around_center_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_base_rotate_around_center_basic_usage/index.html" width="150" height="150"></iframe></section>
+<iframe src="static/graphics_base_rotation_around_center_basic_usage/index.html" width="150" height="150"></iframe></section>
 <section id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
-<p>This interface will support only the graphics instances. The container instances, such as the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance, are not supported (due to the HTML (SVG) specification).</p>
+<p>This interface supports only the graphics instances currently. The container instances, such as the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance, are not supported (due to the HTML (SVG) specification).</p>
 </section>
 </section>
 
@@ -101,7 +101,7 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">GraphicsBase rotate_around_center interface</a><ul>
+<li><a class="reference internal" href="#">GraphicsBase rotation_around_center interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li><a class="reference internal" href="#notes">Notes</a></li>
@@ -118,7 +118,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/graphics_base_rotate_around_center.md.txt"
+      <li><a href="_sources/graphics_base_rotation_around_center.md.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -149,7 +149,7 @@
           <a href="display_object_mouse_event.html" title="Display object mouse event binding interfaces"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">GraphicsBase rotate_around_center interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">GraphicsBase rotation_around_center interface</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

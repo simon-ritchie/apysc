@@ -96,7 +96,7 @@ def on_timer_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
     with ap.Elif(condition_2):
         alpha_direction.value = -1
     rectangle.fill_alpha += alpha_direction * 0.03
-    rectangle.rotate_around_center(additional_rotation=1)
+    rectangle.rotation_around_center += 1
 
 
 def on_rectangle_1_click(

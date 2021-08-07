@@ -94,7 +94,7 @@
 <span class="sd">        Optional arguments dictionary.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;rectangle&#39;</span><span class="p">]</span>
-    <span class="n">rectangle</span><span class="o">.</span><span class="n">rotate_around_center</span><span class="p">(</span><span class="n">additional_rotation</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">rectangle</span><span class="o">.</span><span class="n">rotation_around_center</span> <span class="o">+=</span> <span class="mi">1</span>
 
 
 <span class="k">def</span> <span class="nf">on_timer_1_complete</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

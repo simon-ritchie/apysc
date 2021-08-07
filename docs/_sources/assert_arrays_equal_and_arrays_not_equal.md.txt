@@ -108,4 +108,9 @@ ap.save_overall_html(
     dest_dir_path='assert_arrays_equal_notes_for_the_assert_equal/')
 ```
 
+```
+[assert_arrays_equal]
+Expected: [1, 2, 3, 4, 5] actual: arr_2
+```
+
 <iframe src="static/assert_arrays_equal_notes_for_the_assert_equal/index.html" width="0" height="0"></iframe>

@@ -11,16 +11,16 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 class RotationAroundCenterInterface(VariableNameInterface, RevertInterface):
 
-    _rotate_around_center: ap.Int
+    _rotation_around_center: ap.Int
 
-    def _initialize_rotate_around_center_if_not_initialized(self) -> None:
+    def _initialize_rotation_around_center_if_not_initialized(self) -> None:
         """
-        Initialize the `_rotate_around_center` attribute if if hasn't
+        Initialize the `_rotation_around_center` attribute if if hasn't
         been initialized yet.
         """
-        if hasattr(self, '_rotate_around_center'):
+        if hasattr(self, '_rotation_around_center'):
             return
-        self._rotate_around_center = ap.Int(0)
+        self._rotation_around_center = ap.Int(0)
 
     # def rotate_around_center(
     #         self, additional_rotation: Union[int, ap.Int]) -> None:

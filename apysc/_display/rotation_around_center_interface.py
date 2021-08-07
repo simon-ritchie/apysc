@@ -22,43 +22,73 @@ class RotationAroundCenterInterface(VariableNameInterface, RevertInterface):
             return
         self._rotation_around_center = ap.Int(0)
 
-    # def rotate_around_center(
-    #         self, additional_rotation: Union[int, ap.Int]) -> None:
-    #     """
-    #     Add a rotation value around the center of this instance.
+    @property
+    def rotation_around_center(self) -> ap.Int:
+        """
+        Get a rotation value around the center of this instance.
 
-    #     Notes
-    #     -----
-    #     - This interface value is a relative value, not a absolute value,
-    #         so if you call this value multiple times, total rotation will
-    #         be cumulative.
-    #     - This interface is not supported by the container instance, such
-    #         as the `Sprite` class due to the HTML (SVG) specification.
+        Returns
+        -------
+        rotation_around_center : Int
+            Rotation value around the center of this instance.
+        """
+        with ap.DebugInfo(
+                callable_='rotation_around_center', locals_=locals(),
+                module_name=__name__, class_=RotationAroundCenterInterface):
+            from apysc._type import value_util
+            self._initialize_rotation_around_center_if_not_initialized()
+            return value_util.get_copy(value=self._rotation_around_center)
 
-    #     Parameters
-    #     ----------
-    #     additional_rotation : int or Int
-    #         A value to add.
+    @rotation_around_center.setter
+    def rotation_around_center(self, value: ap.Int) -> None:
+        """
+        Update a rotation value around the center of this instance.
 
-    #     References
-    #     ----------
-    #     - GraphicsBase rotate_around_center interface document
-    #         - https://bit.ly/3hP6d12
-    #     """
-    #     import apysc as ap
-    #     with ap.DebugInfo(
-    #             callable_=self.rotate_around_center, locals_=locals(),
-    #             module_name=__name__, class_=RotateAroundCenterInterface):
-    #         from apysc._type import value_util
-    #         from apysc._validation import number_validation
-    #         number_validation.validate_integer(
-    #             integer=additional_rotation)
-    #         value_str: str = value_util.get_value_str_for_expression(
-    #             value=additional_rotation)
-    #         expression: str = (
-    #             f'{self.variable_name}.rotate({value_str});'
-    #         )
-    #         ap.append_js_expression(expression=expression)
+        Parameters
+        ----------
+        value : int or Int
+            Rotation value around the center of this instance.
+        """
+        with ap.DebugInfo(
+                callable_='rotation_around_center', locals_=locals(),
+                module_name=__name__, class_=RotationAroundCenterInterface):
+            from apysc._validation import number_validation
+            self._initialize_rotation_around_center_if_not_initialized()
+            number_validation.validate_integer(integer=value)
+            if not isinstance(value, ap.Int):
+                value = ap.Int(value)
+            before_value: ap.Int = self._rotation_around_center
+            self._rotation_around_center = value
+            self._rotation_around_center.\
+                _append_incremental_calc_substitution_expression()
+            self._append_rotation_around_center_update_expression(
+                before_value=before_value)
+
+    def _append_rotation_around_center_update_expression(
+            self, before_value: ap.Int) -> None:
+        """
+        Append the rotation around the center of this instance
+        updating expression.
+
+        Parameters
+        ----------
+        before_value : ap.Int
+            Before updating value.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_rotation_around_center_update_expression,  # noqa
+                locals_=locals(),
+                module_name=__name__, class_=RotationAroundCenterInterface):
+            from apysc._type import value_util
+            before_value_str: str = value_util.get_value_str_for_expression(
+                value=before_value)
+            after_value_str: str = value_util.get_value_str_for_expression(
+                value=self._rotation_around_center)
+            expression: str = (
+                f'{self.variable_name}.rotate(-{before_value_str});'
+                f'\n{self.variable_name}.rotate({after_value_str});'
+            )
+            ap.append_js_expression(expression=expression)
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

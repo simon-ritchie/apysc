@@ -116,3 +116,7 @@ class RotationAroundCenterInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._rotation_around_center._value = \
+            self._rotation_around_center_snapshots[snapshot_name]

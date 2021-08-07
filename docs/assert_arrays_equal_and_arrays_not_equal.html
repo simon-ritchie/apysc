@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>assert_arrays_equal and assert_arrays_not_equal interfaces &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="assert_true and assert_false interfaces" href="assert_true_and_false.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="assert_true_and_false.html" title="assert_true and assert_false interfaces"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">assert_arrays_equal and assert_arrays_not_equal interfaces</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="assert-arrays-equal-and-assert-arrays-not-equal-interfaces">
+<h1>assert_arrays_equal and assert_arrays_not_equal interfaces<a class="headerlink" href="#assert-arrays-equal-and-assert-arrays-not-equal-interfaces" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">assert_arrays_equal</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_arrays_not_equal</span></code> function interfaces.</p>
+<section id="what-interfaces-are-these">
+<h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">assert_arrays_equal</span></code> function interface will assert specified two arrays are equal. Conversely, the <code class="docutils literal notranslate"><span class="pre">assert_arrays_not_equal</span></code> function interface will assert specified two arrays are not equal.</p>
+</section>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="assertion_common_behavior.html"><span class="doc">JavaScript assertion interface common behavior</span></a></p></li>
+</ul>
+</section>
+<section id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p>Both of the <code class="docutils literal notranslate"><span class="pre">assert_arrays_equal</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_arrays_not_equal</span></code> interfaces require the <code class="docutils literal notranslate"><span class="pre">expected</span></code> and <code class="docutils literal notranslate"><span class="pre">actual</span></code> arguments. The <code class="docutils literal notranslate"><span class="pre">msg</span></code> argument is optional.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">expected</span></code> argument can specify a Python built-in <code class="docutils literal notranslate"><span class="pre">list</span></code> value.</p>
+<p>The following example (<code class="docutils literal notranslate"><span class="pre">assert_arrays_equal</span></code> and values are equal) will pass:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+
+<span class="n">arr_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_arrays_equal</span><span class="p">(</span>
+    <span class="n">expected</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">actual</span><span class="o">=</span><span class="n">arr_1</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Values are not equal!&#39;</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;assert_arrays_equal_basic_usage_1/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">assert_arrays_equal</span><span class="p">]</span>
+<span class="n">Expected</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="n">actual</span><span class="p">:</span> <span class="n">arr_2</span>
+</pre></div>
+</div>
+<iframe src="static/assert_arrays_equal_basic_usage_1/index.html" width="0" height="0"></iframe><p>The following example (<code class="docutils literal notranslate"><span class="pre">assert_arrays_equal</span></code> and values are not equal) will fail:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+
+<span class="n">arr_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_arrays_equal</span><span class="p">(</span>
+    <span class="n">expected</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">actual</span><span class="o">=</span><span class="n">arr_1</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Values are not equal!&#39;</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;assert_arrays_equal_basic_usage_2/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[assert_arrays_equal]
+Expected: [1, 2] actual: arr_2
+...
+Assertion failed: Values are not equal!
+</pre></div>
+</div>
+<iframe src="static/assert_arrays_equal_basic_usage_2/index.html" width="0" height="0"></iframe><p>The following example (<code class="docutils literal notranslate"><span class="pre">assert_arrays_not_equal</span></code> and valkues are not equal) will pass:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+
+<span class="n">arr_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_arrays_not_equal</span><span class="p">(</span>
+    <span class="n">expected</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">actual</span><span class="o">=</span><span class="n">arr_1</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Values are equal!&#39;</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;assert_arrays_not_equal_basic_usage_1/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/assert_arrays_not_equal_basic_usage_1/index.html" width="0" height="0"></iframe></section>
+<section id="notes-for-the-assert-equal-and-assert-not-equal-interfaces">
+<h2>Notes for the assert_equal and assert_not_equal interfaces<a class="headerlink" href="#notes-for-the-assert-equal-and-assert-not-equal-interfaces" title="Permalink to this headline">¶</a></h2>
+<p>If an <code class="docutils literal notranslate"><span class="pre">Array</span></code> value is specified to the <code class="docutils literal notranslate"><span class="pre">assert_equal</span></code> or <code class="docutils literal notranslate"><span class="pre">assert_not_equal</span></code> interface <code class="docutils literal notranslate"><span class="pre">actual</span></code>, then the <code class="docutils literal notranslate"><span class="pre">assert_arrays_equal</span></code> or <code class="docutils literal notranslate"><span class="pre">assert_arrays_not_equal</span></code> interfaces will be called instead of the <code class="docutils literal notranslate"><span class="pre">assert_equal</span></code> or <code class="docutils literal notranslate"><span class="pre">assert_not_equal</span></code> interfaces automatically.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+
+<span class="n">arr_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span>
+    <span class="n">expected</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">actual</span><span class="o">=</span><span class="n">arr_1</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Values are equal!&#39;</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;assert_arrays_equal_notes_for_the_assert_equal/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/assert_arrays_equal_notes_for_the_assert_equal/index.html" width="0" height="0"></iframe></section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">assert_arrays_equal and assert_arrays_not_equal interfaces</a><ul>
+<li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#notes-for-the-assert-equal-and-assert-not-equal-interfaces">Notes for the assert_equal and assert_not_equal interfaces</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="assert_true_and_false.html"
+                        title="previous chapter">assert_true and assert_false interfaces</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/assert_arrays_equal_and_arrays_not_equal.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="assert_true_and_false.html" title="assert_true and assert_false interfaces"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">assert_arrays_equal and assert_arrays_not_equal interfaces</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

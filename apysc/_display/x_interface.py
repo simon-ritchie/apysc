@@ -14,7 +14,7 @@ class XInterface(VariableNameInterface, RevertInterface):
 
     def _initialize_x_if_not_initialized(self) -> None:
         """
-        Initialize _x attribute it hasn't been initialized yet.
+        Initialize _x attribute if it hasn't been initialized yet.
         """
         if hasattr(self, '_x'):
             return

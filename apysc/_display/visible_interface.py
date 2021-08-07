@@ -14,7 +14,7 @@ class VisibleInterface(VariableNameInterface, RevertInterface):
 
     def _initialize_visible_if_not_initialized(self) -> None:
         """
-        Initialize _visible attribute it hasn't been initialized yet.
+        Initialize _visible attribute if it hasn't been initialized yet.
         """
         if hasattr(self, '_visible'):
             return

@@ -16,7 +16,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
 
     def _initialize_points_if_not_initialized(self) -> None:
         """
-        Initialize _points attribute it hasn't been initialized yet.
+        Initialize _points attribute if it hasn't been initialized yet.
         """
         if hasattr(self, '_points'):
             return

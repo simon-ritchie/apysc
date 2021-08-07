@@ -15,7 +15,7 @@ class LineAlphaInterface(VariableNameInterface, RevertInterface):
 
     def _initialize_line_alpha_if_not_initialized(self) -> None:
         """
-        Initialize _line_alpha attribute it hasn't been initialized yet.
+        Initialize _line_alpha attribute if it hasn't been initialized yet.
         """
         if hasattr(self, '_line_alpha'):
             return

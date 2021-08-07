@@ -15,7 +15,7 @@ class HeightInterface(VariableNameInterface, RevertInterface):
 
     def _initialize_height_if_not_initialized(self) -> None:
         """
-        Initialize _height attribute it hasn't been initialized yet.
+        Initialize _height attribute if it hasn't been initialized yet.
         """
         if hasattr(self, '_height'):
             return

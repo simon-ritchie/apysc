@@ -82,7 +82,7 @@ class BeginFillInterface(RevertInterface):
 
     def _initialize_fill_color_if_not_initialized(self) -> None:
         """
-        Initialize fill_color attribute it hasn't been initialized yet.
+        Initialize fill_color attribute if it hasn't been initialized yet.
         """
         if hasattr(self, '_fill_color'):
             return
@@ -109,7 +109,7 @@ class BeginFillInterface(RevertInterface):
 
     def _initialize_fill_alpha_if_not_initialized(self) -> None:
         """
-        Initialize fill_alpha attribute it hasn't been initialized yet.
+        Initialize fill_alpha attribute if it hasn't been initialized yet.
         """
         if hasattr(self, '_fill_alpha'):
             return

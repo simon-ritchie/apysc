@@ -45,7 +45,7 @@ class ChildInterface(RevertInterface):
 
     def _initialize_children_if_not_initialized(self) -> None:
         """
-        Initialize _children attribute it hasn't been initialized yet.
+        Initialize _children attribute if it hasn't been initialized yet.
         """
         if hasattr(self, '_children'):
             return

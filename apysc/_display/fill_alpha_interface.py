@@ -16,7 +16,7 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
 
     def _initialize_fill_alpha_if_not_initialized(self) -> None:
         """
-        Initialize _fill_alpha attribute it hasn't been initialized yet.
+        Initialize _fill_alpha attribute if it hasn't been initialized yet.
         """
         if hasattr(self, '_fill_alpha'):
             return

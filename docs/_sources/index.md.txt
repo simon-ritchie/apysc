@@ -176,6 +176,7 @@ The `Graphics` class handles each vector graphics drawing.
 **Testing**
 
 - [JavaScript assertion interface common behavior](assertion_common_behavior.md)
-- [Assert equal and assert not equal interface](assert_equal_and_not_equal.md)
+- [Assert equal and assert not equal interfaces](assert_equal_and_not_equal.md)
+- [Assert true and assert false interfaces](assert_true_and_false.md)
 
 ---

@@ -31,6 +31,11 @@ class RotationAroundCenterInterface(VariableNameInterface, RevertInterface):
         -------
         rotation_around_center : Int
             Rotation value around the center of this instance.
+
+        References
+        ----------
+        - GraphicsBase rotation_around_center interface
+            - https://bit.ly/3AjeSPr
         """
         with ap.DebugInfo(
                 callable_='rotation_around_center', locals_=locals(),
@@ -48,6 +53,11 @@ class RotationAroundCenterInterface(VariableNameInterface, RevertInterface):
         ----------
         value : int or Int
             Rotation value around the center of this instance.
+
+        References
+        ----------
+        - GraphicsBase rotation_around_center interface
+            - https://bit.ly/3AjeSPr
         """
         with ap.DebugInfo(
                 callable_='rotation_around_center', locals_=locals(),

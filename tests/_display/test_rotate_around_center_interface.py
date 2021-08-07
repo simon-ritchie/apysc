@@ -2,7 +2,7 @@ from random import randint
 
 from retrying import retry
 
-from apysc._display.rotate_around_center_interface import \
+from apysc._display.rotation_around_center_interface import \
     RotateAroundCenterInterface
 from apysc._expression import expression_file_util
 

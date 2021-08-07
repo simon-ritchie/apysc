@@ -1,4 +1,5 @@
-"""Class implementation for the rotate_around_center interface.
+"""Class implementation for the rotation_around_center_interface
+interface.
 """
 
 from typing import Union

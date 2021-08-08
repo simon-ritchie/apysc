@@ -47,6 +47,7 @@ class TestScaleYFromCenterInterface:
         expected: str = (
             f'{interface.variable_name}.scale(1, 1 / {num_1.variable_name});'
             f'\n{interface.variable_name}.scale(1, {num_2.variable_name});'
+            f'\n{num_1.variable_name} = {num_2.variable_name};'
         )
         assert expected in expression
 

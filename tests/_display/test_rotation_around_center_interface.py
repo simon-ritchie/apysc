@@ -52,6 +52,7 @@ class TestRotationAroundCenterInterface:
         expected: str = (
             f'{interface.variable_name}.rotate(-{int_1.variable_name});'
             f'\n{interface.variable_name}.rotate({int_2.variable_name});'
+            f'\n{int_1.variable_name} = {int_2.variable_name};'
         )
         assert expected in expression
 

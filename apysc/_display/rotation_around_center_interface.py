@@ -95,6 +95,7 @@ class RotationAroundCenterInterface(VariableNameInterface, RevertInterface):
             expression: str = (
                 f'{self.variable_name}.rotate(-{before_value_str});'
                 f'\n{self.variable_name}.rotate({after_value_str});'
+                f'\n{before_value_str} = {after_value_str};'
             )
             ap.append_js_expression(expression=expression)
 

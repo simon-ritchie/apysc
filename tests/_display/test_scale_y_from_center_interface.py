@@ -35,6 +35,9 @@ class TestScaleYFromCenterInterface:
         interface.scale_y_from_center = ap.Number(0.5)
         assert interface.scale_y_from_center == 0.5
 
+        interface.scale_y_from_center = 0.3  # type: ignore
+        assert interface.scale_y_from_center == 0.3
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_scale_y_from_center_update_expression(self) -> None:
         expression_file_util.empty_expression_dir()

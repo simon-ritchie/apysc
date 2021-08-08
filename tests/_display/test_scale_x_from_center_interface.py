@@ -2,6 +2,7 @@ from random import randint
 
 from retrying import retry
 
+import apysc as ap
 from apysc._display.scale_x_from_center_interface import \
     ScaleXFromCenterInterface
 
@@ -29,5 +30,8 @@ class TestScaleXFromCenterInterface:
     def test_scale_x_from_center(self) -> None:
         interface: _TestInterface = _TestInterface()
         assert interface.scale_x_from_center == 1.0
-        interface._scale_x_from_center._value = 0.5
+        interface.scale_x_from_center = ap.Number(0.5)
         assert interface.scale_x_from_center == 0.5
+
+        interface.scale_x_from_center = 0.3  # type: ignore
+        assert interface.scale_x_from_center == 0.3

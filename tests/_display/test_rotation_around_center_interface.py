@@ -37,6 +37,9 @@ class TestRotationAroundCenterInterface:
         interface.rotation_around_center = ap.Int(10)
         assert interface.rotation_around_center == 10
 
+        interface.rotation_around_center = 20  # type: ignore
+        assert interface.rotation_around_center == 20
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_rotation_around_center_update_expression(self) -> None:
         expression_file_util.empty_expression_dir()

@@ -1,8 +1,8 @@
-"""The test project for the ScaleXFromCenterInterface class.
+"""The test project for the ScaleYFromCenterInterface class.
 
 Command examples:
-$ python test_projects/ScaleXFromCenterInterface/main.py
-$ python ScaleXFromCenterInterface/main.py
+$ python test_projects/ScaleYFromCenterInterface/main.py
+$ python ScaleYFromCenterInterface/main.py
 """
 
 import sys
@@ -36,12 +36,12 @@ def main() -> None:
     sprite.graphics.begin_fill(color='#0af')
     rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
-    rectangle_1.scale_x_from_center = ap.Number(0.5)
+    rectangle_1.scale_y_from_center = ap.Number(0.5)
 
     rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
         x=150, y=50, width=50, height=50)
-    rectangle_2.scale_x_from_center = ap.Number(0.5)
-    rectangle_2.scale_x_from_center = ap.Number(1)
+    rectangle_2.scale_y_from_center = ap.Number(0.5)
+    rectangle_2.scale_y_from_center = ap.Number(1)
 
     rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
         x=250, y=50, width=50, height=50)
@@ -72,8 +72,8 @@ def on_timer_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options['rectangle']
-    scale_x_from_center: ap.Number = rectangle.scale_x_from_center
-    rectangle.scale_x_from_center = scale_x_from_center - 0.01
+    scale_y_from_center: ap.Number = rectangle.scale_y_from_center
+    rectangle.scale_y_from_center = scale_y_from_center - 0.01
 
 
 def on_timer_2(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
@@ -88,7 +88,7 @@ def on_timer_2(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options['rectangle']
-    rectangle.scale_x_from_center -= 0.01
+    rectangle.scale_y_from_center -= 0.01
 
 
 if __name__ == '__main__':

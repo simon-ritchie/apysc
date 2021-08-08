@@ -102,6 +102,7 @@ class ScaleYFromCenterInterface(VariableNameInterface, RevertInterface):
             self._scale_y_from_center_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
+        self._initialize_scale_y_from_center_if_not_initialized()
         self._scale_y_from_center_snapshots[snapshot_name] = \
             self._scale_y_from_center._value
 

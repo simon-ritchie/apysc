@@ -28,7 +28,12 @@ div.body h6 {
     margin-top: 30px;
 }
 
-/* Document horizontal line style settings */
+/* Document horizontal line style settings. */
 hr {
     border: 1px solid #555;
+}
+
+/* Change the sidemenu setting to be scrollable. */
+div.sphinxsidebar {
+    position: absolute !important;
 }

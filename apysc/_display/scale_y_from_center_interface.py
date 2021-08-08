@@ -30,6 +30,11 @@ class ScaleYFromCenterInterface(VariableNameInterface, RevertInterface):
         -------
         scale_y_from_center : ap.Number
             Scale-y value from the center of this instance.
+
+        References
+        ----------
+        - GraphicsBase scale_x_from_center and scale_y_from_center interfaces
+            - https://bit.ly/3ityoCX
         """
         with ap.DebugInfo(
                 callable_='scale_y_from_center', locals_=locals(),
@@ -47,6 +52,11 @@ class ScaleYFromCenterInterface(VariableNameInterface, RevertInterface):
         ----------
         value : ap.Number
             Scale-y value from the center of this instance.
+
+        References
+        ----------
+        - GraphicsBase scale_x_from_center and scale_y_from_center interfaces
+            - https://bit.ly/3ityoCX
         """
         with ap.DebugInfo(
                 callable_='scale_y_from_center', locals_=locals(),

@@ -38,6 +38,26 @@ class ScaleYFromCenterInterface(VariableNameInterface, RevertInterface):
             self._initialize_scale_y_from_center_if_not_initialized()
             return value_util.get_copy(value=self._scale_y_from_center)
 
+    @scale_y_from_center.setter
+    def scale_y_from_center(self, value: ap.Number) -> None:
+        """
+        Update a scale-y value from the center of this instance.
+
+        Parameters
+        ----------
+        value : ap.Number
+            Scale-y value from the center of this instance.
+        """
+        with ap.DebugInfo(
+                callable_='scale_y_from_center', locals_=locals(),
+                module_name=__name__, class_=ScaleYFromCenterInterface):
+            from apysc._validation import number_validation
+            self._initialize_scale_y_from_center_if_not_initialized()
+            number_validation.validate_num(num=value)
+            if not isinstance(value, ap.Number):
+                value = ap.Number(value)
+            self._scale_y_from_center = value
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make a value's snapshot.

@@ -87,6 +87,8 @@ class ScaleYFromCenterInterface(VariableNameInterface, RevertInterface):
             )
             ap.append_js_expression(expression=expression)
 
+    _scale_y_from_center_snapshots: Dict[str, float]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
@@ -96,6 +98,12 @@ class ScaleYFromCenterInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not hasattr(self, '_scale_y_from_center_snapshots'):
+            self._scale_y_from_center_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._scale_y_from_center_snapshots[snapshot_name] = \
+            self._scale_y_from_center._value
 
     def _revert(self, snapshot_name: str) -> None:
         """

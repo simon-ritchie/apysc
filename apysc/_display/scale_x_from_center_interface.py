@@ -84,6 +84,7 @@ class ScaleXFromCenterInterface(VariableNameInterface, RevertInterface):
             expression: str = (
                 f'{self.variable_name}.scale(1 / {before_value_str}, 1);'
                 f'\n{self.variable_name}.scale({after_value_str}, 1);'
+                f'\n{before_value_str} = {after_value_str};'
             )
             ap.append_js_expression(expression=expression)
 

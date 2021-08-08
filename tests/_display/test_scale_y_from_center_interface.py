@@ -1,4 +1,3 @@
-from apysc._expression import expression_file_util
 from random import randint
 
 from retrying import retry
@@ -6,6 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._display.scale_y_from_center_interface import \
     ScaleYFromCenterInterface
+from apysc._expression import expression_file_util
 
 
 class _TestInterface(ScaleYFromCenterInterface):

@@ -63,3 +63,17 @@ class TestScaleXFromCenterInterface:
         interface.scale_x_from_center = ap.Number(0.3)
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface._scale_x_from_center_snapshots[snapshot_name] == 0.5
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__revert(self) -> None:
+        interface: _TestInterface = _TestInterface()
+        interface.scale_x_from_center = ap.Number(0.5)
+        snapshot_name: str = interface._get_next_snapshot_name()
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        interface.scale_x_from_center = ap.Number(0.3)
+        interface._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert interface.scale_x_from_center == 0.5
+
+        interface.scale_x_from_center = ap.Number(0.3)
+        interface._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert interface.scale_x_from_center == 0.3

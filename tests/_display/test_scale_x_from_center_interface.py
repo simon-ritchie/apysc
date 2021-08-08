@@ -1,3 +1,4 @@
+from apysc._expression import expression_file_util
 from random import randint
 
 from retrying import retry
@@ -24,6 +25,7 @@ class TestScaleXFromCenterInterface:
         interface._initialize_scale_x_from_center_if_not_initialized()
         assert interface._scale_x_from_center == 1.0
         interface._scale_x_from_center._value = 0.5
+        interface._initialize_scale_x_from_center_if_not_initialized()
         assert interface._scale_x_from_center == 0.5
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -35,3 +37,18 @@ class TestScaleXFromCenterInterface:
 
         interface.scale_x_from_center = 0.3  # type: ignore
         assert interface.scale_x_from_center == 0.3
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_scale_x_from_center_update_expression(self) -> None:
+        expression_file_util.empty_expression_dir()
+        interface: _TestInterface = _TestInterface()
+        num_1: ap.Number = ap.Number(0.5)
+        num_2: ap.Number = ap.Number(0.3)
+        interface.scale_x_from_center = num_1
+        interface.scale_x_from_center = num_2
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface.variable_name}.scale(1 / {num_1.variable_name}, 1);'
+            f'\n{interface.variable_name}.scale({num_2.variable_name}, 1);'
+        )
+        assert expected in expression

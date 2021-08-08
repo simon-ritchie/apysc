@@ -21,6 +21,23 @@ class ScaleYFromCenterInterface(VariableNameInterface, RevertInterface):
             return
         self._scale_y_from_center = ap.Number(1.0)
 
+    @property
+    def scale_y_from_center(self) -> ap.Number:
+        """
+        Get a scale-y value from the center of this instance.
+
+        Returns
+        -------
+        scale_y_from_center : ap.Number
+            Scale-y value from the center of this instance.
+        """
+        with ap.DebugInfo(
+                callable_='scale_y_from_center', locals_=locals(),
+                module_name=__name__, class_=ScaleYFromCenterInterface):
+            from apysc._type import value_util
+            self._initialize_scale_y_from_center_if_not_initialized()
+            return value_util.get_copy(value=self._scale_y_from_center)
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make a value's snapshot.

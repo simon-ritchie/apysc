@@ -25,3 +25,10 @@ class TestScaleYFromCenterInterface:
         interface._scale_y_from_center._value = 0.5
         interface._initialize_scale_y_from_center_if_not_initialized()
         assert interface._scale_y_from_center == 0.5
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_scale_y_from_center(self) -> None:
+        interface: _TestInterface = _TestInterface()
+        assert interface.scale_y_from_center == 1.0
+        interface._scale_y_from_center._value = 0.5
+        assert interface.scale_y_from_center == 0.5

@@ -114,3 +114,7 @@ class ScaleYFromCenterInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._scale_y_from_center._value = \
+            self._scale_y_from_center_snapshots[snapshot_name]

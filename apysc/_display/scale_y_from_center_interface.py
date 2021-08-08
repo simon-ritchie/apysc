@@ -56,7 +56,36 @@ class ScaleYFromCenterInterface(VariableNameInterface, RevertInterface):
             number_validation.validate_num(num=value)
             if not isinstance(value, ap.Number):
                 value = ap.Number(value)
+            before_value: ap.Number = self._scale_y_from_center
             self._scale_y_from_center = value
+            self._append_scale_y_from_center_update_expression(
+                before_value=before_value)
+
+    def _append_scale_y_from_center_update_expression(
+            self, before_value: ap.Number) -> None:
+        """
+        Append the scale-y from the center of this instance
+        updating expression.
+
+        Parameters
+        ----------
+        before_value : ap.Number
+            Before updating value.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_scale_y_from_center_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=ScaleYFromCenterInterface):
+            from apysc._type import value_util
+            before_value_str: str = value_util.get_value_str_for_expression(
+                value=before_value)
+            after_value_str: str = value_util.get_value_str_for_expression(
+                value=self._scale_y_from_center)
+            expression: str = (
+                f'{self.variable_name}.scale(1, 1 / {before_value_str});'
+                f'\n{self.variable_name}.scale(1, {after_value_str});'
+            )
+            ap.append_js_expression(expression=expression)
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

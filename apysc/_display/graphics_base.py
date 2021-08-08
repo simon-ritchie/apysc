@@ -10,13 +10,15 @@ from apysc._display.rotate_around_point_interface import \
     RotateAroundPointInterface
 from apysc._display.rotation_around_center_interface import \
     RotationAroundCenterInterface
+from apysc._display.scale_x_from_center_interface import \
+    ScaleXFromCenterInterface
 
 _Graphics = Any
 
 
 class GraphicsBase(
         DisplayObject, RotationAroundCenterInterface,
-        RotateAroundPointInterface):
+        RotateAroundPointInterface, ScaleXFromCenterInterface):
 
     _variable_name: str
 

@@ -14,7 +14,7 @@ from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 Key = Union[str, int, float, ap.String, ap.Int, ap.Number]
-DefaultType = TypeVar('DefaultType')
+DefaultType = TypeVar('DefaultType', bound=VariableNameInterface)
 
 
 class Dictionary(
@@ -544,7 +544,8 @@ class Dictionary(
         key : Key
             Target key.
         default : DefaultType
-            Any default value.
+            Any default value. Basically apysc types (e.g., Int, Number,
+            String, and so on) are necessary.
 
         Returns
         -------
@@ -555,4 +556,39 @@ class Dictionary(
             result_value: Any = self._value[key]
         else:
             result_value = default
+        self._append_get_expression(
+            key=key, result_value=result_value, default=default)
         return result_value
+
+    def _append_get_expression(
+            self, key: Key, result_value: Any,
+            default: VariableNameInterface) -> None:
+        """
+        Append the `get` method expression to the file.
+
+        Parameters
+        ----------
+        key : Key
+            Target key.
+        result_value : Any
+            Extracted value or a default value.
+        default : DefaultType
+            Any default value. Basically apysc types (e.g., Int, Number,
+            String, and so on) are necessary.
+        """
+        from apysc._type import value_util
+        key_str: str = value_util.get_value_str_for_expression(value=key)
+        if not isinstance(result_value, VariableNameInterface):
+            result_value = ap.AnyValue(value=0)
+        result_value_str: str = value_util.get_value_str_for_expression(
+            value=result_value)
+        default_value_str: str = value_util.get_value_str_for_expression(
+            value=default)
+        expression: str = (
+            f'if ({key_str} in {self.variable_name}) {{'
+            f'\n  {result_value_str} = {self.variable_name}[{key_str}];'
+            '\n}else {'
+            f'\n  {result_value_str} = {default_value_str};'
+            '\n}'
+        )
+        ap.append_js_expression(expression=expression)

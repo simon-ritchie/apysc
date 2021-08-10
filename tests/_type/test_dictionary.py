@@ -328,3 +328,24 @@ class TestDictionary:
         assert result_value == int_1
         result_value = dict_1.get('b', default=int_2)
         assert result_value == int_2
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_get_expression(self) -> None:
+        expression_file_util.empty_expression_dir()
+        int_1: ap.Int = ap.Int(20)
+        dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
+        _: Any = dict_1.get('a', default=int_1)
+        expression: str = expression_file_util.get_current_expression()
+        expected_patterns: List[str] = [
+            rf'if \("a" in {dict_1.variable_name}\) {{',
+            rf'\n  {var_names.ANY}\_.+? = {dict_1.variable_name}\["a"\];',
+            r'\n}else {',
+            rf'\n  {var_names.ANY}\_.+? = {int_1.variable_name};'
+            r'\n}'
+        ]
+        for expected_pattern in expected_patterns:
+            match: Optional[Match] = re.search(
+                pattern=expected_pattern, string=expression,
+                flags=re.MULTILINE)
+            assert match is not None, \
+                f'pattern: {expected_pattern}, \n{expression}'

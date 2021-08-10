@@ -1,7 +1,6 @@
 """Class implementation for the scale_x_from_point interface.
 """
 
-from typing import Dict, Union
 
 import apysc as ap
 from apysc._type.revert_interface import RevertInterface

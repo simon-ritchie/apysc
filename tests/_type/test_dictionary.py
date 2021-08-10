@@ -318,3 +318,13 @@ class TestDictionary:
 
         result = dict_1 != {'a': 10}
         assert not result
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_get(self) -> None:
+        int_1: ap.Int = ap.Int(10)
+        int_2: ap.Int = ap.Int(20)
+        dict_1: ap.Dictionary = ap.Dictionary({'a': int_1})
+        result_value: ap.Int = dict_1.get('a', default=int_2)
+        assert result_value == int_1
+        result_value = dict_1.get('b', default=int_2)
+        assert result_value == int_2

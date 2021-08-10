@@ -4,6 +4,7 @@
 from typing import Any
 from typing import Dict
 from typing import Union
+from typing import TypeVar
 
 import apysc as ap
 from apysc._event.custom_event_interface import CustomEventInterface
@@ -13,6 +14,7 @@ from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 Key = Union[str, int, float, ap.String, ap.Int, ap.Number]
+DefaultType = TypeVar('DefaultType')
 
 
 class Dictionary(
@@ -531,3 +533,26 @@ class Dictionary(
                 f'!_.isEqual({self.variable_name}, {other.variable_name});'
             )
             ap.append_js_expression(expression=expression)
+
+    def get(self, key: Key, default: DefaultType) -> DefaultType:
+        """
+        Get a specified key dictionary value. If this dictionary
+        hasn't a specified key, then a default value will be returned.
+
+        Parameters
+        ----------
+        key : Key
+            Target key.
+        default : DefaultType
+            Any default value.
+
+        Returns
+        -------
+        result_value : Any
+            Extracted value or a default value.
+        """
+        if key in self._value:
+            result_value: Any = self._value[key]
+        else:
+            result_value = default
+        return result_value

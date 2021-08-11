@@ -52,7 +52,7 @@ def get_value_str_for_expression(value: Any) -> str:
         values_str = _get_value_str_from_dict(value=value)
         return values_str
     if value is None:
-        return 'undefined'
+        return 'null'
     return str(value)
 
 

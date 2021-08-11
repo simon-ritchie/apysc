@@ -36,7 +36,7 @@ def test_get_value_str_for_expression() -> None:
     assert value_str == '{"key_1": 10}'
 
     value_str = value_util.get_value_str_for_expression(value=None)
-    assert value_str == 'NaN'
+    assert value_str == 'undefined'
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

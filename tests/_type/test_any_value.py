@@ -39,7 +39,7 @@ class TestAnyValue:
         any_value_3 = ap.AnyValue(None)
         expression = expression_file_util.get_current_expression()
         expected = (
-            f'var {any_value_3.variable_name} = NaN;'
+            f'var {any_value_3.variable_name} = undefined;'
         )
         assert expected in expression
 

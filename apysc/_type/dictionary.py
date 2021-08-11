@@ -1,7 +1,7 @@
 """Class implementation for dictionary.
 """
 
-from typing import Any
+from typing import Any, Optional
 from typing import Dict
 from typing import TypeVar
 from typing import Union
@@ -14,7 +14,7 @@ from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 Key = Union[str, int, float, ap.String, ap.Int, ap.Number]
-DefaultType = TypeVar('DefaultType', bound=VariableNameInterface)
+DefaultType = TypeVar('DefaultType')
 
 
 class Dictionary(
@@ -534,7 +534,7 @@ class Dictionary(
             )
             ap.append_js_expression(expression=expression)
 
-    def get(self, key: Key, default: DefaultType) -> DefaultType:
+    def get(self, key: Key, default: DefaultType = None) -> DefaultType:
         """
         Get a specified key dictionary value. If this dictionary
         hasn't a specified key, then a default value will be returned.
@@ -543,9 +543,8 @@ class Dictionary(
         ----------
         key : Key
             Target key.
-        default : DefaultType
-            Any default value. Basically apysc types (e.g., Int, Number,
-            String, and so on) are necessary.
+        default : DefaultType or None, optional
+            Any default value.
 
         Returns
         -------
@@ -562,7 +561,7 @@ class Dictionary(
 
     def _append_get_expression(
             self, key: Key, result_value: Any,
-            default: VariableNameInterface) -> None:
+            default: Any) -> None:
         """
         Append the `get` method expression to the file.
 
@@ -572,14 +571,14 @@ class Dictionary(
             Target key.
         result_value : Any
             Extracted value or a default value.
-        default : DefaultType
+        default : Any
             Any default value. Basically apysc types (e.g., Int, Number,
             String, and so on) are necessary.
         """
         from apysc._type import value_util
         key_str: str = value_util.get_value_str_for_expression(value=key)
         if not isinstance(result_value, VariableNameInterface):
-            result_value = ap.AnyValue(value=0)
+            result_value = ap.AnyValue(value=None)
         result_value_str: str = value_util.get_value_str_for_expression(
             value=result_value)
         default_value_str: str = value_util.get_value_str_for_expression(

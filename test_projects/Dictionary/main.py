@@ -80,12 +80,16 @@ def main() -> None:
     int_2: ap.Int = ap.Int(20)
     int_3: ap.Int = ap.Int(30)
     dict_8: ap.Dictionary = ap.Dictionary({'a': int_2})
-    got_val: ap.Int = dict_8.get('a', default=int_3)
-    ap.assert_equal(expected=20, actual=got_val)
-    got_val = dict_8.get('b', int_3)
-    ap.assert_equal(expected=30, actual=got_val)
+    got_val_1: ap.Int = dict_8.get('a', default=int_3)
+    ap.assert_equal(expected=20, actual=got_val_1)
+    got_val_1 = dict_8.get('b', int_3)
+    ap.assert_equal(expected=30, actual=got_val_1)
+    got_val_2: None = dict_8.get('c', None)
+    ap.assert_equal(expected=None, actual=got_val_2)
+    got_val_3: int = dict_8.get('d', 40)
+    ap.assert_equal(expected=40, actual=got_val_3)
 
-    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
 def on_stage_click(e: ap.MouseEvent, options: Dict[str, Any]) -> None:

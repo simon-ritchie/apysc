@@ -1,7 +1,7 @@
 """Class implementation for dictionary.
 """
 
-from typing import Any, Optional
+from typing import Any
 from typing import Dict
 from typing import TypeVar
 from typing import Union

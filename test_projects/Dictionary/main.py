@@ -77,6 +77,14 @@ def main() -> None:
     result = dict_5 != {'a': 20}
     ap.assert_true(result)
 
+    int_2: ap.Int = ap.Int(20)
+    int_3: ap.Int = ap.Int(30)
+    dict_8: ap.Dictionary = ap.Dictionary({'a': int_2})
+    got_val: ap.Int = dict_8.get('a', default=int_3)
+    ap.assert_equal(expected=20, actual=got_val)
+    got_val = dict_8.get('b', int_3)
+    ap.assert_equal(expected=30, actual=got_val)
+
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 

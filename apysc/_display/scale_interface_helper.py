@@ -1,0 +1,36 @@
+"""Helper interfaces for the scale interfaces.
+"""
+
+from typing import Union
+
+import apysc as ap
+
+
+def get_point_key_for_expression(
+        x: Union[int, ap.Int], y: Union[int, ap.Int]) -> str:
+    """
+    Get a key string for the expression from the x and y coordinates.
+
+    Parameters
+    ----------
+    x : int or Int
+        X-coordinate.
+    y : int or Int
+        Y-coordinate.
+
+    Returns
+    -------
+    key_expression : str
+        Key string expression.
+    """
+    from apysc._type.variable_name_interface import VariableNameInterface
+    if isinstance(x, VariableNameInterface):
+        x_str: str = x.variable_name
+    else:
+        x_str = str(x)
+    if isinstance(y, VariableNameInterface):
+        y_str: str = y.variable_name
+    else:
+        y_str = str(y)
+    key_expression: str = f'String({x_str}) + "_" + String({y_str})'
+    return key_expression

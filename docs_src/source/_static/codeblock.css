@@ -21,7 +21,8 @@
 }
 
 /* Override None or other value style. */
-.highlight .kc {
+.highlight .kc,
+.highlight .ow {
     color: #0088c3 !important;
 }
 

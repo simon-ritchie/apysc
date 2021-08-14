@@ -25,6 +25,18 @@ class ExpressionString(RevertInterface):
 
     _value_snapshots: Dict[str, str]
 
+    @property
+    def value(self) -> str:
+        """
+        Get a expression string.
+
+        Returns
+        -------
+        value : str
+            A expression string.
+        """
+        return self._value
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make a value's snapshot.

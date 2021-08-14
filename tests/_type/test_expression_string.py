@@ -35,3 +35,8 @@ class TestExpressionString:
         exp_str._value = 'World!'
         exp_str._run_all_revert_methods(snapshot_name=snapshot_name)
         assert exp_str._value == 'World!'
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_value(self) -> None:
+        exp_str: ExpressionString = ExpressionString(value='Hello!')
+        assert exp_str.value == 'Hello!'

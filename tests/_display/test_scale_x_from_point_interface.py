@@ -95,3 +95,19 @@ class TestScaleXFromPointInterface:
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface._scale_x_from_point_snapshots[snapshot_name] == {
             key_exp_str.value: 0.5}
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__revert(self) -> None:
+        interface: _TestInterface = _TestInterface()
+        x: ap.Int = ap.Int(100)
+        y: ap.Int = ap.Int(200)
+        interface.set_scale_x_from_point(scale_x=ap.Number(0.5), x=x, y=y)
+        snapshot_name: str = interface._get_next_snapshot_name()
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        interface.set_scale_x_from_point(scale_x=ap.Number(0.3), x=x, y=y)
+        interface._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert interface.get_scale_x_from_point(x=x, y=y) == 0.5
+
+        interface.set_scale_x_from_point(scale_x=ap.Number(0.3), x=x, y=y)
+        interface._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert interface.get_scale_x_from_point(x=x, y=y) == 0.3

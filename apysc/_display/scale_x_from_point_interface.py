@@ -84,7 +84,50 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             self._initialize_scale_x_from_point_if_not_initialized()
             key_exp_str: ExpressionString = scale_interface_helper.\
                 get_point_key_for_expression(x=x, y=y)
-            self._scale_x_from_point[key_exp_str] = scale_x
+            before_value: ap.Number = self._scale_x_from_point[
+                key_exp_str.value]
+            self._scale_x_from_point._value[key_exp_str.value] = scale_x
+            self._append_scale_x_from_point_update_expression(
+                before_value=before_value, x=x, y=y)
+
+    def _append_scale_x_from_point_update_expression(
+            self, before_value: ap.Number, x: ap.Int, y: ap.Int) -> None:
+        """
+        Append the scale-x from the specified point updating expression.
+
+        Parameters
+        ----------
+        before_value : ap.Number
+            Before updating value.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_scale_x_from_point_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=ScaleXFromPointInterface):
+            from apysc._type import value_util
+            from apysc._display import scale_interface_helper
+            from apysc._type.expression_string import ExpressionString
+            before_value_str: str = value_util.get_value_str_for_expression(
+                value=before_value)
+            key_exp_str: ExpressionString = scale_interface_helper.\
+                get_point_key_for_expression(x=x, y=y)
+            after_value_str: str = value_util.get_value_str_for_expression(
+                value=self._scale_x_from_point._value[key_exp_str.value])
+            x_value_str: str = value_util.get_value_str_for_expression(
+                value=x)
+            y_value_str: str = value_util.get_value_str_for_expression(
+                value=y)
+            scale_x_from_point_value_str: str = value_util.\
+                get_value_str_for_expression(value=self._scale_x_from_point)
+            expression: str = (
+                f'{self.variable_name}.scale(1 / {before_value_str}, '
+                f'1, {x_value_str}, {y_value_str});'
+                f'\n{self.variable_name}.scale({after_value_str}, '
+                f'1, {x_value_str}, {y_value_str});'
+                f'\n{scale_x_from_point_value_str}[{key_exp_str}] = '
+                f'{after_value_str};'
+            )
+            ap.append_js_expression(expression=expression)
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

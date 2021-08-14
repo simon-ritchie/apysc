@@ -1,3 +1,4 @@
+from apysc._expression import expression_file_util
 from apysc._type.expression_string import ExpressionString
 from random import randint
 
@@ -56,3 +57,23 @@ class TestScaleXFromPointInterface:
             scale_x=ap.Number(0.5), x=x, y=y)
         scale_x: ap.Number = interface.get_scale_x_from_point(x=x, y=y)
         assert scale_x == 0.5
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_scale_x_from_point_update_expression(self) -> None:
+        expression_file_util.empty_expression_dir()
+        x: ap.Int = ap.Int(100)
+        y: ap.Int = ap.Int(200)
+        scale_x_1: ap.Number = ap.Number(0.5)
+        scale_x_2: ap.Number = ap.Number(0.3)
+        interface: _TestInterface = _TestInterface()
+        interface.set_scale_x_from_point(scale_x=scale_x_1, x=x, y=y)
+        interface.set_scale_x_from_point(scale_x=scale_x_2, x=x, y=y)
+        expression: str = expression_file_util.get_current_expression()
+        expected: str = (
+            f'{interface.variable_name}.scale(1 / {scale_x_1.variable_name}, '
+            f'1, {x.variable_name}, {y.variable_name});'
+            f'\n{interface.variable_name}.scale({scale_x_2.variable_name}, '
+            f'1, {x.variable_name}, {y.variable_name});'
+            f'\n'
+        )
+        assert expected in expression

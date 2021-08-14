@@ -12,6 +12,7 @@ import apysc as ap
 from apysc._expression import expression_file_util
 from apysc._expression import var_names
 from apysc._type.any_value import AnyValue
+from apysc._type.expression_string import ExpressionString
 from tests.testing_helper import assert_raises
 
 
@@ -236,6 +237,10 @@ class TestDictionary:
         assert isinstance(key, int)
         assert key == 20
 
+        key = ExpressionString(value='a')
+        key = dict_1._get_builtin_type_key(key=key)
+        assert key == 'a'
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___delitem__(self) -> None:
         dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
@@ -328,6 +333,10 @@ class TestDictionary:
         assert result_value == int_1
         result_value = dict_1.get('b', default=int_2)
         assert result_value == int_2
+
+        exp_str: ExpressionString = ExpressionString(value='a')
+        result_value = dict_1.get(key=exp_str, default=int_2)
+        assert result_value == int_1
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_get_expression(self) -> None:

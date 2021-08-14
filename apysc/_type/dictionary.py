@@ -12,8 +12,9 @@ from apysc._type.copy_interface import CopyInterface
 from apysc._type.dictionary_structure import DictionaryStructure
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.expression_string import ExpressionString
 
-Key = Union[str, int, float, ap.String, ap.Int, ap.Number]
+Key = Union[str, int, float, ap.String, ap.Int, ap.Number, ExpressionString]
 DefaultType = TypeVar('DefaultType')
 
 
@@ -312,6 +313,8 @@ class Dictionary(
         key : str or int or float
             Built-in type's key.
         """
+        if isinstance(key, ExpressionString):
+            return key.value
         if isinstance(key, (ap.String, ap.Int, ap.Number)):
             return key._value
         return key
@@ -551,8 +554,9 @@ class Dictionary(
         result_value : Any
             Extracted value or a default value.
         """
-        if key in self._value:
-            result_value: Any = self._value[key]
+        key_: Key = self._get_builtin_type_key(key=key)
+        if key_ in self._value:
+            result_value: Any = self._value[key_]
         else:
             result_value = default
         self._append_get_expression(

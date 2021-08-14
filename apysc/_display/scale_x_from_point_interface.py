@@ -46,14 +46,12 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             self._initialize_scale_x_from_point_if_not_initialized()
             default_val: ap.Number = ap.Number(1.0)
             key_exp_str: ExpressionString = scale_interface_helper.\
-                get_point_key_for_expression(coordinate=int(x._value))
+                get_coordinate_key_for_expression(coordinate=int(x._value))
             scale_x: ap.Number = self._scale_x_from_point.get(
                 key=key_exp_str, default=default_val)
             return scale_x
 
-    def set_scale_x_from_point(
-            self, scale_x: ap.Number,
-            x: ap.Int) -> None:
+    def set_scale_x_from_point(self, scale_x: ap.Number, x: ap.Int) -> None:
         """
         Update a scale-x value from the given x-coordinate.
 
@@ -73,7 +71,7 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             number_validation.validate_integer(integer=x)
             self._initialize_scale_x_from_point_if_not_initialized()
             key_exp_str: ExpressionString = scale_interface_helper.\
-                get_point_key_for_expression(coordinate=int(x._value))
+                get_coordinate_key_for_expression(coordinate=int(x._value))
             self._scale_x_from_point._value[key_exp_str.value] = scale_x
             self._append_scale_x_from_point_update_expression(
                 x=x)
@@ -100,9 +98,9 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             before_value_name: str = expression_variables_util.\
                 get_next_variable_name(type_name=var_names.NUMBER)
             key_exp_str_1: ExpressionString = scale_interface_helper.\
-                get_point_key_for_expression(coordinate=x)
+                get_coordinate_key_for_expression(coordinate=x)
             key_exp_str_2: ExpressionString = scale_interface_helper.\
-                get_point_key_for_expression(coordinate=int(x._value))
+                get_coordinate_key_for_expression(coordinate=int(x._value))
             after_value_str: str = value_util.get_value_str_for_expression(
                 value=self._scale_x_from_point._value[key_exp_str_2.value])
             x_value_str: str = value_util.get_value_str_for_expression(

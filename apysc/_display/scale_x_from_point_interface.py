@@ -130,7 +130,7 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             )
             ap.append_js_expression(expression=expression)
 
-    _scale_x_from_point_snapshots: Dict[str, Dict[Any, Any]]
+    _scale_x_from_point_snapshots: Dict[str, Dict[str, Any]]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

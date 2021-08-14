@@ -49,3 +49,6 @@ class ExpressionString(RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._value = self._value_snapshots[snapshot_name]

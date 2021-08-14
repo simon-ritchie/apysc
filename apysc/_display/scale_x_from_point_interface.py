@@ -1,6 +1,5 @@
-"""Class implementation for the scale_x_from_point interface.
+"""Class implementation for the scale_x_from_point interfaces.
 """
-
 
 from typing import Any
 from typing import Dict
@@ -17,7 +16,7 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
 
     def _initialize_scale_x_from_point_if_not_initialized(self) -> None:
         """
-        Initialize the `_scale_x_from_points` attribute if it hasn't been
+        Initialize the `_scale_x_from_point` attribute if it hasn't been
         initialized_yet.
         """
         if hasattr(self, '_scale_x_from_point'):

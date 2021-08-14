@@ -64,6 +64,7 @@ The HTML and JavaScript exporting interfaces.
 - [Array class index of interface](array_index_of.md)
 - [Array class comparison interfaces](array_comparison.md)
 - [Dictionary class](dictionary.md)
+- [Dictionary class generic type settings](dictionary_generic.md)
 - [Dictionary class get interface](dictionary_get.md)
 - [Dictionary class length interface](dictionary_length.md)
 - [Point2D class](point2d.md)

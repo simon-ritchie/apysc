@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Dictionary class generic type settings &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Dictionary get interface" href="dictionary_get.html" />
+    <link rel="prev" title="Dictionary" href="dictionary.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="dictionary_get.html" title="Dictionary get interface"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="dictionary.html" title="Dictionary"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Dictionary class generic type settings</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="dictionary-class-generic-type-settings">
+<h1>Dictionary class generic type settings<a class="headerlink" href="#dictionary-class-generic-type-settings" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> class key and value’s generic type settings.</p>
+<section id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p>You can specify the key and value’s type at the <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> type-annotation, as follows:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">dict_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
+<span class="n">a_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>These generic type-annotations will sometimes be useful for the types checking with the mypy, Pylance, or other libraries, and enhance the safety.</p>
+<p>For example, the following code will be an error of value’s type when checking with the Pylance:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">dict_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
+<span class="n">a_value</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Expression</span> <span class="n">of</span> <span class="nb">type</span> <span class="s2">&quot;int&quot;</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">assigned</span> <span class="n">to</span> <span class="n">declared</span> <span class="nb">type</span> <span class="s2">&quot;str&quot;</span>
+  <span class="s2">&quot;int&quot;</span> <span class="ow">is</span> <span class="n">incompatible</span> <span class="k">with</span> <span class="s2">&quot;str&quot;</span>
+</pre></div>
+</div>
+<p>Also, the following code will be an error of key’s type (<code class="docutils literal notranslate"><span class="pre">str</span></code> is required but <code class="docutils literal notranslate"><span class="pre">int</span></code> is specified):</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">dict_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
+<span class="n">a_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>If you need to use multiple types and type checking, then use the <code class="docutils literal notranslate"><span class="pre">Union</span></code> (alternatively use the <code class="docutils literal notranslate"><span class="pre">|</span></code> symbol, if you are using Python 3.10 or later) or <code class="docutils literal notranslate"><span class="pre">Any</span></code> type, as follows:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="c1"># Accepting the str and int key types.</span>
+<span class="n">dict_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span>
+    <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">20</span><span class="p">})</span>
+<span class="n">a_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
+<span class="n">b_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="c1"># Accepting all types by specifying the Any type.</span>
+<span class="n">dict_value</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span>
+    <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">})</span>
+<span class="n">a_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
+<span class="n">b_value</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Dictionary class generic type settings</a><ul>
+<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="dictionary.html"
+                        title="previous chapter">Dictionary</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="dictionary_get.html"
+                        title="next chapter">Dictionary get interface</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/dictionary_generic.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="dictionary_get.html" title="Dictionary get interface"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="dictionary.html" title="Dictionary"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Dictionary class generic type settings</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

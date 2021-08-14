@@ -51,9 +51,7 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
                 key=key_exp_str, default=default_val)
             return scale_x
 
-    def set_scale_x_from_point(
-            self, scale_x: ap.Number,
-            x: ap.Int) -> None:
+    def set_scale_x_from_point(self, scale_x: ap.Number, x: ap.Int) -> None:
         """
         Update a scale-x value from the given x-coordinate.
 

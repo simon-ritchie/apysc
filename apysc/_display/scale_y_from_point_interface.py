@@ -46,7 +46,7 @@ class ScaleYFromPointInterface(VariableNameInterface, RevertInterface):
             self._initialize_scale_y_from_point_if_not_initialized()
             default_val: ap.Number = ap.Number(1.0)
             key_exp_str: ExpressionString = scale_interface_helper.\
-                get_point_key_for_expression(coordinate=int(y._value))
+                get_coordinate_key_for_expression(coordinate=int(y._value))
             scale_y: ap.Number = self._scale_y_from_point.get(
                 key=key_exp_str, default=default_val)
             return scale_y

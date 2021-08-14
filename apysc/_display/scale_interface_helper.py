@@ -7,10 +7,10 @@ import apysc as ap
 from apysc._type.expression_string import ExpressionString
 
 
-def get_point_key_for_expression(
+def get_coordinate_key_for_expression(
         coordinate: Union[int, ap.Int]) -> ExpressionString:
     """
-    Get a key string for the expression from the x and y coordinates.
+    Get a key string for the expression from the x or y coordinate.
 
     Parameters
     ----------

@@ -4,10 +4,11 @@
 from typing import Union
 
 import apysc as ap
+from apysc._type.expression_string import ExpressionString
 
 
 def get_point_key_for_expression(
-        x: Union[int, ap.Int], y: Union[int, ap.Int]) -> str:
+        x: Union[int, ap.Int], y: Union[int, ap.Int]) -> ExpressionString:
     """
     Get a key string for the expression from the x and y coordinates.
 
@@ -20,8 +21,8 @@ def get_point_key_for_expression(
 
     Returns
     -------
-    key_expression : str
-        Key string expression.
+    key_exp_str : ExpressionString
+        Key expression string.
     """
     from apysc._type.variable_name_interface import VariableNameInterface
     if isinstance(x, VariableNameInterface):
@@ -32,5 +33,6 @@ def get_point_key_for_expression(
         y_str: str = y.variable_name
     else:
         y_str = str(y)
-    key_expression: str = f'String({x_str}) + "_" + String({y_str})'
-    return key_expression
+    key_exp_str: ExpressionString = ExpressionString(
+        value=f'String({x_str}) + "_" + String({y_str})')
+    return key_exp_str

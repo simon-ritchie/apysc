@@ -184,7 +184,7 @@ class TestDictionary:
     def test__append_getitem_expression(self) -> None:
         expression_file_util.empty_expression_dir()
         int_1: ap.Int = ap.Int(20)
-        dict_1: ap.Dictionary = ap.Dictionary({'a': 10, 'b': int_1})
+        dict_1: ap.Dictionary[Any, Any] = ap.Dictionary({'a': 10, 'b': int_1})
         _: Any = dict_1['a']
         expression: str = expression_file_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -206,7 +206,7 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___setitem__(self) -> None:
-        dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
+        dict_1: ap.Dictionary[Any, Any] = ap.Dictionary({'a': 10})
         dict_1['b'] = 20
         assert dict_1['b'] == 20
 
@@ -217,7 +217,7 @@ class TestDictionary:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_setitem_expression(self) -> None:
         expression_file_util.empty_expression_dir()
-        dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
+        dict_1: ap.Dictionary[Any, Any] = ap.Dictionary({'a': 10})
         string_1: ap.String = ap.String('b')
         dict_1[string_1] = 20
         expression: str = expression_file_util.get_current_expression()
@@ -243,7 +243,7 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___delitem__(self) -> None:
-        dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
+        dict_1: ap.Dictionary[Any, Any] = ap.Dictionary({'a': 10})
         string_1: ap.String = ap.String('a')
         del dict_1[string_1]
         assert dict_1.value == {}
@@ -251,7 +251,7 @@ class TestDictionary:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_delitem_expression(self) -> None:
         expression_file_util.empty_expression_dir()
-        dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
+        dict_1: ap.Dictionary[Any, Any] = ap.Dictionary({'a': 10})
         string_1: ap.String = ap.String('a')
         del dict_1[string_1]
         expression: str = expression_file_util.get_current_expression()
@@ -328,7 +328,7 @@ class TestDictionary:
     def test_get(self) -> None:
         int_1: ap.Int = ap.Int(10)
         int_2: ap.Int = ap.Int(20)
-        dict_1: ap.Dictionary = ap.Dictionary({'a': int_1})
+        dict_1: ap.Dictionary[Any, Any] = ap.Dictionary({'a': int_1})
         result_value: ap.Int = dict_1.get('a', default=int_2)
         assert result_value == int_1
         result_value = dict_1.get('b', default=int_2)

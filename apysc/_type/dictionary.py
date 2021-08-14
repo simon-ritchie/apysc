@@ -5,6 +5,8 @@ from typing import Any
 from typing import Dict
 from typing import TypeVar
 from typing import Union
+from typing import TypeVar
+from typing import Generic
 
 import apysc as ap
 from apysc._event.custom_event_interface import CustomEventInterface
@@ -14,21 +16,25 @@ from apysc._type.expression_string import ExpressionString
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
-Key = Union[str, int, float, ap.String, ap.Int, ap.Number, ExpressionString]
 DefaultType = TypeVar('DefaultType')
+
+_K = TypeVar(
+    '_K', str, int, float, ap.String, ap.Int, ap.Number, ExpressionString)
+_V = TypeVar('_V')
 
 
 class Dictionary(
+        Generic[_K, _V],
         CopyInterface, RevertInterface, DictionaryStructure,
         CustomEventInterface):
     """
     Dictionary class for the apysc library.
     """
 
-    _initial_value: Union[Dict[Key, Any], Any]
-    _value: Dict[Key, Any]
+    _initial_value: Union[Dict[_K, _V], Any]
+    _value: Dict[_K, _V]
 
-    def __init__(self, value: Union[Dict[Key, Any], Any]) -> None:
+    def __init__(self, value: Union[Dict[_K, _V], Any]) -> None:
         """
         Dictionary class for the apysc library.
 
@@ -70,7 +76,7 @@ class Dictionary(
             ap.append_js_expression(expression=expression)
 
     def _get_dict_value(
-            self, value: Union[Dict[Key, Any], Any]) -> Dict[Any, Any]:
+            self, value: Union[Dict[_K,_V], Any]) -> Dict[_K, _V]:
         """
         Get a dict value from specified value.
 
@@ -89,7 +95,7 @@ class Dictionary(
         return value
 
     def _validate_acceptable_value_type(
-            self, value: Union[Dict[Key, Any], Any]) -> None:
+            self, value: Union[Dict[_K, _V], Any]) -> None:
         """
         Validate that specified value is acceptable type or not.
 
@@ -112,7 +118,7 @@ class Dictionary(
         )
 
     @property
-    def value(self) -> Union[Dict[Key, Any], Any]:
+    def value(self) -> Union[Dict[_K, _V], Any]:
         """
         Get a current dict value.
 
@@ -129,7 +135,7 @@ class Dictionary(
         return self._value
 
     @value.setter
-    def value(self, value: Union[Dict[Key, Any], Any]) -> None:
+    def value(self, value: Union[Dict[_K, _V], Any]) -> None:
         """
         Set dictionary value.
 
@@ -151,7 +157,7 @@ class Dictionary(
             self._append_value_setter_expression(value=value)
 
     def _append_value_setter_expression(
-            self, value: Union[Dict[Key, Any], Any]) -> None:
+            self, value: Union[Dict[_K, _V], Any]) -> None:
         """
         Append value's setter expression to file.
 
@@ -170,7 +176,7 @@ class Dictionary(
             expression: str = f'{self.variable_name} = {value_str};'
             ap.append_js_expression(expression=expression)
 
-    _value_snapshot: Dict[str, Dict[Key, Any]]
+    _value_snapshot: Dict[str, Dict[_K, _V]]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
@@ -271,7 +277,7 @@ class Dictionary(
             'Dictionary instance can\'t apply len function.'
             ' Please use length property instead.')
 
-    def __getitem__(self, key: Key) -> Any:
+    def __getitem__(self, key: _K) -> _V:
         """
         Get a specified key's single value.
 
@@ -289,7 +295,7 @@ class Dictionary(
                 callable_='__getitem__', locals_=locals(),
                 module_name=__name__, class_=Dictionary):
             self._validate_key_type_is_str_or_numeric(key=key)
-            key_: Key = self._get_builtin_type_key(key=key)
+            key_: _K = self._get_builtin_type_key(key=key)
             has_key: bool = key_ in self._value
             if has_key:
                 value: Any = self._value[key_]
@@ -298,7 +304,7 @@ class Dictionary(
             self._append_getitem_expression(key=key, value=value)
             return value
 
-    def _get_builtin_type_key(self, key: Key) -> Key:
+    def _get_builtin_type_key(self, key: _K) -> _K:
         """
         Get a built-in type's key (str, int, or float) from
         a specified key.
@@ -319,7 +325,7 @@ class Dictionary(
             return key._value
         return key
 
-    def _append_getitem_expression(self, key: Key, value: Any) -> None:
+    def _append_getitem_expression(self, key: _K, value: Any) -> None:
         """
         Append __getitem__ expression to file.
 
@@ -343,7 +349,7 @@ class Dictionary(
             )
             ap.append_js_expression(expression=expression)
 
-    def _validate_key_type_is_str_or_numeric(self, key: Key) -> None:
+    def _validate_key_type_is_str_or_numeric(self, key: _K) -> None:
         """
         Validate whether key value type is acceptable (str or int or
         flaot) or not.
@@ -364,7 +370,7 @@ class Dictionary(
             f'Unsupported key type is specified: {type(key)}, {key}'
             f'\nSuppoting types are: str, String, int, Int')
 
-    def __setitem__(self, key: Key, value: Any) -> None:
+    def __setitem__(self, key: _K, value: _V) -> None:
         """
         Set value to a specified key position.
 
@@ -378,11 +384,11 @@ class Dictionary(
         with ap.DebugInfo(
                 callable_='__setitem__', locals_=locals(),
                 module_name=__name__, class_=Dictionary):
-            key_: Key = self._get_builtin_type_key(key=key)
+            key_: _K = self._get_builtin_type_key(key=key)
             self._value[key_] = value
             self._append_setitem_expression(key=key, value=value)
 
-    def _append_setitem_expression(self, key: Key, value: Any) -> None:
+    def _append_setitem_expression(self, key: _K, value: _V) -> None:
         """
         Append __setitem__ method expression to file.
 
@@ -405,7 +411,7 @@ class Dictionary(
             )
             ap.append_js_expression(expression=expression)
 
-    def __delitem__(self, key: Key) -> None:
+    def __delitem__(self, key: _K) -> None:
         """
         Delete specified key's value from dictionary.
 
@@ -417,12 +423,12 @@ class Dictionary(
         with ap.DebugInfo(
                 callable_='__delitem__', locals_=locals(),
                 module_name=__name__, class_=Dictionary):
-            key_: Key = self._get_builtin_type_key(key=key)
+            key_: _K = self._get_builtin_type_key(key=key)
             if key_ in self._value:
                 del self._value[key_]
             self._append_delitem_expression(key=key)
 
-    def _append_delitem_expression(self, key: Key) -> None:
+    def _append_delitem_expression(self, key: _K) -> None:
         """
         Append __delitem__ method expression to file.
 
@@ -537,7 +543,7 @@ class Dictionary(
             )
             ap.append_js_expression(expression=expression)
 
-    def get(self, key: Key, default: DefaultType = None) -> DefaultType:
+    def get(self, key: _K, default: DefaultType = None) -> DefaultType:
         """
         Get a specified key dictionary value. If this dictionary
         hasn't a specified key, then a default value will be returned.
@@ -554,7 +560,7 @@ class Dictionary(
         result_value : Any
             Extracted value or a default value.
         """
-        key_: Key = self._get_builtin_type_key(key=key)
+        key_: _K = self._get_builtin_type_key(key=key)
         if key_ in self._value:
             result_value: Any = self._value[key_]
         else:
@@ -564,7 +570,7 @@ class Dictionary(
         return result_value
 
     def _append_get_expression(
-            self, key: Key, result_value: Any,
+            self, key: _K, result_value: Any,
             default: Any) -> None:
         """
         Append the `get` method expression to the file.

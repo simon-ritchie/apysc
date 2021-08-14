@@ -87,14 +87,12 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             key_exp_str: ExpressionString = scale_interface_helper.\
                 get_point_key_for_expression(
                     x=x._value, y=y._value)  # type: ignore
-            before_value: ap.Number = self._scale_x_from_point[
-                key_exp_str.value]
             self._scale_x_from_point._value[key_exp_str.value] = scale_x
             self._append_scale_x_from_point_update_expression(
-                before_value=before_value, x=x, y=y)
+                x=x, y=y)
 
     def _append_scale_x_from_point_update_expression(
-            self, before_value: ap.Number, x: ap.Int, y: ap.Int) -> None:
+            self, x: ap.Int, y: ap.Int) -> None:
         """
         Append the scale-x from the specified point updating expression.
 
@@ -110,8 +108,10 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             from apysc._type import value_util
             from apysc._display import scale_interface_helper
             from apysc._type.expression_string import ExpressionString
-            before_value_str: str = value_util.get_value_str_for_expression(
-                value=before_value)
+            from apysc._expression import expression_variables_util
+            from apysc._expression import var_names
+            before_value_name: str = expression_variables_util.\
+                get_next_variable_name(type_name=var_names.NUMBER)
             key_exp_str_1: ExpressionString = scale_interface_helper.\
                 get_point_key_for_expression(x=x, y=y)
             key_exp_str_2: ExpressionString = scale_interface_helper.\
@@ -126,7 +126,14 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             scale_x_from_point_value_str: str = value_util.\
                 get_value_str_for_expression(value=self._scale_x_from_point)
             expression: str = (
-                f'{self.variable_name}.scale(1 / {before_value_str}, '
+                f'if ({key_exp_str_1.value} in '
+                f'{scale_x_from_point_value_str}) {{'
+                f'\n  var {before_value_name} = '
+                f'{scale_x_from_point_value_str}[{key_exp_str_1.value}];'
+                '\n}else {'
+                f'\n  {before_value_name} = 1.0;'
+                '\n}'
+                f'\n{self.variable_name}.scale(1 / {before_value_name}, '
                 f'1, {x_value_str}, {y_value_str});'
                 f'\n{self.variable_name}.scale({after_value_str}, '
                 f'1, {x_value_str}, {y_value_str});'

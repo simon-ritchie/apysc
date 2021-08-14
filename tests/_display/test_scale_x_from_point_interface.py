@@ -1,10 +1,13 @@
+from typing import List, Match, Optional
 from apysc._expression import expression_file_util
 from apysc._type.expression_string import ExpressionString
 from random import randint
+import re
 
 from retrying import retry
 
 import apysc as ap
+from apysc._expression import var_names
 from apysc._display.scale_x_from_point_interface import \
     ScaleXFromPointInterface
 from apysc._display import scale_interface_helper
@@ -59,7 +62,7 @@ class TestScaleXFromPointInterface:
         scale_x: ap.Number = interface.get_scale_x_from_point(x=x, y=y)
         assert scale_x == 0.5
 
-    # @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_scale_x_from_point_update_expression(self) -> None:
         expression_file_util.empty_expression_dir()
         x: ap.Int = ap.Int(100)
@@ -72,9 +75,25 @@ class TestScaleXFromPointInterface:
         expression: str = expression_file_util.get_current_expression()
         key_exp_str: ExpressionString = scale_interface_helper.\
             get_point_key_for_expression(x=x, y=y)
-        expected: str = (
-            f'{interface.variable_name}.scale(1 / {scale_x_1.variable_name}, '
-            f'1, {x.variable_name}, {y.variable_name});'
+        patterns: List[str] = [
+            rf'if \(.+? in '
+            rf'{interface._scale_x_from_point.variable_name}\) {{',
+            rf'\n  var {var_names.NUMBER}_.+? = '
+            rf'{interface._scale_x_from_point.variable_name}'
+            rf'\[.+?\];',
+            r'\n}else {',
+            rf'\n  {var_names.NUMBER}_.+? = 1.0;',
+            r'\n}',
+            rf'\n{interface.variable_name}'
+            rf'\.scale\(1 / {var_names.NUMBER}_.+?, ',
+        ]
+        for pattern in patterns:
+            match: Optional[Match] = re.search(
+                pattern=pattern,
+                string=expression, flags=re.MULTILINE | re.DOTALL)
+            print(expression)
+            assert match is not None, pattern
+        expected = (
             f'\n{interface.variable_name}.scale({scale_x_2.variable_name}, '
             f'1, {x.variable_name}, {y.variable_name});'
             f'\n{interface._scale_x_from_point.variable_name}'

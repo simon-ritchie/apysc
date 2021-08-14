@@ -27,17 +27,22 @@ class ExpressionString(RevertInterface):
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
-        Make value's snapshot.
+        Make a value's snapshot.
 
         Parameters
         ----------
         snapshot_name : str
             Target snapshot name.
         """
+        if not hasattr(self, '_value_snapshots'):
+            self._value_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._value_snapshots[snapshot_name] = self._value
 
     def _revert(self, snapshot_name: str) -> None:
         """
-        Revert values if snapshot exists.
+        Revert a value if snapshot exists.
 
         Parameters
         ----------

@@ -709,7 +709,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
-        Make value's snapshot.
+        Make a value's snapshot.
 
         Parameters
         ----------
@@ -724,7 +724,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
     def _revert(self, snapshot_name: str) -> None:
         """
-        Revert values if snapshot exists.
+        Revert a value if snapshot exists.
 
         Parameters
         ----------

@@ -6,7 +6,6 @@ from typing import Any
 from typing import Dict
 
 import apysc as ap
-from apysc._type.dictionary import _K
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
@@ -132,7 +131,7 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             )
             ap.append_js_expression(expression=expression)
 
-    _scale_x_from_point_snapshots: Dict[str, Dict[_K, Any]]
+    _scale_x_from_point_snapshots: Dict[str, Dict[Any, Any]]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

@@ -3,10 +3,9 @@
 
 from typing import Any
 from typing import Dict
+from typing import Generic
 from typing import TypeVar
 from typing import Union
-from typing import TypeVar
-from typing import Generic
 
 import apysc as ap
 from apysc._event.custom_event_interface import CustomEventInterface
@@ -18,6 +17,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 DefaultType = TypeVar('DefaultType')
 
+_BuiltinKeys = Union[str, int, float]
 _K = TypeVar(
     '_K', str, int, float, ap.String, ap.Int, ap.Number, ExpressionString)
 _V = TypeVar('_V')
@@ -76,7 +76,7 @@ class Dictionary(
             ap.append_js_expression(expression=expression)
 
     def _get_dict_value(
-            self, value: Union[Dict[_K,_V], Any]) -> Dict[_K, _V]:
+            self, value: Union[Dict[_K, _V], Any]) -> Dict[_K, _V]:
         """
         Get a dict value from specified value.
 
@@ -295,16 +295,16 @@ class Dictionary(
                 callable_='__getitem__', locals_=locals(),
                 module_name=__name__, class_=Dictionary):
             self._validate_key_type_is_str_or_numeric(key=key)
-            key_: _K = self._get_builtin_type_key(key=key)
+            key_: _BuiltinKeys = self._get_builtin_type_key(key=key)
             has_key: bool = key_ in self._value
             if has_key:
-                value: Any = self._value[key_]
+                value: Any = self._value[key_]  # type: ignore
             else:
                 value = ap.AnyValue(None)
             self._append_getitem_expression(key=key, value=value)
             return value
 
-    def _get_builtin_type_key(self, key: _K) -> _K:
+    def _get_builtin_type_key(self, key: _K) -> _BuiltinKeys:
         """
         Get a built-in type's key (str, int, or float) from
         a specified key.
@@ -384,8 +384,8 @@ class Dictionary(
         with ap.DebugInfo(
                 callable_='__setitem__', locals_=locals(),
                 module_name=__name__, class_=Dictionary):
-            key_: _K = self._get_builtin_type_key(key=key)
-            self._value[key_] = value
+            key_: _BuiltinKeys = self._get_builtin_type_key(key=key)
+            self._value[key_] = value  # type: ignore
             self._append_setitem_expression(key=key, value=value)
 
     def _append_setitem_expression(self, key: _K, value: _V) -> None:
@@ -423,9 +423,9 @@ class Dictionary(
         with ap.DebugInfo(
                 callable_='__delitem__', locals_=locals(),
                 module_name=__name__, class_=Dictionary):
-            key_: _K = self._get_builtin_type_key(key=key)
+            key_: _BuiltinKeys = self._get_builtin_type_key(key=key)
             if key_ in self._value:
-                del self._value[key_]
+                del self._value[key_]  # type: ignore
             self._append_delitem_expression(key=key)
 
     def _append_delitem_expression(self, key: _K) -> None:
@@ -560,9 +560,9 @@ class Dictionary(
         result_value : Any
             Extracted value or a default value.
         """
-        key_: _K = self._get_builtin_type_key(key=key)
+        key_: _BuiltinKeys = self._get_builtin_type_key(key=key)
         if key_ in self._value:
-            result_value: Any = self._value[key_]
+            result_value: Any = self._value[key_]  # type: ignore
         else:
             result_value = default
         self._append_get_expression(

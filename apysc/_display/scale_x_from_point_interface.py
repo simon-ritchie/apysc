@@ -23,16 +23,16 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
 
     def get_scale_x_from_point(
             self,
-            x: Union[int, ap.Int],
-            y: Union[int, ap.Int]) -> ap.Number:
+            x: ap.Int,
+            y: ap.Int) -> ap.Number:
         """
         Get a scale-x value from the given point.
 
         Parameters
         ----------
-        x : int or Int
+        x : Int
             X-coordinate.
-        y : int or Int
+        y : Int
             Y-coordinate.
 
         Returns
@@ -44,7 +44,10 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
                 callable_=self.get_scale_x_from_point, locals_=locals(),
                 module_name=__name__, class_=ScaleXFromPointInterface):
             from apysc._display import scale_interface_helper
+            from apysc._validation import number_validation
             from apysc._type.expression_string import ExpressionString
+            number_validation.validate_integer(integer=x)
+            number_validation.validate_integer(integer=y)
             self._initialize_scale_x_from_point_if_not_initialized()
             default_val: ap.Number = ap.Number(1.0)
             key_exp_str: ExpressionString = scale_interface_helper.\
@@ -52,6 +55,36 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             scale_x: ap.Number = self._scale_x_from_point.get(
                 key=key_exp_str, default=default_val)
             return scale_x
+
+    def set_scale_x_from_point(
+            self, scale_x: ap.Number,
+            x: ap.Int,
+            y: ap.Int) -> None:
+        """
+        Update a scale-x value from the given point.
+
+        Parameters
+        ----------
+        scale_x : Number
+            Scale-x value to set.
+        x : Int
+            X-coordinate.
+        y : Int
+            Y-coordinate.
+        """
+        with ap.DebugInfo(
+                callable_=self.set_scale_x_from_point, locals_=locals(),
+                module_name=__name__, class_=ScaleXFromPointInterface):
+            from apysc._display import scale_interface_helper
+            from apysc._validation import number_validation
+            from apysc._type.expression_string import ExpressionString
+            number_validation.validate_num(num=scale_x)
+            number_validation.validate_integer(integer=x)
+            number_validation.validate_integer(integer=y)
+            self._initialize_scale_x_from_point_if_not_initialized()
+            key_exp_str: ExpressionString = scale_interface_helper.\
+                get_point_key_for_expression(x=x, y=y)
+            self._scale_x_from_point[key_exp_str] = scale_x
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

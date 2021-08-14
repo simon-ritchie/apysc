@@ -6,7 +6,7 @@ from typing import Union
 import apysc as ap
 
 
-class LineRoundDotSetting(ap.Dictionary):
+class LineRoundDotSetting(ap.Dictionary[str, ap.Int]):
     """
     Round dot setting class for a line.
 

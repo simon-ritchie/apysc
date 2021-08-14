@@ -6,7 +6,7 @@ from typing import Union
 import apysc as ap
 
 
-class LineDashDotSetting(ap.Dictionary):
+class LineDashDotSetting(ap.Dictionary[str, ap.Int]):
     """
     Dash dot (1-dot chain) setting for a line.
 

@@ -12,8 +12,8 @@ class TestLineRoundDotSetting:
         setting: ap.LineRoundDotSetting = ap.LineRoundDotSetting(
             round_size=20, space_size=10)
         assert setting._value == {
-            'round_size': 20,
-            'space_size': 10,
+            'round_size': ap.Int(20),
+            'space_size': ap.Int(10),
         }
         assert isinstance(setting['round_size'], ap.Int)
         assert isinstance(setting['space_size'], ap.Int)
@@ -21,8 +21,8 @@ class TestLineRoundDotSetting:
         setting = ap.LineRoundDotSetting(
             round_size=ap.Int(20), space_size=ap.Int(10))
         assert setting._value == {
-            'round_size': 20,
-            'space_size': 10,
+            'round_size': ap.Int(20),
+            'space_size': ap.Int(10),
         }
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

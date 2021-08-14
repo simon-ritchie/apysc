@@ -41,8 +41,9 @@ class TestScaleXFromPointInterface:
         assert scale_x == 1.0
         assert isinstance(scale_x, ap.Number)
 
-        key_exp_str = scale_interface_helper.\
-            get_point_key_for_expression(x=x, y=y)
+        key_exp_str: ExpressionString = scale_interface_helper.\
+            get_point_key_for_expression(
+                x=x._value, y=y._value)  # type: ignore
         interface._scale_x_from_point[key_exp_str.value] = ap.Number(0.5)
         scale_x = interface.get_scale_x_from_point(x=x, y=y)
         assert scale_x == 0.5
@@ -58,7 +59,7 @@ class TestScaleXFromPointInterface:
         scale_x: ap.Number = interface.get_scale_x_from_point(x=x, y=y)
         assert scale_x == 0.5
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    # @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_scale_x_from_point_update_expression(self) -> None:
         expression_file_util.empty_expression_dir()
         x: ap.Int = ap.Int(100)
@@ -69,12 +70,15 @@ class TestScaleXFromPointInterface:
         interface.set_scale_x_from_point(scale_x=scale_x_1, x=x, y=y)
         interface.set_scale_x_from_point(scale_x=scale_x_2, x=x, y=y)
         expression: str = expression_file_util.get_current_expression()
+        key_exp_str: ExpressionString = scale_interface_helper.\
+            get_point_key_for_expression(x=x, y=y)
         expected: str = (
             f'{interface.variable_name}.scale(1 / {scale_x_1.variable_name}, '
             f'1, {x.variable_name}, {y.variable_name});'
             f'\n{interface.variable_name}.scale({scale_x_2.variable_name}, '
             f'1, {x.variable_name}, {y.variable_name});'
-            f'\n'
+            f'\n{interface._scale_x_from_point.variable_name}'
+            f'[{key_exp_str.value}] = {scale_x_2.variable_name};'
         )
         assert expected in expression
 
@@ -86,8 +90,9 @@ class TestScaleXFromPointInterface:
         interface.set_scale_x_from_point(scale_x=ap.Number(0.5), x=x, y=y)
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        key_exp_str = scale_interface_helper.\
-            get_point_key_for_expression(x=x, y=y)
+        key_exp_str: ExpressionString = scale_interface_helper.\
+            get_point_key_for_expression(
+                x=x._value, y=y._value)  # type: ignore
         assert interface._scale_x_from_point_snapshots[snapshot_name] == {
             key_exp_str.value: 0.5}
 

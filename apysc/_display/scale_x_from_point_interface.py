@@ -52,7 +52,8 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             self._initialize_scale_x_from_point_if_not_initialized()
             default_val: ap.Number = ap.Number(1.0)
             key_exp_str: ExpressionString = scale_interface_helper.\
-                get_point_key_for_expression(x=x, y=y)
+                get_point_key_for_expression(
+                    x=x._value, y=y._value)  # type: ignore
             scale_x: ap.Number = self._scale_x_from_point.get(
                 key=key_exp_str, default=default_val)
             return scale_x
@@ -84,7 +85,8 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             number_validation.validate_integer(integer=y)
             self._initialize_scale_x_from_point_if_not_initialized()
             key_exp_str: ExpressionString = scale_interface_helper.\
-                get_point_key_for_expression(x=x, y=y)
+                get_point_key_for_expression(
+                    x=x._value, y=y._value)  # type: ignore
             before_value: ap.Number = self._scale_x_from_point[
                 key_exp_str.value]
             self._scale_x_from_point._value[key_exp_str.value] = scale_x
@@ -110,10 +112,13 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             from apysc._type.expression_string import ExpressionString
             before_value_str: str = value_util.get_value_str_for_expression(
                 value=before_value)
-            key_exp_str: ExpressionString = scale_interface_helper.\
+            key_exp_str_1: ExpressionString = scale_interface_helper.\
                 get_point_key_for_expression(x=x, y=y)
+            key_exp_str_2: ExpressionString = scale_interface_helper.\
+                get_point_key_for_expression(
+                    x=x._value, y=y._value)  # type: ignore
             after_value_str: str = value_util.get_value_str_for_expression(
-                value=self._scale_x_from_point._value[key_exp_str.value])
+                value=self._scale_x_from_point._value[key_exp_str_2.value])
             x_value_str: str = value_util.get_value_str_for_expression(
                 value=x)
             y_value_str: str = value_util.get_value_str_for_expression(
@@ -125,7 +130,7 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
                 f'1, {x_value_str}, {y_value_str});'
                 f'\n{self.variable_name}.scale({after_value_str}, '
                 f'1, {x_value_str}, {y_value_str});'
-                f'\n{scale_x_from_point_value_str}[{key_exp_str}] = '
+                f'\n{scale_x_from_point_value_str}[{key_exp_str_1.value}] = '
                 f'{after_value_str};'
             )
             ap.append_js_expression(expression=expression)

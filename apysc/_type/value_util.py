@@ -39,6 +39,9 @@ def get_value_str_for_expression(value: Any) -> str:
         None will be Nan.
     """
     from apysc._type.variable_name_interface import VariableNameInterface
+    from apysc._type.expression_string import ExpressionString
+    if isinstance(value, ExpressionString):
+        return value.value
     if isinstance(value, VariableNameInterface):
         return value.variable_name
     if isinstance(value, bool):

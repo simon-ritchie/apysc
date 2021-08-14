@@ -4,13 +4,18 @@ from retrying import retry
 
 import apysc as ap
 from apysc._type import value_util
+from apysc._type.expression_string import ExpressionString
 from tests.testing_helper import assert_raises
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_value_str_for_expression() -> None:
+    exp_str: ExpressionString = ExpressionString(value='s_1')
+    value_str: str = value_util.get_value_str_for_expression(value=exp_str)
+    assert value_str == 's_1'
+
     int_val: ap.Int = ap.Int(value=10)
-    value_str: str = value_util.get_value_str_for_expression(
+    value_str = value_util.get_value_str_for_expression(
         value=int_val)
     assert value_str == int_val.variable_name
 

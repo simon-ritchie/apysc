@@ -180,6 +180,9 @@ class TestDictionary:
         value = dict_1['c']
         assert isinstance(value, AnyValue)
 
+        exp_str: ExpressionString = ExpressionString(value='a')
+        assert dict_1[exp_str] == 10
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_getitem_expression(self) -> None:
         expression_file_util.empty_expression_dir()
@@ -214,6 +217,10 @@ class TestDictionary:
         dict_1[string_1] = 30
         assert dict_1[string_1] == 30
 
+        exp_str: ExpressionString = ExpressionString(value='a')
+        dict_1[exp_str] = 40
+        assert dict_1[exp_str] == 40
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_setitem_expression(self) -> None:
         expression_file_util.empty_expression_dir()
@@ -246,6 +253,11 @@ class TestDictionary:
         dict_1: ap.Dictionary[Any, Any] = ap.Dictionary({'a': 10})
         string_1: ap.String = ap.String('a')
         del dict_1[string_1]
+        assert dict_1.value == {}
+
+        exp_str: ExpressionString = ExpressionString(value='a')
+        dict_1[exp_str] = 20
+        del dict_1[exp_str]
         assert dict_1.value == {}
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

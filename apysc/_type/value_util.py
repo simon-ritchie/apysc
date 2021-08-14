@@ -38,8 +38,8 @@ def get_value_str_for_expression(value: Any) -> str:
         e.g., '[10, "Hello!", true, any_variable]'.
         None will be Nan.
     """
-    from apysc._type.variable_name_interface import VariableNameInterface
     from apysc._type.expression_string import ExpressionString
+    from apysc._type.variable_name_interface import VariableNameInterface
     if isinstance(value, ExpressionString):
         return value.value
     if isinstance(value, VariableNameInterface):

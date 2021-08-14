@@ -1,16 +1,18 @@
-from typing import List, Match, Optional
-from apysc._expression import expression_file_util
-from apysc._type.expression_string import ExpressionString
-from random import randint
 import re
+from random import randint
+from typing import List
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
 import apysc as ap
-from apysc._expression import var_names
+from apysc._display import scale_interface_helper
 from apysc._display.scale_x_from_point_interface import \
     ScaleXFromPointInterface
-from apysc._display import scale_interface_helper
+from apysc._expression import expression_file_util
+from apysc._expression import var_names
+from apysc._type.expression_string import ExpressionString
 
 
 class _TestInterface(ScaleXFromPointInterface):

@@ -10,9 +10,9 @@ import apysc as ap
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.dictionary_structure import DictionaryStructure
+from apysc._type.expression_string import ExpressionString
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._type.expression_string import ExpressionString
 
 Key = Union[str, int, float, ap.String, ap.Int, ap.Number, ExpressionString]
 DefaultType = TypeVar('DefaultType')

@@ -60,7 +60,6 @@ def on_timer_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
     """
     rectangle: ap.Rectangle = options['rectangle']
     x: ap.Int = ap.Int(50)
-    y: ap.Int = ap.Int(0)
     scale_x: ap.Number = rectangle.get_scale_x_from_point(x=x)
     scale_x += 0.03
     rectangle.set_scale_x_from_point(scale_x=scale_x, x=x)

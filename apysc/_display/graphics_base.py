@@ -12,10 +12,10 @@ from apysc._display.rotation_around_center_interface import \
     RotationAroundCenterInterface
 from apysc._display.scale_x_from_center_interface import \
     ScaleXFromCenterInterface
-from apysc._display.scale_y_from_center_interface import \
-    ScaleYFromCenterInterface
 from apysc._display.scale_x_from_point_interface import \
     ScaleXFromPointInterface
+from apysc._display.scale_y_from_center_interface import \
+    ScaleYFromCenterInterface
 
 _Graphics = Any
 

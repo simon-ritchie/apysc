@@ -42,8 +42,7 @@ def main() -> None:
 
     rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
         x=100, y=150, width=50, height=50)
-    rectangle_2.set_scale_x_from_point(
-        scale_x=ap.Number(2.0), x=ap.Int(150), y=ap.Int(150))
+    rectangle_2.set_scale_x_from_point(scale_x=ap.Number(2.0), x=ap.Int(150))
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
@@ -62,12 +61,12 @@ def on_timer_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
     rectangle: ap.Rectangle = options['rectangle']
     x: ap.Int = ap.Int(50)
     y: ap.Int = ap.Int(0)
-    scale_x: ap.Number = rectangle.get_scale_x_from_point(x=x, y=y)
+    scale_x: ap.Number = rectangle.get_scale_x_from_point(x=x)
     scale_x += 0.03
-    rectangle.set_scale_x_from_point(scale_x=scale_x, x=x, y=y)
+    rectangle.set_scale_x_from_point(scale_x=scale_x, x=x)
 
     with ap.If(scale_x >= 5.0):
-        rectangle.set_scale_x_from_point(scale_x=ap.Number(5.0), x=x, y=y)
+        rectangle.set_scale_x_from_point(scale_x=ap.Number(5.0), x=x)
         e.this.stop()
 
 

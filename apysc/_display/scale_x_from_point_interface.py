@@ -40,10 +40,18 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
         scale_x : ap.Number
             Scale-x value from the given point.
         """
-        self._initialize_scale_x_from_points_if_not_initialized()
-        default_val: ap.Number = ap.Number(1.0)
-        # scale_x: ap.Number = self._scale_x_from_points
-        pass
+        with ap.DebugInfo(
+                callable_=self.get_scale_x_from_points, locals_=locals(),
+                module_name=__name__, class_=ScaleXFromPointInterface):
+            from apysc._display import scale_interface_helper
+            from apysc._type.expression_string import ExpressionString
+            self._initialize_scale_x_from_points_if_not_initialized()
+            default_val: ap.Number = ap.Number(1.0)
+            key_exp_str: ExpressionString = scale_interface_helper.\
+                get_point_key_for_expression(x=x, y=y)
+            scale_x: ap.Number = self._scale_x_from_points.get(
+                key=key_exp_str, default=default_val)
+            return scale_x
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

@@ -23,11 +23,9 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             return
         self._scale_x_from_point = ap.Dictionary({})
 
-    def get_scale_x_from_point(
-            self,
-            x: ap.Int) -> ap.Number:
+    def get_scale_x_from_point(self, x: ap.Int) -> ap.Number:
         """
-        Get a scale-x value from the given point.
+        Get a scale-x value from the given x-coordinate.
 
         Parameters
         ----------
@@ -37,7 +35,7 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
         Returns
         -------
         scale_x : ap.Number
-            Scale-x value from the given point.
+            Scale-x value from the given x-coordinate.
         """
         with ap.DebugInfo(
                 callable_=self.get_scale_x_from_point, locals_=locals(),
@@ -48,8 +46,7 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             self._initialize_scale_x_from_point_if_not_initialized()
             default_val: ap.Number = ap.Number(1.0)
             key_exp_str: ExpressionString = scale_interface_helper.\
-                get_point_key_for_expression(
-                    coordinate=int(x._value))
+                get_point_key_for_expression(coordinate=int(x._value))
             scale_x: ap.Number = self._scale_x_from_point.get(
                 key=key_exp_str, default=default_val)
             return scale_x
@@ -58,7 +55,7 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             self, scale_x: ap.Number,
             x: ap.Int) -> None:
         """
-        Update a scale-x value from the given point.
+        Update a scale-x value from the given x-coordinate.
 
         Parameters
         ----------
@@ -84,7 +81,8 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
     def _append_scale_x_from_point_update_expression(
             self, x: ap.Int) -> None:
         """
-        Append the scale-x from the specified point updating expression.
+        Append the scale-x from the specified x-coordinate updating
+        expression.
 
         Parameters
         ----------

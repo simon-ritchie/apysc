@@ -51,6 +51,29 @@ class ScaleYFromPointInterface(VariableNameInterface, RevertInterface):
                 key=key_exp_str, default=default_val)
             return scale_y
 
+    def set_scale_y_from_point(self, scale_y: ap.Number, y: ap. Int) -> None:
+        """
+        Update a scale-y value from the given y-coordinate.
+
+        Parameters
+        ----------
+        scale_y : Number
+            Scale-y value to set.
+        y : Int
+            Y-coordinate.
+        """
+        with ap.DebugInfo(
+                callable_=self.set_scale_y_from_point, locals_=locals(),
+                module_name=__name__, class_=ScaleYFromPointInterface):
+            from apysc._display import scale_interface_helper
+            from apysc._validation import number_validation
+            number_validation.validate_num(num=scale_y)
+            number_validation.validate_integer(integer=y)
+            self._initialize_scale_y_from_point_if_not_initialized()
+            key_exp_str: ExpressionString = scale_interface_helper.\
+                get_coordinate_key_for_expression(coordinate=int(y._value))
+            self._scale_y_from_point._value[key_exp_str.value] = scale_y
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make a value's snapshot.

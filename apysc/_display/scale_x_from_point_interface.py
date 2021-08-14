@@ -73,8 +73,7 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             key_exp_str: ExpressionString = scale_interface_helper.\
                 get_coordinate_key_for_expression(coordinate=int(x._value))
             self._scale_x_from_point._value[key_exp_str.value] = scale_x
-            self._append_scale_x_from_point_update_expression(
-                x=x)
+            self._append_scale_x_from_point_update_expression(x=x)
 
     def _append_scale_x_from_point_update_expression(
             self, x: ap.Int) -> None:

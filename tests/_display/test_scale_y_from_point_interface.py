@@ -37,7 +37,15 @@ class TestScaleYFromPointInterface:
         assert scale_y == 1.0
 
         key_exp_str: ExpressionString = scale_interface_helper.\
-            get_point_key_for_expression(coordinate=10)
+            get_coordinate_key_for_expression(coordinate=10)
         interface._scale_y_from_point[key_exp_str] = ap.Number(0.5)
         scale_y = interface.get_scale_y_from_point(y=ap.Int(10))
+        assert scale_y == 0.5
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_set_scale_y_from_point(self) -> None:
+        interface: _TestInterface = _TestInterface()
+        interface.set_scale_y_from_point(
+            scale_y=ap.Number(0.5), y=ap.Int(100))
+        scale_y: ap.Number = interface.get_scale_y_from_point(y=ap.Int(100))
         assert scale_y == 0.5

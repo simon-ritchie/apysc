@@ -32,7 +32,7 @@ class TestScaleXFromPointInterface:
         interface: _TestInterface = _TestInterface()
         interface._initialize_scale_x_from_point_if_not_initialized()
         assert interface._scale_x_from_point == {}
-        interface._scale_x_from_point['a'] = 10
+        interface._scale_x_from_point['a'] = ap.Number(10)
         interface._initialize_scale_x_from_point_if_not_initialized()
         assert interface._scale_x_from_point == {'a': 10}
 

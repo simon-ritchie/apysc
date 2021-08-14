@@ -4,15 +4,17 @@
 
 from typing import Any
 from typing import Dict
+from typing import Union
 
 import apysc as ap
+from apysc._type.expression_string import ExpressionString
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
 
-    _scale_x_from_point: ap.Dictionary
+    _scale_x_from_point: ap.Dictionary[str, ap.Number]
 
     def _initialize_scale_x_from_point_if_not_initialized(self) -> None:
         """
@@ -43,7 +45,6 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
                 callable_=self.get_scale_x_from_point, locals_=locals(),
                 module_name=__name__, class_=ScaleXFromPointInterface):
             from apysc._display import scale_interface_helper
-            from apysc._type.expression_string import ExpressionString
             from apysc._validation import number_validation
             number_validation.validate_integer(integer=x)
             self._initialize_scale_x_from_point_if_not_initialized()
@@ -72,7 +73,6 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
                 callable_=self.set_scale_x_from_point, locals_=locals(),
                 module_name=__name__, class_=ScaleXFromPointInterface):
             from apysc._display import scale_interface_helper
-            from apysc._type.expression_string import ExpressionString
             from apysc._validation import number_validation
             number_validation.validate_num(num=scale_x)
             number_validation.validate_integer(integer=x)
@@ -101,7 +101,6 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             from apysc._expression import expression_variables_util
             from apysc._expression import var_names
             from apysc._type import value_util
-            from apysc._type.expression_string import ExpressionString
             before_value_name: str = expression_variables_util.\
                 get_next_variable_name(type_name=var_names.NUMBER)
             key_exp_str_1: ExpressionString = scale_interface_helper.\

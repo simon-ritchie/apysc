@@ -277,13 +277,13 @@ class Dictionary(
             'Dictionary instance can\'t apply len function.'
             ' Please use length property instead.')
 
-    def __getitem__(self, key: _K) -> _V:
+    def __getitem__(self, key: Union[_K, ExpressionString]) -> _V:
         """
         Get a specified key's single value.
 
         Parameters
         ----------
-        key : Key
+        key : _K
             Dictionary key.
 
         Returns
@@ -304,14 +304,15 @@ class Dictionary(
             self._append_getitem_expression(key=key, value=value)
             return value
 
-    def _get_builtin_type_key(self, key: _K) -> _BuiltinKeys:
+    def _get_builtin_type_key(
+            self, key: Union[_K, ExpressionString]) -> _BuiltinKeys:
         """
         Get a built-in type's key (str, int, or float) from
         a specified key.
 
         Parameters
         ----------
-        key : Key
+        key : _K
             Target key value (including String, Int, and Number).
 
         Returns
@@ -325,13 +326,14 @@ class Dictionary(
             return key._value
         return key
 
-    def _append_getitem_expression(self, key: _K, value: Any) -> None:
+    def _append_getitem_expression(
+            self, key: Union[_K, ExpressionString], value: Any) -> None:
         """
         Append __getitem__ expression to file.
 
         Parameters
         ----------
-        key : Key
+        key : _K
             Dictionary key.
         value : *
             Specified key's value.
@@ -349,14 +351,15 @@ class Dictionary(
             )
             ap.append_js_expression(expression=expression)
 
-    def _validate_key_type_is_str_or_numeric(self, key: _K) -> None:
+    def _validate_key_type_is_str_or_numeric(
+            self, key: Union[_K, ExpressionString]) -> None:
         """
         Validate whether key value type is acceptable (str or int or
         flaot) or not.
 
         Parameters
         ----------
-        key : Key
+        key : _K
             Dictionary key to check.
 
         Raises
@@ -364,19 +367,23 @@ class Dictionary(
         ValueError
             If key type is not str, String, int, Int, float, or Number.
         """
-        if isinstance(key, (str, ap.String, int, ap.Int, float, ap.Number)):
+        if isinstance(
+                key,
+                (str, ap.String, int, ap.Int, float, ap.Number,
+                 ExpressionString)):
             return
         raise ValueError(
             f'Unsupported key type is specified: {type(key)}, {key}'
             f'\nSuppoting types are: str, String, int, Int')
 
-    def __setitem__(self, key: _K, value: _V) -> None:
+    def __setitem__(
+            self, key: Union[_K, ExpressionString], value: _V) -> None:
         """
         Set value to a specified key position.
 
         Parameters
         ----------
-        key : Key
+        key : _K
             Dictionary key to set value.
         value : *
             Any value to set.
@@ -388,13 +395,14 @@ class Dictionary(
             self._value[key_] = value  # type: ignore
             self._append_setitem_expression(key=key, value=value)
 
-    def _append_setitem_expression(self, key: _K, value: _V) -> None:
+    def _append_setitem_expression(
+            self, key: Union[_K, ExpressionString], value: _V) -> None:
         """
         Append __setitem__ method expression to file.
 
         Parameters
         ----------
-        key : Key
+        key : _K
             Dictionary key to check.
         value : *
             Any value to set.
@@ -411,13 +419,13 @@ class Dictionary(
             )
             ap.append_js_expression(expression=expression)
 
-    def __delitem__(self, key: _K) -> None:
+    def __delitem__(self, key: Union[_K, ExpressionString]) -> None:
         """
         Delete specified key's value from dictionary.
 
         Parameters
         ----------
-        key : Key
+        key : _K
             Dictionary key to delete.
         """
         with ap.DebugInfo(
@@ -428,13 +436,14 @@ class Dictionary(
                 del self._value[key_]  # type: ignore
             self._append_delitem_expression(key=key)
 
-    def _append_delitem_expression(self, key: _K) -> None:
+    def _append_delitem_expression(
+            self, key: Union[_K, ExpressionString]) -> None:
         """
         Append __delitem__ method expression to file.
 
         Parameters
         ----------
-        key : Key
+        key : _K
             Dictionary key to delete.
         """
         with ap.DebugInfo(
@@ -543,14 +552,16 @@ class Dictionary(
             )
             ap.append_js_expression(expression=expression)
 
-    def get(self, key: _K, default: DefaultType = None) -> DefaultType:
+    def get(
+            self, key: Union[_K, ExpressionString],
+            default: DefaultType = None) -> DefaultType:
         """
         Get a specified key dictionary value. If this dictionary
         hasn't a specified key, then a default value will be returned.
 
         Parameters
         ----------
-        key : Key
+        key : _K
             Target key.
         default : DefaultType or None, optional
             Any default value.
@@ -570,14 +581,15 @@ class Dictionary(
         return result_value
 
     def _append_get_expression(
-            self, key: _K, result_value: Any,
+            self, key: Union[_K, ExpressionString],
+            result_value: Any,
             default: Any) -> None:
         """
         Append the `get` method expression to the file.
 
         Parameters
         ----------
-        key : Key
+        key : _K
             Target key.
         result_value : Any
             Extracted value or a default value.

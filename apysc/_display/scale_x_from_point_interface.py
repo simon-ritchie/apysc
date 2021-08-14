@@ -2,10 +2,11 @@
 """
 
 
-from typing import Union
+from typing import Any, Dict, Union
 import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.dictionary import Key
 
 
 class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
@@ -129,6 +130,8 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             )
             ap.append_js_expression(expression=expression)
 
+    _scale_x_from_point_snapshots: Dict[str, Dict[Key, Any]]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
@@ -138,6 +141,13 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not hasattr(self, '_scale_x_from_point_snapshots'):
+            self._scale_x_from_point_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._initialize_scale_x_from_point_if_not_initialized()
+        self._scale_x_from_point_snapshots[snapshot_name] = {
+            **self._scale_x_from_point._value}
 
     def _revert(self, snapshot_name: str) -> None:
         """

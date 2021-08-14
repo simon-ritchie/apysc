@@ -4,7 +4,6 @@
 
 from typing import Any
 from typing import Dict
-from typing import Union
 
 import apysc as ap
 from apysc._type.expression_string import ExpressionString

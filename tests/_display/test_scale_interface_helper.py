@@ -62,7 +62,6 @@ def test_get_scale_updating_expression() -> None:
         rf'0, {coordinate.variable_name}\);',
         rf'test_interface.scale\(1, {scale_val.variable_name}, '
         rf'0, {coordinate.variable_name}\);',
-        rf'{scale_dict.variable_name}\[.+?\] = {scale_val.variable_name};',
     ]
     for pattern in patterns:
         match: Optional[Match] = re.search(

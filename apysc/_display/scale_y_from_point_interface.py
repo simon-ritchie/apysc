@@ -89,8 +89,14 @@ class ScaleYFromPointInterface(VariableNameInterface, RevertInterface):
         with ap.DebugInfo(
                 callable_=self.set_scale_y_from_point, locals_=locals(),
                 module_name=__name__, class_=ScaleYFromPointInterface):
-            pass
-        pass
+            from apysc._display import scale_interface_helper
+            expression: str
+            expression = scale_interface_helper.get_scale_updating_expression(
+                coordinate=y,
+                scale_dict=self._scale_y_from_point,
+                interface_variable_name=self.variable_name,
+                coordinate_type=scale_interface_helper.CoordinateType.Y)
+            ap.append_js_expression(expression=expression)
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

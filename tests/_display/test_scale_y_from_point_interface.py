@@ -1,4 +1,7 @@
+from typing import List, Match, Optional
+from apysc._expression import expression_file_util
 from random import randint
+import re
 
 from retrying import retry
 
@@ -49,3 +52,23 @@ class TestScaleYFromPointInterface:
             scale_y=ap.Number(0.5), y=ap.Int(100))
         scale_y: ap.Number = interface.get_scale_y_from_point(y=ap.Int(100))
         assert scale_y == 0.5
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_scale_y_from_point_update_expression(self) -> None:
+        expression_file_util.empty_expression_dir()
+        interface: _TestInterface = _TestInterface()
+        scale_y: ap.Number = ap.Number(0.5)
+        y: ap.Int = ap.Int(100)
+        interface.set_scale_y_from_point(scale_y=scale_y, y=y)
+        expression: str = expression_file_util.get_current_expression()
+        patterns: List[str] = [
+            rf'{interface.variable_name}'
+            rf'\.scale\(1, 1 / .+?, 0, {y.variable_name}\);',
+            rf'{interface.variable_name}'
+            rf'.scale\(1, {scale_y.variable_name}, 0, {y.variable_name}\);',
+        ]
+        for pattern in patterns:
+            match: Optional[Match] = re.search(
+                pattern=pattern, string=expression, flags=re.MULTILINE)
+            assert match is not None, (
+                f'expression: {expression}\npattern: {pattern}')

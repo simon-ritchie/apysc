@@ -91,7 +91,8 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
                 locals_=locals(),
                 module_name=__name__, class_=ScaleXFromPointInterface):
             from apysc._display import scale_interface_helper
-            expression:str = scale_interface_helper.get_scale_updating_expression(
+            expression: str
+            expression = scale_interface_helper.get_scale_updating_expression(
                 coordinate=x,
                 scale_dict=self._scale_x_from_point,
                 interface_variable_name=self.variable_name,

@@ -1,4 +1,4 @@
-from typing import List, Match, Optional
+from typing import Dict, List, Match, Optional
 from apysc._expression import expression_file_util
 from random import randint
 import re
@@ -72,3 +72,21 @@ class TestScaleYFromPointInterface:
                 pattern=pattern, string=expression, flags=re.MULTILINE)
             assert match is not None, (
                 f'expression: {expression}\npattern: {pattern}')
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__make_snapshot(self) -> None:
+        interface: _TestInterface = _TestInterface()
+        interface.set_scale_y_from_point(
+            scale_y=ap.Number(0.5), y=ap.Int(100))
+        snapshot_name: str = interface._get_next_snapshot_name()
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        pre_dict: Dict[str, ap.Number] = {
+            **interface._scale_y_from_point._value}
+        assert interface._scale_y_from_point_snapshots == {
+            snapshot_name: pre_dict}
+
+        interface.set_scale_y_from_point(
+            scale_y=ap.Number(0.3), y=ap.Int(100))
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert interface._scale_y_from_point_snapshots == {
+            snapshot_name: pre_dict}

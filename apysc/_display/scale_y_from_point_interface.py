@@ -98,6 +98,8 @@ class ScaleYFromPointInterface(VariableNameInterface, RevertInterface):
                 coordinate_type=scale_interface_helper.CoordinateType.Y)
             ap.append_js_expression(expression=expression)
 
+    _scale_y_from_point_snapshots: Dict[str, Dict[str, Any]]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
@@ -107,6 +109,13 @@ class ScaleYFromPointInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not hasattr(self, '_scale_y_from_point_snapshots'):
+            self._scale_y_from_point_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._initialize_scale_y_from_point_if_not_initialized()
+        self._scale_y_from_point_snapshots[snapshot_name] = {
+            **self._scale_y_from_point._value}
 
     def _revert(self, snapshot_name: str) -> None:
         """

@@ -45,7 +45,7 @@ class TestFillAlphaInterface:
         fill_alpha_interface.variable_name = 'test_fill_alpha_interface'
         expression_file_util.empty_expression_dir()
         fill_alpha_interface._update_fill_alpha_and_skip_appending_exp(
-            value=0.25)
+            value=0.25)  # type: ignore
         assert fill_alpha_interface.fill_alpha == 0.25
         expression: str = expression_file_util.get_current_expression()
         assert 'fill' not in expression

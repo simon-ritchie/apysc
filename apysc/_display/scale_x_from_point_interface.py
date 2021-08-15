@@ -91,36 +91,11 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
                 locals_=locals(),
                 module_name=__name__, class_=ScaleXFromPointInterface):
             from apysc._display import scale_interface_helper
-            from apysc._expression import expression_variables_util
-            from apysc._expression import var_names
-            from apysc._type import value_util
-            before_value_name: str = expression_variables_util.\
-                get_next_variable_name(type_name=var_names.NUMBER)
-            key_exp_str_1: ExpressionString = scale_interface_helper.\
-                get_coordinate_key_for_expression(coordinate=x)
-            key_exp_str_2: ExpressionString = scale_interface_helper.\
-                get_coordinate_key_for_expression(coordinate=int(x._value))
-            after_value_str: str = value_util.get_value_str_for_expression(
-                value=self._scale_x_from_point._value[key_exp_str_2.value])
-            x_value_str: str = value_util.get_value_str_for_expression(
-                value=x)
-            scale_x_from_point_value_str: str = value_util.\
-                get_value_str_for_expression(value=self._scale_x_from_point)
-            expression: str = (
-                f'if ({key_exp_str_1.value} in '
-                f'{scale_x_from_point_value_str}) {{'
-                f'\n  var {before_value_name} = '
-                f'{scale_x_from_point_value_str}[{key_exp_str_1.value}];'
-                '\n}else {'
-                f'\n  {before_value_name} = 1.0;'
-                '\n}'
-                f'\n{self.variable_name}.scale(1 / {before_value_name}, '
-                f'1, {x_value_str}, 0);'
-                f'\n{self.variable_name}.scale({after_value_str}, '
-                f'1, {x_value_str}, 0);'
-                f'\n{scale_x_from_point_value_str}[{key_exp_str_1.value}] = '
-                f'{after_value_str};'
-            )
+            expression:str = scale_interface_helper.get_scale_updating_expression(
+                coordinate=x,
+                scale_dict=self._scale_x_from_point,
+                interface_variable_name=self.variable_name,
+                coordinate_type=scale_interface_helper.CoordinateType.X)
             ap.append_js_expression(expression=expression)
 
     _scale_x_from_point_snapshots: Dict[str, Dict[str, Any]]

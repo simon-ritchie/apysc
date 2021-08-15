@@ -73,6 +73,24 @@ class ScaleYFromPointInterface(VariableNameInterface, RevertInterface):
             key_exp_str: ExpressionString = scale_interface_helper.\
                 get_coordinate_key_for_expression(coordinate=int(y._value))
             self._scale_y_from_point._value[key_exp_str.value] = scale_y
+            self._append_scale_y_from_point_update_expression(y=y)
+
+    def _append_scale_y_from_point_update_expression(
+            self, y: ap.Int) -> None:
+        """
+        Append the scale-y from the specified y-coordinate updating
+        expression.
+
+        Parameters
+        ----------
+        y : Int
+            Y-coordinate.
+        """
+        with ap.DebugInfo(
+                callable_=self.set_scale_y_from_point, locals_=locals(),
+                module_name=__name__, class_=ScaleYFromPointInterface):
+            pass
+        pass
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

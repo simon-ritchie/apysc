@@ -1,8 +1,8 @@
 """Class implementation for copy interface.
 """
 
-from typing import Any
 from copy import deepcopy
+from typing import Any
 
 from apysc._type.type_name_interface import TypeNameInterface
 from apysc._type.variable_name_interface import VariableNameInterface

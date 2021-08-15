@@ -33,7 +33,7 @@ def validate_hex_color_code_format(hex_color_code: StrOrString) -> None:
             f'{type(hex_color_code)}')
 
     if isinstance(hex_color_code, ap.String):
-        value_: str = hex_color_code.value
+        value_: str = hex_color_code._value
     else:
         value_ = hex_color_code
 

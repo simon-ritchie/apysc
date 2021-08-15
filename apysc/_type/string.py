@@ -25,10 +25,10 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         - https://bit.ly/2URRhWL
     """
 
-    _initial_value: Union[str, Any]
+    _initial_value: Union[str, 'String']
     _value: str
 
-    def __init__(self, value: Union[str, Any]) -> None:
+    def __init__(self, value: Union[str, 'String']) -> None:
         """
         String class for apysc library.
 
@@ -81,7 +81,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
                 expression += f'"{self._value}";'
             ap.append_js_expression(expression=expression)
 
-    def _get_str_value(self, value: Union[str, Any]) -> str:
+    def _get_str_value(self, value: Union[str, 'String']) -> str:
         """
         Get a (Python's) str value from specified value.
 
@@ -100,7 +100,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         return value
 
     @property
-    def value(self) -> Union[str, Any]:
+    def value(self) -> Union[str, 'String']:
         """
         Get a current string value.
 
@@ -117,7 +117,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         return self._value
 
     @value.setter
-    def value(self, value: Union[str, Any]) -> None:
+    def value(self, value: Union[str, 'String']) -> None:
         """
         Set string value.
 
@@ -141,7 +141,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self._append_value_setter_expression(value=value)
 
     def _append_value_setter_expression(
-            self, value: Union[str, Any]) -> None:
+            self, value: Union[str, 'String']) -> None:
         """
         Append value's setter expression to file.
 
@@ -162,7 +162,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
                 expression += f'"{value}";'
             ap.append_js_expression(expression=expression)
 
-    def __add__(self, other: Union[str, Any]) -> Any:
+    def __add__(self, other: Union[str, 'String']) -> 'String':
         """
         Method for addition (string concatenation).
 
@@ -183,7 +183,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             from apysc._validation import string_validation
             string_validation.validate_string_type(string=other)
             if isinstance(other, String):
-                value: str = self._value + other.value
+                value: str = self._value + other._value
             else:
                 value = self._value + other
             result: String = self._copy()
@@ -193,7 +193,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
     def _append_addition_expression(
             self, result: VariableNameInterface,
-            other: Union[str, Any]) -> None:
+            other: Union[str, 'String']) -> None:
         """
         Append addition (string concatenation) expression to file.
 
@@ -217,7 +217,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             )
             ap.append_js_expression(expression=expression)
 
-    def __mul__(self, other: Union[int, Any]) -> Any:
+    def __mul__(self, other: Union[int, Any]) -> 'String':
         """
         Method for multiplication (string repetition).
 
@@ -276,7 +276,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             expression += '\n}'
             ap.append_js_expression(expression=expression)
 
-    def __iadd__(self, other: Union[str, Any]) -> Any:
+    def __iadd__(self, other: Union[str, 'String']) -> Any:
         """
         Method for incremental addition (string concatenation).
 

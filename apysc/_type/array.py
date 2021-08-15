@@ -911,7 +911,7 @@ class Array(
                 callable_=self.join, locals_=locals(),
                 module_name=__name__, class_=Array):
             if isinstance(sep, ap.String):
-                sep_: str = sep.value
+                sep_: str = sep._value
             else:
                 sep_ = sep
             values_: List[Any] = [str(value) for value in self._value]

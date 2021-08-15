@@ -31,10 +31,10 @@ class Dictionary(
     Dictionary class for the apysc library.
     """
 
-    _initial_value: Union[Dict[_K, _V], Any]
+    _initial_value: Union[Dict[_K, _V], 'Dictionary']
     _value: Dict[_K, _V]
 
-    def __init__(self, value: Union[Dict[_K, _V], Any]) -> None:
+    def __init__(self, value: Union[Dict[_K, _V], 'Dictionary']) -> None:
         """
         Dictionary class for the apysc library.
 
@@ -76,7 +76,7 @@ class Dictionary(
             ap.append_js_expression(expression=expression)
 
     def _get_dict_value(
-            self, value: Union[Dict[_K, _V], Any]) -> Dict[_K, _V]:
+            self, value: Union[Dict[_K, _V], 'Dictionary']) -> Dict[_K, _V]:
         """
         Get a dict value from specified value.
 
@@ -95,7 +95,7 @@ class Dictionary(
         return value
 
     def _validate_acceptable_value_type(
-            self, value: Union[Dict[_K, _V], Any]) -> None:
+            self, value: Union[Dict[_K, _V], 'Dictionary']) -> None:
         """
         Validate that specified value is acceptable type or not.
 
@@ -118,7 +118,7 @@ class Dictionary(
         )
 
     @property
-    def value(self) -> Union[Dict[_K, _V], Any]:
+    def value(self) -> Union[Dict[_K, _V], 'Dictionary']:
         """
         Get a current dict value.
 
@@ -135,7 +135,7 @@ class Dictionary(
         return self._value
 
     @value.setter
-    def value(self, value: Union[Dict[_K, _V], Any]) -> None:
+    def value(self, value: Union[Dict[_K, _V], 'Dictionary']) -> None:
         """
         Set dictionary value.
 
@@ -157,7 +157,7 @@ class Dictionary(
             self._append_value_setter_expression(value=value)
 
     def _append_value_setter_expression(
-            self, value: Union[Dict[_K, _V], Any]) -> None:
+            self, value: Union[Dict[_K, _V], 'Dictionary']) -> None:
         """
         Append value's setter expression to file.
 

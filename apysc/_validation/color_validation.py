@@ -7,6 +7,7 @@ from typing import TypeVar
 from typing import Union
 
 import apysc as ap
+from apysc._type.number_value_interface import NumberValueInterface
 
 StrOrString = TypeVar('StrOrString', str, ap.String)
 
@@ -53,7 +54,8 @@ def validate_hex_color_code_format(hex_color_code: StrOrString) -> None:
             f'\nSupported characters: {hexdigits}')
 
 
-def validate_alpha_range(alpha: Union[float, ap.Number]) -> None:
+def validate_alpha_range(
+        alpha: Union[float, NumberValueInterface]) -> None:
     """
     Validate specified alpha (opacity) value's range.
 

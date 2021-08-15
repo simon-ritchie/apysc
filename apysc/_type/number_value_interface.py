@@ -10,15 +10,18 @@ from apysc._type.copy_interface import CopyInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
+_NumType = Union[int, float, 'NumberValueInterface']
+
 
 class NumberValueInterface(
         CopyInterface, RevertInterface, CustomEventInterface):
 
-    _initial_value: Union[int, float, Any]
+    _initial_value: _NumType
     _value: Union[int, float]
 
     def __init__(
-            self, value: Union[int, float, Any], type_name: str) -> None:
+            self, value: _NumType,
+            type_name: str) -> None:
         """
         Class for number value interface.
 
@@ -34,7 +37,8 @@ class NumberValueInterface(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=NumberValueInterface):
             from apysc._validation import number_validation
-            number_validation.validate_num(num=value)
+            number_validation.validate_num(
+                num=value)  # type: ignore
             self._initial_value = value
             if isinstance(value, NumberValueInterface):
                 value_ = value._value
@@ -63,7 +67,7 @@ class NumberValueInterface(
             ap.append_js_expression(expression=expression)
 
     @property
-    def value(self) -> Union[int, float, Any]:
+    def value(self) -> _NumType:
         """
         Get a current number value.
 
@@ -80,7 +84,7 @@ class NumberValueInterface(
         return self._value
 
     @value.setter
-    def value(self, value: Union[int, float, Any]) -> None:
+    def value(self, value: _NumType) -> None:
         """
         Set number value.
 
@@ -105,7 +109,7 @@ class NumberValueInterface(
                 self._append_value_setter_expression(value=self._value)
 
     def _set_value_and_skip_expression_appending(
-            self, value: Union[int, float, Any]) -> None:
+            self, value: _NumType) -> None:
         """
         Update value attribute and skip expression appending.
 
@@ -115,7 +119,8 @@ class NumberValueInterface(
             Any number value to set.
         """
         from apysc._validation import number_validation
-        number_validation.validate_num(num=value)
+        number_validation.validate_num(
+            num=value)  # type: ignore
         if isinstance(value, NumberValueInterface):
             value_ = value._value
         else:
@@ -123,7 +128,7 @@ class NumberValueInterface(
         self._value = value_
 
     def _append_value_setter_expression(
-            self, value: Union[int, float, Any]) -> None:
+            self, value: _NumType) -> None:
         """
         Append value's setter expresion to file.
 
@@ -146,7 +151,7 @@ class NumberValueInterface(
             )
             ap.append_js_expression(expression=expression)
 
-    def __add__(self, other: Union[int, float, Any]) -> Any:
+    def __add__(self, other: _NumType) -> Any:
         """
         Method for addition.
 
@@ -165,7 +170,7 @@ class NumberValueInterface(
                 callable_='__add__', locals_=locals(),
                 module_name=__name__, class_=NumberValueInterface):
             if isinstance(other, NumberValueInterface):
-                value: Union[int, float, Any] = self._value + other._value
+                value: _NumType = self._value + other._value
             else:
                 value = self._value + other
             result: NumberValueInterface = self._copy()
@@ -175,7 +180,7 @@ class NumberValueInterface(
 
     def _append_addition_expression(
             self, result: VariableNameInterface,
-            other: Union[int, float, Any]) -> None:
+            other: _NumType) -> None:
         """
         Append addition expression to file.
 
@@ -198,7 +203,7 @@ class NumberValueInterface(
             )
             ap.append_js_expression(expression=expression)
 
-    def __sub__(self, other: Union[int, float, Any]) -> Any:
+    def __sub__(self, other: _NumType) -> Any:
         """
         Method for subtraction.
 
@@ -217,7 +222,7 @@ class NumberValueInterface(
                 callable_='__sub__', locals_=locals(),
                 module_name=__name__, class_=NumberValueInterface):
             if isinstance(other, NumberValueInterface):
-                value: Union[int, float, Any] = self._value - other._value
+                value: _NumType = self._value - other._value
             else:
                 value = self._value - other
             result: NumberValueInterface = self._copy()
@@ -227,7 +232,7 @@ class NumberValueInterface(
 
     def _append_subtraction_expression(
             self, result: VariableNameInterface,
-            other: Union[int, float, Any]) -> None:
+            other: _NumType) -> None:
         """
         Append subtraction expression to file.
 
@@ -251,7 +256,7 @@ class NumberValueInterface(
             )
             ap.append_js_expression(expression=expression)
 
-    def __mul__(self, other: Union[int, float, Any]) -> Any:
+    def __mul__(self, other: _NumType) -> Any:
         """
         Method for multiplication.
 
@@ -270,7 +275,7 @@ class NumberValueInterface(
                 callable_='__mul__', locals_=locals(),
                 module_name=__name__, class_=NumberValueInterface):
             if isinstance(other, NumberValueInterface):
-                value: Union[int, float, Any] = self._value * other._value
+                value: _NumType = self._value * other._value
             else:
                 value = self._value * other
             result: NumberValueInterface = self._copy()
@@ -280,7 +285,7 @@ class NumberValueInterface(
 
     def _append_multiplication_expression(
             self, result: VariableNameInterface,
-            other: Union[int, float, Any]) -> None:
+            other: _NumType) -> None:
         """
         Append multiplication expression to file.
 
@@ -304,7 +309,7 @@ class NumberValueInterface(
             )
             ap.append_js_expression(expression=expression)
 
-    def __truediv__(self, other: Union[int, float, Any]) -> Any:
+    def __truediv__(self, other: _NumType) -> Any:
         """
         Method for true division (return floating point number).
 
@@ -324,7 +329,7 @@ class NumberValueInterface(
                 module_name=__name__, class_=NumberValueInterface):
             result: ap.Number = ap.Number(value=self)
             if isinstance(other, NumberValueInterface):
-                value: Union[int, float, Any] = result._value / other._value
+                value: _NumType = result._value / other._value
             else:
                 value = result._value / other
             result._set_value_and_skip_expression_appending(value=value)
@@ -333,7 +338,7 @@ class NumberValueInterface(
 
     def _append_true_division_expression(
             self, result: VariableNameInterface,
-            other: Union[int, float, Any]) -> None:
+            other: _NumType) -> None:
         """
         Append true division expression to file.
 
@@ -357,7 +362,7 @@ class NumberValueInterface(
             )
             ap.append_js_expression(expression=expression)
 
-    def __floordiv__(self, other: Union[int, float, Any]) -> Any:
+    def __floordiv__(self, other: _NumType) -> Any:
         """
         Method for floor division (return integer).
 
@@ -377,7 +382,7 @@ class NumberValueInterface(
                 module_name=__name__, class_=NumberValueInterface):
             result: ap.Int = ap.Int(value=self)
             if isinstance(other, NumberValueInterface):
-                value: Union[int, float, Any] = self._value // other._value
+                value: _NumType = self._value // other._value
             else:
                 value = self._value // other
             result._set_value_and_skip_expression_appending(value=value)
@@ -386,7 +391,7 @@ class NumberValueInterface(
 
     def _append_floor_division_expression(
             self, result: VariableNameInterface,
-            other: Union[int, float, Any]) -> None:
+            other: _NumType) -> None:
         """
         Append floor division expression to file.
 
@@ -429,7 +434,7 @@ class NumberValueInterface(
                     right_variable_name=self.variable_name)
             self._incremental_calc_prev_name = ''
 
-    def __iadd__(self, other: Union[int, float, Any]) -> Any:
+    def __iadd__(self, other: _NumType) -> Any:
         """
         Method for incremental addition.
 
@@ -456,7 +461,7 @@ class NumberValueInterface(
             result.variable_name = self.variable_name
             return result
 
-    def __isub__(self, other: Union[int, float, Any]) -> Any:
+    def __isub__(self, other: _NumType) -> Any:
         """
         Method for incremental subtraction.
 
@@ -483,7 +488,7 @@ class NumberValueInterface(
             result.variable_name = self.variable_name
             return result
 
-    def __imul__(self, other: Union[int, float, Any]) -> Any:
+    def __imul__(self, other: _NumType) -> Any:
         """
         Method for incremental multiplication.
 
@@ -510,7 +515,7 @@ class NumberValueInterface(
             result.variable_name = self.variable_name
             return result
 
-    def __itruediv__(self, other: Union[int, float, Any]) -> Any:
+    def __itruediv__(self, other: _NumType) -> Any:
         """
         Method for incremental true division.
 
@@ -539,7 +544,7 @@ class NumberValueInterface(
             result.variable_name = self.variable_name
             return result
 
-    def __mod__(self, other: Union[int, float, Any]) -> Any:
+    def __mod__(self, other: _NumType) -> Any:
         """
         Method for the modulo operation.
 
@@ -568,7 +573,7 @@ class NumberValueInterface(
 
     def _append_modulo_expression(
             self, result: VariableNameInterface,
-            other: Union[int, float, Any]) -> None:
+            other: _NumType) -> None:
         """
         Append a module expression to the file.
 

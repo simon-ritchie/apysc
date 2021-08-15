@@ -15,10 +15,11 @@ from typing import Any
 from typing import Union
 
 import apysc as ap
+from apysc._type.number_value_interface import NumberValueInterface
 
 
 def to_int_from_float(
-        int_or_float: Union[int, float, ap.Int, ap.Number]) -> Any:
+        int_or_float: Union[int, float, NumberValueInterface]) -> Any:
     """
     Convert float value to int.
 
@@ -44,7 +45,7 @@ def to_int_from_float(
 
 
 def to_float_from_int(
-        int_or_float: Union[int, float, ap.Int, ap.Number]) -> Any:
+        int_or_float: Union[int, float, NumberValueInterface]) -> Any:
     """
     Convert int value to float.
 

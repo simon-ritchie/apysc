@@ -1,7 +1,6 @@
 """Class implementation of integer.
 """
 
-from typing import Any
 from typing import Union
 
 from apysc._type.number_value_interface import NumberValueInterface
@@ -21,7 +20,8 @@ class Int(NumberValueInterface):
         - https://bit.ly/3zolw6T
     """
 
-    def __init__(self, value: Union[int, float, Any]) -> None:
+    def __init__(
+            self, value: Union[int, float, NumberValueInterface]) -> None:
         """
         Integer class for apysc library.
 
@@ -86,7 +86,7 @@ class Int(NumberValueInterface):
 
     def _set_value_and_skip_expression_appending(
             self,
-            value: Union[int, float, NumberValueInterface, Any]) -> None:
+            value: Union[int, float, NumberValueInterface]) -> None:
         """
         Update value attribute and skip expression appending.
 
@@ -101,7 +101,7 @@ class Int(NumberValueInterface):
         number_validation.validate_num(num=value)  # type: ignore
         if isinstance(value, NumberValueInterface):
             value._value = cast.to_int_from_float(int_or_float=value._value)
-            value_ = value._value
+            value_: Union[int, float, NumberValueInterface] = value._value
         else:
             value = cast.to_int_from_float(int_or_float=value)
             value_ = value

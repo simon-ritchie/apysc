@@ -70,7 +70,7 @@ class ChildInterface(RevertInterface):
                 module_name=__name__, class_=ChildInterface):
             self._initialize_children_if_not_initialized()
             append_expression_of_remove_child(child=child)
-            for child_ in self._children.value:
+            for child_ in self._children.value:  # type: ignore
                 if child_ != child:
                     continue
                 self._children.remove(child)
@@ -239,7 +239,7 @@ class ChildInterface(RevertInterface):
             return
         self._initialize_children_if_not_initialized()
 
-        for child in self._children.value:
+        for child in self._children.value:  # type: ignore
             if not isinstance(child, RevertInterface):
                 continue
             child._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -259,7 +259,7 @@ class ChildInterface(RevertInterface):
             return
         self._children._value = [*self._children_snapshots[snapshot_name]]
 
-        for child in self._children.value:
+        for child in self._children.value:  # type: ignore
             if not isinstance(child, RevertInterface):
                 continue
             child._run_all_revert_methods(snapshot_name=snapshot_name)

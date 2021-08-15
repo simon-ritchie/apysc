@@ -57,7 +57,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         with ap.DebugInfo(
                 callable_='points', locals_=locals(),
                 module_name=__name__, class_=Points2DInterface):
-            for point in value.value:
+            for point in value.value:  # type: ignore
                 if isinstance(point, Point2D):
                     continue
                 raise ValueError(

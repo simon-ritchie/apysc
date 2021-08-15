@@ -33,7 +33,7 @@ class TestPoints2DInterface:
         assert interface.points == [ap.Point2D(10, 20), ap.Point2D(30, 40)]
 
         with pytest.raises(ValueError):  # type: ignore
-            interface.points = ap.Array([10, 20])
+            interface.points = ap.Array([10, 20])  # type: ignore
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_points_update_expression(self) -> None:

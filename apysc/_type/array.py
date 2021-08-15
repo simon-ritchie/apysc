@@ -24,10 +24,12 @@ class Array(
     Array class for the apysc library.
     """
 
-    _initial_value: Union[List[Any], tuple, Any]
+    _initial_value: Union[List[Any], tuple, 'Array']
     _value: List[Any]
 
-    def __init__(self, value: Union[List[T], tuple, range, Any]) -> None:
+    def __init__(
+            self,
+            value: Union[List[T], tuple, range, 'Array']) -> None:
         """
         Array class for the apysc library.
 
@@ -47,14 +49,17 @@ class Array(
                 TYPE_NAME: str = var_names.ARRAY
                 self._validate_acceptable_value_type(value=value)
                 value = self._convert_range_to_list(value=value)
-                self._initial_value = value
+                value_: Union[List[Any], tuple, 'Array'] = value
+                self._initial_value = value_
                 self._type_name = TYPE_NAME
                 self._value = self._get_list_value(value=value)
                 self.variable_name = expression_variables_util.\
                     get_next_variable_name(type_name=TYPE_NAME)
                 self._append_constructor_expression()
 
-    def _convert_range_to_list(self, value: Any) -> Any:
+    def _convert_range_to_list(
+            self,
+            value: Any) -> Union[List[Any], tuple, 'Array']:
         """
         Convert argument value to list that if specified
         value is range type.
@@ -92,7 +97,7 @@ class Array(
             ap.append_js_expression(expression=expression)
 
     def _get_list_value(
-            self, value: Union[List[Any], tuple, Any]) -> List[Any]:
+            self, value: Union[List[Any], tuple, 'Array']) -> List[Any]:
         """
         Get a list value from specified list, tuple, or Array value.
 
@@ -113,7 +118,8 @@ class Array(
         return value
 
     def _validate_acceptable_value_type(
-            self, value: Union[List[Any], tuple, range, Any]) -> None:
+            self,
+            value: Union[List[Any], tuple, range, 'Array']) -> None:
         """
         Validate that specified value is acceptable type or not.
 
@@ -135,7 +141,7 @@ class Array(
             '\nAcceptable types: list, tuple, range, and Array')
 
     @property
-    def value(self) -> Union[List[Any], tuple, Any]:
+    def value(self) -> Union[List[Any], tuple, 'Array']:
         """
         Get a current array value.
 
@@ -152,7 +158,7 @@ class Array(
         return self._value
 
     @value.setter
-    def value(self, value: Union[List[Any], tuple, Any]) -> None:
+    def value(self, value: Union[List[Any], tuple, 'Array']) -> None:
         """
         Set array value.
 
@@ -174,7 +180,7 @@ class Array(
             self._append_value_setter_expression(value=value)
 
     def _append_value_setter_expression(
-            self, value: Union[List[Any], tuple, Any]) -> None:
+            self, value: Union[List[Any], tuple, 'Array']) -> None:
         """
         Append value's setter expression to file.
 
@@ -249,7 +255,7 @@ class Array(
             )
             ap.append_js_expression(expression=expression)
 
-    def extend(self, other_arr: Union[List[T], tuple, Any]) -> None:
+    def extend(self, other_arr: Union[List[T], tuple, 'Array']) -> None:
         """
         Concatenate argument array to this one. Argument array's
         values will positioned after this array's values.
@@ -267,13 +273,13 @@ class Array(
                 module_name=__name__, class_=Array):
             self._validate_acceptable_value_type(value=other_arr)
             if isinstance(other_arr, Array):
-                self._value.extend(other_arr.value)
+                self._value.extend(other_arr.value)  # type: ignore
             else:
                 self._value.extend(other_arr)
             self._append_extend_expression(other_arr=other_arr)
 
     def _append_extend_expression(
-            self, other_arr: Union[List[T], tuple, Any]) -> None:
+            self, other_arr: Union[List[T], tuple, 'Array']) -> None:
         """
         Append extend method expression to file.
 
@@ -293,7 +299,8 @@ class Array(
                 f'.concat({value_str});')
             ap.append_js_expression(expression=expression)
 
-    def concat(self, other_arr: Union[List[T], tuple, Any]) -> Any:
+    def concat(
+            self, other_arr: Union[List[T], tuple, 'Array']) -> 'Array':
         """
         Concatenate arugment array to this one. Argument array's
         values will positioned after this array's values.
@@ -322,7 +329,7 @@ class Array(
 
     def _append_concat_expression(
             self, concatenated: VariableNameInterface,
-            other_arr: Union[List[T], tuple, Any]) -> None:
+            other_arr: Union[List[T], tuple, 'Array']) -> None:
         """
         Append concat method expression to file.
 
@@ -588,7 +595,7 @@ class Array(
     def slice(
             self,
             start: Optional[Union[int, ap.Int]] = None,
-            end: Optional[Union[int, ap.Int]] = None) -> Any:
+            end: Optional[Union[int, ap.Int]] = None) -> 'Array':
         """
         Slice this array by specified start and end indexes.
 

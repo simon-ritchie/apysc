@@ -9,7 +9,6 @@ References
 import os
 import random
 from datetime import datetime
-from typing import Any
 from typing import Optional
 
 import apysc as ap
@@ -42,7 +41,7 @@ class Stage(
     _background_color: str
     _add_to: str
     _stage_elem_id: str
-    stage: Any
+    stage: 'Stage'
 
     def __init__(
             self, stage_width: int = 300, stage_height: int = 185,

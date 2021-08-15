@@ -1,7 +1,6 @@
 """Implementations of the Rectangle class.
 """
 
-from typing import Any
 from typing import Union
 
 import apysc as ap
@@ -11,8 +10,6 @@ from apysc._display.ellipse_width_interface import EllipseWidthInterface
 from apysc._display.height_interface import HeightInterface
 from apysc._display.line_base import LineBase
 from apysc._display.width_interface import WidthInterface
-
-_Graphics = Any
 
 
 class Rectangle(
@@ -28,7 +25,7 @@ class Rectangle(
     """
 
     def __init__(
-            self, parent: _Graphics,
+            self, parent: 'ap.Graphics',
             x: Union[int, ap.Int],
             y: Union[int, ap.Int],
             width: Union[int, ap.Int],

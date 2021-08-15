@@ -1,14 +1,10 @@
 """Implementations of Polygon class.
 """
 
-from typing import Any
-
 import apysc as ap
 from apysc._display.append_line_point_interface import AppendLinePointInterface
 from apysc._display.line_base import LineBase
 from apysc._geom.point2d import Point2D
-
-_Graphics = Any
 
 
 class Polygon(LineBase, AppendLinePointInterface):
@@ -21,7 +17,9 @@ class Polygon(LineBase, AppendLinePointInterface):
         - https://bit.ly/3wHVZUk
     """
 
-    def __init__(self, parent: _Graphics, points: ap.Array[Point2D]) -> None:
+    def __init__(
+            self, parent: 'ap.Graphics',
+            points: ap.Array[Point2D]) -> None:
         """
         Create a polygon vector graphic. This is similar to Polyline
         class, but unlike that, end point and start point will be

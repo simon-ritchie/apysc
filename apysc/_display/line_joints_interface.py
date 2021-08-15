@@ -1,7 +1,6 @@
 """Class implementation for line joints interface.
 """
 
-from typing import Any
 from typing import Dict
 from typing import Union
 
@@ -25,7 +24,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         self._line_joints = ap.String(LineJoints.MITER.value)
 
     @property
-    def line_joints(self) -> Any:
+    def line_joints(self) -> Union[ap.String, LineJoints]:
         """
         Get this instance's line joints style setting.
 
@@ -41,7 +40,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
             return self._line_joints._copy()
 
     @line_joints.setter
-    def line_joints(self, value: Any) -> None:
+    def line_joints(self, value: Union[ap.String, LineJoints]) -> None:
         """
         Set line joints style setting.
 

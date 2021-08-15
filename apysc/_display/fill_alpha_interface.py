@@ -1,7 +1,6 @@
 """Class implementation for fill alpha interface.
 """
 
-from typing import Any
 from typing import Dict
 
 import apysc as ap
@@ -78,13 +77,13 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
             ap.append_js_expression(expression=expression)
 
     def _update_fill_alpha_and_skip_appending_exp(
-            self, value: Any) -> None:
+            self, value: ap.Number) -> None:
         """
         Update fill opacity and skip appending expression to file.
 
         Parameters
         ----------
-        value : float or Number
+        value : Number
             Fill opacity to set.
         """
         from apysc._converter import cast

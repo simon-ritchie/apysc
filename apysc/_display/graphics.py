@@ -1,7 +1,6 @@
 """Implementations for Graphics class.
 """
 
-from typing import Any
 from typing import List
 from typing import Optional
 from typing import Union
@@ -38,7 +37,7 @@ class Graphics(
     _current_line: Optional[Polyline] = None
 
     def __init__(
-            self, parent: Any,
+            self, parent: 'ap.Sprite',
             variable_name: Optional[str] = None) -> None:
         """
         Create a object that has each vector graphics interface.

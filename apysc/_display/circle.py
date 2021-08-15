@@ -1,7 +1,6 @@
 """Implementations of Circle class.
 """
 
-from typing import Any
 from typing import Union
 
 import apysc as ap
@@ -9,8 +8,6 @@ from apysc._display.cx_interface import CxInterface
 from apysc._display.cy_interface import CyInterface
 from apysc._display.line_base import LineBase
 from apysc._display.radius_interface import RadiusInterface
-
-_Graphics = Any
 
 
 class Circle(CxInterface, CyInterface, LineBase, RadiusInterface):
@@ -25,7 +22,7 @@ class Circle(CxInterface, CyInterface, LineBase, RadiusInterface):
 
     def __init__(
             self,
-            parent: _Graphics,
+            parent: 'ap.Graphics',
             x: Union[int, ap.Int],
             y: Union[int, ap.Int],
             radius: Union[int, ap.Int]) -> None:

@@ -15,7 +15,7 @@ class ChildInterface(RevertInterface):
 
     _children: ap.Array[DisplayObject]
     _variable_name: str
-    stage: Any
+    stage: 'ap.Stage'
 
     def add_child(self, child: DisplayObject) -> None:
         """

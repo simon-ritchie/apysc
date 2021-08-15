@@ -1,7 +1,6 @@
 """Class implementation for graphic base class.
 """
 
-from typing import Any
 from typing import Union
 
 import apysc as ap
@@ -19,8 +18,6 @@ from apysc._display.scale_y_from_center_interface import \
 from apysc._display.scale_y_from_point_interface import \
     ScaleYFromPointInterface
 
-_Graphics = Any
-
 
 class GraphicsBase(
         DisplayObject, RotationAroundCenterInterface,
@@ -31,7 +28,7 @@ class GraphicsBase(
     _variable_name: str
 
     def __init__(
-            self, parent: _Graphics,
+            self, parent: 'ap.Graphics',
             x: Union[int, ap.Int],
             y: Union[int, ap.Int],
             variable_name: str) -> None:

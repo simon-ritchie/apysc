@@ -1,7 +1,6 @@
 """Class implementation for line cap interface.
 """
 
-from typing import Any
 from typing import Dict
 from typing import Union
 
@@ -25,7 +24,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         self._line_cap = ap.String(LineCaps.BUTT.value)
 
     @property
-    def line_cap(self) -> Any:
+    def line_cap(self) -> Union[ap.String, LineCaps]:
         """
         Get this instance's line cap style setting.
 
@@ -41,7 +40,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
             return self._line_cap._copy()
 
     @line_cap.setter
-    def line_cap(self, value: Any) -> None:
+    def line_cap(self, value: Union[ap.String, LineCaps]) -> None:
         """
         Set line cap style setting.
 

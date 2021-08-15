@@ -1,7 +1,6 @@
 """Implementation of the Ellipse class.
 """
 
-from typing import Any
 from typing import Union
 
 import apysc as ap
@@ -10,8 +9,6 @@ from apysc._display.cy_interface import CyInterface
 from apysc._display.line_base import LineBase
 from apysc._display.width_and_height_interfaces_for_ellipse import \
     WidthAndHeightInterfacesForEllipse
-
-_Graphics = Any
 
 
 class Ellipse(
@@ -28,7 +25,7 @@ class Ellipse(
 
     def __init__(
             self,
-            parent: _Graphics,
+            parent: 'ap.Graphics',
             x: Union[int, ap.Int],
             y: Union[int, ap.Int],
             width: Union[int, ap.Int],

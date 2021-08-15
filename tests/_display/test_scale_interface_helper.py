@@ -66,7 +66,7 @@ def test_get_scale_updating_expression() -> None:
         rf'0, {coordinate.variable_name}\);',
     ]
     for pattern in patterns:
-        match: Optional[Match] = re.search(
+        match = re.search(
             pattern=pattern, string=expression, flags=re.MULTILINE)
         assert match is not None, (
             f'expression: {expression}\npattern: {pattern}')

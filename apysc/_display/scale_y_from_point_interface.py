@@ -126,3 +126,7 @@ class ScaleYFromPointInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._scale_y_from_point._value = self._scale_y_from_point_snapshots[
+            snapshot_name]

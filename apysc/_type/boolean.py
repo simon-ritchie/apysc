@@ -22,10 +22,10 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         - https://simon-ritchie.github.io/apysc/boolean.html
     """
 
-    _initial_value: Union[bool, int, Any]
+    _initial_value: Union[bool, int, ap.Int, 'Boolean']
     _value: bool
 
-    def __init__(self, value: Union[bool, int, ap.Int, Any]) -> None:
+    def __init__(self, value: Union[bool, int, ap.Int, 'Boolean']) -> None:
         """
         Boolean class for apysc library.
 
@@ -50,7 +50,8 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             from apysc._validation import number_validation
             with TemporaryNotHandlerScope():
                 TYPE_NAME: str = var_names.BOOLEAN
-                number_validation.validate_int_is_zero_or_one(integer=value)
+                number_validation.validate_int_is_zero_or_one(
+                    integer=value)  # type: ignore
                 self._initial_value = value
                 value_: bool = self._get_bool_from_arg_value(value=value)
                 self._value = value_
@@ -60,7 +61,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
                 self._append_constructor_expression()
 
     def _get_bool_from_arg_value(
-            self, value: Union[bool, int, ap.Int, Any]) -> bool:
+            self, value: Union[bool, int, ap.Int, 'Boolean']) -> bool:
         """
         Get bool value from specified argument value.
 
@@ -112,7 +113,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             ap.append_js_expression(expression=expression)
 
     @property
-    def value(self) -> Union[bool, int, Any]:
+    def value(self) -> Union[bool, int, ap.Int, 'Boolean']:
         """
         Get a current boolean value.
 
@@ -129,7 +130,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         return self._value
 
     @value.setter
-    def value(self, value: Union[bool, int, ap.Int, Any]) -> None:
+    def value(self, value: Union[bool, int, ap.Int, 'Boolean']) -> None:
         """
         Set boolean value.
 
@@ -155,7 +156,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
                 self._append_value_setter_expression(value=self._value)
 
     def _append_value_setter_expression(
-            self, value: Union[bool, Any]) -> None:
+            self, value: Union[bool, int, ap.Int, 'Boolean']) -> None:
         """
         Append value's setter expression to file.
 
@@ -180,7 +181,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             ap.append_js_expression(expression=expression)
 
     def _set_value_and_skip_expression_appending(
-            self, value: Union[bool, int, ap.Int, Any]) -> None:
+            self, value: Union[bool, int, ap.Int, 'Boolean']) -> None:
         """
         Update value attribute and skip expression appending.
 
@@ -377,7 +378,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             ap.append_js_expression(expression=expression)
 
     @property
-    def not_(self) -> Any:
+    def not_(self) -> 'Boolean':
         """
         Get a not condition Boolean value.
 

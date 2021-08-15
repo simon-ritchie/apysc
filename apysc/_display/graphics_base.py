@@ -16,6 +16,8 @@ from apysc._display.scale_x_from_point_interface import \
     ScaleXFromPointInterface
 from apysc._display.scale_y_from_center_interface import \
     ScaleYFromCenterInterface
+from apysc._display.scale_y_from_point_interface import \
+    ScaleYFromPointInterface
 
 _Graphics = Any
 
@@ -23,7 +25,8 @@ _Graphics = Any
 class GraphicsBase(
         DisplayObject, RotationAroundCenterInterface,
         RotateAroundPointInterface, ScaleXFromCenterInterface,
-        ScaleYFromCenterInterface, ScaleXFromPointInterface):
+        ScaleYFromCenterInterface, ScaleXFromPointInterface,
+        ScaleYFromPointInterface):
 
     _variable_name: str
 

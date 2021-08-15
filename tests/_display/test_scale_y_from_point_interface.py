@@ -1,15 +1,18 @@
-from typing import Dict, List, Match, Optional
-from apysc._expression import expression_file_util
-from random import randint
 import re
+from random import randint
+from typing import Dict
+from typing import List
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
 import apysc as ap
+from apysc._display import scale_interface_helper
 from apysc._display.scale_y_from_point_interface import \
     ScaleYFromPointInterface
+from apysc._expression import expression_file_util
 from apysc._type.expression_string import ExpressionString
-from apysc._display import scale_interface_helper
 
 
 class _TestInterface(ScaleYFromPointInterface):

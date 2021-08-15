@@ -1,8 +1,8 @@
 """Helper interfaces for the scale interfaces.
 """
 
-from typing import Union
 from enum import Enum
+from typing import Union
 
 import apysc as ap
 from apysc._type.expression_string import ExpressionString

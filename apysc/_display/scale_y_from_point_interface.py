@@ -36,6 +36,11 @@ class ScaleYFromPointInterface(VariableNameInterface, RevertInterface):
         -------
         scale_y : ap.Number
             Scale-y value from the given y-coordinate.
+
+        References
+        ----------
+        - GraphicsBase scale_from_point interfaces document
+            - https://bit.ly/3xRBhlw
         """
         with ap.DebugInfo(
                 callable_=self.get_scale_y_from_point, locals_=locals(),
@@ -61,6 +66,11 @@ class ScaleYFromPointInterface(VariableNameInterface, RevertInterface):
             Scale-y value to set.
         y : Int
             Y-coordinate.
+
+        References
+        ----------
+        - GraphicsBase scale_from_point interfaces document
+            - https://bit.ly/3xRBhlw
         """
         with ap.DebugInfo(
                 callable_=self.set_scale_y_from_point, locals_=locals(),

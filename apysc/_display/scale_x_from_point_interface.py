@@ -36,6 +36,11 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
         -------
         scale_x : ap.Number
             Scale-x value from the given x-coordinate.
+
+        References
+        ----------
+        - GraphicsBase scale_from_point interfaces document
+            - https://bit.ly/3xRBhlw
         """
         with ap.DebugInfo(
                 callable_=self.get_scale_x_from_point, locals_=locals(),
@@ -61,6 +66,11 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
             Scale-x value to set.
         x : Int
             X-coordinate.
+
+        References
+        ----------
+        - GraphicsBase scale_from_point interfaces document
+            - https://bit.ly/3xRBhlw
         """
         with ap.DebugInfo(
                 callable_=self.set_scale_x_from_point, locals_=locals(),

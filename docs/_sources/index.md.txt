@@ -84,6 +84,7 @@ The `DisplayObject` class is the base class for each display object. The `Graphi
 - [GraphicsBase class rotation around center interface](graphics_base_rotation_around_center.md)
 - [GraphicsBase class rotate around point interface](graphics_base_rotate_around_point.md)
 - [GraphicsBase class scale from center interfaces](graphics_base_scale_from_center.md)
+- [GraphicsBase class scale from point interfaces](graphics_base_scale_from_point.md)
 
 ---
 

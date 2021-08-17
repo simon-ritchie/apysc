@@ -1,4 +1,4 @@
-"""Class implementation for the rotate_around_point interface.
+"""Class implementation for the rotation_around_point interface.
 """
 
 from typing import Union

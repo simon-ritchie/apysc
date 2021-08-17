@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._display.rotate_around_point_interface import \
+from apysc._display.rotation_around_point_interface import \
     RotateAroundPointInterface
 from apysc._expression import expression_file_util
 
@@ -14,7 +14,7 @@ class _TestInterface(RotateAroundPointInterface):
         """
         The class for the testing.
         """
-        self.variable_name = 'test_rotate_around_point_interface'
+        self.variable_name = 'test_rotation_around_point_interface'
 
 
 class TestRotateAroundPointInterface:

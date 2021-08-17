@@ -1,8 +1,8 @@
-"""The test project for the RotateAroundPointInterface class.
+"""The test project for the RotationAroundPointInterface class.
 
 Command examples:
-$ python test_projects/RotateAroundPointInterface/main.py
-$ python RotateAroundPointInterface/main.py
+$ python test_projects/RotationAroundPointInterface/main.py
+$ python RotationAroundPointInterface/main.py
 """
 
 import sys

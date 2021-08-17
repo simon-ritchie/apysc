@@ -7,7 +7,7 @@ import apysc as ap
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class RotateAroundPointInterface(VariableNameInterface):
+class RotationAroundPointInterface(VariableNameInterface):
 
     def rotate_around_point(
             self, additional_rotation: Union[int, ap.Int],
@@ -39,7 +39,7 @@ class RotateAroundPointInterface(VariableNameInterface):
         """
         with ap.DebugInfo(
                 callable_=self.rotate_around_point, locals_=locals(),
-                module_name=__name__, class_=RotateAroundPointInterface):
+                module_name=__name__, class_=RotationAroundPointInterface):
             from apysc._type import value_util
             from apysc._validation import number_validation
             number_validation.validate_integer(integer=additional_rotation)

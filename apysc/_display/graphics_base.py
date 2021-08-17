@@ -6,7 +6,7 @@ from typing import Union
 import apysc as ap
 from apysc._display.display_object import DisplayObject
 from apysc._display.rotation_around_point_interface import \
-    RotateAroundPointInterface
+    RotationAroundPointInterface
 from apysc._display.rotation_around_center_interface import \
     RotationAroundCenterInterface
 from apysc._display.scale_x_from_center_interface import \
@@ -21,7 +21,7 @@ from apysc._display.scale_y_from_point_interface import \
 
 class GraphicsBase(
         DisplayObject, RotationAroundCenterInterface,
-        RotateAroundPointInterface, ScaleXFromCenterInterface,
+        RotationAroundPointInterface, ScaleXFromCenterInterface,
         ScaleYFromCenterInterface, ScaleXFromPointInterface,
         ScaleYFromPointInterface):
 

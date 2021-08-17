@@ -4,11 +4,11 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.rotation_around_point_interface import \
-    RotateAroundPointInterface
+    RotationAroundPointInterface
 from apysc._expression import expression_file_util
 
 
-class _TestInterface(RotateAroundPointInterface):
+class _TestInterface(RotationAroundPointInterface):
 
     def __init__(self) -> None:
         """
@@ -17,7 +17,7 @@ class _TestInterface(RotateAroundPointInterface):
         self.variable_name = 'test_rotation_around_point_interface'
 
 
-class TestRotateAroundPointInterface:
+class TestRotationAroundPointInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_rotate_around_point(self) -> None:

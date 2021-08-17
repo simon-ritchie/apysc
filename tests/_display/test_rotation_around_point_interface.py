@@ -62,3 +62,13 @@ class TestRotationAroundPointInterface:
         interface._rotation_around_point[key_exp_str.value] = ap.Int(50)
         rotation = interface.get_rotation_around_point(x=x, y=y)
         assert rotation == 50
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_set_rotation_around_point(self) -> None:
+        interface: _TestInterface = _TestInterface()
+        rotation: ap.Int = ap.Int(50)
+        x: ap.Int = ap.Int(100)
+        y: ap.Int = ap.Int(200)
+        interface.set_rotation_around_point(rotation=rotation, x=x, y=y)
+        rotation = interface.get_rotation_around_point(x=x, y=y)
+        assert rotation == 50

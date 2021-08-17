@@ -53,6 +53,35 @@ class RotationAroundPointInterface(VariableNameInterface):
                 key=key_exp_str, default=default_val)
             return rotation
 
+    def set_rotation_around_point(
+            self, rotation: ap.Int, x: ap.Int, y: ap.Int) -> None:
+        """
+        Update a rotation value around the given coordinates.
+
+        Parameters
+        ----------
+        rotation : Int
+            Rotation value to set.
+        x : Int
+            X-coordinate.
+        y : Int
+            Y-coordinate.
+        """
+        with ap.DebugInfo(
+                callable_=self.set_rotation_around_point, locals_=locals(),
+                module_name=__name__, class_=RotationAroundPointInterface):
+            from apysc._display import rotation_interface_helper
+            from apysc._validation import number_validation
+            from apysc._type.expression_string import ExpressionString
+            number_validation.validate_integer(integer=rotation)
+            number_validation.validate_integer(integer=x)
+            number_validation.validate_integer(integer=y)
+            self._initialize_rotation_around_point_if_not_initialized()
+            key_exp_str: ExpressionString = rotation_interface_helper.\
+                get_coordinates_key_for_expression(
+                    x=int(x._value), y=int(y._value))
+            self._rotation_around_point._value[key_exp_str.value] = rotation
+
     def rotate_around_point(
             self, additional_rotation: Union[int, ap.Int],
             x: Union[int, ap.Int], y: Union[int, ap.Int]) -> None:

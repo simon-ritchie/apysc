@@ -9,6 +9,17 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 class RotationAroundPointInterface(VariableNameInterface):
 
+    _rotation_around_point: ap.Dictionary[str, ap.Int]
+
+    def _initialize_rotation_around_point_if_not_initialized(self) -> None:
+        """
+        Initialize the `_rotation_around_point` attribute if it hasn't
+        been initialized yet.
+        """
+        if hasattr(self, '_rotation_around_point'):
+            return
+        self._rotation_around_point = ap.Dictionary({})
+
     def rotate_around_point(
             self, additional_rotation: Union[int, ap.Int],
             x: Union[int, ap.Int], y: Union[int, ap.Int]) -> None:

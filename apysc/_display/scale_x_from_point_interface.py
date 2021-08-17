@@ -17,7 +17,7 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
     def _initialize_scale_x_from_point_if_not_initialized(self) -> None:
         """
         Initialize the `_scale_x_from_point` attribute if it hasn't been
-        initialized_yet.
+        initialized yet.
         """
         if hasattr(self, '_scale_x_from_point'):
             return

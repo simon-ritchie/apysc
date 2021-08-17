@@ -6,6 +6,8 @@ import apysc as ap
 from apysc._display.rotation_around_point_interface import \
     RotationAroundPointInterface
 from apysc._expression import expression_file_util
+from apysc._type.expression_string import ExpressionString
+from apysc._display import rotation_interface_helper
 
 
 class _TestInterface(RotationAroundPointInterface):
@@ -46,3 +48,17 @@ class TestRotationAroundPointInterface:
         interface._rotation_around_point['a'] = ap.Int(10)
         interface._initialize_rotation_around_point_if_not_initialized()
         assert interface._rotation_around_point == {'a': ap.Int(10)}
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_get_rotation_around_point(self) -> None:
+        interface: _TestInterface = _TestInterface()
+        x: ap.Int = ap.Int(100)
+        y: ap.Int = ap.Int(200)
+        rotation: ap.Int = interface.get_rotation_around_point(x=x, y=y)
+        assert rotation == 0
+
+        key_exp_str: ExpressionString = rotation_interface_helper.\
+            get_coordinates_key_for_expression(x=100, y=200)
+        interface._rotation_around_point[key_exp_str.value] = ap.Int(50)
+        rotation = interface.get_rotation_around_point(x=x, y=y)
+        assert rotation == 50

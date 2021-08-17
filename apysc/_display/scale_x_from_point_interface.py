@@ -5,7 +5,6 @@ from typing import Any
 from typing import Dict
 
 import apysc as ap
-from apysc._type.expression_string import ExpressionString
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
@@ -34,7 +33,7 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
 
         Returns
         -------
-        scale_x : ap.Number
+        scale_x : Number
             Scale-x value from the given x-coordinate.
 
         References
@@ -45,6 +44,7 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
         with ap.DebugInfo(
                 callable_=self.get_scale_x_from_point, locals_=locals(),
                 module_name=__name__, class_=ScaleXFromPointInterface):
+            from apysc._type.expression_string import ExpressionString
             from apysc._display import scale_interface_helper
             from apysc._validation import number_validation
             number_validation.validate_integer(integer=x)
@@ -77,6 +77,7 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
                 module_name=__name__, class_=ScaleXFromPointInterface):
             from apysc._display import scale_interface_helper
             from apysc._validation import number_validation
+            from apysc._type.expression_string import ExpressionString
             number_validation.validate_num(num=scale_x)
             number_validation.validate_integer(integer=x)
             self._initialize_scale_x_from_point_if_not_initialized()

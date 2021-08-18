@@ -72,10 +72,18 @@ def on_timer_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
         Optional arguments dictionary.
     """
     rectangle_1: ap.Rectangle = options['rectangle_1']
-    rectangle_1.rotate_around_point(additional_rotation=1, x=50, y=50)
+    x: ap.Int = ap.Int(50)
+    y: ap.Int = ap.Int(50)
+    rotation: ap.Int = rectangle_1.get_rotation_around_point(x=x, y=y)
+    rotation += 1
+    rectangle_1.set_rotation_around_point(rotation=rotation, x=x, y=y)
 
     rectangle_2: ap.Rectangle = options['rectangle_2']
-    rectangle_2.rotate_around_point(additional_rotation=1, x=100, y=100)
+    x = ap.Int(100)
+    y = ap.Int(100)
+    rotation = rectangle_1.get_rotation_around_point(x=x, y=y)
+    rotation += 1
+    rectangle_2.set_rotation_around_point(rotation=rotation, x=x, y=y)
 
 
 def on_timer_2(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
@@ -90,7 +98,11 @@ def on_timer_2(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
         Optional arguments dictionary.
     """
     rectangle_3: ap.Rectangle = options['rectangle_3']
-    rectangle_3.rotate_around_point(additional_rotation=1, x=50, y=50)
+    x: ap.Int = ap.Int(50)
+    y: ap.Int = ap.Int(50)
+    rotation: ap.Int = rectangle_3.get_rotation_around_point(x=x, y=y)
+    rotation += 1
+    rectangle_3.set_rotation_around_point(rotation=rotation, x=x, y=y)
 
 
 if __name__ == '__main__':

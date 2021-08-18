@@ -81,6 +81,62 @@ class RotationAroundPointInterface(VariableNameInterface):
                 get_coordinates_key_for_expression(
                     x=int(x._value), y=int(y._value))
             self._rotation_around_point._value[key_exp_str.value] = rotation
+            self._append_rotation_around_point_update_expression(
+                rotation=rotation, x=x, y=y)
+
+    def _append_rotation_around_point_update_expression(
+            self, rotation: ap.Int, x: ap.Int, y: ap.Int) -> None:
+        """
+        Append a rotation value around the given coordinates
+        updating expression to the file.
+
+        Parameters
+        ----------
+        rotation : Int
+            Rotation value to set.
+        x : Int
+            X-coordinate.
+        y : Int
+            Y-coordinate.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_rotation_around_point_update_expression,  # noqa
+                locals_=locals(),
+                module_name=__name__, class_=RotationAroundPointInterface):
+            from apysc._display import rotation_interface_helper
+            from apysc._expression import expression_variables_util
+            from apysc._expression import var_names
+            from apysc._type import value_util
+            from apysc._type.expression_string import ExpressionString
+            before_value_str: str = expression_variables_util.\
+                get_next_variable_name(type_name=var_names.INT)
+            key_exp_str: ExpressionString = rotation_interface_helper.\
+                get_coordinates_key_for_expression(x=x, y=y)
+            after_value_str: str = value_util.get_value_str_for_expression(
+                value=rotation)
+            x_value_str: str = value_util.get_value_str_for_expression(
+                value=x)
+            y_value_str: str = value_util.get_value_str_for_expression(
+                value=y)
+            rotation_around_point_value_str: str = value_util.\
+                get_value_str_for_expression(
+                    value=self._rotation_around_point)
+            expression: str = (
+                f'if ({key_exp_str.value} in '
+                f'{rotation_around_point_value_str}) {{'
+                f'\n  var {before_value_str} = '
+                f'{rotation_around_point_value_str}[{key_exp_str.value}];'
+                '\n}else {'
+                f'\n  {before_value_str} = 0;'
+                '\n}'
+                f'\n{self.variable_name}.rotate('
+                f'-{before_value_str}, {x_value_str}, {y_value_str});'
+                f'\n{self.variable_name}.rotate('
+                f'{after_value_str}, {x_value_str}, {y_value_str});'
+                f'\n{rotation_around_point_value_str}[{key_exp_str.value}] = '
+                f'{after_value_str};'
+            )
+            ap.append_js_expression(expression=expression)
 
     def rotate_around_point(
             self, additional_rotation: Union[int, ap.Int],

@@ -1,13 +1,14 @@
 """Class implementation for the rotation_around_point interface.
 """
 
-from typing import Union
+from typing import Any, Dict, Union
 
 import apysc as ap
+from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class RotationAroundPointInterface(VariableNameInterface):
+class RotationAroundPointInterface(VariableNameInterface, RevertInterface):
 
     _rotation_around_point: ap.Dictionary[str, ap.Int]
 
@@ -147,3 +148,32 @@ class RotationAroundPointInterface(VariableNameInterface):
                 f'{after_value_str};'
             )
             ap.append_js_expression(expression=expression)
+
+    _rotation_around_point_snapshots: Dict[str, Dict[str, Any]]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make a value's snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_rotation_around_point_snapshots'):
+            self._rotation_around_point_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._initialize_rotation_around_point_if_not_initialized()
+        self._rotation_around_point_snapshots[snapshot_name] = {
+            **self._rotation_around_point._value}
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert a value if snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """

@@ -1,7 +1,8 @@
 """Class implementation for the rotation_around_point interface.
 """
 
-from typing import Any, Dict, Union
+from typing import Any
+from typing import Dict
 
 import apysc as ap
 from apysc._type.revert_interface import RevertInterface
@@ -46,8 +47,8 @@ class RotationAroundPointInterface(VariableNameInterface, RevertInterface):
                 callable_=self.get_rotation_around_point, locals_=locals(),
                 module_name=__name__, class_=RotationAroundPointInterface):
             from apysc._display import rotation_interface_helper
-            from apysc._validation import number_validation
             from apysc._type.expression_string import ExpressionString
+            from apysc._validation import number_validation
             number_validation.validate_integer(integer=x)
             number_validation.validate_integer(integer=y)
             self._initialize_rotation_around_point_if_not_initialized()
@@ -82,8 +83,8 @@ class RotationAroundPointInterface(VariableNameInterface, RevertInterface):
                 callable_=self.set_rotation_around_point, locals_=locals(),
                 module_name=__name__, class_=RotationAroundPointInterface):
             from apysc._display import rotation_interface_helper
-            from apysc._validation import number_validation
             from apysc._type.expression_string import ExpressionString
+            from apysc._validation import number_validation
             number_validation.validate_integer(integer=rotation)
             number_validation.validate_integer(integer=x)
             number_validation.validate_integer(integer=y)

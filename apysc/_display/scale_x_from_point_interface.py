@@ -44,8 +44,8 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
         with ap.DebugInfo(
                 callable_=self.get_scale_x_from_point, locals_=locals(),
                 module_name=__name__, class_=ScaleXFromPointInterface):
-            from apysc._type.expression_string import ExpressionString
             from apysc._display import scale_interface_helper
+            from apysc._type.expression_string import ExpressionString
             from apysc._validation import number_validation
             number_validation.validate_integer(integer=x)
             self._initialize_scale_x_from_point_if_not_initialized()
@@ -76,8 +76,8 @@ class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
                 callable_=self.set_scale_x_from_point, locals_=locals(),
                 module_name=__name__, class_=ScaleXFromPointInterface):
             from apysc._display import scale_interface_helper
-            from apysc._validation import number_validation
             from apysc._type.expression_string import ExpressionString
+            from apysc._validation import number_validation
             number_validation.validate_num(num=scale_x)
             number_validation.validate_integer(integer=x)
             self._initialize_scale_x_from_point_if_not_initialized()

@@ -1,16 +1,18 @@
-from random import randint
-from typing import List, Match, Optional
 import re
+from random import randint
+from typing import List
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
 import apysc as ap
+from apysc._display import rotation_interface_helper
 from apysc._display.rotation_around_point_interface import \
     RotationAroundPointInterface
 from apysc._expression import expression_file_util
-from apysc._type.expression_string import ExpressionString
-from apysc._display import rotation_interface_helper
 from apysc._expression import var_names
+from apysc._type.expression_string import ExpressionString
 
 
 class _TestInterface(RotationAroundPointInterface):
@@ -68,7 +70,7 @@ class TestRotationAroundPointInterface:
         y: ap.Int = ap.Int(200)
         key_exp_str: ExpressionString = rotation_interface_helper.\
             get_coordinates_key_for_expression(x=x, y=y)
-        key_exp_value: str= key_exp_str.value
+        key_exp_value: str = key_exp_str.value
         key_exp_value = key_exp_value.replace('(', '\\(')
         key_exp_value = key_exp_value.replace(')', '\\)')
         key_exp_value = key_exp_value.replace('+', '\\+')

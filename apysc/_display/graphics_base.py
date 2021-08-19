@@ -5,10 +5,10 @@ from typing import Union
 
 import apysc as ap
 from apysc._display.display_object import DisplayObject
-from apysc._display.rotation_around_point_interface import \
-    RotationAroundPointInterface
 from apysc._display.rotation_around_center_interface import \
     RotationAroundCenterInterface
+from apysc._display.rotation_around_point_interface import \
+    RotationAroundPointInterface
 from apysc._display.scale_x_from_center_interface import \
     ScaleXFromCenterInterface
 from apysc._display.scale_x_from_point_interface import \

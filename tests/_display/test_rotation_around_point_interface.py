@@ -120,3 +120,25 @@ class TestRotationAroundPointInterface:
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface._rotation_around_point_snapshots == {
             snapshot_name: {key_exp_str.value: rotation}}
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__revert(self) -> None:
+        interface: _TestInterface = _TestInterface()
+        x: ap.Int = ap.Int(50)
+        y: ap.Int = ap.Int(100)
+        interface.set_rotation_around_point(
+            rotation=ap.Int(90), x=x, y=y)
+        snapshot_name: str = interface._get_next_snapshot_name()
+        interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        interface.set_rotation_around_point(
+            rotation=ap.Int(120), x=x, y=y)
+        interface._run_all_revert_methods(snapshot_name=snapshot_name)
+        key_exp_str: ExpressionString = rotation_interface_helper.\
+            get_coordinates_key_for_expression(
+                x=int(x._value), y=int(y._value))
+        assert interface._rotation_around_point[key_exp_str.value] == 90
+
+        interface.set_rotation_around_point(
+            rotation=ap.Int(120), x=x, y=y)
+        interface._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert interface._rotation_around_point[key_exp_str.value] == 120

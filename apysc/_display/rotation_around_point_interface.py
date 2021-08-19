@@ -177,3 +177,7 @@ class RotationAroundPointInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._rotation_around_point._value = \
+            self._rotation_around_point_snapshots[snapshot_name]

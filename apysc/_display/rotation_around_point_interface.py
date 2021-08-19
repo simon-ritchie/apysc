@@ -35,6 +35,11 @@ class RotationAroundPointInterface(VariableNameInterface):
         -------
         rotation : Int
             Rotation value around the given coordinates.
+
+        References
+        ----------
+        - GraphicsBase rotate_around_point interfaces document
+            - https://bit.ly/37TDwKs
         """
         with ap.DebugInfo(
                 callable_=self.get_rotation_around_point, locals_=locals(),
@@ -66,6 +71,11 @@ class RotationAroundPointInterface(VariableNameInterface):
             X-coordinate.
         y : Int
             Y-coordinate.
+
+        References
+        ----------
+        - GraphicsBase rotate_around_point interfaces document
+            - https://bit.ly/37TDwKs
         """
         with ap.DebugInfo(
                 callable_=self.set_rotation_around_point, locals_=locals(),

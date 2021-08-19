@@ -34,7 +34,7 @@ class RotationAroundCenterInterface(VariableNameInterface, RevertInterface):
 
         References
         ----------
-        - GraphicsBase rotation_around_center interface
+        - GraphicsBase rotation_around_center interface document
             - https://bit.ly/3AjeSPr
         """
         with ap.DebugInfo(

@@ -41,18 +41,52 @@ class FlipXInterface(VariableNameInterface, RevertInterface):
     @flip_x.setter
     def flip_x(self, value: ap.Boolean) -> None:
         """
-        Update the x-axis flipping value.
+        Update a x-axis flipping value.
 
         Parameters
         ----------
         value : Boolean
-            Flipping value. If True, the x-axis will be flipped,
+            Flipping value. If True, a x-axis will be flipped,
             otherwise if will be reset.
         """
         with ap.DebugInfo(
                 callable_='flip_x', locals_=locals(),
                 module_name=__name__, class_=FlipXInterface):
+            self._initialize_flip_x_if_not_initialized()
+            before_value: ap.Boolean = self._flip_x
             self._flip_x = value
+            self._append_flip_x_update_expression(before_value=before_value)
+
+    def _append_flip_x_update_expression(
+            self, before_value: ap.Boolean) -> None:
+        """
+        Append a x-axis flipping value updating expression
+        to the file.
+
+        Parameters
+        ----------
+        before_value : Boolean
+            Before updating flipping value.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_flip_x_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=FlipXInterface):
+            from apysc._type import value_util
+            self._initialize_flip_x_if_not_initialized()
+            before_value_str: str = value_util.get_value_str_for_expression(
+                value=before_value)
+            after_value_str: str = value_util.get_value_str_for_expression(
+                value=self._flip_x)
+            expression: str = (
+                f'if ({before_value_str}) {{'
+                f'\n  {self.variable_name}.flip("x");'
+                '\n}'
+                f'\nif ({after_value_str}) {{'
+                f'\n  {self.variable_name}.flip("x");'
+                '\n}'
+            )
+            ap.append_js_expression(expression=expression)
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

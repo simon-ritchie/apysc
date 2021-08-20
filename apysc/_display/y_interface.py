@@ -14,7 +14,7 @@ class YInterface(VariableNameInterface, RevertInterface):
 
     def _initialize_y_if_not_initialized(self) -> None:
         """
-        Initialize _y attribute if it hasn't been initialized yet.
+        Initialize the _y attribute if it hasn't been initialized yet.
         """
         if hasattr(self, '_y'):
             return

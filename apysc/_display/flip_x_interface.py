@@ -21,6 +21,23 @@ class FlipXInterface(VariableNameInterface, RevertInterface):
             return
         self._flip_x = ap.Boolean(False)
 
+    @property
+    def flip_x(self) -> ap.Boolean:
+        """
+        Get a boolean value whether the x-axis is flipped or not.
+
+        Returns
+        -------
+        flip_x : Boolean
+            A boolean value whether the x-axis is flipped or not.
+        """
+        with ap.DebugInfo(
+                callable_='flip_x', locals_=locals(),
+                module_name=__name__, class_=FlipXInterface):
+            from apysc._type import value_util
+            self._initialize_flip_x_if_not_initialized()
+            return value_util.get_copy(value=self._flip_x)
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make a value's snapshot.

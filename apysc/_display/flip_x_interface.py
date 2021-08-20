@@ -38,6 +38,22 @@ class FlipXInterface(VariableNameInterface, RevertInterface):
             self._initialize_flip_x_if_not_initialized()
             return value_util.get_copy(value=self._flip_x)
 
+    @flip_x.setter
+    def flip_x(self, value: ap.Boolean) -> None:
+        """
+        Update the x-axis flipping value.
+
+        Parameters
+        ----------
+        value : Boolean
+            Flipping value. If True, the x-axis will be flipped,
+            otherwise if will be reset.
+        """
+        with ap.DebugInfo(
+                callable_='flip_x', locals_=locals(),
+                module_name=__name__, class_=FlipXInterface):
+            self._flip_x = value
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make a value's snapshot.

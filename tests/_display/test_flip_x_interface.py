@@ -32,5 +32,6 @@ class TestFlipXInterface:
         interface: _TestInterface = _TestInterface()
         assert not interface.flip_x
 
-        interface._flip_x._value = True
+        interface.flip_x = ap.Boolean(True)
         assert interface.flip_x
+

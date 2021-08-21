@@ -2,7 +2,7 @@
 
 This page will explain the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `get_rotation_around_point` and `set_rotation_around_point` method interfaces.
 
-## What interface are these?
+## What interfaces are these?
 
 The `get_rotation_around_point` method will return a rotation value around the given coordinates, and the `set_rotation_around_point` method will update a rotation value around the given coordinates.
 

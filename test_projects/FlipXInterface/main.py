@@ -11,7 +11,8 @@ sys.path.append('./')
 
 import os
 from types import ModuleType
-from typing import Any, Dict, List
+from typing import Any
+from typing import Dict
 
 import apysc as ap
 from apysc._file import file_util

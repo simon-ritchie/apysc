@@ -1,10 +1,10 @@
-from apysc._expression import expression_file_util
 from random import randint
 
 from retrying import retry
 
 import apysc as ap
 from apysc._display.flip_x_interface import FlipXInterface
+from apysc._expression import expression_file_util
 
 
 class _TestInterface(FlipXInterface):
@@ -26,7 +26,7 @@ class TestFlipXInterface:
 
         interface._flip_x._value = True
         interface._initialize_flip_x_if_not_initialized()
-        assert interface._flip_x == True
+        assert interface._flip_x
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_flip_x(self) -> None:

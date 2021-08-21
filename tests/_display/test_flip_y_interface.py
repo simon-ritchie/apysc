@@ -2,6 +2,7 @@ from random import randint
 
 from retrying import retry
 
+import apysc as ap
 from apysc._display.flip_y_interface import FlipYInterface
 
 
@@ -31,5 +32,5 @@ class TestFlipYInterface:
         interface: _TestInterface = _TestInterface()
         assert not interface.flip_y
 
-        interface._flip_y._value = True
+        interface.flip_y = ap.Boolean(True)
         assert interface.flip_y

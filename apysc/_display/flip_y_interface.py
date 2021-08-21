@@ -38,6 +38,23 @@ class FlipYInterface(VariableNameInterface, RevertInterface):
             self._initialize_flip_y_if_not_initialized()
             return value_util.get_copy(value=self._flip_y)
 
+    @flip_y.setter
+    def flip_y(self, value: ap.Boolean) -> None:
+        """
+        Update a y-axis flipping value.
+
+        Parameters
+        ----------
+        value : Boolean
+            Flipping value. If true, a y-axis will be flipped,
+            otherwise it will be reset.
+        """
+        with ap.DebugInfo(
+                callable_='flip_y', locals_=locals(),
+                module_name=__name__, class_=FlipYInterface):
+            self._initialize_flip_y_if_not_initialized()
+            self._flip_y = value
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make a value's snapshot.

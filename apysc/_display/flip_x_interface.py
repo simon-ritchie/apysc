@@ -47,7 +47,7 @@ class FlipXInterface(VariableNameInterface, RevertInterface):
         ----------
         value : Boolean
             Flipping value. If True, a x-axis will be flipped,
-            otherwise if will be reset.
+            otherwise it will be reset.
         """
         with ap.DebugInfo(
                 callable_='flip_x', locals_=locals(),

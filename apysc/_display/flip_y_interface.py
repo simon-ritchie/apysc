@@ -108,3 +108,6 @@ class FlipYInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._flip_y._value = self._flip_y_snapshots[snapshot_name]

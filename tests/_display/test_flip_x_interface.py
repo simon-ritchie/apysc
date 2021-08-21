@@ -22,7 +22,7 @@ class TestFlipXInterface:
     def test__initialize_flip_x_if_not_initialized(self) -> None:
         interface: _TestInterface = _TestInterface()
         interface._initialize_flip_x_if_not_initialized()
-        assert interface._flip_x == False
+        assert interface._flip_x
 
         interface._flip_x._value = True
         interface._initialize_flip_x_if_not_initialized()

@@ -1,3 +1,4 @@
+from apysc._expression import expression_file_util
 from random import randint
 
 from retrying import retry
@@ -34,3 +35,11 @@ class TestFlipYInterface:
 
         interface.flip_y = ap.Boolean(True)
         assert interface.flip_y
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_flip_y_update_expression(self) -> None:
+        expression_file_util.empty_expression_dir()
+        interface: _TestInterface = _TestInterface()
+        interface.flip_y = ap.Boolean(True)
+        expression: str = expression_file_util.get_current_expression()
+        assert '.flip("y");' in expression

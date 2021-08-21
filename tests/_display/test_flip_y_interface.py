@@ -1,10 +1,10 @@
-from apysc._expression import expression_file_util
 from random import randint
 
 from retrying import retry
 
 import apysc as ap
 from apysc._display.flip_y_interface import FlipYInterface
+from apysc._expression import expression_file_util
 
 
 class _TestInterface(FlipYInterface):

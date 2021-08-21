@@ -52,6 +52,7 @@ class TestFlipXInterface:
             f'\nif ({flip_x_2.variable_name}) {{'
             f'\n  {interface.variable_name}.flip("x");'
             '\n}'
+            f'\n{flip_x_1.variable_name} = {flip_x_2.variable_name};'
         )
         assert expected in expression
 

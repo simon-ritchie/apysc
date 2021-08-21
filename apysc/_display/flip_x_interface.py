@@ -85,6 +85,7 @@ class FlipXInterface(VariableNameInterface, RevertInterface):
                 f'\nif ({after_value_str}) {{'
                 f'\n  {self.variable_name}.flip("x");'
                 '\n}'
+                f'\n{before_value_str} = {after_value_str};'
             )
             ap.append_js_expression(expression=expression)
 

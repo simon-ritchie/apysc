@@ -18,13 +18,14 @@ from apysc._display.scale_y_from_center_interface import \
     ScaleYFromCenterInterface
 from apysc._display.scale_y_from_point_interface import \
     ScaleYFromPointInterface
+from apysc._display.flip_y_interface import FlipYInterface
 
 
 class GraphicsBase(
         DisplayObject, RotationAroundCenterInterface,
         RotationAroundPointInterface, ScaleXFromCenterInterface,
         ScaleYFromCenterInterface, ScaleXFromPointInterface,
-        ScaleYFromPointInterface, FlipXInterface):
+        ScaleYFromPointInterface, FlipXInterface, FlipYInterface):
 
     _variable_name: str
 

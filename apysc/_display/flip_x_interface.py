@@ -72,21 +72,13 @@ class FlipXInterface(VariableNameInterface, RevertInterface):
                 callable_=self._append_flip_x_update_expression,
                 locals_=locals(),
                 module_name=__name__, class_=FlipXInterface):
-            from apysc._type import value_util
+            from apysc._display import flip_interface_helper
             self._initialize_flip_x_if_not_initialized()
-            before_value_str: str = value_util.get_value_str_for_expression(
-                value=before_value)
-            after_value_str: str = value_util.get_value_str_for_expression(
-                value=self._flip_x)
-            expression: str = (
-                f'if ({before_value_str}) {{'
-                f'\n  {self.variable_name}.flip("x");'
-                '\n}'
-                f'\nif ({after_value_str}) {{'
-                f'\n  {self.variable_name}.flip("x");'
-                '\n}'
-                f'\n{before_value_str} = {after_value_str};'
-            )
+            expression: str = flip_interface_helper.\
+                make_flip_update_expression(
+                    before_value=before_value, after_value=self._flip_x,
+                    axis=flip_interface_helper.Axis.X,
+                    interface_variable_name=self.variable_name)
             ap.append_js_expression(expression=expression)
 
     _flip_x_snapshots: Dict[str, bool]

@@ -25,3 +25,11 @@ class TestFlipYInterface:
         interface._flip_y._value = True
         interface._initialize_flip_y_if_not_initialized()
         assert interface._flip_y
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_flip_y(self) -> None:
+        interface: _TestInterface = _TestInterface()
+        assert not interface.flip_y
+
+        interface._flip_y._value = True
+        assert interface.flip_y

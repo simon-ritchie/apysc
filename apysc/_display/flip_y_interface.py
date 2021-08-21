@@ -21,6 +21,23 @@ class FlipYInterface(VariableNameInterface, RevertInterface):
             return
         self._flip_y = ap.Boolean(False)
 
+    @property
+    def flip_y(self) -> ap.Boolean:
+        """
+        Get a boolean value whether the y-axis is flipped or not.
+
+        Returns
+        -------
+        flip_y : Boolean
+            A boolean value whether the y-axis is flipped or not.
+        """
+        with ap.DebugInfo(
+                callable_='flip_y', locals_=locals(),
+                module_name=__name__, class_=FlipYInterface):
+            from apysc._type import value_util
+            self._initialize_flip_y_if_not_initialized()
+            return value_util.get_copy(value=self._flip_y)
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make a value's snapshot.

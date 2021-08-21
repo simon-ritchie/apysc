@@ -81,6 +81,8 @@ class FlipYInterface(VariableNameInterface, RevertInterface):
                     interface_variable_name=self.variable_name)
             ap.append_js_expression(expression=expression)
 
+    _flip_y_snapshots: Dict[str, bool]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
@@ -90,6 +92,12 @@ class FlipYInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not hasattr(self, '_flip_y_snapshots'):
+            self._flip_y_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._initialize_flip_y_if_not_initialized()
+        self._flip_y_snapshots[snapshot_name] = self._flip_y._value
 
     def _revert(self, snapshot_name: str) -> None:
         """

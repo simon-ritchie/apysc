@@ -1,8 +1,8 @@
 """Interfaces and definitions for last expression's scope information.
 """
 
-import os
 from enum import Enum
+from typing import Optional, Tuple
 
 
 class LastScope(Enum):
@@ -19,9 +19,14 @@ def reset() -> None:
     """
     Reset last expression's scope information.
     """
-    from apysc._expression.expression_file_util import LAST_SCOPE_FILE_PATH
-    from apysc._file import file_util
-    file_util.remove_file_if_exists(file_path=LAST_SCOPE_FILE_PATH)
+    from apysc._expression import expression_file_util
+    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    query: str = (
+        f'DELETE FROM {expression_file_util.TableName.LAST_SCOPE.value};'
+    )
+    expression_file_util.cursor.execute(query)
+    expression_file_util.connection.commit()
+
 
 
 def get_last_scope() -> LastScope:
@@ -34,14 +39,18 @@ def get_last_scope() -> LastScope:
         Last scope value. If there is no last scope's value, then
         LastScope.NORMAL will be returned.
     """
-    from apysc._expression.expression_file_util import LAST_SCOPE_FILE_PATH
-    from apysc._file import file_util
-    if not os.path.isfile(LAST_SCOPE_FILE_PATH):
+    from apysc._expression import expression_file_util
+    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    query: str = (
+        'SELECT last_scope FROM '
+        f'{expression_file_util.TableName.LAST_SCOPE.value} '
+        'LIMIT 1;'
+    )
+    expression_file_util.cursor.execute(query)
+    result: Optional[Tuple[int]] = expression_file_util.cursor.fetchone()
+    if result is None:
         return LastScope.NORMAL
-    last_scope_str: str = file_util.read_txt(file_path=LAST_SCOPE_FILE_PATH)
-    if last_scope_str == '':
-        return LastScope.NORMAL
-    last_scope: LastScope = LastScope(int(last_scope_str))
+    last_scope: LastScope = LastScope(result[0])
     return last_scope
 
 
@@ -54,8 +63,12 @@ def set_last_scope(value: LastScope) -> None:
     value : LastScope
         Last scope value to set.
     """
-    from apysc._expression.expression_file_util import LAST_SCOPE_FILE_PATH
-    from apysc._file import file_util
-    file_util.save_plain_txt(
-        txt=str(value.value),
-        file_path=LAST_SCOPE_FILE_PATH)
+    from apysc._expression import expression_file_util
+    reset()
+    query: str = (
+        'INSERT INTO '
+        f'{expression_file_util.TableName.LAST_SCOPE.value}(last_scope) '
+        f'VALUES({value.value});'
+    )
+    expression_file_util.cursor.execute(query)
+    expression_file_util.connection.commit()

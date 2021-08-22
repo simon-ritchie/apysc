@@ -219,6 +219,19 @@ def _create_last_scope_table() -> None:
     _cursor.execute(query)
 
 
+@_check_connection
+def _create_event_handler_scope_count_table() -> None:
+    """
+    Create the event handler scope count value SQLite table.
+    """
+    query: str = _make_create_table_query(
+        table_name=_TableName.EVENT_HANDLER_SCOPE_COUNT,
+        column_ddl=(
+            '  count INTEGER NOT NULL'
+        ))
+    _cursor.execute(query)
+
+
 def _initialize_sqlite_tables_if_not_initialized() -> bool:
     """
     Initialize the sqlite tables if they have not been
@@ -238,6 +251,7 @@ def _initialize_sqlite_tables_if_not_initialized() -> bool:
     _create_indent_num_normal_table()
     _create_indent_num_handler_table()
     _create_last_scope_table()
+    _create_event_handler_scope_count_table()
     return True
 
 

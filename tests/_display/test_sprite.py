@@ -7,7 +7,6 @@ import apysc as ap
 from apysc._display.graphics import Graphics
 from apysc._display.stage import get_stage_variable_name
 from apysc._expression import expression_file_util
-from apysc._file import file_util
 from tests import testing_helper
 
 
@@ -41,11 +40,9 @@ class TestSprite:
     def test__append_constructor_expression(self) -> None:
         stage: ap.Stage = ap.Stage()
         stage_variable_name: str = get_stage_variable_name()
-        file_util.remove_file_if_exists(
-            file_path=expression_file_util.EXPRESSION_FILE_PATH)
+        expression_file_util.empty_expression()
         sprite: ap.Sprite = ap.Sprite(stage=stage)
-        expression: str = file_util.read_txt(
-            file_path=expression_file_util.EXPRESSION_FILE_PATH)
+        expression: str = expression_file_util.get_current_expression()
         expected_strs: List[str] = [
             f'\nvar {sprite.variable_name} = {stage_variable_name}.nested();',
             f'\nvar {sprite.graphics.variable_name} = ',
@@ -55,8 +52,7 @@ class TestSprite:
         ]
         for expected_str in expected_strs:
             assert expected_str in expression
-        file_util.remove_file_if_exists(
-            file_path=expression_file_util.EXPRESSION_FILE_PATH)
+        expression_file_util.empty_expression()
 
         class SubClass(ap.Sprite):
             pass

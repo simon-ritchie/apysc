@@ -82,8 +82,7 @@ class TestStage:
         stage: ap.Stage = ap.Stage()
         expected_expression: str = stage._make_constructor_expression()
         expected_expression = expected_expression.strip()
-        with open(expression_file_util.EXPRESSION_FILE_PATH, 'r') as f:
-            saved_expression: str = f.read()
+        saved_expression: str = expression_file_util.get_current_expression()
         saved_expression = saved_expression.strip()
         for expected_expression_line in expected_expression.splitlines():
             assert expected_expression_line in saved_expression

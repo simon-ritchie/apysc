@@ -44,7 +44,7 @@ class TestTimer:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         timer: ap.Timer = ap.Timer(
             handler=self.on_timer,
             delay=33.3,
@@ -105,7 +105,7 @@ class TestTimer:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_start(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
         timer.start()
         assert timer.running
@@ -141,7 +141,7 @@ class TestTimer:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_stop(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
         timer.start()
         timer.stop()
@@ -157,7 +157,7 @@ class TestTimer:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_stop_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
         expression: str = timer._get_stop_expression(indent_num=1)
         expected: str = (
@@ -170,7 +170,7 @@ class TestTimer:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_count_branch_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         timer: ap.Timer = ap.Timer(
             handler=self.on_timer, delay=33.3, repeat_count=5)
         timer.start()
@@ -217,7 +217,7 @@ class TestTimer:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_timer_complete(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         timer: ap.Timer = ap.Timer(
             handler=self.on_timer, delay=33.3)
         name: str = timer.timer_complete(handler=self.on_timer_complete)
@@ -228,7 +228,7 @@ class TestTimer:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_reset(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         timer: ap.Timer = ap.Timer(
             handler=self.on_timer, delay=33.3)
         timer.start()

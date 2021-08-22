@@ -11,7 +11,7 @@ class TestBlankObjectInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__initialize_blank_object_if_not_initialized(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: BlankObjectInterface = BlankObjectInterface()
         interface._initialize_blank_object_if_not_initialized()
         assert interface._initialize_blank_object_if_not_initialized

@@ -88,7 +88,7 @@ class TestDebugInfo:
         assert '\n//    a\nb'
         assert f"\n//    int_val = 10({int_val.variable_name})"
 
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         ap.set_debug_mode(stage=stage)
         with ap.DebugInfo(
                 callable_=self.test___init__, locals_={},
@@ -163,7 +163,7 @@ def test__get_callable_count_file_path() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_callable_count() -> None:
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
     callable_count: int = debug_mode._get_callable_count(
         callable_=TestDebugInfo.test___init__,
         module_name=__name__,
@@ -191,7 +191,7 @@ def test__get_callable_count() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__increment_callable_count() -> None:
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
     debug_mode._increment_callable_count(
         callable_=TestDebugInfo.test___init__,
         module_name=__name__,

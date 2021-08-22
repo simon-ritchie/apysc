@@ -57,7 +57,7 @@ class TestMouseUpInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_mouseup(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface_1: _TestMouseUp = _TestMouseUp()
         name: str = interface_1.mouseup(
             handler=self.on_mouse_up_1, options={'msg': 'Hello!'})
@@ -75,7 +75,7 @@ class TestMouseUpInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_mouseup(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface_1: _TestMouseUp = _TestMouseUp()
         name: str = interface_1.mouseup(handler=self.on_mouse_up_1)
         interface_1.unbind_mouseup(handler=self.on_mouse_up_1)
@@ -89,7 +89,7 @@ class TestMouseUpInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_mouseup_all(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface_1: _TestMouseUp = _TestMouseUp()
         interface_1.mouseup(handler=self.on_mouse_up_1)
         interface_1.mouseup(handler=self.on_mouse_up_2)

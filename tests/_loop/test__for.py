@@ -39,7 +39,7 @@ class TestFor:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_arr_enter_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         arr: ap.Array = ap.Array([1, 2, 3])
         with ap.For(arr, locals(), globals()) as i:
             pass
@@ -99,7 +99,7 @@ class TestFor:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_dict_enter_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
         with ap.For[ap.String](dict_1) as key:
             pass

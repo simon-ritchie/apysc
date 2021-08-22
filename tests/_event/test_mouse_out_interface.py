@@ -57,7 +57,7 @@ class TestMouseOutInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_mouseout(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface_1: _TestMouseOut = _TestMouseOut()
         name: str = interface_1.mouseout(
             handler=self.on_mouse_out_1,
@@ -78,7 +78,7 @@ class TestMouseOutInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_mouseout(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface_1: _TestMouseOut = _TestMouseOut()
         name: str = interface_1.mouseout(handler=self.on_mouse_out_1)
         interface_1.unbind_mouseout(handler=self.on_mouse_out_1)
@@ -92,7 +92,7 @@ class TestMouseOutInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_mouseout_all(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface_1: _TestMouseOut = _TestMouseOut()
         interface_1.mouseout(handler=self.on_mouse_out_1)
         interface_1.mouseout(handler=self.on_mouse_out_2)

@@ -95,7 +95,7 @@ def test_get_next_variable_name() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_substitution_expression() -> None:
     indent_num.reset()
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
     int_1: ap.Int = ap.Int(10)
     int_2: ap.Int = ap.Int(20)
     expression_variables_util.append_substitution_expression(
@@ -109,7 +109,7 @@ def test_append_substitution_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_substitution_expression_with_names() -> None:
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
     expression_variables_util.append_substitution_expression_with_names(
         left_variable_name='i_5',
         right_variable_name='i_6')
@@ -117,7 +117,7 @@ def test_append_substitution_expression_with_names() -> None:
     expected: str = 'i_5 = i_6'
     assert expected in expression
 
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
     expression_variables_util.append_substitution_expression_with_names(
         left_variable_name='',
         right_variable_name='i_6')

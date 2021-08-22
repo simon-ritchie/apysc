@@ -272,14 +272,14 @@ def test__minify_html() -> None:
     html_str = exporter._minify_html(html_str=html_str, minify=True)
     assert html_str.startswith('<html>\n<body>')
 
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
     html_str = exporter._minify_html(html_str=html_str, minify=True)
     assert html_str.startswith('<html><body>')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_event_handler_expressions() -> None:
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
 
     with HandlerScope():
         ap.append_js_expression(
@@ -342,7 +342,7 @@ def test__display_debug_mode_ignoring_minify_setting_info() -> None:
         minify=False, verbose=1)
     assert msg == ''
 
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
     msg = exporter._display_debug_mode_ignoring_minify_setting_info(
         minify=True, verbose=1)
     assert msg == ''

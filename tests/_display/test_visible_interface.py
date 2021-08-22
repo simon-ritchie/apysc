@@ -45,7 +45,7 @@ class TestVisibleInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_visible_update_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface_1: _TestVisible = _TestVisible()
         interface_1.visible = ap.Boolean(True)
         expression: str = expression_file_util.get_current_expression()
@@ -54,7 +54,7 @@ class TestVisibleInterface:
         )
         assert expected in expression
 
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface_1.visible = ap.Boolean(False)
         expression = expression_file_util.get_current_expression()
         expected = (

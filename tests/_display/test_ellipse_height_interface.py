@@ -33,7 +33,7 @@ class TestEllipseHeightInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ellipse_height_update_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: EllipseHeightInterface = EllipseHeightInterface()
         interface.variable_name = 'test_ellipse_height_interface'
         ellipse_height: ap.Int = ap.Int(10)
@@ -45,7 +45,7 @@ class TestEllipseHeightInterface:
         )
         assert expected in expression
 
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         ellipse_width: ap.Int = ap.Int(20)
         setattr(interface, '_ellipse_width', ellipse_width)
         interface.ellipse_height = ellipse_height

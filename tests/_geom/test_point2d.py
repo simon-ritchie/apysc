@@ -82,7 +82,7 @@ class TestPoint2D:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         x: ap.Int = ap.Int(10)
         y: ap.Int = ap.Int(20)
         point: ap.Point2D = ap.Point2D(x=x, y=y)
@@ -95,7 +95,7 @@ class TestPoint2D:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_x_getter_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         point: ap.Point2D = ap.Point2D(x=10, y=20)
         x: ap.Int = point.x
         expression: str = expression_file_util.get_current_expression()
@@ -106,7 +106,7 @@ class TestPoint2D:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_y_getter_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         point: ap.Point2D = ap.Point2D(x=10, y=20)
         y: ap.Int = point.y
         expression: str = expression_file_util.get_current_expression()
@@ -117,7 +117,7 @@ class TestPoint2D:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_x_setter_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         point: ap.Point2D = ap.Point2D(x=10, y=20)
         x: ap.Int = ap.Int(20)
         point.x = x
@@ -129,7 +129,7 @@ class TestPoint2D:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_y_setter_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         point: ap.Point2D = ap.Point2D(x=10, y=20)
         y: ap.Int = ap.Int(30)
         point.y = y

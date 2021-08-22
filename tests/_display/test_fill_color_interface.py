@@ -24,7 +24,7 @@ class TestFillColorInterface:
     def test__append_fill_color_update_expression(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         fill_color_interface.fill_color = ap.String('#666')
         expression: str = expression_file_util.get_current_expression()
         expected: str = 'test_fill_color_interface.fill("#666666");'
@@ -34,7 +34,7 @@ class TestFillColorInterface:
     def test__update_fill_color_and_skip_appending_exp(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         fill_color_interface._update_fill_color_and_skip_appending_exp(
             value=ap.String('#333'))
         assert fill_color_interface.fill_color == '#333333'

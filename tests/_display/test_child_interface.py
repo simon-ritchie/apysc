@@ -48,7 +48,7 @@ class TestChildInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_contains_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         stage: ap.Stage = ap.Stage()
         sprite_1: ap.Sprite = ap.Sprite(stage=stage)
         stage.add_child(child=sprite_1)
@@ -89,7 +89,7 @@ class TestChildInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_num_children_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         stage: ap.Stage = ap.Stage()
         sprite_1: ap.Sprite = ap.Sprite(stage=stage)
         stage.add_child(child=sprite_1)
@@ -113,7 +113,7 @@ class TestChildInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_get_child_at_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         stage: ap.Stage = ap.Stage()
         sprite_1: ap.Sprite = ap.Sprite(stage=stage)
         stage.add_child(child=sprite_1)

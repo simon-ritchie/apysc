@@ -33,7 +33,7 @@ class TestCxInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_cx_update_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: CxInterface = CxInterface()
         interface.variable_name = 'test_cx_interface'
         x: ap.Int = ap.Int(10)

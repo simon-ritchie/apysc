@@ -41,7 +41,7 @@ class TestEllipseSizeInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ellipse_size_update_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: EllipseSizeInterface = EllipseSizeInterface()
         interface.variable_name = 'test_ellipse_size_interface'
         ellipse_size: ap.Int = ap.Int(10)

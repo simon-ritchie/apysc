@@ -32,7 +32,7 @@ class TestRadiusInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_radius_update_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: RadiusInterface = RadiusInterface()
         interface.variable_name = 'test_radius_interface'
         radius: ap.Int = ap.Int(10)

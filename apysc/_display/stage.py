@@ -75,7 +75,7 @@ class Stage(
         from apysc._color import color_util
         from apysc._html import html_util
         from apysc._validation import string_validation
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         self.stage = self
         self._stage_elem_id = self._create_stage_elem_id_if_none(
             stage_elem_id=stage_elem_id)

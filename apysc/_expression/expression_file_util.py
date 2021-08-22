@@ -2,8 +2,7 @@
 
 Mainly following interfaces are defined:
 
-- empty_expression_dir : Remove expression directory
-    (EXPRESSION_ROOT_DIR) to initialize.
+- empty_expression : Empty the current js expression data.
 - append_js_expression : Append js expression to the file.
 - get_current_expression : Get current expression string.
 - get_current_event_handler_scope_expression : Get a current
@@ -31,9 +30,9 @@ DEBUG_MODE_SETTING_FILE_PATH: str = os.path.join(
     EXPRESSION_ROOT_DIR, 'debug_mode_setting.txt')
 
 
-def empty_expression_dir() -> None:
+def empty_expression() -> None:
     """
-    Remove expression directory (EXPRESSION_ROOT_DIR) to initialize.
+    Empty the current js expression data.
     """
     from apysc._file import file_util
     file_util.empty_directory(directory_path=EXPRESSION_ROOT_DIR)

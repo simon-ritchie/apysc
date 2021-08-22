@@ -40,7 +40,7 @@ def on_mouse_wheel_2(e: ap.WheelEvent, options: Dict[str, Any]) -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_bind_wheel_event_to_document() -> None:
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
     name: str = ap.bind_wheel_event_to_document(
         handler=on_mouse_wheel_1, options={'msg': 'Hello!'})
     expression: str = expression_file_util.get_current_expression()
@@ -61,7 +61,7 @@ def test_bind_wheel_event_to_document() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_unbind_wheel_event_from_document() -> None:
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
     ap.unbind_wheel_event_from_document(handler=on_mouse_wheel_1)
     name: str = get_handler_name(
         handler=on_mouse_wheel_1, instance=ap.document)
@@ -74,7 +74,7 @@ def test_unbind_wheel_event_from_document() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_unbind_wheel_event_all_from_document() -> None:
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
     ap.unbind_wheel_event_all_from_document()
     expression: str = expression_file_util.get_current_expression()
     expected: str = f'$({ap.document.variable_name}).off("mousewheel");'

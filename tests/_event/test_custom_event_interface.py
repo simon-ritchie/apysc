@@ -71,7 +71,7 @@ class TestCustomEventInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_custom_event_binding_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: _TestObject = _TestObject()
         e: ap.Event = ap.Event(this=interface)
         name: str = interface.bind_custom_event(
@@ -87,7 +87,7 @@ class TestCustomEventInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_bind_custom_event(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: _TestObject = _TestObject()
         e: ap.Event = ap.Event(this=interface)
         name: str = interface.bind_custom_event(
@@ -103,7 +103,7 @@ class TestCustomEventInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_trigger_custom_event(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: _TestObject = _TestObject()
         interface.trigger_custom_event(custom_event_type='test_event')
         expression: str = expression_file_util.get_current_expression()

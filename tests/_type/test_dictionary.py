@@ -42,7 +42,7 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10})
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
@@ -75,7 +75,7 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_value_setter_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10})
         dict_1.value = {'b': 20}
         expression: str = expression_file_util.get_current_expression()
@@ -133,7 +133,7 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_length_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         dict_1: ap.Dictionary = ap.Dictionary(value={'a': 10, 'b': 20})
         length: ap.Int = dict_1.length
         expression: str = expression_file_util.get_current_expression()
@@ -185,7 +185,7 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_getitem_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         int_1: ap.Int = ap.Int(20)
         dict_1: ap.Dictionary[Any, Any] = ap.Dictionary({'a': 10, 'b': int_1})
         _: Any = dict_1['a']
@@ -223,7 +223,7 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_setitem_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         dict_1: ap.Dictionary[Any, Any] = ap.Dictionary({'a': 10})
         string_1: ap.String = ap.String('b')
         dict_1[string_1] = 20
@@ -262,7 +262,7 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_delitem_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         dict_1: ap.Dictionary[Any, Any] = ap.Dictionary({'a': 10})
         string_1: ap.String = ap.String('a')
         del dict_1[string_1]
@@ -274,7 +274,7 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_eq_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
         dict_2: ap.Dictionary = ap.Dictionary({'a': 10})
         result: ap.Boolean = dict_1 == dict_2
@@ -306,7 +306,7 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ne_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
         dict_2: ap.Dictionary = ap.Dictionary({'a': 20})
         result: ap.Boolean = dict_1 != dict_2
@@ -352,7 +352,7 @@ class TestDictionary:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_get_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         int_1: ap.Int = ap.Int(20)
         dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
         _: Any = dict_1.get('a', default=int_1)

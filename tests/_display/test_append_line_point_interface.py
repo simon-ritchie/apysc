@@ -12,7 +12,7 @@ class TestAppendLinePointInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_append_line_point(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: AppendLinePointInterface = AppendLinePointInterface()
         interface.variable_name = 'test_append_line_point_interface'
         x: ap.Int = ap.Int(50)

@@ -20,7 +20,7 @@ class TestHeightInterface:
     def test__append_height_update_expression(self) -> None:
         height_interface: HeightInterface = HeightInterface()
         height_interface.variable_name = 'test_height_interface'
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         height_interface.height = ap.Int(300)
         expression: str = expression_file_util.get_current_expression()
         expected: str = (
@@ -31,7 +31,7 @@ class TestHeightInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_height_and_skip_appending_exp(self) -> None:
         height_interface: HeightInterface = HeightInterface()
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         height_interface._update_height_and_skip_appending_exp(
             value=ap.Int(300))
         assert height_interface.height == 300

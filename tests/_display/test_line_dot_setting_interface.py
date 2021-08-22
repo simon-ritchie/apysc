@@ -46,7 +46,7 @@ class TestLineDotSettingInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_line_dot_setting_update_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: LineDotSettingInterface = LineDotSettingInterface()
         interface.variable_name = 'test_line_dot_setting_interface'
         interface._initialize_line_dot_setting_if_not_initialized()
@@ -57,7 +57,7 @@ class TestLineDotSettingInterface:
         )
         assert expected in expression
 
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface._line_dot_setting = ap.LineDotSetting(dot_size=10)
         interface._append_line_dot_setting_update_expression()
         expression = expression_file_util.get_current_expression()
@@ -71,7 +71,7 @@ class TestLineDotSettingInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_dot_setting_and_skip_appending_exp(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: LineDotSettingInterface = LineDotSettingInterface()
         interface._update_line_dot_setting_and_skip_appending_exp(
             value=None)

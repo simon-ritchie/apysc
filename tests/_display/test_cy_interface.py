@@ -33,7 +33,7 @@ class TestCyInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_cy_update_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: CyInterface = CyInterface()
         interface.variable_name = 'test_cy_interface'
         y: ap.Int = ap.Int(10)

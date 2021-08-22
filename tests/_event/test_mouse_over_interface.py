@@ -57,7 +57,7 @@ class TestMouseOverInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_mouseover(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface_1: _TestMouseOver = _TestMouseOver()
         name: str = interface_1.mouseover(handler=self.on_mouse_over_1)
         assert name in interface_1._mouse_over_handlers
@@ -74,7 +74,7 @@ class TestMouseOverInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_mouseover(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface_1: _TestMouseOver = _TestMouseOver()
         name: str = interface_1.mouseover(handler=self.on_mouse_over_1)
         interface_1.unbind_mouseover(handler=self.on_mouse_over_1)
@@ -88,7 +88,7 @@ class TestMouseOverInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_mouseover_all(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface_1: _TestMouseOver = _TestMouseOver()
         interface_1.mouseover(handler=self.on_mouse_over_1)
         interface_1.mouseover(handler=self.on_mouse_over_2)

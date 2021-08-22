@@ -49,7 +49,7 @@ class TestClickInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_click(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface_1: _TestClickInterface = _TestClickInterface()
         name: str = interface_1.click(
             handler=self.on_click_1)
@@ -83,7 +83,7 @@ class TestClickInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_click(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface_1: ClickInterface = ClickInterface()
         testing_helper.assert_raises(
             expected_error_class=TypeError,
@@ -105,7 +105,7 @@ class TestClickInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_click_all(self) -> None:
-        expression_file_util.empty_expression_dir
+        expression_file_util.empty_expression
         interface_1: ClickInterface = ClickInterface()
         testing_helper.assert_raises(
             expected_error_class=TypeError,

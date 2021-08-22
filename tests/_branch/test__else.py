@@ -13,7 +13,7 @@ class TestElse:
 
     @retry(stop_max_attempt_number=15, wait_fixed=1000)
     def test__append_enter_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         last_scope.reset()
 
         with pytest.raises(ValueError):  # type: ignore
@@ -40,7 +40,7 @@ class TestElse:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_last_scope(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         last_scope.reset()
         boolean_1: ap.Boolean = ap.Boolean(True)
         with ap.If(boolean_1, locals(), globals()):

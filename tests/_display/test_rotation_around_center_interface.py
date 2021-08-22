@@ -42,7 +42,7 @@ class TestRotationAroundCenterInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_rotation_around_center_update_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: _TestInterface = _TestInterface()
         int_1: ap.Int = ap.Int(10)
         int_2: ap.Int = ap.Int(20)

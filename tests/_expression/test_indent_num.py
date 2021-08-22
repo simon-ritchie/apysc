@@ -28,7 +28,7 @@ def test_get_current_indent_num() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_reset() -> None:
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
     with Indent():
         indent_num.reset()
         current_indent_num: int = indent_num.get_current_indent_num()
@@ -43,7 +43,7 @@ def test_reset() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_indent_num_file_path() -> None:
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
     file_path: str = indent_num._get_indent_num_file_path()
     assert file_path == expression_file_util.INDENT_NUM_FILE_PATH
 
@@ -51,7 +51,7 @@ def test__get_indent_num_file_path() -> None:
     file_path = indent_num._get_indent_num_file_path()
     assert file_path == \
         expression_file_util.EVENT_HANDLER_INDENT_NUM_FILE_PATH
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
 
 
 class TestIndent:

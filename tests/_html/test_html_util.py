@@ -176,7 +176,7 @@ def test_wrap_expression_by_script_tag() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_remove_first_selector_symbol_char_expression() -> None:
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
     str_val_1: ap.String = ap.String('.line-graph')
     str_val_2: ap.String = html_util.remove_first_selector_symbol_char(
         str_val=str_val_1)

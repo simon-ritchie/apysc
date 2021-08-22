@@ -65,7 +65,7 @@ class TestMouseEventInterfaceBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__unbind_mouse_event(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface_1: _TestClickInterface = _TestClickInterface()
         interface_1.click(handler=self.on_click_1)
         interface_1._unbind_mouse_event(
@@ -81,7 +81,7 @@ class TestMouseEventInterfaceBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__unbind_all_mouse_events(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface_1: _TestClickInterface = _TestClickInterface()
         interface_1.click(handler=self.on_click_1)
         interface_1.click(handler=self.on_click_2)
@@ -98,7 +98,7 @@ class TestMouseEventInterfaceBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_mouse_event_binding_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface_1: _TestClickInterface = _TestClickInterface()
         name: str = interface_1.click(handler=self.on_click_1)
         interface_1._append_mouse_event_binding_expression(

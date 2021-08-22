@@ -32,7 +32,7 @@ class TestDisplayObject:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_overflow_visible_setting(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         stage: ap.Stage = ap.Stage()
         display_object: DisplayObject = DisplayObject(
             stage=stage, variable_name='test_display_object')

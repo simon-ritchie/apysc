@@ -57,7 +57,7 @@ class TestDoubleClickInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_dblclick(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface_1: _TestDoubleClick = _TestDoubleClick()
         name: str = interface_1.dblclick(handler=self.on_double_click_1)
         assert interface_1._dblclick_handlers == {
@@ -77,7 +77,7 @@ class TestDoubleClickInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_dblclick(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface_1: _TestDoubleClick = _TestDoubleClick()
         interface_1.dblclick(handler=self.on_double_click_1)
         interface_1.unbind_dblclick(handler=self.on_double_click_1)
@@ -87,7 +87,7 @@ class TestDoubleClickInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_dblclick_all(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface_1: _TestDoubleClick = _TestDoubleClick()
         interface_1.dblclick(handler=self.on_double_click_1)
         interface_1.unbind_dblclick_all()

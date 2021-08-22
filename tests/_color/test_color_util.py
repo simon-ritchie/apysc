@@ -51,7 +51,7 @@ def test_complement_hex_color() -> None:
 def test__append_complement_hex_color_expression() -> None:
     import apysc as ap
     from apysc._expression import expression_file_util
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
 
     string_1: ap.String = ap.String('#333')
     string_2: ap.String = color_util.complement_hex_color(

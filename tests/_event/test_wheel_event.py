@@ -32,7 +32,7 @@ class TestWheelEvent:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_delta_y_getter_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         e: ap.WheelEvent = ap.WheelEvent()
         delta_y: ap.Int = e.delta_y
         expression: str = expression_file_util.get_current_expression()
@@ -51,7 +51,7 @@ class TestWheelEvent:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_delta_x_getter_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         e: ap.WheelEvent = ap.WheelEvent()
         delta_x: ap.Int = e.delta_x
         expression: str = expression_file_util.get_current_expression()

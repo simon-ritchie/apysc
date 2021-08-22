@@ -61,7 +61,7 @@ class TestIfBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___enter__(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         indent_num.reset()
         int_1: ap.Int = ap.Int(10)
         condition: ap.Boolean = ap.Boolean(True)
@@ -78,7 +78,7 @@ class TestIfBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___exit__(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         indent_num.reset()
         int_1: ap.Int = ap.Int(10)
         condition: ap.Boolean = ap.Boolean(True)
@@ -101,7 +101,7 @@ class TestIfBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_exit_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         indent_num.reset()
         with IfSubClass(condition=ap.Boolean(True), locals_={}, globals_={}):
             pass

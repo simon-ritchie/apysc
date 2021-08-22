@@ -38,7 +38,7 @@ class TestFlipXInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_flip_x_update_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: _TestInterface = _TestInterface()
         flip_x_1: ap.Boolean = ap.Boolean(True)
         flip_x_2: ap.Boolean = ap.Boolean(False)

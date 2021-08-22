@@ -61,7 +61,7 @@ def test_get_handler_name() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_handler_expression() -> None:
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
     test_instance: _TestClass1 = _TestClass1()
     int_1: ap.Int = ap.Int(10)
     handler_data: HandlerData = {
@@ -96,7 +96,7 @@ def test_append_handler_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_unbinding_expression() -> None:
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
     int_1: ap.Int = ap.Int(10)
     handler.append_unbinding_expression(
         this=int_1, handler_name='on_click_1',
@@ -111,7 +111,7 @@ def test_append_unbinding_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_unbinding_all_expression() -> None:
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
     int_1: ap.Int = ap.Int(10)
     handler.append_unbinding_all_expression(
         this=int_1, mouse_event_type=ap.MouseEventType.CLICK)

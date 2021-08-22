@@ -9,7 +9,7 @@ from apysc._loop import loop_count
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_current_loop_count() -> None:
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
     file_path: str = expression_file_util.LOOP_COUNT_FILE_PATH
 
     loop_count_: int = loop_count.get_current_loop_count()
@@ -30,7 +30,7 @@ def test_get_current_loop_count() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_increment_current_loop_count() -> None:
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
     loop_count.increment_current_loop_count()
     loop_count_: int = loop_count.get_current_loop_count()
     assert loop_count_ == 1
@@ -42,7 +42,7 @@ def test_increment_current_loop_count() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_decrement_current_loop_count() -> None:
-    expression_file_util.empty_expression_dir()
+    expression_file_util.empty_expression()
     loop_count.increment_current_loop_count()
     loop_count.decrement_current_loop_count()
     loop_count_: int = loop_count.get_current_loop_count()

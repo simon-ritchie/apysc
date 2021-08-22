@@ -64,7 +64,7 @@ class TestLineDashDotSettingInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_line_dash_dot_setting_update_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: LineDashDotSettingInterface = LineDashDotSettingInterface()
         interface.variable_name = 'test_line_dash_dot_setting_interface'
         interface._initialize_line_dash_dot_setting_if_not_initialized()
@@ -75,7 +75,7 @@ class TestLineDashDotSettingInterface:
         )
         assert expected in expression
 
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface._line_dash_dot_setting = ap.LineDashDotSetting(
             dot_size=5, dash_size=10, space_size=7)
         interface._append_line_dash_dot_setting_update_expression()

@@ -27,7 +27,7 @@ class TestParentInterface:
         assert stage.num_children == 0
         assert sprite.parent is None
 
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         sprite.remove_from_parent()
         expression: str = expression_file_util.get_current_expression()
         assert f'removeElement({sprite.variable_name}' in expression

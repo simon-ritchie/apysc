@@ -77,7 +77,7 @@ class TestLineRoundDotSettingInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_line_round_dot_setting_update_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: LineRoundDotSettingInterface = \
             LineRoundDotSettingInterface()
         interface.variable_name = 'test_line_round_dot_setting_interface'
@@ -94,7 +94,7 @@ class TestLineRoundDotSettingInterface:
             flags=re.MULTILINE)
         assert match is not None
 
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface.line_round_dot_setting = None
         expression = expression_file_util.get_current_expression()
         expected: str = (

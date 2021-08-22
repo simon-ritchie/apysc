@@ -11,7 +11,7 @@ class TestContinue:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         assert_raises(
             expected_error_class=Exception,
             func_or_method=ap.Continue,

@@ -87,7 +87,7 @@ class TestPolyline:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite(stage=stage)
         sprite.graphics.begin_fill(color='#0af')
@@ -126,7 +126,7 @@ class TestPolyline:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_append_line_point(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite(stage=stage)
         sprite.graphics.begin_fill(color='#0af')

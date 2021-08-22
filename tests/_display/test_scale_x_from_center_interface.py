@@ -40,7 +40,7 @@ class TestScaleXFromCenterInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_scale_x_from_center_update_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: _TestInterface = _TestInterface()
         num_1: ap.Number = ap.Number(0.5)
         num_2: ap.Number = ap.Number(0.3)

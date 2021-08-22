@@ -42,7 +42,7 @@ class TestPolygon:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         stage: ap.Stage = ap.Stage()
         stage_variable_name: str = get_stage_variable_name()
         sprite: ap.Sprite = ap.Sprite(stage=stage)

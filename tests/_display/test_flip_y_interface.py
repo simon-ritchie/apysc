@@ -38,7 +38,7 @@ class TestFlipYInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_flip_y_update_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: _TestInterface = _TestInterface()
         interface.flip_y = ap.Boolean(True)
         expression: str = expression_file_util.get_current_expression()

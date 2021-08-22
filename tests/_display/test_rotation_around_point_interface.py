@@ -63,7 +63,7 @@ class TestRotationAroundPointInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_rotation_around_point_update_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: _TestInterface = _TestInterface()
         rotation: ap.Int = ap.Int(50)
         x: ap.Int = ap.Int(100)

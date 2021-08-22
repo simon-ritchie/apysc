@@ -109,4 +109,4 @@ class TestRectangle:
         assert_y_attr_expression_exists(expression=expression)
         assert_stroke_width_attr_expression_exists(expression=expression)
         assert_stroke_opacity_attr_expression_exists(expression=expression)
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()

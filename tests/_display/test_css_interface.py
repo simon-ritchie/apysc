@@ -39,7 +39,7 @@ class TestCssInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_get_css_expresion(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: _TestInterface = _TestInterface()
         name: ap.String = ap.String('display')
         css: ap.String = interface.get_css(name=name)
@@ -59,7 +59,7 @@ class TestCssInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_set_css_expression(self) -> None:
-        expression_file_util.empty_expression_dir()
+        expression_file_util.empty_expression()
         interface: _TestInterface = _TestInterface()
         name: ap.String = ap.String('display')
         value: ap.String = ap.String('none')

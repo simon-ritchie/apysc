@@ -129,3 +129,17 @@ def test__table_exists() -> None:
     result = expression_file_util._table_exists(
         table_name=expression_file_util._TableName.NOT_EXISTING)
     assert not result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__initialize_sqlite_tables_if_not_initialized() -> None:
+    initialized: bool = expression_file_util.\
+        _initialize_sqlite_tables_if_not_initialized()
+    assert initialized
+    table_exists: bool = expression_file_util._table_exists(
+        table_name=expression_file_util._TableName.EXPRESSION_NORMAL)
+    assert table_exists
+
+    initialized = expression_file_util.\
+        _initialize_sqlite_tables_if_not_initialized()
+    assert not initialized

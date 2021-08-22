@@ -12,7 +12,7 @@ Mainly following interfaces are defined:
 import os
 import sqlite3
 from enum import Enum
-from typing import Any, Callable
+from typing import Any, Callable, Optional, Tuple
 from typing import TypeVar
 
 EXPRESSION_ROOT_DIR: str = '../.apysc_expression/'
@@ -124,7 +124,8 @@ def _table_exists(table_name: _TableName) -> bool:
         f'AND name = "{table_name.value}" LIMIT 1;'
     )
     _cursor.execute(query)
-    result = _cursor.fetchone()
+    result: Optional[Tuple] = _cursor.fetchone()
+    _connection.commit()
     if result:
         return True
     return False
@@ -144,12 +145,22 @@ def _create_expression_normal_table() -> None:
     _cursor.execute(query)
 
 
-def _initialize_sqlite_tables_if_not_initialized() -> None:
+def _initialize_sqlite_tables_if_not_initialized() -> bool:
     """
     Initialize the sqlite tables if they have not been
     initialized yet.
+
+    Returns
+    -------
+    initialized : bool
+        If initialized, returns True.
     """
-    pass
+    table_exists: bool = _table_exists(
+        table_name=_TableName.EXPRESSION_NORMAL)
+    if table_exists:
+        return False
+    _create_expression_normal_table()
+    return True
 
 
 def empty_expression() -> None:

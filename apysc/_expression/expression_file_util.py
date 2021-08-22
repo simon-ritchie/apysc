@@ -16,8 +16,6 @@ from typing import Any, Callable, List, Optional, Tuple
 from typing import TypeVar
 
 EXPRESSION_ROOT_DIR: str = '../.apysc_expression/'
-EVENT_HANDLER_EXPRESSION_FILE_PATH: str = os.path.join(
-    EXPRESSION_ROOT_DIR, 'event_handler_expression.txt')
 INDENT_NUM_FILE_PATH: str = os.path.join(
     EXPRESSION_ROOT_DIR, 'indent_num.txt')
 EVENT_HANDLER_INDENT_NUM_FILE_PATH: str = os.path.join(

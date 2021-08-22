@@ -311,13 +311,32 @@ def append_js_expression(expression: str) -> None:
     current_indent_num: int = indent_num.get_current_indent_num()
     expression = indent_util.append_spaces_to_expression(
         expression=expression, indent_num=current_indent_num)
-    file_path: str = _get_expression_file_path()
-    dir_path: str = file_util.get_abs_directory_path_from_file_path(
-        file_path=file_path)
-    os.makedirs(dir_path, exist_ok=True)
-    file_util.append_plain_txt(
-        txt=f'{expression}\n', file_path=file_path)
-    last_scope.set_last_scope(value=last_scope.LastScope.NORMAL)
+    table_name: _TableName = _get_expression_table_name()
+    # file_path: str = _get_expression_file_path()
+    # dir_path: str = file_util.get_abs_directory_path_from_file_path(
+    #     file_path=file_path)
+    # os.makedirs(dir_path, exist_ok=True)
+    # file_util.append_plain_txt(
+    #     txt=f'{expression}\n', file_path=file_path)
+    # last_scope.set_last_scope(value=last_scope.LastScope.NORMAL)
+
+
+def _get_expression_table_name() -> _TableName:
+    """
+    Get a expression table name. This value will be switched whether
+    current scope is event handler's one or not.
+
+    Returns
+    -------
+    table_name : str
+        Target expression table name.
+    """
+    from apysc._expression import event_handler_scope
+    event_handler_scope_count: int = \
+        event_handler_scope.get_current_event_handler_scope_count()
+    if event_handler_scope_count == 0:
+        return _TableName.EXPRESSION_NORMAL
+    return _TableName.EXPRESSION_HANDLER
 
 
 def _get_expression_file_path() -> str:

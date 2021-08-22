@@ -215,3 +215,15 @@ def test_empty_expression() -> None:
         f'{expression_file_util._TableName.EXPRESSION_NORMAL.value} '
         'LIMIT 1;')
     result: Optional[Tuple] = expression_file_util._cursor.fetchone()
+    assert result is None
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_expression_table_name() -> None:
+    with event_handler_scope.HandlerScope():
+        table_name: expression_file_util._TableName = expression_file_util.\
+            _get_expression_table_name()
+    assert table_name == expression_file_util._TableName.EXPRESSION_HANDLER
+
+    table_name = expression_file_util._get_expression_table_name()
+    assert table_name == expression_file_util._TableName.EXPRESSION_NORMAL

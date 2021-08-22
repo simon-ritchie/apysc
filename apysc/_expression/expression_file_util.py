@@ -340,24 +340,6 @@ def _get_expression_table_name() -> TableName:
     return TableName.EXPRESSION_HANDLER
 
 
-def _get_expression_file_path() -> str:
-    """
-    Get a expression file path. It will switch that current scope
-    is event handler's one or not.
-
-    Returns
-    -------
-    file_path : str
-        Expression file path.
-    """
-    from apysc._expression import event_handler_scope
-    event_handler_scope_count: int = \
-        event_handler_scope.get_current_event_handler_scope_count()
-    if event_handler_scope_count == 0:
-        return EXPRESSION_FILE_PATH
-    return EVENT_HANDLER_EXPRESSION_FILE_PATH
-
-
 def get_current_expression() -> str:
     """
     Get a current expression's string from a file.

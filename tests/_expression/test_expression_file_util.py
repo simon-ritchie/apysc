@@ -1,7 +1,7 @@
 import os
 import re
 from random import randint
-from typing import Match
+from typing import Match, Tuple
 from typing import Optional
 import sqlite3
 
@@ -13,20 +13,6 @@ from apysc._expression import expression_file_util
 from apysc._expression import indent_num
 from apysc._expression.indent_num import Indent
 from apysc._file import file_util
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test_empty_expression_dir() -> None:
-    os.makedirs(expression_file_util.EXPRESSION_ROOT_DIR, exist_ok=True)
-    test_file_path: str = os.path.join(
-        expression_file_util.EXPRESSION_ROOT_DIR,
-        'test_file.txt',
-    )
-    with open(test_file_path, 'w') as f:
-        f.write('\n')
-    expression_file_util.empty_expression()
-    assert not os.path.exists(test_file_path)
-    assert os.path.exists(expression_file_util.EXPRESSION_ROOT_DIR)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -214,3 +200,18 @@ def test__create_debug_mode_setting_table() -> None:
     result: bool = expression_file_util._table_exists(
         table_name=expression_file_util._TableName.DEBUG_MODE_SETTING)
     assert result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_empty_expression() -> None:
+    expression_file_util._create_expression_normal_table()
+    expression_file_util._cursor.execute(
+        'INSERT INTO '
+        f'{expression_file_util._TableName.EXPRESSION_NORMAL.value}'
+        '(txt) VALUES ("test_text");')
+    expression_file_util.empty_expression()
+    expression_file_util._cursor.execute(
+        'SELECT * FROM '
+        f'{expression_file_util._TableName.EXPRESSION_NORMAL.value} '
+        'LIMIT 1;')
+    result: Optional[Tuple] = expression_file_util._cursor.fetchone()

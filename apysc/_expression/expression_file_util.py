@@ -153,9 +153,8 @@ def _make_create_table_query(
 
 
 _EXPRESSION_TABLE_COLUMN_DDL: str = (
-    '  id INTEGER,'
-    '\n  txt TEXT NOT NULL,'
-    '\n  PRIMARY KEY (id)'
+    '  id INTEGER PRIMARY KEY AUTOINCREMENT,'
+    '\n  txt TEXT NOT NULL'
 )
 
 
@@ -287,8 +286,13 @@ def empty_expression() -> None:
     """
     Empty the current js expression data.
     """
-    from apysc._file import file_util
-    file_util.empty_directory(directory_path=EXPRESSION_ROOT_DIR)
+    _initialize_sqlite_tables_if_not_initialized()
+    for table_name in _TableName:
+        if table_name == _TableName.NOT_EXISTING:
+            continue
+        query: str = f'DELETE FROM {table_name.value};'
+        _cursor.execute(query)
+    _connection.commit()
 
 
 def append_js_expression(expression: str) -> None:

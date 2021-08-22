@@ -12,7 +12,7 @@ Mainly following interfaces are defined:
 import os
 import sqlite3
 from enum import Enum
-from typing import Any, Callable, Optional, Tuple
+from typing import Any, Callable, List, Optional, Tuple
 from typing import TypeVar
 
 EXPRESSION_ROOT_DIR: str = '../.apysc_expression/'
@@ -356,7 +356,7 @@ def get_current_expression() -> str:
         Current expression's string.
     """
     current_expression: str = _get_current_expression(
-        file_path=EXPRESSION_FILE_PATH)
+        table_name=TableName.EXPRESSION_NORMAL)
     return current_expression
 
 
@@ -375,28 +375,31 @@ def get_current_event_handler_scope_expression() -> str:
         Current expression's string.
     """
     current_expression: str = _get_current_expression(
-        file_path=EVENT_HANDLER_EXPRESSION_FILE_PATH)
+        table_name=TableName.EXPRESSION_HANDLER)
     return current_expression
 
 
-def _get_current_expression(file_path: str) -> str:
+def _get_current_expression(table_name: TableName) -> str:
     """
-    Get a current expression's string from specified file path.
+    Get a current expression string from a specified table.
 
     Parameters
     ----------
-    file_path : str
-        Target file path.
+    table_name : TableName
+        Target table name.
 
     Returns
     -------
     current_expression : str
-        Current expression's string.
+        Current expression string.
     """
-    from apysc._file import file_util
-    if not os.path.isfile(file_path):
+    initialize_sqlite_tables_if_not_initialized()
+    query: str = (
+        f'SELECT txt FROM {table_name.value}')
+    cursor.execute(query)
+    result: List[Tuple[str]] = cursor.fetchall()
+    if not result:
         return ''
-    current_expression: str = file_util.read_txt(
-        file_path=file_path)
-    current_expression = current_expression.strip()
+    expressions: List[str] = [tpl[0] for tpl in result]
+    current_expression = '\n'.join(expressions)
     return current_expression

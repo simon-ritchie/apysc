@@ -72,23 +72,30 @@ def test_append_js_expression() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_current_expression() -> None:
     expression_file_util.empty_expression()
+    current_expression: str = expression_file_util._get_current_expression(
+        table_name=expression_file_util.TableName.EXPRESSION_NORMAL)
+    assert current_expression == ''
+
     ap.append_js_expression(
         expression='console.log("Hello!");')
-    current_expression: str = expression_file_util._get_current_expression(
-        file_path=expression_file_util.EXPRESSION_FILE_PATH)
+    current_expression = expression_file_util._get_current_expression(
+        table_name=expression_file_util.TableName.EXPRESSION_NORMAL)
     assert current_expression == 'console.log("Hello!");'
 
-    expression_file_util.empty_expression()
-    current_expression = expression_file_util.get_current_expression()
-    assert current_expression == ''
+    ap.append_js_expression(
+        expression='console.log("World!");')
+    current_expression = expression_file_util._get_current_expression(
+        table_name=expression_file_util.TableName.EXPRESSION_NORMAL)
+    assert current_expression == \
+        'console.log("Hello!");\nconsole.log("World!");'
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_current_event_handler_scope_expression() -> None:
     expression_file_util.empty_expression()
-    file_util.save_plain_txt(
-        txt='console.log("Hello!");',
-        file_path=expression_file_util.EVENT_HANDLER_EXPRESSION_FILE_PATH)
+    with event_handler_scope.HandlerScope():
+        expression_file_util.append_js_expression(
+            expression='console.log("Hello!");')
     current_expression: str = expression_file_util.\
         get_current_event_handler_scope_expression()
     assert current_expression == 'console.log("Hello!");'
@@ -116,6 +123,13 @@ def test__table_exists() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_initialize_sqlite_tables_if_not_initialized() -> None:
+    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    query: str = (
+        'DROP TABLE IF EXISTS '
+        f'{expression_file_util.TableName.EXPRESSION_NORMAL.value};')
+    expression_file_util.cursor.execute(query)
+    expression_file_util.connection.commit()
+
     initialized: bool = expression_file_util.\
         initialize_sqlite_tables_if_not_initialized()
     assert initialized

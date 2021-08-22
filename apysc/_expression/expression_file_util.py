@@ -16,8 +16,6 @@ from typing import Any, Callable, List, Optional, Tuple
 from typing import TypeVar
 
 EXPRESSION_ROOT_DIR: str = '../.apysc_expression/'
-EVENT_HANDLER_SCOPE_COUNT_FILE_PATH: str = os.path.join(
-    EXPRESSION_ROOT_DIR, 'event_handler_scope_count.txt')
 LOOP_COUNT_FILE_PATH: str = os.path.join(
     EXPRESSION_ROOT_DIR, 'loop_count.txt')
 DEBUG_MODE_SETTING_FILE_PATH: str = os.path.join(

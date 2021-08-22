@@ -8,8 +8,7 @@ Mainly following interfaces are defined:
 - reset: Reset current indent number.
 """
 
-import os
-from typing import Any
+from typing import Any, List, Optional, Tuple
 
 
 def get_current_indent_num() -> int:
@@ -21,35 +20,59 @@ def get_current_indent_num() -> int:
     current_indent_num : int
         Current indent number.
     """
-    from apysc._file import file_util
-    file_path: str = _get_indent_num_file_path()
-    if not os.path.isfile(file_path):
+    from apysc._expression import expression_file_util
+    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    table_name: str = _get_indent_num_table_name()
+    query: str = (
+        f'SELECT num FROM {table_name} LIMIT 1;'
+    )
+    expression_file_util.cursor.execute(query)
+    result: Optional[Tuple[int]] = expression_file_util.cursor.fetchone()
+    expression_file_util.connection.commit()
+    if result is None:
         return 0
-    indent_num_txt: str = file_util.read_txt(file_path=file_path)
-    indent_num_txt = indent_num_txt.strip()
-    if indent_num_txt == '':
-        return 0
-    current_indent_num: int = int(indent_num_txt)
+    current_indent_num: int = result[0]
     return current_indent_num
 
 
-def _get_indent_num_file_path() -> str:
+def _save_current_indent_num(indent_num: int) -> None:
     """
-    Get a indent number file path. This value will switch by
-    scope condition (e.g., event handler's scope or not).
+    Save the current indentation number.
+
+    Parameters
+    ----------
+    indent_num : int
+        Current indentation number.
+    """
+    from apysc._expression import expression_file_util
+    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    table_name: str = _get_indent_num_table_name()
+    query: str = f'DELETE FROM {table_name};'
+    expression_file_util.cursor.execute(query)
+    query = (
+        f'INSERT INTO {table_name}(num) VALUES ({indent_num});'
+    )
+    expression_file_util.cursor.execute(query)
+    expression_file_util.connection.commit()
+
+
+def _get_indent_num_table_name() -> str:
+    """
+    Get a indentation number table name. This value will switch
+    by scope condition (e.g., event handler's scope or not).
 
     Returns
     -------
-    file_path : str
-        Indent number file path.
+    table_name : str
+        Target table name.
     """
     from apysc._expression import event_handler_scope
     from apysc._expression import expression_file_util
     event_handler_scope_count: int = \
         event_handler_scope.get_current_event_handler_scope_count()
     if event_handler_scope_count == 0:
-        return expression_file_util.INDENT_NUM_FILE_PATH
-    return expression_file_util.EVENT_HANDLER_INDENT_NUM_FILE_PATH
+        return expression_file_util.TableName.INDENT_NUM_NORMAL.value
+    return expression_file_util.TableName.INDENT_NUM_HANDLER.value
 
 
 class Indent:
@@ -62,12 +85,9 @@ class Indent:
         Method to be used by with statement.
         This method will increment indentation number.
         """
-        from apysc._file import file_util
-        file_path: str = _get_indent_num_file_path()
         current_indent_num: int = get_current_indent_num()
         current_indent_num += 1
-        file_util.save_plain_txt(
-            txt=str(current_indent_num), file_path=file_path)
+        _save_current_indent_num(indent_num=current_indent_num)
 
     def __exit__(self, *args: Any) -> None:
         """
@@ -79,14 +99,11 @@ class Indent:
         *args : list
             Any positional arguments.
         """
-        from apysc._file import file_util
-        file_path: str = _get_indent_num_file_path()
         current_indent_num: int = get_current_indent_num()
         current_indent_num -= 1
         if current_indent_num < 0:
             current_indent_num = 0
-        file_util.save_plain_txt(
-            txt=str(current_indent_num), file_path=file_path)
+        _save_current_indent_num(indent_num=current_indent_num)
 
 
 def reset() -> None:
@@ -94,8 +111,12 @@ def reset() -> None:
     Reset current indent number.
     """
     from apysc._expression import expression_file_util
-    from apysc._file import file_util
-    file_util.remove_file_if_exists(
-        file_path=expression_file_util.INDENT_NUM_FILE_PATH)
-    file_util.remove_file_if_exists(
-        file_path=expression_file_util.EVENT_HANDLER_INDENT_NUM_FILE_PATH)
+    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    table_names: List[str] = [
+        expression_file_util.TableName.INDENT_NUM_NORMAL.value,
+        expression_file_util.TableName.INDENT_NUM_HANDLER.value,
+    ]
+    for table_name in table_names:
+        query: str = f'DELETE FROM {table_name};'
+        expression_file_util.cursor.execute(query)
+    expression_file_util.connection.commit()

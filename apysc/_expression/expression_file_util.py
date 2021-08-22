@@ -175,7 +175,10 @@ def _create_expression_handler_table() -> None:
     """
     Create the handler expression data SQLite table.
     """
-    pass
+    query: str = _make_create_table_query(
+        table_name=_TableName.EXPRESSION_HANDLER,
+        column_ddl=_EXPRESSION_TABLE_COLUMN_DDL)
+    _cursor.execute(query)
 
 
 def _initialize_sqlite_tables_if_not_initialized() -> bool:
@@ -193,6 +196,7 @@ def _initialize_sqlite_tables_if_not_initialized() -> bool:
     if table_exists:
         return False
     _create_expression_normal_table()
+    _create_expression_handler_table()
     return True
 
 

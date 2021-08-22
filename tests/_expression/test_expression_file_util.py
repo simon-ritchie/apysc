@@ -158,3 +158,11 @@ def test__make_create_table_query() -> None:
         '\n);'
     )
     assert query == expected
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__create_expression_handler_table() -> None:
+    expression_file_util._create_expression_handler_table()
+    result: bool = expression_file_util._table_exists(
+        table_name=expression_file_util._TableName.EXPRESSION_HANDLER)
+    assert result

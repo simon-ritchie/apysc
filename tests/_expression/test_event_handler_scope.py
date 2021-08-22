@@ -6,35 +6,27 @@ from apysc._expression import event_handler_scope
 from apysc._expression import expression_file_util
 from apysc._expression.event_handler_scope import HandlerScope
 from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
-from apysc._file import file_util
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def teardown() -> None:
     """
     Function that will be called when test ended.
     """
-    file_path: str = expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH
-    file_util.remove_file_if_exists(file_path=file_path)
+    expression_file_util.empty_expression()
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_current_event_handler_scope_count() -> None:
-    file_path: str = expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH
-    file_util.remove_file_if_exists(file_path=file_path)
-
-    scope_count: int = \
-        event_handler_scope.get_current_event_handler_scope_count()
+    expression_file_util.empty_expression()
+    scope_count: int = event_handler_scope.\
+        get_current_event_handler_scope_count()
     assert scope_count == 0
 
-    file_util.save_plain_txt(txt='', file_path=file_path)
-    scope_count = event_handler_scope.get_current_event_handler_scope_count()
-    assert scope_count == 0
-
-    file_util.save_plain_txt(txt='2', file_path=file_path)
-    scope_count = event_handler_scope.get_current_event_handler_scope_count()
-    assert scope_count == 2
-
-    file_util.remove_file_if_exists(file_path=file_path)
+    event_handler_scope._save_current_scope_count(count=3)
+    scope_count = event_handler_scope.\
+        get_current_event_handler_scope_count()
+    assert scope_count == 3
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -44,11 +36,15 @@ def test__save_current_scope_count() -> None:
         get_current_event_handler_scope_count()
     assert scope_count == 3
 
+    event_handler_scope._save_current_scope_count(count=5)
+    scope_count = event_handler_scope.\
+        get_current_event_handler_scope_count()
+    assert scope_count == 5
+
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__increment_scope_count() -> None:
-    file_path: str = expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH
-    file_util.remove_file_if_exists(file_path=file_path)
+    expression_file_util.empty_expression()
     event_handler_scope._increment_scope_count()
     scope_count: int = event_handler_scope.\
         get_current_event_handler_scope_count()
@@ -58,13 +54,10 @@ def test__increment_scope_count() -> None:
     scope_count = event_handler_scope.get_current_event_handler_scope_count()
     assert scope_count == 2
 
-    file_util.remove_file_if_exists(file_path=file_path)
-
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__decrement_scope_count() -> None:
-    file_path: str = expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH
-    file_util.remove_file_if_exists(file_path=file_path)
+    expression_file_util.empty_expression()
 
     event_handler_scope._increment_scope_count()
     event_handler_scope._increment_scope_count()
@@ -83,16 +76,12 @@ def test__decrement_scope_count() -> None:
         get_current_event_handler_scope_count()
     assert scope_count == 0
 
-    file_util.remove_file_if_exists(file_path=file_path)
-
 
 class TestHandlerScope:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___enter__(self) -> None:
-        file_path: str = \
-            expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH
-        file_util.remove_file_if_exists(file_path=file_path)
+        expression_file_util.empty_expression()
 
         with HandlerScope():
             scope_count: int = event_handler_scope.\
@@ -104,13 +93,9 @@ class TestHandlerScope:
                     get_current_event_handler_scope_count()
                 assert scope_count == 2
 
-        file_util.remove_file_if_exists(file_path=file_path)
-
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___exit__(self) -> None:
-        file_path: str = \
-            expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH
-        file_util.remove_file_if_exists(file_path=file_path)
+        expression_file_util.empty_expression()
 
         with HandlerScope():
 
@@ -124,8 +109,6 @@ class TestHandlerScope:
         scope_count = event_handler_scope.\
             get_current_event_handler_scope_count()
         assert scope_count == 0
-
-        file_util.remove_file_if_exists(file_path=file_path)
 
 
 class TestTemporaryNotHandlerScope:

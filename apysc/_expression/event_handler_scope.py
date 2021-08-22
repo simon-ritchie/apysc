@@ -2,8 +2,7 @@
 interfaces.
 """
 
-import os
-from typing import Any
+from typing import Any, Optional, Tuple
 
 
 class HandlerScope:
@@ -95,12 +94,20 @@ def _save_current_scope_count(count: int) -> None:
     count : int
         Scope count ot save.
     """
-    from apysc._expression.expression_file_util import \
-        EVENT_HANDLER_SCOPE_COUNT_FILE_PATH
-    from apysc._file import file_util
-    file_util.save_plain_txt(
-        txt=str(count),
-        file_path=EVENT_HANDLER_SCOPE_COUNT_FILE_PATH)
+    from apysc._expression import expression_file_util
+    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    query: str = (
+        'DELETE FROM '
+        f'{expression_file_util.TableName.EVENT_HANDLER_SCOPE_COUNT.value};'
+    )
+    expression_file_util.cursor.execute(query)
+    query = (
+        'INSERT INTO '
+        f'{expression_file_util.TableName.EVENT_HANDLER_SCOPE_COUNT.value}'
+        f'(count) VALUES({count});'
+    )
+    expression_file_util.cursor.execute(query)
+    expression_file_util.connection.commit()
 
 
 def get_current_event_handler_scope_count() -> int:
@@ -116,13 +123,16 @@ def get_current_event_handler_scope_count() -> int:
         2 or more count will be returned.
     """
     from apysc._expression import expression_file_util
-    from apysc._file import file_util
-    file_path: str = expression_file_util.EVENT_HANDLER_SCOPE_COUNT_FILE_PATH
-    if not os.path.isfile(file_path):
+    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    query: str = (
+        'SELECT count FROM '
+        f'{expression_file_util.TableName.EVENT_HANDLER_SCOPE_COUNT.value} '
+        'LIMIT 1;'
+    )
+    expression_file_util.cursor.execute(query)
+    result: Optional[Tuple] = expression_file_util.cursor.fetchone()
+    expression_file_util.connection.commit()
+    if result is None:
         return 0
-    txt: str = file_util.read_txt(file_path=file_path)
-    txt = txt.strip()
-    if not txt.isdigit():
-        return 0
-    scope_count: int = int(txt)
+    scope_count: int = int(result[0])
     return scope_count

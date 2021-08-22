@@ -143,3 +143,18 @@ def test__initialize_sqlite_tables_if_not_initialized() -> None:
     initialized = expression_file_util.\
         _initialize_sqlite_tables_if_not_initialized()
     assert not initialized
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__make_create_table_query() -> None:
+    query: str = expression_file_util._make_create_table_query(
+        table_name=expression_file_util._TableName.EXPRESSION_HANDLER,
+        column_ddl='  id INTEGER,\n  name TEXT')
+    expected: str = (
+        'CREATE TABLE IF NOT EXISTS '
+        f'{expression_file_util._TableName.EXPRESSION_HANDLER.value} ('
+        '\n  id INTEGER,'
+        '\n  name TEXT'
+        '\n);'
+    )
+    assert query == expected

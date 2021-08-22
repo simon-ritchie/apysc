@@ -45,13 +45,6 @@ class _TableName(Enum):
     LOOP_COUNT = 'loop_count'
     DEBUG_MODE_SETTING = 'debug_mode_setting'
 
-
-_EXPRESSION_TABLE_COLUMN_DDL: str = (
-    '  id INTEGER,'
-    '\n  txt TEXT NOT NULL,'
-    '\n  PRIMARY KEY (id)'
-)
-
 _SQLITE_IN_MEMORY_SETTING: str = 'file::memory:?cache=shared'
 _connection = sqlite3.connect(_SQLITE_IN_MEMORY_SETTING, uri=True)
 _cursor = _connection.cursor()
@@ -131,18 +124,58 @@ def _table_exists(table_name: _TableName) -> bool:
     return False
 
 
+def _make_create_table_query(
+        table_name: _TableName,
+        column_ddl: str) -> str:
+    """
+    Make a create table sql query.
+
+    Parameters
+    ----------
+    table_name : str
+        Target table name.
+    column_ddl : str
+        Target table columns DDL string.
+        e.g., '  id INTEGER, ...'
+
+    Returns
+    -------
+    query : str
+        A create table sql query.
+    """
+    query: str = (
+        'CREATE TABLE IF NOT EXISTS '
+        f'{table_name.value} ('
+        f'\n{column_ddl}'
+        '\n);'
+    )
+    return query
+
+
+_EXPRESSION_TABLE_COLUMN_DDL: str = (
+    '  id INTEGER,'
+    '\n  txt TEXT NOT NULL,'
+    '\n  PRIMARY KEY (id)'
+)
+
+
 @_check_connection
 def _create_expression_normal_table() -> None:
     """
     Create the normal expression data SQLite table.
     """
-    query: str = (
-        'CREATE TABLE IF NOT EXISTS '
-        f'{_TableName.EXPRESSION_NORMAL.value} ('
-        f'\n{_EXPRESSION_TABLE_COLUMN_DDL}'
-        '\n);'
-    )
+    query: str = _make_create_table_query(
+        table_name=_TableName.EXPRESSION_NORMAL,
+        column_ddl=_EXPRESSION_TABLE_COLUMN_DDL)
     _cursor.execute(query)
+
+
+@_check_connection
+def _create_expression_handler_table() -> None:
+    """
+    Create the handler expression data SQLite table.
+    """
+    pass
 
 
 def _initialize_sqlite_tables_if_not_initialized() -> bool:

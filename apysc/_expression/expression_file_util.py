@@ -10,6 +10,10 @@ Mainly following interfaces are defined:
 """
 
 import os
+import sqlite3
+from enum import Enum
+from typing import Any, Callable
+from typing import TypeVar
 
 EXPRESSION_ROOT_DIR: str = '../.apysc_expression/'
 EXPRESSION_FILE_PATH: str = os.path.join(
@@ -28,6 +32,124 @@ LOOP_COUNT_FILE_PATH: str = os.path.join(
     EXPRESSION_ROOT_DIR, 'loop_count.txt')
 DEBUG_MODE_SETTING_FILE_PATH: str = os.path.join(
     EXPRESSION_ROOT_DIR, 'debug_mode_setting.txt')
+
+
+class _TableName(Enum):
+    NOT_EXISTING = 'not_existing'
+    EXPRESSION_NORMAL = 'expression_normal'
+    EXPRESSION_HANDLER = 'expression_handler'
+    INDENT_NUM_NORMAL = 'indent_num_normal'
+    INDENT_NUM_HANDLER = 'indent_num_handler'
+    LAST_SCOPE = 'last_scope'
+    EVENT_HANDLER_SCOPE_COUNT = 'event_handler_scope_count'
+    LOOP_COUNT = 'loop_count'
+    DEBUG_MODE_SETTING = 'debug_mode_setting'
+
+
+_EXPRESSION_TABLE_COLUMN_DDL: str = (
+    '  id INTEGER,'
+    '\n  txt TEXT NOT NULL,'
+    '\n  PRIMARY KEY (id)'
+)
+
+_SQLITE_IN_MEMORY_SETTING: str = 'file::memory:?cache=shared'
+_connection = sqlite3.connect(_SQLITE_IN_MEMORY_SETTING, uri=True)
+_cursor = _connection.cursor()
+
+_C = TypeVar('_C', bound=Callable)
+
+
+def _check_connection(func: _C) -> _C:
+    """
+    The decorator function to check a SQLite connection when a
+    specified function calling, and if failed, create a new
+    connection and recall a function.
+
+    Parameters
+    ----------
+    func : Callable
+        Target function to decorate.
+
+    Returns
+    -------
+    new_func : Callable
+        Decorated function.
+    """
+
+    def new_func(*args: Any, **kwargs: Any) -> Any:
+        """
+        Function for the decoration.
+
+        Parameters
+        ----------
+        *args : list
+            Any positional arguments.
+        **kwargs : dict
+            Any keyword arguments.
+
+        Returns
+        -------
+        result : Any
+            Any returned value.
+        """
+        global _connection, _cursor
+        try:
+            result: Any = func(*args, **kwargs)
+        except Exception:
+            _connection = sqlite3.connect(_SQLITE_IN_MEMORY_SETTING, uri=True)
+            _cursor = _connection.cursor()
+            result = func(*args, **kwargs)
+        return result
+
+    return new_func  # type: ignore
+
+
+@_check_connection
+def _table_exists(table_name: _TableName) -> bool:
+    """
+    Get a boolean value whether a specified table exists or not.
+
+    Parameters
+    ----------
+    table_name : _TableName
+        Target table name.
+
+    Returns
+    -------
+    result : bool
+        If exists, returns True.
+    """
+    query: str = (
+        'SELECT name FROM sqlite_master WHERE type = "table" '
+        f'AND name = "{table_name.value}" LIMIT 1;'
+    )
+    _cursor.execute(query)
+    result = _cursor.fetchone()
+    if result:
+        return True
+    return False
+
+
+@_check_connection
+def _create_expression_normal_table() -> None:
+    """
+    Create the normal expression data SQLite table.
+    """
+    query: str = (
+        'CREATE TABLE IF NOT EXISTS '
+        f'{_TableName.EXPRESSION_NORMAL.value} ('
+        f'\n{_EXPRESSION_TABLE_COLUMN_DDL}'
+        '\n);'
+    )
+    _cursor.execute(query)
+
+
+def _initialize_sqlite_tables_if_not_initialized() -> None:
+    """
+    Initialize the sqlite tables if they have not been
+    initialized yet.
+    """
+    pass
 
 
 def empty_expression() -> None:

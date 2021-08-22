@@ -3,6 +3,7 @@ import re
 from random import randint
 from typing import Match
 from typing import Optional
+import sqlite3
 
 from retrying import retry
 
@@ -108,3 +109,23 @@ def test__get_expression_file_path() -> None:
     assert file_path == \
         expression_file_util.EVENT_HANDLER_EXPRESSION_FILE_PATH
     expression_file_util.empty_expression()
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__create_expression_normal_table() -> None:
+    expression_file_util._create_expression_normal_table()
+    result: bool = expression_file_util._table_exists(
+        table_name=expression_file_util._TableName.EXPRESSION_NORMAL)
+    assert result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__table_exists() -> None:
+    expression_file_util._create_expression_normal_table()
+    result: bool = expression_file_util._table_exists(
+        table_name=expression_file_util._TableName.EXPRESSION_NORMAL)
+    assert result
+
+    result = expression_file_util._table_exists(
+        table_name=expression_file_util._TableName.NOT_EXISTING)
+    assert not result

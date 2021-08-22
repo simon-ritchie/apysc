@@ -182,3 +182,11 @@ def test__create_indent_num_handler_table() -> None:
     result: bool = expression_file_util._table_exists(
         table_name=expression_file_util._TableName.INDENT_NUM_HANDLER)
     assert result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__create_last_scope_table() -> None:
+    expression_file_util._create_last_scope_table()
+    result: bool = expression_file_util._table_exists(
+        table_name=expression_file_util._TableName.LAST_SCOPE)
+    assert result

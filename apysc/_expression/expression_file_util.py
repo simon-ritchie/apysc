@@ -206,6 +206,19 @@ def _create_indent_num_handler_table() -> None:
     _cursor.execute(query)
 
 
+@_check_connection
+def _create_last_scope_table() -> None:
+    """
+    Create the last scope data SQLite table.
+    """
+    query: str = _make_create_table_query(
+        table_name=_TableName.LAST_SCOPE,
+        column_ddl=(
+            '  last_scope INTEGER NOT NULL'
+        ))
+    _cursor.execute(query)
+
+
 def _initialize_sqlite_tables_if_not_initialized() -> bool:
     """
     Initialize the sqlite tables if they have not been
@@ -224,6 +237,7 @@ def _initialize_sqlite_tables_if_not_initialized() -> bool:
     _create_expression_handler_table()
     _create_indent_num_normal_table()
     _create_indent_num_handler_table()
+    _create_last_scope_table()
     return True
 
 

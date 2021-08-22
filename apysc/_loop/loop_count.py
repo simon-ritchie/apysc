@@ -3,6 +3,7 @@
 """
 
 import os
+from typing import Optional, Tuple
 
 
 def get_current_loop_count() -> int:
@@ -15,36 +16,52 @@ def get_current_loop_count() -> int:
         Current loop count.
     """
     from apysc._expression import expression_file_util
-    file_path: str = expression_file_util.LOOP_COUNT_FILE_PATH
-    if not os.path.isfile(file_path):
+    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    query: str = (
+        'SELECT count FROM '
+        f'{expression_file_util.TableName.LOOP_COUNT.value} '
+        'LIMIT 1;'
+    )
+    expression_file_util.cursor.execute(query)
+    result: Optional[Tuple[int]] = expression_file_util.cursor.fetchone()
+    expression_file_util.connection.commit()
+    if result is None:
         return 0
-    with open(file_path, 'r') as f:
-        file_str: str = f.read()
-    if file_str == '':
-        return 0
-    loop_count: int = int(file_str)
-    return loop_count
+    return result[0]
+
+
+def _save_loop_count(loop_count: int) -> None:
+    """
+    Save a loop count value.
+
+    Parameters
+    ----------
+    loop_count : int
+        A loop count value.
+    """
+    from apysc._expression import expression_file_util
+    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    table_name: str = expression_file_util.TableName.LOOP_COUNT.value
+    query: str = f'DELETE FROM {table_name};'
+    expression_file_util.cursor.execute(query)
+    query = f'INSERT INTO {table_name}(count) VALUES ({loop_count});'
+    expression_file_util.cursor.execute(query)
+    expression_file_util.connection.commit()
 
 
 def increment_current_loop_count() -> None:
     """
     Increment the current loop count number.
     """
-    from apysc._expression import expression_file_util
-    file_path: str = expression_file_util.LOOP_COUNT_FILE_PATH
     current_loop_count: int = get_current_loop_count()
-    with open(file_path, 'w') as f:
-        f.write(str(current_loop_count + 1))
+    _save_loop_count(loop_count=current_loop_count + 1)
 
 
 def decrement_current_loop_count() -> None:
     """
     Decrement the current loop count number.
     """
-    from apysc._expression import expression_file_util
-    file_path: str = expression_file_util.LOOP_COUNT_FILE_PATH
     current_loop_count: int = get_current_loop_count()
     current_loop_count -= 1
     current_loop_count = max(0, current_loop_count)
-    with open(file_path, 'w') as f:
-        f.write(str(current_loop_count))
+    _save_loop_count(loop_count=current_loop_count)

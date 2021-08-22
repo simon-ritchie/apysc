@@ -181,6 +181,20 @@ def _create_expression_handler_table() -> None:
     _cursor.execute(query)
 
 
+_INDENT_NUM_TABLE_COLUMN_DDL: str = '  num INTEGER NOT NULL'
+
+
+@_check_connection
+def _create_indent_num_normal_table() -> None:
+    """
+    Create the indentation number data SQLite table.
+    """
+    query: str = _make_create_table_query(
+        table_name=_TableName.INDENT_NUM_NORMAL,
+        column_ddl=_INDENT_NUM_TABLE_COLUMN_DDL)
+    _cursor.execute(query)
+
+
 def _initialize_sqlite_tables_if_not_initialized() -> bool:
     """
     Initialize the sqlite tables if they have not been
@@ -197,6 +211,7 @@ def _initialize_sqlite_tables_if_not_initialized() -> bool:
         return False
     _create_expression_normal_table()
     _create_expression_handler_table()
+    _create_indent_num_normal_table()
     return True
 
 

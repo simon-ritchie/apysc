@@ -166,3 +166,11 @@ def test__create_expression_handler_table() -> None:
     result: bool = expression_file_util._table_exists(
         table_name=expression_file_util._TableName.EXPRESSION_HANDLER)
     assert result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__create_indent_num_normal_table() -> None:
+    expression_file_util._create_indent_num_normal_table()
+    result: bool = expression_file_util._table_exists(
+        table_name=expression_file_util._TableName.INDENT_NUM_NORMAL)
+    assert result

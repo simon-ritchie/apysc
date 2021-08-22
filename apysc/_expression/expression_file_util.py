@@ -245,6 +245,19 @@ def _create_loop_count_table() -> None:
     _cursor.execute(query)
 
 
+@_check_connection
+def _create_debug_mode_setting_table() -> None:
+    """
+    Create the debug mode setting SQLite table.
+    """
+    query: str = _make_create_table_query(
+        table_name=_TableName.DEBUG_MODE_SETTING,
+        column_ddl=(
+            '  is_debug_mode INTEGER NOT NULL'
+        ))
+    _cursor.execute(query)
+
+
 def _initialize_sqlite_tables_if_not_initialized() -> bool:
     """
     Initialize the sqlite tables if they have not been
@@ -266,6 +279,7 @@ def _initialize_sqlite_tables_if_not_initialized() -> bool:
     _create_last_scope_table()
     _create_event_handler_scope_count_table()
     _create_loop_count_table()
+    _create_debug_mode_setting_table()
     return True
 
 

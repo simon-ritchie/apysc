@@ -34,7 +34,7 @@ DEBUG_MODE_SETTING_FILE_PATH: str = os.path.join(
     EXPRESSION_ROOT_DIR, 'debug_mode_setting.txt')
 
 
-class _TableName(Enum):
+class TableName(Enum):
     NOT_EXISTING = 'not_existing'
     EXPRESSION_NORMAL = 'expression_normal'
     EXPRESSION_HANDLER = 'expression_handler'
@@ -46,8 +46,8 @@ class _TableName(Enum):
     DEBUG_MODE_SETTING = 'debug_mode_setting'
 
 _SQLITE_IN_MEMORY_SETTING: str = 'file::memory:?cache=shared'
-_connection = sqlite3.connect(_SQLITE_IN_MEMORY_SETTING, uri=True)
-_cursor = _connection.cursor()
+connection = sqlite3.connect(_SQLITE_IN_MEMORY_SETTING, uri=True)
+cursor = connection.cursor()
 
 _C = TypeVar('_C', bound=Callable)
 
@@ -85,12 +85,12 @@ def _check_connection(func: _C) -> _C:
         result : Any
             Any returned value.
         """
-        global _connection, _cursor
+        global connection, cursor
         try:
             result: Any = func(*args, **kwargs)
         except Exception:
-            _connection = sqlite3.connect(_SQLITE_IN_MEMORY_SETTING, uri=True)
-            _cursor = _connection.cursor()
+            connection = sqlite3.connect(_SQLITE_IN_MEMORY_SETTING, uri=True)
+            cursor = connection.cursor()
             result = func(*args, **kwargs)
         return result
 
@@ -98,13 +98,13 @@ def _check_connection(func: _C) -> _C:
 
 
 @_check_connection
-def _table_exists(table_name: _TableName) -> bool:
+def _table_exists(table_name: TableName) -> bool:
     """
     Get a boolean value whether a specified table exists or not.
 
     Parameters
     ----------
-    table_name : _TableName
+    table_name : TableName
         Target table name.
 
     Returns
@@ -116,16 +116,16 @@ def _table_exists(table_name: _TableName) -> bool:
         'SELECT name FROM sqlite_master WHERE type = "table" '
         f'AND name = "{table_name.value}" LIMIT 1;'
     )
-    _cursor.execute(query)
-    result: Optional[Tuple] = _cursor.fetchone()
-    _connection.commit()
+    cursor.execute(query)
+    result: Optional[Tuple] = cursor.fetchone()
+    connection.commit()
     if result:
         return True
     return False
 
 
 def _make_create_table_query(
-        table_name: _TableName,
+        table_name: TableName,
         column_ddl: str) -> str:
     """
     Make a create table sql query.
@@ -164,9 +164,9 @@ def _create_expression_normal_table() -> None:
     Create the normal expression data SQLite table.
     """
     query: str = _make_create_table_query(
-        table_name=_TableName.EXPRESSION_NORMAL,
+        table_name=TableName.EXPRESSION_NORMAL,
         column_ddl=_EXPRESSION_TABLE_COLUMN_DDL)
-    _cursor.execute(query)
+    cursor.execute(query)
 
 
 @_check_connection
@@ -175,9 +175,9 @@ def _create_expression_handler_table() -> None:
     Create the handler expression data SQLite table.
     """
     query: str = _make_create_table_query(
-        table_name=_TableName.EXPRESSION_HANDLER,
+        table_name=TableName.EXPRESSION_HANDLER,
         column_ddl=_EXPRESSION_TABLE_COLUMN_DDL)
-    _cursor.execute(query)
+    cursor.execute(query)
 
 
 _INDENT_NUM_TABLE_COLUMN_DDL: str = '  num INTEGER NOT NULL'
@@ -189,9 +189,9 @@ def _create_indent_num_normal_table() -> None:
     Create the normal indentation number data SQLite table.
     """
     query: str = _make_create_table_query(
-        table_name=_TableName.INDENT_NUM_NORMAL,
+        table_name=TableName.INDENT_NUM_NORMAL,
         column_ddl=_INDENT_NUM_TABLE_COLUMN_DDL)
-    _cursor.execute(query)
+    cursor.execute(query)
 
 
 @_check_connection
@@ -200,9 +200,9 @@ def _create_indent_num_handler_table() -> None:
     Create the handler indentation number data SQLite table.
     """
     query: str = _make_create_table_query(
-        table_name=_TableName.INDENT_NUM_HANDLER,
+        table_name=TableName.INDENT_NUM_HANDLER,
         column_ddl=_INDENT_NUM_TABLE_COLUMN_DDL)
-    _cursor.execute(query)
+    cursor.execute(query)
 
 
 @_check_connection
@@ -211,11 +211,11 @@ def _create_last_scope_table() -> None:
     Create the last scope data SQLite table.
     """
     query: str = _make_create_table_query(
-        table_name=_TableName.LAST_SCOPE,
+        table_name=TableName.LAST_SCOPE,
         column_ddl=(
             '  last_scope INTEGER NOT NULL'
         ))
-    _cursor.execute(query)
+    cursor.execute(query)
 
 
 @_check_connection
@@ -224,11 +224,11 @@ def _create_event_handler_scope_count_table() -> None:
     Create the event handler scope count value SQLite table.
     """
     query: str = _make_create_table_query(
-        table_name=_TableName.EVENT_HANDLER_SCOPE_COUNT,
+        table_name=TableName.EVENT_HANDLER_SCOPE_COUNT,
         column_ddl=(
             '  count INTEGER NOT NULL'
         ))
-    _cursor.execute(query)
+    cursor.execute(query)
 
 
 @_check_connection
@@ -237,11 +237,11 @@ def _create_loop_count_table() -> None:
     Create the loop count value SQLite table.
     """
     query: str = _make_create_table_query(
-        table_name=_TableName.LOOP_COUNT,
+        table_name=TableName.LOOP_COUNT,
         column_ddl=(
             '  count INTEGER NOT NULL'
         ))
-    _cursor.execute(query)
+    cursor.execute(query)
 
 
 @_check_connection
@@ -250,14 +250,14 @@ def _create_debug_mode_setting_table() -> None:
     Create the debug mode setting SQLite table.
     """
     query: str = _make_create_table_query(
-        table_name=_TableName.DEBUG_MODE_SETTING,
+        table_name=TableName.DEBUG_MODE_SETTING,
         column_ddl=(
             '  is_debug_mode INTEGER NOT NULL'
         ))
-    _cursor.execute(query)
+    cursor.execute(query)
 
 
-def _initialize_sqlite_tables_if_not_initialized() -> bool:
+def initialize_sqlite_tables_if_not_initialized() -> bool:
     """
     Initialize the sqlite tables if they have not been
     initialized yet.
@@ -268,7 +268,7 @@ def _initialize_sqlite_tables_if_not_initialized() -> bool:
         If initialized, returns True.
     """
     table_exists: bool = _table_exists(
-        table_name=_TableName.EXPRESSION_NORMAL)
+        table_name=TableName.EXPRESSION_NORMAL)
     if table_exists:
         return False
     _create_expression_normal_table()
@@ -286,13 +286,13 @@ def empty_expression() -> None:
     """
     Empty the current js expression data.
     """
-    _initialize_sqlite_tables_if_not_initialized()
-    for table_name in _TableName:
-        if table_name == _TableName.NOT_EXISTING:
+    initialize_sqlite_tables_if_not_initialized()
+    for table_name in TableName:
+        if table_name == TableName.NOT_EXISTING:
             continue
         query: str = f'DELETE FROM {table_name.value};'
-        _cursor.execute(query)
-    _connection.commit()
+        cursor.execute(query)
+    connection.commit()
 
 
 def append_js_expression(expression: str) -> None:
@@ -306,22 +306,23 @@ def append_js_expression(expression: str) -> None:
     """
     from apysc._expression import indent_num
     from apysc._expression import last_scope
-    from apysc._file import file_util
     from apysc._string import indent_util
+    initialize_sqlite_tables_if_not_initialized()
     current_indent_num: int = indent_num.get_current_indent_num()
     expression = indent_util.append_spaces_to_expression(
         expression=expression, indent_num=current_indent_num)
-    table_name: _TableName = _get_expression_table_name()
-    # file_path: str = _get_expression_file_path()
-    # dir_path: str = file_util.get_abs_directory_path_from_file_path(
-    #     file_path=file_path)
-    # os.makedirs(dir_path, exist_ok=True)
-    # file_util.append_plain_txt(
-    #     txt=f'{expression}\n', file_path=file_path)
-    # last_scope.set_last_scope(value=last_scope.LastScope.NORMAL)
+    expression = expression.replace('"', '""')
+    table_name: TableName = _get_expression_table_name()
+    query: str = (
+        f'INSERT INTO {table_name.value}(txt) '
+        f'VALUES ("{expression}");'
+    )
+    cursor.execute(query)
+    connection.commit()
+    last_scope.set_last_scope(value=last_scope.LastScope.NORMAL)
 
 
-def _get_expression_table_name() -> _TableName:
+def _get_expression_table_name() -> TableName:
     """
     Get a expression table name. This value will be switched whether
     current scope is event handler's one or not.
@@ -335,8 +336,8 @@ def _get_expression_table_name() -> _TableName:
     event_handler_scope_count: int = \
         event_handler_scope.get_current_event_handler_scope_count()
     if event_handler_scope_count == 0:
-        return _TableName.EXPRESSION_NORMAL
-    return _TableName.EXPRESSION_HANDLER
+        return TableName.EXPRESSION_NORMAL
+    return TableName.EXPRESSION_HANDLER
 
 
 def _get_expression_file_path() -> str:

@@ -1,7 +1,7 @@
 import os
 import re
 from random import randint
-from typing import Match, Tuple
+from typing import List, Match, Tuple
 from typing import Optional
 import sqlite3
 
@@ -33,30 +33,40 @@ def test_get_current_expression() -> None:
 def test_append_js_expression() -> None:
     indent_num.reset()
     expression_file_util.empty_expression()
-    ap.append_js_expression(expression='var num = 100;')
-    expression: str = expression_file_util.get_current_expression()
-    match: Optional[Match] = re.search(
-        pattern=r'^var num = 100;',
-        string=expression,
-        flags=re.MULTILINE)
-    assert match is not None
+    ap.append_js_expression(
+        expression='var num = 100;\nvar str = "test";')
+    select_query: str = (
+        'SELECT txt FROM '
+        f'{expression_file_util.TableName.EXPRESSION_NORMAL.value};'
+    )
+    expression_file_util.cursor.execute(select_query)
+    result_1: Optional[Tuple[str]] = expression_file_util.cursor.fetchone()
+    expression_file_util.connection.commit()
+    if result_1 is None:
+        raise AssertionError('result value is None.')
+    expected: str = 'var num = 100;\nvar str = "test";'
+    assert expected in result_1[0]
 
     expression_file_util.empty_expression()
     with Indent():
         ap.append_js_expression(
-            expression='var num_1 = 100;\nvar num_2 = 200;\nvar num_3 = 300;')
-        expression = expression_file_util.get_current_expression()
-        match = re.search(
-            pattern=r'^  var num_2 = 200;',
-            string=expression,
-            flags=re.MULTILINE)
+            expression=('var num_1 = 10;\nvar str_1 = "test";'))
+    expression_file_util.cursor.execute(select_query)
+    result_2: Optional[Tuple[str]] = expression_file_util.cursor.fetchone()
+    expression_file_util.connection.commit()
+    if result_2 is None:
+        raise AssertionError('result value is None.')
+    expected: str = (
+        '  var num_1 = 10;'
+        '\n  var str_1 = "test";'
+    )
+    assert expected in result_2[0]
 
-    event_handler_scope._increment_scope_count()
-    ap.append_js_expression('console.log("Hello!");')
-    expression = \
-        expression_file_util.get_current_event_handler_scope_expression()
-    assert 'console.log("Hello!");' in expression
-    expression_file_util.empty_expression()
+    ap.append_js_expression(expression='var num_2 = 20;')
+    expression_file_util.cursor.execute(select_query)
+    result_3: List[Tuple[str]] = expression_file_util.cursor.fetchall()
+    assert len(result_3) == 2
+    assert result_3[-1][0] == 'var num_2 = 20;'
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -101,7 +111,7 @@ def test__get_expression_file_path() -> None:
 def test__create_expression_normal_table() -> None:
     expression_file_util._create_expression_normal_table()
     result: bool = expression_file_util._table_exists(
-        table_name=expression_file_util._TableName.EXPRESSION_NORMAL)
+        table_name=expression_file_util.TableName.EXPRESSION_NORMAL)
     assert result
 
 
@@ -109,36 +119,36 @@ def test__create_expression_normal_table() -> None:
 def test__table_exists() -> None:
     expression_file_util._create_expression_normal_table()
     result: bool = expression_file_util._table_exists(
-        table_name=expression_file_util._TableName.EXPRESSION_NORMAL)
+        table_name=expression_file_util.TableName.EXPRESSION_NORMAL)
     assert result
 
     result = expression_file_util._table_exists(
-        table_name=expression_file_util._TableName.NOT_EXISTING)
+        table_name=expression_file_util.TableName.NOT_EXISTING)
     assert not result
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__initialize_sqlite_tables_if_not_initialized() -> None:
+def test_initialize_sqlite_tables_if_not_initialized() -> None:
     initialized: bool = expression_file_util.\
-        _initialize_sqlite_tables_if_not_initialized()
+        initialize_sqlite_tables_if_not_initialized()
     assert initialized
     table_exists: bool = expression_file_util._table_exists(
-        table_name=expression_file_util._TableName.EXPRESSION_NORMAL)
+        table_name=expression_file_util.TableName.EXPRESSION_NORMAL)
     assert table_exists
 
     initialized = expression_file_util.\
-        _initialize_sqlite_tables_if_not_initialized()
+        initialize_sqlite_tables_if_not_initialized()
     assert not initialized
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__make_create_table_query() -> None:
     query: str = expression_file_util._make_create_table_query(
-        table_name=expression_file_util._TableName.EXPRESSION_HANDLER,
+        table_name=expression_file_util.TableName.EXPRESSION_HANDLER,
         column_ddl='  id INTEGER,\n  name TEXT')
     expected: str = (
         'CREATE TABLE IF NOT EXISTS '
-        f'{expression_file_util._TableName.EXPRESSION_HANDLER.value} ('
+        f'{expression_file_util.TableName.EXPRESSION_HANDLER.value} ('
         '\n  id INTEGER,'
         '\n  name TEXT'
         '\n);'
@@ -150,7 +160,7 @@ def test__make_create_table_query() -> None:
 def test__create_expression_handler_table() -> None:
     expression_file_util._create_expression_handler_table()
     result: bool = expression_file_util._table_exists(
-        table_name=expression_file_util._TableName.EXPRESSION_HANDLER)
+        table_name=expression_file_util.TableName.EXPRESSION_HANDLER)
     assert result
 
 
@@ -158,7 +168,7 @@ def test__create_expression_handler_table() -> None:
 def test__create_indent_num_normal_table() -> None:
     expression_file_util._create_indent_num_normal_table()
     result: bool = expression_file_util._table_exists(
-        table_name=expression_file_util._TableName.INDENT_NUM_NORMAL)
+        table_name=expression_file_util.TableName.INDENT_NUM_NORMAL)
     assert result
 
 
@@ -166,7 +176,7 @@ def test__create_indent_num_normal_table() -> None:
 def test__create_indent_num_handler_table() -> None:
     expression_file_util._create_indent_num_handler_table()
     result: bool = expression_file_util._table_exists(
-        table_name=expression_file_util._TableName.INDENT_NUM_HANDLER)
+        table_name=expression_file_util.TableName.INDENT_NUM_HANDLER)
     assert result
 
 
@@ -174,7 +184,7 @@ def test__create_indent_num_handler_table() -> None:
 def test__create_last_scope_table() -> None:
     expression_file_util._create_last_scope_table()
     result: bool = expression_file_util._table_exists(
-        table_name=expression_file_util._TableName.LAST_SCOPE)
+        table_name=expression_file_util.TableName.LAST_SCOPE)
     assert result
 
 
@@ -182,7 +192,7 @@ def test__create_last_scope_table() -> None:
 def test__create_event_handler_scope_count_table() -> None:
     expression_file_util._create_event_handler_scope_count_table()
     result: bool = expression_file_util._table_exists(
-        table_name=expression_file_util._TableName.EVENT_HANDLER_SCOPE_COUNT)
+        table_name=expression_file_util.TableName.EVENT_HANDLER_SCOPE_COUNT)
     assert result
 
 
@@ -190,7 +200,7 @@ def test__create_event_handler_scope_count_table() -> None:
 def test__create_loop_count_table() -> None:
     expression_file_util._create_loop_count_table()
     result: bool = expression_file_util._table_exists(
-        table_name=expression_file_util._TableName.LOOP_COUNT)
+        table_name=expression_file_util.TableName.LOOP_COUNT)
     assert result
 
 
@@ -198,32 +208,32 @@ def test__create_loop_count_table() -> None:
 def test__create_debug_mode_setting_table() -> None:
     expression_file_util._create_debug_mode_setting_table()
     result: bool = expression_file_util._table_exists(
-        table_name=expression_file_util._TableName.DEBUG_MODE_SETTING)
+        table_name=expression_file_util.TableName.DEBUG_MODE_SETTING)
     assert result
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_empty_expression() -> None:
     expression_file_util._create_expression_normal_table()
-    expression_file_util._cursor.execute(
+    expression_file_util.cursor.execute(
         'INSERT INTO '
-        f'{expression_file_util._TableName.EXPRESSION_NORMAL.value}'
+        f'{expression_file_util.TableName.EXPRESSION_NORMAL.value}'
         '(txt) VALUES ("test_text");')
     expression_file_util.empty_expression()
-    expression_file_util._cursor.execute(
+    expression_file_util.cursor.execute(
         'SELECT * FROM '
-        f'{expression_file_util._TableName.EXPRESSION_NORMAL.value} '
+        f'{expression_file_util.TableName.EXPRESSION_NORMAL.value} '
         'LIMIT 1;')
-    result: Optional[Tuple] = expression_file_util._cursor.fetchone()
+    result: Optional[Tuple] = expression_file_util.cursor.fetchone()
     assert result is None
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_expression_table_name() -> None:
     with event_handler_scope.HandlerScope():
-        table_name: expression_file_util._TableName = expression_file_util.\
+        table_name: expression_file_util.TableName = expression_file_util.\
             _get_expression_table_name()
-    assert table_name == expression_file_util._TableName.EXPRESSION_HANDLER
+    assert table_name == expression_file_util.TableName.EXPRESSION_HANDLER
 
     table_name = expression_file_util._get_expression_table_name()
-    assert table_name == expression_file_util._TableName.EXPRESSION_NORMAL
+    assert table_name == expression_file_util.TableName.EXPRESSION_NORMAL

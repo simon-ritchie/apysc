@@ -2,7 +2,6 @@
 (the For or the other loop class nested number).
 """
 
-import os
 from typing import Optional, Tuple
 
 

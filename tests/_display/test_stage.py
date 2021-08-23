@@ -99,7 +99,7 @@ class TestStage:
         assert stage._children == ap.Array([display_object])
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__save_stage_elem_id_to_expression_file(self) -> None:
+    def test__save_stage_elem_id(self) -> None:
         ap.Stage(stage_elem_id='line-graph')
         stage_elem_id: str = stage.get_stage_elem_id()
         assert stage_elem_id == 'line-graph'

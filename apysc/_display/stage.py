@@ -76,7 +76,7 @@ class Stage(
             stage_elem_id=stage_elem_id)
         string_validation.validate_not_empty_string(
             string=self._stage_elem_id)
-        self._save_stage_elem_id_to_expression_file()
+        self._save_stage_elem_id()
         self._stage_elem_id = html_util.remove_first_selector_symbol_char(
             str_val=self._stage_elem_id)
         self.variable_name = get_stage_variable_name()
@@ -91,7 +91,7 @@ class Stage(
         self._append_constructor_expression()
         self._children = ap.Array([])
 
-    def _save_stage_elem_id_to_expression_file(self) -> None:
+    def _save_stage_elem_id(self) -> None:
         """
         Save the stage element id.
         """

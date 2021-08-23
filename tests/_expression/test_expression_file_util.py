@@ -246,3 +246,11 @@ def test__create_debug_mode_callable_count_table() -> None:
     result: bool = expression_file_util._table_exists(
         table_name=expression_file_util.TableName.DEBUG_MODE_CALLABLE_COUNT)
     assert result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__create_stage_elem_id_table() -> None:
+    expression_file_util._create_stage_elem_id_table()
+    result: bool = expression_file_util._table_exists(
+        table_name=expression_file_util.TableName.STAGE_ELEM_ID)
+    assert result

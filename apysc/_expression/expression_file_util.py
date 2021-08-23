@@ -29,6 +29,7 @@ class TableName(Enum):
     LOOP_COUNT = 'loop_count'
     DEBUG_MODE_SETTING = 'debug_mode_setting'
     DEBUG_MODE_CALLABLE_COUNT = 'debug_mode_callable_count'
+    STAGE_ELEM_ID = 'stage_elem_id'
 
 _SQLITE_IN_MEMORY_SETTING: str = 'file::memory:?cache=shared'
 connection = sqlite3.connect(_SQLITE_IN_MEMORY_SETTING, uri=True)
@@ -257,6 +258,17 @@ def _create_debug_mode_callable_count_table() -> None:
     cursor.execute(query)
 
 
+@_check_connection
+def _create_stage_elem_id_table() -> None:
+    """
+    Create the stage element id data SQLite table.
+    """
+    query: str = _make_create_table_query(
+        table_name=TableName.STAGE_ELEM_ID,
+        column_ddl='  elem_id TEXT NOT NULL')
+    cursor.execute(query)
+
+
 def initialize_sqlite_tables_if_not_initialized() -> bool:
     """
     Initialize the sqlite tables if they have not been
@@ -280,6 +292,7 @@ def initialize_sqlite_tables_if_not_initialized() -> bool:
     _create_loop_count_table()
     _create_debug_mode_setting_table()
     _create_debug_mode_callable_count_table()
+    _create_stage_elem_id_table()
     return True
 
 

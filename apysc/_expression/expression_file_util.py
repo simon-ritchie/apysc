@@ -30,6 +30,7 @@ class TableName(Enum):
     EVENT_HANDLER_SCOPE_COUNT = 'event_handler_scope_count'
     LOOP_COUNT = 'loop_count'
     DEBUG_MODE_SETTING = 'debug_mode_setting'
+    DEBUG_MODE_CALLABLE_COUNT = 'debug_mode_callable_count'
 
 _SQLITE_IN_MEMORY_SETTING: str = 'file::memory:?cache=shared'
 connection = sqlite3.connect(_SQLITE_IN_MEMORY_SETTING, uri=True)
@@ -243,6 +244,21 @@ def _create_debug_mode_setting_table() -> None:
     cursor.execute(query)
 
 
+@_check_connection
+def _create_debug_mode_callable_count_table() -> None:
+    """
+    Create the debug mode callable count data SQLite table.
+    """
+    query: str = _make_create_table_query(
+        table_name=TableName.DEBUG_MODE_CALLABLE_COUNT,
+        column_ddl=(
+            '  id INTEGER PRIMARY KEY AUTOINCREMENT,'
+            '\n  name TEXT NOT NULL,'
+            '\n  count INTEGER NOT NULL'
+        ))
+    cursor.execute(query)
+
+
 def initialize_sqlite_tables_if_not_initialized() -> bool:
     """
     Initialize the sqlite tables if they have not been
@@ -265,6 +281,7 @@ def initialize_sqlite_tables_if_not_initialized() -> bool:
     _create_event_handler_scope_count_table()
     _create_loop_count_table()
     _create_debug_mode_setting_table()
+    _create_debug_mode_callable_count_table()
     return True
 
 

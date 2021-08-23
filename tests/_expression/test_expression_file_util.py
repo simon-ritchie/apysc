@@ -238,3 +238,11 @@ def test__get_expression_table_name() -> None:
 
     table_name = expression_file_util._get_expression_table_name()
     assert table_name == expression_file_util.TableName.EXPRESSION_NORMAL
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__create_debug_mode_callable_count_table() -> None:
+    expression_file_util._create_debug_mode_setting_table()
+    result: bool = expression_file_util._table_exists(
+        table_name=expression_file_util.TableName.DEBUG_MODE_CALLABLE_COUNT)
+    assert result

@@ -7,9 +7,7 @@ from retrying import retry
 import apysc as ap
 from apysc._display import stage
 from apysc._display.display_object import DisplayObject
-from apysc._display.stage import _STAGE_ELEM_ID_FILE_PATH
 from apysc._expression import expression_file_util
-from apysc._file import file_util
 from tests import testing_helper
 
 
@@ -103,8 +101,7 @@ class TestStage:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__save_stage_elem_id_to_expression_file(self) -> None:
         ap.Stage(stage_elem_id='line-graph')
-        stage_elem_id: str = file_util.read_txt(
-            file_path=_STAGE_ELEM_ID_FILE_PATH)
+        stage_elem_id: str = stage.get_stage_elem_id()
         assert stage_elem_id == 'line-graph'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -116,7 +113,7 @@ class TestStage:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_stage_elem_id() -> None:
-    file_util.remove_file_if_exists(file_path=_STAGE_ELEM_ID_FILE_PATH)
+    expression_file_util.empty_expression()
     stage_elem_id: str = stage.get_stage_elem_id()
     assert stage_elem_id == ''
 

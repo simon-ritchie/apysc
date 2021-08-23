@@ -6,10 +6,9 @@ References
     - https://simon-ritchie.github.io/apysc/stage.html
 """
 
-import os
 import random
 from datetime import datetime
-from typing import Optional
+from typing import Optional, Tuple
 
 import apysc as ap
 from apysc._display.child_interface import ChildInterface
@@ -19,10 +18,6 @@ from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
 from apysc._expression import expression_file_util
 from apysc._type.variable_name_interface import VariableNameInterface
-
-_STAGE_ELEM_ID_FILE_PATH: str = os.path.join(
-    expression_file_util.EXPRESSION_ROOT_DIR, 'stage_elem_id.txt',
-)
 
 
 class Stage(
@@ -98,12 +93,18 @@ class Stage(
 
     def _save_stage_elem_id_to_expression_file(self) -> None:
         """
-        Save stage element id to expression directory's file.
+        Save the stage element id.
         """
-        from apysc._file import file_util
-        file_util.save_plain_txt(
-            txt=self._stage_elem_id,
-            file_path=_STAGE_ELEM_ID_FILE_PATH)
+        from apysc._expression import expression_file_util
+        expression_file_util.initialize_sqlite_tables_if_not_initialized()
+        table_name: str = expression_file_util.TableName.STAGE_ELEM_ID.value
+        query: str = f'DELETE FROM {table_name};'
+        expression_file_util.cursor.execute(query)
+        query = (
+            f'INSERT INTO {table_name}(elem_id) '
+            f"VALUES ('{self._stage_elem_id}');")
+        expression_file_util.cursor.execute(query)
+        expression_file_util.connection.commit()
 
     def _create_stage_elem_id_if_none(
             self, stage_elem_id: Optional[str]) -> str:
@@ -210,12 +211,18 @@ def get_stage_elem_id() -> str:
         Current stage's element id. If stage is not instantiated yet,
         blank string will be set.
     """
-    from apysc._file import file_util
-    if not os.path.isfile(_STAGE_ELEM_ID_FILE_PATH):
+    from apysc._expression import expression_file_util
+    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    table_name: str = expression_file_util.TableName.STAGE_ELEM_ID.value
+    query: str = (
+        f'SELECT elem_id FROM {table_name} LIMIT 1;'
+    )
+    expression_file_util.cursor.execute(query)
+    result: Optional[Tuple[str]] = expression_file_util.cursor.fetchone()
+    expression_file_util.connection.commit()
+    if result is None:
         return ''
-    stage_elem_id: str = file_util.read_txt(
-        file_path=_STAGE_ELEM_ID_FILE_PATH)
-    return stage_elem_id
+    return result[0]
 
 
 def get_stage_variable_name() -> str:

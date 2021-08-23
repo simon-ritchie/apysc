@@ -16,8 +16,6 @@ from typing import Any, Callable, List, Optional, Tuple
 from typing import TypeVar
 
 EXPRESSION_ROOT_DIR: str = '../.apysc_expression/'
-DEBUG_MODE_SETTING_FILE_PATH: str = os.path.join(
-    EXPRESSION_ROOT_DIR, 'debug_mode_setting.txt')
 
 
 class TableName(Enum):

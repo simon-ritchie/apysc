@@ -16,9 +16,7 @@ from tests.testing_helper import assert_attrs
 def test_set_debug_mode() -> None:
     stage: ap.Stage = ap.Stage()
     ap.set_debug_mode(stage=stage)
-    with open(expression_file_util.DEBUG_MODE_SETTING_FILE_PATH) as f:
-        txt: str = f.read()
-    assert txt == '1'
+    assert debug_mode.is_debug_mode()
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -27,15 +25,13 @@ def test_is_debug_mode() -> None:
     result: bool = ap.is_debug_mode()
     assert not result
 
-    file_util.append_plain_txt(
-        txt='',
-        file_path=expression_file_util.DEBUG_MODE_SETTING_FILE_PATH)
-    result = ap.is_debug_mode()
-    assert not result
-
     ap.set_debug_mode(stage=stage)
     result = ap.is_debug_mode()
     assert result
+
+    ap.unset_debug_mode()
+    result = ap.is_debug_mode()
+    assert not result
 
 
 class TestDebugInfo:
@@ -146,22 +142,6 @@ class TestDebugInfo:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__get_callable_count_file_path() -> None:
-    file_path: str = debug_mode._get_callable_count_file_path(
-        callable_=TestDebugInfo.test___init__,
-        module_name=__name__,
-        class_=TestDebugInfo)
-    assert file_path.startswith(expression_file_util.EXPRESSION_ROOT_DIR)
-    assert 'tests__html_test_debug_mode' in file_path
-    assert 'TestDebugInfo' in file_path
-    assert 'test___init__' in file_path
-
-    _ = debug_mode._get_callable_count_file_path(
-        callable_=TestDebugInfo.test___init__,
-        module_name=__name__)
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_callable_count() -> None:
     expression_file_util.empty_expression()
     callable_count: int = debug_mode._get_callable_count(
@@ -170,23 +150,16 @@ def test__get_callable_count() -> None:
         class_=TestDebugInfo)
     assert callable_count == 0
 
-    file_path: str = debug_mode._get_callable_count_file_path(
-        callable_=TestDebugInfo.test___init__,
-        module_name=__name__,
-        class_=TestDebugInfo)
-    file_util.append_plain_txt(txt='', file_path=file_path)
+    for _ in range(2):
+        debug_mode._increment_callable_count(
+            callable_=TestDebugInfo.test___init__,
+            module_name=__name__,
+            class_=TestDebugInfo)
     callable_count = debug_mode._get_callable_count(
         callable_=TestDebugInfo.test___init__,
         module_name=__name__,
         class_=TestDebugInfo)
-    assert callable_count == 0
-
-    file_util.append_plain_txt(txt='3', file_path=file_path)
-    callable_count = debug_mode._get_callable_count(
-        callable_=TestDebugInfo.test___init__,
-        module_name=__name__,
-        class_=TestDebugInfo)
-    assert callable_count == 3
+    assert callable_count == 2
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -220,3 +193,19 @@ def test_unset_debug_mode() -> None:
     assert ap.is_debug_mode()
     ap.unset_debug_mode()
     assert not ap.is_debug_mode()
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_callable_path_name() -> None:
+    path_name: str = debug_mode._get_callable_path_name(
+        callable_=TestDebugInfo.test___init__,
+        module_name=__name__,
+        class_=TestDebugInfo)
+    assert path_name == \
+        'tests__html_test_debug_mode_TestDebugInfo_test___init__'
+
+    path_name: str = debug_mode._get_callable_path_name(
+        callable_=TestDebugInfo.test___init__,
+        module_name=__name__)
+    assert path_name == \
+        'tests__html_test_debug_mode_test___init__'

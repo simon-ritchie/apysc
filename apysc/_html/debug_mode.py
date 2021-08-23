@@ -4,7 +4,7 @@ and JavaScript.
 
 import inspect
 import os
-from typing import Any
+from typing import Any, Tuple
 from typing import Callable
 from typing import Dict
 from typing import Optional
@@ -28,11 +28,15 @@ def set_debug_mode(stage: Stage) -> None:
         A current project stage instance.
     """
     from apysc._expression import expression_file_util
+    expression_file_util.initialize_sqlite_tables_if_not_initialized()
     from apysc._validation.display_validation import validate_stage
     validate_stage(stage=stage)
-    file_path: str = expression_file_util.DEBUG_MODE_SETTING_FILE_PATH
-    with open(file_path, 'w') as f:
-        f.write('1')
+    table_name: str = expression_file_util.TableName.DEBUG_MODE_SETTING.value
+    query: str = f'DELETE FROM {table_name};'
+    expression_file_util.cursor.execute(query)
+    query = f'INSERT INTO {table_name}(is_debug_mode) VALUES(1);'
+    expression_file_util.cursor.execute(query)
+    expression_file_util.connection.commit()
 
 
 def unset_debug_mode() -> None:
@@ -40,9 +44,11 @@ def unset_debug_mode() -> None:
     Unset the debug mode for the HTML and JavaScript debugging.
     """
     from apysc._expression import expression_file_util
-    from apysc._file import file_util
-    file_path: str = expression_file_util.DEBUG_MODE_SETTING_FILE_PATH
-    file_util.remove_file_if_exists(file_path=file_path)
+    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    table_name: str = expression_file_util.TableName.DEBUG_MODE_SETTING.value
+    query: str = f'DELETE FROM {table_name};'
+    expression_file_util.cursor.execute(query)
+    expression_file_util.connection.commit()
 
 
 def is_debug_mode() -> bool:
@@ -55,14 +61,16 @@ def is_debug_mode() -> bool:
         If the current debug mode is enabled, True will be returned.
     """
     from apysc._expression import expression_file_util
-    file_path: str = expression_file_util.DEBUG_MODE_SETTING_FILE_PATH
-    if not os.path.isfile(file_path):
+    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    table_name: str = expression_file_util.TableName.DEBUG_MODE_SETTING.value
+    query: str = f'SELECT is_debug_mode FROM {table_name} LIMIT 1;'
+    expression_file_util.cursor.execute(query)
+    result_: Optional[Tuple[int]] = expression_file_util.cursor.fetchone()
+    expression_file_util.connection.commit()
+    if result_ is None:
         return False
-    with open(file_path) as f:
-        txt: str = f.read()
-    if txt == '1':
-        return True
-    return False
+    result: bool = bool(result_[0])
+    return result
 
 
 def _get_callable_str(callable_: Union[Callable, str]) -> str:
@@ -86,12 +94,12 @@ def _get_callable_str(callable_: Union[Callable, str]) -> str:
     return callable_str
 
 
-def _get_callable_count_file_path(
+def _get_callable_path_name(
         callable_: Union[Callable, str],
         module_name: str,
         class_: Optional[Type] = None) -> str:
     """
-    Get a specified callable count data file path.
+    Get a specified callable count data path name.
 
     Parameters
     ----------
@@ -105,21 +113,17 @@ def _get_callable_count_file_path(
 
     Returns
     -------
-    file_path : str
-        Target file path.
+    path_name : str
+        Target path name.
     """
-    from apysc._expression import expression_file_util
     module_path: str = module_name.replace('.', '_')
     if class_ is None:
         class_name: str = ''
     else:
         class_name = f'_{class_.__name__}'
     callable_str: str = _get_callable_str(callable_=callable_)
-    file_path: str = os.path.join(
-        expression_file_util.EXPRESSION_ROOT_DIR,
-        f'callable_count_{module_path}{class_name}_{callable_str}.txt'
-    )
-    return file_path
+    path_name: str = f'{module_path}{class_name}_{callable_str}'
+    return path_name
 
 
 def _get_callable_count(
@@ -144,19 +148,22 @@ def _get_callable_count(
     callable_count : int
         Target count number.
     """
-    file_path: str = _get_callable_count_file_path(
-        callable_=callable_,
-        module_name=module_name,
-        class_=class_)
-    if not os.path.isfile(file_path):
+    from apysc._expression import expression_file_util
+    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    path_name: str = _get_callable_path_name(
+        callable_=callable_, module_name=module_name, class_=class_)
+    table_name: str = \
+        expression_file_util.TableName.DEBUG_MODE_CALLABLE_COUNT.value
+    query: str = (
+        f'SELECT count FROM {table_name} '
+        f"WHERE name = '{path_name}' LIMIT 1;"
+    )
+    expression_file_util.cursor.execute(query)
+    result: Optional[Tuple[int]] = expression_file_util.cursor.fetchone()
+    expression_file_util.connection.commit()
+    if result is None:
         return 0
-    with open(file_path) as f:
-        txt: str = f.read()
-    try:
-        callable_count: int = int(txt)
-    except Exception:
-        return 0
-    return callable_count
+    return result[0]
 
 
 def _increment_callable_count(
@@ -176,12 +183,26 @@ def _increment_callable_count(
         Target class type. If the target callable_ variable is not
         a method, this argument will be ignored.
     """
+    from apysc._expression import expression_file_util
+    expression_file_util.initialize_sqlite_tables_if_not_initialized()
     callable_count: int = _get_callable_count(
         callable_=callable_, module_name=module_name, class_=class_)
-    file_path: str = _get_callable_count_file_path(
+    callable_count += 1
+    path_name: str = _get_callable_path_name(
         callable_=callable_, module_name=module_name, class_=class_)
-    with open(file_path, 'w') as f:
-        f.write(str(callable_count + 1))
+    table_name: str = \
+        expression_file_util.TableName.DEBUG_MODE_CALLABLE_COUNT.value
+    query: str = (
+        f'DELETE FROM {table_name} '
+        f"WHERE name = '{path_name}' LIMIT 1;"
+    )
+    expression_file_util.cursor.execute(query)
+    query = (
+        f'INSERT INTO {table_name}(name, count) '
+        f"VALUES ('{path_name}', {callable_count});"
+    )
+    expression_file_util.cursor.execute(query)
+    expression_file_util.connection.commit()
 
 
 class DebugInfo:
@@ -196,7 +217,6 @@ class DebugInfo:
     _module_name: str
     _class: Optional[Type]
     _DIVIDER: str = '/' * 70
-    _file_path: str
     _callable_count: int
     _indent: Indent
 
@@ -232,8 +252,6 @@ class DebugInfo:
         self._locals = locals_
         self._module_name = module_name
         self._class = class_
-        self._file_path = _get_callable_count_file_path(
-            callable_=callable_, module_name=module_name, class_=class_)
         _increment_callable_count(
             callable_=callable_, module_name=module_name, class_=class_)
         self._callable_count = _get_callable_count(

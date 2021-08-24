@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.line_color_interface import LineColorInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 
 
 class TestLineColorInterface:
@@ -28,9 +28,9 @@ class TestLineColorInterface:
     def test__append_line_color_update_expression(self) -> None:
         line_color_interface: LineColorInterface = LineColorInterface()
         line_color_interface.variable_name = 'test_line_color_interface'
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         line_color_interface.line_color = ap.String('#333')
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = 'test_line_color_interface.stroke("#333333");'
         assert expected in expression
 
@@ -38,11 +38,11 @@ class TestLineColorInterface:
     def test__update_line_color_and_skip_appending_exp(self) -> None:
         line_color_interface: LineColorInterface = LineColorInterface()
         line_color_interface.variable_name = 'test_line_color_interface'
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         line_color_interface._update_line_color_and_skip_appending_exp(
             value=ap.String('#777'))
         assert line_color_interface.line_color == '#777777'
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{line_color_interface.variable_name}.stroke('
         )

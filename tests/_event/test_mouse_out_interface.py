@@ -6,7 +6,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._event.mouse_out_interface import MouseOutInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
@@ -57,7 +57,7 @@ class TestMouseOutInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_mouseout(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface_1: _TestMouseOut = _TestMouseOut()
         name: str = interface_1.mouseout(
             handler=self.on_mouse_out_1,
@@ -66,11 +66,11 @@ class TestMouseOutInterface:
         assert interface_1._mouse_out_handlers[name]['options'] == \
             {'msg': 'Hello!'}
         expression: str = \
-            expression_file_util.get_current_event_handler_scope_expression()
+            expression_data_util.get_current_event_handler_scope_expression()
         expected: str = f'function {name}('
         assert expected in expression
 
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = (
             f'{interface_1.variable_name}.mouseout({name});'
         )
@@ -78,12 +78,12 @@ class TestMouseOutInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_mouseout(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface_1: _TestMouseOut = _TestMouseOut()
         name: str = interface_1.mouseout(handler=self.on_mouse_out_1)
         interface_1.unbind_mouseout(handler=self.on_mouse_out_1)
         assert interface_1._mouse_out_handlers == {}
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{interface_1.variable_name}.off'
             f'("{ap.MouseEventType.MOUSEOUT.value}", {name});'
@@ -92,13 +92,13 @@ class TestMouseOutInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_unbind_mouseout_all(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface_1: _TestMouseOut = _TestMouseOut()
         interface_1.mouseout(handler=self.on_mouse_out_1)
         interface_1.mouseout(handler=self.on_mouse_out_2)
         interface_1.unbind_mouseout_all()
         assert interface_1._mouse_out_handlers == {}
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{interface_1.variable_name}.off('
             f'"{ap.MouseEventType.MOUSEOUT.value}");'

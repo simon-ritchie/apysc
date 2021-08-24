@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.line_thickness_interface import LineThicknessInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 
 
 class TestLineThicknessInterface:
@@ -24,9 +24,9 @@ class TestLineThicknessInterface:
             LineThicknessInterface()
         line_thickness_interface.variable_name = \
             'test_line_thickness_interface'
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         line_thickness_interface.line_thickness = ap.Int(2)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             'test_line_thickness_interface.attr({"stroke-width": 2});')
         assert expected in expression
@@ -37,11 +37,11 @@ class TestLineThicknessInterface:
             LineThicknessInterface()
         line_thickness_interface.variable_name = \
             'test_line_thickness_interface'
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         line_thickness_interface._update_line_thickness_and_skip_appending_exp(
             value=ap.Int(5))
         assert line_thickness_interface.line_thickness == 5
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         assert 'stroke-width' not in expression
 
         line_thickness_interface._update_line_thickness_and_skip_appending_exp(

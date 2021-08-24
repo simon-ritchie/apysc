@@ -94,20 +94,20 @@ def _save_current_scope_count(count: int) -> None:
     count : int
         Scope count ot save.
     """
-    from apysc._expression import expression_file_util
-    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    from apysc._expression import expression_data_util
+    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     query: str = (
         'DELETE FROM '
-        f'{expression_file_util.TableName.EVENT_HANDLER_SCOPE_COUNT.value};'
+        f'{expression_data_util.TableName.EVENT_HANDLER_SCOPE_COUNT.value};'
     )
-    expression_file_util.cursor.execute(query)
+    expression_data_util.cursor.execute(query)
     query = (
         'INSERT INTO '
-        f'{expression_file_util.TableName.EVENT_HANDLER_SCOPE_COUNT.value}'
+        f'{expression_data_util.TableName.EVENT_HANDLER_SCOPE_COUNT.value}'
         f'(count) VALUES({count});'
     )
-    expression_file_util.cursor.execute(query)
-    expression_file_util.connection.commit()
+    expression_data_util.cursor.execute(query)
+    expression_data_util.connection.commit()
 
 
 def get_current_event_handler_scope_count() -> int:
@@ -122,16 +122,16 @@ def get_current_event_handler_scope_count() -> int:
         or call other handler in handler's function, then
         2 or more count will be returned.
     """
-    from apysc._expression import expression_file_util
-    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    from apysc._expression import expression_data_util
+    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     query: str = (
         'SELECT count FROM '
-        f'{expression_file_util.TableName.EVENT_HANDLER_SCOPE_COUNT.value} '
+        f'{expression_data_util.TableName.EVENT_HANDLER_SCOPE_COUNT.value} '
         'LIMIT 1;'
     )
-    expression_file_util.cursor.execute(query)
-    result: Optional[Tuple] = expression_file_util.cursor.fetchone()
-    expression_file_util.connection.commit()
+    expression_data_util.cursor.execute(query)
+    result: Optional[Tuple] = expression_data_util.cursor.fetchone()
+    expression_data_util.connection.commit()
     if result is None:
         return 0
     scope_count: int = int(result[0])

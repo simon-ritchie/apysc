@@ -7,7 +7,7 @@ from retrying import retry
 import apysc as ap
 from apysc._display import stage
 from apysc._display.display_object import DisplayObject
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from tests import testing_helper
 
 
@@ -80,7 +80,7 @@ class TestStage:
         stage: ap.Stage = ap.Stage()
         expected_expression: str = stage._make_constructor_expression()
         expected_expression = expected_expression.strip()
-        saved_expression: str = expression_file_util.get_current_expression()
+        saved_expression: str = expression_data_util.get_current_expression()
         saved_expression = saved_expression.strip()
         for expected_expression_line in expected_expression.splitlines():
             assert expected_expression_line in saved_expression
@@ -113,7 +113,7 @@ class TestStage:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_stage_elem_id() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     stage_elem_id: str = stage.get_stage_elem_id()
     assert stage_elem_id == ''
 

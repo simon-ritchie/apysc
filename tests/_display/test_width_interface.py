@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.width_interface import WidthInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 
 
 class TestWidthInterface:
@@ -20,9 +20,9 @@ class TestWidthInterface:
     def test__append_width_update_expression(self) -> None:
         width_interface: WidthInterface = WidthInterface()
         width_interface.variable_name = 'test_width_interface'
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         width_interface.width = ap.Int(200)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = 'test_width_interface.width(200);'
         assert expected in expression
 
@@ -30,11 +30,11 @@ class TestWidthInterface:
     def test_update_width_and_skip_appending_exp(self) -> None:
         width_interface: WidthInterface = WidthInterface()
         width_interface.variable_name = 'test_width_interface'
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         width_interface._update_width_and_skip_appending_exp(
             value=ap.Int(300))
         assert width_interface.width == 300
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         assert 'width(' not in expression
 
         width_interface._update_width_and_skip_appending_exp(

@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.y_interface import YInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._type import value_util
 
 
@@ -27,10 +27,10 @@ class TestYInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_y_update_expression(self) -> None:
         y_interface: YInterface = YInterface()
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         y_interface.variable_name = 'test_y_interface'
         y_interface.y = ap.Int(300)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         value_str: str = value_util.get_value_str_for_expression(
             value=y_interface._y)
         expected: str = f'test_y_interface.y({value_str});'

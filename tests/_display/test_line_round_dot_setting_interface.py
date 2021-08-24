@@ -8,7 +8,7 @@ from retrying import retry
 import apysc as ap
 from apysc._display.line_round_dot_setting_interface import \
     LineRoundDotSettingInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from tests.testing_helper import assert_raises
 
 
@@ -77,14 +77,14 @@ class TestLineRoundDotSettingInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_line_round_dot_setting_update_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: LineRoundDotSettingInterface = \
             LineRoundDotSettingInterface()
         interface.variable_name = 'test_line_round_dot_setting_interface'
         line_round_dot_setting: ap.LineRoundDotSetting = \
             ap.LineRoundDotSetting(round_size=10, space_size=5)
         interface.line_round_dot_setting = line_round_dot_setting
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
                 rf'{interface.variable_name}.css\("stroke-dasharray", '
@@ -94,9 +94,9 @@ class TestLineRoundDotSettingInterface:
             flags=re.MULTILINE)
         assert match is not None
 
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface.line_round_dot_setting = None
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected: str = (
             f'{interface.variable_name}.css'
             f'("stroke-dasharray", "");'

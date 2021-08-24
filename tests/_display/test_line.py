@@ -7,7 +7,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.stage import get_stage_variable_name
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from tests._display.test_graphics_expression import \
     assert_stroke_attr_expression_exists
@@ -59,7 +59,7 @@ class TestLine:
             parent=sprite.graphics,
             start_point=ap.Point2D(x=10, y=20),
             end_point=ap.Point2D(x=30, y=40))
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
                 rf'var {line.variable_name} = {stage_variable_name}'

@@ -14,16 +14,16 @@ def get_current_loop_count() -> int:
     loop_count : int
         Current loop count.
     """
-    from apysc._expression import expression_file_util
-    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    from apysc._expression import expression_data_util
+    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     query: str = (
         'SELECT count FROM '
-        f'{expression_file_util.TableName.LOOP_COUNT.value} '
+        f'{expression_data_util.TableName.LOOP_COUNT.value} '
         'LIMIT 1;'
     )
-    expression_file_util.cursor.execute(query)
-    result: Optional[Tuple[int]] = expression_file_util.cursor.fetchone()
-    expression_file_util.connection.commit()
+    expression_data_util.cursor.execute(query)
+    result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
+    expression_data_util.connection.commit()
     if result is None:
         return 0
     return result[0]
@@ -38,14 +38,14 @@ def _save_loop_count(loop_count: int) -> None:
     loop_count : int
         A loop count value.
     """
-    from apysc._expression import expression_file_util
-    expression_file_util.initialize_sqlite_tables_if_not_initialized()
-    table_name: str = expression_file_util.TableName.LOOP_COUNT.value
+    from apysc._expression import expression_data_util
+    expression_data_util.initialize_sqlite_tables_if_not_initialized()
+    table_name: str = expression_data_util.TableName.LOOP_COUNT.value
     query: str = f'DELETE FROM {table_name};'
-    expression_file_util.cursor.execute(query)
+    expression_data_util.cursor.execute(query)
     query = f'INSERT INTO {table_name}(count) VALUES ({loop_count});'
-    expression_file_util.cursor.execute(query)
-    expression_file_util.connection.commit()
+    expression_data_util.cursor.execute(query)
+    expression_data_util.connection.commit()
 
 
 def increment_current_loop_count() -> None:

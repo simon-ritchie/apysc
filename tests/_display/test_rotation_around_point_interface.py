@@ -10,7 +10,7 @@ import apysc as ap
 from apysc._display import rotation_interface_helper
 from apysc._display.rotation_around_point_interface import \
     RotationAroundPointInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._type.expression_string import ExpressionString
 
@@ -63,7 +63,7 @@ class TestRotationAroundPointInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_rotation_around_point_update_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: _TestInterface = _TestInterface()
         rotation: ap.Int = ap.Int(50)
         x: ap.Int = ap.Int(100)
@@ -75,7 +75,7 @@ class TestRotationAroundPointInterface:
         key_exp_value = key_exp_value.replace(')', '\\)')
         key_exp_value = key_exp_value.replace('+', '\\+')
         interface.set_rotation_around_point(rotation=rotation, x=x, y=y)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         patterns: List[str] = [
             rf'if \({key_exp_value} in '
             rf'{interface._rotation_around_point.variable_name}\) {{',

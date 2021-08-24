@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.css_interface import CssInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 
 
 class _TestInterface(CssInterface):
@@ -39,11 +39,11 @@ class TestCssInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_get_css_expresion(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: _TestInterface = _TestInterface()
         name: ap.String = ap.String('display')
         css: ap.String = interface.get_css(name=name)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{css.variable_name} = {interface.variable_name}'
             f'.css({name.variable_name});'
@@ -59,12 +59,12 @@ class TestCssInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_set_css_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: _TestInterface = _TestInterface()
         name: ap.String = ap.String('display')
         value: ap.String = ap.String('none')
         interface.set_css(name=name, value=value)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{interface.variable_name}.css({name.variable_name}, '
             f'{value.variable_name});'

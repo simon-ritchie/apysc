@@ -7,7 +7,7 @@ from retrying import retry
 
 from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dash_setting_interface import LineDashSettingInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from tests.testing_helper import assert_raises
 
 
@@ -44,7 +44,7 @@ class TestLineDashSettingInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_dash_setting_and_skip_appending_exp(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: LineDashSettingInterface = LineDashSettingInterface()
         assert_raises(
             expected_error_class=TypeError,
@@ -58,7 +58,7 @@ class TestLineDashSettingInterface:
         line_dash_setting: Optional[LineDashSetting] = \
             interface.line_dash_setting
         assert line_dash_setting.dash_size == 10  # type: ignore
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         assert '.css(' not in expression
 
         interface._update_line_dash_setting_and_skip_appending_exp(
@@ -68,12 +68,12 @@ class TestLineDashSettingInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_line_dash_setting_update_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: LineDashSettingInterface = LineDashSettingInterface()
         interface._initialize_line_dash_setting_if_not_initialized()
         interface.variable_name = 'test_line_dash_interface'
         interface._append_line_dash_setting_update_expression()
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
                 rf'{interface.variable_name}.css\("stroke-dasharray", ""\);'
@@ -81,11 +81,11 @@ class TestLineDashSettingInterface:
             string=expression, flags=re.MULTILINE)
         assert match is not None
 
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface._line_dash_setting = LineDashSetting(
             dash_size=10, space_size=5)
         interface._append_line_dash_setting_update_expression()
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         match = re.search(
             pattern=(
                 rf'{interface.variable_name}.css\("stroke-dasharray", '

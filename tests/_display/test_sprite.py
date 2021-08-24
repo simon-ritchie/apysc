@@ -6,7 +6,7 @@ from retrying import retry
 import apysc as ap
 from apysc._display.graphics import Graphics
 from apysc._display.stage import get_stage_variable_name
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from tests import testing_helper
 
 
@@ -41,7 +41,7 @@ class TestSprite:
         stage: ap.Stage = ap.Stage()
         stage_variable_name: str = get_stage_variable_name()
         sprite: ap.Sprite = ap.Sprite(stage=stage)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected_strs: List[str] = [
             f'\nvar {sprite.variable_name} = {stage_variable_name}.nested();',
             f'\nvar {sprite.graphics.variable_name} = ',
@@ -52,7 +52,7 @@ class TestSprite:
         for expected_str in expected_strs:
             assert expected_str in expression, \
                 f'{expected_str}\n-----------------\n{expression}'
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
 
         class SubClass(ap.Sprite):
             pass

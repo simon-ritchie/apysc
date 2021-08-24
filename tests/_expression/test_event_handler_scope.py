@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 from apysc._expression import event_handler_scope
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
 from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
 
@@ -13,12 +13,12 @@ def teardown() -> None:
     """
     Function that will be called when test ended.
     """
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_current_event_handler_scope_count() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     scope_count: int = event_handler_scope.\
         get_current_event_handler_scope_count()
     assert scope_count == 0
@@ -44,7 +44,7 @@ def test__save_current_scope_count() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__increment_scope_count() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     event_handler_scope._increment_scope_count()
     scope_count: int = event_handler_scope.\
         get_current_event_handler_scope_count()
@@ -57,7 +57,7 @@ def test__increment_scope_count() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__decrement_scope_count() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
 
     event_handler_scope._increment_scope_count()
     event_handler_scope._increment_scope_count()
@@ -81,7 +81,7 @@ class TestHandlerScope:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___enter__(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
 
         with HandlerScope():
             scope_count: int = event_handler_scope.\
@@ -95,7 +95,7 @@ class TestHandlerScope:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___exit__(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
 
         with HandlerScope():
 

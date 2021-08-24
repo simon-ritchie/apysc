@@ -7,7 +7,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.stage import get_stage_variable_name
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from tests._display.test_graphics_expression import \
     assert_fill_attr_expression_exists
@@ -24,7 +24,7 @@ class TestEllipse:
         ellipse: ap.Ellipse = ap.Ellipse(
             parent=sprite.graphics,
             x=50, y=100, width=150, height=200)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
                 rf'var {ellipse.variable_name} = {stage_variable_name}'

@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.stage import get_stage_variable_name
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from tests._display.test_graphics_expression import \
     assert_stroke_attr_expression_exists
@@ -42,7 +42,7 @@ class TestPolygon:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
         stage_variable_name: str = get_stage_variable_name()
         sprite: ap.Sprite = ap.Sprite(stage=stage)
@@ -51,7 +51,7 @@ class TestPolygon:
         sprite.graphics.line_style(color='#333')
         polygon: ap.Polygon = ap.Polygon(
             parent=sprite.graphics, points=points)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         assert_stroke_attr_expression_exists(expression=expression)
         expected: str = (
             f'\nvar {polygon.variable_name} = {stage_variable_name}'

@@ -7,7 +7,7 @@ from pytest import raises
 from retrying import retry
 
 import apysc as ap
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._expression import last_scope
 from apysc._expression.last_scope import LastScope
 from tests.testing_helper import assert_attrs
@@ -17,7 +17,7 @@ class TestElif:
 
     @retry(stop_max_attempt_number=15, wait_fixed=1500)
     def test__append_enter_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         boolean_1: ap.Boolean = ap.Boolean(True)
         with raises(
                 ValueError,
@@ -32,7 +32,7 @@ class TestElif:
             pass
         with ap.Elif(boolean_1, locals(), globals()):
             pass
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'if ({boolean_1.variable_name}) {{'
             '\n}'

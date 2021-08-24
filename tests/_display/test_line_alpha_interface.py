@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.line_alpha_interface import LineAlphaInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 
 
 class TestLineAlphaInterface:
@@ -20,9 +20,9 @@ class TestLineAlphaInterface:
     def test__append_line_alpha_update_expression(self) -> None:
         line_alpha_interface: LineAlphaInterface = LineAlphaInterface()
         line_alpha_interface.variable_name = 'test_line_alpha_interface'
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         line_alpha_interface.line_alpha = ap.Number(0.5)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = 'test_line_alpha_interface.stroke({opacity: 0.5});'
         assert expected in expression
 
@@ -30,11 +30,11 @@ class TestLineAlphaInterface:
     def test__update_line_alpha_and_skip_appending_exp(self) -> None:
         line_alpha_interface: LineAlphaInterface = LineAlphaInterface()
         line_alpha_interface.variable_name = 'test_line_alpha_interface'
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         line_alpha_interface._update_line_alpha_and_skip_appending_exp(
             value=ap.Number(0.25))
         assert line_alpha_interface.line_alpha == 0.25
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         assert 'stroke-opacity' not in expression
 
         line_alpha_interface._update_line_alpha_and_skip_appending_exp(

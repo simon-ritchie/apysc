@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.cy_interface import CyInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 
 
 class TestCyInterface:
@@ -33,12 +33,12 @@ class TestCyInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_cy_update_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: CyInterface = CyInterface()
         interface.variable_name = 'test_cy_interface'
         y: ap.Int = ap.Int(10)
         interface.y = y
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{interface.variable_name}.cy({y.variable_name});'
         )

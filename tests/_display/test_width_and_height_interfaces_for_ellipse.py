@@ -5,7 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._display.width_and_height_interfaces_for_ellipse import \
     WidthAndHeightInterfacesForEllipse
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 
 
 class TestWidthAndHeightInterfacesForEllipse:
@@ -54,7 +54,7 @@ class TestWidthAndHeightInterfacesForEllipse:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ellipse_width_and_height_update_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: WidthAndHeightInterfacesForEllipse = \
             WidthAndHeightInterfacesForEllipse()
         interface.variable_name = \
@@ -63,7 +63,7 @@ class TestWidthAndHeightInterfacesForEllipse:
         interface.width = width
         height: ap.Int = ap.Int(20)
         interface.height = height
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{interface.variable_name}.radius('
             f'parseInt({width.variable_name} / 2), '

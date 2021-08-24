@@ -238,7 +238,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         with ap.DebugInfo(
                 callable_=self.start, locals_=locals(),
                 module_name=__name__, class_=Timer):
-            from apysc._expression import expression_file_util
+            from apysc._expression import expression_data_util
             from apysc._type import value_util
             self._running.value = True
             delay_val_str: str = value_util.get_value_str_for_expression(
@@ -249,7 +249,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
                 f'{self._handler_name}, {delay_val_str});'
                 '\n}'
             )
-            expression_file_util.append_js_expression(expression=expression)
+            expression_data_util.append_js_expression(expression=expression)
 
     def _wrap_handler(self, handler: Handler) -> Handler:
         """
@@ -296,7 +296,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
                 locals_=locals(),
                 module_name=__name__, class_=Timer):
             from apysc._event.custom_event_type import CustomEventType
-            from apysc._expression import expression_file_util
+            from apysc._expression import expression_data_util
             from apysc._expression.indent_num import Indent
             from apysc._type import value_util
             current_count_val_str: str = value_util.\
@@ -308,13 +308,13 @@ class Timer(VariableNameInterface, CustomEventInterface):
                 f'&& {current_count_val_str} === {repeat_count_val_str}) {{'
                 f'\n{self._get_stop_expression(indent_num=1)}'
             )
-            expression_file_util.append_js_expression(expression=expression)
+            expression_data_util.append_js_expression(expression=expression)
             with Indent():
                 self._running.value = False
                 self.trigger_custom_event(
                     custom_event_type=CustomEventType.TIMER_COMPLETE)
             expression = '\n}'
-            expression_file_util.append_js_expression(expression=expression)
+            expression_data_util.append_js_expression(expression=expression)
 
     def stop(self) -> None:
         """
@@ -327,10 +327,10 @@ class Timer(VariableNameInterface, CustomEventInterface):
         with ap.DebugInfo(
                 callable_=self.stop, locals_=locals(),
                 module_name=__name__, class_=Timer):
-            from apysc._expression import expression_file_util
+            from apysc._expression import expression_data_util
             self._running.value = False
             expression: str = self._get_stop_expression(indent_num=0)
-            expression_file_util.append_js_expression(expression=expression)
+            expression_data_util.append_js_expression(expression=expression)
 
     def _get_stop_expression(self, indent_num: int) -> str:
         """

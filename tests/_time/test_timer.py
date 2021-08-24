@@ -10,7 +10,7 @@ from retrying import retry
 import apysc as ap
 from apysc._event.custom_event_type import CustomEventType
 from apysc._event.handler import Handler
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from tests.testing_helper import assert_attrs
 
@@ -44,7 +44,7 @@ class TestTimer:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         timer: ap.Timer = ap.Timer(
             handler=self.on_timer,
             delay=33.3,
@@ -64,7 +64,7 @@ class TestTimer:
         assert isinstance(timer._repeat_count, ap.Int)
 
         expression: str = \
-            expression_file_util.get_current_event_handler_scope_expression()
+            expression_data_util.get_current_event_handler_scope_expression()
         match: Optional[Match] = re.search(
             pattern=(
                 r'function .*on_timer.*\('
@@ -74,7 +74,7 @@ class TestTimer:
         )
         assert match is not None
 
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         assert f'var {timer.variable_name};' in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -105,11 +105,11 @@ class TestTimer:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_start(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
         timer.start()
         assert timer.running
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         pattern: str = (
             rf'if \(_\.isUndefined\({timer.variable_name}\)\) {{'
             rf'\n  {timer.variable_name} = setInterval\('
@@ -141,11 +141,11 @@ class TestTimer:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_stop(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
         timer.start()
         timer.stop()
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'if (!_.isUndefined({timer.variable_name})) {{'
             f'\n  clearInterval({timer.variable_name});'
@@ -157,7 +157,7 @@ class TestTimer:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_stop_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
         expression: str = timer._get_stop_expression(indent_num=1)
         expected: str = (
@@ -170,12 +170,12 @@ class TestTimer:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_count_branch_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         timer: ap.Timer = ap.Timer(
             handler=self.on_timer, delay=33.3, repeat_count=5)
         timer.start()
         expression: str = \
-            expression_file_util.get_current_event_handler_scope_expression()
+            expression_data_util.get_current_event_handler_scope_expression()
         match: Optional[Match] = re.search(
             pattern=(
                 rf'  if \({var_names.INT}_.+? !== 0 && '
@@ -217,7 +217,7 @@ class TestTimer:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_timer_complete(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         timer: ap.Timer = ap.Timer(
             handler=self.on_timer, delay=33.3)
         name: str = timer.timer_complete(handler=self.on_timer_complete)
@@ -228,7 +228,7 @@ class TestTimer:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_reset(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         timer: ap.Timer = ap.Timer(
             handler=self.on_timer, delay=33.3)
         timer.start()
@@ -236,7 +236,7 @@ class TestTimer:
         timer.reset()
         assert timer.current_count == 0
         assert not timer.running
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{timer._current_count.variable_name} = 0;'
         )

@@ -8,7 +8,7 @@ from typing import Optional
 from retrying import retry
 
 import apysc as ap
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from tests import testing_helper
 
@@ -46,16 +46,16 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value='Hello!')
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'var {string_1.variable_name} = "Hello!";'
         )
         assert expected in expression
 
         string_2: ap.String = ap.String(value=string_1)
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = (
             f'var {string_2.variable_name} = {string_1.variable_name};'
         )
@@ -69,10 +69,10 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_value_setter_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value='Hello!')
         string_1.value = 'World!'
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{string_1.variable_name} = "World!";'
         )
@@ -80,7 +80,7 @@ class TestString:
 
         string_2: ap.String = ap.String(value='')
         string_2.value = string_1
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = (
             f'{string_2.variable_name} = {string_1.variable_name};'
         )
@@ -98,10 +98,10 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_addition_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value='Hello!')
         string_2: ap.String = string_1 + ' World!'
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'var {string_2.variable_name} = {string_1.variable_name}'
             ' + " World!";'
@@ -119,10 +119,10 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_multiplication_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value='Hello!')
         string_2: ap.String = string_1 * 3
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'var {string_2.variable_name} = "";'
             '\nfor (var i = 0; i < 3; i++) {'
@@ -133,7 +133,7 @@ class TestString:
 
         int_1: ap.Int = ap.Int(2)
         _: ap.String = string_1 * int_1
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = (
             f'\nfor (var i = 0; i < {int_1.variable_name}; i++) {{'
         )
@@ -141,14 +141,14 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___iadd__(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value='Hello')
         original_variable_name: str = string_1.variable_name
         string_1 += ' World!'
         assert string_1.value == 'Hello World!'
         assert string_1.variable_name == original_variable_name
 
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
                 rf's_[0-9]+ = {original_variable_name} \+ " World!";'
@@ -160,14 +160,14 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___imul__(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value='Hello!')
         original_variable_name: str = string_1.variable_name
         string_1 *= 3
         assert string_1.value == 'Hello!Hello!Hello!'
         assert string_1.variable_name == original_variable_name
 
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
                 rf'{original_variable_name} = s_[0-9]+;'
@@ -298,20 +298,20 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_eq_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value='Hello!')
         string_2: ap.String = ap.String(value='World!')
         result: ap.Boolean = string_1 == string_2
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{result.variable_name} = '
             f'{string_1.variable_name} === {string_2.variable_name};'
         )
         assert expected in expression
 
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         result = string_1 == 'Hello!'
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
                 rf'{result.variable_name} = '
@@ -324,20 +324,20 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ne_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value='Hello!')
         string_2: ap.String = ap.String(value='World!')
         result: ap.Boolean = string_1 != string_2
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{result.variable_name} = '
             f'{string_1.variable_name} !== {string_2.variable_name};'
         )
         assert expected in expression
 
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         result = string_1 != 'World!'
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
                 rf'{result.variable_name} = '
@@ -349,20 +349,20 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_lt_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value='Hello!')
         string_2: ap.String = ap.String(value='World!')
         result: ap.Boolean = string_1 < string_2
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{result.variable_name} = '
             f'{string_1.variable_name} < {string_2.variable_name};'
         )
         assert expected in expression
 
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         result = string_1 < 'World!'
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
                 rf'{result.variable_name} = '
@@ -374,20 +374,20 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_le_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value='Hello!')
         string_2: ap.String = ap.String(value='World!')
         result: ap.Boolean = string_1 <= string_2
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{result.variable_name} = '
             f'{string_1.variable_name} <= {string_2.variable_name};'
         )
         assert expected in expression
 
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         result = string_1 <= 'World!'
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
                 rf'{result.variable_name} = '
@@ -399,20 +399,20 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_gt_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value='Hello!')
         string_2: ap.String = ap.String(value='World!')
         result: ap.Boolean = string_1 > string_2
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{result.variable_name} = '
             f'{string_1.variable_name} > {string_2.variable_name};'
         )
         assert expected in expression
 
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         result = string_1 > 'World!'
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
                 rf'{result.variable_name} = '
@@ -424,20 +424,20 @@ class TestString:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ge_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         string_1: ap.String = ap.String(value='Hello!')
         string_2: ap.String = ap.String(value='World!')
         result: ap.Boolean = string_1 >= string_2
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{result.variable_name} = '
             f'{string_1.variable_name} >= {string_2.variable_name};'
         )
         assert expected in expression
 
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         result = string_1 >= 'World!'
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
                 rf'{result.variable_name} = '

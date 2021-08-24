@@ -8,7 +8,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.stage import get_stage_variable_name
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from tests._display.test_graphics_expression import \
     assert_fill_attr_expression_exists
 from tests._display.test_graphics_expression import \
@@ -87,7 +87,7 @@ class TestPolyline:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite(stage=stage)
         sprite.graphics.begin_fill(color='#0af')
@@ -99,7 +99,7 @@ class TestPolyline:
             parent=sprite.graphics,
             points=points)
         stage_variable_name: str = get_stage_variable_name()
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected_patterns: List[str] = [
             r'var a.+ \= \[\]\;',
             rf'var {polyline.variable_name} \= {stage_variable_name}',
@@ -126,7 +126,7 @@ class TestPolyline:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_append_line_point(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite(stage=stage)
         sprite.graphics.begin_fill(color='#0af')
@@ -136,7 +136,7 @@ class TestPolyline:
             parent=sprite.graphics,
             points=points)
         polyline.append_line_point(x=50, y=60)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{polyline._points_var_name}.push([50, 60]);'
             f'\n{polyline.variable_name}.plot({polyline._points_var_name});'

@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.ellipse_size_interface import EllipseSizeInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 
 
 class TestEllipseSizeInterface:
@@ -41,12 +41,12 @@ class TestEllipseSizeInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ellipse_size_update_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: EllipseSizeInterface = EllipseSizeInterface()
         interface.variable_name = 'test_ellipse_size_interface'
         ellipse_size: ap.Int = ap.Int(10)
         interface.ellipse_size = ellipse_size
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{interface.variable_name}.radius({ellipse_size.variable_name});'
         )

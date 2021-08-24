@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.flip_y_interface import FlipYInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 
 
 class _TestInterface(FlipYInterface):
@@ -38,10 +38,10 @@ class TestFlipYInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_flip_y_update_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: _TestInterface = _TestInterface()
         interface.flip_y = ap.Boolean(True)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         assert '.flip("y");' in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

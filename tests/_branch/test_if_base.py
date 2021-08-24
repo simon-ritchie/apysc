@@ -9,7 +9,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._branch.if_base import IfBase
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._expression import indent_num
 from apysc._expression import last_scope
 from apysc._expression.last_scope import LastScope
@@ -61,7 +61,7 @@ class TestIfBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___enter__(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         indent_num.reset()
         int_1: ap.Int = ap.Int(10)
         condition: ap.Boolean = ap.Boolean(True)
@@ -78,7 +78,7 @@ class TestIfBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___exit__(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         indent_num.reset()
         int_1: ap.Int = ap.Int(10)
         condition: ap.Boolean = ap.Boolean(True)
@@ -92,7 +92,7 @@ class TestIfBase:
         current_indent_num: int = indent_num.get_current_indent_num()
         assert current_indent_num == 0
         assert instance._last_scope_is_set
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=r'^}',
             string=expression,
@@ -101,11 +101,11 @@ class TestIfBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_exit_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         indent_num.reset()
         with IfSubClass(condition=ap.Boolean(True), locals_={}, globals_={}):
             pass
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=r'^}',
             string=expression,

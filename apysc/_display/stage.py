@@ -16,7 +16,7 @@ from apysc._display.height_interface import HeightInterface
 from apysc._display.width_interface import WidthInterface
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
@@ -70,7 +70,7 @@ class Stage(
         from apysc._color import color_util
         from apysc._html import html_util
         from apysc._validation import string_validation
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         self.stage = self
         self._stage_elem_id = self._create_stage_elem_id_if_none(
             stage_elem_id=stage_elem_id)
@@ -95,16 +95,16 @@ class Stage(
         """
         Save the stage element id.
         """
-        from apysc._expression import expression_file_util
-        expression_file_util.initialize_sqlite_tables_if_not_initialized()
-        table_name: str = expression_file_util.TableName.STAGE_ELEM_ID.value
+        from apysc._expression import expression_data_util
+        expression_data_util.initialize_sqlite_tables_if_not_initialized()
+        table_name: str = expression_data_util.TableName.STAGE_ELEM_ID.value
         query: str = f'DELETE FROM {table_name};'
-        expression_file_util.cursor.execute(query)
+        expression_data_util.cursor.execute(query)
         query = (
             f'INSERT INTO {table_name}(elem_id) '
             f"VALUES ('{self._stage_elem_id}');")
-        expression_file_util.cursor.execute(query)
-        expression_file_util.connection.commit()
+        expression_data_util.cursor.execute(query)
+        expression_data_util.connection.commit()
 
     def _create_stage_elem_id_if_none(
             self, stage_elem_id: Optional[str]) -> str:
@@ -211,15 +211,15 @@ def get_stage_elem_id() -> str:
         Current stage's element id. If stage is not instantiated yet,
         blank string will be set.
     """
-    from apysc._expression import expression_file_util
-    expression_file_util.initialize_sqlite_tables_if_not_initialized()
-    table_name: str = expression_file_util.TableName.STAGE_ELEM_ID.value
+    from apysc._expression import expression_data_util
+    expression_data_util.initialize_sqlite_tables_if_not_initialized()
+    table_name: str = expression_data_util.TableName.STAGE_ELEM_ID.value
     query: str = (
         f'SELECT elem_id FROM {table_name} LIMIT 1;'
     )
-    expression_file_util.cursor.execute(query)
-    result: Optional[Tuple[str]] = expression_file_util.cursor.fetchone()
-    expression_file_util.connection.commit()
+    expression_data_util.cursor.execute(query)
+    result: Optional[Tuple[str]] = expression_data_util.cursor.fetchone()
+    expression_data_util.connection.commit()
     if result is None:
         return ''
     return result[0]

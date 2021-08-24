@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._expression import indent_num
 from apysc._expression import last_scope
 from apysc._expression.indent_num import Indent
@@ -39,11 +39,11 @@ class TestFor:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_arr_enter_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         arr: ap.Array = ap.Array([1, 2, 3])
         with ap.For(arr, locals(), globals()) as i:
             pass
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'var length = {arr.variable_name}.length;'
         )
@@ -87,7 +87,7 @@ class TestFor:
         assert int_1.value == 10
         current_indent_num: int = indent_num.get_current_indent_num()
         assert current_indent_num == 0
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'  {int_1.variable_name} = 20;'
             '\n}'
@@ -99,11 +99,11 @@ class TestFor:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_dict_enter_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
         with ap.For[ap.String](dict_1) as key:
             pass
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'for (var {key.variable_name} in {dict_1.variable_name}) {{'
         )

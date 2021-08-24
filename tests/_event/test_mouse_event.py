@@ -7,7 +7,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.stage import get_stage_elem_str
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._expression import var_names
 
 
@@ -31,11 +31,11 @@ class TestMouseEvent:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_stage_x_getter_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
         mouse_event: ap.MouseEvent[ap.Stage] = ap.MouseEvent(this=stage)
         stage_x: ap.Int = mouse_event.stage_x
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{stage_x.variable_name} = '
             f'{mouse_event.variable_name}.pageX - '
@@ -56,7 +56,7 @@ class TestMouseEvent:
         stage: ap.Stage = ap.Stage()
         mouse_event: ap.MouseEvent[ap.Stage] = ap.MouseEvent(this=stage)
         stage_y: ap.Int = mouse_event.stage_y
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{stage_y.variable_name} = '
             f'{mouse_event.variable_name}.pageY - '
@@ -78,7 +78,7 @@ class TestMouseEvent:
         sprite: ap.Sprite = ap.Sprite(stage=stage)
         mouse_event: ap.MouseEvent[ap.Sprite] = ap.MouseEvent(this=sprite)
         local_x: ap.Int = mouse_event.local_x
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
                 rf'{local_x.variable_name} = {var_names.INT}\_.+? \- '
@@ -102,7 +102,7 @@ class TestMouseEvent:
         sprite: ap.Sprite = ap.Sprite(stage=stage)
         mouse_event: ap.MouseEvent[ap.Sprite] = ap.MouseEvent(this=sprite)
         local_y: ap.Int = mouse_event.local_y
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
                 rf'{local_y.variable_name} = {var_names.INT}\_.+? \- '

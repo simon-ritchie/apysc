@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.fill_color_interface import FillColorInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 
 
 class TestFillColorInterface:
@@ -24,9 +24,9 @@ class TestFillColorInterface:
     def test__append_fill_color_update_expression(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         fill_color_interface.fill_color = ap.String('#666')
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = 'test_fill_color_interface.fill("#666666");'
         assert expected in expression
 
@@ -34,11 +34,11 @@ class TestFillColorInterface:
     def test__update_fill_color_and_skip_appending_exp(self) -> None:
         fill_color_interface: FillColorInterface = FillColorInterface()
         fill_color_interface.variable_name = 'test_fill_color_interface'
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         fill_color_interface._update_fill_color_and_skip_appending_exp(
             value=ap.String('#333'))
         assert fill_color_interface.fill_color == '#333333'
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{fill_color_interface.variable_name}.fill(')
         assert expected not in expression

@@ -6,7 +6,7 @@ from retrying import retry
 import apysc as ap
 from apysc._display.graphics import Graphics
 from apysc._display.graphics import Rectangle
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from tests import testing_helper
 
 
@@ -75,7 +75,7 @@ class TestGraphics:
     def test__append_constructor_expression(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite(stage=stage)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'var {sprite.graphics.variable_name} = '
             f'{stage.variable_name}.nested();'

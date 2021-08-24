@@ -9,7 +9,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.points_2d_interface import Points2DInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 
 
 class TestPoints2DInterface:
@@ -37,14 +37,14 @@ class TestPoints2DInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_points_update_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: Points2DInterface = Points2DInterface()
         interface.variable_name = 'test_point_2d_interface'
         interface._initialize_points_if_not_initialized()
         pre_var_name: str = interface.points.variable_name
         arr_1: ap.Array = ap.Array([ap.Point2D(10, 20)])
         interface.points = arr_1
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{pre_var_name} = {arr_1.variable_name};'
         )

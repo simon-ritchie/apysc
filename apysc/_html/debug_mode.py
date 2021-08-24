@@ -27,28 +27,28 @@ def set_debug_mode(stage: Stage) -> None:
     stage : Stage
         A current project stage instance.
     """
-    from apysc._expression import expression_file_util
-    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    from apysc._expression import expression_data_util
+    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     from apysc._validation.display_validation import validate_stage
     validate_stage(stage=stage)
-    table_name: str = expression_file_util.TableName.DEBUG_MODE_SETTING.value
+    table_name: str = expression_data_util.TableName.DEBUG_MODE_SETTING.value
     query: str = f'DELETE FROM {table_name};'
-    expression_file_util.cursor.execute(query)
+    expression_data_util.cursor.execute(query)
     query = f'INSERT INTO {table_name}(is_debug_mode) VALUES(1);'
-    expression_file_util.cursor.execute(query)
-    expression_file_util.connection.commit()
+    expression_data_util.cursor.execute(query)
+    expression_data_util.connection.commit()
 
 
 def unset_debug_mode() -> None:
     """
     Unset the debug mode for the HTML and JavaScript debugging.
     """
-    from apysc._expression import expression_file_util
-    expression_file_util.initialize_sqlite_tables_if_not_initialized()
-    table_name: str = expression_file_util.TableName.DEBUG_MODE_SETTING.value
+    from apysc._expression import expression_data_util
+    expression_data_util.initialize_sqlite_tables_if_not_initialized()
+    table_name: str = expression_data_util.TableName.DEBUG_MODE_SETTING.value
     query: str = f'DELETE FROM {table_name};'
-    expression_file_util.cursor.execute(query)
-    expression_file_util.connection.commit()
+    expression_data_util.cursor.execute(query)
+    expression_data_util.connection.commit()
 
 
 def is_debug_mode() -> bool:
@@ -60,13 +60,13 @@ def is_debug_mode() -> bool:
     result : bool
         If the current debug mode is enabled, True will be returned.
     """
-    from apysc._expression import expression_file_util
-    expression_file_util.initialize_sqlite_tables_if_not_initialized()
-    table_name: str = expression_file_util.TableName.DEBUG_MODE_SETTING.value
+    from apysc._expression import expression_data_util
+    expression_data_util.initialize_sqlite_tables_if_not_initialized()
+    table_name: str = expression_data_util.TableName.DEBUG_MODE_SETTING.value
     query: str = f'SELECT is_debug_mode FROM {table_name} LIMIT 1;'
-    expression_file_util.cursor.execute(query)
-    result_: Optional[Tuple[int]] = expression_file_util.cursor.fetchone()
-    expression_file_util.connection.commit()
+    expression_data_util.cursor.execute(query)
+    result_: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
+    expression_data_util.connection.commit()
     if result_ is None:
         return False
     result: bool = bool(result_[0])
@@ -148,19 +148,19 @@ def _get_callable_count(
     callable_count : int
         Target count number.
     """
-    from apysc._expression import expression_file_util
-    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    from apysc._expression import expression_data_util
+    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     path_name: str = _get_callable_path_name(
         callable_=callable_, module_name=module_name, class_=class_)
     table_name: str = \
-        expression_file_util.TableName.DEBUG_MODE_CALLABLE_COUNT.value
+        expression_data_util.TableName.DEBUG_MODE_CALLABLE_COUNT.value
     query: str = (
         f'SELECT count FROM {table_name} '
         f"WHERE name = '{path_name}' LIMIT 1;"
     )
-    expression_file_util.cursor.execute(query)
-    result: Optional[Tuple[int]] = expression_file_util.cursor.fetchone()
-    expression_file_util.connection.commit()
+    expression_data_util.cursor.execute(query)
+    result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
+    expression_data_util.connection.commit()
     if result is None:
         return 0
     return result[0]
@@ -183,26 +183,26 @@ def _increment_callable_count(
         Target class type. If the target callable_ variable is not
         a method, this argument will be ignored.
     """
-    from apysc._expression import expression_file_util
-    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    from apysc._expression import expression_data_util
+    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     callable_count: int = _get_callable_count(
         callable_=callable_, module_name=module_name, class_=class_)
     callable_count += 1
     path_name: str = _get_callable_path_name(
         callable_=callable_, module_name=module_name, class_=class_)
     table_name: str = \
-        expression_file_util.TableName.DEBUG_MODE_CALLABLE_COUNT.value
+        expression_data_util.TableName.DEBUG_MODE_CALLABLE_COUNT.value
     query: str = (
         f'DELETE FROM {table_name} '
         f"WHERE name = '{path_name}' LIMIT 1;"
     )
-    expression_file_util.cursor.execute(query)
+    expression_data_util.cursor.execute(query)
     query = (
         f'INSERT INTO {table_name}(name, count) '
         f"VALUES ('{path_name}', {callable_count});"
     )
-    expression_file_util.cursor.execute(query)
-    expression_file_util.connection.commit()
+    expression_data_util.cursor.execute(query)
+    expression_data_util.connection.commit()
 
 
 class DebugInfo:

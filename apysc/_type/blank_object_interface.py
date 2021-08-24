@@ -19,7 +19,7 @@ class BlankObjectInterface:
                 callable_=self._initialize_blank_object_if_not_initialized,
                 locals_=locals(),
                 module_name=__name__, class_=BlankObjectInterface):
-            from apysc._expression import expression_file_util
+            from apysc._expression import expression_data_util
             from apysc._expression import expression_variables_util
             from apysc._expression import var_names
             from apysc._expression.event_handler_scope import \
@@ -32,7 +32,7 @@ class BlankObjectInterface:
                 expression: str = (
                     f'var {self._blank_object_variable_name} = {{}};'
                 )
-                expression_file_util.append_js_expression(
+                expression_data_util.append_js_expression(
                     expression=expression)
                 self._is_blank_object_initialized = True
 

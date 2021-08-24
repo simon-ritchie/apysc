@@ -7,7 +7,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.line_cap_interface import LineCapInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from tests.testing_helper import assert_raises
 
@@ -38,11 +38,11 @@ class TestLineCapInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_line_cap_update_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: LineCapInterface = LineCapInterface()
         interface.variable_name = 'test_line_color_interface'
         interface.line_cap = ap.LineCaps.ROUND
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
                 rf'{interface.variable_name}.attr\({{'
@@ -83,7 +83,7 @@ class TestLineCapInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_cap_and_skip_appending_exp(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: LineCapInterface = LineCapInterface()
         interface.variable_name = 'test_line_color_interface'
         interface._update_line_cap_and_skip_appending_exp(
@@ -92,7 +92,7 @@ class TestLineCapInterface:
         interface._update_line_cap_and_skip_appending_exp(
             value=ap.String(ap.LineCaps.BUTT.value))
         assert interface.line_cap == ap.LineCaps.BUTT.value
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         assert f'{interface.variable_name}.attr' not in expression
 
         assert_raises(

@@ -8,7 +8,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.stage import get_stage_variable_name
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from tests import testing_helper
 from tests._display.test_graphics_expression import \
@@ -73,7 +73,7 @@ class TestRectangle:
             parent=sprite.graphics,
             x=100, y=200,
             width=150, height=50)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         assert '.attr({' in expression
         assert_fill_opacity_attr_expression_exists(expression=expression)
         assert_stroke_width_attr_expression_exists(expression=expression)
@@ -90,7 +90,7 @@ class TestRectangle:
         graphics_name: str = sprite.graphics.variable_name
         rect_name: str = sprite.graphics.get_child_at(index=0).variable_name
         stage_variable_name: str = get_stage_variable_name()
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected_patterns: List[str] = [
             rf'var {rect_name} = {stage_variable_name}',
             rf'\n  \.rect\({var_names.INT}.+?, {var_names.INT}.+?\)',
@@ -109,4 +109,4 @@ class TestRectangle:
         assert_y_attr_expression_exists(expression=expression)
         assert_stroke_width_attr_expression_exists(expression=expression)
         assert_stroke_opacity_attr_expression_exists(expression=expression)
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()

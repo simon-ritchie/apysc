@@ -7,7 +7,7 @@ from retrying import retry
 import apysc as ap
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.custom_event_type import CustomEventType
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
@@ -71,14 +71,14 @@ class TestCustomEventInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_custom_event_binding_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: _TestObject = _TestObject()
         e: ap.Event = ap.Event(this=interface)
         name: str = interface.bind_custom_event(
             custom_event_type='test_custom_event',
             handler=self.on_custom_event,
             e=e)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'$({interface.blank_object_variable_name})'
             f'.on("test_custom_event", {name});'
@@ -87,14 +87,14 @@ class TestCustomEventInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_bind_custom_event(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: _TestObject = _TestObject()
         e: ap.Event = ap.Event(this=interface)
         name: str = interface.bind_custom_event(
             custom_event_type='test_custom_event',
             handler=self.on_custom_event,
             e=e)
-        expression: str = expression_file_util.\
+        expression: str = expression_data_util.\
             get_current_event_handler_scope_expression()
         expected: str = (
             f'function {name}({e.variable_name}) {{'
@@ -103,10 +103,10 @@ class TestCustomEventInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_trigger_custom_event(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: _TestObject = _TestObject()
         interface.trigger_custom_event(custom_event_type='test_event')
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'$({interface.blank_object_variable_name})'
             f'.trigger("test_event");'

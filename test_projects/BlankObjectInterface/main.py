@@ -13,7 +13,7 @@ import os
 from types import ModuleType
 
 import apysc as ap
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._file import file_util
 from apysc._type.blank_object_interface import BlankObjectInterface
 
@@ -38,7 +38,7 @@ def main() -> None:
     expression: str = (
         f'console.assert(_.isEqual({variable_name}, {{}}));'
     )
-    expression_file_util.append_js_expression(expression=expression)
+    expression_data_util.append_js_expression(expression=expression)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 

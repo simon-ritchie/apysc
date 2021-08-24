@@ -10,7 +10,7 @@ import pytest
 from retrying import retry
 
 import apysc as ap
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from tests import testing_helper
 
@@ -58,30 +58,30 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2, 3])
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = f'var {array_1.variable_name} = [1, 2, 3];'
         assert expected in expression
 
         array_2: ap.Array = ap.Array(array_1)
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = f'var {array_2.variable_name} = {array_1.variable_name}'
         assert expected in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_value_setter_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.value = [4, 5, 6]
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{array_1.variable_name} = [4, 5, 6];'
         )
         assert expected in expression
 
         array_2: ap.Array = ap.Array(array_1)
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = f'{array_2.variable_name} = {array_1.variable_name};'
         assert expected in expression
 
@@ -109,10 +109,10 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_push_and_append_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.append(value=4)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{array_1.variable_name}.push(4);'
         )
@@ -129,10 +129,10 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_extend_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2])
         array_1.extend(other_arr=[3, 4])
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{array_1.variable_name} = '
             f'{array_1.variable_name}.concat([3, 4]);'
@@ -141,7 +141,7 @@ class TestArray:
 
         array_2: ap.Array = ap.Array([5, 6])
         array_1.extend(other_arr=array_2)
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = (
             f'{array_1.variable_name} = '
             f'{array_1.variable_name}.concat({array_2.variable_name});'
@@ -157,10 +157,10 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_concat_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2])
         array_2: ap.Array = array_1.concat([3, 4])
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{array_2.variable_name} = '
             f'{array_1.variable_name}.concat([3, 4]);'
@@ -169,7 +169,7 @@ class TestArray:
 
         array_3: ap.Array = ap.Array([5, 6])
         array_4: ap.Array = array_1.concat(array_3)
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = (
             f'{array_4.variable_name} = '
             f'{array_1.variable_name}.concat({array_3.variable_name});'
@@ -190,10 +190,10 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_insert_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         array_1: ap.Array[Any] = ap.Array([1, 4])
         array_1.insert(index=1, value=2)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{array_1.variable_name}.splice(1, 0, 2);'
         )
@@ -202,7 +202,7 @@ class TestArray:
         index_1: ap.Int = ap.Int(2)
         value_1: ap.Int = ap.Int(3)
         array_1.insert(index=index_1, value=value_1)
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = (
             f'{array_1.variable_name}.splice'
             f'({index_1.variable_name}, 0, {value_1.variable_name});'
@@ -218,11 +218,11 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_pop_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         int_1: ap.Int = ap.Int(2)
         array_1: ap.Array[Any] = ap.Array([1, int_1, 3])
         _: int = array_1.pop()
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{array_1.variable_name}.pop();'
         )
@@ -230,7 +230,7 @@ class TestArray:
 
         value_1: ap.Int = array_1.pop()
         assert value_1.variable_name == int_1.variable_name
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = (
             f'{value_1.variable_name} = '
             f'{array_1.variable_name}.pop();'
@@ -245,10 +245,10 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_remove_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.remove(2)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected_strs: List[str] = [
             'var idx_',
             f' = _.indexOf({array_1.variable_name}, 2);'
@@ -271,10 +271,10 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_remove_at_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2, 3, 4])
         array_1.remove_at(index=1)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{array_1.variable_name}.splice(1, 1);'
         )
@@ -282,7 +282,7 @@ class TestArray:
 
         int_1: ap.Int = ap.Int(1)
         array_1.remove_at(index=int_1)
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = (
             f'{array_1.variable_name}.splice({int_1.variable_name}, 1);'
         )
@@ -296,10 +296,10 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_reverse_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2, 3])
         array_1.reverse()
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{array_1.variable_name}.reverse();'
         )
@@ -317,20 +317,20 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_sort_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([3, 5, 1, 4, 2])
         array_1.sort()
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{array_1.variable_name}.sort();'
         )
         assert expected in expression
         assert 'reverse' not in expression
 
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         array_2: ap.Array = ap.Array([3, 5, 1, 4, 2])
         array_2.sort(ascending=False)
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = (
             f'{array_2.variable_name}.sort();'
             f'\n{array_2.variable_name}.reverse();'
@@ -351,10 +351,10 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_slice_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2, 3, 4])
         array_2: ap.Array = array_1.slice(start=1, end=3)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{array_2.variable_name} = '
             f'{array_1.variable_name}.slice(1, 3);'
@@ -364,7 +364,7 @@ class TestArray:
         int_1: ap.Int = ap.Int(1)
         int_2: ap.Int = ap.Int(3)
         array_3: ap.Array = array_1.slice(start=int_1, end=int_2)
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = (
             f'{array_3.variable_name} = {array_1.variable_name}'
             f'.slice({int_1}, {int_2});'
@@ -372,7 +372,7 @@ class TestArray:
         assert expected in expression
 
         array_4: ap.Array = array_1.slice(start=1)
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = (
             f'{array_4.variable_name} = {array_1.variable_name}'
             '.slice(1);'
@@ -380,7 +380,7 @@ class TestArray:
         assert expected in expression
 
         array_5: ap.Array = array_1.slice(end=2)
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = (
             f'{array_5.variable_name} = {array_1.variable_name}'
             '.slice(0, 2);'
@@ -403,18 +403,18 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_getitem_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         int_1: ap.Int = ap.Int(3)
         array_1: ap.Array[Any] = ap.Array([1, 2, int_1])
         _: int = array_1[0]
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=rf'var {var_names.ANY}_.+? = {array_1.variable_name}\[0\]',
             string=expression, flags=re.MULTILINE)
         assert match is not None
 
         value_1: ap.Int = array_1[2]
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected: str = (
             f'{value_1.variable_name} = {array_1.variable_name}[2];'
         )
@@ -422,7 +422,7 @@ class TestArray:
 
         int_2: ap.Int = ap.Int(2)
         _ = array_1[int_2]
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = (
             f'{value_1.variable_name} = {array_1.variable_name}'
             f'[{int_2.variable_name}];'
@@ -431,7 +431,7 @@ class TestArray:
 
         array_2: ap.Array = ap.Array([])
         value_2: ap.AnyValue = array_2[0]
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = (
             f'{value_2.variable_name} = {array_2.variable_name}[0];'
         )
@@ -473,17 +473,17 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_setitem_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         array_1: ap.Array[Any] = ap.Array([1, 2, 3])
         array_1[1] = 4
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{array_1.variable_name}[1] = 4;'
         )
         assert expected in expression
 
         array_1[1] = 'Hello!'
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = (
             f'{array_1.variable_name}[1] = "Hello!";'
         )
@@ -491,7 +491,7 @@ class TestArray:
         int_1: ap.Int = ap.Int(1)
         int_2: ap.Int = ap.Int(5)
         array_1[int_1] = int_2
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = (
             f'{array_1.variable_name}[{int_1.variable_name}] = '
             f'{int_2.variable_name};'
@@ -513,10 +513,10 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_length_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2, 3])
         length: ap.Int = array_1.length
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{length.variable_name} = {array_1.variable_name}.length;'
         )
@@ -538,13 +538,13 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_join_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         string_1: ap.String = ap.String('2')
         int_1: ap.Int = ap.Int(4)
         array_1: ap.Array = ap.Array(['1', string_1, 3, int_1])
         string_2: ap.String = ap.String(', ')
         joined: ap.String = array_1.join(sep=string_2)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{joined.variable_name} = '
             f'{array_1.variable_name}.join({string_2.variable_name});'
@@ -586,11 +586,11 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_index_of_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         int_1: ap.Int = ap.Int(2)
         array_1: ap.Array = ap.Array([1, int_1, 3])
         index_1: ap.Int = array_1.index_of(value=int_1)
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected: str = (
             f'{index_1.variable_name} = {array_1.variable_name}'
             f'.indexOf({int_1.variable_name});'
@@ -648,20 +648,20 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_eq_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2])
         array_2: ap.Array = ap.Array([3, 4])
         result: ap.Boolean = array_1 == array_2
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{result.variable_name} = '
             f'_.isEqual({array_1.variable_name}, {array_2.variable_name});'
         )
         assert expected in expression
 
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         result = array_1 == [3, 4]
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
                 rf'{result.variable_name} = '
@@ -686,11 +686,11 @@ class TestArray:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_ne_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         array_1: ap.Array = ap.Array([1, 2])
         array_2: ap.Array = ap.Array([3, 4])
         result: ap.Boolean = array_1 != array_2
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{result.variable_name} = '
             f'!_.isEqual({array_1.variable_name}, {array_2.variable_name});'

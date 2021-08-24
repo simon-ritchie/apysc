@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.cx_interface import CxInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 
 
 class TestCxInterface:
@@ -33,12 +33,12 @@ class TestCxInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_cx_update_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: CxInterface = CxInterface()
         interface.variable_name = 'test_cx_interface'
         x: ap.Int = ap.Int(10)
         interface.x = x
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{interface.variable_name}.cx({x.variable_name});'
         )

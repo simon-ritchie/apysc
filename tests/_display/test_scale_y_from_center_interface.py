@@ -5,7 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._display.scale_y_from_center_interface import \
     ScaleYFromCenterInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 
 
 class _TestInterface(ScaleYFromCenterInterface):
@@ -40,13 +40,13 @@ class TestScaleYFromCenterInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_scale_y_from_center_update_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: _TestInterface = _TestInterface()
         num_1: ap.Number = ap.Number(0.5)
         num_2: ap.Number = ap.Number(0.3)
         interface.scale_y_from_center = num_1
         interface.scale_y_from_center = num_2
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{interface.variable_name}.scale(1, 1 / {num_1.variable_name});'
             f'\n{interface.variable_name}.scale(1, {num_2.variable_name});'

@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.fill_alpha_interface import FillAlphaInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._type import value_util
 
 
@@ -29,9 +29,9 @@ class TestFillAlphaInterface:
     def test__append_fill_alpha_update_expression(self) -> None:
         fill_alpha_interface: FillAlphaInterface = FillAlphaInterface()
         fill_alpha_interface.variable_name = 'test_fill_alpha_interface'
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         fill_alpha_interface.fill_alpha = ap.Number(0.3)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         value_str: str = value_util.get_value_str_for_expression(
             value=fill_alpha_interface._fill_alpha)
         expected: str = (
@@ -43,11 +43,11 @@ class TestFillAlphaInterface:
     def test__update_fill_alpha_and_skip_appending_exp(self) -> None:
         fill_alpha_interface: FillAlphaInterface = FillAlphaInterface()
         fill_alpha_interface.variable_name = 'test_fill_alpha_interface'
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         fill_alpha_interface._update_fill_alpha_and_skip_appending_exp(
             value=0.25)  # type: ignore
         assert fill_alpha_interface.fill_alpha == 0.25
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         assert 'fill' not in expression
 
         fill_alpha_interface._update_fill_alpha_and_skip_appending_exp(

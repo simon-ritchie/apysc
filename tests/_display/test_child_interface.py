@@ -8,7 +8,7 @@ from retrying import retry
 import apysc as ap
 from apysc._display.child_interface import ChildInterface
 from apysc._display.display_object import DisplayObject
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._expression import var_names
 
 
@@ -48,12 +48,12 @@ class TestChildInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_contains_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
         sprite_1: ap.Sprite = ap.Sprite(stage=stage)
         stage.add_child(child=sprite_1)
         result: ap.Boolean = stage.contains(sprite_1)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{result._variable_name} = '
             f'{stage.variable_name}.has({sprite_1.variable_name});'
@@ -89,12 +89,12 @@ class TestChildInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_num_children_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
         sprite_1: ap.Sprite = ap.Sprite(stage=stage)
         stage.add_child(child=sprite_1)
         num_children_1: ap.Int = stage.num_children
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{num_children_1.variable_name} = '
             f'{stage.variable_name}.children().length;'
@@ -104,7 +104,7 @@ class TestChildInterface:
         sprite_2: ap.Sprite = ap.Sprite(stage=stage)
         sprite_1.add_child(child=sprite_2)
         num_children_2 = sprite_1.num_children
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = (
             f'{num_children_2.variable_name} = '
             f'{sprite_1.variable_name}.children().length;'
@@ -113,13 +113,13 @@ class TestChildInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_get_child_at_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
         sprite_1: ap.Sprite = ap.Sprite(stage=stage)
         stage.add_child(child=sprite_1)
         int_1: ap.Int = ap.Int(0)
         child_1: DisplayObject = stage.get_child_at(index=int_1)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'var {child_1.variable_name} = '
             f'{stage.variable_name}.children()'
@@ -130,7 +130,7 @@ class TestChildInterface:
         sprite_2: ap.Sprite = ap.Sprite(stage=stage)
         sprite_1.add_child(child=sprite_2)
         child_2: DisplayObject = sprite_1.get_child_at(index=0)
-        expression = expression_file_util.get_current_expression()
+        expression = expression_data_util.get_current_expression()
         expected = (
             f'var {child_2.variable_name} = '
             f'{sprite_1.variable_name}.children()[0];'
@@ -210,7 +210,7 @@ def test_append_expression_of_add_child() -> None:
     expected: str = (
         f'{stage.variable_name}.add({sprite.variable_name});'
     )
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     assert expected in expression
 
 
@@ -220,7 +220,7 @@ def test_append_expression_of_remove_child() -> None:
     sprite: ap.Sprite = ap.Sprite(stage=stage)
     stage.add_child(child=sprite)
     stage.remove_child(child=sprite)
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     match: Optional[Match] = re.search(
         pattern=(
             rf'var {var_names.PARENT}_.+? = '

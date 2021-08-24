@@ -7,7 +7,7 @@ from retrying import retry
 import apysc as ap
 from apysc._event import handler
 from apysc._event.handler import HandlerData
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._type.variable_name_interface import VariableNameInterface
 from tests import testing_helper
 
@@ -61,7 +61,7 @@ def test_get_handler_name() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_handler_expression() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     test_instance: _TestClass1 = _TestClass1()
     int_1: ap.Int = ap.Int(10)
     handler_data: HandlerData = {
@@ -75,7 +75,7 @@ def test_append_handler_expression() -> None:
         handler_data=handler_data, handler_name=handler_name,
         e=e)
     expression: str = \
-        expression_file_util.get_current_event_handler_scope_expression()
+        expression_data_util.get_current_event_handler_scope_expression()
     expected: str = (
         f'function {handler_name}({e.variable_name}) {{'
         f'\n  {int_1.variable_name} = 20;'
@@ -96,12 +96,12 @@ def test_append_handler_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_unbinding_expression() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     int_1: ap.Int = ap.Int(10)
     handler.append_unbinding_expression(
         this=int_1, handler_name='on_click_1',
         mouse_event_type=ap.MouseEventType.CLICK)
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     expected: str = (
         f'{int_1.variable_name}.off("{ap.MouseEventType.CLICK.value}", '
         'on_click_1);'
@@ -111,11 +111,11 @@ def test_append_unbinding_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_unbinding_all_expression() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     int_1: ap.Int = ap.Int(10)
     handler.append_unbinding_all_expression(
         this=int_1, mouse_event_type=ap.MouseEventType.CLICK)
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     expected: str = (
         f'{int_1.variable_name}.off("{ap.MouseEventType.CLICK.value}");'
     )

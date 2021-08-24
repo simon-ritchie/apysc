@@ -6,7 +6,7 @@ from typing import Tuple
 from retrying import retry
 
 import apysc as ap
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._html import html_util
 from apysc._html.html_util import ScriptLineUtil
 from tests import testing_helper
@@ -176,12 +176,12 @@ def test_wrap_expression_by_script_tag() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_remove_first_selector_symbol_char_expression() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     str_val_1: ap.String = ap.String('.line-graph')
     str_val_2: ap.String = html_util.remove_first_selector_symbol_char(
         str_val=str_val_1)
     var_name: str = str_val_2.variable_name
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     expected = f"""var first_char = {var_name}.slice(0, 1);
 if (first_char === "." || first_char === "#") {{
   {var_name} = {var_name}.slice(1);

@@ -3,7 +3,7 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from tests import testing_helper
 
@@ -25,11 +25,11 @@ class TestEvent:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_stop_propagation(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         int_1: ap.Int = ap.Int(10)
         e: ap.Event = ap.Event(this=int_1)
         e.stop_propagation()
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{e.variable_name}.stopPropagation();'
         )
@@ -37,11 +37,11 @@ class TestEvent:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_prevent_default(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         int_1: ap.Int = ap.Int(10)
         e: ap.Event = ap.Event(this=int_1)
         e.prevent_default()
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{e.variable_name}.preventDefault();'
         )

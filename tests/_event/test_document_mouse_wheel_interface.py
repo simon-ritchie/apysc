@@ -6,7 +6,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._event.handler import get_handler_name
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._expression import var_names
 
 
@@ -40,16 +40,16 @@ def on_mouse_wheel_2(e: ap.WheelEvent, options: Dict[str, Any]) -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_bind_wheel_event_to_document() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     name: str = ap.bind_wheel_event_to_document(
         handler=on_mouse_wheel_1, options={'msg': 'Hello!'})
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     expected: str = (
         f'$({ap.document.variable_name}).on("mousewheel", {name});'
     )
     assert expected in expression
 
-    expression = expression_file_util.\
+    expression = expression_data_util.\
         get_current_event_handler_scope_expression()
     expected = (
         f'function {name}({var_names.WHEEL_EVENT}_'
@@ -61,11 +61,11 @@ def test_bind_wheel_event_to_document() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_unbind_wheel_event_from_document() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     ap.unbind_wheel_event_from_document(handler=on_mouse_wheel_1)
     name: str = get_handler_name(
         handler=on_mouse_wheel_1, instance=ap.document)
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     expected: str = (
         f'$({ap.document.variable_name}).off("mousewheel", {name});'
     )
@@ -74,8 +74,8 @@ def test_unbind_wheel_event_from_document() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_unbind_wheel_event_all_from_document() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     ap.unbind_wheel_event_all_from_document()
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     expected: str = f'$({ap.document.variable_name}).off("mousewheel");'
     assert expected in expression

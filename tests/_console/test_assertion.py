@@ -4,48 +4,48 @@ from retrying import retry
 
 import apysc as ap
 from apysc._console import assertion
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_assert_equal() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     int_1: ap.Int = ap.Int(10)
     int_2: ap.Int = ap.Int(20)
     assertion.assert_equal(
         expected=int_1, actual=int_2,
         msg='Invalid int values.')
 
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     expected: str = (
         f'console.assert({int_1.variable_name} === {int_2.variable_name}, '
         '"Invalid int values.");'
     )
     assert expected in expression
 
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     assertion.assert_equal(expected=[1, 2, 3], actual=ap.Array([1, 2, 3]))
-    expression = expression_file_util.get_current_expression()
+    expression = expression_data_util.get_current_expression()
     assert 'assert_arrays_equal' in expression
     assert 'assert_equal' not in expression
 
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     assertion.assert_equal(
         expected={'a': 10}, actual=ap.Dictionary({'a': 10}))
-    expression = expression_file_util.get_current_expression()
+    expression = expression_data_util.get_current_expression()
     assert 'assert_dicts_equal' in expression
     assert 'assert_equal' not in expression
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__trace_info() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     int_1: ap.Int = ap.Int(10)
     int_2: ap.Int = ap.Int(20)
     assertion.assert_equal(
         expected=int_1, actual=int_2,
         msg='Invalid int values.')
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     expected: str = (
         f'Expected variable name: {int_1.variable_name}'
     )
@@ -58,27 +58,27 @@ def test__trace_info() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_assert_not_equal() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     int_1: ap.Int = ap.Int(10)
     assertion.assert_not_equal(
         expected=11, actual=int_1,
         msg='Invalid condition.')
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     expected: str = (
         f'console.assert(11 !== {int_1.variable_name}, "Invalid condition.");'
     )
     assert expected in expression
 
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     assertion.assert_not_equal(expected=[1, 2], actual=ap.Array([1, 2, 3]))
-    expression = expression_file_util.get_current_expression()
+    expression = expression_data_util.get_current_expression()
     assert 'assert_arrays_not_equal' in expression
     assert 'assert_not_equal' not in expression
 
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     assertion.assert_not_equal(
         expected={'a': 10}, actual=ap.Dictionary({'a': 10}))
-    expression = expression_file_util.get_current_expression()
+    expression = expression_data_util.get_current_expression()
     assert 'assert_dicts_not_equal' in expression
     assert 'assert_not_equal' not in expression
 
@@ -100,13 +100,13 @@ def test__get_expected_and_actual_strs() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_assert_true() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     boolean_1: ap.Boolean = ap.Boolean(True)
     assertion.assert_true(
         actual=boolean_1,
         type_strict=True,
         msg='Value is not true.')
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     expected: str = (
         f'console.assert({boolean_1.variable_name} === true, '
         '"Value is not true.");'
@@ -114,7 +114,7 @@ def test_assert_true() -> None:
     assert expected in expression
 
     assertion.assert_true(actual=boolean_1, type_strict=False)
-    expression = expression_file_util.get_current_expression()
+    expression = expression_data_util.get_current_expression()
     expected = (
         f'console.assert({boolean_1.variable_name} == true, "");'
     )
@@ -134,10 +134,10 @@ def test__add_equal_if_type_strict_setting_is_true() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_assert_false() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     boolean_1: ap.Boolean = ap.Boolean(False)
     assertion.assert_false(boolean_1, msg='Value is not false.')
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     expected: str = (
         f'console.assert({boolean_1.variable_name} === false, '
         '"Value is not false.");'
@@ -156,12 +156,12 @@ def test__actual_value_type_is_array() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_assert_arrays_equal() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     array_1: ap.Array = ap.Array([1, 2, 3])
     assertion.assert_arrays_equal(
         expected=[1, 2, 3], actual=array_1,
         msg='Array values are not equal.')
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     expected: str = (
         f'console.assert(_.isEqual([1, 2, 3], {array_1.variable_name}), '
         f'"Array values are not equal.");'
@@ -171,32 +171,32 @@ def test_assert_arrays_equal() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__trace_arrays_or_dicts_assertion_info() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     array_1: ap.Array = ap.Array([1, 2, 3])
     assertion._trace_arrays_or_dicts_assertion_info(
         interface_label='assert_arrays_equal',
         expected=[1, 2, 3], actual=array_1)
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     assert '[assert_arrays_equal]' in expression
     assert '"\\nExpected:", "[1, 2, 3]"' in expression
     expected = f'"actual:", "{array_1.variable_name}'
     assert expected in expression
 
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     assertion._trace_arrays_or_dicts_assertion_info(
         interface_label='assert_arrays_not_equal',
         expected=array_1, actual=[1, 2, 3])
-    expression = expression_file_util.get_current_expression()
+    expression = expression_data_util.get_current_expression()
     expected = f'"\\nExpected:", "{array_1.variable_name} ([1, 2, 3])"'
     assert expected in expression
     assert '"actual:", "[1, 2, 3]"' in expression
 
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
     assertion._trace_arrays_or_dicts_assertion_info(
         interface_label='assert_dicts_equal',
         expected=dict_1, actual={'a': 10})
-    expression = expression_file_util.get_current_expression()
+    expression = expression_data_util.get_current_expression()
     expected = f'"\\nExpected:", "{dict_1.variable_name} ({{a: 10}})"'
     assert expected in expression
     assert '"actual:", "{a: 10}"' in expression
@@ -204,7 +204,7 @@ def test__trace_arrays_or_dicts_assertion_info() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__make_arrays_or_dicts_comparison_expression() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     array_1: ap.Array = ap.Array([1, 2, 3])
     expression: str = assertion._make_arrays_or_dicts_comparison_expression(
         expected=[1, 2, 3],
@@ -238,12 +238,12 @@ def test__make_arrays_or_dicts_comparison_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_assert_arrays_not_equal() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     array_1: ap.Array = ap.Array([1, 2, 3])
     assertion.assert_arrays_not_equal(
         expected=[1, 2], actual=array_1,
         msg='Array values are equal.')
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     expected: str = (
         f'console.assert(!_.isEqual([1, 2], {array_1.variable_name}), '
         f'"Array values are equal.");'
@@ -253,10 +253,10 @@ def test_assert_arrays_not_equal() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_assert_defined() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     int_1: ap.Int = ap.Int(3)
     assertion.assert_defined(actual=int_1, msg='value is undefined.')
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     expected: str = (
         f'console.assert(!_.isUndefined({int_1.variable_name}), '
         '"value is undefined.");'
@@ -266,10 +266,10 @@ def test_assert_defined() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_assert_undefined() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     int_1: ap.Int = ap.Int(3)
     assertion.assert_undefined(actual=int_1, msg='value is not undefined.')
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     expected: str = (
         f'console.assert(_.isUndefined({int_1.variable_name}), '
         '"value is not undefined.");'
@@ -279,12 +279,12 @@ def test_assert_undefined() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_assert_dicts_equal() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
     assertion.assert_dicts_equal(
         expected={'a': 10}, actual=dict_1,
         msg='Dictionary values are not equal.')
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     expected: str = (
         'console.assert(_.isEqual({"a": 10}, '
         f'{dict_1.variable_name}), '
@@ -309,12 +309,12 @@ def test__actual_value_type_is_dict() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_assert_dicts_not_equal() -> None:
-    expression_file_util.empty_expression()
+    expression_data_util.empty_expression()
     dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
     assertion.assert_dicts_not_equal(
         expected={'a': 10}, actual=dict_1,
         msg='Dictionary values are equal.')
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     expected: str = (
         'console.assert(!_.isEqual({"a": 10}, '
         f'{dict_1.variable_name}), '

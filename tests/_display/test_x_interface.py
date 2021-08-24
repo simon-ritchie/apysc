@@ -4,7 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.x_interface import XInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._type import value_util
 
 
@@ -28,9 +28,9 @@ class TestXInterface:
     def test__append_x_update_expression(self) -> None:
         x_interface = XInterface()
         x_interface.variable_name = 'test_x_interface'
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         x_interface.x = ap.Int(200)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         value_str: str = value_util.get_value_str_for_expression(
             value=x_interface._x)
         expected: str = f'test_x_interface.x({value_str});'

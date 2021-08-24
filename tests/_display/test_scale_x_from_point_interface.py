@@ -10,7 +10,7 @@ import apysc as ap
 from apysc._display import scale_interface_helper
 from apysc._display.scale_x_from_point_interface import \
     ScaleXFromPointInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._type.expression_string import ExpressionString
 
@@ -63,14 +63,14 @@ class TestScaleXFromPointInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_scale_x_from_point_update_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         x: ap.Int = ap.Int(100)
         scale_x_1: ap.Number = ap.Number(0.5)
         scale_x_2: ap.Number = ap.Number(0.3)
         interface: _TestInterface = _TestInterface()
         interface.set_scale_x_from_point(scale_x=scale_x_1, x=x)
         interface.set_scale_x_from_point(scale_x=scale_x_2, x=x)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         key_exp_str: ExpressionString = scale_interface_helper.\
             get_coordinate_key_for_expression(coordinate=x)
         patterns: List[str] = [

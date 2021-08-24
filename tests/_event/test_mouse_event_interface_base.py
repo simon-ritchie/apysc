@@ -8,7 +8,7 @@ import apysc as ap
 from apysc._event.click_interface import ClickInterface
 from apysc._event.handler import HandlerData
 from apysc._event.handler import get_handler_name
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
@@ -65,7 +65,7 @@ class TestMouseEventInterfaceBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__unbind_mouse_event(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface_1: _TestClickInterface = _TestClickInterface()
         interface_1.click(handler=self.on_click_1)
         interface_1._unbind_mouse_event(
@@ -73,7 +73,7 @@ class TestMouseEventInterfaceBase:
             mouse_event_type=ap.MouseEventType.CLICK,
             handlers_dict=interface_1._click_handlers)
         assert interface_1._click_handlers == {}
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{interface_1.variable_name}'
             f'.off("{ap.MouseEventType.CLICK.value}",')
@@ -81,14 +81,14 @@ class TestMouseEventInterfaceBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__unbind_all_mouse_events(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface_1: _TestClickInterface = _TestClickInterface()
         interface_1.click(handler=self.on_click_1)
         interface_1.click(handler=self.on_click_2)
         interface_1._unbind_all_mouse_events(
             mouse_event_type=ap.MouseEventType.CLICK,
             handlers_dict=interface_1._click_handlers)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{interface_1.variable_name}'
             f'.off("{ap.MouseEventType.CLICK.value}");'
@@ -98,12 +98,12 @@ class TestMouseEventInterfaceBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_mouse_event_binding_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface_1: _TestClickInterface = _TestClickInterface()
         name: str = interface_1.click(handler=self.on_click_1)
         interface_1._append_mouse_event_binding_expression(
             name=name, mouse_event_type=ap.MouseEventType.CLICK)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'{interface_1.variable_name}.'
             f'{ap.MouseEventType.CLICK.value}({name});'

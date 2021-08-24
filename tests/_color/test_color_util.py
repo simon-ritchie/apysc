@@ -50,13 +50,13 @@ def test_complement_hex_color() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_complement_hex_color_expression() -> None:
     import apysc as ap
-    from apysc._expression import expression_file_util
-    expression_file_util.empty_expression()
+    from apysc._expression import expression_data_util
+    expression_data_util.empty_expression()
 
     string_1: ap.String = ap.String('#333')
     string_2: ap.String = color_util.complement_hex_color(
         hex_color_code=string_1)
-    expression: str = expression_file_util.get_current_expression()
+    expression: str = expression_data_util.get_current_expression()
     var_name: str = string_2.variable_name
     expected_patterns: List[str] = [
         rf'var str_length = {var_name}\.length;',

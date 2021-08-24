@@ -4,7 +4,7 @@ import pytest
 from retrying import retry
 
 import apysc as ap
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 
 
 class TestParentInterface:
@@ -27,9 +27,9 @@ class TestParentInterface:
         assert stage.num_children == 0
         assert sprite.parent is None
 
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         sprite.remove_from_parent()
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         assert f'removeElement({sprite.variable_name}' in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

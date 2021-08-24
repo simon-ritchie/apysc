@@ -11,7 +11,7 @@ import apysc as ap
 from apysc._display import scale_interface_helper
 from apysc._display.scale_y_from_point_interface import \
     ScaleYFromPointInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from apysc._type.expression_string import ExpressionString
 
 
@@ -58,12 +58,12 @@ class TestScaleYFromPointInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_scale_y_from_point_update_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: _TestInterface = _TestInterface()
         scale_y: ap.Number = ap.Number(0.5)
         y: ap.Int = ap.Int(100)
         interface.set_scale_y_from_point(scale_y=scale_y, y=y)
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         patterns: List[str] = [
             rf'{interface.variable_name}'
             rf'\.scale\(1, 1 / .+?, 0, {y.variable_name}\);',

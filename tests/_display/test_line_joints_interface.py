@@ -7,7 +7,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.line_joints_interface import LineJointsInterface
-from apysc._expression import expression_file_util
+from apysc._expression import expression_data_util
 from tests.testing_helper import assert_raises
 
 
@@ -35,7 +35,7 @@ class TestLineJointsInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_joints_and_skip_appending_exp(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: LineJointsInterface = LineJointsInterface()
         interface.variable_name = 'test_line_joints_interface'
         assert_raises(
@@ -48,7 +48,7 @@ class TestLineJointsInterface:
         interface._update_line_joints_and_skip_appending_exp(
             value=ap.String(ap.LineJoints.BEVEL.value))
         assert interface.line_joints == ap.LineJoints.BEVEL.value
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         assert '.attr' not in expression
 
         interface._update_line_joints_and_skip_appending_exp(
@@ -57,12 +57,12 @@ class TestLineJointsInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_line_joints_update_expression(self) -> None:
-        expression_file_util.empty_expression()
+        expression_data_util.empty_expression()
         interface: LineJointsInterface = LineJointsInterface()
         interface.variable_name = 'test_line_joints_interface'
         interface.line_joints = ap.LineJoints.BEVEL
         interface._append_line_joints_update_expression()
-        expression: str = expression_file_util.get_current_expression()
+        expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
             pattern=(
                 rf'{interface.variable_name}.attr'

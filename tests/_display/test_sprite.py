@@ -40,7 +40,6 @@ class TestSprite:
     def test__append_constructor_expression(self) -> None:
         stage: ap.Stage = ap.Stage()
         stage_variable_name: str = get_stage_variable_name()
-        expression_file_util.empty_expression()
         sprite: ap.Sprite = ap.Sprite(stage=stage)
         expression: str = expression_file_util.get_current_expression()
         expected_strs: List[str] = [
@@ -51,7 +50,8 @@ class TestSprite:
             f'.add({sprite.graphics.variable_name});'
         ]
         for expected_str in expected_strs:
-            assert expected_str in expression
+            assert expected_str in expression, \
+                f'{expected_str}\n-----------------\n{expression}'
         expression_file_util.empty_expression()
 
         class SubClass(ap.Sprite):

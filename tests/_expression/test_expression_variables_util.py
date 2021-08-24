@@ -10,14 +10,6 @@ from apysc._file import file_util
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test_get_variable_names_file_path() -> None:
-    file_path: str = expression_variables_util.\
-        get_variable_names_file_path(type_name='sprite')
-    assert file_path.startswith(expression_file_util.EXPRESSION_ROOT_DIR)
-    assert file_path.endswith('variables_sprite.txt')
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_next_variable_num() -> None:
     expression_file_util.empty_expression()
     next_variable_num: int = expression_variables_util.\
@@ -41,9 +33,7 @@ def test__make_variable_name() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_next_variable_name() -> None:
-    file_path: str = expression_variables_util.\
-        get_variable_names_file_path(type_name='sprite')
-    file_util.remove_file_if_exists(file_path=file_path)
+    expression_file_util.empty_expression()
 
     variable_name: str = expression_variables_util.\
         get_next_variable_name(type_name='sprite')
@@ -52,8 +42,6 @@ def test_get_next_variable_name() -> None:
     variable_name = expression_variables_util.\
         get_next_variable_name(type_name='sprite')
     assert variable_name == 'sprite_2'
-
-    file_util.remove_file_if_exists(file_path=file_path)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

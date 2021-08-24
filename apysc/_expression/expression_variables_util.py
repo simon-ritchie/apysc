@@ -4,7 +4,6 @@ related interface.
 Mainly following interfaces are defined:
 
 - get_next_variable_name: Get next variable name of specified type name.
-- get_variable_names_file_path: Get a file path of saving variable names.
 - append_substitution_expression: Append substitution expression between
     two variables.
 """
@@ -122,28 +121,6 @@ def _get_next_variable_num(type_name: str) -> int:
         return 1
     next_variable_num: int = result[0] + 1
     return next_variable_num
-
-
-def get_variable_names_file_path(type_name: str) -> str:
-    """
-    Get a file path of saving variable names.
-
-    Parameters
-    ----------
-    type_name : str
-        Any type name, e.g., `sprite`.
-
-    Returns
-    -------
-    file_path : str
-        Specified type name's target file path.
-    """
-    from apysc._expression import expression_file_util
-    file_path: str = os.path.join(
-        expression_file_util.EXPRESSION_ROOT_DIR,
-        f'variables_{type_name}.txt',
-    )
-    return file_path
 
 
 def append_substitution_expression(

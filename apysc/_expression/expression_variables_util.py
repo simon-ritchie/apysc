@@ -10,7 +10,7 @@ Mainly following interfaces are defined:
 """
 
 import os
-from typing import List
+from typing import List, Optional, Tuple
 
 from apysc._type.variable_name_interface import VariableNameInterface
 
@@ -42,8 +42,36 @@ def get_next_variable_name(type_name: str) -> str:
         type_name=type_name)
     variable_name = _make_variable_name(
         type_name=type_name, variable_num=next_variable_num)
-    _save_next_variable_name_to_file(type_name=type_name)
+    _save_next_variable_name_count(type_name=type_name)
     return variable_name
+
+
+def _save_next_variable_name_count(type_name: str) -> None:
+    """
+    Save a next variable name count value.
+
+    Parameters
+    ----------
+    type_name : str
+        Any type name, e.g., `sp`.
+    """
+    from apysc._expression import expression_file_util
+    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    next_variable_num: int = _get_next_variable_num(
+        type_name=type_name)
+    table_name: str = expression_file_util.TableName.VARIABLE_NAME_COUNT.value
+    query: str = (
+        f'DELETE FROM {table_name} '
+        f"WHERE type_name = '{type_name}' LIMIT 1;"
+    )
+    expression_file_util.cursor.execute(query)
+    query = (
+        f'INSERT INTO {table_name}'
+        '(type_name, count) '
+        f"VALUES('{type_name}', {next_variable_num});"
+    )
+    expression_file_util.cursor.execute(query)
+    expression_file_util.connection.commit()
 
 
 def _make_variable_name(type_name: str, variable_num: int) -> str:
@@ -80,58 +108,20 @@ def _get_next_variable_num(type_name: str) -> int:
     next_variable_num : int
         Next variable number (start from 1).
     """
-    variable_names: List[str] = _read_variable_names(
-        type_name=type_name)
-    if not variable_names:
+    from apysc._expression import expression_file_util
+    expression_file_util.initialize_sqlite_tables_if_not_initialized()
+    table_name: str = expression_file_util.TableName.VARIABLE_NAME_COUNT.value
+    query: str = (
+        f'SELECT count FROM {table_name} '
+        f"WHERE type_name = '{type_name}' LIMIT 1;"
+    )
+    expression_file_util.cursor.execute(query)
+    result: Optional[Tuple[int]] = expression_file_util.cursor.fetchone()
+    expression_file_util.connection.commit()
+    if result is None:
         return 1
-    last_num: int = int(variable_names[-1].split('_')[-1])
-    return last_num + 1
-
-
-def _read_variable_names(type_name: str) -> List[str]:
-    """
-    Read variable names from file.
-
-    Parameters
-    ----------
-    type_name : str
-        Any type name, e.g., `sprite`.
-
-    Returns
-    -------
-    variable_names : list of str
-        Target type name's variable names.
-        e.g., if type name is sprite, `['sprite_1', 'sprite_2', ...]`.
-    """
-    from apysc._file import file_util
-    file_path: str = get_variable_names_file_path(
-        type_name=type_name)
-    if not os.path.isfile(file_path):
-        return []
-    variables_str: str = file_util.read_txt(file_path=file_path)
-    variables_str = variables_str.strip(',')
-    variable_names: List[str] = variables_str.split(',')
-    return variable_names
-
-
-def _save_next_variable_name_to_file(type_name: str) -> None:
-    """
-    Save next variable's name to file.
-
-    Parameters
-    ----------
-    type_name : str
-        Any type name, e.g., `sprite`.
-    """
-    from apysc._file import file_util
-    file_path: str = get_variable_names_file_path(
-        type_name=type_name)
-    next_variable_num: int = _get_next_variable_num(
-        type_name=type_name)
-    variable_name: str = _make_variable_name(
-        type_name=type_name, variable_num=next_variable_num)
-    file_util.append_plain_txt(
-        txt=f'{variable_name},', file_path=file_path)
+    next_variable_num: int = result[0] + 1
+    return next_variable_num
 
 
 def get_variable_names_file_path(type_name: str) -> str:

@@ -1,5 +1,4 @@
 from random import randint
-from typing import List
 
 from retrying import retry
 
@@ -19,34 +18,18 @@ def test_get_variable_names_file_path() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__read_variable_names() -> None:
-    file_path: str = expression_variables_util.\
-        get_variable_names_file_path(type_name='sprite')
-    file_util.save_plain_txt(
-        txt='sprite_1,sprite_2,sprite_3,', file_path=file_path)
-    variable_names: List[str] = expression_variables_util.\
-        _read_variable_names(type_name='sprite')
-    assert variable_names == ['sprite_1', 'sprite_2', 'sprite_3']
-
-    file_util.remove_file_if_exists(file_path=file_path)
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_next_variable_num() -> None:
-    file_path: str = expression_variables_util.\
-        get_variable_names_file_path(type_name='sprite')
-    file_util.remove_file_if_exists(file_path=file_path)
+    expression_file_util.empty_expression()
     next_variable_num: int = expression_variables_util.\
         _get_next_variable_num(type_name='sprite')
     assert next_variable_num == 1
 
-    file_util.save_plain_txt(
-        txt='sprite_1,sprite_2,', file_path=file_path)
+    for _ in range(2):
+        expression_variables_util._save_next_variable_name_count(
+            type_name='sprite')
     next_variable_num = expression_variables_util.\
         _get_next_variable_num(type_name='sprite')
     assert next_variable_num == 3
-
-    file_util.remove_file_if_exists(file_path=file_path)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -54,25 +37,6 @@ def test__make_variable_name() -> None:
     variable_name: str = expression_variables_util._make_variable_name(
         type_name='i', variable_num=3)
     assert variable_name == 'i_3'
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__save_next_variable_name_to_file() -> None:
-    file_path: str = expression_variables_util.\
-        get_variable_names_file_path(type_name='sprite')
-    file_util.remove_file_if_exists(file_path=file_path)
-    expression_variables_util._save_next_variable_name_to_file(
-        type_name='sprite')
-    next_variable_num: int = expression_variables_util.\
-        _get_next_variable_num(type_name='sprite')
-    assert next_variable_num == 2
-    expression_variables_util._save_next_variable_name_to_file(
-        type_name='sprite')
-    next_variable_num = expression_variables_util.\
-        _get_next_variable_num(type_name='sprite')
-    assert next_variable_num == 3
-
-    file_util.remove_file_if_exists(file_path=file_path)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -129,3 +93,20 @@ def test_append_substitution_expression_with_names() -> None:
         right_variable_name='')
     expression = expression_file_util.get_current_expression()
     assert 'i_5 = ' not in expression
+
+
+def test__save_next_variable_name_count() -> None:
+    """_save_next_variable_name_count 関数のテスト。
+    """
+    expression_file_util.empty_expression()
+    expression_variables_util._save_next_variable_name_count(
+        type_name='sp')
+    next_variable_num: int = expression_variables_util._get_next_variable_num(
+        type_name='sp')
+    assert next_variable_num == 2
+
+    expression_variables_util._save_next_variable_name_count(
+        type_name='sp')
+    next_variable_num = expression_variables_util._get_next_variable_num(
+        type_name='sp')
+    assert next_variable_num == 3

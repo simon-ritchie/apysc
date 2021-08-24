@@ -254,3 +254,11 @@ def test__create_stage_elem_id_table() -> None:
     result: bool = expression_file_util._table_exists(
         table_name=expression_file_util.TableName.STAGE_ELEM_ID)
     assert result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__create_variable_name_count_table() -> None:
+    expression_file_util._create_variable_name_count_table()
+    result: bool = expression_file_util._table_exists(
+        table_name=expression_file_util.TableName.VARIABLE_NAME_COUNT)
+    assert result

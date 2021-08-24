@@ -42,7 +42,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
 
     def _append_constructor_expression(self) -> None:
         """
-        Append constructor expression to file.
+        Append constructor expression.
         """
         with ap.DebugInfo(
                 callable_=self._append_constructor_expression,
@@ -88,7 +88,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
 
     def _append_value_setter_expression(self, value: Any) -> None:
         """
-        Append value's setter expression to file.
+        Append value's setter expression.
 
         Parameters
         ----------
@@ -109,8 +109,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
     def _append_arithmetic_operation_expression(
             self, other: Any, operator: str) -> VariableNameInterface:
         """
-        Append arithmetic operation (e.g., addition) expression
-        to file.
+        Append arithmetic operation (e.g., addition) expression.
 
         Parameters
         ----------
@@ -258,7 +257,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             self, other: Any, operator: str) -> None:
         """
         Append incremental arithmetic operation (e.g., incremental
-        addition) expression to file.
+        addition) expression.
 
         Parameters
         ----------
@@ -366,7 +365,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
     def _append_comparison_expression(
             self, comparison_operator: str, other: Any) -> ap.Boolean:
         """
-        Append comparison operation expression to file.
+        Append comparison operation expression.
 
         Parameters
         ----------

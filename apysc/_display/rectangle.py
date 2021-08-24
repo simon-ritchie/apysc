@@ -90,7 +90,7 @@ class Rectangle(
 
     def _append_constructor_expression(self) -> None:
         """
-        Append constructor expression to the file.
+        Append constructor expression.
         """
         import apysc as ap
         with ap.DebugInfo(

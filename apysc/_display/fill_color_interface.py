@@ -81,7 +81,7 @@ class FillColorInterface(VariableNameInterface, RevertInterface):
     def _update_fill_color_and_skip_appending_exp(
             self, value: ap.String) -> None:
         """
-        Update fill color and skip appending expression to file.
+        Update fill color and skip appending expression.
 
         Parameters
         ----------

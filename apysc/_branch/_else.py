@@ -54,7 +54,7 @@ class Else(IfBase):
 
     def _append_enter_expression(self) -> None:
         """
-        Append else branch instruction start expression to file.
+        Append else branch instruction start expression.
 
         Raises
         ------

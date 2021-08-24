@@ -60,7 +60,7 @@ class If(IfBase):
 
     def _append_enter_expression(self) -> None:
         """
-        Append if branch instruction start expression to file.
+        Append if branch instruction start expression.
         """
         import apysc as ap
         if self._condition is None:

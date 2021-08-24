@@ -287,8 +287,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
 
     def _append_count_branch_expression(self) -> None:
         """
-        Append the timer stopping expression by the counting
-        to the file.
+        Append the timer stopping expression by the counting.
         """
         import apysc as ap
         with ap.DebugInfo(

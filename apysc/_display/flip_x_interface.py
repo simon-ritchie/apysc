@@ -60,8 +60,7 @@ class FlipXInterface(VariableNameInterface, RevertInterface):
     def _append_flip_x_update_expression(
             self, before_value: ap.Boolean) -> None:
         """
-        Append a x-axis flipping value updating expression
-        to the file.
+        Append a x-axis flipping value updating expression.
 
         Parameters
         ----------

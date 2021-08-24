@@ -59,7 +59,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
     def _update_line_joints_and_skip_appending_exp(
             self, value: Union[ap.String, LineJoints]) -> None:
         """
-        Update line joints and skip appending expression to file.
+        Update line joints and skip appending expression.
 
         Parameters
         ----------
@@ -80,7 +80,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
 
     def _append_line_joints_update_expression(self) -> None:
         """
-        Append line cap updating expression to file.
+        Append line cap updating expression.
         """
         import apysc as ap
         with ap.DebugInfo(

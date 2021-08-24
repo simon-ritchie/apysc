@@ -40,7 +40,7 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
     def _append_value_updating_cpy_exp_to_handler_scope(
             self, result_variable_name: str) -> None:
         """
-        Append a value updating copy expression to the file
+        Append a value updating copy expression
         if the current scope is an event handler's one.
 
         Parameters
@@ -66,7 +66,7 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
 
     def _append_copy_expression(self, result_variable_name: str) -> None:
         """
-        Append copy expression to file.
+        Append copy expression.
 
         Parameters
         ----------

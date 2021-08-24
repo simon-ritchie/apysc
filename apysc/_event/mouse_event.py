@@ -85,7 +85,7 @@ class MouseEvent(Event, Generic[T]):
 
     def _append_stage_x_getter_expression(self, x: ap.Int) -> None:
         """
-        Append stage_x getter property expression to file.
+        Append stage_x getter property expression.
 
         Parameters
         ----------
@@ -127,7 +127,7 @@ class MouseEvent(Event, Generic[T]):
 
     def _append_stage_y_getter_expression(self, y: ap.Int) -> None:
         """
-        Append stage_y getter property expression to file.
+        Append stage_y getter property expression.
 
         Parameters
         ----------
@@ -171,7 +171,7 @@ class MouseEvent(Event, Generic[T]):
 
     def _append_local_x_getter_expression(self, x: ap.Int) -> None:
         """
-        Append local_x getter property expression to file.
+        Append local_x getter property expression.
 
         Parameters
         ----------
@@ -217,7 +217,7 @@ class MouseEvent(Event, Generic[T]):
 
     def _append_local_y_getter_expression(self, y: ap.Int) -> None:
         """
-        Append local_y getter property expression to file.
+        Append local_y getter property expression.
 
         Parameters
         ----------

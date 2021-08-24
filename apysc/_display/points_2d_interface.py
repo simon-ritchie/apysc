@@ -103,7 +103,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
 
     def _append_points_update_expression(self, value: ap.Array) -> None:
         """
-        Append points updating expression to file.
+        Append points updating expression.
 
         Parameters
         ----------

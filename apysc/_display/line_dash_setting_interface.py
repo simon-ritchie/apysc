@@ -62,7 +62,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
     def _update_line_dash_setting_and_skip_appending_exp(
             self, value: Optional[LineDashSetting]) -> None:
         """
-        Update line dash setting and skip appending expression to file.
+        Update line dash setting and skip appending expression.
 
         Parameters
         ----------
@@ -78,7 +78,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
 
     def _append_line_dash_setting_update_expression(self) -> None:
         """
-        Append line dash setting updating expression to file.
+        Append line dash setting updating expression.
         """
         import apysc as ap
         with ap.DebugInfo(

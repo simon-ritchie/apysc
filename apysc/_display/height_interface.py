@@ -71,7 +71,7 @@ class HeightInterface(VariableNameInterface, RevertInterface):
     def _update_height_and_skip_appending_exp(
             self, value: Union[int, ap.Int]) -> None:
         """
-        Update height value and skip appending expression to file.
+        Update height value and skip appending expression.
 
         Parameters
         ----------

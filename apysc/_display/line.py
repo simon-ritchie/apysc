@@ -84,7 +84,7 @@ class Line(LineBase):
 
     def _append_constructor_expression(self) -> None:
         """
-        Append constructor expression to file.
+        Append constructor expression.
         """
         import apysc as ap
         with ap.DebugInfo(

@@ -23,7 +23,7 @@ class IfSubClass(IfBase):
 
     def _append_enter_expression(self) -> None:
         """
-        Append branch instruction start expression to file.
+        Append branch instruction start expression.
         """
         self._entered = True
 

@@ -62,7 +62,7 @@ class WheelEvent(Event):
 
     def _append_delta_x_getter_expression(self, delta_x: ap.Int) -> None:
         """
-        Append delta_x getter property's expression to file.
+        Append delta_x getter property's expression.
 
         Parameters
         ----------
@@ -98,7 +98,7 @@ class WheelEvent(Event):
 
     def _append_delta_y_getter_expression(self, delta_y: ap.Int) -> None:
         """
-        Append delta_y getter property's expression to file.
+        Append delta_y getter property's expression.
 
         Parameters
         ----------

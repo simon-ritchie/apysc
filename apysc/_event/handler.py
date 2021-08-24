@@ -79,7 +79,7 @@ def append_handler_expression(
         handler_data: HandlerData, handler_name: str,
         e: Event) -> None:
     """
-    Append a handler's expression to the file.
+    Append a handler's expression.
 
     Parameters
     ----------
@@ -120,7 +120,7 @@ def append_unbinding_expression(
         this: VariableNameInterface, handler_name: str,
         mouse_event_type: MouseEventType) -> None:
     """
-    Append event unbinding expression to file.
+    Append event unbinding expression.
 
     Parameters
     ----------
@@ -149,7 +149,7 @@ def append_unbinding_all_expression(
         this: VariableNameInterface,
         mouse_event_type: MouseEventType) -> None:
     """
-    Append all events unbinding expression to file.
+    Append all events unbinding expression.
 
     Parameters
     ----------

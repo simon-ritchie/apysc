@@ -60,8 +60,7 @@ class FlipYInterface(VariableNameInterface, RevertInterface):
     def _append_flip_y_update_expression(
             self, before_value: ap.Boolean) -> None:
         """
-        Append a y-axis flipping value updating expression
-        to the file.
+        Append a y-axis flipping value updating expression.
 
         Parameters
         ----------

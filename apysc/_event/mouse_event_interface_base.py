@@ -99,7 +99,7 @@ class MouseEventInterfaceBase:
     def _append_mouse_event_binding_expression(
             self, name: str, mouse_event_type: MouseEventType) -> None:
         """
-        Append a mouse event binding expression to the file.
+        Append a mouse event binding expression.
 
         Parameters
         ----------

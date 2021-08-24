@@ -56,7 +56,7 @@ class Point2D(
 
     def _append_constructor_expression(self) -> None:
         """
-        Append constructor expression to file.
+        Append constructor expression.
         """
         with ap.DebugInfo(
                 callable_=self._append_constructor_expression,
@@ -108,7 +108,7 @@ class Point2D(
 
     def _append_x_getter_expression(self, x: ap.Int) -> None:
         """
-        Append x property getter expression to file.
+        Append x property getter expression.
 
         Parameters
         ----------
@@ -126,7 +126,7 @@ class Point2D(
 
     def _append_x_setter_expression(self, value: ap.Int) -> None:
         """
-        Append x property setter expression to file.
+        Append x property setter expression.
 
         Parameters
         ----------
@@ -182,7 +182,7 @@ class Point2D(
 
     def _append_y_getter_expression(self, y: ap.Int) -> None:
         """
-        Append y property getter expression to file.
+        Append y property getter expression.
 
         Parameters
         ----------
@@ -200,7 +200,7 @@ class Point2D(
 
     def _append_y_setter_expression(self, value: ap.Int) -> None:
         """
-        Append y property setter expression to file.
+        Append y property setter expression.
 
         Parameters
         ----------

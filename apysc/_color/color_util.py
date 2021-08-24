@@ -62,7 +62,7 @@ def complement_hex_color(
 def _append_complement_hex_color_expression(
         hex_color_code: Any) -> None:
     """
-    Append complement_hex_color function's expression to file.
+    Append complement_hex_color function's expression.
 
     Parameters
     ----------

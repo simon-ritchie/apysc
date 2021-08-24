@@ -49,7 +49,7 @@ class NumberValueInterface(
 
     def append_constructor_expression(self) -> None:
         """
-        Append current value's constructor expression to file.
+        Append current value's constructor expression.
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -130,7 +130,7 @@ class NumberValueInterface(
     def _append_value_setter_expression(
             self, value: _NumType) -> None:
         """
-        Append value's setter expresion to file.
+        Append value's setter expresion.
 
         Parameters
         ----------
@@ -182,7 +182,7 @@ class NumberValueInterface(
             self, result: VariableNameInterface,
             other: _NumType) -> None:
         """
-        Append addition expression to file.
+        Append addition expression.
 
         Parameters
         ----------
@@ -234,7 +234,7 @@ class NumberValueInterface(
             self, result: VariableNameInterface,
             other: _NumType) -> None:
         """
-        Append subtraction expression to file.
+        Append subtraction expression.
 
         Parameters
         ----------
@@ -287,7 +287,7 @@ class NumberValueInterface(
             self, result: VariableNameInterface,
             other: _NumType) -> None:
         """
-        Append multiplication expression to file.
+        Append multiplication expression.
 
         Parameters
         ----------
@@ -340,7 +340,7 @@ class NumberValueInterface(
             self, result: VariableNameInterface,
             other: _NumType) -> None:
         """
-        Append true division expression to file.
+        Append true division expression.
 
         Parameters
         ----------
@@ -393,7 +393,7 @@ class NumberValueInterface(
             self, result: VariableNameInterface,
             other: _NumType) -> None:
         """
-        Append floor division expression to file.
+        Append floor division expression.
 
         Parameters
         ----------
@@ -419,8 +419,8 @@ class NumberValueInterface(
 
     def _append_incremental_calc_substitution_expression(self) -> None:
         """
-        Append a incremental calculation's substitution expression
-        to file. This method will be called from the each interface.
+        Append a incremental calculation's substitution expression.
+        This method will be called from the each interface.
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -575,7 +575,7 @@ class NumberValueInterface(
             self, result: VariableNameInterface,
             other: _NumType) -> None:
         """
-        Append a module expression to the file.
+        Append a module expression.
 
         Parameters
         ----------
@@ -691,7 +691,7 @@ class NumberValueInterface(
             self, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
-        Append __eq__ method expression to file.
+        Append __eq__ method expression.
 
         Parameters
         ----------
@@ -742,7 +742,7 @@ class NumberValueInterface(
             self, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
-        Append __ne__ method expression to file.
+        Append __ne__ method expression.
 
         Parameters
         ----------
@@ -794,7 +794,7 @@ class NumberValueInterface(
             self, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
-        Append __lt__ method expression to file.
+        Append __lt__ method expression.
 
         Parameters
         ----------
@@ -846,7 +846,7 @@ class NumberValueInterface(
             self, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
-        Append __le__ method expression to file.
+        Append __le__ method expression.
 
         Parameters
         ----------
@@ -898,7 +898,7 @@ class NumberValueInterface(
             self, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
-        Append __gt__ expression to file.
+        Append __gt__ expression.
 
         Parameters
         ----------
@@ -950,7 +950,7 @@ class NumberValueInterface(
             self, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
-        Append __ge__ expression to file.
+        Append __ge__ expression.
 
         Parameters
         ----------

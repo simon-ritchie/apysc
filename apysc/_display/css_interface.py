@@ -58,7 +58,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
     def _append_get_css_expresion(
             self, name: Union[str, ap.String], css: ap.String) -> None:
         """
-        Append a css getter expression string to the file.
+        Append a css getter expression string.
 
         Parameters
         ----------
@@ -116,7 +116,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
             self, name: Union[str, ap.String],
             value: Union[str, ap.String]) -> None:
         """
-        Append a css setter expression string to the file.
+        Append a css setter expression string.
 
         Parameters
         ----------

@@ -113,8 +113,7 @@ class WidthAndHeightInterfacesForEllipse(
 
     def _append_ellipse_width_and_height_update_expression(self) -> None:
         """
-        Append an ellipse width and height updating expression
-        to the file.
+        Append an ellipse width and height updating expression.
         """
         import apysc as ap
         with ap.DebugInfo(

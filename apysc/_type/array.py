@@ -80,7 +80,7 @@ class Array(
 
     def _append_constructor_expression(self) -> None:
         """
-        Append constructor expression to file.
+        Append constructor expression.
         """
         with ap.DebugInfo(
                 callable_=self._append_constructor_expression,
@@ -182,7 +182,7 @@ class Array(
     def _append_value_setter_expression(
             self, value: Union[List[Any], tuple, 'Array']) -> None:
         """
-        Append value's setter expression to file.
+        Append value's setter expression.
 
         Parameters
         ----------
@@ -236,7 +236,7 @@ class Array(
 
     def _append_push_and_append_expression(self, value: T) -> None:
         """
-        Append push and append method expression to file.
+        Append push and append method expression.
 
         Parameters
         ----------
@@ -281,7 +281,7 @@ class Array(
     def _append_extend_expression(
             self, other_arr: Union[List[T], tuple, 'Array']) -> None:
         """
-        Append extend method expression to file.
+        Append extend method expression.
 
         Parameters
         ----------
@@ -331,7 +331,7 @@ class Array(
             self, concatenated: VariableNameInterface,
             other_arr: Union[List[T], tuple, 'Array']) -> None:
         """
-        Append concat method expression to file.
+        Append concat method expression.
 
         Parameters
         ----------
@@ -402,7 +402,7 @@ class Array(
     def _append_insert_expression(
             self, index: Union[int, ap.Int], value: T) -> None:
         """
-        Append insert method expression to file.
+        Append insert method expression.
 
         Parameters
         ----------
@@ -442,7 +442,7 @@ class Array(
 
     def _append_pop_expression(self, value: T) -> None:
         """
-        Append pop method expression to file.
+        Append pop method expression.
 
         Parameters
         ----------
@@ -474,7 +474,7 @@ class Array(
 
     def _append_remove_expression(self, value: T) -> None:
         """
-        Append remove method expression to file.
+        Append remove method expression.
 
         Parameters
         ----------
@@ -521,7 +521,7 @@ class Array(
     def _append_remove_at_expression(
             self, index: Union[int, ap.Int]) -> None:
         """
-        Append remove_at method expression to file.
+        Append remove_at method expression.
 
         Parameters
         ----------
@@ -552,7 +552,7 @@ class Array(
 
     def _append_reverse_expression(self) -> None:
         """
-        Append reverse method expression to file.
+        Append reverse method expression.
         """
         with ap.DebugInfo(
                 callable_=self._append_reverse_expression, locals_=locals(),
@@ -582,7 +582,7 @@ class Array(
 
     def _append_sort_expression(self) -> None:
         """
-        Append sort method expression to file.
+        Append sort method expression.
         """
         with ap.DebugInfo(
                 callable_=self._append_sort_expression, locals_=locals(),
@@ -646,7 +646,7 @@ class Array(
             start: Optional[Union[int, ap.Int]],
             end: Optional[Union[int, ap.Int]]) -> None:
         """
-        Append slice method expression to file.
+        Append slice method expression.
 
         Parameters
         ----------
@@ -747,7 +747,7 @@ class Array(
             self, index: Union[int, ap.Int],
             value: T) -> None:
         """
-        Append __getitem__ expression to file.
+        Append __getitem__ expression.
 
         Parameters
         ----------
@@ -801,7 +801,7 @@ class Array(
     def _append_setitem_expression(
             self, index: Union[int, ap.Int], value: T) -> None:
         """
-        Append __setitem__ method expression to file.
+        Append __setitem__ method expression.
 
         Parameters
         ----------
@@ -864,7 +864,7 @@ class Array(
 
     def _append_length_expression(self, length: ap.Int) -> None:
         """
-        Append length method expression to file.
+        Append length method expression.
 
         Parameters
         ----------
@@ -922,7 +922,7 @@ class Array(
     def _append_join_expression(
             self, joined: ap.String, sep: Union[str, ap.String]) -> None:
         """
-        Append join method expression to file.
+        Append join method expression.
 
         Parameters
         ----------
@@ -1000,7 +1000,7 @@ class Array(
     def _append_index_of_expression(
             self, index: ap.Int, value: T) -> None:
         """
-        Append index_of method expression to file.
+        Append index_of method expression.
 
         Parameters
         ----------
@@ -1076,7 +1076,7 @@ class Array(
     def _append_eq_expression(
             self, result: ap.Boolean, other: VariableNameInterface) -> None:
         """
-        Append an __eq__ expression to the file.
+        Append an __eq__ expression.
 
         Parameters
         ----------
@@ -1121,7 +1121,7 @@ class Array(
     def _append_ne_expression(
             self, result: ap.Boolean, other: VariableNameInterface) -> None:
         """
-        Append a __ne__ expression to the file.
+        Append a __ne__ expression.
 
         Parameters
         ----------

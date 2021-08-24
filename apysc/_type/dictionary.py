@@ -62,7 +62,7 @@ class Dictionary(
 
     def _append_constructor_expression(self) -> None:
         """
-        Append constructor expression to file.
+        Append constructor expression.
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -159,7 +159,7 @@ class Dictionary(
     def _append_value_setter_expression(
             self, value: Union[Dict[_K, _V], 'Dictionary']) -> None:
         """
-        Append value's setter expression to file.
+        Append value's setter expression.
 
         Parameters
         ----------
@@ -253,7 +253,7 @@ class Dictionary(
 
     def _append_length_expression(self, length: ap.Int) -> None:
         """
-        Append length method expression to file.
+        Append length method expression.
 
         Parameters
         ----------
@@ -329,7 +329,7 @@ class Dictionary(
     def _append_getitem_expression(
             self, key: Union[_K, ExpressionString], value: Any) -> None:
         """
-        Append __getitem__ expression to file.
+        Append __getitem__ expression.
 
         Parameters
         ----------
@@ -398,7 +398,7 @@ class Dictionary(
     def _append_setitem_expression(
             self, key: Union[_K, ExpressionString], value: _V) -> None:
         """
-        Append __setitem__ method expression to file.
+        Append __setitem__ method expression.
 
         Parameters
         ----------
@@ -439,7 +439,7 @@ class Dictionary(
     def _append_delitem_expression(
             self, key: Union[_K, ExpressionString]) -> None:
         """
-        Append __delitem__ method expression to file.
+        Append __delitem__ method expression.
 
         Parameters
         ----------
@@ -487,7 +487,7 @@ class Dictionary(
             self, result: ap.Boolean,
             other: VariableNameInterface) -> None:
         """
-        Append an __eq__ expression to the file.
+        Append an __eq__ expression.
 
         Parameters
         ----------
@@ -534,7 +534,7 @@ class Dictionary(
             self, result: ap.Boolean,
             other: VariableNameInterface) -> None:
         """
-        Append a __ne__ expression to the file.
+        Append a __ne__ expression.
 
         Parameters
         ----------
@@ -585,7 +585,7 @@ class Dictionary(
             result_value: Any,
             default: Any) -> None:
         """
-        Append the `get` method expression to the file.
+        Append the `get` method expression.
 
         Parameters
         ----------

@@ -81,7 +81,7 @@ class Graphics(
 
     def _append_constructor_expression(self) -> None:
         """
-        Append constructor expression to file.
+        Append constructor expression.
         """
         with ap.DebugInfo(
                 callable_=self._append_constructor_expression,

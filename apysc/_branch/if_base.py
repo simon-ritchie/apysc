@@ -85,7 +85,7 @@ class IfBase(ABC):
     @abstractmethod
     def _append_enter_expression(self) -> None:
         """
-        Append branch instruction start expression to file.
+        Append branch instruction start expression.
         """
 
     def __exit__(
@@ -114,7 +114,7 @@ class IfBase(ABC):
 
     def _append_exit_expression(self) -> None:
         """
-        Append if branch instruction end expression to file.
+        Append if branch instruction end expression.
         """
         import apysc as ap
         ap.append_js_expression(expression='}')

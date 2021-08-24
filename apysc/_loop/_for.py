@@ -151,7 +151,7 @@ class For(Generic[T]):
 
     def _append_arr_enter_expression(self, i: ap.Int) -> None:
         """
-        Append for loop start expression (for Array value) to file.
+        Append for loop start expression (for Array value).
 
         Parameters
         ----------
@@ -170,7 +170,7 @@ class For(Generic[T]):
 
     def _append_dict_enter_expression(self, key: ap.String) -> None:
         """
-        Append for loop start expression (for Dictionary value) to file.
+        Append for loop start expression (for Dictionary value).
 
         Parameters
         ----------

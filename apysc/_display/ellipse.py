@@ -77,7 +77,7 @@ class Ellipse(
 
     def _append_constructor_expression(self) -> None:
         """
-        Append a constructor expression to the file.
+        Append a constructor expression.
         """
         with ap.DebugInfo(
                 callable_=self._append_constructor_expression,

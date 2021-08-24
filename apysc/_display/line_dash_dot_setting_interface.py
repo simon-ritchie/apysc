@@ -65,7 +65,7 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
             self, value: Optional[LineDashDotSetting]) -> None:
         """
         Update line dash dot (1-dot chain) setting and skip
-        appending expression to file.
+        appending expression.
 
         Parameters
         ----------
@@ -81,7 +81,7 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
 
     def _append_line_dash_dot_setting_update_expression(self) -> None:
         """
-        Append line dash dot setting updating expression to file.
+        Append line dash dot setting updating expression.
         """
         import apysc as ap
         with ap.DebugInfo(

@@ -62,7 +62,7 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
     def _update_line_dot_setting_and_skip_appending_exp(
             self, value: Optional[LineDotSetting]) -> None:
         """
-        Update line dot setting and skip appending expression to file.
+        Update line dot setting and skip appending expression.
 
         Parameters
         ----------
@@ -78,7 +78,7 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
 
     def _append_line_dot_setting_update_expression(self) -> None:
         """
-        Append line dot setting updating expression to file.
+        Append line dot setting updating expression.
         """
         import apysc as ap
         with ap.DebugInfo(

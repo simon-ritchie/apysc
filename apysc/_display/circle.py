@@ -88,7 +88,7 @@ class Circle(CxInterface, CyInterface, LineBase, RadiusInterface):
 
     def _append_constructor_expression(self) -> None:
         """
-        Append a construcor expression to the file.
+        Append a construcor expression.
         """
         with ap.DebugInfo(
                 callable_=self._append_constructor_expression,

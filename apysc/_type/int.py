@@ -65,7 +65,7 @@ class Int(NumberValueInterface):
     def _append_cast_expression(
             self, is_number_specified: bool) -> None:
         """
-        Append integer cast (parseInt) expression to file.
+        Append integer cast (parseInt) expression.
 
         Parameters
         ----------

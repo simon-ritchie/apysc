@@ -60,7 +60,7 @@ class Elif(IfBase):
 
     def _append_enter_expression(self) -> None:
         """
-        Append else if branch instruction start expression to file.
+        Append else if branch instruction start expression.
 
         Raises
         ------

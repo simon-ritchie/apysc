@@ -3,7 +3,7 @@
 Mainly following interfaces are defined:
 
 - empty_expression : Empty the current js expression data.
-- append_js_expression : Append js expression to the file.
+- append_js_expression : Append js expression.
 - get_current_expression : Get current expression string.
 - get_current_event_handler_scope_expression : Get a current
     event handler scope's expression string from a file.
@@ -326,7 +326,7 @@ def empty_expression() -> None:
 
 def append_js_expression(expression: str) -> None:
     """
-    Append js expression to the file.
+    Append js expression.
 
     Parameters
     ----------

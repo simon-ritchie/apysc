@@ -74,7 +74,7 @@ class LineThicknessInterface(VariableNameInterface, RevertInterface):
     def _update_line_thickness_and_skip_appending_exp(
             self, value: Union[int, ap.Int]) -> None:
         """
-        Update line thickness and skip appending expression to file.
+        Update line thickness and skip appending expression.
 
         Parameters
         ----------

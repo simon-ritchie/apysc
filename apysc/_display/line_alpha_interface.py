@@ -70,7 +70,7 @@ class LineAlphaInterface(VariableNameInterface, RevertInterface):
     def _update_line_alpha_and_skip_appending_exp(
             self, value: Union[float, ap.Number]) -> None:
         """
-        Update line alpha and skip appending expression to file.
+        Update line alpha and skip appending expression.
 
         Parameters
         ----------

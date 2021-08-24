@@ -67,7 +67,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
     def _append_constructor_expression(self) -> None:
         """
-        Append constructor expression to file.
+        Append constructor expression.
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -143,7 +143,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
     def _append_value_setter_expression(
             self, value: Union[str, 'String']) -> None:
         """
-        Append value's setter expression to file.
+        Append value's setter expression.
 
         Parameters
         ----------
@@ -195,7 +195,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self, result: VariableNameInterface,
             other: Union[str, 'String']) -> None:
         """
-        Append addition (string concatenation) expression to file.
+        Append addition (string concatenation) expression.
 
         Parameters
         ----------
@@ -250,7 +250,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self, result: VariableNameInterface,
             other: Union[int, Any]) -> None:
         """
-        Append multiplication (string repetition) expression to file.
+        Append multiplication (string repetition) expression.
 
         Parameters
         ----------
@@ -394,7 +394,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
-        Append __eq__ method expression to file.
+        Append __eq__ method expression.
 
         Parameters
         ----------
@@ -447,7 +447,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
-        Append __ne__ method expression to file.
+        Append __ne__ method expression.
 
         Parameters
         ----------
@@ -497,7 +497,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
-        Append __lt__ method expression to file.
+        Append __lt__ method expression.
 
         Parameters
         ----------
@@ -547,7 +547,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
-        Append __le__ method expression to file.
+        Append __le__ method expression.
 
         Parameters
         ----------
@@ -597,7 +597,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
-        Append __gt__ method expression to file.
+        Append __gt__ method expression.
 
         Parameters
         ----------
@@ -647,7 +647,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
-        Append __ge__ method expression to file.
+        Append __ge__ method expression.
 
         Parameters
         ----------

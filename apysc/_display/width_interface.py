@@ -71,7 +71,7 @@ class WidthInterface(VariableNameInterface, RevertInterface):
     def _update_width_and_skip_appending_exp(
             self, value: Union[int, ap.Int]) -> None:
         """
-        Update width value and skip appending expression to file.
+        Update width value and skip appending expression.
 
         Parameters
         ----------

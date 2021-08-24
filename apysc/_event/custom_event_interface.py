@@ -137,7 +137,7 @@ class CustomEventInterface(BlankObjectInterface):
     def _append_custom_event_binding_expression(
             self, custom_event_type_str: str, name: str) -> None:
         """
-        Append a custom event binding expression to the file.
+        Append a custom event binding expression.
 
         Parameters
         ----------

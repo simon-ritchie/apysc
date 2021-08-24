@@ -74,7 +74,7 @@ def _append_remove_first_selector_symbol_char_expression(
         str_val: VariableNameInterface) -> None:
     """
     Append remove_first_selector_symbol_char function's
-    expression to file.
+    expression.
 
     Parameters
     ----------

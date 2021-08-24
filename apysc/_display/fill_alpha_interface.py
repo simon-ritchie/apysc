@@ -79,7 +79,7 @@ class FillAlphaInterface(VariableNameInterface, RevertInterface):
     def _update_fill_alpha_and_skip_appending_exp(
             self, value: ap.Number) -> None:
         """
-        Update fill opacity and skip appending expression to file.
+        Update fill opacity and skip appending expression.
 
         Parameters
         ----------

@@ -95,7 +95,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
 
     def _append_constructor_expression(self) -> None:
         """
-        Append constructor expression to file.
+        Append constructor expression.
         """
         with ap.DebugInfo(
                 callable_=self._append_constructor_expression,
@@ -158,7 +158,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
     def _append_value_setter_expression(
             self, value: Union[bool, int, ap.Int, 'Boolean']) -> None:
         """
-        Append value's setter expression to file.
+        Append value's setter expression.
 
         Parameters
         ----------
@@ -308,7 +308,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             self, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
-        Append __eq__ method expression to file.
+        Append __eq__ method expression.
 
         Parameters
         ----------
@@ -356,7 +356,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             self, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
-        Append __ne__ method expression to file.
+        Append __ne__ method expression.
 
         Parameters
         ----------
@@ -397,7 +397,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
     def _append_not_prop_expression(
             self, result: VariableNameInterface) -> None:
         """
-        Append not_ property expression to file.
+        Append not_ property expression.
 
         Parameters
         ----------

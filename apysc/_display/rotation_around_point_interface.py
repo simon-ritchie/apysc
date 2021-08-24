@@ -100,7 +100,7 @@ class RotationAroundPointInterface(VariableNameInterface, RevertInterface):
             self, rotation: ap.Int, x: ap.Int, y: ap.Int) -> None:
         """
         Append a rotation value around the given coordinates
-        updating expression to the file.
+        updating expression.
 
         Parameters
         ----------

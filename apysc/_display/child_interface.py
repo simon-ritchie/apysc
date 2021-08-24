@@ -112,7 +112,7 @@ class ChildInterface(RevertInterface):
     def _append_contains_expression(
             self, result: ap.Boolean, child: DisplayObject) -> None:
         """
-        Append contains method expression to file.
+        Append contains method expression.
 
         Parameters
         ----------
@@ -153,7 +153,7 @@ class ChildInterface(RevertInterface):
     def _append_num_children_expression(
             self, num_children: ap.Int) -> None:
         """
-        Append num_children method expression to file.
+        Append num_children method expression.
 
         Parameters
         ----------
@@ -204,7 +204,7 @@ class ChildInterface(RevertInterface):
     def _append_get_child_at_expression(
             self, child: DisplayObject, index: Union[int, ap.Int]) -> None:
         """
-        Append get_child_at method expression to file.
+        Append get_child_at method expression.
 
         Parameters
         ----------
@@ -267,7 +267,7 @@ class ChildInterface(RevertInterface):
 
 def append_expression_of_add_child(child: DisplayObject) -> None:
     """
-    Append expression of add_child (add) to file.
+    Append expression of add_child (add).
 
     Parameters
     ----------
@@ -287,7 +287,7 @@ def append_expression_of_add_child(child: DisplayObject) -> None:
 
 def append_expression_of_remove_child(child: DisplayObject) -> None:
     """
-    Append expression of remove_child (removeElement) to file.
+    Append expression of remove_child (removeElement).
 
     Parameters
     ----------

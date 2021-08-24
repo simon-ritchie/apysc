@@ -83,7 +83,7 @@ class LineColorInterface(VariableNameInterface, RevertInterface):
     def _update_line_color_and_skip_appending_exp(
             self, value: ap.String) -> None:
         """
-        Update line color and skip appending expression to file.
+        Update line color and skip appending expression.
 
         Parameters
         ----------

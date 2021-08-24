@@ -59,7 +59,7 @@ class VisibleInterface(VariableNameInterface, RevertInterface):
 
     def _append_visible_update_expression(self) -> None:
         """
-        Append visible property updating expression to file.
+        Append visible property updating expression.
         """
         with ap.DebugInfo(
                 callable_=self._append_visible_update_expression,

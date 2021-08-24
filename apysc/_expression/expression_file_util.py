@@ -15,8 +15,6 @@ from enum import Enum
 from typing import Any, Callable, List, Optional, Tuple
 from typing import TypeVar
 
-EXPRESSION_ROOT_DIR: str = '../.apysc_expression/'
-
 
 class TableName(Enum):
     NOT_EXISTING = 'not_existing'

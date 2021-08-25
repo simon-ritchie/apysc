@@ -7,6 +7,7 @@ from typing import List
 from retrying import retry
 
 import build_docs
+from build_docs import _ScriptData
 from apysc._file import file_util
 from build_docs import _CodeBlock
 from tests.testing_helper import assert_attrs
@@ -342,3 +343,58 @@ save_overall_html(
     dest_dir_path='quick_start_stage_creation/',
     js_lib_dir_path='../', skip_js_lib_exporting=True)"""
     assert code == expected
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__make_script_data_list() -> None:
+    os.makedirs('./tmp/', exist_ok=True)
+    tmp_file_path_1: str = './tmp/tmp_test_build_docs_1.md'
+    tmp_file_path_2: str = './tmp/tmp_test_build_docs_2.md'
+    with open(tmp_file_path_1, 'w') as f:
+        f.write(
+            '# heading'
+            '\n\n```py'
+            '\n# runnable'
+            '\nprint(100)'
+            '\n```'
+            '\n\n```py'
+            '\n# runnable'
+            '\nprint(200)'
+            '\n```'
+            '\n'
+        )
+    with open(tmp_file_path_2, 'w') as f:
+        f.write(
+            '# heading'
+            '\n\n```py'
+            '\n# runnable'
+            '\nprint(300)'
+            '\n```'
+            '\n'
+        )
+    script_data_list: List[_ScriptData] = build_docs._make_script_data_list(
+        md_file_paths=[
+            tmp_file_path_1,
+            tmp_file_path_2,
+        ],
+        hashed_vals=['abc', 'def'],
+        limit_count=None)
+    assert len(script_data_list) == 3
+    assert script_data_list[0] == {
+        'md_file_path': tmp_file_path_1,
+        'hashed_val': 'abc',
+        'runnable_script': 'print(100)',
+    }
+    assert script_data_list[1] == {
+        'md_file_path': tmp_file_path_1,
+        'hashed_val': 'abc',
+        'runnable_script': 'print(200)',
+    }
+    assert script_data_list[2] == {
+        'md_file_path': tmp_file_path_2,
+        'hashed_val': 'def',
+        'runnable_script': 'print(300)',
+    }
+
+    file_util.remove_file_if_exists(file_path=tmp_file_path_1)
+    file_util.remove_file_if_exists(file_path=tmp_file_path_2)

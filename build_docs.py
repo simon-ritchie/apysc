@@ -17,7 +17,7 @@ from typing import Match
 from typing import Optional
 from typing import Tuple
 
-from typing_extensions import Final
+from typing_extensions import Final, TypedDict
 
 from apysc._console import loggers
 from apysc._jslib import jslib_util
@@ -92,6 +92,12 @@ def _remove_runnable_inline_comment_from_code_blocks(
             flags=re.MULTILINE)
 
 
+class _ScriptData(TypedDict):
+    md_file_path: str
+    hashed_val: str
+    runnable_script: str
+
+
 def _exec_document_script(
         limit_count: Optional[int] = None) -> List[str]:
     """
@@ -100,7 +106,7 @@ def _exec_document_script(
     Parameters
     ----------
     limit_count : int or None, optional
-        Limitation of script execution count.
+        Limitation of the script execution count.
 
     Returns
     -------
@@ -118,6 +124,9 @@ def _exec_document_script(
     count: int = 0
     is_limit: bool = False
     executed_scripts: List[str] = []
+    script_data_list: List[_ScriptData] = _make_script_data_list(
+        md_file_paths=md_file_paths, hashed_vals=hashed_vals,
+        limit_count=limit_count)
     for md_file_path, hashed_val in zip(md_file_paths, hashed_vals):
         runnable_scripts: List[str] = _get_runnable_scripts_in_md_code_blocks(
             md_file_path=md_file_path)
@@ -142,6 +151,48 @@ def _exec_document_script(
         if is_limit:
             break
     return executed_scripts
+
+
+def _make_script_data_list(
+        md_file_paths: List[str],
+        hashed_vals: List[str],
+        limit_count: Optional[int]) -> List[_ScriptData]:
+    """
+    Make a script data list for the multiprocessing argument.
+
+    Parameters
+    ----------
+    md_file_paths : list of str
+        Target markdown file paths.
+    hashed_vals : list of str
+        Target markdown files' hashed values.
+    limit_count : int or None
+        Limitation of the script execution count.
+
+    Returns
+    -------
+    script_data_list : list of _ScriptData
+        A script data list for the multiprocessing argument.
+    """
+    count: int = 0
+    is_limit: bool = False
+    script_data_list: List[_ScriptData] = []
+    for md_file_path, hashed_val in zip(md_file_paths, hashed_vals):
+        runnable_scripts: List[str] = _get_runnable_scripts_in_md_code_blocks(
+            md_file_path=md_file_path)
+        for runnable_script in runnable_scripts:
+            script_data_list.append({
+                'md_file_path': md_file_path,
+                'hashed_val': hashed_val,
+                'runnable_script': runnable_script,
+            })
+            count += 1
+            if limit_count is not None and count == limit_count:
+                is_limit = True
+                break
+        if is_limit:
+            break
+    return script_data_list
 
 
 def _save_md_hashed_val(md_file_path: str, hashed_val: str) -> None:

@@ -7,7 +7,6 @@ from retrying import retry
 
 import apysc as ap
 from apysc._expression import expression_data_util
-from apysc._file import file_util
 from apysc._html import debug_mode
 from tests.testing_helper import assert_attrs
 
@@ -204,7 +203,7 @@ def test__get_callable_path_name() -> None:
     assert path_name == \
         'tests__html_test_debug_mode_TestDebugInfo_test___init__'
 
-    path_name: str = debug_mode._get_callable_path_name(
+    path_name = debug_mode._get_callable_path_name(
         callable_=TestDebugInfo.test___init__,
         module_name=__name__)
     assert path_name == \

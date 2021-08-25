@@ -2,7 +2,9 @@
 interfaces.
 """
 
-from typing import Any, Optional, Tuple
+from typing import Any
+from typing import Optional
+from typing import Tuple
 
 
 class HandlerScope:

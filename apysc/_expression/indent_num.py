@@ -8,7 +8,10 @@ Mainly following interfaces are defined:
 - reset: Reset current indent number.
 """
 
-from typing import Any, List, Optional, Tuple
+from typing import Any
+from typing import List
+from typing import Optional
+from typing import Tuple
 
 
 def get_current_indent_num() -> int:

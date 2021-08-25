@@ -9,10 +9,13 @@ Mainly following interfaces are defined:
     event handler scope's expression string.
 """
 
-import os
 import sqlite3
 from enum import Enum
-from typing import Any, Callable, List, Optional, Tuple
+from typing import Any
+from typing import Callable
+from typing import List
+from typing import Optional
+from typing import Tuple
 from typing import TypeVar
 
 
@@ -29,6 +32,7 @@ class TableName(Enum):
     DEBUG_MODE_CALLABLE_COUNT = 'debug_mode_callable_count'
     STAGE_ELEM_ID = 'stage_elem_id'
     VARIABLE_NAME_COUNT = 'variable_name_count'
+
 
 _SQLITE_IN_MEMORY_SETTING: str = 'file::memory:?cache=shared'
 connection = sqlite3.connect(_SQLITE_IN_MEMORY_SETTING, uri=True)

@@ -2,7 +2,8 @@
 (the For or the other loop class nested number).
 """
 
-from typing import Optional, Tuple
+from typing import Optional
+from typing import Tuple
 
 
 def get_current_loop_count() -> int:

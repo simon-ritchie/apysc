@@ -2,7 +2,8 @@
 """
 
 from enum import Enum
-from typing import Optional, Tuple
+from typing import Optional
+from typing import Tuple
 
 
 class LastScope(Enum):
@@ -26,7 +27,6 @@ def reset() -> None:
     )
     expression_data_util.cursor.execute(query)
     expression_data_util.connection.commit()
-
 
 
 def get_last_scope() -> LastScope:

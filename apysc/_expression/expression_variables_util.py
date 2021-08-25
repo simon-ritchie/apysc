@@ -8,8 +8,8 @@ Mainly following interfaces are defined:
     two variables.
 """
 
-import os
-from typing import List, Optional, Tuple
+from typing import Optional
+from typing import Tuple
 
 from apysc._type.variable_name_interface import VariableNameInterface
 

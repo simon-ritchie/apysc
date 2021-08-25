@@ -3,11 +3,11 @@ and JavaScript.
 """
 
 import inspect
-import os
-from typing import Any, Tuple
+from typing import Any
 from typing import Callable
 from typing import Dict
 from typing import Optional
+from typing import Tuple
 from typing import Type
 from typing import Union
 

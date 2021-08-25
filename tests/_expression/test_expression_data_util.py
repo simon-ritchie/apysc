@@ -1,9 +1,7 @@
-import os
-import re
 from random import randint
-from typing import List, Match, Tuple
+from typing import List
 from typing import Optional
-import sqlite3
+from typing import Tuple
 
 from retrying import retry
 
@@ -12,7 +10,6 @@ from apysc._expression import event_handler_scope
 from apysc._expression import expression_data_util
 from apysc._expression import indent_num
 from apysc._expression.indent_num import Indent
-from apysc._file import file_util
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -56,7 +53,7 @@ def test_append_js_expression() -> None:
     expression_data_util.connection.commit()
     if result_2 is None:
         raise AssertionError('result value is None.')
-    expected: str = (
+    expected = (
         '  var num_1 = 10;'
         '\n  var str_1 = "test";'
     )

@@ -8,7 +8,8 @@ References
 
 import random
 from datetime import datetime
-from typing import Optional, Tuple
+from typing import Optional
+from typing import Tuple
 
 import apysc as ap
 from apysc._display.child_interface import ChildInterface

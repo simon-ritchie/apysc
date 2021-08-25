@@ -300,7 +300,6 @@ def _append_expression_to_html_str(html_str: str, verbose: int) -> str:
         HTML string after appended expressions.
     """
     from apysc._expression import expression_data_util
-    from apysc._file import file_util
     from apysc._html import html_const
     from apysc._html import html_util
     _display_info(msg='Reading basic expression file...', verbose=verbose)

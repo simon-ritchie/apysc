@@ -3,7 +3,6 @@ from random import randint
 from retrying import retry
 
 from apysc._expression import expression_data_util
-from apysc._file import file_util
 from apysc._loop import loop_count
 
 

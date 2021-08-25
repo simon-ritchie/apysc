@@ -13,6 +13,7 @@ import subprocess as sp
 from datetime import datetime
 from typing import List
 from typing import Optional
+from random import randint
 
 
 def get_module_paths_recursively(
@@ -66,7 +67,8 @@ def save_tmp_module_and_run_script(script: str) -> str:
     stdout : str
         Result stdout string.
     """
-    tmp_mod_path: str = f'./tmp_{datetime.now().timestamp()}.py'
+    random_int: int = randint(1_000_000, 100_000_000)
+    tmp_mod_path: str = f'./tmp_{datetime.now().timestamp()}_{random_int}.py'
     with open(tmp_mod_path, 'w') as f:
         f.write(script)
     process: sp.CompletedProcess = sp.run(

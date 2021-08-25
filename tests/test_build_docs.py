@@ -396,5 +396,14 @@ def test__make_script_data_list() -> None:
         'runnable_script': 'print(300)',
     }
 
+    script_data_list = build_docs._make_script_data_list(
+        md_file_paths=[
+            tmp_file_path_1,
+            tmp_file_path_2,
+        ],
+        hashed_vals=['abc', 'def'],
+        limit_count=2)
+    assert len(script_data_list) == 2
+
     file_util.remove_file_if_exists(file_path=tmp_file_path_1)
     file_util.remove_file_if_exists(file_path=tmp_file_path_2)

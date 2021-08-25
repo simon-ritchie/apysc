@@ -6,7 +6,7 @@ Mainly following interfaces are defined:
 - append_js_expression : Append js expression.
 - get_current_expression : Get current expression string.
 - get_current_event_handler_scope_expression : Get a current
-    event handler scope's expression string from a file.
+    event handler scope's expression string.
 """
 
 import os
@@ -371,7 +371,7 @@ def _get_expression_table_name() -> TableName:
 
 def get_current_expression() -> str:
     """
-    Get a current expression's string from a file.
+    Get a current expression's string.
 
     Notes
     -----
@@ -391,7 +391,7 @@ def get_current_expression() -> str:
 
 def get_current_event_handler_scope_expression() -> str:
     """
-    Get a current event handler scope's expression string from a file.
+    Get a current event handler scope's expression string.
 
     Notes
     -----

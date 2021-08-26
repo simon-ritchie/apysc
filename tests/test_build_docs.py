@@ -10,7 +10,7 @@ import build_docs
 from build_docs import _ScriptData
 from apysc._file import file_util
 from build_docs import _CodeBlock, _ReturnData
-from tests.testing_helper import assert_attrs
+from tests.testing_helper import assert_attrs, assert_raises
 
 _CHECKOUT_FILE_PATHS: List[str] = [
     'docs_src/source/_static/quick_start_sprite_graphics/index.html',
@@ -422,3 +422,23 @@ def test__run_code_block_script() -> None:
         'runnable_script': 'print(200)',
         'stdout': '200\n',
     }
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__validate_script_return_data() -> None:
+    build_docs._validate_script_return_data(
+        return_data_list=[{
+            'md_file_path': 'test.md',
+            'runnable_script': 'print(100)',
+            'stdout': '100\n',
+        }])
+
+    assert_raises(
+        expected_error_class=Exception,
+        func_or_method=build_docs._validate_script_return_data,
+        kwargs={'return_data_list': [{
+            'md_file_path': 'test.md',
+            'runnable_script': 'print(100)',
+            'stdout': 'Traceback: most recent call ...'
+        }]},
+        match='Error occurred while executing the document codeblock.')

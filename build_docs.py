@@ -158,7 +158,38 @@ def _exec_document_script(
     with mp.Pool(workers) as p:
         return_data_list: List[_ReturnData] =  p.map(
             func=_run_code_block_script, iterable=script_data_list)
+    _validate_script_return_data(return_data_list=return_data_list)
     return executed_scripts
+
+
+def _validate_script_return_data(
+        return_data_list: List[_ReturnData]) -> None:
+    """
+    Validate the returned data list whether there are no
+    tracebacks in the stdout.
+
+    Parameters
+    ----------
+    return_data_list : list of _ReturnData
+        Data list returned from the script execution.
+
+    Raises
+    ------
+    Exception
+        If there are any tracebacks in the stdout.
+    """
+    for return_data in return_data_list:
+        stdout: str = return_data['stdout']
+        if 'Traceback' in stdout:
+            md_file_path: str = return_data['md_file_path']
+            runnable_script: str = return_data['runnable_script']
+            raise Exception(
+                'Error occurred while executing the document codeblock.'
+                f'\nMarkdown file path: {md_file_path}'
+                '\n-------------------------'
+                f'\nRun script:\n{runnable_script}'
+                '\n-------------------------'
+                f'\nStdout: {stdout}')
 
 
 def _run_code_block_script(script_data: _ScriptData) -> _ReturnData:

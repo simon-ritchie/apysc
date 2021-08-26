@@ -11,9 +11,9 @@ Mainly following interfaces are defined:
 import os
 import subprocess as sp
 from datetime import datetime
+from random import randint
 from typing import List
 from typing import Optional
-from random import randint
 
 
 def get_module_paths_recursively(

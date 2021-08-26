@@ -5,6 +5,7 @@ $ python build_docs.py
 """
 
 import hashlib
+import multiprocessing as mp
 import os
 import re
 import shutil
@@ -16,9 +17,9 @@ from typing import List
 from typing import Match
 from typing import Optional
 from typing import Tuple
-import multiprocessing as mp
 
-from typing_extensions import Final, TypedDict
+from typing_extensions import Final
+from typing_extensions import TypedDict
 
 from apysc._console import loggers
 from apysc._jslib import jslib_util
@@ -132,7 +133,7 @@ def _exec_document_script(
         limit_count=limit_count)
     workers: int = max(mp.cpu_count() - 2, 1)
     with mp.Pool(workers) as p:
-        return_data_list: List[_ReturnData] =  p.map(
+        return_data_list: List[_ReturnData] = p.map(
             func=_run_code_block_script, iterable=script_data_list)
     _validate_script_return_data(return_data_list=return_data_list)
     _save_hashed_val(script_data_list=script_data_list)

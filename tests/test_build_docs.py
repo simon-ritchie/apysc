@@ -7,10 +7,12 @@ from typing import List
 from retrying import retry
 
 import build_docs
-from build_docs import _ScriptData
 from apysc._file import file_util
-from build_docs import _CodeBlock, _ReturnData
-from tests.testing_helper import assert_attrs, assert_raises
+from build_docs import _CodeBlock
+from build_docs import _ReturnData
+from build_docs import _ScriptData
+from tests.testing_helper import assert_attrs
+from tests.testing_helper import assert_raises
 
 _CHECKOUT_FILE_PATHS: List[str] = [
     'docs_src/source/_static/quick_start_sprite_graphics/index.html',

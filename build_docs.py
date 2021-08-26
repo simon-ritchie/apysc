@@ -204,7 +204,9 @@ def _run_code_block_script(script_data: _ScriptData) -> _ReturnData:
     runnable_script: str = script_data['runnable_script']
     md_file_path: str = script_data['md_file_path']
     logger.info(
-        msg=(f'Executing document script: \n{runnable_script}'))
+        msg=(
+            '\n\n-------------------------\n\n'
+            f'Executing document script: \n{runnable_script}'))
     stdout: str = module_util.save_tmp_module_and_run_script(
         script=runnable_script)
     return_data: _ReturnData = {

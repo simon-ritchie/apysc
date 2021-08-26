@@ -15,6 +15,7 @@ from tests.testing_helper import assert_attrs, assert_raises
 _CHECKOUT_FILE_PATHS: List[str] = [
     'docs_src/source/_static/quick_start_sprite_graphics/index.html',
     'docs_src/source/_static/quick_start_stage_creation/index.html',
+    'docs_src/hashed_vals/stage.md',
 ]
 
 
@@ -442,3 +443,19 @@ def test__validate_script_return_data() -> None:
             'stdout': 'Traceback: most recent call ...'
         }]},
         match='Error occurred while executing the document codeblock.')
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__save_hashed_val() -> None:
+    hashed_val: str = build_docs._read_md_file_hashed_val_from_file(
+        hash_file_path='docs_src/hashed_vals/stage.md')
+    os.remove('docs_src/hashed_vals/stage.md')
+    build_docs._save_hashed_val(
+        script_data_list=[{
+            'md_file_path': 'docs_src/source/stage.md',
+            'hashed_val': hashed_val,
+            'runnable_script': 'print(100)',
+        }])
+    saved_hashed_val: str = build_docs._read_md_file_hashed_val_from_file(
+        hash_file_path='docs_src/hashed_vals/stage.md')
+    assert saved_hashed_val == hashed_val

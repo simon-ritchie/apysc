@@ -131,35 +131,28 @@ def _exec_document_script(
     script_data_list: List[_ScriptData] = _make_script_data_list(
         md_file_paths=md_file_paths, hashed_vals=hashed_vals,
         limit_count=limit_count)
-    # for md_file_path, hashed_val in zip(md_file_paths, hashed_vals):
-    #     runnable_scripts: List[str] = _get_runnable_scripts_in_md_code_blocks(
-    #         md_file_path=md_file_path)
-    #     for runnable_script in runnable_scripts:
-    #         print()
-    #         print('-' * 20)
-    #         logger.info(
-    #             msg=(f'Executing document script: \n{runnable_script}'))
-    #         print('-' * 20)
-    #         stdout: str = module_util.save_tmp_module_and_run_script(
-    #             script=runnable_script)
-    #         if 'Traceback' in stdout:
-    #             raise Exception(
-    #                 f'Error occurred while executing script:\n{stdout}')
-    #         executed_scripts.append(runnable_script)
-    #         _save_md_hashed_val(
-    #             md_file_path=md_file_path, hashed_val=hashed_val)
-    #         count += 1
-    #         if limit_count is not None and count == limit_count:
-    #             is_limit = True
-    #             break
-    #     if is_limit:
-    #         break
     workers: int = max(mp.cpu_count() - 2, 1)
     with mp.Pool(workers) as p:
         return_data_list: List[_ReturnData] =  p.map(
             func=_run_code_block_script, iterable=script_data_list)
     _validate_script_return_data(return_data_list=return_data_list)
+    _save_hashed_val(script_data_list=script_data_list)
     return executed_scripts
+
+
+def _save_hashed_val(script_data_list: List[_ScriptData]) -> None:
+    """
+    Save executed markdown script hashed values to the file.
+
+    Parameters
+    ----------
+    script_data_list : list of _ScriptData
+        Executed script data list.
+    """
+    for script_data in script_data_list:
+        _save_md_hashed_val(
+            md_file_path=script_data['md_file_path'],
+            hashed_val=script_data['hashed_val'])
 
 
 def _validate_script_return_data(

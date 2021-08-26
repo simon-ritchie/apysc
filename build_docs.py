@@ -16,6 +16,7 @@ from typing import List
 from typing import Match
 from typing import Optional
 from typing import Tuple
+import multiprocessing as mp
 
 from typing_extensions import Final, TypedDict
 
@@ -98,6 +99,12 @@ class _ScriptData(TypedDict):
     runnable_script: str
 
 
+class _ReturnData(TypedDict):
+    md_file_path: str
+    runnable_script: str
+    stdout: str
+
+
 def _exec_document_script(
         limit_count: Optional[int] = None) -> List[str]:
     """
@@ -114,43 +121,73 @@ def _exec_document_script(
         List of executed Python scripts.
     """
     from apysc._file import file_util
-    from apysc._file import module_util
     md_file_paths: List[str] = \
         file_util.get_specified_ext_file_paths_recursively(
             extension='.md', dir_path='./docs_src/')
     hashed_vals: List[str]
     md_file_paths, hashed_vals = _slice_md_file_by_hashed_val(
         md_file_paths=md_file_paths)
-    count: int = 0
-    is_limit: bool = False
     executed_scripts: List[str] = []
     script_data_list: List[_ScriptData] = _make_script_data_list(
         md_file_paths=md_file_paths, hashed_vals=hashed_vals,
         limit_count=limit_count)
-    for md_file_path, hashed_val in zip(md_file_paths, hashed_vals):
-        runnable_scripts: List[str] = _get_runnable_scripts_in_md_code_blocks(
-            md_file_path=md_file_path)
-        for runnable_script in runnable_scripts:
-            print()
-            print('-' * 20)
-            logger.info(
-                msg=(f'Executing document script: \n{runnable_script}'))
-            print('-' * 20)
-            stdout: str = module_util.save_tmp_module_and_run_script(
-                script=runnable_script)
-            if 'Traceback' in stdout:
-                raise Exception(
-                    f'Error occurred while executing script:\n{stdout}')
-            executed_scripts.append(runnable_script)
-            _save_md_hashed_val(
-                md_file_path=md_file_path, hashed_val=hashed_val)
-            count += 1
-            if limit_count is not None and count == limit_count:
-                is_limit = True
-                break
-        if is_limit:
-            break
+    # for md_file_path, hashed_val in zip(md_file_paths, hashed_vals):
+    #     runnable_scripts: List[str] = _get_runnable_scripts_in_md_code_blocks(
+    #         md_file_path=md_file_path)
+    #     for runnable_script in runnable_scripts:
+    #         print()
+    #         print('-' * 20)
+    #         logger.info(
+    #             msg=(f'Executing document script: \n{runnable_script}'))
+    #         print('-' * 20)
+    #         stdout: str = module_util.save_tmp_module_and_run_script(
+    #             script=runnable_script)
+    #         if 'Traceback' in stdout:
+    #             raise Exception(
+    #                 f'Error occurred while executing script:\n{stdout}')
+    #         executed_scripts.append(runnable_script)
+    #         _save_md_hashed_val(
+    #             md_file_path=md_file_path, hashed_val=hashed_val)
+    #         count += 1
+    #         if limit_count is not None and count == limit_count:
+    #             is_limit = True
+    #             break
+    #     if is_limit:
+    #         break
+    workers: int = max(mp.cpu_count() - 2, 1)
+    with mp.Pool(workers) as p:
+        return_data_list: List[_ReturnData] =  p.map(
+            func=_run_code_block_script, iterable=script_data_list)
     return executed_scripts
+
+
+def _run_code_block_script(script_data: _ScriptData) -> _ReturnData:
+    """
+    Run a specified code block script.
+
+    Parameters
+    ----------
+    script_data : _ScriptData
+        Target script data.
+
+    Returns
+    -------
+    return_data : _ReturnData
+        Script execution result data.
+    """
+    from apysc._file import module_util
+    runnable_script: str = script_data['runnable_script']
+    md_file_path: str = script_data['md_file_path']
+    logger.info(
+        msg=(f'Executing document script: \n{runnable_script}'))
+    stdout: str = module_util.save_tmp_module_and_run_script(
+        script=runnable_script)
+    return_data: _ReturnData = {
+        'md_file_path': md_file_path,
+        'runnable_script': runnable_script,
+        'stdout': stdout,
+    }
+    return return_data
 
 
 def _make_script_data_list(

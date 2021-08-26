@@ -9,7 +9,7 @@ from retrying import retry
 import build_docs
 from build_docs import _ScriptData
 from apysc._file import file_util
-from build_docs import _CodeBlock
+from build_docs import _CodeBlock, _ReturnData
 from tests.testing_helper import assert_attrs
 
 _CHECKOUT_FILE_PATHS: List[str] = [
@@ -407,3 +407,18 @@ def test__make_script_data_list() -> None:
 
     file_util.remove_file_if_exists(file_path=tmp_file_path_1)
     file_util.remove_file_if_exists(file_path=tmp_file_path_2)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__run_code_block_script() -> None:
+    return_data: _ReturnData = build_docs._run_code_block_script(
+        script_data={
+            'md_file_path': 'test.md',
+            'hashed_val': 'abc',
+            'runnable_script': 'print(200)',
+        })
+    assert return_data == {
+        'md_file_path': 'test.md',
+        'runnable_script': 'print(200)',
+        'stdout': '200\n',
+    }

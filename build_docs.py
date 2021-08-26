@@ -127,7 +127,6 @@ def _exec_document_script(
     hashed_vals: List[str]
     md_file_paths, hashed_vals = _slice_md_file_by_hashed_val(
         md_file_paths=md_file_paths)
-    executed_scripts: List[str] = []
     script_data_list: List[_ScriptData] = _make_script_data_list(
         md_file_paths=md_file_paths, hashed_vals=hashed_vals,
         limit_count=limit_count)
@@ -137,6 +136,8 @@ def _exec_document_script(
             func=_run_code_block_script, iterable=script_data_list)
     _validate_script_return_data(return_data_list=return_data_list)
     _save_hashed_val(script_data_list=script_data_list)
+    executed_scripts: List[str] = [
+        script_data['runnable_script'] for script_data in script_data_list]
     return executed_scripts
 
 

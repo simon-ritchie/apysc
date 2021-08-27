@@ -37,6 +37,24 @@ class SkewXInterface(VariableNameInterface, RevertInterface):
             self._initialize_skew_x_if_not_initialized()
             return value_util.get_copy(value=self._skew_x)
 
+    @skew_x.setter
+    def skew_x(self, value: ap.Int) -> None:
+        """
+        Update a skew x value of this instance.
+
+        Parameters
+        ----------
+        value : Int
+            Skew x value to set.
+        """
+        with ap.DebugInfo(
+                callable_='skew_x', locals_=locals(),
+                module_name=__name__, class_=SkewXInterface):
+            from apysc._validation import number_validation
+            self._initialize_skew_x_if_not_initialized()
+            number_validation.validate_integer(integer=value)
+            self._skew_x = value
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make a value's snapshot.

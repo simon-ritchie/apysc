@@ -32,5 +32,5 @@ class TestSkewXInterface:
         interface: _TestInterface = _TestInterface()
         assert interface.skew_x == 0
 
-        interface._skew_x = ap.Int(10)
+        interface.skew_x = ap.Int(10)
         assert interface.skew_x == 10

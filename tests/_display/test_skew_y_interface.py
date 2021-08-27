@@ -26,3 +26,11 @@ class TestSkewYInterface:
         interface._skew_y = ap.Int(10)
         interface._initialize_skew_y_if_not_initialized()
         assert interface._skew_y == 10
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_skew_y(self) -> None:
+        interface: _TestInterface = _TestInterface()
+        assert interface.skew_y == 0
+
+        interface._skew_y = ap.Int(10)
+        assert interface.skew_y == 10

@@ -19,13 +19,15 @@ from apysc._display.scale_y_from_center_interface import \
     ScaleYFromCenterInterface
 from apysc._display.scale_y_from_point_interface import \
     ScaleYFromPointInterface
+from apysc._display.skew_x_interface import SkewXInterface
 
 
 class GraphicsBase(
         DisplayObject, RotationAroundCenterInterface,
         RotationAroundPointInterface, ScaleXFromCenterInterface,
         ScaleYFromCenterInterface, ScaleXFromPointInterface,
-        ScaleYFromPointInterface, FlipXInterface, FlipYInterface):
+        ScaleYFromPointInterface, FlipXInterface, FlipYInterface,
+        SkewXInterface):
 
     _variable_name: str
 

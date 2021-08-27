@@ -83,6 +83,8 @@ class SkewYInterface(VariableNameInterface, RevertInterface):
             )
             ap.append_js_expression(expression=expression)
 
+    _skew_y_snapshot: Dict[str, int]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
@@ -92,6 +94,12 @@ class SkewYInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not hasattr(self, '_skew_y_snapshot'):
+            self._skew_y_snapshot = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._initialize_skew_y_if_not_initialized()
+        self._skew_y_snapshot[snapshot_name] = int(self._skew_y._value)
 
     def _revert(self, snapshot_name: str) -> None:
         """

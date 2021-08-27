@@ -20,7 +20,6 @@ class SkewYInterface(VariableNameInterface, RevertInterface):
             return
         self._skew_y = ap.Int(0)
 
-
     @property
     def skew_y(self) -> ap.Int:
         """

@@ -262,17 +262,17 @@ function main_stage() {
   var i_50 = 0;
   var n_18 = 1.0;
   var n_21 = 1.0;
-  var i_61 = cpy(i_50);
+  var i_63 = cpy(i_50);
   var n_22 = cpy(n_18);
   var b_38 = false;
   var n_23 = 2.0;
   var b_39 = false;
   var n_24 = 0.05;
   var n_25 = cpy(n_18);
-  var i_62 = cpy(i_46);
+  var i_64 = cpy(i_46);
   var n_26 = cpy(n_25);
   var n_27 = cpy(n_21);
-  var i_63 = cpy(i_46);
+  var i_65 = cpy(i_46);
   var n_28 = cpy(n_27);
   var bo_1 = {};
   var timer_1;
@@ -281,9 +281,9 @@ function main_stage() {
     timer_1 = setInterval(__main__on_timer_timer_1, n_17);
   }
   function __main__on_timer_timer_1(tevt_1) {
-    i_61 = cpy(i_50);
-    var i_61 = i_50 + 1;
-    i_50 = i_61;
+    i_63 = cpy(i_50);
+    var i_63 = i_50 + 1;
+    i_50 = i_63;
     n_22 = cpy(n_18);
     b_38 = n_22 >= n_23;
     b_39 = n_22 <= n_24;
@@ -294,19 +294,19 @@ function main_stage() {
       i_46 = 1;
     }
     n_25 = cpy(n_18);
-    i_62 = cpy(i_46);
-    var i_62 = i_46 * 0.03;
+    i_64 = cpy(i_46);
+    var i_64 = i_46 * 0.03;
     n_26 = cpy(n_25);
-    var n_26 = n_25 + i_62;
+    var n_26 = n_25 + i_64;
     n_25 = n_26;
     rect_1.scale(1 / n_18, 1);
     rect_1.scale(n_25, 1);
     n_18 = n_25;
     n_27 = cpy(n_21);
-    i_63 = cpy(i_46);
-    var i_63 = i_46 * 0.03;
+    i_65 = cpy(i_46);
+    var i_65 = i_46 * 0.03;
     n_28 = cpy(n_27);
-    var n_28 = n_27 + i_63;
+    var n_28 = n_27 + i_65;
     n_27 = n_28;
     rect_2.scale(1, 1 / n_21);
     rect_2.scale(1, n_27);

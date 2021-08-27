@@ -4,6 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.skew_x_interface import SkewXInterface
+from apysc._expression import expression_data_util
 
 
 class _TestInterface(SkewXInterface):
@@ -34,3 +35,20 @@ class TestSkewXInterface:
 
         interface.skew_x = ap.Int(10)
         assert interface.skew_x == 10
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_skew_x_update_expression(self) -> None:
+        expression_data_util.empty_expression()
+        interface: _TestInterface = _TestInterface()
+        before_value: ap.Int = ap.Int(10)
+        interface.skew_x = before_value
+        after_value: ap.Int = ap.Int(20)
+        interface.skew_x = after_value
+        interface_name: str = interface.variable_name
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f'{interface_name}.skew(-{before_value.variable_name}, 0);'
+            f'\n{interface_name}.skew({after_value.variable_name}, 0);'
+            f'\n{before_value.variable_name} = {after_value.variable_name};'
+        )
+        assert expected in expression

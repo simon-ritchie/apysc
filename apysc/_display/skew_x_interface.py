@@ -53,7 +53,34 @@ class SkewXInterface(VariableNameInterface, RevertInterface):
             from apysc._validation import number_validation
             self._initialize_skew_x_if_not_initialized()
             number_validation.validate_integer(integer=value)
+            before_value: ap.Int = self._skew_x
             self._skew_x = value
+            self._append_skew_x_update_expression(before_value=before_value)
+
+    def _append_skew_x_update_expression(self, before_value: ap.Int) -> None:
+        """
+        Append the skew x updating expression.
+
+        Parameters
+        ----------
+        before_value : ap.Int
+            Before updating value.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_skew_x_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=SkewXInterface):
+            from apysc._type import value_util
+            before_value_str: str = value_util.get_value_str_for_expression(
+                value=before_value)
+            after_value_str: str = value_util.get_value_str_for_expression(
+                value=self._skew_x)
+            expression: str = (
+                f'{self.variable_name}.skew(-{before_value_str}, 0);'
+                f'\n{self.variable_name}.skew({after_value_str}, 0);'
+                f'\n{before_value_str} = {after_value_str};'
+            )
+            ap.append_js_expression(expression=expression)
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

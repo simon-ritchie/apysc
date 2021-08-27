@@ -82,6 +82,8 @@ class SkewXInterface(VariableNameInterface, RevertInterface):
             )
             ap.append_js_expression(expression=expression)
 
+    _skew_x_snapshots: Dict[str, int]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
@@ -91,6 +93,12 @@ class SkewXInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not hasattr(self, '_skew_x_snapshots'):
+            self._skew_x_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._initialize_skew_x_if_not_initialized()
+        self._skew_x_snapshots[snapshot_name] = int(self._skew_x._value)
 
     def _revert(self, snapshot_name: str) -> None:
         """

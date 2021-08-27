@@ -20,6 +20,7 @@ from apysc._display.scale_y_from_center_interface import \
 from apysc._display.scale_y_from_point_interface import \
     ScaleYFromPointInterface
 from apysc._display.skew_x_interface import SkewXInterface
+from apysc._display.skew_y_interface import SkewYInterface
 
 
 class GraphicsBase(
@@ -27,7 +28,7 @@ class GraphicsBase(
         RotationAroundPointInterface, ScaleXFromCenterInterface,
         ScaleYFromCenterInterface, ScaleXFromPointInterface,
         ScaleYFromPointInterface, FlipXInterface, FlipYInterface,
-        SkewXInterface):
+        SkewXInterface, SkewYInterface):
 
     _variable_name: str
 

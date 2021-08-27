@@ -110,3 +110,6 @@ class SkewYInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._skew_y._value = self._skew_y_snapshot[snapshot_name]

@@ -4,6 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._display.skew_y_interface import SkewYInterface
+from apysc._expression import expression_data_util
 
 
 class _TestInterface(SkewYInterface):
@@ -34,3 +35,20 @@ class TestSkewYInterface:
 
         interface.skew_y = ap.Int(10)
         assert interface.skew_y == 10
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_skew_y_update_expression(self) -> None:
+        expression_data_util.empty_expression()
+        interface: _TestInterface = _TestInterface()
+        before_value: ap.Int = ap.Int(10)
+        interface.skew_y = before_value
+        after_value: ap.Int = ap.Int(20)
+        interface.skew_y = after_value
+        expression: str = expression_data_util.get_current_expression()
+        interface_name: str = interface.variable_name
+        expected: str = (
+            f'{interface_name}.skew(0, -{before_value.variable_name});'
+            f'\n{interface_name}.skew(0, {after_value.variable_name});'
+            f'\n{before_value.variable_name} = {after_value.variable_name};'
+        )
+        assert expected in expression

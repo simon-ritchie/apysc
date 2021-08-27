@@ -54,7 +54,34 @@ class SkewYInterface(VariableNameInterface, RevertInterface):
             from apysc._validation import number_validation
             self._initialize_skew_y_if_not_initialized()
             number_validation.validate_integer(integer=value)
+            before_value: ap.Int = self._skew_y
             self._skew_y = value
+            self._append_skew_y_update_expression(before_value=before_value)
+
+    def _append_skew_y_update_expression(self, before_value: ap.Int) -> None:
+        """
+        Append the skew y updating expression.
+
+        Parameters
+        ----------
+        before_value : ap.Int
+            Before updating value.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_skew_y_update_expression,
+                locals_=locals(),
+                module_name=__name__, class_=SkewYInterface):
+            from apysc._type import value_util
+            before_value_str: str = value_util.get_value_str_for_expression(
+                value=before_value)
+            after_value_str: str = value_util.get_value_str_for_expression(
+                value=self._skew_y)
+            expression: str = (
+                f'{self.variable_name}.skew(0, -{before_value_str});'
+                f'\n{self.variable_name}.skew(0, {after_value_str});'
+                f'\n{before_value_str} = {after_value_str};'
+            )
+            ap.append_js_expression(expression=expression)
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

@@ -20,6 +20,23 @@ class SkewXInterface(VariableNameInterface, RevertInterface):
             return
         self._skew_x = ap.Int(0)
 
+    @property
+    def skew_x(self) -> ap.Int:
+        """
+        Get a current skew x value of the instance.
+
+        Returns
+        -------
+        skew_x : Int
+            Current skew x value of this instance.
+        """
+        with ap.DebugInfo(
+                callable_='skew_x', locals_=locals(),
+                module_name=__name__, class_=SkewXInterface):
+            from apysc._type import value_util
+            self._initialize_skew_x_if_not_initialized()
+            return value_util.get_copy(value=self._skew_x)
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make a value's snapshot.

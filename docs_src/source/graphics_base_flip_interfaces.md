@@ -4,7 +4,7 @@ This page will explain the `GraphicsBase` class (base class of each graphics, su
 
 ## What interfaces are these?
 
-The `flip_x` method will flip an object in the x-axis direction, and the `flip_y` method will flip in the y-axis direction.
+The `flip_x` property will flip an object in the x-axis direction, and the `flip_y` property will flip in the y-axis direction.
 
 ## Basic usage
 

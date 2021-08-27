@@ -86,6 +86,7 @@ The `DisplayObject` class is the base class for each display object. The `Graphi
 - [GraphicsBase class scale from center interfaces](graphics_base_scale_from_center.md)
 - [GraphicsBase class scale from point interfaces](graphics_base_scale_from_point.md)
 - [GraphicsBase class flip x and flip y interfaces](graphics_base_flip_interfaces.md)
+- [GraphicsBase class skew x and skew y interfaces](graphics_base_skew.md)
 
 ---
 

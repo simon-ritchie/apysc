@@ -2,13 +2,15 @@
 """
 
 from typing import Optional, Union
+from abc import ABC
+from abc import abstractmethod
 
 import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class AnimationBase(VariableNameInterface, RevertInterface):
+class AnimationBase(VariableNameInterface, RevertInterface, ABC):
 
     _duration: ap.Int
     _delay: ap.Int
@@ -25,9 +27,9 @@ class AnimationBase(VariableNameInterface, RevertInterface):
         Parameters
         ----------
         duration : int or Int
-            Milliseconds before the animation ends.
+            Milliseconds before an animation ends.
         delay : int or Int, default 0
-            Milliseconds before the animation starts.
+            Milliseconds before an animation starts.
         easing : Easing or None, default None
             Easing setting. If None, Linear calculation is used.
         """
@@ -37,6 +39,37 @@ class AnimationBase(VariableNameInterface, RevertInterface):
         self._delay = to_apysc_val_from_builtin.\
             get_copied_int_from_builtin_val(integer=delay)
         self._easing = easing
+
+    @abstractmethod
+    def _get_animation_func_expression(self) -> str:
+        """
+        Get a animation function expression.
+
+        Returns
+        -------
+        expression : str
+            Animation function expression.
+            e.g., '\n  .move(100, 200);'
+        """
+
+    def start(self) -> None:
+        """
+        Start an animation.
+        """
+        expression: str = (
+            f'{self.variable_name}'
+            '\n  .animate({'
+            f'\n    duration: {self._duration.variable_name},'
+            f'\n    delay: {self._delay.variable_name}}})'
+        )
+        if self._easing is not None:
+            expression += (
+                f'\n  .ease({self._easing.value})'
+            )
+        animation_expresssion: str = self._get_animation_func_expression()
+        expression += animation_expresssion
+        ap.append_js_expression(expression=expression)
+
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

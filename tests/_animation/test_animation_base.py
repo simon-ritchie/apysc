@@ -96,3 +96,26 @@ class TestAnimationBase:
         animation._duration = ap.Int(5000)
         animation._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert animation._duration_snapshots[snapshot_name] == 3000
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__revert(self) -> None:
+        animation: _TestAnimation = _TestAnimation(
+            duration=3000, delay=1000,
+            easing=ap.Easing.EASE_OUT_QUINT)
+        snapshot_name: str = animation._get_next_snapshot_name()
+        animation._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        animation._duration = ap.Int(5000)
+        animation._delay = ap.Int(1500)
+        animation._easing = None
+        animation._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert animation._duration == 3000
+        assert animation._delay == 1000
+        assert animation._easing == ap.Easing.EASE_OUT_QUINT
+
+        animation._duration = ap.Int(5000)
+        animation._delay = ap.Int(1500)
+        animation._easing = None
+        animation._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert animation._duration == 5000
+        assert animation._delay == 1500
+        assert animation._easing is None

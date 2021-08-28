@@ -102,3 +102,9 @@ class AnimationBase(VariableNameInterface, RevertInterface, ABC):
         snapshot_name : str
             Target snapshot name.
         """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._duration._value = self._duration_snapshots[snapshot_name]
+        self._delay._value = self._delay_snapshots[
+            snapshot_name]
+        self._easing = self._easing_snapshots[snapshot_name]

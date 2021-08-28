@@ -58,9 +58,9 @@ class AnimationBase(RevertInterface, ABC):
             get_copied_int_from_builtin_val(integer=delay)
         self._easing = easing
 
-    def _append_animation_start_expression(self) -> None:
+    def start(self) -> None:
         """
-        Append an animation expression with current settings.
+        Start an animation with current settings.
         """
         expression: str = (
             f'{self._instance.variable_name}'

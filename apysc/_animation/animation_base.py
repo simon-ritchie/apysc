@@ -62,19 +62,22 @@ class AnimationBase(RevertInterface, ABC):
         """
         Start an animation with current settings.
         """
-        expression: str = (
-            f'{self._instance.variable_name}'
-            '\n  .animate({'
-            f'\n    duration: {self._duration.variable_name},'
-            f'\n    delay: {self._delay.variable_name}}})'
-        )
-        if self._easing is not None:
-            expression += (
-                f'\n  .ease({self._easing.value})'
+        with ap.DebugInfo(
+                callable_=self.start, locals_=locals(),
+                module_name=__name__, class_=AnimationBase):
+            expression: str = (
+                f'{self._instance.variable_name}'
+                '\n  .animate({'
+                f'\n    duration: {self._duration.variable_name},'
+                f'\n    delay: {self._delay.variable_name}}})'
             )
-        animation_expresssion: str = self._get_animation_func_expression()
-        expression += animation_expresssion
-        ap.append_js_expression(expression=expression)
+            if self._easing is not None:
+                expression += (
+                    f'\n  .ease({self._easing.value})'
+                )
+            animation_expresssion: str = self._get_animation_func_expression()
+            expression += animation_expresssion
+            ap.append_js_expression(expression=expression)
 
     _instance_snapshots: Dict[str, VariableNameInterface]
     _duration_snapshots: Dict[str, int]

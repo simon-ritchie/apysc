@@ -50,13 +50,17 @@ class AnimationBase(RevertInterface, ABC):
         easing : Easing or None, default None
             Easing setting. If None, Linear calculation is used.
         """
-        from apysc._converter import to_apysc_val_from_builtin
-        self._instance = instance
-        self._duration = to_apysc_val_from_builtin.\
-            get_copied_int_from_builtin_val(integer=duration)
-        self._delay = to_apysc_val_from_builtin.\
-            get_copied_int_from_builtin_val(integer=delay)
-        self._easing = easing
+        with ap.DebugInfo(
+                callable_=self._set_basic_animation_settings,
+                locals_=locals(),
+                module_name=__name__, class_=AnimationBase):
+            from apysc._converter import to_apysc_val_from_builtin
+            self._instance = instance
+            self._duration = to_apysc_val_from_builtin.\
+                get_copied_int_from_builtin_val(integer=duration)
+            self._delay = to_apysc_val_from_builtin.\
+                get_copied_int_from_builtin_val(integer=delay)
+            self._easing = easing
 
     def start(self) -> None:
         """

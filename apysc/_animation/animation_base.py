@@ -1,7 +1,7 @@
 """Base class implementation for the animation.
 """
 
-from typing import Optional, Union
+from typing import Dict, Optional, Union
 from abc import ABC
 from abc import abstractmethod
 
@@ -70,6 +70,9 @@ class AnimationBase(VariableNameInterface, RevertInterface, ABC):
         expression += animation_expresssion
         ap.append_js_expression(expression=expression)
 
+    _duration_snapshots: Dict[str, int]
+    _delay_snapshots: Dict[str, int]
+    _easing_snapshots: Dict[str, Optional[ap.Easing]]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
@@ -80,6 +83,15 @@ class AnimationBase(VariableNameInterface, RevertInterface, ABC):
         snapshot_name : str
             Target snapshot name.
         """
+        if not hasattr(self, '_duration_snapshots'):
+            self._duration_snapshots = {}
+            self._delay_snapshots = {}
+            self._easing_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._duration_snapshots[snapshot_name] = int(self._duration._value)
+        self._delay_snapshots[snapshot_name] = int(self._delay._value)
+        self._easing_snapshots[snapshot_name] = self._easing
 
     def _revert(self, snapshot_name: str) -> None:
         """

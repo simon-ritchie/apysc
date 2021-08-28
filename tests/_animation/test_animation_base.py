@@ -80,3 +80,19 @@ class TestAnimationBase:
                 pattern=expected_pattern, string=expression,
                 flags=re.MULTILINE | re.DOTALL)
             assert match is not None, f'{expected_pattern} \n\n{expression}'
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__make_snapshot(self) -> None:
+        animation: _TestAnimation = _TestAnimation(
+            duration=3000, delay=1000,
+            easing=ap.Easing.EASE_OUT_QUINT)
+        snapshot_name: str = animation._get_next_snapshot_name()
+        animation._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert animation._duration_snapshots[snapshot_name] == 3000
+        assert animation._delay_snapshots[snapshot_name] == 1000
+        assert animation._easing_snapshots[snapshot_name] == \
+            ap.Easing.EASE_OUT_QUINT
+
+        animation._duration = ap.Int(5000)
+        animation._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
+        assert animation._duration_snapshots[snapshot_name] == 3000

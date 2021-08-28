@@ -10,8 +10,9 @@ from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class AnimationBase(VariableNameInterface, RevertInterface, ABC):
+class AnimationBase(RevertInterface, ABC):
 
+    _instance: VariableNameInterface
     _duration: ap.Int
     _delay: ap.Int
     _easing: Optional[ap.Easing]
@@ -30,6 +31,7 @@ class AnimationBase(VariableNameInterface, RevertInterface, ABC):
 
     def _set_basic_animation_settings(
             self,
+            instance: VariableNameInterface,
             duration: Union[int, ap.Int],
             delay: Union[int, ap.Int] = 0,
             easing: Optional[ap.Easing] = None) -> None:
@@ -38,6 +40,9 @@ class AnimationBase(VariableNameInterface, RevertInterface, ABC):
 
         Parameters
         ----------
+        instance : VariableNameInterface
+            An instance of the animation target
+            (e.g., `DisplayObject` instance).
         duration : int or Int
             Milliseconds before an animation ends.
         delay : int or Int, default 0
@@ -46,6 +51,7 @@ class AnimationBase(VariableNameInterface, RevertInterface, ABC):
             Easing setting. If None, Linear calculation is used.
         """
         from apysc._converter import to_apysc_val_from_builtin
+        self._instance = instance
         self._duration = to_apysc_val_from_builtin.\
             get_copied_int_from_builtin_val(integer=duration)
         self._delay = to_apysc_val_from_builtin.\
@@ -57,7 +63,7 @@ class AnimationBase(VariableNameInterface, RevertInterface, ABC):
         Append an animation expression with current settings.
         """
         expression: str = (
-            f'{self.variable_name}'
+            f'{self._instance.variable_name}'
             '\n  .animate({'
             f'\n    duration: {self._duration.variable_name},'
             f'\n    delay: {self._delay.variable_name}}})'
@@ -70,6 +76,7 @@ class AnimationBase(VariableNameInterface, RevertInterface, ABC):
         expression += animation_expresssion
         ap.append_js_expression(expression=expression)
 
+    _instance_snapshots: Dict[str, VariableNameInterface]
     _duration_snapshots: Dict[str, int]
     _delay_snapshots: Dict[str, int]
     _easing_snapshots: Dict[str, Optional[ap.Easing]]
@@ -83,12 +90,14 @@ class AnimationBase(VariableNameInterface, RevertInterface, ABC):
         snapshot_name : str
             Target snapshot name.
         """
-        if not hasattr(self, '_duration_snapshots'):
+        if not hasattr(self, '_instance_snapshots'):
+            self._instance_snapshots = {}
             self._duration_snapshots = {}
             self._delay_snapshots = {}
             self._easing_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
+        self._instance_snapshots[snapshot_name] = self._instance
         self._duration_snapshots[snapshot_name] = int(self._duration._value)
         self._delay_snapshots[snapshot_name] = int(self._delay._value)
         self._easing_snapshots[snapshot_name] = self._easing
@@ -104,6 +113,7 @@ class AnimationBase(VariableNameInterface, RevertInterface, ABC):
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
+        self._instance = self._instance_snapshots[snapshot_name]
         self._duration._value = self._duration_snapshots[snapshot_name]
         self._delay._value = self._delay_snapshots[
             snapshot_name]

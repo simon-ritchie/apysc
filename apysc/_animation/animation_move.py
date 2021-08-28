@@ -62,6 +62,10 @@ class AnimationMove(AnimationBase):
         expression : str
             Animation function expression.
         """
+        from apysc._type import value_util
+        x_str: str = value_util.get_value_str_for_expression(value=self._x)
+        y_str: str = value_util.get_value_str_for_expression(value=self._y)
+        return f'\n  .move({x_str}, {y_str});'
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

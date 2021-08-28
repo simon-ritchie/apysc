@@ -5,6 +5,8 @@ from apysc._type.variable_name_interface import VariableNameInterface
 from typing import Optional, Union
 
 import apysc as ap
+from apysc._animation.easing import Easing
+from apysc._animation.animation_move import AnimationMove
 
 
 class AnimationMoveInterface(VariableNameInterface):
@@ -15,7 +17,7 @@ class AnimationMoveInterface(VariableNameInterface):
             y: Union[int, ap.Int],
             duration: Union[int, ap.Int],
             delay: Union[int, ap.Int] = 0,
-            easing: Optional[ap.Easing] = None) -> ap.AnimationMove:
+            easing: Optional[Easing] = None) -> AnimationMove:
         """
         Set the x and y coordinates animation settings.
 
@@ -42,7 +44,7 @@ class AnimationMoveInterface(VariableNameInterface):
         animation_move : AnimationMove
             Created animation setting instance.
         """
-        animation_move: ap.AnimationMove = ap.AnimationMove(
+        animation_move: AnimationMove = AnimationMove(
             instance=self,
             x=x,
             y=y,

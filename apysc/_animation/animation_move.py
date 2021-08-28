@@ -5,6 +5,7 @@ from typing import Dict, Optional, Union
 import apysc as ap
 from apysc._animation.animation_base import AnimationBase
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._animation.easing import Easing
 
 
 class AnimationMove(AnimationBase):
@@ -19,7 +20,7 @@ class AnimationMove(AnimationBase):
             y: Union[int, ap.Int],
             duration: Union[int, ap.Int],
             delay: Union[int, ap.Int] = 0,
-            easing: Optional[ap.Easing] = None) -> None:
+            easing: Optional[Easing] = None) -> None:
         """
         The animation class for moving x and y coordinates.
 

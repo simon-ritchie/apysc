@@ -8,6 +8,7 @@ from abc import abstractmethod
 import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._animation.easing import Easing
 
 
 class AnimationBase(RevertInterface, ABC):
@@ -15,7 +16,7 @@ class AnimationBase(RevertInterface, ABC):
     _instance: VariableNameInterface
     _duration: ap.Int
     _delay: ap.Int
-    _easing: Optional[ap.Easing]
+    _easing: Optional[Easing]
 
     @abstractmethod
     def _get_animation_func_expression(self) -> str:
@@ -34,7 +35,7 @@ class AnimationBase(RevertInterface, ABC):
             instance: VariableNameInterface,
             duration: Union[int, ap.Int],
             delay: Union[int, ap.Int] = 0,
-            easing: Optional[ap.Easing] = None) -> None:
+            easing: Optional[Easing] = None) -> None:
         """
         Set the basic animation settings.
 
@@ -86,7 +87,7 @@ class AnimationBase(RevertInterface, ABC):
     _instance_snapshots: Dict[str, VariableNameInterface]
     _duration_snapshots: Dict[str, int]
     _delay_snapshots: Dict[str, int]
-    _easing_snapshots: Dict[str, Optional[ap.Easing]]
+    _easing_snapshots: Dict[str, Optional[Easing]]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

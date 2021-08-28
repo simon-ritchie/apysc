@@ -1,7 +1,7 @@
 """Class implementation for the AnimationMove value.
 """
 
-from typing import Optional, Union
+from typing import Dict, Optional, Union
 import apysc as ap
 from apysc._animation.animation_base import AnimationBase
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -67,6 +67,9 @@ class AnimationMove(AnimationBase):
         y_str: str = value_util.get_value_str_for_expression(value=self._y)
         return f'\n  .move({x_str}, {y_str});'
 
+    _x_snapshots: Dict[str, int]
+    _y_snapshots: Dict[str, int]
+
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
         Make values' snapshot.
@@ -76,6 +79,11 @@ class AnimationMove(AnimationBase):
         snapshot_name : str
             Target snapshot name.
         """
+        if not hasattr(self, '_x_snapshots'):
+            self._x_snapshots = {}
+            self._y_snapshots = {}
+        self._x_snapshots[snapshot_name] = int(self._x._value)
+        self._y_snapshots[snapshot_name] = int(self._y._value)
 
     def _revert(self, snapshot_name: str) -> None:
         """

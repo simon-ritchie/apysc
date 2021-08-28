@@ -81,6 +81,13 @@ class TestAnimationBase:
                 flags=re.MULTILINE | re.DOTALL)
             assert match is not None, f'{expected_pattern} \n\n{expression}'
 
+        expression_data_util.empty_expression()
+        animation = _TestAnimation(
+            duration=3000, delay=1000,
+            easing=ap.Easing.EASE_OUT_QUINT)
+        expression = expression_data_util.get_current_expression()
+        assert '.ease(' not in expression
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         animation: _TestAnimation = _TestAnimation(

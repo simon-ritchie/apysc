@@ -45,13 +45,13 @@ class TestAnimationBase:
         assert animation._easing == ap.Easing.EASE_OUT_QUINT
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test_start(self) -> None:
+    def test__append_animation_start_expression(self) -> None:
         expression_data_util.empty_expression()
         animation: _TestAnimation = _TestAnimation()
         animation._set_basic_animation_settings(
             duration=3000, delay=1000,
             easing=ap.Easing.EASE_OUT_QUINT)
-        animation.start()
+        animation._append_animation_start_expression()
         expression: str = expression_data_util.get_current_expression()
         expected_patterns: List[str] = [
             rf'{animation.variable_name}',

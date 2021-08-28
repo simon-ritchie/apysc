@@ -82,6 +82,8 @@ class AnimationMove(AnimationBase):
         if not hasattr(self, '_x_snapshots'):
             self._x_snapshots = {}
             self._y_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
         self._x_snapshots[snapshot_name] = int(self._x._value)
         self._y_snapshots[snapshot_name] = int(self._y._value)
 
@@ -94,3 +96,7 @@ class AnimationMove(AnimationBase):
         snapshot_name : str
             Target snapshot name.
         """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._x._value = self._x_snapshots[snapshot_name]
+        self._y._value = self._y_snapshots[snapshot_name]

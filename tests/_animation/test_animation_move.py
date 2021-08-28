@@ -62,3 +62,28 @@ class TestAnimationMove:
             snapshot_name=snapshot_name)
         assert animation_move._x_snapshots[snapshot_name] == 100
         assert animation_move._y_snapshots[snapshot_name] == 200
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__revert(self) -> None:
+        instance: VariableNameInterface = VariableNameInterface()
+        instance.variable_name = 'test_animation_move_interface'
+        animation_move: ap.AnimationMove = ap.AnimationMove(
+            instance=instance,
+            x=100,
+            y=200,
+            duration=1000)
+        snapshot_name: str = animation_move._get_next_snapshot_name()
+        animation_move._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        animation_move._x._value = 300
+        animation_move._y._value = 400
+        animation_move._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert animation_move._x == 100
+        assert animation_move._y == 200
+
+        animation_move._x._value = 300
+        animation_move._y._value = 400
+        animation_move._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert animation_move._x == 300
+        assert animation_move._y == 400
+

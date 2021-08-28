@@ -16,13 +16,25 @@ class AnimationBase(VariableNameInterface, RevertInterface, ABC):
     _delay: ap.Int
     _easing: Optional[ap.Easing]
 
-    def __init__(
+    @abstractmethod
+    def _get_animation_func_expression(self) -> str:
+        """
+        Get a animation function expression.
+
+        Returns
+        -------
+        expression : str
+            Animation function expression.
+            e.g., '\n  .move(100, 200);'
+        """
+
+    def _set_basic_animation_settings(
             self,
             duration: Union[int, ap.Int],
             delay: Union[int, ap.Int] = 0,
             easing: Optional[ap.Easing] = None) -> None:
         """
-        Base class for the animation.
+        Set the basic animation settings.
 
         Parameters
         ----------
@@ -39,18 +51,6 @@ class AnimationBase(VariableNameInterface, RevertInterface, ABC):
         self._delay = to_apysc_val_from_builtin.\
             get_copied_int_from_builtin_val(integer=delay)
         self._easing = easing
-
-    @abstractmethod
-    def _get_animation_func_expression(self) -> str:
-        """
-        Get a animation function expression.
-
-        Returns
-        -------
-        expression : str
-            Animation function expression.
-            e.g., '\n  .move(100, 200);'
-        """
 
     def start(self) -> None:
         """

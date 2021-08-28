@@ -12,27 +12,11 @@ from apysc._animation.animation_base import AnimationBase
 
 class _TestAnimation(AnimationBase):
 
-    def __init__(
-            self,
-            duration: Union[int, ap.Int],
-            delay: Union[int, ap.Int] = 0,
-            easing: Optional[ap.Easing] = None) -> None:
+    def __init__(self) -> None:
         """
         Class for the testing of the AnimationBase.
-
-        Parameters
-        ----------
-        duration : int or Int
-            Milliseconds before an animation ends.
-        delay : int or Int, default 0
-            Milliseconds before an animation starts.
-        easing : Easing or None, default None
-            Easing setting. If None, Linear calculation is used.
         """
         self.variable_name = 'test_animation_base'
-        super(_TestAnimation, self).__init__(
-            duration=duration, delay=delay, easing=easing,
-        )
 
     def _get_animation_func_expression(self) -> str:
         """
@@ -49,8 +33,9 @@ class _TestAnimation(AnimationBase):
 class TestAnimationBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test___init__(self) -> None:
-        animation: _TestAnimation = _TestAnimation(
+    def test__set_basic_animation_settings(self) -> None:
+        animation: _TestAnimation = _TestAnimation()
+        animation._set_basic_animation_settings(
             duration=3000, delay=1000,
             easing=ap.Easing.EASE_OUT_QUINT)
         assert animation._duration == 3000
@@ -62,7 +47,8 @@ class TestAnimationBase:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_start(self) -> None:
         expression_data_util.empty_expression()
-        animation: _TestAnimation = _TestAnimation(
+        animation: _TestAnimation = _TestAnimation()
+        animation._set_basic_animation_settings(
             duration=3000, delay=1000,
             easing=ap.Easing.EASE_OUT_QUINT)
         animation.start()
@@ -82,7 +68,8 @@ class TestAnimationBase:
             assert match is not None, f'{expected_pattern} \n\n{expression}'
 
         expression_data_util.empty_expression()
-        animation = _TestAnimation(
+        animation = _TestAnimation()
+        animation._set_basic_animation_settings(
             duration=3000, delay=1000,
             easing=ap.Easing.EASE_OUT_QUINT)
         expression = expression_data_util.get_current_expression()
@@ -90,7 +77,8 @@ class TestAnimationBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
-        animation: _TestAnimation = _TestAnimation(
+        animation: _TestAnimation = _TestAnimation()
+        animation._set_basic_animation_settings(
             duration=3000, delay=1000,
             easing=ap.Easing.EASE_OUT_QUINT)
         snapshot_name: str = animation._get_next_snapshot_name()
@@ -106,7 +94,8 @@ class TestAnimationBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
-        animation: _TestAnimation = _TestAnimation(
+        animation: _TestAnimation = _TestAnimation()
+        animation._set_basic_animation_settings(
             duration=3000, delay=1000,
             easing=ap.Easing.EASE_OUT_QUINT)
         snapshot_name: str = animation._get_next_snapshot_name()

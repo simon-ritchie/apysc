@@ -1,14 +1,16 @@
 """Base class implementation for the animation.
 """
 
-from typing import Dict, Optional, Union
 from abc import ABC
 from abc import abstractmethod
+from typing import Dict
+from typing import Optional
+from typing import Union
 
 import apysc as ap
+from apysc._animation.easing import Easing
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._animation.easing import Easing
 
 
 class AnimationBase(RevertInterface, ABC):
@@ -22,12 +24,6 @@ class AnimationBase(RevertInterface, ABC):
     def _get_animation_func_expression(self) -> str:
         """
         Get a animation function expression.
-
-        Returns
-        -------
-        expression : str
-            Animation function expression.
-            e.g., '\n  .move(100, 200);'
         """
 
     def _set_basic_animation_settings(

@@ -4,7 +4,6 @@ from retrying import retry
 
 import apysc as ap
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._expression import var_names
 
 
 class TestAnimationMove:
@@ -86,4 +85,3 @@ class TestAnimationMove:
         animation_move._run_all_revert_methods(snapshot_name=snapshot_name)
         assert animation_move._x == 300
         assert animation_move._y == 400
-

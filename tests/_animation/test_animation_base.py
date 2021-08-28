@@ -1,14 +1,16 @@
-from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._expression import expression_data_util
-from random import randint
-from typing import List, Match, Optional, Union
 import re
+from random import randint
+from typing import List
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
 import apysc as ap
-from apysc._expression import var_names
 from apysc._animation.animation_base import AnimationBase
+from apysc._expression import expression_data_util
+from apysc._expression import var_names
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class _TestAnimation(AnimationBase):
@@ -59,8 +61,8 @@ class TestAnimationBase:
             r'\n  \.animate\({',
             rf'\n    duration: {var_names.INT}_.+?,',
             rf'\n    delay: {var_names.INT}_.+?}}\)',
-            rf'\n  \.ease\(.+?\)',
-            rf'\n  \.move\(100, 200\);',
+            r'\n  \.ease\(.+?\)',
+            r'\n  \.move\(100, 200\);',
         ]
         for expected_pattern in expected_patterns:
             match: Optional[Match] = re.search(

@@ -1,11 +1,14 @@
 """Class implementation for the AnimationMove value.
 """
 
-from typing import Dict, Optional, Union
+from typing import Dict
+from typing import Optional
+from typing import Union
+
 import apysc as ap
 from apysc._animation.animation_base import AnimationBase
-from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._animation.easing import Easing
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class AnimationMove(AnimationBase):

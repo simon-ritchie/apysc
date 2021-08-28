@@ -1,12 +1,13 @@
 """Class implementations for the animation_move interface.
 """
 
-from apysc._type.variable_name_interface import VariableNameInterface
-from typing import Optional, Union
+from typing import Optional
+from typing import Union
 
 import apysc as ap
-from apysc._animation.easing import Easing
 from apysc._animation.animation_move import AnimationMove
+from apysc._animation.easing import Easing
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class AnimationMoveInterface(VariableNameInterface):

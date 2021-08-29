@@ -131,6 +131,10 @@ class AnimationBase(
         """
         Add a animation complete event listener setting.
 
+        Notes
+        -----
+        This interface can only be used before an animation start.
+
         Parameters
         ----------
         handler : Handler
@@ -142,11 +146,17 @@ class AnimationBase(
         -------
         name : str
             Handler's name.
+
+        Raises
+        ------
+        Exception
+            If this interface is called after an animation start.
         """
         with ap.DebugInfo(
                 callable_=self.animation_complete, locals_=locals(),
                 module_name=__name__, class_=AnimationBase):
             from apysc._event.custom_event_type import CustomEventType
+            self._validate_animation_not_started()
             e: ap.AnimationEvent = ap.AnimationEvent(this=self)
             name: str = self.bind_custom_event(
                 custom_event_type=CustomEventType.ANIMATION_COMPLETE,
@@ -154,6 +164,20 @@ class AnimationBase(
                 e=e,
                 options=options)
             return name
+
+    def _validate_animation_not_started(self) -> None:
+        """
+        Validate whether an animation hasn't already been started.
+
+        Raises
+        ------
+        Exception
+            If an animation has already been started.
+        """
+        if not self._started._value:
+            return
+        raise Exception(
+            'This interface can not be called after an animation is started.')
 
     _instance_snapshots: Dict[str, VariableNameInterface]
     _duration_snapshots: Dict[str, int]

@@ -1,5 +1,6 @@
 import re
 from random import randint
+from tests.testing_helper import assert_raises
 from typing import List
 from typing import Match
 from typing import Optional, Dict, Any
@@ -203,3 +204,18 @@ class TestAnimationBase:
         expression = animation._get_animation_complete_handler_expression()
         assert f'\n  .attr({handler_name_1})'
         assert f'\n  .attr({handler_name_2})'
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__validate_animation_not_started(self) -> None:
+        animation: _TestAnimation = _TestAnimation()
+        instance_1: VariableNameInterface = VariableNameInterface()
+        instance_1.variable_name = 'test_animation_base_1'
+        animation._set_basic_animation_settings(
+            instance=instance_1, duration=1000)
+        animation.animation_complete(handler=self.on_animation_complete_2)
+
+        animation.start()
+        assert_raises(
+            expected_error_class=Exception,
+            func_or_method=animation.animation_complete,
+            kwargs={'handler': self.on_animation_complete_2})

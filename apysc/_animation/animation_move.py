@@ -47,6 +47,10 @@ class AnimationMove(AnimationBase):
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=AnimationMove):
             from apysc._converter import to_apysc_val_from_builtin
+            from apysc._expression import expression_variables_util
+            from apysc._expression import var_names
+            variable_name: str = expression_variables_util.\
+                get_next_variable_name(type_name=var_names.ANIMATION_MOVE)
             self._x = to_apysc_val_from_builtin.\
                 get_copied_int_from_builtin_val(integer=x)
             self._y = to_apysc_val_from_builtin.\
@@ -56,6 +60,7 @@ class AnimationMove(AnimationBase):
                 duration=duration,
                 delay=delay,
                 easing=easing)
+            super(AnimationMove, self).__init__(variable_name=variable_name)
 
     def _get_animation_func_expression(self) -> str:
         """

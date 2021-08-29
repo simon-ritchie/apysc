@@ -3,7 +3,7 @@
 
 from abc import ABC
 from abc import abstractmethod
-from typing import Dict
+from typing import Any, Dict
 from typing import Optional
 from typing import Union
 
@@ -11,14 +11,29 @@ import apysc as ap
 from apysc._animation.easing import Easing
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._event.custom_event_interface import CustomEventInterface
+from apysc._event.handler import Handler
+from apysc._event.handler import HandlerData
 
 
-class AnimationBase(RevertInterface, ABC):
+class AnimationBase(
+        VariableNameInterface, RevertInterface, CustomEventInterface, ABC):
 
     _instance: VariableNameInterface
     _duration: ap.Int
     _delay: ap.Int
     _easing: Optional[Easing]
+
+    def __init__(self, variable_name: str) -> None:
+        """
+        Base class for each animation setting.
+
+        Parameters
+        ----------
+        variable_name : str
+            Variable name.
+        """
+        self.variable_name = variable_name
 
     @abstractmethod
     def _get_animation_func_expression(self) -> str:
@@ -79,6 +94,36 @@ class AnimationBase(RevertInterface, ABC):
             animation_expresssion: str = self._get_animation_func_expression()
             expression += animation_expresssion
             ap.append_js_expression(expression=expression)
+
+    def animation_complete(
+            self, handler: Handler,
+            options: Optional[Dict[str, Any]]) -> str:
+        """
+        Add a animation complete event listener setting.
+
+        Parameters
+        ----------
+        handler : Handler
+            A callable will be called when an animation is complete.
+        options : dict or None, default None
+            Optional arguments dictionary to be passed to a handler.
+
+        Returns
+        -------
+        name : str
+            Handler's name.
+        """
+        with ap.DebugInfo(
+                callable_=self.animation_complete, locals_=locals(),
+                module_name=__name__, class_=AnimationBase):
+            from apysc._event.custom_event_type import CustomEventType
+            e: ap.AnimationEvent = ap.AnimationEvent(this=self)
+            name: str = self.bind_custom_event(
+                custom_event_type=CustomEventType.ANIMATION_COMPLETE,
+                handler=handler,
+                e=e,
+                options=options)
+            return name
 
     _instance_snapshots: Dict[str, VariableNameInterface]
     _duration_snapshots: Dict[str, int]

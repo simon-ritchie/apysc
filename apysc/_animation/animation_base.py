@@ -91,13 +91,40 @@ class AnimationBase(
                 expression += (
                     f'\n  .ease({self._easing.value})'
                 )
+            expression += self._get_animation_complete_handler_expression()
             animation_expresssion: str = self._get_animation_func_expression()
             expression += animation_expresssion
             ap.append_js_expression(expression=expression)
 
+    def _get_animation_complete_handler_expression(self) -> str:
+        """
+        Get a expression of the animation complete handlers setting.
+
+        Returns
+        -------
+        expression : str
+            Target expression string.
+            e.g., '\n  .after(handler_name)'
+
+        Notes
+        -----
+        If multiple handlers are registered, then multiple lines
+        expression will be returned.
+        """
+        from apysc._event.custom_event_type import CustomEventType
+        event_type: str = CustomEventType.ANIMATION_COMPLETE.value
+        self._initialize_custom_event_handlers_if_not_initialized(
+            custom_event_type_str=event_type)
+        if event_type not in self._custom_event_handlers:
+            return ''
+        expression: str = ''
+        for handler_name in self._custom_event_handlers[event_type].keys():
+            expression += f'\n  .attr({handler_name})'
+        return expression
+
     def animation_complete(
             self, handler: Handler,
-            options: Optional[Dict[str, Any]]) -> str:
+            options: Optional[Dict[str, Any]] = None) -> str:
         """
         Add a animation complete event listener setting.
 

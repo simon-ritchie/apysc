@@ -160,6 +160,19 @@ class TestAnimationBase:
         """
         assert options['value'] == 10
 
+    def on_animation_complete_2(
+            self, e: ap.AnimationEvent, options: Dict[str, Any]) -> None:
+        """
+        The handler will be called when the animation is completed.
+
+        Parameters
+        ----------
+        e : ap.AnimationEvent
+            Event instance.
+        options : dict
+            Optional argument dictionary.
+        """
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_animation_complete(self) -> None:
         expression_data_util.empty_expression()
@@ -173,3 +186,18 @@ class TestAnimationBase:
                 == self.on_animation_complete_1
         assert animation._custom_event_handlers[
             event_type][handler_name]['options'] == {'value': 10}
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_complete_handler_expression(self) -> None:
+        animation: _TestAnimation = _TestAnimation()
+        expression: str = \
+            animation._get_animation_complete_handler_expression()
+        assert expression == ''
+
+        handler_name_1: str = animation.animation_complete(
+            handler=self.on_animation_complete_1, options={'value': 10})
+        handler_name_2: str = animation.animation_complete(
+            handler=self.on_animation_complete_2)
+        expression = animation._get_animation_complete_handler_expression()
+        assert f'\n  .attr({handler_name_1})'
+        assert f'\n  .attr({handler_name_2})'

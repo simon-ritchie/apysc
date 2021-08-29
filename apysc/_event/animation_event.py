@@ -1,10 +1,11 @@
 """Class implementation for the animation event.
 """
 
-from typing import TypeVar, Generic
+from typing import Generic
+from typing import TypeVar
 
-from apysc._event.event import Event
 from apysc._animation.animation_base import AnimationBase
+from apysc._event.event import Event
 from apysc._type.variable_name_interface import VariableNameInterface
 
 _T = TypeVar('_T', bound=VariableNameInterface)

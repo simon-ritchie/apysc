@@ -1,18 +1,20 @@
 import re
 from random import randint
-from tests.testing_helper import assert_raises
+from typing import Any
+from typing import Dict
 from typing import List
 from typing import Match
-from typing import Optional, Dict, Any
+from typing import Optional
 
 from retrying import retry
 
 import apysc as ap
 from apysc._animation.animation_base import AnimationBase
+from apysc._event.custom_event_type import CustomEventType
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._event.custom_event_type import CustomEventType
+from tests.testing_helper import assert_raises
 
 
 class _TestAnimation(AnimationBase):
@@ -78,7 +80,7 @@ class TestAnimationBase:
                 pattern=expected_pattern, string=expression,
                 flags=re.MULTILINE | re.DOTALL)
             assert match is not None, f'{expected_pattern} \n\n{expression}'
-        assert animation._started == True
+        assert animation._started
 
         expression_data_util.empty_expression()
         animation = _TestAnimation()
@@ -154,7 +156,7 @@ class TestAnimationBase:
     def test___init__(self) -> None:
         animation: _TestAnimation = _TestAnimation()
         assert animation.variable_name == 'test_animation_base'
-        assert animation._started == False
+        assert not animation._started
 
     def on_animation_complete_1(
             self, e: ap.AnimationEvent, options: Dict[str, Any]) -> None:
@@ -191,9 +193,9 @@ class TestAnimationBase:
             handler=self.on_animation_complete_1,
             options={'value': 10})
         event_type: str = CustomEventType.ANIMATION_COMPLETE.value
-        assert animation._custom_event_handlers[
-            event_type][handler_name]['handler'] \
-                == self.on_animation_complete_1
+        assert (animation._custom_event_handlers[  # type: ignore
+            event_type][handler_name]['handler']
+            == self.on_animation_complete_1)
         assert animation._custom_event_handlers[
             event_type][handler_name]['options'] == {'value': 10}
 

@@ -3,17 +3,19 @@
 
 from abc import ABC
 from abc import abstractmethod
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
+from typing import Generic
 from typing import Optional
-from typing import Union, TypeVar, Generic
+from typing import TypeVar
+from typing import Union
 
 import apysc as ap
 from apysc._animation.easing import Easing
-from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.handler import Handler
-from apysc._event.handler import HandlerData
+from apysc._type.revert_interface import RevertInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 _T = TypeVar('_T', bound=VariableNameInterface)
 

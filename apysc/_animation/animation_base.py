@@ -125,7 +125,7 @@ class AnimationBase(
             return ''
         expression: str = ''
         for handler_name in self._custom_event_handlers[event_type].keys():
-            expression += f'\n  .attr({handler_name})'
+            expression += f'\n  .after({handler_name})'
         return expression
 
     def animation_complete(
@@ -160,7 +160,7 @@ class AnimationBase(
                 module_name=__name__, class_=AnimationBase):
             from apysc._event.custom_event_type import CustomEventType
             self._validate_animation_not_started()
-            e: ap.AnimationEvent = ap.AnimationEvent(this=self)
+            e: ap.AnimationEvent[_T] = ap.AnimationEvent(this=self)
             name: str = self.bind_custom_event(
                 custom_event_type=CustomEventType.ANIMATION_COMPLETE,
                 handler=handler,

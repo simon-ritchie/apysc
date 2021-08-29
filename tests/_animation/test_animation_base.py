@@ -202,8 +202,8 @@ class TestAnimationBase:
         handler_name_2: str = animation.animation_complete(
             handler=self.on_animation_complete_2)
         expression = animation._get_animation_complete_handler_expression()
-        assert f'\n  .attr({handler_name_1})'
-        assert f'\n  .attr({handler_name_2})'
+        assert f'\n  .after({handler_name_1})'
+        assert f'\n  .after({handler_name_2})'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__validate_animation_not_started(self) -> None:

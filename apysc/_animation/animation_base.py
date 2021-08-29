@@ -23,6 +23,7 @@ class AnimationBase(
     _duration: ap.Int
     _delay: ap.Int
     _easing: Optional[Easing]
+    _started: ap.Boolean
 
     def __init__(self, variable_name: str) -> None:
         """
@@ -34,6 +35,7 @@ class AnimationBase(
             Variable name.
         """
         self.variable_name = variable_name
+        self._started = ap.Boolean(False)
 
     @abstractmethod
     def _get_animation_func_expression(self) -> str:
@@ -95,6 +97,7 @@ class AnimationBase(
             animation_expresssion: str = self._get_animation_func_expression()
             expression += animation_expresssion
             ap.append_js_expression(expression=expression)
+            self._started.value = True
 
     def _get_animation_complete_handler_expression(self) -> str:
         """

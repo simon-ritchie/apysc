@@ -77,6 +77,7 @@ class TestAnimationBase:
                 pattern=expected_pattern, string=expression,
                 flags=re.MULTILINE | re.DOTALL)
             assert match is not None, f'{expected_pattern} \n\n{expression}'
+        assert animation._started == True
 
         expression_data_util.empty_expression()
         animation = _TestAnimation()
@@ -145,6 +146,7 @@ class TestAnimationBase:
     def test___init__(self) -> None:
         animation: _TestAnimation = _TestAnimation()
         assert animation.variable_name == 'test_animation_base'
+        assert animation._started == False
 
     def on_animation_complete_1(
             self, e: ap.AnimationEvent, options: Dict[str, Any]) -> None:

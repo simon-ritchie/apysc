@@ -28,3 +28,15 @@ class AnimationEvent(Event):
             from apysc._expression import var_names
             super(AnimationEvent, self).__init__(
                 this=this, type_name=var_names.ANIMATION_EVENT)
+
+    @property
+    def this(self) -> AnimationBase:
+        """
+        Get a animation setting instance that linstening this event.
+
+        Returns
+        -------
+        this : AnimationBase
+            Instance that linstening this event.
+        """
+        return self._this

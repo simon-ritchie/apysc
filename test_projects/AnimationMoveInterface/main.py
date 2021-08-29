@@ -31,7 +31,6 @@ def main() -> None:
     stage: ap.Stage = ap.Stage(
         background_color='#333',
         stage_width=1000, stage_height=500, stage_elem_id='stage')
-    ap.set_debug_mode(stage=stage)
 
     sprite: ap.Sprite = ap.Sprite(stage=stage)
     sprite.graphics.begin_fill(color='#00aaff')
@@ -52,11 +51,12 @@ def main() -> None:
         x=600, y=100, duration=3000, delay=1000,
         easing=ap.Easing.EASE_OUT_QUINT).start()
 
-    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
 def on_animation_move_1_complete(
-        e: ap.AnimationEvent, options: Dict[str, Any]) -> None:
+        e: ap.AnimationEvent[ap.Rectangle],
+        options: Dict[str, Any]) -> None:
     """
     The handler will be called when an animation is complete.
 
@@ -69,7 +69,10 @@ def on_animation_move_1_complete(
     """
     ap.trace(options['msg'])
     assert isinstance(e.this, ap.AnimationMove)
-    pass
+    rectangle: ap.Rectangle = e.this.target
+    rectangle.animation_move(
+        x=50, y=50, duration=3000,
+        easing=ap.Easing.EASE_OUT_QUINT).start()
 
 
 if __name__ == '__main__':

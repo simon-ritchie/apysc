@@ -11,7 +11,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 T = TypeVar('T', bound=VariableNameInterface)
 
 
-class MouseEvent(Event, Generic[T]):
+class MouseEvent(Event[T], Generic[T]):
     """
     Mouse event class.
 
@@ -20,8 +20,6 @@ class MouseEvent(Event, Generic[T]):
     - Common mouse event interfaces
         - https://bit.ly/3eDWY1v
     """
-
-    _this: T
 
     def __init__(self, this: T) -> None:
         """
@@ -43,23 +41,6 @@ class MouseEvent(Event, Generic[T]):
             from apysc._expression import var_names
             super(MouseEvent, self).__init__(
                 this=this, type_name=var_names.MOUSE_EVENT)
-
-    @property
-    def this(self) -> T:
-        """
-        Get instance that listening this event.
-
-        Returns
-        -------
-        this : VariableNameInterface
-            Instance that listening this event.
-
-        References
-        ----------
-        - Common mouse event interfaces document
-            - https://simon-ritchie.github.io/apysc/mouse_event_common.html
-        """
-        return super(MouseEvent, self).this
 
     @property
     def stage_x(self) -> ap.Int:

@@ -3,7 +3,7 @@
 
 from typing import Any
 from typing import Dict
-from typing import Union
+from typing import Union, Generic, TypeVar
 
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._type.copy_interface import CopyInterface
@@ -11,13 +11,16 @@ from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 _NumType = Union[int, float, 'NumberValueInterface']
+_V = TypeVar('_V', int, float)
+_T = TypeVar('_T', bound='NumberValueInterface')
 
 
 class NumberValueInterface(
-        CopyInterface, RevertInterface, CustomEventInterface):
+        CopyInterface, RevertInterface, CustomEventInterface,
+        Generic[_V, _T]):
 
     _initial_value: _NumType
-    _value: Union[int, float]
+    _value: _V
 
     def __init__(
             self, value: _NumType,
@@ -41,9 +44,9 @@ class NumberValueInterface(
                 num=value)  # type: ignore
             self._initial_value = value
             if isinstance(value, NumberValueInterface):
-                value_ = value._value
+                value_: _V = value._value
             else:
-                value_ = value
+                value_ = value  # type: ignore
             self._value = value_
             self._type_name = type_name
 
@@ -122,9 +125,9 @@ class NumberValueInterface(
         number_validation.validate_num(
             num=value)  # type: ignore
         if isinstance(value, NumberValueInterface):
-            value_ = value._value
+            value_: _V = value._value
         else:
-            value_ = value
+            value_ = value  # type: ignore
         self._value = value_
 
     def _append_value_setter_expression(
@@ -256,7 +259,7 @@ class NumberValueInterface(
             )
             ap.append_js_expression(expression=expression)
 
-    def __mul__(self, other: _NumType) -> Any:
+    def __mul__(self, other: _NumType) -> _T:
         """
         Method for multiplication.
 
@@ -278,7 +281,7 @@ class NumberValueInterface(
                 value: _NumType = self._value * other._value
             else:
                 value = self._value * other
-            result: NumberValueInterface = self._copy()
+            result: _T = self._copy()
             result._set_value_and_skip_expression_appending(value=value)
             self._append_multiplication_expression(result=result, other=other)
             return result
@@ -434,7 +437,7 @@ class NumberValueInterface(
                     right_variable_name=self.variable_name)
             self._incremental_calc_prev_name = ''
 
-    def __iadd__(self, other: _NumType) -> Any:
+    def __iadd__(self, other: _NumType) -> _T:
         """
         Method for incremental addition.
 
@@ -455,7 +458,7 @@ class NumberValueInterface(
             from apysc._expression import expression_variables_util
             self._incremental_calc_prev_name = \
                 self._get_previous_variable_name()
-            result: NumberValueInterface = self + other
+            result: _T = self + other
             expression_variables_util.append_substitution_expression(
                 left_value=self, right_value=result)
             result.variable_name = self.variable_name
@@ -488,7 +491,7 @@ class NumberValueInterface(
             result.variable_name = self.variable_name
             return result
 
-    def __imul__(self, other: _NumType) -> Any:
+    def __imul__(self, other: _NumType) -> _T:
         """
         Method for incremental multiplication.
 
@@ -509,7 +512,7 @@ class NumberValueInterface(
             from apysc._expression import expression_variables_util
             self._incremental_calc_prev_name = \
                 self._get_previous_variable_name()
-            result: NumberValueInterface = self * other
+            result: _T = self * other
             expression_variables_util.append_substitution_expression(
                 left_value=self, right_value=result)
             result.variable_name = self.variable_name
@@ -544,7 +547,7 @@ class NumberValueInterface(
             result.variable_name = self.variable_name
             return result
 
-    def __mod__(self, other: _NumType) -> Any:
+    def __mod__(self, other: _NumType) -> _T:
         """
         Method for the modulo operation.
 
@@ -566,7 +569,7 @@ class NumberValueInterface(
                 value: Union[int, float] = self._value % other._value
             else:
                 value = self._value % other
-            result: NumberValueInterface = self._copy()
+            result: _T = self._copy()
             result._set_value_and_skip_expression_appending(value=value)
             self._append_modulo_expression(result=result, other=other)
             return result
@@ -969,7 +972,7 @@ class NumberValueInterface(
             )
             ap.append_js_expression(expression=expression)
 
-    _value_snapshots: Dict[str, Union[int, float]]
+    _value_snapshots: Dict[str, _V]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """

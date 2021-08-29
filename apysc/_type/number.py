@@ -7,7 +7,7 @@ from typing import Union
 from apysc._type.number_value_interface import NumberValueInterface
 
 
-class Number(NumberValueInterface):
+class Number(NumberValueInterface[float, 'Number']):
     """
     Floating point number class for the apysc library.
 

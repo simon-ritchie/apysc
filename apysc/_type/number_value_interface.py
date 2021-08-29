@@ -3,7 +3,9 @@
 
 from typing import Any
 from typing import Dict
-from typing import Union, Generic, TypeVar
+from typing import Generic
+from typing import TypeVar
+from typing import Union
 
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._type.copy_interface import CopyInterface

@@ -46,7 +46,7 @@ class AnimationMoveInterface(VariableNameInterface):
             Created animation setting instance.
         """
         animation_move: AnimationMove = AnimationMove(
-            instance=self,
+            target=self,
             x=x,
             y=y,
             duration=duration,

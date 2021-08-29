@@ -19,7 +19,7 @@ from apysc._event.handler import HandlerData
 class AnimationBase(
         VariableNameInterface, RevertInterface, CustomEventInterface, ABC):
 
-    _instance: VariableNameInterface
+    _target: VariableNameInterface
     _duration: ap.Int
     _delay: ap.Int
     _easing: Optional[Easing]
@@ -45,7 +45,7 @@ class AnimationBase(
 
     def _set_basic_animation_settings(
             self,
-            instance: VariableNameInterface,
+            target: VariableNameInterface,
             duration: Union[int, ap.Int],
             delay: Union[int, ap.Int] = 0,
             easing: Optional[Easing] = None) -> None:
@@ -54,8 +54,8 @@ class AnimationBase(
 
         Parameters
         ----------
-        instance : VariableNameInterface
-            An instance of the animation target
+        target : VariableNameInterface
+            A target instance of the animation target
             (e.g., `DisplayObject` instance).
         duration : int or Int
             Milliseconds before an animation ends.
@@ -69,7 +69,7 @@ class AnimationBase(
                 locals_=locals(),
                 module_name=__name__, class_=AnimationBase):
             from apysc._converter import to_apysc_val_from_builtin
-            self._instance = instance
+            self._target = target
             self._duration = to_apysc_val_from_builtin.\
                 get_copied_int_from_builtin_val(integer=duration)
             self._delay = to_apysc_val_from_builtin.\
@@ -84,7 +84,7 @@ class AnimationBase(
                 callable_=self.start, locals_=locals(),
                 module_name=__name__, class_=AnimationBase):
             expression: str = (
-                f'{self._instance.variable_name}'
+                f'{self._target.variable_name}'
                 '\n  .animate({'
                 f'\n    duration: {self._duration.variable_name},'
                 f'\n    delay: {self._delay.variable_name}}})'
@@ -179,7 +179,7 @@ class AnimationBase(
         raise Exception(
             'This interface can not be called after an animation is started.')
 
-    _instance_snapshots: Dict[str, VariableNameInterface]
+    _target_snapshots: Dict[str, VariableNameInterface]
     _duration_snapshots: Dict[str, int]
     _delay_snapshots: Dict[str, int]
     _easing_snapshots: Dict[str, Optional[Easing]]
@@ -193,14 +193,14 @@ class AnimationBase(
         snapshot_name : str
             Target snapshot name.
         """
-        if not hasattr(self, '_instance_snapshots'):
-            self._instance_snapshots = {}
+        if not hasattr(self, '_target_snapshots'):
+            self._target_snapshots = {}
             self._duration_snapshots = {}
             self._delay_snapshots = {}
             self._easing_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
-        self._instance_snapshots[snapshot_name] = self._instance
+        self._target_snapshots[snapshot_name] = self._target
         self._duration_snapshots[snapshot_name] = int(self._duration._value)
         self._delay_snapshots[snapshot_name] = int(self._delay._value)
         self._easing_snapshots[snapshot_name] = self._easing
@@ -216,7 +216,7 @@ class AnimationBase(
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
-        self._instance = self._instance_snapshots[snapshot_name]
+        self._target = self._target_snapshots[snapshot_name]
         self._duration._value = self._duration_snapshots[snapshot_name]
         self._delay._value = self._delay_snapshots[
             snapshot_name]

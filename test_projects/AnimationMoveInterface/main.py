@@ -6,6 +6,7 @@ $ python AnimationMoveInterface/main.py
 """
 
 import sys
+from typing import Any, Dict
 
 sys.path.append('./')
 
@@ -36,9 +37,13 @@ def main() -> None:
     sprite.graphics.begin_fill(color='#00aaff')
     rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
-    rectangle_1.animation_move(
+    animation_move_1: ap.AnimationMove = rectangle_1.animation_move(
         x=500, y=100, duration=3000,
-        easing=ap.Easing.EASE_OUT_QUINT).start()
+        easing=ap.Easing.EASE_OUT_QUINT)
+    animation_move_1.animation_complete(
+        handler=on_animation_move_1_complete,
+        options={'msg': 'Animation move 1 completed!'})
+    animation_move_1.start()
 
     rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
         x=150, y=50, width=50, height=50)
@@ -47,6 +52,23 @@ def main() -> None:
         easing=ap.Easing.EASE_OUT_QUINT).start()
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+
+
+def on_animation_move_1_complete(
+        e: ap.AnimationEvent, options: Dict[str, Any]) -> None:
+    """
+    The handler will be called when an animation is complete.
+
+    Parameters
+    ----------
+    e : ap.AnimationEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    ap.trace(options['msg'])
+    assert isinstance(e.this, ap.AnimationMove)
+    pass
 
 
 if __name__ == '__main__':

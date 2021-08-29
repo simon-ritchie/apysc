@@ -10,10 +10,10 @@ class TestAnimationMove:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        instance: VariableNameInterface = VariableNameInterface()
-        instance.variable_name = 'test_animation_move_interface'
+        target: VariableNameInterface = VariableNameInterface()
+        target.variable_name = 'test_animation_move_interface'
         animation_move: ap.AnimationMove = ap.AnimationMove(
-            instance=instance,
+            target=target,
             x=100,
             y=200,
             duration=1000,
@@ -26,10 +26,10 @@ class TestAnimationMove:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:
-        instance: VariableNameInterface = VariableNameInterface()
-        instance.variable_name = 'test_animation_move_interface'
+        target: VariableNameInterface = VariableNameInterface()
+        target.variable_name = 'test_animation_move_interface'
         animation_move: ap.AnimationMove = ap.AnimationMove(
-            instance=instance,
+            target=target,
             x=100,
             y=200,
             duration=1000)
@@ -42,10 +42,10 @@ class TestAnimationMove:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
-        instance: VariableNameInterface = VariableNameInterface()
-        instance.variable_name = 'test_animation_move_interface'
+        target: VariableNameInterface = VariableNameInterface()
+        target.variable_name = 'test_animation_move_interface'
         animation_move: ap.AnimationMove = ap.AnimationMove(
-            instance=instance,
+            target=target,
             x=100,
             y=200,
             duration=1000)
@@ -64,10 +64,10 @@ class TestAnimationMove:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
-        instance: VariableNameInterface = VariableNameInterface()
-        instance.variable_name = 'test_animation_move_interface'
+        target: VariableNameInterface = VariableNameInterface()
+        target.variable_name = 'test_animation_move_interface'
         animation_move: ap.AnimationMove = ap.AnimationMove(
-            instance=instance,
+            target=target,
             x=100,
             y=200,
             duration=1000)

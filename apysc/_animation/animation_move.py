@@ -18,7 +18,7 @@ class AnimationMove(AnimationBase):
 
     def __init__(
             self,
-            instance: VariableNameInterface,
+            target: VariableNameInterface,
             x: Union[int, ap.Int],
             y: Union[int, ap.Int],
             duration: Union[int, ap.Int],
@@ -29,8 +29,8 @@ class AnimationMove(AnimationBase):
 
         Parameters
         ----------
-        instance : VariableNameInterface
-            An instance of the animation target
+        target : VariableNameInterface
+            A target instance of the animation target
             (e.g., `DisplayObject` instance).
         x : int or Int
             Destination of the x-coordinate.
@@ -56,7 +56,7 @@ class AnimationMove(AnimationBase):
             self._y = to_apysc_val_from_builtin.\
                 get_copied_int_from_builtin_val(integer=y)
             self._set_basic_animation_settings(
-                instance=instance,
+                target=target,
                 duration=duration,
                 delay=delay,
                 easing=easing)

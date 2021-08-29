@@ -40,3 +40,11 @@ class AnimationEvent(Event):
             Instance that linstening this event.
         """
         return self._this
+
+    def stop_propagation(self) -> None:
+        """
+        This interface is disabled by the `AnimationEvent`.
+        """
+        raise NotImplementedError(
+            '`AnimationEvent` class is not supported the `stop_propagation` '
+            'interface.')

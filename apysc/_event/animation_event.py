@@ -1,18 +1,23 @@
 """Class implementation for the animation event.
 """
 
+from typing import TypeVar, Generic
+
 from apysc._event.event import Event
 from apysc._animation.animation_base import AnimationBase
+from apysc._type.variable_name_interface import VariableNameInterface
+
+_T = TypeVar('_T', bound=VariableNameInterface)
 
 
-class AnimationEvent(Event):
+class AnimationEvent(Event, Generic[_T]):
     """
     Animation event class.
     """
 
-    _this: AnimationBase
+    _this: AnimationBase[_T]
 
-    def __init__(self, this: AnimationBase) -> None:
+    def __init__(self, this: AnimationBase[_T]) -> None:
         """
         Animation event class.
 
@@ -30,7 +35,7 @@ class AnimationEvent(Event):
                 this=this, type_name=var_names.ANIMATION_EVENT)
 
     @property
-    def this(self) -> AnimationBase:
+    def this(self) -> AnimationBase[_T]:
         """
         Get a animation setting instance that linstening this event.
 

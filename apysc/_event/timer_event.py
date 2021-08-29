@@ -69,5 +69,5 @@ class TimerEvent(Event):
         This interface is disabled by the `TimerEvent`.
         """
         raise NotImplementedError(
-            '`TimerEvent` class is not supported the `prevent_default`'
+            '`TimerEvent` class is not supported the `prevent_default` '
             'interface.')

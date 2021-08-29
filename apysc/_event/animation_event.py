@@ -48,3 +48,11 @@ class AnimationEvent(Event):
         raise NotImplementedError(
             '`AnimationEvent` class is not supported the `stop_propagation` '
             'interface.')
+
+    def prevent_default(self) -> None:
+        """
+        This interface is disabled by the `AnimationEvent`.
+        """
+        raise NotImplementedError(
+            '`AnimationEvent` class is not supported the `prevent_default` '
+            'interface.')

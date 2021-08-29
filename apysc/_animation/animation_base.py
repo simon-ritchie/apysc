@@ -198,6 +198,7 @@ class AnimationBase(
     _duration_snapshots: Dict[str, int]
     _delay_snapshots: Dict[str, int]
     _easing_snapshots: Dict[str, Optional[Easing]]
+    _started_snapshots: Dict[str, bool]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
@@ -213,12 +214,14 @@ class AnimationBase(
             self._duration_snapshots = {}
             self._delay_snapshots = {}
             self._easing_snapshots = {}
+            self._started_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._target_snapshots[snapshot_name] = self._target
         self._duration_snapshots[snapshot_name] = int(self._duration._value)
         self._delay_snapshots[snapshot_name] = int(self._delay._value)
         self._easing_snapshots[snapshot_name] = self._easing
+        self._started_snapshots[snapshot_name] = self._started._value
 
     def _revert(self, snapshot_name: str) -> None:
         """
@@ -236,3 +239,4 @@ class AnimationBase(
         self._delay._value = self._delay_snapshots[
             snapshot_name]
         self._easing = self._easing_snapshots[snapshot_name]
+        self._started._value = self._started_snapshots[snapshot_name]

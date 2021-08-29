@@ -37,9 +37,10 @@ def main() -> None:
     sprite.graphics.begin_fill(color='#00aaff')
     rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
-    animation_move_1: ap.AnimationMove = rectangle_1.animation_move(
-        x=500, y=100, duration=3000,
-        easing=ap.Easing.EASE_OUT_QUINT)
+    animation_move_1: ap.AnimationMove[ap.Rectangle] = \
+        rectangle_1.animation_move(
+            x=500, y=100, duration=3000,
+            easing=ap.Easing.EASE_OUT_QUINT)
     animation_move_1.animation_complete(
         handler=on_animation_move_1_complete,
         options={'msg': 'Animation move 1 completed!'})

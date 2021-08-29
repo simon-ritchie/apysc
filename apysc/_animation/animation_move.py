@@ -3,22 +3,24 @@
 
 from typing import Dict
 from typing import Optional
-from typing import Union
+from typing import Union, Generic, TypeVar
 
 import apysc as ap
 from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
 from apysc._type.variable_name_interface import VariableNameInterface
 
+_T = TypeVar('_T', bound=VariableNameInterface)
 
-class AnimationMove(AnimationBase):
+
+class AnimationMove(AnimationBase[_T], Generic[_T]):
 
     _x: ap.Int
     _y: ap.Int
 
     def __init__(
             self,
-            target: VariableNameInterface,
+            target: _T,
             x: Union[int, ap.Int],
             y: Union[int, ap.Int],
             duration: Union[int, ap.Int],

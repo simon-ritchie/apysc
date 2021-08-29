@@ -5,7 +5,7 @@ from abc import ABC
 from abc import abstractmethod
 from typing import Any, Dict
 from typing import Optional
-from typing import Union
+from typing import Union, TypeVar, Generic
 
 import apysc as ap
 from apysc._animation.easing import Easing
@@ -15,11 +15,14 @@ from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.handler import Handler
 from apysc._event.handler import HandlerData
 
+_T = TypeVar('_T', bound=VariableNameInterface)
+
 
 class AnimationBase(
-        VariableNameInterface, RevertInterface, CustomEventInterface, ABC):
+        VariableNameInterface, RevertInterface, CustomEventInterface,
+        Generic[_T], ABC):
 
-    _target: VariableNameInterface
+    _target: _T
     _duration: ap.Int
     _delay: ap.Int
     _easing: Optional[Easing]
@@ -45,7 +48,7 @@ class AnimationBase(
 
     def _set_basic_animation_settings(
             self,
-            target: VariableNameInterface,
+            target: _T,
             duration: Union[int, ap.Int],
             delay: Union[int, ap.Int] = 0,
             easing: Optional[Easing] = None) -> None:
@@ -180,7 +183,7 @@ class AnimationBase(
             'This interface can not be called after an animation is started.')
 
     @property
-    def target(self) -> VariableNameInterface:
+    def target(self) -> _T:
         """
         Get an animation target instance.
 
@@ -191,7 +194,7 @@ class AnimationBase(
         """
         return self._target
 
-    _target_snapshots: Dict[str, VariableNameInterface]
+    _target_snapshots: Dict[str, _T]
     _duration_snapshots: Dict[str, int]
     _delay_snapshots: Dict[str, int]
     _easing_snapshots: Dict[str, Optional[Easing]]

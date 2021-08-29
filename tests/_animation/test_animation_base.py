@@ -219,3 +219,12 @@ class TestAnimationBase:
             expected_error_class=Exception,
             func_or_method=animation.animation_complete,
             kwargs={'handler': self.on_animation_complete_2})
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_target(self) -> None:
+        animation: _TestAnimation = _TestAnimation()
+        target: VariableNameInterface = VariableNameInterface()
+        target.variable_name = 'test_animation_base_1'
+        animation._set_basic_animation_settings(
+            target=target, duration=1000)
+        assert animation.target == target

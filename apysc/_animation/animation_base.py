@@ -179,6 +179,18 @@ class AnimationBase(
         raise Exception(
             'This interface can not be called after an animation is started.')
 
+    @property
+    def target(self) -> VariableNameInterface:
+        """
+        Get an animation target instance.
+
+        Returns
+        -------
+        target : VariableNameInterface
+            An animation target instance.
+        """
+        return self._target
+
     _target_snapshots: Dict[str, VariableNameInterface]
     _duration_snapshots: Dict[str, int]
     _delay_snapshots: Dict[str, int]

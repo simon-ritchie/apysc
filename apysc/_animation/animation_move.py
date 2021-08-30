@@ -25,7 +25,7 @@ class AnimationMove(AnimationBase[_T], Generic[_T]):
             target: _T,
             x: Union[int, ap.Int],
             y: Union[int, ap.Int],
-            duration: Union[int, ap.Int],
+            duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Optional[Easing] = None) -> None:
         """
@@ -40,7 +40,7 @@ class AnimationMove(AnimationBase[_T], Generic[_T]):
             Destination of the x-coordinate.
         y : int or Int
             Destination of the y-coordinate.
-        duration : int or Int
+        duration : int or Int, default 3000
             Milliseconds before an animation ends.
         delay : int or Int, default 0
             Milliseconds before an animation starts.

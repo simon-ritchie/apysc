@@ -51,7 +51,7 @@ class AnimationBase(
     def _set_basic_animation_settings(
             self,
             target: _T,
-            duration: Union[int, ap.Int],
+            duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Optional[Easing] = None) -> None:
         """
@@ -62,7 +62,7 @@ class AnimationBase(
         target : VariableNameInterface
             A target instance of the animation target
             (e.g., `DisplayObject` instance).
-        duration : int or Int
+        duration : int or Int, default 3000
             Milliseconds before an animation ends.
         delay : int or Int, default 0
             Milliseconds before an animation starts.

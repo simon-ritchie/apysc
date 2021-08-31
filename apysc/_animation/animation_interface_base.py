@@ -1,9 +1,9 @@
 """Base class for each animation interface.
 """
 
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._animation.animation_pause_interface import AnimationPauseInterface
 
 
-class AnimationInterfaceBase(VariableNameInterface):
+class AnimationInterfaceBase(AnimationPauseInterface):
     """Base class for each animation interface.
     """

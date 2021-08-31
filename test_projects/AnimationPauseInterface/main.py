@@ -6,7 +6,8 @@ $ python AnimationPauseInterface/main.py
 """
 
 import sys
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 sys.path.append('./')
 

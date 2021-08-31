@@ -5,10 +5,9 @@ from typing import Optional
 from typing import Union
 
 import apysc as ap
+from apysc._animation.animation_interface_base import AnimationInterfaceBase
 from apysc._animation.animation_move import AnimationMove
 from apysc._animation.easing import Easing
-
-from apysc._animation.animation_interface_base import AnimationInterfaceBase
 
 
 class AnimationMoveInterface(AnimationInterfaceBase):

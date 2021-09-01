@@ -6,13 +6,13 @@ $ python AnimationPauseInterface/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
+from typing import Any
+from typing import Dict
 
 import apysc as ap
 from apysc._file import file_util

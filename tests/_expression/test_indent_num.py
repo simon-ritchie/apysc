@@ -65,7 +65,7 @@ def test__get_indent_num_table_name() -> None:
     assert table_name == \
         expression_data_util.TableName.INDENT_NUM_NORMAL.value
 
-    with event_handler_scope.HandlerScope():
+    with event_handler_scope.HandlerScope(handler_name='test_handler_1'):
         table_name = indent_num._get_indent_num_table_name()
         assert table_name == \
             expression_data_util.TableName.INDENT_NUM_HANDLER.value

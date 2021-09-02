@@ -12,10 +12,18 @@ class HandlerScope:
     Class for a handler scope. This is used at a with statement.
     """
 
-    def __init__(self) -> None:
+    _handler_name: str
+
+    def __init__(self, handler_name: str) -> None:
         """
         Class for a handler scope. This is used at a with statement.
+
+        Parameters
+        ----------
+        handler_name : str
+            Target handler's name.
         """
+        self._handler_name = handler_name
 
     def __enter__(self) -> None:
         """

@@ -80,15 +80,21 @@ def test__decrement_scope_count() -> None:
 class TestHandlerScope:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___init__(self) -> None:
+        handler_scope: HandlerScope = HandlerScope(
+            handler_name='test_handler_1')
+        assert handler_scope._handler_name == 'test_handler_1'
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___enter__(self) -> None:
         expression_data_util.empty_expression()
 
-        with HandlerScope():
+        with HandlerScope(handler_name='test_handler_1'):
             scope_count: int = event_handler_scope.\
                 get_current_event_handler_scope_count()
             assert scope_count == 1
 
-            with HandlerScope():
+            with HandlerScope(handler_name='test_handler_2'):
                 scope_count = event_handler_scope.\
                     get_current_event_handler_scope_count()
                 assert scope_count == 2
@@ -97,9 +103,9 @@ class TestHandlerScope:
     def test___exit__(self) -> None:
         expression_data_util.empty_expression()
 
-        with HandlerScope():
+        with HandlerScope(handler_name='test_handler_1'):
 
-            with HandlerScope():
+            with HandlerScope(handler_name='test_handler_2'):
                 pass
 
             scope_count: int = event_handler_scope.\

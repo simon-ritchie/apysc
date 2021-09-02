@@ -281,7 +281,7 @@ def test__minify_html() -> None:
 def test__append_event_handler_expressions() -> None:
     expression_data_util.empty_expression()
 
-    with HandlerScope():
+    with HandlerScope(handler_name='test_handler_1'):
         ap.append_js_expression(
             expression='console.log("world!");')
     expression: str = exporter._append_event_handler_expressions(

@@ -37,7 +37,7 @@ class Handler(Protocol):
 
 
 class HandlerData(TypedDict):
-    handler: Union[Handler]
+    handler: Handler
     options: Dict[str, Any]
 
 
@@ -103,7 +103,7 @@ def append_handler_expression(
         snapshot_name: str = revert_interface.make_variables_snapshots(
             variables=variables)
 
-        with HandlerScope():
+        with HandlerScope(handler_name=handler_name):
             expression: str = (
                 f'function {handler_name}({e.variable_name}) {{'
             )

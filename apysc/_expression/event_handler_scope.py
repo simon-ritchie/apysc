@@ -30,6 +30,7 @@ class HandlerScope:
         Enter and set an event handler scope setting.
         """
         _increment_scope_count()
+        _save_handler_calling_stack(handler_name=self._handler_name)
 
     def __exit__(self, *args: Any) -> None:
         """
@@ -41,6 +42,28 @@ class HandlerScope:
             Positional arguments.
         """
         _decrement_scope_count()
+
+
+def _save_handler_calling_stack(handler_name: str) -> None:
+    """
+    Save the handler calling stack data to the SQLite.
+
+    Parameters
+    ----------
+    handler_name : str
+        Target handler's name.'
+    """
+    from apysc._expression import expression_data_util
+    expression_data_util.initialize_sqlite_tables_if_not_initialized()
+    scope_count: int = get_current_event_handler_scope_count()
+    query: str = (
+        'INSERT INTO '
+        f'{expression_data_util.TableName.HANDLER_CALLING_STACK.value}'
+        '(handler_name, scope_count) '
+        f"VALUES('{handler_name}', {scope_count});"
+    )
+    expression_data_util.cursor.execute(query)
+    expression_data_util.connection.commit()
 
 
 class TemporaryNotHandlerScope:

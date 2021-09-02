@@ -161,3 +161,19 @@ def test__save_handler_calling_stack() -> None:
         expression_data_util.connection.commit()
     assert result is not None
     assert result[0] == 1
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__delete_handler_calling_stack() -> None:
+    expression_data_util.empty_expression()
+    with HandlerScope(handler_name='test_handler_1'):
+        pass
+    query: str = (
+        'SELECT scope_count FROM '
+        f'{expression_data_util.TableName.HANDLER_CALLING_STACK.value} '
+        f"WHERE handler_name = 'test_handler_1' LIMIT 1;"
+    )
+    expression_data_util.cursor.execute(query)
+    result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
+    expression_data_util.connection.commit()
+    assert result is None

@@ -41,6 +41,7 @@ class HandlerScope:
         *args : list
             Positional arguments.
         """
+        _delete_handler_calling_stack(handler_name=self._handler_name)
         _decrement_scope_count()
 
 
@@ -51,7 +52,7 @@ def _save_handler_calling_stack(handler_name: str) -> None:
     Parameters
     ----------
     handler_name : str
-        Target handler's name.'
+        Target handler's name.
     """
     from apysc._expression import expression_data_util
     expression_data_util.initialize_sqlite_tables_if_not_initialized()
@@ -61,6 +62,29 @@ def _save_handler_calling_stack(handler_name: str) -> None:
         f'{expression_data_util.TableName.HANDLER_CALLING_STACK.value}'
         '(handler_name, scope_count) '
         f"VALUES('{handler_name}', {scope_count});"
+    )
+    expression_data_util.cursor.execute(query)
+    expression_data_util.connection.commit()
+
+
+def _delete_handler_calling_stack(handler_name: str) -> None:
+    """
+    Delete the handler calling stack data from the SQLite.
+
+    Parameters
+    ----------
+    handler_name : str
+        Target handler's name.
+    """
+    from apysc._expression import expression_data_util
+    expression_data_util.initialize_sqlite_tables_if_not_initialized()
+    scope_count: int = get_current_event_handler_scope_count()
+    query: str = (
+        'DELETE FROM '
+        f'{expression_data_util.TableName.HANDLER_CALLING_STACK.value} '
+        f"WHERE handler_name = '{handler_name}' "
+        f'AND scope_count = {scope_count} '
+        'LIMIT 1;'
     )
     expression_data_util.cursor.execute(query)
     expression_data_util.connection.commit()

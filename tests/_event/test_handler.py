@@ -95,13 +95,14 @@ def test_append_handler_expression() -> None:
         })
 
     expression_data_util.empty_expression()
-    with HandlerScope(handler_name='test_handler_1'):
-        with HandlerScope(handler_name='test_handler_2'):
-            with HandlerScope(handler_name='test_handler_1'):
+    with HandlerScope(handler_name='test_handler_a_1'):
+        with HandlerScope(handler_name='test_handler_b_1'):
+            with HandlerScope(handler_name='test_handler_a_2'):
                 handler.append_handler_expression(
-                    handler_data=handler_data, handler_name='test_handler_2',
+                    handler_data=handler_data,
+                    handler_name='test_handler_b_2',
                     e=e)
-    assert 'test_handler_2' not in expression
+    assert 'test_handler_b' not in expression
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

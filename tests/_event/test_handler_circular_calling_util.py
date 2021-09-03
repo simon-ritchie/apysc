@@ -11,14 +11,14 @@ from apysc._expression.event_handler_scope import HandlerScope
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__read_handler_names() -> None:
     expression_data_util.empty_expression()
-    with HandlerScope(handler_name='test_handler_1'):
-        with HandlerScope(handler_name='test_handler_2'):
+    with HandlerScope(handler_name='test_handler_a_1'):
+        with HandlerScope(handler_name='test_handler_b_1'):
             handler_names: List[str] = handler_circular_calling_util.\
                 _read_handler_names()
-            assert handler_names == ['test_handler_1', 'test_handler_2']
+            assert handler_names == ['test_handler_a', 'test_handler_b']
 
         handler_names = handler_circular_calling_util._read_handler_names()
-        assert handler_names == ['test_handler_1']
+        assert handler_names == ['test_handler_a']
 
     handler_names = handler_circular_calling_util._read_handler_names()
     assert handler_names == []
@@ -35,23 +35,23 @@ def _is_circular_calling() -> bool:
         or not.
     """
     return handler_circular_calling_util.is_handler_circular_calling(
-        handler_name='test_handler_2')
+        handler_name='test_handler_b_2')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_is_handler_circular_calling() -> None:
-    with HandlerScope(handler_name='test_handler_1'):
+    with HandlerScope(handler_name='test_handler_a_1'):
         result: bool = _is_circular_calling()
         assert not result
-        with HandlerScope(handler_name='test_handler_2'):
+        with HandlerScope(handler_name='test_handler_b_1'):
             result = _is_circular_calling()
             assert not result
-            with HandlerScope(handler_name='test_handler_3'):
+            with HandlerScope(handler_name='test_handler_c_1'):
                 result = _is_circular_calling()
                 assert not result
-                with HandlerScope(handler_name='test_handler_1'):
+                with HandlerScope(handler_name='test_handler_a_2'):
                     result = _is_circular_calling()
                     assert not result
-                    with HandlerScope(handler_name='test_handler_2'):
+                    with HandlerScope(handler_name='test_handler_b_2'):
                         result = _is_circular_calling()
                         assert result

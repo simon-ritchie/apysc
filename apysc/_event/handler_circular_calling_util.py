@@ -19,6 +19,9 @@ def is_handler_circular_calling(handler_name: str) -> bool:
     result : bool
         If a specified handler is a circular call, True will be returned.
     """
+    from apysc._expression import event_handler_scope
+    handler_name = event_handler_scope.remove_suffix_num_from_handler_name(
+        handler_name=handler_name)
     handler_names: List[str] = _read_handler_names()
     count: int = handler_names.count(handler_name)
     if count < 2:

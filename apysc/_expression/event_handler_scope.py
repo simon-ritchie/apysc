@@ -2,7 +2,7 @@
 interfaces.
 """
 
-from typing import Any
+from typing import Any, List
 from typing import Optional
 from typing import Tuple
 
@@ -57,6 +57,8 @@ def _save_handler_calling_stack(handler_name: str) -> None:
     from apysc._expression import expression_data_util
     expression_data_util.initialize_sqlite_tables_if_not_initialized()
     scope_count: int = get_current_event_handler_scope_count()
+    handler_name = remove_suffix_num_from_handler_name(
+        handler_name=handler_name)
     query: str = (
         'INSERT INTO '
         f'{expression_data_util.TableName.HANDLER_CALLING_STACK.value}'
@@ -65,6 +67,26 @@ def _save_handler_calling_stack(handler_name: str) -> None:
     )
     expression_data_util.cursor.execute(query)
     expression_data_util.connection.commit()
+
+
+def remove_suffix_num_from_handler_name(handler_name: str) -> str:
+    """
+    Remove the suffix number from a specified handler name.
+
+    Parameters
+    ----------
+    handler_name : str
+        Target handler's name.
+
+    Returns
+    -------
+    handler_name : str
+        Result handler's name.
+    """
+    splitted: List[str] = handler_name.split('_')
+    splitted = splitted[:-1]
+    handler_name = '_'.join(splitted)
+    return handler_name
 
 
 def _delete_handler_calling_stack(handler_name: str) -> None:
@@ -79,6 +101,8 @@ def _delete_handler_calling_stack(handler_name: str) -> None:
     from apysc._expression import expression_data_util
     expression_data_util.initialize_sqlite_tables_if_not_initialized()
     scope_count: int = get_current_event_handler_scope_count()
+    handler_name = remove_suffix_num_from_handler_name(
+        handler_name=handler_name)
     query: str = (
         'DELETE FROM '
         f'{expression_data_util.TableName.HANDLER_CALLING_STACK.value} '

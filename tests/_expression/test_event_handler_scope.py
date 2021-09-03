@@ -150,11 +150,11 @@ class TestTemporaryNotHandlerScope:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__save_handler_calling_stack() -> None:
     expression_data_util.empty_expression()
-    with HandlerScope(handler_name='test_handler_1'):
+    with HandlerScope(handler_name='test_handler_a_1'):
         query: str = (
             'SELECT scope_count FROM '
             f'{expression_data_util.TableName.HANDLER_CALLING_STACK.value} '
-            f"WHERE handler_name = 'test_handler_1' LIMIT 1;"
+            f"WHERE handler_name = 'test_handler_a' LIMIT 1;"
         )
         expression_data_util.cursor.execute(query)
         result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
@@ -166,14 +166,22 @@ def test__save_handler_calling_stack() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__delete_handler_calling_stack() -> None:
     expression_data_util.empty_expression()
-    with HandlerScope(handler_name='test_handler_1'):
+    with HandlerScope(handler_name='test_handler_a_1'):
         pass
     query: str = (
         'SELECT scope_count FROM '
         f'{expression_data_util.TableName.HANDLER_CALLING_STACK.value} '
-        f"WHERE handler_name = 'test_handler_1' LIMIT 1;"
+        f"WHERE handler_name = 'test_handler_a' LIMIT 1;"
     )
     expression_data_util.cursor.execute(query)
     result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
     expression_data_util.connection.commit()
     assert result is None
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_remove_suffix_num_from_handler_name() -> None:
+    handler_name: str = event_handler_scope.\
+        remove_suffix_num_from_handler_name(
+            handler_name='__main__on_timer_1_timer_5')
+    assert handler_name == '__main__on_timer_1_timer'

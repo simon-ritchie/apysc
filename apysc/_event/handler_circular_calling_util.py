@@ -1,7 +1,6 @@
 """Handler circular calling related utilities.
 """
 
-
 from typing import List, Tuple
 
 
@@ -20,9 +19,26 @@ def is_handler_circular_calling(handler_name: str) -> bool:
     result : bool
         If a specified handler is a circular call, True will be returned.
     """
-    from apysc._expression import event_handler_scope
     handler_names: List[str] = _read_handler_names()
-    pass
+    count: int = handler_names.count(handler_name)
+    if count < 2:
+        return False
+    prev_handler_name: str = handler_names[-2]
+    prev_handler_count: int = 0
+    for i, handler_name_ in enumerate(handler_names):
+        if i == 0:
+            continue
+        if handler_name_ != handler_name:
+            continue
+        prev_handler_name_: str = handler_names[i - 1]
+        if prev_handler_name_ != prev_handler_name:
+            continue
+        prev_handler_count += 1
+        if prev_handler_count == 2:
+            break
+    if prev_handler_count == 2:
+        return True
+    return False
 
 
 def _read_handler_names() -> List[str]:

@@ -1,3 +1,4 @@
+from apysc._expression.event_handler_scope import HandlerScope
 from random import randint
 from typing import Any
 from typing import Dict
@@ -92,6 +93,15 @@ def test_append_handler_expression() -> None:
             'handler_name': handler_name,
             'e': 100,
         })
+
+    expression_data_util.empty_expression()
+    with HandlerScope(handler_name='test_handler_1'):
+        with HandlerScope(handler_name='test_handler_2'):
+            with HandlerScope(handler_name='test_handler_1'):
+                handler.append_handler_expression(
+                    handler_data=handler_data, handler_name='test_handler_2',
+                    e=e)
+    assert 'test_handler_2' not in expression
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

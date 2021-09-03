@@ -98,19 +98,23 @@ def append_handler_expression(
         from apysc._expression.indent_num import Indent
         from apysc._type import revert_interface
         from apysc._validation.event_validation import validate_event
+        from apysc._event.handler_circular_calling_util import \
+            is_handler_circular_calling
         validate_event(e=e)
         variables: List[Any] = [*handler_data['options'].values()]
         snapshot_name: str = revert_interface.make_variables_snapshots(
             variables=variables)
 
         with HandlerScope(handler_name=handler_name):
-            expression: str = (
-                f'function {handler_name}({e.variable_name}) {{'
-            )
-            ap.append_js_expression(expression=expression)
-            with Indent():
-                handler_data['handler'](e=e, options=handler_data['options'])
-            ap.append_js_expression(expression='}')
+            if not is_handler_circular_calling(handler_name= handler_name):
+                expression: str = (
+                    f'function {handler_name}({e.variable_name}) {{'
+                )
+                ap.append_js_expression(expression=expression)
+                with Indent():
+                    handler_data['handler'](
+                        e=e, options=handler_data['options'])
+                ap.append_js_expression(expression='}')
 
         revert_interface.revert_variables(
             snapshot_name=snapshot_name, variables=variables)

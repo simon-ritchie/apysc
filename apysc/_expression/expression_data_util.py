@@ -33,6 +33,7 @@ class TableName(Enum):
     STAGE_ELEM_ID = 'stage_elem_id'
     VARIABLE_NAME_COUNT = 'variable_name_count'
     HANDLER_CALLING_STACK = 'handler_calling_stack'
+    CIRCULAR_CALLING_HANDLER_NAME = 'circular_calling_handler_name'
 
 
 _SQLITE_IN_MEMORY_SETTING: str = 'file::memory:?cache=shared'
@@ -303,6 +304,20 @@ def _create_handler_calling_stack_table() -> None:
     cursor.execute(query)
 
 
+@_check_connection
+def _create_circular_calling_handler_name_table() -> None:
+    """
+    Create the circular calling handler names data SQLite table.
+    """
+    query: str = _make_create_table_query(
+        table_name=TableName.CIRCULAR_CALLING_HANDLER_NAME,
+        column_ddl=(
+            '  id INTEGER PRIMARY KEY AUTOINCREMENT,'
+            '\n  handler_name TEXT NOT NULL'
+        ))
+    cursor.execute(query)
+
+
 def initialize_sqlite_tables_if_not_initialized() -> bool:
     """
     Initialize the sqlite tables if they have not been
@@ -329,6 +344,7 @@ def initialize_sqlite_tables_if_not_initialized() -> bool:
     _create_stage_elem_id_table()
     _create_variable_name_count_table()
     _create_handler_calling_stack_table()
+    _create_circular_calling_handler_name_table()
     return True
 
 

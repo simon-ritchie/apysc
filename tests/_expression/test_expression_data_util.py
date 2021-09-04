@@ -267,3 +267,12 @@ def test__create_handler_calling_stack_table() -> None:
     result: bool = expression_data_util._table_exists(
         table_name=expression_data_util.TableName.HANDLER_CALLING_STACK)
     assert result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__create_circular_calling_handler_name_table() -> None:
+    expression_data_util._create_circular_calling_handler_name_table()
+    result: bool = expression_data_util._table_exists(
+        table_name=expression_data_util.TableName.
+        CIRCULAR_CALLING_HANDLER_NAME)
+    assert result

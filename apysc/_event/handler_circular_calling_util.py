@@ -67,6 +67,8 @@ def _append_handler_name_to_last_of_list(
     handler_names : list of str
         Result list value.
     """
+    if not handler_names:
+        return [handler_name]
     if handler_names[-1] == handler_name:
         return handler_names
     handler_names.append(handler_name)

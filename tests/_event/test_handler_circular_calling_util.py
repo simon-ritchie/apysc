@@ -46,6 +46,7 @@ def _is_circular_calling(handler_name: str) -> bool:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_is_handler_circular_calling() -> None:
+    expression_data_util.empty_expression()
     with HandlerScope(handler_name='test_handler_a_1'):
         result: bool = _is_circular_calling('test_handler_a_1')
         assert not result
@@ -61,6 +62,10 @@ def test_is_handler_circular_calling() -> None:
                     with HandlerScope(handler_name='test_handler_b_2'):
                         result = _is_circular_calling('test_handler_b_2')
                         assert result
+
+    result = handler_circular_calling_util.is_handler_circular_calling(
+        handler_name='test_handler_b_2')
+    assert result
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

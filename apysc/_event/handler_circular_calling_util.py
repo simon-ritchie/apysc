@@ -67,20 +67,43 @@ def _is_already_saved_circular_calling(handler_name: str) -> bool:
         If a specified handler name has already been saved as the
         circular calling handler then True will be returned
     """
+    prev_handler_name: str = get_prev_handler_name(
+        handler_name=handler_name)
+    if prev_handler_name == '':
+        return False
+    return True
+
+
+def get_prev_handler_name(handler_name: str) -> str:
+    """
+    Get a previous handler's name of a specified handler's
+    one if it is a circular calling handler.
+
+    Parameters
+    ----------
+    handler_name : str
+        Target handler's name.
+
+    Returns
+    -------
+    prev_handler_name : str
+        A previous handler's name. If there is no previous one,
+        then blank string will be returned.
+    """
     from apysc._expression import expression_data_util
     expression_data_util.initialize_sqlite_tables_if_not_initialized()
     table_name: str = expression_data_util.TableName.\
         CIRCULAR_CALLING_HANDLER_NAME.value
     query: str = (
-        f'SELECT handler_name FROM {table_name} '
+        f'SELECT prev_handler_name FROM {table_name} '
         f"WHERE handler_name = '{handler_name}';"
     )
     expression_data_util.cursor.execute(query)
     result: Optional[Tuple[str]] = expression_data_util.cursor.fetchone()
     expression_data_util.connection.commit()
     if result is None:
-        return False
-    return True
+        return ''
+    return result[0]
 
 
 def _save_circular_calling_handler_name(handler_name: str) -> None:

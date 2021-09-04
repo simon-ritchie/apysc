@@ -23,6 +23,8 @@ def is_handler_circular_calling(handler_name: str) -> bool:
     handler_name = event_handler_scope.remove_suffix_num_from_handler_name(
         handler_name=handler_name)
     handler_names: List[str] = _read_handler_names()
+    handler_names = _append_handler_name_to_last_of_list(
+        handler_name=handler_name, handler_names=handler_names)
     count: int = handler_names.count(handler_name)
     if count < 2:
         return False
@@ -42,6 +44,33 @@ def is_handler_circular_calling(handler_name: str) -> bool:
     if prev_handler_count == 2:
         return True
     return False
+
+
+def _append_handler_name_to_last_of_list(
+        handler_name: str, handler_names: List[str]) -> List[str]:
+    """
+    Append a specified handler's name to the last of the list
+    if the last one is an other handler's name.
+
+    This function is used to unify last value regardless of
+    `HandlerScope` setting.
+
+    Parameters
+    ----------
+    handler_name : str
+        Targer handler name.
+    handler_names : list of str
+        List to be appended.
+
+    Returns
+    -------
+    handler_names : list of str
+        Result list value.
+    """
+    if handler_names[-1] == handler_name:
+        return handler_names
+    handler_names.append(handler_name)
+    return handler_names
 
 
 def _read_handler_names() -> List[str]:

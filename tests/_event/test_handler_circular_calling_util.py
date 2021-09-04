@@ -132,7 +132,7 @@ def test__save_circular_calling_handler_name() -> None:
     assert result == ('test_handler_a_2', 'test_handler_a_1')
 
 
-# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__is_already_saved_circular_calling() -> None:
     expression_data_util.empty_expression()
     with HandlerScope(handler_name='test_handler_a_1'):

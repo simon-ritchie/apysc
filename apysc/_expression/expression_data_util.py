@@ -313,7 +313,8 @@ def _create_circular_calling_handler_name_table() -> None:
         table_name=TableName.CIRCULAR_CALLING_HANDLER_NAME,
         column_ddl=(
             '  id INTEGER PRIMARY KEY AUTOINCREMENT,'
-            '\n  handler_name TEXT NOT NULL'
+            '\n  handler_name TEXT NOT NULL,'
+            '\n  prev_handler_name TEXT NOT NULL'
         ))
     cursor.execute(query)
 

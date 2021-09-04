@@ -62,7 +62,14 @@ def _save_circular_calling_handler_name(handler_name: str) -> None:
     expression_data_util.initialize_sqlite_tables_if_not_initialized()
     same_name_prev_hadler_name: str = _get_same_name_prev_hadler_name(
         handler_name=handler_name)
-    pass
+    table_name: str = expression_data_util.TableName.\
+        CIRCULAR_CALLING_HANDLER_NAME.value
+    query: str = (
+        f'INSERT INTO {table_name}(handler_name, prev_handler_name) '
+        f"VALUES('{handler_name}', '{same_name_prev_hadler_name}');"
+    )
+    expression_data_util.cursor.execute(query)
+    expression_data_util.connection.commit()
 
 
 def _get_same_name_prev_hadler_name(handler_name: str) -> str:

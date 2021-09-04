@@ -20,6 +20,7 @@ def is_handler_circular_calling(handler_name: str) -> bool:
         If a specified handler is a circular call, True will be returned.
     """
     from apysc._expression import event_handler_scope
+    original_handler_name: str = handler_name
     handler_name = event_handler_scope.remove_suffix_num_from_handler_name(
         handler_name=handler_name)
     handler_names: List[str] = _read_handler_names()
@@ -42,8 +43,75 @@ def is_handler_circular_calling(handler_name: str) -> bool:
         if prev_handler_count == 2:
             break
     if prev_handler_count == 2:
+        _save_circular_calling_handler_name(
+            handler_name=original_handler_name)
         return True
     return False
+
+
+def _save_circular_calling_handler_name(handler_name: str) -> None:
+    """
+    Save a circular calling handler name to the SQLite.
+
+    Parameters
+    ----------
+    handler_name : str
+        Target handler's name.
+    """
+    from apysc._expression import expression_data_util
+    expression_data_util.initialize_sqlite_tables_if_not_initialized()
+    same_name_prev_hadler_name: str = _get_same_name_prev_hadler_name(
+        handler_name=handler_name)
+    pass
+
+
+def _get_same_name_prev_hadler_name(handler_name: str) -> str:
+    """
+    Get a previous same name (but the suffix number is different)
+    handler's name from the current stack.
+
+    Parameters
+    ----------
+    handler_name : str
+        Target handler's name.
+
+    Returns
+    -------
+    same_name_prev_hadler_name : str
+        A previous same name (but the suffix number is different)
+        handler's name.
+
+    Raises
+    ------
+    ValueError
+        If there is no previous same name handler's name in the SQLite.
+    """
+    from apysc._expression import expression_data_util
+    from apysc._expression import event_handler_scope
+    table_name: str = expression_data_util.TableName.\
+        HANDLER_CALLING_STACK.value
+    query: str = (
+        f'SELECT handler_name FROM {table_name} '
+        f'ORDER BY scope_count DESC'
+    )
+    expression_data_util.cursor.execute(query)
+    result: List[Tuple[str]] = expression_data_util.cursor.fetchall()
+    expression_data_util.connection.commit()
+    for i, tpl in enumerate(result):
+        handler_name_: str = tpl[0]
+        if i == 0 and handler_name == handler_name_:
+            continue
+        no_suffix_handler_name: str = event_handler_scope.\
+            remove_suffix_num_from_handler_name(handler_name=handler_name)
+        no_suffix_handler_name_: str = event_handler_scope.\
+            remove_suffix_num_from_handler_name(handler_name=handler_name_)
+        if no_suffix_handler_name != no_suffix_handler_name_:
+            continue
+        same_name_prev_hadler_name: str = handler_name_
+        return same_name_prev_hadler_name
+    raise ValueError(
+        'Previous same name handler does not exitst in the SQLite.'
+        ' Please check the implementation of this function\'s calling.')
 
 
 def _append_handler_name_to_last_of_list(
@@ -85,6 +153,7 @@ def _read_handler_names() -> List[str]:
         Target handler names.
     """
     from apysc._expression import expression_data_util
+    from apysc._expression import event_handler_scope
     expression_data_util.initialize_sqlite_tables_if_not_initialized()
     table_name: str = expression_data_util.TableName.\
         HANDLER_CALLING_STACK.value
@@ -94,5 +163,9 @@ def _read_handler_names() -> List[str]:
     )
     expression_data_util.cursor.execute(query)
     result: List[Tuple[str]] = expression_data_util.cursor.fetchall()
-    handler_names: List[str] = [tpl[0] for tpl in result]
+    expression_data_util.connection.commit()
+    handler_names: List[str] = [
+        event_handler_scope.remove_suffix_num_from_handler_name(
+            handler_name=tpl[0])
+        for tpl in result]
     return handler_names

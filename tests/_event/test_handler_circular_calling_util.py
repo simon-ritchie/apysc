@@ -6,6 +6,7 @@ from retrying import retry
 from apysc._event import handler_circular_calling_util
 from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
+from tests.testing_helper import assert_raises
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -84,3 +85,23 @@ def test__append_handler_name_to_last_of_list() -> None:
             handler_names=['test_handler_a', 'test_handler_b'])
     assert handler_names == [
         'test_handler_a', 'test_handler_b', 'test_handler_a']
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_same_name_prev_hadler_name() -> None:
+    with HandlerScope(handler_name='test_handler_a_1'):
+        with HandlerScope(handler_name='test_handler_b_1'):
+            with HandlerScope(handler_name='test_handler_a_2'):
+                same_name_prev_hadler_name: str = \
+                    handler_circular_calling_util.\
+                    _get_same_name_prev_hadler_name(
+                        handler_name='test_handler_a_2')
+    assert same_name_prev_hadler_name == 'test_handler_a_1'
+
+    with HandlerScope(handler_name='test_handler_a_1'):
+        assert_raises(
+            expected_error_class=ValueError,
+            func_or_method=handler_circular_calling_util.
+            _get_same_name_prev_hadler_name,
+            kwargs={'handler_name': 'test_handler_a_1'},
+            match='Previous same name handler does not exitst in the SQLite.')

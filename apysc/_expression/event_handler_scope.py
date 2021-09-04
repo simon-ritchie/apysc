@@ -57,8 +57,6 @@ def _save_handler_calling_stack(handler_name: str) -> None:
     from apysc._expression import expression_data_util
     expression_data_util.initialize_sqlite_tables_if_not_initialized()
     scope_count: int = get_current_event_handler_scope_count()
-    handler_name = remove_suffix_num_from_handler_name(
-        handler_name=handler_name)
     query: str = (
         'INSERT INTO '
         f'{expression_data_util.TableName.HANDLER_CALLING_STACK.value}'
@@ -101,8 +99,6 @@ def _delete_handler_calling_stack(handler_name: str) -> None:
     from apysc._expression import expression_data_util
     expression_data_util.initialize_sqlite_tables_if_not_initialized()
     scope_count: int = get_current_event_handler_scope_count()
-    handler_name = remove_suffix_num_from_handler_name(
-        handler_name=handler_name)
     query: str = (
         'DELETE FROM '
         f'{expression_data_util.TableName.HANDLER_CALLING_STACK.value} '

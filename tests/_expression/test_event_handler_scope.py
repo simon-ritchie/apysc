@@ -154,7 +154,7 @@ def test__save_handler_calling_stack() -> None:
         query: str = (
             'SELECT scope_count FROM '
             f'{expression_data_util.TableName.HANDLER_CALLING_STACK.value} '
-            f"WHERE handler_name = 'test_handler_a' LIMIT 1;"
+            f"WHERE handler_name = 'test_handler_a_1' LIMIT 1;"
         )
         expression_data_util.cursor.execute(query)
         result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
@@ -171,7 +171,7 @@ def test__delete_handler_calling_stack() -> None:
     query: str = (
         'SELECT scope_count FROM '
         f'{expression_data_util.TableName.HANDLER_CALLING_STACK.value} '
-        f"WHERE handler_name = 'test_handler_a' LIMIT 1;"
+        f"WHERE handler_name = 'test_handler_a_1' LIMIT 1;"
     )
     expression_data_util.cursor.execute(query)
     result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()

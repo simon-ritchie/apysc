@@ -1,7 +1,7 @@
 """Handler circular calling related utilities.
 """
 
-from typing import List, Tuple
+from typing import List, Optional, Tuple
 
 
 def is_handler_circular_calling(handler_name: str) -> bool:
@@ -20,6 +20,8 @@ def is_handler_circular_calling(handler_name: str) -> bool:
         If a specified handler is a circular call, True will be returned.
     """
     from apysc._expression import event_handler_scope
+    if _is_already_saved_circular_calling(handler_name=handler_name):
+        return True
     original_handler_name: str = handler_name
     handler_name = event_handler_scope.remove_suffix_num_from_handler_name(
         handler_name=handler_name)
@@ -47,6 +49,38 @@ def is_handler_circular_calling(handler_name: str) -> bool:
             handler_name=original_handler_name)
         return True
     return False
+
+
+def _is_already_saved_circular_calling(handler_name: str) -> bool:
+    """
+    Get a boolean indicating whether a specified handler name
+    has been already saved as the circular calling handler or not.
+
+    Parameters
+    ----------
+    handler_name : str
+        Target handler's name.
+
+    Returns
+    -------
+    result : bool
+        If a specified handler name has already been saved as the
+        circular calling handler then True will be returned
+    """
+    from apysc._expression import expression_data_util
+    expression_data_util.initialize_sqlite_tables_if_not_initialized()
+    table_name: str = expression_data_util.TableName.\
+        CIRCULAR_CALLING_HANDLER_NAME.value
+    query: str = (
+        f'SELECT handler_name FROM {table_name} '
+        f"WHERE handler_name = '{handler_name}';"
+    )
+    expression_data_util.cursor.execute(query)
+    result: Optional[Tuple[str]] = expression_data_util.cursor.fetchone()
+    expression_data_util.connection.commit()
+    if result is None:
+        return False
+    return True
 
 
 def _save_circular_calling_handler_name(handler_name: str) -> None:

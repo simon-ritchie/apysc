@@ -125,3 +125,26 @@ def test__save_circular_calling_handler_name() -> None:
     result: Optional[Tuple[str, str]] = expression_data_util.cursor.fetchone()
     expression_data_util.connection.commit()
     assert result == ('test_handler_a_2', 'test_handler_a_1')
+
+
+# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__is_already_saved_circular_calling() -> None:
+    expression_data_util.empty_expression()
+    with HandlerScope(handler_name='test_handler_a_1'):
+        handler_circular_calling_util.is_handler_circular_calling(
+            handler_name='test_handler_a_1')
+        result: bool = handler_circular_calling_util.\
+            _is_already_saved_circular_calling(
+                handler_name='test_handler_a_1')
+    assert not result
+
+    with HandlerScope(handler_name='test_handler_a_1'):
+        with HandlerScope(handler_name='test_handler_b_1'):
+            with HandlerScope(handler_name='test_handler_a_2'):
+                with HandlerScope(handler_name='test_handler_b_2'):
+                    handler_circular_calling_util.is_handler_circular_calling(
+                        handler_name='test_handler_b_2')
+    result = handler_circular_calling_util.\
+        _is_already_saved_circular_calling(
+            handler_name='test_handler_b_2')
+    assert result

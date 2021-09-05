@@ -40,7 +40,25 @@ class XInterface(VariableNameInterface, RevertInterface):
                 module_name=__name__, class_=XInterface):
             from apysc._type import value_util
             self._initialize_x_if_not_initialized()
-            return value_util.get_copy(value=self._x)
+            x: ap.Int = value_util.get_copy(value=self._x)
+            self._append_x_getter_expression(x=x)
+            return x
+
+    def _append_x_getter_expression(self, x: ap.Int) -> None:
+        """
+        Append the x position getter expression.
+
+        Parameters
+        ----------
+        x : Int
+            X-coordinate.
+        """
+        expression: str = (
+            f'if (!_.isUndefined({self.variable_name})) {{'
+            f'\n  {x.variable_name} = {self.variable_name}.x();'
+            '\n}'
+        )
+        ap.append_js_expression(expression=expression)
 
     @x.setter
     def x(self, value: ap.Int) -> None:
@@ -71,7 +89,7 @@ class XInterface(VariableNameInterface, RevertInterface):
 
     def _append_x_update_expression(self) -> None:
         """
-        Append x position updating expression.
+        Append the x position updating expression.
         """
         with ap.DebugInfo(
                 callable_=self._append_x_update_expression, locals_=locals(),

@@ -115,7 +115,7 @@ class TestTimer:
 
         expression = \
             expression_data_util.get_current_event_handler_scope_expression()
-        match: Optional[Match] = re.search(
+        match = re.search(
             pattern=(
                 r'function .*on_timer.*\('
             ),

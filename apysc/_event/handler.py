@@ -62,6 +62,7 @@ def get_handler_name(
     from apysc._callable import callable_util
     from apysc._validation.variable_name_validation import \
         validate_variable_name_interface_type
+    from apysc._event import handler_circular_calling_util as circ_util
     class_name: str = callable_util.get_method_class_name(method=handler)
     if class_name != '':
         class_name = f'{class_name}_'
@@ -72,6 +73,8 @@ def get_handler_name(
     instance_: VariableNameInterface = validate_variable_name_interface_type(
         instance=instance)
     handler_name += f'_{instance_.variable_name}'
+    if circ_util.is_handler_circular_calling(handler_name=handler_name):
+        return circ_util.get_prev_handler_name(handler_name=handler_name)
     return handler_name
 
 

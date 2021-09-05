@@ -84,7 +84,6 @@ class Timer(VariableNameInterface, CustomEventInterface):
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=Timer):
-            from apysc._event.handler import append_handler_expression
             from apysc._event.handler import get_handler_name
             from apysc._expression import expression_variables_util
             from apysc._expression import var_names
@@ -114,11 +113,6 @@ class Timer(VariableNameInterface, CustomEventInterface):
                     'handler': self._handler,
                     'options': options,
                 }
-                e: ap.TimerEvent = ap.TimerEvent(this=self)
-                append_handler_expression(
-                    handler_data=self._handler_data,
-                    handler_name=self._handler_name,
-                    e=e)
                 ap.append_js_expression(
                     expression=f'var {self.variable_name};')
 
@@ -240,16 +234,31 @@ class Timer(VariableNameInterface, CustomEventInterface):
                 module_name=__name__, class_=Timer):
             from apysc._expression import expression_data_util
             from apysc._type import value_util
-            self._running.value = True
+            from apysc._event import handler_circular_calling_util
+            from apysc._event.handler import append_handler_expression
             delay_val_str: str = value_util.get_value_str_for_expression(
                 value=self._delay)
+            is_handler_circular_calling: bool = handler_circular_calling_util.\
+                is_handler_circular_calling(handler_name=self._handler_name)
+            if is_handler_circular_calling:
+                handler_name: str = handler_circular_calling_util.\
+                    get_prev_handler_name(handler_name=self._handler_name)
+            else:
+                handler_name = self._handler_name
             expression: str = (
                 f'\nif (_.isUndefined({self.variable_name})) {{'
                 f'\n  {self.variable_name} = setInterval('
-                f'{self._handler_name}, {delay_val_str});'
+                f'{handler_name}, {delay_val_str});'
                 '\n}'
             )
             expression_data_util.append_js_expression(expression=expression)
+
+            e: ap.TimerEvent = ap.TimerEvent(this=self)
+            append_handler_expression(
+                handler_data=self._handler_data,
+                handler_name=handler_name,
+                e=e)
+            self._running.value = True
 
     def _wrap_handler(self, handler: Handler) -> Handler:
         """

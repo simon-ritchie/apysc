@@ -153,3 +153,24 @@ def test__is_already_saved_circular_calling() -> None:
         _is_already_saved_circular_calling(
             handler_name='test_handler_b_2')
     assert result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_get_prev_handler_name() -> None:
+    expression_data_util.empty_expression()
+    with HandlerScope(handler_name='test_handler_a_1'):
+        handler_circular_calling_util.is_handler_circular_calling(
+            handler_name='test_handler_a_1')
+        prev_handler_name: str = handler_circular_calling_util.\
+            get_prev_handler_name(handler_name='test_handler_a_1')
+    assert prev_handler_name == ''
+
+    with HandlerScope(handler_name='test_handler_a_1'):
+        with HandlerScope(handler_name='test_handler_b_1'):
+            with HandlerScope(handler_name='test_handler_a_2'):
+                with HandlerScope(handler_name='test_handler_b_2'):
+                    handler_circular_calling_util.is_handler_circular_calling(
+                        handler_name='test_handler_b_2')
+                    prev_handler_name: str = handler_circular_calling_util.\
+                        get_prev_handler_name(handler_name='test_handler_b_2')
+    assert prev_handler_name == 'test_handler_b_1'

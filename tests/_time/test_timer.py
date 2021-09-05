@@ -63,17 +63,6 @@ class TestTimer:
         assert isinstance(timer._delay, ap.Number)
         assert isinstance(timer._repeat_count, ap.Int)
 
-        expression: str = \
-            expression_data_util.get_current_event_handler_scope_expression()
-        match: Optional[Match] = re.search(
-            pattern=(
-                r'function .*on_timer.*\('
-            ),
-            string=expression,
-            flags=re.MULTILINE,
-        )
-        assert match is not None
-
         expression = expression_data_util.get_current_expression()
         assert f'var {timer.variable_name};' in expression
 
@@ -108,6 +97,7 @@ class TestTimer:
         expression_data_util.empty_expression()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
         timer.start()
+        print('running:', timer._running)
         assert timer.running
         expression: str = expression_data_util.get_current_expression()
         pattern: str = (
@@ -121,6 +111,18 @@ class TestTimer:
             string=expression,
             flags=re.MULTILINE | re.DOTALL,
         )
+
+        expression: str = \
+            expression_data_util.get_current_event_handler_scope_expression()
+        match: Optional[Match] = re.search(
+            pattern=(
+                r'function .*on_timer.*\('
+            ),
+            string=expression,
+            flags=re.MULTILINE,
+        )
+        assert match is not None
+
         assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

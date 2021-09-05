@@ -1,4 +1,3 @@
-from apysc._expression.event_handler_scope import HandlerScope
 from random import randint
 from typing import Any
 from typing import Dict
@@ -9,6 +8,7 @@ import apysc as ap
 from apysc._event import handler
 from apysc._event.handler import HandlerData
 from apysc._expression import expression_data_util
+from apysc._expression.event_handler_scope import HandlerScope
 from apysc._type.variable_name_interface import VariableNameInterface
 from tests import testing_helper
 

@@ -9,7 +9,6 @@ from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.custom_event_type import CustomEventType
 from apysc._expression import expression_data_util
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._event.handler import get_handler_name
 
 
 class _TestObject(CustomEventInterface, VariableNameInterface):

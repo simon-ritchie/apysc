@@ -1,7 +1,9 @@
 """Handler circular calling related utilities.
 """
 
-from typing import List, Optional, Tuple
+from typing import List
+from typing import Optional
+from typing import Tuple
 
 
 def is_handler_circular_calling(handler_name: str) -> bool:
@@ -150,8 +152,8 @@ def _get_same_name_prev_hadler_name(handler_name: str) -> str:
     ValueError
         If there is no previous same name handler's name in the SQLite.
     """
-    from apysc._expression import expression_data_util
     from apysc._expression import event_handler_scope
+    from apysc._expression import expression_data_util
     table_name: str = expression_data_util.TableName.\
         HANDLER_CALLING_STACK.value
     query: str = (
@@ -216,8 +218,8 @@ def _read_handler_names() -> List[str]:
     handler_names : list of str
         Target handler names.
     """
-    from apysc._expression import expression_data_util
     from apysc._expression import event_handler_scope
+    from apysc._expression import expression_data_util
     expression_data_util.initialize_sqlite_tables_if_not_initialized()
     table_name: str = expression_data_util.TableName.\
         HANDLER_CALLING_STACK.value

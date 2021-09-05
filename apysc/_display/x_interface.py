@@ -44,25 +44,6 @@ class XInterface(VariableNameInterface, RevertInterface):
             self._append_x_getter_expression(x=x)
             return x
 
-    def _append_x_getter_expression(self, x: ap.Int) -> None:
-        """
-        Append the x position getter expression.
-
-        Parameters
-        ----------
-        x : Int
-            X-coordinate.
-        """
-        with ap.DebugInfo(
-                callable_=self._append_x_getter_expression, locals_=locals(),
-                module_name=__name__, class_=XInterface):
-            expression: str = (
-                f'if (!_.isUndefined({self.variable_name})) {{'
-                f'\n  {x.variable_name} = {self.variable_name}.x();'
-                '\n}'
-            )
-            ap.append_js_expression(expression=expression)
-
     @x.setter
     def x(self, value: ap.Int) -> None:
         """
@@ -89,6 +70,25 @@ class XInterface(VariableNameInterface, RevertInterface):
             self._x = value
             self._x._append_incremental_calc_substitution_expression()
             self._append_x_update_expression()
+
+    def _append_x_getter_expression(self, x: ap.Int) -> None:
+        """
+        Append the x position getter expression.
+
+        Parameters
+        ----------
+        x : Int
+            X-coordinate.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_x_getter_expression, locals_=locals(),
+                module_name=__name__, class_=XInterface):
+            expression: str = (
+                f'if (!_.isUndefined({self.variable_name})) {{'
+                f'\n  {x.variable_name} = {self.variable_name}.x();'
+                '\n}'
+            )
+            ap.append_js_expression(expression=expression)
 
     def _append_x_update_expression(self) -> None:
         """

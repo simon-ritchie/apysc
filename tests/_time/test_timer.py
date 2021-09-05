@@ -111,8 +111,9 @@ class TestTimer:
             string=expression,
             flags=re.MULTILINE | re.DOTALL,
         )
+        assert match is not None
 
-        expression: str = \
+        expression = \
             expression_data_util.get_current_event_handler_scope_expression()
         match: Optional[Match] = re.search(
             pattern=(
@@ -121,8 +122,6 @@ class TestTimer:
             string=expression,
             flags=re.MULTILINE,
         )
-        assert match is not None
-
         assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

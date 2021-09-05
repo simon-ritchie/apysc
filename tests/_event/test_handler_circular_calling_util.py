@@ -1,5 +1,7 @@
 from random import randint
-from typing import List, Optional, Tuple
+from typing import List
+from typing import Optional
+from typing import Tuple
 
 from retrying import retry
 
@@ -171,6 +173,6 @@ def test_get_prev_handler_name() -> None:
                 with HandlerScope(handler_name='test_handler_b_2'):
                     handler_circular_calling_util.is_handler_circular_calling(
                         handler_name='test_handler_b_2')
-                    prev_handler_name: str = handler_circular_calling_util.\
+                    prev_handler_name = handler_circular_calling_util.\
                         get_prev_handler_name(handler_name='test_handler_b_2')
     assert prev_handler_name == 'test_handler_b_1'

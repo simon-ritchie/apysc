@@ -232,10 +232,10 @@ class Timer(VariableNameInterface, CustomEventInterface):
         with ap.DebugInfo(
                 callable_=self.start, locals_=locals(),
                 module_name=__name__, class_=Timer):
-            from apysc._expression import expression_data_util
-            from apysc._type import value_util
             from apysc._event import handler_circular_calling_util
             from apysc._event.handler import append_handler_expression
+            from apysc._expression import expression_data_util
+            from apysc._type import value_util
             delay_val_str: str = value_util.get_value_str_for_expression(
                 value=self._delay)
             is_handler_circular_calling: bool = handler_circular_calling_util.\

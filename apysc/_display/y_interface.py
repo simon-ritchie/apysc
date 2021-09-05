@@ -44,25 +44,6 @@ class YInterface(VariableNameInterface, RevertInterface):
             self._append_y_getter_expression(y=y)
             return y
 
-    def _append_y_getter_expression(self, y: ap.Int) -> None:
-        """
-        Append the y position getter expression.
-
-        Parameters
-        ----------
-        y : Int
-            Y-coordinate.
-        """
-        with ap.DebugInfo(
-                callable_=self._append_y_getter_expression, locals_=locals(),
-                module_name=__name__, class_=YInterface):
-            expression: str = (
-                f'if (!_.isUndefined({self.variable_name})) {{'
-                f'\n  {y.variable_name} = {self.variable_name}.y();'
-                '\n}'
-            )
-            ap.append_js_expression(expression=expression)
-
     @y.setter
     def y(self, value: ap.Int) -> None:
         """
@@ -89,6 +70,25 @@ class YInterface(VariableNameInterface, RevertInterface):
             self._y = value
             self._y._append_incremental_calc_substitution_expression()
             self._append_y_update_expression()
+
+    def _append_y_getter_expression(self, y: ap.Int) -> None:
+        """
+        Append the y position getter expression.
+
+        Parameters
+        ----------
+        y : Int
+            Y-coordinate.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_y_getter_expression, locals_=locals(),
+                module_name=__name__, class_=YInterface):
+            expression: str = (
+                f'if (!_.isUndefined({self.variable_name})) {{'
+                f'\n  {y.variable_name} = {self.variable_name}.y();'
+                '\n}'
+            )
+            ap.append_js_expression(expression=expression)
 
     def _append_y_update_expression(self) -> None:
         """

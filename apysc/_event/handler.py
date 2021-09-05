@@ -4,7 +4,6 @@
 from typing import Any
 from typing import Dict
 from typing import List
-from typing import Union
 
 from typing_extensions import Protocol
 from typing_extensions import TypedDict
@@ -60,9 +59,9 @@ def get_handler_name(
         + function or method name) + instance's variable name.
     """
     from apysc._callable import callable_util
+    from apysc._event import handler_circular_calling_util as circ_util
     from apysc._validation.variable_name_validation import \
         validate_variable_name_interface_type
-    from apysc._event import handler_circular_calling_util as circ_util
     class_name: str = callable_util.get_method_class_name(method=handler)
     if class_name != '':
         class_name = f'{class_name}_'
@@ -97,19 +96,19 @@ def append_handler_expression(
     with ap.DebugInfo(
             callable_=append_handler_expression, locals_=locals(),
             module_name=__name__):
+        from apysc._event.handler_circular_calling_util import \
+            is_handler_circular_calling
         from apysc._expression.event_handler_scope import HandlerScope
         from apysc._expression.indent_num import Indent
         from apysc._type import revert_interface
         from apysc._validation.event_validation import validate_event
-        from apysc._event.handler_circular_calling_util import \
-            is_handler_circular_calling
         validate_event(e=e)
         variables: List[Any] = [*handler_data['options'].values()]
         snapshot_name: str = revert_interface.make_variables_snapshots(
             variables=variables)
 
         with HandlerScope(handler_name=handler_name):
-            if not is_handler_circular_calling(handler_name= handler_name):
+            if not is_handler_circular_calling(handler_name=handler_name):
                 expression: str = (
                     f'function {handler_name}({e.variable_name}) {{'
                 )

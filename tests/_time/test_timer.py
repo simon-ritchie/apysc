@@ -206,7 +206,7 @@ class TestTimer:
         assert expected in expression
 
         expected = (
-            f'{timer.blank_object_variable_name}.off('
+            f'$({timer.blank_object_variable_name}).off('
             f'"{event_type}");'
         )
         assert expected in expression

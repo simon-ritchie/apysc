@@ -255,13 +255,10 @@ class Timer(VariableNameInterface, CustomEventInterface):
             expression_data_util.append_js_expression(expression=expression)
 
             e: ap.TimerEvent = ap.TimerEvent(this=self)
-            is_handler_circular_calling: bool = append_handler_expression(
+            append_handler_expression(
                 handler_data=self._handler_data,
                 handler_name=handler_name,
                 e=e)
-            # if is_handler_circular_calling:
-            #     with HandlerScope(handler_name=handler_name):
-            #         self._append_count_branch_expression()
             self._running.value = True
 
     def _wrap_handler(self, handler: Handler) -> Handler:

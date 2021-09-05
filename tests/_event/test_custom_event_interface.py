@@ -81,6 +81,8 @@ class TestCustomEventInterface:
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'$({interface.blank_object_variable_name})'
+            f'.off("test_custom_event", {name});'
+            f'\n$({interface.blank_object_variable_name})'
             f'.on("test_custom_event", {name});'
         )
         assert expected in expression

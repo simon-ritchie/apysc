@@ -154,6 +154,8 @@ class CustomEventInterface(BlankObjectInterface):
             blank_object_variable_name: str = self.blank_object_variable_name
             expression: str = (
                 f'$({blank_object_variable_name})'
+                f'.off("{custom_event_type_str}", {name});'
+                f'\n$({blank_object_variable_name})'
                 f'.on("{custom_event_type_str}", {name});'
             )
             ap.append_js_expression(expression=expression)

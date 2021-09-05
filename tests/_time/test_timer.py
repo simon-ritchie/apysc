@@ -1,3 +1,4 @@
+from apysc._expression.event_handler_scope import HandlerScope
 import re
 from random import randint
 from typing import Any
@@ -123,6 +124,24 @@ class TestTimer:
             flags=re.MULTILINE,
         )
         assert match is not None
+
+        expression_data_util.empty_expression()
+        handler_name: str = timer._handler_name
+        with HandlerScope(handler_name='test_handler_a_1'):
+            with HandlerScope(handler_name=handler_name):
+                with HandlerScope(handler_name='test_handler_a_1'):
+                    timer.start()
+        expression = expression_data_util.\
+            get_current_event_handler_scope_expression()
+        assert 'clearInterval' in expression
+        match = re.search(
+            pattern=(
+                r'function .*on_timer.*\('
+            ),
+            string=expression,
+            flags=re.MULTILINE,
+        )
+        assert match is None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_current_count(self) -> None:

@@ -68,7 +68,7 @@ class CustomEventInterface(BlankObjectInterface):
         Parameters
         ----------
         handler : Handler
-            Callable would be called when event is dispatched.
+            Callable will be called when an event is dispatched.
         custom_event_type_str : str
             Target custom event type string.
         options : dict or None
@@ -83,6 +83,27 @@ class CustomEventInterface(BlankObjectInterface):
             'options': options,
         }
 
+    def _unset_custom_event_handler_data(
+            self, handler: Handler,
+            custom_event_type_str: str) -> None:
+        """
+        Unset a handler's data from the dictionary.
+
+        Parameters
+        ----------
+        handler : Handler
+            Callable will be called when an event is dispatched.
+        custom_event_type_str : str
+            Target custom event type string.
+        """
+        from apysc._event.handler import get_handler_name
+        if custom_event_type_str not in self._custom_event_handlers:
+            return
+        name: str = get_handler_name(handler=handler, instance=self)
+        if name not in self._custom_event_handlers[custom_event_type_str]:
+            return
+        del self._custom_event_handlers[custom_event_type_str][name]
+
     def bind_custom_event(
             self, custom_event_type: Union[CustomEventType, str],
             handler: Handler,
@@ -96,7 +117,7 @@ class CustomEventInterface(BlankObjectInterface):
         custom_event_type : CustomEventType or str
             Target custom event type.
         handler : Handler
-            A handler would be called when the custom event is triggered.
+            A handler will be called when the custom event is triggered.
         e : Event
             Event instance.
         options : dict or None, default None
@@ -187,3 +208,35 @@ class CustomEventInterface(BlankObjectInterface):
                 f'.trigger("{custom_event_type_str}");'
             )
             ap.append_js_expression(expression=expression)
+
+    def unbind_custom_event(
+            self,
+            custom_event_type: Union[CustomEventType, str],
+            handler: Handler) -> None:
+        """
+        Unbind (remove) a custom event listener setting.
+
+        Parameters
+        ----------
+        custom_event_type : CustomEventType or str
+            Target custom event type.
+        handler : Handler
+            A handler will be called when the custom event is triggered.
+
+        Returns
+        -------
+        name : str
+            Handler's name.
+        """
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self.unbind_custom_event, locals_=locals(),
+                module_name=__name__, class_=CustomEventInterface):
+            from apysc._event.handler import get_handler_name
+            custom_event_type_str: str = self._get_custom_event_type_str(
+                custom_event_type=custom_event_type)
+            self._initialize_custom_event_handlers_if_not_initialized(
+                custom_event_type_str=custom_event_type_str)
+            self._unset_custom_event_handler_data(
+                handler=handler, custom_event_type_str=custom_event_type_str)
+        pass

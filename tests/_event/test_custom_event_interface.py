@@ -9,6 +9,7 @@ from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.custom_event_type import CustomEventType
 from apysc._expression import expression_data_util
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._event.handler import get_handler_name
 
 
 class _TestObject(CustomEventInterface, VariableNameInterface):
@@ -114,3 +115,27 @@ class TestCustomEventInterface:
             f'.trigger("test_event");'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__unset_custom_event_handler_data(self) -> None:
+        interface: _TestObject = _TestObject()
+        interface._custom_event_handlers = {}
+        interface._unset_custom_event_handler_data(
+            handler=self.on_custom_event,
+            custom_event_type_str='test_event')
+        assert interface._custom_event_handlers == {}
+
+        interface._initialize_custom_event_handlers_if_not_initialized(
+            custom_event_type_str='test_event')
+        interface._unset_custom_event_handler_data(
+            handler=self.on_custom_event,
+            custom_event_type_str='test_event')
+        assert interface._custom_event_handlers == {'test_event': {}}
+
+        interface._set_custom_event_handler_data(
+            handler=self.on_custom_event, custom_event_type_str='test_event',
+            options=None)
+        interface._unset_custom_event_handler_data(
+            handler=self.on_custom_event,
+            custom_event_type_str='test_event')
+        assert interface._custom_event_handlers == {'test_event': {}}

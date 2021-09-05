@@ -79,7 +79,7 @@ def get_handler_name(
 
 def append_handler_expression(
         handler_data: HandlerData, handler_name: str,
-        e: Event) -> None:
+        e: Event) -> bool:
     """
     Append a handler's expression.
 
@@ -91,6 +91,12 @@ def append_handler_expression(
         Target handler's name.
     e : Event
         Created event instance.
+
+    Returns
+    -------
+    is_handler_circular_calling : bool
+        A boolean value whether this handler setting is
+        the circular calling or not.
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -108,7 +114,9 @@ def append_handler_expression(
             variables=variables)
 
         with HandlerScope(handler_name=handler_name):
-            if not is_handler_circular_calling(handler_name=handler_name):
+            is_handler_circular_calling_: bool = is_handler_circular_calling(
+                handler_name=handler_name)
+            if not is_handler_circular_calling_:
                 expression: str = (
                     f'function {handler_name}({e.variable_name}) {{'
                 )
@@ -120,6 +128,7 @@ def append_handler_expression(
 
         revert_interface.revert_variables(
             snapshot_name=snapshot_name, variables=variables)
+        return is_handler_circular_calling_
 
 
 def append_unbinding_expression(

@@ -321,6 +321,8 @@ class Timer(VariableNameInterface, CustomEventInterface):
                 self._running.value = False
                 self.trigger_custom_event(
                     custom_event_type=CustomEventType.TIMER_COMPLETE)
+                self.unbind_custom_event_all(
+                    custom_event_type=CustomEventType.TIMER_COMPLETE)
                 self._current_count.value = 0
             expression = '\n}'
             expression_data_util.append_js_expression(expression=expression)

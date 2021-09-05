@@ -206,6 +206,12 @@ class TestTimer:
         )
         assert expected in expression
 
+        expected = (
+            f'{timer.blank_object_variable_name}.off('
+            f'"{event_type}");'
+        )
+        assert expected in expression
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__convert_delay_to_number(self) -> None:
         timer: ap.Timer = ap.Timer(

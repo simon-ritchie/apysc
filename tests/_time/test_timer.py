@@ -200,6 +200,12 @@ class TestTimer:
         )
         assert match is not None
 
+        assert timer._current_count == 0
+        expected: str = (
+            f'{timer._current_count.variable_name} = 0;'
+        )
+        assert expected in expression
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__convert_delay_to_number(self) -> None:
         timer: ap.Timer = ap.Timer(

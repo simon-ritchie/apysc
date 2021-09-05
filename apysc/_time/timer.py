@@ -240,7 +240,8 @@ class Timer(VariableNameInterface, CustomEventInterface):
             delay_val_str: str = value_util.get_value_str_for_expression(
                 value=self._delay)
             is_handler_circular_calling: bool = handler_circular_calling_util.\
-                is_handler_circular_calling(handler_name=self._handler_name)
+                is_handler_circular_calling(
+                    handler_name=self._handler_name, instance=self)
             if is_handler_circular_calling:
                 handler_name: str = handler_circular_calling_util.\
                     get_prev_handler_name(handler_name=self._handler_name)

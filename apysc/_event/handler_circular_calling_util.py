@@ -5,8 +5,11 @@ from typing import List
 from typing import Optional
 from typing import Tuple
 
+from apysc._type.variable_name_interface import VariableNameInterface
 
-def is_handler_circular_calling(handler_name: str) -> bool:
+
+def is_handler_circular_calling(
+        handler_name: str, instance: VariableNameInterface) -> bool:
     """
     Get a boolean value whether a specified handler is
     a circular call or not.
@@ -15,6 +18,8 @@ def is_handler_circular_calling(handler_name: str) -> bool:
     ----------
     handler_name : str
         Targer handler name.
+    instance : VariableNameInterface
+        Instance that the target handler will be binded.
 
     Returns
     -------
@@ -48,7 +53,7 @@ def is_handler_circular_calling(handler_name: str) -> bool:
             break
     if prev_handler_count == 2:
         _save_circular_calling_handler_name(
-            handler_name=original_handler_name)
+            handler_name=original_handler_name, instance=instance)
         return True
     return False
 
@@ -108,7 +113,8 @@ def get_prev_handler_name(handler_name: str) -> str:
     return result[0]
 
 
-def _save_circular_calling_handler_name(handler_name: str) -> None:
+def _save_circular_calling_handler_name(
+        handler_name: str, instance: VariableNameInterface) -> None:
     """
     Save a circular calling handler name to the SQLite.
 
@@ -116,6 +122,8 @@ def _save_circular_calling_handler_name(handler_name: str) -> None:
     ----------
     handler_name : str
         Target handler's name.
+    instance : VariableNameInterface
+        Instance that the target handler will be binded.
     """
     from apysc._expression import expression_data_util
     expression_data_util.initialize_sqlite_tables_if_not_initialized()
@@ -124,8 +132,10 @@ def _save_circular_calling_handler_name(handler_name: str) -> None:
     table_name: str = expression_data_util.TableName.\
         CIRCULAR_CALLING_HANDLER_NAME.value
     query: str = (
-        f'INSERT INTO {table_name}(handler_name, prev_handler_name) '
-        f"VALUES('{handler_name}', '{same_name_prev_hadler_name}');"
+        f'INSERT INTO {table_name}'
+        '(handler_name, prev_handler_name, variable_name) '
+        f"VALUES('{handler_name}', '{same_name_prev_hadler_name}', "
+        f"'{instance.variable_name}');"
     )
     expression_data_util.cursor.execute(query)
     expression_data_util.connection.commit()

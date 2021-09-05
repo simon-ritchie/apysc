@@ -72,7 +72,8 @@ def get_handler_name(
     instance_: VariableNameInterface = validate_variable_name_interface_type(
         instance=instance)
     handler_name += f'_{instance_.variable_name}'
-    if circ_util.is_handler_circular_calling(handler_name=handler_name):
+    if circ_util.is_handler_circular_calling(
+            handler_name=handler_name, instance=instance_):
         return circ_util.get_prev_handler_name(handler_name=handler_name)
     return handler_name
 
@@ -102,14 +103,18 @@ def append_handler_expression(
         from apysc._expression.indent_num import Indent
         from apysc._type import revert_interface
         from apysc._validation.event_validation import validate_event
+        from apysc._validation.variable_name_validation import \
+            validate_variable_name_interface_type
         validate_event(e=e)
         variables: List[Any] = [*handler_data['options'].values()]
         snapshot_name: str = revert_interface.make_variables_snapshots(
             variables=variables)
+        instance: VariableNameInterface = \
+            validate_variable_name_interface_type(instance=e._this)
 
         with HandlerScope(handler_name=handler_name):
             is_handler_circular_calling_: bool = is_handler_circular_calling(
-                handler_name=handler_name)
+                handler_name=handler_name, instance=instance)
             if not is_handler_circular_calling_:
                 expression: str = (
                     f'function {handler_name}({e.variable_name}) {{'

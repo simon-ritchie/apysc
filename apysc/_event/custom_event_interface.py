@@ -266,3 +266,28 @@ class CustomEventInterface(BlankObjectInterface):
                 f'.off("{custom_event_type_str}", {name});'
             )
             ap.append_js_expression(expression=expression)
+
+    def unbind_custom_event_all(
+            self, custom_event_type: Union[CustomEventType, str]) -> None:
+        """
+        Unbind (remove) custom event listener settings.
+
+        Parameters
+        ----------
+        custom_event_type : CustomEventType or str
+            Target custom event type.
+        """
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self.unbind_custom_event_all, locals_=locals(),
+                module_name=__name__, class_=CustomEventInterface):
+            custom_event_type_str: str = self._get_custom_event_type_str(
+                custom_event_type=custom_event_type)
+            self._initialize_custom_event_handlers_if_not_initialized(
+                custom_event_type_str=custom_event_type_str)
+            self._custom_event_handlers[custom_event_type_str] = {}
+            expression: str = (
+                f'$({self.blank_object_variable_name})'
+                f'.off("{custom_event_type_str}");'
+            )
+            ap.append_js_expression(expression=expression)

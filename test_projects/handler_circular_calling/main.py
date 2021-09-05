@@ -62,6 +62,16 @@ def on_timer_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
 
 
 def on_timer_complete_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+    """
+    The handler will be called when a timer has completed.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
     rectangle: ap.Rectangle = options['rectangle']
     timer_2: ap.Timer = ap.Timer(
         on_timer_2, delay=ap.FPS.FPS_60, repeat_count=100,
@@ -89,15 +99,24 @@ def on_timer_2(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
 
 
 def on_timer_complete_2(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
-    # rectangle: ap.Rectangle = options['rectangle']
-    # timer_3: ap.Timer = ap.Timer(
-    #     on_timer_1, delay=ap.FPS.FPS_60, repeat_count=100,
-    #     options={'rectangle': rectangle})
-    # timer_3.timer_complete(
-    #     on_timer_complete_1, options={'rectangle': rectangle})
-    # timer_3.start()
-    # ap.trace('on_timer_complete_2')
-    pass
+    """
+    The handler will be called when a timer has completed.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rectangle: ap.Rectangle = options['rectangle']
+    timer_3: ap.Timer = ap.Timer(
+        on_timer_1, delay=ap.FPS.FPS_60, repeat_count=100,
+        options={'rectangle': rectangle})
+    timer_3.timer_complete(
+        on_timer_complete_1, options={'rectangle': rectangle})
+    timer_3.start()
+    ap.trace('on_timer_complete_2')
 
 
 if __name__ == '__main__':

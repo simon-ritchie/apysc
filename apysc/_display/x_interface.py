@@ -53,12 +53,15 @@ class XInterface(VariableNameInterface, RevertInterface):
         x : Int
             X-coordinate.
         """
-        expression: str = (
-            f'if (!_.isUndefined({self.variable_name})) {{'
-            f'\n  {x.variable_name} = {self.variable_name}.x();'
-            '\n}'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self._append_x_getter_expression, locals_=locals(),
+                module_name=__name__, class_=XInterface):
+            expression: str = (
+                f'if (!_.isUndefined({self.variable_name})) {{'
+                f'\n  {x.variable_name} = {self.variable_name}.x();'
+                '\n}'
+            )
+            ap.append_js_expression(expression=expression)
 
     @x.setter
     def x(self, value: ap.Int) -> None:

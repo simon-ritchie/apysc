@@ -40,7 +40,28 @@ class YInterface(VariableNameInterface, RevertInterface):
                 module_name=__name__, class_=YInterface):
             from apysc._type import value_util
             self._initialize_y_if_not_initialized()
-            return value_util.get_copy(value=self._y)
+            y: ap.Int = value_util.get_copy(value=self._y)
+            self._append_y_getter_expression(y=y)
+            return y
+
+    def _append_y_getter_expression(self, y: ap.Int) -> None:
+        """
+        Append the y position getter expression.
+
+        Parameters
+        ----------
+        y : Int
+            Y-coordinate.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_y_getter_expression, locals_=locals(),
+                module_name=__name__, class_=YInterface):
+            expression: str = (
+                f'if (!_.isUndefined({self.variable_name})) {{'
+                f'\n  {y.variable_name} = {self.variable_name}.y();'
+                '\n}'
+            )
+            ap.append_js_expression(expression=expression)
 
     @y.setter
     def y(self, value: ap.Int) -> None:

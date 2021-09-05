@@ -77,3 +77,18 @@ class TestYInterface:
         y_interface.y = ap.Int(150)
         y_interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert y_interface.y == 150
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_y_getter_expression(self) -> None:
+        expression_data_util.empty_expression()
+        y_interface: YInterface = YInterface()
+        y_interface.variable_name = 'test_y_interface'
+        y_interface.y = ap.Int(100)
+        y: ap.Int = y_interface.y
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f'if (!_.isUndefined({y_interface.variable_name})) {{'
+            f'\n  {y.variable_name} = {y_interface.variable_name}.y();'
+            '\n}'
+        )
+        assert expected in expression

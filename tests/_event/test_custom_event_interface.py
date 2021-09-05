@@ -139,3 +139,17 @@ class TestCustomEventInterface:
             handler=self.on_custom_event,
             custom_event_type_str='test_event')
         assert interface._custom_event_handlers == {'test_event': {}}
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_custom_event_unbinding_expression(self) -> None:
+        expression_data_util.empty_expression()
+        interface: _TestObject = _TestObject()
+        name: str = interface.unbind_custom_event(
+            custom_event_type='test_event',
+            handler=self.on_custom_event)
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f'$({interface.blank_object_variable_name})'
+            f'.off("test_event", {name});'
+        )
+        assert expected in expression

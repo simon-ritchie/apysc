@@ -212,7 +212,7 @@ class CustomEventInterface(BlankObjectInterface):
     def unbind_custom_event(
             self,
             custom_event_type: Union[CustomEventType, str],
-            handler: Handler) -> None:
+            handler: Handler) -> str:
         """
         Unbind (remove) a custom event listener setting.
 
@@ -239,4 +239,30 @@ class CustomEventInterface(BlankObjectInterface):
                 custom_event_type_str=custom_event_type_str)
             self._unset_custom_event_handler_data(
                 handler=handler, custom_event_type_str=custom_event_type_str)
-        pass
+            name: str = get_handler_name(handler=handler, instance=self)
+            self._append_custom_event_unbinding_expression(
+                custom_event_type_str=custom_event_type_str, name=name)
+            return name
+
+    def _append_custom_event_unbinding_expression(
+            self, custom_event_type_str: str, name: str) -> None:
+        """
+        Add a custom event unbinding expression.
+
+        Parameters
+        ----------
+        custom_event_type_str : str
+            Target custom event type string.
+        name : str
+            Handler's name.
+        """
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self._append_custom_event_unbinding_expression,
+                locals_=locals(),
+                module_name=__name__, class_=CustomEventInterface):
+            expression: str = (
+                f'$({self.blank_object_variable_name})'
+                f'.off("{custom_event_type_str}", {name});'
+            )
+            ap.append_js_expression(expression=expression)

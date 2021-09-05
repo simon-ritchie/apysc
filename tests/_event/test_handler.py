@@ -95,9 +95,12 @@ def test_append_handler_expression() -> None:
         })
 
     expression_data_util.empty_expression()
-    with HandlerScope(handler_name='test_handler_a_1'):
-        with HandlerScope(handler_name='test_handler_b_1'):
-            with HandlerScope(handler_name='test_handler_a_2'):
+    instance: VariableNameInterface = VariableNameInterface()
+    instance.variable_name = 'test_instance'
+    with HandlerScope(handler_name='test_handler_a_1', instance=instance):
+        with HandlerScope(handler_name='test_handler_b_1', instance=instance):
+            with HandlerScope(
+                    handler_name='test_handler_a_2', instance=instance):
                 handler.append_handler_expression(
                         handler_data=handler_data,
                         handler_name='test_handler_b_2',

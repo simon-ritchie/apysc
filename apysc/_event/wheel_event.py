@@ -2,6 +2,7 @@
 """
 
 
+from apysc._type.variable_name_interface import VariableNameInterface
 import apysc as ap
 from apysc._event.event import Event
 
@@ -11,9 +12,14 @@ class WheelEvent(Event):
     Mouse wheel event class.
     """
 
-    def __init__(self) -> None:
+    def __init__(self, this: VariableNameInterface) -> None:
         """
         Mouse wheel event class.
+
+        Parameters
+        ----------
+        this : VariableNameInterface
+            Instance will be binded this event.
 
         Notes
         -----
@@ -25,16 +31,8 @@ class WheelEvent(Event):
                 module_name=__name__, class_=WheelEvent):
             from apysc._expression import var_names
             super(WheelEvent, self).__init__(
-                this=None,
+                this=this,
                 type_name=var_names.WHEEL_EVENT)
-
-    @property
-    def this(self) -> None:
-        """
-        WheelEvent instance isn't supported this property.
-        """
-        raise Exception(
-            'WheelEvent instance isn\'t supported this property.')
 
     def prevent_default(self) -> None:
         """

@@ -299,7 +299,8 @@ def _create_handler_calling_stack_table() -> None:
         column_ddl=(
             '  id INTEGER PRIMARY KEY AUTOINCREMENT,'
             '\n  handler_name TEXT NOT NULL,'
-            '\n  scope_count INTEGER NOT NULL'
+            '\n  scope_count INTEGER NOT NULL,'
+            '\n  variable_name TEXT NOT NULL'
         ))
     cursor.execute(query)
 

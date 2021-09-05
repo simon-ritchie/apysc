@@ -2,6 +2,7 @@
 interfaces.
 """
 
+from apysc._type.variable_name_interface import VariableNameInterface
 from typing import Any
 from typing import List
 from typing import Optional
@@ -14,8 +15,10 @@ class HandlerScope:
     """
 
     _handler_name: str
+    _instance: VariableNameInterface
 
-    def __init__(self, handler_name: str) -> None:
+    def __init__(
+            self, handler_name: str, instance: VariableNameInterface) -> None:
         """
         Class for a handler scope. This is used at a with statement.
 
@@ -23,15 +26,19 @@ class HandlerScope:
         ----------
         handler_name : str
             Target handler's name.
+        instance : VariableNameInterface
+            Instance will be binded the target handler.
         """
         self._handler_name = handler_name
+        self._instance = instance
 
     def __enter__(self) -> None:
         """
         Enter and set an event handler scope setting.
         """
         _increment_scope_count()
-        _save_handler_calling_stack(handler_name=self._handler_name)
+        _save_handler_calling_stack(
+            handler_name=self._handler_name, instance=self._instance)
 
     def __exit__(self, *args: Any) -> None:
         """
@@ -46,7 +53,8 @@ class HandlerScope:
         _decrement_scope_count()
 
 
-def _save_handler_calling_stack(handler_name: str) -> None:
+def _save_handler_calling_stack(
+        handler_name: str, instance: VariableNameInterface) -> None:
     """
     Save the handler calling stack data to the SQLite.
 
@@ -54,15 +62,18 @@ def _save_handler_calling_stack(handler_name: str) -> None:
     ----------
     handler_name : str
         Target handler's name.
+    instance : VariableNameInterface
+        Instance will be binded the target handler.
     """
     from apysc._expression import expression_data_util
     expression_data_util.initialize_sqlite_tables_if_not_initialized()
     scope_count: int = get_current_event_handler_scope_count()
+    variable_name: str = instance.variable_name
     query: str = (
         'INSERT INTO '
         f'{expression_data_util.TableName.HANDLER_CALLING_STACK.value}'
-        '(handler_name, scope_count) '
-        f"VALUES('{handler_name}', {scope_count});"
+        '(handler_name, scope_count, variable_name) '
+        f"VALUES('{handler_name}', {scope_count}, '{variable_name}');"
     )
     expression_data_util.cursor.execute(query)
     expression_data_util.connection.commit()

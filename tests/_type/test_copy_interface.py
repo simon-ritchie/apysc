@@ -1,3 +1,4 @@
+from apysc._type.variable_name_interface import VariableNameInterface
 import re
 from random import randint
 from typing import Match
@@ -39,8 +40,10 @@ class TestCopyInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_value_updating_cpy_exp_to_handler_scope(self) -> None:
         expression_data_util.empty_expression()
+        instance: VariableNameInterface = VariableNameInterface()
+        instance.variable_name = 'test_instance'
         int_1: ap.Int = ap.Int(10)
-        with HandlerScope(handler_name='test_handler_1'):
+        with HandlerScope(handler_name='test_handler_1', instance=instance):
             int_2: ap.Int = int_1._copy()
         expression: str = \
             expression_data_util.get_current_event_handler_scope_expression()

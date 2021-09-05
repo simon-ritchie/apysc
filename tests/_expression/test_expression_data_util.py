@@ -1,3 +1,4 @@
+from apysc._type.variable_name_interface import VariableNameInterface
 from random import randint
 from typing import List
 from typing import Optional
@@ -90,7 +91,10 @@ def test__get_current_expression() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_current_event_handler_scope_expression() -> None:
     expression_data_util.empty_expression()
-    with event_handler_scope.HandlerScope(handler_name='test_handler_1'):
+    instance: VariableNameInterface = VariableNameInterface()
+    instance.variable_name = 'test_instance'
+    with event_handler_scope.HandlerScope(
+            handler_name='test_handler_1', instance=instance):
         expression_data_util.append_js_expression(
             expression='console.log("Hello!");')
     current_expression: str = expression_data_util.\
@@ -228,7 +232,10 @@ def test_empty_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_expression_table_name() -> None:
-    with event_handler_scope.HandlerScope(handler_name='test_handler_1'):
+    instance: VariableNameInterface = VariableNameInterface()
+    instance.variable_name = 'test_instance'
+    with event_handler_scope.HandlerScope(
+            handler_name='test_handler_1', instance=instance):
         table_name: expression_data_util.TableName = expression_data_util.\
             _get_expression_table_name()
     assert table_name == expression_data_util.TableName.EXPRESSION_HANDLER

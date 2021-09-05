@@ -1,3 +1,4 @@
+from apysc._type.variable_name_interface import VariableNameInterface
 import os
 import re
 import shutil
@@ -280,8 +281,10 @@ def test__minify_html() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_event_handler_expressions() -> None:
     expression_data_util.empty_expression()
+    instance: VariableNameInterface = VariableNameInterface()
+    instance.variable_name = 'test_instance'
 
-    with HandlerScope(handler_name='test_handler_1'):
+    with HandlerScope(handler_name='test_handler_1', instance=instance):
         ap.append_js_expression(
             expression='console.log("world!");')
     expression: str = exporter._append_event_handler_expressions(

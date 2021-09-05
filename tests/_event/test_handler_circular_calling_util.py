@@ -1,3 +1,4 @@
+from apysc._type.variable_name_interface import VariableNameInterface
 from random import randint
 from typing import List
 from typing import Optional
@@ -14,8 +15,10 @@ from tests.testing_helper import assert_raises
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__read_handler_names() -> None:
     expression_data_util.empty_expression()
-    with HandlerScope(handler_name='test_handler_a_1'):
-        with HandlerScope(handler_name='test_handler_b_1'):
+    instance: VariableNameInterface = VariableNameInterface()
+    instance.variable_name = 'test_instance'
+    with HandlerScope(handler_name='test_handler_a_1', instance=instance):
+        with HandlerScope(handler_name='test_handler_b_1', instance=instance):
             handler_names: List[str] = handler_circular_calling_util.\
                 _read_handler_names()
             assert handler_names == ['test_handler_a', 'test_handler_b']
@@ -49,19 +52,24 @@ def _is_circular_calling(handler_name: str) -> bool:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_is_handler_circular_calling() -> None:
     expression_data_util.empty_expression()
-    with HandlerScope(handler_name='test_handler_a_1'):
+    instance: VariableNameInterface = VariableNameInterface()
+    instance.variable_name = 'test_instance'
+    with HandlerScope(handler_name='test_handler_a_1', instance=instance):
         result: bool = _is_circular_calling('test_handler_a_1')
         assert not result
-        with HandlerScope(handler_name='test_handler_b_1'):
+        with HandlerScope(handler_name='test_handler_b_1', instance=instance):
             result = _is_circular_calling('test_handler_b_1')
             assert not result
-            with HandlerScope(handler_name='test_handler_c_1'):
+            with HandlerScope(
+                    handler_name='test_handler_c_1', instance=instance):
                 result = _is_circular_calling('test_handler_c_1')
                 assert not result
-                with HandlerScope(handler_name='test_handler_a_2'):
+                with HandlerScope(
+                        handler_name='test_handler_a_2', instance=instance):
                     result = _is_circular_calling('test_handler_a_2')
                     assert not result
-                    with HandlerScope(handler_name='test_handler_b_2'):
+                    with HandlerScope(
+                            handler_name='test_handler_b_2', instance=instance):
                         result = _is_circular_calling('test_handler_b_2')
                         assert result
 
@@ -96,16 +104,19 @@ def test__append_handler_name_to_last_of_list() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_same_name_prev_hadler_name() -> None:
-    with HandlerScope(handler_name='test_handler_a_1'):
-        with HandlerScope(handler_name='test_handler_b_1'):
-            with HandlerScope(handler_name='test_handler_a_2'):
+    instance: VariableNameInterface = VariableNameInterface()
+    instance.variable_name = 'test_instance'
+    with HandlerScope(handler_name='test_handler_a_1', instance=instance):
+        with HandlerScope(handler_name='test_handler_b_1', instance=instance):
+            with HandlerScope(
+                    handler_name='test_handler_a_2', instance=instance):
                 same_name_prev_hadler_name: str = \
                     handler_circular_calling_util.\
                     _get_same_name_prev_hadler_name(
                         handler_name='test_handler_a_2')
     assert same_name_prev_hadler_name == 'test_handler_a_1'
 
-    with HandlerScope(handler_name='test_handler_a_1'):
+    with HandlerScope(handler_name='test_handler_a_1', instance=instance):
         assert_raises(
             expected_error_class=ValueError,
             func_or_method=handler_circular_calling_util.
@@ -116,9 +127,12 @@ def test__get_same_name_prev_hadler_name() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__save_circular_calling_handler_name() -> None:
-    with HandlerScope(handler_name='test_handler_a_1'):
-        with HandlerScope(handler_name='test_handler_b_1'):
-            with HandlerScope(handler_name='test_handler_a_2'):
+    instance: VariableNameInterface = VariableNameInterface()
+    instance.variable_name = 'test_instance'
+    with HandlerScope(handler_name='test_handler_a_1', instance=instance):
+        with HandlerScope(handler_name='test_handler_b_1', instance=instance):
+            with HandlerScope(
+                    handler_name='test_handler_a_2', instance=instance):
                 handler_circular_calling_util.\
                     _save_circular_calling_handler_name(
                         handler_name='test_handler_a_2')
@@ -137,7 +151,9 @@ def test__save_circular_calling_handler_name() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__is_already_saved_circular_calling() -> None:
     expression_data_util.empty_expression()
-    with HandlerScope(handler_name='test_handler_a_1'):
+    instance: VariableNameInterface = VariableNameInterface()
+    instance.variable_name = 'test_instance'
+    with HandlerScope(handler_name='test_handler_a_1', instance=instance):
         handler_circular_calling_util.is_handler_circular_calling(
             handler_name='test_handler_a_1')
         result: bool = handler_circular_calling_util.\
@@ -145,10 +161,12 @@ def test__is_already_saved_circular_calling() -> None:
                 handler_name='test_handler_a_1')
     assert not result
 
-    with HandlerScope(handler_name='test_handler_a_1'):
-        with HandlerScope(handler_name='test_handler_b_1'):
-            with HandlerScope(handler_name='test_handler_a_2'):
-                with HandlerScope(handler_name='test_handler_b_2'):
+    with HandlerScope(handler_name='test_handler_a_1', instance=instance):
+        with HandlerScope(handler_name='test_handler_b_1', instance=instance):
+            with HandlerScope(
+                    handler_name='test_handler_a_2', instance=instance):
+                with HandlerScope(
+                        handler_name='test_handler_b_2', instance=instance):
                     handler_circular_calling_util.is_handler_circular_calling(
                         handler_name='test_handler_b_2')
     result = handler_circular_calling_util.\
@@ -160,17 +178,21 @@ def test__is_already_saved_circular_calling() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_get_prev_handler_name() -> None:
     expression_data_util.empty_expression()
-    with HandlerScope(handler_name='test_handler_a_1'):
+    instance: VariableNameInterface = VariableNameInterface()
+    instance.variable_name = 'test_instance'
+    with HandlerScope(handler_name='test_handler_a_1', instance=instance):
         handler_circular_calling_util.is_handler_circular_calling(
             handler_name='test_handler_a_1')
         prev_handler_name: str = handler_circular_calling_util.\
             get_prev_handler_name(handler_name='test_handler_a_1')
     assert prev_handler_name == ''
 
-    with HandlerScope(handler_name='test_handler_a_1'):
-        with HandlerScope(handler_name='test_handler_b_1'):
-            with HandlerScope(handler_name='test_handler_a_2'):
-                with HandlerScope(handler_name='test_handler_b_2'):
+    with HandlerScope(handler_name='test_handler_a_1', instance=instance):
+        with HandlerScope(handler_name='test_handler_b_1', instance=instance):
+            with HandlerScope(
+                    handler_name='test_handler_a_2', instance=instance):
+                with HandlerScope(
+                        handler_name='test_handler_b_2', instance=instance):
                     handler_circular_calling_util.is_handler_circular_calling(
                         handler_name='test_handler_b_2')
                     prev_handler_name = handler_circular_calling_util.\

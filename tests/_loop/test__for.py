@@ -79,6 +79,7 @@ class TestFor:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___exit__(self) -> None:
+        expression_data_util.empty_expression()
         indent_num.reset()
         int_1: ap.Int = ap.Int(10)
         arr: ap.Array = ap.Array([1, 2, 3])

@@ -66,7 +66,7 @@ def bind_wheel_event_to_document(
             'handler': handler,
             'options': options,
         }
-        e: ap.WheelEvent = ap.WheelEvent()
+        e: ap.WheelEvent = ap.WheelEvent(this=ap.document)
         append_handler_expression(
             handler_data=handler_data, handler_name=name, e=e)
         return name

@@ -1,3 +1,4 @@
+from apysc._type.variable_name_interface import VariableNameInterface
 from random import randint
 from typing import Optional
 from typing import Tuple
@@ -83,20 +84,26 @@ class TestHandlerScope:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
+        instance: VariableNameInterface = VariableNameInterface()
+        instance.variable_name = 'test_instance'
         handler_scope: HandlerScope = HandlerScope(
-            handler_name='test_handler_1')
+            handler_name='test_handler_1', instance=instance)
         assert handler_scope._handler_name == 'test_handler_1'
+        assert handler_scope._instance == instance
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___enter__(self) -> None:
         expression_data_util.empty_expression()
+        instance: VariableNameInterface = VariableNameInterface()
+        instance.variable_name = 'test_instance'
 
-        with HandlerScope(handler_name='test_handler_1'):
+        with HandlerScope(handler_name='test_handler_1', instance=instance):
             scope_count: int = event_handler_scope.\
                 get_current_event_handler_scope_count()
             assert scope_count == 1
 
-            with HandlerScope(handler_name='test_handler_2'):
+            with HandlerScope(
+                    handler_name='test_handler_2', instance=instance):
                 scope_count = event_handler_scope.\
                     get_current_event_handler_scope_count()
                 assert scope_count == 2
@@ -104,10 +111,13 @@ class TestHandlerScope:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___exit__(self) -> None:
         expression_data_util.empty_expression()
+        instance: VariableNameInterface = VariableNameInterface()
+        instance.variable_name = 'test_instance'
 
-        with HandlerScope(handler_name='test_handler_1'):
+        with HandlerScope(handler_name='test_handler_1', instance=instance):
 
-            with HandlerScope(handler_name='test_handler_2'):
+            with HandlerScope(
+                    handler_name='test_handler_2', instance=instance):
                 pass
 
             scope_count: int = event_handler_scope.\
@@ -151,23 +161,29 @@ class TestTemporaryNotHandlerScope:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__save_handler_calling_stack() -> None:
     expression_data_util.empty_expression()
-    with HandlerScope(handler_name='test_handler_a_1'):
+    instance: VariableNameInterface = VariableNameInterface()
+    instance.variable_name = 'test_instance'
+    with HandlerScope(handler_name='test_handler_a_1', instance=instance):
         query: str = (
-            'SELECT scope_count FROM '
+            'SELECT scope_count, variable_name FROM '
             f'{expression_data_util.TableName.HANDLER_CALLING_STACK.value} '
             f"WHERE handler_name = 'test_handler_a_1' LIMIT 1;"
         )
         expression_data_util.cursor.execute(query)
-        result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
+        result: Optional[Tuple[int, str]] = \
+            expression_data_util.cursor.fetchone()
         expression_data_util.connection.commit()
     assert result is not None
     assert result[0] == 1
+    assert result[1] == 'test_instance'
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__delete_handler_calling_stack() -> None:
     expression_data_util.empty_expression()
-    with HandlerScope(handler_name='test_handler_a_1'):
+    instance: VariableNameInterface = VariableNameInterface()
+    instance.variable_name = 'test_instance'
+    with HandlerScope(handler_name='test_handler_a_1', instance=instance):
         pass
     query: str = (
         'SELECT scope_count FROM '

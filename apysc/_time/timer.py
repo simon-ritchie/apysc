@@ -236,6 +236,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
             from apysc._event.handler import append_handler_expression
             from apysc._expression import expression_data_util
             from apysc._type import value_util
+            from apysc._expression.event_handler_scope import HandlerScope
             delay_val_str: str = value_util.get_value_str_for_expression(
                 value=self._delay)
             is_handler_circular_calling: bool = handler_circular_calling_util.\
@@ -258,8 +259,9 @@ class Timer(VariableNameInterface, CustomEventInterface):
                 handler_data=self._handler_data,
                 handler_name=handler_name,
                 e=e)
-            if is_handler_circular_calling:
-                self._append_count_branch_expression()
+            # if is_handler_circular_calling:
+            #     with HandlerScope(handler_name=handler_name):
+            #         self._append_count_branch_expression()
             self._running.value = True
 
     def _wrap_handler(self, handler: Handler) -> Handler:

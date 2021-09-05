@@ -72,7 +72,7 @@ def test_append_handler_expression() -> None:
     handler_name: str = handler.get_handler_name(
         handler=handler_data['handler'], instance=test_instance)
     e: ap.Event = ap.Event(this=test_instance)
-    is_handler_circular_calling: bool = handler.append_handler_expression(
+    handler.append_handler_expression(
         handler_data=handler_data, handler_name=handler_name,
         e=e)
     expression: str = \
@@ -84,7 +84,6 @@ def test_append_handler_expression() -> None:
     )
     assert expected in expression
     assert int_1 == 10
-    assert not is_handler_circular_calling
 
     testing_helper.assert_raises(
         expected_error_class=ValueError,
@@ -99,13 +98,11 @@ def test_append_handler_expression() -> None:
     with HandlerScope(handler_name='test_handler_a_1'):
         with HandlerScope(handler_name='test_handler_b_1'):
             with HandlerScope(handler_name='test_handler_a_2'):
-                is_handler_circular_calling = handler.\
-                    append_handler_expression(
+                handler.append_handler_expression(
                         handler_data=handler_data,
                         handler_name='test_handler_b_2',
                         e=e)
     assert 'test_handler_b' not in expression
-    assert is_handler_circular_calling
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

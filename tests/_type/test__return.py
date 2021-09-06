@@ -1,4 +1,3 @@
-from apysc._type.variable_name_interface import VariableNameInterface
 from random import randint
 
 from retrying import retry
@@ -6,6 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import event_handler_scope
 from apysc._expression import expression_data_util
+from apysc._type.variable_name_interface import VariableNameInterface
 from tests.testing_helper import assert_raises
 
 

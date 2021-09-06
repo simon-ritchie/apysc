@@ -2,11 +2,12 @@
 interfaces.
 """
 
-from apysc._type.variable_name_interface import VariableNameInterface
 from typing import Any
 from typing import List
 from typing import Optional
 from typing import Tuple
+
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class HandlerScope:

@@ -1,4 +1,3 @@
-from apysc._expression.event_handler_scope import HandlerScope
 import re
 from random import randint
 from typing import Any

@@ -2,9 +2,9 @@
 """
 
 
-from apysc._type.variable_name_interface import VariableNameInterface
 import apysc as ap
 from apysc._event.event import Event
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class WheelEvent(Event):

@@ -1,4 +1,3 @@
-from apysc._type.variable_name_interface import VariableNameInterface
 import os
 import re
 import shutil
@@ -15,6 +14,7 @@ from apysc._expression import js_functions
 from apysc._expression.event_handler_scope import HandlerScope
 from apysc._file import file_util
 from apysc._html import exporter
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 @retry(stop_max_attempt_number=5, wait_fixed=300)

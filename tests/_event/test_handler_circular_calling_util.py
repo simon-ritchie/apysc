@@ -1,4 +1,3 @@
-from apysc._type.variable_name_interface import VariableNameInterface
 from random import randint
 from typing import List
 from typing import Optional
@@ -9,6 +8,7 @@ from retrying import retry
 from apysc._event import handler_circular_calling_util
 from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
+from apysc._type.variable_name_interface import VariableNameInterface
 from tests.testing_helper import assert_raises
 
 
@@ -69,7 +69,8 @@ def test_is_handler_circular_calling() -> None:
                     result = _is_circular_calling('test_handler_a_2')
                     assert not result
                     with HandlerScope(
-                            handler_name='test_handler_b_2', instance=instance):
+                            handler_name='test_handler_b_2',
+                            instance=instance):
                         result = _is_circular_calling('test_handler_b_2')
                         assert result
 
@@ -261,9 +262,9 @@ def test_get_prev_variable_name() -> None:
             with HandlerScope(
                     handler_name='test_handler_a_2', instance=instance_2):
                 with HandlerScope(
-                    handler_name='test_handler_b_2', instance=instance_2):
+                        handler_name='test_handler_b_2', instance=instance_2):
                     handler_circular_calling_util.is_handler_circular_calling(
                         handler_name='test_handler_b_2')
-    prev_variable_name: str = handler_circular_calling_util.\
+    prev_variable_name = handler_circular_calling_util.\
         get_prev_variable_name(handler_name='test_handler_b_2')
     assert prev_variable_name == 'test_instance_1'

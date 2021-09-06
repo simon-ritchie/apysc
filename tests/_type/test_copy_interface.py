@@ -1,4 +1,3 @@
-from apysc._type.variable_name_interface import VariableNameInterface
 import re
 from random import randint
 from typing import Match
@@ -10,6 +9,7 @@ import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
 from apysc._type.copy_interface import CopyInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class TestCopyInterface:

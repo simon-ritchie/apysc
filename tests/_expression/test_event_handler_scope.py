@@ -1,4 +1,3 @@
-from apysc._type.variable_name_interface import VariableNameInterface
 from random import randint
 from typing import Optional
 from typing import Tuple
@@ -9,6 +8,7 @@ from apysc._expression import event_handler_scope
 from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
 from apysc._expression.event_handler_scope import TemporaryNotHandlerScope
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

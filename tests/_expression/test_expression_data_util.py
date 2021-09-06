@@ -1,4 +1,3 @@
-from apysc._type.variable_name_interface import VariableNameInterface
 from random import randint
 from typing import List
 from typing import Optional
@@ -11,6 +10,7 @@ from apysc._expression import event_handler_scope
 from apysc._expression import expression_data_util
 from apysc._expression import indent_num
 from apysc._expression.indent_num import Indent
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

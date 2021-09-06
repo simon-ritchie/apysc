@@ -143,7 +143,13 @@ function main_stage() {
   var i_26 = cpy(i_11);
   var n_9 = cpy(n_2);
   var i_27 = cpy(i_16);
+  if (!_.isUndefined(rect_1)) {
+    i_27 = rect_1.x();
+  }
   var i_28 = cpy(i_17);
+  if (!_.isUndefined(rect_1)) {
+    i_28 = rect_1.y();
+  }
   var rect_1 = stage
     .rect(i_24, i_25)
     .attr({
@@ -228,7 +234,13 @@ function main_stage() {
   var i_41 = cpy(i_11);
   var n_16 = cpy(n_2);
   var i_42 = cpy(i_31);
+  if (!_.isUndefined(rect_2)) {
+    i_42 = rect_2.x();
+  }
   var i_43 = cpy(i_32);
+  if (!_.isUndefined(rect_2)) {
+    i_43 = rect_2.y();
+  }
   var rect_2 = stage
     .rect(i_39, i_40)
     .attr({
@@ -260,6 +272,10 @@ function main_stage() {
   b_30 = i_48 >= i_49;
   var b_31 = false;
   var i_50 = 0;
+  var timer_1;
+  if (_.isUndefined(timer_1)) {
+    timer_1 = setInterval(__main__on_timer_timer_1, n_17);
+  }
   var n_18 = 1.0;
   var n_21 = 1.0;
   var i_63 = cpy(i_50);
@@ -275,11 +291,7 @@ function main_stage() {
   var i_65 = cpy(i_46);
   var n_28 = cpy(n_27);
   var bo_1 = {};
-  var timer_1;
   b_31 = true;
-  if (_.isUndefined(timer_1)) {
-    timer_1 = setInterval(__main__on_timer_timer_1, n_17);
-  }
   function __main__on_timer_timer_1(tevt_1) {
     i_63 = cpy(i_50);
     var i_63 = i_50 + 1;
@@ -318,6 +330,8 @@ function main_stage() {
       }
       b_31 = false;
       $(bo_1).trigger("timer_complete");
+      $(bo_1).off("timer_complete");
+      i_50 = 0;
     }
   }
 }

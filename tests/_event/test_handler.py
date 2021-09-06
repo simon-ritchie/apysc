@@ -102,9 +102,9 @@ def test_append_handler_expression() -> None:
             with HandlerScope(
                     handler_name='test_handler_a_2', instance=instance):
                 handler.append_handler_expression(
-                        handler_data=handler_data,
-                        handler_name='test_handler_b_2',
-                        e=e)
+                    handler_data=handler_data,
+                    handler_name='test_handler_b_2',
+                    e=e)
     assert 'test_handler_b' not in expression
 
 

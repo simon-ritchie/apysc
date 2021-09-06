@@ -119,13 +119,17 @@ def _save_circular_calling_handler_name(handler_name: str) -> None:
     """
     from apysc._expression import expression_data_util
     expression_data_util.initialize_sqlite_tables_if_not_initialized()
-    same_name_prev_hadler_name: str = _get_same_name_prev_hadler_name(
+    prev_hadler_name: str = _get_same_name_prev_hadler_name(
+        handler_name=handler_name)
+    prev_variable_name: str = _get_same_name_prev_variable_name(
         handler_name=handler_name)
     table_name: str = expression_data_util.TableName.\
         CIRCULAR_CALLING_HANDLER_NAME.value
     query: str = (
-        f'INSERT INTO {table_name}(handler_name, prev_handler_name) '
-        f"VALUES('{handler_name}', '{same_name_prev_hadler_name}');"
+        f'INSERT INTO {table_name}'
+        '(handler_name, prev_handler_name, prev_variable_name) '
+        f"VALUES('{handler_name}', '{prev_hadler_name}', "
+        f"'{prev_variable_name}');"
     )
     expression_data_util.cursor.execute(query)
     expression_data_util.connection.commit()

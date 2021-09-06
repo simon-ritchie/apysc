@@ -119,25 +119,31 @@ def test__get_same_name_prev_hadler_name() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__save_circular_calling_handler_name() -> None:
-    instance: VariableNameInterface = VariableNameInterface()
-    instance.variable_name = 'test_instance'
-    with HandlerScope(handler_name='test_handler_a_1', instance=instance):
-        with HandlerScope(handler_name='test_handler_b_1', instance=instance):
+    instance_1: VariableNameInterface = VariableNameInterface()
+    instance_1.variable_name = 'test_instance_1'
+    instance_2: VariableNameInterface = VariableNameInterface()
+    instance_2.variable_name = 'test_instance_2'
+    with HandlerScope(handler_name='test_handler_a_1', instance=instance_1):
+        with HandlerScope(
+                handler_name='test_handler_b_1', instance=instance_1):
             with HandlerScope(
-                    handler_name='test_handler_a_2', instance=instance):
+                    handler_name='test_handler_a_2', instance=instance_2):
                 handler_circular_calling_util.\
                     _save_circular_calling_handler_name(
                         handler_name='test_handler_a_2')
     table_name: str = expression_data_util.TableName.\
         CIRCULAR_CALLING_HANDLER_NAME.value
     query: str = (
-        f'SELECT handler_name, prev_handler_name FROM {table_name} '
+        'SELECT handler_name, prev_handler_name, prev_variable_name '
+        f'FROM {table_name} '
         f"WHERE handler_name = 'test_handler_a_2'; "
     )
     expression_data_util.cursor.execute(query)
-    result: Optional[Tuple[str, str]] = expression_data_util.cursor.fetchone()
+    result: Optional[Tuple[str, str, str]] = \
+        expression_data_util.cursor.fetchone()
     expression_data_util.connection.commit()
-    assert result == ('test_handler_a_2', 'test_handler_a_1')
+    assert result == (
+        'test_handler_a_2', 'test_handler_a_1', 'test_instance_1')
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

@@ -236,7 +236,6 @@ class Timer(VariableNameInterface, CustomEventInterface):
             from apysc._event.handler import append_handler_expression
             from apysc._expression import expression_data_util
             from apysc._type import value_util
-            from apysc._expression.event_handler_scope import HandlerScope
             delay_val_str: str = value_util.get_value_str_for_expression(
                 value=self._delay)
             is_handler_circular_calling: bool = handler_circular_calling_util.\
@@ -244,11 +243,14 @@ class Timer(VariableNameInterface, CustomEventInterface):
             if is_handler_circular_calling:
                 handler_name: str = handler_circular_calling_util.\
                     get_prev_handler_name(handler_name=self._handler_name)
+                variable_name: str = handler_circular_calling_util.\
+                    get_prev_variable_name(handler_name=self._handler_name)
             else:
                 handler_name = self._handler_name
+                variable_name = self.variable_name
             expression: str = (
-                f'\nif (_.isUndefined({self.variable_name})) {{'
-                f'\n  {self.variable_name} = setInterval('
+                f'\nif (_.isUndefined({variable_name})) {{'
+                f'\n  {variable_name} = setInterval('
                 f'{handler_name}, {delay_val_str});'
                 '\n}'
             )

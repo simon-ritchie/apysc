@@ -98,7 +98,6 @@ class TestTimer:
         expression_data_util.empty_expression()
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
         timer.start()
-        print('running:', timer._running)
         assert timer.running
         expression: str = expression_data_util.get_current_expression()
         pattern: str = (
@@ -124,6 +123,26 @@ class TestTimer:
             flags=re.MULTILINE,
         )
         assert match is not None
+
+        expression_data_util.empty_expression()
+        timer = ap.Timer(handler=self.on_timer, delay=33.3)
+        table_name: str = expression_data_util.TableName.\
+            CIRCULAR_CALLING_HANDLER_NAME.value
+        query: str = (
+            f'INSERT INTO {table_name}'
+            '(handler_name, prev_handler_name, prev_variable_name) '
+            f"VALUES('{timer._handler_name}', 'test_prev_handler', "
+            f"'test_prev_variable');"
+        )
+        expression_data_util.cursor.execute(query)
+        expression_data_util.connection.commit()
+        timer.start()
+        expression = expression_data_util.get_current_expression()
+        assert f'_.isUndefined({timer.variable_name})' not in expression
+        assert '_.isUndefined(test_prev_variable)' in expression
+        assert f'setInterval({timer._handler_name}' not in expression
+        assert 'test_prev_variable = setInterval(test_prev_handler' \
+            in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_current_count(self) -> None:

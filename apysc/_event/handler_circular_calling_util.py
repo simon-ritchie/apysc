@@ -153,6 +153,27 @@ def _get_same_name_prev_hadler_name(handler_name: str) -> str:
     return same_name_prev_hadler_name
 
 
+def _get_same_name_prev_variable_name(handler_name: str) -> str:
+    """
+    Get a previous same name (but the suffix number is different)
+    handler binded variable name from the current stack.
+
+    Parameters
+    ----------
+    handler_name : str
+        Target handler's name.
+
+    Returns
+    -------
+    prev_variable_name : str
+        A previous handler binded instance's variable name.
+    """
+    prev_variable_name: str
+    _, prev_variable_name = _get_same_name_prev_data(
+        handler_name=handler_name)
+    return prev_variable_name
+
+
 def _get_same_name_prev_data(handler_name: str) -> Tuple[str, str]:
     """
     Get previous handler name and variable name values of the

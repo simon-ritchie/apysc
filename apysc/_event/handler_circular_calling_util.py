@@ -146,6 +146,31 @@ def _get_same_name_prev_hadler_name(handler_name: str) -> str:
     same_name_prev_hadler_name : str
         A previous same name (but the suffix number is different)
         handler's name.
+    """
+    same_name_prev_hadler_name: str
+    same_name_prev_hadler_name, _ = _get_same_name_prev_data(
+        handler_name=handler_name)
+    return same_name_prev_hadler_name
+
+
+def _get_same_name_prev_data(handler_name: str) -> Tuple[str, str]:
+    """
+    Get previous handler name and variable name values of the
+    previous same name (but the suffix number is different) handler
+    from the current stack.
+
+    Parameters
+    ----------
+    handler_name : str
+        Target handler's name.
+
+    Returns
+    -------
+    prev_hadler_name : str
+        A previous same name (but the suffix number is different)
+        handler's name value.
+    prev_variable_name : str
+        A previous variable name value.
 
     Raises
     ------
@@ -157,11 +182,11 @@ def _get_same_name_prev_hadler_name(handler_name: str) -> str:
     table_name: str = expression_data_util.TableName.\
         HANDLER_CALLING_STACK.value
     query: str = (
-        f'SELECT handler_name FROM {table_name} '
+        f'SELECT handler_name, variable_name FROM {table_name} '
         f'ORDER BY scope_count DESC'
     )
     expression_data_util.cursor.execute(query)
-    result: List[Tuple[str]] = expression_data_util.cursor.fetchall()
+    result: List[Tuple[str, str]] = expression_data_util.cursor.fetchall()
     expression_data_util.connection.commit()
     for i, tpl in enumerate(result):
         handler_name_: str = tpl[0]
@@ -173,8 +198,9 @@ def _get_same_name_prev_hadler_name(handler_name: str) -> str:
             remove_suffix_num_from_handler_name(handler_name=handler_name_)
         if no_suffix_handler_name != no_suffix_handler_name_:
             continue
-        same_name_prev_hadler_name: str = handler_name_
-        return same_name_prev_hadler_name
+        prev_hadler_name: str = handler_name_
+        prev_variable_name: str = tpl[1]
+        return prev_hadler_name, prev_variable_name
     raise ValueError(
         'Previous same name handler does not exitst in the SQLite.'
         ' Please check the implementation of this function\'s calling.')

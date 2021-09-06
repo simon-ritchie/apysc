@@ -242,3 +242,28 @@ def test__get_same_name_prev_variable_name() -> None:
                     _get_same_name_prev_variable_name(
                         handler_name='test_handler_a_2')
     assert prev_variable_name == 'test_instance_1'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_get_prev_variable_name() -> None:
+    expression_data_util.empty_expression()
+    prev_variable_name: str = handler_circular_calling_util.\
+        get_prev_variable_name(handler_name='test_handler_b_2')
+    assert prev_variable_name == ''
+
+    instance_1: VariableNameInterface = VariableNameInterface()
+    instance_1.variable_name = 'test_instance_1'
+    instance_2: VariableNameInterface = VariableNameInterface()
+    instance_2.variable_name = 'test_instance_2'
+    with HandlerScope(handler_name='test_handler_a_1', instance=instance_1):
+        with HandlerScope(
+                handler_name='test_handler_b_1', instance=instance_1):
+            with HandlerScope(
+                    handler_name='test_handler_a_2', instance=instance_2):
+                with HandlerScope(
+                    handler_name='test_handler_b_2', instance=instance_2):
+                    handler_circular_calling_util.is_handler_circular_calling(
+                        handler_name='test_handler_b_2')
+    prev_variable_name: str = handler_circular_calling_util.\
+        get_prev_variable_name(handler_name='test_handler_b_2')
+    assert prev_variable_name == 'test_instance_1'

@@ -108,6 +108,39 @@ def get_prev_handler_name(handler_name: str) -> str:
     return result[0]
 
 
+def get_prev_variable_name(handler_name: str) -> str:
+    """
+    Get a previous handler binded instance's variable name if a
+    specified handler is a circular calling handler.
+
+    Parameters
+    ----------
+    handler_name : str
+        Target handler's name.
+
+    Returns
+    -------
+    prev_variable_name : str
+        A previous handler binded instance's variable name.
+        If there is no previous (same handler's name prefix) one
+        then blank string will be returned.
+    """
+    from apysc._expression import expression_data_util
+    expression_data_util.initialize_sqlite_tables_if_not_initialized()
+    table_name: str = expression_data_util.TableName.\
+        CIRCULAR_CALLING_HANDLER_NAME.value
+    query: str = (
+        f'SELECT prev_variable_name FROM {table_name} '
+        f"WHERE handler_name = '{handler_name}';"
+    )
+    expression_data_util.cursor.execute(query)
+    result: Optional[Tuple[str]] = expression_data_util.cursor.fetchone()
+    expression_data_util.connection.commit()
+    if result is None:
+        return ''
+    return result[0]
+
+
 def _save_circular_calling_handler_name(handler_name: str) -> None:
     """
     Save a circular calling handler name to the SQLite.

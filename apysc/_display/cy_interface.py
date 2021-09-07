@@ -35,7 +35,9 @@ class CyInterface(VariableNameInterface, RevertInterface):
                 module_name=__name__, class_=CyInterface):
             from apysc._type import value_util
             self._initialize_cy_if_not_initialized()
-            return value_util.get_copy(value=self._cy)
+            y: ap.Int = value_util.get_copy(value=self._cy)
+            self._append_y_getter_expression(y=y)
+            return y
 
     @y.setter
     def y(self, value: ap.Int) -> None:
@@ -47,7 +49,6 @@ class CyInterface(VariableNameInterface, RevertInterface):
         value : int or Int
             Center y-coordinate value.
         """
-        import apysc as ap
         with ap.DebugInfo(
                 callable_='y', locals_=locals(),
                 module_name=__name__, class_=CyInterface):
@@ -58,6 +59,25 @@ class CyInterface(VariableNameInterface, RevertInterface):
             self._cy = value
             self._cy._append_incremental_calc_substitution_expression()
             self._append_cy_update_expression()
+
+    def _append_y_getter_expression(self, y: ap.Int) -> None:
+        """
+        Append the y position getter expression.
+
+        Parameters
+        ----------
+        y : Int
+            Center y-coordinate value.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_y_getter_expression, locals_=locals(),
+                module_name=__name__, class_=CyInterface):
+            expression: str = (
+                f'if (!_.isUndefined({self.variable_name})) {{'
+                f'\n  {y.variable_name} = {self.variable_name}.cy();'
+                '\n}'
+            )
+            ap.append_js_expression(expression=expression)
 
     def _append_cy_update_expression(self) -> None:
         """

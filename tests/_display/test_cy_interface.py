@@ -71,3 +71,18 @@ class TestCyInterface:
         interface.y = ap.Int(20)
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface.y == 20
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_y_getter_expression(self) -> None:
+        expression_data_util.empty_expression()
+        interface: CyInterface = CyInterface()
+        interface.variable_name = 'test_cy_interface'
+        interface.y = ap.Int(10)
+        y: ap.Int = interface.y
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f'if (!_.isUndefined({interface.variable_name})) {{'
+            f'\n  {y.variable_name} = {interface.variable_name}.cy();'
+            '\n}'
+        )
+        assert expected in expression

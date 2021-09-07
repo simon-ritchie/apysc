@@ -31,7 +31,8 @@ class AttrLinkingInterface(Generic[_T]):
 
         Parameters
         ----------
-        attr : Int, Number, or String
+        attr : Int or Number or String
             Target attribute to be appended.
         """
-        pass
+        self._initialize_attr_linking_stack()
+        self._attr_linking_stack.append(attr)

@@ -16,3 +16,9 @@ class TestAttrLinkingInterface:
         interface._attr_linking_stack.append(ap.Int(10))
         interface._initialize_attr_linking_stack()
         assert interface._attr_linking_stack == [ap.Int(10)]
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_attr_to_linking_stack(self) -> None:
+        interface: AttrLinkingInterface = AttrLinkingInterface()
+        interface._append_attr_to_linking_stack(attr=ap.Int(10))
+        assert interface._attr_linking_stack == [ap.Int(10)]

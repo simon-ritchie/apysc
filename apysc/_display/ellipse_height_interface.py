@@ -6,9 +6,11 @@ from typing import Dict
 import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 
 
-class EllipseHeightInterface(VariableNameInterface, RevertInterface):
+class EllipseHeightInterface(
+        VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
     _ellipse_height: ap.Int
 
@@ -59,6 +61,10 @@ class EllipseHeightInterface(VariableNameInterface, RevertInterface):
             self._ellipse_height.\
                 _append_incremental_calc_substitution_expression()
             self._append_ellipse_height_update_expression()
+            self._append_applying_new_attr_val_exp(
+                new_attr=value, attr_name='ellipse_height')
+            self._append_attr_to_linking_stack(
+                attr=value, attr_name='ellipse_height')
 
     def _append_ellipse_height_update_expression(self) -> None:
         """

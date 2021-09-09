@@ -176,6 +176,7 @@ class Graphics(
                 ellipse_height = ap.Int(ellipse_height)
             rectangle.ellipse_width = ellipse_width
             rectangle.ellipse_height = ellipse_height
+            rectangle._initialize_ellipse_size_if_not_initialized()
             self.add_child(child=rectangle)
             return rectangle
 

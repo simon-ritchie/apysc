@@ -25,14 +25,14 @@ class EllipseSizeInterface(
         self._ellipse_size = ap.Int(0)
         if (hasattr(self, '_ellipse_width')
                 and hasattr(self, '_ellipse_height')):
-            self._ellipse_size.value = (
+            self.ellipse_size = (
                 self._ellipse_width + self._ellipse_height) // 2
             return
         if hasattr(self, '_ellipse_width'):
-            self._ellipse_size.value = self._ellipse_width.value
+            self.ellipse_size = self._ellipse_width
             return
         if hasattr(self, '_ellipse_height'):
-            self._ellipse_size.value = self._ellipse_height.value
+            self.ellipse_size = self._ellipse_height
 
     @property
     def ellipse_size(self) -> ap.Int:

@@ -1,5 +1,5 @@
 """The test project for the timer event circular calling and
-updating ellipse height interface.
+updating ellipse height interface value.
 
 Command examples:
 $ python test_projects/timer_circular_calling_ellipse_height/main.py

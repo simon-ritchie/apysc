@@ -19,6 +19,22 @@ class TestEllipseSizeInterface:
         interface._initialize_ellipse_size_if_not_initialized()
         assert interface._ellipse_size == 10
 
+        interface = EllipseSizeInterface()
+        interface._ellipse_width = ap.Int(50)
+        interface._ellipse_height = ap.Int(100)
+        interface._initialize_ellipse_size_if_not_initialized()
+        assert interface.ellipse_size == 75
+
+        interface = EllipseSizeInterface()
+        interface._ellipse_width = ap.Int(50)
+        interface._initialize_ellipse_size_if_not_initialized()
+        assert interface.ellipse_size == 50
+
+        interface = EllipseSizeInterface()
+        interface._ellipse_height = ap.Int(100)
+        interface._initialize_ellipse_size_if_not_initialized()
+        assert interface.ellipse_size == 100
+
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_ellipse_size(self) -> None:
         interface: EllipseSizeInterface = EllipseSizeInterface()

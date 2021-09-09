@@ -5,7 +5,6 @@ from typing import Union
 
 import apysc as ap
 from apysc._display.ellipse_height_interface import EllipseHeightInterface
-from apysc._display.ellipse_size_interface import EllipseSizeInterface
 from apysc._display.ellipse_width_interface import EllipseWidthInterface
 from apysc._display.height_interface import HeightInterface
 from apysc._display.line_base import LineBase
@@ -13,7 +12,7 @@ from apysc._display.width_interface import WidthInterface
 
 
 class Rectangle(
-        LineBase, WidthInterface, HeightInterface, EllipseSizeInterface,
+        LineBase, WidthInterface, HeightInterface,
         EllipseWidthInterface, EllipseHeightInterface):
     """
     The rectangle vector graphics class.

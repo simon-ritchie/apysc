@@ -7,9 +7,11 @@ from typing import Union
 import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 
 
-class FillColorInterface(VariableNameInterface, RevertInterface):
+class FillColorInterface(
+        VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
     _fill_color: ap.String
 
@@ -47,6 +49,11 @@ class FillColorInterface(VariableNameInterface, RevertInterface):
                 module_name=__name__, class_=FillColorInterface):
             self._update_fill_color_and_skip_appending_exp(value=value)
             self._append_fill_color_update_expression()
+
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._fill_color, attr_name='fill_color')
+            self._append_attr_to_linking_stack(
+                attr=self._fill_color, attr_name='fill_color')
 
     def _append_fill_color_update_expression(self) -> None:
         """

@@ -6,9 +6,11 @@ from typing import Dict
 import apysc as ap
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 
 
-class FlipYInterface(VariableNameInterface, RevertInterface):
+class FlipYInterface(
+        VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
     _flip_y: ap.Boolean
 
@@ -56,6 +58,11 @@ class FlipYInterface(VariableNameInterface, RevertInterface):
             before_value: ap.Boolean = self._flip_y
             self._flip_y = value
             self._append_flip_y_update_expression(before_value=before_value)
+
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._flip_y, attr_name='flip_y')
+            self._append_attr_to_linking_stack(
+                attr=self._flip_y, attr_name='flip_y')
 
     def _append_flip_y_update_expression(
             self, before_value: ap.Boolean) -> None:

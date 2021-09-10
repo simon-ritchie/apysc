@@ -61,6 +61,7 @@ class EllipseHeightInterface(
             self._ellipse_height.\
                 _append_incremental_calc_substitution_expression()
             self._append_ellipse_height_update_expression()
+
             self._append_applying_new_attr_val_exp(
                 new_attr=value, attr_name='ellipse_height')
             self._append_attr_to_linking_stack(

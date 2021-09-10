@@ -60,6 +60,7 @@ class EllipseWidthInterface(
             self._ellipse_width.\
                 _append_incremental_calc_substitution_expression()
             self._append_ellipse_width_update_expression()
+
             self._append_applying_new_attr_val_exp(
                 new_attr=value, attr_name='ellipse_width')
             self._append_attr_to_linking_stack(

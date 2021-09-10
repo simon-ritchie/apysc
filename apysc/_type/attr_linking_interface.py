@@ -9,7 +9,7 @@ from typing import Dict, List, Union
 import apysc as ap
 
 _AttrName = str
-_Attr = Union[ap.Int, ap.Number, ap.String]
+_Attr = Union[ap.Int, ap.Number, ap.String, ap.Boolean]
 
 
 class AttrLinkingInterface:
@@ -39,7 +39,7 @@ class AttrLinkingInterface:
 
         Parameters
         ----------
-        attr : Int or Number or String
+        attr : Int or Number or String or Boolean
             Target attribute to be appended.
         attr_name : str
             Target attribute name.
@@ -55,7 +55,7 @@ class AttrLinkingInterface:
 
         Parameters
         ----------
-        new_attr : Int or Number or String
+        new_attr : Int or Number or String or Boolean
             New attribute value.
 
         attr_name : str

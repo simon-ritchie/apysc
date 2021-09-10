@@ -100,6 +100,11 @@ class LineBase(
             self._update_line_joints_and_skip_appending_exp(
                 value=parent_graphics.line_joints)
 
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._fill_alpha, attr_name='fill_alpha')
+            self._append_attr_to_linking_stack(
+                attr=self._fill_alpha, attr_name='fill_alpha')
+
     def _append_basic_vals_expression(
             self, expression: str, indent_num: int) -> str:
         """

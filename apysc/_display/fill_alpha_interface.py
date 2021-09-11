@@ -4,10 +4,10 @@
 from typing import Dict
 
 import apysc as ap
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._type.attr_linking_interface import AttrLinkingInterface
 
 
 class FillAlphaInterface(

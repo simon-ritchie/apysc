@@ -1,11 +1,10 @@
 from random import randint
-from typing import List
 
 from retrying import retry
 
 import apysc as ap
-from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._expression import expression_data_util
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 
 
 class TestAttrLinkingInterface:

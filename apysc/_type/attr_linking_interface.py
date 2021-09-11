@@ -4,7 +4,9 @@ This interface is used for updating an old property value to
 achieve consistency in the handler functions.
 """
 
-from typing import Dict, List, Union
+from typing import Dict
+from typing import List
+from typing import Union
 
 import apysc as ap
 

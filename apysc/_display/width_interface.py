@@ -85,8 +85,11 @@ class WidthInterface(VariableNameInterface, RevertInterface):
                 callable_=self._append_width_update_expression,
                 locals_=locals(),
                 module_name=__name__, class_=WidthInterface):
+            from apysc._type import value_util
+            width_str: str = value_util.get_value_str_for_expression(
+                value=self._width)
             expression: str = (
-                f'{self.variable_name}.width({self.width});'
+                f'{self.variable_name}.width({width_str});'
             )
             ap.append_js_expression(expression=expression)
 

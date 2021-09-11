@@ -26,8 +26,12 @@ class TestWidthInterface:
         expression_data_util.empty_expression()
         width_interface.width = ap.Int(200)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = 'test_width_interface.width(200);'
-        assert expected in expression
+        match: Optional[Match] = re.search(
+            pattern=rf'test_width_interface\.width\({var_names.INT}_.+?\);',
+            string=expression,
+            flags=re.MULTILINE,
+        )
+        assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_update_width_and_skip_appending_exp(self) -> None:

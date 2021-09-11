@@ -1,9 +1,9 @@
 """The test project for the timer event circular calling and
-updating rotation around the center point interface value.
+updating rotation around the specified point interface value.
 
 Command examples:
-$ python test_projects/timer_circular_calling_rotation_around_center/main.py
-$ python timer_circular_calling_rotation_around_center/main.py
+$ python test_projects/timer_circular_calling_rotation_around_point/main.py
+$ python timer_circular_calling_rotation_around_point/main.py
 """
 
 import sys
@@ -60,7 +60,11 @@ def on_timer_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options['rectangle']
-    rectangle.rotation_around_center += 1
+    x: ap.Int = ap.Int(50)
+    y: ap.Int = ap.Int(50)
+    rotation: ap.Int = rectangle.get_rotation_around_point(x=x, y=y)
+    rectangle.set_rotation_around_point(
+        rotation=rotation + 1, x=x, y=y)
 
 
 def on_timer_complete_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
@@ -96,7 +100,11 @@ def on_timer_2(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options['rectangle']
-    rectangle.rotation_around_center -= 1
+    x: ap.Int = ap.Int(50)
+    y: ap.Int = ap.Int(50)
+    rotation: ap.Int = rectangle.get_rotation_around_point(x=x, y=y)
+    rectangle.set_rotation_around_point(
+        rotation=rotation - 1, x=x, y=y)
 
 
 def on_timer_complete_2(e: ap.TimerEvent, options: Dict[str, Any]) -> None:

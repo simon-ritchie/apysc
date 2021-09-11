@@ -1,10 +1,13 @@
 from random import randint
+from typing import Optional, Match
+import re
 
 from retrying import retry
 
 import apysc as ap
 from apysc._display.width_interface import WidthInterface
 from apysc._expression import expression_data_util
+from apysc._expression import var_names
 
 
 class TestWidthInterface:
@@ -35,7 +38,13 @@ class TestWidthInterface:
             value=ap.Int(300))
         assert width_interface.width == 300
         expression: str = expression_data_util.get_current_expression()
-        assert 'width(' not in expression
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'width\({var_names.INT}_.+?\)'
+            ),
+            string=expression,
+            flags=re.MULTILINE)
+        assert match is None
 
         width_interface._update_width_and_skip_appending_exp(
             value=400)
@@ -82,3 +91,18 @@ class TestWidthInterface:
         width_interface.width = ap.Int(15)
         width_interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert width_interface.width == 15
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_width_getter_expression(self) -> None:
+        expression_data_util.empty_expression()
+        interface: WidthInterface = WidthInterface()
+        interface.variable_name = 'test_width_interface'
+        interface.width = ap.Int(10)
+        width: ap.Int = interface.width
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f'if (!_.isUndefined({interface.variable_name})) {{'
+            f'\n  {width.variable_name} = {interface.variable_name}.width();'
+            '\n}'
+        )
+        assert expected in expression

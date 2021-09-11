@@ -5,11 +5,13 @@ from typing import Dict
 from typing import Union
 
 import apysc as ap
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class LineColorInterface(VariableNameInterface, RevertInterface):
+class LineColorInterface(
+        VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
     _line_color: ap.String
 
@@ -49,6 +51,11 @@ class LineColorInterface(VariableNameInterface, RevertInterface):
                 module_name=__name__, class_=LineColorInterface):
             self._update_line_color_and_skip_appending_exp(value=value)
             self._append_line_color_update_expression()
+
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._line_color, attr_name='line_color')
+            self._append_attr_to_linking_stack(
+                attr=self._line_color, attr_name='line_color')
 
     def _append_line_color_update_expression(self) -> None:
         """

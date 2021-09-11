@@ -85,8 +85,11 @@ class HeightInterface(VariableNameInterface, RevertInterface):
                 callable_=self._append_height_update_expression,
                 locals_=locals(),
                 module_name=__name__, class_=HeightInterface):
+            from apysc._type import value_util
+            height_str: str = value_util.get_value_str_for_expression(
+                value=self._height)
             expression: str = (
-                f'{self.variable_name}.height({self.height});'
+                f'{self.variable_name}.height({height_str});'
             )
             ap.append_js_expression(expression=expression)
 

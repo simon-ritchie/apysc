@@ -7,6 +7,7 @@ from retrying import retry
 import apysc as ap
 from apysc._display.height_interface import HeightInterface
 from apysc._expression import expression_data_util
+from apysc._expression import var_names
 
 
 class TestHeightInterface:
@@ -25,10 +26,14 @@ class TestHeightInterface:
         expression_data_util.empty_expression()
         height_interface.height = ap.Int(300)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            'test_height_interface.height(300);'
+        match: Optional[Match] = re.search(
+            pattern=(
+                rf'test_height_interface\.height\({var_names.INT}_.+?\);'
+            ),
+            string=expression,
+            flags=re.MULTILINE,
         )
-        assert expected in expression
+        assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_height_and_skip_appending_exp(self) -> None:

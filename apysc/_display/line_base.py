@@ -110,6 +110,11 @@ class LineBase(
             self._append_attr_to_linking_stack(
                 attr=self._fill_color, attr_name='fill_color')
 
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._line_alpha, attr_name='line_alpha')
+            self._append_attr_to_linking_stack(
+                attr=self._line_alpha, attr_name='line_alpha')
+
     def _append_basic_vals_expression(
             self, expression: str, indent_num: int) -> str:
         """

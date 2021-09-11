@@ -5,11 +5,13 @@ from typing import Dict
 from typing import Union
 
 import apysc as ap
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class LineAlphaInterface(VariableNameInterface, RevertInterface):
+class LineAlphaInterface(
+        VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
     _line_alpha: ap.Number
 
@@ -35,6 +37,7 @@ class LineAlphaInterface(VariableNameInterface, RevertInterface):
                 callable_='line_alpha', locals_=locals(),
                 module_name=__name__, class_=LineAlphaInterface):
             from apysc._type import value_util
+            self._initialize_line_alpha_if_not_initialized()
             return value_util.get_copy(value=self._line_alpha)
 
     @line_alpha.setter
@@ -50,9 +53,15 @@ class LineAlphaInterface(VariableNameInterface, RevertInterface):
         with ap.DebugInfo(
                 callable_='line_alpha', locals_=locals(),
                 module_name=__name__, class_=LineAlphaInterface):
+            self._initialize_line_alpha_if_not_initialized()
             self._update_line_alpha_and_skip_appending_exp(value=value)
             self._line_alpha._append_incremental_calc_substitution_expression()
             self._append_line_alpha_update_expression()
+
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._line_alpha, attr_name='line_alpha')
+            self._append_attr_to_linking_stack(
+                attr=self._line_alpha, attr_name='line_alpha')
 
     def _append_line_alpha_update_expression(self) -> None:
         """

@@ -71,8 +71,11 @@ class LineAlphaInterface(
                 callable_=self._append_line_alpha_update_expression,
                 locals_=locals(),
                 module_name=__name__, class_=LineAlphaInterface):
+            from apysc._type import value_util
+            line_alpha_str: str = value_util.get_value_str_for_expression(
+                value=self._line_alpha)
             expression: str = (
-                f'{self.variable_name}.stroke({{opacity: {self.line_alpha}}});'
+                f'{self.variable_name}.stroke({{opacity: {line_alpha_str}}});'
             )
             ap.append_js_expression(expression=expression)
 

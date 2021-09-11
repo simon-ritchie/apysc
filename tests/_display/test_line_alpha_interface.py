@@ -1,10 +1,12 @@
 from random import randint
+from typing import Optional, Match
+import re
 
 from retrying import retry
 
 import apysc as ap
 from apysc._display.line_alpha_interface import LineAlphaInterface
-from apysc._expression import expression_data_util
+from apysc._expression import expression_data_util, var_names
 
 
 class TestLineAlphaInterface:
@@ -23,8 +25,13 @@ class TestLineAlphaInterface:
         expression_data_util.empty_expression()
         line_alpha_interface.line_alpha = ap.Number(0.5)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = 'test_line_alpha_interface.stroke({opacity: 0.5});'
-        assert expected in expression
+        match: Optional[Match] = re.search(
+            pattern=(
+                r'test_line_alpha_interface\.stroke'
+                rf'\({{opacity: {var_names.NUMBER}_.+?}}\);'
+            ),
+            string=expression, flags=re.MULTILINE)
+        assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_alpha_and_skip_appending_exp(self) -> None:

@@ -64,6 +64,11 @@ class Circle(CxInterface, CyInterface, LineBase, RadiusInterface):
                 parent_graphics=parent)
             self._set_overflow_visible_setting()
 
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._radius, attr_name='radius')
+            self._append_attr_to_linking_stack(
+                attr=self._radius, attr_name='radius')
+
     def _set_center_coordinates(
             self,
             x: Union[int, ap.Int],

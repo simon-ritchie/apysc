@@ -79,6 +79,7 @@ class FillColorInterface(
         fill_color : str or String
             Fill color (hexadecimal string, e.g., '#00aaff').
         """
+        self._initialize_fill_color_if_not_initialized()
         if fill_color == '':
             return
         if isinstance(fill_color, str):

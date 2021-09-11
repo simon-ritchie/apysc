@@ -5,11 +5,13 @@ interface.
 from typing import Dict
 
 import apysc as ap
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class RotationAroundCenterInterface(VariableNameInterface, RevertInterface):
+class RotationAroundCenterInterface(
+        VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
     _rotation_around_center: ap.Int
 
@@ -71,6 +73,13 @@ class RotationAroundCenterInterface(VariableNameInterface, RevertInterface):
             self._rotation_around_center = value
             self._append_rotation_around_center_update_expression(
                 before_value=before_value)
+
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._rotation_around_center,
+                attr_name='rotation_around_center')
+            self._append_attr_to_linking_stack(
+                attr=self._rotation_around_center,
+                attr_name='rotation_around_center')
 
     def _append_rotation_around_center_update_expression(
             self, before_value: ap.Int) -> None:

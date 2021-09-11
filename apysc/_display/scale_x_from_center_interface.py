@@ -4,11 +4,13 @@
 from typing import Dict
 
 import apysc as ap
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class ScaleXFromCenterInterface(VariableNameInterface, RevertInterface):
+class ScaleXFromCenterInterface(
+        VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
     _scale_x_from_center: ap.Number
 
@@ -70,6 +72,13 @@ class ScaleXFromCenterInterface(VariableNameInterface, RevertInterface):
             self._scale_x_from_center = value
             self._append_scale_x_from_center_update_expression(
                 before_value=before_value)
+
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._scale_x_from_center,
+                attr_name='scale_x_from_center')
+            self._append_attr_to_linking_stack(
+                attr=self._scale_x_from_center,
+                attr_name='scale_x_from_center')
 
     def _append_scale_x_from_center_update_expression(
             self, before_value: ap.Number) -> None:

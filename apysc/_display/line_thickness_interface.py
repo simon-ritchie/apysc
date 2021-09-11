@@ -5,11 +5,13 @@ from typing import Dict
 from typing import Union
 
 import apysc as ap
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class LineThicknessInterface(VariableNameInterface, RevertInterface):
+class LineThicknessInterface(
+        VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
     _line_thickness: ap.Int
 
@@ -55,6 +57,11 @@ class LineThicknessInterface(VariableNameInterface, RevertInterface):
             self._line_thickness.\
                 _append_incremental_calc_substitution_expression()
             self._append_line_thickness_update_expression()
+
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._line_thickness, attr_name='line_thickness')
+            self._append_attr_to_linking_stack(
+                attr=self._line_thickness, attr_name='line_thickness')
 
     def _append_line_thickness_update_expression(self) -> None:
         """

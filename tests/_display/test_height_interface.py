@@ -1,4 +1,6 @@
 from random import randint
+from typing import Match, Optional
+import re
 
 from retrying import retry
 
@@ -37,7 +39,12 @@ class TestHeightInterface:
         assert height_interface.height == 300
 
         expression: str = expression_data_util.get_current_expression()
-        assert 'height(' not in expression
+        match: Optional[Match] = re.search(
+            pattern=r'height\(\d+?\)',
+            string=expression,
+            flags=re.MULTILINE,
+        )
+        assert match is None
 
         height_interface._update_height_and_skip_appending_exp(
             value=400)
@@ -86,3 +93,19 @@ class TestHeightInterface:
         height_interface._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert height_interface.height == 5
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_height_getter_expression(self) -> None:
+        expression_data_util.empty_expression()
+        interface: HeightInterface = HeightInterface()
+        interface.variable_name = 'test_height_interface'
+        interface.height = ap.Int(10)
+        height: ap.Int = interface.height
+        expression: str = expression_data_util.get_current_expression()
+        expected: str = (
+            f'if (!_.isUndefined({interface.variable_name})) {{'
+            f'\n  {height.variable_name} = '
+            f'{interface.variable_name}.height();'
+            '\n}'
+        )
+        assert expected in expression

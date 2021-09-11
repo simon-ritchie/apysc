@@ -5,11 +5,13 @@ from typing import Dict
 from typing import Union
 
 import apysc as ap
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class RadiusInterface(VariableNameInterface, RevertInterface):
+class RadiusInterface(
+        VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
     _radius: ap.Int
 
@@ -58,6 +60,11 @@ class RadiusInterface(VariableNameInterface, RevertInterface):
             self._radius = value
             self._radius._append_incremental_calc_substitution_expression()
             self._append_radius_update_expression()
+
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._radius, attr_name='radius')
+            self._append_attr_to_linking_stack(
+                attr=self._radius, attr_name='radius')
 
     def _get_converted_radius_int(self, radius: Union[int, ap.Int]) -> ap.Int:
         """

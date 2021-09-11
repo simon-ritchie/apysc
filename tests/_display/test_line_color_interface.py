@@ -1,10 +1,12 @@
 from random import randint
+from typing import Match, Optional
+import re
 
 from retrying import retry
 
 import apysc as ap
 from apysc._display.line_color_interface import LineColorInterface
-from apysc._expression import expression_data_util
+from apysc._expression import expression_data_util, var_names
 
 
 class TestLineColorInterface:
@@ -31,8 +33,13 @@ class TestLineColorInterface:
         expression_data_util.empty_expression()
         line_color_interface.line_color = ap.String('#333')
         expression: str = expression_data_util.get_current_expression()
-        expected: str = 'test_line_color_interface.stroke("#333333");'
-        assert expected in expression
+        match: Optional[Match] = re.search(
+            pattern=(
+                r'test_line_color_interface\.stroke'
+                rf'\({var_names.STRING}_.+?\);'
+            ),
+            string=expression, flags=re.MULTILINE)
+        assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_color_and_skip_appending_exp(self) -> None:

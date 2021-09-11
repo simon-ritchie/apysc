@@ -65,8 +65,11 @@ class LineColorInterface(
                 callable_=self._append_line_color_update_expression,
                 locals_=locals(),
                 module_name=__name__, class_=LineColorInterface):
+            from apysc._type import value_util
+            line_color_str: str = value_util.get_value_str_for_expression(
+                value=self._line_color)
             expression: str = (
-                f'{self.variable_name}.stroke("{self.line_color}");'
+                f'{self.variable_name}.stroke({line_color_str});'
             )
             ap.append_js_expression(expression=expression)
 

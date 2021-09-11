@@ -48,7 +48,7 @@ ap.save_overall_html(
 
 `draw_round_rect` interface will return the `Rectangle` instance, same as the `draw_rect` interface.
 
-`Rectangle` instance has `ellipse_size`, `ellipse_width`, and `ellipse_height` attributes to change the rectangle round size (`ellipse_size` will change both `width` and `height` by the same size).
+`Rectangle` instance has the `ellipse_width` and `ellipse_height` attributes to change the rectangle round size.
 
 ```py
 # runnable

@@ -43,6 +43,14 @@ function main_stage() {
   var b_2 = true;
   var i_6 = 0;
   b_2 = i_4 >= i_6;
+  var i_8 = cpy(i_4);
+  if (!_.isUndefined(stage)) {
+    i_8 = stage.height();
+  }
+  var i_10 = cpy(i_4);
+  if (!_.isUndefined(stage)) {
+    i_10 = stage.height();
+  }
   var stage_html = '<div id="stage" style="width: 150px; height: 150px; background-color: #333333;"></div>';
   $("body").append(stage_html);
   stage = SVG().addTo("#stage").size(

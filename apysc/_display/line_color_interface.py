@@ -49,6 +49,7 @@ class LineColorInterface(
         with ap.DebugInfo(
                 callable_='line_color', locals_=locals(),
                 module_name=__name__, class_=LineColorInterface):
+            self._initialize_line_color_if_not_initialized()
             self._update_line_color_and_skip_appending_exp(value=value)
             self._append_line_color_update_expression()
 
@@ -84,6 +85,7 @@ class LineColorInterface(
         line_color : str or String
             Line color (hexadecimal string, e.g., '#00aaff').
         """
+        self._initialize_line_color_if_not_initialized()
         if line_color == '':
             return
         if isinstance(line_color, str):
@@ -101,6 +103,7 @@ class LineColorInterface(
             Line color to set.
         """
         from apysc._color import color_util
+        self._initialize_line_color_if_not_initialized()
         value = color_util.complement_hex_color(
             hex_color_code=value)
         self._initialize_line_color_if_not_initialized()

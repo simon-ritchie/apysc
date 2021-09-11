@@ -1,10 +1,13 @@
 from random import randint
+from typing import Match, Optional
+import re
 
 from retrying import retry
 
 import apysc as ap
 from apysc._display.line_thickness_interface import LineThicknessInterface
 from apysc._expression import expression_data_util
+from apysc._expression import var_names
 
 
 class TestLineThicknessInterface:
@@ -27,9 +30,14 @@ class TestLineThicknessInterface:
         expression_data_util.empty_expression()
         line_thickness_interface.line_thickness = ap.Int(2)
         expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            'test_line_thickness_interface.attr({"stroke-width": 2});')
-        assert expected in expression
+        match: Optional[Match] = re.search(
+            pattern=(
+                r'test_line_thickness_interface\.attr'
+                rf'\({{"stroke-width": {var_names.INT}_.+?}}\);'
+            ),
+            string=expression,
+            flags=re.MULTILINE)
+        assert match is not None
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__update_line_thickness_and_skip_appending_exp(self) -> None:

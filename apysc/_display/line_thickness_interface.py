@@ -72,9 +72,12 @@ class LineThicknessInterface(
                 callable_=self._append_line_thickness_update_expression,
                 locals_=locals(),
                 module_name=__name__, class_=LineThicknessInterface):
+            from apysc._type import value_util
+            line_thickness_str: str = value_util.get_value_str_for_expression(
+                value=self.line_thickness)
             expression: str = (
                 f'{self.variable_name}.attr({{"stroke-width": '
-                f'{self.line_thickness}}});'
+                f'{line_thickness_str}}});'
             )
             ap.append_js_expression(expression=expression)
 

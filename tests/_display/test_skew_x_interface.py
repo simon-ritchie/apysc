@@ -78,3 +78,9 @@ class TestSkewXInterface:
         interface.skew_x = ap.Int(20)
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface._skew_x == 20
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_skew_x_attr_linking_setting(self) -> None:
+        interface: _TestInterface = _TestInterface()
+        interface._initialize_skew_x_if_not_initialized()
+        assert interface._attr_linking_stack['skew_x'] == [0]

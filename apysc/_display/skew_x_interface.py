@@ -22,6 +22,20 @@ class SkewXInterface(
             return
         self._skew_x = ap.Int(0)
 
+        self._append_skew_x_attr_linking_setting()
+
+    def _append_skew_x_attr_linking_setting(self) -> None:
+        """
+        Append a skey-x attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_='skew_x', locals_=locals(),
+                module_name=__name__, class_=SkewXInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._skew_x, attr_name='skew_x')
+            self._append_attr_to_linking_stack(
+                attr=self._skew_x, attr_name='skew_x')
+
     @property
     def skew_x(self) -> ap.Int:
         """
@@ -59,10 +73,7 @@ class SkewXInterface(
             self._skew_x = value
             self._append_skew_x_update_expression(before_value=before_value)
 
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._skew_x, attr_name='skew_x')
-            self._append_attr_to_linking_stack(
-                attr=self._skew_x, attr_name='skew_x')
+            self._append_skew_x_attr_linking_setting()
 
     def _append_skew_x_update_expression(self, before_value: ap.Int) -> None:
         """

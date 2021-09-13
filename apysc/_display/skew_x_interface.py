@@ -26,7 +26,7 @@ class SkewXInterface(
 
     def _append_skew_x_attr_linking_setting(self) -> None:
         """
-        Append a skey-x attribute linking setting.
+        Append a skew-x attribute linking setting.
         """
         with ap.DebugInfo(
                 callable_='skew_x', locals_=locals(),

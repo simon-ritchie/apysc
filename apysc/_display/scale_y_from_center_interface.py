@@ -4,11 +4,13 @@
 from typing import Dict
 
 import apysc as ap
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class ScaleYFromCenterInterface(VariableNameInterface, RevertInterface):
+class ScaleYFromCenterInterface(
+        VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
     _scale_y_from_center: ap.Number
 
@@ -17,9 +19,32 @@ class ScaleYFromCenterInterface(VariableNameInterface, RevertInterface):
         Initialize the `_scale_y_from_center` attribute if it hasn't been
         initialized yet.'
         """
-        if hasattr(self, '_scale_y_from_center'):
-            return
-        self._scale_y_from_center = ap.Number(1.0)
+        with ap.DebugInfo(
+                callable_=self.
+                _initialize_scale_y_from_center_if_not_initialized,
+                locals_=locals(),
+                module_name=__name__, class_=ScaleYFromCenterInterface):
+            if hasattr(self, '_scale_y_from_center'):
+                return
+            self._scale_y_from_center = ap.Number(1.0)
+
+            self._append_scale_y_from_center_attr_linking_setting()
+
+    def _append_scale_y_from_center_attr_linking_setting(self) -> None:
+        """
+        Append a scale-y attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_=self.
+                _initialize_scale_y_from_center_if_not_initialized,
+                locals_=locals(),
+                module_name=__name__, class_=ScaleYFromCenterInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._scale_y_from_center,
+                attr_name='scale_y_from_center')
+            self._append_attr_to_linking_stack(
+                attr=self._scale_y_from_center,
+                attr_name='scale_y_from_center')
 
     @property
     def scale_y_from_center(self) -> ap.Number:
@@ -70,6 +95,8 @@ class ScaleYFromCenterInterface(VariableNameInterface, RevertInterface):
             self._scale_y_from_center = value
             self._append_scale_y_from_center_update_expression(
                 before_value=before_value)
+
+            self._append_scale_y_from_center_attr_linking_setting()
 
     def _append_scale_y_from_center_update_expression(
             self, before_value: ap.Number) -> None:

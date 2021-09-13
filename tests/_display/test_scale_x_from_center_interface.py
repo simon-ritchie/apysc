@@ -78,3 +78,9 @@ class TestScaleXFromCenterInterface:
         interface.scale_x_from_center = ap.Number(0.3)
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface.scale_x_from_center == 0.3
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_scale_x_attr_linking_setting(self) -> None:
+        interface: _TestInterface = _TestInterface()
+        interface._initialize_scale_x_from_center_if_not_initialized()
+        assert interface._attr_linking_stack['scale_x_from_center'] == [1.0]

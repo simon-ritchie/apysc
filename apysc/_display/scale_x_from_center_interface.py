@@ -19,9 +19,30 @@ class ScaleXFromCenterInterface(
         Initialize the `_scale_x_from_center` attribute if it hasn't been
         initialized yet.
         """
-        if hasattr(self, '_scale_x_from_center'):
-            return
-        self._scale_x_from_center = ap.Number(1.0)
+        with ap.DebugInfo(
+                callable_=self._initialize_scale_x_from_center_if_not_initialized,
+                locals_=locals(),
+                module_name=__name__, class_=ScaleXFromCenterInterface):
+            if hasattr(self, '_scale_x_from_center'):
+                return
+            self._scale_x_from_center = ap.Number(1.0)
+
+            self._append_scale_x_attr_linking_setting()
+
+    def _append_scale_x_attr_linking_setting(self) -> None:
+        """
+        Append a scale-x attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_scale_x_attr_linking_setting,
+                locals_=locals(),
+                module_name=__name__, class_=ScaleXFromCenterInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._scale_x_from_center,
+                attr_name='scale_x_from_center')
+            self._append_attr_to_linking_stack(
+                attr=self._scale_x_from_center,
+                attr_name='scale_x_from_center')
 
     @property
     def scale_x_from_center(self) -> ap.Number:
@@ -73,12 +94,7 @@ class ScaleXFromCenterInterface(
             self._append_scale_x_from_center_update_expression(
                 before_value=before_value)
 
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._scale_x_from_center,
-                attr_name='scale_x_from_center')
-            self._append_attr_to_linking_stack(
-                attr=self._scale_x_from_center,
-                attr_name='scale_x_from_center')
+            self._append_scale_x_attr_linking_setting()
 
     def _append_scale_x_from_center_update_expression(
             self, before_value: ap.Number) -> None:

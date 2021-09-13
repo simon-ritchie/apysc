@@ -4,11 +4,13 @@
 from typing import Dict
 
 import apysc as ap
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class SkewXInterface(VariableNameInterface, RevertInterface):
+class SkewXInterface(
+        VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
     _skew_x: ap.Int
 
@@ -56,6 +58,11 @@ class SkewXInterface(VariableNameInterface, RevertInterface):
             before_value: ap.Int = self._skew_x
             self._skew_x = value
             self._append_skew_x_update_expression(before_value=before_value)
+
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._skew_x, attr_name='skew_x')
+            self._append_attr_to_linking_stack(
+                attr=self._skew_x, attr_name='skew_x')
 
     def _append_skew_x_update_expression(self, before_value: ap.Int) -> None:
         """

@@ -50,15 +50,11 @@ class TestVisibleInterface:
         interface_1.visible = ap.Boolean(True)
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
-            f'{interface_1.variable_name}.show();'
-        )
-        assert expected in expression
-
-        expression_data_util.empty_expression()
-        interface_1.visible = ap.Boolean(False)
-        expression = expression_data_util.get_current_expression()
-        expected = (
-            f'{interface_1.variable_name}.hide();'
+            f'if ({interface_1._visible.variable_name}) {{'
+            f'\n  {interface_1.variable_name}.show();'
+            '\n}else {'
+            f'\n  {interface_1.variable_name}.hide();'
+            '\n}'
         )
         assert expected in expression
 

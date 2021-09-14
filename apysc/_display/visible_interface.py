@@ -84,11 +84,13 @@ class VisibleInterface(
                 callable_=self._append_visible_update_expression,
                 locals_=locals(),
                 module_name=__name__, class_=VisibleInterface):
-            expression: str = f'{self.variable_name}.'
-            if self._visible:
-                expression += 'show();'
-            else:
-                expression += 'hide();'
+            expression: str = (
+                f'if ({self._visible.variable_name}) {{'
+                f'\n  {self.variable_name}.show();'
+                '\n}else {'
+                f'\n  {self.variable_name}.hide();'
+                '\n}'
+            )
             ap.append_js_expression(expression=expression)
 
     _visible_snapshots: Dict[str, bool]

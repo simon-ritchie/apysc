@@ -111,3 +111,21 @@ class TestWidthAndHeightInterfacesForEllipse:
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface.width == 30
         assert interface.height == 40
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_width_attr_linking_setting(self) -> None:
+        interface: WidthAndHeightInterfacesForEllipse = \
+            WidthAndHeightInterfacesForEllipse()
+        interface.variable_name = \
+            'test_width_and_height_interfaces_for_ellipse'
+        interface._initialize_width_and_height_if_not_initialized()
+        assert interface._attr_linking_stack['width'] == [0]
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_height_attr_linking_setting(self) -> None:
+        interface: WidthAndHeightInterfacesForEllipse = \
+            WidthAndHeightInterfacesForEllipse()
+        interface.variable_name = \
+            'test_width_and_height_interfaces_for_ellipse'
+        interface._initialize_width_and_height_if_not_initialized()
+        assert interface._attr_linking_stack['height'] == [0]

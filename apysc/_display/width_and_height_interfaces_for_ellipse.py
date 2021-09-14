@@ -10,12 +10,13 @@ can't use this interface.
 from typing import Dict
 
 import apysc as ap
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class WidthAndHeightInterfacesForEllipse(
-        VariableNameInterface, RevertInterface):
+        VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
     _width: ap.Int
     _height: ap.Int
@@ -27,8 +28,38 @@ class WidthAndHeightInterfacesForEllipse(
         """
         if not hasattr(self, '_width'):
             self._width = ap.Int(0)
+            self._append_width_attr_linking_setting()
         if not hasattr(self, '_height'):
             self._height = ap.Int(0)
+            self._append_height_attr_linking_setting()
+
+    def _append_width_attr_linking_setting(self) -> None:
+        """
+        Append a width attricute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_width_attr_linking_setting,
+                locals_=locals(),
+                module_name=__name__,
+                class_=WidthAndHeightInterfacesForEllipse):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._width, attr_name='width')
+            self._append_attr_to_linking_stack(
+                attr=self._width, attr_name='width')
+
+    def _append_height_attr_linking_setting(self) -> None:
+        """
+        Append a height attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_height_attr_linking_setting,
+                locals_=locals(),
+                module_name=__name__,
+                class_=WidthAndHeightInterfacesForEllipse):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._height, attr_name='height')
+            self._append_attr_to_linking_stack(
+                attr=self._height, attr_name='height')
 
     @property
     def width(self) -> ap.Int:
@@ -70,6 +101,8 @@ class WidthAndHeightInterfacesForEllipse(
             self._width._append_incremental_calc_substitution_expression()
             self._append_ellipse_width_and_height_update_expression()
 
+            self._append_width_attr_linking_setting()
+
     @property
     def height(self) -> ap.Int:
         """
@@ -110,6 +143,8 @@ class WidthAndHeightInterfacesForEllipse(
             self._height = value
             self._height._append_incremental_calc_substitution_expression()
             self._append_ellipse_width_and_height_update_expression()
+
+            self._append_height_attr_linking_setting()
 
     def _append_ellipse_width_and_height_update_expression(self) -> None:
         """

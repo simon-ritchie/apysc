@@ -4,11 +4,13 @@
 from typing import Dict
 
 import apysc as ap
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class VisibleInterface(VariableNameInterface, RevertInterface):
+class VisibleInterface(
+        VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
     _visible: ap.Boolean
 
@@ -19,6 +21,21 @@ class VisibleInterface(VariableNameInterface, RevertInterface):
         if hasattr(self, '_visible'):
             return
         self._visible = ap.Boolean(True)
+
+        self._append_visible_attr_linking_setting()
+
+    def _append_visible_attr_linking_setting(self) -> None:
+        """
+        Append a visible attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_visible_attr_linking_setting,
+                locals_=locals(),
+                module_name=__name__, class_=VisibleInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._visible, attr_name='visible')
+            self._append_attr_to_linking_stack(
+                attr=self._visible, attr_name='visible')
 
     @property
     def visible(self) -> ap.Boolean:
@@ -56,6 +73,8 @@ class VisibleInterface(VariableNameInterface, RevertInterface):
                 value = ap.Boolean(value)
             self._visible = value
             self._append_visible_update_expression()
+
+            self._append_visible_attr_linking_setting()
 
     def _append_visible_update_expression(self) -> None:
         """

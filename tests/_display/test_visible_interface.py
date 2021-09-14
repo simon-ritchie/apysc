@@ -86,3 +86,9 @@ class TestVisibleInterface:
         interface_1.visible = ap.Boolean(False)
         interface_1._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface_1.visible
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_visible_attr_linking_setting(self) -> None:
+        interface: _TestVisible = _TestVisible()
+        interface._initialize_visible_if_not_initialized()
+        assert interface._attr_linking_stack['visible'] == [True]

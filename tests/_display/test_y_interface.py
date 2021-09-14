@@ -92,3 +92,10 @@ class TestYInterface:
             '\n}'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_y_attr_linking_setting(self) -> None:
+        interface: YInterface = YInterface()
+        interface.variable_name = 'test_y_interface'
+        interface._initialize_y_if_not_initialized()
+        assert interface._attr_linking_stack['y'] == [0]

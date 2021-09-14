@@ -5,11 +5,13 @@ from typing import Dict
 from typing import Union
 
 import apysc as ap
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class WidthInterface(VariableNameInterface, RevertInterface):
+class WidthInterface(
+        VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
     _width: ap.Int
 
@@ -20,6 +22,21 @@ class WidthInterface(VariableNameInterface, RevertInterface):
         if hasattr(self, '_width'):
             return
         self._width = ap.Int(0)
+
+        self._append_width_attr_linking_setting()
+
+    def _append_width_attr_linking_setting(self) -> None:
+        """
+        Append a width attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_width_attr_linking_setting,
+                locals_=locals(),
+                module_name=__name__, class_=WidthInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._width, attr_name='width')
+            self._append_attr_to_linking_stack(
+                attr=self._width, attr_name='width')
 
     @property
     def width(self) -> ap.Int:
@@ -56,6 +73,8 @@ class WidthInterface(VariableNameInterface, RevertInterface):
             self._update_width_and_skip_appending_exp(value=value)
             self._width._append_incremental_calc_substitution_expression()
             self._append_width_update_expression()
+
+            self._append_width_attr_linking_setting()
 
     def _append_width_getter_expression(self, width: ap.Int) -> None:
         """

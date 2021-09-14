@@ -75,6 +75,9 @@ class Ellipse(
                 parent_graphics=parent)
             self._set_overflow_visible_setting()
 
+            self._append_width_attr_linking_setting()
+            self._append_height_attr_linking_setting()
+
     def _append_constructor_expression(self) -> None:
         """
         Append a constructor expression.

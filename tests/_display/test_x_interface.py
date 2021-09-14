@@ -94,3 +94,10 @@ class TestXInterface:
             '\n}'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_x_attr_linking_setting(self) -> None:
+        x_interface = XInterface()
+        x_interface.variable_name = 'test_x_interface'
+        x_interface._initialize_x_if_not_initialized()
+        assert x_interface._attr_linking_stack['x'] == [0]

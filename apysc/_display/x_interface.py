@@ -4,11 +4,13 @@
 from typing import Dict
 
 import apysc as ap
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class XInterface(VariableNameInterface, RevertInterface):
+class XInterface(
+        VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
     _x: ap.Int
 
@@ -19,6 +21,21 @@ class XInterface(VariableNameInterface, RevertInterface):
         if hasattr(self, '_x'):
             return
         self._x = ap.Int(0)
+
+        self._append_x_attr_linking_setting()
+
+    def _append_x_attr_linking_setting(self) -> None:
+        """
+        Append a x attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_x_attr_linking_setting,
+                locals_=locals(),
+                module_name=__name__, class_=XInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._x, attr_name='x')
+            self._append_attr_to_linking_stack(
+                attr=self._x, attr_name='x')
 
     @property
     def x(self) -> ap.Int:
@@ -70,6 +87,8 @@ class XInterface(VariableNameInterface, RevertInterface):
             self._x = value
             self._x._append_incremental_calc_substitution_expression()
             self._append_x_update_expression()
+
+            self._append_x_attr_linking_setting()
 
     def _append_x_getter_expression(self, x: ap.Int) -> None:
         """

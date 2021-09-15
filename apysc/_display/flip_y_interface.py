@@ -23,6 +23,21 @@ class FlipYInterface(
             return
         self._flip_y = ap.Boolean(False)
 
+        self._append_flip_y_attr_linking_setting()
+
+    def _append_flip_y_attr_linking_setting(self) -> None:
+        """
+        Append a flip-y attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_flip_y_attr_linking_setting,
+                locals_=locals(),
+                module_name=__name__, class_=FlipYInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._flip_y, attr_name='flip_y')
+            self._append_attr_to_linking_stack(
+                attr=self._flip_y, attr_name='flip_y')
+
     @property
     def flip_y(self) -> ap.Boolean:
         """
@@ -59,10 +74,7 @@ class FlipYInterface(
             self._flip_y = value
             self._append_flip_y_update_expression(before_value=before_value)
 
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._flip_y, attr_name='flip_y')
-            self._append_attr_to_linking_stack(
-                attr=self._flip_y, attr_name='flip_y')
+            self._append_flip_y_attr_linking_setting()
 
     def _append_flip_y_update_expression(
             self, before_value: ap.Boolean) -> None:

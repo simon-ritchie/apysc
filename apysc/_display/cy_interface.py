@@ -4,11 +4,13 @@
 from typing import Dict
 
 import apysc as ap
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class CyInterface(VariableNameInterface, RevertInterface):
+class CyInterface(
+        VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
     _cy: ap.Int
 
@@ -19,6 +21,20 @@ class CyInterface(VariableNameInterface, RevertInterface):
         if hasattr(self, '_cy'):
             return
         self._cy = ap.Int(0)
+
+        self._append_cy_attr_linking_setting()
+
+    def _append_cy_attr_linking_setting(self) -> None:
+        """
+        Append a cy attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_cy_attr_linking_setting,
+                locals_=locals(),
+                module_name=__name__, class_=CyInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._cy, attr_name='cy')
+            self._append_attr_to_linking_stack(attr=self._cy, attr_name='cy')
 
     @property
     def y(self) -> ap.Int:
@@ -59,6 +75,8 @@ class CyInterface(VariableNameInterface, RevertInterface):
             self._cy = value
             self._cy._append_incremental_calc_substitution_expression()
             self._append_cy_update_expression()
+
+            self._append_cy_attr_linking_setting()
 
     def _append_y_getter_expression(self, y: ap.Int) -> None:
         """

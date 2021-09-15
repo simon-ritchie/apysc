@@ -101,3 +101,10 @@ class TestFillAlphaInterface:
         fill_alpha_interface._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert fill_alpha_interface.fill_alpha == 0.3
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_fill_alpha_attr_linking_setting(self) -> None:
+        fill_alpha_interface: FillAlphaInterface = FillAlphaInterface()
+        fill_alpha_interface.variable_name = 'test_fill_alpha_interface'
+        fill_alpha_interface._initialize_fill_alpha_if_not_initialized()
+        assert fill_alpha_interface._attr_linking_stack['fill_alpha'] == [1.0]

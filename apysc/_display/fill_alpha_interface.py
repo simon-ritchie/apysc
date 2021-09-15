@@ -23,6 +23,21 @@ class FillAlphaInterface(
             return
         self._fill_alpha = ap.Number(1.0)
 
+        self._append_fill_alpha_attr_linking_setting()
+
+    def _append_fill_alpha_attr_linking_setting(self) -> None:
+        """
+        Append a scale-y attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_fill_alpha_attr_linking_setting,
+                locals_=locals(),
+                module_name=__name__, class_=FillAlphaInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._fill_alpha, attr_name='fill_alpha')
+            self._append_attr_to_linking_stack(
+                attr=self._fill_alpha, attr_name='fill_alpha')
+
     @property
     def fill_alpha(self) -> ap.Number:
         """
@@ -62,10 +77,7 @@ class FillAlphaInterface(
             self._fill_alpha._append_incremental_calc_substitution_expression()
             self._append_fill_alpha_update_expression()
 
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._fill_alpha, attr_name='fill_alpha')
-            self._append_attr_to_linking_stack(
-                attr=self._fill_alpha, attr_name='fill_alpha')
+            self._append_fill_alpha_attr_linking_setting()
 
     def _append_fill_alpha_update_expression(self) -> None:
         """

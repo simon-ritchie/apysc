@@ -81,3 +81,9 @@ class TestFlipXInterface:
         interface.flip_x = ap.Boolean(False)
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert not interface.flip_x
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_flip_x_attr_linking_setting(self) -> None:
+        interface: _TestInterface = _TestInterface()
+        interface._initialize_flip_x_if_not_initialized()
+        assert interface._attr_linking_stack['flip_x'] == [False]

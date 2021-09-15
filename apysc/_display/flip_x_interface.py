@@ -23,6 +23,21 @@ class FlipXInterface(
             return
         self._flip_x = ap.Boolean(False)
 
+        self._append_flip_x_attr_linking_setting()
+
+    def _append_flip_x_attr_linking_setting(self) -> None:
+        """
+        Append a flip-x attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_flip_x_attr_linking_setting,
+                locals_=locals(),
+                module_name=__name__, class_=FlipXInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._flip_x, attr_name='flip_x')
+            self._append_attr_to_linking_stack(
+                attr=self._flip_x, attr_name='flip_x')
+
     @property
     def flip_x(self) -> ap.Boolean:
         """
@@ -59,10 +74,7 @@ class FlipXInterface(
             self._flip_x = value
             self._append_flip_x_update_expression(before_value=before_value)
 
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._flip_x, attr_name='flip_x')
-            self._append_attr_to_linking_stack(
-                attr=self._flip_x, attr_name='flip_x')
+            self._append_flip_x_attr_linking_setting()
 
     def _append_flip_x_update_expression(
             self, before_value: ap.Boolean) -> None:

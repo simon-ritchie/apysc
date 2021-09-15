@@ -4,11 +4,13 @@
 from typing import Dict
 
 import apysc as ap
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class CxInterface(VariableNameInterface, RevertInterface):
+class CxInterface(
+        VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
     _cx: ap.Int
 
@@ -20,6 +22,20 @@ class CxInterface(VariableNameInterface, RevertInterface):
             return
         self._cx = ap.Int(0)
 
+        self._append_cx_attr_linking_setting()
+
+    def _append_cx_attr_linking_setting(self) -> None:
+        """
+        Append a cx attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_cx_attr_linking_setting,
+                locals_=locals(),
+                module_name=__name__, class_=CxInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._cx, attr_name='cx')
+            self._append_attr_to_linking_stack(attr=self._cx, attr_name='cx')
+
     @property
     def x(self) -> ap.Int:
         """
@@ -30,7 +46,6 @@ class CxInterface(VariableNameInterface, RevertInterface):
         x : Int
             Center x-coordinate.
         """
-        import apysc as ap
         with ap.DebugInfo(
                 callable_='x', locals_=locals(),
                 module_name=__name__, class_=CxInterface):
@@ -50,7 +65,6 @@ class CxInterface(VariableNameInterface, RevertInterface):
         value : int or Int
             Center x-coordinate value.
         """
-        import apysc as ap
         with ap.DebugInfo(
                 callable_='x', locals_=locals(),
                 module_name=__name__, class_=CxInterface):
@@ -61,6 +75,8 @@ class CxInterface(VariableNameInterface, RevertInterface):
             self._cx = value
             self._cx._append_incremental_calc_substitution_expression()
             self._append_cx_update_expression()
+
+            self._append_cx_attr_linking_setting()
 
     def _append_x_getter_expression(self, x: ap.Int) -> None:
         """

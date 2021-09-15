@@ -86,3 +86,10 @@ class TestCxInterface:
             '\n}'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_cx_attr_linking_setting(self) -> None:
+        interface: CxInterface = CxInterface()
+        interface.variable_name = 'test_cx_interface'
+        interface._initialize_cx_if_not_initialized()
+        interface._attr_linking_stack['cx'] == [0]

@@ -5,11 +5,13 @@ from typing import Dict
 from typing import Union
 
 import apysc as ap
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class HeightInterface(VariableNameInterface, RevertInterface):
+class HeightInterface(
+        VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
     _height: ap.Int
 
@@ -20,6 +22,21 @@ class HeightInterface(VariableNameInterface, RevertInterface):
         if hasattr(self, '_height'):
             return
         self._height = ap.Int(0)
+
+        self._append_height_attr_linking_setting()
+
+    def _append_height_attr_linking_setting(self) -> None:
+        """
+        Append a height attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_height_attr_linking_setting,
+                locals_=locals(),
+                module_name=__name__, class_=HeightInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._height, attr_name='height')
+            self._append_attr_to_linking_stack(
+                attr=self._height, attr_name='height')
 
     @property
     def height(self) -> ap.Int:
@@ -56,6 +73,8 @@ class HeightInterface(VariableNameInterface, RevertInterface):
             self._update_height_and_skip_appending_exp(value=value)
             self._height._append_incremental_calc_substitution_expression()
             self._append_height_update_expression()
+
+            self._append_height_attr_linking_setting()
 
     def _append_height_getter_expression(self, height: ap.Int) -> None:
         """

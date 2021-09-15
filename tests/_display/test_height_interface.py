@@ -115,3 +115,10 @@ class TestHeightInterface:
             '\n}'
         )
         assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_height_attr_linking_setting(self) -> None:
+        interface: HeightInterface = HeightInterface()
+        interface.variable_name = 'test_height_interface'
+        interface._initialize_height_if_not_initialized()
+        assert interface._attr_linking_stack['height'] == [0]

@@ -23,6 +23,21 @@ class EllipseHeightInterface(
             return
         self._ellipse_height = ap.Int(0)
 
+        self._append_ellipse_height_attr_linking_setting()
+
+    def _append_ellipse_height_attr_linking_setting(self) -> None:
+        """
+        Append a ellipse-height attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_ellipse_height_attr_linking_setting,
+                locals_=locals(),
+                module_name=__name__, class_=EllipseHeightInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._ellipse_height, attr_name='ellipse_height')
+            self._append_attr_to_linking_stack(
+                attr=self._ellipse_height, attr_name='ellipse_height')
+
     @property
     def ellipse_height(self) -> ap.Int:
         """
@@ -62,10 +77,7 @@ class EllipseHeightInterface(
                 _append_incremental_calc_substitution_expression()
             self._append_ellipse_height_update_expression()
 
-            self._append_applying_new_attr_val_exp(
-                new_attr=value, attr_name='ellipse_height')
-            self._append_attr_to_linking_stack(
-                attr=value, attr_name='ellipse_height')
+            self._append_ellipse_height_attr_linking_setting()
 
     def _append_ellipse_height_update_expression(self) -> None:
         """

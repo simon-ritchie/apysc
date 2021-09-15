@@ -57,6 +57,7 @@ class TestEllipseHeightInterface:
         )
         assert expected in expression
 
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         interface: EllipseHeightInterface = EllipseHeightInterface()
         interface.variable_name = 'test_ellipse_height_interface'
@@ -69,6 +70,7 @@ class TestEllipseHeightInterface:
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
         assert interface._ellipse_height_snapshots[snapshot_name] == 10
 
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         interface: EllipseHeightInterface = EllipseHeightInterface()
         interface.variable_name = 'test_ellipse_height_interface'
@@ -82,3 +84,10 @@ class TestEllipseHeightInterface:
         interface.ellipse_height = ap.Int(20)
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface.ellipse_height == 20
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_ellipse_height_attr_linking_setting(self) -> None:
+        interface: EllipseHeightInterface = EllipseHeightInterface()
+        interface.variable_name = 'test_ellipse_height_interface'
+        interface._initialize_ellipse_height_if_not_initialized()
+        assert interface._attr_linking_stack['ellipse_height'] == [0]

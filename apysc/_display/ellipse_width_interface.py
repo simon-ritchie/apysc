@@ -22,6 +22,21 @@ class EllipseWidthInterface(
             return
         self._ellipse_width = ap.Int(0)
 
+        self._append_ellipse_width_attr_linking_setting()
+
+    def _append_ellipse_width_attr_linking_setting(self) -> None:
+        """
+        Append a ellipse-height attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_ellipse_width_attr_linking_setting,
+                locals_=locals(),
+                module_name=__name__, class_=EllipseWidthInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._ellipse_width, attr_name='ellipse_width')
+            self._append_attr_to_linking_stack(
+                attr=self._ellipse_width, attr_name='ellipse_width')
+
     @property
     def ellipse_width(self) -> ap.Int:
         """
@@ -61,10 +76,7 @@ class EllipseWidthInterface(
                 _append_incremental_calc_substitution_expression()
             self._append_ellipse_width_update_expression()
 
-            self._append_applying_new_attr_val_exp(
-                new_attr=value, attr_name='ellipse_width')
-            self._append_attr_to_linking_stack(
-                attr=value, attr_name='ellipse_width')
+            self._append_ellipse_width_attr_linking_setting()
 
     def _append_ellipse_width_update_expression(self) -> None:
         """

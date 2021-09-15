@@ -83,3 +83,10 @@ class TestEllipseWidthInterface:
         interface.ellipse_width = ap.Int(20)
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface.ellipse_width == 20
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_ellipse_width_attr_linking_setting(self) -> None:
+        interface: EllipseWidthInterface = EllipseWidthInterface()
+        interface.variable_name = 'test_ellipse_width_interface'
+        interface._initialize_ellipse_width_if_not_initialized()
+        assert interface._attr_linking_stack['ellipse_width'] == [0]

@@ -13,6 +13,7 @@ from apysc._event.mouse_event_type import MouseEventType
 from apysc._type.variable_name_interface import VariableNameInterface
 
 Event_ = Any
+_DictOrTypedDict = Any
 
 
 class Handler(Protocol):
@@ -22,7 +23,7 @@ class Handler(Protocol):
 
     def __call__(
             self, e: Event_,
-            options: Dict[str, Any]) -> None:
+            options: _DictOrTypedDict) -> None:
         """
         Event handler's callable interface.
 
@@ -37,7 +38,7 @@ class Handler(Protocol):
 
 class HandlerData(TypedDict):
     handler: Handler
-    options: Dict[str, Any]
+    options: _DictOrTypedDict
 
 
 def get_handler_name(
@@ -104,7 +105,10 @@ def append_handler_expression(
         from apysc._validation.event_validation import validate_event
         from apysc._validation.variable_name_validation import \
             validate_variable_name_interface_type
+        from apysc._validation.options_validation import validate_options
         validate_event(e=e)
+        validate_options(
+            handler=handler_data['handler'], options=handler_data['options'])
         variables: List[Any] = [*handler_data['options'].values()]
         snapshot_name: str = revert_interface.make_variables_snapshots(
             variables=variables)

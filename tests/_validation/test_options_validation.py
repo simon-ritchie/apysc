@@ -157,7 +157,7 @@ def test__is_typed_dict_options_arg() -> None:
     assert not result
 
     handler_arg_data_list = options_validation._get_handler_arg_data_list(
-        handler=_test_handler_5)  # type: ignore
+        handler=_test_handler_5)
     result = options_validation._is_typed_dict_options_arg(
         handler_arg_data_list=handler_arg_data_list)
     assert result
@@ -182,7 +182,7 @@ def test__validate_typed_dict() -> None:
         options={'a': 10})
 
     handler_arg_data_list = options_validation._get_handler_arg_data_list(
-        handler=_test_handler_5)  # type: ignore
+        handler=_test_handler_5)
     options: Dict[str, Any] = {'a': 10, 'c': 20}
     assert_raises(
         expected_error_class=_TypedDictOptionsTypeMismatchError,

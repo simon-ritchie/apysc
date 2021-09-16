@@ -27,7 +27,8 @@ def validate_options(handler: Handler, options: Any) -> None:
     handler_arg_data_list: List[_ArgData] = _get_handler_arg_data_list(
         handler=handler)
     _validate_arg_names(handler_arg_data_list=handler_arg_data_list)
-    pass
+    _validate_typed_dict(
+        handler_arg_data_list=handler_arg_data_list, options=options)
 
 
 class _ArgData(TypedDict):
@@ -45,6 +46,55 @@ class _HandlerFirstArgumentNameError(Exception):
 
 class _HandlerSecondArgumentNameError(Exception):
     pass
+
+
+def _validate_typed_dict(
+        handler_arg_data_list: List[_ArgData],
+        options: Dict[Any, Any]) -> None:
+    """
+    Validate a TypedDict options values.
+
+    Notes
+    -----
+    If the handler's annotation is not the type of the TypedDict,
+    then validation will be skipped.
+
+    Parameters
+    ----------
+    handler_arg_data_list : list of _ArgData
+        Target handler's arguments data list.
+    options : dict
+        Optional arguments dictionary.
+    """
+    if not _is_typed_dict_options_arg(
+            handler_arg_data_list=handler_arg_data_list):
+        return
+    pass
+
+
+def _is_typed_dict_options_arg(
+        handler_arg_data_list: List[_ArgData]) -> bool:
+    """
+    Get a boolean value whether the options argument is the
+    TypedDict or not.
+
+    Parameters
+    ----------
+    handler_arg_data_list : list of _ArgData
+        Target handler's arguments data list.
+
+    Returns
+    -------
+    result : bool
+        If the options argument is the TypedDict, then True will
+        be returned.
+    """
+    annotation: Any = handler_arg_data_list[1]['annotation']
+    annotation_str: str = str(annotation)
+    annotation_str = annotation_str.lower()
+    if 'typeddict' in annotation_str:
+        return True
+    return False
 
 
 def _validate_arg_names(handler_arg_data_list: List[_ArgData]) -> None:

@@ -88,6 +88,19 @@ def _test_handler_4(e: ap.Event, opt: Dict[str, Any]) -> None:
     """
 
 
+def _test_handler_5(e: ap.Event, options: _TestTypedDict1) -> None:
+    """
+    The handler function for the testing.
+
+    Parameters
+    ----------
+    e : Event
+        Event instance.
+    options : _TestTypedDict1
+        Optional arguments dictionary.
+    """
+
+
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_handler_arg_data_list() -> None:
     handler_arg_data_list: List[_ArgData] = options_validation.\
@@ -131,3 +144,18 @@ def test__validate_arg_names() -> None:
         handler=_test_handler_1)
     options_validation._validate_arg_names(
         handler_arg_data_list=handler_arg_data_list)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__is_typed_dict_options_arg() -> None:
+    handler_arg_data_list: List[_ArgData] = options_validation.\
+        _get_handler_arg_data_list(handler=_test_handler_1)
+    result: bool = options_validation._is_typed_dict_options_arg(
+        handler_arg_data_list=handler_arg_data_list)
+    assert not result
+
+    handler_arg_data_list = options_validation._get_handler_arg_data_list(
+        handler=_test_handler_5)  # type: ignore
+    result = options_validation._is_typed_dict_options_arg(
+        handler_arg_data_list=handler_arg_data_list)
+    assert result

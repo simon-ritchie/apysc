@@ -48,6 +48,10 @@ class _HandlerSecondArgumentNameError(Exception):
     pass
 
 
+class _TypedDictOptionsTypeMismatchError(Exception):
+    pass
+
+
 def _validate_typed_dict(
         handler_arg_data_list: List[_ArgData],
         options: Dict[Any, Any]) -> None:
@@ -69,7 +73,29 @@ def _validate_typed_dict(
     if not _is_typed_dict_options_arg(
             handler_arg_data_list=handler_arg_data_list):
         return
+    annotation: Any = _get_options_annotation_from_handler_arg_data_list(
+        handler_arg_data_list=handler_arg_data_list)
     pass
+
+
+def _get_options_annotation_from_handler_arg_data_list(
+        handler_arg_data_list: List[_ArgData]) -> Any:
+    """
+    Get a options' annotation value from a specified handler's
+    argument data list.
+
+    Parameters
+    ----------
+    handler_arg_data_list : list of _ArgData
+        Target handler's arguments data list.
+
+    Returns
+    -------
+    annotation : Any
+        Options' annotation value.
+    """
+    annotation: Any = handler_arg_data_list[1]['annotation']
+    return annotation
 
 
 def _is_typed_dict_options_arg(
@@ -89,7 +115,8 @@ def _is_typed_dict_options_arg(
         If the options argument is the TypedDict, then True will
         be returned.
     """
-    annotation: Any = handler_arg_data_list[1]['annotation']
+    annotation: Any = _get_options_annotation_from_handler_arg_data_list(
+        handler_arg_data_list=handler_arg_data_list)
     annotation_str: str = str(annotation)
     annotation_str = annotation_str.lower()
     if 'typeddict' in annotation_str:

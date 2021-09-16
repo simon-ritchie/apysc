@@ -159,3 +159,13 @@ def test__is_typed_dict_options_arg() -> None:
     result = options_validation._is_typed_dict_options_arg(
         handler_arg_data_list=handler_arg_data_list)
     assert result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_options_annotation_from_handler_arg_data_list() -> None:
+    handler_arg_data_list: List[_ArgData] = options_validation.\
+        _get_handler_arg_data_list(handler=_test_handler_1)
+    annotation: Any = options_validation.\
+        _get_options_annotation_from_handler_arg_data_list(
+            handler_arg_data_list=handler_arg_data_list)
+    assert annotation == Dict[str, Any]

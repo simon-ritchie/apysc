@@ -208,3 +208,25 @@ def test__validate_typed_dict() -> None:
     options = {'a': 10, 'b': 'Hello', 'c': 30}
     options_validation._validate_typed_dict(
         handler_arg_data_list=handler_arg_data_list, options=options)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_validate_options() -> None:
+    options_validation.validate_options(
+        handler=_test_handler_1, options=None)
+
+    assert_raises(
+        expected_error_class=TypeError,
+        func_or_method=options_validation.validate_options,
+        kwargs={'handler': _test_handler_1, 'options': [1, 2]},
+        match='Specified options argument is not dict type or None:')
+
+    assert_raises(
+        expected_error_class=_HandlerArgumentsLengthError,
+        func_or_method=options_validation.validate_options,
+        kwargs={'handler': _test_handler_2, 'options': {'a': 10}})
+
+    assert_raises(
+        expected_error_class=_TypedDictOptionsTypeMismatchError,
+        func_or_method=options_validation.validate_options,
+        kwargs={'handler': _test_handler_5, 'options': {'a': 10}})

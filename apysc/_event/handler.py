@@ -2,7 +2,6 @@
 """
 
 from typing import Any
-from typing import Dict
 from typing import List
 
 from typing_extensions import Protocol
@@ -103,9 +102,9 @@ def append_handler_expression(
         from apysc._expression.indent_num import Indent
         from apysc._type import revert_interface
         from apysc._validation.event_validation import validate_event
+        from apysc._validation.options_validation import validate_options
         from apysc._validation.variable_name_validation import \
             validate_variable_name_interface_type
-        from apysc._validation.options_validation import validate_options
         validate_event(e=e)
         validate_options(
             handler=handler_data['handler'], options=handler_data['options'])

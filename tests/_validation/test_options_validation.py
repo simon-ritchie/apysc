@@ -1,13 +1,20 @@
 from random import randint
-import inspect
-from typing import Any, Dict, List
+from typing import Any
+from typing import Dict
+from typing import List
 
 from retrying import retry
 from typing_extensions import TypedDict
 
 import apysc as ap
 from apysc._validation import options_validation
-from apysc._validation.options_validation import _ArgData, _HandlerArgumentsLengthError, _HandlerFirstArgumentNameError, _HandlerSecondArgumentNameError, _TypedDictOptionsTypeMismatchError
+from apysc._validation.options_validation import _ArgData
+from apysc._validation.options_validation import _HandlerArgumentsLengthError
+from apysc._validation.options_validation import _HandlerFirstArgumentNameError
+from apysc._validation.options_validation import \
+    _HandlerSecondArgumentNameError
+from apysc._validation.options_validation import \
+    _TypedDictOptionsTypeMismatchError
 from tests.testing_helper import assert_raises
 
 

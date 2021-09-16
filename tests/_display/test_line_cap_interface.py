@@ -100,10 +100,3 @@ class TestLineCapInterface:
             func_or_method=interface._update_line_cap_and_skip_appending_exp,
             kwargs={'value': 'round'},
             match=r'Not supported line_cap type specified: ')
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__append_line_cap_attr_linking_setting(self) -> None:
-        interface: LineCapInterface = LineCapInterface()
-        interface.variable_name = 'test_line_cap_interface'
-        interface._initialize_line_cap_if_not_initialized()
-        interface._attr_linking_stack['line_cap'] == [ap.LineCaps.BUTT.value]

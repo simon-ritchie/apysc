@@ -23,6 +23,20 @@ class LineAlphaInterface(
             return
         self._line_alpha = ap.Number(1.0)
 
+        self._append_line_alpha_attr_linking_setting()
+
+    def _append_line_alpha_attr_linking_setting(self) -> None:
+        """
+        Append a line alpha attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_='line_alpha', locals_=locals(),
+                module_name=__name__, class_=LineAlphaInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._line_alpha, attr_name='line_alpha')
+            self._append_attr_to_linking_stack(
+                attr=self._line_alpha, attr_name='line_alpha')
+
     @property
     def line_alpha(self) -> ap.Number:
         """
@@ -58,10 +72,7 @@ class LineAlphaInterface(
             self._line_alpha._append_incremental_calc_substitution_expression()
             self._append_line_alpha_update_expression()
 
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._line_alpha, attr_name='line_alpha')
-            self._append_attr_to_linking_stack(
-                attr=self._line_alpha, attr_name='line_alpha')
+            self._append_line_alpha_attr_linking_setting()
 
     def _append_line_alpha_update_expression(self) -> None:
         """

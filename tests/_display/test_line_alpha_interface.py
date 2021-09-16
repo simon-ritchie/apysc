@@ -93,3 +93,10 @@ class TestLineAlphaInterface:
         line_alpha_interface._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert line_alpha_interface.line_alpha == 0.3
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_line_alpha_attr_linking_setting(self) -> None:
+        interface: LineAlphaInterface = LineAlphaInterface()
+        interface.variable_name = 'test_line_alpha_interface'
+        interface._initialize_line_alpha_if_not_initialized()
+        assert interface._attr_linking_stack['line_alpha'] == [1.0]

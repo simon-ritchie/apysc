@@ -18,6 +18,7 @@ from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 _T = TypeVar('_T', bound=VariableNameInterface)
+_DictOrTypedDict = Any
 
 
 class AnimationBase(
@@ -132,7 +133,7 @@ class AnimationBase(
 
     def animation_complete(
             self, handler: Handler,
-            options: Optional[Dict[str, Any]] = None) -> str:
+            options: Optional[_DictOrTypedDict] = None) -> str:
         """
         Add a animation complete event listener setting.
 
@@ -161,7 +162,9 @@ class AnimationBase(
                 callable_=self.animation_complete, locals_=locals(),
                 module_name=__name__, class_=AnimationBase):
             from apysc._event.custom_event_type import CustomEventType
+            from apysc._validation.options_validation import validate_options
             self._validate_animation_not_started()
+            validate_options(handler=handler, options=options)
             e: ap.AnimationEvent[_T] = ap.AnimationEvent(this=self)
             name: str = self.bind_custom_event(
                 custom_event_type=CustomEventType.ANIMATION_COMPLETE,

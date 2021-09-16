@@ -10,13 +10,15 @@ from apysc._event.handler import HandlerData
 from apysc._event.mouse_event_type import MouseEventType
 from apysc._type.variable_name_interface import VariableNameInterface
 
+_DictOrTypedDict = Any
+
 
 class MouseEventInterfaceBase:
 
     def _set_mouse_event_handler_data(
             self, handler: Handler,
             handlers_dict: Dict[str, HandlerData],
-            options: Optional[Dict[str, Any]]) -> None:
+            options: Optional[_DictOrTypedDict]) -> None:
         """
         Set a handler's data to the given dictionary.
 
@@ -30,9 +32,11 @@ class MouseEventInterfaceBase:
             Optional arguments dictionary to be passed to handler.
         """
         from apysc._event.handler import get_handler_name
+        from apysc._validation.options_validation import validate_options
         name: str = get_handler_name(handler=handler, instance=self)
         if options is None:
             options = {}
+        validate_options(handler=handler, options=options)
         handlers_dict[name] = {
             'handler': handler,
             'options': options,

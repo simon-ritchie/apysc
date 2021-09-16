@@ -9,6 +9,8 @@ from apysc._event.handler import Handler
 from apysc._event.handler import HandlerData
 from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
 
+_DictOrTypedDict = Any
+
 
 class MouseOutInterface(MouseEventInterfaceBase):
 
@@ -16,7 +18,7 @@ class MouseOutInterface(MouseEventInterfaceBase):
 
     def mouseout(
             self, handler: Handler,
-            options: Optional[Dict[str, Any]] = None) -> str:
+            options: Optional[_DictOrTypedDict] = None) -> str:
         """
         Add mouse out event listener setting.
 
@@ -47,6 +49,8 @@ class MouseOutInterface(MouseEventInterfaceBase):
             from apysc._event.handler import get_handler_name
             from apysc._type.variable_name_interface import \
                 VariableNameInterface
+            from apysc._validation.options_validation import validate_options
+            validate_options(handler=handler, options=options)
             self_instance: VariableNameInterface = \
                 validate_variable_name_interface_type(instance=self)
             self._initialize_mouse_out_handlers_if_not_initialized()

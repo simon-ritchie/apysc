@@ -14,6 +14,7 @@ from apysc._type.blank_object_interface import BlankObjectInterface
 
 _CustomEventType = str
 _HandlerName = str
+_DictOrTypedDict = Any
 
 
 class CustomEventInterface(BlankObjectInterface):
@@ -61,7 +62,7 @@ class CustomEventInterface(BlankObjectInterface):
     def _set_custom_event_handler_data(
             self, handler: Handler,
             custom_event_type_str: str,
-            options: Optional[Dict[str, Any]]) -> None:
+            options: Optional[_DictOrTypedDict]) -> None:
         """
         Set a handler's data to the dictionary.
 
@@ -75,9 +76,11 @@ class CustomEventInterface(BlankObjectInterface):
             Optional arguments dictionary to be passed to a handler.
         """
         from apysc._event.handler import get_handler_name
+        from apysc._validation.options_validation import validate_options
         name: str = get_handler_name(handler=handler, instance=self)
         if options is None:
             options = {}
+        validate_options(handler=handler, options=options)
         self._custom_event_handlers[custom_event_type_str][name] = {
             'handler': handler,
             'options': options,
@@ -108,7 +111,7 @@ class CustomEventInterface(BlankObjectInterface):
             self, custom_event_type: Union[CustomEventType, str],
             handler: Handler,
             e: Event,
-            options: Optional[Dict[str, Any]] = None) -> str:
+            options: Optional[_DictOrTypedDict] = None) -> str:
         """
         Add a custom event listener setting.
 
@@ -139,6 +142,8 @@ class CustomEventInterface(BlankObjectInterface):
                 module_name=__name__, class_=CustomEventInterface):
             from apysc._event.handler import append_handler_expression
             from apysc._event.handler import get_handler_name
+            from apysc._validation.options_validation import validate_options
+            validate_options(handler=handler, options=options)
             custom_event_type_str: str = self._get_custom_event_type_str(
                 custom_event_type=custom_event_type)
             self._initialize_custom_event_handlers_if_not_initialized(

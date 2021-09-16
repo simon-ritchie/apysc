@@ -14,6 +14,8 @@ from typing_extensions import Protocol
 
 import apysc as ap
 
+_DictOrTypedDict = Any
+
 
 class WheelHandler(Protocol):
 
@@ -32,7 +34,7 @@ class WheelHandler(Protocol):
 
 def bind_wheel_event_to_document(
         handler: WheelHandler,
-        options: Optional[Dict[str, Any]] = None) -> str:
+        options: Optional[_DictOrTypedDict] = None) -> str:
     """
     Bind wheel event to document (overall window).
 
@@ -54,6 +56,7 @@ def bind_wheel_event_to_document(
         from apysc._event.handler import HandlerData
         from apysc._event.handler import append_handler_expression
         from apysc._event.handler import get_handler_name
+        from apysc._validation.options_validation import validate_options
         name: str = get_handler_name(handler=handler, instance=ap.document)
         expression: str = (
             f'$({ap.document.variable_name}).on("mousewheel", {name});'
@@ -62,6 +65,7 @@ def bind_wheel_event_to_document(
 
         if options is None:
             options = {}
+        validate_options(handler=handler, options=options)
         handler_data: HandlerData = {  # type: ignore
             'handler': handler,
             'options': options,

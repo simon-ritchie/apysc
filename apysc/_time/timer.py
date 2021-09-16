@@ -14,6 +14,8 @@ from apysc._time.fps import FPS
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
+_DictOrTypedDict = Any
+
 
 class Timer(VariableNameInterface, CustomEventInterface):
     """
@@ -46,7 +48,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
             handler: Handler,
             delay: Union[int, float, NumberValueInterface, FPS],
             repeat_count: Union[int, ap.Int] = 0,
-            options: Optional[Dict[str, Any]] = None) -> None:
+            options: Optional[_DictOrTypedDict] = None) -> None:
         """
         Timer class to handle function calling at regular intervals.
 
@@ -90,6 +92,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
             from apysc._expression.event_handler_scope import \
                 TemporaryNotHandlerScope
             from apysc._validation import number_validation
+            from apysc._validation.options_validation import validate_options
             with TemporaryNotHandlerScope():
                 self.variable_name = \
                     expression_variables_util.get_next_variable_name(
@@ -109,6 +112,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
                 self._current_count = ap.Int(0)
                 if options is None:
                     options = {}
+                validate_options(handler=handler, options=options)
                 self._handler_data = {
                     'handler': self._handler,
                     'options': options,
@@ -391,7 +395,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
 
     def timer_complete(
             self, handler: Handler,
-            options: Optional[Dict[str, Any]] = None) -> str:
+            options: Optional[_DictOrTypedDict] = None) -> str:
         """
         Add a timer complete event listener setting.
 
@@ -417,6 +421,8 @@ class Timer(VariableNameInterface, CustomEventInterface):
                 callable_=self.timer_complete, locals_=locals(),
                 module_name=__name__, class_=Timer):
             from apysc._event.custom_event_type import CustomEventType
+            from apysc._validation.options_validation import validate_options
+            validate_options(handler=handler, options=options)
             e: ap.TimerEvent = ap.TimerEvent(this=self)
             name: str = self.bind_custom_event(
                 custom_event_type=CustomEventType.TIMER_COMPLETE,

@@ -21,8 +21,13 @@ class TestAttrLinkingInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_attr_to_linking_stack(self) -> None:
         interface: AttrLinkingInterface = AttrLinkingInterface()
+        attr: ap.Int = ap.Int(10)
         interface._append_attr_to_linking_stack(
-            attr=ap.Int(10), attr_name='x')
+            attr=attr, attr_name='x')
+        assert interface._attr_linking_stack == {'x': [ap.Int(10)]}
+
+        interface._append_attr_to_linking_stack(
+            attr=attr, attr_name='x')
         assert interface._attr_linking_stack == {'x': [ap.Int(10)]}
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -44,3 +49,14 @@ class TestAttrLinkingInterface:
             in expression
         assert f'{new_attr.variable_name} = {new_attr.variable_name};' \
             not in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__is_target_attr_already_linked(self) -> None:
+        interface: AttrLinkingInterface = AttrLinkingInterface()
+        attr: ap.Int = ap.Int(10)
+        assert not interface._is_target_attr_already_linked(
+            attr=attr, attr_name='x')
+
+        interface._append_attr_to_linking_stack(attr=attr, attr_name='x')
+        assert interface._is_target_attr_already_linked(
+            attr=attr, attr_name='x')

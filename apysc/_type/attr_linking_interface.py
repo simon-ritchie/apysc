@@ -47,7 +47,35 @@ class AttrLinkingInterface:
             Target attribute name.
         """
         self._initialize_attr_linking_stack(attr_name=attr_name)
+        if self._is_target_attr_already_linked(
+                attr=attr, attr_name=attr_name):
+            return
         self._attr_linking_stack[attr_name].append(attr)
+
+    def _is_target_attr_already_linked(
+            self, attr: _Attr, attr_name: str) -> bool:
+        """
+        Get a boolean value whether a specified attribute has already
+        been appended to the linking attribute stack.
+
+        Parameters
+        ----------
+        attr : Int or Number or String or Boolean
+            Target attribute to be appended.
+        attr_name : str
+            Target attribute name.
+
+        Returns
+        -------
+        result : bool
+            If a specified attribute has already been appended to
+            the linking stack, this value will be True.
+        """
+        self._initialize_attr_linking_stack(attr_name=attr_name)
+        for in_stack_value in self._attr_linking_stack[attr_name]:
+            if in_stack_value.variable_name == attr.variable_name:
+                return True
+        return False
 
     def _append_applying_new_attr_val_exp(
             self, new_attr: _Attr, attr_name: str) -> None:

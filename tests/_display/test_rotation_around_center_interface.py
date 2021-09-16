@@ -81,3 +81,10 @@ class TestRotationAroundCenterInterface:
         interface.rotation_around_center = ap.Int(20)
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface.rotation_around_center == 20
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_rotation_around_center_attr_linking_setting(
+            self) -> None:
+        interface: _TestInterface = _TestInterface()
+        interface._initialize_rotation_around_center_if_not_initialized()
+        assert interface._attr_linking_stack['rotation_around_center'] == [0]

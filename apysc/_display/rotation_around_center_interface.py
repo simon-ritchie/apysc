@@ -24,6 +24,24 @@ class RotationAroundCenterInterface(
             return
         self._rotation_around_center = ap.Int(0)
 
+        self._append_rotation_around_center_attr_linking_setting()
+
+    def _append_rotation_around_center_attr_linking_setting(self) -> None:
+        """
+        Append a rotation around center attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_=self.
+                _append_rotation_around_center_attr_linking_setting,
+                locals_=locals(),
+                module_name=__name__, class_=RotationAroundCenterInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._rotation_around_center,
+                attr_name='rotation_around_center')
+            self._append_attr_to_linking_stack(
+                attr=self._rotation_around_center,
+                attr_name='rotation_around_center')
+
     @property
     def rotation_around_center(self) -> ap.Int:
         """
@@ -74,12 +92,7 @@ class RotationAroundCenterInterface(
             self._append_rotation_around_center_update_expression(
                 before_value=before_value)
 
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._rotation_around_center,
-                attr_name='rotation_around_center')
-            self._append_attr_to_linking_stack(
-                attr=self._rotation_around_center,
-                attr_name='rotation_around_center')
+            self._append_rotation_around_center_attr_linking_setting()
 
     def _append_rotation_around_center_update_expression(
             self, before_value: ap.Int) -> None:

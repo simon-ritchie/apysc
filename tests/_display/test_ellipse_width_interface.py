@@ -89,4 +89,4 @@ class TestEllipseWidthInterface:
         interface: EllipseWidthInterface = EllipseWidthInterface()
         interface.variable_name = 'test_ellipse_width_interface'
         interface._initialize_ellipse_width_if_not_initialized()
-        assert interface._attr_linking_stack['ellipse_width'] == [0]
+        assert interface._attr_linking_stack['ellipse_width'] == [ap.Int(0)]

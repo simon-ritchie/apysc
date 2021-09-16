@@ -107,4 +107,5 @@ class TestFillAlphaInterface:
         fill_alpha_interface: FillAlphaInterface = FillAlphaInterface()
         fill_alpha_interface.variable_name = 'test_fill_alpha_interface'
         fill_alpha_interface._initialize_fill_alpha_if_not_initialized()
-        assert fill_alpha_interface._attr_linking_stack['fill_alpha'] == [1.0]
+        assert fill_alpha_interface._attr_linking_stack['fill_alpha'] == \
+            [ap.Number(1.0)]

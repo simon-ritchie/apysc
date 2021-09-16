@@ -86,4 +86,4 @@ class TestFlipXInterface:
     def test__append_flip_x_attr_linking_setting(self) -> None:
         interface: _TestInterface = _TestInterface()
         interface._initialize_flip_x_if_not_initialized()
-        assert interface._attr_linking_stack['flip_x'] == [False]
+        assert interface._attr_linking_stack['flip_x'] == [ap.Boolean(False)]

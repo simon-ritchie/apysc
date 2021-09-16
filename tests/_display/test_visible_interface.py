@@ -87,4 +87,4 @@ class TestVisibleInterface:
     def test__append_visible_attr_linking_setting(self) -> None:
         interface: _TestVisible = _TestVisible()
         interface._initialize_visible_if_not_initialized()
-        assert interface._attr_linking_stack['visible'] == [True]
+        assert interface._attr_linking_stack['visible'] == [ap.Boolean(True)]

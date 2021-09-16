@@ -92,4 +92,4 @@ class TestCyInterface:
         interface: CyInterface = CyInterface()
         interface.variable_name = 'test_cy_interface'
         interface._initialize_cy_if_not_initialized()
-        assert interface._attr_linking_stack['cy'] == [0]
+        assert interface._attr_linking_stack['cy'] == [ap.Int(0)]

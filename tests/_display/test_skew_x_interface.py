@@ -83,4 +83,4 @@ class TestSkewXInterface:
     def test__append_skew_x_attr_linking_setting(self) -> None:
         interface: _TestInterface = _TestInterface()
         interface._initialize_skew_x_if_not_initialized()
-        assert interface._attr_linking_stack['skew_x'] == [0]
+        assert interface._attr_linking_stack['skew_x'] == [ap.Int(0)]

@@ -1,6 +1,7 @@
-from random import randint
-from typing import Optional, Match
 import re
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
@@ -116,4 +117,4 @@ class TestWidthInterface:
         interface: WidthInterface = WidthInterface()
         interface.variable_name = 'test_width_interface'
         interface._initialize_width_if_not_initialized()
-        assert interface._attr_linking_stack['width'] == [0]
+        assert interface._attr_linking_stack['width'] == [ap.Int(0)]

@@ -1,6 +1,7 @@
-from random import randint
-from typing import Match, Optional
 import re
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
@@ -117,4 +118,4 @@ class TestLineThicknessInterface:
         interface: LineThicknessInterface = LineThicknessInterface()
         interface.variable_name = 'test_line_thickness_interface'
         interface._initialize_line_thickness_if_not_initialized()
-        assert interface._attr_linking_stack['line_thickness'] == [1]
+        assert interface._attr_linking_stack['line_thickness'] == [ap.Int(1)]

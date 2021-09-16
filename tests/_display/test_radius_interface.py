@@ -87,4 +87,4 @@ class TestRadiusInterface:
         interface: RadiusInterface = RadiusInterface()
         interface.variable_name = 'test_radius_interface'
         interface._initialize_radius_if_not_initialized()
-        assert interface._attr_linking_stack['radius'] == [0]
+        assert interface._attr_linking_stack['radius'] == [ap.Int(0)]

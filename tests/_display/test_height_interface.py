@@ -121,4 +121,4 @@ class TestHeightInterface:
         interface: HeightInterface = HeightInterface()
         interface.variable_name = 'test_height_interface'
         interface._initialize_height_if_not_initialized()
-        assert interface._attr_linking_stack['height'] == [0]
+        assert interface._attr_linking_stack['height'] == [ap.Int(0)]

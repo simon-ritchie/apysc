@@ -92,4 +92,4 @@ class TestCxInterface:
         interface: CxInterface = CxInterface()
         interface.variable_name = 'test_cx_interface'
         interface._initialize_cx_if_not_initialized()
-        interface._attr_linking_stack['cx'] == [0]
+        interface._attr_linking_stack['cx'] == [ap.Int(0)]

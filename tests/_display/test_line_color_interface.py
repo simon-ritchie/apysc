@@ -1,12 +1,14 @@
-from random import randint
-from typing import Match, Optional
 import re
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
 import apysc as ap
 from apysc._display.line_color_interface import LineColorInterface
-from apysc._expression import expression_data_util, var_names
+from apysc._expression import expression_data_util
+from apysc._expression import var_names
 
 
 class TestLineColorInterface:

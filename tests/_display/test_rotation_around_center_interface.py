@@ -87,4 +87,5 @@ class TestRotationAroundCenterInterface:
             self) -> None:
         interface: _TestInterface = _TestInterface()
         interface._initialize_rotation_around_center_if_not_initialized()
-        assert interface._attr_linking_stack['rotation_around_center'] == [0]
+        assert interface._attr_linking_stack['rotation_around_center'] == \
+            [ap.Int(0)]

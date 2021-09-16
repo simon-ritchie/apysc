@@ -119,7 +119,7 @@ class TestWidthAndHeightInterfacesForEllipse:
         interface.variable_name = \
             'test_width_and_height_interfaces_for_ellipse'
         interface._initialize_width_and_height_if_not_initialized()
-        assert interface._attr_linking_stack['width'] == [0]
+        assert interface._attr_linking_stack['width'] == [ap.Int(0)]
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_height_attr_linking_setting(self) -> None:
@@ -128,4 +128,4 @@ class TestWidthAndHeightInterfacesForEllipse:
         interface.variable_name = \
             'test_width_and_height_interfaces_for_ellipse'
         interface._initialize_width_and_height_if_not_initialized()
-        assert interface._attr_linking_stack['height'] == [0]
+        assert interface._attr_linking_stack['height'] == [ap.Int(0)]

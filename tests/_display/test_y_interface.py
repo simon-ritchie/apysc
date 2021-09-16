@@ -98,4 +98,4 @@ class TestYInterface:
         interface: YInterface = YInterface()
         interface.variable_name = 'test_y_interface'
         interface._initialize_y_if_not_initialized()
-        assert interface._attr_linking_stack['y'] == [0]
+        assert interface._attr_linking_stack['y'] == [ap.Int(0)]

@@ -1,12 +1,14 @@
-from random import randint
-from typing import Optional, Match
 import re
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
 import apysc as ap
 from apysc._display.line_alpha_interface import LineAlphaInterface
-from apysc._expression import expression_data_util, var_names
+from apysc._expression import expression_data_util
+from apysc._expression import var_names
 
 
 class TestLineAlphaInterface:
@@ -99,4 +101,5 @@ class TestLineAlphaInterface:
         interface: LineAlphaInterface = LineAlphaInterface()
         interface.variable_name = 'test_line_alpha_interface'
         interface._initialize_line_alpha_if_not_initialized()
-        assert interface._attr_linking_stack['line_alpha'] == [1.0]
+        assert interface._attr_linking_stack['line_alpha'] == \
+            [ap.Number(1.0)]

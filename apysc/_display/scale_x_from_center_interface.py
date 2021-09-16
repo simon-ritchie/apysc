@@ -20,7 +20,8 @@ class ScaleXFromCenterInterface(
         initialized yet.
         """
         with ap.DebugInfo(
-                callable_=self._initialize_scale_x_from_center_if_not_initialized,
+                callable_=self.
+                _initialize_scale_x_from_center_if_not_initialized,
                 locals_=locals(),
                 module_name=__name__, class_=ScaleXFromCenterInterface):
             if hasattr(self, '_scale_x_from_center'):

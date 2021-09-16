@@ -90,4 +90,4 @@ class TestEllipseHeightInterface:
         interface: EllipseHeightInterface = EllipseHeightInterface()
         interface.variable_name = 'test_ellipse_height_interface'
         interface._initialize_ellipse_height_if_not_initialized()
-        assert interface._attr_linking_stack['ellipse_height'] == [0]
+        assert interface._attr_linking_stack['ellipse_height'] == [ap.Int(0)]

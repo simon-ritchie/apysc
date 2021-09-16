@@ -100,4 +100,4 @@ class TestXInterface:
         x_interface = XInterface()
         x_interface.variable_name = 'test_x_interface'
         x_interface._initialize_x_if_not_initialized()
-        assert x_interface._attr_linking_stack['x'] == [0]
+        assert x_interface._attr_linking_stack['x'] == [ap.Int(0)]

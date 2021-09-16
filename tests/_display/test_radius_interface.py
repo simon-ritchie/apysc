@@ -81,3 +81,10 @@ class TestRadiusInterface:
         radius = interface._get_converted_radius_int(radius=ap.Int(20))
         assert radius == 20
         assert isinstance(radius, ap.Int)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_raidus_attr_linking_setting(self) -> None:
+        interface: RadiusInterface = RadiusInterface()
+        interface.variable_name = 'test_radius_interface'
+        interface._initialize_radius_if_not_initialized()
+        assert interface._attr_linking_stack['radius'] == [0]

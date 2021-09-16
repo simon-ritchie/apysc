@@ -23,6 +23,21 @@ class RadiusInterface(
             return
         self._radius = ap.Int(0)
 
+        self._append_raidus_attr_linking_setting()
+
+    def _append_raidus_attr_linking_setting(self) -> None:
+        """
+        Append a radius attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_raidus_attr_linking_setting,
+                locals_=locals(),
+                module_name=__name__, class_=RadiusInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._radius, attr_name='radius')
+            self._append_attr_to_linking_stack(
+                attr=self._radius, attr_name='radius')
+
     @property
     def radius(self) -> ap.Int:
         """
@@ -61,10 +76,7 @@ class RadiusInterface(
             self._radius._append_incremental_calc_substitution_expression()
             self._append_radius_update_expression()
 
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._radius, attr_name='radius')
-            self._append_attr_to_linking_stack(
-                attr=self._radius, attr_name='radius')
+            self._append_raidus_attr_linking_setting()
 
     def _get_converted_radius_int(self, radius: Union[int, ap.Int]) -> ap.Int:
         """

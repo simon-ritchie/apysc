@@ -24,6 +24,21 @@ class LineThicknessInterface(
             return
         self._line_thickness = ap.Int(1)
 
+        self._append_line_thickness_attr_linking_setting()
+
+    def _append_line_thickness_attr_linking_setting(self) -> None:
+        """
+        Append a line thickness attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_line_thickness_attr_linking_setting,
+                locals_=locals(),
+                module_name=__name__, class_=LineThicknessInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._line_thickness, attr_name='line_thickness')
+            self._append_attr_to_linking_stack(
+                attr=self._line_thickness, attr_name='line_thickness')
+
     @property
     def line_thickness(self) -> ap.Int:
         """
@@ -58,10 +73,7 @@ class LineThicknessInterface(
                 _append_incremental_calc_substitution_expression()
             self._append_line_thickness_update_expression()
 
-            self._append_applying_new_attr_val_exp(
-                new_attr=self._line_thickness, attr_name='line_thickness')
-            self._append_attr_to_linking_stack(
-                attr=self._line_thickness, attr_name='line_thickness')
+            self._append_line_thickness_attr_linking_setting()
 
     def _append_line_thickness_update_expression(self) -> None:
         """

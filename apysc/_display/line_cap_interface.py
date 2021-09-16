@@ -5,12 +5,14 @@ from typing import Dict
 from typing import Union
 
 import apysc as ap
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._display.line_caps import LineCaps
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class LineCapInterface(VariableNameInterface, RevertInterface):
+class LineCapInterface(
+        VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
     _line_cap: ap.String
 
@@ -22,6 +24,21 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         if hasattr(self, '_line_cap'):
             return
         self._line_cap = ap.String(LineCaps.BUTT.value)
+
+        self._append_line_cap_attr_linking_setting()
+
+    def _append_line_cap_attr_linking_setting(self) -> None:
+        """
+        Append a line cap attribute linking setting.
+        """
+        with ap.DebugInfo(
+                callable_=self._append_line_cap_attr_linking_setting,
+                locals_=locals(),
+                module_name=__name__, class_=LineCapInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._line_cap, attr_name='line_cap')
+            self._append_attr_to_linking_stack(
+                attr=self._line_cap, attr_name='line_cap')
 
     @property
     def line_cap(self) -> Union[ap.String, LineCaps]:
@@ -54,6 +71,8 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
                 module_name=__name__, class_=LineCapInterface):
             self._update_line_cap_and_skip_appending_exp(value=value)
             self._append_line_cap_update_expression()
+
+            self._append_line_cap_attr_linking_setting()
 
     def _append_line_cap_update_expression(self) -> None:
         """

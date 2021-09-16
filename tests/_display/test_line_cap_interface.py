@@ -27,7 +27,7 @@ class TestLineCapInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_cap(self) -> None:
         interface: LineCapInterface = LineCapInterface()
-        interface.variable_name = 'test_line_color_interface'
+        interface.variable_name = 'test_line_cap_interface'
         assert interface.line_cap == ap.LineCaps.BUTT.value
 
         interface.line_cap = ap.LineCaps.ROUND
@@ -40,7 +40,7 @@ class TestLineCapInterface:
     def test__append_line_cap_update_expression(self) -> None:
         expression_data_util.empty_expression()
         interface: LineCapInterface = LineCapInterface()
-        interface.variable_name = 'test_line_color_interface'
+        interface.variable_name = 'test_line_cap_interface'
         interface.line_cap = ap.LineCaps.ROUND
         expression: str = expression_data_util.get_current_expression()
         match: Optional[Match] = re.search(
@@ -54,7 +54,7 @@ class TestLineCapInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         interface: LineCapInterface = LineCapInterface()
-        interface.variable_name = 'test_line_color_interface'
+        interface.variable_name = 'test_line_cap_interface'
         interface.line_cap = ap.LineCaps.ROUND
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -69,7 +69,7 @@ class TestLineCapInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         interface: LineCapInterface = LineCapInterface()
-        interface.variable_name = 'test_line_color_interface'
+        interface.variable_name = 'test_line_cap_interface'
         interface.line_cap = ap.LineCaps.ROUND
         snapshot_name: str = interface._get_next_snapshot_name()
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -85,7 +85,7 @@ class TestLineCapInterface:
     def test__update_line_cap_and_skip_appending_exp(self) -> None:
         expression_data_util.empty_expression()
         interface: LineCapInterface = LineCapInterface()
-        interface.variable_name = 'test_line_color_interface'
+        interface.variable_name = 'test_line_cap_interface'
         interface._update_line_cap_and_skip_appending_exp(
             value=ap.LineCaps.ROUND)
         assert interface.line_cap == ap.LineCaps.ROUND.value
@@ -100,3 +100,10 @@ class TestLineCapInterface:
             func_or_method=interface._update_line_cap_and_skip_appending_exp,
             kwargs={'value': 'round'},
             match=r'Not supported line_cap type specified: ')
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_line_cap_attr_linking_setting(self) -> None:
+        interface: LineCapInterface = LineCapInterface()
+        interface.variable_name = 'test_line_cap_interface'
+        interface._initialize_line_cap_if_not_initialized()
+        interface._attr_linking_stack['line_cap'] == [ap.LineCaps.BUTT.value]

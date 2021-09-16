@@ -7,13 +7,14 @@ from typing_extensions import TypedDict
 
 import apysc as ap
 from apysc._validation import options_validation
-from apysc._validation.options_validation import _ArgData, _HandlerArgumentsLengthError, _HandlerFirstArgumentNameError, _HandlerSecondArgumentNameError
+from apysc._validation.options_validation import _ArgData, _HandlerArgumentsLengthError, _HandlerFirstArgumentNameError, _HandlerSecondArgumentNameError, _TypedDictOptionsTypeMismatchError
 from tests.testing_helper import assert_raises
 
 
 class _TestTypedDict1(TypedDict):
     a: int
     b: str
+    c: Any
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -23,6 +24,7 @@ def test__validate_dict_type() -> None:
     test_typed_dict: _TestTypedDict1 = {
         'a': 10,
         'b': 'Hello',
+        'c': 20,
     }
     options_validation._validate_dict_type(options=test_typed_dict)
 
@@ -169,3 +171,40 @@ def test__get_options_annotation_from_handler_arg_data_list() -> None:
         _get_options_annotation_from_handler_arg_data_list(
             handler_arg_data_list=handler_arg_data_list)
     assert annotation == Dict[str, Any]
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__validate_typed_dict() -> None:
+    handler_arg_data_list: List[_ArgData] = options_validation.\
+        _get_handler_arg_data_list(handler=_test_handler_1)
+    options_validation._validate_typed_dict(
+        handler_arg_data_list=handler_arg_data_list,
+        options={'a': 10})
+
+    handler_arg_data_list = options_validation._get_handler_arg_data_list(
+        handler=_test_handler_5)  # type: ignore
+    options: Dict[str, Any] = {'a': 10, 'c': 20}
+    assert_raises(
+        expected_error_class=_TypedDictOptionsTypeMismatchError,
+        func_or_method=options_validation._validate_typed_dict,
+        kwargs={
+            'handler_arg_data_list': handler_arg_data_list,
+            'options': options,
+        },
+        match='There is no options dictionary key: b',
+    )
+
+    options = {'a': 10, 'b': 20, 'c': 30}
+    assert_raises(
+        expected_error_class=_TypedDictOptionsTypeMismatchError,
+        func_or_method=options_validation._validate_typed_dict,
+        kwargs={
+            'handler_arg_data_list': handler_arg_data_list,
+            'options': options,
+        },
+        match='There is a options value type mismatch.',
+    )
+
+    options = {'a': 10, 'b': 'Hello', 'c': 30}
+    options_validation._validate_typed_dict(
+        handler_arg_data_list=handler_arg_data_list, options=options)

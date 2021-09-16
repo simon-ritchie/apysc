@@ -73,9 +73,28 @@ def _validate_typed_dict(
     if not _is_typed_dict_options_arg(
             handler_arg_data_list=handler_arg_data_list):
         return
-    annotation: Any = _get_options_annotation_from_handler_arg_data_list(
-        handler_arg_data_list=handler_arg_data_list)
-    pass
+    typed_dict_annotation: Any = \
+        _get_options_annotation_from_handler_arg_data_list(
+            handler_arg_data_list=handler_arg_data_list)
+    annotations_dict: Dict[str, Any] = typed_dict_annotation.__annotations__
+    for key, annotation in annotations_dict.items():
+        if key not in options:
+            raise _TypedDictOptionsTypeMismatchError(
+                f'There is no options dictionary key: {key}'
+                "\nPlease check a handler's options argument type "
+                'annotations and an actual options value.'
+                f"\nHandler's options annotation: {annotations_dict}"
+                f'\nActual options value: {options}')
+        if not inspect.isclass(annotation):
+            continue
+        if not isinstance(options[key], annotation):
+            raise _TypedDictOptionsTypeMismatchError(
+                f'There is a options value type mismatch.'
+                f'\nOptions key name: {key}'
+                "\nExpected type (based on handler's annotation): "
+                f'{annotation}'
+                f'\nActual value type: {type(options[key])}'
+                f'\nActual options value: {options}')
 
 
 def _get_options_annotation_from_handler_arg_data_list(

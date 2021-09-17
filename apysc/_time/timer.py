@@ -4,7 +4,7 @@
 from typing import Any
 from typing import Dict
 from typing import Optional
-from typing import Union
+from typing import Union, TypeVar, Generic
 
 import apysc as ap
 from apysc._event.custom_event_interface import CustomEventInterface
@@ -14,8 +14,14 @@ from apysc._time.fps import FPS
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
+_TimerOptions = TypeVar('_TimerOptions')
+_CompleteOptions = TypeVar('_CompleteOptions')
 
-class Timer(VariableNameInterface, CustomEventInterface):
+
+
+class Timer(
+        VariableNameInterface, CustomEventInterface,
+        Generic[_TimerOptions, _CompleteOptions]):
     """
     Timer class to handle function calling at regular intervals.
 
@@ -33,7 +39,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         - https://simon-ritchie.github.io/apysc/timer_repeat_count.html
     """
 
-    _handler: Handler
+    _handler: Handler[_TimerOptions]
     _delay: ap.Number
     _repeat_count: ap.Int
     _current_count: ap.Int
@@ -43,7 +49,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
 
     def __init__(
             self,
-            handler: Handler,
+            handler: Handler[_TimerOptions],
             delay: Union[int, float, NumberValueInterface, FPS],
             repeat_count: Union[int, ap.Int] = 0,
             options: Optional[Dict[str, Any]] = None) -> None:
@@ -263,7 +269,9 @@ class Timer(VariableNameInterface, CustomEventInterface):
                 e=e)
             self._running.value = True
 
-    def _wrap_handler(self, handler: Handler) -> Handler:
+    def _wrap_handler(
+            self,
+            handler: Handler[_TimerOptions]) -> Handler[_TimerOptions]:
         """
         Wrap a handler to update a current count value when
         it is called.
@@ -279,7 +287,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
             Wrapped handler.
         """
 
-        def wrapped(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+        def wrapped(e: ap.TimerEvent, options: _TimerOptions) -> None:
             """
             Wrapped handler.
 
@@ -390,7 +398,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
             self._current_count.value = 0
 
     def timer_complete(
-            self, handler: Handler,
+            self, handler: Handler[_CompleteOptions],
             options: Optional[Dict[str, Any]] = None) -> str:
         """
         Add a timer complete event listener setting.

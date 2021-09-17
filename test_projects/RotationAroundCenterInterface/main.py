@@ -14,6 +14,8 @@ from types import ModuleType
 from typing import Any
 from typing import Dict
 
+from typing_extensions import TypedDict
+
 import apysc as ap
 from apysc._file import file_util
 
@@ -23,6 +25,10 @@ _DEST_DIR_PATH: str = os.path.join(
     file_util.get_abs_module_dir_path(module=this_module),
     'test_output/'
 )
+
+
+class _RectOptions(TypedDict):
+    rectangle: ap.Rectangle
 
 
 def main() -> None:
@@ -43,14 +49,14 @@ def main() -> None:
 
     rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
         x=150, y=50, width=50, height=50)
-    timer_1: ap.Timer = ap.Timer(
+    timer_1: ap.Timer[_RectOptions, Any] = ap.Timer(
         on_timer_1, delay=ap.FPS.FPS_60,
         options={'rectangle': rectangle_2})
     timer_1.start()
 
     rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
         x=250, y=50, width=50, height=50)
-    timer_2: ap.Timer = ap.Timer(
+    timer_2: ap.Timer[Dict[str, Any], Any] = ap.Timer(
         on_timer_2, delay=ap.FPS.FPS_60,
         options={'rectangle': rectangle_3})
     timer_2.start()
@@ -58,7 +64,7 @@ def main() -> None:
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_timer_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer_1(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     The handler will be called from a timer.
 

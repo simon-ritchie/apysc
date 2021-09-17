@@ -3,7 +3,7 @@
 
 from typing import Any
 from typing import Dict
-from typing import List
+from typing import List, Generic, TypeVar
 
 from typing_extensions import Protocol
 from typing_extensions import TypedDict
@@ -14,15 +14,17 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 Event_ = Any
 
+_O = TypeVar('_O')
 
-class Handler(Protocol):
+
+class Handler(Generic[_O]):
     """
     Event handler's callable interface.
     """
 
     def __call__(
             self, e: Event_,
-            options: Dict[str, Any]) -> None:
+            options: _O) -> None:
         """
         Event handler's callable interface.
 

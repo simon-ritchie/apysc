@@ -3,20 +3,23 @@
 
 from typing import Any
 from typing import Dict
-from typing import Optional
+from typing import Optional, Generic, TypeVar
 
 from apysc._event.handler import Handler
 from apysc._event.handler import HandlerData
 from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
 
+_Options = TypeVar('_Options')
 
-class MouseOverInterface(MouseEventInterfaceBase):
+
+class MouseOverInterface(
+        MouseEventInterfaceBase[_Options], Generic[_Options]):
 
     _mouse_over_handlers: Dict[str, HandlerData]
 
     def mouseover(
-            self, handler: Handler,
-            options: Optional[Dict[str, Any]] = None) -> str:
+            self, handler: Handler[_Options],
+            options: Optional[_Options] = None) -> str:
         """
         Add mouse over event listener setting.
 
@@ -71,7 +74,7 @@ class MouseOverInterface(MouseEventInterfaceBase):
             return
         self._mouse_over_handlers = {}
 
-    def unbind_mouseover(self, handler: Handler) -> None:
+    def unbind_mouseover(self, handler: Handler[_Options]) -> None:
         """
         Unbind specified handler's mouse over event.
 

@@ -3,20 +3,22 @@
 
 from typing import Any
 from typing import Dict
-from typing import Optional
+from typing import Optional, Generic, TypeVar
 
 from apysc._event.handler import Handler
 from apysc._event.handler import HandlerData
 from apysc._event.mouse_event_type import MouseEventType
 from apysc._type.variable_name_interface import VariableNameInterface
 
+_Options = TypeVar('_Options')
 
-class MouseEventInterfaceBase:
+
+class MouseEventInterfaceBase(Generic[_Options]):
 
     def _set_mouse_event_handler_data(
-            self, handler: Handler,
+            self, handler: Handler[_Options],
             handlers_dict: Dict[str, HandlerData],
-            options: Optional[Dict[str, Any]]) -> None:
+            options: Optional[_Options]) -> None:
         """
         Set a handler's data to the given dictionary.
 
@@ -32,14 +34,15 @@ class MouseEventInterfaceBase:
         from apysc._event.handler import get_handler_name
         name: str = get_handler_name(handler=handler, instance=self)
         if options is None:
-            options = {}
+            options = {}  # type: ignore
         handlers_dict[name] = {
             'handler': handler,
             'options': options,
         }
 
     def _unbind_mouse_event(
-            self, handler: Handler, mouse_event_type: MouseEventType,
+            self, handler: Handler[_Options],
+            mouse_event_type: MouseEventType,
             handlers_dict: Dict[str, HandlerData]) -> None:
         """
         Unbind specified handler's mouse event.

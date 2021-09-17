@@ -3,20 +3,23 @@
 
 from typing import Any
 from typing import Dict
-from typing import Optional
+from typing import Optional, Generic, TypeVar
 
 from apysc._event.handler import Handler
 from apysc._event.handler import HandlerData
 from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
 
+_Options = TypeVar('_Options')
 
-class DoubleClickInterface(MouseEventInterfaceBase):
+
+class DoubleClickInterface(
+        MouseEventInterfaceBase[_Options], Generic[_Options]):
 
     _dblclick_handlers: Dict[str, HandlerData]
 
     def dblclick(
-            self, handler: Handler,
-            options: Optional[Dict[str, Any]] = None) -> str:
+            self, handler: Handler[_Options],
+            options: Optional[_Options] = None) -> str:
         """
         Add double click event listener setting.
 
@@ -66,7 +69,7 @@ class DoubleClickInterface(MouseEventInterfaceBase):
             return
         self._dblclick_handlers = {}
 
-    def unbind_dblclick(self, handler: Handler) -> None:
+    def unbind_dblclick(self, handler: Handler[_Options]) -> None:
         """
         Unbind specified handler's double click event.
 

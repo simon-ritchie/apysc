@@ -3,20 +3,23 @@
 
 from typing import Any
 from typing import Dict
-from typing import Optional
+from typing import Optional, Generic, TypeVar
 
 from apysc._event.handler import Handler
 from apysc._event.handler import HandlerData
 from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
 
+_Options = TypeVar('_Options')
 
-class MouseDownInterface(MouseEventInterfaceBase):
+
+class MouseDownInterface(
+        MouseEventInterfaceBase[_Options], Generic[_Options]):
 
     _mouse_down_handlers: Dict[str, HandlerData]
 
     def mousedown(
-            self, handler: Handler,
-            options: Optional[Dict[str, Any]] = None) -> str:
+            self, handler: Handler[_Options],
+            options: Optional[_Options] = None) -> str:
         """
         Add mouse down event listener setting.
 
@@ -71,7 +74,7 @@ class MouseDownInterface(MouseEventInterfaceBase):
             return
         self._mouse_down_handlers = {}
 
-    def unbind_mousedown(self, handler: Handler) -> None:
+    def unbind_mousedown(self, handler: Handler[_Options]) -> None:
         """
         Unbind specified handler's mouse down event.
 

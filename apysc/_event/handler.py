@@ -39,7 +39,7 @@ class Handler(Generic[_O]):
 
 class HandlerData(TypedDict):
     handler: Handler
-    options: Dict[str, Any]
+    options: Any
 
 
 def get_handler_name(

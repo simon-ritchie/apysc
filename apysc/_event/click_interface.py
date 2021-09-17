@@ -3,20 +3,22 @@
 
 from typing import Any
 from typing import Dict
-from typing import Optional
+from typing import Optional, Generic, TypeVar
 
 from apysc._event.handler import Handler
 from apysc._event.handler import HandlerData
 from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
 
+_Options = TypeVar('_Options')
 
-class ClickInterface(MouseEventInterfaceBase):
+
+class ClickInterface(MouseEventInterfaceBase[_Options], Generic[_Options]):
 
     _click_handlers: Dict[str, HandlerData]
 
     def click(
-            self, handler: Handler,
-            options: Optional[Dict[str, Any]] = None) -> str:
+            self, handler: Handler[_Options],
+            options: Optional[_Options] = None) -> str:
         """
         Add a click event listener setting.
 
@@ -71,7 +73,7 @@ class ClickInterface(MouseEventInterfaceBase):
             return
         self._click_handlers = {}
 
-    def unbind_click(self, handler: Handler) -> None:
+    def unbind_click(self, handler: Handler[_Options]) -> None:
         """
         Unbind specified handler's click event.
 

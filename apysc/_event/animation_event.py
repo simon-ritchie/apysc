@@ -9,16 +9,17 @@ from apysc._event.event import Event
 from apysc._type.variable_name_interface import VariableNameInterface
 
 _T = TypeVar('_T', bound=VariableNameInterface)
+_CompleteOptions = TypeVar('_CompleteOptions')
 
 
-class AnimationEvent(Event, Generic[_T]):
+class AnimationEvent(Event, Generic[_T, _CompleteOptions]):
     """
     Animation event class.
     """
 
-    _this: AnimationBase[_T]
+    _this: AnimationBase[_T, _CompleteOptions]
 
-    def __init__(self, this: AnimationBase[_T]) -> None:
+    def __init__(self, this: AnimationBase[_T, _CompleteOptions]) -> None:
         """
         Animation event class.
 
@@ -36,7 +37,7 @@ class AnimationEvent(Event, Generic[_T]):
                 this=this, type_name=var_names.ANIMATION_EVENT)
 
     @property
-    def this(self) -> AnimationBase[_T]:
+    def this(self) -> AnimationBase[_T, _CompleteOptions]:
         """
         Get a animation setting instance that linstening this event.
 

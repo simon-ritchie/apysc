@@ -18,11 +18,13 @@ from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 _T = TypeVar('_T', bound=VariableNameInterface)
+_CompleteOptions = TypeVar('_CompleteOptions')
 
 
 class AnimationBase(
-        VariableNameInterface, RevertInterface, CustomEventInterface,
-        Generic[_T], ABC):
+        VariableNameInterface, RevertInterface,
+        CustomEventInterface,
+        Generic[_T, _CompleteOptions], ABC):
 
     _target: _T
     _duration: ap.Int
@@ -131,8 +133,8 @@ class AnimationBase(
         return expression
 
     def animation_complete(
-            self, handler: Handler,
-            options: Optional[Dict[str, Any]] = None) -> str:
+            self, handler: Handler[_CompleteOptions],
+            options: Optional[_CompleteOptions] = None) -> str:
         """
         Add a animation complete event listener setting.
 

@@ -13,9 +13,12 @@ from apysc._animation.easing import Easing
 from apysc._type.variable_name_interface import VariableNameInterface
 
 _T = TypeVar('_T', bound=VariableNameInterface)
+_CompleteOptions = TypeVar('_CompleteOptions')
 
 
-class AnimationMove(AnimationBase[_T], Generic[_T]):
+class AnimationMove(
+        AnimationBase[_T, _CompleteOptions],
+        Generic[_T, _CompleteOptions]):
 
     _x: ap.Int
     _y: ap.Int

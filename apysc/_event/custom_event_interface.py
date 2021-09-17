@@ -4,7 +4,7 @@
 from typing import Any
 from typing import Dict
 from typing import Optional
-from typing import Union
+from typing import Union, Generic, TypeVar
 
 from apysc._event.custom_event_type import CustomEventType
 from apysc._event.event import Event
@@ -59,9 +59,9 @@ class CustomEventInterface(BlankObjectInterface):
         return custom_event_type_str
 
     def _set_custom_event_handler_data(
-            self, handler: Handler,
+            self, handler: Handler[Any],
             custom_event_type_str: str,
-            options: Optional[Dict[str, Any]]) -> None:
+            options: Optional[Any]) -> None:
         """
         Set a handler's data to the dictionary.
 
@@ -84,7 +84,7 @@ class CustomEventInterface(BlankObjectInterface):
         }
 
     def _unset_custom_event_handler_data(
-            self, handler: Handler,
+            self, handler: Handler[Any],
             custom_event_type_str: str) -> None:
         """
         Unset a handler's data from the dictionary.
@@ -106,9 +106,9 @@ class CustomEventInterface(BlankObjectInterface):
 
     def bind_custom_event(
             self, custom_event_type: Union[CustomEventType, str],
-            handler: Handler,
+            handler: Handler[Any],
             e: Event,
-            options: Optional[Dict[str, Any]] = None) -> str:
+            options: Optional[Any] = None) -> str:
         """
         Add a custom event listener setting.
 
@@ -212,7 +212,7 @@ class CustomEventInterface(BlankObjectInterface):
     def unbind_custom_event(
             self,
             custom_event_type: Union[CustomEventType, str],
-            handler: Handler) -> str:
+            handler: Handler[Any]) -> str:
         """
         Unbind (remove) a custom event listener setting.
 

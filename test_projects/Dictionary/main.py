@@ -6,13 +6,15 @@ $ python Dictionary/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
+from typing import Any
+from typing import Dict
+
+from typing_extensions import TypedDict
 
 import apysc as ap
 from apysc._file import file_util
@@ -23,6 +25,10 @@ _DEST_DIR_PATH: str = os.path.join(
     file_util.get_abs_module_dir_path(module=this_module),
     'test_output/'
 )
+
+
+class _Dict1Options(TypedDict):
+    dict_1: ap.Dictionary
 
 
 def main() -> None:
@@ -36,7 +42,8 @@ def main() -> None:
     dict_1.value = {'b': 20}
     ap.assert_dicts_equal(expected={'b': 20}, actual=dict_1)
 
-    stage.click(on_stage_click, options={'dict_1': dict_1})
+    options: _Dict1Options = {'dict_1': dict_1}
+    stage.click(on_stage_click, options=options)
     ap.assert_dicts_equal(expected={'b': 20}, actual=dict_1)
 
     dict_2: ap.Dictionary = ap.Dictionary({'a': 10, 'b': 20})
@@ -59,7 +66,7 @@ def main() -> None:
 
     dict_4: ap.Dictionary = ap.Dictionary({'a': 10, 'b': 20})
     string_2: ap.String = ap.String('a')
-    del dict_4[string_2]
+    del dict_4[string_2]  # type: ignore
     ap.assert_dicts_equal(expected={'b': 20}, actual=dict_4)
 
     dict_5: ap.Dictionary = ap.Dictionary({'a': 10})
@@ -92,7 +99,7 @@ def main() -> None:
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
-def on_stage_click(e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+def on_stage_click(e: ap.MouseEvent, options: _Dict1Options) -> None:
     """
     Test handler that called when stage is clicked.
 

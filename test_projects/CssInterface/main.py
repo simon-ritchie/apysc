@@ -6,13 +6,15 @@ $ python CssInterface/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
+from typing import Any
+from typing import Dict
+
+from typing_extensions import TypedDict
 
 import apysc as ap
 from apysc._file import file_util
@@ -23,6 +25,11 @@ _DEST_DIR_PATH: str = os.path.join(
     file_util.get_abs_module_dir_path(module=this_module),
     'test_output/'
 )
+
+
+class _Sp1AndRectOptions(TypedDict):
+    sprite_1: ap.Sprite
+    rectangle: ap.Rectangle
 
 
 def main() -> None:
@@ -41,18 +48,19 @@ def main() -> None:
     rectangle: ap.Rectangle = sprite_2.graphics.draw_rect(
         x=150, y=50, width=50, height=50)
 
+    options: _Sp1AndRectOptions = {
+        'sprite_1': sprite_1,
+        'rectangle': rectangle,
+    }
     timer: ap.Timer = ap.Timer(
         handler=on_timer, delay=1000,
-        options={
-            'sprite_1': sprite_1,
-            'rectangle': rectangle,
-        })
+        options=options)
     timer.start()
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer(e: ap.TimerEvent, options: _Sp1AndRectOptions) -> None:
     """
     The handler would be called from a timer.
 

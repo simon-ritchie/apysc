@@ -45,7 +45,7 @@ def main() -> None:
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
-def on_click(e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+def on_click(e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when a rectangle is clicked.
 

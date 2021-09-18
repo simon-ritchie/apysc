@@ -50,7 +50,7 @@ def main() -> None:
 
 
 def on_circle_1_click(
-        e: ap.MouseEvent[ap.Circle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Circle], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when the circle is clicked.
 
@@ -66,7 +66,7 @@ def on_circle_1_click(
 
 
 def on_circle_2_click(
-        e: ap.MouseEvent[ap.Circle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Circle], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when the circle is clicked.
 

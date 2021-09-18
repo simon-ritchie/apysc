@@ -6,13 +6,15 @@ $ python draw_dashed_line/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
+from typing import Any
+from typing import Dict
+
+from typing_extensions import TypedDict
 
 import apysc as ap
 from apysc._file import file_util
@@ -23,6 +25,10 @@ _DEST_DIR_PATH: str = os.path.join(
     file_util.get_abs_module_dir_path(module=this_module),
     'test_output/'
 )
+
+
+class _SpOptions(TypedDict):
+    sprite: ap.Sprite
 
 
 def main() -> None:
@@ -38,12 +44,13 @@ def main() -> None:
     line_1: ap.Line = sprite.graphics.draw_dashed_line(
         x_start=50, y_start=50, x_end=350, y_end=50,
         dash_size=10, space_size=5)
-    line_1.click(on_line_click, options={'sprite': sprite})
+    options: _SpOptions = {'sprite': sprite}
+    line_1.click(on_line_click, options=options)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_line_click(e: ap.MouseEvent[ap.Line], options: Dict[str, Any]) -> None:
+def on_line_click(e: ap.MouseEvent[ap.Line], options: _SpOptions) -> None:
     """
     Handler that called when line is clicked.
 

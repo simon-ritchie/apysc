@@ -6,13 +6,15 @@ $ python bind_wheel_event_to_document/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
+from typing import Any
+from typing import Dict
+
+from typing_extensions import TypedDict
 
 import apysc as ap
 from apysc._file import file_util
@@ -25,6 +27,10 @@ _DEST_DIR_PATH: str = os.path.join(
 )
 
 
+class _MsgOptions(TypedDict):
+    msg: str
+
+
 def main() -> None:
     """
     Entry point of this test project.
@@ -32,13 +38,14 @@ def main() -> None:
     _: ap.Stage = ap.Stage(
         background_color='#111',
         stage_width=1000, stage_height=500)
+    options: _MsgOptions = {'msg': 'Hello!'}
     ap.bind_wheel_event_to_document(
-        handler=on_document_wheel, options={'msg': 'Hello!'})
+        handler=on_document_wheel, options=options)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_document_wheel(e: ap.WheelEvent, options: Dict[str, Any]) -> None:
+def on_document_wheel(e: ap.WheelEvent, options: _MsgOptions) -> None:
     """
     Test handler that called when wheeled on document.
 

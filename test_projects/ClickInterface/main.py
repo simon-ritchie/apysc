@@ -68,7 +68,7 @@ def main() -> None:
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_stage_clicked(e: ap.Event, options: Dict[str, Any]) -> None:
+def on_stage_clicked(e: ap.Event, options: Dict[Any, Any]) -> None:
     """
     Test handler that called when stage is clicked.
 
@@ -97,7 +97,7 @@ def on_sprite_1_clicked(e: ap.Event, options: _MsgOptions) -> None:
     ap.assert_equal(expected='Hello!', actual=options['msg'])
 
 
-def on_sprite_2_clicked(e: ap.Event, options: Dict[str, Any]) -> None:
+def on_sprite_2_clicked(e: ap.Event, options: Dict[Any, Any]) -> None:
     """
     Test handler that called when sprite_2 is clicked.
 
@@ -111,7 +111,7 @@ def on_sprite_2_clicked(e: ap.Event, options: Dict[str, Any]) -> None:
     ap.trace('Sprite 2 is clicked!')
 
 
-def on_rectangle_1_clicked(e: ap.Event, options: Dict[str, Any]) -> None:
+def on_rectangle_1_clicked(e: ap.Event, options: Dict[Any, Any]) -> None:
     """
     Test handler that called when rectangle_1 is clicked.
 
@@ -125,7 +125,7 @@ def on_rectangle_1_clicked(e: ap.Event, options: Dict[str, Any]) -> None:
     ap.trace('Rectangle 1 is clicked!')
 
 
-def on_rectangle_2_clicked(e: ap.Event, options: Dict[str, Any]) -> None:
+def on_rectangle_2_clicked(e: ap.Event, options: Dict[Any, Any]) -> None:
     """
     Test handler that called when rectangle_2 is clicked.
 
@@ -142,7 +142,7 @@ def on_rectangle_2_clicked(e: ap.Event, options: Dict[str, Any]) -> None:
 
 
 def on_rectangle_3_clicked(
-        e: ap.Event[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.Event[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     Test handler that called when rectangle_3 is clicked.
 
@@ -160,7 +160,7 @@ def on_rectangle_3_clicked(
 
 
 def on_rectangle_4_1_clicked(
-        e: ap.Event[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.Event[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     Test handler that called when rectangle_4 is clicked.
 
@@ -175,7 +175,7 @@ def on_rectangle_4_1_clicked(
 
 
 def on_rectangle_4_2_clicked(
-        e: ap.Event[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.Event[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     Test handler that called when rectangle_4 is clicked.
 

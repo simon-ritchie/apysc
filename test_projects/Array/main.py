@@ -6,13 +6,15 @@ $ python Array/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
+from typing import Any
+from typing import Dict
+
+from typing_extensions import TypedDict
 
 import apysc as ap
 from apysc._file import file_util
@@ -23,6 +25,10 @@ _DEST_DIR_PATH: str = os.path.join(
     file_util.get_abs_module_dir_path(module=this_module),
     'test_output/'
 )
+
+
+class _Array28Options(TypedDict):
+    array_28: ap.Array
 
 
 def main() -> None:
@@ -142,12 +148,13 @@ def main() -> None:
     ap.assert_equal(expected=30, actual=int_4)
 
     array_28: ap.Array = ap.Array([1, 2])
-    stage.click(on_stage_clicked, options={'array_28': array_28})
+    options: _Array28Options = {'array_28': array_28}
+    stage.click(on_stage_clicked, options=options)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_stage_clicked(e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+def on_stage_clicked(e: ap.MouseEvent, options: _Array28Options) -> None:
     """
     Test handler that called when stage is clicked.
 

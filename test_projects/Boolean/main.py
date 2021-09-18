@@ -6,13 +6,15 @@ $ python Boolean/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
+from typing import Any
+from typing import Dict
+
+from typing_extensions import TypedDict
 
 import apysc as ap
 from apysc._file import file_util
@@ -23,6 +25,10 @@ _DEST_DIR_PATH: str = os.path.join(
     file_util.get_abs_module_dir_path(module=this_module),
     'test_output/'
 )
+
+
+class _Bool14Options(TypedDict):
+    boolean_14: ap.Boolean
 
 
 def main() -> None:
@@ -68,12 +74,13 @@ def main() -> None:
     ap.assert_false(boolean_13)
 
     boolean_14: ap.Boolean = ap.Boolean(False)
-    stage.click(on_stage_clicked, options={'boolean_14': boolean_14})
+    options: _Bool14Options = {'boolean_14': boolean_14}
+    stage.click(on_stage_clicked, options=options)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_stage_clicked(e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+def on_stage_clicked(e: ap.MouseEvent, options: _Bool14Options) -> None:
     """
     Test handler that called when stage is clicked.
 

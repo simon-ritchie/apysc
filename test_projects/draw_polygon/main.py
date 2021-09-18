@@ -52,7 +52,7 @@ def main() -> None:
 
 
 def on_polygon_click(
-        e: ap.MouseEvent[ap.Polygon], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Polygon], options: Dict[Any, Any]) -> None:
     """
     Handler that called when polygon is clicked.
 

@@ -1,6 +1,6 @@
 import re
 from random import randint
-from typing import Any
+from typing import Any, Callable
 from typing import Dict
 from typing import Match
 from typing import Optional
@@ -154,9 +154,10 @@ class TestTimer:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__wrap_handler(self) -> None:
         timer: ap.Timer = ap.Timer(handler=self.on_timer, delay=33.3)
-        wrapped: Handler = timer._wrap_handler(handler=self.on_timer)
+        wrapped: Callable[[ap.TimerEvent, Any], None] = \
+            timer._wrap_handler(handler=self.on_timer)
         e: ap.TimerEvent = ap.TimerEvent(this=timer)
-        wrapped.__call__(e=e, options={})
+        wrapped(e, {})
         assert timer.current_count == 0
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

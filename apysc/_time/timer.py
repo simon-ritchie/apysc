@@ -4,15 +4,18 @@
 from typing import Any
 from typing import Dict
 from typing import Optional
-from typing import Union
+from typing import Union, TypeVar, Callable
 
 import apysc as ap
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.handler import Handler
-from apysc._event.handler import HandlerData
+from apysc._event.handler import HandlerData, GenericHandlerData
 from apysc._time.fps import FPS
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+
+_O1 = TypeVar('_O1')
+_Handler = Callable[[ap.TimerEvent, _O1], None]
 
 
 class Timer(VariableNameInterface, CustomEventInterface):
@@ -33,20 +36,19 @@ class Timer(VariableNameInterface, CustomEventInterface):
         - https://simon-ritchie.github.io/apysc/timer_repeat_count.html
     """
 
-    _handler: Handler
     _delay: ap.Number
     _repeat_count: ap.Int
     _current_count: ap.Int
-    _handler_data: HandlerData
+    _handler_data: GenericHandlerData
     _handler_name: str
     _running: ap.Boolean
 
     def __init__(
             self,
-            handler: Handler,
+            handler: _Handler[_O1],
             delay: Union[int, float, NumberValueInterface, FPS],
             repeat_count: Union[int, ap.Int] = 0,
-            options: Optional[Dict[str, Any]] = None) -> None:
+            options: Optional[_O1] = None) -> None:
         """
         Timer class to handle function calling at regular intervals.
 
@@ -97,7 +99,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
                 self._handler_name = get_handler_name(
                     handler=handler, instance=self)
                 handler = self._wrap_handler(handler=handler)
-                self._handler = handler
+                self._handler: _Handler[_O1] = handler
                 delay = self._convert_delay_to_number(delay=delay)
                 number_validation.validate_num_is_gte_zero(num=delay)
                 self._delay = delay
@@ -108,7 +110,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
                 self._running = ap.Boolean(False)
                 self._current_count = ap.Int(0)
                 if options is None:
-                    options = {}
+                    options = {}  # type: ignore
                 self._handler_data = {
                     'handler': self._handler,
                     'options': options,
@@ -258,12 +260,12 @@ class Timer(VariableNameInterface, CustomEventInterface):
 
             e: ap.TimerEvent = ap.TimerEvent(this=self)
             append_handler_expression(
-                handler_data=self._handler_data,
+                handler_data=self._handler_data,  # type: ignore
                 handler_name=handler_name,
                 e=e)
             self._running.value = True
 
-    def _wrap_handler(self, handler: Handler) -> Handler:
+    def _wrap_handler(self, handler: _Handler[_O1]) -> _Handler[_O1]:
         """
         Wrap a handler to update a current count value when
         it is called.
@@ -279,7 +281,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
             Wrapped handler.
         """
 
-        def wrapped(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+        def wrapped(e: ap.TimerEvent, options: Any) -> None:
             """
             Wrapped handler.
 
@@ -292,7 +294,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
             """
             e.this._current_count += 1
             e.this._current_count._value = 0
-            handler.__call__(e=e, options=options)
+            handler(e, options)
             self._append_count_branch_expression()
 
         return wrapped

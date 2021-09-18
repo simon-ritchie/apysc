@@ -1,9 +1,9 @@
 """Class implementation for handler.
 """
 
-from typing import Any
+from typing import Any, Union
 from typing import Dict
-from typing import List
+from typing import List, Callable, TypeVar, Generic
 
 from typing_extensions import Protocol
 from typing_extensions import TypedDict
@@ -13,6 +13,7 @@ from apysc._event.mouse_event_type import MouseEventType
 from apysc._type.variable_name_interface import VariableNameInterface
 
 Event_ = Any
+_Handler = Callable[[Any, Any], None]
 
 
 class Handler(Protocol):
@@ -40,14 +41,19 @@ class HandlerData(TypedDict):
     options: Dict[str, Any]
 
 
+class GenericHandlerData(TypedDict):
+    handler: Callable[[Event_, Any], None]
+    options: Any
+
+
 def get_handler_name(
-        handler: Handler, instance: Any) -> str:
+        handler: Union[Handler, _Handler], instance: Any) -> str:
     """
     Get a handler name.
 
     Parameters
     ----------
-    handler : Handler
+    handler : _Handler
         Target handler.
     instance : VariableNameInterface
         Instance to bind target handler.
@@ -121,7 +127,7 @@ def append_handler_expression(
                 ap.append_js_expression(expression=expression)
                 with Indent():
                     handler_data['handler'](
-                        e=e, options=handler_data['options'])
+                        e, handler_data['options'])
                 ap.append_js_expression(expression='}')
 
         revert_interface.revert_variables(

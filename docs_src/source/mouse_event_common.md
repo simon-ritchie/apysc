@@ -192,7 +192,7 @@ If you click the following rectangle, also nothing will happen (no color change 
 
 ## Handler argument names and types
 
-Handler function (or method) first argument name is required to be `e`, not `evt` or `event`. And that argument type will be `MouseEvent`.
+Handler function (or method) first argument requires the type of the `MouseEvent`.
 
 Also, a second argument name is required to be `options`. This argument type will be `dict`. If you skipped options argument specification at binding the event, then this argument will become a blank dictionary (`{}`).
 

@@ -6,13 +6,15 @@ $ python AnimationMoveInterface/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
+from typing import Any
+from typing import Dict
+
+from typing_extensions import TypedDict
 
 import apysc as ap
 from apysc._file import file_util
@@ -23,6 +25,10 @@ _DEST_DIR_PATH: str = os.path.join(
     file_util.get_abs_module_dir_path(module=this_module),
     'test_output/'
 )
+
+
+class _MsgOptions(TypedDict):
+    msg: str
 
 
 def main() -> None:
@@ -41,9 +47,10 @@ def main() -> None:
         rectangle_1.animation_move(
             x=500, y=100, duration=3000,
             easing=ap.Easing.EASE_OUT_QUINT)
+    options: _MsgOptions = {'msg': 'Animation move 1 completed!'}
     animation_move_1.animation_complete(
         handler=on_animation_move_1_complete,
-        options={'msg': 'Animation move 1 completed!'})
+        options=options)
     animation_move_1.start()
 
     rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
@@ -57,7 +64,7 @@ def main() -> None:
 
 def on_animation_move_1_complete(
         e: ap.AnimationEvent[ap.Rectangle],
-        options: Dict[str, Any]) -> None:
+        options: _MsgOptions) -> None:
     """
     The handler will be called when an animation is complete.
 

@@ -3,7 +3,7 @@
 
 from abc import ABC
 from abc import abstractmethod
-from typing import Any
+from typing import Any, Callable
 from typing import Dict
 from typing import Generic
 from typing import Optional
@@ -13,11 +13,13 @@ from typing import Union
 import apysc as ap
 from apysc._animation.easing import Easing
 from apysc._event.custom_event_interface import CustomEventInterface
-from apysc._event.handler import Handler
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 _T = TypeVar('_T', bound=VariableNameInterface)
+_O = TypeVar('_O')
+_AnimationEvent = Any
+_Handler = Callable[[_AnimationEvent, _O], None]
 
 
 class AnimationBase(
@@ -131,8 +133,8 @@ class AnimationBase(
         return expression
 
     def animation_complete(
-            self, handler: Handler,
-            options: Optional[Dict[str, Any]] = None) -> str:
+            self, handler: _Handler[_O],
+            options: Optional[_O] = None) -> str:
         """
         Add a animation complete event listener setting.
 
@@ -142,7 +144,7 @@ class AnimationBase(
 
         Parameters
         ----------
-        handler : Handler
+        handler : _Handler
             A callable will be called when an animation is complete.
         options : dict or None, default None
             Optional arguments dictionary to be passed to a handler.

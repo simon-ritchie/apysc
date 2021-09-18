@@ -16,30 +16,6 @@ Event_ = Any
 _Handler = Callable[[Any, Any], None]
 
 
-class Handler(Protocol):
-    """
-    Event handler's callable interface.
-    """
-
-    def __call__(
-            self, e: Event_,
-            options: Dict[str, Any]) -> None:
-        """
-        Event handler's callable interface.
-
-        Parameters
-        ----------
-        e : Event
-            Created event instance.
-        options : dict
-            Optional arguments dictionary to pass to.
-        """
-
-
-class HandlerData(TypedDict):
-    handler: Handler
-    options: Dict[str, Any]
-
 
 class GenericHandlerData(TypedDict):
     handler: Callable[[Event_, Any], None]
@@ -47,7 +23,7 @@ class GenericHandlerData(TypedDict):
 
 
 def get_handler_name(
-        handler: Union[Handler, _Handler], instance: Any) -> str:
+        handler: _Handler, instance: Any) -> str:
     """
     Get a handler name.
 
@@ -84,7 +60,7 @@ def get_handler_name(
 
 
 def append_handler_expression(
-        handler_data: Union[HandlerData, GenericHandlerData],
+        handler_data: GenericHandlerData,
         handler_name: str,
         e: Event) -> None:
     """

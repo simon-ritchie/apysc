@@ -51,7 +51,7 @@ def bind_wheel_event_to_document(
     with ap.DebugInfo(
             callable_=bind_wheel_event_to_document, locals_=locals(),
             module_name=__name__):
-        from apysc._event.handler import HandlerData
+        from apysc._event.handler import GenericHandlerData
         from apysc._event.handler import append_handler_expression
         from apysc._event.handler import get_handler_name
         name: str = get_handler_name(handler=handler, instance=ap.document)
@@ -62,7 +62,7 @@ def bind_wheel_event_to_document(
 
         if options is None:
             options = {}
-        handler_data: HandlerData = {  # type: ignore
+        handler_data: GenericHandlerData = {
             'handler': handler,
             'options': options,
         }

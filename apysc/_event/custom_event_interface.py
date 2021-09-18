@@ -1,7 +1,8 @@
 """Class implementation for the custom event interface.
 """
 
-from typing import Any, Callable
+from typing import Any
+from typing import Callable
 from typing import Dict
 from typing import Optional
 from typing import Union
@@ -83,7 +84,7 @@ class CustomEventInterface(BlankObjectInterface):
             custom_event_type_str][name] = {  # type: ignore
                 'handler': handler,
                 'options': options,
-            }
+        }
 
     def _unset_custom_event_handler_data(
             self, handler: _Handler,

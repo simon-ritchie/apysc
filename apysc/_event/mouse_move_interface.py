@@ -1,13 +1,14 @@
 """Class implementation for mouse move interface.
 """
 
-from typing import Any, Callable, TypeVar
+from typing import Callable
 from typing import Dict
 from typing import Optional
+from typing import TypeVar
 
 from apysc._event.handler import HandlerData
-from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
 from apysc._event.mouse_event import MouseEvent
+from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
 
 _O = TypeVar('_O')
 _Handler = Callable[[MouseEvent, _O], None]

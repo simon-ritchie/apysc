@@ -6,11 +6,9 @@ Not supported each SVG elements' mouse wheel event currently, only
 supported document (overall screen) mouse wheel.
 """
 
-from typing import Any, Callable
-from typing import Dict
-from typing import Optional, TypeVar
-
-from typing_extensions import Protocol
+from typing import Callable
+from typing import Optional
+from typing import TypeVar
 
 import apysc as ap
 

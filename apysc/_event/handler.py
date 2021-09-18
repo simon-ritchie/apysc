@@ -1,11 +1,10 @@
 """Class implementation for handler.
 """
 
-from typing import Any, Union
-from typing import Dict
-from typing import List, Callable, TypeVar, Generic
+from typing import Any
+from typing import Callable
+from typing import List
 
-from typing_extensions import Protocol
 from typing_extensions import TypedDict
 
 from apysc._event.event import Event

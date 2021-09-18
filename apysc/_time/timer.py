@@ -2,9 +2,10 @@
 """
 
 from typing import Any
-from typing import Dict
+from typing import Callable
 from typing import Optional
-from typing import Union, TypeVar, Callable
+from typing import TypeVar
+from typing import Union
 
 import apysc as ap
 from apysc._event.custom_event_interface import CustomEventInterface

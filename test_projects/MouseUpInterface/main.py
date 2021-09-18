@@ -6,13 +6,15 @@ $ python MouseUpInterface/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
+from typing import Any
+from typing import Dict
+
+from typing_extensions import TypedDict
 
 import apysc as ap
 from apysc._file import file_util
@@ -23,6 +25,10 @@ _DEST_DIR_PATH: str = os.path.join(
     file_util.get_abs_module_dir_path(module=this_module),
     'test_output/'
 )
+
+
+class _MsgOptions(TypedDict):
+    msg: str
 
 
 def main() -> None:
@@ -36,7 +42,8 @@ def main() -> None:
 
     rectangle_1: ap.Rectangle = sprite_1.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
-    rectangle_1.mouseup(on_rectangle_1_mouse_up, options={'msg': 'Hello!'})
+    options: _MsgOptions = {'msg': 'Hello!'}
+    rectangle_1.mouseup(on_rectangle_1_mouse_up, options=options)
 
     rectangle_2: ap.Rectangle = sprite_1.graphics.draw_rect(
         x=150, y=50, width=50, height=50)
@@ -52,7 +59,7 @@ def main() -> None:
 
 
 def on_rectangle_1_mouse_up(
-        e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent, options: _MsgOptions) -> None:
     """
     Test handler that called when rectangle 1 is mouse upped.
 
@@ -68,7 +75,7 @@ def on_rectangle_1_mouse_up(
 
 
 def on_rectangle_2_mouse_up(
-        e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent, options: Dict[Any, Any]) -> None:
     """
     Test handler that called when rectangle 2 is mouse upped.
 
@@ -85,7 +92,7 @@ def on_rectangle_2_mouse_up(
 
 
 def on_rectangle_3_mouse_up(
-        e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent, options: Dict[Any, Any]) -> None:
     """
     Test handler that called when rectangle 3 is mouse upped.
 

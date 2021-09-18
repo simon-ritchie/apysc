@@ -75,7 +75,7 @@ class MouseUpInterface(MouseEventInterfaceBase):
             return
         self._mouse_up_handlers = {}
 
-    def unbind_mouseup(self, handler: _Handler) -> None:
+    def unbind_mouseup(self, handler: _Handler[_O]) -> None:
         """
         Unbind specified handler's mouse up event.
 

@@ -5,7 +5,7 @@ from typing import Any, Callable, TypeVar
 from typing import Dict
 from typing import Optional
 
-from apysc._event.handler import GenericHandlerData
+from apysc._event.handler import HandlerData
 from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
 from apysc._event.mouse_event import MouseEvent
 
@@ -15,7 +15,7 @@ _Handler = Callable[[MouseEvent, _O], None]
 
 class MouseMoveInterface(MouseEventInterfaceBase):
 
-    _mouse_move_handlers: Dict[str, GenericHandlerData]
+    _mouse_move_handlers: Dict[str, HandlerData]
 
     def mousemove(
             self, handler: _Handler[_O],

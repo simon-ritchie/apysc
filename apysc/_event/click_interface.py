@@ -5,7 +5,7 @@ from typing import Any, Callable
 from typing import Dict
 from typing import Optional, TypeVar
 
-from apysc._event.handler import GenericHandlerData
+from apysc._event.handler import HandlerData
 from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
 from apysc._event.mouse_event import MouseEvent
 
@@ -15,7 +15,7 @@ _Handler = Callable[[MouseEvent, _O], None]
 
 class ClickInterface(MouseEventInterfaceBase):
 
-    _click_handlers: Dict[str, GenericHandlerData]
+    _click_handlers: Dict[str, HandlerData]
 
     def click(
             self, handler: _Handler[_O],

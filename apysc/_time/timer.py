@@ -8,7 +8,7 @@ from typing import Union, TypeVar, Callable
 
 import apysc as ap
 from apysc._event.custom_event_interface import CustomEventInterface
-from apysc._event.handler import GenericHandlerData
+from apysc._event.handler import HandlerData
 from apysc._time.fps import FPS
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -40,7 +40,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
     _delay: ap.Number
     _repeat_count: ap.Int
     _current_count: ap.Int
-    _handler_data: GenericHandlerData
+    _handler_data: HandlerData
     _handler_name: str
     _running: ap.Boolean
 

@@ -8,7 +8,7 @@ from typing import Union
 
 from apysc._event.custom_event_type import CustomEventType
 from apysc._event.event import Event
-from apysc._event.handler import GenericHandlerData
+from apysc._event.handler import HandlerData
 from apysc._type.blank_object_interface import BlankObjectInterface
 
 _CustomEventType = str
@@ -20,7 +20,7 @@ class CustomEventInterface(BlankObjectInterface):
 
     _custom_event_handlers: Dict[
         _CustomEventType,
-        Dict[_HandlerName, GenericHandlerData]]
+        Dict[_HandlerName, HandlerData]]
 
     def _initialize_custom_event_handlers_if_not_initialized(
             self, custom_event_type_str: str) -> None:
@@ -151,7 +151,7 @@ class CustomEventInterface(BlankObjectInterface):
             name: str = get_handler_name(handler=handler, instance=self)
             self._append_custom_event_binding_expression(
                 custom_event_type_str=custom_event_type_str, name=name)
-            handler_data: GenericHandlerData = \
+            handler_data: HandlerData = \
                 self._custom_event_handlers[custom_event_type_str][name]
             append_handler_expression(
                 handler_data=handler_data, handler_name=name, e=e)

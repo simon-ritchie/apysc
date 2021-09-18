@@ -6,7 +6,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._event.click_interface import ClickInterface
-from apysc._event.handler import GenericHandlerData
+from apysc._event.handler import HandlerData
 from apysc._event.handler import get_handler_name
 from apysc._expression import expression_data_util
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -48,7 +48,7 @@ class TestMouseEventInterfaceBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_mouse_event_handler_data(self) -> None:
-        handlers_dict: Dict[str, GenericHandlerData] = {}
+        handlers_dict: Dict[str, HandlerData] = {}
         interface_1: _TestClickInterface = _TestClickInterface()
         interface_1._set_mouse_event_handler_data(
             handler=self.on_click_1,

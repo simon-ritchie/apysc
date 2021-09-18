@@ -16,8 +16,7 @@ Event_ = Any
 _Handler = Callable[[Any, Any], None]
 
 
-
-class GenericHandlerData(TypedDict):
+class HandlerData(TypedDict):
     handler: Callable[[Event_, Any], None]
     options: Any
 
@@ -60,7 +59,7 @@ def get_handler_name(
 
 
 def append_handler_expression(
-        handler_data: GenericHandlerData,
+        handler_data: HandlerData,
         handler_name: str,
         e: Event) -> None:
     """

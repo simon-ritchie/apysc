@@ -6,7 +6,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._event import handler
-from apysc._event.handler import GenericHandlerData
+from apysc._event.handler import HandlerData
 from apysc._expression import expression_data_util
 from apysc._expression.event_handler_scope import HandlerScope
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -65,7 +65,7 @@ def test_append_handler_expression() -> None:
     expression_data_util.empty_expression()
     test_instance: _TestClass1 = _TestClass1()
     int_1: ap.Int = ap.Int(10)
-    handler_data: GenericHandlerData = {
+    handler_data: HandlerData = {
         'handler': test_instance.on_click_2,
         'options': {'int_1': int_1},
     }

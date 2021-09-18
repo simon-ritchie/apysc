@@ -5,7 +5,7 @@ from typing import Any, Callable
 from typing import Dict
 from typing import Optional, TypeVar, Generic
 
-from apysc._event.handler import GenericHandlerData
+from apysc._event.handler import HandlerData
 from apysc._event.mouse_event_type import MouseEventType
 from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._event.mouse_event import MouseEvent
@@ -18,7 +18,7 @@ class MouseEventInterfaceBase:
 
     def _set_mouse_event_handler_data(
             self, handler: _Handler[_O],
-            handlers_dict: Dict[str, GenericHandlerData],
+            handlers_dict: Dict[str, HandlerData],
             options: Optional[_O]) -> None:
         """
         Set a handler's data to the given dictionary.
@@ -43,7 +43,7 @@ class MouseEventInterfaceBase:
 
     def _unbind_mouse_event(
             self, handler: _Handler[_O], mouse_event_type: MouseEventType,
-            handlers_dict: Dict[str, GenericHandlerData]) -> None:
+            handlers_dict: Dict[str, HandlerData]) -> None:
         """
         Unbind specified handler's mouse event.
 
@@ -75,7 +75,7 @@ class MouseEventInterfaceBase:
 
     def _unbind_all_mouse_events(
             self, mouse_event_type: MouseEventType,
-            handlers_dict: Dict[str, GenericHandlerData]) -> None:
+            handlers_dict: Dict[str, HandlerData]) -> None:
         """
         Unbind specified all mouse event type's event.
 

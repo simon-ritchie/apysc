@@ -6,13 +6,15 @@ $ python Timer/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
+from typing import Any
+from typing import Dict
+
+from typing_extensions import TypedDict
 
 import apysc as ap
 from apysc._file import file_util
@@ -23,6 +25,18 @@ _DEST_DIR_PATH: str = os.path.join(
     file_util.get_abs_module_dir_path(module=this_module),
     'test_output/'
 )
+
+
+class _RectOptions(TypedDict):
+    rect: ap.Rectangle
+
+
+class _MsgOptions(TypedDict):
+    msg: str
+
+
+class _TimerOptions(TypedDict):
+    timer: ap.Timer
 
 
 def main() -> None:
@@ -36,9 +50,10 @@ def main() -> None:
     sprite.graphics.begin_fill(color='#0af')
     rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
+    options_1: _RectOptions = {'rect': rectangle_1}
     timer_1: ap.Timer = ap.Timer(
         handler=on_timer_1, delay=16.6,
-        options={'rect': rectangle_1})
+        options=options_1)
     timer_1.start()
 
     sprite.graphics.begin_fill(color='#f0a')
@@ -49,45 +64,51 @@ def main() -> None:
     sprite.graphics.begin_fill(color='#a0f')
     rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
         x=250, y=50, width=50, height=50)
+    options_1 = {'rect': rectangle_3}
     timer_2: ap.Timer = ap.Timer(
         handler=on_timer_2, delay=16.6, repeat_count=100,
-        options={'rect': rectangle_3})
+        options=options_1)
     timer_2.start()
 
     sprite.graphics.begin_fill(color='#f0a')
     rectangle_4: ap.Rectangle = sprite.graphics.draw_rect(
         x=350, y=50, width=50, height=50)
+    options_1 = {'rect': rectangle_4}
     timer_3: ap.Timer = ap.Timer(
         handler=on_timer_1, delay=ap.FPS.FPS_60,
-        options={'rect': rectangle_4})
+        options=options_1)
     timer_3.start()
 
     sprite.graphics.begin_fill(color='#a0f')
     rectangle_5: ap.Rectangle = sprite.graphics.draw_rect(
         x=450, y=50, width=50, height=50)
+    options_1 = {'rect': rectangle_5}
     timer_4: ap.Timer = ap.Timer(
         handler=on_timer_2, delay=ap.FPS.FPS_60, repeat_count=100,
-        options={'rect': rectangle_5})
+        options=options_1)
+    options_2: _MsgOptions = {'msg': 'Triggered timer complete event!'}
     timer_4.timer_complete(
         on_timer_complete_1,
-        options={'msg': 'Triggered timer complete event!'})
+        options=options_2)
     timer_4.start()
 
     sprite.graphics.begin_fill(color='#0af')
     rectangle_6: ap.Rectangle = sprite.graphics.draw_rect(
         x=550, y=50, width=50, height=50)
+    options_1 = {'rect': rectangle_6}
     timer_5: ap.Timer = ap.Timer(
         handler=on_timer_2, delay=ap.FPS.FPS_60,
         repeat_count=100,
-        options={'rect': rectangle_6})
+        options=options_1)
+    options_3: _TimerOptions = {'timer': timer_5}
     timer_5.timer_complete(
-        handler=on_timer_complete_2, options={'timer': timer_5})
+        handler=on_timer_complete_2, options=options_3)
     timer_5.start()
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
-def on_timer_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer_1(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     The handler would be called from a timer instance.
 
@@ -108,7 +129,7 @@ def on_timer_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
         ap.assert_true(e.this.running)
 
 
-def on_timer_2(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer_2(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     The handler would be called from a timer instance.
 
@@ -124,7 +145,7 @@ def on_timer_2(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
 
 
 def on_rectangle_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when a rectangle is clicked.
 
@@ -135,14 +156,15 @@ def on_rectangle_click(
     options : dict
         Optional arguments dictionary.
     """
+    options_: _RectOptions = {'rect': e.this}
     timer: ap.Timer = ap.Timer(
         handler=on_timer_1,
         delay=33.3,
-        options={'rect': e.this})
+        options=options_)
     timer.start()
 
 
-def on_timer_complete_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer_complete_1(e: ap.TimerEvent, options: _MsgOptions) -> None:
     """
     The handler would be called when a timer complete.
 
@@ -156,7 +178,7 @@ def on_timer_complete_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
     ap.trace(options['msg'])
 
 
-def on_timer_complete_2(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer_complete_2(e: ap.TimerEvent, options: _TimerOptions) -> None:
     """
     The handler would be called when a timer complete.
 

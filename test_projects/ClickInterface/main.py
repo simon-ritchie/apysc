@@ -6,13 +6,15 @@ $ python ClickInterface/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
+from typing import Any
+from typing import Dict
+
+from typing_extensions import TypedDict
 
 import apysc as ap
 from apysc._file import file_util
@@ -23,6 +25,10 @@ _DEST_DIR_PATH: str = os.path.join(
     file_util.get_abs_module_dir_path(module=this_module),
     'test_output/'
 )
+
+
+class _MsgOptions(TypedDict):
+    msg: ap.String
 
 
 def main() -> None:
@@ -39,7 +45,8 @@ def main() -> None:
     rectangle_1: ap.Rectangle = sprite_1.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
     msg: ap.String = ap.String('Hello!')
-    sprite_1.click(on_sprite_1_clicked, options={'msg': msg})
+    options: _MsgOptions = {'msg': msg}
+    sprite_1.click(on_sprite_1_clicked, options=options)
     rectangle_1.click(on_rectangle_1_clicked)
 
     sprite_2: ap.Sprite = ap.Sprite(stage=stage)
@@ -75,7 +82,7 @@ def on_stage_clicked(e: ap.Event, options: Dict[str, Any]) -> None:
     ap.trace('Stage is clicked!')
 
 
-def on_sprite_1_clicked(e: ap.Event, options: Dict[str, Any]) -> None:
+def on_sprite_1_clicked(e: ap.Event, options: _MsgOptions) -> None:
     """
     Test handler that called when sprite_1 is clicked.
 

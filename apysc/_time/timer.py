@@ -8,8 +8,7 @@ from typing import Union, TypeVar, Callable
 
 import apysc as ap
 from apysc._event.custom_event_interface import CustomEventInterface
-from apysc._event.handler import Handler
-from apysc._event.handler import HandlerData, GenericHandlerData
+from apysc._event.handler import GenericHandlerData
 from apysc._time.fps import FPS
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -56,7 +55,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
 
         Parameters
         ----------
-        handler : Handler
+        handler : _Handler
             A handler would be called at regular intervals.
         delay : int or float or Int or Number or FPS
             A delay between each handler's calling in milisecond
@@ -274,12 +273,12 @@ class Timer(VariableNameInterface, CustomEventInterface):
 
         Parameters
         ----------
-        handler : Handler
+        handler : _Handler
             Target handler.
 
         Returns
         -------
-        wrapped : Handler
+        wrapped : _Handler
             Wrapped handler.
         """
 
@@ -401,7 +400,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
 
         Parameters
         ----------
-        handler : Handler
+        handler : _Handler
             A callable will be called when a timer is complete.
         options : dict or None, default None
             Optional arguments dictionary to be passed to a handler.

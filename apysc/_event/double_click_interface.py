@@ -1,28 +1,31 @@
 """Class implementation for double click interface.
 """
 
-from typing import Any
+from typing import Any, Callable, TypeVar
 from typing import Dict
 from typing import Optional
 
-from apysc._event.handler import Handler
-from apysc._event.handler import HandlerData
+from apysc._event.handler import GenericHandlerData
 from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
+from apysc._event.mouse_event import MouseEvent
+
+_O = TypeVar('_O')
+_Handler = Callable[[MouseEvent, _O], None]
 
 
 class DoubleClickInterface(MouseEventInterfaceBase):
 
-    _dblclick_handlers: Dict[str, HandlerData]
+    _dblclick_handlers: Dict[str, GenericHandlerData]
 
     def dblclick(
-            self, handler: Handler,
+            self, handler: _Handler,
             options: Optional[Dict[str, Any]] = None) -> str:
         """
         Add double click event listener setting.
 
         Parameters
         ----------
-        handler : Handler
+        handler : _Handler
             Callable that called when this instance is double clicked.
         options : dict or None, default None
             Optional arguments dictionary to be passed to handler.
@@ -66,13 +69,13 @@ class DoubleClickInterface(MouseEventInterfaceBase):
             return
         self._dblclick_handlers = {}
 
-    def unbind_dblclick(self, handler: Handler) -> None:
+    def unbind_dblclick(self, handler: _Handler[_O]) -> None:
         """
         Unbind specified handler's double click event.
 
         Parameters
         ----------
-        handler : Handler
+        handler : _Handler
             Callable to be unbinded.
         """
         import apysc as ap

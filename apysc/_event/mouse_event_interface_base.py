@@ -1,28 +1,31 @@
 """Class implementation for each mouse event interface's base class.
 """
 
-from typing import Any
+from typing import Any, Callable
 from typing import Dict
-from typing import Optional
+from typing import Optional, TypeVar, Generic
 
-from apysc._event.handler import Handler
-from apysc._event.handler import HandlerData
+from apysc._event.handler import GenericHandlerData
 from apysc._event.mouse_event_type import MouseEventType
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._event.mouse_event import MouseEvent
+
+_O = TypeVar('_O')
+_Handler = Callable[[MouseEvent, _O], None]
 
 
 class MouseEventInterfaceBase:
 
     def _set_mouse_event_handler_data(
-            self, handler: Handler,
-            handlers_dict: Dict[str, HandlerData],
-            options: Optional[Dict[str, Any]]) -> None:
+            self, handler: _Handler[_O],
+            handlers_dict: Dict[str, GenericHandlerData],
+            options: Optional[_O]) -> None:
         """
         Set a handler's data to the given dictionary.
 
         Parameters
         ----------
-        handler : Handler
+        handler : _Handler
             Callable would be called when event is dispatched.
         handlers_dict : dict
             Dictionary to be set handler's data.
@@ -32,21 +35,21 @@ class MouseEventInterfaceBase:
         from apysc._event.handler import get_handler_name
         name: str = get_handler_name(handler=handler, instance=self)
         if options is None:
-            options = {}
+            options = {}  # type: ignore
         handlers_dict[name] = {
             'handler': handler,
             'options': options,
         }
 
     def _unbind_mouse_event(
-            self, handler: Handler, mouse_event_type: MouseEventType,
-            handlers_dict: Dict[str, HandlerData]) -> None:
+            self, handler: _Handler[_O], mouse_event_type: MouseEventType,
+            handlers_dict: Dict[str, GenericHandlerData]) -> None:
         """
         Unbind specified handler's mouse event.
 
         Parameters
         ----------
-        handler : Handler
+        handler : _Handler
             Callable to be unbinded.
         mouse_event_type : MouseEventType
             Event type to unbind.
@@ -72,7 +75,7 @@ class MouseEventInterfaceBase:
 
     def _unbind_all_mouse_events(
             self, mouse_event_type: MouseEventType,
-            handlers_dict: Dict[str, HandlerData]) -> None:
+            handlers_dict: Dict[str, GenericHandlerData]) -> None:
         """
         Unbind specified all mouse event type's event.
 

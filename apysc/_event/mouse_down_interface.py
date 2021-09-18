@@ -1,28 +1,31 @@
 """Class implementation for mouse down interface.
 """
 
-from typing import Any
+from typing import Any, Callable, TypeVar
 from typing import Dict
 from typing import Optional
 
-from apysc._event.handler import Handler
-from apysc._event.handler import HandlerData
+from apysc._event.handler import GenericHandlerData
 from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
+from apysc._event.mouse_event import MouseEvent
+
+_O = TypeVar('_O')
+_Handler = Callable[[MouseEvent, _O], None]
 
 
 class MouseDownInterface(MouseEventInterfaceBase):
 
-    _mouse_down_handlers: Dict[str, HandlerData]
+    _mouse_down_handlers: Dict[str, GenericHandlerData]
 
     def mousedown(
-            self, handler: Handler,
-            options: Optional[Dict[str, Any]] = None) -> str:
+            self, handler: _Handler[_O],
+            options: Optional[_O] = None) -> str:
         """
         Add mouse down event listener setting.
 
         Parameters
         ----------
-        handler : Handler
+        handler : _Handler
             Callable that called when mouse is downed on this instance.
         options : dict or None, default None
             Optional arguments dictionary to be passed to handler.
@@ -71,13 +74,13 @@ class MouseDownInterface(MouseEventInterfaceBase):
             return
         self._mouse_down_handlers = {}
 
-    def unbind_mousedown(self, handler: Handler) -> None:
+    def unbind_mousedown(self, handler: _Handler[_O]) -> None:
         """
         Unbind specified handler's mouse down event.
 
         Parameters
         ----------
-        handler : Handler
+        handler : _Handler
             Callable to be unbinded.
 
         References

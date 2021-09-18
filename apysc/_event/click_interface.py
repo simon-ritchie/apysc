@@ -1,28 +1,31 @@
 """Class implementation for click interface.
 """
 
-from typing import Any
+from typing import Any, Callable
 from typing import Dict
-from typing import Optional
+from typing import Optional, TypeVar
 
-from apysc._event.handler import Handler
-from apysc._event.handler import HandlerData
+from apysc._event.handler import GenericHandlerData
 from apysc._event.mouse_event_interface_base import MouseEventInterfaceBase
+from apysc._event.mouse_event import MouseEvent
+
+_O = TypeVar('_O')
+_Handler = Callable[[MouseEvent, _O], None]
 
 
 class ClickInterface(MouseEventInterfaceBase):
 
-    _click_handlers: Dict[str, HandlerData]
+    _click_handlers: Dict[str, GenericHandlerData]
 
     def click(
-            self, handler: Handler,
-            options: Optional[Dict[str, Any]] = None) -> str:
+            self, handler: _Handler[_O],
+            options: Optional[_O] = None) -> str:
         """
         Add a click event listener setting.
 
         Parameters
         ----------
-        handler : Handler
+        handler : _Handler
             A callable would be called when this instance is clicked.
         options : dict or None, default None
             Optional arguments dictionary to be passed to a handler.
@@ -71,13 +74,13 @@ class ClickInterface(MouseEventInterfaceBase):
             return
         self._click_handlers = {}
 
-    def unbind_click(self, handler: Handler) -> None:
+    def unbind_click(self, handler: _Handler[_O]) -> None:
         """
         Unbind specified handler's click event.
 
         Parameters
         ----------
-        handler : Handler
+        handler : _Handler
             Callable to be unbinded.
 
         References

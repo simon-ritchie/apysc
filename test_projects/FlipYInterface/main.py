@@ -14,6 +14,8 @@ from types import ModuleType
 from typing import Any
 from typing import Dict
 
+from typing_extensions import TypedDict
+
 import apysc as ap
 from apysc._file import file_util
 
@@ -23,6 +25,10 @@ _DEST_DIR_PATH: str = os.path.join(
     file_util.get_abs_module_dir_path(module=this_module),
     'test_output/'
 )
+
+
+class _PolygonOptions(TypedDict):
+    polygon: ap.Polygon
 
 
 def main() -> None:
@@ -42,8 +48,9 @@ def main() -> None:
             ap.Point2D(x=50, y=50),
             ap.Point2D(x=100, y=50),
         ])
+    options: _PolygonOptions = {'polygon': polygon_1}
     timer_1: ap.Timer = ap.Timer(
-        on_timer_1, delay=1000, options={'polygon': polygon_1})
+        on_timer_1, delay=1000, options=options)
     timer_1.start()
 
     polygon_2: ap.Polygon = sprite_1.graphics.draw_polygon(
@@ -53,14 +60,15 @@ def main() -> None:
             ap.Point2D(x=200, y=50),
         ])
     polygon_2.y = ap.Int(50)
+    options = {'polygon': polygon_2}
     timer_2: ap.Timer = ap.Timer(
-        on_timer_1, delay=1000, options={'polygon': polygon_2})
+        on_timer_1, delay=1000, options=options)
     timer_2.start()
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_timer_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer_1(e: ap.TimerEvent, options: _PolygonOptions) -> None:
     """
     The handler will be called from a timer.
 

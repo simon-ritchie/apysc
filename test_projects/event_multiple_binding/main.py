@@ -6,13 +6,15 @@ $ python event_multiple_binding/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
+from typing import Any
+from typing import Dict
+
+from typing_extensions import TypedDict
 
 import apysc as ap
 from apysc._file import file_util
@@ -25,6 +27,10 @@ _DEST_DIR_PATH: str = os.path.join(
 )
 
 
+class _IntValOptions(TypedDict):
+    int_val: ap.Int
+
+
 def main() -> None:
     """
     Entry point of this test project.
@@ -33,17 +39,19 @@ def main() -> None:
         background_color='#111',
         stage_width=1000, stage_height=500)
     int_1: ap.Int = ap.Int(10)
-    stage.click(on_click, options={'int_val': int_1})
+    options: _IntValOptions = {'int_val': int_1}
+    stage.click(on_click, options=options)
     sprite_1: ap.Sprite = ap.Sprite(stage=stage)
     int_2: ap.Int = ap.Int(20)
-    sprite_1.click(on_click, options={'int_val': int_2})
+    options = {'int_val': int_2}
+    sprite_1.click(on_click, options=options)
     sprite_1.graphics.begin_fill(color='#0af')
     sprite_1.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_click(e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+def on_click(e: ap.MouseEvent, options: _IntValOptions) -> None:
     """
     Test handler that called when object is clicked.
 

@@ -7,13 +7,15 @@ $ python incremental_calculation_in_a_handler/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
+from typing import Any
+from typing import Dict
+
+from typing_extensions import TypedDict
 
 import apysc as ap
 from apysc._file import file_util
@@ -24,6 +26,11 @@ _DEST_DIR_PATH: str = os.path.join(
     file_util.get_abs_module_dir_path(module=this_module),
     'test_output/'
 )
+
+
+class _RectAndAlphaDirOptions(TypedDict):
+    rectangle: ap.Rectangle
+    alpha_direction: ap.Int
 
 
 def main() -> None:
@@ -66,16 +73,17 @@ def main() -> None:
     rectangle_5: ap.Rectangle = sprite_1.graphics.draw_rect(
         x=550, y=50, width=50, height=50)
     alpha_direction: ap.Int = ap.Int(1)
+    options: _RectAndAlphaDirOptions = {
+        'rectangle': rectangle_5, 'alpha_direction': alpha_direction}
     timer_1: ap.Timer = ap.Timer(
         on_timer_1, delay=ap.FPS.FPS_60,
-        options={
-            'rectangle': rectangle_5, 'alpha_direction': alpha_direction})
+        options=options)
     timer_1.start()
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
-def on_timer_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer_1(e: ap.TimerEvent, options: _RectAndAlphaDirOptions) -> None:
     """
     The handler will be called from the timer.
 
@@ -100,7 +108,7 @@ def on_timer_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
 
 
 def on_rectangle_1_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler called when a rectangle is clicked.
 
@@ -116,7 +124,7 @@ def on_rectangle_1_click(
 
 
 def on_rectangle_2_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler called when a rectangle is clicked.
 
@@ -132,7 +140,7 @@ def on_rectangle_2_click(
 
 
 def on_rectangle_3_click(
-        e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent, options: Dict[Any, Any]) -> None:
     """
     The handler called when a rectangle is clicked.
 
@@ -148,7 +156,7 @@ def on_rectangle_3_click(
 
 
 def on_rectangle_4_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler called when a rectangle is clicked.
 
@@ -164,7 +172,7 @@ def on_rectangle_4_click(
 
 
 def on_sprite_2_click(
-        e: ap.MouseEvent[ap.Sprite], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Sprite], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when a sprite is clicked.
 

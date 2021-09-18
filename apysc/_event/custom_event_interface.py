@@ -8,8 +8,7 @@ from typing import Union
 
 from apysc._event.custom_event_type import CustomEventType
 from apysc._event.event import Event
-from apysc._event.handler import Handler
-from apysc._event.handler import HandlerData, GenericHandlerData
+from apysc._event.handler import GenericHandlerData
 from apysc._type.blank_object_interface import BlankObjectInterface
 
 _CustomEventType = str
@@ -21,7 +20,7 @@ class CustomEventInterface(BlankObjectInterface):
 
     _custom_event_handlers: Dict[
         _CustomEventType,
-        Dict[_HandlerName, Union[HandlerData, GenericHandlerData]]]
+        Dict[_HandlerName, GenericHandlerData]]
 
     def _initialize_custom_event_handlers_if_not_initialized(
             self, custom_event_type_str: str) -> None:
@@ -61,7 +60,7 @@ class CustomEventInterface(BlankObjectInterface):
         return custom_event_type_str
 
     def _set_custom_event_handler_data(
-            self, handler: Union[Handler, _Handler],
+            self, handler: _Handler,
             custom_event_type_str: str,
             options: Optional[Any]) -> None:
         """
@@ -87,14 +86,14 @@ class CustomEventInterface(BlankObjectInterface):
             }
 
     def _unset_custom_event_handler_data(
-            self, handler: Handler,
+            self, handler: _Handler,
             custom_event_type_str: str) -> None:
         """
         Unset a handler's data from the dictionary.
 
         Parameters
         ----------
-        handler : Handler
+        handler : _Handler
             Callable will be called when an event is dispatched.
         custom_event_type_str : str
             Target custom event type string.
@@ -109,7 +108,7 @@ class CustomEventInterface(BlankObjectInterface):
 
     def bind_custom_event(
             self, custom_event_type: Union[CustomEventType, str],
-            handler: Union[Handler, _Handler],
+            handler: _Handler,
             e: Event,
             options: Optional[Any] = None) -> str:
         """
@@ -152,7 +151,7 @@ class CustomEventInterface(BlankObjectInterface):
             name: str = get_handler_name(handler=handler, instance=self)
             self._append_custom_event_binding_expression(
                 custom_event_type_str=custom_event_type_str, name=name)
-            handler_data: Union[HandlerData, GenericHandlerData] = \
+            handler_data: GenericHandlerData = \
                 self._custom_event_handlers[custom_event_type_str][name]
             append_handler_expression(
                 handler_data=handler_data, handler_name=name, e=e)
@@ -215,7 +214,7 @@ class CustomEventInterface(BlankObjectInterface):
     def unbind_custom_event(
             self,
             custom_event_type: Union[CustomEventType, str],
-            handler: Handler) -> str:
+            handler: _Handler) -> str:
         """
         Unbind (remove) a custom event listener setting.
 
@@ -223,7 +222,7 @@ class CustomEventInterface(BlankObjectInterface):
         ----------
         custom_event_type : CustomEventType or str
             Target custom event type.
-        handler : Handler
+        handler : _Handler
             A handler will be called when the custom event is triggered.
 
         Returns

@@ -15,7 +15,9 @@ from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 _O1 = TypeVar('_O1')
-_Handler = Callable[[ap.TimerEvent, _O1], None]
+_O2 = TypeVar('_O2')
+_TimerEvent = Any
+_Handler = Callable[[_TimerEvent, _O1], None]
 
 
 class Timer(VariableNameInterface, CustomEventInterface):
@@ -392,8 +394,8 @@ class Timer(VariableNameInterface, CustomEventInterface):
             self._current_count.value = 0
 
     def timer_complete(
-            self, handler: Handler,
-            options: Optional[Dict[str, Any]] = None) -> str:
+            self, handler: _Handler[_O2],
+            options: Optional[_O2] = None) -> str:
         """
         Add a timer complete event listener setting.
 

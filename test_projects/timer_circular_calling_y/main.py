@@ -49,7 +49,7 @@ def main() -> None:
         on_timer_1, delay=ap.FPS.FPS_60, repeat_count=100,
         options=options)
     timer_1.timer_complete(
-        on_timer_complete_1, options={'rectangle': rectangle_1})
+        on_timer_complete_1, options=options)
     timer_1.start()
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
@@ -70,7 +70,7 @@ def on_timer_1(e: ap.TimerEvent, options: _RectOptions) -> None:
     rectangle.y += 1
 
 
-def on_timer_complete_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer_complete_1(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     The handler will be called when a timer has completed.
 
@@ -81,14 +81,12 @@ def on_timer_complete_1(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
-    options_: _RectOptions = {'rectangle': rectangle}
     timer_2: ap.Timer = ap.Timer(
         on_timer_2, delay=ap.FPS.FPS_60, repeat_count=100,
-        options=options_)
+        options=options)
     timer_2.timer_complete(
         on_timer_complete_2,
-        options={'rectangle': rectangle})
+        options=options)
     timer_2.start()
 
 
@@ -107,7 +105,7 @@ def on_timer_2(e: ap.TimerEvent, options: _RectOptions) -> None:
     rectangle.y -= 1
 
 
-def on_timer_complete_2(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer_complete_2(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     The handler will be called when a timer has completed.
 
@@ -118,13 +116,11 @@ def on_timer_complete_2(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
-    options_: _RectOptions = {'rectangle': rectangle}
     timer_3: ap.Timer = ap.Timer(
         on_timer_1, delay=ap.FPS.FPS_60, repeat_count=100,
-        options=options_)
+        options=options)
     timer_3.timer_complete(
-        on_timer_complete_1, options={'rectangle': rectangle})
+        on_timer_complete_1, options=options)
     timer_3.start()
 
 

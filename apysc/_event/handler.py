@@ -84,7 +84,8 @@ def get_handler_name(
 
 
 def append_handler_expression(
-        handler_data: HandlerData, handler_name: str,
+        handler_data: Union[HandlerData, GenericHandlerData],
+        handler_name: str,
         e: Event) -> None:
     """
     Append a handler's expression.

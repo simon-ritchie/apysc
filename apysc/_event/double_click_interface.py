@@ -20,8 +20,8 @@ class DoubleClickInterface(MouseEventInterfaceBase):
     _dblclick_handlers: Dict[str, HandlerData]
 
     def dblclick(
-            self, handler: _Handler,
-            options: Optional[Dict[str, Any]] = None) -> str:
+            self, handler: _Handler[_O],
+            options: Optional[_O] = None) -> str:
         """
         Add double click event listener setting.
 

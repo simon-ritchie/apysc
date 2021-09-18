@@ -6,13 +6,15 @@ $ python VisibleInterface/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
+from typing import Any
+from typing import Dict
+
+from typing_extensions import TypedDict
 
 import apysc as ap
 from apysc._file import file_util
@@ -23,6 +25,12 @@ _DEST_DIR_PATH: str = os.path.join(
     file_util.get_abs_module_dir_path(module=this_module),
     'test_output/'
 )
+
+
+class _Options(TypedDict):
+    sprite_2: ap.Sprite
+    rectangle_3: ap.Rectangle
+    rectangle_4: ap.Rectangle
 
 
 def main() -> None:
@@ -47,19 +55,20 @@ def main() -> None:
         x=150, y=150, width=50, height=50)
     sprite_2.visible = ap.Boolean(False)
 
+    options: _Options = {
+        'sprite_2': sprite_2,
+        'rectangle_3': rectangle_3,
+        'rectangle_4': rectangle_4}
     rectangle_1.click(
         on_rectangle_1_click,
-        options={
-            'sprite_2': sprite_2,
-            'rectangle_3': rectangle_3,
-            'rectangle_4': rectangle_4})
+        options=options)
     rectangle_3.click(on_rectangle_3_or_4_click)
     rectangle_4.click(on_rectangle_3_or_4_click)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_rectangle_1_click(e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+def on_rectangle_1_click(e: ap.MouseEvent, options: _Options) -> None:
     """
     Handler that called when rectangle_1 is clicked.
 
@@ -79,7 +88,7 @@ def on_rectangle_1_click(e: ap.MouseEvent, options: Dict[str, Any]) -> None:
 
 
 def on_rectangle_3_or_4_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     Handler that called when rectangle_3 or rectangle_4 is clicked.
 

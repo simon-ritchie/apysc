@@ -6,39 +6,27 @@ Not supported each SVG elements' mouse wheel event currently, only
 supported document (overall screen) mouse wheel.
 """
 
-from typing import Any
+from typing import Any, Callable
 from typing import Dict
-from typing import Optional
+from typing import Optional, TypeVar
 
 from typing_extensions import Protocol
 
 import apysc as ap
 
-
-class WheelHandler(Protocol):
-
-    def __call__(self, e: ap.WheelEvent, options: Dict[str, Any]) -> None:
-        """
-        Wheel event handler's callable interface.
-
-        Parameters
-        ----------
-        e : WheelEvent
-            Created wheel event instance.
-        options : dict
-            Optional arguments dictionary to pass to.
-        """
+_O = TypeVar('_O')
+_Handler = Callable[[ap.WheelEvent, _O], None]
 
 
 def bind_wheel_event_to_document(
-        handler: WheelHandler,
-        options: Optional[Dict[str, Any]] = None) -> str:
+        handler: _Handler[_O],
+        options: Optional[_O] = None) -> str:
     """
     Bind wheel event to document (overall window).
 
     Parameters
     ----------
-    handler : WheelHandler
+    handler : _Handler
         Callable that handle wheel event.
     options : dict or None, default None
         Optional arguments dictionary to pass to.
@@ -61,7 +49,7 @@ def bind_wheel_event_to_document(
         ap.append_js_expression(expression=expression)
 
         if options is None:
-            options = {}
+            options = {}  # type: ignore
         handler_data: HandlerData = {
             'handler': handler,
             'options': options,
@@ -72,13 +60,13 @@ def bind_wheel_event_to_document(
         return name
 
 
-def unbind_wheel_event_from_document(handler: WheelHandler) -> None:
+def unbind_wheel_event_from_document(handler: _Handler[_O]) -> None:
     """
     Unbind specified handler's wheel event from document (overall window).
 
     Parameters
     ----------
-    handler : WheelHandler
+    handler : _Handler
         Callable to unbind.
     """
     with ap.DebugInfo(

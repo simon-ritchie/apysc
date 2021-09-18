@@ -261,7 +261,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
 
             e: ap.TimerEvent = ap.TimerEvent(this=self)
             append_handler_expression(
-                handler_data=self._handler_data,  # type: ignore
+                handler_data=self._handler_data,
                 handler_name=handler_name,
                 e=e)
             self._running.value = True

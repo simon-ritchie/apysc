@@ -12,8 +12,6 @@ sys.path.append('./')
 
 import os
 from types import ModuleType
-from typing import Any
-from typing import Dict
 
 from typing_extensions import TypedDict
 
@@ -117,7 +115,6 @@ def on_timer_complete_2(e: ap.TimerEvent, options: _RectOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle: ap.Rectangle = options['rectangle']
     timer_3: ap.Timer = ap.Timer(
         on_timer_1, delay=ap.FPS.FPS_60, repeat_count=100,
         options=options)

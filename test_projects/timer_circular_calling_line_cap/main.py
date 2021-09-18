@@ -12,8 +12,6 @@ sys.path.append('./')
 
 import os
 from types import ModuleType
-from typing import Any
-from typing import Dict
 
 from typing_extensions import TypedDict
 
@@ -83,7 +81,6 @@ def on_timer_complete_1(e: ap.TimerEvent, options: _LineOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    line: ap.Line = options['line']
     timer_2: ap.Timer = ap.Timer(
         on_timer_2, delay=1000, repeat_count=1,
         options=options)
@@ -119,7 +116,6 @@ def on_timer_complete_2(e: ap.TimerEvent, options: _LineOptions) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    line: ap.Line = options['line']
     timer_3: ap.Timer = ap.Timer(
         on_timer_1, delay=1000, repeat_count=1,
         options=options)

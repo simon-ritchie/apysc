@@ -9,7 +9,8 @@ from retrying import retry
 import build_docs
 from apysc._file import file_util
 from build_docs import _CodeBlock
-from build_docs import _CodeBlockFlake8Error, _CodeBlockNumdoclintError
+from build_docs import _CodeBlockFlake8Error
+from build_docs import _CodeBlockNumdoclintError
 from build_docs import _RunReturnData
 from build_docs import _ScriptData
 from tests.testing_helper import assert_attrs
@@ -493,8 +494,8 @@ def test__check_code_block_with_numdoclint() -> None:
         'md_file_path': './tmp.py',
         'hashed_val': 'abc',
         'runnable_script':
-        'def func_1(a):'
-        '\n    print(100)',
+        'def func_1'
+        '(a):\n    print(100)',
     }
     assert_raises(
         expected_error_class=_CodeBlockNumdoclintError,
@@ -507,7 +508,8 @@ def test__check_code_block_with_numdoclint() -> None:
         'md_file_path': './tmp.py',
         'hashed_val': 'abc',
         'runnable_script':
-        'def func_1(a):'
+        'def func_2'
+        '(a):'
         '\n    """'
         '\n    test function.'
         '\n\n    Parameters'

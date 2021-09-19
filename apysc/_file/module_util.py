@@ -4,8 +4,10 @@ Mainly following interfaces are defined:
 
 - get_module_paths_recursively
     Get all module paths under the specified directory.
+- save_tmp_module
+    Save a temporary Python module.
 - save_tmp_module_and_run_script
-    Save temporary Python module and run that script.
+    Save a temporary Python module and run that script.
 """
 
 import os
@@ -53,9 +55,30 @@ def get_module_paths_recursively(
     return module_paths
 
 
+def save_tmp_module(script: str) -> str:
+    """
+    Save a temporary Python module.
+
+    Parameters
+    ----------
+    script : str
+        Python script string.
+
+    Returns
+    -------
+    saved_module_path : str
+        Saved temporary module path.
+    """
+    random_int: int = randint(1_000_000, 100_000_000)
+    saved_module_path: str = f'./tmp_{datetime.now().timestamp()}_{random_int}.py'
+    with open(saved_module_path, 'w') as f:
+        f.write(script)
+    return saved_module_path
+
+
 def save_tmp_module_and_run_script(script: str) -> str:
     """
-    Save temporary Python module and run that script.
+    Save a temporary Python module and run that script.
 
     Parameters
     ----------
@@ -67,10 +90,7 @@ def save_tmp_module_and_run_script(script: str) -> str:
     stdout : str
         Result stdout string.
     """
-    random_int: int = randint(1_000_000, 100_000_000)
-    tmp_mod_path: str = f'./tmp_{datetime.now().timestamp()}_{random_int}.py'
-    with open(tmp_mod_path, 'w') as f:
-        f.write(script)
+    tmp_mod_path: str = save_tmp_module(script=script)
     process: sp.CompletedProcess = sp.run(
         f'python {tmp_mod_path}', shell=True,
         stdout=sp.PIPE, stderr=sp.STDOUT)

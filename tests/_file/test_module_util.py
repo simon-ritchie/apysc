@@ -1,3 +1,4 @@
+import os
 from random import randint
 from typing import List
 
@@ -27,3 +28,13 @@ def test_save_tmp_module_and_run_script() -> None:
     )
     stdout: str = module_util.save_tmp_module_and_run_script(script=script)
     assert stdout == '10\n'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_save_tmp_module() -> None:
+    script: str = 'print(100)'
+    saved_module_path: str = module_util.save_tmp_module(script=script)
+    with open(saved_module_path, 'r') as f:
+        saved_script: str = f.read()
+    os.remove(saved_module_path)
+    assert saved_script == 'print(100)'

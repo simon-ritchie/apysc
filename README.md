@@ -52,6 +52,10 @@ For more details, please see the following document:
 
 Please see [apysc documentation](https://simon-ritchie.github.io/apysc/index.html) and [quick start guide](https://simon-ritchie.github.io/apysc/quick_start.html) page.
 
+![](https://github.com/simon-ritchie/apysc/blob/main/assets/jupyterlab_interface.png)
+
+<a href=""><img src="https://github.com/simon-ritchie/apysc/blob/main/assets/document_index_screenshot.png"></a>
+
 ## License
 
 This library is released under the MIT License.

@@ -13,6 +13,8 @@ class _TestTypedDict(TypedDict):
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_validate_options_type() -> None:
+    handler_options_validation.validate_options_type(options=None)
+
     handler_options_validation.validate_options_type(
         options={'a': 10})
 

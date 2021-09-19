@@ -94,7 +94,10 @@ class Timer(VariableNameInterface, CustomEventInterface):
             from apysc._expression.event_handler_scope import \
                 TemporaryNotHandlerScope
             from apysc._validation import number_validation
+            from apysc._validation.handler_options_validation import \
+                validate_options_type
             with TemporaryNotHandlerScope():
+                validate_options_type(options=options)
                 self.variable_name = \
                     expression_variables_util.get_next_variable_name(
                         type_name=var_names.TIMER)
@@ -421,6 +424,9 @@ class Timer(VariableNameInterface, CustomEventInterface):
                 callable_=self.timer_complete, locals_=locals(),
                 module_name=__name__, class_=Timer):
             from apysc._event.custom_event_type import CustomEventType
+            from apysc._validation.handler_options_validation import \
+                validate_options_type
+            validate_options_type(options=options)
             e: ap.TimerEvent = ap.TimerEvent(this=self)
             name: str = self.bind_custom_event(
                 custom_event_type=CustomEventType.TIMER_COMPLETE,

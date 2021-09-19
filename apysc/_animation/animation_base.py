@@ -164,7 +164,10 @@ class AnimationBase(
                 callable_=self.animation_complete, locals_=locals(),
                 module_name=__name__, class_=AnimationBase):
             from apysc._event.custom_event_type import CustomEventType
+            from apysc._validation.handler_options_validation import \
+                validate_options_type
             self._validate_animation_not_started()
+            validate_options_type(options=options)
             e: ap.AnimationEvent[_T] = ap.AnimationEvent(this=self)
             name: str = self.bind_custom_event(
                 custom_event_type=CustomEventType.ANIMATION_COMPLETE,

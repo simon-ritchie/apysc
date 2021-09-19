@@ -16,8 +16,10 @@ def validate_options_type(options: Any) -> None:
     Raises
     ------
     TypeError
-        If a specified options type is not the dictionary.
+        If a specified options type is not the dictionary or None.
     """
+    if options is None:
+        return
     if isinstance(options, dict):
         return
     raise TypeError(

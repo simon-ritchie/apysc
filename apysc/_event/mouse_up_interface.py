@@ -51,8 +51,11 @@ class MouseUpInterface(MouseEventInterfaceBase):
             from apysc._event.handler import get_handler_name
             from apysc._type.variable_name_interface import \
                 VariableNameInterface
+            from apysc._validation.handler_options_validation import \
+                validate_options_type
             self_instance: VariableNameInterface = \
                 validate_variable_name_interface_type(instance=self)
+            validate_options_type(options=options)
             self._initialize_mouse_up_handlers_if_not_initialized()
             name: str = get_handler_name(handler=handler, instance=self)
             self._set_mouse_event_handler_data(

@@ -173,14 +173,14 @@ print(300)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__exec_document_script() -> None:
+def test__exec_document_lint_and_script() -> None:
     hash_file_path: str = os.path.join(
         build_docs.HASHED_VALS_DIR_PATH,
         'quick_start.md',
     )
     file_util.remove_file_if_exists(file_path=hash_file_path)
 
-    executed_scripts: List[str] = build_docs._exec_document_script(
+    executed_scripts: List[str] = build_docs._exec_document_lint_and_script(
         limit_count=10)
     assert len(executed_scripts) <= 10
     for executed_script in executed_scripts:

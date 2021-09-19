@@ -38,7 +38,7 @@ def _main() -> None:
     os.makedirs('./docs_src/build/', exist_ok=True)
 
     logger.info(msg='Document\'s scripts execution started...')
-    _exec_document_script()
+    _exec_document_lint_and_script()
 
     logger.info(msg='Sphinx build command started...')
     os.chdir('./docs_src/')
@@ -106,10 +106,11 @@ class _RunReturnData(TypedDict):
     stdout: str
 
 
-def _exec_document_script(
+def _exec_document_lint_and_script(
         limit_count: Optional[int] = None) -> List[str]:
     """
-    Execute each runnable scripts in the documents.
+    Execute each runnable scripts in the documents and check with
+    each lint.
 
     Parameters
     ----------

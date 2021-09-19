@@ -470,8 +470,7 @@ def test__check_code_block_with_flake8() -> None:
         'md_file_path': './tmp.py',
         'hashed_val': 'abc',
         'runnable_script':
-        'a = 200000000000000000000000000000000000000000000000000000000000'
-        '00000000000000000000000000000000000000000000',
+        'a=10',
     }
     assert_raises(
         expected_error_class=_CodeBlockFlake8Error,

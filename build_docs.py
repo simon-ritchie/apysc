@@ -131,7 +131,7 @@ def _exec_document_lint_and_script(
     script_data_list: List[_ScriptData] = _make_script_data_list(
         md_file_paths=md_file_paths, hashed_vals=hashed_vals,
         limit_count=limit_count)
-    workers: int = max(mp.cpu_count() - 2, 1)
+    workers: int = max(mp.cpu_count() // 2, 1)
 
     logger.info(msg="Document's code block flake8 checking started...")
     with mp.Pool(workers) as p:

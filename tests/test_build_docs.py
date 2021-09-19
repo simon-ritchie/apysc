@@ -9,7 +9,8 @@ from retrying import retry
 import build_docs
 from apysc._file import file_util
 from build_docs import _CodeBlock
-from build_docs import _CodeBlockFlake8Error, _CodeBlockMypyError
+from build_docs import _CodeBlockFlake8Error
+from build_docs import _CodeBlockMypyError
 from build_docs import _CodeBlockNumdoclintError
 from build_docs import _RunReturnData
 from build_docs import _ScriptData

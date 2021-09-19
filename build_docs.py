@@ -176,7 +176,8 @@ def _check_code_block_with_mypy(script_data: _ScriptData) -> None:
     _CodeBlockMypyError
         If there is a mypy error.
     """
-    from apply_lints_and_build_docs import run_command, MYPY_NO_PATH_COMMAND
+    from apply_lints_and_build_docs import MYPY_NO_PATH_COMMAND
+    from apply_lints_and_build_docs import run_command
     from apysc._file import module_util
     runnable_script: str = script_data['runnable_script']
     md_file_path: str = script_data['md_file_path']

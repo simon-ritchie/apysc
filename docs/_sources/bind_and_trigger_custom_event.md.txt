@@ -28,7 +28,7 @@ ROTATE_90_DEGREES: str = 'rotate_90_degrees'
 
 
 def on_rectangle_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]):
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
     """
     The handler would be called when the rectangle is clicked.
 

@@ -142,6 +142,10 @@ def _exec_document_lint_and_script(
         p.map(
             func=_check_code_block_with_numdoclint, iterable=script_data_list)
 
+    logger.info(msg="Document's code block mypy checking started...")
+    with mp.Pool(workers) as p:
+        p.map(func=_check_code_block_with_mypy, iterable=script_data_list)
+
     logger.info(msg="Document's scripts execution started...")
     with mp.Pool(workers) as p:
         run_return_data_list: List[_RunReturnData] = p.map(
@@ -152,6 +156,40 @@ def _exec_document_lint_and_script(
     executed_scripts: List[str] = [
         script_data['runnable_script'] for script_data in script_data_list]
     return executed_scripts
+
+
+class _CodeBlockMypyError(Exception):
+    pass
+
+
+def _check_code_block_with_mypy(script_data: _ScriptData) -> None:
+    """
+    Check a code block with the mypy.
+
+    Parameters
+    ----------
+    script_data : _ScriptData
+        Target script data.
+
+    Raises
+    ------
+    _CodeBlockMypyError
+        If there is a mypy error.
+    """
+    from apply_lints_and_build_docs import run_command, MYPY_NO_PATH_COMMAND
+    from apysc._file import module_util
+    runnable_script: str = script_data['runnable_script']
+    md_file_path: str = script_data['md_file_path']
+    tmp_module_path: str = module_util.save_tmp_module(script=runnable_script)
+    command: str = f'{MYPY_NO_PATH_COMMAND} {tmp_module_path}'
+    stdout: str = run_command(command=command).strip()
+    os.remove(tmp_module_path)
+    if 'Success: no issues found' not in stdout:
+        raise _CodeBlockMypyError(
+            'There is a mypy error in the following document code block:'
+            f'\nDocument path: {md_file_path}'
+            f'\n Code block: \n\n{runnable_script}\n'
+            f'\nmypy message: {stdout}')
 
 
 class _CodeBlockNumdoclintError(Exception):

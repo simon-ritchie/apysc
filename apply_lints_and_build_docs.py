@@ -38,10 +38,14 @@ NUMDOCLINT_COMMAND: Final[str] = (
     'numdoclint -p ./ -r -f test,sample,_test,_sample'
 )
 
-MYPY_COMMAND: Final[str] = (
+MYPY_NO_PATH_COMMAND: Final[str] = (
     'mypy --ignore-missing-imports --follow-imports skip '
     '--disallow-untyped-calls --disallow-untyped-defs '
-    '--strict-optional --strict-equality ./apysc/ '
+    '--strict-optional --strict-equality'
+)
+
+MYPY_COMMAND: Final[str] = (
+    f'{MYPY_NO_PATH_COMMAND} ./apysc/ '
     './tests/ ./test_projects/'
 )
 

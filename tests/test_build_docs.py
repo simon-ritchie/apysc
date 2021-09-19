@@ -9,7 +9,7 @@ from retrying import retry
 import build_docs
 from apysc._file import file_util
 from build_docs import _CodeBlock
-from build_docs import _CodeBlockFlake8Error
+from build_docs import _CodeBlockFlake8Error, _CodeBlockMypyError
 from build_docs import _CodeBlockNumdoclintError
 from build_docs import _RunReturnData
 from build_docs import _ScriptData
@@ -520,3 +520,26 @@ def test__check_code_block_with_numdoclint() -> None:
         '\n    print(100)',
     }
     build_docs._check_code_block_with_numdoclint(script_data=script_data)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__check_code_block_with_mypy() -> None:
+    script_data: _ScriptData = {
+        'md_file_path': './tmp.py',
+        'hashed_val': 'abc',
+        'runnable_script':
+        'def func_1'
+        '(a):\n    print(100)',
+    }
+    assert_raises(
+        expected_error_class=_CodeBlockMypyError,
+        func_or_method=build_docs._check_code_block_with_mypy,
+        kwargs={'script_data': script_data},
+        match='There is a mypy error in the following document code block')
+
+    script_data = {
+        'md_file_path': './tmp.py',
+        'hashed_val': 'abc',
+        'runnable_script': 'print(100)',
+    }
+    build_docs._check_code_block_with_mypy(script_data=script_data)

@@ -73,21 +73,6 @@ class TestCxInterface:
         assert interface.x == 20
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__append_x_getter_expression(self) -> None:
-        expression_data_util.empty_expression()
-        interface: CxInterface = CxInterface()
-        interface.variable_name = 'test_cx_interface'
-        interface.x = ap.Int(10)
-        x: ap.Int = interface.x
-        expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'if (!_.isUndefined({interface.variable_name})) {{'
-            f'\n  {x.variable_name} = {interface.variable_name}.cx();'
-            '\n}'
-        )
-        assert expected in expression
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_cx_attr_linking_setting(self) -> None:
         interface: CxInterface = CxInterface()
         interface.variable_name = 'test_cx_interface'

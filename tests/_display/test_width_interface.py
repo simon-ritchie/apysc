@@ -98,21 +98,6 @@ class TestWidthInterface:
         assert width_interface.width == 15
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__append_width_getter_expression(self) -> None:
-        expression_data_util.empty_expression()
-        interface: WidthInterface = WidthInterface()
-        interface.variable_name = 'test_width_interface'
-        interface.width = ap.Int(10)
-        width: ap.Int = interface.width
-        expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'if (!_.isUndefined({interface.variable_name})) {{'
-            f'\n  {width.variable_name} = {interface.variable_name}.width();'
-            '\n}'
-        )
-        assert expected in expression
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_width_attr_linking_setting(self) -> None:
         interface: WidthInterface = WidthInterface()
         interface.variable_name = 'test_width_interface'

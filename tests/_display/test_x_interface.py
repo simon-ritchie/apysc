@@ -81,21 +81,6 @@ class TestXInterface:
         assert x_interface.x == 150
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__append_x_getter_expression(self) -> None:
-        expression_data_util.empty_expression()
-        x_interface = XInterface()
-        x_interface.variable_name = 'test_x_interface'
-        x_interface.x = ap.Int(100)
-        x: ap.Int = x_interface.x
-        expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'if (!_.isUndefined({x_interface.variable_name})) {{'
-            f'\n  {x.variable_name} = {x_interface.variable_name}.x();'
-            '\n}'
-        )
-        assert expected in expression
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_x_attr_linking_setting(self) -> None:
         x_interface = XInterface()
         x_interface.variable_name = 'test_x_interface'

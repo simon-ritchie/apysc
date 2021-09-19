@@ -58,7 +58,6 @@ class XInterface(
             from apysc._type import value_util
             self._initialize_x_if_not_initialized()
             x: ap.Int = value_util.get_copy(value=self._x)
-            self._append_x_getter_expression(x=x)
             return x
 
     @x.setter
@@ -89,25 +88,6 @@ class XInterface(
             self._append_x_update_expression()
 
             self._append_x_attr_linking_setting()
-
-    def _append_x_getter_expression(self, x: ap.Int) -> None:
-        """
-        Append the x position getter expression.
-
-        Parameters
-        ----------
-        x : Int
-            X-coordinate.
-        """
-        with ap.DebugInfo(
-                callable_=self._append_x_getter_expression, locals_=locals(),
-                module_name=__name__, class_=XInterface):
-            expression: str = (
-                f'if (!_.isUndefined({self.variable_name})) {{'
-                f'\n  {x.variable_name} = {self.variable_name}.x();'
-                '\n}'
-            )
-            ap.append_js_expression(expression=expression)
 
     def _append_x_update_expression(self) -> None:
         """

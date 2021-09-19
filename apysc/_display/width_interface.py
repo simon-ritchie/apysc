@@ -54,7 +54,6 @@ class WidthInterface(
             from apysc._type import value_util
             self._initialize_width_if_not_initialized()
             width: ap.Int = value_util.get_copy(value=self._width)
-            self._append_width_getter_expression(width=width)
             return width
 
     @width.setter
@@ -75,26 +74,6 @@ class WidthInterface(
             self._append_width_update_expression()
 
             self._append_width_attr_linking_setting()
-
-    def _append_width_getter_expression(self, width: ap.Int) -> None:
-        """
-        Append the width getter expression.
-
-        Parameters
-        ----------
-        width : Int
-            Width value.
-        """
-        with ap.DebugInfo(
-                callable_=self._append_width_getter_expression,
-                locals_=locals(),
-                module_name=__name__, class_=WidthInterface):
-            expression: str = (
-                f'if (!_.isUndefined({self.variable_name})) {{'
-                f'\n  {width.variable_name} = {self.variable_name}.width();'
-                '\n}'
-            )
-            ap.append_js_expression(expression=expression)
 
     def _append_width_update_expression(self) -> None:
         """

@@ -47,7 +47,7 @@ def main() -> None:
             width=(i + 1) * 50,
             height=(i + 1) * 50)
 
-    dict_1: ap.Dictionary = ap.Dictionary({'a': 10, 'b': 20})
+    dict_1: ap.Dictionary[ap.String, int] = ap.Dictionary({'a': 10, 'b': 20})
     with ap.For[ap.String](dict_1) as key:
         dict_1[key] *= 2
     ap.assert_dicts_equal(

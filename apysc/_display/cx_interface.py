@@ -52,7 +52,6 @@ class CxInterface(
             from apysc._type import value_util
             self._initialize_cx_if_not_initialized()
             x: ap.Int = value_util.get_copy(value=self._cx)
-            self._append_x_getter_expression(x=x)
             return x
 
     @x.setter
@@ -77,26 +76,6 @@ class CxInterface(
             self._append_cx_update_expression()
 
             self._append_cx_attr_linking_setting()
-
-    def _append_x_getter_expression(self, x: ap.Int) -> None:
-        """
-        Append the center x-coordinate getter expression.
-
-        Parameters
-        ----------
-        x : Int
-            Center x-coordinate value.
-        """
-        with ap.DebugInfo(
-                callable_=self._append_x_getter_expression,
-                locals_=locals(),
-                module_name=__name__, class_=CxInterface):
-            expression: str = (
-                f'if (!_.isUndefined({self.variable_name})) {{'
-                f'\n  {x.variable_name} = {self.variable_name}.cx();'
-                '\n}'
-            )
-            ap.append_js_expression(expression=expression)
 
     def _append_cx_update_expression(self) -> None:
         """

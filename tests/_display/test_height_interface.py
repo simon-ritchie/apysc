@@ -101,22 +101,6 @@ class TestHeightInterface:
         assert height_interface.height == 5
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__append_height_getter_expression(self) -> None:
-        expression_data_util.empty_expression()
-        interface: HeightInterface = HeightInterface()
-        interface.variable_name = 'test_height_interface'
-        interface.height = ap.Int(10)
-        height: ap.Int = interface.height
-        expression: str = expression_data_util.get_current_expression()
-        expected: str = (
-            f'if (!_.isUndefined({interface.variable_name})) {{'
-            f'\n  {height.variable_name} = '
-            f'{interface.variable_name}.height();'
-            '\n}'
-        )
-        assert expected in expression
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_height_attr_linking_setting(self) -> None:
         interface: HeightInterface = HeightInterface()
         interface.variable_name = 'test_height_interface'

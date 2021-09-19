@@ -54,7 +54,6 @@ class HeightInterface(
             from apysc._type import value_util
             self._initialize_height_if_not_initialized()
             height: ap.Int = value_util.get_copy(value=self._height)
-            self._append_height_getter_expression(height=height)
             return height
 
     @height.setter
@@ -75,26 +74,6 @@ class HeightInterface(
             self._append_height_update_expression()
 
             self._append_height_attr_linking_setting()
-
-    def _append_height_getter_expression(self, height: ap.Int) -> None:
-        """
-        Append the height getter expression.
-
-        Parameters
-        ----------
-        height : Int
-            Height value.
-        """
-        with ap.DebugInfo(
-                callable_=self._append_height_getter_expression,
-                locals_=locals(),
-                module_name=__name__, class_=HeightInterface):
-            expression: str = (
-                f'if (!_.isUndefined({self.variable_name})) {{'
-                f'\n  {height.variable_name} = {self.variable_name}.height();'
-                '\n}'
-            )
-            ap.append_js_expression(expression=expression)
 
     def _append_height_update_expression(self) -> None:
         """

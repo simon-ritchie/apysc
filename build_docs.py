@@ -165,12 +165,13 @@ def _check_code_block_with_flake8(script_data: _ScriptData) -> None:
     _CodeBlockFlake8Error
         If there is a flake8 lint error.
     """
+    from apply_lints_and_build_docs import FLAKE8_NO_PATH_COMMAND
+    from apply_lints_and_build_docs import run_command
     from apysc._file import module_util
-    from apply_lints_and_build_docs import run_command, FLAKE8_NO_PATH_COMMAND
     runnable_script: str = script_data['runnable_script']
     md_file_path: str = script_data['md_file_path']
     tmp_module_path: str = module_util.save_tmp_module(script=runnable_script)
-    command: str = f'{FLAKE8_NO_PATH_COMMAND},W292 {tmp_module_path}'
+    command: str = f'{FLAKE8_NO_PATH_COMMAND},W292,E501 {tmp_module_path}'
     stdout: str = run_command(command=command).strip()
     os.remove(tmp_module_path)
     if stdout != '':

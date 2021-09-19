@@ -88,7 +88,8 @@ sprite.click(
     handler=on_click,
     options={'rectangle_1': rectangle_1, 'rectangle_2': rectangle_2})
 
-ap.save_overall_html(dest_dir_path='timer_complete_basic_usage/')
+ap.save_overall_html(
+    dest_dir_path='timer_complete_basic_usage/')
 ```
 
 <iframe src="static/timer_complete_basic_usage/index.html" width="250" height="150"></iframe>

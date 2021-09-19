@@ -56,7 +56,8 @@ timer_3: ap.Timer = ap.Timer(
     handler=on_timer, delay=ap.FPS.FPS_60, options={'rectangle': rectangle_3})
 timer_3.start()
 
-ap.save_overall_html(dest_dir_path='fps_basic_usage/')
+ap.save_overall_html(
+    dest_dir_path='fps_basic_usage/')
 ```
 
 <iframe src="static/fps_basic_usage/index.html" width="350" height="150"></iframe>

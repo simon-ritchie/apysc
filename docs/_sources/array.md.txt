@@ -35,7 +35,6 @@ If the `Array` values are unique types, then you can set the generic type to an 
 
 ```py
 # runnable
-from typing import Any, List
 import apysc as ap
 
 arr: ap.Array[int] = ap.Array([1, 2])

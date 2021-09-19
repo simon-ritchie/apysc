@@ -43,7 +43,8 @@ rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 rectangle.click(on_click)
 
-ap.save_overall_html(dest_dir_path='event_prevent_default_basic_usage/')
+ap.save_overall_html(
+    dest_dir_path='event_prevent_default_basic_usage/')
 ```
 
 ## Basic usage of the stop_propagation interface
@@ -100,7 +101,8 @@ rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 rectangle.click(on_rectangle_click)
 
-ap.save_overall_html(dest_dir_path='event_stop_propagation_basic_usage/')
+ap.save_overall_html(
+    dest_dir_path='event_stop_propagation_basic_usage/')
 ```
 
 If you click the following rectangle, the only message of `The rectangle is clicked!` will be displayed browser console (please press the F12 key), and the sprite console message will not be displayed.

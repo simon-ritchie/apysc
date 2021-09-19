@@ -57,7 +57,8 @@ timer: ap.Timer = ap.Timer(
     on_timer, delay=1000, options={'polygon': polygon})
 timer.start()
 
-ap.save_overall_html(dest_dir_path='graphics_base_flip_x_basic_usage/')
+ap.save_overall_html(
+    dest_dir_path='graphics_base_flip_x_basic_usage/')
 ```
 
 <iframe src="static/graphics_base_flip_x_basic_usage/index.html" width="200" height="150"></iframe>
@@ -127,7 +128,8 @@ timer_2: ap.Timer = ap.Timer(
 timer_2.start()
 
 
-ap.save_overall_html(dest_dir_path='graphics_base_flip_notes/')
+ap.save_overall_html(
+    dest_dir_path='graphics_base_flip_notes/')
 ```
 
 <iframe src="static/graphics_base_flip_notes/index.html" width="250" height="200"></iframe>

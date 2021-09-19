@@ -101,7 +101,8 @@
     <span class="n">handler</span><span class="o">=</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mf">16.6666667</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;rectangle&#39;</span><span class="p">:</span> <span class="n">rectangle_3</span><span class="p">})</span>
 <span class="n">timer_3</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;timer_delay_basic_usage/&#39;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;timer_delay_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <iframe src="static/timer_delay_basic_usage/index.html" width="350" height="150"></iframe></section>
@@ -134,7 +135,7 @@
 <span class="sd">        Optional arguments dictionary.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;rectangle&#39;</span><span class="p">]</span>
-    <span class="n">rectangle</span><span class="o">.</span><span class="n">rotation_around_center</span> <span class="o">+=</span><span class="mi">1</span>
+    <span class="n">rectangle</span><span class="o">.</span><span class="n">rotation_around_center</span> <span class="o">+=</span> <span class="mi">1</span>
 
 
 <span class="n">timer</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span>
@@ -142,7 +143,8 @@
     <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;rectangle&#39;</span><span class="p">:</span> <span class="n">rectangle</span><span class="p">})</span>
 <span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;timer_delay_fps_enum/&#39;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;timer_delay_fps_enum/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <iframe src="static/timer_delay_fps_enum/index.html" width="150" height="150"></iframe></section>

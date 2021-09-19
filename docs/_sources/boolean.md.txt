@@ -35,7 +35,7 @@ You can compare it with the equal comparison operator (`=`), and the `Boolean`, 
 import apysc as ap
 
 bool_1: ap.Boolean = ap.Boolean(True)
-assert bool_1 == True
+assert bool_1 == True  # noqa
 assert bool_1 == ap.Boolean(True)
 assert bool_1 == 1
 assert bool_1 == ap.Int(1)
@@ -48,7 +48,7 @@ Also, the not equal comparison operator (`!=`) is supported, as follows:
 import apysc as ap
 
 bool_1: ap.Boolean = ap.Boolean(True)
-assert bool_1 != False
+assert bool_1 != False  # noqa
 assert bool_1 != ap.Boolean(False)
 assert bool_1 != 0
 assert bool_1 != ap.Int(0)

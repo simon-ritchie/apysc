@@ -26,7 +26,8 @@ right_rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=150, y=50, width=50, height=50)
 right_rectangle.skew_x = ap.Int(50)
 
-ap.save_overall_html(dest_dir_path='graphics_base_skew_x_basic_usage/')
+ap.save_overall_html(
+    dest_dir_path='graphics_base_skew_x_basic_usage/')
 ```
 
 <iframe src="static/graphics_base_skew_x_basic_usage/index.html" width="250" height="150"></iframe>

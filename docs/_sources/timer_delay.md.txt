@@ -61,7 +61,8 @@ timer_3: ap.Timer = ap.Timer(
     handler=on_timer, delay=16.6666667, options={'rectangle': rectangle_3})
 timer_3.start()
 
-ap.save_overall_html(dest_dir_path='timer_delay_basic_usage/')
+ap.save_overall_html(
+    dest_dir_path='timer_delay_basic_usage/')
 ```
 
 <iframe src="static/timer_delay_basic_usage/index.html" width="350" height="150"></iframe>
@@ -97,7 +98,7 @@ def on_timer(e: ap.TimerEvent, options: Dict[str, Any]):
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options['rectangle']
-    rectangle.rotation_around_center +=1
+    rectangle.rotation_around_center += 1
 
 
 timer: ap.Timer = ap.Timer(
@@ -105,7 +106,8 @@ timer: ap.Timer = ap.Timer(
     options={'rectangle': rectangle})
 timer.start()
 
-ap.save_overall_html(dest_dir_path='timer_delay_fps_enum/')
+ap.save_overall_html(
+    dest_dir_path='timer_delay_fps_enum/')
 ```
 
 <iframe src="static/timer_delay_fps_enum/index.html" width="150" height="150"></iframe>

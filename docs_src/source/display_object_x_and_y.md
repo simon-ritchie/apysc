@@ -29,7 +29,8 @@ rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 rectangle.x = ap.Int(50)
 rectangle.y = ap.Int(50)
 
-ap.save_overall_html(dest_dir_path='display_object_x_and_y_basic_usage/')
+ap.save_overall_html(
+    dest_dir_path='display_object_x_and_y_basic_usage/')
 ```
 
 <iframe src="static/display_object_x_and_y_basic_usage/index.html" width="150" height="150"></iframe>

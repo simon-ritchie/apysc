@@ -21,7 +21,8 @@ stage: ap.Stage = ap.Stage(
     stage_elem_id='stage')
 int_1: ap.Int = ap.Int(10)
 ap.assert_equal(expected=10, actual=int_1)
-ap.save_overall_html(dest_dir_path='assertion_common_behavior_results/')
+ap.save_overall_html(
+    dest_dir_path='assertion_common_behavior_results/')
 ```
 
 This code will display the information message on the browser console, like this (please press the F12 key to see):

@@ -55,7 +55,8 @@ rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 sprite.click(on_sprite_click, options={'rectangle': rectangle})
 
-ap.save_overall_html(dest_dir_path='sprite_basic_usage_of_remove_child/')
+ap.save_overall_html(
+    dest_dir_path='sprite_basic_usage_of_remove_child/')
 ```
 
 <iframe src="static/sprite_basic_usage_of_remove_child/index.html" width="150" height="150"></iframe>
@@ -114,7 +115,8 @@ first_sprite.click(
     on_sprite_click,
     options={'rectangle': rectangle, 'second_sprite': second_sprite})
 
-ap.save_overall_html(dest_dir_path='sprite_basic_usage_of_add_child/')
+ap.save_overall_html(
+    dest_dir_path='sprite_basic_usage_of_add_child/')
 ```
 
 <iframe src="static/sprite_basic_usage_of_add_child/index.html" width="250" height="150"></iframe>

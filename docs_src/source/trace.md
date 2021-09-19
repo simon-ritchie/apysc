@@ -43,7 +43,8 @@ rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 rectangle.click(on_rectangle_click)
 
-ap.save_overall_html(dest_dir_path='trace_basic_usage/')
+ap.save_overall_html(
+    dest_dir_path='trace_basic_usage/')
 ```
 
 <iframe src="static/trace_basic_usage/index.html" width="150" height="150"></iframe>

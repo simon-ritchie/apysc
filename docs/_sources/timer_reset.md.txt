@@ -86,7 +86,8 @@ timer_1.timer_complete(
     on_first_timer_complete, options={'timer_2': timer_2})
 timer_1.start()
 
-ap.save_overall_html(dest_dir_path='timer_reset_basic_usage/')
+ap.save_overall_html(
+    dest_dir_path='timer_reset_basic_usage/')
 ```
 
 <iframe src="static/timer_reset_basic_usage/index.html" width="150" height="150"></iframe>

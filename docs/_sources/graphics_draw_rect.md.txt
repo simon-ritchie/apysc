@@ -23,7 +23,8 @@ sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(x=50, y=50, width=100, height=50)
 
-ap.save_overall_html(dest_dir_path='graphics_draw_rect_basic_usage/')
+ap.save_overall_html(
+    dest_dir_path='graphics_draw_rect_basic_usage/')
 ```
 
 The previous script will draw horizontal rectangle graphics.

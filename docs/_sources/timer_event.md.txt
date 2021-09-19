@@ -61,7 +61,8 @@ timer: ap.Timer = ap.Timer(
 timer.start()
 timer.timer_complete(handler=on_timer_complete)
 
-ap.save_overall_html(dest_dir_path='timer_event_basic_usage/')
+ap.save_overall_html(
+    dest_dir_path='timer_event_basic_usage/')
 ```
 
 <iframe src="static/timer_event_basic_usage/index.html" width="150" height="150"></iframe>
@@ -105,7 +106,8 @@ timer: ap.Timer = ap.Timer(
     handler=on_timer, delay=16.6, options={'rectangle': rectangle})
 timer.start()
 
-ap.save_overall_html(dest_dir_path='timer_event_this_attribute/')
+ap.save_overall_html(
+    dest_dir_path='timer_event_this_attribute/')
 ```
 
 <iframe src="static/timer_event_this_attribute/index.html" width="150" height="150"></iframe>

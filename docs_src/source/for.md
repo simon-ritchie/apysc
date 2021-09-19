@@ -32,7 +32,8 @@ with ap.For(arr) as i:
     sprite.graphics.draw_rect(
         x=i * 100 + 50, y=50, width=50, height=50)
 
-ap.save_overall_html(dest_dir_path='for_basic_usage/')
+ap.save_overall_html(
+    dest_dir_path='for_basic_usage/')
 ```
 
 <iframe src="static/for_basic_usage/index.html" width="350" height="150"></iframe>

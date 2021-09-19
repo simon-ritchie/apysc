@@ -54,7 +54,8 @@ sprite.click(
     on_sprite_click,
     options={'rectangle_1': rectangle_1})
 
-ap.save_overall_html(dest_dir_path='sprite_contains_basic_usage/')
+ap.save_overall_html(
+    dest_dir_path='sprite_contains_basic_usage/')
 ```
 
 <iframe src="static/sprite_contains_basic_usage/index.html" width="250" height="150"></iframe>

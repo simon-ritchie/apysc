@@ -70,7 +70,8 @@ sprite.graphics.draw_polygon(
         ap.Point2D(x=100, y=100),
     ])
 
-ap.save_overall_html(dest_dir_path='point2d_basic_usage/')
+ap.save_overall_html(
+    dest_dir_path='point2d_basic_usage/')
 ```
 
 <iframe src="static/point2d_basic_usage/index.html" width="150" height="150"></iframe>

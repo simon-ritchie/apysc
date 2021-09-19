@@ -24,7 +24,8 @@ sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
-ap.save_overall_html(dest_dir_path='sprite_graphics_attribute/')
+ap.save_overall_html(
+    dest_dir_path='sprite_graphics_attribute/')
 ```
 
 <iframe src="static/sprite_graphics_attribute/index.html" width="150" height="150"></iframe>
@@ -76,7 +77,8 @@ sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 sprite.click(on_sprite_click)
 
-ap.save_overall_html(dest_dir_path='sprite_move_instances_simultaneously/')
+ap.save_overall_html(
+    dest_dir_path='sprite_move_instances_simultaneously/')
 ```
 
 <iframe src="static/sprite_move_instances_simultaneously/index.html" width="250" height="250"></iframe>

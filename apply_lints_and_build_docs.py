@@ -30,7 +30,6 @@ FLAKE8_NO_PATH_COMMAND: Final[str] = (
     'flake8 --ignore E402,W503'
 )
 
-
 FLAKE8_COMMAND: Final[str] = (
     f'{FLAKE8_NO_PATH_COMMAND} ./'
 )

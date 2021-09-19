@@ -9,7 +9,7 @@ from retrying import retry
 import build_docs
 from apysc._file import file_util
 from build_docs import _CodeBlock
-from build_docs import _CodeBlockFlake8Error
+from build_docs import _CodeBlockFlake8Error, _CodeBlockNumdoclintError
 from build_docs import _RunReturnData
 from build_docs import _ScriptData
 from tests.testing_helper import assert_attrs
@@ -476,7 +476,8 @@ def test__check_code_block_with_flake8() -> None:
         expected_error_class=_CodeBlockFlake8Error,
         func_or_method=build_docs._check_code_block_with_flake8,
         kwargs={'script_data': script_data},
-        match='There is a flake8 error in the following document codeblock:')
+        match=r'There is a flake8 error in the following document '
+              r'code block:')
 
     script_data = {
         'md_file_path': './tmp.py',
@@ -484,3 +485,36 @@ def test__check_code_block_with_flake8() -> None:
         'runnable_script': 'a = 20',
     }
     build_docs._check_code_block_with_flake8(script_data=script_data)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__check_code_block_with_numdoclint() -> None:
+    script_data: _ScriptData = {
+        'md_file_path': './tmp.py',
+        'hashed_val': 'abc',
+        'runnable_script':
+        'def func_1(a):'
+        '\n    print(100)',
+    }
+    assert_raises(
+        expected_error_class=_CodeBlockNumdoclintError,
+        func_or_method=build_docs._check_code_block_with_numdoclint,
+        kwargs={'script_data': script_data},
+        match=r'There is a numdoclint error in the following '
+              r'document code block')
+
+    script_data: _ScriptData = {
+        'md_file_path': './tmp.py',
+        'hashed_val': 'abc',
+        'runnable_script':
+        'def func_1(a):'
+        '\n    """'
+        '\n    test function.'
+        '\n\n    Parameters'
+        '\n    ----------'
+        '\n    a : int'
+        '\n        Test argument.'
+        '\n    """'
+        '\n    print(100)',
+    }
+    build_docs._check_code_block_with_numdoclint(script_data=script_data)

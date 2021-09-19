@@ -63,4 +63,4 @@ from apysc._animation.easing import Easing  # isort:skip # noqa
 from apysc._animation.animation_base import AnimationBase  # isort:skip # noqa
 from apysc._animation.animation_move import AnimationMove  # isort:skip # noqa
 
-__version__: str = '0.46.4'
+__version__: str = '0.46.5'

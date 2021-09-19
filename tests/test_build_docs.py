@@ -8,8 +8,8 @@ from retrying import retry
 
 import build_docs
 from apysc._file import file_util
-from build_docs import _CodeBlock
-from build_docs import _ReturnData
+from build_docs import _CodeBlock, _CodeBlockFlake8Error
+from build_docs import _RunReturnData
 from build_docs import _ScriptData
 from tests.testing_helper import assert_attrs
 from tests.testing_helper import assert_raises
@@ -414,7 +414,7 @@ def test__make_script_data_list() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__run_code_block_script() -> None:
-    return_data: _ReturnData = build_docs._run_code_block_script(
+    return_data: _RunReturnData = build_docs._run_code_block_script(
         script_data={
             'md_file_path': 'test.md',
             'hashed_val': 'abc',
@@ -461,3 +461,26 @@ def test__save_hashed_val() -> None:
     saved_hashed_val: str = build_docs._read_md_file_hashed_val_from_file(
         hash_file_path='docs_src/hashed_vals/stage.md')
     assert saved_hashed_val == hashed_val
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__check_code_block_with_flake8() -> None:
+    script_data: _ScriptData = {
+        'md_file_path': './tmp.py',
+        'hashed_val': 'abc',
+        'runnable_script':
+        'a = 200000000000000000000000000000000000000000000000000000000000'
+        '00000000000000000000000000000000000000000000',
+    }
+    assert_raises(
+        expected_error_class=_CodeBlockFlake8Error,
+        func_or_method=build_docs._check_code_block_with_flake8,
+        kwargs={'script_data': script_data},
+        match='There is a flake8 error in the following document codeblock:')
+
+    script_data: _ScriptData = {
+        'md_file_path': './tmp.py',
+        'hashed_val': 'abc',
+        'runnable_script': 'a = 20',
+    }
+    build_docs._check_code_block_with_flake8(script_data=script_data)

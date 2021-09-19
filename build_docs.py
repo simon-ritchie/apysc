@@ -100,7 +100,7 @@ class _ScriptData(TypedDict):
     runnable_script: str
 
 
-class _ReturnData(TypedDict):
+class _RunReturnData(TypedDict):
     md_file_path: str
     runnable_script: str
     stdout: str
@@ -132,14 +132,54 @@ def _exec_document_script(
         md_file_paths=md_file_paths, hashed_vals=hashed_vals,
         limit_count=limit_count)
     workers: int = max(mp.cpu_count() - 2, 1)
+
     with mp.Pool(workers) as p:
-        return_data_list: List[_ReturnData] = p.map(
+        p.map(func=_check_code_block_with_flake8, iterable=script_data_list)
+
+    with mp.Pool(workers) as p:
+        run_return_data_list: List[_RunReturnData] = p.map(
             func=_run_code_block_script, iterable=script_data_list)
-    _validate_script_return_data(return_data_list=return_data_list)
+    _validate_script_return_data(return_data_list=run_return_data_list)
+
     _save_hashed_val(script_data_list=script_data_list)
     executed_scripts: List[str] = [
         script_data['runnable_script'] for script_data in script_data_list]
     return executed_scripts
+
+
+class _CodeBlockFlake8Error(Exception):
+    pass
+
+
+def _check_code_block_with_flake8(script_data: _ScriptData) -> None:
+    """
+    Check a code block with the flake8 lint.
+
+    Parameters
+    ----------
+    script_data : _ScriptData
+        Target script data.
+
+    Raises
+    ------
+    _CodeBlockFlake8Error
+        If there is a flake8 lint error.
+    """
+    from apysc._file import module_util
+    from apply_lints_and_build_docs import run_command, FLAKE8_NO_PATH_COMMAND
+    runnable_script: str = script_data['runnable_script']
+    md_file_path: str = script_data['md_file_path']
+    tmp_module_path: str = module_util.save_tmp_module(script=runnable_script)
+    command: str = f'{FLAKE8_NO_PATH_COMMAND},W292 {tmp_module_path}'
+    stdout: str = run_command(command=command).strip()
+    os.remove(tmp_module_path)
+    if stdout != '':
+        raise _CodeBlockFlake8Error(
+            'There is a flake8 error in the following document codeblock:'
+            f'\nDocument path: {md_file_path}'
+            f'\nCode block:\n\n{runnable_script}\n'
+            f'\nflake8 message: {stdout}'
+        )
 
 
 def _save_hashed_val(script_data_list: List[_ScriptData]) -> None:
@@ -158,14 +198,14 @@ def _save_hashed_val(script_data_list: List[_ScriptData]) -> None:
 
 
 def _validate_script_return_data(
-        return_data_list: List[_ReturnData]) -> None:
+        return_data_list: List[_RunReturnData]) -> None:
     """
     Validate the returned data list whether there are no
     tracebacks in the stdout.
 
     Parameters
     ----------
-    return_data_list : list of _ReturnData
+    return_data_list : list of _RunReturnData
         Data list returned from the script execution.
 
     Raises
@@ -187,7 +227,7 @@ def _validate_script_return_data(
                 f'\nStdout: {stdout}')
 
 
-def _run_code_block_script(script_data: _ScriptData) -> _ReturnData:
+def _run_code_block_script(script_data: _ScriptData) -> _RunReturnData:
     """
     Run a specified code block script.
 
@@ -198,7 +238,7 @@ def _run_code_block_script(script_data: _ScriptData) -> _ReturnData:
 
     Returns
     -------
-    return_data : _ReturnData
+    return_data : _RunReturnData
         Script execution result data.
     """
     from apysc._file import module_util
@@ -210,7 +250,7 @@ def _run_code_block_script(script_data: _ScriptData) -> _ReturnData:
             f'Executing document script: \n{runnable_script}'))
     stdout: str = module_util.save_tmp_module_and_run_script(
         script=runnable_script)
-    return_data: _ReturnData = {
+    return_data: _RunReturnData = {
         'md_file_path': md_file_path,
         'runnable_script': runnable_script,
         'stdout': stdout,

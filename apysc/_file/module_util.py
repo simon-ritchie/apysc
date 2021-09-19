@@ -69,7 +69,7 @@ def save_tmp_module(script: str) -> str:
     saved_module_path : str
         Saved temporary module path.
     """
-    random_int: int = randint(1_000_000, 100_000_000)
+    random_int: int = randint(1_000_000_000, 10_000_000_000)
     saved_module_path: str = (
         f'./tmp_{datetime.now().timestamp()}_{random_int}.py')
     with open(saved_module_path, 'w') as f:

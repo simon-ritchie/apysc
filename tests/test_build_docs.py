@@ -504,7 +504,7 @@ def test__check_code_block_with_numdoclint() -> None:
         match=r'There is a numdoclint error in the following '
               r'document code block')
 
-    script_data: _ScriptData = {
+    script_data = {
         'md_file_path': './tmp.py',
         'hashed_val': 'abc',
         'runnable_script':

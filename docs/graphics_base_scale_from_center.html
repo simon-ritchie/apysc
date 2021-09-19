@@ -105,14 +105,20 @@
 </div>
 <iframe src="static/graphics_base_scale_from_center_basic_usage_2/index.html" width="150" height="150"></iframe><p>The <code class="docutils literal notranslate"><span class="pre">+=</span></code> and <code class="docutils literal notranslate"><span class="pre">-=</span></code> operators are also supported:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
-<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">_RectanglesOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">rectangle_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span>
+    <span class="n">rectangle_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span>
+    <span class="n">direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectanglesOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be call from the timer.</span>
+<span class="sd">    The handler will be called from the timer.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -152,11 +158,12 @@
 
 
 <span class="n">direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">options</span><span class="p">:</span> <span class="n">_RectanglesOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;rectangle_1&#39;</span><span class="p">:</span> <span class="n">rectangle_1</span><span class="p">,</span> <span class="s1">&#39;rectangle_2&#39;</span><span class="p">:</span> <span class="n">rectangle_2</span><span class="p">,</span>
+    <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="n">direction</span><span class="p">}</span>
 <span class="n">timer</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span>
     <span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">,</span>
-    <span class="n">options</span><span class="o">=</span><span class="p">{</span>
-        <span class="s1">&#39;rectangle_1&#39;</span><span class="p">:</span> <span class="n">rectangle_1</span><span class="p">,</span> <span class="s1">&#39;rectangle_2&#39;</span><span class="p">:</span> <span class="n">rectangle_2</span><span class="p">,</span>
-        <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="n">direction</span><span class="p">})</span>
+    <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
 <span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>

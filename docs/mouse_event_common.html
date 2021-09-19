@@ -52,7 +52,7 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">options</span></code> argument is an optional parameter dictionary to be passed to the handler. This argument can be skipped.</p>
 <p>For instance, the <code class="docutils literal notranslate"><span class="pre">click</span></code> event can be set as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -66,7 +66,11 @@
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">on_rectangle_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">_ColorOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">color</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">def</span> <span class="nf">on_rectangle_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_ColorOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler will be called when the rectangle is clicked.</span>
 
@@ -85,9 +89,9 @@
 
 <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">options</span><span class="p">:</span> <span class="n">_ColorOptions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#f0a&#39;</span><span class="p">}</span>
 <span class="n">rectangle</span><span class="o">.</span><span class="n">click</span><span class="p">(</span>
-    <span class="n">handler</span><span class="o">=</span><span class="n">on_rectangle_click</span><span class="p">,</span>
-    <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#f0a&#39;</span><span class="p">})</span>
+    <span class="n">handler</span><span class="o">=</span><span class="n">on_rectangle_click</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mouse_event_common_basic_binding_usage/&#39;</span><span class="p">)</span>
@@ -102,7 +106,7 @@
 <p>These interfaces can unbind the single handler setting (remove binding setting).</p>
 <p>For example, the following code will unbind the click event, so the handler function will not be called.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -116,7 +120,11 @@
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">on_rectangle_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">_ColorOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">color</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">def</span> <span class="nf">on_rectangle_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_ColorOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler will be called when the rectangle is clicked.</span>
 
@@ -135,9 +143,9 @@
 
 <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">options</span><span class="p">:</span> <span class="n">_ColorOptions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#f0a&#39;</span><span class="p">}</span>
 <span class="n">rectangle</span><span class="o">.</span><span class="n">click</span><span class="p">(</span>
-    <span class="n">handler</span><span class="o">=</span><span class="n">on_rectangle_click</span><span class="p">,</span>
-    <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#f0a&#39;</span><span class="p">})</span>
+    <span class="n">handler</span><span class="o">=</span><span class="n">on_rectangle_click</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
 
 <span class="n">rectangle</span><span class="o">.</span><span class="n">unbind_click</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">on_rectangle_click</span><span class="p">)</span>
 
@@ -149,10 +157,12 @@
 <iframe src="static/mouse_event_common_basic_unbinding_usage/index.html" width="150" height="150"></iframe></section>
 <section id="unbind-all-event-handlers">
 <h2>Unbind all event handlers<a class="headerlink" href="#unbind-all-event-handlers" title="Permalink to this headline">¶</a></h2>
-<p>Sometimes, it is useful to unbind specific all the event at once. Each event interface has the <code class="docutils literal notranslate"><span class="pre">unbind_&lt;event_name&gt;_all</span></code> method (e.g., <code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code>), and it can unbind all event handlers from that instance.</p>
+<p>Sometimes, it is useful to unbind specific all the events at once. Each event interface has the <code class="docutils literal notranslate"><span class="pre">unbind_&lt;event_name&gt;_all</span></code> method (e.g., <code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code>), and it can unbind all event handlers from that instance.</p>
 <p>The following code is calling the <code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code> method, so all hander settings are removed.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
+
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -166,8 +176,12 @@
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
 
 
+<span class="k">class</span> <span class="nc">_ColorOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">color</span><span class="p">:</span> <span class="nb">str</span>
+
+
 <span class="k">def</span> <span class="nf">change_color_on_rectangle_click</span><span class="p">(</span>
-        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_ColorOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler will change the rectangle color and be called</span>
 <span class="sd">    when the rectangle is clicked.</span>
@@ -185,7 +199,7 @@
 
 
 <span class="k">def</span> <span class="nf">change_x_on_rectangle_click</span><span class="p">(</span>
-        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler will change the rectangle x-coordinate and be called</span>
 <span class="sd">    when the rectangle is clicked.</span>
@@ -203,9 +217,9 @@
 
 <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">options</span><span class="p">:</span> <span class="n">_ColorOptions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#f0a&#39;</span><span class="p">}</span>
 <span class="n">rectangle</span><span class="o">.</span><span class="n">click</span><span class="p">(</span>
-    <span class="n">handler</span><span class="o">=</span><span class="n">change_color_on_rectangle_click</span><span class="p">,</span>
-    <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#f0a&#39;</span><span class="p">})</span>
+    <span class="n">handler</span><span class="o">=</span><span class="n">change_color_on_rectangle_click</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
 <span class="n">rectangle</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">handler</span><span class="o">=</span><span class="n">change_x_on_rectangle_click</span><span class="p">)</span>
 
 <span class="n">rectangle</span><span class="o">.</span><span class="n">unbind_click_all</span><span class="p">()</span>
@@ -245,7 +259,7 @@
 
 
 <span class="k">def</span> <span class="nf">on_rectangle_mousedown</span><span class="p">(</span>
-        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler will be called when the rectangle is mouse downed.</span>
 
@@ -285,7 +299,7 @@
 
 
 <span class="k">def</span> <span class="nf">on_mousemove</span><span class="p">(</span>
-        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler will be called when the mouse is moving on</span>
 <span class="sd">    the rectangle.</span>
@@ -330,7 +344,7 @@
 
 
 <span class="k">def</span> <span class="nf">on_mousemove</span><span class="p">(</span>
-        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler will be called when the mouse is moving on</span>
 <span class="sd">    the rectangle.</span>

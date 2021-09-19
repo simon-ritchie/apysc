@@ -27,7 +27,7 @@ import apysc as ap
 
 
 def on_mousemove(
-        e: ap.MouseEvent[ap.Circle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Circle], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when a mouse cursor is moved
     on the circle.
@@ -76,7 +76,7 @@ import apysc as ap
 
 
 def on_mousemove(
-        e: ap.MouseEvent[ap.Circle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Circle], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when a mouse cursor is moved
     on the circle.
@@ -93,7 +93,7 @@ def on_mousemove(
     circle.y = e.stage_y
 
 
-def on_click(e: ap.MouseEvent[ap.Circle], options: Dict[str, Any]) -> None:
+def on_click(e: ap.MouseEvent[ap.Circle], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when the circle is clicked.
 

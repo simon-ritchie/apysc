@@ -12,7 +12,7 @@ For instance, the `click` event can be set as follows:
 
 ```py
 # runnable
-from typing import Any, Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
@@ -26,7 +26,11 @@ sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 
 
-def on_rectangle_click(e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+class _ColorOptions(TypedDict):
+    color: str
+
+
+def on_rectangle_click(e: ap.MouseEvent, options: _ColorOptions) -> None:
     """
     The handler will be called when the rectangle is clicked.
 
@@ -45,9 +49,9 @@ def on_rectangle_click(e: ap.MouseEvent, options: Dict[str, Any]) -> None:
 
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
+options: _ColorOptions = {'color': '#f0a'}
 rectangle.click(
-    handler=on_rectangle_click,
-    options={'color': '#f0a'})
+    handler=on_rectangle_click, options=options)
 
 ap.save_overall_html(
     dest_dir_path='mouse_event_common_basic_binding_usage/')
@@ -69,7 +73,7 @@ For example, the following code will unbind the click event, so the handler func
 
 ```py
 # runnable
-from typing import Any, Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
@@ -83,7 +87,11 @@ sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 
 
-def on_rectangle_click(e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+class _ColorOptions(TypedDict):
+    color: str
+
+
+def on_rectangle_click(e: ap.MouseEvent, options: _ColorOptions) -> None:
     """
     The handler will be called when the rectangle is clicked.
 
@@ -102,9 +110,9 @@ def on_rectangle_click(e: ap.MouseEvent, options: Dict[str, Any]) -> None:
 
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
+options: _ColorOptions = {'color': '#f0a'}
 rectangle.click(
-    handler=on_rectangle_click,
-    options={'color': '#f0a'})
+    handler=on_rectangle_click, options=options)
 
 rectangle.unbind_click(handler=on_rectangle_click)
 
@@ -118,13 +126,15 @@ When you click the following rectangle, nothing will happen.
 
 ## Unbind all event handlers
 
-Sometimes, it is useful to unbind specific all the event at once. Each event interface has the `unbind_<event_name>_all` method (e.g., `unbind_click_all`), and it can unbind all event handlers from that instance.
+Sometimes, it is useful to unbind specific all the events at once. Each event interface has the `unbind_<event_name>_all` method (e.g., `unbind_click_all`), and it can unbind all event handlers from that instance.
 
 The following code is calling the `unbind_click_all` method, so all hander settings are removed.
 
 ```py
 # runnable
 from typing import Any, Dict
+
+from typing_extensions import TypedDict
 
 import apysc as ap
 
@@ -138,8 +148,12 @@ sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 
 
+class _ColorOptions(TypedDict):
+    color: str
+
+
 def change_color_on_rectangle_click(
-        e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent, options: _ColorOptions) -> None:
     """
     The handler will change the rectangle color and be called
     when the rectangle is clicked.
@@ -157,7 +171,7 @@ def change_color_on_rectangle_click(
 
 
 def change_x_on_rectangle_click(
-        e: ap.MouseEvent, options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent, options: Dict[Any, Any]) -> None:
     """
     The handler will change the rectangle x-coordinate and be called
     when the rectangle is clicked.
@@ -175,9 +189,9 @@ def change_x_on_rectangle_click(
 
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
+options: _ColorOptions = {'color': '#f0a'}
 rectangle.click(
-    handler=change_color_on_rectangle_click,
-    options={'color': '#f0a'})
+    handler=change_color_on_rectangle_click, options=options)
 rectangle.click(handler=change_x_on_rectangle_click)
 
 rectangle.unbind_click_all()
@@ -223,7 +237,7 @@ sprite.graphics.begin_fill(color='#0af')
 
 
 def on_rectangle_mousedown(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler will be called when the rectangle is mouse downed.
 
@@ -264,7 +278,7 @@ sprite.graphics.begin_fill(color='#0af')
 
 
 def on_mousemove(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler will be called when the mouse is moving on
     the rectangle.
@@ -314,7 +328,7 @@ sprite.graphics.begin_fill(color='#0af')
 
 
 def on_mousemove(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler will be called when the mouse is moving on
     the rectangle.

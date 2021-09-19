@@ -26,7 +26,7 @@ import apysc as ap
 
 
 def on_mousedown(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when a mouse is downed on the rectangle.
 
@@ -42,7 +42,7 @@ def on_mousedown(
 
 
 def on_mouseup(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when a mouse is upped on the rectangle.
 
@@ -92,7 +92,7 @@ import apysc as ap
 
 
 def on_mousedown(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when a mouse is downed on the rectangle.
 
@@ -109,7 +109,7 @@ def on_mousedown(
 
 
 def on_mouseup(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when a mouse is upped on the rectangle.
 

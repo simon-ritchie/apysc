@@ -20,12 +20,18 @@ The following example will create three rectangles and increment (or decrement) 
 
 ```py
 # runnable
-from typing import Any, Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+class _Options(TypedDict):
+    rectangle: ap.Rectangle
+    x: ap.Int
+    direction: ap.Int
+
+
+def on_timer(e: ap.TimerEvent, options: _Options) -> None:
     """
     The handler will be called from a timer.
 
@@ -62,27 +68,30 @@ bottom_rect: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=250, width=50, height=50)
 
 top_rect_direction: ap.Int = ap.Int(1)
+options: _Options = {
+    'rectangle': top_rect, 'x': ap.Int(50),
+    'direction': top_rect_direction}
 top_rect_timer: ap.Timer = ap.Timer(
     on_timer, delay=ap.FPS.FPS_60,
-    options={
-        'rectangle': top_rect, 'x': ap.Int(50),
-        'direction': top_rect_direction})
+    options=options)
 top_rect_timer.start()
 
 middle_rect_direction: ap.Int = ap.Int(1)
+options = {
+    'rectangle': middle_rect, 'x': ap.Int(75),
+    'direction': middle_rect_direction}
 middle_rect_timer: ap.Timer = ap.Timer(
     on_timer, delay=ap.FPS.FPS_60,
-    options={
-        'rectangle': middle_rect, 'x': ap.Int(75),
-        'direction': middle_rect_direction})
+    options=options)
 middle_rect_timer.start()
 
 bottom_rect_direction: ap.Int = ap.Int(1)
+options = {
+    'rectangle': bottom_rect, 'x': ap.Int(100),
+    'direction': bottom_rect_direction}
 bottom_rect_timer: ap.Timer = ap.Timer(
     on_timer, delay=ap.FPS.FPS_60,
-    options={
-        'rectangle': bottom_rect, 'x': ap.Int(100),
-        'direction': bottom_rect_direction})
+    options=options)
 bottom_rect_timer.start()
 
 ap.save_overall_html(
@@ -95,12 +104,18 @@ The `get_scale_y_from_point` and `set_scale_y_from_point` methods have the simil
 
 ```py
 # runnable
-from typing import Any, Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+class _Options(TypedDict):
+    rectangle: ap.Rectangle
+    y: ap.Int
+    direction: ap.Int
+
+
+def on_timer(e: ap.TimerEvent, options: _Options) -> None:
     """
     The handler will be called from a timer.
 
@@ -132,10 +147,11 @@ sprite.graphics.begin_fill(color='#0af')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 direction: ap.Int = ap.Int(1)
+options: _Options = {
+    'rectangle': rectangle, 'y': ap.Int(50), 'direction': direction}
 timer: ap.Timer = ap.Timer(
     on_timer, delay=ap.FPS.FPS_60,
-    options={
-        'rectangle': rectangle, 'y': ap.Int(50), 'direction': direction})
+    options=options)
 timer.start()
 
 ap.save_overall_html(

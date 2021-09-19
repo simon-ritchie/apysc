@@ -36,12 +36,16 @@ The following example will skew the rectangle in the y-direction incrementally.
 
 ```py
 # runnable
-from typing import Any, Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+class _RectOptions(TypedDict):
+    rectangle: ap.Rectangle
+
+
+def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     The handler will be called from a timer.
 
@@ -64,9 +68,9 @@ sprite.graphics.begin_fill(color='#0af')
 
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
+options: _RectOptions = {'rectangle': rectangle}
 timer: ap.Timer = ap.Timer(
-    handler=on_timer, delay=ap.FPS.FPS_60,
-    options={'rectangle': rectangle})
+    handler=on_timer, delay=ap.FPS.FPS_60, options=options)
 timer.start()
 
 ap.save_overall_html(

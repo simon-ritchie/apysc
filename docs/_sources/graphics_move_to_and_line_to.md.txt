@@ -127,7 +127,7 @@ import apysc as ap
 
 
 def on_line_click(
-        e: ap.MouseEvent[ap.Polyline], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Polyline], options: Dict[Any, Any]) -> None:
     """
     The handler that this will be called when the line instance
     is clicked.

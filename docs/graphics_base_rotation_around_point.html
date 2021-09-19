@@ -56,12 +56,17 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">get_rotation_around_point</span></code> method requires the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> arguments and return a rotation value around the given coordinates. The <code class="docutils literal notranslate"><span class="pre">set_rotation_around_point</span></code> requires <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">rotation</span></code> arguments. All the arguments and return value are <code class="docutils literal notranslate"><span class="pre">Int</span></code> type.</p>
 <p>The following example will create the two rectangles and rotate each rectangle in the timer handler. The first rectangle will rotate around the top-left coordinates (<code class="docutils literal notranslate"><span class="pre">x=50,</span> <span class="pre">y=50</span></code>) and the second one will rotate around the bottom-right coordinates (<code class="docutils literal notranslate"><span class="pre">x=100,</span> <span class="pre">y=100</span></code>).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
-<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">_RectanglesOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">rectangle_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span>
+    <span class="n">rectangle_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectanglesOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler will be called from a timer.</span>
 
@@ -98,10 +103,10 @@
 <span class="n">rectangle_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
+<span class="n">options</span><span class="p">:</span> <span class="n">_RectanglesOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;rectangle_1&#39;</span><span class="p">:</span> <span class="n">rectangle_1</span><span class="p">,</span> <span class="s1">&#39;rectangle_2&#39;</span><span class="p">:</span> <span class="n">rectangle_2</span><span class="p">}</span>
 <span class="n">timer</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span>
-    <span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">,</span>
-    <span class="n">options</span><span class="o">=</span><span class="p">{</span>
-        <span class="s1">&#39;rectangle_1&#39;</span><span class="p">:</span> <span class="n">rectangle_1</span><span class="p">,</span> <span class="s1">&#39;rectangle_2&#39;</span><span class="p">:</span> <span class="n">rectangle_2</span><span class="p">})</span>
+    <span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
 <span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>

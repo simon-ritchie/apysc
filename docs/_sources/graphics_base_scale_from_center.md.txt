@@ -72,14 +72,20 @@ The `+=` and `-=` operators are also supported:
 
 ```py
 # runnable
-from typing import Any, Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+class _RectanglesOptions(TypedDict):
+    rectangle_1: ap.Rectangle
+    rectangle_2: ap.Rectangle
+    direction: ap.Int
+
+
+def on_timer(e: ap.TimerEvent, options: _RectanglesOptions) -> None:
     """
-    The handler will be call from the timer.
+    The handler will be called from the timer.
 
     Parameters
     ----------
@@ -119,11 +125,12 @@ rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
 
 
 direction: ap.Int = ap.Int(1.0)
+options: _RectanglesOptions = {
+    'rectangle_1': rectangle_1, 'rectangle_2': rectangle_2,
+    'direction': direction}
 timer: ap.Timer = ap.Timer(
     on_timer, delay=ap.FPS.FPS_60,
-    options={
-        'rectangle_1': rectangle_1, 'rectangle_2': rectangle_2,
-        'direction': direction})
+    options=options)
 timer.start()
 
 ap.save_overall_html(

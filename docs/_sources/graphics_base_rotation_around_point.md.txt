@@ -16,12 +16,17 @@ The following example will create the two rectangles and rotate each rectangle i
 
 ```py
 # runnable
-from typing import Any, Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+class _RectanglesOptions(TypedDict):
+    rectangle_1: ap.Rectangle
+    rectangle_2: ap.Rectangle
+
+
+def on_timer(e: ap.TimerEvent, options: _RectanglesOptions) -> None:
     """
     The handler will be called from a timer.
 
@@ -58,10 +63,10 @@ rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
 rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 
+options: _RectanglesOptions = {
+    'rectangle_1': rectangle_1, 'rectangle_2': rectangle_2}
 timer: ap.Timer = ap.Timer(
-    on_timer, delay=ap.FPS.FPS_60,
-    options={
-        'rectangle_1': rectangle_1, 'rectangle_2': rectangle_2})
+    on_timer, delay=ap.FPS.FPS_60, options=options)
 timer.start()
 
 ap.save_overall_html(

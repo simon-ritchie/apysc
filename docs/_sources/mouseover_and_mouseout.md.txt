@@ -26,7 +26,7 @@ import apysc as ap
 
 
 def on_mouseover(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when the cursor is over
     the rectangle.
@@ -45,7 +45,7 @@ def on_mouseover(
 
 
 def on_mouseout(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when the cursor is outed
     from the rectangle.
@@ -99,7 +99,7 @@ import apysc as ap
 
 
 def on_mouseover(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when the cursor is over
     the rectangle.
@@ -119,7 +119,7 @@ def on_mouseover(
 
 
 def on_mouseout(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when the cursor is outed
     from the rectangle.

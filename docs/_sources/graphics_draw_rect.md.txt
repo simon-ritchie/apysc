@@ -64,7 +64,7 @@ from typing import Any, Dict
 import apysc as ap
 
 
-def on_click(e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+def on_click(e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler that it will be called when the rectangle is clicked.
 

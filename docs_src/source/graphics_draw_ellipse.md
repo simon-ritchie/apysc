@@ -54,7 +54,7 @@ import apysc as ap
 
 
 def on_ellipse_click(
-        e: ap.MouseEvent[ap.Ellipse], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Ellipse], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when the ellipse is clicked.
 

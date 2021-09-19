@@ -26,8 +26,13 @@ class LintCommand(TypedDict):
     lint_name: str
 
 
+FLAKE8_NO_PATH_COMMAND: Final[str] = (
+    'flake8 --ignore E402,W503'
+)
+
+
 FLAKE8_COMMAND: Final[str] = (
-    'flake8 --ignore E402,W503 ./'
+    f'{FLAKE8_NO_PATH_COMMAND} ./'
 )
 
 NUMDOCLINT_COMMAND: Final[str] = (
@@ -79,7 +84,7 @@ def _main() -> None:
     process: sp.Popen = sp.Popen(
         ['python', 'build_docs.py'], stdout=sp.PIPE, stderr=sp.PIPE)
     for lint_command in lint_commands:
-        _run_lint_command(lint_command=lint_command)
+        run_lint_command(lint_command=lint_command)
     stdout: bytes
     stderr: bytes
     logger.info(msg='Waiting documentation build completion...')
@@ -110,7 +115,28 @@ def _remove_tmp_py_module() -> None:
         os.remove(file_name)
 
 
-def _run_lint_command(lint_command: LintCommand) -> str:
+def run_command(command: str) -> str:
+    """
+    Run a specified command.
+
+    Parameters
+    ----------
+    command : str
+        Target command string.
+
+    Returns
+    -------
+    stdout : str
+        Command result stdout.
+    """
+    complete_process: sp.CompletedProcess = sp.run(
+        command, shell=True,
+        stdout=sp.PIPE, stderr=sp.STDOUT)
+    stdout: str = complete_process.stdout.decode('utf-8')
+    return stdout
+
+
+def run_lint_command(lint_command: LintCommand) -> str:
     """
     Run single lint command.
 
@@ -126,10 +152,7 @@ def _run_lint_command(lint_command: LintCommand) -> str:
     """
     print('-' * 20)
     logger.info(msg=f'{lint_command["lint_name"]} command started.')
-    complete_process: sp.CompletedProcess = sp.run(
-        lint_command['command'], shell=True,
-        stdout=sp.PIPE, stderr=sp.STDOUT)
-    stdout: str = complete_process.stdout.decode('utf-8')
+    stdout: str = run_command(command=lint_command['command'])
     print(stdout)
     return stdout
 

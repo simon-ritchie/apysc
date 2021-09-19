@@ -8,17 +8,23 @@ The `start` method interface will start a timer. Conversely, the `stop` method i
 
 ## Basic usage
 
-Each `start` and `stop` method has the no arguments. The following example will start the time when you click the rectangle and stop when the timer count is reached 100.
+Each `start` and `stop` method has no arguments. The following example will start the time when you click the rectangle and stop when the timer count is reached 100.
 
 ```py
 # runnable
 from typing import Any, Dict
 
+from typing_extensions import TypedDict
+
 import apysc as ap
 
 
+class _RectOptions(TypedDict):
+    rectangle: ap.Rectangle
+
+
 def on_rectangle_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when a rectangle is clicked.
 
@@ -29,14 +35,15 @@ def on_rectangle_click(
     options : dict
         Optional arguments dictionary.
     """
+    options_: _RectOptions = {'rectangle': e.this}
     timer: ap.Timer = ap.Timer(
         handler=on_timer, delay=16, repeat_count=100,
-        options={'rectangle': e.this})
+        options=options_)
     timer.start()
     e.this.unbind_click(handler=on_rectangle_click)
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     The handler would be called from a timer.
 

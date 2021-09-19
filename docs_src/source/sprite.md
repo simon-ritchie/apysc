@@ -50,7 +50,7 @@ import apysc as ap
 
 
 def on_sprite_click(
-        e: ap.MouseEvent[ap.Sprite], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Sprite], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when the sprite instance is clicked.
 

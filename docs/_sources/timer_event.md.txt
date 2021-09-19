@@ -16,10 +16,16 @@ Each timer event handler's `e` argument will be `TimerEvent` class instance.
 # runnable
 from typing import Any, Dict
 
+from typing_extensions import TypedDict
+
 import apysc as ap
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+class _RectOptions(TypedDict):
+    rectangle: ap.Rectangle
+
+
+def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     The handler would be called from a timer.
 
@@ -34,7 +40,7 @@ def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
     rectangle.rotation_around_center += 1
 
 
-def on_timer_complete(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer_complete(e: ap.TimerEvent, options: Dict[Any, Any]) -> None:
     """
     The handler would be called when the timer is complete.
 
@@ -56,8 +62,9 @@ sprite.graphics.begin_fill(color='#0af')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 
+options: _RectOptions = {'rectangle': rectangle}
 timer: ap.Timer = ap.Timer(
-    handler=on_timer, delay=33.3, options={'rectangle': rectangle})
+    handler=on_timer, delay=33.3, options=options)
 timer.start()
 timer.timer_complete(handler=on_timer_complete)
 
@@ -73,12 +80,16 @@ The `TimerEvent` instance's `this` attribute will be the target `Timer` instance
 
 ```py
 # runnable
-from typing import Any, Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+class _RectOptions(TypedDict):
+    rectangle: ap.Rectangle
+
+
+def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     The handler would be called from a timer.
 
@@ -102,8 +113,9 @@ sprite.graphics.begin_fill(color='#0af')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 
+options: _RectOptions = {'rectangle': rectangle}
 timer: ap.Timer = ap.Timer(
-    handler=on_timer, delay=16.6, options={'rectangle': rectangle})
+    handler=on_timer, delay=16.6, options=options)
 timer.start()
 
 ap.save_overall_html(

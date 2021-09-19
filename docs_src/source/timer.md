@@ -14,13 +14,17 @@ The following code will set the `Timer` when the rectangle (`Sprite`) is clicked
 
 ```py
 # runnable
-from typing import Any, Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
 
+class _RectOptions(TypedDict):
+    rectangle: ap.Rectangle
+
+
 def on_sprite_click(
-        e: ap.MouseEvent[ap.Sprite], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Sprite], options: _RectOptions) -> None:
     """
     The handler would be called when the sprite is clicked.
 
@@ -36,7 +40,7 @@ def on_sprite_click(
     timer.start()
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     The handler would be called from a timer.
 
@@ -58,7 +62,8 @@ sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
-sprite.click(on_sprite_click, options={'rectangle': rectangle})
+options: _RectOptions = {'rectangle': rectangle}
+sprite.click(on_sprite_click, options=options)
 
 ap.save_overall_html(
     dest_dir_path='timer_basic_usage/')

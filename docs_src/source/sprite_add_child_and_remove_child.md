@@ -20,14 +20,17 @@ For example, the following code will call the `remove_child` interface in the cl
 
 ```py
 # runnable
-from typing import Any
-from typing import Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
 
+class _RectOptions(TypedDict):
+    rectangle: ap.Rectangle
+
+
 def on_sprite_click(
-        e: ap.MouseEvent[ap.Sprite], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Sprite], options: _RectOptions) -> None:
     """
     The handler would be called when the sprite instance is clicked.
 
@@ -53,7 +56,8 @@ sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
-sprite.click(on_sprite_click, options={'rectangle': rectangle})
+options: _RectOptions = {'rectangle': rectangle}
+sprite.click(on_sprite_click, options=options)
 
 ap.save_overall_html(
     dest_dir_path='sprite_basic_usage_of_remove_child/')
@@ -69,14 +73,19 @@ The following code example will remove the rectangle from the first `Sprite` con
 
 ```py
 # runnable
-from typing import Any
-from typing import Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
 
+class _SpriteAndRectOptions(TypedDict):
+    rectangle: ap.Rectangle
+    sprite: ap.Sprite
+
+
 def on_sprite_click(
-        e: ap.MouseEvent[ap.Sprite], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Sprite],
+        options: _SpriteAndRectOptions) -> None:
     """
     The handler would be called when the sprite instance is clicked.
 
@@ -89,7 +98,7 @@ def on_sprite_click(
     """
     first_sprite: ap.Sprite = e.this
     rectangle: ap.Rectangle = options['rectangle']
-    second_sprite: ap.Sprite = options['second_sprite']
+    second_sprite: ap.Sprite = options['sprite']
     first_sprite.remove_child(child=rectangle)
     second_sprite.add_child(child=rectangle)
 
@@ -111,9 +120,9 @@ second_sprite: ap.Sprite = ap.Sprite(stage=stage)
 second_sprite.x = ap.Int(150)
 second_sprite.y = ap.Int(50)
 
-first_sprite.click(
-    on_sprite_click,
-    options={'rectangle': rectangle, 'second_sprite': second_sprite})
+options: _SpriteAndRectOptions = {
+    'rectangle': rectangle, 'sprite': second_sprite}
+first_sprite.click(on_sprite_click, options=options)
 
 ap.save_overall_html(
     dest_dir_path='sprite_basic_usage_of_add_child/')

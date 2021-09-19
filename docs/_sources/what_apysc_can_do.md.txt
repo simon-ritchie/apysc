@@ -98,7 +98,7 @@ import apysc as ap
 
 
 def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler will be called when the rectangle is clicked.
 
@@ -151,12 +151,17 @@ You can use the timer-related interfaces and animate with those.
 
 ```py
 # runnable
-from typing import Any, Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+class _Options(TypedDict):
+    rectangle: ap.Rectangle
+    alpha_direction: ap.Int
+
+
+def on_timer(e: ap.TimerEvent, options: _Options) -> None:
     """
     The handler will be called from the timer.
 
@@ -189,9 +194,10 @@ sprite.graphics.begin_fill(color='#0af')
 alpha_direction: ap.Int = ap.Int(1)
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
+options: _Options = {
+    'rectangle': rectangle, 'alpha_direction': alpha_direction}
 timer: ap.Timer = ap.Timer(
-    on_timer, delay=ap.FPS.FPS_60,
-    options={'rectangle': rectangle, 'alpha_direction': alpha_direction})
+    on_timer, delay=ap.FPS.FPS_60, options=options)
 timer.start()
 
 ap.save_overall_html(

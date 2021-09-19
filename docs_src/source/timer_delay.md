@@ -16,7 +16,7 @@ The first-timer (`delay` is 100) will be called 10 times in a second, and the se
 
 ```py
 # runnable
-from typing import Any, Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
@@ -34,7 +34,11 @@ rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
     x=250, y=50, width=50, height=50)
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+class _RectOptions(TypedDict):
+    rectangle: ap.Rectangle
+
+
+def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     The handler would be called every timer tick.
 
@@ -49,16 +53,17 @@ def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
     rectangle.rotation_around_center += 1
 
 
+options: _RectOptions = {'rectangle': rectangle_1}
 timer_1: ap.Timer = ap.Timer(
-    handler=on_timer, delay=100, options={'rectangle': rectangle_1})
+    handler=on_timer, delay=100, options=options)
 timer_1.start()
 
 timer_2: ap.Timer = ap.Timer(
-    handler=on_timer, delay=33.3333333, options={'rectangle': rectangle_2})
+    handler=on_timer, delay=33.3333333, options=options)
 timer_2.start()
 
 timer_3: ap.Timer = ap.Timer(
-    handler=on_timer, delay=16.6666667, options={'rectangle': rectangle_3})
+    handler=on_timer, delay=16.6666667, options=options)
 timer_3.start()
 
 ap.save_overall_html(
@@ -73,7 +78,7 @@ You can also pass the `FPS` (frames per second) enum value to the `delay` argume
 
 ```py
 # runnable
-from typing import Any, Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
@@ -86,7 +91,11 @@ rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+class _RectOptions(TypedDict):
+    rectangle: ap.Rectangle
+
+
+def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     The handler would be called every timer tick.
 
@@ -101,9 +110,10 @@ def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
     rectangle.rotation_around_center += 1
 
 
+options: _RectOptions = {'rectangle': rectangle}
 timer: ap.Timer = ap.Timer(
     handler=on_timer, delay=ap.FPS.FPS_60,
-    options={'rectangle': rectangle})
+    options=options)
 timer.start()
 
 ap.save_overall_html(

@@ -10,17 +10,23 @@ The `repeat_count` argument setting will determine the max handler calling numbe
 
 You can set the `repeat_count` parameter at the `Timer` constructor. The following example will set the timer with the 100 times `repeat_count` value when you click the rectangle.
 
-If the rectangle moved 100 times (100-pixels to the right) then the timer will stop.
+If the rectangle was moved 100 times (100-pixels to the right) then the timer will stop.
 
 ```py
 # runnable
 from typing import Any, Dict
 
+from typing_extensions import TypedDict
+
 import apysc as ap
 
 
+class _RectOptions(TypedDict):
+    rectangle: ap.Rectangle
+
+
 def on_rectangle_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when a rectangle is clicked.
 
@@ -31,14 +37,15 @@ def on_rectangle_click(
     options : dict
         Optional arguments dictionary.
     """
+    options_: _RectOptions = {'rectangle': e.this}
     timer: ap.Timer = ap.Timer(
         handler=on_timer, delay=16, repeat_count=100,
-        options={'rectangle': e.this})
+        options=options_)
     timer.start()
     e.this.unbind_click(handler=on_rectangle_click)
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     The handler would be called from a timer.
 

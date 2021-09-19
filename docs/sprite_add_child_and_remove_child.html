@@ -60,14 +60,17 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> interface will remove a child from a parent <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance. A removed <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance will not be displayed on a stage.</p>
 <p>For example, the following code will call the <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> interface in the click handler, so if you click the rectangle, that one will be removed.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
+<span class="k">class</span> <span class="nc">_RectOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span>
+
+
 <span class="k">def</span> <span class="nf">on_sprite_click</span><span class="p">(</span>
-        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler would be called when the sprite instance is clicked.</span>
 
@@ -93,7 +96,8 @@
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
 <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">sprite</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">on_sprite_click</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;rectangle&#39;</span><span class="p">:</span> <span class="n">rectangle</span><span class="p">})</span>
+<span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;rectangle&#39;</span><span class="p">:</span> <span class="n">rectangle</span><span class="p">}</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">on_sprite_click</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;sprite_basic_usage_of_remove_child/&#39;</span><span class="p">)</span>
@@ -105,14 +109,19 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">add_child</span></code> interface will add a removed child again or add a child to the other container instance.</p>
 <p>The following code example will remove the rectangle from the first <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> container (be positioned to the left) when you click the rectangle, and then add it to the second <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> container (be positioned to the right).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
+<span class="k">class</span> <span class="nc">_SpriteAndRectOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span>
+    <span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span>
+
+
 <span class="k">def</span> <span class="nf">on_sprite_click</span><span class="p">(</span>
-        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">],</span>
+        <span class="n">options</span><span class="p">:</span> <span class="n">_SpriteAndRectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler would be called when the sprite instance is clicked.</span>
 
@@ -125,7 +134,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">first_sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
     <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;rectangle&#39;</span><span class="p">]</span>
-    <span class="n">second_sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;second_sprite&#39;</span><span class="p">]</span>
+    <span class="n">second_sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;sprite&#39;</span><span class="p">]</span>
     <span class="n">first_sprite</span><span class="o">.</span><span class="n">remove_child</span><span class="p">(</span><span class="n">child</span><span class="o">=</span><span class="n">rectangle</span><span class="p">)</span>
     <span class="n">second_sprite</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">child</span><span class="o">=</span><span class="n">rectangle</span><span class="p">)</span>
 
@@ -147,9 +156,9 @@
 <span class="n">second_sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
 <span class="n">second_sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
 
-<span class="n">first_sprite</span><span class="o">.</span><span class="n">click</span><span class="p">(</span>
-    <span class="n">on_sprite_click</span><span class="p">,</span>
-    <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;rectangle&#39;</span><span class="p">:</span> <span class="n">rectangle</span><span class="p">,</span> <span class="s1">&#39;second_sprite&#39;</span><span class="p">:</span> <span class="n">second_sprite</span><span class="p">})</span>
+<span class="n">options</span><span class="p">:</span> <span class="n">_SpriteAndRectOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;rectangle&#39;</span><span class="p">:</span> <span class="n">rectangle</span><span class="p">,</span> <span class="s1">&#39;sprite&#39;</span><span class="p">:</span> <span class="n">second_sprite</span><span class="p">}</span>
+<span class="n">first_sprite</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">on_sprite_click</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;sprite_basic_usage_of_add_child/&#39;</span><span class="p">)</span>

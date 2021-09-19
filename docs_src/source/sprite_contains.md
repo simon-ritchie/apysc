@@ -12,14 +12,17 @@ The following example will check whether the first rectangle is a child of the `
 
 ```py
 # runnable
-from typing import Any
-from typing import Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
 
+class _RectOptions(TypedDict):
+    rectangle: ap.Rectangle
+
+
 def on_sprite_click(
-        e: ap.MouseEvent[ap.Sprite], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Sprite], options: _RectOptions) -> None:
     """
     The handler would be called when the sprite instance is clicked.
 
@@ -31,7 +34,7 @@ def on_sprite_click(
         Optional arguments dictionary.
     """
     sprite: ap.Sprite = e.this
-    rectangle_1: ap.Rectangle = options['rectangle_1']
+    rectangle_1: ap.Rectangle = options['rectangle']
     condition: ap.Boolean = sprite.graphics.contains(child=rectangle_1)
     with ap.If(condition):
         sprite.remove_child(child=rectangle_1)
@@ -50,9 +53,8 @@ rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 sprite.graphics.draw_rect(
     x=150, y=50, width=50, height=50)
-sprite.click(
-    on_sprite_click,
-    options={'rectangle_1': rectangle_1})
+options: _RectOptions = {'rectangle': rectangle_1}
+sprite.click(on_sprite_click, options=options)
 
 ap.save_overall_html(
     dest_dir_path='sprite_contains_basic_usage/')

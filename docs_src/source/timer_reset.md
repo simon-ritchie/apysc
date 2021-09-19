@@ -14,8 +14,7 @@ The following example will rotate the rectangle 90 degrees (`repeat_count=90`) b
 
 ```py
 # runnable
-from typing import Any
-from typing import Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
@@ -28,7 +27,15 @@ rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 
 
-def on_first_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+class _RectOptions(TypedDict):
+    rectangle: ap.Rectangle
+
+
+class _TimerOptions(TypedDict):
+    timer: ap.Timer
+
+
+def on_first_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     The handler would be called from the first timer.
 
@@ -44,7 +51,7 @@ def on_first_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
 
 
 def on_first_timer_complete(
-        e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+        e: ap.TimerEvent, options: _TimerOptions) -> None:
     """
     The handler would be called when the first timer is complete.
 
@@ -55,12 +62,12 @@ def on_first_timer_complete(
     options : dict
         Optional arguments dictionary.
     """
-    timer_2: ap.Timer = options['timer_2']
+    timer_2: ap.Timer = options['timer']
     timer_2.reset()
     timer_2.start()
 
 
-def on_second_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_second_timer(e: ap.TimerEvent, options: _TimerOptions) -> None:
     """
     The handler would be called from the second timer.
 
@@ -71,19 +78,23 @@ def on_second_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    timer_1: ap.Timer = options['timer_1']
+    timer_1: ap.Timer = options['timer']
     timer_1.reset()
     timer_1.start()
 
 
+options_1: _RectOptions = {'rectangle': rectangle}
 timer_1: ap.Timer = ap.Timer(
     handler=on_first_timer, delay=ap.FPS.FPS_60, repeat_count=90,
-    options={'rectangle': rectangle})
+    options=options_1)
+
+options_2: _TimerOptions = {'timer': timer_1}
 timer_2: ap.Timer = ap.Timer(
     handler=on_second_timer, delay=1000, repeat_count=1,
-    options={'timer_1': timer_1})
+    options=options_2)
+options_2 = {'timer': timer_2}
 timer_1.timer_complete(
-    on_first_timer_complete, options={'timer_2': timer_2})
+    on_first_timer_complete, options=options_2)
 timer_1.start()
 
 ap.save_overall_html(

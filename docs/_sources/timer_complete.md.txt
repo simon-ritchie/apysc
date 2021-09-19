@@ -14,12 +14,21 @@ The following example will start the first timer (rotating the left-side rectang
 
 ```py
 # runnable
-from typing import Any, Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
 
-def on_click(e: ap.MouseEvent[ap.Sprite], options: Dict[str, Any]) -> None:
+class _RectsOptions(TypedDict):
+    rectangle_1: ap.Rectangle
+    rectangle_2: ap.Rectangle
+
+
+class _RectOptions(TypedDict):
+    rectangle: ap.Rectangle
+
+
+def on_click(e: ap.MouseEvent[ap.Sprite], options: _RectsOptions) -> None:
     """
     The handler would be called when any rectangle is clicked.
 
@@ -33,15 +42,17 @@ def on_click(e: ap.MouseEvent[ap.Sprite], options: Dict[str, Any]) -> None:
     e.this.unbind_click(on_click)
     rectangle_1: ap.Rectangle = options['rectangle_1']
     rectangle_2: ap.Rectangle = options['rectangle_2']
+    options_: _RectOptions = {'rectangle': rectangle_1}
     timer_1: ap.Timer = ap.Timer(
         handler=on_timer, delay=ap.FPS.FPS_60, repeat_count=90,
-        options={'rectangle': rectangle_1})
+        options=options_)
+    options_ = {'rectangle': rectangle_2}
     timer_1.timer_complete(
-        handler=on_timer_1_complete, options={'rectangle_2': rectangle_2})
+        handler=on_timer_1_complete, options=options_)
     timer_1.start()
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     The handler would be called from a timer.
 
@@ -56,7 +67,7 @@ def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
     rectangle.rotation_around_center += 1
 
 
-def on_timer_1_complete(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer_1_complete(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     The handler would be called when the first timer is complete.
 
@@ -67,10 +78,11 @@ def on_timer_1_complete(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
     options : dict
         Optional arguments dictionary.
     """
-    rectangle_2: ap.Rectangle = options['rectangle_2']
+    rectangle_2: ap.Rectangle = options['rectangle']
+    options_: _RectOptions = {'rectangle': rectangle_2}
     timer_2: ap.Timer = ap.Timer(
         handler=on_timer, delay=ap.FPS.FPS_60, repeat_count=90,
-        options={'rectangle': rectangle_2})
+        options=options_)
     timer_2.start()
 
 
@@ -84,9 +96,9 @@ rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
     x=150, y=50, width=50, height=50)
-sprite.click(
-    handler=on_click,
-    options={'rectangle_1': rectangle_1, 'rectangle_2': rectangle_2})
+options: _RectsOptions = {
+    'rectangle_1': rectangle_1, 'rectangle_2': rectangle_2}
+sprite.click(handler=on_click, options=options)
 
 ap.save_overall_html(
     dest_dir_path='timer_complete_basic_usage/')

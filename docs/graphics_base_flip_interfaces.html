@@ -56,13 +56,16 @@
 <p>The getter interface will return a <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value of a current flipping value.</p>
 <p>The following example will flip the triangle polygon in the x-axis direction and reset per second:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
-<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">_PolygonOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">polygon</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Polygon</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_PolygonOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler will be called from a timer.</span>
 
@@ -93,8 +96,9 @@
         <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
         <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">25</span><span class="p">),</span>
     <span class="p">])</span>
+<span class="n">options</span><span class="p">:</span> <span class="n">_PolygonOptions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;polygon&#39;</span><span class="p">:</span> <span class="n">polygon</span><span class="p">}</span>
 <span class="n">timer</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span>
-    <span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;polygon&#39;</span><span class="p">:</span> <span class="n">polygon</span><span class="p">})</span>
+    <span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
 <span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
@@ -109,13 +113,16 @@
 <p>If you don’t want to apply the coordinates settings in the flipping interfaces, then set the coordinates to the parent sprite, not a graphics object.</p>
 <p>The following example will set no coordinate setting to the first polygon, and also set the 50 y-coordinate to the second polygon and flip in the y-axis direction.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
-<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">_PolygonOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">polygon</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Polygon</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_PolygonOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler will be called from a timer.</span>
 
@@ -146,8 +153,8 @@
         <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
         <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
     <span class="p">])</span>
-<span class="n">timer_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span>
-    <span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;polygon&#39;</span><span class="p">:</span> <span class="n">polygon_1</span><span class="p">})</span>
+<span class="n">options</span><span class="p">:</span> <span class="n">_PolygonOptions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;polygon&#39;</span><span class="p">:</span> <span class="n">polygon_1</span><span class="p">}</span>
+<span class="n">timer_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
 <span class="n">timer_1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
 <span class="n">polygon_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Polygon</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_polygon</span><span class="p">(</span>
@@ -157,8 +164,8 @@
         <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
     <span class="p">])</span>
 <span class="n">polygon_2</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">timer_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span>
-    <span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;polygon&#39;</span><span class="p">:</span> <span class="n">polygon_2</span><span class="p">})</span>
+<span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;polygon&#39;</span><span class="p">:</span> <span class="n">polygon_2</span><span class="p">}</span>
+<span class="n">timer_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
 <span class="n">timer_2</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
 

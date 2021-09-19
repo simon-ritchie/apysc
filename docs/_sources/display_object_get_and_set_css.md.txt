@@ -14,13 +14,16 @@ The following example will set the `none` value to the `display` CSS if the curr
 
 ```py
 # runnable
-from typing import Any
-from typing import Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+class _SpriteOptions(TypedDict):
+    sprite: ap.Sprite
+
+
+def on_timer(e: ap.TimerEvent, options: _SpriteOptions) -> None:
     """
     The handler would be called from the timer.
 
@@ -47,8 +50,9 @@ sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
+options: _SpriteOptions = {'sprite': sprite}
 timer: ap.Timer = ap.Timer(
-    handler=on_timer, delay=1000, options={'sprite': sprite})
+    handler=on_timer, delay=1000, options=options)
 timer.start()
 
 ap.save_overall_html(

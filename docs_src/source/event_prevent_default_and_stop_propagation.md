@@ -20,7 +20,7 @@ import apysc as ap
 
 
 def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler will be called when the rectangle is clicked.
 
@@ -61,7 +61,7 @@ import apysc as ap
 
 
 def on_rectangle_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler will be called when the rectangle is clicked.
 
@@ -77,7 +77,7 @@ def on_rectangle_click(
 
 
 def on_sprite_click(
-        e: ap.MouseEvent[ap.Sprite], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Sprite], options: Dict[Any, Any]) -> None:
     """
     The handler will be called when the sprite is clicked.
 
@@ -119,7 +119,7 @@ from typing import Any, Dict
 import apysc as ap
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer(e: ap.TimerEvent, options: Dict[Any, Any]) -> None:
     """
     The handler will be called from a timer.
 

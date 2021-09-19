@@ -21,14 +21,20 @@ The following example will rotate the rectangle when you click it. If the rectan
 from typing import Any
 from typing import Dict
 
+from typing_extensions import TypedDict
+
 import apysc as ap
 
 # Custom event type name.
 ROTATE_90_DEGREES: str = 'rotate_90_degrees'
 
 
+class _RectOptions(TypedDict):
+    rectangle: ap.Rectangle
+
+
 def on_rectangle_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler would be called when the rectangle is clicked.
 
@@ -40,16 +46,17 @@ def on_rectangle_click(
         Optional arguments dictionary.
     """
     e.this.unbind_click(on_rectangle_click)
+    options_: _RectOptions = {'rectangle': e.this}
     timer: ap.Timer = ap.Timer(
         on_timer, delay=ap.FPS.FPS_60, repeat_count=90,
-        options={'rectangle': e.this})
+        options=options_)
     timer.timer_complete(
         on_timer_complete,
-        options={'rectangle': e.this})
+        options=options_)
     timer.start()
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     The handler would be called from a timer.
 
@@ -64,7 +71,7 @@ def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
     rectangle.rotation_around_center += 1
 
 
-def on_timer_complete(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+def on_timer_complete(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     The handler would be called when a time is complete.
 
@@ -79,7 +86,7 @@ def on_timer_complete(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
     rectangle.trigger_custom_event(custom_event_type=ROTATE_90_DEGREES)
 
 
-def on_rotate_90_degrees(e: ap.Event, options: Dict[str, Any]) -> None:
+def on_rotate_90_degrees(e: ap.Event, options: _RectOptions) -> None:
     """
     The handler would be called when the rectangle is rotated
     90 degrees (custom event).

@@ -12,12 +12,16 @@ There is an enum definition of FPS in 5 intervals. The `Timer` class `delay` arg
 
 ```py
 # runnable
-from typing import Any, Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+class _RectOptions(TypedDict):
+    rectangle: ap.Rectangle
+
+
+def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     The handler would be called from a timer.
 
@@ -40,20 +44,23 @@ sprite.graphics.begin_fill(color='#0af')
 
 rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
+options: _RectOptions = {'rectangle': rectangle_1}
 timer_1: ap.Timer = ap.Timer(
-    handler=on_timer, delay=ap.FPS.FPS_10, options={'rectangle': rectangle_1})
+    handler=on_timer, delay=ap.FPS.FPS_10, options=options)
 timer_1.start()
 
 rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
     x=150, y=50, width=50, height=50)
+options = {'rectangle': rectangle_2}
 timer_2: ap.Timer = ap.Timer(
-    handler=on_timer, delay=ap.FPS.FPS_30, options={'rectangle': rectangle_2})
+    handler=on_timer, delay=ap.FPS.FPS_30, options=options)
 timer_2.start()
 
 rectangle_3: ap.Rectangle = sprite.graphics.draw_rect(
     x=250, y=50, width=50, height=50)
+options = {'rectangle': rectangle_3}
 timer_3: ap.Timer = ap.Timer(
-    handler=on_timer, delay=ap.FPS.FPS_60, options={'rectangle': rectangle_3})
+    handler=on_timer, delay=ap.FPS.FPS_60, options=options)
 timer_3.start()
 
 ap.save_overall_html(

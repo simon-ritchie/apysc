@@ -16,13 +16,16 @@ The following example will flip the triangle polygon in the x-axis direction and
 
 ```py
 # runnable
-from typing import Any
-from typing import Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+class _PolygonOptions(TypedDict):
+    polygon: ap.Polygon
+
+
+def on_timer(e: ap.TimerEvent, options: _PolygonOptions) -> None:
     """
     The handler will be called from a timer.
 
@@ -53,8 +56,9 @@ polygon: ap.Polygon = sprite.graphics.draw_polygon(
         ap.Point2D(x=0, y=50),
         ap.Point2D(x=50, y=25),
     ])
+options: _PolygonOptions = {'polygon': polygon}
 timer: ap.Timer = ap.Timer(
-    on_timer, delay=1000, options={'polygon': polygon})
+    on_timer, delay=1000, options=options)
 timer.start()
 
 ap.save_overall_html(
@@ -75,13 +79,16 @@ The following example will set no coordinate setting to the first polygon, and a
 
 ```py
 # runnable
-from typing import Any
-from typing import Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[str, Any]) -> None:
+class _PolygonOptions(TypedDict):
+    polygon: ap.Polygon
+
+
+def on_timer(e: ap.TimerEvent, options: _PolygonOptions) -> None:
     """
     The handler will be called from a timer.
 
@@ -112,8 +119,8 @@ polygon_1: ap.Polygon = sprite.graphics.draw_polygon(
         ap.Point2D(x=0, y=50),
         ap.Point2D(x=50, y=50),
     ])
-timer_1: ap.Timer = ap.Timer(
-    on_timer, delay=1000, options={'polygon': polygon_1})
+options: _PolygonOptions = {'polygon': polygon_1}
+timer_1: ap.Timer = ap.Timer(on_timer, delay=1000, options=options)
 timer_1.start()
 
 polygon_2: ap.Polygon = sprite.graphics.draw_polygon(
@@ -123,8 +130,8 @@ polygon_2: ap.Polygon = sprite.graphics.draw_polygon(
         ap.Point2D(x=150, y=50),
     ])
 polygon_2.y = ap.Int(50)
-timer_2: ap.Timer = ap.Timer(
-    on_timer, delay=1000, options={'polygon': polygon_2})
+options = {'polygon': polygon_2}
+timer_2: ap.Timer = ap.Timer(on_timer, delay=1000, options=options)
 timer_2.start()
 
 

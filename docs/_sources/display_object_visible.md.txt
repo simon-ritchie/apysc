@@ -14,13 +14,17 @@ The following example will switch the visible values when you click the rectangl
 
 ```py
 # runnable
-from typing import Any, Dict
+from typing_extensions import TypedDict
 
 import apysc as ap
 
 
+class _RectOptions(TypedDict):
+    rectangle: ap.Rectangle
+
+
 def on_rectangle_1_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: _RectOptions) -> None:
     """
     The handler would be called when the first rectangle
     is clicked.
@@ -33,13 +37,13 @@ def on_rectangle_1_click(
         Optional arguments dictionary.
     """
     rectangle_1: ap.Rectangle = e.this
-    rectangle_2: ap.Rectangle = options['rectangle_2']
+    rectangle_2: ap.Rectangle = options['rectangle']
     rectangle_1.visible = ap.Boolean(False)
     rectangle_2.visible = ap.Boolean(True)
 
 
 def on_rectangle_2_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: _RectOptions) -> None:
     """
     The handler would be called when the second rectangle
     is clicked.
@@ -51,7 +55,7 @@ def on_rectangle_2_click(
     options : dict
         Optional arguments dictionary.
     """
-    rectangle_1: ap.Rectangle = options['rectangle_1']
+    rectangle_1: ap.Rectangle = options['rectangle']
     rectangle_2: ap.Rectangle = e.this
     rectangle_1.visible = ap.Boolean(True)
     rectangle_2.visible = ap.Boolean(False)
@@ -74,10 +78,12 @@ rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
     x=150, y=50, width=50, height=50)
 rectangle_2.visible = ap.Boolean(False)
 
+options: _RectOptions = {'rectangle': rectangle_2}
 rectangle_1.click(
-    on_rectangle_1_click, options={'rectangle_2': rectangle_2})
+    on_rectangle_1_click, options=options)
+options = {'rectangle': rectangle_1}
 rectangle_2.click(
-    on_rectangle_2_click, options={'rectangle_1': rectangle_1})
+    on_rectangle_2_click, options=options)
 
 ap.save_overall_html(
     dest_dir_path='display_object_visible_basic_usage/')

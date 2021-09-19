@@ -37,7 +37,7 @@ sprite.graphics.begin_fill(color='#0af')
 
 
 def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler will be called when the rectangle is clicked.
     the rectangle.
@@ -89,7 +89,7 @@ sprite.graphics.begin_fill(color='#0af')
 
 
 def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler will be called when the rectangle is clicked.
     the rectangle.
@@ -140,7 +140,7 @@ sprite.graphics.begin_fill(color='#0af')
 
 
 def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler will be called when the rectangle is clicked.
     the rectangle.

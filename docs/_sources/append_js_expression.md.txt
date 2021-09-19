@@ -21,7 +21,7 @@ import apysc as ap
 
 
 def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[str, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
     """
     The handler will be called when the rectangle is clicked.
 
@@ -49,6 +49,6 @@ ap.save_overall_html(
     dest_dir_path='append_js_expression_basic_usage/')
 ```
 
-If you click the following rectangle, the message of `The rectangle is clicked!` will be displayed on the browser console (please press the F12 key).
+If you click the following rectangle, the `The rectangle is clicked!` message will be displayed on the browser console (please press the F12 key).
 
 <iframe src="static/append_js_expression_basic_usage/index.html" width="150" height="150"></iframe>

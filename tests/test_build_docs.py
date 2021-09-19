@@ -479,7 +479,7 @@ def test__check_code_block_with_flake8() -> None:
         kwargs={'script_data': script_data},
         match='There is a flake8 error in the following document codeblock:')
 
-    script_data: _ScriptData = {
+    script_data = {
         'md_file_path': './tmp.py',
         'hashed_val': 'abc',
         'runnable_script': 'a = 20',

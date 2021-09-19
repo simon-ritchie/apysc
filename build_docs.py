@@ -37,7 +37,6 @@ def _main() -> None:
     shutil.rmtree('./docs_src/build/', ignore_errors=True)
     os.makedirs('./docs_src/build/', exist_ok=True)
 
-    logger.info(msg='Document\'s scripts execution started...')
     _exec_document_lint_and_script()
 
     logger.info(msg='Sphinx build command started...')
@@ -134,9 +133,11 @@ def _exec_document_lint_and_script(
         limit_count=limit_count)
     workers: int = max(mp.cpu_count() - 2, 1)
 
+    logger.info(msg='Document\'s code block flake8 checking started...')
     with mp.Pool(workers) as p:
         p.map(func=_check_code_block_with_flake8, iterable=script_data_list)
 
+    logger.info(msg='Document\'s scripts execution started...')
     with mp.Pool(workers) as p:
         run_return_data_list: List[_RunReturnData] = p.map(
             func=_run_code_block_script, iterable=script_data_list)

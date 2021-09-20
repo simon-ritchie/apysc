@@ -125,6 +125,7 @@ The `Graphics` class handles each vector graphics drawing.
 
 **Common event interfaces**
 
+- [About the handler options' type](about_handler_options_type.md)
 - [Event class prevent default and stop propagation interfaces](event_prevent_default_and_stop_propagation.md)
 - [Bind and trigger custom event interfaces](bind_and_trigger_custom_event.md)
 

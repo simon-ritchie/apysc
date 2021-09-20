@@ -5,8 +5,6 @@ $ python test_projects/draw_ellipse/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
@@ -48,7 +46,7 @@ def main() -> None:
 
 
 def on_ellipse_click(
-        e: ap.MouseEvent[ap.Ellipse], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Ellipse], options: dict) -> None:
     """
     The handler would be called when the ellipse is clicked.
 

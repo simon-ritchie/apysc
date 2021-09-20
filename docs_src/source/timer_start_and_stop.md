@@ -12,8 +12,6 @@ Each `start` and `stop` method has no arguments. The following example will star
 
 ```py
 # runnable
-from typing import Any, Dict
-
 from typing_extensions import TypedDict
 
 import apysc as ap
@@ -24,7 +22,7 @@ class _RectOptions(TypedDict):
 
 
 def on_rectangle_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler would be called when a rectangle is clicked.
 

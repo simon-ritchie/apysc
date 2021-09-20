@@ -5,8 +5,6 @@ $ python test_projects/line_joints/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
@@ -54,7 +52,7 @@ def main() -> None:
 
 
 def on_polyline_click(
-        e: ap.MouseEvent[ap.Polyline], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Polyline], options: dict) -> None:
     """
     Handler that called when polyline is clicked.
 

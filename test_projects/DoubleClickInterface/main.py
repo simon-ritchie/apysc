@@ -10,8 +10,6 @@ sys.path.append('./')
 
 import os
 from types import ModuleType
-from typing import Any
-from typing import Dict
 
 from typing_extensions import TypedDict
 
@@ -75,7 +73,7 @@ def on_rectangle_1_dblclick(
 
 
 def on_rectangle_2_dblclick(
-        e: ap.MouseEvent, options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent, options: dict) -> None:
     """
     Test handler that called when rectangle 2 is double clicked.
 
@@ -92,7 +90,7 @@ def on_rectangle_2_dblclick(
 
 
 def on_rectangle_3_dblclick(
-        e: ap.MouseEvent, options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent, options: dict) -> None:
     """
     Test handler that called when rectangle 3 is double clicked.
 

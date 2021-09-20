@@ -5,8 +5,6 @@ $ python test_projects/Return/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
@@ -41,7 +39,7 @@ def main() -> None:
 
 
 def on_rectangle_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler will be called when the rectangle is clicked.
 

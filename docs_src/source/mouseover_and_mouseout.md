@@ -20,13 +20,11 @@ The following example will bind the mouse over and handler and mouse out one to 
 
 ```py
 # runnable
-from typing import Any, Dict
-
 import apysc as ap
 
 
 def on_mouseover(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler would be called when the cursor is over
     the rectangle.
@@ -45,7 +43,7 @@ def on_mouseover(
 
 
 def on_mouseout(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler would be called when the cursor is outed
     from the rectangle.
@@ -93,13 +91,11 @@ The following example will unbind handlers in the `on_mouseover` and `on_mouseou
 
 ```py
 # runnable
-from typing import Any, Dict
-
 import apysc as ap
 
 
 def on_mouseover(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler would be called when the cursor is over
     the rectangle.
@@ -119,7 +115,7 @@ def on_mouseover(
 
 
 def on_mouseout(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler would be called when the cursor is outed
     from the rectangle.

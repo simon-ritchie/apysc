@@ -14,13 +14,11 @@ The following example will draw the rectangle and if you click it, the message w
 
 ```py
 # runnable
-from typing import Any, Dict
-
 import apysc as ap
 
 
 def on_rectangle_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler will be called when the rectangle is clicked.
 

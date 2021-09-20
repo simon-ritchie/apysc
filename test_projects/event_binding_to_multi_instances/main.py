@@ -6,8 +6,6 @@ $ python test_projects/event_binding_to_multi_instances/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
@@ -44,7 +42,7 @@ def main() -> None:
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
-def on_click(e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler would be called when a rectangle is clicked.
 

@@ -20,13 +20,11 @@ The following example will bind the mouse down handler and mouse upped one to th
 
 ```py
 # runnable
-from typing import Any, Dict
-
 import apysc as ap
 
 
 def on_mousedown(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler would be called when a mouse is downed on the rectangle.
 
@@ -42,7 +40,7 @@ def on_mousedown(
 
 
 def on_mouseup(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler would be called when a mouse is upped on the rectangle.
 
@@ -86,13 +84,11 @@ The following example will unbind handlers in the `on_mousedown` and `on_mouseup
 
 ```py
 # runnable
-from typing import Any, Dict
-
 import apysc as ap
 
 
 def on_mousedown(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler would be called when a mouse is downed on the rectangle.
 
@@ -109,7 +105,7 @@ def on_mousedown(
 
 
 def on_mouseup(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler would be called when a mouse is upped on the rectangle.
 

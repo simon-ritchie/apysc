@@ -39,7 +39,7 @@ def main() -> None:
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_document_wheel_1(e: ap.WheelEvent, options: Dict[Any, Any]) -> None:
+def on_document_wheel_1(e: ap.WheelEvent, options: dict) -> None:
     """
     Test handler that called when wheeled on document.
 
@@ -55,7 +55,7 @@ def on_document_wheel_1(e: ap.WheelEvent, options: Dict[Any, Any]) -> None:
         'works incorrectly.')
 
 
-def on_document_wheel_2(e: ap.WheelEvent, options: Dict[Any, Any]) -> None:
+def on_document_wheel_2(e: ap.WheelEvent, options: dict) -> None:
     """
     Test handler that called when wheeled on document.
 

@@ -6,8 +6,6 @@ $ python test_projects/circular_calling_click_x/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
@@ -43,7 +41,7 @@ def main() -> None:
 
 
 def on_click_1(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler will be called when the rectangle is clicked.
 
@@ -60,7 +58,7 @@ def on_click_1(
 
 
 def on_click_2(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler will be called when the rectangle is clicked.
 

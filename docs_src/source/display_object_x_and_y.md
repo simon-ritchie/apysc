@@ -43,12 +43,10 @@ The following example will append 10-pixel to the y-coordinate when you click th
 
 ```py
 # runnable
-from typing import Any, Dict
-
 import apysc as ap
 
 
-def on_click(e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler would be called when the rectangle is clicked.
 

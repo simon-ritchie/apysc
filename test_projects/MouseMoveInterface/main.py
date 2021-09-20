@@ -10,8 +10,6 @@ sys.path.append('./')
 
 import os
 from types import ModuleType
-from typing import Any
-from typing import Dict
 
 from typing_extensions import TypedDict
 
@@ -75,7 +73,7 @@ def on_rectangle_1_mouse_move(
 
 
 def on_rectangle_2_mouse_move(
-        e: ap.MouseEvent, options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent, options: dict) -> None:
     """
     Test handler that called when mouse is moved on rectangle_2.
 
@@ -92,7 +90,7 @@ def on_rectangle_2_mouse_move(
 
 
 def on_rectangle_3_mouse_move(
-        e: ap.MouseEvent, options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent, options: dict) -> None:
     """
     Test handler that called when mouse is moved on rectangle_3.
 

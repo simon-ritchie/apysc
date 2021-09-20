@@ -10,8 +10,6 @@ sys.path.append('./')
 
 import os
 from types import ModuleType
-from typing import Any
-from typing import Dict
 
 from typing_extensions import TypedDict
 
@@ -87,7 +85,7 @@ def on_rectangle_1_click(e: ap.MouseEvent, options: _Options) -> None:
 
 
 def on_rectangle_3_or_4_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     Handler that called when rectangle_3 or rectangle_4 is clicked.
 

@@ -73,7 +73,7 @@ def main() -> None:
 
 
 def on_polyline_click(
-        e: ap.MouseEvent[ap.Polyline], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Polyline], options: dict) -> None:
     """
     Handler that called when polyline is clicked.
 

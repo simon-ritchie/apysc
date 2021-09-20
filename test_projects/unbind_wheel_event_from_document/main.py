@@ -5,8 +5,6 @@ $ python test_projects/unbind_wheel_event_from_document/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
@@ -37,7 +35,7 @@ def main() -> None:
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_document_wheel(e: ap.WheelEvent, options: Dict[Any, Any]) -> None:
+def on_document_wheel(e: ap.WheelEvent, options: dict) -> None:
     """
     Test handler that called when wheeled on document.
 

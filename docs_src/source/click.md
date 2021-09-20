@@ -37,7 +37,7 @@ sprite.graphics.begin_fill(color='#0af')
 
 
 def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler will be called when the rectangle is clicked.
     the rectangle.
@@ -89,7 +89,7 @@ sprite.graphics.begin_fill(color='#0af')
 
 
 def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler will be called when the rectangle is clicked.
     the rectangle.
@@ -125,8 +125,6 @@ The following example is removing all the click events by the `unbind_click_all`
 
 ```py
 # runnable
-from typing import Any, Dict
-
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
@@ -140,7 +138,7 @@ sprite.graphics.begin_fill(color='#0af')
 
 
 def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler will be called when the rectangle is clicked.
     the rectangle.

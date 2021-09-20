@@ -5,8 +5,6 @@ $ python test_projects/MouseEvent/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
@@ -53,7 +51,7 @@ def main() -> None:
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
-def on_rectangle_1_clicked(e: ap.MouseEvent, options: Dict[Any, Any]) -> None:
+def on_rectangle_1_clicked(e: ap.MouseEvent, options: dict) -> None:
     """
     Test handler that called when rectangle_1 is clicked.
 
@@ -78,7 +76,7 @@ def on_rectangle_1_clicked(e: ap.MouseEvent, options: Dict[Any, Any]) -> None:
     ap.assert_true(e.local_x <= ap.Int(50))
 
 
-def on_rectangle_2_clicked(e: ap.MouseEvent, options: Dict[Any, Any]) -> None:
+def on_rectangle_2_clicked(e: ap.MouseEvent, options: dict) -> None:
     """
     Test handler that called when rectangle_2 is clicked.
 

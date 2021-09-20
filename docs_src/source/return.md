@@ -18,14 +18,11 @@ The following example will change the rectangle fill color when you click it. Ea
 
 ```py
 # runnable
-from typing import Any
-from typing import Dict
-
 import apysc as ap
 
 
 def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler will be called when the rectangle is clicked.
 

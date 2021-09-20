@@ -8,11 +8,11 @@ from apysc import __version__
 
 _DESCRIPTION: str = (
     'apysc is a Python\'s frontend library to create '
-    'html and js file, that has a ActionScript 3 (as3)-like interface.'
+    'html and js file, that has the ActionScript 3 (as3)-like interface.'
 )
 
 _LONG_DESCRIPTION: str = (
-    'apysc is a Python\'s frontend library to '
+    'apysc is the Python\'s frontend library to '
     'create html and js file, that has a ActionScript 3 '
     '(as3)-like interface.'
     ' For more details, please see GitHub repository:'

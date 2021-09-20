@@ -5,8 +5,6 @@ $ python test_projects/draw_polygon/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
@@ -51,7 +49,7 @@ def main() -> None:
 
 
 def on_polygon_click(
-        e: ap.MouseEvent[ap.Polygon], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Polygon], options: dict) -> None:
     """
     Handler that called when polygon is clicked.
 

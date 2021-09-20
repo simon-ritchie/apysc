@@ -11,8 +11,6 @@ sys.path.append('./')
 
 import os
 from types import ModuleType
-from typing import Any
-from typing import Dict
 
 from typing_extensions import TypedDict
 
@@ -107,7 +105,7 @@ def on_timer_1(e: ap.TimerEvent, options: _RectAndAlphaDirOptions) -> None:
 
 
 def on_rectangle_1_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler called when a rectangle is clicked.
 
@@ -123,7 +121,7 @@ def on_rectangle_1_click(
 
 
 def on_rectangle_2_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler called when a rectangle is clicked.
 
@@ -139,7 +137,7 @@ def on_rectangle_2_click(
 
 
 def on_rectangle_3_click(
-        e: ap.MouseEvent, options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent, options: dict) -> None:
     """
     The handler called when a rectangle is clicked.
 
@@ -155,7 +153,7 @@ def on_rectangle_3_click(
 
 
 def on_rectangle_4_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler called when a rectangle is clicked.
 
@@ -171,7 +169,7 @@ def on_rectangle_4_click(
 
 
 def on_sprite_2_click(
-        e: ap.MouseEvent[ap.Sprite], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Sprite], options: dict) -> None:
     """
     The handler would be called when a sprite is clicked.
 

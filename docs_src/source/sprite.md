@@ -44,13 +44,11 @@ The `Sprite` class is a container and if you move that coordinates, then childre
 
 ```py
 # runnable
-from typing import Any, Dict
-
 import apysc as ap
 
 
 def on_sprite_click(
-        e: ap.MouseEvent[ap.Sprite], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Sprite], options: dict) -> None:
     """
     The handler would be called when the sprite instance is clicked.
 

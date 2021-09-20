@@ -5,8 +5,6 @@ $ python test_projects/draw_circle/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 
@@ -49,7 +47,7 @@ def main() -> None:
 
 
 def on_circle_1_click(
-        e: ap.MouseEvent[ap.Circle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Circle], options: dict) -> None:
     """
     The handler would be called when the circle is clicked.
 
@@ -65,7 +63,7 @@ def on_circle_1_click(
 
 
 def on_circle_2_click(
-        e: ap.MouseEvent[ap.Circle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Circle], options: dict) -> None:
     """
     The handler would be called when the circle is clicked.
 

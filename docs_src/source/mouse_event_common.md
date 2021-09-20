@@ -171,7 +171,7 @@ def change_color_on_rectangle_click(
 
 
 def change_x_on_rectangle_click(
-        e: ap.MouseEvent, options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent, options: dict) -> None:
     """
     The handler will change the rectangle x-coordinate and be called
     when the rectangle is clicked.
@@ -237,7 +237,7 @@ sprite.graphics.begin_fill(color='#0af')
 
 
 def on_rectangle_mousedown(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler will be called when the rectangle is mouse downed.
 
@@ -263,8 +263,6 @@ MouseEvent instance has the `stage_x` and `stage_y` attributes. These attributes
 
 ```py
 # runnable
-from typing import Any, Dict
-
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
@@ -278,7 +276,7 @@ sprite.graphics.begin_fill(color='#0af')
 
 
 def on_mousemove(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler will be called when the mouse is moving on
     the rectangle.
@@ -313,8 +311,6 @@ The following example will show that local_x and local_y will become the coordin
 
 ```py
 # runnable
-from typing import Any, Dict
-
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
@@ -328,7 +324,7 @@ sprite.graphics.begin_fill(color='#0af')
 
 
 def on_mousemove(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler will be called when the mouse is moving on
     the rectangle.

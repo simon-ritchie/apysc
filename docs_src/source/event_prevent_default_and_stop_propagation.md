@@ -20,7 +20,7 @@ import apysc as ap
 
 
 def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler will be called when the rectangle is clicked.
 
@@ -61,7 +61,7 @@ import apysc as ap
 
 
 def on_rectangle_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler will be called when the rectangle is clicked.
 
@@ -77,7 +77,7 @@ def on_rectangle_click(
 
 
 def on_sprite_click(
-        e: ap.MouseEvent[ap.Sprite], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Sprite], options: dict) -> None:
     """
     The handler will be called when the sprite is clicked.
 
@@ -114,12 +114,10 @@ If you click the following rectangle, the only message of `The rectangle is clic
 The `TimerEvent` class (subclass of the `Event`) is disabled the `prevent_default` and `stop_propagation` interfaces and if you call these interfaces, the error will be raised:
 
 ```py
-from typing import Any, Dict
-
 import apysc as ap
 
 
-def on_timer(e: ap.TimerEvent, options: Dict[Any, Any]) -> None:
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
     """
     The handler will be called from a timer.
 

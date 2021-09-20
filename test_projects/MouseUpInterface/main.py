@@ -10,8 +10,6 @@ sys.path.append('./')
 
 import os
 from types import ModuleType
-from typing import Any
-from typing import Dict
 
 from typing_extensions import TypedDict
 
@@ -74,7 +72,7 @@ def on_rectangle_1_mouse_up(
 
 
 def on_rectangle_2_mouse_up(
-        e: ap.MouseEvent, options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent, options: dict) -> None:
     """
     Test handler that called when rectangle 2 is mouse upped.
 
@@ -91,7 +89,7 @@ def on_rectangle_2_mouse_up(
 
 
 def on_rectangle_3_mouse_up(
-        e: ap.MouseEvent, options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent, options: dict) -> None:
     """
     Test handler that called when rectangle 3 is mouse upped.
 

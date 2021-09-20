@@ -5,7 +5,7 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 ## Project links
 
 - [GitHub](https://github.com/simon-ritchie/apysc)
-  - Star gazers are very welcome!
+  - Stargazers are very welcome!
 - [Twitter](https://twitter.com/apysc)
   - The progress and updates will be informed on Twitter. Please follow!
 - [PyPI](https://pypi.org/project/apysc/)
@@ -168,6 +168,12 @@ The `Graphics` class handles each vector graphics drawing.
 - [Timer class start and stop interfaces](timer_start_and_stop.md)
 - [Timer class timer complete interface](timer_complete.md)
 - [Timer class reset interface](timer_reset.md)
+
+---
+
+**Animation**
+
+- [AnimationBase class start interface](animation_base_start.md)
 
 ---
 

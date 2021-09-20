@@ -63,4 +63,12 @@ class AnimationX(AnimationBase[_T], Generic[_T]):
     def _get_animation_func_expression(self) -> str:
         """
         Get a animation function expression.
+
+        Returns
+        -------
+        expression : str
+            Animation function expression.
         """
+        from apysc._type import value_util
+        x_str: str = value_util.get_value_str_for_expression(value=self._x)
+        return f'\n  .x({x_str});'

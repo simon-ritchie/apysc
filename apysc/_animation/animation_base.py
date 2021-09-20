@@ -87,6 +87,11 @@ class AnimationBase(
     def start(self) -> None:
         """
         Start an animation with current settings.
+
+        References
+        ----------
+        - AnimationBase class start interface
+            - https://simon-ritchie.github.io/apysc/animation_base_start.html
         """
         with ap.DebugInfo(
                 callable_=self.start, locals_=locals(),

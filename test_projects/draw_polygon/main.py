@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/draw_polygon/main.py
-$ python draw_polygon/main.py
 """
 
 import sys

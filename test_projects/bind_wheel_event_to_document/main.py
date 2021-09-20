@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/bind_wheel_event_to_document/main.py
-$ python bind_wheel_event_to_document/main.py
 """
 
 import sys

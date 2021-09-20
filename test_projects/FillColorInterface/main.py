@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/FillColorInterface/main.py
-$ python FillColorInterface/main.py
 """
 
 import sys

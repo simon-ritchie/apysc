@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/Timer/main.py
-$ python Timer/main.py
 """
 
 import sys

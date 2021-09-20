@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/Number/main.py
-$ python Number/main.py
 """
 
 import sys

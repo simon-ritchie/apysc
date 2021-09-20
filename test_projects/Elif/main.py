@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/Elif/main.py
-$ python Elif/main.py
 """
 
 import sys

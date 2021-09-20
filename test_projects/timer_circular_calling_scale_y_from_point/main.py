@@ -3,7 +3,6 @@ updating scale-y from a specified coordinates interface value.
 
 Command examples:
 $ python test_projects/timer_circular_calling_scale_y_from_point/main.py
-$ python timer_circular_calling_scale_y_from_point/main.py
 """
 
 import sys

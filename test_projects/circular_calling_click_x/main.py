@@ -3,7 +3,6 @@ updating x-coordinate interface value.
 
 Command examples:
 $ python test_projects/circular_calling_click_x/main.py
-$ python circular_calling_click_x/main.py
 """
 
 import sys

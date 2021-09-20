@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/SkewYInterface/main.py
-$ python SkewYInterface/main.py
 """
 
 import sys

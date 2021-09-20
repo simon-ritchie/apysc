@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/color_util/main.py
-$ python color_util/main.py
 """
 
 import sys

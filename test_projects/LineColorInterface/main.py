@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/LineColorInterface/main.py
-$ python LineColorInterface/main.py
 """
 
 import sys

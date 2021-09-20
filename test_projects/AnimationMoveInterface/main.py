@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/AnimationMoveInterface/main.py
-$ python AnimationMoveInterface/main.py
 """
 
 import sys

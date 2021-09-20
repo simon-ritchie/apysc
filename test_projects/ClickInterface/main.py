@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/ClickInterface/main.py
-$ python ClickInterface/main.py
 """
 
 import sys

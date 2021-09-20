@@ -3,7 +3,6 @@ updating cy-coordinate interface.
 
 Command examples:
 $ python test_projects/timer_circular_calling_cy/main.py
-$ python timer_circular_calling_cy/main.py
 """
 
 import sys

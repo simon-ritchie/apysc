@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/AnimationResetInterface/main.py
-$ python AnimationResetInterface/main.py
 """
 
 import sys

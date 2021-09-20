@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/draw_circle/main.py
-$ python draw_circle/main.py
 """
 
 import sys

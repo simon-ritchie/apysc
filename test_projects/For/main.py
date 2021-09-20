@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/For/main.py
-$ python For/main.py
 """
 
 import sys

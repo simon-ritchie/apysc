@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/AnimationPauseInterface/main.py
-$ python AnimationPauseInterface/main.py
 """
 
 import sys

@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/line_cap/main.py
-$ python line_cap/main.py
 """
 
 import sys

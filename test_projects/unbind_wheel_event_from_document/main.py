@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/unbind_wheel_event_from_document/main.py
-$ python unbind_wheel_event_from_document/main.py
 """
 
 import sys

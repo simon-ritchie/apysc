@@ -3,7 +3,6 @@ updating rotation around the specified point interface value.
 
 Command examples:
 $ python test_projects/timer_circular_calling_rotation_around_point/main.py
-$ python timer_circular_calling_rotation_around_point/main.py
 """
 
 import sys

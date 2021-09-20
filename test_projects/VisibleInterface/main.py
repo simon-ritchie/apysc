@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/VisibleInterface/main.py
-$ python VisibleInterface/main.py
 """
 
 import sys

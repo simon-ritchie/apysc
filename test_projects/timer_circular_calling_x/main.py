@@ -3,7 +3,6 @@ updating x interface value.
 
 Command examples:
 $ python test_projects/timer_circular_calling_x/main.py
-$ python timer_circular_calling_x/main.py
 """
 
 import sys

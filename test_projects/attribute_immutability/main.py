@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/attribute_immutability/main.py
-$ python attribute_immutability/main.py
 """
 
 import sys

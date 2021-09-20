@@ -3,7 +3,6 @@ updating line thickness interface value.
 
 Command examples:
 $ python test_projects/timer_circular_calling_line_thickness/main.py
-$ python timer_circular_calling_line_thickness/main.py
 """
 
 import sys

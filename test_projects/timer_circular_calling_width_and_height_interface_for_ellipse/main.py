@@ -4,7 +4,6 @@ updating width and height interface values for the ellipse class.
 Command examples:
 $ python test_projects/\
 timer_circular_calling_width_and_height_interface_for_ellipse/main.py
-$ python timer_circular_calling_width_and_height_interface_for_ellipse/main.py
 """
 
 import sys

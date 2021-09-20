@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/Boolean/main.py
-$ python Boolean/main.py
 """
 
 import sys

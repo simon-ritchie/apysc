@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/If/main.py
-$ python If/main.py
 """
 
 import sys

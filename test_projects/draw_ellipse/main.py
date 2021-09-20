@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/draw_ellipse/main.py
-$ python draw_ellipse/main.py
 """
 
 import sys

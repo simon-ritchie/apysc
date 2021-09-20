@@ -3,7 +3,6 @@ interface.
 
 Command examples:
 $ python test_projects/unbind_wheel_event_all_from_document/main.py
-$ python unbind_wheel_event_all_from_document/main.py
 """
 
 import sys

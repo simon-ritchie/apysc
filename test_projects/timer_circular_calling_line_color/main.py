@@ -3,7 +3,6 @@ updating line color interface value.
 
 Command examples:
 $ python test_projects/timer_circular_calling_line_color/main.py
-$ python timer_circular_calling_line_color/main.py
 """
 
 import sys

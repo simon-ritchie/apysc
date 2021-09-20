@@ -3,7 +3,6 @@ updating line cap interface value.
 
 Command examples:
 $ python test_projects/timer_circular_calling_line_cap/main.py
-$ python timer_circular_calling_line_cap/main.py
 """
 
 import sys

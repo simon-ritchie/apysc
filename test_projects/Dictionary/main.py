@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/Dictionary/main.py
-$ python Dictionary/main.py
 """
 
 import sys

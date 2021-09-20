@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/line_joints/main.py
-$ python line_joints/main.py
 """
 
 import sys

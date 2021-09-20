@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/remove_child/main.py
-$ remove_child/main.py
 """
 
 import sys

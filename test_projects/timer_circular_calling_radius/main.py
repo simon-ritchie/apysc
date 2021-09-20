@@ -3,7 +3,6 @@ updating radius interface value.
 
 Command examples:
 $ python test_projects/timer_circular_calling_radius/main.py
-$ python timer_circular_calling_radius/main.py
 """
 
 import sys

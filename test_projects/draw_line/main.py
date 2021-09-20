@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/draw_line/main.py
-$ python draw_line/main.py
 """
 
 import sys

@@ -3,7 +3,6 @@ same handler multiple times.
 
 Command examples:
 $ python test_projects/event_binding_to_multi_instances/main.py
-$ python event_binding_to_multi_instances/main.py
 """
 
 import sys

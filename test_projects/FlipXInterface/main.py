@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/FlipXInterface/main.py
-$ python FlipXInterface/main.py
 """
 
 import sys

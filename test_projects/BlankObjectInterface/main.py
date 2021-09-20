@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/BlankObjectInterface/main.py
-$ python BlankObjectInterface/main.py
 """
 
 import sys

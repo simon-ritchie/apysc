@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/ScaleYFromCenterInterface/main.py
-$ python ScaleYFromCenterInterface/main.py
 """
 
 import sys

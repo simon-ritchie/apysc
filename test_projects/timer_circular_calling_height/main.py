@@ -3,7 +3,6 @@ updating height interface value.
 
 Command examples:
 $ python test_projects/timer_circular_calling_height/main.py
-$ python timer_circular_calling_height/main.py
 """
 
 import sys

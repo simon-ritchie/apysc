@@ -3,7 +3,6 @@ in a handler.
 
 Command examples:
 $ python test_projects/incremental_calculation_in_a_handler/main.py
-$ python incremental_calculation_in_a_handler/main.py
 """
 
 import sys

@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/assert_defined/main.py
-$ python assert_defined/main.py
 """
 
 import sys

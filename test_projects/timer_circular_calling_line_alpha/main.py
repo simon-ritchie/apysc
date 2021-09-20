@@ -3,7 +3,6 @@ updating line alpha interface value.
 
 Command examples:
 $ python test_projects/timer_circular_calling_line_alpha/main.py
-$ python timer_circular_calling_line_alpha/main.py
 """
 
 import sys

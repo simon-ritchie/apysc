@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/CssInterface/main.py
-$ python CssInterface/main.py
 """
 
 import sys

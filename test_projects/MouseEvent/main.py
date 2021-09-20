@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/MouseEvent/main.py
-$ python MouseEvent/main.py
 """
 
 import sys

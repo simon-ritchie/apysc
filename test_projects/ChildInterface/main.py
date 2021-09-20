@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/ChildInterface/main.py
-$ python ChildInterface/main.py
 """
 
 import sys

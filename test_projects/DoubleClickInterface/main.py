@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/DoubleClickInterface/main.py
-$ python DoubleClickInterface/main.py
 """
 
 import sys

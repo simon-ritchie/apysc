@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/draw_round_rect/main.py
-$ python draw_round_rect/main.py
 """
 
 import sys

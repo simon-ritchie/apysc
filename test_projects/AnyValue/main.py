@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/AnyValue/main.py
-$ python AnyValue/main.py
 """
 
 import sys

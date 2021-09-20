@@ -3,7 +3,6 @@ updating y-coordinate interface.
 
 Command examples:
 $ python test_projects/timer_circular_calling_y/main.py
-$ python timer_circular_calling_y/main.py
 """
 
 import sys

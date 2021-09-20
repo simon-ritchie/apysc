@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/event_multiple_binding/main.py
-$ python event_multiple_binding/main.py
 """
 
 import sys

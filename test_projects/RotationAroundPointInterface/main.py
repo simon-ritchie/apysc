@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/RotationAroundPointInterface/main.py
-$ python RotationAroundPointInterface/main.py
 """
 
 import sys

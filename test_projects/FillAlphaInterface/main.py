@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/FillAlphaInterface/main.py
-$ python FillAlphaInterface/main.py
 """
 
 import sys

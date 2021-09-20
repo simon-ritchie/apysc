@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/Point2D/main.py
-$ python Point2D/main.py
 """
 
 import sys

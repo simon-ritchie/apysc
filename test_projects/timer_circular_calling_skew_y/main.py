@@ -3,7 +3,6 @@ updating skew-y interface value.
 
 Command examples:
 $ python test_projects/timer_circular_calling_skew_y/main.py
-$ python timer_circular_calling_skew_y/main.py
 """
 
 import sys

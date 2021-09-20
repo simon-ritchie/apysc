@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/Else/main.py
-$ python Else/main.py
 """
 
 import sys

@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/draw_dotted_line/main.py
-$ python draw_dotted_line/main.py
 """
 
 import sys

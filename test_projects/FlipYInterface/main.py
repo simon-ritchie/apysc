@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/FlipYInterface/main.py
-$ python FlipYInterface/main.py
 """
 
 import sys

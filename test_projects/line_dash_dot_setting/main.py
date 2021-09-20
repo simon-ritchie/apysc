@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/line_dash_dot_setting/main.py
-$ python line_dash_dot_setting/main.py
 """
 
 import sys

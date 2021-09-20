@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/Array/main.py
-$ python Array/main.py
 """
 
 import sys

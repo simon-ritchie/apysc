@@ -3,7 +3,6 @@ interfaces.
 
 Command examples:
 $ python test_projects/assert_dicts_equal/main.py
-$ python assert_dicts_equal/main.py
 """
 
 import sys

@@ -3,7 +3,6 @@ updating cx-coordinate interface.
 
 Command examples:
 $ python test_projects/timer_circular_calling_cx/main.py
-$ python timer_circular_calling_cx/main.py
 """
 
 import sys

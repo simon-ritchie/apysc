@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/trace/main.py
-$ python trace/main.py
 """
 
 import sys

@@ -3,7 +3,6 @@ updating visible interface value.
 
 Command examples:
 $ python test_projects/timer_circular_calling_visible/main.py
-$ python timer_circular_calling_visible/main.py
 """
 
 import sys

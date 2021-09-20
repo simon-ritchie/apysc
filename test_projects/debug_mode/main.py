@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/debug_mode/main.py
-$ python debug_mode/main.py
 """
 
 import sys

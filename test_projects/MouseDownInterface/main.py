@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/MouseDownInterface/main.py
-$ python MouseDownInterface/main.py
 """
 
 import sys

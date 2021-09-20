@@ -2,7 +2,6 @@
 
 Command examples:
 $ python test_projects/Return/main.py
-$ python Return/main.py
 """
 
 import sys

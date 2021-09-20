@@ -7,14 +7,13 @@ $ python circular_calling_click_x/main.py
 """
 
 import sys
-from typing import Any, Dict
+from typing import Any
+from typing import Dict
 
 sys.path.append('./')
 
 import os
 from types import ModuleType
-
-from typing_extensions import TypedDict
 
 import apysc as ap
 from apysc._file import file_util

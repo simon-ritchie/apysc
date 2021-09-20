@@ -1,4 +1,4 @@
-"""Class implementation for the AnimationMove value.
+"""Class implementation for the move animation value.
 """
 
 from typing import Dict
@@ -16,6 +16,9 @@ _T = TypeVar('_T', bound=VariableNameInterface)
 
 
 class AnimationMove(AnimationBase[_T], Generic[_T]):
+    """
+    The animation class for moving x and y coordinates.
+    """
 
     _x: ap.Int
     _y: ap.Int

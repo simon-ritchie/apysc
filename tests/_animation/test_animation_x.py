@@ -40,3 +40,20 @@ class TestAnimationX:
             f'\n  .x({animation_x._x.variable_name});'
         )
         assert expression == expected
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__make_snapshot(self) -> None:
+        interface: VariableNameInterface = VariableNameInterface()
+        interface.variable_name = 'test_animation_x'
+        animation_x: ap.AnimationX = ap.AnimationX(
+            target=interface, x=100, duration=1000, delay=500,
+            easing=ap.Easing.EASE_OUT_QUINT)
+        snapshot_name: str = animation_x._get_next_snapshot_name()
+        animation_x._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert animation_x._x_snapshots[snapshot_name] == 100
+
+        animation_x._x._value = 200
+        animation_x._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert animation_x._x_snapshots[snapshot_name] == 100

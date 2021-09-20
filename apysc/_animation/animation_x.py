@@ -16,6 +16,9 @@ _T = TypeVar('_T', bound=VariableNameInterface)
 
 
 class AnimationX(AnimationBase[_T], Generic[_T]):
+    """
+    The animation class for a x-coordinate.
+    """
 
     _x: ap.Int
 
@@ -72,3 +75,30 @@ class AnimationX(AnimationBase[_T], Generic[_T]):
         from apysc._type import value_util
         x_str: str = value_util.get_value_str_for_expression(value=self._x)
         return f'\n  .x({x_str});'
+
+    _x_snapshots: Dict[str, int]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make a value's snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_x_snapshots'):
+            self._x_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._x_snapshots[snapshot_name] = int(self._x._value)
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert value if a snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """

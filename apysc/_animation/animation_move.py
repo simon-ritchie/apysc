@@ -88,7 +88,7 @@ class AnimationMove(AnimationBase[_T], Generic[_T]):
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
-        Make values' snapshot.
+        Make a values' snapshot.
 
         Parameters
         ----------
@@ -105,7 +105,7 @@ class AnimationMove(AnimationBase[_T], Generic[_T]):
 
     def _revert(self, snapshot_name: str) -> None:
         """
-        Revert values if snapshot exists.
+        Revert values if a snapshot exists.
 
         Parameters
         ----------

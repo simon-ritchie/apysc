@@ -134,7 +134,6 @@ timer: ap.Timer = ap.Timer(
 timer.start()
 
 ap.save_overall_html(
-    minify=False,
     dest_dir_path='graphics_base_scale_from_center_basic_usage_3/')
 ```
 

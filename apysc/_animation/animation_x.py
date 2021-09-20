@@ -61,7 +61,7 @@ class AnimationX(AnimationBase[_T], Generic[_T]):
                 duration=duration,
                 delay=delay,
                 easing=easing)
-            super(AnimationX, self).__init__(variable_name= variable_name)
+            super(AnimationX, self).__init__(variable_name=variable_name)
 
     def _get_animation_func_expression(self) -> str:
         """

@@ -121,13 +121,11 @@ For instance, the following script will set the mouse event to `Polyline` and up
 
 ```py
 # runnable
-from typing import Any, Dict
-
 import apysc as ap
 
 
 def on_line_click(
-        e: ap.MouseEvent[ap.Polyline], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Polyline], options: dict) -> None:
     """
     The handler that this will be called when the line instance
     is clicked.

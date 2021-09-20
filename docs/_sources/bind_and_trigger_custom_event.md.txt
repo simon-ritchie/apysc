@@ -18,9 +18,6 @@ The following example will rotate the rectangle when you click it. If the rectan
 
 ```py
 # runnable
-from typing import Any
-from typing import Dict
-
 from typing_extensions import TypedDict
 
 import apysc as ap
@@ -34,7 +31,7 @@ class _RectOptions(TypedDict):
 
 
 def on_rectangle_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler would be called when the rectangle is clicked.
 

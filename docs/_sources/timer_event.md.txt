@@ -14,8 +14,6 @@ Each timer event handler's `e` argument will be `TimerEvent` class instance.
 
 ```py
 # runnable
-from typing import Any, Dict
-
 from typing_extensions import TypedDict
 
 import apysc as ap
@@ -40,7 +38,7 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     rectangle.rotation_around_center += 1
 
 
-def on_timer_complete(e: ap.TimerEvent, options: Dict[Any, Any]) -> None:
+def on_timer_complete(e: ap.TimerEvent, options: dict) -> None:
     """
     The handler would be called when the timer is complete.
 

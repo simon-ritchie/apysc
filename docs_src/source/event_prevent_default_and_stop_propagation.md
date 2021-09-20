@@ -14,8 +14,6 @@ The `Event` instance and its subclass instance have the `prevent_default` method
 
 ```py
 # runnable
-from typing import Any, Dict
-
 import apysc as ap
 
 
@@ -55,8 +53,6 @@ The following example will bind the click event to the sprite and rectangle inst
 
 ```py
 # runnable
-from typing import Any, Dict
-
 import apysc as ap
 
 

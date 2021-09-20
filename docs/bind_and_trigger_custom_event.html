@@ -57,9 +57,6 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">e</span></code> argument is an event instance, which may be become the subclass of the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class, such as the <code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code> or <code class="docutils literal notranslate"><span class="pre">TimerEvent</span></code> and so on.</p>
 <p>The following example will rotate the rectangle when you click it. If the rectangle is rotated 90 degrees, then the custom event (<code class="docutils literal notranslate"><span class="pre">rotate_90_degrees</span></code>) will be triggered and the <code class="docutils literal notranslate"><span class="pre">on_rotate_90_degrees</span></code> handler (custom event) will be called and display the second rectangle (toggle the <code class="docutils literal notranslate"><span class="pre">visible</span></code> property):</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
-
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -73,7 +70,7 @@
 
 
 <span class="k">def</span> <span class="nf">on_rectangle_click</span><span class="p">(</span>
-        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler would be called when the rectangle is clicked.</span>
 

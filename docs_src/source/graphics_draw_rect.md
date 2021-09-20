@@ -59,8 +59,6 @@ For instance, the following script will set the mouse event to `Rectangle` and u
 
 ```py
 # runnable
-from typing import Any, Dict
-
 import apysc as ap
 
 

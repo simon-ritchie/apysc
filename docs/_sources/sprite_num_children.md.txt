@@ -18,14 +18,11 @@ The following example will append a new rectangle when you click the sprite (rec
 
 ```py
 # runnable
-from typing import Any
-from typing import Dict
-
 import apysc as ap
 
 
 def on_sprite_click(
-        e: ap.MouseEvent[ap.Sprite], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Sprite], options: dict) -> None:
     """
     The handler would be called when the sprite instance is clicked.
 

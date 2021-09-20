@@ -14,14 +14,11 @@ The following example will append the `console.log` JavaScript calling at the re
 
 ```py
 # runnable
-from typing import Any
-from typing import Dict
-
 import apysc as ap
 
 
 def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler will be called when the rectangle is clicked.
 

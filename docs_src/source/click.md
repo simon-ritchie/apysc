@@ -22,8 +22,6 @@ The following example will bind the click event handler to the rectangle.
 
 ```py
 # runnable
-from typing import Any, Dict
-
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
@@ -74,8 +72,6 @@ The following example is removing the click event by the `unbind_click` method (
 
 ```py
 # runnable
-from typing import Any, Dict
-
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(

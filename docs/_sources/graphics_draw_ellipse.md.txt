@@ -48,13 +48,11 @@ The following code example will bind the click event handler and if you click th
 
 ```py
 # runnable
-from typing import Any, Dict
-
 import apysc as ap
 
 
 def on_ellipse_click(
-        e: ap.MouseEvent[ap.Ellipse], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Ellipse], options: dict) -> None:
     """
     The handler would be called when the ellipse is clicked.
 

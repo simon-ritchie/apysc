@@ -66,9 +66,6 @@ In the following example, if you click the circle then the mouse move event hand
 
 ```py
 # runnable
-from typing import Any
-from typing import Dict
-
 import apysc as ap
 
 

@@ -6,8 +6,6 @@ $ python test_projects/unbind_wheel_event_all_from_document/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 

@@ -132,8 +132,6 @@ The following code is calling the `unbind_click_all` method, so all hander setti
 
 ```py
 # runnable
-from typing import Any, Dict
-
 from typing_extensions import TypedDict
 
 import apysc as ap
@@ -222,8 +220,6 @@ This is useful to determine the `this` attribute type and will be checked by the
 
 ```py
 # runnable
-from typing import Any, Dict
-
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(

@@ -5,8 +5,6 @@ $ python test_projects/line_round_dot_setting/main.py
 """
 
 import sys
-from typing import Any
-from typing import Dict
 
 sys.path.append('./')
 

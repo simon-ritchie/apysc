@@ -14,8 +14,6 @@ If the rectangle was moved 100 times (100-pixels to the right) then the timer wi
 
 ```py
 # runnable
-from typing import Any, Dict
-
 from typing_extensions import TypedDict
 
 import apysc as ap
@@ -26,7 +24,7 @@ class _RectOptions(TypedDict):
 
 
 def on_rectangle_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     The handler would be called when a rectangle is clicked.
 

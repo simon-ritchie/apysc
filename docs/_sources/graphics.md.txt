@@ -57,8 +57,6 @@ For example, you can set an event and coordinates updating to these instances, a
 
 ```py
 # runnable
-from typing import Any, Dict
-
 import apysc as ap
 
 stage: ap.Stage = ap.Stage(
@@ -71,7 +69,7 @@ sprite: ap.Sprite = ap.Sprite(stage=stage)
 
 
 def on_rectangle_click(
-        e: ap.MouseEvent[ap.Rectangle], options: Dict[Any, Any]) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     A Handler that called when the rectangle is clicked.
 

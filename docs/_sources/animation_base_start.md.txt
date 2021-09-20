@@ -18,6 +18,7 @@ stage: ap.Stage = ap.Stage(
     stage_width=200, stage_height=150, background_color='#333',
     stage_elem_id='stage')
 sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite.graphics.begin_fill(color='#0af')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 
@@ -29,7 +30,7 @@ ap.save_overall_html(
     dest_dir_path='./animation_base_start_basic_usage_1/')
 ```
 
-<iframe src="static/animation_base_start_basic_usage_1/index.html" width="200" height="150">
+<iframe src="static/animation_base_start_basic_usage_1/index.html" width="200" height="150"></iframe>
 
 You can also use the method chain for code simplicity:
 
@@ -41,6 +42,7 @@ stage: ap.Stage = ap.Stage(
     stage_width=200, stage_height=150, background_color='#333',
     stage_elem_id='stage')
 sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite.graphics.begin_fill(color='#0af')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 
@@ -50,4 +52,4 @@ ap.save_overall_html(
     dest_dir_path='./animation_base_start_basic_usage_2/')
 ```
 
-<iframe src="static/animation_base_start_basic_usage_2/index.html" width="200" height="150">
+<iframe src="static/animation_base_start_basic_usage_2/index.html" width="200" height="150"></iframe>

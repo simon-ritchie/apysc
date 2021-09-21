@@ -35,6 +35,11 @@ class DoubleClickInterface(MouseEventInterfaceBase):
         -------
         name : str
             Handler's name.
+
+        References
+        ----------
+        - About the handler options’ type document
+            - https://bit.ly/39tnYxC
         """
         import apysc as ap
         from apysc._validation.variable_name_validation import \

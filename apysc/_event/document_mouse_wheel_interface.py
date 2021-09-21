@@ -33,6 +33,11 @@ def bind_wheel_event_to_document(
     -------
     name : str
         Handler's name.
+
+    References
+    ----------
+    - About the handler options’ type document
+        - https://bit.ly/39tnYxC
     """
     with ap.DebugInfo(
             callable_=bind_wheel_event_to_document, locals_=locals(),

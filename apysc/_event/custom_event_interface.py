@@ -135,6 +135,8 @@ class CustomEventInterface(BlankObjectInterface):
         ----------
         - Bind and trigger the custom event document
             - https://bit.ly/3rky7VI
+        - About the handler options’ type document
+            - https://bit.ly/39tnYxC
         """
         import apysc as ap
         with ap.DebugInfo(

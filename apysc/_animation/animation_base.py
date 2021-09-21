@@ -164,6 +164,11 @@ class AnimationBase(
         ------
         Exception
             If this interface is called after an animation start.
+
+        References
+        ----------
+        - About the handler options’ type document
+            - https://bit.ly/39tnYxC
         """
         with ap.DebugInfo(
                 callable_=self.animation_complete, locals_=locals(),

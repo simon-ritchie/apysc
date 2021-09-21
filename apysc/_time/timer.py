@@ -84,6 +84,8 @@ class Timer(VariableNameInterface, CustomEventInterface):
             - https://simon-ritchie.github.io/apysc/fps.html
         - Timer class repeat_count setting
             - https://simon-ritchie.github.io/apysc/timer_repeat_count.html
+        - About the handler options’ type document
+            - https://bit.ly/39tnYxC
         """
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
@@ -418,6 +420,8 @@ class Timer(VariableNameInterface, CustomEventInterface):
         ----------
         - Timer class timer_complete interface document
             - https://simon-ritchie.github.io/apysc/timer_complete.html
+        - About the handler options’ type document
+            - https://bit.ly/39tnYxC
         """
         import apysc as ap
         with ap.DebugInfo(

@@ -4,7 +4,7 @@ This page will explain the `click` interface.
 
 ## What interface is this?
 
-`click` interface will bind the click event to any `DisplayObject` instance (e.g., `Sprite`, `Rectangle`, and so on). If you mouse down on that instance and also mouse up, the registered handler function will be called.
+The `click` interface will bind the click event to any `DisplayObject` instance (e.g., `Sprite`, `Rectangle`, and so on). If you mouse down on that instance and also mouse up, the registered handler function will be called.
 
 Conversely, the `unbind_click` interface will unbind the click event from the `DisplayObject` instance.
 
@@ -66,9 +66,9 @@ If you click the following rectangle, the rectangle color will become the magent
 
 ## Basic usage of the unbind_click interface
 
-`unbind_click` interface can remove the binding click event from the `DisplayObject` instance.
+The `unbind_click` interface can remove the binded click event from a `DisplayObject` instance.
 
-The following example is removing the click event by the `unbind_click` method (if you click the rectangle, nothing will happen).
+The following example is removing the click event by the `unbind_click` method and if you click the rectangle, nothing will happen.
 
 ```py
 # runnable

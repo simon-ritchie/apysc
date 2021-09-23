@@ -18,7 +18,7 @@ class AnimationMoveInterface(AnimationInterfaceBase):
             y: Union[int, ap.Int],
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
-            easing: Optional[Easing] = None) -> AnimationMove:
+            easing: Easing = Easing.LINEAR) -> AnimationMove:
         """
         Set the x and y coordinates animation settings.
 
@@ -37,8 +37,8 @@ class AnimationMoveInterface(AnimationInterfaceBase):
             Milliseconds before an animation ends.
         delay : int or Int, default 0
             Milliseconds before an animation starts.
-        easing : Easing or None, default None
-            Easing setting. If None, Linear calculation is used.
+        easing : Easing, default Easing.LINEAR
+            Easing setting.
 
         Returns
         -------

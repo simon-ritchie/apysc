@@ -49,3 +49,19 @@ class TestAnimationY:
         animation_y._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
         assert animation_y._y_snapshots[snapshot_name] == 100
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__revert(self) -> None:
+        target: VariableNameInterface = VariableNameInterface()
+        target.variable_name = 'test_animation_y'
+        animation_y: AnimationY = AnimationY(target=target, y=100)
+        snapshot_name: str = animation_y._get_next_snapshot_name()
+        animation_y._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        animation_y._y.value = 200
+        animation_y._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert animation_y._y == 100
+
+        animation_y._y.value = 200
+        animation_y._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert animation_y._y == 200

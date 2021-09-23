@@ -175,6 +175,7 @@ The `Graphics` class handles each vector graphics drawing.
 **Animation**
 
 - [AnimationBase class start interface](animation_base_start.md)
+- [Easing enum](easing_enum.md)
 
 ---
 

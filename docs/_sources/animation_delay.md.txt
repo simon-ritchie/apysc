@@ -1,22 +1,23 @@
-# Animation interfaces duration setting
+# Animation interfaces delay setting
 
-This page will explain the animation interfaces `duration` setting.
+This page will explain the animation interfaces `delay` setting.
 
 ## What setting is this?
 
-The `duration` setting will determine the animation time from start to end in milliseconds. For instance, if 3000 is specified to the `duration` argument, the animation will take 3 seconds to complete.
+The `delay` setting will determine the delay time before the animation starts. For instance, if 3000 is specified to the `delay` argument, the animation will start after 2 seconds passed.
 
-Each animation method interface (such as the `animation_move`, `animation_x`, and so on) has the `duration` argument.
+Each animation method interface (such as the `animation_move`, `animation_x`, and so on) has the `delay` argument.
 
 ## Basic usage
 
-The following example will set 3 seconds to the `duration` option and animate x-coordinate.
+The following example will set 2 seconds between each x-coordinate animation (pause 2 seconds before animation starts):
 
 ```py
 # runnable
 import apysc as ap
 
 DURATION: int = 3000
+DELAY: int = 2000
 EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 
 
@@ -35,7 +36,7 @@ def on_animation_complete_1(
     """
     rectangle: ap.Rectangle = e.this.target
     animation_x: ap.AnimationX = rectangle.animation_x(
-        x=50, duration=DURATION, easing=EASING)
+        x=50, duration=DURATION, delay=DELAY, easing=EASING)
     animation_x.animation_complete(on_animation_complete_2)
     animation_x.start()
 
@@ -54,13 +55,13 @@ def on_animation_complete_2(
     """
     rectangle: ap.Rectangle = e.this.target
     animation_x: ap.AnimationX = rectangle.animation_x(
-        x=400, duration=DURATION, easing=EASING)
+        x=300, duration=DURATION, delay=DELAY, easing=EASING)
     animation_x.animation_complete(on_animation_complete_1)
     animation_x.start()
 
 
 stage: ap.Stage = ap.Stage(
-    stage_width=500, stage_height=150, background_color='#333',
+    stage_width=400, stage_height=150, background_color='#333',
     stage_elem_id='stage')
 sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
@@ -68,12 +69,12 @@ rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 
 animation_x: ap.AnimationX = rectangle.animation_x(
-    x=400, duration=DURATION, easing=EASING)
+    x=300, duration=DURATION, delay=DELAY, easing=EASING)
 animation_x.animation_complete(on_animation_complete_1)
 animation_x.start()
 
 ap.save_overall_html(
-    dest_dir_path='./animation_duration_basic_usage/')
+    dest_dir_path='./animation_delay_basic_usage/')
 ```
 
-<iframe src="static/animation_duration_basic_usage/index.html" width="500" height="150"></iframe>
+<iframe src="static/animation_delay_basic_usage/index.html" width="400" height="150"></iframe>

@@ -175,6 +175,7 @@ The `Graphics` class handles each vector graphics drawing.
 **Animation**
 
 - [Animation duration setting](animation_duration.md)
+- [Animation delay setting](animation_delay.md)
 - [Each animation interface return value](animation_return_value.md)
 - [AnimationBase class start interface](animation_base_start.md)
 - [AnimationBase class animation complete interface](animation_complete.md)

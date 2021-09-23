@@ -49,6 +49,11 @@ class AnimationMove(AnimationBase[_T], Generic[_T]):
             Milliseconds before an animation starts.
         easing : Easing or None, default None
             Easing setting. If None, Linear calculation is used.
+
+        References
+        ----------
+        - Easing enum document
+            - https://simon-ritchie.github.io/apysc/easing_enum.html
         """
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),

@@ -43,6 +43,13 @@ class AnimationMoveInterface(AnimationInterfaceBase):
         -------
         animation_move : AnimationMove
             Created animation setting instance.
+
+        References
+        ----------
+        - Each animation interface return value document
+            - https://bit.ly/2XOoa8w
+        - Easing enum document
+            - https://simon-ritchie.github.io/apysc/easing_enum.html
         """
         animation_move: AnimationMove = AnimationMove(
             target=self,

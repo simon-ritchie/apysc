@@ -44,13 +44,6 @@ class AnimationX(AnimationBase[_T], Generic[_T]):
             Milliseconds before an animation starts.
         easing : Easing, default Easing.LINEAR
             Easing setting. If None, Linear calculation is used.
-
-        References
-        ----------
-        - Each animation interface return value document
-            - https://bit.ly/2XOoa8w
-        - Easing enum document
-            - https://simon-ritchie.github.io/apysc/easing_enum.html
         """
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),

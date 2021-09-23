@@ -30,7 +30,7 @@ class AnimationMove(AnimationBase[_T], Generic[_T]):
             y: Union[int, ap.Int],
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
-            easing: Optional[Easing] = None) -> None:
+            easing: Easing = Easing.LINEAR) -> None:
         """
         The animation class for moving x and y coordinates.
 
@@ -47,8 +47,8 @@ class AnimationMove(AnimationBase[_T], Generic[_T]):
             Milliseconds before an animation ends.
         delay : int or Int, default 0
             Milliseconds before an animation starts.
-        easing : Easing or None, default None
-            Easing setting. If None, Linear calculation is used.
+        easing : Easing, default Easing.LINEAR
+            Easing setting.
 
         References
         ----------

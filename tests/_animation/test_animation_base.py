@@ -131,7 +131,7 @@ class TestAnimationBase:
         animation._target = target_2
         animation._duration = ap.Int(5000)
         animation._delay = ap.Int(1500)
-        animation._easing = None
+        animation._easing = ap.Easing.LINEAR
         animation._started = ap.Boolean(False)
         animation._run_all_revert_methods(snapshot_name=snapshot_name)
         assert animation._target == target_1
@@ -143,13 +143,13 @@ class TestAnimationBase:
         animation._target = target_2
         animation._duration = ap.Int(5000)
         animation._delay = ap.Int(1500)
-        animation._easing = None
+        animation._easing = ap.Easing.LINEAR
         animation._started = ap.Boolean(False)
         animation._run_all_revert_methods(snapshot_name=snapshot_name)
         assert animation._target == target_2
         assert animation._duration == 5000
         assert animation._delay == 1500
-        assert animation._easing is None
+        assert animation._easing == ap.Easing.LINEAR
         assert not animation._started
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

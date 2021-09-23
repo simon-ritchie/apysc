@@ -30,7 +30,7 @@ class AnimationBase(
     _target: _T
     _duration: ap.Int
     _delay: ap.Int
-    _easing: Optional[Easing]
+    _easing: Easing
     _started: ap.Boolean
 
     def __init__(self, variable_name: str) -> None:
@@ -56,7 +56,7 @@ class AnimationBase(
             target: _T,
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
-            easing: Optional[Easing] = None) -> None:
+            easing: Easing = Easing.LINEAR) -> None:
         """
         Set the basic animation settings.
 
@@ -69,7 +69,7 @@ class AnimationBase(
             Milliseconds before an animation ends.
         delay : int or Int, default 0
             Milliseconds before an animation starts.
-        easing : Easing or None, default None
+        easing : Easing, default Easing.LINEAR
             Easing setting. If None, Linear calculation is used.
         """
         with ap.DebugInfo(
@@ -101,11 +101,8 @@ class AnimationBase(
                 '\n  .animate({'
                 f'\n    duration: {self._duration.variable_name},'
                 f'\n    delay: {self._delay.variable_name}}})'
+                f'\n  .ease({self._easing.value})'
             )
-            if self._easing is not None:
-                expression += (
-                    f'\n  .ease({self._easing.value})'
-                )
             expression += self._get_animation_complete_handler_expression()
             animation_expresssion: str = self._get_animation_func_expression()
             expression += animation_expresssion
@@ -215,7 +212,7 @@ class AnimationBase(
     _target_snapshots: Dict[str, _T]
     _duration_snapshots: Dict[str, int]
     _delay_snapshots: Dict[str, int]
-    _easing_snapshots: Dict[str, Optional[Easing]]
+    _easing_snapshots: Dict[str, Easing]
     _started_snapshots: Dict[str, bool]
 
     def _make_snapshot(self, snapshot_name: str) -> None:

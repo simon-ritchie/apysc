@@ -4,7 +4,6 @@
 from typing import Any
 from typing import Type
 
-from apysc._animation.animation_move_interface import AnimationMoveInterface
 from apysc._display.css_interface import CssInterface
 from apysc._display.parent_interface import ParentInterface
 from apysc._display.visible_interface import VisibleInterface
@@ -16,8 +15,7 @@ from apysc._event.mouse_event_interfaces import MouseEventInterfaces
 
 class DisplayObject(
         XInterface, YInterface, ParentInterface, MouseEventInterfaces,
-        VisibleInterface, CustomEventInterface, CssInterface,
-        AnimationMoveInterface):
+        VisibleInterface, CustomEventInterface, CssInterface):
     """
     Display object (base) class for the common interfaces.
 

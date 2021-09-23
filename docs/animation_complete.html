@@ -53,7 +53,7 @@
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method requires a handler at the first argument and optional options dictionary at the second argument.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method requires a handler at the first argument and the optional options dictionary at the second argument.</p>
 <p>The following example will call the <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method at the x-coordinate animation end and start another animation to reset the x-coordinate:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -154,7 +154,7 @@
 <span class="n">animation_move</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span><span class="n">on_animation_complete</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">Exception</span><span class="p">:</span> <span class="n">This</span> <span class="n">interface</span> <span class="n">can</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">called</span> <span class="n">after</span> <span class="n">an</span> <span class="n">animation</span> <span class="ow">is</span> <span class="n">started</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">Exception</span><span class="p">:</span> <span class="n">This</span> <span class="n">interface</span> <span class="n">can</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">called</span> <span class="n">after</span> <span class="n">the</span> <span class="n">animation</span> <span class="ow">is</span> <span class="n">started</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>The calling of the <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method before the <code class="docutils literal notranslate"><span class="pre">start</span></code> method will work correctly:</p>

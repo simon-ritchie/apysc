@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Each animation interface return value &#8212; apysc  documentation</title>
+    <title>Animation interfaces duration setting &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -18,8 +18,8 @@
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="AnimationBase class start interface" href="animation_base_start.html" />
-    <link rel="prev" title="Animation interfaces duration setting" href="animation_duration.html" /> 
+    <link rel="next" title="Each animation interface return value" href="animation_return_value.html" />
+    <link rel="prev" title="Timer class reset interface" href="timer_reset.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,13 +28,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="animation_base_start.html" title="AnimationBase class start interface"
+          <a href="animation_return_value.html" title="Each animation interface return value"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="animation_duration.html" title="Animation interfaces duration setting"
+          <a href="timer_reset.html" title="Timer class reset interface"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Each animation interface return value</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Animation interfaces duration setting</a></li> 
       </ul>
     </div>  
 
@@ -43,22 +43,22 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="each-animation-interface-return-value">
-<h1>Each animation interface return value<a class="headerlink" href="#each-animation-interface-return-value" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain each animation interface, such as the <code class="docutils literal notranslate"><span class="pre">animation_move</span></code>, return value (<code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> instance).</p>
-<section id="each-interface-will-return-the-subclass-instance-of-the-animationbase">
-<h2>Each interface will return the subclass instance of the AnimationBase<a class="headerlink" href="#each-interface-will-return-the-subclass-instance-of-the-animationbase" title="Permalink to this headline">¶</a></h2>
-<p>Each animation interface will return the subclass instance of the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>. For example, the <code class="docutils literal notranslate"><span class="pre">animation_move</span></code> interface will return the <code class="docutils literal notranslate"><span class="pre">AnimationMove</span></code> instance and the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code> interface will return the <code class="docutils literal notranslate"><span class="pre">AnimationX</span></code> instance.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> class has common animation interfaces, such as the <code class="docutils literal notranslate"><span class="pre">start</span></code> (method to start animation), <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> (method to bind the animation complete event), <code class="docutils literal notranslate"><span class="pre">target</span></code> (property of the animation target).</p>
+  <section id="animation-interfaces-duration-setting">
+<h1>Animation interfaces duration setting<a class="headerlink" href="#animation-interfaces-duration-setting" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the animation interfaces <code class="docutils literal notranslate"><span class="pre">duration</span></code> setting.</p>
+<section id="what-setting-is-this">
+<h2>What setting is this?<a class="headerlink" href="#what-setting-is-this" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">duration</span></code> setting will determine the animation time from start to end in milliseconds. For instance, if 3000 is specified to the <code class="docutils literal notranslate"><span class="pre">duration</span></code> argument, the animation will take 3 seconds to complete.</p>
+<p>Each animation method interfaces (such as the <code class="docutils literal notranslate"><span class="pre">animation_move</span></code>, <code class="docutils literal notranslate"><span class="pre">animation_x</span></code>, and so on) have the <code class="docutils literal notranslate"><span class="pre">duration</span></code> argument.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>Each return value class is in the apysc package (e.g., <code class="docutils literal notranslate"><span class="pre">ap.AnimationMove</span></code>) and you can use it to the type annotation.</p>
-<p>The following code example is using the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code> method interface and get an <code class="docutils literal notranslate"><span class="pre">AnimationX</span></code> instance to start and bind the animation complete event with it.</p>
+<p>The following example will set 3 seconds to the <code class="docutils literal notranslate"><span class="pre">duration</span></code> option and animate x-coordinate.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-<span class="n">DURATION</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">DURATION</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3000</span>
+<span class="n">EASING</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Easing</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Easing</span><span class="o">.</span><span class="n">EASE_OUT_QUINT</span>
 
 
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
@@ -76,14 +76,13 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">target</span>
     <span class="n">animation_x</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationX</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_x</span><span class="p">(</span>
-        <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">)</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span> <span class="n">easing</span><span class="o">=</span><span class="n">EASING</span><span class="p">)</span>
     <span class="n">animation_x</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span><span class="n">on_animation_complete_2</span><span class="p">)</span>
     <span class="n">animation_x</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
 
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
-        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span>
-        <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The handler will be called when the animation is complete.</span>
 
@@ -96,28 +95,29 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">target</span>
     <span class="n">animation_x</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationX</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_x</span><span class="p">(</span>
-        <span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">)</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span> <span class="n">easing</span><span class="o">=</span><span class="n">EASING</span><span class="p">)</span>
     <span class="n">animation_x</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span><span class="n">on_animation_complete_1</span><span class="p">)</span>
     <span class="n">animation_x</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
 
 <span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
-    <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 <span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
 <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
 <span class="n">animation_x</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationX</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_x</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">)</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span> <span class="n">easing</span><span class="o">=</span><span class="n">EASING</span><span class="p">)</span>
 <span class="n">animation_x</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span><span class="n">on_animation_complete_1</span><span class="p">)</span>
 <span class="n">animation_x</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
-    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./animation_return_value_basic_usage/&#39;</span><span class="p">)</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./animation_duration_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/animation_return_value_basic_usage/index.html" width="200" height="150"></iframe></section>
+<iframe src="static/animation_duration_basic_usage/index.html" width="500" height="150"></iframe></section>
 </section>
 
 
@@ -132,23 +132,23 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Each animation interface return value</a><ul>
-<li><a class="reference internal" href="#each-interface-will-return-the-subclass-instance-of-the-animationbase">Each interface will return the subclass instance of the AnimationBase</a></li>
+<li><a class="reference internal" href="#">Animation interfaces duration setting</a><ul>
+<li><a class="reference internal" href="#what-setting-is-this">What setting is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="animation_duration.html"
-                        title="previous chapter">Animation interfaces duration setting</a></p>
+  <p class="topless"><a href="timer_reset.html"
+                        title="previous chapter">Timer class reset interface</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="animation_base_start.html"
-                        title="next chapter">AnimationBase class start interface</a></p>
+  <p class="topless"><a href="animation_return_value.html"
+                        title="next chapter">Each animation interface return value</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/animation_return_value.md.txt"
+      <li><a href="_sources/animation_duration.md.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -173,13 +173,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="animation_base_start.html" title="AnimationBase class start interface"
+          <a href="animation_return_value.html" title="Each animation interface return value"
              >next</a> |</li>
         <li class="right" >
-          <a href="animation_duration.html" title="Animation interfaces duration setting"
+          <a href="timer_reset.html" title="Timer class reset interface"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Each animation interface return value</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Animation interfaces duration setting</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

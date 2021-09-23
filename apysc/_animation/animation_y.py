@@ -74,3 +74,20 @@ class AnimationY(AnimationBase[_T], Generic[_T]):
         from apysc._type import value_util
         y_str: str = value_util.get_value_str_for_expression(value=self._y)
         return f'\n  .y({y_str});'
+
+    _y_snapshots: Dict[str, int]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make a value's snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_y_snapshots'):
+            self._y_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._y_snapshots[snapshot_name] = int(self._y._value)

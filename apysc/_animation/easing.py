@@ -8,7 +8,7 @@ class Easing(Enum):
     """
     Enum class for the easing setting.
     """
-    LINEAR = '-'
+    LINEAR = 'function(x) {return x;}'
 
     EASE_IN_SINE = 'function(x) {return 1 - Math.cos((x * Math.PI) / 2);}'
     EASE_OUT_SINE = 'function(x) {return Math.sin((x * Math.PI) / 2);}'

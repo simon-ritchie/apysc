@@ -72,6 +72,70 @@ ap.save_overall_html(
 
 <iframe src="static/easing_enum_basic_usage/index.html" width="200" height="200"></iframe>
 
+If you skip the specification of the `easing` argument the animation will be a linear one:
+
+```py
+# runnable
+import apysc as ap
+
+
+def on_animation_complete_1(
+        e: ap.AnimationEvent[ap.Rectangle],
+        options: dict) -> None:
+    """
+    The handler will be called when the animation is complete.
+
+    Parameters
+    ----------
+    e : ap.AnimationEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    animation_move: ap.AnimationMove = e.this.target.animation_move(
+        x=50, y=50, duration=1000)
+    animation_move.animation_complete(on_animation_complete_2)
+    animation_move.start()
+
+
+def on_animation_complete_2(
+        e: ap.AnimationEvent[ap.Rectangle],
+        options: dict) -> None:
+    """
+    The handler will be called when the animation is complete.
+
+    Parameters
+    ----------
+    e : ap.AnimationEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    animation_move: ap.AnimationMove = e.this.target.animation_move(
+        x=100, y=100, duration=1000)
+    animation_move.animation_complete(on_animation_complete_1)
+    animation_move.start()
+
+
+stage: ap.Stage = ap.Stage(
+    stage_width=200, stage_height=200, background_color='#333',
+    stage_elem_id='stage')
+sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite.graphics.begin_fill(color='#0af')
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+    x=50, y=50, width=50, height=50)
+
+animation_move: ap.AnimationMove = rectangle.animation_move(
+    x=100, y=100, duration=1000)
+animation_move.animation_complete(on_animation_complete_1)
+animation_move.start()
+
+ap.save_overall_html(
+    dest_dir_path='./easing_enum_default_setting/')
+```
+
+<iframe src="static/easing_enum_default_setting/index.html" width="200" height="200"></iframe>
+
 ## What difference between the ease-in, ease-out, and ease-in-out
 
 - Ease-in will start with slow speed, and stop with fast speed.

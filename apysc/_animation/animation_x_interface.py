@@ -1,7 +1,6 @@
 """Class implementation for the animation_x interface.
 """
 
-from typing import Optional
 from typing import Union
 
 import apysc as ap

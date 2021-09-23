@@ -1,7 +1,6 @@
 """Class implementations for the animation_move interface.
 """
 
-from typing import Optional
 from typing import Union
 
 import apysc as ap

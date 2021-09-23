@@ -71,3 +71,6 @@ class AnimationY(AnimationBase[_T], Generic[_T]):
         expression : str
             Animation function expression.
         """
+        from apysc._type import value_util
+        y_str: str = value_util.get_value_str_for_expression(value=self._y)
+        return f'\n  .y({y_str});'

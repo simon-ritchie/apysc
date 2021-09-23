@@ -4,10 +4,10 @@
 from typing import Dict
 
 import apysc as ap
+from apysc._animation.animation_move_interface import AnimationMoveInterface
+from apysc._animation.animation_x_interface import AnimationXInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
-from apysc._animation.animation_x_interface import AnimationXInterface
-from apysc._animation.animation_move_interface import AnimationMoveInterface
 
 
 class XInterface(

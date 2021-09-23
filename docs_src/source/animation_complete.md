@@ -10,7 +10,7 @@ The handler's arguments require the event instance (`ap.AnimationEvent`) at the 
 
 ## Basic usage
 
-The `animation_complete` method requires a handler at the first argument and optional options dictionary at the second argument.
+The `animation_complete` method requires a handler at the first argument and the optional options dictionary at the second argument.
 
 The following example will call the `animation_complete` method at the x-coordinate animation end and start another animation to reset the x-coordinate:
 
@@ -118,7 +118,7 @@ animation_move.animation_complete(on_animation_complete)
 ```
 
 ```
-Exception: This interface can not be called after an animation is started.
+Exception: This interface can not be called after the animation is started.
 ```
 
 The calling of the `animation_complete` method before the `start` method will work correctly:

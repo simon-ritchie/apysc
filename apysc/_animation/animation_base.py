@@ -197,7 +197,8 @@ class AnimationBase(
         if not self._started._value:
             return
         raise Exception(
-            'This interface can not be called after an animation is started.')
+            'This interface can not be called after the animation '
+            'is started.')
 
     @property
     def target(self) -> _T:

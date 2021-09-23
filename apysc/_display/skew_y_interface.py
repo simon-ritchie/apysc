@@ -46,6 +46,11 @@ class SkewYInterface(
         -------
         skew_y : Int
             Current skew y value of the instance.
+
+        References
+        ----------
+        - GraphicsBase skew_x and skew_y interfaces document
+            - https://simon-ritchie.github.io/apysc/graphics_base_skew.html
         """
         with ap.DebugInfo(
                 callable_='skew_y', locals_=locals(),
@@ -63,6 +68,11 @@ class SkewYInterface(
         ----------
         value : Int
             Skew y value to set.
+
+        References
+        ----------
+        - GraphicsBase skew_x and skew_y interfaces document
+            - https://simon-ritchie.github.io/apysc/graphics_base_skew.html
         """
         with ap.DebugInfo(
                 callable_='skew_y', locals_=locals(),

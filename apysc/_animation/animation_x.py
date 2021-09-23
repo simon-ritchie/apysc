@@ -48,6 +48,8 @@ class AnimationX(AnimationBase[_T], Generic[_T]):
 
         References
         ----------
+        - Each animation interface return value document
+            - https://bit.ly/2XOoa8w
         - Easing enum document
             - https://simon-ritchie.github.io/apysc/easing_enum.html
         """

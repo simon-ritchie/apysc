@@ -6,11 +6,11 @@ from typing import Dict
 import apysc as ap
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._animation.animation_x_interface import AnimationXInterface
 
 
 class XInterface(
-        VariableNameInterface, RevertInterface, AttrLinkingInterface):
+        AnimationXInterface, RevertInterface, AttrLinkingInterface):
 
     _x: ap.Int
 

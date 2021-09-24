@@ -34,3 +34,13 @@ class TestAnimationCx:
             },
             any_obj=animation_cx,
         )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self) -> None:
+        target: VariableNameInterface = VariableNameInterface()
+        target.variable_name = 'test_animation_cx'
+        animation_cx: AnimationCx = AnimationCx(
+            target=target, x=100,
+        )
+        expression: str = animation_cx._get_animation_func_expression()
+        assert expression == f'\n  .cx({animation_cx._cx.variable_name});'

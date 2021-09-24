@@ -25,8 +25,8 @@ class AnimationCx(AnimationBase[_T], Generic[_T]):
             self,
             target: _T,
             x: Union[int, ap.Int],
-            duration: Union[int, ap.Int],
-            delay: Union[int, ap.Int],
+            duration: Union[int, ap.Int] = 3000,
+            delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:
         """
         The animation class for a center x-coordinate.
@@ -71,3 +71,6 @@ class AnimationCx(AnimationBase[_T], Generic[_T]):
         expression : str
             Animation function expression.
         """
+        from apysc._type import value_util
+        cx_str: str = value_util.get_value_str_for_expression(value=self._cx)
+        return f'\n  .cx({cx_str});'

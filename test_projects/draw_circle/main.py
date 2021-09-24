@@ -43,7 +43,7 @@ def main() -> None:
     circle_2 = sprite.graphics.draw_circle(x=250, y=100, radius=100)
     circle_2.click(on_circle_2_click)
 
-    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
 def on_circle_1_click(

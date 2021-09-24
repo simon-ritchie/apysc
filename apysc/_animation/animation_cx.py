@@ -74,3 +74,20 @@ class AnimationCx(AnimationBase[_T], Generic[_T]):
         from apysc._type import value_util
         cx_str: str = value_util.get_value_str_for_expression(value=self._cx)
         return f'\n  .cx({cx_str});'
+
+    _cx_snapshots: Dict[str, int]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make a value's snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_cx_snapshots'):
+            self._cx_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._cx_snapshots[snapshot_name] = int(self._cx._value)

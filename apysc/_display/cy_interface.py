@@ -4,13 +4,13 @@
 from typing import Dict
 
 import apysc as ap
+from apysc._animation.animation_cy_interface import AnimationCyInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class CyInterface(
-        VariableNameInterface, RevertInterface, AttrLinkingInterface):
+        AnimationCyInterface, RevertInterface, AttrLinkingInterface):
 
     _cy: ap.Int
 

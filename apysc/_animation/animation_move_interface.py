@@ -46,6 +46,8 @@ class AnimationMoveInterface(AnimationInterfaceBase):
 
         References
         ----------
+        - animation_move interface document
+            - https://simon-ritchie.github.io/apysc/animation_move.html
         - Animation interfaces duration setting
             - https://simon-ritchie.github.io/apysc/animation_duration.html
         - Each animation interface return value document

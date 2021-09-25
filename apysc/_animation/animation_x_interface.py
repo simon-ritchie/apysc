@@ -43,6 +43,8 @@ class AnimationXInterface(AnimationInterfaceBase):
 
         References
         ----------
+        - animation_x interface document
+            - https://simon-ritchie.github.io/apysc/animation_x.html
         - Animation interfaces duration setting
             - https://simon-ritchie.github.io/apysc/animation_duration.html
         - Each animation interface return value document

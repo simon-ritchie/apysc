@@ -4,7 +4,7 @@ This page will explain the `animation_x` method interface.
 
 ## What interface is this?
 
-The `animation_x` method interface will create an `AnimationX` instance (animation setting instance and the subclass of the `AnimationBase`) and you can animate the x-coordinate with it.
+The `animation_x` method interface will create an `AnimationX` instance (animation setting instance and the subclass of the `AnimationBase`) and you can animate x-coordinate with it.
 
 This interface exists on a `DisplayObject` subclass instance, such as the `Sprite` or `Rectangle`.
 
@@ -90,6 +90,6 @@ stage: ap.Stage = ap.Stage(
 sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#00aaff')
 circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
-animation_x: ap.AnimationCx = circle.animation_x(
+animation_cx: ap.AnimationCx = circle.animation_x(
     x=100, duration=1000, easing=ap.Easing.EASE_OUT_QUINT)
 ```

@@ -1,16 +1,16 @@
-# animation_x interface
+# animation_y interface
 
-This page will explain the `animation_x` method interface.
+This page will explain the `animation_y` method interface.
 
 ## What interface is this?
 
-The `animation_x` method interface will create an `AnimationX` instance (animation setting instance and the subclass of the `AnimationBase`) and you can animate x-coordinate with it.
+The `animation_y` method interface will create an `AnimationY` instance (animation setting instance and the subclass of the `AnimationBase`) and you can animate y-coordinate with it.
 
 This interface exists on a `DisplayObject` subclass instance, such as the `Sprite` or `Rectangle`.
 
 ## Basic usage
 
-The following example sets the x-coordinate animation (from 50 to 100) with the `animation_x` method.
+The following example sets the y-coordinate animation (from 50 to 100) with the `animation_y` method.
 
 ```py
 # runnable
@@ -33,10 +33,10 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this.target
-    animation_x: ap.AnimationX = rectangle.animation_x(
-        x=50, duration=DURATION, easing=EASING)
-    animation_x.animation_complete(on_animation_complete_2)
-    animation_x.start()
+    animation_y: ap.AnimationY = rectangle.animation_y(
+        y=50, duration=DURATION, easing=EASING)
+    animation_y.animation_complete(on_animation_complete_2)
+    animation_y.start()
 
 
 def on_animation_complete_2(
@@ -52,33 +52,33 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this.target
-    animation_x: ap.AnimationX = rectangle.animation_x(
-        x=100, duration=DURATION, easing=EASING)
-    animation_x.animation_complete(on_animation_complete_1)
-    animation_x.start()
+    animation_y: ap.AnimationY = rectangle.animation_y(
+        y=100, duration=DURATION, easing=EASING)
+    animation_y.animation_complete(on_animation_complete_1)
+    animation_y.start()
 
 
 stage: ap.Stage = ap.Stage(
-    stage_width=200, stage_height=150,
+    stage_width=150, stage_height=200,
     background_color='#333', stage_elem_id='stage')
 sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#00aaff')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
-animation_x: ap.AnimationX = rectangle.animation_x(
-    x=100, duration=DURATION, easing=EASING)
-animation_x.animation_complete(on_animation_complete_1)
-animation_x.start()
+animation_y: ap.AnimationY = rectangle.animation_y(
+    y=100, duration=DURATION, easing=EASING)
+animation_y.animation_complete(on_animation_complete_1)
+animation_y.start()
 
 ap.save_overall_html(
-    dest_dir_path='./animation_x_basic_usage/')
+    dest_dir_path='./animation_y_basic_usage/')
 ```
 
-<iframe src="static/animation_x_basic_usage/index.html" width="200" height="150"></iframe>
+<iframe src="static/animation_y_basic_usage/index.html" width="150" height="200"></iframe>
 
 ## Notes for the Circle and Ellipse classes
 
-The `Circle` and `Ellipse` classes' `animation_x` interface will return an `AnimationCx` (center-x) class instance, instead of a `AnimationX` instance, for internal implementation reason.
+The `Circle` and `Ellipse` classes' `animation_y` interface will return an `AnimationCy` (center-y) class instance, instead of a `AnimationY` instance, for internal implementation reason.
 
 ```py
 # runnable
@@ -90,6 +90,6 @@ stage: ap.Stage = ap.Stage(
 sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#00aaff')
 circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=50)
-animation_cx: ap.AnimationCx = circle.animation_x(
-    x=100, duration=1000, easing=ap.Easing.EASE_OUT_QUINT)
+animation_cy: ap.AnimationCy = circle.animation_y(
+    y=100, duration=1000, easing=ap.Easing.EASE_OUT_QUINT)
 ```

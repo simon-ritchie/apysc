@@ -182,6 +182,7 @@ The `Graphics` class handles each vector graphics drawing.
 - [Easing enum](easing_enum.md)
 - [Animation move interface](animation_move.md)
 - [Animation x interface](animation_x.md)
+- [Animation y interface](animation_y.md)
 
 ---
 

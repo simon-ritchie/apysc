@@ -3,7 +3,6 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._animation.animation_cy import AnimationCy
 from apysc._expression import var_names
 from apysc._type.variable_name_interface import VariableNameInterface
 from tests.testing_helper import assert_attrs
@@ -15,7 +14,7 @@ class TestAnimationCy:
     def test___init__(self) -> None:
         target: VariableNameInterface = VariableNameInterface()
         target.variable_name = 'test_animation_cy'
-        animation_cy: AnimationCy = AnimationCy(
+        animation_cy: ap.AnimationCy = ap.AnimationCy(
             target=target, y=100, duration=1000, delay=500,
             easing=ap.Easing.EASE_OUT_QUINT)
         assert animation_cy.variable_name.startswith(
@@ -34,7 +33,7 @@ class TestAnimationCy:
     def test__get_animation_func_expression(self) -> None:
         target: VariableNameInterface = VariableNameInterface()
         target.variable_name = 'test_animation_cy'
-        animation_cy: AnimationCy = AnimationCy(
+        animation_cy: ap.AnimationCy = ap.AnimationCy(
             target=target, y=100)
         expression: str = animation_cy._get_animation_func_expression()
         assert expression == f'\n  .cy({animation_cy._cy.variable_name});'
@@ -43,7 +42,7 @@ class TestAnimationCy:
     def test__make_snapshot(self) -> None:
         target: VariableNameInterface = VariableNameInterface()
         target.variable_name = 'test_animation_cy'
-        animation_cy: AnimationCy = AnimationCy(
+        animation_cy: ap.AnimationCy = ap.AnimationCy(
             target=target, y=100)
         snapshot_name: str = animation_cy._get_next_snapshot_name()
         animation_cy._run_all_make_snapshot_methods(
@@ -59,7 +58,7 @@ class TestAnimationCy:
     def test__revert(self) -> None:
         target: VariableNameInterface = VariableNameInterface()
         target.variable_name = 'test_animation_cy'
-        animation_cy: AnimationCy = AnimationCy(
+        animation_cy: ap.AnimationCy = ap.AnimationCy(
             target=target, y=100)
         snapshot_name: str = animation_cy._get_next_snapshot_name()
         animation_cy._run_all_make_snapshot_methods(

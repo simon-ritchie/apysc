@@ -67,4 +67,4 @@ from apysc._animation.animation_y import AnimationY  # isort:skip # noqa
 from apysc._animation.animation_cx import AnimationCx  # isort:skip # noqa
 from apysc._animation.animation_cy import AnimationCy  # isort:skip # noqa
 
-__version__: str = '0.49.3'
+__version__: str = '0.49.4'

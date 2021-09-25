@@ -10,6 +10,17 @@ a {
     color: #e33 !important;
 }
 
+/* Details tag style settings. */
+details {
+    margin-bottom: 20px;
+}
+
+/* Details summary tag style settings. */
+details summary {
+    cursor: pointer;
+    color: #e33 !important;
+}
+
 /* Hide side menu `This Page` section. */
 div[role=note] {
     display: none;

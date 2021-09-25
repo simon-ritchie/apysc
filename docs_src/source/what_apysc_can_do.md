@@ -16,7 +16,8 @@ See also:
 
 The apysc library can draw many types of vector graphics, like the rectangle, circle, line, and so on.
 
-<!--
+<details>
+<summary>Display the code block:</summary>
 
 ```py
 # runnable
@@ -61,7 +62,7 @@ ap.save_overall_html(
     dest_dir_path='what_apysc_can_do_draw_vector_graphics/')
 ```
 
--->
+</details>
 
 <iframe src="static/what_apysc_can_do_draw_vector_graphics/index.html" width="650" height="210"></iframe>
 
@@ -88,7 +89,8 @@ The apysc library supports each mouse event, like the click, mouse down, mouse o
 
 The click event example (please click the following rectangle):
 
-<!--
+<details>
+<summary>Display the code block:</summary>
 
 ```py
 # runnable
@@ -129,7 +131,7 @@ ap.save_overall_html(
     dest_dir_path='what_apysc_can_do_mouse_event_click/')
 ```
 
--->
+</details>
 
 <iframe src="static/what_apysc_can_do_mouse_event_click/index.html" width="150" height="150"></iframe>
 
@@ -145,7 +147,8 @@ See also:
 
 You can use the timer-related interfaces and animate with those.
 
-<!--
+<details>
+<summary>Display the code block:</summary>
 
 ```py
 # runnable
@@ -202,7 +205,7 @@ ap.save_overall_html(
     dest_dir_path='what_apysc_can_do_timer_animation/')
 ```
 
--->
+</details>
 
 <iframe src="static/what_apysc_can_do_timer_animation/index.html" width="150" height="150"></iframe>
 

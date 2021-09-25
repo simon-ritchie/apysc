@@ -59,52 +59,50 @@
 <section id="draw-the-many-types-of-the-vector-graphics">
 <h2>Draw the many types of the vector graphics<a class="headerlink" href="#draw-the-many-types-of-the-vector-graphics" title="Permalink to this headline">¶</a></h2>
 <p>The apysc library can draw many types of vector graphics, like the rectangle, circle, line, and so on.</p>
-<!--
+<details>
+<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
-```py
-# runnable
-import apysc as ap
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">650</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">210</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 
-stage: ap.Stage = ap.Stage(
-    stage_width=650, stage_height=210, background_color='#333',
-    stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
-sprite.graphics.begin_fill(color='#0af')
-sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_round_rect</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ellipse_width</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ellipse_height</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 
-sprite.graphics.draw_round_rect(
-    x=150, y=50, width=50, height=50, ellipse_width=12, ellipse_height=12)
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_circle</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">275</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
 
-sprite.graphics.draw_circle(x=275, y=75, radius=25)
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_ellipse</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">375</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 
-sprite.graphics.draw_ellipse(x=375, y=75, width=50, height=30)
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_polygon</span><span class="p">(</span>
+    <span class="n">points</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">475</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">450</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+    <span class="p">])</span>
 
-sprite.graphics.draw_polygon(
-    points=[
-        ap.Point2D(x=475, y=50),
-        ap.Point2D(x=450, y=100),
-        ap.Point2D(x=500, y=100),
-    ])
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#eee&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">550</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">550</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 
-sprite.graphics.begin_fill(color='')
-sprite.graphics.line_style(color='#eee', thickness=3)
-sprite.graphics.move_to(x=550, y=50)
-sprite.graphics.line_to(x=600, y=50)
-sprite.graphics.line_to(x=550, y=100)
-sprite.graphics.line_to(x=600, y=100)
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span><span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">130</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">130</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_dotted_line</span><span class="p">(</span>
+    <span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">130</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">130</span><span class="p">,</span> <span class="n">dot_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_round_dotted_line</span><span class="p">(</span>
+    <span class="n">x_start</span><span class="o">=</span><span class="mi">53</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">160</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">160</span><span class="p">,</span> <span class="n">round_size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">space_size</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 
-sprite.graphics.draw_line(x_start=50, y_start=130, x_end=600, y_end=130)
-sprite.graphics.draw_dotted_line(
-    x_start=50, y_start=130, x_end=600, y_end=130, dot_size=5)
-sprite.graphics.draw_round_dotted_line(
-    x_start=53, y_start=160, x_end=600, y_end=160, round_size=6, space_size=6)
-
-ap.save_overall_html(
-    dest_dir_path='what_apysc_can_do_draw_vector_graphics/')
-```
-
---><iframe src="static/what_apysc_can_do_draw_vector_graphics/index.html" width="650" height="210"></iframe><p>See also:</p>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;what_apysc_can_do_draw_vector_graphics/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</details><iframe src="static/what_apysc_can_do_draw_vector_graphics/index.html" width="650" height="210"></iframe><p>See also:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="graphics.html"><span class="doc">Graphics class</span></a></p></li>
 <li><p><a class="reference internal" href="graphics_begin_fill.html"><span class="doc">Graphics class begin fill interface</span></a></p></li>
@@ -126,48 +124,46 @@ ap.save_overall_html(
 <h2>Set each mouse event<a class="headerlink" href="#set-each-mouse-event" title="Permalink to this headline">¶</a></h2>
 <p>The apysc library supports each mouse event, like the click, mouse down, mouse over, mouse move, and so on.</p>
 <p>The click event example (please click the following rectangle):</p>
-<!--
-
-```py
-# runnable
-import apysc as ap
+<details>
+<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
-def on_click(
-        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
-    """
-    The handler will be called when the rectangle is clicked.
+<span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span>
+        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler will be called when the rectangle is clicked.</span>
 
-    Parameters
-    ----------
-    e : ap.MouseEvent
-        Event instance.
-    options : dict
-        Optional arguments dictionary.
-    """
-    color: ap.String = e.this.fill_color
-    condition: ap.Boolean = color == '#00aaff'
-    with ap.If(condition):
-        e.this.fill_color = ap.String('#f0a')
-    with ap.Else():
-        e.this.fill_color = ap.String('#0af')
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.MouseEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">color</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">fill_color</span>
+    <span class="n">condition</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">color</span> <span class="o">==</span> <span class="s1">&#39;#00aaff&#39;</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition</span><span class="p">):</span>
+        <span class="n">e</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;#f0a&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">Else</span><span class="p">():</span>
+        <span class="n">e</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
 
 
-stage: ap.Stage = ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 
-sprite.graphics.begin_fill(color='#0af')
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-rectangle.click(on_click)
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">rectangle</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">on_click</span><span class="p">)</span>
 
-ap.save_overall_html(
-    dest_dir_path='what_apysc_can_do_mouse_event_click/')
-```
-
---><iframe src="static/what_apysc_can_do_mouse_event_click/index.html" width="150" height="150"></iframe><p>See also:</p>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;what_apysc_can_do_mouse_event_click/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</details><iframe src="static/what_apysc_can_do_mouse_event_click/index.html" width="150" height="150"></iframe><p>See also:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="mouse_event_common.html"><span class="doc">Common mouse event interfaces</span></a></p></li>
 <li><p><a class="reference internal" href="click.html"><span class="doc">Click interface</span></a></p></li>
@@ -179,64 +175,62 @@ ap.save_overall_html(
 <section id="the-timer-interface-and-animation">
 <h2>The timer interface and animation<a class="headerlink" href="#the-timer-interface-and-animation" title="Permalink to this headline">¶</a></h2>
 <p>You can use the timer-related interfaces and animate with those.</p>
-<!--
+<details>
+<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
-```py
-# runnable
-from typing_extensions import TypedDict
-
-import apysc as ap
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
-class _Options(TypedDict):
-    rectangle: ap.Rectangle
-    alpha_direction: ap.Int
+<span class="k">class</span> <span class="nc">_Options</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span>
+    <span class="n">alpha_direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span>
 
 
-def on_timer(e: ap.TimerEvent, options: _Options) -> None:
-    """
-    The handler will be called from the timer.
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_Options</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler will be called from the timer.</span>
 
-    Parameters
-    ----------
-    e : ap.TimerEvent
-        Event instance.
-    options : dict
-        Optional arguments dictionary.
-    """
-    rectangle: ap.Rectangle = options['rectangle']
-    alpha_direction: ap.Int = options['alpha_direction']
-    current_alpha: ap.Number = rectangle.fill_alpha
-    condition_1: ap.Boolean = current_alpha < 0.0
-    condition_2: ap.Boolean = current_alpha > 1.0
-    with ap.If(condition_1):
-        alpha_direction.value = 1
-    with ap.Elif(condition_2):
-        alpha_direction.value = -1
-    rectangle.fill_alpha += alpha_direction * 0.03
-    rectangle.rotation_around_center += 1
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;rectangle&#39;</span><span class="p">]</span>
+    <span class="n">alpha_direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;alpha_direction&#39;</span><span class="p">]</span>
+    <span class="n">current_alpha</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">fill_alpha</span>
+    <span class="n">condition_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">current_alpha</span> <span class="o">&lt;</span> <span class="mf">0.0</span>
+    <span class="n">condition_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">current_alpha</span> <span class="o">&gt;</span> <span class="mf">1.0</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition_1</span><span class="p">):</span>
+        <span class="n">alpha_direction</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">Elif</span><span class="p">(</span><span class="n">condition_2</span><span class="p">):</span>
+        <span class="n">alpha_direction</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">rectangle</span><span class="o">.</span><span class="n">fill_alpha</span> <span class="o">+=</span> <span class="n">alpha_direction</span> <span class="o">*</span> <span class="mf">0.03</span>
+    <span class="n">rectangle</span><span class="o">.</span><span class="n">rotation_around_center</span> <span class="o">+=</span> <span class="mi">1</span>
 
 
-stage: ap.Stage = ap.Stage(
-    stage_width=150, stage_height=150, background_color='#333',
-    stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
 
-sprite.graphics.begin_fill(color='#0af')
-alpha_direction: ap.Int = ap.Int(1)
-rectangle: ap.Rectangle = sprite.graphics.draw_rect(
-    x=50, y=50, width=50, height=50)
-options: _Options = {
-    'rectangle': rectangle, 'alpha_direction': alpha_direction}
-timer: ap.Timer = ap.Timer(
-    on_timer, delay=ap.FPS.FPS_60, options=options)
-timer.start()
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="n">alpha_direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">options</span><span class="p">:</span> <span class="n">_Options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;rectangle&#39;</span><span class="p">:</span> <span class="n">rectangle</span><span class="p">,</span> <span class="s1">&#39;alpha_direction&#39;</span><span class="p">:</span> <span class="n">alpha_direction</span><span class="p">}</span>
+<span class="n">timer</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span>
+    <span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
+<span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-ap.save_overall_html(
-    dest_dir_path='what_apysc_can_do_timer_animation/')
-```
-
---><iframe src="static/what_apysc_can_do_timer_animation/index.html" width="150" height="150"></iframe><p>See also:</p>
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;what_apysc_can_do_timer_animation/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</details><iframe src="static/what_apysc_can_do_timer_animation/index.html" width="150" height="150"></iframe><p>See also:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="timer.html"><span class="doc">Timer class</span></a></p></li>
 <li><p><a class="reference internal" href="timer_event.html"><span class="doc">TimerEvent class</span></a></p></li>

@@ -11,7 +11,7 @@ from apysc._display.width_and_height_interfaces_for_ellipse import \
     WidthAndHeightInterfacesForEllipse
 
 
-class Ellipse(
+class Ellipse(  # type: ignore
         CxInterface, CyInterface, LineBase,
         WidthAndHeightInterfacesForEllipse):
     """

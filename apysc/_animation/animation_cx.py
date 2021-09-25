@@ -53,8 +53,8 @@ class AnimationCx(AnimationBase[_T], Generic[_T]):
             from apysc._expression import var_names
             variable_name: str = expression_variables_util.\
                 get_next_variable_name(type_name=var_names.ANIMATION_CX)
-            self._cx = to_apysc_val_from_builtin.get_copied_int_from_builtin_val(
-                integer=x)
+            self._cx = to_apysc_val_from_builtin.\
+                get_copied_int_from_builtin_val(integer=x)
             self._set_basic_animation_settings(
                 target=target,
                 duration=duration,

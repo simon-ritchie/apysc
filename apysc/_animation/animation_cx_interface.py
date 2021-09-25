@@ -5,8 +5,8 @@
 from typing import Union
 
 import apysc as ap
-from apysc._animation.animation_interface_base import AnimationInterfaceBase
 from apysc._animation.animation_cx import AnimationCx
+from apysc._animation.animation_interface_base import AnimationInterfaceBase
 from apysc._animation.easing import Easing
 
 

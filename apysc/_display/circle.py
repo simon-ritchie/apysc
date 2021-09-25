@@ -10,7 +10,8 @@ from apysc._display.line_base import LineBase
 from apysc._display.radius_interface import RadiusInterface
 
 
-class Circle(CxInterface, CyInterface, LineBase, RadiusInterface):
+class Circle(  # type: ignore
+        CxInterface, CyInterface, LineBase, RadiusInterface):
     """
     The circle vector graphics class.
 

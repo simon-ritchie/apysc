@@ -144,7 +144,9 @@ ap.save_overall_html(
 
 The following example will show the difference between the `EASE_IN_QUINT`, `EASE_OUT_QUINT`, and `EASE_IN_OUT_QUINT`.
 
-<!--
+<details>
+<summary>Display the code block:</summary>
+
 ```py
 # runnable
 from typing_extensions import TypedDict
@@ -235,7 +237,8 @@ animation_x.start()
 ap.save_overall_html(
     dest_dir_path='./easing_enum_ease_difference/')
 ```
--->
+
+</details>
 
 <iframe src="static/easing_enum_ease_difference/index.html" width="200" height="350"></iframe>
 
@@ -245,7 +248,9 @@ This section will show each ease-in setting result with the x-coordinate animati
 
 The following is the example of the `EASE_IN_SINE`, `EASE_IN_QUAD`, and `EASE_IN_CUBIC`:
 
-<!--
+<details>
+<summary>Display the code block:</summary>
+
 ```py
 # runnable
 from typing_extensions import TypedDict
@@ -336,13 +341,16 @@ animation_x.start()
 ap.save_overall_html(
     dest_dir_path='./easing_enum_ease_in_1/')
 ```
--->
+
+</details>
 
 <iframe src="static/easing_enum_ease_in_1/index.html" width="200" height="350"></iframe>
 
 The following is the example of the `EASE_IN_QUART`, `EASE_IN_QUINT`, and `EASE_IN_EXPO`:
 
-<!--
+<details>
+<summary>Display the code block:</summary>
+
 ```py
 # runnable
 from typing_extensions import TypedDict
@@ -433,13 +441,16 @@ animation_x.start()
 ap.save_overall_html(
     dest_dir_path='./easing_enum_ease_in_2/')
 ```
--->
+
+</details>
 
 <iframe src="static/easing_enum_ease_in_2/index.html" width="200" height="350"></iframe>
 
 The following is the example of the `EASE_IN_CIRC` and `EASE_IN_BACK`:
 
-<!--
+<details>
+<summary>Display the code block:</summary>
+
 ```py
 # runnable
 from typing_extensions import TypedDict
@@ -523,13 +534,16 @@ animation_x.start()
 ap.save_overall_html(
     dest_dir_path='./easing_enum_ease_in_3/')
 ```
--->
+
+</details>
 
 <iframe src="static/easing_enum_ease_in_3/index.html" width="200" height="250"></iframe>
 
 The following is the example of the `EASE_IN_ELASTIC` and `EASE_IN_BOUNCE`:
 
-<!--
+<details>
+<summary>Display the code block:</summary>
+
 ```py
 # runnable
 from typing_extensions import TypedDict
@@ -613,7 +627,8 @@ animation_x.start()
 ap.save_overall_html(
     dest_dir_path='./easing_enum_ease_in_4/')
 ```
--->
+
+</details>
 
 <iframe src="static/easing_enum_ease_in_4/index.html" width="200" height="250"></iframe>
 
@@ -623,7 +638,9 @@ This section will show each ease-out result with the x-coordinate animation.
 
 The following is the example of the `EASE_OUT_SINE`, `EASE_OUT_QUAD`, and `EASE_OUT_CUBIC`:
 
-<!--
+<details>
+<summary>Display the code block:</summary>
+
 ```py
 # runnable
 from typing_extensions import TypedDict
@@ -714,13 +731,16 @@ animation_x.start()
 ap.save_overall_html(
     dest_dir_path='./easing_enum_ease_out_1/')
 ```
--->
+
+</details>
 
 <iframe src="static/easing_enum_ease_out_1/index.html" width="200" height="350"></iframe>
 
 The following is the example of the `EASE_OUT_QUART`, `EASE_OUT_QUINT`, and `EASE_OUT_EXPO`:
 
-<!--
+<details>
+<summary>Display the code block:</summary>
+
 ```py
 # runnable
 from typing_extensions import TypedDict
@@ -811,13 +831,16 @@ animation_x.start()
 ap.save_overall_html(
     dest_dir_path='./easing_enum_ease_out_2/')
 ```
--->
+
+</details>
 
 <iframe src="static/easing_enum_ease_out_2/index.html" width="200" height="350"></iframe>
 
 The following is the example of the `EASE_OUT_CIRC` and `EASE_OUT_BACK`:
 
-<!--
+<details>
+<summary>Display the code block:</summary>
+
 ```py
 # runnable
 from typing_extensions import TypedDict
@@ -901,13 +924,16 @@ animation_x.start()
 ap.save_overall_html(
     dest_dir_path='./easing_enum_ease_out_3/')
 ```
--->
+
+</details>
 
 <iframe src="static/easing_enum_ease_out_3/index.html" width="200" height="250"></iframe>
 
 The following is the example of the `EASE_OUT_ELASTIC` and `EASE_OUT_BOUNCE`:
 
-<!--
+<details>
+<summary>Display the code block:</summary>
+
 ```py
 # runnable
 from typing_extensions import TypedDict
@@ -991,7 +1017,8 @@ animation_x.start()
 ap.save_overall_html(
     dest_dir_path='./easing_enum_ease_out_4/')
 ```
--->
+
+</details>
 
 <iframe src="static/easing_enum_ease_out_4/index.html" width="200" height="250"></iframe>
 
@@ -1001,7 +1028,9 @@ This section will show each ease-in-out setting result with the x-coordinate ani
 
 The following is the example of the `EASE_IN_OUT_SINE`, `EASE_IN_OUT_QUAD`, and `EASE_IN_OUT_CUBIC`:
 
-<!--
+<details>
+<summary>Display the code block:</summary>
+
 ```py
 # runnable
 from typing_extensions import TypedDict
@@ -1092,13 +1121,16 @@ animation_x.start()
 ap.save_overall_html(
     dest_dir_path='./easing_enum_ease_in_out_1/')
 ```
--->
+
+</details>
 
 <iframe src="static/easing_enum_ease_in_out_1/index.html" width="200" height="350"></iframe>
 
 The following is the example of the `EASE_IN_OUT_QUART`, `EASE_IN_OUT_QUINT`, and `EASE_IN_OUT_EXPO`:
 
-<!--
+<details>
+<summary>Display the code block:</summary>
+
 ```py
 # runnable
 from typing_extensions import TypedDict
@@ -1189,13 +1221,16 @@ animation_x.start()
 ap.save_overall_html(
     dest_dir_path='./easing_enum_ease_in_out_2/')
 ```
--->
+
+</details>
 
 <iframe src="static/easing_enum_ease_in_out_2/index.html" width="200" height="350"></iframe>
 
 The following is the example of the `EASE_IN_OUT_CIRC` and `EASE_IN_OUT_BACK`:
 
-<!--
+<details>
+<summary>Display the code block:</summary>
+
 ```py
 # runnable
 from typing_extensions import TypedDict
@@ -1279,13 +1314,16 @@ animation_x.start()
 ap.save_overall_html(
     dest_dir_path='./easing_enum_ease_in_out_3/')
 ```
--->
+
+</details>
 
 <iframe src="static/easing_enum_ease_in_out_3/index.html" width="200" height="250"></iframe>
 
 The following is the example of the `EASE_IN_OUT_ELASTIC` and `EASE_IN_OUT_BOUNCE`:
 
-<!--
+<details>
+<summary>Display the code block:</summary>
+
 ```py
 # runnable
 from typing_extensions import TypedDict
@@ -1369,6 +1407,7 @@ animation_x.start()
 ap.save_overall_html(
     dest_dir_path='./easing_enum_ease_in_out_4/')
 ```
--->
+
+</details>
 
 <iframe src="static/easing_enum_ease_in_out_4/index.html" width="200" height="250"></iframe>

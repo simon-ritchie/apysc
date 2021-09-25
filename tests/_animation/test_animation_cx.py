@@ -4,7 +4,6 @@ from retrying import retry
 
 import apysc as ap
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._animation.animation_cx import AnimationCx
 from apysc._expression import var_names
 from tests.testing_helper import assert_attrs
 
@@ -15,7 +14,7 @@ class TestAnimationCx:
     def test___init__(self) -> None:
         target: VariableNameInterface = VariableNameInterface()
         target.variable_name = 'test_animation_cx'
-        animation_cx: AnimationCx = AnimationCx(
+        animation_cx: ap.AnimationCx = ap.AnimationCx(
             target=target,
             x=100,
             duration=1000,
@@ -39,7 +38,7 @@ class TestAnimationCx:
     def test__get_animation_func_expression(self) -> None:
         target: VariableNameInterface = VariableNameInterface()
         target.variable_name = 'test_animation_cx'
-        animation_cx: AnimationCx = AnimationCx(
+        animation_cx: ap.AnimationCx = ap.AnimationCx(
             target=target, x=100,
         )
         expression: str = animation_cx._get_animation_func_expression()
@@ -49,7 +48,7 @@ class TestAnimationCx:
     def test__make_snapshot(self) -> None:
         target: VariableNameInterface = VariableNameInterface()
         target.variable_name = 'test_animation_cx'
-        animation_cx: AnimationCx = AnimationCx(
+        animation_cx: ap.AnimationCx = ap.AnimationCx(
             target=target, x=100,
         )
         snapshot_name: str = animation_cx._get_next_snapshot_name()
@@ -66,7 +65,7 @@ class TestAnimationCx:
     def test__revert(self) -> None:
         target: VariableNameInterface = VariableNameInterface()
         target.variable_name = 'test_animation_cx'
-        animation_cx: AnimationCx = AnimationCx(
+        animation_cx: ap.AnimationCx = ap.AnimationCx(
             target=target, x=100,
         )
         snapshot_name: str = animation_cx._get_next_snapshot_name()

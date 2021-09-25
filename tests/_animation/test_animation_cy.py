@@ -29,3 +29,12 @@ class TestAnimationCy:
                 '_easing': ap.Easing.EASE_OUT_QUINT,
             },
             any_obj=animation_cy)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self) -> None:
+        target: VariableNameInterface = VariableNameInterface()
+        target.variable_name = 'test_animation_cy'
+        animation_cy: AnimationCy = AnimationCy(
+            target=target, y=100)
+        expression: str = animation_cy._get_animation_func_expression()
+        assert expression == f'\n  .cy({animation_cy._cy.variable_name});'

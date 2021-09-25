@@ -71,3 +71,6 @@ class AnimationCy(AnimationBase[_T], Generic[_T]):
         expression : str
             Animation function expression.
         """
+        from apysc._type import value_util
+        cy_str: str = value_util.get_value_str_for_expression(value=self._cy)
+        return f'\n  .cy({cy_str});'

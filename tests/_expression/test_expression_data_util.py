@@ -8,8 +8,8 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import event_handler_scope
 from apysc._expression import expression_data_util
-from apysc._expression.expression_data_util import _LimitClauseCantUseError
 from apysc._expression import indent_num
+from apysc._expression.expression_data_util import _LimitClauseCantUseError
 from apysc._expression.indent_num import Indent
 from apysc._type.variable_name_interface import VariableNameInterface
 from tests.testing_helper import assert_raises

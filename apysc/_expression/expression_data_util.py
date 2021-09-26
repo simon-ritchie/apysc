@@ -520,4 +520,7 @@ def exec_query(sql: str, commit: bool = True) -> None:
         If the LIMIT clause used in a DELETE or UPDATE sql.
     """
     _validate_limit_clause(sql=sql)
-    pass
+    initialize_sqlite_tables_if_not_initialized()
+    cursor.execute(sql)
+    if commit:
+        connection.commit()

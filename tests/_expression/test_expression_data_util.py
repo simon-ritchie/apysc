@@ -303,3 +303,17 @@ def test__validate_limit_clause() -> None:
 
     expression_data_util._validate_limit_clause(
         sql='SELECT a FROM test_table LIMIT 1;')
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_exec_query() -> None:
+    expression_data_util.empty_expression()
+    table_name: str = \
+        expression_data_util.TableName.DEBUG_MODE_CALLABLE_COUNT.value
+    expression_data_util.exec_query(
+        sql=f"INSERT INTO {table_name}(name, count) VALUES('a', 1);")
+
+    expression_data_util.exec_query(
+        sql=f"SELECT count FROM {table_name} WHERE name = 'a' LIMIT 1;")
+    result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
+    assert result == (1,)

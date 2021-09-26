@@ -73,3 +73,7 @@ class AnimationEllipseWidth(AnimationBase[_T], Generic[_T]):
         expression : str
             Animation function expression.
         """
+        from apysc._type import value_util
+        ellipse_width_str: str = value_util.get_value_str_for_expression(
+            value=self._ellipse_width)
+        return f'\n  .attr({{rx: {ellipse_width_str}}});'

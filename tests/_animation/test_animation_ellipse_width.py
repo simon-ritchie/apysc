@@ -33,3 +33,15 @@ class TestAnimationEllipseWidth:
             },
             any_obj=animation_ellipse_width,
         )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self) -> None:
+        target: VariableNameInterface = VariableNameInterface()
+        target.variable_name = 'test_animation_ellipse_width'
+        animation_ellipse_width: ap.AnimationEllipseWidth = \
+            ap.AnimationEllipseWidth(target=target, ellipse_width=100)
+        expression: str = \
+            animation_ellipse_width._get_animation_func_expression()
+        assert expression == (
+            '\n  .attr({rx: '
+            f'{animation_ellipse_width._ellipse_width.variable_name}}});')

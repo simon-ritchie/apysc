@@ -42,7 +42,7 @@ def main() -> None:
     sprite.graphics.draw_ellipse(
         x=200, y=25, width=100, height=50)
 
-    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
+    ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
 
 def on_ellipse_click(

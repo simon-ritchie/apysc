@@ -53,7 +53,7 @@ class AnimationEllipseWidth(AnimationBase[_T], Generic[_T]):
             from apysc._expression import var_names
             variable_name: str = expression_variables_util.\
                 get_next_variable_name(
-                    type_name=var_names.ANIMATION_ELLIPSE_WIDTH)
+                    type_name=var_names.ANIMATION_WIDTH_FOR_ELLIPSE)
             self._ellipse_width = to_apysc_val_from_builtin.\
                 get_copied_int_from_builtin_val(integer=ellipse_width)
             self._set_basic_animation_settings(

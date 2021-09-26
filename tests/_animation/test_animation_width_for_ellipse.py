@@ -13,16 +13,16 @@ class TestAnimationEllipseWidth:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         target: VariableNameInterface = VariableNameInterface()
-        target.variable_name = 'test_animation_ellipse_width'
-        animation_ellipse_width: ap.AnimationEllipseWidth = \
+        target.variable_name = 'test_animation_width_for_ellipse'
+        animation_width_for_ellipse: ap.AnimationEllipseWidth = \
             ap.AnimationEllipseWidth(
                 target=target,
                 ellipse_width=100,
                 duration=1000,
                 delay=500,
                 easing=ap.Easing.EASE_OUT_QUINT)
-        assert animation_ellipse_width.variable_name.startswith(
-            f'{var_names.ANIMATION_ELLIPSE_WIDTH}_')
+        assert animation_width_for_ellipse.variable_name.startswith(
+            f'{var_names.ANIMATION_WIDTH_FOR_ELLIPSE}_')
         assert_attrs(
             expected_attrs={
                 '_target': target,
@@ -31,54 +31,56 @@ class TestAnimationEllipseWidth:
                 '_delay': 500,
                 '_easing': ap.Easing.EASE_OUT_QUINT,
             },
-            any_obj=animation_ellipse_width,
+            any_obj=animation_width_for_ellipse,
         )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:
         target: VariableNameInterface = VariableNameInterface()
-        target.variable_name = 'test_animation_ellipse_width'
-        animation_ellipse_width: ap.AnimationEllipseWidth = \
+        target.variable_name = 'test_animation_width_for_ellipse'
+        animation_width_for_ellipse: ap.AnimationEllipseWidth = \
             ap.AnimationEllipseWidth(target=target, ellipse_width=100)
         expression: str = \
-            animation_ellipse_width._get_animation_func_expression()
+            animation_width_for_ellipse._get_animation_func_expression()
         assert expression == (
             '\n  .attr({rx: '
-            f'{animation_ellipse_width._ellipse_width.variable_name}}});')
+            f'{animation_width_for_ellipse._ellipse_width.variable_name}}});')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         target: VariableNameInterface = VariableNameInterface()
-        target.variable_name = 'test_animation_ellipse_width'
-        animation_ellipse_width: ap.AnimationEllipseWidth = \
+        target.variable_name = 'test_animation_width_for_ellipse'
+        animation_width_for_ellipse: ap.AnimationEllipseWidth = \
             ap.AnimationEllipseWidth(target=target, ellipse_width=100)
-        snapshot_name: str = animation_ellipse_width._get_next_snapshot_name()
-        animation_ellipse_width._run_all_make_snapshot_methods(
+        snapshot_name: str = \
+            animation_width_for_ellipse._get_next_snapshot_name()
+        animation_width_for_ellipse._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
-        assert animation_ellipse_width._ellipse_width_snapshots[
+        assert animation_width_for_ellipse._ellipse_width_snapshots[
             snapshot_name] == 100
 
-        animation_ellipse_width._ellipse_width.value = 200
-        animation_ellipse_width._run_all_make_snapshot_methods(
+        animation_width_for_ellipse._ellipse_width.value = 200
+        animation_width_for_ellipse._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
-        assert animation_ellipse_width._ellipse_width_snapshots[
+        assert animation_width_for_ellipse._ellipse_width_snapshots[
             snapshot_name] == 100
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         target: VariableNameInterface = VariableNameInterface()
-        target.variable_name = 'test_animation_ellipse_width'
-        animation_ellipse_width: ap.AnimationEllipseWidth = \
+        target.variable_name = 'test_animation_width_for_ellipse'
+        animation_width_for_ellipse: ap.AnimationEllipseWidth = \
             ap.AnimationEllipseWidth(target=target, ellipse_width=100)
-        snapshot_name: str = animation_ellipse_width._get_next_snapshot_name()
-        animation_ellipse_width._run_all_make_snapshot_methods(
+        snapshot_name: str = animation_width_for_ellipse.\
+            _get_next_snapshot_name()
+        animation_width_for_ellipse._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
-        animation_ellipse_width._ellipse_width.value = 200
-        animation_ellipse_width._run_all_revert_methods(
+        animation_width_for_ellipse._ellipse_width.value = 200
+        animation_width_for_ellipse._run_all_revert_methods(
             snapshot_name=snapshot_name)
-        assert animation_ellipse_width._ellipse_width == 100
+        assert animation_width_for_ellipse._ellipse_width == 100
 
-        animation_ellipse_width._ellipse_width.value = 200
-        animation_ellipse_width._run_all_revert_methods(
+        animation_width_for_ellipse._ellipse_width.value = 200
+        animation_width_for_ellipse._run_all_revert_methods(
             snapshot_name=snapshot_name)
-        assert animation_ellipse_width._ellipse_width == 200
+        assert animation_width_for_ellipse._ellipse_width == 200

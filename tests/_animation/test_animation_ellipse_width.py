@@ -63,3 +63,22 @@ class TestAnimationEllipseWidth:
             snapshot_name=snapshot_name)
         assert animation_ellipse_width._ellipse_width_snapshots[
             snapshot_name] == 100
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__revert(self) -> None:
+        target: VariableNameInterface = VariableNameInterface()
+        target.variable_name = 'test_animation_ellipse_width'
+        animation_ellipse_width: ap.AnimationEllipseWidth = \
+            ap.AnimationEllipseWidth(target=target, ellipse_width=100)
+        snapshot_name: str = animation_ellipse_width._get_next_snapshot_name()
+        animation_ellipse_width._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        animation_ellipse_width._ellipse_width.value = 200
+        animation_ellipse_width._run_all_revert_methods(
+            snapshot_name=snapshot_name)
+        assert animation_ellipse_width._ellipse_width == 100
+
+        animation_ellipse_width._ellipse_width.value = 200
+        animation_ellipse_width._run_all_revert_methods(
+            snapshot_name=snapshot_name)
+        assert animation_ellipse_width._ellipse_width == 200

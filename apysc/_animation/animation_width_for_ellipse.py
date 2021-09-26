@@ -14,7 +14,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 _T = TypeVar('_T', bound=VariableNameInterface)
 
 
-class AnimationEllipseWidth(AnimationBase[_T], Generic[_T]):
+class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
     """
     The animation class for a ellipse-width.
     """
@@ -47,7 +47,7 @@ class AnimationEllipseWidth(AnimationBase[_T], Generic[_T]):
         """
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=AnimationEllipseWidth):
+                module_name=__name__, class_=AnimationWidthForEllipse):
             from apysc._converter import to_apysc_val_from_builtin
             from apysc._expression import expression_variables_util
             from apysc._expression import var_names
@@ -61,7 +61,7 @@ class AnimationEllipseWidth(AnimationBase[_T], Generic[_T]):
                 duration=duration,
                 delay=delay,
                 easing=easing)
-            super(AnimationEllipseWidth, self).__init__(
+            super(AnimationWidthForEllipse, self).__init__(
                 variable_name=variable_name)
 
     def _get_animation_func_expression(self) -> str:

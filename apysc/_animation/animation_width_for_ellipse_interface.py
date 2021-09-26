@@ -5,18 +5,19 @@ from typing import Union
 
 import apysc as ap
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
-from apysc._animation.animation_width_for_ellipse import AnimationEllipseWidth
+from apysc._animation.animation_width_for_ellipse import \
+    AnimationWidthForEllipse
 from apysc._animation.easing import Easing
 
 
-class AnimationEllipseWidthInterface(AnimationInterfaceBase):
+class AnimationWidthForEllipseInterface(AnimationInterfaceBase):
 
     def animation_width(
             self,
             ellipse_width: Union[int, ap.Int],
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
-            easing: Easing = Easing.LINEAR) -> AnimationEllipseWidth:
+            easing: Easing = Easing.LINEAR) -> AnimationWidthForEllipse:
         """
         Set the ellipse-width animation setting.
 
@@ -33,7 +34,7 @@ class AnimationEllipseWidthInterface(AnimationInterfaceBase):
 
         Returns
         -------
-        animation_width_for_ellipse : AnimationEllipseWidth
+        animation_width_for_ellipse : AnimationWidthForEllipse
             Created animation setting instance.
 
         References
@@ -45,8 +46,8 @@ class AnimationEllipseWidthInterface(AnimationInterfaceBase):
         - Easing enum document
             - https://simon-ritchie.github.io/apysc/easing_enum.html
         """
-        animation_width_for_ellipse: AnimationEllipseWidth = \
-            AnimationEllipseWidth(
+        animation_width_for_ellipse: AnimationWidthForEllipse = \
+            AnimationWidthForEllipse(
                 target=self,
                 ellipse_width=ellipse_width,
                 duration=duration,

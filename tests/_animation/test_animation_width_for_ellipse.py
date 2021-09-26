@@ -8,14 +8,14 @@ from apysc._expression import var_names
 from tests.testing_helper import assert_attrs
 
 
-class TestAnimationEllipseWidth:
+class TestAnimationWidthForEllipse:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         target: VariableNameInterface = VariableNameInterface()
         target.variable_name = 'test_animation_width_for_ellipse'
-        animation_width_for_ellipse: ap.AnimationEllipseWidth = \
-            ap.AnimationEllipseWidth(
+        animation_width_for_ellipse: ap.AnimationWidthForEllipse = \
+            ap.AnimationWidthForEllipse(
                 target=target,
                 ellipse_width=100,
                 duration=1000,
@@ -38,8 +38,8 @@ class TestAnimationEllipseWidth:
     def test__get_animation_func_expression(self) -> None:
         target: VariableNameInterface = VariableNameInterface()
         target.variable_name = 'test_animation_width_for_ellipse'
-        animation_width_for_ellipse: ap.AnimationEllipseWidth = \
-            ap.AnimationEllipseWidth(target=target, ellipse_width=100)
+        animation_width_for_ellipse: ap.AnimationWidthForEllipse = \
+            ap.AnimationWidthForEllipse(target=target, ellipse_width=100)
         expression: str = \
             animation_width_for_ellipse._get_animation_func_expression()
         assert expression == (
@@ -50,8 +50,8 @@ class TestAnimationEllipseWidth:
     def test__make_snapshot(self) -> None:
         target: VariableNameInterface = VariableNameInterface()
         target.variable_name = 'test_animation_width_for_ellipse'
-        animation_width_for_ellipse: ap.AnimationEllipseWidth = \
-            ap.AnimationEllipseWidth(target=target, ellipse_width=100)
+        animation_width_for_ellipse: ap.AnimationWidthForEllipse = \
+            ap.AnimationWidthForEllipse(target=target, ellipse_width=100)
         snapshot_name: str = \
             animation_width_for_ellipse._get_next_snapshot_name()
         animation_width_for_ellipse._run_all_make_snapshot_methods(
@@ -69,8 +69,8 @@ class TestAnimationEllipseWidth:
     def test__revert(self) -> None:
         target: VariableNameInterface = VariableNameInterface()
         target.variable_name = 'test_animation_width_for_ellipse'
-        animation_width_for_ellipse: ap.AnimationEllipseWidth = \
-            ap.AnimationEllipseWidth(target=target, ellipse_width=100)
+        animation_width_for_ellipse: ap.AnimationWidthForEllipse = \
+            ap.AnimationWidthForEllipse(target=target, ellipse_width=100)
         snapshot_name: str = animation_width_for_ellipse.\
             _get_next_snapshot_name()
         animation_width_for_ellipse._run_all_make_snapshot_methods(

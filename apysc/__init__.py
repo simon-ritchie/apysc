@@ -66,5 +66,6 @@ from apysc._animation.animation_x import AnimationX  # isort:skip # noqa
 from apysc._animation.animation_y import AnimationY  # isort:skip # noqa
 from apysc._animation.animation_cx import AnimationCx  # isort:skip # noqa
 from apysc._animation.animation_cy import AnimationCy  # isort:skip # noqa
+from apysc._animation.animation_ellipse_width import AnimationEllipseWidth  # isort:skip # noqa
 
 __version__: str = '0.50.6'

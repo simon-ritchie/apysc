@@ -1,12 +1,12 @@
-# animation_pause interface
+# animation_pause and animation_play interfaces
 
-This page will explain the `animation_pause` method interface.
+This page will explain the `animation_pause` and `animation_play` method interfaces.
 
-## What interface is this?
+## What interface are these?
 
-The `animation_pause` interface will pause all the running animations of the target instance.
+The `animation_pause` interface will pause all the running animations of the target instance. The `animation_play` interface will restart the paused animation.
 
-This interface exists in the instances that have the animation interfaces (such as the `animation_x`, `animation_move`).
+These interfaces exist in the instances that have the animation interfaces (such as the `animation_x`, `animation_move`).
 
 ## Basic usage
 

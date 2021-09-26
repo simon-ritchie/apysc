@@ -139,10 +139,9 @@ def test__save_circular_calling_handler_name() -> None:
         f'FROM {table_name} '
         f"WHERE handler_name = 'test_handler_a_2'; "
     )
-    expression_data_util.cursor.execute(query)
+    expression_data_util.exec_query(sql=query)
     result: Optional[Tuple[str, str, str]] = \
         expression_data_util.cursor.fetchone()
-    expression_data_util.connection.commit()
     assert result == (
         'test_handler_a_2', 'test_handler_a_1', 'test_instance_1')
 

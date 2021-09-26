@@ -21,12 +21,10 @@ def reset() -> None:
     Reset last expression's scope information.
     """
     from apysc._expression import expression_data_util
-    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     query: str = (
         f'DELETE FROM {expression_data_util.TableName.LAST_SCOPE.value};'
     )
-    expression_data_util.cursor.execute(query)
-    expression_data_util.connection.commit()
+    expression_data_util.exec_query(sql=query)
 
 
 def get_last_scope() -> LastScope:
@@ -40,13 +38,12 @@ def get_last_scope() -> LastScope:
         LastScope.NORMAL will be returned.
     """
     from apysc._expression import expression_data_util
-    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     query: str = (
         'SELECT last_scope FROM '
         f'{expression_data_util.TableName.LAST_SCOPE.value} '
         'LIMIT 1;'
     )
-    expression_data_util.cursor.execute(query)
+    expression_data_util.exec_query(sql=query)
     result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
     if result is None:
         return LastScope.NORMAL
@@ -70,5 +67,4 @@ def set_last_scope(value: LastScope) -> None:
         f'{expression_data_util.TableName.LAST_SCOPE.value}(last_scope) '
         f'VALUES({value.value});'
     )
-    expression_data_util.cursor.execute(query)
-    expression_data_util.connection.commit()
+    expression_data_util.exec_query(sql=query)

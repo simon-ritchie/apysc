@@ -39,9 +39,8 @@ def test_append_js_expression() -> None:
         'SELECT txt FROM '
         f'{expression_data_util.TableName.EXPRESSION_NORMAL.value};'
     )
-    expression_data_util.cursor.execute(select_query)
+    expression_data_util.exec_query(sql=select_query)
     result_1: Optional[Tuple[str]] = expression_data_util.cursor.fetchone()
-    expression_data_util.connection.commit()
     if result_1 is None:
         raise AssertionError('result value is None.')
     expected: str = 'var num = 100;\nvar str = "test";'
@@ -51,9 +50,8 @@ def test_append_js_expression() -> None:
     with Indent():
         ap.append_js_expression(
             expression=('var num_1 = 10;\nvar str_1 = "test";'))
-    expression_data_util.cursor.execute(select_query)
+    expression_data_util.exec_query(sql=select_query)
     result_2: Optional[Tuple[str]] = expression_data_util.cursor.fetchone()
-    expression_data_util.connection.commit()
     if result_2 is None:
         raise AssertionError('result value is None.')
     expected = (
@@ -63,7 +61,7 @@ def test_append_js_expression() -> None:
     assert expected in result_2[0]
 
     ap.append_js_expression(expression='var num_2 = 20;')
-    expression_data_util.cursor.execute(select_query)
+    expression_data_util.exec_query(sql=select_query)
     result_3: List[Tuple[str]] = expression_data_util.cursor.fetchall()
     assert len(result_3) == 2
     assert result_3[-1][0] == 'var num_2 = 20;'
@@ -224,10 +222,12 @@ def test_empty_expression() -> None:
         f'{expression_data_util.TableName.EXPRESSION_NORMAL.value}'
         '(txt) VALUES ("test_text");')
     expression_data_util.empty_expression()
-    expression_data_util.cursor.execute(
-        'SELECT * FROM '
-        f'{expression_data_util.TableName.EXPRESSION_NORMAL.value} '
-        'LIMIT 1;')
+    expression_data_util.exec_query(
+        sql=(
+            'SELECT * FROM '
+            f'{expression_data_util.TableName.EXPRESSION_NORMAL.value} '
+            'LIMIT 1;'
+        ))
     result: Optional[Tuple] = expression_data_util.cursor.fetchone()
     assert result is None
 

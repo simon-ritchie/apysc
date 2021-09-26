@@ -24,14 +24,12 @@ def get_current_indent_num() -> int:
         Current indent number.
     """
     from apysc._expression import expression_data_util
-    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     table_name: str = _get_indent_num_table_name()
     query: str = (
         f'SELECT num FROM {table_name} LIMIT 1;'
     )
-    expression_data_util.cursor.execute(query)
+    expression_data_util.exec_query(sql=query)
     result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
-    expression_data_util.connection.commit()
     if result is None:
         return 0
     current_indent_num: int = result[0]
@@ -48,15 +46,13 @@ def _save_current_indent_num(indent_num: int) -> None:
         Current indentation number.
     """
     from apysc._expression import expression_data_util
-    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     table_name: str = _get_indent_num_table_name()
     query: str = f'DELETE FROM {table_name};'
-    expression_data_util.cursor.execute(query)
+    expression_data_util.exec_query(sql=query, commit=False)
     query = (
         f'INSERT INTO {table_name}(num) VALUES ({indent_num});'
     )
-    expression_data_util.cursor.execute(query)
-    expression_data_util.connection.commit()
+    expression_data_util.exec_query(sql=query)
 
 
 def _get_indent_num_table_name() -> str:
@@ -114,12 +110,11 @@ def reset() -> None:
     Reset current indent number.
     """
     from apysc._expression import expression_data_util
-    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     table_names: List[str] = [
         expression_data_util.TableName.INDENT_NUM_NORMAL.value,
         expression_data_util.TableName.INDENT_NUM_HANDLER.value,
     ]
     for table_name in table_names:
         query: str = f'DELETE FROM {table_name};'
-        expression_data_util.cursor.execute(query)
+        expression_data_util.exec_query(sql=query, commit=False)
     expression_data_util.connection.commit()

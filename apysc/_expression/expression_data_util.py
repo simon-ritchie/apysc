@@ -494,9 +494,9 @@ def _validate_limit_clause(sql: str) -> None:
         If the LIMIT clause used in a DELETE or UPDATE sql.
     """
     sql_: str = sql.lower()
-    if 'delete' not in sql_ and 'update' not in sql_:
+    if 'delete ' not in sql_ and 'update ' not in sql_:
         return
-    if 'limit' not in sql_:
+    if 'limit ' not in sql_:
         return
     raise _LimitClauseCantUseError(
         f'LIMIT clause cannot use in the UPDATE or DELETE sql: {sql_}')

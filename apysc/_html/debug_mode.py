@@ -28,15 +28,13 @@ def set_debug_mode(stage: Stage) -> None:
         A current project stage instance.
     """
     from apysc._expression import expression_data_util
-    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     from apysc._validation.display_validation import validate_stage
     validate_stage(stage=stage)
     table_name: str = expression_data_util.TableName.DEBUG_MODE_SETTING.value
     query: str = f'DELETE FROM {table_name};'
-    expression_data_util.cursor.execute(query)
+    expression_data_util.exec_query(sql=query, commit=False)
     query = f'INSERT INTO {table_name}(is_debug_mode) VALUES(1);'
-    expression_data_util.cursor.execute(query)
-    expression_data_util.connection.commit()
+    expression_data_util.exec_query(sql=query)
 
 
 def unset_debug_mode() -> None:
@@ -44,11 +42,9 @@ def unset_debug_mode() -> None:
     Unset the debug mode for the HTML and JavaScript debugging.
     """
     from apysc._expression import expression_data_util
-    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     table_name: str = expression_data_util.TableName.DEBUG_MODE_SETTING.value
     query: str = f'DELETE FROM {table_name};'
-    expression_data_util.cursor.execute(query)
-    expression_data_util.connection.commit()
+    expression_data_util.exec_query(sql=query)
 
 
 def is_debug_mode() -> bool:
@@ -61,12 +57,10 @@ def is_debug_mode() -> bool:
         If the current debug mode is enabled, True will be returned.
     """
     from apysc._expression import expression_data_util
-    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     table_name: str = expression_data_util.TableName.DEBUG_MODE_SETTING.value
     query: str = f'SELECT is_debug_mode FROM {table_name} LIMIT 1;'
-    expression_data_util.cursor.execute(query)
+    expression_data_util.exec_query(sql=query)
     result_: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
-    expression_data_util.connection.commit()
     if result_ is None:
         return False
     result: bool = bool(result_[0])
@@ -149,7 +143,6 @@ def _get_callable_count(
         Target count number.
     """
     from apysc._expression import expression_data_util
-    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     path_name: str = _get_callable_path_name(
         callable_=callable_, module_name=module_name, class_=class_)
     table_name: str = \
@@ -158,9 +151,8 @@ def _get_callable_count(
         f'SELECT count FROM {table_name} '
         f"WHERE name = '{path_name}' LIMIT 1;"
     )
-    expression_data_util.cursor.execute(query)
+    expression_data_util.exec_query(sql=query)
     result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
-    expression_data_util.connection.commit()
     if result is None:
         return 0
     return result[0]
@@ -184,7 +176,6 @@ def _increment_callable_count(
         a method, this argument will be ignored.
     """
     from apysc._expression import expression_data_util
-    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     callable_count: int = _get_callable_count(
         callable_=callable_, module_name=module_name, class_=class_)
     callable_count += 1
@@ -194,15 +185,14 @@ def _increment_callable_count(
         expression_data_util.TableName.DEBUG_MODE_CALLABLE_COUNT.value
     query: str = (
         f'DELETE FROM {table_name} '
-        f"WHERE name = '{path_name}' LIMIT 1;"
+        f"WHERE name = '{path_name}';"
     )
-    expression_data_util.cursor.execute(query)
+    expression_data_util.exec_query(sql=query, commit=False)
     query = (
         f'INSERT INTO {table_name}(name, count) '
         f"VALUES ('{path_name}', {callable_count});"
     )
-    expression_data_util.cursor.execute(query)
-    expression_data_util.connection.commit()
+    expression_data_util.exec_query(sql=query)
 
 
 class DebugInfo:

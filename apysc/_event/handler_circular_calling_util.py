@@ -93,16 +93,14 @@ def get_prev_handler_name(handler_name: str) -> str:
         then blank string will be returned.
     """
     from apysc._expression import expression_data_util
-    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     table_name: str = expression_data_util.TableName.\
         CIRCULAR_CALLING_HANDLER_NAME.value
     query: str = (
         f'SELECT prev_handler_name FROM {table_name} '
         f"WHERE handler_name = '{handler_name}';"
     )
-    expression_data_util.cursor.execute(query)
+    expression_data_util.exec_query(sql=query)
     result: Optional[Tuple[str]] = expression_data_util.cursor.fetchone()
-    expression_data_util.connection.commit()
     if result is None:
         return ''
     return result[0]
@@ -126,16 +124,14 @@ def get_prev_variable_name(handler_name: str) -> str:
         then blank string will be returned.
     """
     from apysc._expression import expression_data_util
-    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     table_name: str = expression_data_util.TableName.\
         CIRCULAR_CALLING_HANDLER_NAME.value
     query: str = (
         f'SELECT prev_variable_name FROM {table_name} '
         f"WHERE handler_name = '{handler_name}';"
     )
-    expression_data_util.cursor.execute(query)
+    expression_data_util.exec_query(sql=query)
     result: Optional[Tuple[str]] = expression_data_util.cursor.fetchone()
-    expression_data_util.connection.commit()
     if result is None:
         return ''
     return result[0]
@@ -151,7 +147,6 @@ def _save_circular_calling_handler_name(handler_name: str) -> None:
         Target handler's name.
     """
     from apysc._expression import expression_data_util
-    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     prev_hadler_name: str = _get_same_name_prev_hadler_name(
         handler_name=handler_name)
     prev_variable_name: str = _get_same_name_prev_variable_name(
@@ -164,8 +159,7 @@ def _save_circular_calling_handler_name(handler_name: str) -> None:
         f"VALUES('{handler_name}', '{prev_hadler_name}', "
         f"'{prev_variable_name}');"
     )
-    expression_data_util.cursor.execute(query)
-    expression_data_util.connection.commit()
+    expression_data_util.exec_query(sql=query)
 
 
 def _get_same_name_prev_hadler_name(handler_name: str) -> str:
@@ -243,9 +237,8 @@ def _get_same_name_prev_data(handler_name: str) -> Tuple[str, str]:
         f'SELECT handler_name, variable_name FROM {table_name} '
         f'ORDER BY scope_count DESC'
     )
-    expression_data_util.cursor.execute(query)
+    expression_data_util.exec_query(sql=query)
     result: List[Tuple[str, str]] = expression_data_util.cursor.fetchall()
-    expression_data_util.connection.commit()
     for i, tpl in enumerate(result):
         handler_name_: str = tpl[0]
         if i == 0 and handler_name == handler_name_:
@@ -304,16 +297,14 @@ def _read_handler_names() -> List[str]:
     """
     from apysc._expression import event_handler_scope
     from apysc._expression import expression_data_util
-    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     table_name: str = expression_data_util.TableName.\
         HANDLER_CALLING_STACK.value
     query: str = (
         f'SELECT handler_name FROM {table_name} '
         f'ORDER BY scope_count'
     )
-    expression_data_util.cursor.execute(query)
+    expression_data_util.exec_query(sql=query)
     result: List[Tuple[str]] = expression_data_util.cursor.fetchall()
-    expression_data_util.connection.commit()
     handler_names: List[str] = [
         event_handler_scope.remove_suffix_num_from_handler_name(
             handler_name=tpl[0])

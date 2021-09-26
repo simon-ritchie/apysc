@@ -55,22 +55,20 @@ def _save_next_variable_name_count(type_name: str) -> None:
         Any type name, e.g., `sp`.
     """
     from apysc._expression import expression_data_util
-    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     next_variable_num: int = _get_next_variable_num(
         type_name=type_name)
     table_name: str = expression_data_util.TableName.VARIABLE_NAME_COUNT.value
     query: str = (
         f'DELETE FROM {table_name} '
-        f"WHERE type_name = '{type_name}' LIMIT 1;"
+        f"WHERE type_name = '{type_name}';"
     )
-    expression_data_util.cursor.execute(query)
+    expression_data_util.exec_query(sql=query, commit=False)
     query = (
         f'INSERT INTO {table_name}'
         '(type_name, count) '
         f"VALUES('{type_name}', {next_variable_num});"
     )
-    expression_data_util.cursor.execute(query)
-    expression_data_util.connection.commit()
+    expression_data_util.exec_query(sql=query)
 
 
 def _make_variable_name(type_name: str, variable_num: int) -> str:
@@ -108,15 +106,13 @@ def _get_next_variable_num(type_name: str) -> int:
         Next variable number (start from 1).
     """
     from apysc._expression import expression_data_util
-    expression_data_util.initialize_sqlite_tables_if_not_initialized()
     table_name: str = expression_data_util.TableName.VARIABLE_NAME_COUNT.value
     query: str = (
         f'SELECT count FROM {table_name} '
         f"WHERE type_name = '{type_name}' LIMIT 1;"
     )
-    expression_data_util.cursor.execute(query)
+    expression_data_util.exec_query(sql=query)
     result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
-    expression_data_util.connection.commit()
     if result is None:
         return 1
     next_variable_num: int = result[0] + 1

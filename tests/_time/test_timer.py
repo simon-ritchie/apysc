@@ -133,8 +133,7 @@ class TestTimer:
             f"VALUES('{timer._handler_name}', 'test_prev_handler', "
             f"'test_prev_variable');"
         )
-        expression_data_util.cursor.execute(query)
-        expression_data_util.connection.commit()
+        expression_data_util.exec_query(sql=query)
         timer.start()
         expression = expression_data_util.get_current_expression()
         assert f'_.isUndefined({timer.variable_name})' not in expression

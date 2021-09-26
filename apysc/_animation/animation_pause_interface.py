@@ -9,6 +9,11 @@ class AnimationPauseInterface(VariableNameInterface):
     def animation_pause(self) -> None:
         """
         Stop the all animations.
+
+        References
+        ----------
+        - animation_pause and animation_play interfaces document
+            - https://bit.ly/3m2Xh8Y
         """
         import apysc as ap
         expression: str = (

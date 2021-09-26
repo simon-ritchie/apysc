@@ -209,6 +209,11 @@ class AnimationBase(
         -------
         target : VariableNameInterface
             An animation target instance.
+
+        References
+        ----------
+        - AnimationBase class target property interface document
+            - https://simon-ritchie.github.io/apysc/animation_base_target.html
         """
         return self._target
 

@@ -7,6 +7,7 @@ Mainly following interfaces are defined:
 - get_current_expression : Get current expression string.
 - get_current_event_handler_scope_expression : Get a current
     event handler scope's expression string.
+- exec_query : Execute a SQLite sql query.
 """
 
 import sqlite3
@@ -472,3 +473,51 @@ def _get_current_expression(table_name: TableName) -> str:
     expressions: List[str] = [tpl[0] for tpl in result]
     current_expression = '\n'.join(expressions)
     return current_expression
+
+
+class _LimitClauseCantUseError(Exception):
+    ...
+
+
+def _validate_limit_clause(sql: str) -> None:
+    """
+    Validate whether a LIMIT clause is used in a UPDATE or DELETE sql.
+
+    Parameters
+    ----------
+    sql : str
+        Target sql.
+
+    Raises
+    ------
+    _LimitClauseCantUseError
+        If the LIMIT clause used in a DELETE or UPDATE sql.
+    """
+    sql_: str = sql.lower()
+    if 'delete' not in sql_ and 'update' not in sql_:
+        return
+    if 'limit' not in sql_:
+        return
+    raise _LimitClauseCantUseError(
+        f'LIMIT clause cannot use in the UPDATE or DELETE sql: {sql_}')
+
+
+def exec_query(sql: str, commit: bool = True) -> None:
+    """
+    Execute a SQLite sql query.
+
+    Parameters
+    ----------
+    sql : str
+        Target sql.
+    commit : bool, default True
+        A boolean value whether commit the transaction after the
+        sql query or not.
+
+    Raises
+    ------
+    _LimitClauseCantUseError
+        If the LIMIT clause used in a DELETE or UPDATE sql.
+    """
+    _validate_limit_clause(sql=sql)
+    pass

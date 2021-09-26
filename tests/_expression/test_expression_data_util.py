@@ -8,9 +8,11 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import event_handler_scope
 from apysc._expression import expression_data_util
+from apysc._expression.expression_data_util import _LimitClauseCantUseError
 from apysc._expression import indent_num
 from apysc._expression.indent_num import Indent
 from apysc._type.variable_name_interface import VariableNameInterface
+from tests.testing_helper import assert_raises
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -283,3 +285,21 @@ def test__create_circular_calling_handler_name_table() -> None:
         table_name=expression_data_util.TableName.
         CIRCULAR_CALLING_HANDLER_NAME)
     assert result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__validate_limit_clause() -> None:
+    sqls: List[str] = [
+        'DELETE FROM test_table LIMIT 1;',
+        'UPDATE test_table SET a = 10 LIMIT 1;',
+    ]
+    for sql in sqls:
+        assert_raises(
+            _LimitClauseCantUseError,
+            func_or_method=expression_data_util._validate_limit_clause,
+            kwargs={'sql': sql},
+            match='LIMIT clause cannot use in the UPDATE or DELETE sql',
+        )
+
+    expression_data_util._validate_limit_clause(
+        sql='SELECT a FROM test_table LIMIT 1;')

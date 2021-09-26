@@ -19,12 +19,12 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
     The animation class for a ellipse-width.
     """
 
-    _ellipse_width: ap.Int
+    _width: ap.Int
 
     def __init__(
             self,
             target: _T,
-            ellipse_width: Union[int, ap.Int],
+            width: Union[int, ap.Int],
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:
@@ -36,7 +36,7 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
         target : VariableNameInterface
             A target instance of the animation target
             (e.g., `Ellipse` instance).
-        ellipse_width : int or Int
+        width : int or Int
             The final ellipse-width of the animation.
         duration : int or Int, default 3000
             Milliseconds before an animation ends.
@@ -54,8 +54,8 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
             variable_name: str = expression_variables_util.\
                 get_next_variable_name(
                     type_name=var_names.ANIMATION_WIDTH_FOR_ELLIPSE)
-            self._ellipse_width = to_apysc_val_from_builtin.\
-                get_copied_int_from_builtin_val(integer=ellipse_width)
+            self._width = to_apysc_val_from_builtin.\
+                get_copied_int_from_builtin_val(integer=width)
             self._set_basic_animation_settings(
                 target=target,
                 duration=duration,
@@ -74,11 +74,11 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
             Animation function expression.
         """
         from apysc._type import value_util
-        ellipse_width_str: str = value_util.get_value_str_for_expression(
-            value=self._ellipse_width)
-        return f'\n  .attr({{rx: {ellipse_width_str}}});'
+        width_str: str = value_util.get_value_str_for_expression(
+            value=self._width)
+        return f'\n  .attr({{rx: {width_str}}});'
 
-    _ellipse_width_snapshots: Dict[str, int]
+    _width_snapshots: Dict[str, int]
 
     def _make_snapshot(self, snapshot_name: str) -> None:
         """
@@ -89,12 +89,12 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
         snapshot_name : str
             Target snapshot name.
         """
-        if not hasattr(self, '_ellipse_width_snapshots'):
-            self._ellipse_width_snapshots = {}
+        if not hasattr(self, '_width_snapshots'):
+            self._width_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
-        self._ellipse_width_snapshots[snapshot_name] = int(
-            self._ellipse_width._value)
+        self._width_snapshots[snapshot_name] = int(
+            self._width._value)
 
     def _revert(self, snapshot_name: str) -> None:
         """
@@ -107,5 +107,4 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
-        self._ellipse_width._value = self._ellipse_width_snapshots[
-            snapshot_name]
+        self._width._value = self._width_snapshots[snapshot_name]

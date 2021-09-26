@@ -14,7 +14,7 @@ class AnimationWidthForEllipseInterface(AnimationInterfaceBase):
 
     def animation_width(
             self,
-            ellipse_width: Union[int, ap.Int],
+            width: Union[int, ap.Int],
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationWidthForEllipse:
@@ -23,7 +23,7 @@ class AnimationWidthForEllipseInterface(AnimationInterfaceBase):
 
         Parameters
         ----------
-        ellipse_width : int or Int
+        width : int or Int
             The final ellipse-width of the animation.
         duration : int or Int, default 3000
             Milliseconds before an animation ends.
@@ -49,7 +49,7 @@ class AnimationWidthForEllipseInterface(AnimationInterfaceBase):
         animation_width_for_ellipse: AnimationWidthForEllipse = \
             AnimationWidthForEllipse(
                 target=self,
-                ellipse_width=ellipse_width,
+                width=width,
                 duration=duration,
                 delay=delay,
                 easing=easing)

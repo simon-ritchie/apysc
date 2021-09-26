@@ -43,8 +43,8 @@ class TestAnimationWidthForEllipse:
         expression: str = \
             animation_width_for_ellipse._get_animation_func_expression()
         assert expression == (
-            '\n  .attr({rx: '
-            f'{animation_width_for_ellipse._width.variable_name}}});')
+            '\n  .attr({rx: parseInt('
+            f'{animation_width_for_ellipse._width.variable_name} / 2)}});')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:

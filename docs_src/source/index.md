@@ -181,6 +181,7 @@ The `Graphics` class handles each vector graphics drawing.
 - [AnimationBase class start interface](animation_base_start.md)
 - [AnimationBase class animation complete interface](animation_complete.md)
 - [AnimationBase class target property](animation_base_target.md)
+- [Animation pause interface](animation_pause.md)
 - [Easing enum](easing_enum.md)
 - [Animation move interface](animation_move.md)
 - [Animation x interface](animation_x.md)

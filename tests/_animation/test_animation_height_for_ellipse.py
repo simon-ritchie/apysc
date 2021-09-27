@@ -30,3 +30,15 @@ class TestAnimationHeightForEllipse:
                 '_easing': ap.Easing.EASE_OUT_QUINT,
             },
             any_obj=animation_height_for_ellipse)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self) -> None:
+        target: VariableNameInterface = VariableNameInterface()
+        target.variable_name = 'test_animation_height_for_ellipse'
+        animation_height_for_ellipse: ap.AnimationHeightForEllipse = \
+            ap.AnimationHeightForEllipse(target=target, height=100)
+        expression: str = animation_height_for_ellipse.\
+            _get_animation_func_expression()
+        assert expression == (
+            '\n  .attr({ry: parseInt'
+            f'({animation_height_for_ellipse._height.variable_name} / 2)}});')

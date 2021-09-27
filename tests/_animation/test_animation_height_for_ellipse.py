@@ -61,3 +61,23 @@ class TestAnimationHeightForEllipse:
             snapshot_name=snapshot_name)
         assert animation_height_for_ellipse._height_snapshots[
             snapshot_name] == 100
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__revert(self) -> None:
+        target: VariableNameInterface = VariableNameInterface()
+        target.variable_name = 'test_animation_height_for_ellipse'
+        animation_height_for_ellipse: ap.AnimationHeightForEllipse = \
+            ap.AnimationHeightForEllipse(target=target, height=100)
+        snapshot_name: str = animation_height_for_ellipse.\
+            _get_next_snapshot_name()
+        animation_height_for_ellipse._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        animation_height_for_ellipse._height.value = 200
+        animation_height_for_ellipse._run_all_revert_methods(
+            snapshot_name=snapshot_name)
+        assert animation_height_for_ellipse._height == 100
+
+        animation_height_for_ellipse._height.value = 200
+        animation_height_for_ellipse._run_all_revert_methods(
+            snapshot_name=snapshot_name)
+        assert animation_height_for_ellipse._height == 200

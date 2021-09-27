@@ -93,8 +93,7 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
             self._width_snapshots = {}
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
-        self._width_snapshots[snapshot_name] = int(
-            self._width._value)
+        self._width_snapshots[snapshot_name] = int(self._width._value)
 
     def _revert(self, snapshot_name: str) -> None:
         """

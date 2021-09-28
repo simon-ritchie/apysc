@@ -36,8 +36,8 @@ class AnimationHeightForEllipse(AnimationBase[_T], Generic[_T]):
         target : VariableNameInterface
             A target instance of the animation target
             (e.g., `Ellipse` instance).
-        width : int or Int
-            The final ellipse-width of the animation.
+        height : int or Int
+            The final ellipse-height of the animation.
         duration : int or Int, default 3000
             Milliseconds before an animation ends.
         delay : int or Int, default 0

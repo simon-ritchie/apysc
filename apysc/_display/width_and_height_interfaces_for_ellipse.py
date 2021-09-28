@@ -10,10 +10,10 @@ can't use this interface.
 from typing import Dict
 
 import apysc as ap
-from apysc._animation.animation_width_for_ellipse_interface import \
-    AnimationWidthForEllipseInterface
 from apysc._animation.animation_height_for_ellipse_interface import \
     AnimationHeightForEllipseInterface
+from apysc._animation.animation_width_for_ellipse_interface import \
+    AnimationWidthForEllipseInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 

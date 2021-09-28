@@ -66,6 +66,7 @@ from apysc._animation.animation_x import AnimationX  # isort:skip # noqa
 from apysc._animation.animation_y import AnimationY  # isort:skip # noqa
 from apysc._animation.animation_cx import AnimationCx  # isort:skip # noqa
 from apysc._animation.animation_cy import AnimationCy  # isort:skip # noqa
+from apysc._animation.animation_width import AnimationWidth  # isort:skip # noqa
 from apysc._animation.animation_width_for_ellipse import AnimationWidthForEllipse  # isort:skip # noqa
 from apysc._animation.animation_height_for_ellipse import AnimationHeightForEllipse  # isort:skip # noqa
 

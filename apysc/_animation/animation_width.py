@@ -71,3 +71,7 @@ class AnimationWidth(AnimationBase[_T], Generic[_T]):
         expression : str
             Animation function expression.
         """
+        from apysc._type import value_util
+        width_str: str = value_util.get_value_str_for_expression(
+            value=self._width)
+        return f'\n  .width({width_str});'

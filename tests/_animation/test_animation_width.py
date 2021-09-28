@@ -28,3 +28,13 @@ class TestAnimationWidth:
                 '_easing': ap.Easing.EASE_OUT_QUINT,
             },
             any_obj=animation_width)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self) -> None:
+        target: VariableNameInterface = VariableNameInterface()
+        target.variable_name = 'test_animation_width'
+        animation_width: ap.AnimationWidth = ap.AnimationWidth(
+            target=target, width=100)
+        expression: str = animation_width._get_animation_func_expression()
+        assert expression == \
+            f'\n  .width({animation_width._width.variable_name});'

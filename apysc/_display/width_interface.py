@@ -5,13 +5,13 @@ from typing import Dict
 from typing import Union
 
 import apysc as ap
+from apysc._animation.animation_width_interface import AnimationWidthInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class WidthInterface(
-        VariableNameInterface, RevertInterface, AttrLinkingInterface):
+        AnimationWidthInterface, RevertInterface, AttrLinkingInterface):
 
     _width: ap.Int
 

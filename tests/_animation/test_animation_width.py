@@ -54,3 +54,20 @@ class TestAnimationWidth:
         animation_width._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
         assert animation_width._width_snapshots[snapshot_name] == 100
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__revert(self) -> None:
+        target: VariableNameInterface = VariableNameInterface()
+        target.variable_name = 'test_animation_width'
+        animation_width: ap.AnimationWidth = ap.AnimationWidth(
+            target=target, width=100)
+        snapshot_name: str = animation_width._get_next_snapshot_name()
+        animation_width._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        animation_width._width.value = 200
+        animation_width._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert animation_width._width == 100
+
+        animation_width._width.value = 200
+        animation_width._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert animation_width._width == 200

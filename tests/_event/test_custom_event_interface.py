@@ -95,13 +95,15 @@ class TestCustomEventInterface:
         name: str = interface.bind_custom_event(
             custom_event_type='test_custom_event',
             handler=self.on_custom_event,
-            e=e)
+            e=e,
+            in_handler_head_expression='console.log("hello");')
         expression: str = expression_data_util.\
             get_current_event_handler_scope_expression()
         expected: str = (
             f'function {name}({e.variable_name}) {{'
         )
         assert expected in expression
+        assert 'console.log("hello");' in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_trigger_custom_event(self) -> None:

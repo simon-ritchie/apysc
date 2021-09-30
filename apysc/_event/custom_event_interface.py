@@ -111,7 +111,8 @@ class CustomEventInterface(BlankObjectInterface):
             self, custom_event_type: Union[CustomEventType, str],
             handler: _Handler,
             e: Event,
-            options: Optional[Any] = None) -> str:
+            options: Optional[Any] = None,
+            in_handler_head_expression: str = '') -> str:
         """
         Add a custom event listener setting.
 
@@ -125,6 +126,9 @@ class CustomEventInterface(BlankObjectInterface):
             Event instance.
         options : dict or None, default None
             Optional arguments dictionary to be passed to a handler.
+        in_handler_head_expression : str, default ''
+            Optional expression to be added at the handler function's
+            head position.
 
         Returns
         -------
@@ -157,7 +161,8 @@ class CustomEventInterface(BlankObjectInterface):
             handler_data: HandlerData = \
                 self._custom_event_handlers[custom_event_type_str][name]
             append_handler_expression(
-                handler_data=handler_data, handler_name=name, e=e)
+                handler_data=handler_data, handler_name=name, e=e,
+                in_handler_head_expression=in_handler_head_expression)
             return name
 
     def _append_custom_event_binding_expression(

@@ -8,7 +8,7 @@ The `Easing` enum class defines each easing function. These are used at the anim
 
 ## Basic usage
 
-Each animation method interface, such as the `animation_move`, `animation_x`, has the `easing` argument and you can specify any of the `Easing.EASE_OUT_QUINT` enum, as follows:
+Each animation method interface, such as the `animation_move`, `animation_x`, has the `easing` argument and you can specify any of the `Easing` enum, as follows:
 
 ```py
 # runnable

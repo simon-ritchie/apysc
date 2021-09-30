@@ -75,3 +75,20 @@ class AnimationHeight(AnimationBase[_T], Generic[_T]):
         height_str: str = value_util.get_value_str_for_expression(
             value=self._height)
         return f'\n  .height({height_str});'
+
+    _height_snapshots: Dict[str, int]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make a value's snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_height_snapshots'):
+            self._height_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._height_snapshots[snapshot_name] = int(self._height._value)

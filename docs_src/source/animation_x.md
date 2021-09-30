@@ -10,7 +10,7 @@ This interface exists on a `DisplayObject` subclass instance, such as the `Sprit
 
 ## Basic usage
 
-The following example sets the x-coordinate animation (from 50 to 100) with the `animation_x` method.
+The following example sets the x-coordinate animation (from 50 to 100) with the `animation_x` method:
 
 ```py
 # runnable

@@ -31,6 +31,31 @@ def get_copied_int_from_builtin_val(
         return copied
 
 
+def get_copied_number_from_builtin_val(
+        float_or_num: Union[float, ap.Number]) -> ap.Number:
+    """
+    Get a copied number value from a Python built-in float.
+
+    Parameters
+    ----------
+    float_or_num : float or Number
+        Target float (or Number) value.
+
+    Returns
+    -------
+    num : Number
+        Copied Number value.
+    """
+    with ap.DebugInfo(
+            callable_=get_copied_number_from_builtin_val, locals_=locals(),
+            module_name=__name__):
+        if isinstance(float_or_num, float):
+            copied: ap.Number = ap.Number(float_or_num)
+        else:
+            copied = float_or_num._copy()
+        return copied
+
+
 def get_copied_string_from_builtin_val(
         string: Union[str, ap.String]) -> ap.String:
     """

@@ -94,3 +94,16 @@ class AnimationFillAlpha(AnimationBase[_T], Generic[_T]):
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._fill_alpha_snapshots[snapshot_name] = self._fill_alpha._value
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert value if a snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._fill_alpha._value = self._fill_alpha_snapshots[snapshot_name]

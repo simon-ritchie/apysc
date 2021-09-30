@@ -105,15 +105,34 @@ def append_handler_expression(
                 )
                 ap.append_js_expression(expression=expression)
                 with Indent():
-                    if in_handler_head_expression != '':
-                        ap.append_js_expression(
-                            expression=in_handler_head_expression)
+                    _append_in_handler_head_expression(
+                        in_handler_head_expression=in_handler_head_expression)
                     handler_data['handler'](
                         e, handler_data['options'])
                 ap.append_js_expression(expression='}')
 
         revert_interface.revert_variables(
             snapshot_name=snapshot_name, variables=variables)
+
+
+def _append_in_handler_head_expression(
+        in_handler_head_expression: str) -> None:
+    """
+    Append an in-handler head expression if it is not blank.
+
+    Parameters
+    ----------
+    in_handler_head_expression : str
+        Optional expression to be added at the handler function's
+        head position if it is not blank.
+    """
+    import apysc as ap
+    with ap.DebugInfo(
+        callable_=_append_in_handler_head_expression, locals_=locals(),
+        module_name=__name__):
+        if in_handler_head_expression == '':
+            return
+        ap.append_js_expression(expression=in_handler_head_expression)
 
 
 def append_unbinding_expression(

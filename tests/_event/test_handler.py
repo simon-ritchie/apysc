@@ -147,3 +147,17 @@ def test_append_unbinding_all_expression() -> None:
         f'{int_1.variable_name}.off("{ap.MouseEventType.CLICK.value}");'
     )
     assert expected in expression
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__append_in_handler_head_expression() -> None:
+    expression_data_util.empty_expression()
+    handler._append_in_handler_head_expression(
+        in_handler_head_expression='')
+    expression: str = expression_data_util.get_current_expression()
+    assert expression == ''
+
+    handler._append_in_handler_head_expression(
+        in_handler_head_expression='console.log("hello");')
+    expression = expression_data_util.get_current_expression()
+    assert expression == 'console.log("hello");'

@@ -69,7 +69,7 @@ jobs:
 
       # Update test coverage badge on README.
       - name: Test coverage badge setting
-        uses: RubbaBoy/BYOB@v1.2.0
+        uses: RubbaBoy/BYOB@v1.2.1
         with:
           NAME: pytest_coverage
           LABEL: 'pytest coverage'

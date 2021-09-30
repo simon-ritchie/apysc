@@ -92,3 +92,16 @@ class AnimationHeight(AnimationBase[_T], Generic[_T]):
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
         self._height_snapshots[snapshot_name] = int(self._height._value)
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert value if a snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._height._value = self._height_snapshots[snapshot_name]

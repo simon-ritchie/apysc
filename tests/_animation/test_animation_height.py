@@ -28,3 +28,13 @@ class TestAnimationHeight:
                 '_easing': ap.Easing.EASE_OUT_QUINT,
             },
             any_obj=animation_height)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self) -> None:
+        target: VariableNameInterface = VariableNameInterface()
+        target.variable_name = 'test_animation_height'
+        animation_height: ap.AnimationHeight = ap.AnimationHeight(
+            target=target, height=100)
+        expression: str = animation_height._get_animation_func_expression()
+        assert expression == (
+            f'\n  .height({animation_height._height.variable_name});')

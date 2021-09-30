@@ -60,7 +60,8 @@ def get_handler_name(
 def append_handler_expression(
         handler_data: HandlerData,
         handler_name: str,
-        e: Event) -> None:
+        e: Event,
+        in_handler_head_expression: str = '') -> None:
     """
     Append a handler's expression.
 
@@ -72,6 +73,9 @@ def append_handler_expression(
         Target handler's name.
     e : Event
         Created event instance.
+    in_handler_head_expression : str, default ''
+        Optional expression to be added at the handler function's
+        head position.
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -101,6 +105,9 @@ def append_handler_expression(
                 )
                 ap.append_js_expression(expression=expression)
                 with Indent():
+                    if in_handler_head_expression != '':
+                        ap.append_js_expression(
+                            expression=in_handler_head_expression)
                     handler_data['handler'](
                         e, handler_data['options'])
                 ap.append_js_expression(expression='}')

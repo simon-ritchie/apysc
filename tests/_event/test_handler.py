@@ -105,7 +105,20 @@ def test_append_handler_expression() -> None:
                     handler_data=handler_data,
                     handler_name='test_handler_b_2',
                     e=e)
+    expression = \
+        expression_data_util.get_current_event_handler_scope_expression()
     assert 'test_handler_b' not in expression
+
+    expression_data_util.empty_expression()
+    handler.append_handler_expression(
+        handler_data=handler_data,
+        handler_name='test_handler',
+        e=e,
+        in_handler_head_expression='console.log("hello");')
+    expression = \
+        expression_data_util.get_current_event_handler_scope_expression()
+    expected = '{\n  console.log("hello");\n'
+    assert expected in expression
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

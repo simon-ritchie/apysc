@@ -28,3 +28,15 @@ class TestAnimationFillAlpha:
                 '_easing': ap.Easing.EASE_OUT_QUINT,
             },
             any_obj=animation_fill_alpha)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self) -> None:
+        target: VariableNameInterface = VariableNameInterface()
+        target.variable_name = 'test_animation_fill_alpha'
+        animation_fill_alpha: ap.AnimationFillAlpha = ap.AnimationFillAlpha(
+            target=target, alpha=0.5)
+        expression: str = \
+            animation_fill_alpha._get_animation_func_expression()
+        assert expression == (
+            '\n  .attr({"fill-opacity": '
+            f'{animation_fill_alpha._fill_alpha.variable_name}}});')

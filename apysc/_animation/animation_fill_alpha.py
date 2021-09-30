@@ -73,3 +73,7 @@ class AnimationFillAlpha(AnimationBase[_T], Generic[_T]):
         expression : str
             Animation function expression.
         """
+        from apysc._type import value_util
+        fill_alpha_str: str = value_util.get_value_str_for_expression(
+            value=self._fill_alpha)
+        return f'\n  .attr({{"fill-opacity": {fill_alpha_str}}});'

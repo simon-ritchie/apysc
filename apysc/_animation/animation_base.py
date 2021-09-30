@@ -178,12 +178,28 @@ class AnimationBase(
             self._validate_animation_not_started()
             validate_options_type(options=options)
             e: ap.AnimationEvent[_T] = ap.AnimationEvent(this=self)
+            in_handler_head_expression: str = \
+                self._get_complete_event_in_handler_head_expression()
             name: str = self.bind_custom_event(
                 custom_event_type=CustomEventType.ANIMATION_COMPLETE,
                 handler=handler,
                 e=e,
-                options=options)
+                options=options,
+                in_handler_head_expression=in_handler_head_expression)
             return name
+
+    @abstractmethod
+    def _get_complete_event_in_handler_head_expression(self) -> str:
+        """
+        Get an expression to be inserted into the complete event
+        handler's head.
+
+        Returns
+        -------
+        expression : str
+            An expression to be inserted into the complete event
+            handler's head.
+        """
 
     def _validate_animation_not_started(self) -> None:
         """

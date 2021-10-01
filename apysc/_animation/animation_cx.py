@@ -94,8 +94,7 @@ class AnimationCx(AnimationBase[_T], Generic[_T]):
                 f'{self._cx.variable_name};'
             )
             return expression
-        else:
-            return ''
+        return ''
 
     _cx_snapshots: Dict[str, int]
 

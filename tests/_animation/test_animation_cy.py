@@ -5,6 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import var_names
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._display.cy_interface import CyInterface
 from tests.testing_helper import assert_attrs
 
 
@@ -70,3 +71,24 @@ class TestAnimationCy:
         animation_cy._cy.value = 200
         animation_cy._run_all_revert_methods(snapshot_name=snapshot_name)
         assert animation_cy._cy == 200
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_complete_event_in_handler_head_expression(self) -> None:
+        target_1: VariableNameInterface = VariableNameInterface()
+        target_1.variable_name = 'test_animation_cy'
+        animation_cy: ap.AnimationCy = ap.AnimationCy(
+            target=target_1, y=100)
+        expression: str = animation_cy.\
+            _get_complete_event_in_handler_head_expression()
+        assert expression == ''
+
+        target_2: CyInterface = CyInterface()
+        target_2.variable_name = 'test_animation_cy'
+        animation_cy = ap.AnimationCy(target=target_2, y=100)
+        expression = animation_cy.\
+            _get_complete_event_in_handler_head_expression()
+        expected: str = (
+            f'{target_2._cy.variable_name} = '
+            f'{animation_cy._cy.variable_name};'
+        )
+        assert expression == expected

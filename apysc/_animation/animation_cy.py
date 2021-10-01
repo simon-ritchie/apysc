@@ -75,6 +75,27 @@ class AnimationCy(AnimationBase[_T], Generic[_T]):
         cy_str: str = value_util.get_value_str_for_expression(value=self._cy)
         return f'\n  .cy({cy_str});'
 
+    def _get_complete_event_in_handler_head_expression(self) -> str:
+        """
+        Get an expression to be inserted into the complete event
+        handler's head.
+
+        Returns
+        -------
+        expression : str
+            An expression to be inserted into the complete event
+            handler's head.
+        """
+        from apysc._display.cy_interface import CyInterface
+        if isinstance(self._target, CyInterface):
+            self._target._initialize_cy_if_not_initialized()
+            expression: str = (
+                f'{self._target._cy.variable_name} = '
+                f'{self._cy.variable_name};'
+            )
+            return expression
+        return ''
+
     _cy_snapshots: Dict[str, int]
 
     def _make_snapshot(self, snapshot_name: str) -> None:

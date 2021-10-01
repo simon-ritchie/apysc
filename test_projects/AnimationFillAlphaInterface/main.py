@@ -58,6 +58,7 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this.target
+    ap.assert_equal(0.5, rectangle.fill_alpha)
     animation_fill_alpha: ap.AnimationFillAlpha = \
         rectangle.animation_fill_alpha(
             alpha=1.0,
@@ -81,6 +82,7 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this.target
+    ap.assert_equal(1.0, rectangle.fill_alpha)
     animation_fill_alpha: ap.AnimationFillAlpha = \
         rectangle.animation_fill_alpha(
             alpha=0.5,

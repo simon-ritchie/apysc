@@ -78,6 +78,28 @@ class AnimationHeightForEllipse(AnimationBase[_T], Generic[_T]):
             value=self._height)
         return f'\n  .attr({{ry: parseInt({height_str} / 2)}});'
 
+    def _get_complete_event_in_handler_head_expression(self) -> str:
+        """
+        Get an expression to be inserted into the complete event
+        handler's head.
+
+        Returns
+        -------
+        expression : str
+            An expression to be inserted into the complete event
+            handler's head.
+        """
+        from apysc._display.width_and_height_interfaces_for_ellipse import \
+            WidthAndHeightInterfacesForEllipse
+        if isinstance(self._target, WidthAndHeightInterfacesForEllipse):
+            self._target._initialize_width_and_height_if_not_initialized()
+            expression: str = (
+                f'{self._target._height.variable_name} = '
+                f'{self._height.variable_name};'
+            )
+            return expression
+        return ''
+
     _height_snapshots: Dict[str, int]
 
     def _make_snapshot(self, snapshot_name: str) -> None:

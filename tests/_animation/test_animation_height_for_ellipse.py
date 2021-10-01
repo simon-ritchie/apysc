@@ -5,6 +5,8 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import var_names
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._display.width_and_height_interfaces_for_ellipse import \
+    WidthAndHeightInterfacesForEllipse
 from tests.testing_helper import assert_attrs
 
 
@@ -81,3 +83,26 @@ class TestAnimationHeightForEllipse:
         animation_height_for_ellipse._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert animation_height_for_ellipse._height == 200
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_complete_event_in_handler_head_expression(self) -> None:
+        target_1: VariableNameInterface = VariableNameInterface()
+        target_1.variable_name = 'test_animation_height_for_ellipse'
+        animation_height_for_ellipse: ap.AnimationHeightForEllipse = \
+            ap.AnimationHeightForEllipse(target=target_1, height=100)
+        expression: str = animation_height_for_ellipse.\
+            _get_complete_event_in_handler_head_expression()
+        assert expression == ''
+
+        target_2: WidthAndHeightInterfacesForEllipse = \
+            WidthAndHeightInterfacesForEllipse()
+        target_2.variable_name = 'test_animation_height_for_ellipse'
+        animation_height_for_ellipse = \
+            ap.AnimationHeightForEllipse(target=target_2, height=100)
+        expression = animation_height_for_ellipse.\
+            _get_complete_event_in_handler_head_expression()
+        expected: str = (
+            f'{target_2._height.variable_name} = '
+            f'{animation_height_for_ellipse._height.variable_name};'
+        )
+        assert expression == expected

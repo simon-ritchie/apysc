@@ -193,12 +193,6 @@ class AnimationBase(
         """
         Get an expression to be inserted into the complete event
         handler's head.
-
-        Returns
-        -------
-        expression : str
-            An expression to be inserted into the complete event
-            handler's head.
         """
 
     def _validate_animation_not_started(self) -> None:

@@ -75,6 +75,28 @@ class AnimationCx(AnimationBase[_T], Generic[_T]):
         cx_str: str = value_util.get_value_str_for_expression(value=self._cx)
         return f'\n  .cx({cx_str});'
 
+    def _get_complete_event_in_handler_head_expression(self) -> str:
+        """
+        Get an expression to be inserted into the complete event
+        handler's head.
+
+        Returns
+        -------
+        expression : str
+            An expression to be inserted into the complete event
+            handler's head.
+        """
+        from apysc._display.cx_interface import CxInterface
+        if isinstance(self._target, CxInterface):
+            self._target._initialize_cx_if_not_initialized()
+            expression: str = (
+                f'{self._target._cx.variable_name} = '
+                f'{self._cx.variable_name};'
+            )
+            return expression
+        else:
+            return ''
+
     _cx_snapshots: Dict[str, int]
 
     def _make_snapshot(self, snapshot_name: str) -> None:

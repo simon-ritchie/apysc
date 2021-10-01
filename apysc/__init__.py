@@ -72,4 +72,4 @@ from apysc._animation.animation_width_for_ellipse import AnimationWidthForEllips
 from apysc._animation.animation_height_for_ellipse import AnimationHeightForEllipse  # isort:skip # noqa
 from apysc._animation.animation_fill_alpha import AnimationFillAlpha  # isort:skip # noqa
 
-__version__: str = '0.50.14'
+__version__: str = '0.51.0'

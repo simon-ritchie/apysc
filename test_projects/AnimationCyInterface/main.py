@@ -54,6 +54,7 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     circle: ap.Circle = e.this.target
+    ap.assert_equal(300, circle.y)
     animation_cy: ap.AnimationCy = circle.animation_y(
         y=150, duration=1000, delay=500, easing=ap.Easing.EASE_OUT_QUINT)
     animation_cy.animation_complete(on_animation_complete_2)
@@ -73,6 +74,7 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     circle: ap.Circle = e.this.target
+    ap.assert_equal(150, circle.y)
     animation_cy: ap.AnimationCy = circle.animation_y(
         y=300, duration=1000, delay=500, easing=ap.Easing.EASE_OUT_QUINT)
     animation_cy.animation_complete(on_animation_complete_1)

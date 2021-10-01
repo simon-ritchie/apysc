@@ -78,6 +78,27 @@ class AnimationFillAlpha(AnimationBase[_T], Generic[_T]):
             value=self._fill_alpha)
         return f'\n  .attr({{"fill-opacity": {fill_alpha_str}}});'
 
+    def _get_complete_event_in_handler_head_expression(self) -> str:
+        """
+        Get an expression to be inserted into the complete event
+        handler's head.
+
+        Returns
+        -------
+        expression : str
+            An expression to be inserted into the complete event
+            handler's head.
+        """
+        from apysc._display.fill_alpha_interface import FillAlphaInterface
+        if isinstance(self._target, FillAlphaInterface):
+            self._target._initialize_fill_alpha_if_not_initialized()
+            expression: str = (
+                f'{self._target._fill_alpha.variable_name} = '
+                f'{self._fill_alpha.variable_name};'
+            )
+            return expression
+        return ''
+
     _fill_alpha_snapshots: Dict[str, float]
 
     def _make_snapshot(self, snapshot_name: str) -> None:

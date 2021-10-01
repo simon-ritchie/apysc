@@ -5,6 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import var_names
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._display.fill_alpha_interface import FillAlphaInterface
 from tests.testing_helper import assert_attrs
 
 
@@ -77,3 +78,25 @@ class TestAnimationFillAlpha:
         animation_fill_alpha._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert animation_fill_alpha._fill_alpha == 0.3
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_complete_event_in_handler_head_expression(self) -> None:
+        target_1: VariableNameInterface = VariableNameInterface()
+        target_1.variable_name = 'test_animation_fill_alpha'
+        animation_fill_alpha: ap.AnimationFillAlpha = ap.AnimationFillAlpha(
+            target=target_1, alpha=0.5)
+        expression: str = animation_fill_alpha.\
+            _get_complete_event_in_handler_head_expression()
+        assert expression == ''
+
+        target_2: FillAlphaInterface = FillAlphaInterface()
+        target_2.variable_name = 'test_animation_fill_alpha'
+        animation_fill_alpha = ap.AnimationFillAlpha(
+            target=target_2, alpha=0.5)
+        expression = animation_fill_alpha.\
+            _get_complete_event_in_handler_head_expression()
+        expected: str = (
+            f'{target_2._fill_alpha.variable_name} = '
+            f'{animation_fill_alpha._fill_alpha.variable_name};'
+        )
+        assert expression == expected

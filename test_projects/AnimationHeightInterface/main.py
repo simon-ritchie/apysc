@@ -55,6 +55,7 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this.target
+    ap.assert_equal(100, rectangle.height)
     animation_height: ap.AnimationHeight = rectangle.animation_height(
         height=50, duration=1000, delay=500,
         easing=ap.Easing.EASE_OUT_QUINT)
@@ -75,6 +76,7 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this.target
+    ap.assert_equal(50, rectangle.height)
     animation_height: ap.AnimationHeight = rectangle.animation_height(
         height=100, duration=1000, delay=500,
         easing=ap.Easing.EASE_OUT_QUINT)

@@ -5,6 +5,7 @@ from retrying import retry
 import apysc as ap
 from apysc._expression import var_names
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._display.height_interface import HeightInterface
 from tests.testing_helper import assert_attrs
 
 
@@ -71,3 +72,23 @@ class TestAnimationHeight:
         animation_height._height.value = 200
         animation_height._run_all_revert_methods(snapshot_name=snapshot_name)
         assert animation_height._height == 200
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_complete_event_in_handler_head_expression(self) -> None:
+        target_1: VariableNameInterface = VariableNameInterface()
+        target_1.variable_name = 'test_animation_height'
+        animation_height: ap.AnimationHeight = ap.AnimationHeight(
+            target=target_1, height=100)
+        expression: str = animation_height.\
+            _get_complete_event_in_handler_head_expression()
+        assert expression == ''
+
+        target_2: HeightInterface = HeightInterface()
+        target_2.variable_name = 'test_animation_height'
+        animation_height = ap.AnimationHeight(target=target_2, height=100)
+        expression = animation_height.\
+            _get_complete_event_in_handler_head_expression()
+        assert expression == (
+            f'{target_2._height.variable_name} = '
+            f'{animation_height._height.variable_name};'
+        )

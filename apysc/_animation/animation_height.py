@@ -76,6 +76,27 @@ class AnimationHeight(AnimationBase[_T], Generic[_T]):
             value=self._height)
         return f'\n  .height({height_str});'
 
+    def _get_complete_event_in_handler_head_expression(self) -> str:
+        """
+        Get an expression to be inserted into the complete event
+        handler's head.
+
+        Returns
+        -------
+        expression : str
+            An expression to be inserted into the complete event
+            handler's head.
+        """
+        from apysc._display.height_interface import HeightInterface
+        if isinstance(self._target, HeightInterface):
+            self._target._initialize_height_if_not_initialized()
+            expression: str = (
+                f'{self._target._height.variable_name} = '
+                f'{self._height.variable_name};'
+            )
+            return expression
+        return ''
+
     _height_snapshots: Dict[str, int]
 
     def _make_snapshot(self, snapshot_name: str) -> None:

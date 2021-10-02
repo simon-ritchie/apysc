@@ -82,6 +82,34 @@ class AnimationMove(AnimationBase[_T], Generic[_T]):
         y_str: str = value_util.get_value_str_for_expression(value=self._y)
         return f'\n  .move({x_str}, {y_str});'
 
+    def _get_complete_event_in_handler_head_expression(self) -> str:
+        """
+        Get an expression to be inserted into the complete event
+        handler's head.
+
+        Returns
+        -------
+        expression : str
+            An expression to be inserted into the complete event
+            handler's head.
+        """
+        from apysc._display.x_interface import XInterface
+        from apysc._display.y_interface import YInterface
+        expression: str = ''
+        if isinstance(self._target, XInterface):
+            self._target._initialize_x_if_not_initialized()
+            expression += (
+                f'{self._target._x.variable_name} = '
+                f'{self._x.variable_name};'
+            )
+        if isinstance(self._target, YInterface):
+            self._target._initialize_y_if_not_initialized()
+            expression += (
+                f'\n{self._target._y.variable_name} = '
+                f'{self._y.variable_name};'
+            )
+        return expression
+
     _x_snapshots: Dict[str, int]
     _y_snapshots: Dict[str, int]
 

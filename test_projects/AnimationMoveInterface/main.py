@@ -40,15 +40,15 @@ def main() -> None:
     sprite.graphics.begin_fill(color='#00aaff')
     rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
-    animation_move_1: ap.AnimationMove[ap.Rectangle] = \
+    animation_move: ap.AnimationMove[ap.Rectangle] = \
         rectangle_1.animation_move(
-            x=500, y=100, duration=3000,
+            x=100, y=100, duration=1000,
             easing=ap.Easing.EASE_OUT_QUINT)
     options: _MsgOptions = {'msg': 'Animation move 1 completed!'}
-    animation_move_1.animation_complete(
+    animation_move.animation_complete(
         handler=on_animation_move_1_complete,
         options=options)
-    animation_move_1.start()
+    animation_move.start()
 
     rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
         x=150, y=50, width=50, height=50)
@@ -63,7 +63,7 @@ def on_animation_move_1_complete(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _MsgOptions) -> None:
     """
-    The handler will be called when an animation is complete.
+    The handler will be called when an animation is completed.
 
     Parameters
     ----------
@@ -75,9 +75,37 @@ def on_animation_move_1_complete(
     ap.trace(options['msg'])
     assert isinstance(e.this, ap.AnimationMove)
     rectangle: ap.Rectangle = e.this.target
-    rectangle.animation_move(
-        x=50, y=50, duration=3000,
-        easing=ap.Easing.EASE_OUT_QUINT).start()
+    ap.assert_equal(100, rectangle.x)
+    ap.assert_equal(100, rectangle.y)
+    animation_move: ap.AnimationMove = rectangle.animation_move(
+        x=50, y=50, duration=1000,
+        easing=ap.Easing.EASE_OUT_QUINT)
+    animation_move.animation_complete(on_animation_move_2_complete)
+    animation_move.start()
+
+
+def on_animation_move_2_complete(
+        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+    """
+    The handler will be called when an animation is completed.
+
+    Parameters
+    ----------
+    e : ap.AnimationEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    rectangle: ap.Rectangle = e.this.target
+    ap.assert_equal(50, rectangle.x)
+    ap.assert_equal(50, rectangle.y)
+    animation_move: ap.AnimationMove = rectangle.animation_move(
+        x=100, y=100, duration=1000,
+        easing=ap.Easing.EASE_OUT_QUINT)
+    options_: _MsgOptions = {'msg': 'Animation move 1 completed!'}
+    animation_move.animation_complete(
+        on_animation_move_1_complete, options=options_)
+    animation_move.start()
 
 
 if __name__ == '__main__':

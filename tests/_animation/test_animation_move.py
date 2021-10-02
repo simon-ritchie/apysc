@@ -4,6 +4,12 @@ from retrying import retry
 
 import apysc as ap
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._display.x_interface import XInterface
+from apysc._display.y_interface import YInterface
+
+
+class _TestInterface(XInterface, YInterface):
+    pass
 
 
 class TestAnimationMove:
@@ -85,3 +91,18 @@ class TestAnimationMove:
         animation_move._run_all_revert_methods(snapshot_name=snapshot_name)
         assert animation_move._x == 300
         assert animation_move._y == 400
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_complete_event_in_handler_head_expression(self) -> None:
+        target: _TestInterface = _TestInterface()
+        target.variable_name = 'test_animation_move_interface'
+        animation_move: ap.AnimationMove = ap.AnimationMove(
+            target=target, x=100, y=200)
+        expression: str = animation_move.\
+            _get_complete_event_in_handler_head_expression()
+        assert expression == (
+            f'{target._x.variable_name} = '
+            f'{animation_move._x.variable_name};'
+            f'\n{target._y.variable_name} = '
+            f'{animation_move._y.variable_name};'
+        )

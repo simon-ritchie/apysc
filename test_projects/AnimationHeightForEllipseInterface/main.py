@@ -54,6 +54,7 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     ellipse: ap.Ellipse = e.this.target
+    ap.assert_equal(100, ellipse.height)
     animation_height: ap.AnimationHeightForEllipse = ellipse.animation_height(
         height=50, duration=1000, easing=ap.Easing.EASE_OUT_QUINT)
     animation_height.animation_complete(on_animation_complete_2)
@@ -73,6 +74,7 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     ellipse: ap.Ellipse = e.this.target
+    ap.assert_equal(50, ellipse.height)
     animation_height: ap.AnimationHeightForEllipse = ellipse.animation_height(
         height=100, duration=1000, easing=ap.Easing.EASE_OUT_QUINT)
     animation_height.animation_complete(on_animation_complete_1)

@@ -54,6 +54,7 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this.target
+    ap.assert_equal(100, rectangle.x)
     animation_x: ap.AnimationX = rectangle.animation_x(
         x=50, duration=1000, delay=500, easing=ap.Easing.EASE_OUT_QUINT)
     animation_x.animation_complete(handler=on_animation_complete_2)
@@ -73,6 +74,7 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this.target
+    ap.assert_equal(50, rectangle.x)
     animation_x: ap.AnimationX = rectangle.animation_x(
         x=100, duration=1000, delay=500, easing=ap.Easing.EASE_OUT_QUINT)
     animation_x.animation_complete(handler=on_animation_complete_1)

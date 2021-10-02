@@ -76,6 +76,27 @@ class AnimationWidth(AnimationBase[_T], Generic[_T]):
             value=self._width)
         return f'\n  .width({width_str});'
 
+    def _get_complete_event_in_handler_head_expression(self) -> str:
+        """
+        Get an expression to be inserted into the complete event
+        handler's head.
+
+        Returns
+        -------
+        expression : str
+            An expression to be inserted into the complete event
+            handler's head.
+        """
+        from apysc._display.width_interface import WidthInterface
+        expression: str = ''
+        if isinstance(self._target, WidthInterface):
+            self._target._initialize_width_if_not_initialized()
+            expression = (
+                f'{self._target._width.variable_name} = '
+                f'{self._width.variable_name};'
+            )
+        return expression
+
     _width_snapshots: Dict[str, int]
 
     def _make_snapshot(self, snapshot_name: str) -> None:

@@ -54,6 +54,7 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     ellipse: ap.Ellipse = e.this.target
+    ap.assert_equal(100, ellipse.width)
     animation_width: ap.AnimationWidthForEllipse = ellipse.animation_width(
         width=50, duration=1000, delay=500, easing=ap.Easing.EASE_OUT_QUINT)
     animation_width.animation_complete(on_animation_complete_2)
@@ -73,6 +74,7 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     ellipse: ap.Ellipse = e.this.target
+    ap.assert_equal(50, ellipse.width)
     animation_width: ap.AnimationWidthForEllipse = ellipse.animation_width(
         width=100, duration=1000, delay=500, easing=ap.Easing.EASE_OUT_QUINT)
     animation_width.animation_complete(on_animation_complete_1)

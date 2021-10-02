@@ -6,6 +6,8 @@ import apysc as ap
 from apysc._expression import var_names
 from apysc._type.variable_name_interface import VariableNameInterface
 from tests.testing_helper import assert_attrs
+from apysc._display.width_and_height_interfaces_for_ellipse import \
+    WidthAndHeightInterfacesForEllipse
 
 
 class TestAnimationWidthForEllipse:
@@ -84,3 +86,17 @@ class TestAnimationWidthForEllipse:
         animation_width_for_ellipse._run_all_revert_methods(
             snapshot_name=snapshot_name)
         assert animation_width_for_ellipse._width == 200
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_complete_event_in_handler_head_expression(self) -> None:
+        target: WidthAndHeightInterfacesForEllipse = \
+            WidthAndHeightInterfacesForEllipse()
+        target.variable_name = 'test_animation_width_for_ellipse'
+        animation_width_for_ellipse: ap.AnimationWidthForEllipse = \
+            ap.AnimationWidthForEllipse(target=target, width=100)
+        expression: str = animation_width_for_ellipse.\
+            _get_complete_event_in_handler_head_expression()
+        assert expression == (
+            f'{target._width.variable_name} = '
+            f'{animation_width_for_ellipse._width.variable_name};'
+        )

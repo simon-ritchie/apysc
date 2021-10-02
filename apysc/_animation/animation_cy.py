@@ -87,14 +87,14 @@ class AnimationCy(AnimationBase[_T], Generic[_T]):
             handler's head.
         """
         from apysc._display.cy_interface import CyInterface
+        expression: str = ''
         if isinstance(self._target, CyInterface):
             self._target._initialize_cy_if_not_initialized()
-            expression: str = (
+            expression = (
                 f'{self._target._cy.variable_name} = '
                 f'{self._cy.variable_name};'
             )
-            return expression
-        return ''
+        return expression
 
     _cy_snapshots: Dict[str, int]
 

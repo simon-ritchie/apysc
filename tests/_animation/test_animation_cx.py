@@ -82,22 +82,14 @@ class TestAnimationCx:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        target_1: VariableNameInterface = VariableNameInterface()
-        target_1.variable_name = 'test_animation_cx'
+        target: CxInterface = CxInterface()
+        target.variable_name = 'test_animation_cx'
         animation_cx: ap.AnimationCx = ap.AnimationCx(
-            target=target_1, x=100,
-        )
+            target=target, x=100)
         expression: str = animation_cx.\
             _get_complete_event_in_handler_head_expression()
-        assert expression == ''
-
-        target_2: CxInterface = CxInterface()
-        target_2.variable_name = 'test_animation_cx'
-        animation_cx = ap.AnimationCx(target=target_2, x=100)
-        expression = animation_cx.\
-            _get_complete_event_in_handler_head_expression()
         expected: str = (
-            f'{target_2._cx.variable_name} = '
+            f'{target._cx.variable_name} = '
             f'{animation_cx._cx.variable_name};'
         )
         assert expression == expected

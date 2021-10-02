@@ -90,14 +90,14 @@ class AnimationFillAlpha(AnimationBase[_T], Generic[_T]):
             handler's head.
         """
         from apysc._display.fill_alpha_interface import FillAlphaInterface
+        expression: str = ''
         if isinstance(self._target, FillAlphaInterface):
             self._target._initialize_fill_alpha_if_not_initialized()
-            expression: str = (
+            expression = (
                 f'{self._target._fill_alpha.variable_name} = '
                 f'{self._fill_alpha.variable_name};'
             )
-            return expression
-        return ''
+        return expression
 
     _fill_alpha_snapshots: Dict[str, float]
 

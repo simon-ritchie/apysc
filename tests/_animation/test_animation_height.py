@@ -75,20 +75,13 @@ class TestAnimationHeight:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        target_1: VariableNameInterface = VariableNameInterface()
-        target_1.variable_name = 'test_animation_height'
+        target: HeightInterface = HeightInterface()
+        target.variable_name = 'test_animation_height'
         animation_height: ap.AnimationHeight = ap.AnimationHeight(
-            target=target_1, height=100)
+            target=target, height=100)
         expression: str = animation_height.\
             _get_complete_event_in_handler_head_expression()
-        assert expression == ''
-
-        target_2: HeightInterface = HeightInterface()
-        target_2.variable_name = 'test_animation_height'
-        animation_height = ap.AnimationHeight(target=target_2, height=100)
-        expression = animation_height.\
-            _get_complete_event_in_handler_head_expression()
         assert expression == (
-            f'{target_2._height.variable_name} = '
+            f'{target._height.variable_name} = '
             f'{animation_height._height.variable_name};'
         )

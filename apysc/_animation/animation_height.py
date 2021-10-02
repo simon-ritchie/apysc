@@ -88,14 +88,14 @@ class AnimationHeight(AnimationBase[_T], Generic[_T]):
             handler's head.
         """
         from apysc._display.height_interface import HeightInterface
+        expression: str = ''
         if isinstance(self._target, HeightInterface):
             self._target._initialize_height_if_not_initialized()
-            expression: str = (
+            expression = (
                 f'{self._target._height.variable_name} = '
                 f'{self._height.variable_name};'
             )
-            return expression
-        return ''
+        return expression
 
     _height_snapshots: Dict[str, int]
 

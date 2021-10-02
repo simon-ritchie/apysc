@@ -81,22 +81,14 @@ class TestAnimationFillAlpha:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        target_1: VariableNameInterface = VariableNameInterface()
-        target_1.variable_name = 'test_animation_fill_alpha'
+        target: FillAlphaInterface = FillAlphaInterface()
+        target.variable_name = 'test_animation_fill_alpha'
         animation_fill_alpha: ap.AnimationFillAlpha = ap.AnimationFillAlpha(
-            target=target_1, alpha=0.5)
+            target=target, alpha=0.5)
         expression: str = animation_fill_alpha.\
             _get_complete_event_in_handler_head_expression()
-        assert expression == ''
-
-        target_2: FillAlphaInterface = FillAlphaInterface()
-        target_2.variable_name = 'test_animation_fill_alpha'
-        animation_fill_alpha = ap.AnimationFillAlpha(
-            target=target_2, alpha=0.5)
-        expression = animation_fill_alpha.\
-            _get_complete_event_in_handler_head_expression()
         expected: str = (
-            f'{target_2._fill_alpha.variable_name} = '
+            f'{target._fill_alpha.variable_name} = '
             f'{animation_fill_alpha._fill_alpha.variable_name};'
         )
         assert expression == expected

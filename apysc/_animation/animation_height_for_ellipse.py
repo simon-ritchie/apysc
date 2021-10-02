@@ -91,14 +91,14 @@ class AnimationHeightForEllipse(AnimationBase[_T], Generic[_T]):
         """
         from apysc._display.width_and_height_interfaces_for_ellipse import \
             WidthAndHeightInterfacesForEllipse
+        expression: str = ''
         if isinstance(self._target, WidthAndHeightInterfacesForEllipse):
             self._target._initialize_width_and_height_if_not_initialized()
-            expression: str = (
+            expression = (
                 f'{self._target._height.variable_name} = '
                 f'{self._height.variable_name};'
             )
-            return expression
-        return ''
+        return expression
 
     _height_snapshots: Dict[str, int]
 

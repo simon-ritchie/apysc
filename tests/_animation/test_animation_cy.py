@@ -74,21 +74,14 @@ class TestAnimationCy:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        target_1: VariableNameInterface = VariableNameInterface()
-        target_1.variable_name = 'test_animation_cy'
+        target: CyInterface = CyInterface()
+        target.variable_name = 'test_animation_cy'
         animation_cy: ap.AnimationCy = ap.AnimationCy(
-            target=target_1, y=100)
+            target=target, y=100)
         expression: str = animation_cy.\
             _get_complete_event_in_handler_head_expression()
-        assert expression == ''
-
-        target_2: CyInterface = CyInterface()
-        target_2.variable_name = 'test_animation_cy'
-        animation_cy = ap.AnimationCy(target=target_2, y=100)
-        expression = animation_cy.\
-            _get_complete_event_in_handler_head_expression()
         expected: str = (
-            f'{target_2._cy.variable_name} = '
+            f'{target._cy.variable_name} = '
             f'{animation_cy._cy.variable_name};'
         )
         assert expression == expected

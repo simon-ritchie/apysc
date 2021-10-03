@@ -3,9 +3,8 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._expression import var_names
-from apysc._animation.animation_line_alpha import AnimationLineAlpha
 from apysc._display.line_alpha_interface import LineAlphaInterface
+from apysc._expression import var_names
 from tests.testing_helper import assert_attrs
 
 

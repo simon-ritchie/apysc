@@ -29,3 +29,16 @@ class TestAnimationLineAlpha:
                 '_easing': ap.Easing.EASE_OUT_QUINT,
             },
             any_obj=animation_line_alpha)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self) -> None:
+        target: LineAlphaInterface = LineAlphaInterface()
+        target.variable_name = 'test_line_alpha_interface'
+        animation_line_alpha: ap.AnimationLineAlpha = ap.AnimationLineAlpha(
+            target=target, alpha=0.5)
+        expression: str = animation_line_alpha.\
+            _get_animation_func_expression()
+        assert expression == (
+            '\n  .attr({"stroke-opacity": '
+            f'{animation_line_alpha._line_alpha.variable_name}}});'
+        )

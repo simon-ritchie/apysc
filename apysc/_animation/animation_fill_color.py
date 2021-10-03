@@ -93,3 +93,12 @@ class AnimationFillColor(AnimationBase[_T], Generic[_T]):
             An expression to be inserted into the complete event
             handler's head.
         """
+        from apysc._display.fill_color_interface import FillColorInterface
+        expression: str = ''
+        if isinstance(self._target, FillColorInterface):
+            self._target._initialize_fill_color_if_not_initialized()
+            expression = (
+                f'{self._target._fill_color.variable_name} = '
+                f'{self._fill_color.variable_name};'
+            )
+        return expression

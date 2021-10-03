@@ -4,6 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._display.y_interface import YInterface
 from tests.testing_helper import assert_attrs
 
 
@@ -64,3 +65,15 @@ class TestAnimationY:
         animation_y._y.value = 200
         animation_y._run_all_revert_methods(snapshot_name=snapshot_name)
         assert animation_y._y == 200
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_complete_event_in_handler_head_expression(self) -> None:
+        target: YInterface = YInterface()
+        target.variable_name = 'test_y_interface'
+        animation_y: ap.AnimationY = ap.AnimationY(target=target, y=100)
+        expression: str = animation_y.\
+            _get_complete_event_in_handler_head_expression()
+        assert expression == (
+            f'{target._y.variable_name} = '
+            f'{animation_y._y.variable_name};'
+        )

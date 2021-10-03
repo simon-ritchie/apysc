@@ -31,3 +31,16 @@ class TestAnimationFillColor:
                 '_easing': ap.Easing.EASE_OUT_QUINT,
             },
             any_obj=animation_fill_color)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self) -> None:
+        target: FillColorInterface = FillColorInterface()
+        target.variable_name = 'test_animation_fill_color'
+        animation_fill_color: ap.AnimationFillColor = ap.AnimationFillColor(
+            target=target, fill_color='0af')
+        expression: str = animation_fill_color.\
+            _get_animation_func_expression()
+        assert expression == (
+            '\n  .attr(fill: '
+            f'{animation_fill_color._fill_color.variable_name});'
+        )

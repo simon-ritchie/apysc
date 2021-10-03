@@ -39,6 +39,8 @@ class AnimationWidthForEllipseInterface(AnimationInterfaceBase):
 
         References
         ----------
+        - animation_width and animation_height interfaces document
+            - https://bit.ly/39XPUdq
         - Animation interfaces duration setting
             - https://simon-ritchie.github.io/apysc/animation_duration.html
         - Each animation interface return value document

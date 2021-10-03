@@ -41,8 +41,8 @@ class TestAnimationFillColor:
         expression: str = animation_fill_color.\
             _get_animation_func_expression()
         assert expression == (
-            '\n  .attr(fill: '
-            f'{animation_fill_color._fill_color.variable_name});'
+            '\n  .attr({fill: '
+            f'{animation_fill_color._fill_color.variable_name}}});'
         )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

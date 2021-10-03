@@ -74,4 +74,4 @@ from apysc._animation.animation_fill_alpha import AnimationFillAlpha  # isort:sk
 from apysc._animation.animation_fill_color import AnimationFillColor  # isort:skip # noqa
 from apysc._animation.animation_line_alpha import AnimationLineAlpha  # isort:skip # noqa
 
-__version__: str = '0.51.2'
+__version__: str = '0.51.3'

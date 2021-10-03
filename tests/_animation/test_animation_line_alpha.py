@@ -42,3 +42,16 @@ class TestAnimationLineAlpha:
             '\n  .attr({"stroke-opacity": '
             f'{animation_line_alpha._line_alpha.variable_name}}});'
         )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_complete_event_in_handler_head_expression(self) -> None:
+        target: LineAlphaInterface = LineAlphaInterface()
+        target.variable_name = 'test_line_alpha_interface'
+        animation_line_alpha: ap.AnimationLineAlpha = ap.AnimationLineAlpha(
+            target=target, alpha=0.5)
+        expression: str = animation_line_alpha.\
+            _get_complete_event_in_handler_head_expression()
+        assert expression == (
+            f'{target._line_alpha.variable_name} = '
+            f'{animation_line_alpha._line_alpha.variable_name};'
+        )

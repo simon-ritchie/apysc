@@ -89,3 +89,12 @@ class AnimationLineAlpha(AnimationBase[_T], Generic[_T]):
             An expression to be inserted into the complete event
             handler's head.
         """
+        from apysc._display.line_alpha_interface import LineAlphaInterface
+        expression: str = ''
+        if isinstance(self._target, LineAlphaInterface):
+            self._target._initialize_line_alpha_if_not_initialized()
+            expression = (
+                f'{self._target._line_alpha.variable_name} = '
+                f'{self._line_alpha.variable_name};'
+            )
+        return expression

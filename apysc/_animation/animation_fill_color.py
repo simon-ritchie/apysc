@@ -8,8 +8,8 @@ from typing import Union
 
 import apysc as ap
 from apysc._animation.animation_base import AnimationBase
-from apysc._color import color_util
 from apysc._animation.easing import Easing
+from apysc._color import color_util
 from apysc._type.variable_name_interface import VariableNameInterface
 
 _T = TypeVar('_T', bound=VariableNameInterface)

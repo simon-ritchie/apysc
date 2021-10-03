@@ -1,11 +1,12 @@
 """Class implementation for the animation_fill_color interface.
 """
 
-from typing import Union, TypeVar
+from typing import TypeVar
+from typing import Union
 
 import apysc as ap
-from apysc._animation.animation_interface_base import AnimationInterfaceBase
 from apysc._animation.animation_fill_color import AnimationFillColor
+from apysc._animation.animation_interface_base import AnimationInterfaceBase
 from apysc._animation.easing import Easing
 
 StrOrString = TypeVar('StrOrString', str, ap.String)

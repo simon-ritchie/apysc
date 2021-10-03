@@ -20,6 +20,11 @@ class AnimationFillAlphaInterface(AnimationInterfaceBase):
         """
         Set the fill alpha (opacity) animation setting.
 
+        Notes
+        -----
+        To start this animation, you need to call the `start` method of
+        the returned instance.
+
         Parameters
         ----------
         alpha : float or Number

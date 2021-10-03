@@ -21,6 +21,11 @@ class AnimationWidthForEllipseInterface(AnimationInterfaceBase):
         """
         Set the ellipse-width animation setting.
 
+        Notes
+        -----
+        To start this animation, you need to call the `start` method of
+        the returned instance.
+
         Parameters
         ----------
         width : int or Int

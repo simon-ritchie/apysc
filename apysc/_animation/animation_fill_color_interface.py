@@ -1,25 +1,26 @@
-"""Class implementation for the animation_height (for ellipse) interface.
+"""Class implementation for the animation_fill_color interface.
 """
 
-from typing import Union
+from typing import Union, TypeVar
 
 import apysc as ap
-from apysc._animation.animation_height_for_ellipse import \
-    AnimationHeightForEllipse
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
+from apysc._animation.animation_fill_color import AnimationFillColor
 from apysc._animation.easing import Easing
 
+StrOrString = TypeVar('StrOrString', str, ap.String)
 
-class AnimationHeightForEllipseInterface(AnimationInterfaceBase):
 
-    def animation_height(
+class AnimationFillColorInterface(AnimationInterfaceBase):
+
+    def animation_fill_color(
             self,
-            height: Union[int, ap.Int],
+            fill_color: StrOrString,
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
-            easing: Easing = Easing.LINEAR) -> AnimationHeightForEllipse:
+            easing: Easing = Easing.LINEAR) -> AnimationFillColor:
         """
-        Set the ellipse-height animation setting.
+        Set the fill color animation setting.
 
         Notes
         -----
@@ -28,8 +29,8 @@ class AnimationHeightForEllipseInterface(AnimationInterfaceBase):
 
         Parameters
         ----------
-        height : int or Int
-            The final ellipse-height of the animation.
+        fill_color : str or String
+            The final fill color (hex color code) of the animation.
         duration : int or Int, default 3000
             Milliseconds before an animation ends.
         delay : int or Int, default 0
@@ -39,13 +40,11 @@ class AnimationHeightForEllipseInterface(AnimationInterfaceBase):
 
         Returns
         -------
-        animation_height_for_ellipse : AnimationHeightForEllipse
+        animation_fill_color : AnimationFillColor
             Created animation setting instance.
 
         References
         ----------
-        - animation_width and animation_height interfaces document
-            - https://bit.ly/39XPUdq
         - Animation interfaces duration setting
             - https://simon-ritchie.github.io/apysc/animation_duration.html
         - Each animation interface return value document
@@ -53,11 +52,10 @@ class AnimationHeightForEllipseInterface(AnimationInterfaceBase):
         - Easing enum document
             - https://simon-ritchie.github.io/apysc/easing_enum.html
         """
-        animation_height_for_ellipse: AnimationHeightForEllipse = \
-            AnimationHeightForEllipse(
-                target=self,
-                height=height,
-                duration=duration,
-                delay=delay,
-                easing=easing)
-        return animation_height_for_ellipse
+        animation_fill_color: AnimationFillColor = AnimationFillColor(
+            target=self,
+            fill_color=fill_color,
+            duration=duration,
+            delay=delay,
+            easing=easing)
+        return animation_fill_color

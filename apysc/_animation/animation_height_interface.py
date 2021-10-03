@@ -20,6 +20,11 @@ class AnimationHeightInterface(AnimationInterfaceBase):
         """
         Set the height animation setting.
 
+        Notes
+        -----
+        To start this animation, you need to call the `start` method of
+        the returned instance.
+
         Parameters
         ----------
         height : int or Int

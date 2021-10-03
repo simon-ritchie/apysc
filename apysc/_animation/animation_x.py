@@ -90,7 +90,7 @@ class AnimationX(AnimationBase[_T], Generic[_T]):
         expression: str = ''
         if isinstance(self._target, XInterface):
             self._target._initialize_x_if_not_initialized()
-            expression: str = (
+            expression = (
                 f'{self._target._x.variable_name} = '
                 f'{self._x.variable_name};'
             )

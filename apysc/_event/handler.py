@@ -128,8 +128,8 @@ def _append_in_handler_head_expression(
     """
     import apysc as ap
     with ap.DebugInfo(
-        callable_=_append_in_handler_head_expression, locals_=locals(),
-        module_name=__name__):
+            callable_=_append_in_handler_head_expression, locals_=locals(),
+            module_name=__name__):
         if in_handler_head_expression == '':
             return
         ap.append_js_expression(expression=in_handler_head_expression)

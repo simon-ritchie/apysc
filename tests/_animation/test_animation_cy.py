@@ -3,9 +3,9 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
+from apysc._display.cy_interface import CyInterface
 from apysc._expression import var_names
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._display.cy_interface import CyInterface
 from tests.testing_helper import assert_attrs
 
 

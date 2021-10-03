@@ -37,6 +37,19 @@ class _TestAnimation(AnimationBase):
         """
         return '\n  .move(100, 200);'
 
+    def _get_complete_event_in_handler_head_expression(self) -> str:
+        """
+        Get an expression to be inserted into the complete event
+        handler's head.
+
+        Returns
+        -------
+        expression : str
+            An expression to be inserted into the complete event
+            handler's head.
+        """
+        return ''
+
 
 class TestAnimationBase:
 

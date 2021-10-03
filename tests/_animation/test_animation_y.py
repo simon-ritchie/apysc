@@ -3,8 +3,8 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._display.y_interface import YInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 from tests.testing_helper import assert_attrs
 
 

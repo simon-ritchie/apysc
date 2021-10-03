@@ -3,9 +3,9 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._display.x_interface import XInterface
 from apysc._display.y_interface import YInterface
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class _TestInterface(XInterface, YInterface):

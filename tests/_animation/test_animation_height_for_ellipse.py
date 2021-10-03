@@ -3,10 +3,10 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from apysc._expression import var_names
-from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._display.width_and_height_interfaces_for_ellipse import \
     WidthAndHeightInterfacesForEllipse
+from apysc._expression import var_names
+from apysc._type.variable_name_interface import VariableNameInterface
 from tests.testing_helper import assert_attrs
 
 

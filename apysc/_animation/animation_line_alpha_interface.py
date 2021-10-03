@@ -14,8 +14,8 @@ class AnimationLineAlphaInterface(AnimationInterfaceBase):
     def animation_line_alpha(
             self,
             alpha: Union[float, ap.Number],
-            duration: Union[int, ap.Int],
-            delay: Union[int, ap.Int],
+            duration: Union[int, ap.Int] = 3000,
+            delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationLineAlpha:
         """
         Set the line alpha animation setting.

@@ -5,13 +5,14 @@ from typing import Dict
 from typing import Union
 
 import apysc as ap
+from apysc._animation.animation_line_alpha_interface import \
+    AnimationLineAlphaInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class LineAlphaInterface(
-        VariableNameInterface, RevertInterface, AttrLinkingInterface):
+        AnimationLineAlphaInterface, RevertInterface, AttrLinkingInterface):
 
     _line_alpha: ap.Number
 

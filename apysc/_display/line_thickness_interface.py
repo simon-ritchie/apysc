@@ -12,7 +12,9 @@ from apysc._type.revert_interface import RevertInterface
 
 
 class LineThicknessInterface(
-        AnimationLineThicknessInterface, RevertInterface, AttrLinkingInterface):
+        AnimationLineThicknessInterface,
+        RevertInterface,
+        AttrLinkingInterface):
 
     _line_thickness: ap.Int
 

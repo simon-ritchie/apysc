@@ -3,9 +3,9 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
+from apysc._display.line_thickness_interface import LineThicknessInterface
 from apysc._expression import var_names
 from tests.testing_helper import assert_attrs
-from apysc._display.line_thickness_interface import LineThicknessInterface
 
 
 class TestAnimationLineThickness:

@@ -87,3 +87,12 @@ class AnimationRadius(AnimationBase[_T], Generic[_T]):
             An expression to be inserted into the complete event
             handler's head.
         """
+        from apysc._display.radius_interface import RadiusInterface
+        expression: str = ''
+        if isinstance(self._target, RadiusInterface):
+            self._target._initialize_radius_if_not_initialized()
+            expression = (
+                f'{self._target._radius.variable_name} = '
+                f'{self._radius.variable_name};'
+            )
+        return expression

@@ -25,8 +25,8 @@ class AnimationLineThickness(AnimationBase[_T], Generic[_T]):
             self,
             target: _T,
             thickness: Union[int, ap.Int],
-            duration: Union[int, ap.Int],
-            delay: Union[int, ap.Int],
+            duration: Union[int, ap.Int] = 3000,
+            delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:
         """
         The animation class for a line thickness.
@@ -73,6 +73,10 @@ class AnimationLineThickness(AnimationBase[_T], Generic[_T]):
         expression : str
             Animation function expression.
         """
+        from apysc._type import value_util
+        line_thickness_str: str = value_util.get_value_str_for_expression(
+            value=self._line_thickness)
+        return f'\n  .attr({{"stroke-width": {line_thickness_str}}});'
 
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """

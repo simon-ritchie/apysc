@@ -29,3 +29,16 @@ class TestAnimationLineThickness:
                 '_easing': ap.Easing.EASE_OUT_QUINT,
             },
             any_obj=animation_line_thickness)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self) -> None:
+        target: LineThicknessInterface = LineThicknessInterface()
+        target.variable_name = 'test_line_thickness_interface'
+        animation_line_thickness: ap.AnimationLineThickness = \
+            ap.AnimationLineThickness(target=target, thickness=3)
+        expression: str = animation_line_thickness.\
+            _get_animation_func_expression()
+        assert expression == (
+            '\n  .attr({"stroke-width": '
+            f'{animation_line_thickness._line_thickness.variable_name}}});'
+        )

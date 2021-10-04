@@ -28,3 +28,15 @@ class TestAnimationRadius:
                 '_easing': ap.Easing.EASE_OUT_QUINT,
             },
             any_obj=animation_radius)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self) -> None:
+        target: RadiusInterface = RadiusInterface()
+        target.variable_name = 'test_radius_interface'
+        animation_radius: ap.AnimationRadius = ap.AnimationRadius(
+            target=target, radius=100, duration=1000,
+            delay=500, easing=ap.Easing.EASE_OUT_QUINT)
+        expression: str = animation_radius._get_animation_func_expression()
+        assert expression == (
+            f'\n  .attr({{"r": {animation_radius._radius.variable_name}}});'
+        )

@@ -71,6 +71,10 @@ class AnimationRadius(AnimationBase[_T], Generic[_T]):
         expression : str
             Animation function expression.
         """
+        from apysc._type import value_util
+        radius_str: str = value_util.get_value_str_for_expression(
+            value=self._radius)
+        return f'\n  .attr({{"r": {radius_str}}});'
 
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """

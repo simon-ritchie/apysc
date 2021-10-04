@@ -94,7 +94,7 @@ class AnimationLineThickness(AnimationBase[_T], Generic[_T]):
         expression: str = ''
         if isinstance(self._target, LineThicknessInterface):
             self._target._initialize_line_thickness_if_not_initialized()
-            expression: str = (
+            expression = (
                 f'{self._target._line_thickness.variable_name} = '
                 f'{self._line_thickness.variable_name};'
             )

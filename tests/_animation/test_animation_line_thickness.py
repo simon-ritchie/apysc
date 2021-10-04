@@ -42,3 +42,16 @@ class TestAnimationLineThickness:
             '\n  .attr({"stroke-width": '
             f'{animation_line_thickness._line_thickness.variable_name}}});'
         )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_complete_event_in_handler_head_expression(self) -> None:
+        target: LineThicknessInterface = LineThicknessInterface()
+        target.variable_name = 'test_line_thickness_interface'
+        animation_line_thickness: ap.AnimationLineThickness = \
+            ap.AnimationLineThickness(target=target, thickness=3)
+        expression: str = animation_line_thickness.\
+            _get_complete_event_in_handler_head_expression()
+        assert expression == (
+            f'{target._line_thickness.variable_name} = '
+            f'{animation_line_thickness._line_thickness.variable_name};'
+        )

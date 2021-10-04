@@ -89,3 +89,13 @@ class AnimationLineThickness(AnimationBase[_T], Generic[_T]):
             An expression to be inserted into the complete event
             handler's head.
         """
+        from apysc._display.line_thickness_interface import \
+            LineThicknessInterface
+        expression: str = ''
+        if isinstance(self._target, LineThicknessInterface):
+            self._target._initialize_line_thickness_if_not_initialized()
+            expression: str = (
+                f'{self._target._line_thickness.variable_name} = '
+                f'{self._line_thickness.variable_name};'
+            )
+        return expression

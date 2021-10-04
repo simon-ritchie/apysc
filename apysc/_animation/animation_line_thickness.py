@@ -117,3 +117,17 @@ class AnimationLineThickness(AnimationBase[_T], Generic[_T]):
             return
         self._line_thickness_snapshots[snapshot_name] = int(
             self._line_thickness._value)
+
+    def _revert(self, snapshot_name: str) -> None:
+        """
+        Revert value if a snapshot exists.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._line_thickness._value = self._line_thickness_snapshots[
+            snapshot_name]

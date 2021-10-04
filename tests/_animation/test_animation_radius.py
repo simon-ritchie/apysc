@@ -68,3 +68,20 @@ class TestAnimationRadius:
         animation_radius._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
         assert animation_radius._radius_snapshots[snapshot_name] == 100
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__revert(self) -> None:
+        target: RadiusInterface = RadiusInterface()
+        target.variable_name = 'test_radius_interface'
+        animation_radius: ap.AnimationRadius = ap.AnimationRadius(
+            target=target, radius=100)
+        snapshot_name: str = animation_radius._get_next_snapshot_name()
+        animation_radius._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        animation_radius._radius.value = 150
+        animation_radius._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert animation_radius._radius == 100
+
+        animation_radius._radius.value = 150
+        animation_radius._run_all_revert_methods(snapshot_name=snapshot_name)
+        assert animation_radius._radius == 150

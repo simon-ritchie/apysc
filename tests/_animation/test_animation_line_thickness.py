@@ -55,3 +55,22 @@ class TestAnimationLineThickness:
             f'{target._line_thickness.variable_name} = '
             f'{animation_line_thickness._line_thickness.variable_name};'
         )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__make_snapshot(self) -> None:
+        target: LineThicknessInterface = LineThicknessInterface()
+        target.variable_name = 'test_line_thickness_interface'
+        animation_line_thickness: ap.AnimationLineThickness = \
+            ap.AnimationLineThickness(target=target, thickness=3)
+        snapshot_name: str = animation_line_thickness.\
+            _get_next_snapshot_name()
+        animation_line_thickness._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert animation_line_thickness._line_thickness_snapshots[
+            snapshot_name] == 3
+
+        animation_line_thickness._line_thickness.value = 5
+        animation_line_thickness._run_all_make_snapshot_methods(
+            snapshot_name=snapshot_name)
+        assert animation_line_thickness._line_thickness_snapshots[
+            snapshot_name] == 3

@@ -5,13 +5,14 @@ from typing import Dict
 from typing import Union
 
 import apysc as ap
+from apysc._animation.animation_line_thickness_interface import \
+    AnimationLineThicknessInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class LineThicknessInterface(
-        VariableNameInterface, RevertInterface, AttrLinkingInterface):
+        AnimationLineThicknessInterface, RevertInterface, AttrLinkingInterface):
 
     _line_thickness: ap.Int
 

@@ -96,3 +96,20 @@ class AnimationRadius(AnimationBase[_T], Generic[_T]):
                 f'{self._radius.variable_name};'
             )
         return expression
+
+    _radius_snapshots: Dict[str, int]
+
+    def _make_snapshot(self, snapshot_name: str) -> None:
+        """
+        Make a value's snapshot.
+
+        Parameters
+        ----------
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, '_radius_snapshots'):
+            self._radius_snapshots = {}
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        self._radius_snapshots[snapshot_name] = int(self._radius._value)

@@ -16,8 +16,8 @@ class TestAnimationSkewX:
         target.variable_name = 'test_animation_skew_x'
         animation_skew_x: ap.AnimationSkewX = ap.AnimationSkewX(
             target=target,
-            skew_x=10,
-            before_skew_x=ap.Int(20),
+            skew_x=30,
+            before_skew_x=ap.Int(10),
             duration=1000,
             delay=500,
             easing=ap.Easing.EASE_OUT_QUINT,
@@ -27,8 +27,9 @@ class TestAnimationSkewX:
         assert_attrs(
             expected_attrs={
                 '_target': target,
-                '_skew_x': 10,
-                '_before_skew_x': 20,
+                '_skew_x': 30,
+                '_before_skew_x': 10,
+                '_skew_x_diff': 20,
                 '_duration': 1000,
                 '_delay': 500,
                 '_easing': ap.Easing.EASE_OUT_QUINT,

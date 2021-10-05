@@ -21,6 +21,7 @@ class AnimationSkewX(AnimationBase[_T], Generic[_T]):
 
     _skew_x: ap.Int
     _before_skew_x: ap.Int
+    _skew_x_diff: ap.Int
 
     def __init__(
             self,
@@ -60,6 +61,7 @@ class AnimationSkewX(AnimationBase[_T], Generic[_T]):
             self._skew_x = to_apysc_val_from_builtin.\
                 get_copied_int_from_builtin_val(integer=skew_x)
             self._before_skew_x = before_skew_x
+            self._skew_x_diff = self._skew_x - before_skew_x
             self._set_basic_animation_settings(
                 target=target,
                 duration=duration,

@@ -94,3 +94,12 @@ class AnimationSkewX(AnimationBase[_T], Generic[_T]):
             An expression to be inserted into the complete event
             handler's head.
         """
+        from apysc._display.skew_x_interface import SkewXInterface
+        expression: str = ''
+        if isinstance(self._target, SkewXInterface):
+            self._target._initialize_skew_x_if_not_initialized()
+            expression = (
+                f'{self._target._skew_x.variable_name} = '
+                f'{self._skew_x.variable_name};'
+            )
+        return expression

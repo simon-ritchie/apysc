@@ -36,3 +36,18 @@ class TestAnimationSkewX:
             },
             any_obj=animation_skew_x,
         )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self) -> None:
+        target: SkewXInterface = SkewXInterface()
+        target.variable_name = 'test_animation_skew_x'
+        animation_skew_x: ap.AnimationSkewX = ap.AnimationSkewX(
+            target=target,
+            skew_x=30,
+            before_skew_x=ap.Int(10),
+        )
+        expression: str = animation_skew_x._get_animation_func_expression()
+        assert expression == (
+            '\n  .attr({"skewX": '
+            f'{animation_skew_x._skew_x_diff.variable_name}}});'
+        )

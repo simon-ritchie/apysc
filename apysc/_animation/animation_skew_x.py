@@ -1,7 +1,6 @@
 """Class implementation for the skew-x animation value.
 """
 
-from typing import Dict
 from typing import Generic
 from typing import TypeVar
 from typing import Union
@@ -56,9 +55,9 @@ class AnimationSkewX(AnimationBase[_T], Generic[_T]):
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=AnimationSkewX):
             from apysc._converter import to_apysc_val_from_builtin
+            from apysc._display.skew_x_interface import SkewXInterface
             from apysc._expression import expression_variables_util
             from apysc._expression import var_names
-            from apysc._display.skew_x_interface import SkewXInterface
             variable_name: str = expression_variables_util.\
                 get_next_variable_name(type_name=var_names.ANIMATION_SKEW_X)
             if isinstance(target, SkewXInterface):

@@ -95,33 +95,3 @@ class AnimationY(AnimationBase[_T], Generic[_T]):
                 f'{self._y.variable_name};'
             )
         return expression
-
-    _y_snapshots: Dict[str, int]
-
-    def _make_snapshot(self, snapshot_name: str) -> None:
-        """
-        Make a value's snapshot.
-
-        Parameters
-        ----------
-        snapshot_name : str
-            Target snapshot name.
-        """
-        if not hasattr(self, '_y_snapshots'):
-            self._y_snapshots = {}
-        if self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._y_snapshots[snapshot_name] = int(self._y._value)
-
-    def _revert(self, snapshot_name: str) -> None:
-        """
-        Revert value if a snapshot exists.
-
-        Parameters
-        ----------
-        snapshot_name : str
-            Target snapshot name.
-        """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._y._value = self._y_snapshots[snapshot_name]

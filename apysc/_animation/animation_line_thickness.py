@@ -99,35 +99,3 @@ class AnimationLineThickness(AnimationBase[_T], Generic[_T]):
                 f'{self._line_thickness.variable_name};'
             )
         return expression
-
-    _line_thickness_snapshots: Dict[str, int]
-
-    def _make_snapshot(self, snapshot_name: str) -> None:
-        """
-        Make a value's snapshot.
-
-        Parameters
-        ----------
-        snapshot_name : str
-            Target snapshot name.
-        """
-        if not hasattr(self, '_line_thickness_snapshots'):
-            self._line_thickness_snapshots = {}
-        if self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._line_thickness_snapshots[snapshot_name] = int(
-            self._line_thickness._value)
-
-    def _revert(self, snapshot_name: str) -> None:
-        """
-        Revert value if a snapshot exists.
-
-        Parameters
-        ----------
-        snapshot_name : str
-            Target snapshot name.
-        """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._line_thickness._value = self._line_thickness_snapshots[
-            snapshot_name]

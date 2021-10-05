@@ -62,6 +62,7 @@ class AnimationSkewX(AnimationBase[_T], Generic[_T]):
             variable_name: str = expression_variables_util.\
                 get_next_variable_name(type_name=var_names.ANIMATION_SKEW_X)
             if isinstance(target, SkewXInterface):
+                target._initialize_skew_x_if_not_initialized()
                 before_skew_x: ap.Int = target._skew_x
             else:
                 raise TypeError(

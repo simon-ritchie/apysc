@@ -4,13 +4,14 @@
 from typing import Dict
 
 import apysc as ap
+from apysc._animation.animation_skew_x_interface import \
+    AnimationSkewXInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class SkewXInterface(
-        VariableNameInterface, RevertInterface, AttrLinkingInterface):
+        AnimationSkewXInterface, RevertInterface, AttrLinkingInterface):
 
     _skew_x: ap.Int
 

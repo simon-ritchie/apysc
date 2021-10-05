@@ -41,39 +41,6 @@ class TestAnimationHeight:
             f'\n  .height({animation_height._height.variable_name});')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__make_snapshot(self) -> None:
-        target: VariableNameInterface = VariableNameInterface()
-        target.variable_name = 'test_animation_height'
-        animation_height: ap.AnimationHeight = ap.AnimationHeight(
-            target=target, height=100)
-        snapshot_name: str = animation_height._get_next_snapshot_name()
-        animation_height._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name)
-        assert animation_height._height_snapshots[snapshot_name] == 100
-
-        animation_height._height.value = 200
-        animation_height._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name)
-        assert animation_height._height_snapshots[snapshot_name] == 100
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__revert(self) -> None:
-        target: VariableNameInterface = VariableNameInterface()
-        target.variable_name = 'test_animation_height'
-        animation_height: ap.AnimationHeight = ap.AnimationHeight(
-            target=target, height=100)
-        snapshot_name: str = animation_height._get_next_snapshot_name()
-        animation_height._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name)
-        animation_height._height.value = 200
-        animation_height._run_all_revert_methods(snapshot_name=snapshot_name)
-        assert animation_height._height == 100
-
-        animation_height._height.value = 200
-        animation_height._run_all_revert_methods(snapshot_name=snapshot_name)
-        assert animation_height._height == 200
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
         target: HeightInterface = HeightInterface()
         target.variable_name = 'test_animation_height'

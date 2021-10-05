@@ -1,7 +1,6 @@
 """Class implementation for the height animation value.
 """
 
-from typing import Dict
 from typing import Generic
 from typing import TypeVar
 from typing import Union
@@ -96,33 +95,3 @@ class AnimationHeight(AnimationBase[_T], Generic[_T]):
                 f'{self._height.variable_name};'
             )
         return expression
-
-    _height_snapshots: Dict[str, int]
-
-    def _make_snapshot(self, snapshot_name: str) -> None:
-        """
-        Make a value's snapshot.
-
-        Parameters
-        ----------
-        snapshot_name : str
-            Target snapshot name.
-        """
-        if not hasattr(self, '_height_snapshots'):
-            self._height_snapshots = {}
-        if self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._height_snapshots[snapshot_name] = int(self._height._value)
-
-    def _revert(self, snapshot_name: str) -> None:
-        """
-        Revert value if a snapshot exists.
-
-        Parameters
-        ----------
-        snapshot_name : str
-            Target snapshot name.
-        """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._height._value = self._height_snapshots[snapshot_name]

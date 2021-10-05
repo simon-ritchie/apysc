@@ -46,41 +46,6 @@ class TestAnimationCx:
         assert expression == f'\n  .cx({animation_cx._cx.variable_name});'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__make_snapshot(self) -> None:
-        target: VariableNameInterface = VariableNameInterface()
-        target.variable_name = 'test_animation_cx'
-        animation_cx: ap.AnimationCx = ap.AnimationCx(
-            target=target, x=100,
-        )
-        snapshot_name: str = animation_cx._get_next_snapshot_name()
-        animation_cx._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name)
-        assert animation_cx._cx_snapshots[snapshot_name] == 100
-
-        animation_cx._cx.value = 200
-        animation_cx._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name)
-        assert animation_cx._cx_snapshots[snapshot_name] == 100
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__revert(self) -> None:
-        target: VariableNameInterface = VariableNameInterface()
-        target.variable_name = 'test_animation_cx'
-        animation_cx: ap.AnimationCx = ap.AnimationCx(
-            target=target, x=100,
-        )
-        snapshot_name: str = animation_cx._get_next_snapshot_name()
-        animation_cx._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name)
-        animation_cx._cx.value = 200
-        animation_cx._run_all_revert_methods(snapshot_name=snapshot_name)
-        assert animation_cx._cx == 100
-
-        animation_cx._cx.value = 200
-        animation_cx._run_all_revert_methods(snapshot_name=snapshot_name)
-        assert animation_cx._cx == 200
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
         target: CxInterface = CxInterface()
         target.variable_name = 'test_animation_cx'

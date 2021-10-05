@@ -1,7 +1,6 @@
 """Class implementation for the fill color animation value.
 """
 
-from typing import Dict
 from typing import Generic
 from typing import TypeVar
 from typing import Union
@@ -102,33 +101,3 @@ class AnimationFillColor(AnimationBase[_T], Generic[_T]):
                 f'{self._fill_color.variable_name};'
             )
         return expression
-
-    _fill_color_snapshots: Dict[str, str]
-
-    def _make_snapshot(self, snapshot_name: str) -> None:
-        """
-        Make a value's snapshot.
-
-        Parameters
-        ----------
-        snapshot_name : str
-            Target snapshot name.
-        """
-        if not hasattr(self, '_fill_color_snapshots'):
-            self._fill_color_snapshots = {}
-        if self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._fill_color_snapshots[snapshot_name] = self._fill_color._value
-
-    def _revert(self, snapshot_name: str) -> None:
-        """
-        Revert value if a snapshot exists.
-
-        Parameters
-        ----------
-        snapshot_name : str
-            Target snapshot name.
-        """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._fill_color._value = self._fill_color_snapshots[snapshot_name]

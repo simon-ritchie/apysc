@@ -43,43 +43,6 @@ class TestAnimationFillAlpha:
             f'{animation_fill_alpha._fill_alpha.variable_name}}});')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__make_snapshot(self) -> None:
-        target: VariableNameInterface = VariableNameInterface()
-        target.variable_name = 'test_animation_fill_alpha'
-        animation_fill_alpha: ap.AnimationFillAlpha = ap.AnimationFillAlpha(
-            target=target, alpha=0.5)
-        snapshot_name: str = animation_fill_alpha._get_next_snapshot_name()
-        animation_fill_alpha._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name)
-        assert animation_fill_alpha._fill_alpha_snapshots[
-            snapshot_name] == 0.5
-
-        animation_fill_alpha._fill_alpha.value = 0.3
-        animation_fill_alpha._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name)
-        assert animation_fill_alpha._fill_alpha_snapshots[
-            snapshot_name] == 0.5
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__revert(self) -> None:
-        target: VariableNameInterface = VariableNameInterface()
-        target.variable_name = 'test_animation_fill_alpha'
-        animation_fill_alpha: ap.AnimationFillAlpha = ap.AnimationFillAlpha(
-            target=target, alpha=0.5)
-        snapshot_name: str = animation_fill_alpha._get_next_snapshot_name()
-        animation_fill_alpha._run_all_make_snapshot_methods(
-            snapshot_name=snapshot_name)
-        animation_fill_alpha._fill_alpha.value = 0.3
-        animation_fill_alpha._run_all_revert_methods(
-            snapshot_name=snapshot_name)
-        assert animation_fill_alpha._fill_alpha == 0.5
-
-        animation_fill_alpha._fill_alpha.value = 0.3
-        animation_fill_alpha._run_all_revert_methods(
-            snapshot_name=snapshot_name)
-        assert animation_fill_alpha._fill_alpha == 0.3
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
         target: FillAlphaInterface = FillAlphaInterface()
         target.variable_name = 'test_animation_fill_alpha'

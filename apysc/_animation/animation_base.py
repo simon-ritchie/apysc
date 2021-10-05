@@ -5,7 +5,6 @@ from abc import ABC
 from abc import abstractmethod
 from typing import Any
 from typing import Callable
-from typing import Dict
 from typing import Generic
 from typing import Optional
 from typing import TypeVar
@@ -14,7 +13,6 @@ from typing import Union
 import apysc as ap
 from apysc._animation.easing import Easing
 from apysc._event.custom_event_interface import CustomEventInterface
-from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 _T = TypeVar('_T', bound=VariableNameInterface)
@@ -24,8 +22,7 @@ _Handler = Callable[[_AnimationEvent, _O], None]
 
 
 class AnimationBase(
-        VariableNameInterface, RevertInterface, CustomEventInterface,
-        Generic[_T], ABC):
+        VariableNameInterface, CustomEventInterface, Generic[_T], ABC):
 
     _target: _T
     _duration: ap.Int
@@ -226,50 +223,3 @@ class AnimationBase(
             - https://simon-ritchie.github.io/apysc/animation_base_target.html
         """
         return self._target
-
-    _target_snapshots: Dict[str, _T]
-    _duration_snapshots: Dict[str, int]
-    _delay_snapshots: Dict[str, int]
-    _easing_snapshots: Dict[str, Easing]
-    _started_snapshots: Dict[str, bool]
-
-    def _make_snapshot(self, snapshot_name: str) -> None:
-        """
-        Make values' snapshot.
-
-        Parameters
-        ----------
-        snapshot_name : str
-            Target snapshot name.
-        """
-        if not hasattr(self, '_target_snapshots'):
-            self._target_snapshots = {}
-            self._duration_snapshots = {}
-            self._delay_snapshots = {}
-            self._easing_snapshots = {}
-            self._started_snapshots = {}
-        if self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._target_snapshots[snapshot_name] = self._target
-        self._duration_snapshots[snapshot_name] = int(self._duration._value)
-        self._delay_snapshots[snapshot_name] = int(self._delay._value)
-        self._easing_snapshots[snapshot_name] = self._easing
-        self._started_snapshots[snapshot_name] = self._started._value
-
-    def _revert(self, snapshot_name: str) -> None:
-        """
-        Revert values if snapshot exists.
-
-        Parameters
-        ----------
-        snapshot_name : str
-            Target snapshot name.
-        """
-        if not self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._target = self._target_snapshots[snapshot_name]
-        self._duration._value = self._duration_snapshots[snapshot_name]
-        self._delay._value = self._delay_snapshots[
-            snapshot_name]
-        self._easing = self._easing_snapshots[snapshot_name]
-        self._started._value = self._started_snapshots[snapshot_name]

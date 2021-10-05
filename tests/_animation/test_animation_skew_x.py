@@ -61,8 +61,7 @@ class TestAnimationSkewX:
         )
         expression: str = animation_skew_x._get_animation_func_expression()
         assert expression == (
-            '\n  .attr({"skewX": '
-            f'{animation_skew_x._skew_x_diff.variable_name}}});'
+            f'\n  .skew({animation_skew_x._skew_x_diff.variable_name}, 0);'
         )
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

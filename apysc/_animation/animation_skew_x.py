@@ -91,7 +91,7 @@ class AnimationSkewX(AnimationBase[_T], Generic[_T]):
         from apysc._type import value_util
         diff_str: str = value_util.get_value_str_for_expression(
             value=self._skew_x_diff)
-        return f'\n  .attr({{"skewX": {diff_str}}});'
+        return f'\n  .skew({diff_str}, 0);'
 
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """

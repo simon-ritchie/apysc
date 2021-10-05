@@ -27,7 +27,6 @@ class AnimationSkewX(AnimationBase[_T], Generic[_T]):
             self,
             target: _T,
             skew_x: Union[int, ap.Int],
-            before_skew_x: ap.Int,
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:
@@ -36,19 +35,22 @@ class AnimationSkewX(AnimationBase[_T], Generic[_T]):
 
         Parameters
         ----------
-        target : VariableNameInterface
+        target : SkewXInterface
             A target instance of the animation target
             (e.g., `Rectangle` instance).
         skew_x : int or Int
             The final skew-x of the animation.
-        before_skew_x : int or Int
-            The skew-x before the animation.
         duration : int or Int, default 3000
             Milliseconds before an animation ends.
         delay : int or Int, default 0
             Milliseconds before an animation starts.
         easing : Easing, default Easing.LINEAR
             Easing setting.
+
+        Raises
+        ------
+        TypeError
+            If a specified target is not a SkewXInterface instance.
         """
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
@@ -56,8 +58,15 @@ class AnimationSkewX(AnimationBase[_T], Generic[_T]):
             from apysc._converter import to_apysc_val_from_builtin
             from apysc._expression import expression_variables_util
             from apysc._expression import var_names
+            from apysc._display.skew_x_interface import SkewXInterface
             variable_name: str = expression_variables_util.\
                 get_next_variable_name(type_name=var_names.ANIMATION_SKEW_X)
+            if isinstance(target, SkewXInterface):
+                before_skew_x: ap.Int = target._skew_x
+            else:
+                raise TypeError(
+                    'Specified `target` argument is not a SkewXInterface '
+                    f'instance: {type(target)}')
             self._skew_x = to_apysc_val_from_builtin.\
                 get_copied_int_from_builtin_val(integer=skew_x)
             self._before_skew_x = before_skew_x

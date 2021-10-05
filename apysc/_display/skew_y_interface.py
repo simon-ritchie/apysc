@@ -4,8 +4,7 @@
 from typing import Dict
 
 import apysc as ap
-from apysc._animation.animation_skew_y_interface import \
-    AnimationSkewYInterface
+from apysc._animation.animation_skew_y_interface import AnimationSkewYInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 

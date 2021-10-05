@@ -1,8 +1,8 @@
 """Class implementation for the animation_skew_y interface.
 """
 
-from typing import Union
 import warnings
+from typing import Union
 
 import apysc as ap
 from apysc._animation.animation_interface_base import AnimationInterfaceBase

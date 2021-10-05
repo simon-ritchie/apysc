@@ -6,7 +6,8 @@ import apysc as ap
 from apysc._display.skew_y_interface import SkewYInterface
 from apysc._expression import var_names
 from apysc._type.variable_name_interface import VariableNameInterface
-from tests.testing_helper import assert_attrs, assert_raises
+from tests.testing_helper import assert_attrs
+from tests.testing_helper import assert_raises
 
 
 class TestAnimationSkewY:

@@ -63,7 +63,7 @@ class AnimationSkewX(AnimationBase[_T], Generic[_T]):
             target_: VariableNameInterface = target
             if isinstance(target_, SkewXInterface):
                 target_._initialize_skew_x_if_not_initialized()
-                self._before_skew_x  = target_._skew_x
+                self._before_skew_x = target_._skew_x
             else:
                 raise TypeError(
                     'Specified `target` argument is not a SkewXInterface '

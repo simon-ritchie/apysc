@@ -45,3 +45,15 @@ class TestAnimationSkewY:
             },
             match='Specified `target` argument is not a SkewYInterface',
         )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self) -> None:
+        target: SkewYInterface = SkewYInterface()
+        target.variable_name = 'test_animation_skew_y'
+        animation_skew_y: ap.AnimationSkewY = ap.AnimationSkewY(
+            target=target, skew_y=50,
+        )
+        expression: str = animation_skew_y._get_animation_func_expression()
+        assert expression == (
+            f'\n  .skew(0, {animation_skew_y._skew_y_diff.variable_name});'
+        )

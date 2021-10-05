@@ -103,3 +103,12 @@ class AnimationSkewY(AnimationBase[_T], Generic[_T]):
             An expression to be inserted into the complete event
             handler's head.
         """
+        from apysc._display.skew_y_interface import SkewYInterface
+        expression: str = ''
+        if isinstance(self._target, SkewYInterface):
+            self._target._initialize_skew_y_if_not_initialized()
+            expression = (
+                f'{self._target._skew_y.variable_name} = '
+                f'{self._skew_y.variable_name};'
+            )
+        return expression

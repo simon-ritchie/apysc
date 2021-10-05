@@ -60,13 +60,14 @@ class AnimationSkewX(AnimationBase[_T], Generic[_T]):
             from apysc._expression import var_names
             variable_name: str = expression_variables_util.\
                 get_next_variable_name(type_name=var_names.ANIMATION_SKEW_X)
-            if isinstance(target, SkewXInterface):
-                target._initialize_skew_x_if_not_initialized()
-                before_skew_x: ap.Int = target._skew_x
+            target_: VariableNameInterface = target
+            if isinstance(target_, SkewXInterface):
+                target_._initialize_skew_x_if_not_initialized()
+                before_skew_x: ap.Int = target_._skew_x
             else:
                 raise TypeError(
                     'Specified `target` argument is not a SkewXInterface '
-                    f'instance: {type(target)}')
+                    f'instance: {type(target_)}')
             self._skew_x = to_apysc_val_from_builtin.\
                 get_copied_int_from_builtin_val(integer=skew_x)
             self._before_skew_x = before_skew_x

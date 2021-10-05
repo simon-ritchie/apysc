@@ -2,6 +2,7 @@
 """
 
 from typing import Union
+import warnings
 
 import apysc as ap
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
@@ -18,6 +19,11 @@ class AnimationSkewYInterface(AnimationInterfaceBase):
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationSkewY:
         """
+        **Important notes**
+        Currently this interface does not work correctly.
+        For more details please see:
+        https://github.com/svgdotjs/svg.js/issues/1222
+
         Set the skew-y animation animation.
 
         Notes
@@ -50,6 +56,11 @@ class AnimationSkewYInterface(AnimationInterfaceBase):
         - Easing enum document
             - https://simon-ritchie.github.io/apysc/easing_enum.html
         """
+        warnings.warn(
+            'Currently the `animation_skew_y` interface does not '
+            'work correctly. Maybe this issue will be fixed in future '
+            'versions. For more details, please see '
+            'https://github.com/svgdotjs/svg.js/issues/1222')
         animation_skew_y: AnimationSkewY = AnimationSkewY(
             target=self,
             skew_y=skew_y,

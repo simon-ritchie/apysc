@@ -1,7 +1,6 @@
 """Class implementation for the radius animation value.
 """
 
-from typing import Dict
 from typing import Generic
 from typing import TypeVar
 from typing import Union

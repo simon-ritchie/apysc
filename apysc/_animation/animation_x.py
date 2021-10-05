@@ -1,7 +1,6 @@
 """Class implementation for the x animation value.
 """
 
-from typing import Dict
 from typing import Generic
 from typing import TypeVar
 from typing import Union

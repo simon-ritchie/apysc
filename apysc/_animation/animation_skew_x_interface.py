@@ -11,7 +11,7 @@ from apysc._animation.easing import Easing
 
 class AnimationSkewXInterface(AnimationInterfaceBase):
 
-    def animation_skew_x_interface(
+    def animation_skew_x(
             self,
             skew_x: Union[int, ap.Int],
             duration: Union[int, ap.Int] = 3000,

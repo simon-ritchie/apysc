@@ -10,11 +10,11 @@ from tests.testing_helper import assert_attrs
 class TestAnimationSkewXInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test_animation_skew_x_interface(self) -> None:
+    def test_animation_skew_x(self) -> None:
         interface: SkewXInterface = SkewXInterface()
         interface.variable_name = 'test_animation_skew_x_interface'
         animation_skew_x: ap.AnimationSkewX = interface.\
-            animation_skew_x_interface(
+            animation_skew_x(
                 skew_x=100, duration=1000, delay=500,
                 easing=ap.Easing.EASE_OUT_QUINT)
         assert_attrs(

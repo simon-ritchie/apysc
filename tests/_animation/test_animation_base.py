@@ -78,7 +78,8 @@ class TestAnimationBase:
             target=target,
             duration=3000, delay=1000,
             easing=ap.Easing.EASE_OUT_QUINT)
-        animation.start()
+        self_instance: ap.AnimationBase = animation.start()
+        assert isinstance(self_instance, _TestAnimation)
         expression: str = expression_data_util.get_current_expression()
         expected_patterns: List[str] = [
             rf'{animation._target.variable_name}',

@@ -81,9 +81,14 @@ class AnimationBase(
                 get_copied_int_from_builtin_val(integer=delay)
             self._easing = easing
 
-    def start(self) -> None:
+    def start(self) -> 'AnimationBase':
         """
         Start an animation with current settings.
+
+        Returns
+        -------
+        self : AnimatonBase
+            This instance.
 
         References
         ----------
@@ -105,6 +110,7 @@ class AnimationBase(
             expression += animation_expresssion
             ap.append_js_expression(expression=expression)
             self._started.value = True
+        return self
 
     def _get_animation_complete_handler_expression(self) -> str:
         """

@@ -113,3 +113,14 @@ class AnimationRotationAroundCenter(AnimationBase[_T], Generic[_T]):
             An expression to be inserted into the complete event
             handler's head.
         """
+        from apysc._display.rotation_around_center_interface import \
+            RotationAroundCenterInterface
+        expression: str = ''
+        if isinstance(self._target, RotationAroundCenterInterface):
+            self._target.\
+                _initialize_rotation_around_center_if_not_initialized()
+            expression = (
+                f'{self._target._rotation_around_center.variable_name} = '
+                f'{self._rotation_around_center.variable_name};'
+            )
+        return expression

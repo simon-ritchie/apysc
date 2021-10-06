@@ -11,10 +11,10 @@ from retrying import retry
 import apysc as ap
 from apysc._animation.animation_base import AnimationBase
 from apysc._event.custom_event_type import CustomEventType
+from apysc._event.handler import get_handler_name
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._event.handler import get_handler_name
 from tests.testing_helper import assert_raises
 
 

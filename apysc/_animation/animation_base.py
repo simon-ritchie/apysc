@@ -140,7 +140,7 @@ class AnimationBase(
 
     def animation_complete(
             self, handler: _Handler[_O],
-            options: Optional[_O] = None) -> str:
+            options: Optional[_O] = None) -> 'AnimationBase':
         """
         Add a animation complete event listener setting.
 
@@ -157,8 +157,8 @@ class AnimationBase(
 
         Returns
         -------
-        name : str
-            Handler's name.
+        self : AnimatonBase
+            This instance.
 
         Raises
         ------
@@ -183,13 +183,13 @@ class AnimationBase(
             e: ap.AnimationEvent[_T] = ap.AnimationEvent(this=self)
             in_handler_head_expression: str = \
                 self._get_complete_event_in_handler_head_expression()
-            name: str = self.bind_custom_event(
+            self.bind_custom_event(
                 custom_event_type=CustomEventType.ANIMATION_COMPLETE,
                 handler=handler,
                 e=e,
                 options=options,
                 in_handler_head_expression=in_handler_head_expression)
-            return name
+            return self
 
     @abstractmethod
     def _get_complete_event_in_handler_head_expression(self) -> str:

@@ -14,6 +14,7 @@ from apysc._event.custom_event_type import CustomEventType
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._event.handler import get_handler_name
 from tests.testing_helper import assert_raises
 
 
@@ -142,9 +143,12 @@ class TestAnimationBase:
     def test_animation_complete(self) -> None:
         expression_data_util.empty_expression()
         animation: _TestAnimation = _TestAnimation()
-        handler_name: str = animation.animation_complete(
+        self_instance: AnimationBase = animation.animation_complete(
             handler=self.on_animation_complete_1,
             options={'value': 10})
+        assert isinstance(self_instance, _TestAnimation)
+        handler_name: str = get_handler_name(
+            handler=self.on_animation_complete_1, instance=animation)
         event_type: str = CustomEventType.ANIMATION_COMPLETE.value
         assert (animation._custom_event_handlers[  # type: ignore
             event_type][handler_name]['handler']
@@ -159,10 +163,14 @@ class TestAnimationBase:
             animation._get_animation_complete_handler_expression()
         assert expression == ''
 
-        handler_name_1: str = animation.animation_complete(
+        _ = animation.animation_complete(
             handler=self.on_animation_complete_1, options={'value': 10})
-        handler_name_2: str = animation.animation_complete(
+        _ = animation.animation_complete(
             handler=self.on_animation_complete_2)
+        handler_name_1: str = get_handler_name(
+            handler=self.on_animation_complete_1, instance=animation)
+        handler_name_2: str = get_handler_name(
+            handler=self.on_animation_complete_2, instance=animation)
         expression = animation._get_animation_complete_handler_expression()
         assert f'\n  .after({handler_name_1})'
         assert f'\n  .after({handler_name_2})'

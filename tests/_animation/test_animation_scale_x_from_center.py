@@ -14,11 +14,11 @@ class TestAnimationScaleXFromCenter:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        target: ScaleXFromCenterInterface = ScaleXFromCenterInterface()
-        target.variable_name = 'test_animation_scale_x_from_center'
+        target_1: ScaleXFromCenterInterface = ScaleXFromCenterInterface()
+        target_1.variable_name = 'test_animation_scale_x_from_center'
         animation: ap.AnimationScaleXFromCenter = \
             ap.AnimationScaleXFromCenter(
-                target=target,
+                target=target_1,
                 scale_x_from_center=2.0,
                 duration=1000,
                 delay=500,
@@ -28,7 +28,7 @@ class TestAnimationScaleXFromCenter:
         )
         assert_attrs(
             expected_attrs={
-                '_target': target,
+                '_target': target_1,
                 '_scale_x_from_center': 2.0,
                 '_before_scale_x_from_center': 1.0,
                 '_scale_x_from_center_diff_ratio': 2.0,
@@ -37,3 +37,15 @@ class TestAnimationScaleXFromCenter:
                 '_easing': ap.Easing.EASE_OUT_QUINT,
             },
             any_obj=animation)
+
+        target_2: VariableNameInterface = VariableNameInterface()
+        target_2.variable_name = 'test_animation_scale_x_from_center'
+        assert_raises(
+            expected_error_class=TypeError,
+            func_or_method=ap.AnimationScaleXFromCenter,
+            kwargs={
+                'target': target_2,
+                'scale_x_from_center': 2.0,
+            },
+            match='Specified `target` argument is not a '
+                  'ScaleXFromCenterInterface')

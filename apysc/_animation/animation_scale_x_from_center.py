@@ -70,7 +70,7 @@ class AnimationScaleXFromCenter(AnimationBase[_T], Generic[_T]):
                     target_._scale_x_from_center
             else:
                 raise TypeError(
-                    'Specified `target` argument is not a'
+                    'Specified `target` argument is not a '
                     f'ScaleXFromCenterInterface instance: {type(target_)}')
             self._scale_x_from_center = to_apysc_val_from_builtin.\
                 get_copied_number_from_builtin_val(

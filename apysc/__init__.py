@@ -80,4 +80,4 @@ from apysc._animation.animation_skew_y import AnimationSkewY  # isort:skip # noq
 from apysc._animation.animation_rotation_around_center import AnimationRotationAroundCenter  # isort:skip # noqa
 from apysc._animation.animation_scale_x_from_center import AnimationScaleXFromCenter  # isort:skip # noqa
 
-__version__: str = '0.53.0'
+__version__: str = '0.53.1'

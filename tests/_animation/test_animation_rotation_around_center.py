@@ -7,7 +7,8 @@ from apysc._display.rotation_around_center_interface import \
     RotationAroundCenterInterface
 from apysc._expression import var_names
 from apysc._type.variable_name_interface import VariableNameInterface
-from tests.testing_helper import assert_attrs, assert_raises
+from tests.testing_helper import assert_attrs
+from tests.testing_helper import assert_raises
 
 
 class TestAnimationRotationAroundCenter:
@@ -51,7 +52,7 @@ class TestAnimationRotationAroundCenter:
                   'RotationAroundCenterInterface')
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test__get_animation_func_expression(self):
+    def test__get_animation_func_expression(self) -> None:
         target: RotationAroundCenterInterface = \
             RotationAroundCenterInterface()
         target.variable_name = 'test_animation_rotation_around_center'

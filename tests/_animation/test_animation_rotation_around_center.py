@@ -49,3 +49,19 @@ class TestAnimationRotationAroundCenter:
             },
             match='Specified `target` argument is not a '
                   'RotationAroundCenterInterface')
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self):
+        target_1: RotationAroundCenterInterface = \
+            RotationAroundCenterInterface()
+        target_1.variable_name = 'test_animation_rotation_around_center'
+        animation_rotation_around_center: ap.AnimationRotationAroundCenter = \
+            ap.AnimationRotationAroundCenter(
+                target=target_1, rotation_around_center=50)
+        expression: str = animation_rotation_around_center.\
+            _get_animation_func_expression()
+        diff_variable_name: str = animation_rotation_around_center.\
+            _rotation_around_center_diff.variable_name
+        assert expression == (
+            f'\n  .rotate({diff_variable_name});'
+        )

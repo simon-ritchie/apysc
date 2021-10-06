@@ -112,3 +112,13 @@ class AnimationScaleXFromCenter(AnimationBase[_T], Generic[_T]):
             An expression to be inserted into the complete event
             handler's head.
         """
+        from apysc._display.scale_x_from_center_interface import \
+            ScaleXFromCenterInterface
+        expression: str = ''
+        if isinstance(self._target, ScaleXFromCenterInterface):
+            self._target._initialize_scale_x_from_center_if_not_initialized()
+            expression = (
+                f'{self._target._scale_x_from_center.variable_name} = '
+                f'{self._scale_x_from_center.variable_name};'
+            )
+        return expression

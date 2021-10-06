@@ -49,3 +49,21 @@ class TestAnimationScaleXFromCenter:
             },
             match='Specified `target` argument is not a '
                   'ScaleXFromCenterInterface')
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self) -> None:
+        target: ScaleXFromCenterInterface = ScaleXFromCenterInterface()
+        target.variable_name = 'test_animation_scale_x_from_center'
+        animation: ap.AnimationScaleXFromCenter = \
+            ap.AnimationScaleXFromCenter(
+                target=target,
+                scale_x_from_center=2.0,
+                duration=1000,
+                delay=500,
+                easing=ap.Easing.EASE_OUT_QUINT)
+        expression: str = animation._get_animation_func_expression()
+        variable_name: str = \
+            animation._scale_x_from_center_diff_ratio.variable_name
+        assert expression == (
+            f'\n  .scale({variable_name}, 1);'
+        )

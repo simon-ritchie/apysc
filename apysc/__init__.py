@@ -77,5 +77,6 @@ from apysc._animation.animation_line_alpha import AnimationLineAlpha  # isort:sk
 from apysc._animation.animation_line_thickness import AnimationLineThickness  # isort:skip # noqa
 from apysc._animation.animation_skew_x import AnimationSkewX  # isort:skip # noqa
 from apysc._animation.animation_skew_y import AnimationSkewY  # isort:skip # noqa
+from apysc._animation.animation_rotation_around_center import AnimationRotationAroundCenter  # isort:skip # noqa
 
 __version__: str = '0.52.2'

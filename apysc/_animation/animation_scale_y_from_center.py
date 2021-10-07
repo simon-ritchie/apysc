@@ -97,6 +97,9 @@ class AnimationScaleYFromCenter(AnimationBase[_T], Generic[_T]):
             Animation function expression.
         """
         from apysc._type import value_util
+        diff_ratio_str: str = value_util.get_value_str_for_expression(
+            value=self._scale_y_from_center_diff_ratio)
+        return f'\n  .scale(1, {diff_ratio_str});'
 
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """

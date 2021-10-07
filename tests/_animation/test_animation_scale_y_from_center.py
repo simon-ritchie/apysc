@@ -48,3 +48,15 @@ class TestAnimationScaleYFromCenter:
             match='Specified `target` argument is not a '
                   'ScaleYFromCenterInterface'
         )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self) -> None:
+        target: ScaleYFromCenterInterface = ScaleYFromCenterInterface()
+        target.variable_name = 'test_animation_scale_y_from_center'
+        animation: ap.AnimationScaleYFromCenter = \
+            ap.AnimationScaleYFromCenter(
+                target=target, scale_y_from_center=2.0)
+        expression: str = animation._get_animation_func_expression()
+        variable_name: str = \
+            animation._scale_y_from_center_diff_ratio.variable_name
+        assert expression == f'\n  .scale(1, {variable_name});'

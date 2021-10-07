@@ -73,6 +73,7 @@ from apysc._animation.animation_height_for_ellipse import AnimationHeightForElli
 from apysc._animation.animation_radius import AnimationRadius  # isort:skip # noqa
 from apysc._animation.animation_fill_alpha import AnimationFillAlpha  # isort:skip # noqa
 from apysc._animation.animation_fill_color import AnimationFillColor  # isort:skip # noqa
+from apysc._animation.animation_line_color import AnimationLineColor  # isort:skip # noqa
 from apysc._animation.animation_line_alpha import AnimationLineAlpha  # isort:skip # noqa
 from apysc._animation.animation_line_thickness import AnimationLineThickness  # isort:skip # noqa
 from apysc._animation.animation_skew_x import AnimationSkewX  # isort:skip # noqa

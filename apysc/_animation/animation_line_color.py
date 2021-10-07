@@ -77,6 +77,9 @@ class AnimationLineColor(AnimationBase[_T], Generic[_T]):
             Animation function expression.
         """
         from apysc._type import value_util
+        line_color_str: str = value_util.get_value_str_for_expression(
+            value=self._line_color)
+        return f'\n  .stroke({line_color_str});'
 
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """

@@ -32,3 +32,16 @@ class TestAnimationLineColor:
                 '_easing': ap.Easing.EASE_OUT_QUINT,
             },
             any_obj=animation)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self) -> None:
+        target: LineColorInterface = LineColorInterface()
+        target.variable_name = 'test_animation_line_color'
+        animation: ap.AnimationLineColor = ap.AnimationLineColor(
+            target=target,
+            line_color='0af',
+        )
+        expression: str = animation._get_animation_func_expression()
+        assert expression == (
+            f'\n  .stroke({animation._line_color.variable_name});'
+        )

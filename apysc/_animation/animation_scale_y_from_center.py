@@ -37,8 +37,8 @@ class AnimationScaleYFromCenter(AnimationBase[_T], Generic[_T]):
         target : SkewYInterface
             A target instance of the animation target
             (e.g., `Rectangle` instance).
-        scale_x_from_center : float or Number
-            The final scale-x of the animation.
+        scale_y_from_center : float or Number
+            The final scale-y of the animation.
         duration : int or Int, default 3000
             Milliseconds before an animation ends.
         delay : int or Int, default 0
@@ -117,7 +117,7 @@ class AnimationScaleYFromCenter(AnimationBase[_T], Generic[_T]):
         expression: str = ''
         if isinstance(self._target, ScaleYFromCenterInterface):
             self._target._initialize_scale_y_from_center_if_not_initialized()
-            expression : str = (
+            expression = (
                 f'{self._target._scale_y_from_center.variable_name} = '
                 f'{self._scale_y_from_center.variable_name};'
             )

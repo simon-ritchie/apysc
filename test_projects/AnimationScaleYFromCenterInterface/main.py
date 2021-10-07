@@ -88,6 +88,5 @@ def on_animation_complete_2(
     ).animation_complete(on_animation_complete_1).start()
 
 
-
 if __name__ == '__main__':
     main()

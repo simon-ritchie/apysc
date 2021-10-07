@@ -1,4 +1,4 @@
-"""Class implementation for the animation_scale_x_from_center
+"""Class implementation for the animation_scale_y_from_center
 interface.
 """
 
@@ -6,21 +6,21 @@ from typing import Union
 
 import apysc as ap
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
-from apysc._animation.animation_scale_x_from_center import \
-    AnimationScaleXFromCenter
+from apysc._animation.animation_scale_y_from_center import \
+    AnimationScaleYFromCenter
 from apysc._animation.easing import Easing
 
 
-class AnimationScaleXFromCenterInterface(AnimationInterfaceBase):
+class AnimationScaleYFromCenterInterface(AnimationInterfaceBase):
 
-    def animation_scale_x_from_center(
+    def animation_scale_y_from_center(
             self,
-            scale_x_from_center: Union[float, ap.Number],
+            scale_y_from_center: Union[float, ap.Number],
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
-            easing: Easing = Easing.LINEAR) -> AnimationScaleXFromCenter:
+            easing: Easing = Easing.LINEAR) -> AnimationScaleYFromCenter:
         """
-        Set the scale-x from the center point animation setting.
+        Set the scale-y from the center point animation setting.
 
         Notes
         -----
@@ -29,8 +29,8 @@ class AnimationScaleXFromCenterInterface(AnimationInterfaceBase):
 
         Parameters
         ----------
-        scale_x_from_center : float or Number
-            The final scale-x of the animation.
+        scale_y_from_center : float or number
+            The final scale-y of the animation.
         duration : int or Int, default 3000
             Milliseconds before an animation ends.
         delay : int or Int, default 0
@@ -40,7 +40,7 @@ class AnimationScaleXFromCenterInterface(AnimationInterfaceBase):
 
         Returns
         -------
-        animation_scale_x_from_center : AnimationScaleXFromCenter
+        animation_scale_y_from_center : AnimationScaleYFromCenter
             Created animation setting instance.
 
         References
@@ -52,11 +52,11 @@ class AnimationScaleXFromCenterInterface(AnimationInterfaceBase):
         - Easing enum document
             - https://simon-ritchie.github.io/apysc/easing_enum.html
         """
-        animation_scale_x_from_center: AnimationScaleXFromCenter = \
-            AnimationScaleXFromCenter(
+        animation_scale_y_from_center: AnimationScaleYFromCenter = \
+            AnimationScaleYFromCenter(
                 target=self,
-                scale_x_from_center=scale_x_from_center,
+                scale_y_from_center=scale_y_from_center,
                 duration=duration,
                 delay=delay,
                 easing=easing)
-        return animation_scale_x_from_center
+        return animation_scale_y_from_center

@@ -4,13 +4,15 @@
 from typing import Dict
 
 import apysc as ap
+from apysc._animation.animation_scale_y_from_center_interface import \
+    AnimationScaleYFromCenterInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class ScaleYFromCenterInterface(
-        VariableNameInterface, RevertInterface, AttrLinkingInterface):
+        AnimationScaleYFromCenterInterface, RevertInterface,
+        AttrLinkingInterface):
 
     _scale_y_from_center: ap.Number
 

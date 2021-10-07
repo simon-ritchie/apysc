@@ -92,3 +92,12 @@ class AnimationLineColor(AnimationBase[_T], Generic[_T]):
             An expression to be inserted into the complete event
             handler's head.
         """
+        from apysc._display.line_color_interface import LineColorInterface
+        expression: str = ''
+        if isinstance(self._target, LineColorInterface):
+            self._target._initialize_line_color_if_not_initialized()
+            expression = (
+                f'{self._target._line_color.variable_name} = '
+                f'{self._line_color.variable_name};'
+            )
+        return expression

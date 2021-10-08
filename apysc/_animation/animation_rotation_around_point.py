@@ -125,3 +125,26 @@ class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
             An expression to be inserted into the complete event
             handler's head.
         """
+        from apysc._display.rotation_around_point_interface import \
+            RotationAroundPointInterface
+        from apysc._display import rotation_interface_helper
+        from apysc._type.expression_string import ExpressionString
+        from apysc._type import value_util
+        expression: str = ''
+        if isinstance(self._target, RotationAroundPointInterface):
+            self._target.\
+                _initialize_rotation_around_point_if_not_initialized()
+            key_exp_str: ExpressionString = rotation_interface_helper.\
+                get_coordinates_key_for_expression(x=self._x, y=self._y)
+            target_rotation_around_point_value_str: str = value_util.\
+                get_value_str_for_expression(
+                    value=self._target._rotation_around_point)
+            rotation_around_point_value_str: str = value_util.\
+                get_value_str_for_expression(
+                    value=self._rotation_around_point)
+            expression = (
+                f'{target_rotation_around_point_value_str}'
+                f'[{key_exp_str.value}] = '
+                f'{rotation_around_point_value_str};'
+            )
+        return expression

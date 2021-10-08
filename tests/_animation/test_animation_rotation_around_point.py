@@ -6,6 +6,8 @@ from retrying import retry
 import apysc as ap
 from apysc._display.rotation_around_point_interface import \
     RotationAroundPointInterface
+from apysc._display import rotation_interface_helper
+from apysc._type.expression_string import ExpressionString
 from apysc._expression import var_names
 from tests.testing_helper import assert_attrs, assert_raises
 
@@ -74,3 +76,26 @@ class TestAnimationRotationAroundPoint:
             f'{animation._x.variable_name}, '
             f'{animation._y.variable_name});'
         )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_complete_event_in_handler_head_expression(self) -> None:
+        target: RotationAroundPointInterface = \
+            RotationAroundPointInterface()
+        target.variable_name = 'test_animation_rotation_around_point'
+        animation: ap.AnimationRotationAroundPoint = \
+            ap.AnimationRotationAroundPoint(
+                target=target,
+                rotation_around_point=100,
+                x=200,
+                y=300)
+        expression: str = animation.\
+            _get_complete_event_in_handler_head_expression()
+        key_exp_str: str = rotation_interface_helper.\
+            get_coordinates_key_for_expression(
+                x=animation._x, y=animation._y).value
+        expected: str = (
+            f'{target._rotation_around_point.variable_name}'
+            f'[{key_exp_str}] = '
+            f'{animation._rotation_around_point.variable_name};'
+        )
+        assert expression == expected

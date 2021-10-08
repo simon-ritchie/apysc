@@ -115,11 +115,12 @@ class RotationAroundPointInterface(VariableNameInterface, RevertInterface):
                 callable_=self._append_rotation_around_point_update_expression,  # noqa
                 locals_=locals(),
                 module_name=__name__, class_=RotationAroundPointInterface):
-            expression: str = self._get_rotation_around_point_expression(
-                rotation=rotation, x=x, y=y)
+            expression: str = \
+                self._get_rotation_around_point_updating_expression(
+                    rotation=rotation, x=x, y=y)
             ap.append_js_expression(expression=expression)
 
-    def _get_rotation_around_point_expression(
+    def _get_rotation_around_point_updating_expression(
             self, rotation: ap.Int, x: ap.Int, y: ap.Int) -> str:
         """
         Get a rotation value around the given coordinates updating

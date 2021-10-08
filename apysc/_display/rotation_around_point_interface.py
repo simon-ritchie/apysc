@@ -5,11 +5,13 @@ from typing import Any
 from typing import Dict
 
 import apysc as ap
+from apysc._animation.animation_rotation_around_point_interface import \
+    AnimationRotationAroundPointInterface
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class RotationAroundPointInterface(VariableNameInterface, RevertInterface):
+class RotationAroundPointInterface(
+        AnimationRotationAroundPointInterface, RevertInterface):
 
     _rotation_around_point: ap.Dictionary[str, ap.Int]
 

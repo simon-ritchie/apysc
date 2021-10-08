@@ -84,4 +84,4 @@ from apysc._animation.animation_scale_x_from_center import AnimationScaleXFromCe
 from apysc._animation.animation_scale_y_from_center import AnimationScaleYFromCenter  # isort:skip # noqa
 from apysc._animation.animation_scale_x_from_point import AnimationScaleXFromPoint  # isort:skip # noqa
 
-__version__: str = '0.53.4'
+__version__: str = '0.53.5'

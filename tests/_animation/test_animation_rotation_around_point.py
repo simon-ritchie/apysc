@@ -1,15 +1,15 @@
 from random import randint
-from apysc._type.variable_name_interface import VariableNameInterface
 
 from retrying import retry
 
 import apysc as ap
+from apysc._display import rotation_interface_helper
 from apysc._display.rotation_around_point_interface import \
     RotationAroundPointInterface
-from apysc._display import rotation_interface_helper
-from apysc._type.expression_string import ExpressionString
 from apysc._expression import var_names
-from tests.testing_helper import assert_attrs, assert_raises
+from apysc._type.variable_name_interface import VariableNameInterface
+from tests.testing_helper import assert_attrs
+from tests.testing_helper import assert_raises
 
 
 class TestAnimationRotationAroundPoint:

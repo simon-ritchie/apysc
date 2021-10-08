@@ -5,11 +5,13 @@ from typing import Any
 from typing import Dict
 
 import apysc as ap
+from apysc._animation.animation_scale_x_from_point_interface import \
+    AnimationScaleXFromPointInterface
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class ScaleXFromPointInterface(VariableNameInterface, RevertInterface):
+class ScaleXFromPointInterface(
+        AnimationScaleXFromPointInterface, RevertInterface):
 
     _scale_x_from_point: ap.Dictionary[str, ap.Number]
 

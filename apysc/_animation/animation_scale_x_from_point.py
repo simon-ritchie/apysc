@@ -120,3 +120,21 @@ class AnimationScaleXFromPoint(AnimationBase[_T], Generic[_T]):
             An expression to be inserted into the complete event
             handler's head.
         """
+        from apysc._display import scale_interface_helper
+        from apysc._display.scale_x_from_point_interface import \
+            ScaleXFromPointInterface
+        from apysc._type import value_util
+        expression: str = ''
+        if isinstance(self._target, ScaleXFromPointInterface):
+            self._target._initialize_scale_x_from_point_if_not_initialized()
+            key_exp_str: str = scale_interface_helper.\
+                get_coordinate_key_for_expression(coordinate=self._x).value
+            target_scale_x_str: str = value_util.get_value_str_for_expression(
+                value=self._target._scale_x_from_point)
+            scale_x_str: str = value_util.get_value_str_for_expression(
+                value=self._scale_x_from_point)
+            expression = (
+                f'{target_scale_x_str}[{key_exp_str}] = '
+                f'{scale_x_str};'
+            )
+        return expression

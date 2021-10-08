@@ -7,6 +7,7 @@ import apysc as ap
 from apysc._display.scale_x_from_point_interface import \
     ScaleXFromPointInterface
 from apysc._expression import var_names
+from apysc._display import scale_interface_helper
 from tests.testing_helper import assert_attrs, assert_raises
 
 
@@ -66,4 +67,24 @@ class TestAnimationScaleXFromPoint:
             '\n  .scale('
             f'{animation._scale_x_from_point_diff_ratio.variable_name}, 1, '
             f'{animation._x.variable_name}, 0);'
+        )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_complete_event_in_handler_head_expression(self) -> None:
+        target: ScaleXFromPointInterface = ScaleXFromPointInterface()
+        target.variable_name = 'test_animation_scale_x_from_point'
+        animation: ap.AnimationScaleXFromPoint = ap.AnimationScaleXFromPoint(
+            target=target,
+            scale_x_from_point=2.0,
+            x=50,
+        )
+        expression: str = animation.\
+            _get_complete_event_in_handler_head_expression()
+        key_exp_str: str = scale_interface_helper.\
+            get_coordinate_key_for_expression(
+                coordinate=animation._x).value
+        assert expression == (
+            f'{target._scale_x_from_point.variable_name}'
+            f'[{key_exp_str}] = '
+            f'{animation._scale_x_from_point.variable_name};'
         )

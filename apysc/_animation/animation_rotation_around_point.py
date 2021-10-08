@@ -108,6 +108,11 @@ class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
             Animation function expression.
         """
         from apysc._type import value_util
+        diff_str: str = value_util.get_value_str_for_expression(
+            value=self._rotation_around_point_diff)
+        x_str: str = value_util.get_value_str_for_expression(value=self._x)
+        y_str: str = value_util.get_value_str_for_expression(value=self._y)
+        return f'\n  .rotate({diff_str}, {x_str}, {y_str});'
 
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """

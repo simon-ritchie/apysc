@@ -55,3 +55,22 @@ class TestAnimationRotationAroundPoint:
             },
             match='Specified `target` argument is not a '
                   'RotationAroundPointInterface')
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self) -> None:
+        target: RotationAroundPointInterface = \
+            RotationAroundPointInterface()
+        target.variable_name = 'test_animation_rotation_around_point'
+        animation: ap.AnimationRotationAroundPoint = \
+            ap.AnimationRotationAroundPoint(
+                target=target,
+                rotation_around_point=100,
+                x=200,
+                y=300)
+        expression: str = animation._get_animation_func_expression()
+        assert expression == (
+            '\n  .rotate('
+            f'{animation._rotation_around_point_diff.variable_name}, '
+            f'{animation._x.variable_name}, '
+            f'{animation._y.variable_name});'
+        )

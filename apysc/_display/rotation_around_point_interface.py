@@ -136,6 +136,12 @@ class RotationAroundPointInterface(
             X-coordinate.
         y : Int
             Y-coordinate.
+
+        Returns
+        -------
+        expression : str
+            A rotation value around the given coordinates updating
+            expression string.
         """
         from apysc._display import rotation_interface_helper
         from apysc._expression import expression_variables_util

@@ -104,6 +104,10 @@ class AnimationScaleXFromPoint(AnimationBase[_T], Generic[_T]):
             Animation function expression.
         """
         from apysc._type import value_util
+        diff_ratio_str: str = value_util.get_value_str_for_expression(
+            value=self._scale_x_from_point_diff_ratio)
+        x_str: str = value_util.get_value_str_for_expression(value=self._x)
+        return f'\n  .scale({diff_ratio_str}, 1, {x_str}, 0);'
 
     def _get_complete_event_in_handler_head_expression(self) -> str:
         """

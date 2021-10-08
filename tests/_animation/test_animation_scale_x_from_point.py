@@ -51,3 +51,19 @@ class TestAnimationScaleXFromPoint:
             match='Specified `target` argument is not a '
                   'ScaleXFromPointInterface'
         )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self) -> None:
+        target: ScaleXFromPointInterface = ScaleXFromPointInterface()
+        target.variable_name = 'test_animation_scale_x_from_point'
+        animation: ap.AnimationScaleXFromPoint = ap.AnimationScaleXFromPoint(
+            target=target,
+            scale_x_from_point=2.0,
+            x=50,
+        )
+        expression: str = animation._get_animation_func_expression()
+        assert expression == (
+            '\n  .scale('
+            f'{animation._scale_x_from_point_diff_ratio.variable_name}, 1, '
+            f'{animation._x.variable_name}, 0);'
+        )

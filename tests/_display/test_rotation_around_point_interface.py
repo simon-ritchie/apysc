@@ -68,38 +68,9 @@ class TestRotationAroundPointInterface:
         rotation: ap.Int = ap.Int(50)
         x: ap.Int = ap.Int(100)
         y: ap.Int = ap.Int(200)
-        key_exp_str: ExpressionString = rotation_interface_helper.\
-            get_coordinates_key_for_expression(x=x, y=y)
-        key_exp_value: str = key_exp_str.value
-        key_exp_value = key_exp_value.replace('(', '\\(')
-        key_exp_value = key_exp_value.replace(')', '\\)')
-        key_exp_value = key_exp_value.replace('+', '\\+')
         interface.set_rotation_around_point(rotation=rotation, x=x, y=y)
         expression: str = expression_data_util.get_current_expression()
-        patterns: List[str] = [
-            rf'if \({key_exp_value} in '
-            rf'{interface._rotation_around_point.variable_name}\) {{',
-            rf'\n  var {var_names.INT}_.+? = '
-            rf'{interface._rotation_around_point.variable_name}\['
-            rf'{key_exp_value}\];',
-            r'\n}else {'
-            rf'\n  {var_names.INT}_.+? = 0;',
-            r'\n}',
-            rf'\n{interface.variable_name}\.rotate\('
-            rf'-{var_names.INT}_.+?, {x.variable_name}, {y.variable_name}\);',
-            rf'\n{interface.variable_name}\.rotate\('
-            rf'{rotation.variable_name}, {x.variable_name}, '
-            rf'{y.variable_name}\);',
-            rf'\n{interface._rotation_around_point.variable_name}\['
-            rf'{key_exp_value}\] = {rotation.variable_name};'
-        ]
-        for i, pattern in enumerate(patterns):
-            match: Optional[Match] = re.search(
-                pattern=pattern,
-                string=expression,
-                flags=re.MULTILINE | re.DOTALL)
-            assert match is not None, \
-                f'index: {i}, \n{expression}\n\n{pattern}'
+        assert '.rotate(' in expression
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
@@ -144,3 +115,44 @@ class TestRotationAroundPointInterface:
             rotation=ap.Int(120), x=x, y=y)
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface._rotation_around_point[key_exp_str.value] == 120
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_rotation_around_point_expression(self) -> None:
+        expression_data_util.empty_expression()
+        interface: _TestInterface = _TestInterface()
+        rotation: ap.Int = ap.Int(50)
+        x: ap.Int = ap.Int(100)
+        y: ap.Int = ap.Int(200)
+
+        key_exp_str: ExpressionString = rotation_interface_helper.\
+            get_coordinates_key_for_expression(x=x, y=y)
+        key_exp_value: str = key_exp_str.value
+        key_exp_value = key_exp_value.replace('(', '\\(')
+        key_exp_value = key_exp_value.replace(')', '\\)')
+        key_exp_value = key_exp_value.replace('+', '\\+')
+        expression: str = interface._get_rotation_around_point_expression(
+            rotation=rotation, x=x, y=y)
+        patterns: List[str] = [
+            rf'if \({key_exp_value} in '
+            rf'{interface._rotation_around_point.variable_name}\) {{',
+            rf'\n  var {var_names.INT}_.+? = '
+            rf'{interface._rotation_around_point.variable_name}\['
+            rf'{key_exp_value}\];',
+            r'\n}else {'
+            rf'\n  {var_names.INT}_.+? = 0;',
+            r'\n}',
+            rf'\n{interface.variable_name}\.rotate\('
+            rf'-{var_names.INT}_.+?, {x.variable_name}, {y.variable_name}\);',
+            rf'\n{interface.variable_name}\.rotate\('
+            rf'{rotation.variable_name}, {x.variable_name}, '
+            rf'{y.variable_name}\);',
+            rf'\n{interface._rotation_around_point.variable_name}\['
+            rf'{key_exp_value}\] = {rotation.variable_name};'
+        ]
+        for i, pattern in enumerate(patterns):
+            match: Optional[Match] = re.search(
+                pattern=pattern,
+                string=expression,
+                flags=re.MULTILINE | re.DOTALL)
+            assert match is not None, \
+                f'index: {i}, \n{expression}\n\n{pattern}'

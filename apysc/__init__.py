@@ -83,4 +83,4 @@ from apysc._animation.animation_rotation_around_point import AnimationRotationAr
 from apysc._animation.animation_scale_x_from_center import AnimationScaleXFromCenter  # isort:skip # noqa
 from apysc._animation.animation_scale_y_from_center import AnimationScaleYFromCenter  # isort:skip # noqa
 
-__version__: str = '0.53.3'
+__version__: str = '0.53.4'

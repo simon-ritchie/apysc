@@ -5,12 +5,15 @@ from typing import Any
 from typing import Dict
 
 import apysc as ap
+
+from apysc._animation.animation_scale_y_from_point_interface import \
+    AnimationScaleYFromPointInterface
 from apysc._type.expression_string import ExpressionString
 from apysc._type.revert_interface import RevertInterface
-from apysc._type.variable_name_interface import VariableNameInterface
 
 
-class ScaleYFromPointInterface(VariableNameInterface, RevertInterface):
+class ScaleYFromPointInterface(
+        AnimationScaleYFromPointInterface, RevertInterface):
 
     _scale_y_from_point: ap.Dictionary[str, ap.Number]
 

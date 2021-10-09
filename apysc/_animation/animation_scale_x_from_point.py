@@ -59,7 +59,7 @@ class AnimationScaleXFromPoint(AnimationBase[_T], Generic[_T]):
         """
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
-                module_name=__name__, class_=AnimationScaleXFromPoint,):
+                module_name=__name__, class_=AnimationScaleXFromPoint):
             from apysc._converter import to_apysc_val_from_builtin
             from apysc._display.scale_x_from_point_interface import \
                 ScaleXFromPointInterface

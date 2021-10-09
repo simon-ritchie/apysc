@@ -120,3 +120,21 @@ class AnimationScaleYFromPoint(AnimationBase[_T], Generic[_T]):
             An expression to be inserted into the complete event
             handler's head.
         """
+        from apysc._display import scale_interface_helper
+        from apysc._display.scale_y_from_point_interface import \
+            ScaleYFromPointInterface
+        from apysc._type import value_util
+        expression: str = ''
+        if isinstance(self._target, ScaleYFromPointInterface):
+            self._target._initialize_scale_y_from_point_if_not_initialized()
+            key_exp_str: str = scale_interface_helper.\
+                get_coordinate_key_for_expression(coordinate=self._y).value
+            target_scale_y_str: str = value_util.get_value_str_for_expression(
+                value=self._target._scale_y_from_point)
+            scale_y_str: str = value_util.get_value_str_for_expression(
+                value=self._scale_y_from_point)
+            expression = (
+                f'{target_scale_y_str}[{key_exp_str}] = '
+                f'{scale_y_str};'
+            )
+        return expression

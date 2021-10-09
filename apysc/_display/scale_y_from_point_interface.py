@@ -5,7 +5,6 @@ from typing import Any
 from typing import Dict
 
 import apysc as ap
-
 from apysc._animation.animation_scale_y_from_point_interface import \
     AnimationScaleYFromPointInterface
 from apysc._type.expression_string import ExpressionString

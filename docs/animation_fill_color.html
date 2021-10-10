@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>animation_fill_alpha interface &#8212; apysc  documentation</title>
+    <title>animation_fill_color interface &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -18,8 +18,8 @@
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Trace interface" href="trace.html" />
-    <link rel="prev" title="animation_fill_color interface" href="animation_fill_color.html" /> 
+    <link rel="next" title="animation_fill_alpha interface" href="animation_fill_alpha.html" />
+    <link rel="prev" title="animation_width and animation_height interfaces" href="animation_width_and_height.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,13 +28,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="trace.html" title="Trace interface"
+          <a href="animation_fill_alpha.html" title="animation_fill_alpha interface"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="animation_fill_color.html" title="animation_fill_color interface"
+          <a href="animation_width_and_height.html" title="animation_width and animation_height interfaces"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">animation_fill_alpha interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">animation_fill_color interface</a></li> 
       </ul>
     </div>  
 
@@ -43,17 +43,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="animation-fill-alpha-interface">
-<h1>animation_fill_alpha interface<a class="headerlink" href="#animation-fill-alpha-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">animation_fill_alpha</span></code> method interface.</p>
+  <section id="animation-fill-color-interface">
+<h1>animation_fill_color interface<a class="headerlink" href="#animation-fill-color-interface" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">animation_fill_color</span></code> method interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">animation_fill_alpha</span></code> method interface will create an <code class="docutils literal notranslate"><span class="pre">ap.AnimationFillAlpha</span></code> instance (animation setting instance and the subclass of the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>) and you can animate fill alpha (opacity) with it.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">animation_fill_color</span></code> method interface will create an <code class="docutils literal notranslate"><span class="pre">ap.AnimationFillColor</span></code> instance (animation setting instance and the subclass of the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>) and you can animation fill color with it.</p>
 <p>This interface exists on a <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> subclass (that has the <code class="docutils literal notranslate"><span class="pre">fill_color</span></code> interface), such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> or <code class="docutils literal notranslate"><span class="pre">Circle</span></code>.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The following example sets the fill alpha animation (from 1.0 to 0.0) with the <code class="docutils literal notranslate"><span class="pre">animation_fill_alpha</span></code> method:</p>
+<p>The following example sets the fill color animation (from cyan color <code class="docutils literal notranslate"><span class="pre">#0af</span></code> to magenta <code class="docutils literal notranslate"><span class="pre">#f0a</span></code>) with the <code class="docutils literal notranslate"><span class="pre">animation_fill_color</span></code> method:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -73,8 +73,8 @@
 <span class="sd">        Optional arguments dictionary.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">target</span>
-    <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_fill_alpha</span><span class="p">(</span>
-        <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span>
+    <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_fill_color</span><span class="p">(</span>
+        <span class="n">fill_color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span>
     <span class="p">)</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span><span class="n">on_animation_complete_2</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
 
@@ -91,8 +91,8 @@
 <span class="sd">        Optional arguments dictionary.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">target</span>
-    <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_fill_alpha</span><span class="p">(</span>
-        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span>
+    <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_fill_color</span><span class="p">(</span>
+        <span class="n">fill_color</span><span class="o">=</span><span class="s1">&#39;#f0a&#39;</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span>
     <span class="p">)</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span><span class="n">on_animation_complete_1</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
 
@@ -100,18 +100,18 @@
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 <span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
-<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#00aaff&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
 <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">rectangle</span><span class="o">.</span><span class="n">animation_fill_alpha</span><span class="p">(</span>
-    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span>
+<span class="n">rectangle</span><span class="o">.</span><span class="n">animation_fill_color</span><span class="p">(</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s1">&#39;#f0a&#39;</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span>
 <span class="p">)</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span><span class="n">on_animation_complete_1</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
-    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./animation_fill_alpha_basic_usage/&#39;</span><span class="p">)</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./animation_fill_color_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/animation_fill_alpha_basic_usage/index.html" width="150" height="150"></iframe></section>
+<iframe src="static/animation_fill_color_basic_usage/index.html" width="150" height="150"></iframe></section>
 </section>
 
 
@@ -126,7 +126,7 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">animation_fill_alpha interface</a><ul>
+<li><a class="reference internal" href="#">animation_fill_color interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 </ul>
@@ -134,15 +134,15 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="animation_fill_color.html"
-                        title="previous chapter">animation_fill_color interface</a></p>
+  <p class="topless"><a href="animation_width_and_height.html"
+                        title="previous chapter">animation_width and animation_height interfaces</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="trace.html"
-                        title="next chapter">Trace interface</a></p>
+  <p class="topless"><a href="animation_fill_alpha.html"
+                        title="next chapter">animation_fill_alpha interface</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/animation_fill_alpha.md.txt"
+      <li><a href="_sources/animation_fill_color.md.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -167,13 +167,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="trace.html" title="Trace interface"
+          <a href="animation_fill_alpha.html" title="animation_fill_alpha interface"
              >next</a> |</li>
         <li class="right" >
-          <a href="animation_fill_color.html" title="animation_fill_color interface"
+          <a href="animation_width_and_height.html" title="animation_width and animation_height interfaces"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">animation_fill_alpha interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">animation_fill_color interface</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

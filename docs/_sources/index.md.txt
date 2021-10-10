@@ -180,6 +180,7 @@ The `Graphics` class handles each vector graphics drawing.
 - [Each animation interface return value](animation_return_value.md)
 - [AnimationBase class start interface](animation_base_start.md)
 - [AnimationBase class animation complete interface](animation_complete.md)
+- [AnimationBase class interfaces method chaining](animation_method_chaining.md)
 - [AnimationBase class target property](animation_base_target.md)
 - [Animation pause and play interfaces](animation_pause_and_play.md)
 - [Animation reset interface](animation_reset.md)

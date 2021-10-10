@@ -4,7 +4,7 @@ This page will explain the `animation_fill_color` method interface.
 
 ## What interface is this?
 
-The `animation_fill_color` method interface will create an `ap.AnimationFillColor` instance (animation setting instance and the subclass of the `AnimationBase`) and you can animation fill color with it.
+The `animation_fill_color` method interface will create an `ap.AnimationFillColor` instance (animation setting instance and the subclass of the `AnimationBase`) and you can animate fill color with it.
 
 This interface exists on a `GraphicsBase` subclass (that has the `fill_color` interface), such as the `Rectangle` or `Circle`.
 

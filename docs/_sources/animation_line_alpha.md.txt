@@ -1,16 +1,16 @@
-# animation_fill_color interface
+# animation_line_alpha interface
 
-This page will explain the `animation_fill_color` method interface.
+This page will explain the `animation_line_alpha` method interface.
 
 ## What interface is this?
 
-The `animation_fill_color` method interface will create an `ap.AnimationFillColor` instance (animation setting instance and the subclass of the `AnimationBase`) and you can animate fill color with it.
+The `animation_line_alpha` method interface will create an `ap.AnimationLineAlpha` instance (animation setting instance and the subclass of the `AnimationBase`) and you can animate line alpha (opacity) with it.
 
-This interface exists on a `GraphicsBase` subclass (that has the `fill_color` interface), such as the `Rectangle` or `Circle`.
+This interface exists on a `GraphicsBase` subclass (that has the `line_color` interface), such as the `Rectangle` or `Circle`.
 
 ## Basic usage
 
-The following example sets the fill color animation (from cyan color `#0af` to magenta `#f0a`) with the `animation_fill_color` method:
+The following example sets the line alpha animation (from 1.0 to 0.0) with the `animation_line_alpha` method:
 
 ```py
 # runnable
@@ -32,8 +32,8 @@ def on_animation_complete_1(
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this.target
-    rectangle.animation_fill_color(
-        fill_color='#0af', duration=DURATION,
+    rectangle.animation_line_alpha(
+        alpha=1.0, duration=DURATION,
     ).animation_complete(on_animation_complete_2).start()
 
 
@@ -50,8 +50,8 @@ def on_animation_complete_2(
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = e.this.target
-    rectangle.animation_fill_color(
-        fill_color='#f0a', duration=DURATION,
+    rectangle.animation_line_alpha(
+        alpha=0.0, duration=DURATION,
     ).animation_complete(on_animation_complete_1).start()
 
 
@@ -59,15 +59,15 @@ stage: ap.Stage = ap.Stage(
     stage_width=150, stage_height=150,
     background_color='#333', stage_elem_id='stage')
 sprite: ap.Sprite = ap.Sprite(stage=stage)
-sprite.graphics.begin_fill(color='#0af')
+sprite.graphics.line_style(color='#eee', thickness=5, alpha=1.0)
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
-rectangle.animation_fill_color(
-    fill_color='#f0a', duration=DURATION,
+rectangle.animation_line_alpha(
+    alpha=0.0, duration=DURATION,
 ).animation_complete(on_animation_complete_1).start()
 
 ap.save_overall_html(
-    dest_dir_path='./animation_fill_color_basic_usage/')
+    dest_dir_path='./animation_line_alpha_basic_usage/')
 ```
 
-<iframe src="static/animation_fill_color_basic_usage/index.html" width="150" height="150"></iframe>
+<iframe src="static/animation_line_alpha_basic_usage/index.html" width="150" height="150"></iframe>

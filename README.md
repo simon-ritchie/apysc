@@ -46,13 +46,13 @@ Documents: [begin_fill interface](https://simon-ritchie.github.io/apysc/graphics
 
 Document: [x and y interfaces](https://simon-ritchie.github.io/apysc/display_object_x_and_y.html), [visible interface](https://simon-ritchie.github.io/apysc/display_object_visible.html), [get_css and set_css interfaces](https://simon-ritchie.github.io/apysc/display_object_get_and_set_css.html), [rotation_around_center interface](https://simon-ritchie.github.io/apysc/graphics_base_rotation_around_center.html), [rotation_around_point interfaces](https://simon-ritchie.github.io/apysc/graphics_base_rotation_around_point.html), [scale_x_from_center and scale_y_from_center interfaces](https://simon-ritchie.github.io/apysc/graphics_base_scale_from_center.html), [get_scale_from_point and set_scale_from_point interfaces](https://simon-ritchie.github.io/apysc/graphics_base_scale_from_point.html), [flip_x and flip_y interfaces](https://simon-ritchie.github.io/apysc/graphics_base_flip_interfaces.html), [skew_x and skew_y interfaces](https://simon-ritchie.github.io/apysc/graphics_base_skew.html)
 
-- Set each mouse event, such as the click, double click, mouse down, mouse up, mouse over, mouse out, mouse move
+- **Set each mouse event, such as the click, double click, mouse down, mouse up, mouse over, mouse out, mouse move**
 
 ![](https://github.com/simon-ritchie/apysc/blob/main/assets/mouse_move.gif)
 
 Documents: [Click interface](https://simon-ritchie.github.io/apysc/click.html), [Double click interface](https://simon-ritchie.github.io/apysc/dblclick.html), [Mousedown and mouseup interfaces](https://simon-ritchie.github.io/apysc/mousedown_and_mouseup.html), [Mouseover and mouseout interfaces](https://simon-ritchie.github.io/apysc/mouseover_and_mouseout.html), [Mousemove interface](https://simon-ritchie.github.io/apysc/mousemove.html)
 
-- Use the timer interface and animation
+- **Use the timer interface and animation**
 
 ![](https://github.com/simon-ritchie/apysc/blob/main/assets/rotation_and_alpha_animation.gif)
 

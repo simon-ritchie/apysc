@@ -189,6 +189,7 @@ The `Graphics` class handles each vector graphics drawing.
 - [Animation x interface](animation_x.md)
 - [Animation y interface](animation_y.md)
 - [Animation width and height interfaces](animation_width_and_height.md)
+- [Animation fill alpha interface](animation_fill_alpha.md)
 
 ---
 

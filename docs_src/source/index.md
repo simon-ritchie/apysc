@@ -194,6 +194,7 @@ The `Graphics` class handles each vector graphics drawing.
 - [Animation line color interface](animation_line_color.md)
 - [Animation line alpha interface](animation_line_alpha.md)
 - [Animation line thickness interface](animation_line_thickness.md)
+- [Animation radius interface](animation_radius.md)
 
 ---
 

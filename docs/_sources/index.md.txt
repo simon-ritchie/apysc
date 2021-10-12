@@ -196,6 +196,7 @@ The `Graphics` class handles each vector graphics drawing.
 - [Animation line thickness interface](animation_line_thickness.md)
 - [Animation radius interface](animation_radius.md)
 - [Animation rotation around center interface](animation_rotation_around_center.md)
+- [Animation rotation around point interface](animation_rotation_around_point.md)
 
 ---
 

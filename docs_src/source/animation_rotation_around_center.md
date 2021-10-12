@@ -10,7 +10,7 @@ This interface exists on a `GraphicsBase` subclass (that has the `rotation_aroun
 
 ## Basic usage
 
-The following example will sets the ratation animation (from 0 to 90 degrees) with the `animation_rotation_around_center` method:
+The following example will set the rotation animation (from 0 to 90 degrees) with the `animation_rotation_around_center` method:
 
 ```py
 # runnable

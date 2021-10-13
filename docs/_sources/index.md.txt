@@ -197,6 +197,7 @@ The `Graphics` class handles each vector graphics drawing.
 - [Animation radius interface](animation_radius.md)
 - [Animation rotation around center interface](animation_rotation_around_center.md)
 - [Animation rotation around point interface](animation_rotation_around_point.md)
+- [Animation scale x and y from center interfaces](animation_scale_x_and_y_from_center.md)
 
 ---
 

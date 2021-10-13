@@ -8,6 +8,8 @@ The `animation_scale_x_from_center` method interface will create an `ap.Animatio
 
 Similarly, the `animation_scale_y_from_center` method interface will create an `ap.AnimationScaleYFromCenter` instance and you can animate y-directional scale with it.
 
+These interfaces exist on a `GraphicsBase` subclass (that has the `scale_x_from_center` and `scale_y_from_center` interfaces), such as the `Rectangle` or `Circle`.
+
 ## Basic usage
 
 The following example sets the scale-x (left-side rectangle) and scale-y (right-side rectangle) animation (from 1.0 to 2.0) with the `animation_scale_x_from_center` and `animation_scale_y_from_center` methods:

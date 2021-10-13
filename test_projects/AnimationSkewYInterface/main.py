@@ -33,7 +33,7 @@ def main() -> None:
     sprite.graphics.begin_fill(color='#00aaff')
     rectangle: ap.Rectangle = sprite.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
-    animation_skew_y: ap.AnimationSkewY = rectangle._animation_skew_y(
+    animation_skew_y: ap.AnimationSkewY = rectangle.animation_skew_y(
         skew_y=50, duration=1000, delay=500,
         easing=ap.Easing.EASE_OUT_QUINT)
     animation_skew_y.animation_complete(on_animation_complete_1)
@@ -56,7 +56,7 @@ def on_animation_complete_1(
     """
     rectangle: ap.Rectangle = e.this.target
     ap.assert_equal(50, rectangle.skew_y)
-    animation_skew_y: ap.AnimationSkewY = rectangle._animation_skew_y(
+    animation_skew_y: ap.AnimationSkewY = rectangle.animation_skew_y(
         skew_y=0, duration=1000, delay=500,
         easing=ap.Easing.EASE_OUT_QUINT)
     animation_skew_y.animation_complete(on_animation_complete_2)
@@ -77,7 +77,7 @@ def on_animation_complete_2(
     """
     rectangle: ap.Rectangle = e.this.target
     ap.assert_equal(0, rectangle.skew_y)
-    animation_skew_y: ap.AnimationSkewY = rectangle._animation_skew_y(
+    animation_skew_y: ap.AnimationSkewY = rectangle.animation_skew_y(
         skew_y=50, duration=1000, delay=500,
         easing=ap.Easing.EASE_OUT_QUINT)
     animation_skew_y.animation_complete(on_animation_complete_1)

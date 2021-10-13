@@ -12,7 +12,7 @@ from apysc._animation.easing import Easing
 
 class AnimationSkewYInterface(AnimationInterfaceBase):
 
-    def _animation_skew_y(
+    def animation_skew_y(
             self,
             skew_y: Union[int, ap.Int],
             duration: Union[int, ap.Int] = 3000,

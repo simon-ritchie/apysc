@@ -87,5 +87,5 @@ Also, the apysc library depends on the following libraries:
 - jQuery Mousewheel: https://github.com/jquery/jquery-mousewheel/blob/main/LICENSE.txt
 - SVG.js, MIT License: https://github.com/svgdotjs/svg.js/blob/master/LICENSE.txt
 - Underscore.js, MIT License: https://github.com/jashkenas/underscore/blob/master/LICENSE
-- Static Typing for Python (Python official backport package: https://github.com/python/typing
+- Static Typing for Python (Python official backport package): https://github.com/python/typing
 - html-minifier, MIT License: https://github.com/Kaumer/html-minifier/blob/master/LICENSE

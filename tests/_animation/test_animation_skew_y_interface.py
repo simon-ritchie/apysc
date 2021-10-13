@@ -12,7 +12,7 @@ class TestAnimationSkewYInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_animation_skew_y(self) -> None:
         interface: SkewYInterface = SkewYInterface()
-        animation_skew_y: ap.AnimationSkewY = interface.animation_skew_y(
+        animation_skew_y: ap.AnimationSkewY = interface._animation_skew_y(
             skew_y=50,
             duration=1000,
             delay=500,

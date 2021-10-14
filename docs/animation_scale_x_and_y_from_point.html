@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>animation_scale_x_from_center and animation_scale_x_from_center interfaces &#8212; apysc  documentation</title>
+    <title>animation_scale_x_from_point and animation_scale_y_from_point interfaces &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -18,8 +18,8 @@
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="animation_scale_x_from_point and animation_scale_y_from_point interfaces" href="animation_scale_x_and_y_from_point.html" />
-    <link rel="prev" title="animation_rotation_around_point interface" href="animation_rotation_around_point.html" /> 
+    <link rel="next" title="animation_skew_x interface" href="animation_skew_x.html" />
+    <link rel="prev" title="animation_scale_x_from_center and animation_scale_x_from_center interfaces" href="animation_scale_x_and_y_from_center.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,13 +28,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="animation_scale_x_and_y_from_point.html" title="animation_scale_x_from_point and animation_scale_y_from_point interfaces"
+          <a href="animation_skew_x.html" title="animation_skew_x interface"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="animation_rotation_around_point.html" title="animation_rotation_around_point interface"
+          <a href="animation_scale_x_and_y_from_center.html" title="animation_scale_x_from_center and animation_scale_x_from_center interfaces"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">animation_scale_x_from_center and animation_scale_x_from_center interfaces</a></li> 
+        <li class="nav-item nav-item-this"><a href="">animation_scale_x_from_point and animation_scale_y_from_point interfaces</a></li> 
       </ul>
     </div>  
 
@@ -43,18 +43,19 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="animation-scale-x-from-center-and-animation-scale-x-from-center-interfaces">
-<h1>animation_scale_x_from_center and animation_scale_x_from_center interfaces<a class="headerlink" href="#animation-scale-x-from-center-and-animation-scale-x-from-center-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">animation_scale_x_from_center</span></code> and <code class="docutils literal notranslate"><span class="pre">animation_scale_y_from_center</span></code> method interfaces.</p>
+  <section id="animation-scale-x-from-point-and-animation-scale-y-from-point-interfaces">
+<h1>animation_scale_x_from_point and animation_scale_y_from_point interfaces<a class="headerlink" href="#animation-scale-x-from-point-and-animation-scale-y-from-point-interfaces" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">animation_scale_x_from_point</span></code> and <code class="docutils literal notranslate"><span class="pre">animation_scale_y_from_point</span></code> method interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">animation_scale_x_from_center</span></code> method interface will create an <code class="docutils literal notranslate"><span class="pre">ap.AnimationScaleXFromCenter</span></code> instance (animation setting instance and the subclass of the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>) and you can animate x-directional scale with it.</p>
-<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">animation_scale_y_from_center</span></code> method interface will create an <code class="docutils literal notranslate"><span class="pre">ap.AnimationScaleYFromCenter</span></code> instance and you can animate y-directional scale with it.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">animation_scale_x_from_point</span></code> method interface will create an <code class="docutils literal notranslate"><span class="pre">ap.AnimationScaleXFromPoint</span></code> instance (animation setting instance and the subclass of the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>) and you can animate x-directional scale with it from a specified x-coordinate.</p>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">animation_scale_y_from_point</span></code> method interface will create an <code class="docutils literal notranslate"><span class="pre">ap.AnimationScaleYFromPoint</span></code> instance and you can animate y-directional scale with it from a specified y-coordinate.</p>
 <p>These interfaces exist on a <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> subclass (that has the <code class="docutils literal notranslate"><span class="pre">scale_x_from_center</span></code> and <code class="docutils literal notranslate"><span class="pre">scale_y_from_center</span></code> interfaces), such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> or <code class="docutils literal notranslate"><span class="pre">Circle</span></code>.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The following example sets the scale-x (left-side rectangle) and scale-y (right-side rectangle) animation (from 1.0 to 2.0) with the <code class="docutils literal notranslate"><span class="pre">animation_scale_x_from_center</span></code> and <code class="docutils literal notranslate"><span class="pre">animation_scale_y_from_center</span></code> methods:</p>
+<p>The following example sets the x-directional scale (left-side rectangle) and y-directional scale (right-side rectangle) animation (from 1.0 to 2.0) with the <code class="docutils literal notranslate"><span class="pre">animation_scale_x_from_point</span></code> and <code class="docutils literal notranslate"><span class="pre">animation_scale_y_from_point</span></code> methods.</p>
+<p>The left-side rectangle will scale from the left end (x=50) and the right-side rectangle will scale from the bottom end (y=100).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 
@@ -64,6 +65,10 @@
 
 <span class="n">DURATION</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span>
 <span class="n">EASING</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Easing</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Easing</span><span class="o">.</span><span class="n">EASE_OUT_QUINT</span>
+<span class="n">LEFT_RECTANGLE_X</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">RIGHT_RECTANGLE_Y</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">SCALE_1</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">SCALE_2</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span>
 
 
 <span class="k">class</span> <span class="nc">Direction</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
@@ -88,10 +93,10 @@
 <span class="sd">        Optional arguments dictionary.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">target</span>
-    <span class="n">SCALE</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>
     <span class="k">if</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;direction&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">Direction</span><span class="o">.</span><span class="n">X</span><span class="p">:</span>
-        <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_scale_x_from_center</span><span class="p">(</span>
-            <span class="n">scale_x_from_center</span><span class="o">=</span><span class="n">SCALE</span><span class="p">,</span>
+        <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_scale_x_from_point</span><span class="p">(</span>
+            <span class="n">scale_x_from_point</span><span class="o">=</span><span class="n">SCALE_1</span><span class="p">,</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">LEFT_RECTANGLE_X</span><span class="p">,</span>
             <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span>
             <span class="n">easing</span><span class="o">=</span><span class="n">EASING</span><span class="p">,</span>
         <span class="p">)</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span>
@@ -99,8 +104,9 @@
             <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">,</span>
         <span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
     <span class="k">elif</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;direction&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">Direction</span><span class="o">.</span><span class="n">Y</span><span class="p">:</span>
-        <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_scale_y_from_center</span><span class="p">(</span>
-            <span class="n">scale_y_from_center</span><span class="o">=</span><span class="n">SCALE</span><span class="p">,</span>
+        <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_scale_y_from_point</span><span class="p">(</span>
+            <span class="n">scale_y_from_point</span><span class="o">=</span><span class="n">SCALE_1</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">RIGHT_RECTANGLE_Y</span><span class="p">,</span>
             <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span>
             <span class="n">easing</span><span class="o">=</span><span class="n">EASING</span><span class="p">,</span>
         <span class="p">)</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span>
@@ -122,10 +128,10 @@
 <span class="sd">        Optional arguments dictionary.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span><span class="o">.</span><span class="n">target</span>
-    <span class="n">SCALE</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span>
     <span class="k">if</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;direction&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">Direction</span><span class="o">.</span><span class="n">X</span><span class="p">:</span>
-        <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_scale_x_from_center</span><span class="p">(</span>
-            <span class="n">scale_x_from_center</span><span class="o">=</span><span class="n">SCALE</span><span class="p">,</span>
+        <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_scale_x_from_point</span><span class="p">(</span>
+            <span class="n">scale_x_from_point</span><span class="o">=</span><span class="n">SCALE_2</span><span class="p">,</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">LEFT_RECTANGLE_X</span><span class="p">,</span>
             <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span>
             <span class="n">easing</span><span class="o">=</span><span class="n">EASING</span><span class="p">,</span>
         <span class="p">)</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span>
@@ -133,8 +139,9 @@
             <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">,</span>
         <span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
     <span class="k">elif</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;direction&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">Direction</span><span class="o">.</span><span class="n">Y</span><span class="p">:</span>
-        <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_scale_y_from_center</span><span class="p">(</span>
-            <span class="n">scale_y_from_center</span><span class="o">=</span><span class="n">SCALE</span><span class="p">,</span>
+        <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_scale_y_from_point</span><span class="p">(</span>
+            <span class="n">scale_y_from_point</span><span class="o">=</span><span class="n">SCALE_2</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">RIGHT_RECTANGLE_Y</span><span class="p">,</span>
             <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span>
             <span class="n">easing</span><span class="o">=</span><span class="n">EASING</span><span class="p">,</span>
         <span class="p">)</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span>
@@ -154,8 +161,9 @@
     <span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
 <span class="n">options</span><span class="p">:</span> <span class="n">Options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="n">Direction</span><span class="o">.</span><span class="n">X</span><span class="p">}</span>
-<span class="n">left_rectangle</span><span class="o">.</span><span class="n">animation_scale_x_from_center</span><span class="p">(</span>
-    <span class="n">scale_x_from_center</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+<span class="n">left_rectangle</span><span class="o">.</span><span class="n">animation_scale_x_from_point</span><span class="p">(</span>
+    <span class="n">scale_x_from_point</span><span class="o">=</span><span class="n">SCALE_2</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">LEFT_RECTANGLE_X</span><span class="p">,</span>
     <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span>
     <span class="n">easing</span><span class="o">=</span><span class="n">EASING</span><span class="p">,</span>
 <span class="p">)</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span>
@@ -164,8 +172,9 @@
 <span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="n">Direction</span><span class="o">.</span><span class="n">Y</span><span class="p">}</span>
-<span class="n">right_rectangle</span><span class="o">.</span><span class="n">animation_scale_y_from_center</span><span class="p">(</span>
-    <span class="n">scale_y_from_center</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+<span class="n">right_rectangle</span><span class="o">.</span><span class="n">animation_scale_y_from_point</span><span class="p">(</span>
+    <span class="n">scale_y_from_point</span><span class="o">=</span><span class="n">SCALE_2</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">RIGHT_RECTANGLE_Y</span><span class="p">,</span>
     <span class="n">duration</span><span class="o">=</span><span class="n">DURATION</span><span class="p">,</span>
     <span class="n">easing</span><span class="o">=</span><span class="n">EASING</span><span class="p">,</span>
 <span class="p">)</span><span class="o">.</span><span class="n">animation_complete</span><span class="p">(</span>
@@ -174,10 +183,10 @@
 <span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
-    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./animation_scale_x_and_y_from_center_basic_usage/&#39;</span><span class="p">)</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./animation_scale_x_and_y_from_point_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/animation_scale_x_and_y_from_center_basic_usage/index.html" width="250" height="150"></iframe></section>
+<iframe src="static/animation_scale_x_and_y_from_point_basic_usage/index.html" width="250" height="150"></iframe></section>
 </section>
 
 
@@ -192,7 +201,7 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">animation_scale_x_from_center and animation_scale_x_from_center interfaces</a><ul>
+<li><a class="reference internal" href="#">animation_scale_x_from_point and animation_scale_y_from_point interfaces</a><ul>
 <li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 </ul>
@@ -200,15 +209,15 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="animation_rotation_around_point.html"
-                        title="previous chapter">animation_rotation_around_point interface</a></p>
+  <p class="topless"><a href="animation_scale_x_and_y_from_center.html"
+                        title="previous chapter">animation_scale_x_from_center and animation_scale_x_from_center interfaces</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="animation_scale_x_and_y_from_point.html"
-                        title="next chapter">animation_scale_x_from_point and animation_scale_y_from_point interfaces</a></p>
+  <p class="topless"><a href="animation_skew_x.html"
+                        title="next chapter">animation_skew_x interface</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/animation_scale_x_and_y_from_center.md.txt"
+      <li><a href="_sources/animation_scale_x_and_y_from_point.md.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -233,13 +242,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="animation_scale_x_and_y_from_point.html" title="animation_scale_x_from_point and animation_scale_y_from_point interfaces"
+          <a href="animation_skew_x.html" title="animation_skew_x interface"
              >next</a> |</li>
         <li class="right" >
-          <a href="animation_rotation_around_point.html" title="animation_rotation_around_point interface"
+          <a href="animation_scale_x_and_y_from_center.html" title="animation_scale_x_from_center and animation_scale_x_from_center interfaces"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">animation_scale_x_from_center and animation_scale_x_from_center interfaces</a></li> 
+        <li class="nav-item nav-item-this"><a href="">animation_scale_x_from_point and animation_scale_y_from_point interfaces</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

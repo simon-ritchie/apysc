@@ -45,6 +45,8 @@ class AnimationRotationAroundCenterInterface(AnimationInterfaceBase):
 
         References
         ----------
+        - animation_rotation_around_center interface document
+            - https://bit.ly/3FLb6lK
         - Animation interfaces duration setting document
             - https://simon-ritchie.github.io/apysc/animation_duration.html
         - Each animation interface return value document

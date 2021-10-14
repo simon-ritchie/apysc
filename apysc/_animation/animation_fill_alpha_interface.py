@@ -43,6 +43,8 @@ class AnimationFillAlphaInterface(AnimationInterfaceBase):
 
         References
         ----------
+        - animation_fill_alpha interface document
+            - https://simon-ritchie.github.io/apysc/animation_fill_alpha.html
         - Animation interfaces duration setting document
             - https://simon-ritchie.github.io/apysc/animation_duration.html
         - Each animation interface return value document

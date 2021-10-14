@@ -43,6 +43,8 @@ class AnimationLineThicknessInterface(AnimationInterfaceBase):
 
         References
         ----------
+        - animation_line_thickness interface document
+            - https://bit.ly/2YUc7XN
         - Animation interfaces duration setting document
             - https://simon-ritchie.github.io/apysc/animation_duration.html
         - Each animation interface return value document

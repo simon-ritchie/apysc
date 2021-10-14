@@ -43,6 +43,8 @@ class AnimationSkewXInterface(AnimationInterfaceBase):
 
         References
         ----------
+        - animation_skew_x interface document
+            - https://simon-ritchie.github.io/apysc/animation_skew_x.html
         - Animation interfaces duration setting document
             - https://simon-ritchie.github.io/apysc/animation_duration.html
         - Each animation interface return value document

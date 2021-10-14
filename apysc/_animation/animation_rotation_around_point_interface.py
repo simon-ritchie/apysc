@@ -51,6 +51,8 @@ class AnimationRotationAroundPointInterface(AnimationInterfaceBase):
 
         References
         ----------
+        - animation_rotation_around_point interface document
+            - https://bit.ly/3oWpy4i
         - Animation interfaces duration setting document
             - https://simon-ritchie.github.io/apysc/animation_duration.html
         - Each animation interface return value document

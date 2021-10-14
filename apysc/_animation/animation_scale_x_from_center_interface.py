@@ -45,6 +45,8 @@ class AnimationScaleXFromCenterInterface(AnimationInterfaceBase):
 
         References
         ----------
+        - animation_scale_x_from_center interface document
+            - https://bit.ly/30qsD2m
         - Animation interfaces duration setting document
             - https://simon-ritchie.github.io/apysc/animation_duration.html
         - Each animation interface return value document

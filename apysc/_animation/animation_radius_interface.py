@@ -43,6 +43,8 @@ class AnimationRadiusInterface(AnimationInterfaceBase):
 
         References
         ----------
+        - animation_radius interface document
+            - https://simon-ritchie.github.io/apysc/animation_radius.html
         - Animation interfaces duration setting document
             - https://simon-ritchie.github.io/apysc/animation_duration.html
         - Each animation interface return value document

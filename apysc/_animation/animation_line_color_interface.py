@@ -46,6 +46,8 @@ class AnimationLineColorInterface(AnimationInterfaceBase):
 
         References
         ----------
+        - animation_line_color interface document
+            - https://simon-ritchie.github.io/apysc/animation_line_color.html
         - Animation interfaces duration setting document
             - https://simon-ritchie.github.io/apysc/animation_duration.html
         - Each animation interface return value document

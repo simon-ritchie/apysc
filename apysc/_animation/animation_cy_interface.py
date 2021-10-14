@@ -44,7 +44,7 @@ class AnimationCyInterface(AnimationInterfaceBase):
 
         References
         ----------
-        - Animation interfaces duration setting
+        - Animation interfaces duration setting document
             - https://simon-ritchie.github.io/apysc/animation_duration.html
         - Each animation interface return value document
             - https://bit.ly/2XOoa8w

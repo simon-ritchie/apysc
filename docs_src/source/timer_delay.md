@@ -58,10 +58,12 @@ timer_1: ap.Timer = ap.Timer(
     handler=on_timer, delay=100, options=options)
 timer_1.start()
 
+options = {'rectangle': rectangle_2}
 timer_2: ap.Timer = ap.Timer(
     handler=on_timer, delay=33.3333333, options=options)
 timer_2.start()
 
+options = {'rectangle': rectangle_3}
 timer_3: ap.Timer = ap.Timer(
     handler=on_timer, delay=16.6666667, options=options)
 timer_3.start()

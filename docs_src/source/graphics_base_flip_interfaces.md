@@ -43,18 +43,16 @@ def on_timer(e: ap.TimerEvent, options: _PolygonOptions) -> None:
 
 
 stage: ap.Stage = ap.Stage(
-    stage_width=200, stage_height=150, background_color='#333',
+    stage_width=150, stage_height=150, background_color='#333',
     stage_elem_id='stage')
 sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
-sprite.x = ap.Int(100)
-sprite.y = ap.Int(50)
 
 polygon: ap.Polygon = sprite.graphics.draw_polygon(
     points=[
-        ap.Point2D(x=0, y=0),
-        ap.Point2D(x=0, y=50),
-        ap.Point2D(x=50, y=25),
+        ap.Point2D(x=50, y=50),
+        ap.Point2D(x=50, y=100),
+        ap.Point2D(x=100, y=75),
     ])
 options: _PolygonOptions = {'polygon': polygon}
 timer: ap.Timer = ap.Timer(
@@ -65,78 +63,6 @@ ap.save_overall_html(
     dest_dir_path='graphics_base_flip_x_basic_usage/')
 ```
 
-<iframe src="static/graphics_base_flip_x_basic_usage/index.html" width="200" height="150"></iframe>
+<iframe src="static/graphics_base_flip_x_basic_usage/index.html" width="150" height="150"></iframe>
 
 The `flip_y` interface will behave the same as the `flip_x` interface, except the axis direction.
-
-## Note for coordinates
-
-The coordinates settings (x and y) are also taken into account in the flipping interfaces.
-
-If you don't want to apply the coordinates settings in the flipping interfaces, then set the coordinates to the parent sprite, not a graphics object.
-
-The following example will set no coordinate setting to the first polygon, and also set the 50 y-coordinate to the second polygon and flip in the y-axis direction.
-
-```py
-# runnable
-from typing_extensions import TypedDict
-
-import apysc as ap
-
-
-class _PolygonOptions(TypedDict):
-    polygon: ap.Polygon
-
-
-def on_timer(e: ap.TimerEvent, options: _PolygonOptions) -> None:
-    """
-    The handler will be called from a timer.
-
-    Parameters
-    ----------
-    e : ap.TimerEvent
-        Event instance.
-    options : dict
-        Optional arguments dictionary.
-    """
-    polygon: ap.Polygon = options['polygon']
-    flip_y: ap.Boolean = polygon.flip_y
-    flip_y = flip_y.not_
-    polygon.flip_y = flip_y
-
-
-stage: ap.Stage = ap.Stage(
-    stage_width=250, stage_height=200, background_color='#333',
-    stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
-sprite.graphics.begin_fill(color='#0af')
-sprite.x = ap.Int(50)
-sprite.y = ap.Int(100)
-
-polygon_1: ap.Polygon = sprite.graphics.draw_polygon(
-    points=[
-        ap.Point2D(x=25, y=0),
-        ap.Point2D(x=0, y=50),
-        ap.Point2D(x=50, y=50),
-    ])
-options: _PolygonOptions = {'polygon': polygon_1}
-timer_1: ap.Timer = ap.Timer(on_timer, delay=1000, options=options)
-timer_1.start()
-
-polygon_2: ap.Polygon = sprite.graphics.draw_polygon(
-    points=[
-        ap.Point2D(x=125, y=0),
-        ap.Point2D(x=100, y=50),
-        ap.Point2D(x=150, y=50),
-    ])
-polygon_2.y = ap.Int(50)
-options = {'polygon': polygon_2}
-timer_2: ap.Timer = ap.Timer(on_timer, delay=1000, options=options)
-timer_2.start()
-
-
-ap.save_overall_html(
-    dest_dir_path='graphics_base_flip_notes/')
-```
-
-<iframe src="static/graphics_base_flip_notes/index.html" width="250" height="200"></iframe>

@@ -27,3 +27,14 @@ def test_get_target_module_hash_file_path() -> None:
     )
     assert file_path == expected
     assert os.path.isdir(os.path.dirname(file_path))
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_read_target_module_hash() -> None:
+    hashed_string: str = lint_hash_util.read_target_module_hash(
+        module_path='./apysc/_display/not_existing_module.py')
+    assert hashed_string == ''
+
+    hashed_string = lint_hash_util.read_target_module_hash(
+        module_path='./apysc/_display/sprite.py')
+    assert hashed_string != ''

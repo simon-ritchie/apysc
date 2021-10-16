@@ -3,6 +3,7 @@ the files are updated or not).
 """
 
 import os
+import hashlib
 from enum import Enum
 
 
@@ -69,3 +70,26 @@ def get_target_module_hash_file_path(
     file_path: str = os.path.join(dir_path, module_path)
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
     return file_path
+
+
+def read_target_module_hash(module_path: str) -> str:
+    """
+    Read a specified module's hashed string.
+
+    Parameters
+    ----------
+    module_path : str
+        Target module path.
+
+    Returns
+    -------
+    hashed_string : str
+        Hashed module string. If there is no module at the specified
+        path, then a blank string will be returned.
+    """
+    from apysc._file import file_util
+    if not os.path.isfile(module_path):
+        return ''
+    module_txt: str = file_util.read_txt(file_path=module_path)
+    hashed_string: str = hashlib.sha1(module_txt.encode()).hexdigest()
+    return hashed_string

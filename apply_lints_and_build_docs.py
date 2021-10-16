@@ -2,12 +2,15 @@
 
 Command example:
 $ python apply_lints_and_build_docs.py
+$ python apply_lints_and_build_docs.py --skip_overall_docs_build
 """
 
 import os
 import re
 import shutil
 import subprocess as sp
+from argparse import ArgumentParser
+from argparse import Namespace
 from logging import Logger
 from typing import List
 from typing import Match
@@ -49,7 +52,6 @@ MYPY_COMMAND: Final[str] = (
     './tests/ ./test_projects/'
 )
 
-
 lint_commands: List[LintCommand] = [
     {
         'command':
@@ -76,12 +78,18 @@ lint_commands: List[LintCommand] = [
 ]
 
 
+class _CommandOptions(TypedDict):
+    skip_overall_docs_build: bool
+
+
 def _main() -> None:
     """Entry point of this command.
     """
     from build_docs import HASHED_VALS_DIR_PATH
+    options: _CommandOptions = _get_command_options()
     shutil.rmtree('./build/', ignore_errors=True)
-    shutil.rmtree(HASHED_VALS_DIR_PATH, ignore_errors=True)
+    if not options['skip_overall_docs_build']:
+        shutil.rmtree(HASHED_VALS_DIR_PATH, ignore_errors=True)
     _remove_tmp_py_module()
     logger.info(msg='Documentation build started.')
     process: sp.Popen = sp.Popen(
@@ -99,6 +107,32 @@ def _main() -> None:
             continue
         print(string)
     logger.info(msg='Ended.')
+
+
+def _get_command_options() -> _CommandOptions:
+    """
+    Get a command-line options.
+
+    Returns
+    -------
+    options : _CommandOptions
+        Command argument values and options.
+    """
+    parser: ArgumentParser = ArgumentParser(
+        description='Apply each lint to all modules and build documentation.')
+
+    parser.add_argument(
+        '-s',
+        '--skip_overall_docs_build',
+        action='store_true',
+        help='If specified, build the overall documentation. If not '
+        'specified, only updated document will be built.',
+    )
+    args: Namespace = parser.parse_args()
+    options: _CommandOptions = {
+        'skip_overall_docs_build': args.skip_overall_docs_build,
+    }
+    return options
 
 
 def _remove_tmp_py_module() -> None:

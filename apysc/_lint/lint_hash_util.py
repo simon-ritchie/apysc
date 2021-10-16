@@ -140,3 +140,29 @@ def save_target_module_hash(module_path: str, lint_type: LintType) -> None:
     file_path: str = get_target_module_hash_file_path(
         module_path= module_path, lint_type=lint_type)
     file_util.save_plain_txt(txt=hash, file_path=file_path)
+
+
+def is_module_updated(module_path: str, lint_type: LintType) -> bool:
+    """
+    Get a boolean value whether a specified module has been updated
+    after the last lint execution.
+
+    Parameters
+    ----------
+    module_path : str
+        Target module path.
+    lint_type : LintType
+        Target lint type.
+
+    Returns
+    -------
+    result : bool
+        If a specified module has been updated then True will
+        be returned.
+    """
+    saved_hash: str = read_saved_hash(
+        module_path= module_path, lint_type=lint_type)
+    current_hash: str = read_target_module_hash(module_path= module_path)
+    if saved_hash == current_hash:
+        return False
+    return True

@@ -32,6 +32,8 @@ def test_get_target_module_hash_file_path() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_read_target_module_hash() -> None:
+    file_util.remove_file_if_exists(
+        file_path='./apysc/_display/not_existing_module.py')
     hashed_string: str = lint_hash_util.read_target_module_hash(
         module_path='./apysc/_display/not_existing_module.py')
     assert hashed_string == ''
@@ -43,20 +45,46 @@ def test_read_target_module_hash() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_read_saved_hash() -> None:
+    module_path: str = './apysc/_display/not_existing_module.py'
     file_path: str = lint_hash_util.get_target_module_hash_file_path(
-        module_path='./apysc/_display/not_existing_module.py',
+        module_path=module_path,
         lint_type=LintType.AUTOPEP8)
     file_util.remove_file_if_exists(file_path=file_path)
 
     saved_hash: str = lint_hash_util.read_saved_hash(
-        module_path='./apysc/_display/not_existing_module.py',
+        module_path=module_path,
         lint_type=LintType.AUTOPEP8)
     assert saved_hash == ''
 
     file_util.save_plain_txt(txt='abcdef', file_path=file_path)
     saved_hash = lint_hash_util.read_saved_hash(
-        module_path='./apysc/_display/not_existing_module.py',
+        module_path=module_path,
         lint_type=LintType.AUTOPEP8)
     assert saved_hash == 'abcdef'
 
     file_util.remove_file_if_exists(file_path=file_path)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_save_target_module_hash() -> None:
+    module_path: str = './apysc/_display/not_existing_module.py'
+    hash_path: str = lint_hash_util.get_target_module_hash_file_path(
+        module_path= module_path, lint_type=LintType.AUTOPEP8)
+    file_util.remove_file_if_exists(file_path=module_path)
+    file_util.remove_file_if_exists(file_path=hash_path)
+
+    lint_hash_util.save_target_module_hash(
+        module_path=module_path, lint_type=LintType.AUTOPEP8)
+    saved_hash: str = lint_hash_util.read_saved_hash(
+        module_path=module_path, lint_type=LintType.AUTOPEP8)
+    assert saved_hash == ''
+
+    file_util.save_plain_txt(txt='abcdef', file_path=module_path)
+    lint_hash_util.save_target_module_hash(
+        module_path=module_path, lint_type=LintType.AUTOPEP8)
+    saved_hash = lint_hash_util.read_saved_hash(
+        module_path=module_path, lint_type=LintType.AUTOPEP8)
+    assert saved_hash != ''
+
+    file_util.remove_file_if_exists(file_path=module_path)
+    file_util.remove_file_if_exists(file_path=hash_path)

@@ -120,3 +120,23 @@ def read_saved_hash(module_path: str, lint_type: LintType) -> str:
     saved_hash: str = file_util.read_txt(file_path=file_path)
     saved_hash = saved_hash.strip()
     return saved_hash
+
+
+def save_target_module_hash(module_path: str, lint_type: LintType) -> None:
+    """
+    Save a target module's current hash.
+
+    Parameters
+    ----------
+    module_path : str
+        Target module path.
+    lint_type : LintType
+        Target lint type.
+    """
+    from apysc._file import file_util
+    hash: str = read_target_module_hash(module_path=module_path)
+    if hash == '':
+        return
+    file_path: str = get_target_module_hash_file_path(
+        module_path= module_path, lint_type=lint_type)
+    file_util.save_plain_txt(txt=hash, file_path=file_path)

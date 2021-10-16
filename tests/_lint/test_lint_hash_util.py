@@ -12,6 +12,18 @@ def test_get_lint_hash_dir_path() -> None:
     dir_path: str = lint_hash_util.get_lint_hash_dir_path(
         lint_type=LintType.AUTOPEP8)
     assert dir_path == (
-        './_lint/.autopep8/'
+        './apysc/_lint/.autopep8/'
     )
     assert os.path.isdir(dir_path)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_get_target_module_hash_file_path() -> None:
+    file_path: str = lint_hash_util.get_target_module_hash_file_path(
+        module_path='./apysc/_display/sprite.py',
+        lint_type=LintType.AUTOPEP8)
+    expected: str = (
+        './apysc/_lint/.autopep8/apysc/_display/sprite.py'
+    )
+    assert file_path == expected
+    assert os.path.isdir(os.path.dirname(file_path))

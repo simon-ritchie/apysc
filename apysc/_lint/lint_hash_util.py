@@ -93,3 +93,30 @@ def read_target_module_hash(module_path: str) -> str:
     module_txt: str = file_util.read_txt(file_path=module_path)
     hashed_string: str = hashlib.sha1(module_txt.encode()).hexdigest()
     return hashed_string
+
+
+def read_saved_hash(module_path: str, lint_type: LintType) -> str:
+    """
+    Read an already-saved module's hashed string.
+
+    Parameters
+    ----------
+    module_path : str
+        Target module path.
+    lint_type : LintType
+        Target lint type.
+
+    Returns
+    -------
+    saved_hash : str
+        An already-saved module's hash string. If there is no saved
+        hash file then a blank string will be returned.
+    """
+    from apysc._file import file_util
+    file_path: str = get_target_module_hash_file_path(
+        module_path= module_path, lint_type=lint_type)
+    if not os.path.isfile(file_path):
+        return ''
+    saved_hash: str = file_util.read_txt(file_path=file_path)
+    saved_hash = saved_hash.strip()
+    return saved_hash

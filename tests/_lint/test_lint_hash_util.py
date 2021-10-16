@@ -5,6 +5,7 @@ from retrying import retry
 
 from apysc._lint import lint_hash_util
 from apysc._lint.lint_hash_util import LintType
+from apysc._file import file_util
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -38,3 +39,24 @@ def test_read_target_module_hash() -> None:
     hashed_string = lint_hash_util.read_target_module_hash(
         module_path='./apysc/_display/sprite.py')
     assert hashed_string != ''
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_read_saved_hash() -> None:
+    file_path: str = lint_hash_util.get_target_module_hash_file_path(
+        module_path='./apysc/_display/not_existing_module.py',
+        lint_type=LintType.AUTOPEP8)
+    file_util.remove_file_if_exists(file_path=file_path)
+
+    saved_hash: str = lint_hash_util.read_saved_hash(
+        module_path='./apysc/_display/not_existing_module.py',
+        lint_type=LintType.AUTOPEP8)
+    assert saved_hash == ''
+
+    file_util.save_plain_txt(txt='abcdef', file_path=file_path)
+    saved_hash = lint_hash_util.read_saved_hash(
+        module_path='./apysc/_display/not_existing_module.py',
+        lint_type=LintType.AUTOPEP8)
+    assert saved_hash == 'abcdef'
+
+    file_util.remove_file_if_exists(file_path=file_path)

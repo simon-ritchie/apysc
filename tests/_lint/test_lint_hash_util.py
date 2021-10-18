@@ -1,5 +1,6 @@
 import os
 from random import randint
+from typing import List
 
 from retrying import retry
 
@@ -137,3 +138,21 @@ def test__is_module_updated_func_for_multiprocessing() -> None:
     assert result
 
     file_util.remove_file_if_exists(file_path=module_path)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__create_args_list_for_multiprocessing() -> None:
+    args_list: List[_IsModuleUpdatedArgs] = lint_hash_util.\
+        _create_args_list_for_multiprocessing(
+            module_paths=[
+                'test/path_1.py',
+                'test/path_2.py',
+            ],
+            lint_type=LintType.AUTOPEP8)
+    assert args_list == [{
+        'module_path': 'test/path_1.py',
+        'lint_type': LintType.AUTOPEP8,
+    }, {
+        'module_path': 'test/path_2.py',
+        'lint_type': LintType.AUTOPEP8,
+    }]

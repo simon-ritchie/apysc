@@ -195,6 +195,33 @@ def _is_module_updated_func_for_multiprocessing(
     return result
 
 
+def _create_args_list_for_multiprocessing(
+        module_paths: List[str],
+        lint_type: LintType) -> List[_IsModuleUpdatedArgs]:
+    """
+    Create an arguments list for the multiprocessing.
+
+    Parameters
+    ----------
+    module_paths : list of str
+        Target Python module paths.
+    lint_type : LintType
+        Target lint type.
+
+    Returns
+    -------
+    args_list : list of _IsModuleUpdatedArgs
+        Created arguments list for the multiprocessing.
+    """
+    args_list: List[_IsModuleUpdatedArgs] = []
+    for module_path in module_paths:
+        args_list.append({
+            'module_path': module_path,
+            'lint_type': lint_type,
+        })
+    return args_list
+
+
 def remove_not_updated_module_paths(
         module_paths: List[str],
         lint_type : LintType) -> List[str]:
@@ -214,6 +241,6 @@ def remove_not_updated_module_paths(
         After the slicing module paths.
     """
     workers: int = max(cpu_count() - 1, 1)
-    with Pool(processes=workers) as p:
-        pass
-    pass
+    args_list: List[_IsModuleUpdatedArgs] = \
+        _create_args_list_for_multiprocessing(
+            module_paths=module_paths, lint_type=lint_type)

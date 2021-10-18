@@ -1,5 +1,6 @@
 import os
 from random import randint
+from typing import List
 
 from retrying import retry
 
@@ -30,3 +31,38 @@ def test__remove_tmp_py_module() -> None:
 def test_run_command() -> None:
     stdout: str = apply_lints_and_build_docs.run_command(command='ls')
     assert 'apysc' in stdout
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_root_dir_module_paths() -> None:
+    module_paths: List[str] = apply_lints_and_build_docs.\
+        _get_root_dir_module_paths()
+    expected_paths: List[str] = [
+        './apply_lints_and_build_docs.py',
+        './build.py',
+    ]
+    for expected in expected_paths:
+        assert expected in module_paths
+
+    unexpected_paths: List[str] = [
+        './__init__.py',
+        './apysc',
+        './requirements.txt',
+    ]
+    for unexpected in unexpected_paths:
+        assert unexpected not in module_paths
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_module_paths() -> None:
+    module_paths: List[str] = apply_lints_and_build_docs._get_module_paths()
+    expected_paths: List[str] = [
+        './apysc/_display/sprite.py',
+        './docs_src/source/conf.py',
+        './tests/_display/test_sprite.py',
+        './test_projects/draw_rect/main.py',
+        './build.py',
+    ]
+    for expected in expected_paths:
+        assert expected in module_paths
+        assert expected.endswith('.py')

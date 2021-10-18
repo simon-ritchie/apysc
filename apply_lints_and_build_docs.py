@@ -15,11 +15,14 @@ from logging import Logger
 from typing import List
 from typing import Match
 from typing import Optional
+import multiprocessing as mp
 
 from typing_extensions import Final
 from typing_extensions import TypedDict
 
 from apysc._console import loggers
+from apysc._lint import lint_hash_util
+from apysc._file import module_util
 
 logger: Logger = loggers.get_info_logger()
 
@@ -51,6 +54,58 @@ MYPY_COMMAND: Final[str] = (
     f'{MYPY_NO_PATH_COMMAND} ./apysc/ '
     './tests/ ./test_projects/'
 )
+
+
+def _get_module_paths() -> List[str]:
+    """
+    Get the Python module paths in the project.
+
+    Returns
+    -------
+    module_paths : list of str
+        Python module paths in the project.
+    """
+    logger.info('Getting module paths...')
+    dir_paths: List[str] = [
+        './apysc/',
+        './docs_src/',
+        './tests/',
+        './test_projects/',
+    ]
+    with mp.Pool(processes=len(dir_paths)) as p:
+        module_paths_list: List[List[str]] = p.map(
+            func=module_util.get_module_paths_recursively,
+            iterable=dir_paths)
+    module_paths: List[str] = []
+    for module_paths_ in module_paths_list:
+        module_paths.extend(module_paths_)
+
+    root_module_paths: List[str] = _get_root_dir_module_paths()
+    module_paths.extend(root_module_paths)
+    return module_paths
+
+
+def _get_root_dir_module_paths() -> List[str]:
+    """
+    Get root directory module paths.
+
+    Returns
+    -------
+    module_paths : list of str
+        Root directory module paths.
+    """
+    filr_or_dir_names: List[str] = os.listdir('./')
+    module_paths: List[str] = []
+    for file_or_dir_name in filr_or_dir_names:
+        if not os.path.isfile(file_or_dir_name):
+            continue
+        if not file_or_dir_name.endswith('.py'):
+            continue
+        if file_or_dir_name.startswith('__init__'):
+            continue
+        module_paths.append(f'./{file_or_dir_name}')
+    return module_paths
+
 
 lint_commands: List[LintCommand] = [
     {

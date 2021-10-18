@@ -35,9 +35,9 @@ def test_get_target_module_hash_file_path() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_read_target_module_hash() -> None:
     file_util.remove_file_if_exists(
-        file_path='./apysc/_display/not_existing_module.py')
+        file_path='./apysc/_display/not_existing_module_1.py')
     hashed_string: str = lint_hash_util.read_target_module_hash(
-        module_path='./apysc/_display/not_existing_module.py')
+        module_path='./apysc/_display/not_existing_module_1.py')
     assert hashed_string == ''
 
     hashed_string = lint_hash_util.read_target_module_hash(
@@ -47,7 +47,7 @@ def test_read_target_module_hash() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_read_saved_hash() -> None:
-    module_path: str = './apysc/_display/not_existing_module.py'
+    module_path: str = './apysc/_display/not_existing_module_2.py'
     file_path: str = lint_hash_util.get_target_module_hash_file_path(
         module_path=module_path,
         lint_type=LintType.AUTOPEP8)
@@ -69,7 +69,7 @@ def test_read_saved_hash() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_save_target_module_hash() -> None:
-    module_path: str = './apysc/_display/not_existing_module.py'
+    module_path: str = './apysc/_display/not_existing_module_3.py'
     hash_path: str = lint_hash_util.get_target_module_hash_file_path(
         module_path= module_path, lint_type=LintType.AUTOPEP8)
     file_util.remove_file_if_exists(file_path=module_path)
@@ -94,7 +94,7 @@ def test_save_target_module_hash() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_is_module_updated() -> None:
-    module_path: str = './apysc/_display/not_existing_module.py'
+    module_path: str = './apysc/_display/not_existing_module_4.py'
     hash_path: str = lint_hash_util.get_target_module_hash_file_path(
         module_path= module_path, lint_type=LintType.AUTOPEP8)
     file_util.remove_file_if_exists(file_path=module_path)
@@ -121,7 +121,7 @@ def test_is_module_updated() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__is_module_updated_func_for_multiprocessing() -> None:
-    module_path: str = './apysc/_display/not_existing_module.py'
+    module_path: str = './apysc/_display/not_existing_module_5.py'
     file_util.remove_file_if_exists(file_path=module_path)
 
     args: _IsModuleUpdatedArgs = {
@@ -156,3 +156,28 @@ def test__create_args_list_for_multiprocessing() -> None:
         'module_path': 'test/path_2.py',
         'lint_type': LintType.AUTOPEP8,
     }]
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_remove_not_updated_module_paths() -> None:
+    module_path: str = './apysc/_display/not_existing_module_6.py'
+    hash_path: str = lint_hash_util.get_target_module_hash_file_path(
+        module_path= module_path, lint_type=LintType.AUTOPEP8)
+    file_util.remove_file_if_exists(file_path=module_path)
+    file_util.remove_file_if_exists(file_path=hash_path)
+
+    file_util.save_plain_txt(txt='abc', file_path=module_path)
+    sliced_module_paths: List[str] = lint_hash_util.\
+        remove_not_updated_module_paths(
+            module_paths=[module_path], lint_type=LintType.AUTOPEP8)
+    assert sliced_module_paths == [module_path]
+
+    lint_hash_util.save_target_module_hash(
+        module_path=module_path, lint_type=LintType.AUTOPEP8)
+    sliced_module_paths = lint_hash_util.\
+        remove_not_updated_module_paths(
+            module_paths=[module_path], lint_type=LintType.AUTOPEP8)
+    assert sliced_module_paths == []
+
+    file_util.remove_file_if_exists(file_path=module_path)
+    file_util.remove_file_if_exists(file_path=hash_path)

@@ -244,3 +244,15 @@ def remove_not_updated_module_paths(
     args_list: List[_IsModuleUpdatedArgs] = \
         _create_args_list_for_multiprocessing(
             module_paths=module_paths, lint_type=lint_type)
+    sliced_module_paths: List[str] = []
+    with Pool(processes=workers) as p:
+        module_updated_bool_list: List[bool] = p.map(
+            func=_is_module_updated_func_for_multiprocessing,
+            iterable=args_list,
+        )
+    module_updated: bool
+    for i, module_updated in enumerate(module_updated_bool_list):
+        if not module_updated:
+            continue
+        sliced_module_paths.append(module_paths[i])
+    return sliced_module_paths

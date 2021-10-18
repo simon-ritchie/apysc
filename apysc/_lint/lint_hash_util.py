@@ -5,6 +5,10 @@ the files are updated or not).
 import os
 import hashlib
 from enum import Enum
+from typing import List
+from multiprocessing import Pool, cpu_count
+
+from typing_extensions import TypedDict
 
 
 class LintType(Enum):
@@ -166,3 +170,50 @@ def is_module_updated(module_path: str, lint_type: LintType) -> bool:
     if saved_hash == current_hash:
         return False
     return True
+
+
+class _IsModuleUpdatedArgs(TypedDict):
+    module_path: str
+    lint_type: LintType
+
+
+def _is_module_updated_func_for_multiprocess(
+        args: _IsModuleUpdatedArgs) -> bool:
+    """
+    Wrapper function of the `is_module_updated` function
+    for the multiprocessing.
+
+    Parameters
+    ----------
+    args : _IsModuleUpdatedArgs
+        Arguments dictionary to pass to the `is_module_updated`
+        function.
+    """
+    result: bool = is_module_updated(
+        module_path=args['module_path'],
+        lint_type=args['lint_type'])
+    return result
+
+
+def remove_not_updated_module_paths(
+        module_paths: List[str],
+        lint_type : LintType) -> List[str]:
+    """
+    Remove not updated modules from specified module paths.
+
+    Parameters
+    ----------
+    module_paths : list of str
+        Target Python module paths.
+    lint_type : LintType
+        Target lint type.
+
+    Returns
+    -------
+    sliced_module_paths : list of str
+        After the slicing module paths.
+    """
+    workers: int = max(cpu_count() - 1, 1)
+    with Pool(processes=workers) as p:
+        pass
+    pass

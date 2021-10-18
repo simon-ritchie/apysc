@@ -1,5 +1,23 @@
 """The utilities module for each lint's hash file (used to check whether
 the files are updated or not).
+
+Mainly following interfaces are defined:
+
+- get_lint_hash_dir_path
+    - Get a specified lint type's hash directory path.
+- get_target_module_hash_file_path
+    - Get a specified module's hash file path.
+- read_target_module_hash
+    - Read a specified module's hashed string.
+- read_saved_hash
+    - Read an already-saved module's hashed string.
+- save_target_module_hash
+    - Save a target module's current hash.
+- is_module_updated
+    - Get a boolean value whether a specified module has been updated
+        after the last lint execution.
+- remove_not_updated_module_paths
+    - Remove not updated modules from specified module paths.
 """
 
 import os

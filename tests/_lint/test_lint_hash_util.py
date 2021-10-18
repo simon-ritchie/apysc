@@ -119,17 +119,21 @@ def test_is_module_updated() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__is_module_updated_func_for_multiprocess() -> None:
+def test__is_module_updated_func_for_multiprocessing() -> None:
     module_path: str = './apysc/_display/not_existing_module.py'
     file_util.remove_file_if_exists(file_path=module_path)
 
-    result: bool = lint_hash_util.is_module_updated(
-        module_path=module_path, lint_type=LintType.AUTOPEP8)
+    args: _IsModuleUpdatedArgs = {
+        'module_path': module_path,
+        'lint_type': LintType.AUTOPEP8,
+    }
+    result: bool = lint_hash_util._is_module_updated_func_for_multiprocessing(
+        args=args)
     assert not result
 
     file_util.save_plain_txt(txt='abc', file_path=module_path)
-    result = lint_hash_util.is_module_updated(
-        module_path=module_path, lint_type=LintType.AUTOPEP8)
+    result = lint_hash_util._is_module_updated_func_for_multiprocessing(
+        args=args)
     assert result
 
     file_util.remove_file_if_exists(file_path=module_path)

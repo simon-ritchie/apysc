@@ -177,7 +177,7 @@ class _IsModuleUpdatedArgs(TypedDict):
     lint_type: LintType
 
 
-def _is_module_updated_func_for_multiprocess(
+def _is_module_updated_func_for_multiprocessing(
         args: _IsModuleUpdatedArgs) -> bool:
     """
     Wrapper function of the `is_module_updated` function

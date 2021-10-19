@@ -235,6 +235,12 @@ def _is_module_updated_func_for_multiprocessing(
     args : _IsModuleUpdatedArgs
         Arguments dictionary to pass to the `is_module_updated`
         function.
+
+    Returns
+    -------
+    result : bool
+        If a specified module has been updated then True will
+        be returned.
     """
     result: bool = is_module_updated(
         module_path=args['module_path'],

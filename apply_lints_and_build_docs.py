@@ -128,6 +128,12 @@ def _main() -> None:
         ['python', 'build_docs.py'], stdout=sp.PIPE, stderr=sp.PIPE)
     for lint_command in lint_commands:
         run_lint_command(lint_command=lint_command)
+
+    logger.info(msg='Saving autopepe8 hash files...')
+    lint_hash_util.save_target_modules_hash(
+        module_paths=autopep8_updated_module_paths,
+        lint_type=lint_hash_util.LintType.AUTOPEP8)
+
     stdout: bytes
     stderr: bytes
     logger.info(msg='Waiting documentation build completion...')
@@ -166,6 +172,7 @@ def _make_lint_commands() -> Tuple[List[LintCommand], List[str]]:
         }
     ]
 
+    logger.info(msg='Creating autopep8 command...')
     autopep8_updated_module_paths: List[str] = lint_hash_util.\
         remove_not_updated_module_paths(
             module_paths=module_paths,

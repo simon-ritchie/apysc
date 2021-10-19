@@ -104,6 +104,8 @@ def _get_root_dir_module_paths() -> List[str]:
             continue
         if file_or_dir_name.startswith('__init__'):
             continue
+        if 'tmp' in file_or_dir_name:
+            continue
         module_paths.append(f'./{file_or_dir_name}')
     return module_paths
 

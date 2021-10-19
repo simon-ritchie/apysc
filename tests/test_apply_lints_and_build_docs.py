@@ -49,6 +49,7 @@ def test__get_root_dir_module_paths() -> None:
         './__init__.py',
         './apysc',
         './requirements.txt',
+        './tmp.py',
     ]
     for unexpected in unexpected_paths:
         assert unexpected not in module_paths

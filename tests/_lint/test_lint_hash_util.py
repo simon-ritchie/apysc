@@ -4,9 +4,9 @@ from typing import List
 
 from retrying import retry
 
+from apysc._file import file_util
 from apysc._lint import lint_hash_util
 from apysc._lint.lint_hash_util import LintType
-from apysc._file import file_util
 from apysc._lint.lint_hash_util import _IsModuleUpdatedArgs
 
 
@@ -71,7 +71,7 @@ def test_read_saved_hash() -> None:
 def test_save_target_module_hash() -> None:
     module_path: str = './apysc/_display/not_existing_module_3.py'
     hash_path: str = lint_hash_util.get_target_module_hash_file_path(
-        module_path= module_path, lint_type=LintType.AUTOPEP8)
+        module_path=module_path, lint_type=LintType.AUTOPEP8)
     file_util.remove_file_if_exists(file_path=module_path)
     file_util.remove_file_if_exists(file_path=hash_path)
 
@@ -96,7 +96,7 @@ def test_save_target_module_hash() -> None:
 def test_is_module_updated() -> None:
     module_path: str = './apysc/_display/not_existing_module_4.py'
     hash_path: str = lint_hash_util.get_target_module_hash_file_path(
-        module_path= module_path, lint_type=LintType.AUTOPEP8)
+        module_path=module_path, lint_type=LintType.AUTOPEP8)
     file_util.remove_file_if_exists(file_path=module_path)
     file_util.remove_file_if_exists(file_path=hash_path)
 
@@ -162,7 +162,7 @@ def test__create_args_list_for_multiprocessing() -> None:
 def test_remove_not_updated_module_paths() -> None:
     module_path: str = './apysc/_display/not_existing_module_6.py'
     hash_path: str = lint_hash_util.get_target_module_hash_file_path(
-        module_path= module_path, lint_type=LintType.AUTOPEP8)
+        module_path=module_path, lint_type=LintType.AUTOPEP8)
     file_util.remove_file_if_exists(file_path=module_path)
     file_util.remove_file_if_exists(file_path=hash_path)
 
@@ -188,9 +188,9 @@ def test_save_target_modules_hash() -> None:
     module_path_1: str = './apysc/_display/not_existing_module_7.py'
     module_path_2: str = './apysc/_display/not_existing_module_8.py'
     hash_path_1: str = lint_hash_util.get_target_module_hash_file_path(
-        module_path= module_path_1, lint_type=LintType.AUTOPEP8)
+        module_path=module_path_1, lint_type=LintType.AUTOPEP8)
     hash_path_2: str = lint_hash_util.get_target_module_hash_file_path(
-        module_path= module_path_2, lint_type=LintType.AUTOPEP8)
+        module_path=module_path_2, lint_type=LintType.AUTOPEP8)
     file_util.remove_file_if_exists(file_path=module_path_1)
     file_util.remove_file_if_exists(file_path=hash_path_1)
     file_util.remove_file_if_exists(file_path=module_path_2)

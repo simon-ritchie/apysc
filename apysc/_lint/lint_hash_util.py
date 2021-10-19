@@ -22,12 +22,13 @@ Mainly following interfaces are defined:
     - Remove not updated modules from specified module paths.
 """
 
-import os
 import hashlib
-from enum import Enum
-from typing import List
-from multiprocessing import Pool, cpu_count
+import os
 from concurrent import futures
+from enum import Enum
+from multiprocessing import Pool
+from multiprocessing import cpu_count
+from typing import List
 
 from typing_extensions import TypedDict
 
@@ -139,7 +140,7 @@ def read_saved_hash(module_path: str, lint_type: LintType) -> str:
     """
     from apysc._file import file_util
     file_path: str = get_target_module_hash_file_path(
-        module_path= module_path, lint_type=lint_type)
+        module_path=module_path, lint_type=lint_type)
     if not os.path.isfile(file_path):
         return ''
     saved_hash: str = file_util.read_txt(file_path=file_path)
@@ -163,7 +164,7 @@ def save_target_module_hash(module_path: str, lint_type: LintType) -> None:
     if hash == '':
         return
     file_path: str = get_target_module_hash_file_path(
-        module_path= module_path, lint_type=lint_type)
+        module_path=module_path, lint_type=lint_type)
     file_util.save_plain_txt(txt=hash, file_path=file_path)
 
 
@@ -210,8 +211,8 @@ def is_module_updated(module_path: str, lint_type: LintType) -> bool:
         be returned.
     """
     saved_hash: str = read_saved_hash(
-        module_path= module_path, lint_type=lint_type)
-    current_hash: str = read_target_module_hash(module_path= module_path)
+        module_path=module_path, lint_type=lint_type)
+    current_hash: str = read_target_module_hash(module_path=module_path)
     if saved_hash == current_hash:
         return False
     return True
@@ -269,7 +270,7 @@ def _create_args_list_for_multiprocessing(
 
 def remove_not_updated_module_paths(
         module_paths: List[str],
-        lint_type : LintType) -> List[str]:
+        lint_type: LintType) -> List[str]:
     """
     Remove not updated modules from specified module paths.
 

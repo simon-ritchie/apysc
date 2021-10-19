@@ -5,6 +5,7 @@ $ python apply_lints_and_build_docs.py
 $ python apply_lints_and_build_docs.py --skip_overall_docs_build
 """
 
+import multiprocessing as mp
 import os
 import re
 import shutil
@@ -12,17 +13,17 @@ import subprocess as sp
 from argparse import ArgumentParser
 from argparse import Namespace
 from logging import Logger
-from typing import List, Tuple
+from typing import List
 from typing import Match
 from typing import Optional
-import multiprocessing as mp
+from typing import Tuple
 
 from typing_extensions import Final
 from typing_extensions import TypedDict
 
 from apysc._console import loggers
-from apysc._lint import lint_hash_util
 from apysc._file import module_util
+from apysc._lint import lint_hash_util
 
 logger: Logger = loggers.get_info_logger()
 

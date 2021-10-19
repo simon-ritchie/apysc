@@ -77,7 +77,7 @@ def test__make_lint_commands() -> None:
 
     def mock_remove_not_updated_module_paths_1(
             module_paths: List[str],
-            lint_type : LintType) -> List[str]:
+            lint_type: LintType) -> List[str]:
         return ['./apysc/_display/sprite.py']
 
     apply_lints_and_build_docs.lint_hash_util.\
@@ -102,7 +102,7 @@ def test__make_lint_commands() -> None:
 
     def mock_remove_not_updated_module_paths_2(
             module_paths: List[str],
-            lint_type : LintType) -> List[str]:
+            lint_type: LintType) -> List[str]:
         return []
 
     apply_lints_and_build_docs.lint_hash_util.\

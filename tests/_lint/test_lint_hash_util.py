@@ -26,7 +26,7 @@ def test_get_target_module_hash_file_path() -> None:
         module_path='./apysc/_display/sprite.py',
         lint_type=LintType.AUTOPEP8)
     expected: str = (
-        './apysc/_lint/.autopep8/apysc/_display/sprite.py'
+        './apysc/_lint/.autopep8/apysc/_display/sprite'
     )
     assert file_path == expected
     assert os.path.isdir(os.path.dirname(file_path))

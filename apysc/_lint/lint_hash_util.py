@@ -94,6 +94,7 @@ def get_target_module_hash_file_path(
         module_path = module_path.replace('./', '', 1)
     dir_path: str = get_lint_hash_dir_path(lint_type=lint_type)
     file_path: str = os.path.join(dir_path, module_path)
+    file_path = file_path.replace('.py', '', 1)
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
     return file_path
 

@@ -12,7 +12,7 @@ import subprocess as sp
 from argparse import ArgumentParser
 from argparse import Namespace
 from logging import Logger
-from typing import List
+from typing import List, Tuple
 from typing import Match
 from typing import Optional
 import multiprocessing as mp
@@ -41,7 +41,7 @@ FLAKE8_COMMAND: Final[str] = (
 )
 
 NUMDOCLINT_COMMAND: Final[str] = (
-    'numdoclint -p ./ -r -f test,sample,_test,_sample'
+    'numdoclint -p ./ -r -f test,sample,_test,_sample,mock_'
 )
 
 MYPY_NO_PATH_COMMAND: Final[str] = (
@@ -107,32 +107,6 @@ def _get_root_dir_module_paths() -> List[str]:
     return module_paths
 
 
-lint_commands: List[LintCommand] = [
-    {
-        'command':
-        'autoflake --in-place --remove-unused-variables '
-        '--remove-all-unused-imports -r .',
-        'lint_name': 'autoflake',
-    }, {
-        'command': 'isort --force-single-line-imports .',
-        'lint_name': 'isort',
-    }, {
-        'command':
-        'autopep8 --in-place --aggressive --aggressive -r --ignore=E402 .',
-        'lint_name': 'autopep8',
-    }, {
-        'command': FLAKE8_COMMAND,
-        'lint_name': 'flake8',
-    }, {
-        'command': NUMDOCLINT_COMMAND,
-        'lint_name': 'numdoclint',
-    }, {
-        'command': MYPY_COMMAND,
-        'lint_name': 'mypy',
-    },
-]
-
-
 class _CommandOptions(TypedDict):
     skip_overall_docs_build: bool
 
@@ -146,6 +120,9 @@ def _main() -> None:
     if not options['skip_overall_docs_build']:
         shutil.rmtree(HASHED_VALS_DIR_PATH, ignore_errors=True)
     _remove_tmp_py_module()
+    lint_commands: List[LintCommand]
+    autopep8_updated_module_paths: List[str]
+    lint_commands, autopep8_updated_module_paths = _make_lint_commands()
     logger.info(msg='Documentation build started.')
     process: sp.Popen = sp.Popen(
         ['python', 'build_docs.py'], stdout=sp.PIPE, stderr=sp.PIPE)
@@ -162,6 +139,59 @@ def _main() -> None:
             continue
         print(string)
     logger.info(msg='Ended.')
+
+
+def _make_lint_commands() -> Tuple[List[LintCommand], List[str]]:
+    """
+    Make the lint commands list.
+
+    Returns
+    -------
+    lint_commands : list of LintCommand
+        Created lint commands data list.
+    autopep8_updated_module_paths : list of str
+        Updated autopep8 target module paths.
+    """
+    module_paths: List[str] = _get_module_paths()
+
+    lint_commands: List[LintCommand] = [
+        {
+            'command':
+            'autoflake --in-place --remove-unused-variables '
+            '--remove-all-unused-imports -r .',
+            'lint_name': 'autoflake',
+        }, {
+            'command': 'isort --force-single-line-imports .',
+            'lint_name': 'isort',
+        }
+    ]
+
+    autopep8_updated_module_paths: List[str] = lint_hash_util.\
+        remove_not_updated_module_paths(
+            module_paths=module_paths,
+            lint_type=lint_hash_util.LintType.AUTOPEP8)
+    if autopep8_updated_module_paths:
+        autopep8_module_paths_str: str = ' '.join(
+            autopep8_updated_module_paths)
+        lint_commands.append({
+            'command':
+            'autopep8 --in-place --aggressive --aggressive --ignore=E402 '
+            f'{autopep8_module_paths_str}',
+            'lint_name': 'autopep8',
+        })
+
+    lint_commands.extend([{
+        'command': FLAKE8_COMMAND,
+        'lint_name': 'flake8',
+    }, {
+        'command': NUMDOCLINT_COMMAND,
+        'lint_name': 'numdoclint',
+    }, {
+        'command': MYPY_COMMAND,
+        'lint_name': 'mypy',
+    }])
+
+    return lint_commands, autopep8_updated_module_paths
 
 
 def _get_command_options() -> _CommandOptions:

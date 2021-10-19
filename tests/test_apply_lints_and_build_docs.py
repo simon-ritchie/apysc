@@ -7,6 +7,7 @@ from retrying import retry
 import apply_lints_and_build_docs
 from apply_lints_and_build_docs import LintCommand
 from apysc._file import file_util
+from apysc._lint.lint_hash_util import LintType
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -66,3 +67,60 @@ def test__get_module_paths() -> None:
     for expected in expected_paths:
         assert expected in module_paths
         assert expected.endswith('.py')
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__make_lint_commands() -> None:
+    original_remove_not_updated_module_paths_func = \
+        apply_lints_and_build_docs.lint_hash_util.\
+        remove_not_updated_module_paths
+
+    def mock_remove_not_updated_module_paths_1(
+            module_paths: List[str],
+            lint_type : LintType) -> List[str]:
+        return ['./apysc/_display/sprite.py']
+
+    apply_lints_and_build_docs.lint_hash_util.\
+        remove_not_updated_module_paths = \
+        mock_remove_not_updated_module_paths_1
+
+    lint_commands: List[LintCommand]
+    autopep8_updated_module_paths: List[str]
+    lint_commands, autopep8_updated_module_paths = \
+        apply_lints_and_build_docs._make_lint_commands()
+    lint_names: List[str] = [
+        lint_command['lint_name'] for lint_command in lint_commands]
+    assert lint_names == [
+        'autoflake',
+        'isort',
+        'autopep8',
+        'flake8',
+        'numdoclint',
+        'mypy',
+    ]
+    assert autopep8_updated_module_paths == ['./apysc/_display/sprite.py']
+
+    def mock_remove_not_updated_module_paths_2(
+            module_paths: List[str],
+            lint_type : LintType) -> List[str]:
+        return []
+
+    apply_lints_and_build_docs.lint_hash_util.\
+        remove_not_updated_module_paths = \
+        mock_remove_not_updated_module_paths_2
+    lint_commands, autopep8_updated_module_paths = \
+        apply_lints_and_build_docs._make_lint_commands()
+    lint_names = [
+        lint_command['lint_name'] for lint_command in lint_commands]
+    assert lint_names == [
+        'autoflake',
+        'isort',
+        'flake8',
+        'numdoclint',
+        'mypy',
+    ]
+    assert autopep8_updated_module_paths == []
+
+    apply_lints_and_build_docs.lint_hash_util.\
+        remove_not_updated_module_paths = \
+        original_remove_not_updated_module_paths_func

@@ -181,3 +181,34 @@ def test_remove_not_updated_module_paths() -> None:
 
     file_util.remove_file_if_exists(file_path=module_path)
     file_util.remove_file_if_exists(file_path=hash_path)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_save_target_modules_hash() -> None:
+    module_path_1: str = './apysc/_display/not_existing_module_7.py'
+    module_path_2: str = './apysc/_display/not_existing_module_8.py'
+    hash_path_1: str = lint_hash_util.get_target_module_hash_file_path(
+        module_path= module_path_1, lint_type=LintType.AUTOPEP8)
+    hash_path_2: str = lint_hash_util.get_target_module_hash_file_path(
+        module_path= module_path_2, lint_type=LintType.AUTOPEP8)
+    file_util.remove_file_if_exists(file_path=module_path_1)
+    file_util.remove_file_if_exists(file_path=hash_path_1)
+    file_util.remove_file_if_exists(file_path=module_path_2)
+    file_util.remove_file_if_exists(file_path=hash_path_2)
+
+    file_util.save_plain_txt(txt='abc', file_path=module_path_1)
+    file_util.save_plain_txt(txt='def', file_path=module_path_2)
+    lint_hash_util.save_target_modules_hash(
+        module_paths=[module_path_1, module_path_2],
+        lint_type=LintType.AUTOPEP8)
+    hash_1: str = lint_hash_util.read_saved_hash(
+        module_path=module_path_1, lint_type=LintType.AUTOPEP8)
+    hash_2: str = lint_hash_util.read_saved_hash(
+        module_path=module_path_2, lint_type=LintType.AUTOPEP8)
+    assert hash_1 != ''
+    assert hash_2 != ''
+
+    file_util.remove_file_if_exists(file_path=module_path_1)
+    file_util.remove_file_if_exists(file_path=hash_path_1)
+    file_util.remove_file_if_exists(file_path=module_path_2)
+    file_util.remove_file_if_exists(file_path=hash_path_2)

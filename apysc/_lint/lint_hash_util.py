@@ -13,6 +13,8 @@ Mainly following interfaces are defined:
     - Read an already-saved module's hashed string.
 - save_target_module_hash
     - Save a target module's current hash.
+- save_target_modules_hash
+    - Save target modules' current hash.
 - is_module_updated
     - Get a boolean value whether a specified module has been updated
         after the last lint execution.
@@ -25,6 +27,7 @@ import hashlib
 from enum import Enum
 from typing import List
 from multiprocessing import Pool, cpu_count
+from concurrent import futures
 
 from typing_extensions import TypedDict
 
@@ -162,6 +165,30 @@ def save_target_module_hash(module_path: str, lint_type: LintType) -> None:
     file_path: str = get_target_module_hash_file_path(
         module_path= module_path, lint_type=lint_type)
     file_util.save_plain_txt(txt=hash, file_path=file_path)
+
+
+def save_target_modules_hash(
+        module_paths: List[str], lint_type: LintType) -> None:
+    """
+    Save target modules' current hash.
+
+    Parameters
+    ----------
+    module_paths : list of str
+        Target module paths.
+    lint_type : LintType
+        Target lint type.
+    """
+    workers: int = max(cpu_count() - 1, 1)
+    with futures.ProcessPoolExecutor(max_workers=workers) as executor:
+        future_list: List[futures.Future] = []
+        for module_path in module_paths:
+            future = executor.submit(
+                fn=save_target_module_hash,
+                module_path=module_path,
+                lint_type=lint_type)
+            future_list.append(future)
+        _ = futures.as_completed(fs=future_list)
 
 
 def is_module_updated(module_path: str, lint_type: LintType) -> bool:

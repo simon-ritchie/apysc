@@ -124,13 +124,20 @@ def _main() -> None:
         shutil.rmtree(HASHED_VALS_DIR_PATH, ignore_errors=True)
     _remove_tmp_py_module()
     lint_commands: List[LintCommand]
+    autoflake_updated_module_paths: List[str]
     autopep8_updated_module_paths: List[str]
-    lint_commands, autopep8_updated_module_paths = _make_lint_commands()
+    lint_commands, autoflake_updated_module_paths, \
+        autopep8_updated_module_paths = _make_lint_commands()
     logger.info(msg='Documentation build started.')
     process: sp.Popen = sp.Popen(
         ['python', 'build_docs.py'], stdout=sp.PIPE, stderr=sp.PIPE)
     for lint_command in lint_commands:
         run_lint_command(lint_command=lint_command)
+
+    logger.info(msg='Saving autoflake hash files...')
+    lint_hash_util.save_target_modules_hash(
+        module_paths=autoflake_updated_module_paths,
+        lint_type=lint_hash_util.LintType.AUTOFLAKE)
 
     logger.info(msg='Saving autopepe8 hash files...')
     lint_hash_util.save_target_modules_hash(
@@ -150,7 +157,10 @@ def _main() -> None:
     logger.info(msg='Ended.')
 
 
-def _make_lint_commands() -> Tuple[List[LintCommand], List[str]]:
+_MkCommandReturns = Tuple[List[LintCommand], List[str], List[str]]
+
+
+def _make_lint_commands() -> _MkCommandReturns:
     """
     Make the lint commands list.
 
@@ -158,24 +168,37 @@ def _make_lint_commands() -> Tuple[List[LintCommand], List[str]]:
     -------
     lint_commands : list of LintCommand
         Created lint commands data list.
+    autoflake_updated_module_paths : list of str
+        Updated autoflake target module paths.
     autopep8_updated_module_paths : list of str
         Updated autopep8 target module paths.
     """
     module_paths: List[str] = _get_module_paths()
 
-    lint_commands: List[LintCommand] = [
-        {
+    lint_commands: List[LintCommand] = []
+
+    logger.info(msg='Creating the autoflake command...')
+    autoflake_updated_module_paths: List[str] = lint_hash_util.\
+        remove_not_updated_module_paths(
+            module_paths=module_paths,
+            lint_type=lint_hash_util.LintType.AUTOFLAKE)
+    if autoflake_updated_module_paths:
+        autoflake_module_paths_str: str = ' '.join(
+            autoflake_updated_module_paths)
+        lint_commands.append({
             'command':
             'autoflake --in-place --remove-unused-variables '
-            '--remove-all-unused-imports -r .',
+            '--remove-all-unused-imports '
+            f'{autoflake_module_paths_str}',
             'lint_name': 'autoflake',
-        }, {
-            'command': 'isort --force-single-line-imports .',
-            'lint_name': 'isort',
-        }
-    ]
+        })
 
-    logger.info(msg='Creating autopep8 command...')
+    lint_commands.append({
+        'command': 'isort --force-single-line-imports .',
+        'lint_name': 'isort',
+    })
+
+    logger.info(msg='Creating the autopep8 command...')
     autopep8_updated_module_paths: List[str] = lint_hash_util.\
         remove_not_updated_module_paths(
             module_paths=module_paths,
@@ -201,7 +224,10 @@ def _make_lint_commands() -> Tuple[List[LintCommand], List[str]]:
         'lint_name': 'mypy',
     }])
 
-    return lint_commands, autopep8_updated_module_paths
+    return (
+        lint_commands,
+        autoflake_updated_module_paths,
+        autopep8_updated_module_paths)
 
 
 def _get_command_options() -> _CommandOptions:

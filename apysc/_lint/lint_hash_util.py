@@ -35,6 +35,7 @@ from typing_extensions import TypedDict
 
 class LintType(Enum):
 
+    AUTOFLAKE = 'autoflake'
     AUTOPEP8 = 'autopep8'
 
 

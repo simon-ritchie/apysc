@@ -128,3 +128,12 @@ def test__make_lint_commands() -> None:
     apply_lints_and_build_docs.lint_hash_util.\
         remove_not_updated_module_paths = \
         original_remove_not_updated_module_paths_func
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_joined_paths_str() -> None:
+    joined_paths_str: str = apply_lints_and_build_docs._get_joined_paths_str(
+        module_paths=['./test/path_1.py', './test/path_2.py'])
+    assert joined_paths_str == (
+        './test/path_1.py ./test/path_2.py'
+    )

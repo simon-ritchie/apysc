@@ -183,8 +183,8 @@ def _make_lint_commands() -> _MkCommandReturns:
             module_paths=module_paths,
             lint_type=lint_hash_util.LintType.AUTOFLAKE)
     if autoflake_updated_module_paths:
-        autoflake_module_paths_str: str = ' '.join(
-            autoflake_updated_module_paths)
+        autoflake_module_paths_str: str = _get_joined_paths_str(
+            module_paths=autoflake_updated_module_paths)
         lint_commands.append({
             'command':
             'autoflake --in-place --remove-unused-variables '
@@ -204,8 +204,8 @@ def _make_lint_commands() -> _MkCommandReturns:
             module_paths=module_paths,
             lint_type=lint_hash_util.LintType.AUTOPEP8)
     if autopep8_updated_module_paths:
-        autopep8_module_paths_str: str = ' '.join(
-            autopep8_updated_module_paths)
+        autopep8_module_paths_str: str = _get_joined_paths_str(
+            module_paths=autopep8_updated_module_paths)
         lint_commands.append({
             'command':
             'autopep8 --in-place --aggressive --aggressive --ignore=E402 '
@@ -228,6 +228,24 @@ def _make_lint_commands() -> _MkCommandReturns:
         lint_commands,
         autoflake_updated_module_paths,
         autopep8_updated_module_paths)
+
+
+def _get_joined_paths_str(module_paths: List[str]) -> str:
+    """
+    Get a joined paths string for a lint command.
+
+    Parameters
+    ----------
+    module_paths : list of str
+        Target module paths.
+
+    Returns
+    -------
+    joined_paths_str : str
+        A joined paths string for a lint command.
+    """
+    joined_paths_str: str = ' '.join(module_paths)
+    return joined_paths_str
 
 
 def _get_command_options() -> _CommandOptions:

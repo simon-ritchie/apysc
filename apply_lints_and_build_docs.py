@@ -186,20 +186,9 @@ def _make_lint_commands() -> _MkCommandReturns:
         'lint_name': 'isort',
     })
 
-    logger.info(msg='Creating the autopep8 command...')
-    autopep8_updated_module_paths: List[str] = lint_hash_util.\
-        remove_not_updated_module_paths(
-            module_paths=module_paths,
-            lint_type=lint_hash_util.LintType.AUTOPEP8)
-    if autopep8_updated_module_paths:
-        autopep8_module_paths_str: str = _get_joined_paths_str(
-            module_paths=autopep8_updated_module_paths)
-        lint_commands.append({
-            'command':
-            'autopep8 --in-place --aggressive --aggressive --ignore=E402 '
-            f'{autopep8_module_paths_str}',
-            'lint_name': 'autopep8',
-        })
+    autopep8_updated_module_paths: List[str] = \
+        _append_autopep8_lint_command_if_module_updated(
+            lint_commands=lint_commands, module_paths=module_paths)
 
     lint_commands.extend([{
         'command': FLAKE8_COMMAND,
@@ -216,6 +205,42 @@ def _make_lint_commands() -> _MkCommandReturns:
         lint_commands,
         autoflake_updated_module_paths,
         autopep8_updated_module_paths)
+
+
+def _append_autopep8_lint_command_if_module_updated(
+        lint_commands: List[LintCommand],
+        module_paths: List[str]) -> List[str]:
+    """
+    Append the autopep8 lint command to the list if the
+    modules have been updated.
+
+    Parameters
+    ----------
+    lint_commands : list of LintCommand
+        Target list.
+    module_paths : list of str
+        Overall module paths.
+
+    Returns
+    -------
+    autopep8_updated_module_paths : list of str
+        Updated module paths.
+    """
+    logger.info(msg='Creating the autopep8 command...')
+    autopep8_updated_module_paths: List[str] = lint_hash_util.\
+        remove_not_updated_module_paths(
+            module_paths=module_paths,
+            lint_type=lint_hash_util.LintType.AUTOPEP8)
+    if autopep8_updated_module_paths:
+        autopep8_module_paths_str: str = _get_joined_paths_str(
+            module_paths=autopep8_updated_module_paths)
+        lint_commands.append({
+            'command':
+            'autopep8 --in-place --aggressive --aggressive --ignore=E402 '
+            f'{autopep8_module_paths_str}',
+            'lint_name': 'autopep8',
+        })
+    return autopep8_updated_module_paths
 
 
 def _append_autoflake_lint_command_if_module_updated(

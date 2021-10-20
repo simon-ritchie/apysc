@@ -137,3 +137,45 @@ def test__get_joined_paths_str() -> None:
     assert joined_paths_str == (
         './test/path_1.py ./test/path_2.py'
     )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__append_autoflake_lint_command_if_module_updated() -> None:
+    original_remove_not_updated_module_paths_func = \
+        apply_lints_and_build_docs.lint_hash_util.\
+        remove_not_updated_module_paths
+
+    def mock_remove_not_updated_module_paths_1(
+            module_paths: List[str],
+            lint_type: LintType) -> List[str]:
+        return []
+
+    apply_lints_and_build_docs.lint_hash_util.\
+        remove_not_updated_module_paths = \
+        mock_remove_not_updated_module_paths_1
+    lint_commands: List[LintCommand] = []
+    module_paths: List[str] = ['./apysc/_display/sprite.py']
+    autoflake_updated_module_paths: List[str] = apply_lints_and_build_docs.\
+        _append_autoflake_lint_command_if_module_updated(
+            lint_commands=lint_commands, module_paths=module_paths)
+    assert lint_commands == []
+    assert autoflake_updated_module_paths == []
+
+    def mock_remove_not_updated_module_paths_2(
+            module_paths: List[str],
+            lint_type: LintType) -> List[str]:
+        return ['./apysc/_display/sprite.py']
+
+    apply_lints_and_build_docs.lint_hash_util.\
+        remove_not_updated_module_paths = \
+        mock_remove_not_updated_module_paths_2
+    autoflake_updated_module_paths = apply_lints_and_build_docs.\
+        _append_autoflake_lint_command_if_module_updated(
+            lint_commands=lint_commands, module_paths=module_paths)
+    assert len(lint_commands) == 1
+    assert lint_commands[0]['lint_name'] == 'autoflake'
+    assert autoflake_updated_module_paths == ['./apysc/_display/sprite.py']
+
+    apply_lints_and_build_docs.lint_hash_util.\
+        remove_not_updated_module_paths = \
+        original_remove_not_updated_module_paths_func

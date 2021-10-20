@@ -177,21 +177,9 @@ def _make_lint_commands() -> _MkCommandReturns:
 
     lint_commands: List[LintCommand] = []
 
-    logger.info(msg='Creating the autoflake command...')
-    autoflake_updated_module_paths: List[str] = lint_hash_util.\
-        remove_not_updated_module_paths(
-            module_paths=module_paths,
-            lint_type=lint_hash_util.LintType.AUTOFLAKE)
-    if autoflake_updated_module_paths:
-        autoflake_module_paths_str: str = _get_joined_paths_str(
-            module_paths=autoflake_updated_module_paths)
-        lint_commands.append({
-            'command':
-            'autoflake --in-place --remove-unused-variables '
-            '--remove-all-unused-imports '
-            f'{autoflake_module_paths_str}',
-            'lint_name': 'autoflake',
-        })
+    autoflake_updated_module_paths: List[str] = \
+        _append_autoflake_lint_command_if_module_updated(
+            lint_commands=lint_commands, module_paths=module_paths)
 
     lint_commands.append({
         'command': 'isort --force-single-line-imports .',
@@ -228,6 +216,43 @@ def _make_lint_commands() -> _MkCommandReturns:
         lint_commands,
         autoflake_updated_module_paths,
         autopep8_updated_module_paths)
+
+
+def _append_autoflake_lint_command_if_module_updated(
+        lint_commands: List[LintCommand],
+        module_paths: List[str]) -> List[str]:
+    """
+    Append the autoflake lint command to the list if the
+    modules have been updated.
+
+    Parameters
+    ----------
+    lint_commands : list of LintCommand
+        Target list.
+    module_paths : list of str
+        Overall module paths.
+
+    Returns
+    -------
+    autoflake_updated_module_paths : list of str
+        Updated module paths.
+    """
+    logger.info(msg='Creating the autoflake command...')
+    autoflake_updated_module_paths: List[str] = lint_hash_util.\
+        remove_not_updated_module_paths(
+            module_paths=module_paths,
+            lint_type=lint_hash_util.LintType.AUTOFLAKE)
+    if autoflake_updated_module_paths:
+        autoflake_module_paths_str: str = _get_joined_paths_str(
+            module_paths=autoflake_updated_module_paths)
+        lint_commands.append({
+            'command':
+            'autoflake --in-place --remove-unused-variables '
+            '--remove-all-unused-imports '
+            f'{autoflake_module_paths_str}',
+            'lint_name': 'autoflake',
+        })
+    return autoflake_updated_module_paths
 
 
 def _get_joined_paths_str(module_paths: List[str]) -> str:

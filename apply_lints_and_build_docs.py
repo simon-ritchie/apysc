@@ -123,12 +123,14 @@ def _main() -> None:
     if not options['skip_overall_docs_build']:
         shutil.rmtree(HASHED_VALS_DIR_PATH, ignore_errors=True)
     _remove_tmp_py_module()
-    lint_commands: List[LintCommand]
-    updated_module_paths: List[str]
-    lint_commands, updated_module_paths, = _make_lint_commands()
+
     logger.info(msg='Documentation build started.')
     process: sp.Popen = sp.Popen(
         ['python', 'build_docs.py'], stdout=sp.PIPE, stderr=sp.PIPE)
+
+    lint_commands: List[LintCommand]
+    updated_module_paths: List[str]
+    lint_commands, updated_module_paths, = _make_lint_commands()
     for lint_command in lint_commands:
         run_lint_command(lint_command=lint_command)
 

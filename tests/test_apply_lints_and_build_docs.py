@@ -86,10 +86,8 @@ def test__make_lint_commands() -> None:
         mock_remove_not_updated_module_paths_1
 
     lint_commands: List[LintCommand]
-    autoflake_updated_module_paths: List[str]
-    autopep8_updated_module_paths: List[str]
-    lint_commands, autoflake_updated_module_paths, \
-        autopep8_updated_module_paths = \
+    updated_module_paths: List[str]
+    lint_commands, updated_module_paths = \
         apply_lints_and_build_docs._make_lint_commands()
     lint_names: List[str] = [
         lint_command['lint_name'] for lint_command in lint_commands]
@@ -101,8 +99,7 @@ def test__make_lint_commands() -> None:
         'numdoclint',
         'mypy',
     ]
-    assert autoflake_updated_module_paths == ['./apysc/_display/sprite.py']
-    assert autopep8_updated_module_paths == ['./apysc/_display/sprite.py']
+    assert updated_module_paths == ['./apysc/_display/sprite.py']
 
     def mock_remove_not_updated_module_paths_2(
             module_paths: List[str],
@@ -112,8 +109,7 @@ def test__make_lint_commands() -> None:
     apply_lints_and_build_docs.lint_hash_util.\
         remove_not_updated_module_paths = \
         mock_remove_not_updated_module_paths_2
-    lint_commands, autoflake_updated_module_paths, \
-        autopep8_updated_module_paths = \
+    lint_commands, updated_module_paths = \
         apply_lints_and_build_docs._make_lint_commands()
     lint_names = [
         lint_command['lint_name'] for lint_command in lint_commands]
@@ -123,7 +119,7 @@ def test__make_lint_commands() -> None:
         'numdoclint',
         'mypy',
     ]
-    assert autopep8_updated_module_paths == []
+    assert updated_module_paths == []
 
     apply_lints_and_build_docs.lint_hash_util.\
         remove_not_updated_module_paths = \

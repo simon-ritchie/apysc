@@ -130,7 +130,7 @@ def _main() -> None:
 
     lint_commands: List[LintCommand]
     updated_module_paths: List[str]
-    lint_commands, updated_module_paths, = _make_lint_commands()
+    lint_commands, updated_module_paths, = _make_inplace_lint_commands()
     for lint_command in lint_commands:
         run_lint_command(lint_command=lint_command)
 
@@ -159,13 +159,9 @@ def _main() -> None:
     logger.info(msg='Ended.')
 
 
-_MkCommandReturns = Tuple[
-    List[LintCommand], List[str]]
-
-
-def _make_lint_commands() -> _MkCommandReturns:
+def _make_inplace_lint_commands() -> Tuple[List[LintCommand], List[str]]:
     """
-    Make the lint commands list.
+    Make the in-place lint commands (autoflake, isort, and autopep8) list.
 
     Returns
     -------

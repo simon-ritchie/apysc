@@ -159,6 +159,18 @@ def _main() -> None:
     logger.info(msg='Ended.')
 
 
+_CHECKING_LINT_COMMANDS: List[LintCommand] = [{
+    'command': FLAKE8_COMMAND,
+    'lint_name': 'flake8',
+}, {
+    'command': NUMDOCLINT_COMMAND,
+    'lint_name': 'numdoclint',
+}, {
+    'command': MYPY_COMMAND,
+    'lint_name': 'mypy',
+}]
+
+
 def _make_inplace_lint_commands() -> Tuple[List[LintCommand], List[str]]:
     """
     Make the in-place lint commands (autoflake, isort, and autopep8) list.
@@ -185,17 +197,6 @@ def _make_inplace_lint_commands() -> Tuple[List[LintCommand], List[str]]:
     autopep8_updated_module_paths: List[str] = \
         _append_autopep8_lint_command_if_module_updated(
             lint_commands=lint_commands, module_paths=module_paths)
-
-    lint_commands.extend([{
-        'command': FLAKE8_COMMAND,
-        'lint_name': 'flake8',
-    }, {
-        'command': NUMDOCLINT_COMMAND,
-        'lint_name': 'numdoclint',
-    }, {
-        'command': MYPY_COMMAND,
-        'lint_name': 'mypy',
-    }])
 
     updated_module_paths: List[str] = [
         *autoflake_updated_module_paths,

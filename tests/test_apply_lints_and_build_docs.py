@@ -95,9 +95,6 @@ def test__make_inplace_lint_commands() -> None:
         'autoflake',
         'isort',
         'autopep8',
-        'flake8',
-        'numdoclint',
-        'mypy',
     ]
     assert updated_module_paths == ['./apysc/_display/sprite.py']
 
@@ -113,11 +110,7 @@ def test__make_inplace_lint_commands() -> None:
         apply_lints_and_build_docs._make_inplace_lint_commands()
     lint_names = [
         lint_command['lint_name'] for lint_command in lint_commands]
-    assert lint_names == [
-        'flake8',
-        'numdoclint',
-        'mypy',
-    ]
+    assert lint_names == []
     assert updated_module_paths == []
 
     apply_lints_and_build_docs.lint_hash_util.\

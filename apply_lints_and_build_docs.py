@@ -132,15 +132,17 @@ def _main() -> None:
     for lint_command in lint_commands:
         run_lint_command(lint_command=lint_command)
 
-    logger.info(msg='Saving autoflake hash files...')
-    lint_hash_util.save_target_modules_hash(
-        module_paths=updated_module_paths,
-        lint_type=lint_hash_util.LintType.AUTOFLAKE)
-
-    logger.info(msg='Saving autopepe8 hash files...')
-    lint_hash_util.save_target_modules_hash(
-        module_paths=updated_module_paths,
-        lint_type=lint_hash_util.LintType.AUTOPEP8)
+    hash_lint_types: List[lint_hash_util.LintType] = [
+        lint_hash_util.LintType.AUTOFLAKE,
+        lint_hash_util.LintType.ISORT,
+        lint_hash_util.LintType.AUTOPEP8,
+    ]
+    for hash_lint_type in hash_lint_types:
+        logger.info(
+            msg=f'Saving {hash_lint_type.value} hash files...')
+        lint_hash_util.save_target_modules_hash(
+            module_paths=updated_module_paths,
+            lint_type=hash_lint_type)
 
     stdout: bytes
     stderr: bytes
@@ -178,10 +180,9 @@ def _make_lint_commands() -> _MkCommandReturns:
         _append_autoflake_lint_command_if_module_updated(
             lint_commands=lint_commands, module_paths=module_paths)
 
-    lint_commands.append({
-        'command': 'isort --force-single-line-imports .',
-        'lint_name': 'isort',
-    })
+    isort_updated_module_paths: List[str] = \
+        _append_isort_lint_command_if_module_updated(
+            lint_commands=lint_commands, module_paths=module_paths)
 
     autopep8_updated_module_paths: List[str] = \
         _append_autopep8_lint_command_if_module_updated(
@@ -200,10 +201,46 @@ def _make_lint_commands() -> _MkCommandReturns:
 
     updated_module_paths: List[str] = [
         *autoflake_updated_module_paths,
+        *isort_updated_module_paths,
         *autopep8_updated_module_paths]
     updated_module_paths = list(set(updated_module_paths))
 
     return lint_commands, updated_module_paths
+
+
+def _append_isort_lint_command_if_module_updated(
+        lint_commands: List[LintCommand],
+        module_paths: List[str]) -> List[str]:
+    """
+    Append the isort lint command to the list if the
+    modules have been updated.
+
+    Parameters
+    ----------
+    lint_commands : list of LintCommand
+        Target list.
+    module_paths : list of str
+        Overall module paths.
+
+    Returns
+    -------
+    isort_updated_module_paths : list of str
+        Updated module paths.
+    """
+    logger.info(msg='Creating the isort command...')
+    isort_updated_module_paths: List[str] = lint_hash_util.\
+        remove_not_updated_module_paths(
+            module_paths=module_paths,
+            lint_type=lint_hash_util.LintType.ISORT)
+    if isort_updated_module_paths:
+        isort_module_paths_str: str = _get_joined_paths_str(
+            module_paths=isort_updated_module_paths)
+        lint_commands.append({
+            'command': 'isort --force-single-line-imports '
+            f'{isort_module_paths_str}',
+            'lint_name': 'isort',
+        })
+    return isort_updated_module_paths
 
 
 def _append_autopep8_lint_command_if_module_updated(

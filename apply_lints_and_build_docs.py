@@ -125,8 +125,21 @@ def _main() -> None:
     _remove_tmp_py_module()
 
     logger.info(msg='Documentation build started.')
-    process: sp.Popen = sp.Popen(
+    build_doc_process: sp.Popen = sp.Popen(
         ['python', 'build_docs.py'], stdout=sp.PIPE, stderr=sp.PIPE)
+
+    logger.info(msg='flake8 command started.')
+    flake8_process: sp.Popen = sp.Popen(
+        _FLAKE8_COMMAND['command'].split(' '), stdout=sp.PIPE, stderr=sp.PIPE)
+
+    logger.info(msg='numdoclint command started.')
+    numdoclint_process: sp.Popen = sp.Popen(
+        _NUMDOCLINT_COMMAND['command'].split(' '), stdout=sp.PIPE,
+        stderr=sp.PIPE)
+
+    logger.info(msg='mypy command started.')
+    mypy_process: sp.Popen = sp.Popen(
+        _MYPY_COMMAND['command'].split(' '), stdout=sp.PIPE, stderr=sp.PIPE)
 
     lint_commands: List[LintCommand]
     updated_module_paths: List[str]
@@ -149,26 +162,40 @@ def _main() -> None:
     stdout: bytes
     stderr: bytes
     logger.info(msg='Waiting documentation build completion...')
-    stdout, stderr = process.communicate()
+    stdout, stderr = build_doc_process.communicate()
     stdout_str: str = stdout.decode()
     stderr_str: str = stderr.decode()
     for string in (stdout_str, stderr_str):
         if 'Traceback' not in string:
             continue
         print(string)
+
+    logger.info(msg='Waiting flake8 command completion...')
+    flake8_process.communicate()
+
+    logger.info(msg='Waiting numdoclint command completion...')
+    numdoclint_process.communicate()
+
+    logger.info(msg='Waiting mypy command completion...')
+    mypy_process.communicate()
+
     logger.info(msg='Ended.')
 
 
-_CHECKING_LINT_COMMANDS: List[LintCommand] = [{
+_FLAKE8_COMMAND: LintCommand = {
     'command': FLAKE8_COMMAND,
     'lint_name': 'flake8',
-}, {
+}
+
+_NUMDOCLINT_COMMAND: LintCommand = {
     'command': NUMDOCLINT_COMMAND,
     'lint_name': 'numdoclint',
-}, {
+}
+
+_MYPY_COMMAND: LintCommand = {
     'command': MYPY_COMMAND,
     'lint_name': 'mypy',
-}]
+}
 
 
 def _make_inplace_lint_commands() -> Tuple[List[LintCommand], List[str]]:

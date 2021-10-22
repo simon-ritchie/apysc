@@ -1,8 +1,8 @@
 """Class implementation for the animation_time interface.
 """
 
-from apysc._type.variable_name_interface import VariableNameInterface
 from apysc._type.number import Number
+from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class AnimationTimeInterface(VariableNameInterface):

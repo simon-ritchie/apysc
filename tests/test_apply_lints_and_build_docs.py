@@ -9,6 +9,7 @@ import apply_lints_and_build_docs
 from apply_lints_and_build_docs import LintCommand
 from apysc._file import file_util
 from apysc._lint.lint_hash_util import LintType
+from tests.testing_helper import assert_raises
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -261,3 +262,19 @@ def test__start_subprocess() -> None:
     stdout: bytes
     stdout, _ = process.communicate()
     assert 'apysc' in stdout.decode()
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__check_build_doc_process() -> None:
+    build_doc_process: sp.Popen = \
+        apply_lints_and_build_docs._start_subprocess(
+            command_strs=['python', '-c', 'print("build completed!")'])
+    apply_lints_and_build_docs._check_build_doc_process(
+        build_doc_process=build_doc_process)
+
+    build_doc_process = apply_lints_and_build_docs._start_subprocess(
+        command_strs=['python', '-c', 'raise Exception("Build failed!")'])
+    assert_raises(
+        expected_error_class=apply_lints_and_build_docs._DocumentBuildError,
+        func_or_method=apply_lints_and_build_docs._check_build_doc_process,
+        kwargs={'build_doc_process': build_doc_process})

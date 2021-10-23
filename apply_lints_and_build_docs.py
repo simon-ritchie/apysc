@@ -158,16 +158,7 @@ def _main() -> None:
             module_paths=updated_module_paths,
             lint_type=hash_lint_type)
 
-    stdout: bytes
-    stderr: bytes
-    logger.info(msg='Waiting documentation build completion...')
-    stdout, stderr = build_doc_process.communicate()
-    stdout_str: str = stdout.decode()
-    stderr_str: str = stderr.decode()
-    for string in (stdout_str, stderr_str):
-        if 'Traceback' not in string:
-            continue
-        print(string)
+    _check_build_doc_process(build_doc_process=build_doc_process)
 
     logger.info(msg='Waiting flake8 command completion...')
     flake8_process.communicate()
@@ -179,6 +170,37 @@ def _main() -> None:
     mypy_process.communicate()
 
     logger.info(msg='Ended.')
+
+
+class _DocumentBuildError(Exception):
+    pass
+
+
+def _check_build_doc_process(build_doc_process: sp.Popen) -> None:
+    """
+    Check the documentation build process result.
+
+    Parameters
+    ----------
+    build_doc_process : Popen
+        Target documentation build process.
+
+    Raises
+    ------
+    _DocumentBuildError
+        If there is a documentation build error.
+    """
+    stdout: bytes
+    stderr: bytes
+    logger.info(msg='Waiting documentation build completion...')
+    stdout, stderr = build_doc_process.communicate()
+    stdout_str: str = stdout.decode()
+    stderr_str: str = stderr.decode()
+    for string in (stdout_str, stderr_str):
+        if 'Traceback' not in string:
+            continue
+        raise _DocumentBuildError(
+            f'There is a document build error: {string}')
 
 
 def _start_subprocess(command_strs: List[str]) -> sp.Popen:

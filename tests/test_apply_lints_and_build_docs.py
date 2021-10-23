@@ -278,3 +278,19 @@ def test__check_build_doc_process() -> None:
         expected_error_class=apply_lints_and_build_docs._DocumentBuildError,
         func_or_method=apply_lints_and_build_docs._check_build_doc_process,
         kwargs={'build_doc_process': build_doc_process})
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__check_flake8_process() -> None:
+    flake8_process: sp.Popen = apply_lints_and_build_docs._start_subprocess(
+        command_strs=['python', '-c', 'x = 1 + 1'])
+    apply_lints_and_build_docs._check_flake8_process(
+        flake8_process=flake8_process)
+
+    flake8_process = apply_lints_and_build_docs._start_subprocess(
+        command_strs=[
+            'python', '-c', 'print("F401 module imported but unused")'])
+    assert_raises(
+        expected_error_class=apply_lints_and_build_docs._Flake8Error,
+        func_or_method=apply_lints_and_build_docs._check_flake8_process,
+        kwargs={'flake8_process': flake8_process})

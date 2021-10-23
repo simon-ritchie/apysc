@@ -159,9 +159,7 @@ def _main() -> None:
             lint_type=hash_lint_type)
 
     _check_build_doc_process(build_doc_process=build_doc_process)
-
-    logger.info(msg='Waiting flake8 command completion...')
-    flake8_process.communicate()
+    _check_flake8_process(flake8_process=flake8_process)
 
     logger.info(msg='Waiting numdoclint command completion...')
     numdoclint_process.communicate()
@@ -170,6 +168,30 @@ def _main() -> None:
     mypy_process.communicate()
 
     logger.info(msg='Ended.')
+
+
+class _Flake8Error(Exception):
+    pass
+
+
+def _check_flake8_process(flake8_process: sp.Popen) -> None:
+    """
+    Check the flake8 command process result.
+
+    Parameters
+    ----------
+    flake8_process : Popen
+        Target flake8 command process.
+    """
+    stdout: bytes
+    logger.info(msg='Waiting flake8 command completion...')
+    flake8_process.communicate()
+    stdout, _ = flake8_process.communicate()
+    stdout_str: str = stdout.decode().strip()
+    if stdout_str == '':
+        return
+    raise _Flake8Error(
+        f'There is a flake8 command error:\n{stdout_str}')
 
 
 class _DocumentBuildError(Exception):

@@ -1,7 +1,7 @@
 import os
+import subprocess as sp
 from random import randint
 from typing import List
-import subprocess as sp
 
 from retrying import retry
 

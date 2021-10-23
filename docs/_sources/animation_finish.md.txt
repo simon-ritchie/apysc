@@ -6,6 +6,8 @@ This page will explain the `animation_finish` method interface.
 
 The `animation_finish` interface will finish all running animations and set the last attribute values of each animation setting.
 
+This interface exists in the instances that have the animation interfaces (such as the `animation_x`, `animation_move`).
+
 ## Basic usage
 
 The following example will set the click event to the rectangle and if you click the rectangle x-coordinate animation will start. After 2 seconds passed the x-coordinate animation will finish and set the last x-coordinate value of the animation.

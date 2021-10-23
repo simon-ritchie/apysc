@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>animation_reverse interface &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Easing enum" href="easing_enum.html" />
+    <link rel="prev" title="animation_finish interface" href="animation_finish.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="easing_enum.html" title="Easing enum"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="animation_finish.html" title="animation_finish interface"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">animation_reverse interface</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="animation-reverse-interface">
+<h1>animation_reverse interface<a class="headerlink" href="#animation-reverse-interface" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">animation_reverse</span></code> method interface.</p>
+<section id="what-interface-is-this">
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">animation_reverse</span></code> interface will reverse the running animations.</p>
+<p>This interface exists in the instances that have the animation interfaces (such as the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code>, <code class="docutils literal notranslate"><span class="pre">animation_move</span></code>).</p>
+</section>
+<section id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p>The following example will set the x-coordinate animation and start the 1-second interval timer to reverse animation with the <code class="docutils literal notranslate"><span class="pre">animation_reverse</span></code> interface.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+
+<span class="k">class</span> <span class="nc">_RectOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer_1</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The timer event handler will be called after the 3 seconds.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer_2</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer_2</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The timer event handler will be called every second.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;rectangle&#39;</span><span class="p">]</span>
+    <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_reverse</span><span class="p">()</span>
+
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">rectangle</span><span class="o">.</span><span class="n">animation_x</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;rectangle&#39;</span><span class="p">:</span> <span class="n">rectangle</span><span class="p">}</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span>
+    <span class="n">on_timer_1</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">repeat_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;animation_reverse_basic_usage/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/animation_reverse_basic_usage/index.html" width="500" height="150"></iframe></section>
+<section id="interface-notes">
+<h2>Interface Notes<a class="headerlink" href="#interface-notes" title="Permalink to this headline">¶</a></h2>
+<p>This interface can only use during animation. If you use this at the end of animation nothing will happen, as follows:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+
+<span class="k">class</span> <span class="nc">_RectOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler will be called from a timer.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : dict</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;rectangle&#39;</span><span class="p">]</span>
+
+    <span class="c1"># Nothing will happen since animation has already been completed.</span>
+    <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_reverse</span><span class="p">()</span>
+
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">rectangle</span><span class="o">.</span><span class="n">animation_x</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;rectangle&#39;</span><span class="p">:</span> <span class="n">rectangle</span><span class="p">}</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">repeat_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;animation_reverse_notes/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/animation_reverse_notes/index.html" width="500" height="150"></iframe></section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">animation_reverse interface</a><ul>
+<li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
+<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#interface-notes">Interface Notes</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="animation_finish.html"
+                        title="previous chapter">animation_finish interface</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="easing_enum.html"
+                        title="next chapter">Easing enum</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/animation_reverse.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="easing_enum.html" title="Easing enum"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="animation_finish.html" title="animation_finish interface"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">animation_reverse interface</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

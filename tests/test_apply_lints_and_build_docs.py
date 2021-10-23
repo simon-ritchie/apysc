@@ -1,6 +1,7 @@
 import os
 from random import randint
 from typing import List
+import subprocess as sp
 
 from retrying import retry
 
@@ -251,3 +252,12 @@ def test__append_isort_lint_command_if_module_updated() -> None:
     apply_lints_and_build_docs.lint_hash_util.\
         remove_not_updated_module_paths = \
         original_remove_not_updated_module_paths_func
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__start_subprocess() -> None:
+    process: sp.Popen = apply_lints_and_build_docs._start_subprocess(
+        command_strs=['ls', '-l'])
+    stdout: bytes
+    stdout, _ = process.communicate()
+    assert 'apysc' in stdout.decode()

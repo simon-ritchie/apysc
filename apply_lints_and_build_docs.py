@@ -125,17 +125,16 @@ def _main() -> None:
     _remove_tmp_py_module()
 
     logger.info(msg='Documentation build started.')
-    build_doc_process: sp.Popen = sp.Popen(
-        ['python', 'build_docs.py'], stdout=sp.PIPE, stderr=sp.PIPE)
+    build_doc_process: sp.Popen = _start_subprocess(
+        command_strs=['python', 'build_docs.py'])
 
     logger.info(msg='flake8 command started.')
-    flake8_process: sp.Popen = sp.Popen(
-        _FLAKE8_COMMAND['command'].split(' '), stdout=sp.PIPE, stderr=sp.PIPE)
+    flake8_process: sp.Popen = _start_subprocess(
+        command_strs=_FLAKE8_COMMAND['command'].split(' '))
 
     logger.info(msg='numdoclint command started.')
-    numdoclint_process: sp.Popen = sp.Popen(
-        _NUMDOCLINT_COMMAND['command'].split(' '), stdout=sp.PIPE,
-        stderr=sp.PIPE)
+    numdoclint_process: sp.Popen = _start_subprocess(
+        command_strs=_NUMDOCLINT_COMMAND['command'].split(' '))
 
     logger.info(msg='mypy command started.')
     mypy_process: sp.Popen = sp.Popen(
@@ -180,6 +179,24 @@ def _main() -> None:
     mypy_process.communicate()
 
     logger.info(msg='Ended.')
+
+
+def _start_subprocess(command_strs: List[str]) -> sp.Popen:
+    """
+    Start a subprocess with the specified command.
+
+    Parameters
+    ----------
+    command_strs : list of str
+        Target command strings.
+
+    Returns
+    -------
+    process : Popen
+        Created subprocess object.
+    """
+    process: sp.Popen = sp.Popen(command_strs, stdout=sp.PIPE, stderr=sp.PIPE)
+    return process
 
 
 _FLAKE8_COMMAND: LintCommand = {

@@ -9,6 +9,11 @@ class AnimationResetInterface(VariableNameInterface):
     def animation_reset(self) -> None:
         """
         Stop the all animations and reset.
+
+        References
+        ----------
+        - animation_reset interface document
+            - https://simon-ritchie.github.io/apysc/animation_reset.html
         """
         import apysc as ap
         expression: str = (

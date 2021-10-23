@@ -15,6 +15,11 @@ class AnimationTimeInterface(VariableNameInterface):
         -------
         elapsed_time : Number
             An animation elapsed milisecond.
+
+        References
+        ----------
+        - animation_time interface document
+            - https://simon-ritchie.github.io/apysc/animation_time.html
         """
         import apysc as ap
         with ap.DebugInfo(

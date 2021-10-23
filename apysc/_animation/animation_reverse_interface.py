@@ -18,6 +18,11 @@ class AnimationReverseInterface(VariableNameInterface):
         This means that the same interval's timer tick reverse
         setting will not work correctly (since the same interval
         setting will reach the animation start).
+
+        References
+        ----------
+        - animation_reverse interface document
+            - https://simon-ritchie.github.io/apysc/animation_reverse.html
         """
         import apysc as ap
         with ap.DebugInfo(

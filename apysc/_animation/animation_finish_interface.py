@@ -10,6 +10,11 @@ class AnimationFinishInterface(VariableNameInterface):
         """
         Finish the all animations (set the animation last value to each
         attribute).
+
+        References
+        ----------
+        - animation_finish interface document
+            - https://simon-ritchie.github.io/apysc/animation_finish.html
         """
         import apysc as ap
         with ap.DebugInfo(

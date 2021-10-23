@@ -160,14 +160,40 @@ def _main() -> None:
 
     _check_build_doc_process(build_doc_process=build_doc_process)
     _check_flake8_process(flake8_process=flake8_process)
-
-    logger.info(msg='Waiting numdoclint command completion...')
-    numdoclint_process.communicate()
+    _check_numdoclint_process(numdoclint_process=numdoclint_process)
 
     logger.info(msg='Waiting mypy command completion...')
     mypy_process.communicate()
 
     logger.info(msg='Ended.')
+
+
+class _NumdoclintError(Exception):
+    pass
+
+
+def _check_numdoclint_process(
+        numdoclint_process: sp.Popen) -> None:
+    """
+    Check the numdoclint command process result.
+
+    Parameters
+    ----------
+    numdoclint_process : Popen
+        Target numdoclint command process.
+
+    Raises
+    ------
+    _NumdoclintError
+        If there is a numdoclint error.
+    """
+    stdout: bytes
+    logger.info(msg='Waiting numdoclint command completion...')
+    stdout, _ = numdoclint_process.communicate()
+    stdout_str: str = stdout.decode().replace('[]', '').strip()
+    if stdout_str == '':
+        return
+    raise _NumdoclintError(f'There is a numdoclint error: \n{stdout_str}')
 
 
 class _Flake8Error(Exception):
@@ -182,16 +208,19 @@ def _check_flake8_process(flake8_process: sp.Popen) -> None:
     ----------
     flake8_process : Popen
         Target flake8 command process.
+
+    Raises
+    ------
+    _Flake8Error
+        If there is a flake8 error.
     """
     stdout: bytes
     logger.info(msg='Waiting flake8 command completion...')
-    flake8_process.communicate()
     stdout, _ = flake8_process.communicate()
     stdout_str: str = stdout.decode().strip()
     if stdout_str == '':
         return
-    raise _Flake8Error(
-        f'There is a flake8 command error:\n{stdout_str}')
+    raise _Flake8Error(f'There is a flake8 command error:\n{stdout_str}')
 
 
 class _DocumentBuildError(Exception):

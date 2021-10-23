@@ -283,7 +283,7 @@ def test__check_build_doc_process() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__check_flake8_process() -> None:
     flake8_process: sp.Popen = apply_lints_and_build_docs._start_subprocess(
-        command_strs=['python', '-c', 'x = 1 + 1'])
+        command_strs=['python', '-c', '"x = 1 + 1"'])
     apply_lints_and_build_docs._check_flake8_process(
         flake8_process=flake8_process)
 
@@ -294,3 +294,20 @@ def test__check_flake8_process() -> None:
         expected_error_class=apply_lints_and_build_docs._Flake8Error,
         func_or_method=apply_lints_and_build_docs._check_flake8_process,
         kwargs={'flake8_process': flake8_process})
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__check_numdoclint_process() -> None:
+    numdoclint_process: sp.Popen = \
+        apply_lints_and_build_docs._start_subprocess(
+            command_strs=['python', '-c', 'print("[]")'])
+    apply_lints_and_build_docs._check_numdoclint_process(
+        numdoclint_process=numdoclint_process)
+
+    numdoclint_process: sp.Popen = \
+        apply_lints_and_build_docs._start_subprocess(
+            command_strs=['python', '-c', 'print("[...]")'])
+    assert_raises(
+        expected_error_class=apply_lints_and_build_docs._NumdoclintError,
+        func_or_method=apply_lints_and_build_docs._check_numdoclint_process,
+        kwargs={'numdoclint_process': numdoclint_process})

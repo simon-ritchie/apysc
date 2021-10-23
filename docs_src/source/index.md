@@ -186,6 +186,7 @@ The `Graphics` class handles each vector graphics drawing.
 - [Animation reset interface](animation_reset.md)
 - [Animation finish interface](animation_finish.md)
 - [Animation reverse interface](animation_reverse.md)
+- [Animation time interface](animation_time.md)
 - [Easing enum](easing_enum.md)
 - [Animation move interface](animation_move.md)
 - [Animation x interface](animation_x.md)

@@ -304,10 +304,27 @@ def test__check_numdoclint_process() -> None:
     apply_lints_and_build_docs._check_numdoclint_process(
         numdoclint_process=numdoclint_process)
 
-    numdoclint_process: sp.Popen = \
-        apply_lints_and_build_docs._start_subprocess(
-            command_strs=['python', '-c', 'print("[...]")'])
+    numdoclint_process = apply_lints_and_build_docs._start_subprocess(
+        command_strs=['python', '-c', 'print("[...]")'])
     assert_raises(
         expected_error_class=apply_lints_and_build_docs._NumdoclintError,
         func_or_method=apply_lints_and_build_docs._check_numdoclint_process,
         kwargs={'numdoclint_process': numdoclint_process})
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__check_mypy_process() -> None:
+    mypy_process: sp.Popen = apply_lints_and_build_docs._start_subprocess(
+        command_strs=[
+            'python', '-c',
+            'print("Success: no issues found in 710 source files")'])
+    apply_lints_and_build_docs._check_mypy_process(mypy_process=mypy_process)
+
+    mypy_process = apply_lints_and_build_docs._start_subprocess(
+        command_strs=[
+            'python', '-c',
+            'print("Found 1 error in 1 file (checked 710 source files)")'])
+    assert_raises(
+        expected_error_class=apply_lints_and_build_docs._MypyError,
+        func_or_method=apply_lints_and_build_docs._check_mypy_process,
+        kwargs={'mypy_process': mypy_process})

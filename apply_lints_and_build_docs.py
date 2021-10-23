@@ -161,11 +161,37 @@ def _main() -> None:
     _check_build_doc_process(build_doc_process=build_doc_process)
     _check_flake8_process(flake8_process=flake8_process)
     _check_numdoclint_process(numdoclint_process=numdoclint_process)
-
-    logger.info(msg='Waiting mypy command completion...')
-    mypy_process.communicate()
+    _check_mypy_process(mypy_process=mypy_process)
 
     logger.info(msg='Ended.')
+
+
+class _MypyError(Exception):
+    pass
+
+
+def _check_mypy_process(mypy_process: sp.Popen) -> None:
+    """
+    Check the mypy command process result.
+
+    Parameters
+    ----------
+    mypy_process : Popen
+        Target mypy command process.
+
+    Raises
+    ------
+    _MypyError
+        If there is a mypy error.
+    """
+    stdout: bytes
+    logger.info(msg='Waiting mypy command completion...')
+    stdout, _ = mypy_process.communicate()
+    stdout_str: str = stdout.decode().lower().strip()
+    print(stdout_str)
+    if 'error' not in stdout_str:
+        return
+    raise _MypyError(f'There is a mypy error: \n{stdout_str}')
 
 
 class _NumdoclintError(Exception):
@@ -191,6 +217,7 @@ def _check_numdoclint_process(
     logger.info(msg='Waiting numdoclint command completion...')
     stdout, _ = numdoclint_process.communicate()
     stdout_str: str = stdout.decode().replace('[]', '').strip()
+    print(stdout_str)
     if stdout_str == '':
         return
     raise _NumdoclintError(f'There is a numdoclint error: \n{stdout_str}')
@@ -218,6 +245,7 @@ def _check_flake8_process(flake8_process: sp.Popen) -> None:
     logger.info(msg='Waiting flake8 command completion...')
     stdout, _ = flake8_process.communicate()
     stdout_str: str = stdout.decode().strip()
+    print(stdout_str)
     if stdout_str == '':
         return
     raise _Flake8Error(f'There is a flake8 command error:\n{stdout_str}')

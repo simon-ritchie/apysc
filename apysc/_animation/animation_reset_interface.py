@@ -16,7 +16,10 @@ class AnimationResetInterface(VariableNameInterface):
             - https://simon-ritchie.github.io/apysc/animation_reset.html
         """
         import apysc as ap
-        expression: str = (
-            f'{self.variable_name}.timeline().stop();'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self.animation_reset, locals_=locals(),
+                module_name=__name__, class_=AnimationResetInterface):
+            expression: str = (
+                f'{self.variable_name}.timeline().stop();'
+            )
+            ap.append_js_expression(expression=expression)

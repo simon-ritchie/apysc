@@ -16,7 +16,10 @@ class AnimationPlayInterface(VariableNameInterface):
             - https://bit.ly/3m2Xh8Y
         """
         import apysc as ap
-        expression: str = (
-            f'{self.variable_name}.timeline().play();'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self.animation_play, locals_=locals(),
+                module_name=__name__, class_=AnimationPlayInterface):
+            expression: str = (
+                f'{self.variable_name}.timeline().play();'
+            )
+            ap.append_js_expression(expression=expression)

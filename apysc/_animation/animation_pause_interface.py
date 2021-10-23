@@ -16,7 +16,10 @@ class AnimationPauseInterface(VariableNameInterface):
             - https://bit.ly/3m2Xh8Y
         """
         import apysc as ap
-        expression: str = (
-            f'{self.variable_name}.timeline().pause();'
-        )
-        ap.append_js_expression(expression=expression)
+        with ap.DebugInfo(
+                callable_=self.animation_pause, locals_=locals(),
+                module_name=__name__, class_=AnimationPauseInterface):
+            expression: str = (
+                f'{self.variable_name}.timeline().pause();'
+            )
+            ap.append_js_expression(expression=expression)

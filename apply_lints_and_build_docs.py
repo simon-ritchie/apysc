@@ -163,7 +163,7 @@ def _main() -> None:
 
     _check_build_doc_process(build_doc_process=build_doc_process)
     _check_flake8_process(flake8_process=flake8_process)
-    _check_numdoclint_process(numdoclint_process=numdoclint_process)
+    _check_numdoclint_process(numdoclint_processes=numdoclint_processes)
     _check_mypy_process(mypy_process=mypy_process)
 
     logger.info(msg='Ended.')
@@ -224,14 +224,14 @@ class _NumdoclintError(Exception):
 
 
 def _check_numdoclint_process(
-        numdoclint_process: sp.Popen) -> None:
+        numdoclint_processes: List[sp.Popen]) -> None:
     """
     Check the numdoclint command process result.
 
     Parameters
     ----------
-    numdoclint_process : Popen
-        Target numdoclint command process.
+    numdoclint_processes : list of Popen
+        Target numdoclint command processes.
 
     Raises
     ------
@@ -240,12 +240,13 @@ def _check_numdoclint_process(
     """
     stdout: bytes
     logger.info(msg='Waiting numdoclint command completion...')
-    stdout, _ = numdoclint_process.communicate()
-    stdout_str: str = stdout.decode().replace('[]', '').strip()
-    print(stdout_str)
-    if stdout_str == '':
-        return
-    raise _NumdoclintError(f'There is a numdoclint error: \n{stdout_str}')
+    for numdoclint_process in numdoclint_processes:
+        stdout, _ = numdoclint_process.communicate()
+        stdout_str: str = stdout.decode().replace('[]', '').strip()
+        print(stdout_str)
+        if stdout_str == '':
+            return
+        raise _NumdoclintError(f'There is a numdoclint error: \n{stdout_str}')
 
 
 class _Flake8Error(Exception):

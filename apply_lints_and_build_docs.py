@@ -41,8 +41,12 @@ FLAKE8_COMMAND: Final[str] = (
     f'{FLAKE8_NO_PATH_COMMAND} ./'
 )
 
+NUMDOCLINT_NO_PATH_COMMAND: Final[str] = (
+    'numdoclint -r -f test,sample,_test,_sample,mock_'
+)
+
 NUMDOCLINT_COMMAND: Final[str] = (
-    'numdoclint -p ./ -r -f test,sample,_test,_sample,mock_'
+    f'{NUMDOCLINT_NO_PATH_COMMAND} -p ./'
 )
 
 MYPY_NO_PATH_COMMAND: Final[str] = (
@@ -133,8 +137,7 @@ def _main() -> None:
         command_strs=_FLAKE8_COMMAND['command'].split(' '))
 
     logger.info(msg='numdoclint command started.')
-    numdoclint_process: sp.Popen = _start_subprocess(
-        command_strs=_NUMDOCLINT_COMMAND['command'].split(' '))
+    numdoclint_processes: List[sp.Popen] = _start_numdoclint_processes()
 
     logger.info(msg='mypy command started.')
     mypy_process: sp.Popen = sp.Popen(
@@ -164,6 +167,28 @@ def _main() -> None:
     _check_mypy_process(mypy_process=mypy_process)
 
     logger.info(msg='Ended.')
+
+
+def _start_numdoclint_processes() -> List[sp.Popen]:
+    """
+    Start numdoclint subprocesses.
+
+    Returns
+    -------
+    numdoclint_processes : list of Popen
+        Started subprocesses.
+    """
+    dir_paths: List[str] = [
+        './apysc/', './tests/', './test_projects/',
+    ]
+    numdoclint_processes: List[sp.Popen] = []
+    for dir_path in dir_paths:
+        command_strs: List[str] = NUMDOCLINT_NO_PATH_COMMAND.split(' ')
+        command_strs.append(f'-p {dir_path}')
+        process: sp.Popen = _start_subprocess(
+            command_strs=command_strs)
+        numdoclint_processes.append(process)
+    return numdoclint_processes
 
 
 class _MypyError(Exception):

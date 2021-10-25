@@ -328,3 +328,16 @@ def test__check_mypy_process() -> None:
         expected_error_class=apply_lints_and_build_docs._MypyError,
         func_or_method=apply_lints_and_build_docs._check_mypy_process,
         kwargs={'mypy_process': mypy_process})
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__start_numdoclint_processes() -> None:
+    numdoclint_processes: List[sp.Popen] = apply_lints_and_build_docs.\
+        _start_numdoclint_processes()
+    EXPECTED_LENGTH: int = 3
+    assert len(numdoclint_processes) == EXPECTED_LENGTH
+    joined_commands: List[str] = [
+        str(process.args) for process in numdoclint_processes]
+    assert len(set(joined_commands)) == EXPECTED_LENGTH
+    for joined_command in joined_commands:
+        assert 'numdoclint' in joined_command

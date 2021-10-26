@@ -32,3 +32,20 @@ class AnimationParallel(VariableNameInterface):
             self._animations = animations
             self.variable_name = expression_variables_util.\
                 get_next_variable_name(type_name=var_names.ANIMATION_PARALLEL)
+
+    def start(self) -> 'AnimationParallel':
+        """
+        Start animations.
+
+        Returns
+        -------
+        self : AnimationParallel
+            This instance.
+        """
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self.start, locals_=locals(),
+                module_name=__name__, class_=AnimationParallel):
+            for animation in self._animations:
+                animation.start()
+            return self

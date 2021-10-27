@@ -83,6 +83,7 @@ class TestAnimationBase:
         assert isinstance(self_instance, _TestAnimation)
         expression: str = expression_data_util.get_current_expression()
         expected_patterns: List[str] = [
+            rf'var {animation._animation_name} = '
             rf'{animation._target.variable_name}',
             r'\n  \.animate\({',
             rf'\n    duration: {var_names.INT}_.+?,',
@@ -200,3 +201,27 @@ class TestAnimationBase:
         animation._set_basic_animation_settings(
             target=target, duration=1000)
         assert animation.target == target
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_basic_expression(self) -> None:
+        animation: _TestAnimation = _TestAnimation()
+        target: VariableNameInterface = VariableNameInterface()
+        target.variable_name = 'test_animation_base'
+        animation._target = target
+        animation._duration = ap.Int(1000)
+        animation._delay = ap.Int(0)
+        animation._easing = ap.Easing.EASE_OUT_QUINT
+        animation.animation_complete(self.on_animation_complete_2)
+        expression: str = animation._get_animation_basic_expression()
+        expected_strs: List[str] = [
+            f'var {animation._animation_name} = ',
+            f'{target.variable_name}',
+            '\n  .animate({',
+            f'\n    duration: {animation._duration.variable_name},',
+            f'\n    delay: {animation._delay.variable_name}}})'
+            f'\n  .ease({animation._easing.value})'
+            '\n  .after('
+        ]
+        for expected in expected_strs:
+            assert expected in expression
+

@@ -89,6 +89,26 @@ class AnimationBase(
                 get_copied_int_from_builtin_val(integer=delay)
             self._easing = easing
 
+    def _get_animation_basic_expression(self) -> str:
+        """
+        Get an animation basic expression string.
+
+        Returns
+        -------
+        expression : str
+            An animation basic expression string.
+        """
+        expression: str = (
+            f'var {self._animation_name} = '
+            f'{self._target.variable_name}'
+            '\n  .animate({'
+            f'\n    duration: {self._duration.variable_name},'
+            f'\n    delay: {self._delay.variable_name}}})'
+            f'\n  .ease({self._easing.value})'
+        )
+        expression += self._get_animation_complete_handler_expression()
+        return expression
+
     def start(self) -> 'AnimationBase':
         """
         Start an animation with current settings.
@@ -106,14 +126,7 @@ class AnimationBase(
         with ap.DebugInfo(
                 callable_=self.start, locals_=locals(),
                 module_name=__name__, class_=AnimationBase):
-            expression: str = (
-                f'{self._target.variable_name}'
-                '\n  .animate({'
-                f'\n    duration: {self._duration.variable_name},'
-                f'\n    delay: {self._delay.variable_name}}})'
-                f'\n  .ease({self._easing.value})'
-            )
-            expression += self._get_animation_complete_handler_expression()
+            expression: str = self._get_animation_basic_expression()
             animation_expresssion: str = self._get_animation_func_expression()
             expression += animation_expresssion
             ap.append_js_expression(expression=expression)

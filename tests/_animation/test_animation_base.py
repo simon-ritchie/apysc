@@ -111,6 +111,8 @@ class TestAnimationBase:
         animation: _TestAnimation = _TestAnimation()
         assert animation.variable_name == 'test_animation_base'
         assert not animation._started
+        assert animation._animation_name.startswith(
+            f'{var_names.ANIMATION}_')
 
     def on_animation_complete_1(
             self, e: ap.AnimationEvent, options: Dict[str, Any]) -> None:

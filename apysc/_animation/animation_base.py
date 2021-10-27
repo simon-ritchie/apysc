@@ -29,6 +29,7 @@ class AnimationBase(
     _delay: ap.Int
     _easing: Easing
     _started: ap.Boolean
+    _animation_name: str
 
     def __init__(self, variable_name: str) -> None:
         """
@@ -39,8 +40,15 @@ class AnimationBase(
         variable_name : str
             Variable name.
         """
-        self.variable_name = variable_name
-        self._started = ap.Boolean(False)
+        with ap.DebugInfo(
+                callable_='__init__', locals_=locals(),
+                module_name=__name__, class_=AnimationBase):
+            from apysc._expression import expression_variables_util
+            from apysc._expression import var_names
+            self.variable_name = variable_name
+            self._started = ap.Boolean(False)
+            self._animation_name = expression_variables_util.\
+                get_next_variable_name(type_name=var_names.ANIMATION)
 
     @abstractmethod
     def _get_animation_func_expression(self) -> str:

@@ -59,3 +59,24 @@ class TestAnimationParallel:
             f'\n  .y({animation_y._y.variable_name});'
         )
         assert expression == expected
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_complete_event_in_handler_head_expression(self) -> None:
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+            x=50, y=50, width=50, height=50)
+        animations: List[ap.AnimationBase] = [
+            rectangle.animation_x(x=100),
+            rectangle.animation_y(y=100),
+        ]
+        animation_parallel: ap.AnimationParallel = rectangle.\
+            animation_parallel(animations=animations)
+        expression: str = animation_parallel.\
+            _get_complete_event_in_handler_head_expression()
+        expected_strs: List[str] = [
+            f'{rectangle._x.variable_name} = ',
+            f'{rectangle._y.variable_name} = ',
+        ]
+        for expected in expected_strs:
+            assert expected in expression

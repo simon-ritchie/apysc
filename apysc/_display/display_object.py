@@ -11,11 +11,14 @@ from apysc._display.x_interface import XInterface
 from apysc._display.y_interface import YInterface
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
+from apysc._animation.animation_parallel_interface import \
+    AnimationParallelInterface
 
 
 class DisplayObject(
         XInterface, YInterface, ParentInterface, MouseEventInterfaces,
-        VisibleInterface, CustomEventInterface, CssInterface):
+        VisibleInterface, CustomEventInterface, CssInterface,
+        AnimationParallelInterface):
     """
     Display object (base) class for the common interfaces.
 

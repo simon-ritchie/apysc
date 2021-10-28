@@ -83,7 +83,6 @@ class TestAnimationBase:
         assert isinstance(self_instance, _TestAnimation)
         expression: str = expression_data_util.get_current_expression()
         expected_patterns: List[str] = [
-            rf'var {animation._animation_name} = '
             rf'{animation._target.variable_name}',
             r'\n  \.animate\({',
             rf'\n    duration: {var_names.INT}_.+?,',
@@ -112,8 +111,6 @@ class TestAnimationBase:
         animation: _TestAnimation = _TestAnimation()
         assert animation.variable_name == 'test_animation_base'
         assert not animation._started
-        assert animation._animation_name.startswith(
-            f'{var_names.ANIMATION}_')
 
     def on_animation_complete_1(
             self, e: ap.AnimationEvent, options: Dict[str, Any]) -> None:
@@ -214,7 +211,6 @@ class TestAnimationBase:
         animation.animation_complete(self.on_animation_complete_2)
         expression: str = animation._get_animation_basic_expression()
         expected_strs: List[str] = [
-            f'var {animation._animation_name} = ',
             f'{target.variable_name}',
             '\n  .animate({',
             f'\n    duration: {animation._duration.variable_name},',

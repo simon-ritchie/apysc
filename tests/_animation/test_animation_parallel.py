@@ -38,3 +38,24 @@ class TestAnimationParallel:
             any_obj=animation_parallel)
         assert animation_parallel.variable_name.startswith(
             f'{var_names.ANIMATION_PARALLEL}_')
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_animation_func_expression(self) -> None:
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+            x=50, y=50, width=50, height=50)
+        animation_x: ap.AnimationX = rectangle.animation_x(x=100)
+        animation_y: ap.AnimationY = rectangle.animation_y(y=100)
+        animations: List[ap.AnimationBase] = [
+            animation_x,
+            animation_y,
+        ]
+        animation_parallel: ap.AnimationParallel = rectangle.\
+            animation_parallel(animations=animations)
+        expression: str = animation_parallel._get_animation_func_expression()
+        expected: str = (
+            f'\n  .x({animation_x._x.variable_name})'
+            f'\n  .y({animation_y._y.variable_name});'
+        )
+        assert expression == expected

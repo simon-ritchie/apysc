@@ -69,11 +69,13 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
             Animation function expression.
         """
         expression: str = ''
-        for animation in self._animations:
+        for i, animation in enumerate(self._animations):
             single_expression: str = \
                 animation._get_animation_func_expression()
             single_expression = single_expression.replace(';', '')
             expression += single_expression
+            if i == len(self._animations) - 1:
+                expression += ';'
         return expression
 
     def _get_complete_event_in_handler_head_expression(self) -> str:

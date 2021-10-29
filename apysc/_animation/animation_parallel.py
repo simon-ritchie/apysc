@@ -67,6 +67,30 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
                 easing=easing)
             super(AnimationParallel, self).__init__(variable_name=variable_name)
             self._validate_animation_targets_are_unified()
+            self._validate_animations_duration_are_default_vals()
+
+    def _validate_animations_duration_are_default_vals(self) -> None:
+        """
+        Validate whether the animations duration are
+        default values (not changed).
+
+        Raises
+        ------
+        ValueError
+            If there is an animation target that is changed
+            duration setting.
+        """
+        for animation in self._animations:
+            if animation._duration._value == 3000:
+                continue
+            err_msg: str = (
+                'There is an animation target that is changed '
+                f'duration setting: {animation._duration._value}'
+                '\nDuration setting of the animation in the '
+                '`animations` argument can not be changed.'
+                f'\nTarget animation type: {type(animation)}'
+            )
+            raise ValueError(err_msg)
 
     def _validate_animation_targets_are_unified(self) -> None:
         """
@@ -85,6 +109,7 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
                 f'{animation._target} (type: {type(animation._target)})'
                 f'\nExpected instance: {self._target} (type: '
                 f'{type(self._target)})'
+                f'\nTarget animation type: {type(animation)}'
                 f'\nPlease unify the animation targets of the '
                 'animation_parallel interface argument.'
             )

@@ -106,3 +106,29 @@ class TestAnimationParallel:
                 'animations': animations,
             },
             match='There is not unified animation target instance:')
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__validate_animations_duration_are_default_vals(self) -> None:
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+            x=50, y=50, width=50, height=50)
+        animations: List[ap.AnimationBase] = [
+            rectangle.animation_x(x=100),
+        ]
+        rectangle.animation_parallel(animations=animations)
+
+        animations = [
+            rectangle.animation_x(x=100, duration=3200),
+        ]
+        assert_raises(
+            expected_error_class=ValueError,
+            func_or_method=rectangle.animation_parallel,
+            kwargs={
+                'animations': animations,
+            },
+            match=(
+                'There is an animation target that is changed '
+                'duration setting:'
+            ),
+        )

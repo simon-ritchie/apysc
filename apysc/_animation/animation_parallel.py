@@ -30,6 +30,14 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
         """
         The parallel animation setting class.
 
+        Raises
+        ------
+        ValueError
+            - If the animations's target is not unified.
+            - If there are changed `duration`, `delay`, or
+                `easing` animation settings in the `animations`
+                list.
+
         Parameters
         ----------
         target : VariableNameInterface
@@ -58,6 +66,29 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
                 delay=delay,
                 easing=easing)
             super(AnimationParallel, self).__init__(variable_name=variable_name)
+            self._validate_animation_targets_are_unified()
+
+    def _validate_animation_targets_are_unified(self) -> None:
+        """
+        Validate whether the specified animation's targets are unified.
+
+        Raises
+        ------
+        ValueError
+            If the specified animation targets are not unified.
+        """
+        for animation in self._animations:
+            if animation._target == self._target:
+                continue
+            err_msg: str = (
+                'There is not unified animation target instance: '
+                f'{animation._target} (type: {type(animation._target)})'
+                f'\nExpected instance: {self._target} (type: '
+                f'{type(self._target)})'
+                f'\nPlease unify the animation targets of the '
+                'animation_parallel interface argument.'
+            )
+            raise ValueError(err_msg)
 
     def _get_animation_func_expression(self) -> str:
         """

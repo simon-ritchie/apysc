@@ -6,7 +6,7 @@ from retrying import retry
 import apysc as ap
 from apysc._animation.animation_parallel import AnimationParallel
 from apysc._expression import var_names
-from tests.testing_helper import assert_attrs
+from tests.testing_helper import assert_attrs, assert_raises
 
 
 class TestAnimationParallel:
@@ -80,3 +80,29 @@ class TestAnimationParallel:
         ]
         for expected in expected_strs:
             assert expected in expression
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__validate_animation_targets_are_unified(self) -> None:
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
+            x=50, y=50, width=50, height=50)
+        animations: List[ap.AnimationBase] = [
+            rectangle_1.animation_x(x=100),
+            rectangle_1.animation_y(y=100),
+        ]
+        rectangle_1.animation_parallel(animations=animations)
+
+        rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
+            x=50, y=50, width=50, height=50)
+        animations = [
+            rectangle_1.animation_x(x=100),
+            rectangle_2.animation_y(y=100),
+        ]
+        assert_raises(
+            expected_error_class=ValueError,
+            func_or_method=rectangle_1.animation_parallel,
+            kwargs={
+                'animations': animations,
+            },
+            match='There is not unified animation target instance:')

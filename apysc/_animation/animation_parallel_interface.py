@@ -34,7 +34,10 @@ class AnimationParallelInterface(AnimationInterfaceBase):
         Raises
         ------
         ValueError
-            If the animations's target is not this instance.
+            - If the animations's target is not this instance.
+            - If there are changed `duration`, `delay`, or
+                `easing` animation settings in the `animations`
+                list.
 
         Parameters
         ----------

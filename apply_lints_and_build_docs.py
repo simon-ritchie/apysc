@@ -38,7 +38,9 @@ FLAKE8_NO_PATH_COMMAND: Final[str] = (
 )
 
 FLAKE8_COMMAND: Final[str] = (
-    f'{FLAKE8_NO_PATH_COMMAND} ./'
+    f'{FLAKE8_NO_PATH_COMMAND} ./apysc/ ./tests/ ./test_projects/ '
+    './apply_lints_and_build_docs.py ./build_docs.py ./build.py '
+    './run_deploy_script.py ./setup.py'
 )
 
 NUMDOCLINT_NO_PATH_COMMAND: Final[str] = (
@@ -144,7 +146,6 @@ def _main() -> None:
     lint_commands, updated_module_paths, = _make_inplace_lint_commands()
     for lint_command in lint_commands:
         run_lint_command(lint_command=lint_command)
-
     logger.info(msg='flake8 command started.')
     flake8_process: sp.Popen = _start_subprocess(
         command_strs=_FLAKE8_COMMAND['command'].split(' '))

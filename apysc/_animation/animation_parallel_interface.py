@@ -1,13 +1,14 @@
 """Class implementation for the parallel animation interface.
 """
 
-import apysc as ap
-from typing import List, Union
+from typing import List
+from typing import Union
 
+import apysc as ap
 from apysc._animation.animation_base import AnimationBase
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
-from apysc._animation.easing import Easing
 from apysc._animation.animation_parallel import AnimationParallel
+from apysc._animation.easing import Easing
 
 
 class AnimationParallelInterface(AnimationInterfaceBase):

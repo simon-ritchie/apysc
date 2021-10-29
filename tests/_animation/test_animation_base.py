@@ -220,4 +220,3 @@ class TestAnimationBase:
         ]
         for expected in expected_strs:
             assert expected in expression
-

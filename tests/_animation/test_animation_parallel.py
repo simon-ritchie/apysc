@@ -4,9 +4,9 @@ from typing import List
 from retrying import retry
 
 import apysc as ap
-from apysc._animation.animation_parallel import AnimationParallel
 from apysc._expression import var_names
-from tests.testing_helper import assert_attrs, assert_raises
+from tests.testing_helper import assert_attrs
+from tests.testing_helper import assert_raises
 
 
 class TestAnimationParallel:

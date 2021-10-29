@@ -42,8 +42,6 @@ class AnimationBase(
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=AnimationBase):
-            from apysc._expression import expression_variables_util
-            from apysc._expression import var_names
             self.variable_name = variable_name
             self._started = ap.Boolean(False)
 

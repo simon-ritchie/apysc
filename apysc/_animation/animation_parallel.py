@@ -1,7 +1,8 @@
 """Class implementation for the parallel animation value.
 """
 
-from typing import Generic, List
+from typing import Generic
+from typing import List
 from typing import TypeVar
 from typing import Union
 
@@ -65,7 +66,10 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
                 duration=duration,
                 delay=delay,
                 easing=easing)
-            super(AnimationParallel, self).__init__(variable_name=variable_name)
+            super(
+                AnimationParallel,
+                self).__init__(
+                variable_name=variable_name)
             self._validate_animation_targets_are_unified()
             self._validate_animations_duration_are_default_vals()
             self._validate_animations_delay_are_default_vals()

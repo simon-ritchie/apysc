@@ -68,10 +68,34 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
             super(AnimationParallel, self).__init__(variable_name=variable_name)
             self._validate_animation_targets_are_unified()
             self._validate_animations_duration_are_default_vals()
+            self._validate_animations_delay_are_default_vals()
+
+    def _validate_animations_delay_are_default_vals(self) -> None:
+        """
+        Validate whether the animations delay settings are
+        default values (not changed).
+
+        Raises
+        ------
+        ValueError
+            If there is an animation target that is changed
+            delay setting.
+        """
+        for animation in self._animations:
+            if animation._delay._value == 0:
+                continue
+            err_msg: str = (
+                'There is an animation target that is changed '
+                f'delay setting: {animation._delay._value}'
+                '\nDelay setting of an animation in the `animations`'
+                'argument can not be changed.'
+                f'\nTarget animation type: {type(animation)}'
+            )
+            raise ValueError(err_msg)
 
     def _validate_animations_duration_are_default_vals(self) -> None:
         """
-        Validate whether the animations duration are
+        Validate whether the animations duration settings are
         default values (not changed).
 
         Raises
@@ -86,7 +110,7 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
             err_msg: str = (
                 'There is an animation target that is changed '
                 f'duration setting: {animation._duration._value}'
-                '\nDuration setting of the animation in the '
+                '\nDuration setting of an animation in the '
                 '`animations` argument can not be changed.'
                 f'\nTarget animation type: {type(animation)}'
             )

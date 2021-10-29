@@ -69,6 +69,30 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
             self._validate_animation_targets_are_unified()
             self._validate_animations_duration_are_default_vals()
             self._validate_animations_delay_are_default_vals()
+            self._validate_animations_easing_are_default_vals()
+
+    def _validate_animations_easing_are_default_vals(self) -> None:
+        """
+        Validate whether the animations easing settings are
+        default values (not changed).
+
+        Raises
+        ------
+        ValueError
+            If there is an animation target that is changed
+            easing setting.
+        """
+        for animation in self._animations:
+            if animation._easing == Easing.LINEAR:
+                continue
+            err_msg: str = (
+                'There is an animation target that is changed '
+                f'easing setting: {animation._easing.name}'
+                '\nEasing setting of an animation in the `animations` '
+                'argument can not be changed.'
+                f'\nTarget animation type: {type(animation)}'
+            )
+            raise ValueError(err_msg)
 
     def _validate_animations_delay_are_default_vals(self) -> None:
         """

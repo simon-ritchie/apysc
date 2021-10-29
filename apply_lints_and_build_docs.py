@@ -132,10 +132,6 @@ def _main() -> None:
     build_doc_process: sp.Popen = _start_subprocess(
         command_strs=['python', 'build_docs.py'])
 
-    logger.info(msg='flake8 command started.')
-    flake8_process: sp.Popen = _start_subprocess(
-        command_strs=_FLAKE8_COMMAND['command'].split(' '))
-
     logger.info(msg='numdoclint command started.')
     numdoclint_processes: List[sp.Popen] = _start_numdoclint_processes()
 
@@ -148,6 +144,10 @@ def _main() -> None:
     lint_commands, updated_module_paths, = _make_inplace_lint_commands()
     for lint_command in lint_commands:
         run_lint_command(lint_command=lint_command)
+
+    logger.info(msg='flake8 command started.')
+    flake8_process: sp.Popen = _start_subprocess(
+        command_strs=_FLAKE8_COMMAND['command'].split(' '))
 
     hash_lint_types: List[lint_hash_util.LintType] = [
         lint_hash_util.LintType.AUTOFLAKE,

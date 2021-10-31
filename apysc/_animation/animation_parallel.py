@@ -1,10 +1,11 @@
 """Class implementation for the parallel animation value.
 """
 
-from typing import Generic
+from typing import Generic, Match, Optional
 from typing import List
 from typing import TypeVar
 from typing import Union
+import re
 
 import apysc as ap
 from apysc._animation.animation_base import AnimationBase
@@ -177,13 +178,48 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
             Animation function expression.
         """
         expression: str = ''
+        attr_strs: List[str] = []
         for i, animation in enumerate(self._animations):
             single_expression: str = \
                 animation._get_animation_func_expression()
             single_expression = single_expression.replace(';', '')
-            expression += single_expression
+            if '.attr' in single_expression:
+                match: Optional[Match] = re.search(
+                    pattern=(
+                        r'.*\.attr\({(.*?)}\)'
+                    ),
+                    string=single_expression,
+                    flags=re.MULTILINE | re.DOTALL)
+                if match is not None:
+                    attr_strs.append(match.group(1))
+            else:
+                expression += single_expression
             if i == len(self._animations) - 1:
+                expression += self._make_animation_attr_exp(
+                    attr_strs=attr_strs)
                 expression += ';'
+        return expression
+
+    def _make_animation_attr_exp(self, attr_strs: List[str]) -> str:
+        """
+        Make an animation attribute expression string.
+
+        Parameters
+        ----------
+        attr_strs : list of str
+            Target attribute strings.
+
+        Returns
+        -------
+        expression : str
+            Created attribute expression string.
+        """
+        expression: str = '\n  .attr({'
+        for i, attr_str in enumerate(attr_strs):
+            expression += f'\n    {attr_str}'
+            if i != len(attr_strs) - 1:
+                expression += ','
+        expression += '\n  })'
         return expression
 
     def _get_complete_event_in_handler_head_expression(self) -> str:

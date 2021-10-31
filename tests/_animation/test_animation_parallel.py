@@ -47,16 +47,21 @@ class TestAnimationParallel:
             x=50, y=50, width=50, height=50)
         animation_x: ap.AnimationX = rectangle.animation_x(x=100)
         animation_y: ap.AnimationY = rectangle.animation_y(y=100)
+        animation_fill_color: ap.AnimationFillColor = \
+            rectangle.animation_fill_color(fill_color='#0af')
         animations: List[ap.AnimationBase] = [
             animation_x,
             animation_y,
+            animation_fill_color,
         ]
         animation_parallel: ap.AnimationParallel = rectangle.\
             animation_parallel(animations=animations)
         expression: str = animation_parallel._get_animation_func_expression()
         expected: str = (
             f'\n  .x({animation_x._x.variable_name})'
-            f'\n  .y({animation_y._y.variable_name});'
+            f'\n  .y({animation_y._y.variable_name})'
+            '\n  .attr({\n    '
+            f'fill: {animation_fill_color._fill_color.variable_name}\n  }});'
         )
         assert expression == expected
 
@@ -183,4 +188,29 @@ class TestAnimationParallel:
                 'There is an animation target that is changed '
                 'easing setting:'
             ),
+        )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__make_animation_attr_exp(self) -> None:
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+            x=50, y=50, width=50, height=50)
+        animation_fill_color: ap.AnimationFillColor = \
+            rectangle.animation_fill_color(fill_color='#0af')
+        animation_line_thickness: ap.AnimationLineThickness = \
+            rectangle.animation_line_thickness(thickness=5)
+        animations: List[ap.AnimationBase] = [
+            animation_fill_color,
+            animation_line_thickness,
+        ]
+        animation_parallel: ap.AnimationParallel = \
+            rectangle.animation_parallel(animations=animations)
+        expression: str = animation_parallel._get_animation_func_expression()
+        assert expression == (
+            '\n  .attr({'
+            f'\n    fill: {animation_fill_color._fill_color.variable_name},'
+            '\n    "stroke-width": '
+            f'{animation_line_thickness._line_thickness.variable_name}'
+            '\n  });'
         )

@@ -185,7 +185,7 @@ def _start_numdoclint_processes() -> List[sp.Popen]:
     numdoclint_processes: List[sp.Popen] = []
     for dir_path in dir_paths:
         command_strs: List[str] = NUMDOCLINT_NO_PATH_COMMAND.split(' ')
-        command_strs.append(f'-p {dir_path}')
+        command_strs.extend(['-p', f'{dir_path}'])
         process: sp.Popen = _start_subprocess(
             command_strs=command_strs)
         numdoclint_processes.append(process)

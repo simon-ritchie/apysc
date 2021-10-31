@@ -50,6 +50,11 @@ class AnimationParallelInterface(AnimationInterfaceBase):
             Milliseconds before an animation starts.
         easing : Easing, default Easing.LINEAR
             Easing setting.
+
+        Returns
+        -------
+        animation_parallel : AnimationParallel
+            Created animation setting instance.
         """
         animation_parallel: AnimationParallel = AnimationParallel(
             target=self,

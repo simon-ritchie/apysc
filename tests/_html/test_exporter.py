@@ -200,6 +200,16 @@ def test__target_js_variable_is_used() -> None:
         var_name=var_name, exp_lines=exp_lines)
     assert result
 
+    exp_lines = [
+        'var i_10 = 20;',
+        'var dict_val = {',
+        '  "a": i_10',
+        '}'
+    ]
+    result = exporter._target_js_variable_is_used(
+        var_name=var_name, exp_lines=exp_lines)
+    assert result
+
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__remove_unused_js_vars() -> None:

@@ -457,7 +457,10 @@ def _target_js_variable_is_used(
         returned.
     """
     var_pattern: Pattern = re.compile(pattern=rf'var ({var_name}) = ')
-    used_pattern: Pattern = re.compile(pattern=rf'{var_name}[ ;\)\.}},\]\[]')
+    used_pattern_1: Pattern = re.compile(
+        pattern=rf'{var_name}[ ;\)\.}},\]\[]')
+    used_pattern_2: Pattern = re.compile(
+        pattern=rf'{var_name}$')
     for line in exp_lines:
         if '//' in line:
             continue
@@ -466,7 +469,10 @@ def _target_js_variable_is_used(
         match: Optional[Match] = var_pattern.search(string=line)
         if match is not None:
             continue
-        match = used_pattern.search(string=line)
+        match = used_pattern_1.search(string=line)
+        if match is not None:
+            return True
+        match = used_pattern_2.search(string=line)
         if match is not None:
             return True
     return False

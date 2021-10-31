@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>animation_parallel interface &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="animation_move interface" href="animation_move.html" />
+    <link rel="prev" title="Sequential animation setting" href="sequential_animation.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="animation_move.html" title="animation_move interface"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="sequential_animation.html" title="Sequential animation setting"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">animation_parallel interface</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="animation-parallel-interface">
+<h1>animation_parallel interface<a class="headerlink" href="#animation-parallel-interface" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code> interface.</p>
+<section id="what-interface-is-this">
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code> method interface will create an <code class="docutils literal notranslate"><span class="pre">AnimationParallel</span></code> instance (animation setting instance and the subclass of the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>) and you can set multiple simultaneous animations to the same instance.</p>
+<p>This interface exists on a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> subclass instance, such as the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> or <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>.</p>
+</section>
+<section id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p>You can use this interface with the <code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code> method. The <code class="docutils literal notranslate"><span class="pre">animations</span></code> list argument requires any animation settings.</p>
+<p>The following example will set the simultaneous animations of the x, fill alpha, fill color, and line thickness.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#fff&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">rectangle</span><span class="o">.</span><span class="n">animation_parallel</span><span class="p">(</span>
+    <span class="n">animations</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_x</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">300</span><span class="p">),</span>
+        <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_fill_color</span><span class="p">(</span><span class="n">fill_color</span><span class="o">=</span><span class="s1">&#39;#f0a&#39;</span><span class="p">),</span>
+        <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_fill_alpha</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">),</span>
+        <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_line_thickness</span><span class="p">(</span><span class="n">thickness</span><span class="o">=</span><span class="mi">7</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="n">duration</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">easing</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Easing</span><span class="o">.</span><span class="n">EASE_OUT_QUINT</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;animation_parallel_basic_usage/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/animation_parallel_basic_usage/index.html" width="400" height="150"></iframe></section>
+<section id="note-for-each-animation-s-duration-delay-and-easing-setting">
+<h2>Note for each animation’s duration, delay, and easing setting<a class="headerlink" href="#note-for-each-animation-s-duration-delay-and-easing-setting" title="Permalink to this headline">¶</a></h2>
+<p>Animation settings of the <code class="docutils literal notranslate"><span class="pre">duration</span></code>, <code class="docutils literal notranslate"><span class="pre">delay</span></code>, and <code class="docutils literal notranslate"><span class="pre">easing</span></code> in the <code class="docutils literal notranslate"><span class="pre">animations</span></code> argument can’t be changed since these animation settings are referred the <code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code> arguments. If you set these parameters in the <code class="docutils literal notranslate"><span class="pre">animations</span></code> argument an error will be raised:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="n">rectangle</span><span class="o">.</span><span class="n">animation_parallel</span><span class="p">(</span>
+    <span class="n">animations</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_x</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="n">duration</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">easing</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Easing</span><span class="o">.</span><span class="n">EASE_OUT_QUINT</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ValueError: There is an animation target that is changed duration setting: 1000
+The duration setting of animation in the `animations` argument can not be changed.
+Target animation type: &lt;class &#39;apysc._animation.animation_x.AnimationX&#39;&gt;
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">animation_parallel interface</a><ul>
+<li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
+<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#note-for-each-animation-s-duration-delay-and-easing-setting">Note for each animation’s duration, delay, and easing setting</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="sequential_animation.html"
+                        title="previous chapter">Sequential animation setting</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="animation_move.html"
+                        title="next chapter">animation_move interface</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/animation_parallel.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="animation_move.html" title="animation_move interface"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="sequential_animation.html" title="Sequential animation setting"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">animation_parallel interface</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

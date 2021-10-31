@@ -54,6 +54,10 @@ class AnimationScaleXFromPointInterface(AnimationInterfaceBase):
             - https://simon-ritchie.github.io/apysc/animation_duration.html
         - Each animation interface return value document
             - https://bit.ly/2XOoa8w
+        - Sequential animation setting document
+            - https://simon-ritchie.github.io/apysc/sequential_animation.html
+        - animation_move interface document
+            - https://simon-ritchie.github.io/apysc/animation_move.html
         - Easing enum document
             - https://simon-ritchie.github.io/apysc/easing_enum.html
         """

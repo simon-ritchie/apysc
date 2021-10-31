@@ -404,7 +404,7 @@ def _save_md_hashed_val(md_file_path: str, hashed_val: str) -> None:
     file_util.save_plain_txt(txt=hashed_val, file_path=dest_path)
 
 
-HASHED_VALS_DIR_PATH: Final[str] = './docs_src/hashed_vals/'
+HASHED_VALS_DIR_PATH: str = './docs_src/hashed_vals/'
 
 
 def _slice_md_file_by_hashed_val(

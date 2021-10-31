@@ -1,11 +1,13 @@
 """Class implementation for the parallel animation value.
 """
 
-from typing import Generic, Match, Optional
+import re
+from typing import Generic
 from typing import List
+from typing import Match
+from typing import Optional
 from typing import TypeVar
 from typing import Union
-import re
 
 import apysc as ap
 from apysc._animation.animation_base import AnimationBase

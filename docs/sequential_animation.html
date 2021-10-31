@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Sequential animation setting &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="animation_move interface" href="animation_move.html" />
+    <link rel="prev" title="Easing enum" href="easing_enum.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="animation_move.html" title="animation_move interface"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="easing_enum.html" title="Easing enum"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Sequential animation setting</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="sequential-animation-setting">
+<h1>Sequential animation setting<a class="headerlink" href="#sequential-animation-setting" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain how to animate sequentially.</p>
+<section id="sequential-animation-interface-calling-on-the-same-instance">
+<h2>Sequential animation interface calling on the same instance<a class="headerlink" href="#sequential-animation-interface-calling-on-the-same-instance" title="Permalink to this headline">¶</a></h2>
+<p>If you call each animation interface sequentially, these animations will start in order (e.g., when the first animation is completed then the second one will be started).</p>
+<p>The following example will set the four animations of the coordinates. These animations will not start simultaneously:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">easing</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Easing</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Easing</span><span class="o">.</span><span class="n">EASE_OUT_QUINT</span>
+<span class="n">rectangle</span><span class="o">.</span><span class="n">animation_x</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">easing</span><span class="o">=</span><span class="n">easing</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">rectangle</span><span class="o">.</span><span class="n">animation_y</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">easing</span><span class="o">=</span><span class="n">easing</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">rectangle</span><span class="o">.</span><span class="n">animation_x</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">easing</span><span class="o">=</span><span class="n">easing</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">rectangle</span><span class="o">.</span><span class="n">animation_y</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">easing</span><span class="o">=</span><span class="n">easing</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;sequential_animation_example_1/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/sequential_animation_example_1/index.html" width="200" height="200"></iframe></section>
+<section id="animation-complete-handler-setting">
+<h2>animation_complete handler setting<a class="headerlink" href="#animation-complete-handler-setting" title="Permalink to this headline">¶</a></h2>
+<p>Also, you can use the <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> interface to register a handler for the sequence animation. For the details, please see <a class="reference internal" href="animation_complete.html"><span class="doc">animation_complete interface document</span></a>.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Sequential animation setting</a><ul>
+<li><a class="reference internal" href="#sequential-animation-interface-calling-on-the-same-instance">Sequential animation interface calling on the same instance</a></li>
+<li><a class="reference internal" href="#animation-complete-handler-setting">animation_complete handler setting</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="easing_enum.html"
+                        title="previous chapter">Easing enum</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="animation_move.html"
+                        title="next chapter">animation_move interface</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/sequential_animation.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="animation_move.html" title="animation_move interface"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="easing_enum.html" title="Easing enum"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Sequential animation setting</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

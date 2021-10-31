@@ -92,7 +92,7 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
             err_msg: str = (
                 'There is an animation target that is changed '
                 f'easing setting: {animation._easing.name}'
-                '\nEasing setting of an animation in the `animations` '
+                '\nThe easing setting of animation in the `animations` '
                 'argument can not be changed.'
                 f'\nTarget animation type: {type(animation)}'
             )
@@ -115,7 +115,7 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
             err_msg: str = (
                 'There is an animation target that is changed '
                 f'delay setting: {animation._delay._value}'
-                '\nDelay setting of an animation in the `animations`'
+                '\nThe delay setting of animation in the `animations`'
                 'argument can not be changed.'
                 f'\nTarget animation type: {type(animation)}'
             )
@@ -138,7 +138,7 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
             err_msg: str = (
                 'There is an animation target that is changed '
                 f'duration setting: {animation._duration._value}'
-                '\nDuration setting of an animation in the '
+                '\nThe duration setting of animation in the '
                 '`animations` argument can not be changed.'
                 f'\nTarget animation type: {type(animation)}'
             )

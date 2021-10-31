@@ -37,10 +37,14 @@ FLAKE8_NO_PATH_COMMAND: Final[str] = (
     'flake8 --ignore E402,W503'
 )
 
-FLAKE8_COMMAND: Final[str] = (
-    f'{FLAKE8_NO_PATH_COMMAND} ./apysc/ ./tests/ ./test_projects/ '
+_ROOT_MODULE_PATHS_STR: Final[str] = (
     './apply_lints_and_build_docs.py ./build_docs.py ./build.py '
     './run_deploy_script.py ./setup.py'
+)
+
+FLAKE8_COMMAND: Final[str] = (
+    f'{FLAKE8_NO_PATH_COMMAND} ./apysc/ ./tests/ ./test_projects/ '
+    f'{_ROOT_MODULE_PATHS_STR}'
 )
 
 NUMDOCLINT_NO_PATH_COMMAND: Final[str] = (
@@ -59,7 +63,7 @@ MYPY_NO_PATH_COMMAND: Final[str] = (
 
 MYPY_COMMAND: Final[str] = (
     f'{MYPY_NO_PATH_COMMAND} ./apysc/ '
-    './tests/ ./test_projects/'
+    f'./tests/ ./test_projects/ {_ROOT_MODULE_PATHS_STR}'
 )
 
 

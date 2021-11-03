@@ -1559,3 +1559,73 @@ ap.save_overall_html(
 </details>
 
 <iframe src="static/animation_interfaces_abstract_line_color/index.html" width="150" height="150"></iframe>
+
+## Line alpha animation
+
+The `animation_line_alpha` interface sets the line alpha (opacity) animation. For more details: [animation_line_alpha interface document](animation_line_alpha.md)
+
+<details>
+<summary>Display the code block:</summary>
+
+```py
+# runnable
+import apysc as ap
+
+stage: ap.Stage = ap.Stage(
+    stage_width=150, stage_height=150, background_color='#333',
+    stage_elem_id='stage')
+sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite.graphics.line_style(color='#fff', thickness=5)
+
+DURATION: int = 1000
+DELAY: int = 500
+EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
+
+
+def on_animation_complete_1(
+        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+    """
+    The handler will be called when the animation is completed.
+
+    Parameters
+    ----------
+    e : ap.AnimationEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    e.this.target.animation_line_alpha(
+        alpha=1.0, duration=DURATION, delay=DELAY, easing=EASING,
+    ).animation_complete(on_animation_complete_2).start()
+
+
+def on_animation_complete_2(
+        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+    """
+    The handler will be called when the animation is completed.
+
+    Parameters
+    ----------
+    e : ap.AnimationEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    e.this.target.animation_line_alpha(
+        alpha=0.0, duration=DURATION, delay=DELAY, easing=EASING,
+    ).animation_complete(on_animation_complete_1).start()
+
+
+sprite.graphics.draw_rect(
+    x=50, y=50, width=50, height=50,
+).animation_line_alpha(
+    alpha=0.0, duration=DURATION, delay=DELAY, easing=EASING,
+).animation_complete(on_animation_complete_1).start()
+
+ap.save_overall_html(
+    dest_dir_path='animation_interfaces_abstract_line_alpha/')
+```
+
+</details>
+
+<iframe src="static/animation_interfaces_abstract_line_alpha/index.html" width="150" height="150"></iframe>

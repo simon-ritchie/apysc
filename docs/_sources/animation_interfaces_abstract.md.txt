@@ -1842,3 +1842,76 @@ ap.save_overall_html(
 </details>
 
 <iframe src="static/animation_interfaces_abstract_rotation_around_center/index.html" width="150" height="150"></iframe>
+
+## Rotation around the specified point animation
+
+The `animation_rotation_around_point` interface sets the rotation around the specified point animation. For more details: [animation_rotation_around_point interface document](animation_rotation_around_point.md)
+
+<details>
+<summary>Display the code block:</summary>
+
+```py
+# runnable
+import apysc as ap
+
+stage: ap.Stage = ap.Stage(
+    stage_width=200, stage_height=150, background_color='#333',
+    stage_elem_id='stage')
+sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite.graphics.begin_fill(color='#0af')
+
+DURATION: int = 1000
+DELAY: int = 500
+EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
+
+
+def on_animation_complete_1(
+        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+    """
+    The handler will be called when the animation is completed.
+
+    Parameters
+    ----------
+    e : ap.AnimationEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    e.this.target.animation_rotation_around_point(
+        rotation_around_point=0, x=100, y=100, duration=DURATION,
+        delay=DELAY, easing=EASING,
+    ).animation_complete(on_animation_complete_2).start()
+
+
+def on_animation_complete_2(
+        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+    """
+    The handler will be called when the animation is completed.
+
+    Parameters
+    ----------
+    e : ap.AnimationEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    e.this.target.animation_rotation_around_point(
+        rotation_around_point=90, x=100, y=100, duration=DURATION,
+        delay=DELAY, easing=EASING,
+    ).animation_complete(on_animation_complete_1).start()
+
+
+sprite.graphics.draw_rect(
+    x=50, y=50, width=50, height=50,
+).animation_rotation_around_point(
+    rotation_around_point=90, x=100, y=100, duration=DURATION,
+    delay=DELAY, easing=EASING,
+).animation_complete(on_animation_complete_1).start()
+
+ap.save_overall_html(
+    dest_dir_path='animation_interfaces_abstract_rotation_around_point/')
+```
+
+</details>
+
+<iframe src="static/animation_interfaces_abstract_rotation_around_point/index.html" width="200" height="150"></iframe>

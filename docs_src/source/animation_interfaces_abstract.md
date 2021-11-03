@@ -1279,3 +1279,73 @@ ap.save_overall_html(
 </details>
 
 <iframe src="static/animation_interfaces_abstract_width/index.html" width="200" height="150"></iframe>
+
+## Height animation
+
+The `animation_height` interface sets the height animation. For more details: [animation_width and animation_height interfaces document](animation_width_and_height.md)
+
+<details>
+<summary>Display the code block:</summary>
+
+```py
+# runnable
+import apysc as ap
+
+stage: ap.Stage = ap.Stage(
+    stage_width=150, stage_height=200, background_color='#333',
+    stage_elem_id='stage')
+sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite.graphics.begin_fill(color='#0af')
+
+DURATION: int = 1000
+DELAY: int = 500
+EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
+
+
+def on_animation_complete_1(
+        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+    """
+    The handler will be called when the animation is completed.
+
+    Parameters
+    ----------
+    e : ap.AnimationEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    e.this.target.animation_height(
+        height=50, duration=DURATION, delay=DELAY, easing=EASING,
+    ).animation_complete(on_animation_complete_2).start()
+
+
+def on_animation_complete_2(
+        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+    """
+    The handler will be called when the animation is completed.
+
+    Parameters
+    ----------
+    e : ap.AnimationEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    e.this.target.animation_height(
+        height=100, duration=DURATION, delay=DELAY, easing=EASING,
+    ).animation_complete(on_animation_complete_1).start()
+
+
+sprite.graphics.draw_rect(
+    x=50, y=50, width=50, height=50,
+).animation_height(
+    height=100, duration=DURATION, delay=DELAY, easing=EASING,
+).animation_complete(on_animation_complete_1).start()
+
+ap.save_overall_html(
+    dest_dir_path='animation_interfaces_abstract_height/')
+```
+
+</details>
+
+<iframe src="static/animation_interfaces_abstract_height/index.html" width="150" height="200"></iframe>

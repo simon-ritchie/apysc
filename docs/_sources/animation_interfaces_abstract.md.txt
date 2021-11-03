@@ -999,7 +999,7 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_each_attr/index.html" width="550" height="550"></iframe>
 
-## x animation
+## X animation
 
 The `animation_x` interface sets the x-coordinate animation. For more details: [animation_x interface document](animation_x.md)
 
@@ -1069,7 +1069,7 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_x/index.html" width="200" height="150"></iframe>
 
-## y animation
+## Y animation
 
 
 The `animation_y` interface sets the y-coordinate animation. For more details: [animation_y interface document](animation_y.md)
@@ -1139,3 +1139,73 @@ ap.save_overall_html(
 </details>
 
 <iframe src="static/animation_interfaces_abstract_y/index.html" width="150" height="200"></iframe>
+
+## move animation
+
+The `animation_move` interface sets the x- and y-coordinates animation. For more details: [animation_move interface document](animation_move.md)
+
+<details>
+<summary>Display the code block:</summary>
+
+```py
+# runnable
+import apysc as ap
+
+stage: ap.Stage = ap.Stage(
+    stage_width=200, stage_height=200, background_color='#333',
+    stage_elem_id='stage')
+sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite.graphics.begin_fill(color='#0af')
+
+DURATION: int = 1000
+DELAY: int = 500
+EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
+
+
+def on_animation_complete_1(
+        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+    """
+    The handler will be called when the animation is completed.
+
+    Parameters
+    ----------
+    e : ap.AnimationEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    e.this.target.animation_move(
+        x=50, y=50, duration=DURATION, delay=DELAY, easing=EASING,
+    ).animation_complete(on_animation_complete_2).start()
+
+
+def on_animation_complete_2(
+        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+    """
+    The handler will be called when the animation is completed.
+
+    Parameters
+    ----------
+    e : ap.AnimationEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    e.this.target.animation_move(
+        x=100, y=100, duration=DURATION, delay=DELAY, easing=EASING,
+    ).animation_complete(on_animation_complete_1).start()
+
+
+sprite.graphics.draw_rect(
+    x=50, y=50, width=50, height=50,
+).animation_move(
+    x=100, y=100, duration=DURATION, delay=DELAY, easing=EASING,
+).animation_complete(on_animation_complete_1).start()
+
+ap.save_overall_html(
+    dest_dir_path='animation_interfaces_abstract_move/')
+```
+
+</details>
+
+<iframe src="static/animation_interfaces_abstract_move/index.html" width="200" height="200"></iframe>

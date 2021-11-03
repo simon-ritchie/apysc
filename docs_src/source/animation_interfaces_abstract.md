@@ -1770,9 +1770,9 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_radius/index.html" width="150" height="150"></iframe>
 
-## Rotation around the center point animation
+## Rotation animation around the center point
 
-The `animation_rotation_around_center` interface sets the rotation around the center point animation. For more details: [animation_rotation_around_center interface document](animation_rotation_around_center.md)
+The `animation_rotation_around_center` interface sets the rotation animation around the center point. For more details: [animation_rotation_around_center interface document](animation_rotation_around_center.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -1843,9 +1843,9 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_rotation_around_center/index.html" width="150" height="150"></iframe>
 
-## Rotation around the specified point animation
+## Rotation animation around the specified point
 
-The `animation_rotation_around_point` interface sets the rotation around the specified point animation. For more details: [animation_rotation_around_point interface document](animation_rotation_around_point.md)
+The `animation_rotation_around_point` interface sets the rotation animation around the specified point. For more details: [animation_rotation_around_point interface document](animation_rotation_around_point.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -1916,9 +1916,9 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_rotation_around_point/index.html" width="200" height="150"></iframe>
 
-## Scale-x from center point animation
+## Scale-x animation from center point
 
-The `animation_scale_x_from_center` interface sets the scale-x from the center point animation. For more details: [animation_scale_x_from_center and animation_scale_x_from_center interfaces document](animation_scale_x_and_y_from_center.md)
+The `animation_scale_x_from_center` interface sets the scale-x animation from the center point. For more details: [animation_scale_x_from_center and animation_scale_x_from_center interfaces document](animation_scale_x_and_y_from_center.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -1989,9 +1989,9 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_scale_x_from_center/index.html" width="150" height="150"></iframe>
 
-## Scale-y from the center point animation
+## Scale-y animation from the center point
 
-The `animation_scale_y_from_center` interface sets the scale-y from the center point animation. For more details: [animation_scale_x_from_center and animation_scale_x_from_center interfaces document](animation_scale_x_and_y_from_center.md)
+The `animation_scale_y_from_center` interface sets the scale-y animation from the center point. For more details: [animation_scale_x_from_center and animation_scale_x_from_center interfaces document](animation_scale_x_and_y_from_center.md)
 
 <details>
 <summary>Display the code block:</summary>
@@ -2061,3 +2061,76 @@ ap.save_overall_html(
 </details>
 
 <iframe src="static/animation_interfaces_abstract_scale_y_from_center/index.html" width="150" height="150"></iframe>
+
+## Scale-x animation from the specified point
+
+The `animation_scale_x_from_point` interface sets the scale-x animation from the specified point. For more details: [animation_scale_x_from_point and animation_scale_y_from_point interfaces document](animation_scale_x_and_y_from_point.md)
+
+<details>
+<summary>Display the code block:</summary>
+
+```py
+# runnable
+import apysc as ap
+
+stage: ap.Stage = ap.Stage(
+    stage_width=150, stage_height=150, background_color='#333',
+    stage_elem_id='stage')
+sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite.graphics.begin_fill(color='#0af')
+
+DURATION: int = 1000
+DELAY: int = 500
+EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
+
+
+def on_animation_complete_1(
+        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+    """
+    The handler will be called when the animation is completed.
+
+    Parameters
+    ----------
+    e : ap.AnimationEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    e.this.target.animation_scale_x_from_point(
+        scale_x_from_point=1.0, x=100, duration=DURATION, delay=DELAY,
+        easing=EASING,
+    ).animation_complete(on_animation_complete_2).start()
+
+
+def on_animation_complete_2(
+        e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
+    """
+    The handler will be called when the animation is completed.
+
+    Parameters
+    ----------
+    e : ap.AnimationEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    e.this.target.animation_scale_x_from_point(
+        scale_x_from_point=0.5, x=100, duration=DURATION, delay=DELAY,
+        easing=EASING,
+    ).animation_complete(on_animation_complete_1).start()
+
+
+sprite.graphics.draw_rect(
+    x=50, y=50, width=50, height=50,
+).animation_scale_x_from_point(
+    scale_x_from_point=0.5, x=100, duration=DURATION, delay=DELAY,
+    easing=EASING,
+).animation_complete(on_animation_complete_1).start()
+
+ap.save_overall_html(
+    dest_dir_path='animation_interfaces_abstract_scale_x_from_point/')
+```
+
+</details>
+
+<iframe src="static/animation_interfaces_abstract_scale_x_from_point/index.html" width="150" height="150"></iframe>

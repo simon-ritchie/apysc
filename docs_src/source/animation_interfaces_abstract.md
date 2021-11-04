@@ -999,6 +999,111 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_each_attr/index.html" width="550" height="550"></iframe>
 
+## Easing
+
+The easing setting can be set with the `easing` argument of each animation interface. For more details: [Easing enum document](easing_enum.md)
+
+<details>
+<summary>Display the code block:</summary>
+
+```py
+# runnable
+from typing_extensions import TypedDict
+
+import apysc as ap
+
+stage: ap.Stage = ap.Stage(
+    stage_width=200, stage_height=350, background_color='#333',
+    stage_elem_id='stage')
+sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite.graphics.begin_fill(color='#0af')
+
+DURATION: int = 1000
+DELAY: int = 500
+
+
+class EasingOptions(TypedDict):
+    easing: ap.Easing
+
+
+def on_animation_complete_1(
+        e: ap.AnimationEvent[ap.Rectangle], options: EasingOptions) -> None:
+    """
+    The handler will be called when the animation is completed.
+
+    Parameters
+    ----------
+    e : ap.AnimationEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    e.this.target.animation_x(
+        x=50, duration=DURATION, delay=DELAY,
+        easing=options['easing'],
+    ).animation_complete(
+        on_animation_complete_2, options=options,
+    ).start()
+
+
+def on_animation_complete_2(
+        e: ap.AnimationEvent[ap.Rectangle], options: EasingOptions) -> None:
+    """
+    The handler will be called when the animation is completed.
+
+    Parameters
+    ----------
+    e : ap.AnimationEvent
+        Event instance.
+    options : dict
+        Optional arguments dictionary.
+    """
+    e.this.target.animation_x(
+        x=100, duration=DURATION, delay=DELAY,
+        easing=options['easing'],
+    ).animation_complete(
+        on_animation_complete_1, options=options,
+    ).start()
+
+
+options: EasingOptions = {'easing': ap.Easing.EASE_IN_QUINT}
+sprite.graphics.draw_rect(
+    x=50, y=50, width=50, height=50,
+).animation_x(
+    x=100, duration=DURATION, delay=DELAY,
+    easing=options['easing'],
+).animation_complete(
+    on_animation_complete_1, options=options,
+).start()
+
+options = {'easing': ap.Easing.EASE_OUT_QUINT}
+sprite.graphics.draw_rect(
+    x=50, y=150, width=50, height=50,
+).animation_x(
+    x=100, duration=DURATION, delay=DELAY,
+    easing=options['easing'],
+).animation_complete(
+    on_animation_complete_1, options=options,
+).start()
+
+options = {'easing': ap.Easing.EASE_IN_OUT_QUINT}
+sprite.graphics.draw_rect(
+    x=50, y=250, width=50, height=50,
+).animation_x(
+    x=100, duration=DURATION, delay=DELAY,
+    easing=options['easing'],
+).animation_complete(
+    on_animation_complete_1, options=options,
+).start()
+
+ap.save_overall_html(
+    dest_dir_path='animation_interfaces_abstract_easing/')
+```
+
+</details>
+
+<iframe src="static/animation_interfaces_abstract_easing/index.html" width="200" height="350"></iframe>
+
 ## X animation
 
 The `animation_x` interface sets the x-coordinate animation. For more details: [animation_x interface document](animation_x.md)

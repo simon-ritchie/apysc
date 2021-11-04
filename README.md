@@ -60,7 +60,7 @@ Documents: [Timer](https://simon-ritchie.github.io/apysc/timer.html)
 
 - **Lots of tween animations, including easing options**
 
-![](https://github.com/simon-ritchie/apysc/blob/main/assets/animation_interfaces_abstract.gif)
+[![](https://github.com/simon-ritchie/apysc/blob/main/assets/animation_interfaces_abstract.gif)](https://simon-ritchie.github.io/apysc/animation_interfaces_abstract.html)
 
 Documents: [Animation interfaces abstract (each animation attribute)](https://simon-ritchie.github.io/apysc/animation_interfaces_abstract.html), [AnimationEvent](https://simon-ritchie.github.io/apysc/animation_event.html), [Duration setting](https://simon-ritchie.github.io/apysc/animation_duration.html), [Delay setting](https://simon-ritchie.github.io/apysc/animation_delay.html), [Start interface](https://simon-ritchie.github.io/apysc/animation_base_start.html), [animation_complete interface](https://simon-ritchie.github.io/apysc/animation_complete.html), [Method chaining](https://simon-ritchie.github.io/apysc/animation_method_chaining.html), [animation_pause and animation_play interfaces](https://simon-ritchie.github.io/apysc/animation_pause_and_play.html), [animation_reset interface](https://simon-ritchie.github.io/apysc/animation_reset.html), [animation_finish interface](https://simon-ritchie.github.io/apysc/animation_finish.html), [animation_reverse interface](https://simon-ritchie.github.io/apysc/animation_reverse.html), [Sequential animation setting](https://simon-ritchie.github.io/apysc/sequential_animation.html), [animation_parallel interface](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 

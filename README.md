@@ -21,6 +21,12 @@ Python 3.6 or later.
 $ pip install apysc
 ```
 
+## How to start
+
+Please see [apysc documentation](https://simon-ritchie.github.io/apysc/index.html) and [quick start guide](https://simon-ritchie.github.io/apysc/quick_start.html) page.
+
+<a href="https://simon-ritchie.github.io/apysc/index.html"><img src="https://github.com/simon-ritchie/apysc/blob/main/assets/document_index_screenshot.png"></a>
+
 ## What apysc can do in its current implementation
 
 - **Save HTML or use it on the Jupyter notebook, JupyterLab, and Google Colaboratory!**
@@ -52,19 +58,20 @@ Documents: [Click interface](https://simon-ritchie.github.io/apysc/click.html), 
 
 Documents: [Timer](https://simon-ritchie.github.io/apysc/timer.html)
 
-- Basic control, like the for loop, if branch instruction, and so on
+- **Lots of tween animations, including easing options**
+
+![](https://github.com/simon-ritchie/apysc/blob/main/assets/animation_interfaces_abstract.gif)
+
+Documents: [Animation interfaces abstract (each animation attribute)](https://simon-ritchie.github.io/apysc/animation_interfaces_abstract.html), [AnimationEvent](https://simon-ritchie.github.io/apysc/animation_event.html), [Duration setting](https://simon-ritchie.github.io/apysc/animation_duration.html), [Delay setting](https://simon-ritchie.github.io/apysc/animation_delay.html), [Start interface](https://simon-ritchie.github.io/apysc/animation_base_start.html), [animation_complete interface](https://simon-ritchie.github.io/apysc/animation_complete.html), [Method chaining](https://simon-ritchie.github.io/apysc/animation_method_chaining.html), [animation_pause and animation_play interfaces](https://simon-ritchie.github.io/apysc/animation_pause_and_play.html), [animation_reset interface](https://simon-ritchie.github.io/apysc/animation_reset.html), [animation_finish interface](https://simon-ritchie.github.io/apysc/animation_finish.html), [animation_reverse interface](https://simon-ritchie.github.io/apysc/animation_reverse.html), [Sequential animation setting](https://simon-ritchie.github.io/apysc/sequential_animation.html), [animation_parallel interface](https://simon-ritchie.github.io/apysc/animation_parallel.html)
+
+
+- **Basic control, like the for loop, if branch instruction, and so on**
 
 Documents: [If](https://simon-ritchie.github.io/apysc/if.html), [Elif](https://simon-ritchie.github.io/apysc/elif.html), [Else](https://simon-ritchie.github.io/apysc/else.html), [For](https://simon-ritchie.github.io/apysc/for.html)
 
 For more details, please see the following document:
 
 [What apysc can do in its current implementation](https://simon-ritchie.github.io/apysc/what_apysc_can_do.html)
-
-## How to start
-
-Please see [apysc documentation](https://simon-ritchie.github.io/apysc/index.html) and [quick start guide](https://simon-ritchie.github.io/apysc/quick_start.html) page.
-
-<a href="https://simon-ritchie.github.io/apysc/index.html"><img src="https://github.com/simon-ritchie/apysc/blob/main/assets/document_index_screenshot.png"></a>
 
 ## License
 

@@ -39,10 +39,28 @@ Documents: [save_overall_html interface](https://simon-ritchie.github.io/apysc/s
 
 ![](https://github.com/simon-ritchie/apysc/blob/main/assets/vector_graphics_samples.png)
 
+Example code fragments:
+
+```py
+...
+sprite.graphics.begin_fill(color='#0af')
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+    x=50, y=50, width=50, height=50)
+...
+```
+
 Documents: [begin_fill interface](https://simon-ritchie.github.io/apysc/graphics_begin_fill.html), [line_style interface](https://simon-ritchie.github.io/apysc/graphics_line_style.html), [draw_rect interface](https://simon-ritchie.github.io/apysc/graphics_draw_rect.html), [draw_round_rect interface](https://simon-ritchie.github.io/apysc/graphics_draw_round_rect.html), [draw_circle interface](https://simon-ritchie.github.io/apysc/graphics_draw_circle.html), [draw_ellipse interfac](https://simon-ritchie.github.io/apysc/graphics_draw_ellipse.html), [move_to and line_to interfaces](https://simon-ritchie.github.io/apysc/graphics_move_to_and_line_to.html), [draw_line interface](https://simon-ritchie.github.io/apysc/graphics_draw_line.html), [draw_dotted_line interface](https://simon-ritchie.github.io/apysc/graphics_draw_dotted_line.html), [draw_dashed_line interface](https://simon-ritchie.github.io/apysc/graphics_draw_dashed_line.html), [draw_round_dotted_line interface](https://simon-ritchie.github.io/apysc/graphics_draw_round_dotted_line.html), [draw_dash_dotted_line interface](https://simon-ritchie.github.io/apysc/graphics_draw_dash_dotted_line.html), [draw_dash_dotted_line interface](https://simon-ritchie.github.io/apysc/graphics_draw_dash_dotted_line.html), [draw_polygon interface](https://simon-ritchie.github.io/apysc/graphics_draw_polygon.html)
 
 
 - **Lots of the vector graphics updating interfaces, such as the `x`, `width`, `rotation`, `alpha (opacity)`, `ellipse size`, `scale`**
+
+Example code fragments:
+
+```py
+...
+rectangle.x = ap.Int(100)
+...
+```
 
 Document: [x and y interfaces](https://simon-ritchie.github.io/apysc/display_object_x_and_y.html), [visible interface](https://simon-ritchie.github.io/apysc/display_object_visible.html), [get_css and set_css interfaces](https://simon-ritchie.github.io/apysc/display_object_get_and_set_css.html), [rotation_around_center interface](https://simon-ritchie.github.io/apysc/graphics_base_rotation_around_center.html), [rotation_around_point interfaces](https://simon-ritchie.github.io/apysc/graphics_base_rotation_around_point.html), [scale_x_from_center and scale_y_from_center interfaces](https://simon-ritchie.github.io/apysc/graphics_base_scale_from_center.html), [get_scale_from_point and set_scale_from_point interfaces](https://simon-ritchie.github.io/apysc/graphics_base_scale_from_point.html), [flip_x and flip_y interfaces](https://simon-ritchie.github.io/apysc/graphics_base_flip_interfaces.html), [skew_x and skew_y interfaces](https://simon-ritchie.github.io/apysc/graphics_base_skew.html)
 
@@ -50,17 +68,51 @@ Document: [x and y interfaces](https://simon-ritchie.github.io/apysc/display_obj
 
 ![](https://github.com/simon-ritchie/apysc/blob/main/assets/mouse_move.gif)
 
+Example code fragments:
+
+```py
+...
+def on_click(e: ap.MouseEvent, options: dict) -> None:
+    ap.trace('Rectangle is clicked!')
+
+
+rectangle.click(on_click)
+...
+```
+
 Documents: [Click interface](https://simon-ritchie.github.io/apysc/click.html), [Double click interface](https://simon-ritchie.github.io/apysc/dblclick.html), [Mousedown and mouseup interfaces](https://simon-ritchie.github.io/apysc/mousedown_and_mouseup.html), [Mouseover and mouseout interfaces](https://simon-ritchie.github.io/apysc/mouseover_and_mouseout.html), [Mousemove interface](https://simon-ritchie.github.io/apysc/mousemove.html)
 
 - **Use the timer interface and animation**
 
 ![](https://github.com/simon-ritchie/apysc/blob/main/assets/rotation_and_alpha_animation.gif)
 
+Example code fragments:
+
+```py
+...
+def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    ...
+
+
+ap.Timer(on_timer, delay=1000).start()
+...
+```
+
 Documents: [Timer](https://simon-ritchie.github.io/apysc/timer.html)
 
 - **Lots of tween animations, including easing options**
 
 [![](https://github.com/simon-ritchie/apysc/blob/main/assets/animation_interfaces_abstract.gif)](https://simon-ritchie.github.io/apysc/animation_interfaces_abstract.html)
+
+Example code fragments:
+
+```py
+...
+rectangle.animation_x(
+    x=100, duration=1000, easing=ap.Easing.EASE_IN_QUART,
+).start()
+...
+```
 
 Documents: [Animation interfaces abstract (each animation attribute)](https://simon-ritchie.github.io/apysc/animation_interfaces_abstract.html), [AnimationEvent](https://simon-ritchie.github.io/apysc/animation_event.html), [Duration setting](https://simon-ritchie.github.io/apysc/animation_duration.html), [Delay setting](https://simon-ritchie.github.io/apysc/animation_delay.html), [Start interface](https://simon-ritchie.github.io/apysc/animation_base_start.html), [animation_complete interface](https://simon-ritchie.github.io/apysc/animation_complete.html), [Method chaining](https://simon-ritchie.github.io/apysc/animation_method_chaining.html), [animation_pause and animation_play interfaces](https://simon-ritchie.github.io/apysc/animation_pause_and_play.html), [animation_reset interface](https://simon-ritchie.github.io/apysc/animation_reset.html), [animation_finish interface](https://simon-ritchie.github.io/apysc/animation_finish.html), [animation_reverse interface](https://simon-ritchie.github.io/apysc/animation_reverse.html), [Sequential animation setting](https://simon-ritchie.github.io/apysc/sequential_animation.html), [animation_parallel interface](https://simon-ritchie.github.io/apysc/animation_parallel.html)
 

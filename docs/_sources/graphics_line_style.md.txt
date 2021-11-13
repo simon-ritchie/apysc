@@ -4,7 +4,7 @@ This page will explain the `Graphics` class `line_style` method interface.
 
 ## What interface is this?
 
-`line_style` interface will set each line style, like the line color, line alpha, line thickness, line dot setting, and so on. This setting will be maintained until it is called again or called the `clear` method (similar to the `begin_fill` interface).
+The `line_style` interface will set each line style, like the line color, line alpha, line thickness, line dot setting, and so on. This setting will be maintained until it is called again or called the `clear` method (similar to the `begin_fill` interface).
 
 ## Basic usage
 

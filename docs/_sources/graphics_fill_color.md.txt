@@ -1,10 +1,10 @@
 # Graphics fill_color interface
 
-This page will explain the `Graphics` class `fill_color` method interface.
+This page will explain the `Graphics` class `fill_color` property interface.
 
 ## What interface is this?
 
-The `fill_color` attribute interface will update the instance's fill color.
+The `fill_color` property interface will update or get the instance's fill color.
 
 ## Basic usage
 

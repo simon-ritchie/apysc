@@ -121,6 +121,7 @@ The `Graphics` class handles each vector graphics drawing.
 - [Graphics class draw dash dotted line interface](graphics_draw_dash_dotted_line.md)
 - [Graphics class draw polygon interface](graphics_draw_polygon.md)
 - [Graphics class fill color interface](graphics_fill_color.md)
+- [Graphics class fill alpha interface](graphics_fill_alpha.md)
 
 ---
 

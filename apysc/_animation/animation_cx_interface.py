@@ -44,6 +44,8 @@ class AnimationCxInterface(AnimationInterfaceBase):
 
         References
         ----------
+        - animation_x interface document
+            - https://simon-ritchie.github.io/apysc/animation_x.html
         - Animation interfaces duration setting document
             - https://simon-ritchie.github.io/apysc/animation_duration.html
         - Animation interfaces delay setting document
@@ -52,8 +54,8 @@ class AnimationCxInterface(AnimationInterfaceBase):
             - https://bit.ly/2XOoa8w
         - Sequential animation setting document
             - https://simon-ritchie.github.io/apysc/sequential_animation.html
-        - animation_move interface document
-            - https://simon-ritchie.github.io/apysc/animation_move.html
+        - animation_parallel interface document
+            - https://simon-ritchie.github.io/apysc/animation_parallel.html
         - Easing enum document
             - https://simon-ritchie.github.io/apysc/easing_enum.html
         """

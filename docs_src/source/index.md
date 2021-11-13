@@ -122,6 +122,7 @@ The `Graphics` class handles each vector graphics drawing.
 - [Graphics class draw polygon interface](graphics_draw_polygon.md)
 - [Graphics class fill color interface](graphics_fill_color.md)
 - [Graphics class fill alpha interface](graphics_fill_alpha.md)
+- [Graphics class line color interface](graphics_line_color.md)
 
 ---
 

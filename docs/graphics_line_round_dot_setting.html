@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Graphics line_dash_setting interface &#8212; apysc  documentation</title>
+    <title>Graphics line_round_dot interface &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -18,8 +18,8 @@
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Graphics line_round_dot interface" href="graphics_line_round_dot_setting.html" />
-    <link rel="prev" title="Graphics line_dot_setting interface" href="graphics_line_dot_setting.html" /> 
+    <link rel="next" title="About the handler options’ type" href="about_handler_options_type.html" />
+    <link rel="prev" title="Graphics line_dash_setting interface" href="graphics_line_dash_setting.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,13 +28,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="graphics_line_round_dot_setting.html" title="Graphics line_round_dot interface"
+          <a href="about_handler_options_type.html" title="About the handler options’ type"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="graphics_line_dot_setting.html" title="Graphics line_dot_setting interface"
+          <a href="graphics_line_dash_setting.html" title="Graphics line_dash_setting interface"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Graphics line_dash_setting interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Graphics line_round_dot interface</a></li> 
       </ul>
     </div>  
 
@@ -43,17 +43,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="graphics-line-dash-setting-interface">
-<h1>Graphics line_dash_setting interface<a class="headerlink" href="#graphics-line-dash-setting-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">line_dash_setting</span></code> property interface.</p>
+  <section id="graphics-line-round-dot-interface">
+<h1>Graphics line_round_dot interface<a class="headerlink" href="#graphics-line-round-dot-interface" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">line_round_dot_setting</span></code> property interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">line_dash_setting</span></code> property interface will update or get the instance’s current line dash setting.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">line_round_dot_setting</span></code> property interface will update or get the instance’s current line round dot setting.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The getter or setter interface will be (or require) the <code class="docutils literal notranslate"><span class="pre">LineDashSetting</span></code> instance value.</p>
-<p>The following example will set the 10-pixel dash size and 3-pixel space size to the line:</p>
+<p>The getter or setter interface will be (or require) the <code class="docutils literal notranslate"><span class="pre">LineRoundDotSetting</span></code> instance value.</p>
+<p>The following example will set the 10-pixel round size to the line:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -65,13 +65,14 @@
 
 <span class="n">line</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span>
     <span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">line</span><span class="o">.</span><span class="n">line_dash_setting</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">LineDashSetting</span><span class="p">(</span><span class="n">dash_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">space_size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">line</span><span class="o">.</span><span class="n">line_round_dot_setting</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">LineRoundDotSetting</span><span class="p">(</span>
+    <span class="n">round_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">space_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
-    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./graphics_line_dash_setting_basic_usage/&#39;</span><span class="p">)</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./graphics_line_round_dot_setting_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_line_dash_setting_basic_usage/index.html" width="250" height="100"></iframe></section>
+<iframe src="graphics_line_round_dot_setting_basic_usage" width="250" height="100"></iframe></section>
 </section>
 
 
@@ -86,7 +87,7 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Graphics line_dash_setting interface</a><ul>
+<li><a class="reference internal" href="#">Graphics line_round_dot interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 </ul>
@@ -94,15 +95,15 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="graphics_line_dot_setting.html"
-                        title="previous chapter">Graphics line_dot_setting interface</a></p>
+  <p class="topless"><a href="graphics_line_dash_setting.html"
+                        title="previous chapter">Graphics line_dash_setting interface</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="graphics_line_round_dot_setting.html"
-                        title="next chapter">Graphics line_round_dot interface</a></p>
+  <p class="topless"><a href="about_handler_options_type.html"
+                        title="next chapter">About the handler options’ type</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/graphics_line_dash_setting.md.txt"
+      <li><a href="_sources/graphics_line_round_dot_setting.md.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -127,13 +128,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="graphics_line_round_dot_setting.html" title="Graphics line_round_dot interface"
+          <a href="about_handler_options_type.html" title="About the handler options’ type"
              >next</a> |</li>
         <li class="right" >
-          <a href="graphics_line_dot_setting.html" title="Graphics line_dot_setting interface"
+          <a href="graphics_line_dash_setting.html" title="Graphics line_dash_setting interface"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Graphics line_dash_setting interface</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Graphics line_round_dot interface</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

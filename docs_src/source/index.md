@@ -126,6 +126,7 @@ The `Graphics` class handles each vector graphics drawing.
 - [Graphics class line alpha interface](graphics_line_alpha.md)
 - [Graphics class line thickness interface](graphics_line_thickness.md)
 - [Graphics class line dot setting interface](graphics_line_dot_setting.md)
+- [Graphics class line dash setting interface](graphics_line_dash_setting.md)
 
 ---
 

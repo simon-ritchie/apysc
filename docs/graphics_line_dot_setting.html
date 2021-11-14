@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Graphics line_dot_setting interface &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="About the handler options’ type" href="about_handler_options_type.html" />
+    <link rel="prev" title="Graphics line_thickness interface" href="graphics_line_thickness.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="about_handler_options_type.html" title="About the handler options’ type"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="graphics_line_thickness.html" title="Graphics line_thickness interface"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Graphics line_dot_setting interface</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="graphics-line-dot-setting-interface">
+<h1>Graphics line_dot_setting interface<a class="headerlink" href="#graphics-line-dot-setting-interface" title="Permalink to this headline">¶</a></h1>
+<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">line_dot_setting</span></code> property interface.</p>
+<section id="what-interface-is-this">
+<h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">line_dot_setting</span></code> property interface will update or get the instance’s current line dot setting.</p>
+</section>
+<section id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p>The getter or setter interface will be (or require) the <code class="docutils literal notranslate"><span class="pre">LineDotSetting</span></code> instance value.</p>
+<p>The following example will set the 5-pixel dot to the line:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">line</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span>
+    <span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">line</span><span class="o">.</span><span class="n">line_dot_setting</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">LineDotSetting</span><span class="p">(</span><span class="n">dot_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./graphics_line_dot_setting_basic_usage/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/graphics_line_dot_setting_basic_usage/index.html" width="250" height="100"></iframe></section>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="graphics_line_style.html"><span class="doc">Graphics class line style interface</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Graphics line_dot_setting interface</a><ul>
+<li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
+<li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="graphics_line_thickness.html"
+                        title="previous chapter">Graphics line_thickness interface</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="about_handler_options_type.html"
+                        title="next chapter">About the handler options’ type</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/graphics_line_dot_setting.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="about_handler_options_type.html" title="About the handler options’ type"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="graphics_line_thickness.html" title="Graphics line_thickness interface"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Graphics line_dot_setting interface</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

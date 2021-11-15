@@ -31,6 +31,11 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         -------
         line_dot_setting : LineDotSetting or None
             Lien dot setting.
+
+        References
+        ----------
+        - Graphics line_dot_setting interface document
+            - https://bit.ly/3ni8rIS
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -48,6 +53,11 @@ class LineDotSettingInterface(VariableNameInterface, RevertInterface):
         ----------
         value : LineDotSetting or None
             Line dot setting to set.
+
+        References
+        ----------
+        - Graphics line_dot_setting interface document
+            - https://bit.ly/3ni8rIS
         """
         import apysc as ap
         with ap.DebugInfo(

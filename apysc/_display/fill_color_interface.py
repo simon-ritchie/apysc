@@ -26,6 +26,11 @@ class FillColorInterface(
         fill_color : String
             Current fill color (hexadecimal string, e.g., '#00aaff').
             If not be set, None will be returned.
+
+        References
+        ----------
+        - Graphics fill_color interface document
+            - https://simon-ritchie.github.io/apysc/graphics_fill_color.html
         """
         with ap.DebugInfo(
                 callable_='fill_color', locals_=locals(),
@@ -44,6 +49,11 @@ class FillColorInterface(
         ----------
         value : String
             Fill color to set.
+
+        References
+        ----------
+        - Graphics fill_color interface document
+            - https://simon-ritchie.github.io/apysc/graphics_fill_color.html
         """
         with ap.DebugInfo(
                 callable_='fill_color', locals_=locals(),

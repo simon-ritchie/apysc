@@ -47,6 +47,11 @@ class LineAlphaInterface(
         -------
         line_alpha : Number
             Current line alpha (opacity. 0.0 to 1.0).
+
+        References
+        ----------
+        - Graphics line_alpha interface document
+            - https://simon-ritchie.github.io/apysc/graphics_line_alpha.html
         """
         with ap.DebugInfo(
                 callable_='line_alpha', locals_=locals(),
@@ -64,6 +69,11 @@ class LineAlphaInterface(
         ----------
         value : Number
             Line alpha (opacity) to set.
+
+        References
+        ----------
+        - Graphics line_alpha interface document
+            - https://simon-ritchie.github.io/apysc/graphics_line_alpha.html
         """
         with ap.DebugInfo(
                 callable_='line_alpha', locals_=locals(),

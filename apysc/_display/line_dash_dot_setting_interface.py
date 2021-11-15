@@ -31,6 +31,11 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         -------
         line_dash_dot_setting : LineDashDotSetting or None
             Dash dot (1-dot chain) setting.
+
+        References
+        ----------
+        - Graphics line_dash_dot_setting interface document
+            - https://bit.ly/3cdCwD3
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -49,6 +54,11 @@ class LineDashDotSettingInterface(VariableNameInterface, RevertInterface):
         ----------
         value : LineDashDotSetting or None
             Line dash dot (1-dot chain) setting to set.
+
+        References
+        ----------
+        - Graphics line_dash_dot_setting interface document
+            - https://bit.ly/3cdCwD3
         """
         import apysc as ap
         with ap.DebugInfo(

@@ -48,6 +48,11 @@ class FillAlphaInterface(
         -------
         fill_alpha : Number
             Current fill opacity (0.0 to 1.0).
+
+        References
+        ----------
+        - Graphics fill_alpha interface document
+            - https://simon-ritchie.github.io/apysc/graphics_fill_alpha.html
         """
         with ap.DebugInfo(
                 callable_='fill_alpha', locals_=locals(),
@@ -68,6 +73,11 @@ class FillAlphaInterface(
         ----------
         value : float or Number
             Fill opacity to set.
+
+        References
+        ----------
+        - Graphics fill_alpha interface document
+            - https://simon-ritchie.github.io/apysc/graphics_fill_alpha.html
         """
         with ap.DebugInfo(
                 callable_='fill_alpha', locals_=locals(),

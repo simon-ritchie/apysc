@@ -26,6 +26,11 @@ class LineColorInterface(
         line_color : String
             Current line color (hexadecimal string, e.g., '#00aaff').
             If not be set, blank string will be returned.
+
+        References
+        ----------
+        - Graphics line_color interface document
+            - https://simon-ritchie.github.io/apysc/graphics_line_color.html
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -46,6 +51,11 @@ class LineColorInterface(
         ----------
         value : str
             Line color to set.
+
+        References
+        ----------
+        - Graphics line_color interface document
+            - https://simon-ritchie.github.io/apysc/graphics_line_color.html
         """
         with ap.DebugInfo(
                 callable_='line_color', locals_=locals(),

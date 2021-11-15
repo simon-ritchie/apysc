@@ -51,6 +51,11 @@ class LineThicknessInterface(
         -------
         line_thickness : Int
             Current line thickness.
+
+        References
+        ----------
+        - Graphics line_thickness interface document
+            - https://bit.ly/3HlbCYh
         """
         with ap.DebugInfo(
                 callable_='line_thickness', locals_=locals(),
@@ -67,6 +72,11 @@ class LineThicknessInterface(
         ----------
         value : Int
             Line thickness to set.
+
+        References
+        ----------
+        - Graphics line_thickness interface document
+            - https://bit.ly/3HlbCYh
         """
         with ap.DebugInfo(
                 callable_='line_thickness', locals_=locals(),

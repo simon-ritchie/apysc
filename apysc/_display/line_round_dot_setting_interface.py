@@ -31,6 +31,11 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
         -------
         line_round_dot_setting : LineRoundDotSetting or None
             Line round dot setting.
+
+        References
+        ----------
+        - Graphics line_round_dot interface document
+            - https://bit.ly/3Deklci
         """
         import apysc as ap
         with ap.DebugInfo(

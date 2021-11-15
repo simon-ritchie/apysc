@@ -31,6 +31,11 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         -------
         line_dash_setting : LineDashSetting or None
             Line dash setting.
+
+        References
+        ----------
+        - Graphics line_dash_setting interface document
+            - https://bit.ly/3oygpwK
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -48,6 +53,11 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         ----------
         value : LineDashSetting or None
             Line dash setting to set.
+
+        References
+        ----------
+        - Graphics line_dash_setting interface document
+            - https://bit.ly/3oygpwK
         """
         import apysc as ap
         with ap.DebugInfo(

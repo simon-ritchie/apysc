@@ -7,11 +7,12 @@ from typing import TypeVar
 import apysc as ap
 from apysc._event.event import Event
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._event.stop_propagation_interface import StopPropagationInterface
 
 T = TypeVar('T', bound=VariableNameInterface)
 
 
-class MouseEvent(Event[T], Generic[T]):
+class MouseEvent(Event[T], Generic[T], StopPropagationInterface):
     """
     Mouse event class.
 

@@ -31,4 +31,4 @@ ap.save_overall_html(
     dest_dir_path='./graphics_line_round_dot_setting_basic_usage/')
 ```
 
-<iframe src="graphics_line_round_dot_setting_basic_usage" width="250" height="100"></iframe>
+<iframe src="static/graphics_line_round_dot_setting_basic_usage/index.html" width="250" height="100"></iframe>

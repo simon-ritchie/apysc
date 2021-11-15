@@ -47,14 +47,6 @@ class AnimationEvent(Event, Generic[_T]):
         """
         return self._this
 
-    def stop_propagation(self) -> None:
-        """
-        This interface is disabled by the `AnimationEvent`.
-        """
-        raise NotImplementedError(
-            '`AnimationEvent` class is not supported the `stop_propagation` '
-            'interface.')
-
     def prevent_default(self) -> None:
         """
         This interface is disabled by the `AnimationEvent`.

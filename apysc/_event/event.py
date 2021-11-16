@@ -73,19 +73,6 @@ class Event(Generic[T], VariableNameInterface):
                 'type_name argument can\'t be set when this instance '
                 'is Event (this will be used by Event subclass).')
 
-    def prevent_default(self) -> None:
-        """
-        Prevent event's default behavior.
-        """
-        import apysc as ap
-        with ap.DebugInfo(
-                callable_=self.prevent_default, locals_=locals(),
-                module_name=__name__, class_=Event):
-            expression: str = (
-                f'{self.variable_name}.preventDefault();'
-            )
-            ap.append_js_expression(expression=expression)
-
     @property
     def this(self) -> T:
         """

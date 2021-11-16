@@ -65,13 +65,13 @@ def main() -> None:
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 
 
-def on_stage_clicked(e: ap.Event, options: dict) -> None:
+def on_stage_clicked(e: ap.MouseEvent, options: dict) -> None:
     """
     Test handler that called when stage is clicked.
 
     Parameters
     ----------
-    e : Event
+    e : MouseEvent
         Event object.
     options : dict
         Optional arguments dictionary.
@@ -79,13 +79,13 @@ def on_stage_clicked(e: ap.Event, options: dict) -> None:
     ap.trace('Stage is clicked!')
 
 
-def on_sprite_1_clicked(e: ap.Event, options: _MsgOptions) -> None:
+def on_sprite_1_clicked(e: ap.MouseEvent, options: _MsgOptions) -> None:
     """
     Test handler that called when sprite_1 is clicked.
 
     Parameters
     ----------
-    e : Event
+    e : MouseEvent
         Event object.
     options : dict
         Optional arguments dictionary.
@@ -94,7 +94,7 @@ def on_sprite_1_clicked(e: ap.Event, options: _MsgOptions) -> None:
     ap.assert_equal(expected='Hello!', actual=options['msg'])
 
 
-def on_sprite_2_clicked(e: ap.Event, options: dict) -> None:
+def on_sprite_2_clicked(e: ap.MouseEvent, options: dict) -> None:
     """
     Test handler that called when sprite_2 is clicked.
 
@@ -108,13 +108,13 @@ def on_sprite_2_clicked(e: ap.Event, options: dict) -> None:
     ap.trace('Sprite 2 is clicked!')
 
 
-def on_rectangle_1_clicked(e: ap.Event, options: dict) -> None:
+def on_rectangle_1_clicked(e: ap.MouseEvent, options: dict) -> None:
     """
     Test handler that called when rectangle_1 is clicked.
 
     Parameters
     ----------
-    e : Event
+    e : MouseEvent
         Event object.
     options : dict
         Optional arguments dictionary.
@@ -122,13 +122,13 @@ def on_rectangle_1_clicked(e: ap.Event, options: dict) -> None:
     ap.trace('Rectangle 1 is clicked!')
 
 
-def on_rectangle_2_clicked(e: ap.Event, options: dict) -> None:
+def on_rectangle_2_clicked(e: ap.MouseEvent, options: dict) -> None:
     """
     Test handler that called when rectangle_2 is clicked.
 
     Parameters
     ----------
-    e : Event
+    e : MouseEvent
         Event object.
     options : dict
         Optional arguments dictionary.
@@ -139,13 +139,13 @@ def on_rectangle_2_clicked(e: ap.Event, options: dict) -> None:
 
 
 def on_rectangle_3_clicked(
-        e: ap.Event[ap.Rectangle], options: dict) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     Test handler that called when rectangle_3 is clicked.
 
     Parameters
     ----------
-    e : Event
+    e : MouseEvent
         Event object.
     options : dict
         Optional arguments dictionary.
@@ -157,13 +157,13 @@ def on_rectangle_3_clicked(
 
 
 def on_rectangle_4_1_clicked(
-        e: ap.Event[ap.Rectangle], options: dict) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     Test handler that called when rectangle_4 is clicked.
 
     Parameters
     ----------
-    e : Event
+    e : MouseEvent
         Event object.
     options : dict
         Optional arguments dictionary.
@@ -172,13 +172,13 @@ def on_rectangle_4_1_clicked(
 
 
 def on_rectangle_4_2_clicked(
-        e: ap.Event[ap.Rectangle], options: dict) -> None:
+        e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
     Test handler that called when rectangle_4 is clicked.
 
     Parameters
     ----------
-    e : Event
+    e : MouseEvent
         Event object.
     options : dict
         Optional arguments dictionary.

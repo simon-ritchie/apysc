@@ -55,11 +55,3 @@ class TimerEvent(Event):
             - https://simon-ritchie.github.io/apysc/timer_event.html
         """
         return self._this
-
-    def prevent_default(self) -> None:
-        """
-        This interface is disabled by the `TimerEvent`.
-        """
-        raise NotImplementedError(
-            '`TimerEvent` class is not supported the `prevent_default` '
-            'interface.')

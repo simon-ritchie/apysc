@@ -46,11 +46,3 @@ class AnimationEvent(Event, Generic[_T]):
             Instance that linstening this event.
         """
         return self._this
-
-    def prevent_default(self) -> None:
-        """
-        This interface is disabled by the `AnimationEvent`.
-        """
-        raise NotImplementedError(
-            '`AnimationEvent` class is not supported the `prevent_default` '
-            'interface.')

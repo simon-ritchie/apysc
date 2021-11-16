@@ -34,13 +34,6 @@ class WheelEvent(Event):
                 this=this,
                 type_name=var_names.WHEEL_EVENT)
 
-    def prevent_default(self) -> None:
-        """
-        WheelEvent instance isn't supported this interface.
-        """
-        raise Exception(
-            'WheelEvent instance isn\'t supported this interface.')
-
     @property
     def delta_x(self) -> ap.Int:
         """

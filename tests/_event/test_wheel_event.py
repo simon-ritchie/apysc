@@ -52,10 +52,3 @@ class TestWheelEvent:
             f'{e.variable_name}.deltaX;'
         )
         assert expected in expression
-
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-    def test_prevent_default(self) -> None:
-        e: ap.WheelEvent = ap.WheelEvent(this=ap.document)
-        testing_helper.assert_raises(
-            expected_error_class=Exception,
-            func_or_method=e.prevent_default)

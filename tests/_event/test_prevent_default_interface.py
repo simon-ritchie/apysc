@@ -2,8 +2,8 @@ from random import randint
 
 from retrying import retry
 
-from apysc._expression import expression_data_util
 from apysc._event.prevent_default_interface import PreventDefaultInterface
+from apysc._expression import expression_data_util
 
 
 class TestPreventDefaultInterface:

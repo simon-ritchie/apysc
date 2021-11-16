@@ -6,8 +6,8 @@ from typing import TypeVar
 
 import apysc as ap
 from apysc._event.event import Event
-from apysc._event.stop_propagation_interface import StopPropagationInterface
 from apysc._event.prevent_default_interface import PreventDefaultInterface
+from apysc._event.stop_propagation_interface import StopPropagationInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 T = TypeVar('T', bound=VariableNameInterface)

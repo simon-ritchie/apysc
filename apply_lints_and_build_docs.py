@@ -39,7 +39,8 @@ FLAKE8_NO_PATH_COMMAND: Final[str] = (
 
 _ROOT_MODULE_PATHS_STR: Final[str] = (
     './apply_lints_and_build_docs.py ./build_docs.py ./build.py '
-    './run_deploy_script.py ./setup.py'
+    './run_flake8.py ./run_mypy.py ./run_numdoclint.py ./run_tests.py '
+    './setup.py'
 )
 
 FLAKE8_COMMAND: Final[str] = (

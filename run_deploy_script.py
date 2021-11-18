@@ -12,6 +12,7 @@ from typing import List
 from typing import Match
 from typing import Optional
 
+import command_util
 from apply_lints_and_build_docs import FLAKE8_COMMAND
 from apply_lints_and_build_docs import MYPY_COMMAND
 from apply_lints_and_build_docs import NUMDOCLINT_COMMAND
@@ -52,7 +53,7 @@ def _build() -> None:
         If there is any Traceback.
     """
     logger.info('Build command started.')
-    stdout: str = _run_command(command='python build.py')
+    stdout: str = command_util.run_command(command='python build.py')
     if 'Traceback' in stdout:
         raise Exception('There is build command error.')
 
@@ -67,7 +68,7 @@ def _run_tests() -> None:
         If there are any failed tests.
     """
     logger.info('testing command started.')
-    stdout: str = _run_command(
+    stdout: str = command_util.run_command(
         command=(
             'pytest --cov=./apysc tests/ -v -s --workers auto '
             '--cov-report term-missing'
@@ -111,7 +112,7 @@ def _run_mypy() -> None:
         If there are any mypy errors.
     """
     logger.info('mypy command started.')
-    stdout: str = _run_command(command=MYPY_COMMAND)
+    stdout: str = command_util.run_command(command=MYPY_COMMAND)
     if 'Success' not in stdout:
         raise Exception('There are mypy errors.')
 
@@ -126,7 +127,7 @@ def _run_numdoclint() -> None:
         If command standard out is not blank.
     """
     logger.info('numdoclint command started.')
-    stdout: str = _run_command(command=NUMDOCLINT_COMMAND)
+    stdout: str = command_util.run_command(command=NUMDOCLINT_COMMAND)
     if stdout != '':
         raise Exception('There are numdoclint errors.')
 
@@ -141,34 +142,9 @@ def _run_flake8() -> None:
         If command standard out is not blank.
     """
     logger.info('flake8 command started.')
-    stdout: str = _run_command(command=FLAKE8_COMMAND)
+    stdout: str = command_util.run_command(command=FLAKE8_COMMAND)
     if stdout != '':
         raise Exception('There are flake8 errors or warning.')
-
-
-def _run_command(command: str) -> str:
-    """
-    Run lint command and return its stdout.
-
-    Parameters
-    ----------
-    command : str
-        Target lint command.
-
-    Returns
-    -------
-    stdout : str
-        Command result stdout.
-    """
-    logger.info(f'Target command: {command}')
-    complete_process: sp.CompletedProcess = sp.run(
-        command, shell=True, stdout=sp.PIPE, stderr=sp.STDOUT)
-    stdout: str = complete_process.stdout.decode('utf-8')
-    stdout = stdout.strip()
-    if stdout == '[]':
-        stdout = ''
-    print(stdout)
-    return stdout
 
 
 if __name__ == '__main__':

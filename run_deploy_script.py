@@ -13,7 +13,6 @@ from typing import Optional
 
 import command_util
 from apply_lints_and_build_docs import MYPY_COMMAND
-from apply_lints_and_build_docs import NUMDOCLINT_COMMAND
 from apysc import __version__
 from apysc._console import loggers
 
@@ -24,7 +23,6 @@ def _main() -> None:
     """Entry point of this command.
     """
     logger.info('Lint script started.')
-    _run_numdoclint()
     _run_mypy()
     _run_tests()
     _build()
@@ -112,21 +110,6 @@ def _run_mypy() -> None:
     stdout: str = command_util.run_command(command=MYPY_COMMAND)
     if 'Success' not in stdout:
         raise Exception('There are mypy errors.')
-
-
-def _run_numdoclint() -> None:
-    """
-    Run numdoclint command.
-
-    Raises
-    ------
-    Exception
-        If command standard out is not blank.
-    """
-    logger.info('numdoclint command started.')
-    stdout: str = command_util.run_command(command=NUMDOCLINT_COMMAND)
-    if stdout != '':
-        raise Exception('There are numdoclint errors.')
 
 
 if __name__ == '__main__':

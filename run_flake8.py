@@ -16,7 +16,7 @@ logger: Logger = loggers.get_info_logger()
 
 def _main() -> None:
     """
-    Run flake8 command.
+    Run the flake8 command.
 
     Raises
     ------

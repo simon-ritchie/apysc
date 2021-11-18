@@ -4,50 +4,107 @@ on:
     branches:
       - main
 jobs:
-  Deploy:
+  CreateCache:
     runs-on: ubuntu-latest
-
-    # Time out minutes setting.
-    timeout-minutes: 15
-
+    timeout-minutes: 10
     steps:
-
-      # Install linux necessary packages.
-      - run: sudo apt install build-essential
-
-      # Checkout apysc repository.
       - name: Checkout
         uses: actions/checkout@v2
-
-      # Set Python version.
-      - name: Set Python version
+      - name: Set the Python version
         uses: actions/setup-python@v2
         with:
           python-version: 3.6
-
-      # Install each Python libraries specified at requirements.txt.
-      - name: Install each Python library
-        run: pip install -r requirements.txt
-      - name: Check Python version
-        run: python -V
-      - name: Check installed Python libraries
-        run: pip freeze
-
-      # Run linting, testing, and build scrpit.
-      - run: python run_deploy_script.py
-
-      # Set environment variables defined in .env.
-      - name: Set environment variables from .env
-        uses: c-py/action-dotenv-to-setenv@v3
+      - name: Set the site package path to the environment variables
+        run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
+      - name: Set the Python package cache
+        uses: actions/cache@v2
+        id: pip_cache
         with:
-          env-file: .env
+          path: ${{ env.site_package_path }}
+          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+      - name: Set the build-essential if there is no site-packages cache
+        if: steps.pip_cache.outputs.cache-hit != 'true'
+        run: sudo apt install build-essential
+      - name: Install each Python library if there is no site-packages cache
+        if: steps.pip_cache.outputs.cache-hit != 'true'
+        run: pip install -r requirements.txt
 
-      # Set PyPI account setting.
-      - name: Set PyPI account setting
-        env:
-          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
-          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-        run: |
-          echo -e '[pypi]' >> ~/.pypirc
-          echo -e "username = ${PYPI_USERNAME}" >> ~/.pypirc
-          echo -e "password = ${PYPI_PASSWORD}" >> ~/.pypirc
+  RunFlake8:
+    needs: CreateCache
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set the Python version
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+      - name: Set the Python package cache
+        uses: actions/cache@v2
+        id: pip_cache
+        with:
+          path: ${{ env.site_package_path }}
+          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+      - name: Run the flake8 command
+        run: python run_flake8.py
+
+  RunMypy:
+    needs: CreateCache
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set the Python version
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+      - name: Set the Python package cache
+        uses: actions/cache@v2
+        id: pip_cache
+        with:
+          path: ${{ env.site_package_path }}
+          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+      - name: Run the mypy command
+        run: python run_mypy.py
+
+  RunNumdoclint:
+    needs: CreateCache
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set the Python version
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+      - name: Set the Python package cache
+        uses: actions/cache@v2
+        id: pip_cache
+        with:
+          path: ${{ env.site_package_path }}
+          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+      - name: Run the numdoclint command
+        run: python run_numdoclint.py
+
+  RunTests:
+    needs: CreateCache
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set the Python version
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+      - name: Set the Python package cache
+        uses: actions/cache@v2
+        id: pip_cache
+        with:
+          path: ${{ env.site_package_path }}
+          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+      - name: Run the test runner command
+        run: python run_tests.py

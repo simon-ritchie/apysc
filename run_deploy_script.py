@@ -12,7 +12,6 @@ from typing import Match
 from typing import Optional
 
 import command_util
-from apply_lints_and_build_docs import MYPY_COMMAND
 from apysc import __version__
 from apysc._console import loggers
 
@@ -23,7 +22,6 @@ def _main() -> None:
     """Entry point of this command.
     """
     logger.info('Lint script started.')
-    _run_mypy()
     _run_tests()
     _build()
     _save_version_env_var()
@@ -95,21 +93,6 @@ def _save_coverage(stdout: str) -> None:
     logger.info('Saving version number file.')
     with open('.env', 'a') as f:
         f.write(f'COVERAGE="{coverage}"\n')
-
-
-def _run_mypy() -> None:
-    """
-    Run mypy command.
-
-    Raises
-    ------
-    Exception
-        If there are any mypy errors.
-    """
-    logger.info('mypy command started.')
-    stdout: str = command_util.run_command(command=MYPY_COMMAND)
-    if 'Success' not in stdout:
-        raise Exception('There are mypy errors.')
 
 
 if __name__ == '__main__':

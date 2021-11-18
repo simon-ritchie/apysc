@@ -6,14 +6,12 @@ $ python apply_lints.py
 """
 
 import re
-import subprocess as sp
 from logging import Logger
 from typing import List
 from typing import Match
 from typing import Optional
 
 import command_util
-from apply_lints_and_build_docs import FLAKE8_COMMAND
 from apply_lints_and_build_docs import MYPY_COMMAND
 from apply_lints_and_build_docs import NUMDOCLINT_COMMAND
 from apysc import __version__
@@ -26,7 +24,6 @@ def _main() -> None:
     """Entry point of this command.
     """
     logger.info('Lint script started.')
-    _run_flake8()
     _run_numdoclint()
     _run_mypy()
     _run_tests()
@@ -130,21 +127,6 @@ def _run_numdoclint() -> None:
     stdout: str = command_util.run_command(command=NUMDOCLINT_COMMAND)
     if stdout != '':
         raise Exception('There are numdoclint errors.')
-
-
-def _run_flake8() -> None:
-    """
-    Run flake8 command.
-
-    Raises
-    ------
-    Exception
-        If command standard out is not blank.
-    """
-    logger.info('flake8 command started.')
-    stdout: str = command_util.run_command(command=FLAKE8_COMMAND)
-    if stdout != '':
-        raise Exception('There are flake8 errors or warning.')
 
 
 if __name__ == '__main__':

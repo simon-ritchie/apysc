@@ -7,7 +7,9 @@ $ python run_tests.py
 
 import re
 from logging import Logger
-from typing import List, Match, Optional
+from typing import List
+from typing import Match
+from typing import Optional
 
 import command_util
 from apysc._console import loggers

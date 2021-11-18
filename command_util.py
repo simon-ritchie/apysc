@@ -1,8 +1,8 @@
 """Common command utility implementations.
 """
 
-from logging import Logger
 import subprocess as sp
+from logging import Logger
 
 from apysc._console import loggers
 

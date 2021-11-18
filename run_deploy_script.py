@@ -22,7 +22,6 @@ def _main() -> None:
     """Entry point of this command.
     """
     logger.info('Lint script started.')
-    _run_tests()
     _build()
     _save_version_env_var()
 
@@ -48,51 +47,7 @@ def _build() -> None:
     logger.info('Build command started.')
     stdout: str = command_util.run_command(command='python build.py')
     if 'Traceback' in stdout:
-        raise Exception('There is build command error.')
-
-
-def _run_tests() -> None:
-    """
-    Run testing command.
-
-    Raises
-    ------
-    Exception
-        If there are any failed tests.
-    """
-    logger.info('testing command started.')
-    stdout: str = command_util.run_command(
-        command=(
-            'pytest --cov=./apysc tests/ -v -s --workers auto '
-            '--cov-report term-missing'
-        ))
-    if ' failed, ' in stdout:
-        raise Exception('There are failed tests.')
-    _save_coverage(stdout=stdout)
-
-
-def _save_coverage(stdout: str) -> None:
-    """
-    Svae test coverage to .env file.
-
-    Parameters
-    ----------
-    stdout : str
-        Test command stdout.
-    """
-    lines: List[str] = stdout.splitlines()
-    coverage: str = ''
-    for line in lines:
-        if not line.startswith('TOTAL '):
-            continue
-        match: Optional[Match] = re.search(
-            pattern=r'(\d+?\%)', string=line)
-        if match is None:
-            raise Exception('Test coverage value is missing.')
-        coverage = match.group(1)
-    logger.info('Saving version number file.')
-    with open('.env', 'a') as f:
-        f.write(f'COVERAGE="{coverage}"\n')
+        raise Exception('There is a build command error.')
 
 
 if __name__ == '__main__':

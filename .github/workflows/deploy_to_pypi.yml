@@ -13,7 +13,7 @@ jobs:
       - name: Set the Python version
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6
+          python-version: 3.6.15
       - name: Set the site package path to the environment variables
         run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
       - name: Set the Python package cache
@@ -21,13 +21,18 @@ jobs:
         id: pip_cache
         with:
           path: ${{ env.site_package_path }}
-          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-pip-v2-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Set the build-essential if there is no site-packages cache
         if: steps.pip_cache.outputs.cache-hit != 'true'
         run: sudo apt install build-essential
       - name: Install each Python library if there is no site-packages cache
         if: steps.pip_cache.outputs.cache-hit != 'true'
         run: pip install -r requirements.txt
+      - name: Set the bin cache if there is no site-packages cache
+        if: steps.pip_cache.outputs.cache-hit != 'true'
+        with:
+          path: /opt/hostedtoolcache/Python/3.6.15/x64/bin/
+          key: ${{ runner.os }}-bin_cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
 
   RunFlake8:
     needs: CreateCache
@@ -39,80 +44,85 @@ jobs:
       - name: Set the Python version
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6
+          python-version: 3.6.15
       - name: Set the site package path to the environment variables
         run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
-      - name: Set the Python package cache
+      - name: Restore the Python package cache
         uses: actions/cache@v2
-        id: pip_cache
         with:
           path: ${{ env.site_package_path }}
-          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-pip-v2-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+      - name: Restore the bin cache
+        with:
+          path: /opt/hostedtoolcache/Python/3.6.15/x64/bin/
+          key: ${{ runner.os }}-bin_cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+      - name: Set the flake8 alias
+        run: alias flake8=/opt/hostedtoolcache/Python/3.6.15/x64/bin/flake8
       - name: Run the flake8 command
         run: python run_flake8.py
 
-  RunMypy:
-    needs: CreateCache
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Set the Python version
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.6
-      - name: Set the site package path to the environment variables
-        run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
-      - name: Set the Python package cache
-        uses: actions/cache@v2
-        id: pip_cache
-        with:
-          path: ${{ env.site_package_path }}
-          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
-      - name: Run the mypy command
-        run: python run_mypy.py
+  # RunMypy:
+  #   needs: CreateCache
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 10
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Set the Python version
+  #       uses: actions/setup-python@v2
+  #       with:
+  #         python-version: 3.6.15
+  #     - name: Set the site package path to the environment variables
+  #       run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
+  #     - name: Set the Python package cache
+  #       uses: actions/cache@v2
+  #       id: pip_cache
+  #       with:
+  #         path: ${{ env.site_package_path }}
+  #         key: ${{ runner.os }}-pip-v2-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+  #     - name: Run the mypy command
+  #       run: python run_mypy.py
 
-  RunNumdoclint:
-    needs: CreateCache
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Set the Python version
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.6
-      - name: Set the site package path to the environment variables
-        run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
-      - name: Set the Python package cache
-        uses: actions/cache@v2
-        id: pip_cache
-        with:
-          path: ${{ env.site_package_path }}
-          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
-      - name: Run the numdoclint command
-        run: python run_numdoclint.py
+  # RunNumdoclint:
+  #   needs: CreateCache
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 10
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Set the Python version
+  #       uses: actions/setup-python@v2
+  #       with:
+  #         python-version: 3.6.15
+  #     - name: Set the site package path to the environment variables
+  #       run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
+  #     - name: Set the Python package cache
+  #       uses: actions/cache@v2
+  #       id: pip_cache
+  #       with:
+  #         path: ${{ env.site_package_path }}
+  #         key: ${{ runner.os }}-pip-v2-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+  #     - name: Run the numdoclint command
+  #       run: python run_numdoclint.py
 
-  RunTests:
-    needs: CreateCache
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Set the Python version
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.6
-      - name: Set the site package path to the environment variables
-        run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
-      - name: Set the Python package cache
-        uses: actions/cache@v2
-        id: pip_cache
-        with:
-          path: ${{ env.site_package_path }}
-          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
-      - name: Run the test runner command
-        run: python run_tests.py
+  # RunTests:
+  #   needs: CreateCache
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 10
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Set the Python version
+  #       uses: actions/setup-python@v2
+  #       with:
+  #         python-version: 3.6.15
+  #     - name: Set the site package path to the environment variables
+  #       run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
+  #     - name: Set the Python package cache
+  #       uses: actions/cache@v2
+  #       id: pip_cache
+  #       with:
+  #         path: ${{ env.site_package_path }}
+  #         key: ${{ runner.os }}-pip-v2-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+  #     - name: Run the test runner command
+  #       run: python run_tests.py

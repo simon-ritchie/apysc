@@ -206,6 +206,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Set the Python version
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6.15
+      - name: Set the site package path to the environment variables
+        run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
+      - name: Restore the Python package cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.site_package_path }}
+          key: ${{ runner.os }}-pip-v2-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Set the apysc version to environment variable
         run: python -c "import apysc; print(f'apysc_version={apysc.__version__}')"
       - name: Create the release note

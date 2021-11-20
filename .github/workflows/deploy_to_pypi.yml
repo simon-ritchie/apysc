@@ -119,49 +119,48 @@ jobs:
       - name: Run the numdoclint command
         run: python run_numdoclint.py
 
-  # RunTests:
-  #   needs: CreateCache
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 10
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
-  #     - name: Set the Python version
-  #       uses: actions/setup-python@v2
-  #       with:
-  #         python-version: 3.6.15
-  #     - name: Set the site package path to the environment variables
-  #       run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
-  #     - name: Restore the Python package cache
-  #       uses: actions/cache@v2
-  #       with:
-  #         path: ${{ env.site_package_path }}
-  #         key: ${{ runner.os }}-pip-v2-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
-  #     - name: Restore the bin cache
-  #       uses: actions/cache@v2
-  #       with:
-  #         path: /opt/hostedtoolcache/Python/3.6.15/x64/bin/
-  #         key: ${{ runner.os }}-bin_cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
-  #     - name: Set the pytest alias
-  #       run: alias pytest=/opt/hostedtoolcache/Python/3.6.15/x64/bin/pytest
-  #     - name: Run the test runner command
-  #       run: python run_tests.py
-  #     - name: Set the environment variables from .env file
-  #       uses: c-py/action-dotenv-to-setenv@v3
-  #       with:
-  #         env-file: .env
-  #     - name: Update the coverage badge setting
-  #       uses: RubbaBoy/BYOB@v1.2.1
-  #       with:
-  #         NAME: pytest_coverage
-  #         LABEL: 'pytest coverage'
-  #         STATUS: ${{ env.COVERAGE }}
-  #         COLOR: 0088FF
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  RunTests:
+    needs: CreateCache
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set the Python version
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6.15
+      - name: Set the site package path to the environment variables
+        run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
+      - name: Restore the Python package cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.site_package_path }}
+          key: ${{ runner.os }}-pip-v2-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+      - name: Restore the bin cache
+        uses: actions/cache@v2
+        with:
+          path: /opt/hostedtoolcache/Python/3.6.15/x64/bin/
+          key: ${{ runner.os }}-bin_cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+      - name: Set the pytest alias
+        run: alias pytest=/opt/hostedtoolcache/Python/3.6.15/x64/bin/pytest
+      - name: Run the test runner command
+        run: python run_tests.py
+      - name: Set the environment variables from .env file
+        uses: c-py/action-dotenv-to-setenv@v3
+        with:
+          env-file: .env
+      - name: Update the coverage badge setting
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: pytest_coverage
+          LABEL: 'pytest coverage'
+          STATUS: ${{ env.COVERAGE }}
+          COLOR: 0088FF
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   DeployToPyPI:
-    # needs: [RunFlake8, RunMypy, RunNumdoclint, RunTests]
-    needs: [RunFlake8, RunMypy, RunNumdoclint]
+    needs: [RunFlake8, RunMypy, RunNumdoclint, RunTests]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -199,8 +198,7 @@ jobs:
         run: twine upload dist/*
 
   CreateReleaseNotes:
-    # needs: [RunFlake8, RunMypy, RunNumdoclint, RunTests]
-    needs: [RunFlake8, RunMypy, RunNumdoclint]
+    needs: [RunFlake8, RunMypy, RunNumdoclint, RunTests]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

@@ -51,6 +51,7 @@ def _main() -> None:
 
     os.system(f'python -c "{_APYSC_TEST_CODE}"')
     assert os.path.exists('./index.html')
+    print('HTML file is created by the apysc package correctly.')
 
 
 if __name__ == '__main__':

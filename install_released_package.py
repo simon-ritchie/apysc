@@ -27,6 +27,8 @@ def _main() -> None:
     Also, removing checked out directories and additional minimum tests
     will be run.
     """
+    os.system('pip freeze | xargs pip uninstall -y')
+
     count: int = 0
     while True:
         stdout: str = command_util.run_command(command=_PIP_COMMAND)
@@ -36,6 +38,7 @@ def _main() -> None:
         if count >= 10:
             raise Exception('apysc package installing is failed.')
         count += 1
+        print(f'Sleeping 10 seconds... (retrying count: {count})')
         time.sleep(10)
 
     file_or_dir_names: List[str] = os.listdir('./')

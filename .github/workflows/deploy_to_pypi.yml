@@ -218,7 +218,7 @@ jobs:
           path: ${{ env.site_package_path }}
           key: ${{ runner.os }}-pip-v2-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Set the apysc version to environment variable
-        run: python -c "import apysc; print(f'apysc_version={apysc.__version__}')"
+        run: python -c "import apysc; print(f'apysc_version={apysc.__version__}')" >> $GITHUB_ENV
       - name: Create the release note
         uses: actions/create-release@v1
         env:

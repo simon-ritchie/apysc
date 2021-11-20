@@ -159,6 +159,37 @@ jobs:
           COLOR: 0088FF
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  RunTestsOnEachPythonVersion:
+    needs: CreateCache
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7.12, 3.8.12, 3.9.9]
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set the Python version
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Set the site package path to the environment variables
+        run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
+      - name: Restore the Python package cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.site_package_path }}
+          key: ${{ runner.os }}-pip-v2-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+      - name: Restore the bin cache
+        uses: actions/cache@v2
+        with:
+          path: /opt/hostedtoolcache/Python/${{ matrix.python-version }}/x64/bin/
+          key: ${{ runner.os }}-bin_cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+      - name: Set the pytest alias
+        run: alias pytest=/opt/hostedtoolcache/Python/${{ matrix.python-version }}/x64/bin/pytest
+      - name: Run the test runner command
+        run: python run_tests.py
+
   DeployToPyPI:
     needs: [RunFlake8, RunMypy, RunNumdoclint, RunTestsOnPython36AndSaveCoverage]
     runs-on: ubuntu-latest

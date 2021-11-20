@@ -45,10 +45,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Set the Python version environment variable
+        run: echo "python_version=3.6.15" >> $GITHUB_ENV
       - name: Set the Python version
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6.15
+          python-version: ${{ env.python_version }}
       - name: Set the site package path to the environment variables
         run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
       - name: Restore the Python package cache
@@ -59,10 +61,10 @@ jobs:
       - name: Restore the bin cache
         uses: actions/cache@v2
         with:
-          path: /opt/hostedtoolcache/Python/3.6.15/x64/bin/
+          path: /opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/
           key: ${{ runner.os }}-bin_cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Set the flake8 alias
-        run: alias flake8=/opt/hostedtoolcache/Python/3.6.15/x64/bin/flake8
+        run: alias flake8=/opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/flake8
       - name: Run the flake8 command
         run: python run_flake8.py
 
@@ -73,10 +75,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Set the Python version environment variable
+        run: echo "python_version=3.6.15" >> $GITHUB_ENV
       - name: Set the Python version
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6.15
+          python-version: ${{ env.python_version }}
       - name: Set the site package path to the environment variables
         run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
       - name: Restore the Python package cache
@@ -87,10 +91,10 @@ jobs:
       - name: Restore the bin cache
         uses: actions/cache@v2
         with:
-          path: /opt/hostedtoolcache/Python/3.6.15/x64/bin/
+          path: /opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/
           key: ${{ runner.os }}-bin_cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Set the mypy alias
-        run: alias mypy=/opt/hostedtoolcache/Python/3.6.15/x64/bin/mypy
+        run: alias mypy=/opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/mypy
       - name: Run the mypy command
         run: python run_mypy.py
 
@@ -101,10 +105,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Set the Python version environment variable
+        run: echo "python_version=3.6.15" >> $GITHUB_ENV
       - name: Set the Python version
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6.15
+          python-version: ${{ env.python_version }}
       - name: Set the site package path to the environment variables
         run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
       - name: Restore the Python package cache
@@ -115,10 +121,10 @@ jobs:
       - name: Restore the bin cache
         uses: actions/cache@v2
         with:
-          path: /opt/hostedtoolcache/Python/3.6.15/x64/bin/
+          path: /opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/
           key: ${{ runner.os }}-bin_cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Set the numdoclint alias
-        run: alias numdoclint=/opt/hostedtoolcache/Python/3.6.15/x64/bin/numdoclint
+        run: alias numdoclint=/opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/numdoclint
       - name: Run the numdoclint command
         run: python run_numdoclint.py
 
@@ -129,10 +135,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Set the Python version environment variable
+        run: echo "python_version=3.6.15" >> $GITHUB_ENV
       - name: Set the Python version
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6.15
+          python-version: ${{ env.python_version }}
       - name: Set the site package path to the environment variables
         run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
       - name: Restore the Python package cache
@@ -143,10 +151,10 @@ jobs:
       - name: Restore the bin cache
         uses: actions/cache@v2
         with:
-          path: /opt/hostedtoolcache/Python/3.6.15/x64/bin/
+          path: /opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/
           key: ${{ runner.os }}-bin_cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Set the pytest alias
-        run: alias pytest=/opt/hostedtoolcache/Python/3.6.15/x64/bin/pytest
+        run: alias pytest=/opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/pytest
       - name: Run the test runner command
         run: python run_tests_and_save_coverage.py
       - name: Set the environment variables from .env file
@@ -200,10 +208,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Set the Python version environment variable
+        run: echo "python_version=3.6.15" >> $GITHUB_ENV
       - name: Set the Python version
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6.15
+          python-version: ${{ env.python_version }}
       - name: Set the site package path to the environment variables
         run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
       - name: Restore the Python package cache
@@ -214,7 +224,7 @@ jobs:
       - name: Restore the bin cache
         uses: actions/cache@v2
         with:
-          path: /opt/hostedtoolcache/Python/3.6.15/x64/bin/
+          path: /opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/
           key: ${{ runner.os }}-bin_cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Execute the Python package build
         run: python build.py
@@ -227,7 +237,7 @@ jobs:
           echo -e "username = ${PYPI_USERNAME}" >> ~/.pypirc
           echo -e "password = ${PYPI_PASSWORD}" >> ~/.pypirc
       - name: Set the twine alias
-        run: alias twine=/opt/hostedtoolcache/Python/3.6.15/x64/bin/twine
+        run: alias twine=/opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/twine
       - name: Upload to PyPI
         run: twine upload dist/*
 
@@ -238,10 +248,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Set the Python version environment variable
+        run: echo "python_version=3.6.15" >> $GITHUB_ENV
       - name: Set the Python version
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6.15
+          python-version: ${{ env.python_version }}
       - name: Set the site package path to the environment variables
         run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
       - name: Restore the Python package cache

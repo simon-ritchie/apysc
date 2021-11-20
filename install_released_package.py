@@ -5,9 +5,9 @@ will be run.
 This is used by the deploying job mainly.
 """
 
-import time
-import shutil
 import os
+import shutil
+import time
 from typing import List
 
 import apysc as ap

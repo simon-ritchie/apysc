@@ -194,7 +194,7 @@ jobs:
         run: python run_tests.py
 
   DeployToPyPI:
-    needs: [RunFlake8, RunMypy, RunNumdoclint, RunTestsOnPython36AndSaveCoverage]
+    needs: [RunFlake8, RunMypy, RunNumdoclint, RunTestsOnPython36AndSaveCoverage, RunTestsOnEachPythonVersion]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -232,7 +232,7 @@ jobs:
         run: twine upload dist/*
 
   CreateReleaseNotes:
-    needs: [RunFlake8, RunMypy, RunNumdoclint, RunTestsOnPython36AndSaveCoverage]
+    needs: [RunFlake8, RunMypy, RunNumdoclint, RunTestsOnPython36AndSaveCoverage, RunTestsOnEachPythonVersion]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

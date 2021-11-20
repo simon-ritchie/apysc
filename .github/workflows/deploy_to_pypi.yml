@@ -197,3 +197,23 @@ jobs:
         run: alias twine=/opt/hostedtoolcache/Python/3.6.15/x64/bin/twine
       - name: Upload to PyPI
         run: twine upload dist/*
+
+  CreateReleaseNotes:
+    # needs: [RunFlake8, RunMypy, RunNumdoclint, RunTests]
+    needs: [RunFlake8, RunMypy, RunNumdoclint]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set the apysc version to environment variable
+        run: python -c "import apysc; print(f'apysc_version={apysc.__version__}')"
+      - name: Create the release note
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ env.apysc_version }}
+          release_name: v${{ env.apysc_version }}
+          draft: false
+          prerelease: false

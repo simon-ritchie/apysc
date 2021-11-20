@@ -160,7 +160,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   DeployToPyPI:
-    needs: [RunFlake8, RunMypy, RunNumdoclint, RunTests]
+    needs: [RunFlake8, RunMypy, RunNumdoclint, RunTestsOnPython36AndSaveCoverage]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -198,7 +198,7 @@ jobs:
         run: twine upload dist/*
 
   CreateReleaseNotes:
-    needs: [RunFlake8, RunMypy, RunNumdoclint, RunTests]
+    needs: [RunFlake8, RunMypy, RunNumdoclint, RunTestsOnPython36AndSaveCoverage]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

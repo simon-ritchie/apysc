@@ -146,3 +146,15 @@ jobs:
         run: alias pytest=/opt/hostedtoolcache/Python/3.6.15/x64/bin/pytest
       - name: Run the test runner command
         run: python run_tests.py
+      - name: Set the environment variables from .env file
+        uses: c-py/action-dotenv-to-setenv@v3
+        with:
+          env-file: .env
+      - name: Update the coverage badge setting
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: pytest_coverage
+          LABEL: 'pytest coverage'
+          STATUS: ${{ env.COVERAGE }}
+          COLOR: 0088FF
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

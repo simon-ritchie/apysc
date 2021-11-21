@@ -24,7 +24,7 @@ jobs:
         id: pip_cache
         with:
           path: ${{ env.site_package_path }}
-          key: ${{ runner.os }}-pip-v2-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Set the build-essential if there is no site-packages cache
         if: steps.pip_cache.outputs.cache-hit != 'true'
         run: sudo apt install build-essential
@@ -57,7 +57,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.site_package_path }}
-          key: ${{ runner.os }}-pip-v2-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Restore the bin cache
         uses: actions/cache@v2
         with:
@@ -87,7 +87,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.site_package_path }}
-          key: ${{ runner.os }}-pip-v2-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Restore the bin cache
         uses: actions/cache@v2
         with:
@@ -117,7 +117,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.site_package_path }}
-          key: ${{ runner.os }}-pip-v2-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Restore the bin cache
         uses: actions/cache@v2
         with:
@@ -147,7 +147,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.site_package_path }}
-          key: ${{ runner.os }}-pip-v2-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Restore the bin cache
         uses: actions/cache@v2
         with:
@@ -190,7 +190,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.site_package_path }}
-          key: ${{ runner.os }}-pip-v2-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Restore the bin cache
         uses: actions/cache@v2
         with:
@@ -220,7 +220,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.site_package_path }}
-          key: ${{ runner.os }}-pip-v2-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Restore the bin cache
         uses: actions/cache@v2
         with:
@@ -260,7 +260,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.site_package_path }}
-          key: ${{ runner.os }}-pip-v2-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Set the apysc version to environment variable
         run: python -c "import apysc; print(f'apysc_version={apysc.__version__}')" >> $GITHUB_ENV
       - name: Create the release note
@@ -293,6 +293,6 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.site_package_path }}
-          key: ${{ runner.os }}-pip-v2-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Run the package installing and testing script
         run: python install_released_package.py

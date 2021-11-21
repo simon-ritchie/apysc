@@ -36,7 +36,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /opt/hostedtoolcache/Python/${{ matrix.python-version }}/x64/bin/
-          key: ${{ runner.os }}-bin_cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-bin-cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
 
   RunFlake8:
     needs: CreateCache
@@ -62,7 +62,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/
-          key: ${{ runner.os }}-bin_cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-bin-cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Set the flake8 alias
         run: alias flake8=/opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/flake8
       - name: Run the flake8 command
@@ -92,7 +92,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/
-          key: ${{ runner.os }}-bin_cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-bin-cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Set the mypy alias
         run: alias mypy=/opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/mypy
       - name: Run the mypy command
@@ -122,7 +122,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/
-          key: ${{ runner.os }}-bin_cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-bin-cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Set the numdoclint alias
         run: alias numdoclint=/opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/numdoclint
       - name: Run the numdoclint command
@@ -152,7 +152,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/
-          key: ${{ runner.os }}-bin_cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-bin-cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Set the pytest alias
         run: alias pytest=/opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/pytest
       - name: Run the test runner command
@@ -195,7 +195,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /opt/hostedtoolcache/Python/${{ matrix.python-version }}/x64/bin/
-          key: ${{ runner.os }}-bin_cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-bin-cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Set the pytest alias
         run: alias pytest=/opt/hostedtoolcache/Python/${{ matrix.python-version }}/x64/bin/pytest
       - name: Run the test runner command
@@ -225,7 +225,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/
-          key: ${{ runner.os }}-bin_cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-bin-cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Execute the Python package build
         run: python build.py
       - name: Set the PyPI account setting

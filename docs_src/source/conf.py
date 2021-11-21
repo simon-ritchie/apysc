@@ -80,6 +80,9 @@ html_css_files: Final[List[str]] = [
 
 html_logo: Final[str] = '_static/logo_for_document.png'
 
+# Disable the `_sources` copying.
+html_copy_source: bool = False
+
 
 def setup(sphinx: Sphinx) -> None:
     """

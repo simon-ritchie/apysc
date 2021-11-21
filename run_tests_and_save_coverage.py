@@ -32,7 +32,7 @@ def _main() -> None:
             'pytest --cov=./apysc tests/ -v -s --workers auto '
             '--cov-report term-missing'
         ))
-    if ' failed, ' in stdout:
+    if ' failed, ' in stdout or 'Traceback' in stdout:
         raise Exception('There are failed tests.')
     _save_coverage(stdout=stdout)
 

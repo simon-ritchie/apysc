@@ -27,7 +27,7 @@ def _main() -> None:
         command=(
             'pytest tests/ -v -s --workers auto'
         ))
-    if ' failed, ' in stdout:
+    if ' failed, ' in stdout or 'Traceback' in stdout:
         raise Exception('There are failed tests.')
 
 

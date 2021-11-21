@@ -188,7 +188,7 @@ def save_target_modules_hash(
         future_list: List[futures.Future] = []
         for module_path in module_paths:
             future = executor.submit(
-                fn=save_target_module_hash,
+                save_target_module_hash,
                 module_path=module_path,
                 lint_type=lint_type)
             future_list.append(future)

@@ -18,13 +18,13 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Set the site package path to the environment variables
-        run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
+        run: python -c "import site; print(f'site-packages-path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
       - name: Set the Python package cache
         uses: actions/cache@v2
         id: pip_cache
         with:
-          path: ${{ env.site_package_path }}
-          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          path: ${{ env.site-packages-path }}
+          key: ${{ runner.os }}-pip-${{ env.site-packages-path }}-${{ hashFiles('**/requirements.txt') }}
       - name: Set the build-essential if there is no site-packages cache
         if: steps.pip_cache.outputs.cache-hit != 'true'
         run: sudo apt install build-essential
@@ -36,7 +36,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /opt/hostedtoolcache/Python/${{ matrix.python-version }}/x64/bin/
-          key: ${{ runner.os }}-bin-cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-bin-cache-${{ env.site-packages-path }}-${{ hashFiles('**/requirements.txt') }}
 
   RunFlake8:
     needs: CreateCache

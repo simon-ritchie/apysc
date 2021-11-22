@@ -12,15 +12,15 @@ runs:
       with:
         python-version: ${{ inputs.python-version }}
     - name: Set the site package path to the environment variables
-      run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
+      run: python -c "import site; print(f'site-packages-path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
       shell: bash
     - name: Restore the Python package cache
       uses: actions/cache@v2
       with:
-        path: ${{ env.site_package_path }}
-        key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+        path: ${{ env.site-packages-path }}
+        key: ${{ runner.os }}-pip-${{ env.site-packages-path }}-${{ hashFiles('**/requirements.txt') }}
     - name: Restore the bin cache
       uses: actions/cache@v2
       with:
         path: /opt/hostedtoolcache/Python/${{ inputs.python-version }}/x64/bin/
-        key: ${{ runner.os }}-bin-cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+        key: ${{ runner.os }}-bin-cache-${{ env.site-packages-path }}-${{ hashFiles('**/requirements.txt') }}

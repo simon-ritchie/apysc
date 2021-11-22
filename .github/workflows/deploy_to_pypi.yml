@@ -146,26 +146,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - name: Set the Python version environment variable
+        run: echo "python-version=3.6.15" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Set the Python version environment variable
-        run: echo "python_version=3.6.15" >> $GITHUB_ENV
-      - name: Set the Python version
-        uses: actions/setup-python@v2
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ env.python_version }}
-      - name: Set the site package path to the environment variables
-        run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
-      - name: Restore the Python package cache
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.site_package_path }}
-          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
-      - name: Restore the bin cache
-        uses: actions/cache@v2
-        with:
-          path: /opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/
-          key: ${{ runner.os }}-bin-cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          python-version: ${{ env.python-version }}
       - name: Execute the Python package build
         run: python build.py
       - name: Set the PyPI account setting
@@ -177,7 +165,7 @@ jobs:
           echo -e "username = ${PYPI_USERNAME}" >> ~/.pypirc
           echo -e "password = ${PYPI_PASSWORD}" >> ~/.pypirc
       - name: Set the twine alias
-        run: alias twine=/opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/twine
+        run: alias twine=/opt/hostedtoolcache/Python/${{ env.python-version }}/x64/bin/twine
       - name: Upload to PyPI
         run: twine upload dist/*
 

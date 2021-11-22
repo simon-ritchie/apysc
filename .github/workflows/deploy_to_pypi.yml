@@ -45,24 +45,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Set the Python version environment variable
-        run: echo "python_version=3.6.15" >> $GITHUB_ENV
-      - name: Set the Python version
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ env.python_version }}
-      - name: Set the site package path to the environment variables
-        run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
-      - name: Restore the Python package cache
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.site_package_path }}
-          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
-      - name: Restore the bin cache
-        uses: actions/cache@v2
-        with:
-          path: /opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/
-          key: ${{ runner.os }}-bin-cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
       - name: Set the flake8 alias
         run: alias flake8=/opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/flake8
       - name: Run the flake8 command

@@ -43,12 +43,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - name: Set the Python version environment variable
+        run: echo "python-version=3.6.15" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
+        with:
+          python-version: ${{ env.python-version }}
       - name: Set the flake8 alias
-        run: alias flake8=/opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/flake8
+        run: alias flake8=/opt/hostedtoolcache/Python/${{ env.python-version }}/x64/bin/flake8
       - name: Run the flake8 command
         run: python run_flake8.py
 

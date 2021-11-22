@@ -1,15 +1,16 @@
 name: Setup the Python dependencies
 description: This composite run steps require the dependencies cache before running.
+inputs:
+  python-version:
+    description: Python version to use.
+    required: true
 runs:
   using: composite
   steps:
-    - name: Set the Python version environment variable
-      run: echo "python_version=3.6.15" >> $GITHUB_ENV
-      shell: bash
     - name: Set the Python version
       uses: actions/setup-python@v2
       with:
-        python-version: ${{ env.python_version }}
+        python-version: ${{ inputs.python-version }}
     - name: Set the site package path to the environment variables
       run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
       shell: bash
@@ -21,5 +22,5 @@ runs:
     - name: Restore the bin cache
       uses: actions/cache@v2
       with:
-        path: /opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/
+        path: /opt/hostedtoolcache/Python/${{ inputs.python-version }}/x64/bin/
         key: ${{ runner.os }}-bin-cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}

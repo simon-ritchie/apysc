@@ -79,28 +79,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - name: Set the Python version environment variable
+        run: echo "python-version=3.6.15" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Set the Python version environment variable
-        run: echo "python_version=3.6.15" >> $GITHUB_ENV
-      - name: Set the Python version
-        uses: actions/setup-python@v2
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ env.python_version }}
-      - name: Set the site package path to the environment variables
-        run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
-      - name: Restore the Python package cache
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.site_package_path }}
-          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
-      - name: Restore the bin cache
-        uses: actions/cache@v2
-        with:
-          path: /opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/
-          key: ${{ runner.os }}-bin-cache-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          python-version: ${{ env.python-version }}
       - name: Set the numdoclint alias
-        run: alias numdoclint=/opt/hostedtoolcache/Python/${{ env.python_version }}/x64/bin/numdoclint
+        run: alias numdoclint=/opt/hostedtoolcache/Python/${{ env.python-version }}/x64/bin/numdoclint
       - name: Run the numdoclint command
         run: python run_numdoclint.py
 

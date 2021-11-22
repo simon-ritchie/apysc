@@ -43,8 +43,6 @@ def _main() -> None:
 
     file_or_dir_names: List[str] = os.listdir('./')
     for file_or_dir_name in file_or_dir_names:
-        if '.github' in file_or_dir_name:
-            continue
         if os.path.isfile(file_or_dir_name):
             os.remove(file_or_dir_name)
             continue

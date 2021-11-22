@@ -174,21 +174,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - name: Set the Python version environment variable
+        run: echo "python-version=3.6.15" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Set the Python version environment variable
-        run: echo "python_version=3.6.15" >> $GITHUB_ENV
-      - name: Set the Python version
-        uses: actions/setup-python@v2
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ env.python_version }}
-      - name: Set the site package path to the environment variables
-        run: python -c "import site; print(f'site_package_path={site.getsitepackages()[0]}')" >> $GITHUB_ENV
-      - name: Restore the Python package cache
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.site_package_path }}
-          key: ${{ runner.os }}-pip-${{ env.site_package_path }}-${{ hashFiles('**/requirements.txt') }}
+          python-version: ${{ env.python-version }}
       - name: Set the apysc version to environment variable
         run: python -c "import apysc; print(f'apysc_version={apysc.__version__}')" >> $GITHUB_ENV
       - name: Create the release note

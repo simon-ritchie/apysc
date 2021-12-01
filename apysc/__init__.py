@@ -28,6 +28,7 @@ from apysc._display.line_dash_setting import LineDashSetting  # isort:skip # noq
 from apysc._display.line_round_dot_setting import LineRoundDotSetting  # isort:skip # noqa
 from apysc._display.line_dash_dot_setting import LineDashDotSetting  # isort:skip # noqa
 from apysc._geom.point2d import Point2D  # isort:skip # noqa
+from apysc._geom.path_label import PathLabel  # isort:skip # noqa
 from apysc._event.event import Event  # isort:skip # noqa
 from apysc._event.mouse_event import MouseEvent  # isort:skip # noqa
 from apysc._event.wheel_event import WheelEvent  # isort:skip # noqa

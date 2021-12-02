@@ -30,6 +30,7 @@ from apysc._display.line_dash_dot_setting import LineDashDotSetting  # isort:ski
 from apysc._geom.point2d import Point2D  # isort:skip # noqa
 from apysc._geom.path_label import PathLabel  # isort:skip # noqa
 from apysc._geom.path_data_base import PathDataBase  # isort:skip # noqa
+from apysc._geom.path_move_to import PathMoveTo  # isort:skip # noqa
 from apysc._event.event import Event  # isort:skip # noqa
 from apysc._event.mouse_event import MouseEvent  # isort:skip # noqa
 from apysc._event.wheel_event import WheelEvent  # isort:skip # noqa

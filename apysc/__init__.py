@@ -34,6 +34,7 @@ from apysc._geom.path_move_to import PathMoveTo  # isort:skip # noqa
 from apysc._geom.path_line_to import PathLineTo  # isort:skip # noqa
 from apysc._geom.path_horizontal import PathHorizontal  # isort:skip # noqa
 from apysc._geom.path_vertical import PathVertical  # isort:skip # noqa
+from apysc._geom.path_close import PathClose  # isort:skip # noqa
 from apysc._event.event import Event  # isort:skip # noqa
 from apysc._event.mouse_event import MouseEvent  # isort:skip # noqa
 from apysc._event.wheel_event import WheelEvent  # isort:skip # noqa

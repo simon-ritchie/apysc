@@ -6,17 +6,18 @@ import apysc as ap
 from tests.testing_helper import assert_attrs
 
 
-class TestPathHorizontal:
+class TestPathVertical:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        path_horizontal: ap.PathHorizontal = ap.PathHorizontal(
-            x=50, relative=True)
+        path_vertical: ap.PathVertical = ap.PathVertical(
+            y=50, relative=True)
         assert_attrs(
             expected_attrs={
-                '_x': 50,
-                '_path_label': ap.PathLabel.Horizontal,
+                '_y': 50,
+                '_path_label': ap.PathLabel.Vertical,
                 '_relative': True,
             },
-            any_obj=path_horizontal)
-        assert isinstance(path_horizontal._x, ap.Int)
+            any_obj=path_vertical,
+        )
+        assert isinstance(path_vertical._y, ap.Int)

@@ -21,3 +21,5 @@ class TestPathLineTo:
             },
             any_obj=path_line_to,
         )
+        assert isinstance(path_line_to._x, ap.Int)
+        assert isinstance(path_line_to._y, ap.Int)

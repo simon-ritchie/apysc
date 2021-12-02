@@ -1,4 +1,4 @@
-"""Path data class implementation for the svg's `move to` (M).
+"""Path data class implementation for the svg's `line to` (L).
 """
 
 from typing import Union
@@ -10,9 +10,9 @@ from apysc._converter.to_apysc_val_from_builtin import \
     get_copied_int_from_builtin_val
 
 
-class PathMoveTo(PathDataBase):
+class PathLineTo(PathDataBase):
     """
-    Path data class for the svg's `move to` (M).
+    Path data class for the svg's `line to` (L).
     """
 
     _x: Int
@@ -22,7 +22,7 @@ class PathMoveTo(PathDataBase):
             self, x: Union[int, Int], y: Union[int, Int],
             relative: bool = False) -> None:
         """
-        Path data class for the svg's `move to` (M).
+        Path data class for the svg's `line to` (L).
 
         Parameters
         ----------
@@ -34,8 +34,8 @@ class PathMoveTo(PathDataBase):
             The boolean value indicating whether the path
             coordinates are relative or not (absolute).
         """
-        super(PathMoveTo, self).__init__(
-            path_label=PathLabel.MoveTo,
+        super(PathLineTo, self).__init__(
+            path_label=PathLabel.LineTo,
             relative=relative)
         self._x = get_copied_int_from_builtin_val(integer=x)
         self._y = get_copied_int_from_builtin_val(integer=y)

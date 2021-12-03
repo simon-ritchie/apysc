@@ -1,0 +1,63 @@
+"""Path data class implementation for the svg's `3D besier curve` (C).
+"""
+
+from typing import Union
+
+from apysc._geom.path_data_base import PathDataBase
+from apysc._type.int import Int
+from apysc._converter.to_apysc_val_from_builtin import \
+    get_copied_int_from_builtin_val
+
+
+class PathBezier3D(PathDataBase):
+    """
+    Path data class for the svg's `3D bezier curve` (C).
+    """
+
+    _control_x1: Int
+    _control_y1: Int
+    _control_x2: Int
+    _control_y2: Int
+    _dest_x: Int
+    _dest_y: Int
+
+    def __init__(
+            self,
+            control_x1: Union[int, Int],
+            control_y1: Union[int, Int],
+            control_x2: Union[int, Int],
+            control_y2: Union[int, Int],
+            dest_x: Union[int, Int],
+            dest_y: Union[int, Int],
+            relative: bool = False) -> None:
+        """
+        Path data class for the svg's `3D bezier curve` (C).
+
+        Parameters
+        ----------
+        control_x1 : int or Int
+            X-coordinate of the bezier's first control point.
+        control_y1 : int or Int
+            Y-coordinate of the bezier's first control point.
+        control_x2 : int or Int
+            X-coordinate of the bezier's second control point.
+        control_y2 : int or Int
+            Y-coordinate of the bezier's second control point.
+        dest_x : int or Int
+            X-coordinate of the destination point.
+        dest_y : int or Int
+            Y-coordinate of the destination point.
+        relative : bool, default False
+            The boolean value indicating whether the path
+            coordinates are relative or not (absolute).
+        """
+        from apysc._geom.path_label import PathLabel
+        super(PathBezier3D, self).__init__(
+            path_label=PathLabel.Bezier3D,
+            relative=relative)
+        self._control_x1 = get_copied_int_from_builtin_val(integer=control_x1)
+        self._control_y1 = get_copied_int_from_builtin_val(integer=control_y1)
+        self._control_x2 = get_copied_int_from_builtin_val(integer=control_x2)
+        self._control_y2 = get_copied_int_from_builtin_val(integer=control_y2)
+        self._dest_x = get_copied_int_from_builtin_val(integer=dest_x)
+        self._dest_y = get_copied_int_from_builtin_val(integer=dest_y)

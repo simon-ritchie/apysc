@@ -28,3 +28,15 @@ class TestPath:
             },
             any_obj=path,
         )
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___repr__(self) -> None:
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        path_data_list: List[ap.PathDataBase] = [
+            ap.PathData.MoveTo(x=500, y=100),
+        ]
+        path: ap.Path = ap.Path(
+            parent=sprite.graphics, path_data_list=path_data_list)
+        repr_str: str = repr(path)
+        assert repr_str == f"Path('{path.variable_name}')"

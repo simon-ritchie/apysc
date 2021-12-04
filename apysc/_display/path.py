@@ -55,3 +55,5 @@ class Path(LineBase):
             Type name and variable name will be set
             (e.g., `Path('<variable_name>')`).
         """
+        repr_str: str = f"Path('{self.variable_name}')"
+        return repr_str

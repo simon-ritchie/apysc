@@ -61,3 +61,31 @@ class PathBezier3D(PathDataBase):
         self._control_y2 = get_copied_int_from_builtin_val(integer=control_y2)
         self._dest_x = get_copied_int_from_builtin_val(integer=dest_x)
         self._dest_y = get_copied_int_from_builtin_val(integer=dest_y)
+
+    def _get_svg_str(self) -> str:
+        """
+        Get a path's SVG string created with the current setting.
+
+        Returns
+        -------
+        svg_str : str
+            A path's SVG string created with the current setting.
+        """
+        from apysc._type.value_util import get_value_str_for_expression
+        svg_char: str = self._get_svg_char()
+        control_x1_str: str = get_value_str_for_expression(
+            value=self._control_x1)
+        control_y1_str: str = get_value_str_for_expression(
+            value=self._control_y1)
+        control_x2_str: str = get_value_str_for_expression(
+            value=self._control_x2)
+        control_y2_str: str = get_value_str_for_expression(
+            value=self._control_y2)
+        dest_x_str: str = get_value_str_for_expression(value=self._dest_x)
+        dest_y_str: str = get_value_str_for_expression(value=self._dest_y)
+        svg_str: str = (
+            f'{svg_char} {control_x1_str} {control_y1_str} '
+            f'{control_x2_str} {control_y2_str} '
+            f'{dest_x_str} {dest_y_str}'
+        )
+        return svg_str

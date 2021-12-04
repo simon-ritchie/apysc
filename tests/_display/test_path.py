@@ -5,7 +5,9 @@ from retrying import retry
 
 import apysc as ap
 from apysc._expression import var_names
+from apysc._expression import expression_data_util
 from tests.testing_helper import assert_attrs
+from apysc._geom import path_data_util
 
 
 class TestPath:
@@ -40,3 +42,25 @@ class TestPath:
             parent=sprite.graphics, path_data_list=path_data_list)
         repr_str: str = repr(path)
         assert repr_str == f"Path('{path.variable_name}')"
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_constructor_expression(self) -> None:
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        path_move_to: ap.PathMoveTo = ap.PathData.MoveTo(x=500, y=100)
+        path_data_list: List[ap.PathDataBase] = [path_move_to]
+        path: ap.Path = ap.Path(
+            parent=sprite.graphics, path_data_list=path_data_list)
+        expression: str = expression_data_util.get_current_expression()
+        path_data_expression: str = \
+            path_data_util.make_paths_expression_from_list(
+                path_data_list=path_data_list)
+        expected_expressions: List[str] = [
+            f'var {path.variable_name} = {stage.variable_name}',
+            f'\n  .path({path_data_expression})',
+            '\n  .attr({',
+            '\n    fill: "transparent",',
+            '\n  });'
+        ]
+        for expected in expected_expressions:
+            assert expected in expression, expected

@@ -84,7 +84,7 @@ class Line(LineBase):
 
     def _append_constructor_expression(self) -> None:
         """
-        Append constructor expression.
+        Append a constructor expression.
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -102,8 +102,6 @@ class Line(LineBase):
             expression = self._append_basic_vals_expression(
                 expression=expression,
                 indent_num=2)
-            expression = self._append_basic_vals_expression(
-                expression=expression, indent_num=2)
             expression += '\n  });'
             ap.append_js_expression(expression=expression)
 

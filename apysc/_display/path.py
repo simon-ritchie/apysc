@@ -50,7 +50,36 @@ class Path(LineBase):
             self._set_overflow_visible_setting()
 
     def _append_constructor_expression(self) -> None:
-        pass
+        """
+        Append a constructor expression.
+        """
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self._append_constructor_expression,
+                locals_=locals(),
+                module_name=__name__, class_=Path):
+            from apysc._display.stage import get_stage_variable_name
+            from apysc._geom.path_data_util import \
+                make_paths_expression_from_list
+            from apysc._string import indent_util
+            stage_variable_name: str = get_stage_variable_name()
+            path_data_expression: str = make_paths_expression_from_list(
+                path_data_list=self._path_data_list)
+            INDENT_NUM: int = 2
+            expression: str = (
+                f'var {self.variable_name} = {stage_variable_name}'
+                f'\n  .path({path_data_expression})'
+                '\n  .attr({'
+            )
+            expression = self._append_basic_vals_expression(
+                expression=expression,
+                indent_num=INDENT_NUM)
+            spaces: str = indent_util.make_spaces_for_html(
+                indent_num=INDENT_NUM)
+            if self._fill_color._value == '':
+                expression += f'\n{spaces}fill: "transparent",'
+            expression += '\n  });'
+            ap.append_js_expression(expression=expression)
 
     def __repr__(self) -> str:
         """

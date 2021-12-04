@@ -38,6 +38,7 @@ from apysc._geom.path_close import PathClose  # isort:skip # noqa
 from apysc._geom.path_bezier_2d import PathBezier2D  # isort:skip # noqa
 from apysc._geom.path_bezier_2d_continual import PathBezier2DContinual  # isort:skip # noqa
 from apysc._geom.path_bezier_3d import PathBezier3D  # isort:skip # noqa
+from apysc._geom.path_bezier_3d_continual import PathBezier3DContinual  # isort:skip # noqa
 from apysc._event.event import Event  # isort:skip # noqa
 from apysc._event.mouse_event import MouseEvent  # isort:skip # noqa
 from apysc._event.wheel_event import WheelEvent  # isort:skip # noqa

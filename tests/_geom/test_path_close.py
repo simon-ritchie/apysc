@@ -17,3 +17,9 @@ class TestPathClose:
                 '_relative': False,
             },
             any_obj=path_close)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_path_close(self) -> None:
+        path_close: ap.PathClose = ap.PathClose()
+        svg_str: str = path_close._get_svg_str()
+        assert svg_str == 'Z'

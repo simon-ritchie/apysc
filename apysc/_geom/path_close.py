@@ -17,3 +17,15 @@ class PathClose(PathDataBase):
         super(PathClose, self).__init__(
             path_label=PathLabel.CLOSE,
             relative=False)
+
+    def _get_svg_str(self) -> str:
+        """
+        Get a path's SVG string created with the current setting.
+
+        Returns
+        -------
+        svg_str : str
+            A path's SVG string created with the current setting.
+        """
+        svg_str: str = self._get_svg_char()
+        return svg_str

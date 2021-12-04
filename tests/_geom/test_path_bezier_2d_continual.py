@@ -14,7 +14,7 @@ class TestPathBezier2DContinual:
             ap.PathBezier2DContinual(x=10, y=20, relative=True)
         assert_attrs(
             expected_attrs={
-                '_path_label': ap.PathLabel.Bezier2DContinual,
+                '_path_label': ap.PathLabel.BEZIER_2D_CONTINUAL,
                 '_relative': True,
                 '_x': 10,
                 '_y': 20,

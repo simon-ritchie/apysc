@@ -15,7 +15,7 @@ class TestPathVertical:
         assert_attrs(
             expected_attrs={
                 '_y': 50,
-                '_path_label': ap.PathLabel.Vertical,
+                '_path_label': ap.PathLabel.VERTICAL,
                 '_relative': True,
             },
             any_obj=path_vertical,

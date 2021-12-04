@@ -15,5 +15,5 @@ class PathClose(PathDataBase):
         """
         from apysc._geom.path_label import PathLabel
         super(PathClose, self).__init__(
-            path_label=PathLabel.Close,
+            path_label=PathLabel.CLOSE,
             relative=False)

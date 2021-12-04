@@ -31,6 +31,6 @@ class PathVertical(PathDataBase):
         """
         from apysc._geom.path_label import PathLabel
         super(PathVertical, self).__init__(
-            path_label=PathLabel.Vertical,
+            path_label=PathLabel.VERTICAL,
             relative=relative)
         self._y = get_copied_int_from_builtin_val(integer=y)

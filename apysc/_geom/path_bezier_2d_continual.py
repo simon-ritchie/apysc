@@ -36,7 +36,7 @@ class PathBezier2DContinual(PathDataBase):
         """
         from apysc._geom.path_label import PathLabel
         super(PathBezier2DContinual, self).__init__(
-            path_label=PathLabel.Bezier2DContinual,
+            path_label=PathLabel.BEZIER_2D_CONTINUAL,
             relative=relative)
         self._x = get_copied_int_from_builtin_val(integer=x)
         self._y = get_copied_int_from_builtin_val(integer=y)

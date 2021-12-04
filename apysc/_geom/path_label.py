@@ -8,12 +8,12 @@ class PathLabel(Enum):
     """
     Enum class for the path labels
     """
-    MoveTo = 'M'
-    LineTo = 'L'
-    Horizontal = 'H'
-    Vertical = 'V'
-    Close = 'Z'
-    Bezier2D = 'Q'
-    Bezier2DContinual = 'T'
-    Bezier3D = 'C'
-    Bezier3DContinual = 'S'
+    MOVE_TO = 'M'
+    LINE_TO = 'L'
+    HORIZONTAL = 'H'
+    VERTICAL = 'V'
+    CLOSE = 'Z'
+    BEZIER_2D = 'Q'
+    BEZIER_2D_CONTINUAL = 'T'
+    BEZIER_3D = 'C'
+    BEZIER_3D_CONTINUAL = 'S'

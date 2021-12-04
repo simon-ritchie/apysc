@@ -13,7 +13,7 @@ class TestPathClose:
         path_close: ap.PathClose = ap.PathClose()
         assert_attrs(
             expected_attrs={
-                '_path_label': ap.PathLabel.Close,
+                '_path_label': ap.PathLabel.CLOSE,
                 '_relative': False,
             },
             any_obj=path_close)

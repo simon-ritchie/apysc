@@ -16,7 +16,7 @@ class TestPathMoveTo:
             expected_attrs={
                 '_x': 50,
                 '_y': 100,
-                '_path_label': ap.PathLabel.MoveTo,
+                '_path_label': ap.PathLabel.MOVE_TO,
                 '_relative': True,
             },
             any_obj=path_move_to)

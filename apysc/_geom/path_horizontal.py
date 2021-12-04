@@ -31,6 +31,6 @@ class PathHorizontal(PathDataBase):
         """
         from apysc._geom.path_label import PathLabel
         super(PathHorizontal, self).__init__(
-            path_label=PathLabel.Horizontal,
+            path_label=PathLabel.HORIZONTAL,
             relative=relative)
         self._x = get_copied_int_from_builtin_val(integer=x)

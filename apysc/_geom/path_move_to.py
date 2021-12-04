@@ -35,7 +35,7 @@ class PathMoveTo(PathDataBase):
         """
         from apysc._geom.path_label import PathLabel
         super(PathMoveTo, self).__init__(
-            path_label=PathLabel.MoveTo,
+            path_label=PathLabel.MOVE_TO,
             relative=relative)
         self._x = get_copied_int_from_builtin_val(integer=x)
         self._y = get_copied_int_from_builtin_val(integer=y)

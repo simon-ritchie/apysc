@@ -53,7 +53,7 @@ class PathBezier3D(PathDataBase):
         """
         from apysc._geom.path_label import PathLabel
         super(PathBezier3D, self).__init__(
-            path_label=PathLabel.Bezier3D,
+            path_label=PathLabel.BEZIER_3D,
             relative=relative)
         self._control_x1 = get_copied_int_from_builtin_val(integer=control_x1)
         self._control_y1 = get_copied_int_from_builtin_val(integer=control_y1)

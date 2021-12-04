@@ -45,7 +45,7 @@ class PathBezier2D(PathDataBase):
         """
         from apysc._geom.path_label import PathLabel
         super(PathBezier2D, self).__init__(
-            path_label=PathLabel.Bezier2D,
+            path_label=PathLabel.BEZIER_2D,
             relative=relative)
         self._control_x = get_copied_int_from_builtin_val(integer=control_x)
         self._control_y = get_copied_int_from_builtin_val(integer=control_y)

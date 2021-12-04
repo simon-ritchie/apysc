@@ -16,7 +16,7 @@ class TestPathLineTo:
             expected_attrs={
                 '_x': 50,
                 '_y': 100,
-                '_path_label': ap.PathLabel.LineTo,
+                '_path_label': ap.PathLabel.LINE_TO,
                 '_relative': True,
             },
             any_obj=path_line_to,

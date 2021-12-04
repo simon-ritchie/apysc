@@ -15,7 +15,7 @@ class TestPathHorizontal:
         assert_attrs(
             expected_attrs={
                 '_x': 50,
-                '_path_label': ap.PathLabel.Horizontal,
+                '_path_label': ap.PathLabel.HORIZONTAL,
                 '_relative': True,
             },
             any_obj=path_horizontal)

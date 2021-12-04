@@ -15,7 +15,7 @@ class TestPathBezier3D:
             dest_x=50, dest_y=60, relative=True)
         assert_attrs(
             expected_attrs={
-                '_path_label': ap.PathLabel.Bezier3D,
+                '_path_label': ap.PathLabel.BEZIER_3D,
                 '_relative': True,
                 '_control_x1': 10,
                 '_control_y1': 20,

@@ -1,8 +1,11 @@
 from random import randint
+import re
+from typing import Match, Optional
 
 from retrying import retry
 
 import apysc as ap
+from apysc._expression import var_names
 from tests.testing_helper import assert_attrs
 
 
@@ -22,3 +25,12 @@ class TestPathMoveTo:
             any_obj=path_move_to)
         assert isinstance(path_move_to._x, ap.Int)
         assert isinstance(path_move_to._y, ap.Int)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_svg_str(self) -> None:
+        path_move_to: ap.PathMoveTo = ap.PathMoveTo(x=50, y=100)
+        svg_str: str = path_move_to._get_svg_str()
+        match: Optional[Match] = re.match(
+            pattern=rf'M {var_names.INT}_\d*? {var_names.INT}_.\d?$',
+            string=svg_str)
+        assert match is not None

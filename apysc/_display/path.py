@@ -30,19 +30,27 @@ class Path(LineBase):
         path_data_list : list of PathDataBase
             Target path data settings, such as the ap.PathData.MoveTo.
         """
-        from apysc._display.graphics import Graphics
-        from apysc._expression import expression_variables_util
-        from apysc._expression import var_names
-        parent_graphics: Graphics = parent
-        variable_name: str = expression_variables_util.get_next_variable_name(
-            type_name=var_names.PATH)
-        super(Path, self).__init__(
-            parent=parent, x=0, y=0, variable_name=variable_name)
-        self._path_data_list = path_data_list
-        self._set_initial_basic_values(parent=parent)
-        self._set_line_setting_if_not_none_value_exists(
-            parent_graphics=parent_graphics)
-        self._set_overflow_visible_setting()
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__init__', locals_=locals(),
+                module_name=__name__, class_=Path):
+            from apysc._display.graphics import Graphics
+            from apysc._expression import expression_variables_util
+            from apysc._expression import var_names
+            parent_graphics: Graphics = parent
+            variable_name: str = expression_variables_util.get_next_variable_name(
+                type_name=var_names.PATH)
+            super(Path, self).__init__(
+                parent=parent, x=0, y=0, variable_name=variable_name)
+            self._path_data_list = path_data_list
+            self._set_initial_basic_values(parent=parent)
+            self._append_constructor_expression()
+            self._set_line_setting_if_not_none_value_exists(
+                parent_graphics=parent_graphics)
+            self._set_overflow_visible_setting()
+
+    def _append_constructor_expression(self) -> None:
+        pass
 
     def __repr__(self) -> str:
         """

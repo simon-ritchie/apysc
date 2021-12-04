@@ -54,5 +54,6 @@ class PathBezier2DContinual(PathDataBase):
         svg_char: str = self._get_svg_char()
         x_str: str = value_util.get_value_str_for_expression(value=self._x)
         y_str: str = value_util.get_value_str_for_expression(value=self._y)
-        svg_str: str = f'{svg_char} {x_str} {y_str}'
+        svg_str: str = (
+            f'"{svg_char} " + String({x_str}) + " " + String({y_str})')
         return svg_str

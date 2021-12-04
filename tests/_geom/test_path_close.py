@@ -22,4 +22,4 @@ class TestPathClose:
     def test_path_close(self) -> None:
         path_close: ap.PathClose = ap.PathClose()
         svg_str: str = path_close._get_svg_str()
-        assert svg_str == 'Z'
+        assert svg_str == '"Z"'

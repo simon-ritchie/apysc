@@ -28,7 +28,7 @@ class TestPathMoveTo:
         path_move_to: ap.PathMoveTo = ap.PathMoveTo(x=50, y=100)
         svg_str: str = path_move_to._get_svg_str()
         expected: str = (
-            f'M {path_move_to._x.variable_name} '
-            f'{path_move_to._y.variable_name}'
+            f'"M " + String({path_move_to._x.variable_name}) '
+            f'+ " " + String({path_move_to._y.variable_name})'
         )
         assert svg_str == expected

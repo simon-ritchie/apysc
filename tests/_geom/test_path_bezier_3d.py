@@ -39,11 +39,11 @@ class TestPathBezier3D:
             dest_x=50, dest_y=60)
         svg_str: str = path_bezier_3d._get_svg_str()
         expected: str = (
-            f'C {path_bezier_3d._control_x1.variable_name} '
-            f'{path_bezier_3d._control_y1.variable_name} '
-            f'{path_bezier_3d._control_x2.variable_name} '
-            f'{path_bezier_3d._control_y2.variable_name} '
-            f'{path_bezier_3d._dest_x.variable_name} '
-            f'{path_bezier_3d._dest_y.variable_name}'
+            f'"C " + String({path_bezier_3d._control_x1.variable_name}) '
+            f'+ " " + String({path_bezier_3d._control_y1.variable_name}) '
+            f'+ " " + String({path_bezier_3d._control_x2.variable_name}) '
+            f'+ " " + String({path_bezier_3d._control_y2.variable_name}) '
+            f'+ " " + String({path_bezier_3d._dest_x.variable_name}) '
+            f'+ " " + String({path_bezier_3d._dest_y.variable_name})'
         )
         assert svg_str == expected

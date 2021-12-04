@@ -28,4 +28,4 @@ class PathClose(PathDataBase):
             A path's SVG string created with the current setting.
         """
         svg_str: str = self._get_svg_char()
-        return svg_str
+        return f'"{svg_str}"'

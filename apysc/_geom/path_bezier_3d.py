@@ -84,8 +84,11 @@ class PathBezier3D(PathDataBase):
         dest_x_str: str = get_value_str_for_expression(value=self._dest_x)
         dest_y_str: str = get_value_str_for_expression(value=self._dest_y)
         svg_str: str = (
-            f'{svg_char} {control_x1_str} {control_y1_str} '
-            f'{control_x2_str} {control_y2_str} '
-            f'{dest_x_str} {dest_y_str}'
+            f'"{svg_char} " + String({control_x1_str}) '
+            f'+ " " + String({control_y1_str}) '
+            f'+ " " + String({control_x2_str}) '
+            f'+ " " + String({control_y2_str}) '
+            f'+ " " + String({dest_x_str}) '
+            f'+ " " + String({dest_y_str})'
         )
         return svg_str

@@ -26,5 +26,5 @@ class TestPathVertical:
     def test__get_svg_str(self) -> None:
         path_vertical: ap.PathVertical = ap.PathVertical(y=50)
         svg_str: str = path_vertical._get_svg_str()
-        expected: str = f'V {path_vertical._y.variable_name}'
+        expected: str = f'"V " + String({path_vertical._y.variable_name})'
         assert svg_str == expected

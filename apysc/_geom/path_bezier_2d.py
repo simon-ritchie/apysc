@@ -72,7 +72,9 @@ class PathBezier2D(PathDataBase):
         dest_y_str: str = value_util.get_value_str_for_expression(
             value=self._dest_y)
         svg_str: str = (
-            f'{svg_char} {control_x_str} {control_y_str} '
-            f'{dest_x_str} {dest_y_str}'
+            f'"{svg_char} " + String({control_x_str}) + " " '
+            f'+ String({control_y_str}) + " " '
+            f'+ String({dest_x_str}) + " " '
+            f'+ String({dest_y_str})'
         )
         return svg_str

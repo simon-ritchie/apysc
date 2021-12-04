@@ -29,7 +29,7 @@ class TestPathLineTo:
         path_line_to: ap.PathLineTo = ap.PathLineTo(x=50, y=100)
         svg_str: str = path_line_to._get_svg_str()
         expected: str = (
-            f'L {path_line_to._x.variable_name} '
-            f'{path_line_to._y.variable_name}'
+            f'"L " + String({path_line_to._x.variable_name}) + '
+            f'" " + String({path_line_to._y.variable_name})'
         )
         assert svg_str == expected

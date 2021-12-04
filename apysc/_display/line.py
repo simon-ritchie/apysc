@@ -1,4 +1,4 @@
-"""Implementations of Line class.
+"""Implementations of the Line class.
 """
 
 from typing import Any

@@ -27,6 +27,7 @@ from apysc._display.line_dot_setting import LineDotSetting  # isort:skip # noqa
 from apysc._display.line_dash_setting import LineDashSetting  # isort:skip # noqa
 from apysc._display.line_round_dot_setting import LineRoundDotSetting  # isort:skip # noqa
 from apysc._display.line_dash_dot_setting import LineDashDotSetting  # isort:skip # noqa
+from apysc._display.path import Path  # isort:skip # noqa
 from apysc._geom.point2d import Point2D  # isort:skip # noqa
 from apysc._geom.path_label import PathLabel  # isort:skip # noqa
 from apysc._geom.path_data_base import PathDataBase  # isort:skip # noqa

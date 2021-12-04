@@ -1,7 +1,8 @@
 """Base class implementation for the path data.
 """
 
-from abc import ABC, abstractmethod
+from abc import ABC
+from abc import abstractmethod
 
 from apysc._geom.path_label import PathLabel
 

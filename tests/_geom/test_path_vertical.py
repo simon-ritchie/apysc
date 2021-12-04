@@ -1,11 +1,8 @@
 from random import randint
-from typing import Match, Optional
-import re
 
 from retrying import retry
 
 import apysc as ap
-from apysc._expression import var_names
 from tests.testing_helper import assert_attrs
 
 

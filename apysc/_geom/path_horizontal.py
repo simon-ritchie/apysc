@@ -34,3 +34,18 @@ class PathHorizontal(PathDataBase):
             path_label=PathLabel.HORIZONTAL,
             relative=relative)
         self._x = get_copied_int_from_builtin_val(integer=x)
+
+    def _get_svg_str(self) -> str:
+        """
+        Get a path's SVG string created with the current setting.
+
+        Returns
+        -------
+        svg_str : str
+            A path's SVG string created with the current setting.
+        """
+        from apysc._type import value_util
+        svg_char: str = self._get_svg_char()
+        x_str: str = value_util.get_value_str_for_expression(value=self._x)
+        svg_str: str = f'{svg_char} {x_str}'
+        return svg_str

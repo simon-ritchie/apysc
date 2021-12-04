@@ -1,5 +1,5 @@
 from random import randint
-from typing import Optional
+from typing import List, Optional
 
 from retrying import retry
 
@@ -304,3 +304,15 @@ class TestGraphics:
         assert ellipse.width == 150
         assert ellipse.height == 200
         assert sprite.graphics._children == [ellipse]
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_draw_path(self) -> None:
+        stage: ap.Stage = ap.Stage()
+        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        path_data_list: List[ap.PathDataBase] = [
+            ap.PathMoveTo(x=50, y=50),
+        ]
+        path: ap.Path = sprite.graphics.draw_path(
+            path_data_list=path_data_list)
+        assert isinstance(path, ap.Path)
+        assert path._path_data_list == path_data_list

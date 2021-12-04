@@ -19,6 +19,8 @@ from apysc._display.polyline import Polyline
 from apysc._display.rectangle import Rectangle
 from apysc._geom.point2d import Point2D
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._geom.path_data_base import PathDataBase
+from apysc._display.path import Path
 
 
 class Graphics(
@@ -268,7 +270,7 @@ class Graphics(
         Returns
         -------
         line : Polyline
-            Line graphic instance.
+            Line graphics instance.
 
         References
         ----------
@@ -302,7 +304,7 @@ class Graphics(
         Returns
         -------
         line : Polyline
-            Line graphic instance.
+            Line graphics instance.
 
         References
         ----------
@@ -359,7 +361,7 @@ class Graphics(
         Returns
         -------
         line : Line
-            Created line graphic instance.
+            Created line graphics instance.
 
         References
         ----------
@@ -411,7 +413,7 @@ class Graphics(
         Returns
         -------
         line : Line
-            Created line graphic instance.
+            Created line graphics instance.
 
         References
         ----------
@@ -467,7 +469,7 @@ class Graphics(
         Returns
         -------
         line : Line
-            Created line graphic instance.
+            Created line graphics instance.
 
         References
         ----------
@@ -524,7 +526,7 @@ class Graphics(
         Returns
         -------
         line : Line
-            Created line graphic instance.
+            Created line graphics instance.
 
         References
         ----------
@@ -579,7 +581,7 @@ class Graphics(
         Returns
         -------
         line : Line
-            Created line graphic instance.
+            Created line graphics instance.
 
         References
         ----------
@@ -619,7 +621,7 @@ class Graphics(
         Returns
         -------
         polygon : Polygon
-            Created polygon graphic instance.
+            Created polygon graphics instance.
 
         References
         ----------
@@ -634,6 +636,28 @@ class Graphics(
             polygon: Polygon = Polygon(parent=self, points=points)
             self.add_child(polygon)
             return polygon
+
+    def draw_path(self, path_data_list: List[PathDataBase]) -> Path:
+        """
+        Draw a path vector graphics.
+
+        Parameters
+        ----------
+        path_data_list : list of PathDataBase
+            Target path data settings, such as the ap.PathData.MoveTo.
+
+        Returns
+        -------
+        path : Path
+            Created path graphics instance.
+        """
+        with ap.DebugInfo(
+                callable_=self.draw_path, locals_=locals(),
+                module_name=__name__, class_=Graphics):
+            path: Path = Path(
+                parent=self, path_data_list=path_data_list)
+            self.add_child(path)
+            return path
 
     def __repr__(self) -> str:
         """

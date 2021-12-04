@@ -1,8 +1,11 @@
 from random import randint
+from typing import Match, Optional
+import re
 
 from retrying import retry
 
 import apysc as ap
+from apysc._expression import var_names
 from tests.testing_helper import assert_attrs
 
 
@@ -21,3 +24,12 @@ class TestPathVertical:
             any_obj=path_vertical,
         )
         assert isinstance(path_vertical._y, ap.Int)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__get_svg_str(self) -> None:
+        path_vertical: ap.PathVertical = ap.PathVertical(y=50)
+        svg_str: str = path_vertical._get_svg_str()
+        match: Optional[Match] = re.match(
+            pattern=rf'V {var_names.INT}_\d+?$',
+            string=svg_str)
+        assert match is not None

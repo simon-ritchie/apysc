@@ -31,8 +31,8 @@ class TestPathLineTo:
     def test__get_svg_str(self) -> None:
         path_line_to: ap.PathLineTo = ap.PathLineTo(x=50, y=100)
         svg_str: str = path_line_to._get_svg_str()
-        print(svg_str)
-        match: Optional[Match] = re.match(
-            pattern=rf'L {var_names.INT}_\d+? {var_names.INT}_\d+?$',
-            string=svg_str)
-        assert match is not None
+        expected: str = (
+            f'L {path_line_to._x.variable_name} '
+            f'{path_line_to._y.variable_name}'
+        )
+        assert svg_str == expected

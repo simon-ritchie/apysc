@@ -29,7 +29,5 @@ class TestPathVertical:
     def test__get_svg_str(self) -> None:
         path_vertical: ap.PathVertical = ap.PathVertical(y=50)
         svg_str: str = path_vertical._get_svg_str()
-        match: Optional[Match] = re.match(
-            pattern=rf'V {var_names.INT}_\d+?$',
-            string=svg_str)
-        assert match is not None
+        expected: str = f'V {path_vertical._y.variable_name}'
+        assert svg_str == expected

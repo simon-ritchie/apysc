@@ -28,7 +28,5 @@ class TestPathHorizontal:
     def test__get_svg_str(self) -> None:
         path_horizontal: ap.PathHorizontal = ap.PathHorizontal(x=50)
         svg_str = path_horizontal._get_svg_str()
-        match: Optional[Match] = re.match(
-            pattern=rf'H {var_names.INT}_\d?$',
-            string=svg_str)
-        assert match is not None
+        expected: str = f'H {path_horizontal._x.variable_name}'
+        assert svg_str == expected

@@ -31,7 +31,8 @@ class TestPathBezier2DContinual:
         path_bezier_2d_continual: ap.PathBezier2DContinual = \
             ap.PathBezier2DContinual(x=10, y=20)
         svg_str: str = path_bezier_2d_continual._get_svg_str()
-        match: Optional[Match] = re.match(
-            pattern=rf'T {var_names.INT}_\d+? {var_names.INT}_\d+?$',
-            string=svg_str)
-        assert match is not None
+        expected: str = (
+            f'T {path_bezier_2d_continual._x.variable_name} '
+            f'{path_bezier_2d_continual._y.variable_name}'
+        )
+        assert svg_str == expected

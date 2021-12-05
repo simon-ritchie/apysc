@@ -562,7 +562,7 @@ class Array(
             )
             ap.append_js_expression(expression=expression)
 
-    def sort(self, ascending: bool = True) -> None:
+    def sort(self, *, ascending: bool = True) -> None:
         """
         Sort this array in place.
 
@@ -594,6 +594,7 @@ class Array(
 
     def slice(
             self,
+            *,
             start: Optional[Union[int, ap.Int]] = None,
             end: Optional[Union[int, ap.Int]] = None) -> 'Array':
         """

@@ -502,7 +502,7 @@ def _validate_limit_clause(sql: str) -> None:
         f'LIMIT clause cannot use in the UPDATE or DELETE sql: {sql_}')
 
 
-def exec_query(sql: str, commit: bool = True) -> None:
+def exec_query(sql: str, *, commit: bool = True) -> None:
     """
     Execute a SQLite sql query.
 

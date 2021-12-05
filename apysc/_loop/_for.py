@@ -28,6 +28,7 @@ class For(Generic[T]):
 
     def __init__(
             self, arr_or_dict: Union[ap.Array, ap.Dictionary],
+            *,
             locals_: Optional[Dict[str, Any]] = None,
             globals_: Optional[Dict[str, Any]] = None) -> None:
         """

@@ -41,7 +41,7 @@ class TestFor:
     def test__append_arr_enter_expression(self) -> None:
         expression_data_util.empty_expression()
         arr: ap.Array = ap.Array([1, 2, 3])
-        with ap.For(arr, locals(), globals()) as i:
+        with ap.For(arr, locals_=locals(), globals_=globals()) as i:
             pass
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
@@ -58,7 +58,7 @@ class TestFor:
     def test___enter__(self) -> None:
         indent_num.reset()
         arr: ap.Array = ap.Array([1, 2, 3])
-        with ap.For(arr, locals(), globals()) as i:
+        with ap.For(arr, locals_=locals(), globals_=globals()) as i:
             current_indent_num: int = indent_num.get_current_indent_num()
             assert current_indent_num == 1
             current_loop_count: int = loop_count.get_current_loop_count()
@@ -83,7 +83,7 @@ class TestFor:
         indent_num.reset()
         int_1: ap.Int = ap.Int(10)
         arr: ap.Array = ap.Array([1, 2, 3])
-        with ap.For(arr, locals(), globals()) as i:
+        with ap.For(arr, locals_=locals(), globals_=globals()) as i:
             int_1.value = 20
         assert int_1.value == 10
         current_indent_num: int = indent_num.get_current_indent_num()

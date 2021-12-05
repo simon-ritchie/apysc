@@ -14,13 +14,13 @@ from apysc._display.ellipse import Ellipse
 from apysc._display.graphics_clear_interface import GraphicsClearInterface
 from apysc._display.line import Line
 from apysc._display.line_style_interface import LineStyleInterface
+from apysc._display.path import Path
 from apysc._display.polygon import Polygon
 from apysc._display.polyline import Polyline
 from apysc._display.rectangle import Rectangle
+from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.point2d import Point2D
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._geom.path_data_base import PathDataBase
-from apysc._display.path import Path
 
 
 class Graphics(

@@ -3,11 +3,11 @@
 
 from typing import List
 
-from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.path_bezier_2d import PathBezier2D
-from apysc._geom.path_bezier_3d import PathBezier3D
 from apysc._geom.path_bezier_2d_continual import PathBezier2DContinual
+from apysc._geom.path_bezier_3d import PathBezier3D
 from apysc._geom.path_bezier_3d_continual import PathBezier3DContinual
+from apysc._geom.path_data_base import PathDataBase
 
 
 def validate_path_data_list(

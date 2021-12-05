@@ -2,8 +2,8 @@ from random import randint
 
 from retrying import retry
 
-from apysc._validation import path_validation
 import apysc as ap
+from apysc._validation import path_validation
 from tests.testing_helper import assert_raises
 
 

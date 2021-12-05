@@ -1,7 +1,8 @@
 """Implementations of the Path class.
 """
 
-from typing import Any, List
+from typing import Any
+from typing import List
 
 from apysc._display.line_base import LineBase
 from apysc._geom.path_data_base import PathDataBase

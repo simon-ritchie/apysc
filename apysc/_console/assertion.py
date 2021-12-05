@@ -30,7 +30,8 @@ from typing import Any
 from typing import Tuple
 
 
-def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
+def assert_equal(
+        expected: Any, actual: Any, *, msg: str = '') -> None:
     """
     JavaScript assertion interface for equal condition.
 
@@ -74,7 +75,8 @@ def assert_equal(expected: Any, actual: Any, msg: str = '') -> None:
         ap.append_js_expression(expression=expression)
 
 
-def assert_not_equal(expected: Any, actual: Any, msg: str = '') -> None:
+def assert_not_equal(
+        expected: Any, actual: Any, *, msg: str = '') -> None:
     """
     JavaScript assertion interface for not equal condition.
 
@@ -120,7 +122,7 @@ def assert_not_equal(expected: Any, actual: Any, msg: str = '') -> None:
 
 
 def assert_true(
-        actual: Any, type_strict: bool = True, msg: str = '') -> None:
+        actual: Any, *, type_strict: bool = True, msg: str = '') -> None:
     """
     JavaScript assertion interface for true condition.
 
@@ -157,7 +159,7 @@ def assert_true(
 
 
 def assert_false(
-        actual: Any, type_strict: bool = True, msg: str = '') -> None:
+        actual: Any, *, type_strict: bool = True, msg: str = '') -> None:
     """
     JavaScript assertion interface for false condition.
 
@@ -194,7 +196,7 @@ def assert_false(
 
 
 def assert_arrays_equal(
-        expected: Any, actual: Any, msg: str = '') -> None:
+        expected: Any, actual: Any, *, msg: str = '') -> None:
     """
     JavaScript assertion interface for Array values equal condition.
 
@@ -227,7 +229,7 @@ def assert_arrays_equal(
 
 
 def assert_arrays_not_equal(
-        expected: Any, actual: Any, msg: str = '') -> None:
+        expected: Any, actual: Any, *, msg: str = '') -> None:
     """
     JavaScript assertion interface for Array values not equal condition.
 
@@ -259,7 +261,7 @@ def assert_arrays_not_equal(
         ap.append_js_expression(expression=expression)
 
 
-def assert_dicts_equal(expected: Any, actual: Any, msg: str = '') -> None:
+def assert_dicts_equal(expected: Any, actual: Any, *, msg: str = '') -> None:
     """
     JavaScript assertion interface for Dictionary values equal
     condition.
@@ -294,7 +296,7 @@ def assert_dicts_equal(expected: Any, actual: Any, msg: str = '') -> None:
 
 
 def assert_dicts_not_equal(
-        expected: Any, actual: Any, msg: str = '') -> None:
+        expected: Any, actual: Any, *, msg: str = '') -> None:
     """
     JavaScript assertion interface for Dictionary values not equal
     condition.
@@ -328,7 +330,7 @@ def assert_dicts_not_equal(
         ap.append_js_expression(expression=expression)
 
 
-def assert_defined(actual: Any, msg: str = '') -> None:
+def assert_defined(actual: Any, *, msg: str = '') -> None:
     """
     JavaScript assertion interface for defined (not undefined)
     value condition.
@@ -358,7 +360,7 @@ def assert_defined(actual: Any, msg: str = '') -> None:
         ap.append_js_expression(expression=expression)
 
 
-def assert_undefined(actual: Any, msg: str = '') -> None:
+def assert_undefined(actual: Any, *, msg: str = '') -> None:
     """
     JavaScript assertion interface for undefined value condition.
 

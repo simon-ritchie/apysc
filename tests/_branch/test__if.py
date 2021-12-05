@@ -87,7 +87,7 @@ class TestIf:
         assert expected in expression
 
         with pytest.raises(ValueError):  # type: ignore
-            with ap.If(None, locals(), globals()):
+            with ap.If(None, locals_=locals(), globals_=globals()):
                 pass
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -108,7 +108,7 @@ class TestIf:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_last_scope(self) -> None:
-        with ap.If(ap.Boolean(True), locals(), globals()):
+        with ap.If(ap.Boolean(True), locals_=locals(), globals_=globals()):
             pass
         last_scope_: LastScope = last_scope.get_last_scope()
         assert last_scope_ == LastScope.IF

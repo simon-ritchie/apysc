@@ -23,14 +23,14 @@ class TestElif:
                 ValueError,
                 match=r'Elif interface can only use right '
                       r'after If or Elif'):  # type: ignore
-            with ap.Elif(boolean_1, locals(), globals()):
+            with ap.Elif(boolean_1, locals_=locals(), globals_=globals()):
                 pass
 
-        with ap.If(boolean_1, locals(), globals()):
+        with ap.If(boolean_1, locals_=locals(), globals_=globals()):
             pass
-        with ap.Elif(boolean_1, locals(), globals()):
+        with ap.Elif(boolean_1, locals_=locals(), globals_=globals()):
             pass
-        with ap.Elif(boolean_1, locals(), globals()):
+        with ap.Elif(boolean_1, locals_=locals(), globals_=globals()):
             pass
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
@@ -41,21 +41,21 @@ class TestElif:
         )
         assert expected in expression
 
-        with ap.If(boolean_1, locals(), globals()):
+        with ap.If(boolean_1, locals_=locals(), globals_=globals()):
             pass
         with pytest.raises(
                 ValueError,
                 match=r'Elif expression\'s condition argument '
                       r'can\'t be set None.'):  # type: ignore
-            with ap.Elif(None, locals(), globals()):
+            with ap.Elif(None, locals_=locals(), globals_=globals()):
                 pass
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_last_scope(self) -> None:
         boolean_1: ap.Boolean = ap.Boolean(True)
-        with ap.If(boolean_1, locals(), globals()):
+        with ap.If(boolean_1, locals_=locals(), globals_=globals()):
             pass
-        with ap.Elif(boolean_1, locals(), globals()):
+        with ap.Elif(boolean_1, locals_=locals(), globals_=globals()):
             pass
         last_scope_: LastScope = last_scope.get_last_scope()
         assert last_scope_ == LastScope.ELIF

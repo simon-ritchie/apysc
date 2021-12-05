@@ -22,6 +22,7 @@ class Else(IfBase):
 
     def __init__(
             self,
+            *,
             locals_: Optional[Dict[str, Any]] = None,
             globals_: Optional[Dict[str, Any]] = None) -> None:
         """

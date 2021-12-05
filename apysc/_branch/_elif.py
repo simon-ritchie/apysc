@@ -24,6 +24,7 @@ class Elif(IfBase):
     def __init__(
             self,
             condition: Optional[ap.Boolean],
+            *,
             locals_: Optional[Dict[str, Any]] = None,
             globals_: Optional[Dict[str, Any]] = None) -> None:
         """

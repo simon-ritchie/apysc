@@ -17,14 +17,14 @@ class TestElse:
         last_scope.reset()
 
         with pytest.raises(ValueError):  # type: ignore
-            with ap.Else(locals(), globals()):
+            with ap.Else(locals_=locals(), globals_=globals()):
                 pass
 
         boolean_1: ap.Boolean = ap.Boolean(True)
         int_1: ap.Int = ap.Int(10)
-        with ap.If(boolean_1, locals(), globals()):
+        with ap.If(boolean_1, locals_=locals(), globals_=globals()):
             pass
-        with ap.Else(locals(), globals()):
+        with ap.Else(locals_=locals(), globals_=globals()):
             int_1.value = 20
 
         expression: str = expression_data_util.get_current_expression()
@@ -43,9 +43,9 @@ class TestElse:
         expression_data_util.empty_expression()
         last_scope.reset()
         boolean_1: ap.Boolean = ap.Boolean(True)
-        with ap.If(boolean_1, locals(), globals()):
+        with ap.If(boolean_1, locals_=locals(), globals_=globals()):
             pass
-        with ap.Else(locals(), globals()):
+        with ap.Else(locals_=locals(), globals_=globals()):
             pass
         last_scope_: LastScope = last_scope.get_last_scope()
         assert last_scope_ == LastScope.ELSE

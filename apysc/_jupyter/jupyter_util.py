@@ -50,6 +50,7 @@ def _save_overall_html(html_file_name: str, minify: bool) -> None:
 def display_on_jupyter(
         stage: Stage,
         html_file_name: str,
+        *,
         minify: bool = True) -> None:
     """
     Save the overall HTML and display it on the Jupyter.
@@ -89,7 +90,7 @@ def display_on_jupyter(
 
 
 def display_on_colaboratory(
-        html_file_name: str,
+        html_file_name: str, *,
         minify: bool = True) -> None:
     """
     Save the overall HTML and display it on the Google Colaboratory.

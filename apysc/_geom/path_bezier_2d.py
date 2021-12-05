@@ -25,6 +25,7 @@ class PathBezier2D(PathDataBase):
             control_y: Union[int, Int],
             dest_x: Union[int, Int],
             dest_y: Union[int, Int],
+            *,
             relative: bool = False) -> None:
         """
         Path data class for the svg's `2D bezier curve` (Q).

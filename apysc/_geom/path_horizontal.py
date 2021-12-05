@@ -17,7 +17,7 @@ class PathHorizontal(PathDataBase):
     _x: Int
 
     def __init__(
-            self, x: Union[int, Int], relative: bool = False) -> None:
+            self, x: Union[int, Int], *, relative: bool = False) -> None:
         """
         Path data class for the svg's `horizontal line` (H).
 

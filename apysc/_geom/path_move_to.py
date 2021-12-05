@@ -18,7 +18,7 @@ class PathMoveTo(PathDataBase):
     _y: Int
 
     def __init__(
-            self, x: Union[int, Int], y: Union[int, Int],
+            self, x: Union[int, Int], y: Union[int, Int], *,
             relative: bool = False) -> None:
         """
         Path data class for the svg's `move to` (M).

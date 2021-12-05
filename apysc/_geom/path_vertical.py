@@ -17,7 +17,7 @@ class PathVertical(PathDataBase):
     _y: Int
 
     def __init__(
-            self, y: Union[int, Int], relative: bool = False) -> None:
+            self, y: Union[int, Int], *, relative: bool = False) -> None:
         """
         Path data class for the svg's `vertical line' (V).
 

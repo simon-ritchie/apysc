@@ -26,6 +26,7 @@ class PathBezier3DContinual(PathDataBase):
             control_y: Union[int, Int],
             dest_x: Union[int, Int],
             dest_y: Union[int, Int],
+            *,
             relative: bool = False):
         """
         Path data class for the svg's `continual 3D bezier curve` (S).

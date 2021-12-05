@@ -29,6 +29,7 @@ class PathBezier3D(PathDataBase):
             control_y2: Union[int, Int],
             dest_x: Union[int, Int],
             dest_y: Union[int, Int],
+            *,
             relative: bool = False) -> None:
         """
         Path data class for the svg's `3D bezier curve` (C).

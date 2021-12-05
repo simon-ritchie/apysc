@@ -36,6 +36,7 @@ class LineStyleInterface(RevertInterface):
 
     def line_style(
             self, color: StrOrString,
+            *,
             thickness: Union[int, ap.Int] = 1,
             alpha: Union[float, ap.Number] = 1.0,
             cap: Optional[LineCaps] = None,

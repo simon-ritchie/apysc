@@ -24,7 +24,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
     graphics: Graphics
 
     def __init__(
-            self, stage: Stage,
+            self, stage: Stage, *,
             variable_name: Optional[str] = None) -> None:
         """
         Basic display object that can be parent.

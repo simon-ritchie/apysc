@@ -40,6 +40,7 @@ class Graphics(
 
     def __init__(
             self, parent: 'ap.Sprite',
+            *,
             variable_name: Optional[str] = None) -> None:
         """
         Create a object that has each vector graphics interface.

@@ -40,7 +40,7 @@ class Stage(
     stage: 'Stage'
 
     def __init__(
-            self, stage_width: int = 300, stage_height: int = 185,
+            self, *, stage_width: int = 300, stage_height: int = 185,
             background_color: str = '#ffffff',
             add_to: str = 'body',
             stage_elem_id: Optional[str] = None) -> None:

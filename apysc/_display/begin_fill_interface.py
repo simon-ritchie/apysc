@@ -23,6 +23,7 @@ class BeginFillInterface(RevertInterface):
 
     def begin_fill(
             self, color: StrOrString,
+            *,
             alpha: Union[float, ap.Number] = 1.0) -> None:
         """
         Set single color value for fill.

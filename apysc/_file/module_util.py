@@ -19,6 +19,7 @@ from typing import Optional
 
 
 def get_module_paths_recursively(
+        *,
         dir_path: str = './',
         module_paths: Optional[List[str]] = None) -> List[str]:
     """

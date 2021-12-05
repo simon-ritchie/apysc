@@ -158,7 +158,7 @@ def get_abs_module_dir_path(module: ModuleType) -> str:
 
 
 def get_specified_ext_file_paths_recursively(
-        extension: str, dir_path: str = './',
+        extension: str, *, dir_path: str = './',
         file_paths: Optional[List[str]] = None) -> List[str]:
     """
     Get specified extension file paths recursively.

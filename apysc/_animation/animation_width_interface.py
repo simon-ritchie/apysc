@@ -14,6 +14,7 @@ class AnimationWidthInterface(AnimationInterfaceBase):
     def animation_width(
             self,
             width: Union[int, ap.Int],
+            *,
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationWidth:

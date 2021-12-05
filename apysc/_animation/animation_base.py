@@ -54,6 +54,7 @@ class AnimationBase(
     def _set_basic_animation_settings(
             self,
             target: _T,
+            *,
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:
@@ -154,7 +155,7 @@ class AnimationBase(
         return expression
 
     def animation_complete(
-            self, handler: _Handler[_O],
+            self, handler: _Handler[_O], *,
             options: Optional[_O] = None) -> 'AnimationBase':
         """
         Add a animation complete event listener setting.

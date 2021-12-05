@@ -54,7 +54,7 @@ class _TestAnimation(AnimationBase):
 
 class TestAnimationBase:
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    # @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_basic_animation_settings(self) -> None:
         animation: _TestAnimation = _TestAnimation()
         target: VariableNameInterface = VariableNameInterface()

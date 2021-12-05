@@ -26,6 +26,7 @@ class AnimationLineColor(AnimationBase[_T], Generic[_T]):
             self,
             target: _T,
             line_color: StrOrString,
+            *,
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:

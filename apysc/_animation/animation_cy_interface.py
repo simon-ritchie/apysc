@@ -15,6 +15,7 @@ class AnimationCyInterface(AnimationInterfaceBase):
     def animation_y(
             self,
             y: Union[int, ap.Int],
+            *,
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationCy:

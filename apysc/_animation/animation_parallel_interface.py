@@ -16,6 +16,7 @@ class AnimationParallelInterface(AnimationInterfaceBase):
     def animation_parallel(
             self,
             animations: List[AnimationBase],
+            *,
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationParallel:

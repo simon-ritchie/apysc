@@ -26,6 +26,7 @@ class AnimationScaleXFromCenter(AnimationBase[_T], Generic[_T]):
             self,
             target: _T,
             scale_x_from_center: Union[float, ap.Number],
+            *,
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:

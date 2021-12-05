@@ -15,6 +15,7 @@ class AnimationSkewYInterface(AnimationInterfaceBase):
     def _animation_skew_y(
             self,
             skew_y: Union[int, ap.Int],
+            *,
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationSkewY:

@@ -14,6 +14,7 @@ class AnimationLineThicknessInterface(AnimationInterfaceBase):
     def animation_line_thickness(
             self,
             thickness: Union[int, ap.Int],
+            *,
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationLineThickness:

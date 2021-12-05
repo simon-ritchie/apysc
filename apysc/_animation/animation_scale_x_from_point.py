@@ -29,6 +29,7 @@ class AnimationScaleXFromPoint(AnimationBase[_T], Generic[_T]):
             target: _T,
             scale_x_from_point: Union[float, ap.Number],
             x: Union[int, ap.Int],
+            *,
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:

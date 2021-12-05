@@ -17,6 +17,7 @@ class AnimationScaleYFromPointInterface(AnimationInterfaceBase):
             self,
             scale_y_from_point: Union[float, ap.Number],
             y: Union[int, ap.Int],
+            *,
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationScaleYFromPoint:

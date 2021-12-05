@@ -17,6 +17,7 @@ class AnimationLineColorInterface(AnimationInterfaceBase):
     def animation_line_color(
             self,
             line_color: StrOrString,
+            *,
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationLineColor:

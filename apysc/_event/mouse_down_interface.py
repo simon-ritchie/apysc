@@ -19,7 +19,7 @@ class MouseDownInterface(MouseEventInterfaceBase):
     _mouse_down_handlers: Dict[str, HandlerData]
 
     def mousedown(
-            self, handler: _Handler[_O],
+            self, handler: _Handler[_O], *,
             options: Optional[_O] = None) -> str:
         """
         Add mouse down event listener setting.

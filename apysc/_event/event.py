@@ -19,6 +19,7 @@ class Event(Generic[T], VariableNameInterface):
 
     def __init__(
             self, this: T,
+            *,
             type_name: Optional[str] = None) -> None:
         """
         Basic event class.

@@ -20,6 +20,7 @@ class MouseEventInterfaceBase:
     def _set_mouse_event_handler_data(
             self, handler: _Handler[_O],
             handlers_dict: Dict[str, HandlerData],
+            *,
             options: Optional[_O]) -> None:
         """
         Set a handler's data to the given dictionary.

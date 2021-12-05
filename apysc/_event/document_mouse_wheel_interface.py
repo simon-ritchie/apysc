@@ -18,6 +18,7 @@ _Handler = Callable[[ap.WheelEvent, _O], None]
 
 def bind_wheel_event_to_document(
         handler: _Handler[_O],
+        *,
         options: Optional[_O] = None) -> str:
     """
     Bind wheel event to document (overall window).

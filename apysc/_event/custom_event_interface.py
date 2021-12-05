@@ -111,6 +111,7 @@ class CustomEventInterface(BlankObjectInterface):
             self, custom_event_type: Union[CustomEventType, str],
             handler: _Handler,
             e: Event,
+            *,
             options: Optional[Any] = None,
             in_handler_head_expression: str = '') -> str:
         """

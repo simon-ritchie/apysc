@@ -19,7 +19,7 @@ class MouseOutInterface(MouseEventInterfaceBase):
     _mouse_out_handlers: Dict[str, HandlerData]
 
     def mouseout(
-            self, handler: _Handler[_O],
+            self, handler: _Handler[_O], *,
             options: Optional[_O] = None) -> str:
         """
         Add mouse out event listener setting.

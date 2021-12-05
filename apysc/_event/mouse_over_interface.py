@@ -19,7 +19,7 @@ class MouseOverInterface(MouseEventInterfaceBase):
     _mouse_over_handlers: Dict[str, HandlerData]
 
     def mouseover(
-            self, handler: _Handler[_O],
+            self, handler: _Handler[_O], *,
             options: Optional[_O] = None) -> str:
         """
         Add mouse over event listener setting.

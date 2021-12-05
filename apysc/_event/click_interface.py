@@ -19,7 +19,7 @@ class ClickInterface(MouseEventInterfaceBase):
     _click_handlers: Dict[str, HandlerData]
 
     def click(
-            self, handler: _Handler[_O],
+            self, handler: _Handler[_O], *,
             options: Optional[_O] = None) -> str:
         """
         Add a click event listener setting.

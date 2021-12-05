@@ -19,7 +19,7 @@ class MouseUpInterface(MouseEventInterfaceBase):
     _mouse_up_handlers: Dict[str, HandlerData]
 
     def mouseup(
-            self, handler: _Handler[_O],
+            self, handler: _Handler[_O], *,
             options: Optional[_O] = None) -> str:
         """
         Add mouse up event listener setting.

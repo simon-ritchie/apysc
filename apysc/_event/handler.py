@@ -61,6 +61,7 @@ def append_handler_expression(
         handler_data: HandlerData,
         handler_name: str,
         e: Event,
+        *,
         in_handler_head_expression: str = '') -> None:
     """
     Append a handler's expression.

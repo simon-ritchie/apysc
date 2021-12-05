@@ -19,7 +19,7 @@ class MouseMoveInterface(MouseEventInterfaceBase):
     _mouse_move_handlers: Dict[str, HandlerData]
 
     def mousemove(
-            self, handler: _Handler[_O],
+            self, handler: _Handler[_O], *,
             options: Optional[_O] = None) -> str:
         """
         Add mouse move event listener setting.

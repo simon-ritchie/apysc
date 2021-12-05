@@ -50,11 +50,11 @@ def main() -> None:
 
     string_4: ap.String = ap.String('Hello!')
     boolean_1: ap.Boolean = ap.Boolean(False)
-    with ap.If(boolean_1, locals(), globals()):
+    with ap.If(boolean_1, locals_=locals(), globals_=globals()):
         string_4 += ' World!'
     ap.assert_equal(expected='Hello!', actual=string_4)
 
-    with ap.If(boolean_1, locals(), globals()):
+    with ap.If(boolean_1, locals_=locals(), globals_=globals()):
         string_4 *= 3
     ap.assert_equal(expected='Hello!', actual=string_4)
 

@@ -85,19 +85,19 @@ def main() -> None:
 
     int_14: ap.Int = ap.Int(10)
     boolean_1: ap.Boolean = ap.Boolean(False)
-    with ap.If(boolean_1, locals(), globals()):
+    with ap.If(boolean_1, locals_=locals(), globals_=globals()):
         int_14 += 10
     ap.assert_equal(expected=10, actual=int_14)
 
-    with ap.If(boolean_1, locals(), globals()):
+    with ap.If(boolean_1, locals_=locals(), globals_=globals()):
         int_14 -= 10
     ap.assert_equal(expected=10, actual=int_14)
 
-    with ap.If(boolean_1, locals(), globals()):
+    with ap.If(boolean_1, locals_=locals(), globals_=globals()):
         int_14 *= 2
     ap.assert_equal(expected=10, actual=int_14)
 
-    with ap.If(boolean_1, locals(), globals()):
+    with ap.If(boolean_1, locals_=locals(), globals_=globals()):
         int_14 /= 2
     ap.assert_equal(expected=10, actual=int_14)
 

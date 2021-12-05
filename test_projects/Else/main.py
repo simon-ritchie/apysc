@@ -28,9 +28,9 @@ def main() -> None:
     _: ap.Stage = ap.Stage(background_color='#333')
 
     int_1: ap.Int = ap.Int(10)
-    with ap.If(int_1 == 20, locals(), globals()):
+    with ap.If(int_1 == 20, locals_=locals(), globals_=globals()):
         int_1.value = 100
-    with ap.Else(locals(), globals()):
+    with ap.Else(locals_=locals(), globals_=globals()):
         ap.assert_equal(expected=10, actual=int_1)
         int_1.value = 300
     ap.assert_equal(expected=300, actual=int_1)

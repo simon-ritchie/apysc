@@ -31,7 +31,7 @@ def main() -> None:
         stage_width=1000, stage_height=500)
 
     arr_1: ap.Array = ap.Array([ap.Int(1), ap.Int(2), ap.Int(3)])
-    with ap.For(arr_1, locals(), globals()) as i:
+    with ap.For(arr_1, locals_=locals(), globals_=globals()) as i:
         arr_1[i] += 10
     ap.assert_arrays_equal(
         expected=[11, 12, 13], actual=arr_1)
@@ -39,7 +39,7 @@ def main() -> None:
     sprite: ap.Sprite = ap.Sprite(stage=stage)
     sprite.graphics.begin_fill(color='#0af')
     arr_2: ap.Array = ap.Array(list(range(3)))
-    with ap.For(arr_2, locals(), globals()) as i:
+    with ap.For(arr_2, locals_=locals(), globals_=globals()) as i:
         sprite.graphics.draw_rect(
             x=(i * 100) + 50,
             y=(i * 100) + 50,

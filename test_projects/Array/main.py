@@ -136,12 +136,12 @@ def main() -> None:
     int_4: ap.Int = ap.Int(10)
     array_25: ap.Array = ap.Array([1, 2])
     array_26: ap.Array = ap.Array([1, 2])
-    with ap.If(array_25 == array_26, locals(), globals()):
+    with ap.If(array_25 == array_26, locals_=locals(), globals_=globals()):
         int_4.value = 20
     ap.assert_equal(expected=20, actual=int_4)
 
     array_27: ap.Array = ap.Array([3, 4])
-    with ap.If(array_26 != array_27, locals(), globals()):
+    with ap.If(array_26 != array_27, locals_=locals(), globals_=globals()):
         int_4.value = 30
     ap.assert_equal(expected=30, actual=int_4)
 

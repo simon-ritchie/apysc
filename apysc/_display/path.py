@@ -37,6 +37,9 @@ class Path(LineBase):
             from apysc._display.graphics import Graphics
             from apysc._expression import expression_variables_util
             from apysc._expression import var_names
+            from apysc._validation import path_validation
+            path_validation.validate_path_data_list(
+                path_data_list=path_data_list)
             parent_graphics: Graphics = parent
             variable_name: str = expression_variables_util.get_next_variable_name(
                 type_name=var_names.PATH)

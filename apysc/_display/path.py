@@ -42,8 +42,8 @@ class Path(LineBase):
             path_validation.validate_path_data_list(
                 path_data_list=path_data_list)
             parent_graphics: Graphics = parent
-            variable_name: str = expression_variables_util.get_next_variable_name(
-                type_name=var_names.PATH)
+            variable_name: str = expression_variables_util.\
+                get_next_variable_name(type_name=var_names.PATH)
             super(Path, self).__init__(
                 parent=parent, x=0, y=0, variable_name=variable_name)
             self._path_data_list = path_data_list

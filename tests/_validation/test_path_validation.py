@@ -70,3 +70,31 @@ def test__validate_bezier_3d_continual_pre_data() -> None:
             bezier_3d_continual,
             bezier_3d_continual,
         ])
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_validate_path_data_list() -> None:
+    move_to: ap.PathMoveTo = ap.PathMoveTo(x=0, y=50)
+    bezier_2d_continual: ap.PathBezier2DContinual = ap.PathBezier2DContinual(
+        x=100, y=100)
+    bezier_3d_continual: ap.PathBezier3DContinual = ap.PathBezier3DContinual(
+        control_x=200, control_y=200, dest_x=250, dest_y=100)
+    assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=path_validation.validate_path_data_list,
+        kwargs={'path_data_list': []},
+        match='`path_data_list` argument can not be empty.',
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=path_validation.validate_path_data_list,
+        kwargs={'path_data_list': [bezier_2d_continual]},
+    )
+    assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=path_validation.validate_path_data_list,
+        kwargs={'path_data_list': [bezier_3d_continual]},
+    )
+
+    path_validation.validate_path_data_list(
+        path_data_list=[move_to])

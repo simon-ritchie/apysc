@@ -49,6 +49,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
             self,
             handler: _Handler[_O1],
             delay: Union[int, float, NumberValueInterface, FPS],
+            *,
             repeat_count: Union[int, ap.Int] = 0,
             options: Optional[_O1] = None) -> None:
         """
@@ -399,7 +400,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
             self._current_count.value = 0
 
     def timer_complete(
-            self, handler: _Handler[_O2],
+            self, handler: _Handler[_O2], *,
             options: Optional[_O2] = None) -> str:
         """
         Add a timer complete event listener setting.

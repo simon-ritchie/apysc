@@ -27,7 +27,7 @@ class PathDataBase(ABC):
         ----------
         path_label : PathLabel
             Target (svg's) path label.
-        relative : bool
+        relative : bool or Boolean
             The boolean value indicating whether the path
             coordinates are relative or not (absolute).
         """

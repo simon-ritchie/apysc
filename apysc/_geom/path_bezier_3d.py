@@ -7,6 +7,7 @@ from apysc._converter.to_apysc_val_from_builtin import \
     get_copied_int_from_builtin_val
 from apysc._geom.path_data_base import PathDataBase
 from apysc._type.int import Int
+from apysc._type.boolean import Boolean
 
 
 class PathBezier3D(PathDataBase):
@@ -30,7 +31,7 @@ class PathBezier3D(PathDataBase):
             dest_x: Union[int, Int],
             dest_y: Union[int, Int],
             *,
-            relative: bool = False) -> None:
+            relative: Union[bool, Boolean] = False) -> None:
         """
         Path data class for the svg's `3D bezier curve` (C).
 
@@ -48,7 +49,7 @@ class PathBezier3D(PathDataBase):
             X-coordinate of the destination point.
         dest_y : int or Int
             Y-coordinate of the destination point.
-        relative : bool, default False
+        relative : bool or Boolean, default False
             The boolean value indicating whether the path
             coordinates are relative or not (absolute).
         """

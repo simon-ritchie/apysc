@@ -3,8 +3,10 @@
 
 from abc import ABC
 from abc import abstractmethod
+from typing import Union
 
 from apysc._geom.path_label import PathLabel
+from apysc._type.boolean import Boolean
 
 
 class PathDataBase(ABC):
@@ -13,9 +15,11 @@ class PathDataBase(ABC):
     """
 
     _path_label: PathLabel
-    _relative: bool
+    _relative: Boolean
 
-    def __init__(self, path_label: PathLabel, relative: bool) -> None:
+    def __init__(
+            self, path_label: PathLabel,
+            relative: Union[bool, Boolean]) -> None:
         """
         Base class for the path data.
 
@@ -28,7 +32,7 @@ class PathDataBase(ABC):
             coordinates are relative or not (absolute).
         """
         self._path_label = path_label
-        self._relative = relative
+        self._relative = Boolean(relative)
 
     def _get_svg_char(self) -> str:
         """

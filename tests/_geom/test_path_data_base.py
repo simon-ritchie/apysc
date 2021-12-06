@@ -18,6 +18,7 @@ class TestPathDataBase:
                 '_relative': True
             },
             any_obj=path_data)
+        assert isinstance(path_data._relative, ap.Boolean)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_svg_char(self) -> None:

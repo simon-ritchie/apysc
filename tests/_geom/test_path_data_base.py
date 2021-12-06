@@ -4,6 +4,7 @@ from retrying import retry
 
 import apysc as ap
 from tests.testing_helper import assert_attrs
+from apysc._expression import expression_data_util
 
 
 class TestPathDataBase:
@@ -22,12 +23,18 @@ class TestPathDataBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_svg_char(self) -> None:
+        expression_data_util.empty_expression()
         path_data: ap.PathMoveTo = ap.PathMoveTo(
             x=10, y=20, relative=False)
-        svg_char: str = path_data._get_svg_char()
+        svg_char: ap.String = path_data._get_svg_char()
         assert svg_char == 'M'
+        assert isinstance(svg_char, ap.String)
+        expression: str = expression_data_util.get_current_expression()
+        assert 'if (' in expression
+        assert 'else {' in expression
 
         path_data = ap.PathMoveTo(
             x=10, y=20, relative=True)
         svg_char = path_data._get_svg_char()
         assert svg_char == 'm'
+        assert isinstance(svg_char, ap.String)

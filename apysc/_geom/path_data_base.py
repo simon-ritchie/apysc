@@ -7,6 +7,9 @@ from typing import Union
 
 from apysc._geom.path_label import PathLabel
 from apysc._type.boolean import Boolean
+from apysc._branch._if import If
+from apysc._branch._else import Else
+from apysc._type.string import String
 
 
 class PathDataBase(ABC):
@@ -34,19 +37,25 @@ class PathDataBase(ABC):
         self._path_label = path_label
         self._relative = Boolean(relative)
 
-    def _get_svg_char(self) -> str:
+    def _get_svg_char(self) -> String:
         """
         Get a SVG character (e.g., 'M' or 'm') from the
         current setting.
 
         Returns
         -------
-        svg_char : str
+        svg_char : String
             Target SVG character.
         """
-        svg_char: str = self._path_label.value
-        if self._relative:
-            svg_char = svg_char.lower()
+        svg_char_: str = self._path_label.value
+        if self._relative._value:
+            svg_char: String = String(svg_char_.lower())
+        else:
+            svg_char = String(svg_char_)
+        with If(self._relative, locals_=locals()):
+            svg_char.value = svg_char_.lower()
+        with Else(locals_=locals()):
+            svg_char.value = svg_char_
         return svg_char
 
     @abstractmethod

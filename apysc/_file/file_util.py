@@ -152,7 +152,7 @@ def get_abs_module_dir_path(module: ModuleType) -> str:
     abs_module_dir_path : str
         Specified module's abosulute directory path.
     """
-    abs_module_dir_path: str = os.path.dirname(module.__file__)
+    abs_module_dir_path: str = os.path.dirname(str(module.__file__))
     abs_module_dir_path += '/'
     return abs_module_dir_path
 

@@ -51,7 +51,7 @@ def get_jslib_abs_dir_path() -> str:
         This module's directory will be set.
     """
     this_module: ModuleType = sys.modules[__name__]
-    jslib_abs_dir_path: str = os.path.dirname(this_module.__file__)
+    jslib_abs_dir_path: str = os.path.dirname(str(this_module.__file__))
     return jslib_abs_dir_path
 
 

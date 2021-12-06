@@ -1,8 +1,11 @@
 from random import randint
+import re
+from typing import Match, Optional
 
 from retrying import retry
 
 import apysc as ap
+from apysc._expression import var_names
 from tests.testing_helper import assert_attrs
 
 
@@ -27,8 +30,11 @@ class TestPathMoveTo:
     def test__get_svg_str(self) -> None:
         path_move_to: ap.PathMoveTo = ap.PathMoveTo(x=50, y=100)
         svg_str: str = path_move_to._get_svg_str()
-        expected: str = (
-            f'"M " + String({path_move_to._x.variable_name}) '
-            f'+ " " + String({path_move_to._y.variable_name})'
-        )
-        assert svg_str == expected
+        match: Optional[Match] = re.match(
+            pattern=(
+                rf'{var_names.STRING}_\d+? \+ '
+                rf'String\({path_move_to._x.variable_name}\) \+ " " \+ '
+                rf'String\({path_move_to._y.variable_name}\)'
+            ),
+            string=svg_str)
+        assert match is not None, svg_str

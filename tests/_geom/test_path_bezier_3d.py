@@ -1,7 +1,10 @@
 from random import randint
+import re
+from typing import Optional, Match
 
 from retrying import retry
 
+from apysc._expression import var_names
 import apysc as ap
 from tests.testing_helper import assert_attrs
 
@@ -38,12 +41,20 @@ class TestPathBezier3D:
             control_x1=10, control_y1=20, control_x2=30, control_y2=40,
             dest_x=50, dest_y=60)
         svg_str: str = path_bezier_3d._get_svg_str()
-        expected: str = (
-            f'"C " + String({path_bezier_3d._control_x1.variable_name}) '
-            f'+ " " + String({path_bezier_3d._control_y1.variable_name}) '
-            f'+ " " + String({path_bezier_3d._control_x2.variable_name}) '
-            f'+ " " + String({path_bezier_3d._control_y2.variable_name}) '
-            f'+ " " + String({path_bezier_3d._dest_x.variable_name}) '
-            f'+ " " + String({path_bezier_3d._dest_y.variable_name})'
-        )
-        assert svg_str == expected
+        match: Optional[Match] = re.match(
+            pattern=(
+                rf'{var_names.STRING}_\d+? \+ '
+                rf'String\({path_bezier_3d._control_x1.variable_name}\)'
+                r' \+ " " \+ '
+                rf'String\({path_bezier_3d._control_y1.variable_name}\)'
+                r' \+ " " \+ '
+                rf'String\({path_bezier_3d._control_x2.variable_name}\)'
+                r' \+ " " \+ '
+                rf'String\({path_bezier_3d._control_y2.variable_name}\)'
+                r' \+ " " \+ '
+                rf'String\({path_bezier_3d._dest_x.variable_name}\)'
+                r' \+ " " \+ '
+                rf'String\({path_bezier_3d._dest_y.variable_name}\)'
+            ),
+            string=svg_str)
+        assert match is not None

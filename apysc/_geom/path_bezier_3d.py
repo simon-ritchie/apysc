@@ -8,6 +8,7 @@ from apysc._converter.to_apysc_val_from_builtin import \
 from apysc._geom.path_data_base import PathDataBase
 from apysc._type.int import Int
 from apysc._type.boolean import Boolean
+from apysc._type.string import String
 
 
 class PathBezier3D(PathDataBase):
@@ -74,7 +75,9 @@ class PathBezier3D(PathDataBase):
             A path's SVG string created with the current setting.
         """
         from apysc._type.value_util import get_value_str_for_expression
-        svg_char: str = self._get_svg_char()
+        svg_char: String = self._get_svg_char()
+        svg_char_str: str = get_value_str_for_expression(
+            value=svg_char)
         control_x1_str: str = get_value_str_for_expression(
             value=self._control_x1)
         control_y1_str: str = get_value_str_for_expression(
@@ -86,7 +89,7 @@ class PathBezier3D(PathDataBase):
         dest_x_str: str = get_value_str_for_expression(value=self._dest_x)
         dest_y_str: str = get_value_str_for_expression(value=self._dest_y)
         svg_str: str = (
-            f'"{svg_char} " + String({control_x1_str}) '
+            f'{svg_char_str} + String({control_x1_str}) '
             f'+ " " + String({control_y1_str}) '
             f'+ " " + String({control_x2_str}) '
             f'+ " " + String({control_y2_str}) '

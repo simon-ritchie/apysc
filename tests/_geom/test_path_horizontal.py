@@ -1,7 +1,10 @@
+import re
 from random import randint
+from typing import Optional, Match
 
 from retrying import retry
 
+from apysc._expression import var_names
 import apysc as ap
 from tests.testing_helper import assert_attrs
 
@@ -25,5 +28,10 @@ class TestPathHorizontal:
     def test__get_svg_str(self) -> None:
         path_horizontal: ap.PathHorizontal = ap.PathHorizontal(x=50)
         svg_str = path_horizontal._get_svg_str()
-        expected: str = f'"H " + String({path_horizontal._x.variable_name})'
-        assert svg_str == expected
+        match: Optional[Match] = re.match(
+            pattern=(
+                rf'{var_names.STRING}_\d+? '
+                rf'\+ String\({path_horizontal._x.variable_name}\)'
+            ),
+            string=svg_str)
+        assert match is not None

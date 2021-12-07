@@ -1,9 +1,12 @@
 from random import randint
+import re
+from typing import Optional, Match
 
 from retrying import retry
 
 import apysc as ap
 from tests.testing_helper import assert_attrs
+from apysc._expression import var_names
 
 
 class TestPathBezier2D:
@@ -34,10 +37,16 @@ class TestPathBezier2D:
         path_bezier_2d: ap.PathBezier2D = ap.PathBezier2D(
             control_x=10, control_y=20, dest_x=30, dest_y=40)
         svg_str: str = path_bezier_2d._get_svg_str()
-        expected: str = (
-            f'"Q " + String({path_bezier_2d._control_x.variable_name}) + " " '
-            f'+ String({path_bezier_2d._control_y.variable_name}) + " " '
-            f'+ String({path_bezier_2d._dest_x.variable_name}) + " " '
-            f'+ String({path_bezier_2d._dest_y.variable_name})'
-        )
-        assert svg_str == expected
+        match: Optional[Match] = re.match(
+            pattern=(
+                rf'{var_names.STRING}_\d+? \+ '
+                rf'String\({path_bezier_2d._control_x.variable_name}\)'
+                r' \+ " " \+ '
+                rf'String\({path_bezier_2d._control_y.variable_name}\)'
+                r' \+ " " \+ '
+                rf'String\({path_bezier_2d._dest_x.variable_name}\)'
+                r' \+ " " \+ '
+                rf'String\({path_bezier_2d._dest_y.variable_name}\)'
+            ),
+            string=svg_str)
+        assert match is not None

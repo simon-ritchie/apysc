@@ -2,6 +2,7 @@
 """
 
 from apysc._geom.path_data_base import PathDataBase
+from apysc._type.string import String
 
 
 class PathClose(PathDataBase):
@@ -27,5 +28,8 @@ class PathClose(PathDataBase):
         svg_str : str
             A path's SVG string created with the current setting.
         """
-        svg_str: str = self._get_svg_char()
-        return f'"{svg_str}"'
+        from apysc._type import value_util
+        svg_char: String = self._get_svg_char()
+        svg_str: str = value_util.get_value_str_for_expression(
+            value=svg_char)
+        return svg_str

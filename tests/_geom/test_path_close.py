@@ -1,7 +1,10 @@
+import re
+from typing import Optional, Match
 from random import randint
 
 from retrying import retry
 
+from apysc._expression import var_names
 import apysc as ap
 from tests.testing_helper import assert_attrs
 
@@ -22,4 +25,7 @@ class TestPathClose:
     def test_path_close(self) -> None:
         path_close: ap.PathClose = ap.PathClose()
         svg_str: str = path_close._get_svg_str()
-        assert svg_str == '"Z"'
+        match: Optional[Match] = re.match(
+            pattern=rf'{var_names.STRING}_\d+?$',
+            string=svg_str)
+        assert match is not None

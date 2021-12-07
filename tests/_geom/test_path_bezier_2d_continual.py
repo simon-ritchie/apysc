@@ -1,8 +1,11 @@
 from random import randint
+import re
+from typing import Optional, Match
 
 from retrying import retry
 
 import apysc as ap
+from apysc._expression import var_names
 from tests.testing_helper import assert_attrs
 
 
@@ -28,8 +31,12 @@ class TestPathBezier2DContinual:
         path_bezier_2d_continual: ap.PathBezier2DContinual = \
             ap.PathBezier2DContinual(x=10, y=20)
         svg_str: str = path_bezier_2d_continual._get_svg_str()
-        expected: str = (
-            f'"T " + String({path_bezier_2d_continual._x.variable_name}) '
-            f'+ " " + String({path_bezier_2d_continual._y.variable_name})'
-        )
-        assert svg_str == expected
+        match: Optional[Match] = re.match(
+            pattern=(
+                rf'{var_names.STRING}_\d+? \+ '
+                rf'String\({path_bezier_2d_continual._x.variable_name}\) \+ '
+                r'" " \+ '
+                rf'String\({path_bezier_2d_continual._y.variable_name}\)'
+            ),
+            string=svg_str)
+        assert match is not None

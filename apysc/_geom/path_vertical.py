@@ -8,6 +8,7 @@ from apysc._converter.to_apysc_val_from_builtin import \
 from apysc._geom.path_data_base import PathDataBase
 from apysc._type.int import Int
 from apysc._type.boolean import Boolean
+from apysc._type.string import String
 
 
 class PathVertical(PathDataBase):
@@ -47,7 +48,9 @@ class PathVertical(PathDataBase):
             A path's SVG string created with the current setting.
         """
         from apysc._type import value_util
-        svg_char: str = self._get_svg_char()
+        svg_char: String = self._get_svg_char()
+        svg_char_str: str = value_util.get_value_str_for_expression(
+            value=svg_char)
         y_str: str = value_util.get_value_str_for_expression(value=self._y)
-        svg_str: str = f'"{svg_char} " + String({y_str})'
+        svg_str: str = f'{svg_char_str} + String({y_str})'
         return svg_str

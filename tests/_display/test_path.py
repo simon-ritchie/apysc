@@ -45,7 +45,7 @@ class TestPath:
         repr_str: str = repr(path)
         assert repr_str == f"Path('{path.variable_name}')"
 
-    # @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite(stage=stage)

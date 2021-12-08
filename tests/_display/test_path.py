@@ -1,14 +1,14 @@
+import re
 from random import randint
 from typing import List
-import re
-from typing import Optional, Match
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
 import apysc as ap
 from apysc._expression import expression_data_util
 from apysc._expression import var_names
-from apysc._geom import path_data_util
 from tests.testing_helper import assert_attrs
 
 
@@ -56,7 +56,7 @@ class TestPath:
         expression: str = expression_data_util.get_current_expression()
         expected_epx_patterns: List[str] = [
             rf'var {path.variable_name} = {stage.variable_name}',
-            rf'\n  .path\(.+?\)',
+            r'\n  .path\(.+?\)',
             r'\n  .attr\(\{',
             r'\n    fill: "transparent",',
             r'\n  \}\);'

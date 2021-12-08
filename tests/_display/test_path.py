@@ -1,5 +1,7 @@
 from random import randint
 from typing import List
+import re
+from typing import Optional, Match
 
 from retrying import retry
 
@@ -43,7 +45,7 @@ class TestPath:
         repr_str: str = repr(path)
         assert repr_str == f"Path('{path.variable_name}')"
 
-    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    # @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
         stage: ap.Stage = ap.Stage()
         sprite: ap.Sprite = ap.Sprite(stage=stage)
@@ -52,15 +54,15 @@ class TestPath:
         path: ap.Path = ap.Path(
             parent=sprite.graphics, path_data_list=path_data_list)
         expression: str = expression_data_util.get_current_expression()
-        path_data_expression: str = \
-            path_data_util.make_paths_expression_from_list(
-                path_data_list=path_data_list)
-        expected_expressions: List[str] = [
-            f'var {path.variable_name} = {stage.variable_name}',
-            f'\n  .path({path_data_expression})',
-            '\n  .attr({',
-            '\n    fill: "transparent",',
-            '\n  });'
+        expected_epx_patterns: List[str] = [
+            rf'var {path.variable_name} = {stage.variable_name}',
+            rf'\n  .path\(.+?\)',
+            r'\n  .attr\(\{',
+            r'\n    fill: "transparent",',
+            r'\n  \}\);'
         ]
-        for expected in expected_expressions:
-            assert expected in expression, expected
+        for expected in expected_epx_patterns:
+            match: Optional[Match] = re.search(
+                pattern=expected, string=expression,
+                flags=re.MULTILINE | re.DOTALL)
+            assert match is not None, f'{expected}, \n\n{expression}\n\n'

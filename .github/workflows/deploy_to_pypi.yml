@@ -153,6 +153,14 @@ jobs:
         uses: ./.github/actions/setup_py_dependencies
         with:
           python-version: ${{ env.python-version }}
+      - name: Update the badge status to running or failing
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: pytest_on_py36
+          LABEL: 'pytest on Python 3.6'
+          STATUS: 'running or failed'
+          COLOR: FFAA00
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Set the pytest alias
         run: alias pytest=/opt/hostedtoolcache/Python/${{ env.python-version }}/x64/bin/pytest
       - name: Run the test runner command
@@ -167,6 +175,14 @@ jobs:
           NAME: pytest_coverage
           LABEL: 'pytest coverage'
           STATUS: ${{ env.COVERAGE }}
+          COLOR: 0088FF
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update the badge status to passed
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: pytest_on_py36
+          LABEL: 'pytest on Python 3.6'
+          STATUS: 'passed'
           COLOR: 0088FF
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

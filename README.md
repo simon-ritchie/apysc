@@ -6,6 +6,7 @@
 ![](https://byob.yarr.is/simon-ritchie/apysc/pytest_coverage)
 ![](https://byob.yarr.is/simon-ritchie/apysc/flake8_checking)
 ![](https://byob.yarr.is/simon-ritchie/apysc/mypy_checking)
+![](https://byob.yarr.is/simon-ritchie/apysc/numdoclint_checking)
 
 ![logo](https://github.com/simon-ritchie/apysc/blob/main/assets/logo_v1/logo_small_v1.png)
 

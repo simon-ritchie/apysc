@@ -119,10 +119,26 @@ jobs:
         uses: ./.github/actions/setup_py_dependencies
         with:
           python-version: ${{ env.python-version }}
+      - name: Update the badge status to running or failing
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: numdoclint_checking
+          LABEL: 'numdoclint checking'
+          STATUS: 'running or failed'
+          COLOR: FFAA00
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Set the numdoclint alias
         run: alias numdoclint=/opt/hostedtoolcache/Python/${{ env.python-version }}/x64/bin/numdoclint
       - name: Run the numdoclint command
         run: python run_numdoclint.py
+      - name: Update the badge status to passed
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: numdoclint_checking
+          LABEL: 'numdoclint checking'
+          STATUS: 'passed'
+          COLOR: 0088FF
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   RunTestsOnPython36AndSaveCoverage:
     needs: CreateCache

@@ -1,12 +1,13 @@
-from random import randint
 import re
-from typing import Optional, Match
+from random import randint
+from typing import Match
+from typing import Optional
 
 from retrying import retry
 
 import apysc as ap
-from tests.testing_helper import assert_attrs
 from apysc._expression import var_names
+from tests.testing_helper import assert_attrs
 
 
 class TestPathBezier2D:

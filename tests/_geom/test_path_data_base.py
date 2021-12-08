@@ -3,8 +3,8 @@ from random import randint
 from retrying import retry
 
 import apysc as ap
-from tests.testing_helper import assert_attrs
 from apysc._expression import expression_data_util
+from tests.testing_helper import assert_attrs
 
 
 class TestPathDataBase:

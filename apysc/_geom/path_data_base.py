@@ -5,10 +5,10 @@ from abc import ABC
 from abc import abstractmethod
 from typing import Union
 
+from apysc._branch._else import Else
+from apysc._branch._if import If
 from apysc._geom.path_label import PathLabel
 from apysc._type.boolean import Boolean
-from apysc._branch._if import If
-from apysc._branch._else import Else
 from apysc._type.string import String
 
 

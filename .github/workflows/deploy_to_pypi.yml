@@ -51,10 +51,26 @@ jobs:
         uses: ./.github/actions/setup_py_dependencies
         with:
           python-version: ${{ env.python-version }}
+      - name: Update the badge status to running or failing
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: flake8_checking
+          LABEL: 'flake8 checking'
+          STATUS: 'running or failed'
+          COLOR: FFAA00
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Set the flake8 alias
         run: alias flake8=/opt/hostedtoolcache/Python/${{ env.python-version }}/x64/bin/flake8
       - name: Run the flake8 command
         run: python run_flake8.py
+      - name: Update the badge status to passed
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: flake8_checking
+          LABEL: 'flake8 checking'
+          STATUS: 'passed'
+          COLOR: 0088FF
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   RunMypy:
     needs: CreateCache

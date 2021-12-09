@@ -72,6 +72,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Update Python 3.6
         uses: ./.github/actions/update_each_python_tests_badge_to_checking_status
         with:
@@ -292,6 +294,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Update Python 3.6
         uses: ./.github/actions/update_each_python_tests_badge_to_passed_status
         with:

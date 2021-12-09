@@ -78,7 +78,7 @@ jobs:
           NAME: mypy_checking
           LABEL: 'mypy checking'
           STATUS: 'running or failed'
-          COLOR: FFAA00
+          COLOR: ${{ needs.SetGlobalConstants.outputs.checking-badge-color }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Update the numdoclint badge status to running or failing
         uses: RubbaBoy/BYOB@v1.2.1
@@ -86,7 +86,7 @@ jobs:
           NAME: numdoclint_checking
           LABEL: 'numdoclint checking'
           STATUS: 'running or failed'
-          COLOR: FFAA00
+          COLOR: ${{ needs.SetGlobalConstants.outputs.checking-badge-color }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Checkout
         uses: actions/checkout@v2
@@ -97,26 +97,31 @@ jobs:
         with:
           python-version: '${{ needs.SetGlobalConstants.outputs.python-36-version }}'
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.checking-badge-color }}
       - name: Update Python 3.7
         uses: ./.github/actions/update_each_python_tests_badge_to_checking_status
         with:
           python-version: '${{ needs.SetGlobalConstants.outputs.python-37-version }}'
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.checking-badge-color }}
       - name: Update Python 3.8
         uses: ./.github/actions/update_each_python_tests_badge_to_checking_status
         with:
           python-version: '${{ needs.SetGlobalConstants.outputs.python-38-version }}'
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.checking-badge-color }}
       - name: Update Python 3.9
         uses: ./.github/actions/update_each_python_tests_badge_to_checking_status
         with:
           python-version: '${{ needs.SetGlobalConstants.outputs.python-39-version }}'
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.checking-badge-color }}
       - name: Update Python 3.10
         uses: ./.github/actions/update_each_python_tests_badge_to_checking_status
         with:
           python-version: '${{ needs.SetGlobalConstants.outputs.python-310-version }}'
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.checking-badge-color }}
 
   RunFlake8:
     needs: [CreateCache, SetGlobalConstants]

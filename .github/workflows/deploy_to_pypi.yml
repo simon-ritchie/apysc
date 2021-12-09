@@ -38,6 +38,51 @@ jobs:
           path: /opt/hostedtoolcache/Python/${{ matrix.python-version }}/x64/bin/
           key: ${{ runner.os }}-bin-cache-${{ env.site-packages-path }}-${{ hashFiles('**/requirements.txt') }}
 
+  UpdateReadmeBadgesToCheckingStatus:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Update the flake8 badge status to running or failing
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: flake8_checking
+          LABEL: 'flake8 checking'
+          STATUS: 'running or failed'
+          COLOR: FFAA00
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update the mypy badge status to running or failing
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: mypy_checking
+          LABEL: 'mypy checking'
+          STATUS: 'running or failed'
+          COLOR: FFAA00
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update the numdoclint badge status to running or failing
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: numdoclint_checking
+          LABEL: 'numdoclint checking'
+          STATUS: 'running or failed'
+          COLOR: FFAA00
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  UpdateReadmeEachPythonTestsBadgeToCheckingStatus:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.6.15, 3.7.12, 3.8.12, 3.9.9, 3.10.0]
+    timeout-minutes: 5
+    steps:
+      - name: Update each Python vertion tests badge status to running or failing
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: pytest_on_py${{ matrix.python-version }}
+          LABEL: 'pytest on Python ${{ matrix.python-version }}'
+          STATUS: 'running or failed'
+          COLOR: FFAA00
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   RunFlake8:
     needs: CreateCache
     runs-on: ubuntu-latest
@@ -51,26 +96,10 @@ jobs:
         uses: ./.github/actions/setup_py_dependencies
         with:
           python-version: ${{ env.python-version }}
-      - name: Update the badge status to running or failing
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: flake8_checking
-          LABEL: 'flake8 checking'
-          STATUS: 'running or failed'
-          COLOR: FFAA00
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Set the flake8 alias
         run: alias flake8=/opt/hostedtoolcache/Python/${{ env.python-version }}/x64/bin/flake8
       - name: Run the flake8 command
         run: python run_flake8.py
-      - name: Update the badge status to passed
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: flake8_checking
-          LABEL: 'flake8 checking'
-          STATUS: 'passed'
-          COLOR: 0088FF
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   RunMypy:
     needs: CreateCache
@@ -85,26 +114,10 @@ jobs:
         uses: ./.github/actions/setup_py_dependencies
         with:
           python-version: ${{ env.python-version }}
-      - name: Update the badge status to running or failing
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: mypy_checking
-          LABEL: 'mypy checking'
-          STATUS: 'running or failed'
-          COLOR: FFAA00
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Set the mypy alias
         run: alias mypy=/opt/hostedtoolcache/Python/${{ env.python-version }}/x64/bin/mypy
       - name: Run the mypy command
         run: python run_mypy.py
-      - name: Update the badge status to passed
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: mypy_checking
-          LABEL: 'mypy checking'
-          STATUS: 'passed'
-          COLOR: 0088FF
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   RunNumdoclint:
     needs: CreateCache
@@ -119,26 +132,10 @@ jobs:
         uses: ./.github/actions/setup_py_dependencies
         with:
           python-version: ${{ env.python-version }}
-      - name: Update the badge status to running or failing
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: numdoclint_checking
-          LABEL: 'numdoclint checking'
-          STATUS: 'running or failed'
-          COLOR: FFAA00
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Set the numdoclint alias
         run: alias numdoclint=/opt/hostedtoolcache/Python/${{ env.python-version }}/x64/bin/numdoclint
       - name: Run the numdoclint command
         run: python run_numdoclint.py
-      - name: Update the badge status to passed
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: numdoclint_checking
-          LABEL: 'numdoclint checking'
-          STATUS: 'passed'
-          COLOR: 0088FF
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   RunTestsOnPython36AndSaveCoverage:
     needs: CreateCache
@@ -153,14 +150,6 @@ jobs:
         uses: ./.github/actions/setup_py_dependencies
         with:
           python-version: ${{ env.python-version }}
-      - name: Update the badge status to running or failing
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: pytest_on_py${{ env.python-version }}
-          LABEL: 'pytest on Python ${{ env.python-version }}'
-          STATUS: 'running or failed'
-          COLOR: FFAA00
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Set the pytest alias
         run: alias pytest=/opt/hostedtoolcache/Python/${{ env.python-version }}/x64/bin/pytest
       - name: Run the test runner command
@@ -200,26 +189,10 @@ jobs:
         uses: ./.github/actions/setup_py_dependencies
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Update the badge status to running or failing
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: pytest_on_py${{ matrix.python-version }}
-          LABEL: 'pytest on Python ${{ matrix.python-version }}'
-          STATUS: 'running or failed'
-          COLOR: FFAA00
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Set the pytest alias
         run: alias pytest=/opt/hostedtoolcache/Python/${{ matrix.python-version }}/x64/bin/pytest
       - name: Run the test runner command
         run: python run_tests.py
-      - name: Update the badge status to passed
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: pytest_on_py${{ matrix.python-version }}
-          LABEL: 'pytest on Python ${{ matrix.python-version }}'
-          STATUS: 'passed'
-          COLOR: 0088FF
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   DeployToPyPI:
     needs: [RunFlake8, RunMypy, RunNumdoclint, RunTestsOnPython36AndSaveCoverage, RunTestsOnEachPythonVersion]
@@ -273,6 +246,53 @@ jobs:
           release_name: v${{ env.apysc_version }}
           draft: false
           prerelease: false
+
+  UpdateReadmeBadgesToPassedStatus:
+    needs: [RunFlake8, RunMypy, RunNumdoclint]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Update the flake8 badge status to passed
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: flake8_checking
+          LABEL: 'flake8 checking'
+          STATUS: 'passed'
+          COLOR: 0088FF
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update the mypy badge status to passed
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: mypy_checking
+          LABEL: 'mypy checking'
+          STATUS: 'passed'
+          COLOR: 0088FF
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update the numdoclint badge status to passed
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: numdoclint_checking
+          LABEL: 'numdoclint checking'
+          STATUS: 'passed'
+          COLOR: 0088FF
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  UpdateReadmeEachPythonTestBadgeTOPassedStatus:
+    needs: [RunTestsOnPython36AndSaveCoverage, RunTestsOnEachPythonVersion]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.6.15, 3.7.12, 3.8.12, 3.9.9, 3.10.0]
+    timeout-minutes: 5
+    steps:
+      - name: Update the badge status to passed
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: pytest_on_py${{ matrix.python-version }}
+          LABEL: 'pytest on Python ${{ matrix.python-version }}'
+          STATUS: 'passed'
+          COLOR: 0088FF
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   RunPackageInstallingTests:
     needs: DeployToPyPI

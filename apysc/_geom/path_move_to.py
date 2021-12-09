@@ -60,3 +60,13 @@ class PathMoveTo(PathDataBase):
         svg_str: str = (
             f'{svg_char_str} + String({x_str}) + " " + String({y_str})')
         return svg_str
+
+    def update_path_data(
+            self, x: Union[int, Int], y: Union[int, Int],
+            relative: Union[bool, Boolean]) -> None:
+        """
+        Update a path's data setting.
+        """
+        self._x.value = x
+        self._y.value = y
+        self._relative.value = relative

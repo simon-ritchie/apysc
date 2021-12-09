@@ -39,3 +39,16 @@ class TestPathMoveTo:
             ),
             string=svg_str)
         assert match is not None, svg_str
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_update_path_data(self) -> None:
+        path_move_to: ap.PathMoveTo = ap.PathMoveTo(
+            x=50, y=100, relative=False)
+        path_move_to.update_path_data(x=150, y=200, relative=True)
+        assert_attrs(
+            expected_attrs={
+                '_x': 150,
+                '_y': 200,
+                '_relative': True,
+            },
+            any_obj=path_move_to)

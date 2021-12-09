@@ -40,7 +40,7 @@ jobs:
 
   UpdateReadmeBadgesToCheckingStatus:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - name: Update the flake8 badge status to running or failing
         uses: RubbaBoy/BYOB@v1.2.1
@@ -66,14 +66,10 @@ jobs:
           STATUS: 'running or failed'
           COLOR: FFAA00
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  UpdateReadmeEachPythonTestsBadgeToCheckingStatus:
-    needs: UpdateReadmeBadgesToCheckingStatus
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
       - name: Checkout
         uses: actions/checkout@v2
+      # For the sake of sequentiality, the following steps
+      # are not using strategy matrix.
       - name: Update Python 3.6
         uses: ./.github/actions/update_each_python_tests_badge_to_checking_status
         with:
@@ -274,9 +270,11 @@ jobs:
       RunMypy,
       RunNumdoclint,
       UpdateReadmeEachPythonTestsBadgeToCheckingStatus,
+      RunTestsOnPython36AndSaveCoverage,
+      RunTestsOnEachPythonVersion,
     ]
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - name: Update the flake8 badge status to passing
         uses: RubbaBoy/BYOB@v1.2.1
@@ -302,16 +300,8 @@ jobs:
           STATUS: 'passing'
           COLOR: 0088FF
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  UpdateReadmeEachPythonTestBadgeToPassingStatus:
-    needs: [
-      RunTestsOnPython36AndSaveCoverage,
-      RunTestsOnEachPythonVersion,
-      UpdateReadmeBadgesToPassingStatus,
-    ]
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
+      # For the sake of sequentiality, the following steps
+      # are not using strategy matrix.
       - name: Checkout
         uses: actions/checkout@v2
       - name: Update Python 3.6

@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
-      python-3.6-version: ${{ steps.python-version-36.outputs.version }}
-      python-3.7-version: ${{ steps.python-version-37.outputs.version }}
-      python-3.8-version: ${{ steps.python-version-38.outputs.version }}
-      python-3.9-version: ${{ steps.python-version-39.outputs.version }}
-      python-3.10-version: ${{ steps.python-version-310.outputs.version }}
+      python-36-version: ${{ steps.python-version-36.outputs.version }}
+      python-37-version: ${{ steps.python-version-37.outputs.version }}
+      python-38-version: ${{ steps.python-version-38.outputs.version }}
+      python-39-version: ${{ steps.python-version-39.outputs.version }}
+      python-310-version: ${{ steps.python-version-310.outputs.version }}
     steps:
       - id: python-version-36
         run: echo '::set-output name=version::3.6.15'
@@ -32,11 +32,11 @@ jobs:
     strategy:
       matrix:
         python-version: [
-          '${{ needs.outputs.python-3.6-version }}',
-          '${{ needs.outputs.python-3.7-version }}',
-          '${{ needs.outputs.python-3.8-version }}',
-          '${{ needs.outputs.python-3.9-version }}',
-          '${{ needs.outputs.python-3.10-version }}',
+          '${{ needs.outputs.python-36-version }}',
+          '${{ needs.outputs.python-37-version }}',
+          '${{ needs.outputs.python-38-version }}',
+          '${{ needs.outputs.python-39-version }}',
+          '${{ needs.outputs.python-310-version }}',
         ]
     timeout-minutes: 20
     steps:

@@ -17,4 +17,4 @@ runs:
         LABEL: 'pytest on Python ${{ inputs.python-version }}'
         STATUS: 'passed'
         COLOR: 0088FF
-        GITHUB_TOKEN: ${{ input.github-token }}
+        GITHUB_TOKEN: ${{ inputs.github-token }}

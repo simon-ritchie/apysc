@@ -172,7 +172,7 @@ jobs:
       - name: Run the numdoclint command
         run: python run_numdoclint.py
 
-  RunTestsOnPython36AndSaveCoverage:
+  RunTestsOnPython36AndSaveCoverageAndPassedNum:
     needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -230,7 +230,7 @@ jobs:
       RunFlake8,
       RunMypy,
       RunNumdoclint,
-      RunTestsOnPython36AndSaveCoverage,
+      RunTestsOnPython36AndSaveCoverageAndPassedNum,
       RunTestsOnEachPythonVersion,
       SetGlobalConstants,
     ]
@@ -263,7 +263,7 @@ jobs:
       RunFlake8,
       RunMypy,
       RunNumdoclint,
-      RunTestsOnPython36AndSaveCoverage,
+      RunTestsOnPython36AndSaveCoverageAndPassedNum,
       RunTestsOnEachPythonVersion,
       SetGlobalConstants,
     ]
@@ -294,7 +294,7 @@ jobs:
       RunMypy,
       RunNumdoclint,
       UpdateReadmeBadgesToCheckingStatus,
-      RunTestsOnPython36AndSaveCoverage,
+      RunTestsOnPython36AndSaveCoverageAndPassedNum,
       RunTestsOnEachPythonVersion,
       SetGlobalConstants,
     ]
@@ -330,7 +330,7 @@ jobs:
         with:
           NAME: pytest_coverage
           LABEL: 'pytest coverage'
-          STATUS: ${{ needs.RunTestsOnPython36AndSaveCoverage.outputs.COVERAGE }}
+          STATUS: ${{ needs.RunTestsOnPython36AndSaveCoverageAndPassedNum.outputs.COVERAGE }}
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Update the passed tests number
@@ -338,7 +338,7 @@ jobs:
         with:
           NAME: passed_tests_num
           LABEL: 'passed tests number'
-          STATUS: ${{ needs.RunTestsOnPython36AndSaveCoverage.outputs.COVERAGE }}
+          STATUS: ${{ needs.RunTestsOnPython36AndSaveCoverageAndPassedNum.outputs.COVERAGE }}
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSED_TESTS_NUM }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # For the sake of sequentiality, the following steps

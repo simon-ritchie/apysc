@@ -14,6 +14,7 @@ jobs:
       python-38-version: ${{ steps.python-version-38.outputs.version }}
       python-39-version: ${{ steps.python-version-39.outputs.version }}
       python-310-version: ${{ steps.python-version-310.outputs.version }}
+      checking-badge-color: FFAA00
     steps:
       - id: python-version-36
         run: echo '::set-output name=version::3.6.15'
@@ -78,7 +79,7 @@ jobs:
           NAME: flake8_checking
           LABEL: 'flake8 checking'
           STATUS: 'running or failed'
-          COLOR: FFAA00
+          COLOR: ${{ needs.SetGlobalConstants.outputs.checking-badge-color }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Update the mypy badge status to running or failing
         uses: RubbaBoy/BYOB@v1.2.1

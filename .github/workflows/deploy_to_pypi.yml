@@ -295,7 +295,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   UpdateReadmeEachPythonTestBadgeTOPassedStatus:
-    needs: [RunTestsOnPython36AndSaveCoverage, RunTestsOnEachPythonVersion]
+    needs: [
+      RunTestsOnPython36AndSaveCoverage,
+      RunTestsOnEachPythonVersion,
+      UpdateReadmeEachPythonTestsBadgeToCheckingStatus,
+    ]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:

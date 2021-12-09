@@ -188,7 +188,7 @@ jobs:
       - name: Set the pytest alias
         run: alias pytest=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/pytest
       - name: Run the test runner command
-        run: python run_tests_and_save_coverage.py
+        run: python run_tests_and_save_coverage_num.py
       - name: Set the environment variables from .env file
         uses: c-py/action-dotenv-to-setenv@v3
         with:

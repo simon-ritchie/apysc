@@ -1,8 +1,9 @@
-"""The test runner command execution script and save the test coverage.
+"""The test runner command execution script and save the
+test coverage and passed test number.
 This is used by the deploying job mainly.
 
 Command example:
-$ python run_tests_and_save_coverage.py
+$ python run_tests_and_save_coverage_and_num.py
 """
 
 import re

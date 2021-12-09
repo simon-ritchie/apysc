@@ -176,6 +176,8 @@ jobs:
     needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    outputs:
+      COVERAGE: ${{ steps.set-coverage.outputs.coverage }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -191,14 +193,9 @@ jobs:
         uses: c-py/action-dotenv-to-setenv@v3
         with:
           env-file: .env
-      - name: Update the coverage badge setting
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: pytest_coverage
-          LABEL: 'pytest coverage'
-          STATUS: ${{ env.COVERAGE }}
-          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set the coverage to outputs value
+        id: set-coverage
+        run: echo '::set-output name=coverage::${{ env.COVERAGE }}'
 
   RunTestsOnEachPythonVersion:
     needs: [CreateCache, SetGlobalConstants]
@@ -322,6 +319,14 @@ jobs:
           NAME: numdoclint_checking
           LABEL: 'numdoclint checking'
           STATUS: 'passing'
+          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update tests line coverage
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: pytest_coverage
+          LABEL: 'pytest coverage'
+          STATUS: ${{ needs.RunTestsOnPython36AndSaveCoverage.outputs.COVERAGE }}
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # For the sake of sequentiality, the following steps

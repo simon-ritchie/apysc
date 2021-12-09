@@ -143,56 +143,50 @@ jobs:
         run: python run_flake8.py
 
   RunMypy:
-    needs: CreateCache
+    needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Set the Python version environment variable
-        run: echo "python-version=3.6.15" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ env.python-version }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.python-36-version }}
       - name: Set the mypy alias
-        run: alias mypy=/opt/hostedtoolcache/Python/${{ env.python-version }}/x64/bin/mypy
+        run: alias mypy=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.python-36-version }}/x64/bin/mypy
       - name: Run the mypy command
         run: python run_mypy.py
 
   RunNumdoclint:
-    needs: CreateCache
+    needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Set the Python version environment variable
-        run: echo "python-version=3.6.15" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ env.python-version }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.python-36-version }}
       - name: Set the numdoclint alias
-        run: alias numdoclint=/opt/hostedtoolcache/Python/${{ env.python-version }}/x64/bin/numdoclint
+        run: alias numdoclint=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.python-36-version }}/x64/bin/numdoclint
       - name: Run the numdoclint command
         run: python run_numdoclint.py
 
   RunTestsOnPython36AndSaveCoverage:
-    needs: CreateCache
+    needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Set the Python version environment variable
-        run: echo "python-version=3.6.15" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ env.python-version }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.python-36-version }}
       - name: Set the pytest alias
-        run: alias pytest=/opt/hostedtoolcache/Python/${{ env.python-version }}/x64/bin/pytest
+        run: alias pytest=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.python-36-version }}/x64/bin/pytest
       - name: Run the test runner command
         run: python run_tests_and_save_coverage.py
       - name: Set the environment variables from .env file
@@ -209,11 +203,16 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   RunTestsOnEachPythonVersion:
-    needs: CreateCache
+    needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7.12, 3.8.12, 3.9.9, 3.10.0]
+        python-version: [
+          '${{ needs.SetGlobalConstants.outputs.python-37-version }}',
+          '${{ needs.SetGlobalConstants.outputs.python-38-version }}',
+          '${{ needs.SetGlobalConstants.outputs.python-39-version }}',
+          '${{ needs.SetGlobalConstants.outputs.python-310-version }}',
+        ]
     timeout-minutes: 10
     steps:
       - name: Checkout
@@ -234,18 +233,17 @@ jobs:
       RunNumdoclint,
       RunTestsOnPython36AndSaveCoverage,
       RunTestsOnEachPythonVersion,
+      SetGlobalConstants,
     ]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Set the Python version environment variable
-        run: echo "python-version=3.6.15" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ env.python-version }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.python-36-version }}
       - name: Execute the Python package build
         run: python build.py
       - name: Set the PyPI account setting
@@ -257,7 +255,7 @@ jobs:
           echo -e "username = ${PYPI_USERNAME}" >> ~/.pypirc
           echo -e "password = ${PYPI_PASSWORD}" >> ~/.pypirc
       - name: Set the twine alias
-        run: alias twine=/opt/hostedtoolcache/Python/${{ env.python-version }}/x64/bin/twine
+        run: alias twine=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.python-36-version }}/x64/bin/twine
       - name: Upload to PyPI
         run: twine upload dist/*
 
@@ -268,18 +266,17 @@ jobs:
       RunNumdoclint,
       RunTestsOnPython36AndSaveCoverage,
       RunTestsOnEachPythonVersion,
+      SetGlobalConstants,
     ]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Set the Python version environment variable
-        run: echo "python-version=3.6.15" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ env.python-version }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.python-36-version }}
       - name: Set the apysc version to environment variable
         run: python -c "import apysc; print(f'apysc_version={apysc.__version__}')" >> $GITHUB_ENV
       - name: Create the release note
@@ -300,6 +297,7 @@ jobs:
       UpdateReadmeBadgesToCheckingStatus,
       RunTestsOnPython36AndSaveCoverage,
       RunTestsOnEachPythonVersion,
+      SetGlobalConstants,
     ]
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -335,35 +333,41 @@ jobs:
       - name: Update Python 3.6
         uses: ./.github/actions/update_each_python_tests_badge_to_passing_status
         with:
-          python-version: 3.6.15
+          python-version: ${{ needs.SetGlobalConstants.outputs.python-36-version }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Update Python 3.7
         uses: ./.github/actions/update_each_python_tests_badge_to_passing_status
         with:
-          python-version: 3.7.12
+          python-version: ${{ needs.SetGlobalConstants.outputs.python-37-version }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Update Python 3.8
         uses: ./.github/actions/update_each_python_tests_badge_to_passing_status
         with:
-          python-version: 3.8.12
+          python-version: ${{ needs.SetGlobalConstants.outputs.python-38-version }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Update Python 3.9
         uses: ./.github/actions/update_each_python_tests_badge_to_passing_status
         with:
-          python-version: 3.9.9
+          python-version: ${{ needs.SetGlobalConstants.outputs.python-39-version }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Update Python 3.10
         uses: ./.github/actions/update_each_python_tests_badge_to_passing_status
         with:
-          python-version: 3.10.0
+          python-version: ${{ needs.SetGlobalConstants.outputs.python-310-version }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
   RunPackageInstallingTests:
-    needs: DeployToPyPI
+    needs: [DeployToPyPI, SetGlobalConstants]
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6.15, 3.7.12, 3.8.12, 3.9.9, 3.10.0]
+        python-version: [
+          '${{ needs.SetGlobalConstants.outputs.python-36-version }}',
+          '${{ needs.SetGlobalConstants.outputs.python-37-version }}',
+          '${{ needs.SetGlobalConstants.outputs.python-38-version }}',
+          '${{ needs.SetGlobalConstants.outputs.python-39-version }}',
+          '${{ needs.SetGlobalConstants.outputs.python-310-version }}',
+        ]
     timeout-minutes: 10
     steps:
       - name: Checkout

@@ -127,7 +127,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
   RunFlake8:
-    needs: CreateCache
+    needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:

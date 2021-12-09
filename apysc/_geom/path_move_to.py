@@ -65,7 +65,17 @@ class PathMoveTo(PathDataBase):
             self, x: Union[int, Int], y: Union[int, Int],
             relative: Union[bool, Boolean]) -> None:
         """
-        Update a path's data setting.
+        Update the path's data settings.
+
+        Parameters
+        ----------
+        x : int or Int
+            X-coordinate of the destination point.
+        y : int or Int
+            Y-coordinate of the destination point.
+        relative : bool or Boolean, default False
+            The boolean value indicating whether the path
+            coordinates are relative or not (absolute).
         """
         self._x.value = x
         self._y.value = y

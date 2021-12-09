@@ -7,6 +7,9 @@ inputs:
   github-token:
     description: GitHub token to set.
     required: true
+  background-color:
+    description: Badge's background color.
+    required: true
 runs:
   using: composite
   steps:
@@ -16,5 +19,5 @@ runs:
         NAME: pytest_on_py${{ inputs.python-version }}
         LABEL: 'pytest on Python ${{ inputs.python-version }}'
         STATUS: 'passing'
-        COLOR: 0088FF
+        COLOR: ${{ inputs.background-color }}
         GITHUB_TOKEN: ${{ inputs.github-token }}

@@ -19,5 +19,5 @@ runs:
         NAME: pytest_on_py${{ inputs.python-version }}
         LABEL: 'pytest on Python ${{ inputs.python-version }}'
         STATUS: 'running or failed'
-        COLOR: background-color
+        COLOR: ${{ inputs.background-color }}
         GITHUB_TOKEN: ${{ inputs.github-token }}

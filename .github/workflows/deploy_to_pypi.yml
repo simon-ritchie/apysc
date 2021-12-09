@@ -15,6 +15,7 @@ jobs:
       python-39-version: 3.9.9
       python-310-version: 3.10.0
       checking-badge-color: FFAA00
+      passing-badge-color: 0088FF
     steps:
       - run: echo 'Setting constans.'
 
@@ -196,7 +197,7 @@ jobs:
           NAME: pytest_coverage
           LABEL: 'pytest coverage'
           STATUS: ${{ env.COVERAGE }}
-          COLOR: 0088FF
+          COLOR: ${{ needs.SetGlobalConstants.outputs.passing-badge-color }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   RunTestsOnEachPythonVersion:
@@ -305,7 +306,7 @@ jobs:
           NAME: flake8_checking
           LABEL: 'flake8 checking'
           STATUS: 'passing'
-          COLOR: 0088FF
+          COLOR: ${{ needs.SetGlobalConstants.outputs.passing-badge-color }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Update the mypy badge status to passing
         uses: RubbaBoy/BYOB@v1.2.1
@@ -313,7 +314,7 @@ jobs:
           NAME: mypy_checking
           LABEL: 'mypy checking'
           STATUS: 'passing'
-          COLOR: 0088FF
+          COLOR: ${{ needs.SetGlobalConstants.outputs.passing-badge-color }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Update the numdoclint badge status to passing
         uses: RubbaBoy/BYOB@v1.2.1
@@ -321,7 +322,7 @@ jobs:
           NAME: numdoclint_checking
           LABEL: 'numdoclint checking'
           STATUS: 'passing'
-          COLOR: 0088FF
+          COLOR: ${{ needs.SetGlobalConstants.outputs.passing-badge-color }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # For the sake of sequentiality, the following steps
       # are not using strategy matrix.
@@ -332,26 +333,31 @@ jobs:
         with:
           python-version: ${{ needs.SetGlobalConstants.outputs.python-36-version }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.passing-badge-color }}
       - name: Update Python 3.7
         uses: ./.github/actions/update_each_python_tests_badge_to_passing_status
         with:
           python-version: ${{ needs.SetGlobalConstants.outputs.python-37-version }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.passing-badge-color }}
       - name: Update Python 3.8
         uses: ./.github/actions/update_each_python_tests_badge_to_passing_status
         with:
           python-version: ${{ needs.SetGlobalConstants.outputs.python-38-version }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.passing-badge-color }}
       - name: Update Python 3.9
         uses: ./.github/actions/update_each_python_tests_badge_to_passing_status
         with:
           python-version: ${{ needs.SetGlobalConstants.outputs.python-39-version }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.passing-badge-color }}
       - name: Update Python 3.10
         uses: ./.github/actions/update_each_python_tests_badge_to_passing_status
         with:
           python-version: ${{ needs.SetGlobalConstants.outputs.python-310-version }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.passing-badge-color }}
 
   RunPackageInstallingTests:
     needs: [DeployToPyPI, SetGlobalConstants]

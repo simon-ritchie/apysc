@@ -72,26 +72,24 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Set the uses path to environment variable
-        run: echo "uses-path=./.github/actions/update_each_python_tests_badge_to_checking_status" >> $GITHUB_ENV
       - name: Update Python 3.6
-        uses: ${{ env.uses-path }}
+        uses: ./.github/actions/update_each_python_tests_badge_to_checking_status
         with:
           python-version: 3.6.15
       - name: Update Python 3.7
-        uses: ${{ env.uses-path }}
+        uses: ./.github/actions/update_each_python_tests_badge_to_checking_status
         with:
           python-version: 3.7.12
       - name: Update Python 3.8
-        uses: ${{ env.uses-path }}
+        uses: ./.github/actions/update_each_python_tests_badge_to_checking_status
         with:
           python-version: 3.8.12
       - name: Update Python 3.9
-        uses: ${{ env.uses-path }}
+        uses: ./.github/actions/update_each_python_tests_badge_to_checking_status
         with:
           python-version: 3.9.9
       - name: Update Python 3.10
-        uses: ${{ env.uses-path }}
+        uses: ./.github/actions/update_each_python_tests_badge_to_checking_status
         with:
           python-version: 3.10.0
 
@@ -294,26 +292,24 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Set the uses path to environment variable
-        run: echo "uses-path=./.github/actions/update_each_python_tests_badge_to_passed_status" >> $GITHUB_ENV
       - name: Update Python 3.6
-        uses: ${{ env.uses-path }}
+        uses: ./.github/actions/update_each_python_tests_badge_to_passed_status
         with:
           python-version: 3.6.15
       - name: Update Python 3.7
-        uses: ${{ env.uses-path }}
+        uses: ./.github/actions/update_each_python_tests_badge_to_passed_status
         with:
           python-version: 3.7.12
       - name: Update Python 3.8
-        uses: ${{ env.uses-path }}
+        uses: ./.github/actions/update_each_python_tests_badge_to_passed_status
         with:
           python-version: 3.8.12
       - name: Update Python 3.9
-        uses: ${{ env.uses-path }}
+        uses: ./.github/actions/update_each_python_tests_badge_to_passed_status
         with:
           python-version: 3.9.9
       - name: Update Python 3.10
-        uses: ${{ env.uses-path }}
+        uses: ./.github/actions/update_each_python_tests_badge_to_passed_status
         with:
           python-version: 3.10.0
 

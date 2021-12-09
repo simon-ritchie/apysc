@@ -338,7 +338,7 @@ jobs:
         with:
           NAME: passed_tests_num
           LABEL: 'passed tests number'
-          STATUS: ${{ needs.RunTestsOnPython36AndSaveCoverageAndPassedNum.outputs.COVERAGE }}
+          STATUS: ${{ needs.RunTestsOnPython36AndSaveCoverageAndPassedNum.outputs.PASSED_TESTS_NUM }}
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSED_TESTS_NUM }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # For the sake of sequentiality, the following steps

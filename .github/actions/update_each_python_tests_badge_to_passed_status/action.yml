@@ -1,0 +1,17 @@
+name: Update each Python tests status of the README badge to passed
+description: Update each Python tests status of the README badge to passed with a specified Python version parameter.
+inputs:
+  python-version:
+    description: Python version to set.
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Update each Python vertion tests badge status to passed
+      uses: RubbaBoy/BYOB@v1.2.1
+      with:
+        NAME: pytest_on_py${{ inputs.python-version }}
+        LABEL: 'pytest on Python ${{ inputs.python-version }}'
+        STATUS: 'passed'
+        COLOR: 0088FF
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -68,20 +68,32 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   UpdateReadmeEachPythonTestsBadgeToCheckingStatus:
+    needs: UpdateReadmeBadgesToCheckingStatus
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.6.15, 3.7.12, 3.8.12, 3.9.9, 3.10.0]
     timeout-minutes: 5
     steps:
-      - name: Update each Python vertion tests badge status to running or failing
-        uses: RubbaBoy/BYOB@v1.2.1
+      - name: Set the uses path to environment variable
+        run: echo "uses-path=./.github/actions/update_each_python_tests_badge_to_checking_status" >> $GITHUB_ENV
+      - name: Update Python 3.6
+        uses: ${{ env.uses-path }}
         with:
-          NAME: pytest_on_py${{ matrix.python-version }}
-          LABEL: 'pytest on Python ${{ matrix.python-version }}'
-          STATUS: 'running or failed'
-          COLOR: FFAA00
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          python-version: 3.6.15
+      - name: Update Python 3.7
+        uses: ${{ env.uses-path }}
+        with:
+          python-version: 3.7.12
+      - name: Update Python 3.8
+        uses: ${{ env.uses-path }}
+        with:
+          python-version: 3.8.12
+      - name: Update Python 3.9
+        uses: ${{ env.uses-path }}
+        with:
+          python-version: 3.9.9
+      - name: Update Python 3.10
+        uses: ${{ env.uses-path }}
+        with:
+          python-version: 3.10.0
 
   RunFlake8:
     needs: CreateCache
@@ -280,19 +292,30 @@ jobs:
   UpdateReadmeEachPythonTestBadgeTOPassedStatus:
     needs: [RunTestsOnPython36AndSaveCoverage, RunTestsOnEachPythonVersion]
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.6.15, 3.7.12, 3.8.12, 3.9.9, 3.10.0]
     timeout-minutes: 5
     steps:
-      - name: Update the badge status to passed
-        uses: RubbaBoy/BYOB@v1.2.1
+      - name: Set the uses path to environment variable
+        run: echo "uses-path=./.github/actions/update_each_python_tests_badge_to_passed_status" >> $GITHUB_ENV
+      - name: Update Python 3.6
+        uses: ${{ env.uses-path }}
         with:
-          NAME: pytest_on_py${{ matrix.python-version }}
-          LABEL: 'pytest on Python ${{ matrix.python-version }}'
-          STATUS: 'passed'
-          COLOR: 0088FF
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          python-version: 3.6.15
+      - name: Update Python 3.7
+        uses: ${{ env.uses-path }}
+        with:
+          python-version: 3.7.12
+      - name: Update Python 3.8
+        uses: ${{ env.uses-path }}
+        with:
+          python-version: 3.8.12
+      - name: Update Python 3.9
+        uses: ${{ env.uses-path }}
+        with:
+          python-version: 3.9.9
+      - name: Update Python 3.10
+        uses: ${{ env.uses-path }}
+        with:
+          python-version: 3.10.0
 
   RunPackageInstallingTests:
     needs: DeployToPyPI

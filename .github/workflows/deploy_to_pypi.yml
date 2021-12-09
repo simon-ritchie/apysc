@@ -32,11 +32,11 @@ jobs:
     strategy:
       matrix:
         python-version: [
-          '${{ needs.outputs.python-36-version }}',
-          '${{ needs.outputs.python-37-version }}',
-          '${{ needs.outputs.python-38-version }}',
-          '${{ needs.outputs.python-39-version }}',
-          '${{ needs.outputs.python-310-version }}',
+          '${{ needs.SetGlobalConstants.outputs.python-36-version }}',
+          '${{ needs.SetGlobalConstants.outputs.python-37-version }}',
+          '${{ needs.SetGlobalConstants.outputs.python-38-version }}',
+          '${{ needs.SetGlobalConstants.outputs.python-39-version }}',
+          '${{ needs.SetGlobalConstants.outputs.python-310-version }}',
         ]
     timeout-minutes: 20
     steps:
@@ -68,6 +68,7 @@ jobs:
           key: ${{ runner.os }}-bin-cache-${{ env.site-packages-path }}-${{ hashFiles('**/requirements.txt') }}
 
   UpdateReadmeBadgesToCheckingStatus:
+    needs: SetGlobalConstants
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:

@@ -265,7 +265,12 @@ jobs:
           prerelease: false
 
   UpdateReadmeBadgesToPassedStatus:
-    needs: [RunFlake8, RunMypy, RunNumdoclint]
+    needs: [
+      RunFlake8,
+      RunMypy,
+      RunNumdoclint,
+      UpdateReadmeEachPythonTestsBadgeToCheckingStatus,
+    ]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -298,7 +303,7 @@ jobs:
     needs: [
       RunTestsOnPython36AndSaveCoverage,
       RunTestsOnEachPythonVersion,
-      UpdateReadmeEachPythonTestsBadgeToCheckingStatus,
+      UpdateReadmeBadgesToPassedStatus,
     ]
     runs-on: ubuntu-latest
     timeout-minutes: 10

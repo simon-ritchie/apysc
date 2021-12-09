@@ -269,7 +269,7 @@ jobs:
       RunFlake8,
       RunMypy,
       RunNumdoclint,
-      UpdateReadmeEachPythonTestsBadgeToCheckingStatus,
+      UpdateReadmeBadgesToCheckingStatus,
       RunTestsOnPython36AndSaveCoverage,
       RunTestsOnEachPythonVersion,
     ]

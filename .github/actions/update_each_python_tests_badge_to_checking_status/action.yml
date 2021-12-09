@@ -4,6 +4,9 @@ inputs:
   python-version:
     description: Python version to set.
     required: true
+  github-token:
+    description: GitHub token to set.
+    required: true
 runs:
   using: composite
   steps:
@@ -14,4 +17,4 @@ runs:
         LABEL: 'pytest on Python ${{ inputs.python-version }}'
         STATUS: 'running or failed'
         COLOR: FFAA00
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ input.github-token }}

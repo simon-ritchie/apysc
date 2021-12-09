@@ -9,11 +9,22 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
-      python-3.6-version: 3.6.15
-      python-3.7-version: 3.7.12
-      python-3.8-version: 3.8.12
-      python-3.9-version: 3.9.9
-      python-3.10-version: 3.10.0
+      python-3.6-version: ${{ steps.python-version-36.outputs.version }}
+      python-3.7-version: ${{ steps.python-version-37.outputs.version }}
+      python-3.8-version: ${{ steps.python-version-38.outputs.version }}
+      python-3.9-version: ${{ steps.python-version-39.outputs.version }}
+      python-3.10-version: ${{ steps.python-version-310.outputs.version }}
+    steps:
+      - id: python-version-36
+        run: echo '::set-output name=version::3.6.15'
+      - id: python-version-37
+        run: echo '::set-output name=version::3.7.12'
+      - id: python-version-38
+        run: echo '::set-output name=version::3.8.12'
+      - id: python-version-39
+        run: echo '::set-output name=version::3.9.9'
+      - id: python-version-310
+        run: echo '::set-output name=version::3.10.0'
 
   CreateCache:
     needs: SetGlobalConstants

@@ -36,3 +36,15 @@ class TestPathHorizontal:
             ),
             string=svg_str)
         assert match is not None
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_update_path_data(self) -> None:
+        path_horizontal: ap.PathHorizontal = ap.PathHorizontal(
+            x=50, relative=False)
+        path_horizontal.update_path_data(x=100, relative=True)
+        assert_attrs(
+            expected_attrs={
+                '_x': 100,
+                '_relative': True,
+            },
+            any_obj=path_horizontal)

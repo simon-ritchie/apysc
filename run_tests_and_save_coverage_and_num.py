@@ -85,7 +85,7 @@ def _save_coverage(stdout: str) -> None:
             raise Exception('Test coverage value is missing.')
         statements: int = int(match.group(1))
         missed: int = int(match.group(2))
-        coverage_float: float = missed / statements
+        coverage_float: float = 100 - (missed / statements)
         coverage = f'{coverage_float:.2f}%'
     logger.info('Saving a coverage to the .env file.')
     with open('.env', 'a') as f:

@@ -4,11 +4,33 @@ on:
     branches:
       - main
 jobs:
+
+  SetGlobalConstants:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      PYTHON_36_VERSION: 3.6.15
+      PYTHON_37_VERSION: 3.7.12
+      PYTHON_38_VERSION: 3.8.12
+      PYTHON_39_VERSION: 3.9.9
+      PYTHON_310_VERSION: 3.10.0
+      CHECKING_BADGE_COLOR: FFAA00
+      PASSING_BADGE_COLOR: 0088FF
+    steps:
+      - run: echo 'Setting constans.'
+
   CreateCache:
+    needs: SetGlobalConstants
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6.15, 3.7.12, 3.8.12, 3.9.9, 3.10.0]
+        python-version: [
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}',
+        ]
     timeout-minutes: 20
     steps:
       - name: Checkout
@@ -38,160 +60,158 @@ jobs:
           path: /opt/hostedtoolcache/Python/${{ matrix.python-version }}/x64/bin/
           key: ${{ runner.os }}-bin-cache-${{ env.site-packages-path }}-${{ hashFiles('**/requirements.txt') }}
 
-  RunFlake8:
-    needs: CreateCache
+  UpdateReadmeBadgesToCheckingStatus:
+    needs: SetGlobalConstants
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Set the Python version environment variable
-        run: echo "python-version=3.6.15" >> $GITHUB_ENV
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup the Python dependencies
-        uses: ./.github/actions/setup_py_dependencies
-        with:
-          python-version: ${{ env.python-version }}
-      - name: Update the badge status to running or failing
+      - name: Update the flake8 badge status to running or failing
         uses: RubbaBoy/BYOB@v1.2.1
         with:
           NAME: flake8_checking
           LABEL: 'flake8 checking'
           STATUS: 'running or failed'
-          COLOR: FFAA00
+          COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update the mypy badge status to running or failing
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: mypy_checking
+          LABEL: 'mypy checking'
+          STATUS: 'running or failed'
+          COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update the numdoclint badge status to running or failing
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: numdoclint_checking
+          LABEL: 'numdoclint checking'
+          STATUS: 'running or failed'
+          COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout
+        uses: actions/checkout@v2
+      # For the sake of sequentiality, the following steps
+      # are not using strategy matrix.
+      - name: Update Python 3.6
+        uses: ./.github/actions/update_each_python_tests_badge_to_checking_status
+        with:
+          python-version: '${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
+      - name: Update Python 3.7
+        uses: ./.github/actions/update_each_python_tests_badge_to_checking_status
+        with:
+          python-version: '${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
+      - name: Update Python 3.8
+        uses: ./.github/actions/update_each_python_tests_badge_to_checking_status
+        with:
+          python-version: '${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
+      - name: Update Python 3.9
+        uses: ./.github/actions/update_each_python_tests_badge_to_checking_status
+        with:
+          python-version: '${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
+      - name: Update Python 3.10
+        uses: ./.github/actions/update_each_python_tests_badge_to_checking_status
+        with:
+          python-version: '${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
+
+  RunFlake8:
+    needs: [CreateCache, SetGlobalConstants]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
+        with:
+          python-version: '${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}'
       - name: Set the flake8 alias
-        run: alias flake8=/opt/hostedtoolcache/Python/${{ env.python-version }}/x64/bin/flake8
+        run: alias flake8=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/flake8
       - name: Run the flake8 command
         run: python run_flake8.py
-      - name: Update the badge status to passed
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: flake8_checking
-          LABEL: 'flake8 checking'
-          STATUS: 'passed'
-          COLOR: 0088FF
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   RunMypy:
-    needs: CreateCache
+    needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Set the Python version environment variable
-        run: echo "python-version=3.6.15" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ env.python-version }}
-      - name: Update the badge status to running or failing
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: mypy_checking
-          LABEL: 'mypy checking'
-          STATUS: 'running or failed'
-          COLOR: FFAA00
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
       - name: Set the mypy alias
-        run: alias mypy=/opt/hostedtoolcache/Python/${{ env.python-version }}/x64/bin/mypy
+        run: alias mypy=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/mypy
       - name: Run the mypy command
         run: python run_mypy.py
-      - name: Update the badge status to passed
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: mypy_checking
-          LABEL: 'mypy checking'
-          STATUS: 'passed'
-          COLOR: 0088FF
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   RunNumdoclint:
-    needs: CreateCache
+    needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Set the Python version environment variable
-        run: echo "python-version=3.6.15" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ env.python-version }}
-      - name: Update the badge status to running or failing
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: numdoclint_checking
-          LABEL: 'numdoclint checking'
-          STATUS: 'running or failed'
-          COLOR: FFAA00
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
       - name: Set the numdoclint alias
-        run: alias numdoclint=/opt/hostedtoolcache/Python/${{ env.python-version }}/x64/bin/numdoclint
+        run: alias numdoclint=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/numdoclint
       - name: Run the numdoclint command
         run: python run_numdoclint.py
-      - name: Update the badge status to passed
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: numdoclint_checking
-          LABEL: 'numdoclint checking'
-          STATUS: 'passed'
-          COLOR: 0088FF
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  RunTestsOnPython36AndSaveCoverage:
-    needs: CreateCache
+  RunTestsOnPython36AndSaveCoverageAndPassedNum:
+    needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    outputs:
+      COVERAGE: ${{ steps.set-coverage.outputs.coverage }}
+      PASSED_TESTS_NUM: ${{ steps.set-passed-tests-num.outputs.passed-tests-num }}
     steps:
-      - name: Set the Python version environment variable
-        run: echo "python-version=3.6.15" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ env.python-version }}
-      - name: Update the badge status to running or failing
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: pytest_on_py${{ env.python-version }}
-          LABEL: 'pytest on Python ${{ env.python-version }}'
-          STATUS: 'running or failed'
-          COLOR: FFAA00
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
       - name: Set the pytest alias
-        run: alias pytest=/opt/hostedtoolcache/Python/${{ env.python-version }}/x64/bin/pytest
+        run: alias pytest=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/pytest
       - name: Run the test runner command
-        run: python run_tests_and_save_coverage.py
+        run: python run_tests_and_save_coverage_and_num.py
       - name: Set the environment variables from .env file
         uses: c-py/action-dotenv-to-setenv@v3
         with:
           env-file: .env
-      - name: Update the coverage badge setting
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: pytest_coverage
-          LABEL: 'pytest coverage'
-          STATUS: ${{ env.COVERAGE }}
-          COLOR: 0088FF
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Update the badge status to passed
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: pytest_on_py36
-          LABEL: 'pytest on Python 3.6'
-          STATUS: 'passed'
-          COLOR: 0088FF
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set the coverage to outputs value
+        id: set-coverage
+        run: echo '::set-output name=coverage::${{ env.COVERAGE }}'
+      - name: Set the passed tests number to outputs value
+        id: set-passed-tests-num
+        run: echo '::set-output name=passed-tests-num::${{ env.PASSED_TESTS_NUM }}'
 
   RunTestsOnEachPythonVersion:
-    needs: CreateCache
+    needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7.12, 3.8.12, 3.9.9, 3.10.0]
+        python-version: [
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}',
+        ]
     timeout-minutes: 10
     steps:
       - name: Checkout
@@ -200,40 +220,29 @@ jobs:
         uses: ./.github/actions/setup_py_dependencies
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Update the badge status to running or failing
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: pytest_on_py${{ matrix.python-version }}
-          LABEL: 'pytest on Python ${{ matrix.python-version }}'
-          STATUS: 'running or failed'
-          COLOR: FFAA00
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Set the pytest alias
         run: alias pytest=/opt/hostedtoolcache/Python/${{ matrix.python-version }}/x64/bin/pytest
       - name: Run the test runner command
         run: python run_tests.py
-      - name: Update the badge status to passed
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: pytest_on_py${{ matrix.python-version }}
-          LABEL: 'pytest on Python ${{ matrix.python-version }}'
-          STATUS: 'passed'
-          COLOR: 0088FF
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   DeployToPyPI:
-    needs: [RunFlake8, RunMypy, RunNumdoclint, RunTestsOnPython36AndSaveCoverage, RunTestsOnEachPythonVersion]
+    needs: [
+      RunFlake8,
+      RunMypy,
+      RunNumdoclint,
+      RunTestsOnPython36AndSaveCoverageAndPassedNum,
+      RunTestsOnEachPythonVersion,
+      SetGlobalConstants,
+    ]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Set the Python version environment variable
-        run: echo "python-version=3.6.15" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ env.python-version }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
       - name: Execute the Python package build
         run: python build.py
       - name: Set the PyPI account setting
@@ -245,23 +254,28 @@ jobs:
           echo -e "username = ${PYPI_USERNAME}" >> ~/.pypirc
           echo -e "password = ${PYPI_PASSWORD}" >> ~/.pypirc
       - name: Set the twine alias
-        run: alias twine=/opt/hostedtoolcache/Python/${{ env.python-version }}/x64/bin/twine
+        run: alias twine=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/twine
       - name: Upload to PyPI
         run: twine upload dist/*
 
   CreateReleaseNotes:
-    needs: [RunFlake8, RunMypy, RunNumdoclint, RunTestsOnPython36AndSaveCoverage, RunTestsOnEachPythonVersion]
+    needs: [
+      RunFlake8,
+      RunMypy,
+      RunNumdoclint,
+      RunTestsOnPython36AndSaveCoverageAndPassedNum,
+      RunTestsOnEachPythonVersion,
+      SetGlobalConstants,
+    ]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Set the Python version environment variable
-        run: echo "python-version=3.6.15" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup the Python dependencies
         uses: ./.github/actions/setup_py_dependencies
         with:
-          python-version: ${{ env.python-version }}
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
       - name: Set the apysc version to environment variable
         run: python -c "import apysc; print(f'apysc_version={apysc.__version__}')" >> $GITHUB_ENV
       - name: Create the release note
@@ -274,12 +288,106 @@ jobs:
           draft: false
           prerelease: false
 
+  UpdateReadmeBadgesToPassingStatus:
+    needs: [
+      RunFlake8,
+      RunMypy,
+      RunNumdoclint,
+      UpdateReadmeBadgesToCheckingStatus,
+      RunTestsOnPython36AndSaveCoverageAndPassedNum,
+      RunTestsOnEachPythonVersion,
+      SetGlobalConstants,
+    ]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Update the flake8 badge status to passing
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: flake8_checking
+          LABEL: 'flake8 checking'
+          STATUS: 'passing'
+          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update the mypy badge status to passing
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: mypy_checking
+          LABEL: 'mypy checking'
+          STATUS: 'passing'
+          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update the numdoclint badge status to passing
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: numdoclint_checking
+          LABEL: 'numdoclint checking'
+          STATUS: 'passing'
+          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update tests line coverage
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: pytest_coverage
+          LABEL: 'pytest coverage'
+          STATUS: ${{ needs.RunTestsOnPython36AndSaveCoverageAndPassedNum.outputs.COVERAGE }}
+          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update the passed tests number
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: passed_tests_num
+          LABEL: 'passed tests number'
+          STATUS: ${{ needs.RunTestsOnPython36AndSaveCoverageAndPassedNum.outputs.PASSED_TESTS_NUM }}
+          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSED_TESTS_NUM }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # For the sake of sequentiality, the following steps
+      # are not using strategy matrix.
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Update Python 3.6
+        uses: ./.github/actions/update_each_python_tests_badge_to_passing_status
+        with:
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
+      - name: Update Python 3.7
+        uses: ./.github/actions/update_each_python_tests_badge_to_passing_status
+        with:
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
+      - name: Update Python 3.8
+        uses: ./.github/actions/update_each_python_tests_badge_to_passing_status
+        with:
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
+      - name: Update Python 3.9
+        uses: ./.github/actions/update_each_python_tests_badge_to_passing_status
+        with:
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
+      - name: Update Python 3.10
+        uses: ./.github/actions/update_each_python_tests_badge_to_passing_status
+        with:
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          background-color: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
+
   RunPackageInstallingTests:
-    needs: DeployToPyPI
+    needs: [DeployToPyPI, SetGlobalConstants]
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6.15, 3.7.12, 3.8.12, 3.9.9, 3.10.0]
+        python-version: [
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}',
+        ]
     timeout-minutes: 10
     steps:
       - name: Checkout

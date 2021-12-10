@@ -79,10 +79,14 @@ def _save_coverage(stdout: str) -> None:
         if not line.startswith('TOTAL '):
             continue
         match: Optional[Match] = re.search(
-            pattern=r'(\d+?\%)', string=line)
+            pattern=r'TOTAL\s+?(\d+?)\s+?(\d+?)\s',
+            string=line)
         if match is None:
             raise Exception('Test coverage value is missing.')
-        coverage = match.group(1)
+        statements: int = int(match.group(1))
+        missed: int = int(match.group(2))
+        coverage_float: float = missed / statements
+        coverage = f'{coverage_float:.2f}'
     logger.info('Saving a coverage to the .env file.')
     with open('.env', 'a') as f:
         f.write(f'COVERAGE="{coverage}"\n')

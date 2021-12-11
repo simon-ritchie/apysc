@@ -83,3 +83,33 @@ class PathBezier2D(PathDataBase):
             f'+ String({dest_y_str})'
         )
         return svg_str
+
+    def update_path_data(
+            self,
+            control_x: Union[int, Int],
+            control_y: Union[int, Int],
+            dest_x: Union[int, Int],
+            dest_y: Union[int, Int],
+            relative: Union[bool, Boolean]) -> None:
+        """
+        Update the path's data settings.
+
+        Parameters
+        ----------
+        control_x : int or Int
+            X-coordinate of the bezier's control point.
+        control_y : int or Int
+            Y-coordinate of the bezier's control point.
+        dest_x : int or Int
+            X-coordinate of the destination point.
+        dest_y : int or Int
+            Y-coordinate of the destination point.
+        relative : bool or Boolean, default False
+            The boolean value indicating whether the path
+            coordinates are relative or not (absolute).
+        """
+        self._control_x.value = control_x
+        self._control_y.value = control_y
+        self._dest_x.value = dest_x
+        self._dest_y.value = dest_y
+        self._relative.value = relative

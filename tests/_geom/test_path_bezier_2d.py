@@ -51,3 +51,21 @@ class TestPathBezier2D:
             ),
             string=svg_str)
         assert match is not None
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_update_path_data(self) -> None:
+        path_bezier_2d: ap.PathBezier2D = ap.PathBezier2D(
+            control_x=10, control_y=20, dest_x=30, dest_y=40,
+            relative=False)
+        path_bezier_2d.update_path_data(
+            control_x=100, control_y=200, dest_x=300, dest_y=400,
+            relative=True)
+        assert_attrs(
+            expected_attrs={
+                '_control_x': 100,
+                '_control_y': 200,
+                '_dest_x': 300,
+                '_dest_y': 400,
+                '_relative': True,
+            },
+            any_obj=path_bezier_2d)

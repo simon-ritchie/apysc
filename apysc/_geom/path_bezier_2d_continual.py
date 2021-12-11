@@ -10,10 +10,9 @@ from apysc._geom.path_data_base import PathDataBase
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
-from apysc._geom.update_path_data_interface import UpdatePathDataInterface
 
 
-class PathBezier2DContinual(PathDataBase, UpdatePathDataInterface):
+class PathBezier2DContinual(PathDataBase):
     """
     Path data class for the svg's `continual 2D bezier curve` (T).
     """

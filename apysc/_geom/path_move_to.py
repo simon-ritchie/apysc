@@ -9,14 +9,14 @@ from apysc._geom.path_data_base import PathDataBase
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
+from apysc._geom.path_x_interface import PathXInterface
 
 
-class PathMoveTo(PathDataBase):
+class PathMoveTo(PathDataBase, PathXInterface):
     """
     Path data class for the svg's `move to` (M).
     """
 
-    _x: Int
     _y: Int
 
     def __init__(

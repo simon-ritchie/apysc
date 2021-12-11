@@ -9,14 +9,13 @@ from apysc._geom.path_data_base import PathDataBase
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
+from apysc._geom.path_x_interface import PathXInterface
 
 
-class PathHorizontal(PathDataBase):
+class PathHorizontal(PathDataBase, PathXInterface):
     """
     Path data class for the svg's `horizontal line` (H).
     """
-
-    _x: Int
 
     def __init__(
             self, x: Union[int, Int], *,

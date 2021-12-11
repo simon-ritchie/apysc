@@ -54,3 +54,20 @@ class PathVertical(PathDataBase):
         y_str: str = value_util.get_value_str_for_expression(value=self._y)
         svg_str: str = f'{svg_char_str} + String({y_str})'
         return svg_str
+
+    def update_path_data(
+            self, y: Union[int, Int],
+            relative: Union[bool, Boolean]) -> None:
+        """
+        Update the path's data settings.
+
+        Parameters
+        ----------
+        y : int or Int
+            Y-coordinate of the destination point.
+        relative : bool or Boolean
+            The boolean value indicating whether the path
+            coordinates are relative or not (absolute).
+        """
+        self._y.value = y
+        self._relative.value = relative

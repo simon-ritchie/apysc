@@ -56,7 +56,8 @@ class PathHorizontal(PathDataBase):
         return svg_str
 
     def update_path_data(
-            self, x: Union[int, Int], relative: bool) -> None:
+            self, x: Union[int, Int],
+            relative: Union[bool, Boolean]) -> None:
         """
         Update the path's data settings.
 

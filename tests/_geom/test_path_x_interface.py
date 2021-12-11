@@ -2,8 +2,8 @@ from random import randint
 
 from retrying import retry
 
-from apysc._geom.path_x_interface import PathXInterface
 import apysc as ap
+from apysc._geom.path_x_interface import PathXInterface
 
 
 class TestPathXInterface:

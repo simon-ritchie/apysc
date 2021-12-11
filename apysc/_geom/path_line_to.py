@@ -6,10 +6,10 @@ from typing import Union
 from apysc._converter.to_apysc_val_from_builtin import \
     get_copied_int_from_builtin_val
 from apysc._geom.path_data_base import PathDataBase
+from apysc._geom.path_x_interface import PathXInterface
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
-from apysc._geom.path_x_interface import PathXInterface
 
 
 class PathLineTo(PathDataBase, PathXInterface):

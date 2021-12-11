@@ -9,9 +9,10 @@ from apysc._geom.path_data_base import PathDataBase
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
+from apysc._geom.update_path_data_interface import UpdatePathDataInterface
 
 
-class PathVertical(PathDataBase):
+class PathVertical(PathDataBase, UpdatePathDataInterface):
     """
     Path data class for the svg's `vertical line` (V).
     """

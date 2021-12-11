@@ -41,3 +41,17 @@ class TestPathBezier2DContinual:
             ),
             string=svg_str)
         assert match is not None
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_update_path_data(self) -> None:
+        path_bezier_2d_continual: ap.PathBezier2DContinual = \
+            ap.PathBezier2DContinual(x=10, y=20, relative=False)
+        path_bezier_2d_continual.update_path_data(
+            x=100, y=200, relative=True)
+        assert_attrs(
+            expected_attrs={
+                '_x': 100,
+                '_y': 200,
+                '_relative': True,
+            },
+            any_obj=path_bezier_2d_continual)

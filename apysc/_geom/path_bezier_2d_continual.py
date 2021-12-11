@@ -10,9 +10,10 @@ from apysc._geom.path_data_base import PathDataBase
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
+from apysc._geom.update_path_data_interface import UpdatePathDataInterface
 
 
-class PathBezier2DContinual(PathDataBase):
+class PathBezier2DContinual(PathDataBase, UpdatePathDataInterface):
     """
     Path data class for the svg's `continual 2D bezier curve` (T).
     """
@@ -61,3 +62,23 @@ class PathBezier2DContinual(PathDataBase):
         svg_str: str = (
             f'{svg_char_str} + String({x_str}) + " " + String({y_str})')
         return svg_str
+
+    def update_path_data(
+            self, x: Union[int, Int], y: Union[int, Int],
+            relative: Union[bool, Boolean]) -> None:
+        """
+        Update the path's data settings.
+
+        Parameters
+        ----------
+        x : int or Int
+            X-coordinate of the destination point.
+        y : int or Int
+            Y-coordinate of the destination point.
+        relative : bool or Boolean, default False
+            The boolean value indicating whether the path
+            coordinates are relative or not (absolute).
+        """
+        self._x.value = x
+        self._y.value = y
+        self._relative.value = relative

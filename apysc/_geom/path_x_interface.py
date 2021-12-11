@@ -19,3 +19,15 @@ class PathXInterface:
             A x-coordinate of the destination point.
         """
         return self._x._copy()
+
+    @x.setter
+    def x(self, value: Int) -> None:
+        """
+        Set a x-coordinate of the destination point.
+
+        Parameters
+        ----------
+        value : Int
+            X-coordinate of the destination point.
+        """
+        self._x.value = value

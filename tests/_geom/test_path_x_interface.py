@@ -12,5 +12,7 @@ class TestPathXInterface:
     def test_x(self) -> None:
         interface: PathXInterface = PathXInterface()
         interface._x = ap.Int(10)
-        x: ap.Int = interface.x
-        assert x == 10
+        assert interface.x == 10
+
+        interface.x = ap.Int(20)
+        assert interface.x == 20

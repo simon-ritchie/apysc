@@ -1,7 +1,7 @@
 # apysc
 
 [![Deploy to PyPI](https://github.com/simon-ritchie/apysc/actions/workflows/deploy_to_pypi.yml/badge.svg)](https://github.com/simon-ritchie/apysc/actions/workflows/deploy_to_pypi.yml)
-[![CodeQL](https://github.com/simon-ritchie/apysc/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/simon-ritchie/apysc/actions/workflows/codeql-analysis.yml)
+[![CodeQL](https://github.com/simon-ritchie/apysc/actions/workflows/codeql_analysis.yml/badge.svg)](https://github.com/simon-ritchie/apysc/actions/workflows/codeql_analysis.yml)
 [![PyPI version](https://badge.fury.io/py/apysc.svg)](https://badge.fury.io/py/apysc)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/simon-ritchie/apysc/blob/main/LICENSE)
 ![](https://byob.yarr.is/simon-ritchie/apysc/pytest_on_py3.6.15)

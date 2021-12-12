@@ -2,8 +2,8 @@ from random import randint
 
 from retrying import retry
 
-from apysc._geom.path_control_x1_interface import PathControlX1Interface
 import apysc as ap
+from apysc._geom.path_control_x1_interface import PathControlX1Interface
 
 
 class TestPathControlX1Interface:

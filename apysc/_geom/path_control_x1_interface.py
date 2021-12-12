@@ -13,8 +13,8 @@ class PathControlX1Interface:
         """
         Get a first x-coordinate of the control point.
 
-        Parameters
-        ----------
+        Returns
+        -------
         control_x1 : Int
             First x-coordinate of the control point.
         """

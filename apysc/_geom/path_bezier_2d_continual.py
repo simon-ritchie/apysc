@@ -8,17 +8,16 @@ from apysc._converter.to_apysc_val_from_builtin import \
     get_copied_int_from_builtin_val
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.path_x_interface import PathXInterface
+from apysc._geom.path_y_interface import PathYInterface
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
 
 
-class PathBezier2DContinual(PathDataBase, PathXInterface):
+class PathBezier2DContinual(PathDataBase, PathXInterface, PathYInterface):
     """
     Path data class for the svg's `continual 2D bezier curve` (T).
     """
-
-    _y: Int
 
     def __init__(
             self, x: Union[int, Int], y: Union[int, Int], *,

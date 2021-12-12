@@ -6,18 +6,19 @@ from typing import Union
 from apysc._converter.to_apysc_val_from_builtin import \
     get_copied_int_from_builtin_val
 from apysc._geom.path_control_x_interface import PathControlXInterface
+from apysc._geom.path_control_y_interface import PathControlYInterface
 from apysc._geom.path_data_base import PathDataBase
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
 
 
-class PathBezier2D(PathDataBase, PathControlXInterface):
+class PathBezier2D(
+        PathDataBase, PathControlXInterface, PathControlYInterface):
     """
     Path data class for the svg's `2D bezier curve` (Q).
     """
 
-    _control_y: Int
     _dest_x: Int
     _dest_y: Int
 

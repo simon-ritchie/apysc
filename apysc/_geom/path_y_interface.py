@@ -1,4 +1,4 @@
-"""Interface class implementation for the path data y.
+"""Interface class implementation for the y path data.
 """
 
 from apysc._type.int import Int

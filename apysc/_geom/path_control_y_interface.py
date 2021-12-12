@@ -1,4 +1,4 @@
-"""Interface class implementation for the path control y data.
+"""Interface class implementation for the control y path data.
 """
 
 from apysc._type.int import Int

@@ -9,10 +9,10 @@ from apysc._converter.to_apysc_val_from_builtin import \
 from apysc._geom.path_control_x_interface import PathControlXInterface
 from apysc._geom.path_control_y_interface import PathControlYInterface
 from apysc._geom.path_data_base import PathDataBase
+from apysc._geom.path_dest_x_interface import PathDestXInterface
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
-from apysc._geom.path_dest_x_interface import PathDestXInterface
 
 
 class PathBezier3DContinual(

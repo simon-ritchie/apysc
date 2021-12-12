@@ -13,8 +13,8 @@ class PathYInterface:
         """
         Get a y-coordinate of the destination point.
 
-        Parameters
-        ----------
+        Returns
+        -------
         y : Int
             A y-coordinate of the destination point.
         """

@@ -9,9 +9,10 @@ from apysc._geom.path_data_base import PathDataBase
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
+from apysc._geom.path_dest_x_interface import PathDestXInterface
 
 
-class PathBezier3D(PathDataBase):
+class PathBezier3D(PathDataBase, PathDestXInterface):
     """
     Path data class for the svg's `3D bezier curve` (C).
     """
@@ -20,7 +21,6 @@ class PathBezier3D(PathDataBase):
     _control_y1: Int
     _control_x2: Int
     _control_y2: Int
-    _dest_x: Int
     _dest_y: Int
 
     def __init__(

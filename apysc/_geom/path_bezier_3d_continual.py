@@ -12,15 +12,16 @@ from apysc._geom.path_data_base import PathDataBase
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
+from apysc._geom.path_dest_x_interface import PathDestXInterface
 
 
 class PathBezier3DContinual(
-        PathDataBase, PathControlXInterface, PathControlYInterface):
+        PathDataBase, PathControlXInterface, PathControlYInterface,
+        PathDestXInterface):
     """
     Path data class for the svg's `continual 3D bezier curve` (S).
     """
 
-    _dest_x: Int
     _dest_y: Int
 
     def __init__(

@@ -6,6 +6,7 @@ from typing import Union
 from apysc._converter.to_apysc_val_from_builtin import \
     get_copied_int_from_builtin_val
 from apysc._geom.path_control_x1_interface import PathControlX1Interface
+from apysc._geom.path_control_y1_interface import PathControlY1Interface
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.path_dest_x_interface import PathDestXInterface
 from apysc._geom.path_dest_y_interface import PathDestYInterface
@@ -16,12 +17,11 @@ from apysc._type.string import String
 
 class PathBezier3D(
         PathDataBase, PathDestXInterface, PathDestYInterface,
-        PathControlX1Interface):
+        PathControlX1Interface, PathControlY1Interface):
     """
     Path data class for the svg's `3D bezier curve` (C).
     """
 
-    _control_y1: Int
     _control_x2: Int
     _control_y2: Int
 

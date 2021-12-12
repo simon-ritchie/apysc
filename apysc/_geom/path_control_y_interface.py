@@ -18,7 +18,7 @@ class PathControlYInterface:
         control_y : Int
             Y-coordinate of the control point.
         """
-        return self._control_y
+        return self._control_y._copy()
 
     @control_y.setter
     def control_y(self, value: Int) -> None:

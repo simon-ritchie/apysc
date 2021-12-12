@@ -18,7 +18,7 @@ class PathYInterface:
         y : Int
             A y-coordinate of the destination point.
         """
-        return self._y
+        return self._y._copy()
 
     @y.setter
     def y(self, value: Int) -> None:

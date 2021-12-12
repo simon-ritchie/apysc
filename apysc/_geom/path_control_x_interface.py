@@ -18,7 +18,7 @@ class PathControlXInterface:
         control_x : Int
             X-coordinate of the control point.
         """
-        return self._control_x
+        return self._control_x._copy()
 
     @control_x.setter
     def control_x(self, value: Int) -> None:

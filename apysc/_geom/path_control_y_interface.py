@@ -13,8 +13,8 @@ class PathControlYInterface:
         """
         Get a Y-coordinate of the control point.
 
-        Parameters
-        ----------
+        Returns
+        -------
         control_y : Int
             Y-coordinate of the control point.
         """

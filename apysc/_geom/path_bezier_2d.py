@@ -9,14 +9,14 @@ from apysc._geom.path_data_base import PathDataBase
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
+from apysc._geom.path_control_x_interface import PathControlXInterface
 
 
-class PathBezier2D(PathDataBase):
+class PathBezier2D(PathDataBase, PathControlXInterface):
     """
     Path data class for the svg's `2D bezier curve` (Q).
     """
 
-    _control_x: Int
     _control_y: Int
     _dest_x: Int
     _dest_y: Int

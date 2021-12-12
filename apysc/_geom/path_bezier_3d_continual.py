@@ -10,6 +10,7 @@ from apysc._geom.path_control_x_interface import PathControlXInterface
 from apysc._geom.path_control_y_interface import PathControlYInterface
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.path_dest_x_interface import PathDestXInterface
+from apysc._geom.path_dest_y_interface import PathDestYInterface
 from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.string import String
@@ -17,12 +18,10 @@ from apysc._type.string import String
 
 class PathBezier3DContinual(
         PathDataBase, PathControlXInterface, PathControlYInterface,
-        PathDestXInterface):
+        PathDestXInterface, PathDestYInterface):
     """
     Path data class for the svg's `continual 3D bezier curve` (S).
     """
-
-    _dest_y: Int
 
     def __init__(
             self,

@@ -6,8 +6,8 @@ from typing import Union
 from apysc._converter.to_apysc_val_from_builtin import \
     get_copied_int_from_builtin_val
 from apysc._geom.path_control_x1_interface import PathControlX1Interface
-from apysc._geom.path_control_y1_interface import PathControlY1Interface
 from apysc._geom.path_control_x2_interface import PathControlX2Interface
+from apysc._geom.path_control_y1_interface import PathControlY1Interface
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.path_dest_x_interface import PathDestXInterface
 from apysc._geom.path_dest_y_interface import PathDestYInterface

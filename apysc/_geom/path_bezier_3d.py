@@ -56,16 +56,24 @@ class PathBezier3D(
             The boolean value indicating whether the path
             coordinates are relative or not (absolute).
         """
-        from apysc._geom.path_label import PathLabel
-        super(PathBezier3D, self).__init__(
-            path_label=PathLabel.BEZIER_3D,
-            relative=relative)
-        self._control_x1 = get_copied_int_from_builtin_val(integer=control_x1)
-        self._control_y1 = get_copied_int_from_builtin_val(integer=control_y1)
-        self._control_x2 = get_copied_int_from_builtin_val(integer=control_x2)
-        self._control_y2 = get_copied_int_from_builtin_val(integer=control_y2)
-        self._dest_x = get_copied_int_from_builtin_val(integer=dest_x)
-        self._dest_y = get_copied_int_from_builtin_val(integer=dest_y)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__init__', locals_=locals(),
+                module_name=__name__, class_=PathBezier3D):
+            from apysc._geom.path_label import PathLabel
+            super(PathBezier3D, self).__init__(
+                path_label=PathLabel.BEZIER_3D,
+                relative=relative)
+            self._control_x1 = get_copied_int_from_builtin_val(
+                integer=control_x1)
+            self._control_y1 = get_copied_int_from_builtin_val(
+                integer=control_y1)
+            self._control_x2 = get_copied_int_from_builtin_val(
+                integer=control_x2)
+            self._control_y2 = get_copied_int_from_builtin_val(
+                integer=control_y2)
+            self._dest_x = get_copied_int_from_builtin_val(integer=dest_x)
+            self._dest_y = get_copied_int_from_builtin_val(integer=dest_y)
 
     def _get_svg_str(self) -> str:
         """
@@ -76,29 +84,33 @@ class PathBezier3D(
         svg_str : str
             A path's SVG string created with the current setting.
         """
-        from apysc._type.value_util import get_value_str_for_expression
-        svg_char: String = self._get_svg_char()
-        svg_char_str: str = get_value_str_for_expression(
-            value=svg_char)
-        control_x1_str: str = get_value_str_for_expression(
-            value=self._control_x1)
-        control_y1_str: str = get_value_str_for_expression(
-            value=self._control_y1)
-        control_x2_str: str = get_value_str_for_expression(
-            value=self._control_x2)
-        control_y2_str: str = get_value_str_for_expression(
-            value=self._control_y2)
-        dest_x_str: str = get_value_str_for_expression(value=self._dest_x)
-        dest_y_str: str = get_value_str_for_expression(value=self._dest_y)
-        svg_str: str = (
-            f'{svg_char_str} + String({control_x1_str}) '
-            f'+ " " + String({control_y1_str}) '
-            f'+ " " + String({control_x2_str}) '
-            f'+ " " + String({control_y2_str}) '
-            f'+ " " + String({dest_x_str}) '
-            f'+ " " + String({dest_y_str})'
-        )
-        return svg_str
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self._get_svg_str, locals_=locals(),
+                module_name=__name__, class_=PathBezier3D):
+            from apysc._type.value_util import get_value_str_for_expression
+            svg_char: String = self._get_svg_char()
+            svg_char_str: str = get_value_str_for_expression(
+                value=svg_char)
+            control_x1_str: str = get_value_str_for_expression(
+                value=self._control_x1)
+            control_y1_str: str = get_value_str_for_expression(
+                value=self._control_y1)
+            control_x2_str: str = get_value_str_for_expression(
+                value=self._control_x2)
+            control_y2_str: str = get_value_str_for_expression(
+                value=self._control_y2)
+            dest_x_str: str = get_value_str_for_expression(value=self._dest_x)
+            dest_y_str: str = get_value_str_for_expression(value=self._dest_y)
+            svg_str: str = (
+                f'{svg_char_str} + String({control_x1_str}) '
+                f'+ " " + String({control_y1_str}) '
+                f'+ " " + String({control_x2_str}) '
+                f'+ " " + String({control_y2_str}) '
+                f'+ " " + String({dest_x_str}) '
+                f'+ " " + String({dest_y_str})'
+            )
+            return svg_str
 
     def update_path_data(
             self,
@@ -130,10 +142,14 @@ class PathBezier3D(
             The boolean value indicating whether the path
             coordinates are relative or not (absolute).
         """
-        self._control_x1.value = control_x1
-        self._control_y1.value = control_y1
-        self._control_x2.value = control_x2
-        self._control_y2.value = control_y2
-        self._dest_x.value = dest_x
-        self._dest_y.value = dest_y
-        self._relative.value = relative
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self.update_path_data, locals_=locals(),
+                module_name=__name__, class_=PathBezier3D):
+            self._control_x1.value = control_x1
+            self._control_y1.value = control_y1
+            self._control_x2.value = control_x2
+            self._control_y2.value = control_y2
+            self._dest_x.value = dest_x
+            self._dest_y.value = dest_y
+            self._relative.value = relative

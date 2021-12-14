@@ -18,7 +18,11 @@ class PathControlX2Interface:
         control_x2 : Int
             Second x-coordinate of the control point.
         """
-        return self._control_x2._copy()
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='control_x2', locals_=locals(),
+                module_name=__name__, class_=PathControlX2Interface):
+            return self._control_x2._copy()
 
     @control_x2.setter
     def control_x2(self, value: Int) -> None:
@@ -30,4 +34,8 @@ class PathControlX2Interface:
         value : Int
             Second x-coordinate of the control point.
         """
-        self._control_x2.value = value
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='control_x2', locals_=locals(),
+                module_name=__name__, class_=PathControlX2Interface):
+            self._control_x2.value = value

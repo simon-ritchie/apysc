@@ -18,7 +18,11 @@ class PathControlYInterface:
         control_y : Int
             Y-coordinate of the control point.
         """
-        return self._control_y._copy()
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='control_y', locals_=locals(),
+                module_name=__name__, class_=PathControlYInterface):
+            return self._control_y._copy()
 
     @control_y.setter
     def control_y(self, value: Int) -> None:
@@ -30,4 +34,8 @@ class PathControlYInterface:
         value : Int
             Y-coordinate of the control point.
         """
-        self._control_y.value = value
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='control_y', locals_=locals(),
+                module_name=__name__, class_=PathControlYInterface):
+            self._control_y.value = value

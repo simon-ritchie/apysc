@@ -34,12 +34,16 @@ class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
             The boolean value indicating whether the path
             coordinates are relative or not (absolute).
         """
-        from apysc._geom.path_label import PathLabel
-        super(PathMoveTo, self).__init__(
-            path_label=PathLabel.MOVE_TO,
-            relative=relative)
-        self._x = get_copied_int_from_builtin_val(integer=x)
-        self._y = get_copied_int_from_builtin_val(integer=y)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__init__', locals_=locals(),
+                module_name=__name__, class_=PathMoveTo):
+            from apysc._geom.path_label import PathLabel
+            super(PathMoveTo, self).__init__(
+                path_label=PathLabel.MOVE_TO,
+                relative=relative)
+            self._x = get_copied_int_from_builtin_val(integer=x)
+            self._y = get_copied_int_from_builtin_val(integer=y)
 
     def _get_svg_str(self) -> str:
         """
@@ -50,15 +54,21 @@ class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
         svg_str : str
             A path's SVG string created with the current setting.
         """
-        from apysc._type import value_util
-        svg_char: String = self._get_svg_char()
-        svg_char_str: str = value_util.get_value_str_for_expression(
-            value=svg_char)
-        x_str: str = value_util.get_value_str_for_expression(value=self._x)
-        y_str: str = value_util.get_value_str_for_expression(value=self._y)
-        svg_str: str = (
-            f'{svg_char_str} + String({x_str}) + " " + String({y_str})')
-        return svg_str
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self._get_svg_str, locals_=locals(),
+                module_name=__name__, class_=PathMoveTo):
+            from apysc._type import value_util
+            svg_char: String = self._get_svg_char()
+            svg_char_str: str = value_util.get_value_str_for_expression(
+                value=svg_char)
+            x_str: str = value_util.get_value_str_for_expression(
+                value=self._x)
+            y_str: str = value_util.get_value_str_for_expression(
+                value=self._y)
+            svg_str: str = (
+                f'{svg_char_str} + String({x_str}) + " " + String({y_str})')
+            return svg_str
 
     def update_path_data(
             self, x: Union[int, Int], y: Union[int, Int],
@@ -76,6 +86,10 @@ class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
             The boolean value indicating whether the path
             coordinates are relative or not (absolute).
         """
-        self._x.value = x
-        self._y.value = y
-        self._relative.value = relative
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self.update_path_data, locals_=locals(),
+                module_name=__name__, class_=PathMoveTo):
+            self._x.value = x
+            self._y.value = y
+            self._relative.value = relative

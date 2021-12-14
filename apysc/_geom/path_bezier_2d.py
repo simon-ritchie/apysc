@@ -47,14 +47,20 @@ class PathBezier2D(
             The boolean value indicating whether the path
             coordinates are relative or not (absolute).
         """
-        from apysc._geom.path_label import PathLabel
-        super(PathBezier2D, self).__init__(
-            path_label=PathLabel.BEZIER_2D,
-            relative=relative)
-        self._control_x = get_copied_int_from_builtin_val(integer=control_x)
-        self._control_y = get_copied_int_from_builtin_val(integer=control_y)
-        self._dest_x = get_copied_int_from_builtin_val(integer=dest_x)
-        self._dest_y = get_copied_int_from_builtin_val(integer=dest_y)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__init__', locals_=locals(),
+                module_name=__name__, class_=PathBezier2D):
+            from apysc._geom.path_label import PathLabel
+            super(PathBezier2D, self).__init__(
+                path_label=PathLabel.BEZIER_2D,
+                relative=relative)
+            self._control_x = get_copied_int_from_builtin_val(
+                integer=control_x)
+            self._control_y = get_copied_int_from_builtin_val(
+                integer=control_y)
+            self._dest_x = get_copied_int_from_builtin_val(integer=dest_x)
+            self._dest_y = get_copied_int_from_builtin_val(integer=dest_y)
 
     def _get_svg_str(self) -> str:
         """
@@ -65,25 +71,29 @@ class PathBezier2D(
         svg_str : str
             A path's SVG string created with the current setting.
         """
-        from apysc._type import value_util
-        svg_char: String = self._get_svg_char()
-        svg_char_str: str = value_util.get_value_str_for_expression(
-            value=svg_char)
-        control_x_str: str = value_util.get_value_str_for_expression(
-            value=self._control_x)
-        control_y_str: str = value_util.get_value_str_for_expression(
-            value=self._control_y)
-        dest_x_str: str = value_util.get_value_str_for_expression(
-            value=self._dest_x)
-        dest_y_str: str = value_util.get_value_str_for_expression(
-            value=self._dest_y)
-        svg_str: str = (
-            f'{svg_char_str} + String({control_x_str}) + " " '
-            f'+ String({control_y_str}) + " " '
-            f'+ String({dest_x_str}) + " " '
-            f'+ String({dest_y_str})'
-        )
-        return svg_str
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self._get_svg_str, locals_=locals(),
+                module_name=__name__, class_=PathBezier2D):
+            from apysc._type import value_util
+            svg_char: String = self._get_svg_char()
+            svg_char_str: str = value_util.get_value_str_for_expression(
+                value=svg_char)
+            control_x_str: str = value_util.get_value_str_for_expression(
+                value=self._control_x)
+            control_y_str: str = value_util.get_value_str_for_expression(
+                value=self._control_y)
+            dest_x_str: str = value_util.get_value_str_for_expression(
+                value=self._dest_x)
+            dest_y_str: str = value_util.get_value_str_for_expression(
+                value=self._dest_y)
+            svg_str: str = (
+                f'{svg_char_str} + String({control_x_str}) + " " '
+                f'+ String({control_y_str}) + " " '
+                f'+ String({dest_x_str}) + " " '
+                f'+ String({dest_y_str})'
+            )
+            return svg_str
 
     def update_path_data(
             self,
@@ -109,8 +119,12 @@ class PathBezier2D(
             The boolean value indicating whether the path
             coordinates are relative or not (absolute).
         """
-        self._control_x.value = control_x
-        self._control_y.value = control_y
-        self._dest_x.value = dest_x
-        self._dest_y.value = dest_y
-        self._relative.value = relative
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self.update_path_data, locals_=locals(),
+                module_name=__name__, class_=PathBezier2D):
+            self._control_x.value = control_x
+            self._control_y.value = control_y
+            self._dest_x.value = dest_x
+            self._dest_y.value = dest_y
+            self._relative.value = relative

@@ -24,7 +24,6 @@ class PathBezier3D(
     Path data class for the svg's `3D bezier curve` (C).
     """
 
-    _control_x2: Int
     _control_y2: Int
 
     def __init__(

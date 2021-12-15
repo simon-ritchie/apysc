@@ -34,8 +34,12 @@ class PathDataBase(ABC):
             The boolean value indicating whether the path
             coordinates are relative or not (absolute).
         """
-        self._path_label = path_label
-        self._relative = Boolean(relative)
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__init__', locals_=locals(),
+                module_name=__name__, class_=PathDataBase):
+            self._path_label = path_label
+            self._relative = Boolean(relative)
 
     def _get_svg_char(self) -> String:
         """
@@ -47,16 +51,20 @@ class PathDataBase(ABC):
         svg_char : String
             Target SVG character.
         """
-        svg_char_: str = self._path_label.value
-        if self._relative._value:
-            svg_char: String = String(svg_char_.lower())
-        else:
-            svg_char = String(svg_char_)
-        with If(self._relative, locals_=locals()):
-            svg_char.value = svg_char_.lower()
-        with Else(locals_=locals()):
-            svg_char.value = svg_char_
-        return svg_char
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self._get_svg_char, locals_=locals(),
+                module_name=__name__, class_=PathDataBase):
+            svg_char_: str = self._path_label.value
+            if self._relative._value:
+                svg_char: String = String(svg_char_.lower())
+            else:
+                svg_char = String(svg_char_)
+            with If(self._relative, locals_=locals()):
+                svg_char.value = svg_char_.lower()
+            with Else(locals_=locals()):
+                svg_char.value = svg_char_
+            return svg_char
 
     @abstractmethod
     def _get_svg_str(self) -> str:

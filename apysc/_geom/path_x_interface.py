@@ -18,7 +18,11 @@ class PathXInterface:
         x : Int
             A x-coordinate of the destination point.
         """
-        return self._x._copy()
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='x', locals_=locals(),
+                module_name=__name__, class_=PathXInterface):
+            return self._x._copy()
 
     @x.setter
     def x(self, value: Int) -> None:
@@ -30,4 +34,8 @@ class PathXInterface:
         value : Int
             X-coordinate of the destination point.
         """
-        self._x.value = value
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='x', locals_=locals(),
+                module_name=__name__, class_=PathXInterface):
+            self._x.value = value

@@ -18,7 +18,11 @@ class PathYInterface:
         y : Int
             A y-coordinate of the destination point.
         """
-        return self._y._copy()
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='y', locals_=locals(),
+                module_name=__name__, class_=PathYInterface):
+            return self._y._copy()
 
     @y.setter
     def y(self, value: Int) -> None:
@@ -30,4 +34,8 @@ class PathYInterface:
         value : Int
             Y-coordinate of the destination point.
         """
-        self._y.value = value
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='y', locals_=locals(),
+                module_name=__name__, class_=PathYInterface):
+            self._y.value = value

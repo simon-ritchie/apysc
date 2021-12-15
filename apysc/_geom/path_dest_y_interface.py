@@ -18,7 +18,11 @@ class PathDestYInterface:
         dest_y : Int
             Y-coordinate of the destination point
         """
-        return self._dest_y._copy()
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='dest_y', locals_=locals(),
+                module_name=__name__, class_=PathDestYInterface):
+            return self._dest_y._copy()
 
     @dest_y.setter
     def dest_y(self, value: Int) -> None:
@@ -30,4 +34,8 @@ class PathDestYInterface:
         value : Int
             Y-coordinate of the destination point
         """
-        self._dest_y.value = value
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='dest_y', locals_=locals(),
+                module_name=__name__, class_=PathDestYInterface):
+            self._dest_y.value = value

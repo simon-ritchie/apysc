@@ -175,6 +175,34 @@ class RevertInterface(ABC):
             type_name=SNAPSHOT)
         return snapshot_name
 
+    def _set_single_snapshot_val_to_dict(
+            self, dict_name: str, value: Any,
+            snapshot_name: str) -> None:
+        """
+        Set a single snapshot value to the specified
+        name dictionary.
+
+        Notes
+        -----
+        If a snapshot value of the same name already exists,
+        the process will be stopped.
+
+        Parameters
+        ----------
+        dict_name : str
+            Target dictionary name.
+        value : Any
+            Target value.
+        snapshot_name : str
+            Target snapshot name.
+        """
+        if not hasattr(self, dict_name):
+            setattr(self, dict_name, {})
+        if self._snapshot_exists(snapshot_name=snapshot_name):
+            return
+        target_dict: Dict[str, Any] = getattr(self, dict_name)
+        target_dict[snapshot_name] = value
+
 
 def make_snapshots_of_each_scope_vars(
         locals_: Dict[str, Any], globals_: Dict[str, Any]) -> str:

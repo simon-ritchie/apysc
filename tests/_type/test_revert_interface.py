@@ -184,6 +184,7 @@ class TestRevertInterface:
         assert revertable_value._value2 == 20
         assert revertable_value._value3 == 30
 
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__run_base_cls_make_snapshot_methods_recursively(self) -> None:
         revertable_value = RevertableValue3()
         snapshot_name: str = 'snapshot_1'
@@ -193,6 +194,7 @@ class TestRevertInterface:
         assert revertable_value._snapshots2[snapshot_name] == 20
         assert revertable_value._snapshots3[snapshot_name] == 30
 
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__run_base_cls_revert_methods_recursively(self) -> None:
         revertable_value = RevertableValue3()
         snapshot_name: str = 'snapshot_1'
@@ -206,6 +208,25 @@ class TestRevertInterface:
         assert revertable_value._value1 == 10
         assert revertable_value._value2 == 20
         assert revertable_value._value3 == 30
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__set_single_snapshot_val_to_dict(self) -> None:
+        revertable_value = RevertableValue1()
+        snapshot_name: str = 'snapshot_1'
+        revertable_value._set_single_snapshot_val_to_dict(
+            dict_name='_snapshots1',
+            value=10,
+            snapshot_name=snapshot_name)
+        assert revertable_value._snapshots1[snapshot_name] == 10
+        revertable_value._set_snapshot_exists_val(
+            snapshot_name=snapshot_name)
+
+        revertable_value._set_single_snapshot_val_to_dict(
+            dict_name='_snapshots1',
+            value=20,
+            snapshot_name=snapshot_name)
+        assert revertable_value._snapshots1[snapshot_name] == 10
+
 
 
 def test_make_snapshots_of_each_scope_vars() -> None:

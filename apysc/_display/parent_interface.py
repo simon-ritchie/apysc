@@ -99,11 +99,9 @@ class ParentInterface(RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
-        if not hasattr(self, '_parent_snapshots'):
-            self._parent_snapshots = {}
-        if self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._parent_snapshots[snapshot_name] = self._parent
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_parent_snapshots',
+            value=self._parent, snapshot_name=snapshot_name)
 
     def _revert(self, snapshot_name: str) -> None:
         """

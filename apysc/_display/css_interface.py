@@ -150,11 +150,9 @@ class CssInterface(VariableNameInterface, RevertInterface):
             Target snapshot name.
         """
         self._initialize_css_if_not_initialized()
-        if not hasattr(self, '_css_snapshot'):
-            self._css_snapshot = {}
-        if self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._css_snapshot[snapshot_name] = {**self._css}
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_css_snapshot',
+            value={**self._css}, snapshot_name=snapshot_name)
 
     def _revert(self, snapshot_name: str) -> None:
         """

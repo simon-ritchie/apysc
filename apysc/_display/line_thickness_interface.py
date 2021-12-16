@@ -134,13 +134,10 @@ class LineThicknessInterface(
         snapshot_name : str
             Target snapshot name.
         """
-        if not hasattr(self, '_line_thickness_snapshots'):
-            self._line_thickness_snapshots = {}
-        if self._snapshot_exists(snapshot_name=snapshot_name):
-            return
         self._initialize_line_thickness_if_not_initialized()
-        self._line_thickness_snapshots[snapshot_name] = int(
-            self._line_thickness._value)
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_line_thickness_snapshots',
+            value=self._line_thickness._value, snapshot_name=snapshot_name)
 
     def _revert(self, snapshot_name: str) -> None:
         """

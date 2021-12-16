@@ -139,12 +139,10 @@ class FillAlphaInterface(
         snapshot_name : str
             Target snapshot name.
         """
-        if not hasattr(self, '_fill_alpha_snapshots'):
-            self._fill_alpha_snapshots = {}
-        if self._snapshot_exists(snapshot_name=snapshot_name):
-            return
         self._initialize_fill_alpha_if_not_initialized()
-        self._fill_alpha_snapshots[snapshot_name] = self._fill_alpha._value
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_fill_alpha_snapshots',
+            value=self._fill_alpha._value, snapshot_name=snapshot_name)
 
     def _revert(self, snapshot_name: str) -> None:
         """

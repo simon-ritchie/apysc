@@ -233,18 +233,18 @@ class ChildInterface(RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
-        if not hasattr(self, '_children_snapshots'):
-            self._children_snapshots = {}
+        self._initialize_children_if_not_initialized()
         if self._snapshot_exists(snapshot_name=snapshot_name):
             return
-        self._initialize_children_if_not_initialized()
 
         for child in self._children.value:  # type: ignore
             if not isinstance(child, RevertInterface):
                 continue
             child._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
 
-        self._children_snapshots[snapshot_name] = [*self._children._value]
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_children_snapshots',
+            value=[*self._children._value], snapshot_name=snapshot_name)
 
     def _revert(self, snapshot_name: str) -> None:
         """

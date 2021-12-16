@@ -417,18 +417,6 @@ class LineStyleInterface(RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
-        if not hasattr(self, '_line_color_snapshots'):
-            self._line_color_snapshots = {}
-            self._line_thickness_snapshots = {}
-            self._line_alpha_snapshots = {}
-            self._line_cap_snapshots = {}
-            self._line_joints_snapshots = {}
-            self._line_dot_setting_snapshots = {}
-            self._line_dash_setting_snapshots = {}
-            self._line_round_dot_setting_snapshots = {}
-            self._line_dash_dot_setting_snapshots = {}
-        if self._snapshot_exists(snapshot_name=snapshot_name):
-            return
         self._initialize_line_color_if_not_initialized()
         self._initialize_line_thickness_if_not_initialized()
         self._initialize_line_alpha_if_not_initialized()
@@ -438,20 +426,34 @@ class LineStyleInterface(RevertInterface):
         self._initialize_line_dash_setting_if_not_initialized()
         self._initialize_line_round_dot_setting_if_not_initialized()
         self._initialize_line_dash_dot_setting_if_not_initialized()
-        self._line_color_snapshots[snapshot_name] = self._line_color._value
-        self._line_thickness_snapshots[snapshot_name] = \
-            int(self._line_thickness._value)
-        self._line_alpha_snapshots[snapshot_name] = self._line_alpha._value
-        self._line_cap_snapshots[snapshot_name] = self._line_cap._value
-        self._line_joints_snapshots[snapshot_name] = self._line_joints._value
-        self._line_dot_setting_snapshots[snapshot_name] = \
-            self._line_dot_setting
-        self._line_dash_setting_snapshots[snapshot_name] = \
-            self._line_dash_setting
-        self._line_round_dot_setting_snapshots[snapshot_name] = \
-            self._line_round_dot_setting
-        self._line_dash_dot_setting_snapshots[snapshot_name] = \
-            self._line_dash_dot_setting
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_line_color_snapshots',
+            value=self._line_color._value, snapshot_name=snapshot_name)
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_line_thickness_snapshots',
+            value=int(self._line_thickness._value),
+            snapshot_name=snapshot_name)
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_line_alpha_snapshots',
+            value=self._line_alpha._value, snapshot_name=snapshot_name)
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_line_cap_snapshots',
+            value=self._line_cap._value, snapshot_name=snapshot_name)
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_line_joints_snapshots',
+            value=self._line_joints._value, snapshot_name=snapshot_name)
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_line_dot_setting_snapshots',
+            value=self._line_dot_setting, snapshot_name=snapshot_name)
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_line_dash_setting_snapshots',
+            value=self._line_dash_setting, snapshot_name=snapshot_name)
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_line_round_dot_setting_snapshots',
+            value=self._line_round_dot_setting, snapshot_name=snapshot_name)
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_line_dash_dot_setting_snapshots',
+            value=self._line_dash_dot_setting, snapshot_name=snapshot_name)
 
     def _revert(self, snapshot_name: str) -> None:
         """

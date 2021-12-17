@@ -186,15 +186,13 @@ class WidthAndHeightInterfacesForEllipse(
         snapshot_name : str
             Target snapshot name.
         """
-        if not hasattr(self, '_width_snapshots'):
-            self._width_snapshots = {}
-        if not hasattr(self, '_height_snapshots'):
-            self._height_snapshots = {}
-        if self._snapshot_exists(snapshot_name=snapshot_name):
-            return
         self._initialize_width_and_height_if_not_initialized()
-        self._width_snapshots[snapshot_name] = int(self._width._value)
-        self._height_snapshots[snapshot_name] = int(self._height._value)
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_width_snapshots',
+            value=int(self._width._value), snapshot_name=snapshot_name)
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_height_snapshots',
+            value=int(self._height._value), snapshot_name=snapshot_name)
 
     def _revert(self, snapshot_name: str) -> None:
         """

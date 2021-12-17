@@ -122,12 +122,10 @@ class SkewYInterface(
         snapshot_name : str
             Target snapshot name.
         """
-        if not hasattr(self, '_skew_y_snapshot'):
-            self._skew_y_snapshot = {}
-        if self._snapshot_exists(snapshot_name=snapshot_name):
-            return
         self._initialize_skew_y_if_not_initialized()
-        self._skew_y_snapshot[snapshot_name] = int(self._skew_y._value)
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_skew_y_snapshot',
+            value=int(self._skew_y._value), snapshot_name=snapshot_name)
 
     def _revert(self, snapshot_name: str) -> None:
         """

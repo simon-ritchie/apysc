@@ -134,13 +134,11 @@ class RotationAroundCenterInterface(
         snapshot_name : str
             Target snapshot name.
         """
-        if not hasattr(self, '_rotation_around_center_snapshots'):
-            self._rotation_around_center_snapshots = {}
-        if self._snapshot_exists(snapshot_name=snapshot_name):
-            return
         self._initialize_rotation_around_center_if_not_initialized()
-        self._rotation_around_center_snapshots[snapshot_name] = int(
-            self._rotation_around_center._value)
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_rotation_around_center_snapshots',
+            value=int(self._rotation_around_center._value),
+            snapshot_name=snapshot_name)
 
     def _revert(self, snapshot_name: str) -> None:
         """

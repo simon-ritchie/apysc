@@ -190,13 +190,11 @@ class RotationAroundPointInterface(
         snapshot_name : str
             Target snapshot name.
         """
-        if not hasattr(self, '_rotation_around_point_snapshots'):
-            self._rotation_around_point_snapshots = {}
-        if self._snapshot_exists(snapshot_name=snapshot_name):
-            return
         self._initialize_rotation_around_point_if_not_initialized()
-        self._rotation_around_point_snapshots[snapshot_name] = {
-            **self._rotation_around_point._value}
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_rotation_around_point_snapshots',
+            value={**self._rotation_around_point._value},
+            snapshot_name=snapshot_name)
 
     def _revert(self, snapshot_name: str) -> None:
         """

@@ -130,14 +130,12 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
-        if not hasattr(self, '_points_snapshots'):
-            self._points_snapshots = {}
-        if self._snapshot_exists(snapshot_name=snapshot_name):
-            return
         self._initialize_points_if_not_initialized()
         self._points._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
-        self._points_snapshots[snapshot_name] = self._points
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_points_snapshots',
+            value=self._points, snapshot_name=snapshot_name)
 
     def _revert(self, snapshot_name: str) -> None:
         """

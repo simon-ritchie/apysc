@@ -130,12 +130,10 @@ class RadiusInterface(
         snapshot_name : str
             Target snapshot name.
         """
-        if not hasattr(self, '_radius_snapshots'):
-            self._radius_snapshots = {}
-        if self._snapshot_exists(snapshot_name=snapshot_name):
-            return
         self._initialize_radius_if_not_initialized()
-        self._radius_snapshots[snapshot_name] = int(self._radius._value)
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_radius_snapshots',
+            value=int(self._radius._value), snapshot_name=snapshot_name)
 
     def _revert(self, snapshot_name: str) -> None:
         """

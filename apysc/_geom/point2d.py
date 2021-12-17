@@ -276,14 +276,12 @@ class Point2D(
         snapshot_name : str
             Target snapshot name.
         """
-        if not hasattr(self, '_x_snapshots'):
-            self._x_snapshots = {}
-        if not hasattr(self, '_y_snapshots'):
-            self._y_snapshots = {}
-        if self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._x_snapshots[snapshot_name] = int(self._x._value)
-        self._y_snapshots[snapshot_name] = int(self._y._value)
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_x_snapshots',
+            value=int(self._x._value), snapshot_name=snapshot_name)
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_y_snapshots',
+            value=int(self._y._value), snapshot_name=snapshot_name)
 
     def _revert(self, snapshot_name: str) -> None:
         """

@@ -540,11 +540,9 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         snapshot_name : str
             Target snapshot name.
         """
-        if not hasattr(self, '_any_value_snapshots'):
-            self._any_value_snapshots = {}
-        if self._snapshot_exists(snapshot_name=snapshot_name):
-            return
-        self._any_value_snapshots[snapshot_name] = self._value
+        self._set_single_snapshot_val_to_dict(
+            dict_name='_any_value_snapshots',
+            value=self._value, snapshot_name=snapshot_name)
 
     def _revert(self, snapshot_name: str) -> None:
         """

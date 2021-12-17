@@ -228,7 +228,6 @@ class TestRevertInterface:
         assert revertable_value._snapshots1[snapshot_name] == 10
 
 
-
 def test_make_snapshots_of_each_scope_vars() -> None:
     int_1: ap.Int = ap.Int(10)
     int_2: ap.Int = ap.Int(20)

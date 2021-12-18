@@ -11,6 +11,15 @@ class PathControlYInterface(RevertInterface):
 
     _control_y: Int
 
+    def _initialize_control_y_if_not_initialized(self) -> None:
+        """
+        Initialize the _control_y attribute if it hasn't been
+        initialized yet.
+        """
+        if hasattr(self, '_control_y'):
+            return
+        self._control_y = Int(0)
+
     @property
     def control_y(self) -> Int:
         """
@@ -25,6 +34,7 @@ class PathControlYInterface(RevertInterface):
         with ap.DebugInfo(
                 callable_='control_y', locals_=locals(),
                 module_name=__name__, class_=PathControlYInterface):
+            self._initialize_control_y_if_not_initialized()
             return self._control_y._copy()
 
     @control_y.setter
@@ -41,6 +51,7 @@ class PathControlYInterface(RevertInterface):
         with ap.DebugInfo(
                 callable_='control_y', locals_=locals(),
                 module_name=__name__, class_=PathControlYInterface):
+            self._initialize_control_y_if_not_initialized()
             self._control_y.value = value
 
     _control_y_snapshots: Dict[str, int]
@@ -54,6 +65,7 @@ class PathControlYInterface(RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        self._initialize_control_y_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
             dict_name='_control_y_snapshots',
             value=int(self._control_y._value), snapshot_name=snapshot_name)
@@ -69,4 +81,5 @@ class PathControlYInterface(RevertInterface):
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
+        self._initialize_control_y_if_not_initialized()
         self._control_y._value = self._control_y_snapshots[snapshot_name]

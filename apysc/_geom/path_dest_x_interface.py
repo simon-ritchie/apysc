@@ -2,6 +2,7 @@
 """
 
 from typing import Dict
+
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 

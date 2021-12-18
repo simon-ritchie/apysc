@@ -10,15 +10,15 @@ from apysc._branch._if import If
 from apysc._geom.path_label import PathLabel
 from apysc._type.boolean import Boolean
 from apysc._type.string import String
+from apysc._geom.relative_interface import RelativeInterface
 
 
-class PathDataBase(ABC):
+class PathDataBase(ABC, RelativeInterface):
     """
     Base class for the path data.
     """
 
     _path_label: PathLabel
-    _relative: Boolean
 
     def __init__(
             self, path_label: PathLabel,

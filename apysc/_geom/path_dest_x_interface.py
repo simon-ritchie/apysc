@@ -11,6 +11,15 @@ class PathDestXInterface(RevertInterface):
 
     _dest_x: Int
 
+    def _initialize_dest_x_if_not_initialized(self) -> None:
+        """
+        Initialize the _dest_x attribute if it hasn't been
+        initialized yet.
+        """
+        if hasattr(self, '_dest_x'):
+            return
+        self._dest_x = Int(0)
+
     @property
     def dest_x(self) -> Int:
         """
@@ -25,6 +34,7 @@ class PathDestXInterface(RevertInterface):
         with ap.DebugInfo(
                 callable_='dest_x', locals_=locals(),
                 module_name=__name__, class_=PathDestXInterface):
+            self._initialize_dest_x_if_not_initialized()
             return self._dest_x._copy()
 
     @dest_x.setter
@@ -41,6 +51,7 @@ class PathDestXInterface(RevertInterface):
         with ap.DebugInfo(
                 callable_='dest_x', locals_=locals(),
                 module_name=__name__, class_=PathDestXInterface):
+            self._initialize_dest_x_if_not_initialized()
             self._dest_x.value = value
 
     _dest_x_snapshots: Dict[str, int]
@@ -54,6 +65,7 @@ class PathDestXInterface(RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        self._initialize_dest_x_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
             dict_name='_dest_x_snapshots',
             value=int(self._dest_x._value), snapshot_name=snapshot_name)
@@ -69,4 +81,5 @@ class PathDestXInterface(RevertInterface):
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
+        self._initialize_dest_x_if_not_initialized()
         self._dest_x._value = self._dest_x_snapshots[snapshot_name]

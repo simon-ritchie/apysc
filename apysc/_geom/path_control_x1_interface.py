@@ -11,6 +11,15 @@ class PathControlX1Interface(RevertInterface):
 
     _control_x1: Int
 
+    def _initialize_control_x1_if_not_initialized(self) -> None:
+        """
+        Initialize the _control_x1 attribute if it hasn't been
+        initialized yet.
+        """
+        if hasattr(self, '_control_x1'):
+            return
+        self._control_x1 = Int(0)
+
     @property
     def control_x1(self) -> Int:
         """
@@ -25,6 +34,7 @@ class PathControlX1Interface(RevertInterface):
         with ap.DebugInfo(
                 callable_='control_x1', locals_=locals(),
                 module_name=__name__, class_=PathControlX1Interface):
+            self._initialize_control_x1_if_not_initialized()
             return self._control_x1._copy()
 
     @control_x1.setter
@@ -41,6 +51,7 @@ class PathControlX1Interface(RevertInterface):
         with ap.DebugInfo(
                 callable_='control_x1', locals_=locals(),
                 module_name=__name__, class_=PathControlX1Interface):
+            self._initialize_control_x1_if_not_initialized()
             self._control_x1.value = value
 
     _control_x1_snapshots: Dict[str, int]
@@ -54,6 +65,7 @@ class PathControlX1Interface(RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        self._initialize_control_x1_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
             dict_name='_control_x1_snapshots',
             value=int(self._control_x1._value), snapshot_name=snapshot_name)
@@ -69,4 +81,5 @@ class PathControlX1Interface(RevertInterface):
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
+        self._initialize_control_x1_if_not_initialized()
         self._control_x1._value = self._control_x1_snapshots[snapshot_name]

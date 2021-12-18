@@ -3,9 +3,8 @@
 
 from typing import Dict
 
-from apysc._type.int import Int
-from apysc._type.revert_interface import RevertInterface
 from apysc._type.boolean import Boolean
+from apysc._type.revert_interface import RevertInterface
 
 
 class RelativeInterface(RevertInterface):

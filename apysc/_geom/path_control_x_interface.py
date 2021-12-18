@@ -11,6 +11,15 @@ class PathControlXInterface(RevertInterface):
 
     _control_x: Int
 
+    def _initialize_control_x_if_not_initialized(self) -> None:
+        """
+        Initialize the _control_x attribute if it hasn't been
+        initialized yet.
+        """
+        if hasattr(self, '_control_x'):
+            return
+        self._control_x = Int(0)
+
     @property
     def control_x(self) -> Int:
         """
@@ -25,6 +34,7 @@ class PathControlXInterface(RevertInterface):
         with ap.DebugInfo(
                 callable_='control_x', locals_=locals(),
                 module_name=__name__, class_=PathControlXInterface):
+            self._initialize_control_x_if_not_initialized()
             return self._control_x._copy()
 
     @control_x.setter
@@ -41,6 +51,7 @@ class PathControlXInterface(RevertInterface):
         with ap.DebugInfo(
                 callable_='control_x', locals_=locals(),
                 module_name=__name__, class_=PathControlXInterface):
+            self._initialize_control_x_if_not_initialized()
             self._control_x.value = value
 
     _control_x_snapshots: Dict[str, int]

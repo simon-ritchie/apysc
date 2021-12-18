@@ -13,7 +13,7 @@ from apysc._type.string import String
 from apysc._geom.relative_interface import RelativeInterface
 
 
-class PathDataBase(ABC, RelativeInterface):
+class PathDataBase(RelativeInterface, ABC):
     """
     Base class for the path data.
     """

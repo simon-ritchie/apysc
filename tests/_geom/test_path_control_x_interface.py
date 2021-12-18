@@ -32,6 +32,6 @@ class TestPathControlXInterface:
         assert interface.control_x == 10
 
         interface._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
-        interface.control_x = ap.Int(20)
+        interface._control_x = ap.Int(20)
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface.control_x == 10

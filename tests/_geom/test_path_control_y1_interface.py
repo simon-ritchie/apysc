@@ -35,3 +35,13 @@ class TestPathControlY1Interface:
         interface._control_y1 = ap.Int(20)
         interface._run_all_revert_methods(snapshot_name=snapshot_name)
         assert interface.control_y1 == 10
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__initialize_control_y1_if_not_initialized(self) -> None:
+        interface: PathControlY1Interface = PathControlY1Interface()
+        interface._initialize_control_y1_if_not_initialized()
+        assert interface.control_y1 == 0
+
+        interface.control_y1 = ap.Int(10)
+        interface._initialize_control_y1_if_not_initialized()
+        assert interface.control_y1 == 10

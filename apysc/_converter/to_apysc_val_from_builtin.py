@@ -79,3 +79,28 @@ def get_copied_string_from_builtin_val(
         else:
             copied = string._copy()
         return copied
+
+
+def get_copied_boolean_from_builtin_val(
+        bool_val: Union[bool, ap.Boolean]) -> ap.Boolean:
+    """
+    Get a copied Boolean value from a Python built-in bool.
+
+    Parameters
+    ----------
+    bool_val : bool
+        Target bool value.
+
+    Returns
+    -------
+    copied : Boolean
+        Copied Boolean value.
+    """
+    with ap.DebugInfo(
+            callable_=get_copied_boolean_from_builtin_val, locals_=locals(),
+            module_name=__name__):
+        if isinstance(bool_val, bool):
+            copied: ap.Boolean = ap.Boolean(bool_val)
+        else:
+            copied = bool_val._copy()
+        return copied

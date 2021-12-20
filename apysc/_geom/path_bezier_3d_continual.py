@@ -4,8 +4,6 @@
 
 from typing import Union
 
-from apysc._converter.to_apysc_val_from_builtin import \
-    get_copied_int_from_builtin_val
 from apysc._geom.path_control_x_interface import PathControlXInterface
 from apysc._geom.path_control_y_interface import PathControlYInterface
 from apysc._geom.path_data_base import PathDataBase
@@ -52,6 +50,8 @@ class PathBezier3DContinual(
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=PathBezier3DContinual):
+            from apysc._converter.to_apysc_val_from_builtin import \
+                get_copied_int_from_builtin_val
             from apysc._geom.path_label import PathLabel
             super(PathBezier3DContinual, self).__init__(
                 path_label=PathLabel.BEZIER_3D_CONTINUAL,

@@ -38,8 +38,11 @@ class PathDataBase(RelativeInterface, ABC):
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=PathDataBase):
+            from apysc._converter.to_apysc_val_from_builtin import \
+                get_copied_boolean_from_builtin_val
             self._path_label = path_label
-            self._relative = Boolean(relative)
+            self.relative = get_copied_boolean_from_builtin_val(
+                bool_val=relative)
 
     def _get_svg_char(self) -> String:
         """

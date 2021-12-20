@@ -4,8 +4,6 @@
 
 from typing import Union
 
-from apysc._converter.to_apysc_val_from_builtin import \
-    get_copied_int_from_builtin_val
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.path_x_interface import PathXInterface
 from apysc._geom.path_y_interface import PathYInterface
@@ -39,12 +37,14 @@ class PathBezier2DContinual(PathDataBase, PathXInterface, PathYInterface):
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=PathBezier2DContinual):
+            from apysc._converter.to_apysc_val_from_builtin import \
+                get_copied_int_from_builtin_val
             from apysc._geom.path_label import PathLabel
             super(PathBezier2DContinual, self).__init__(
                 path_label=PathLabel.BEZIER_2D_CONTINUAL,
                 relative=relative)
-            self._x = get_copied_int_from_builtin_val(integer=x)
-            self._y = get_copied_int_from_builtin_val(integer=y)
+            self.x = get_copied_int_from_builtin_val(integer=x)
+            self.y = get_copied_int_from_builtin_val(integer=y)
 
     def _get_svg_str(self) -> str:
         """
@@ -91,6 +91,9 @@ class PathBezier2DContinual(PathDataBase, PathXInterface, PathYInterface):
         with ap.DebugInfo(
                 callable_=self.update_path_data, locals_=locals(),
                 module_name=__name__, class_=PathBezier2DContinual):
-            self._x.value = x
-            self._y.value = y
-            self._relative.value = relative
+            from apysc._converter.to_apysc_val_from_builtin import \
+                get_copied_int_from_builtin_val, get_copied_boolean_from_builtin_val
+            self.x = get_copied_int_from_builtin_val(integer=x)
+            self.y = get_copied_int_from_builtin_val(integer=y)
+            self.relative = get_copied_boolean_from_builtin_val(
+                bool_val=relative)

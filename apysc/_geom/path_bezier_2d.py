@@ -55,12 +55,12 @@ class PathBezier2D(
             super(PathBezier2D, self).__init__(
                 path_label=PathLabel.BEZIER_2D,
                 relative=relative)
-            self._control_x = get_copied_int_from_builtin_val(
+            self.control_x = get_copied_int_from_builtin_val(
                 integer=control_x)
-            self._control_y = get_copied_int_from_builtin_val(
+            self.control_y = get_copied_int_from_builtin_val(
                 integer=control_y)
-            self._dest_x = get_copied_int_from_builtin_val(integer=dest_x)
-            self._dest_y = get_copied_int_from_builtin_val(integer=dest_y)
+            self.dest_x = get_copied_int_from_builtin_val(integer=dest_x)
+            self.dest_y = get_copied_int_from_builtin_val(integer=dest_y)
 
     def _get_svg_str(self) -> str:
         """
@@ -123,8 +123,13 @@ class PathBezier2D(
         with ap.DebugInfo(
                 callable_=self.update_path_data, locals_=locals(),
                 module_name=__name__, class_=PathBezier2D):
-            self._control_x.value = control_x
-            self._control_y.value = control_y
-            self._dest_x.value = dest_x
-            self._dest_y.value = dest_y
-            self._relative.value = relative
+            from apysc._converter.to_apysc_val_from_builtin import \
+                get_copied_int_from_builtin_val, get_copied_boolean_from_builtin_val
+            self.control_x = get_copied_int_from_builtin_val(
+                integer=control_x)
+            self.control_y = get_copied_int_from_builtin_val(
+                integer=control_y)
+            self.dest_x = get_copied_int_from_builtin_val(integer=dest_x)
+            self.dest_y = get_copied_int_from_builtin_val(integer=dest_y)
+            self.relative = get_copied_boolean_from_builtin_val(
+                bool_val=relative)

@@ -11,6 +11,14 @@ class PathYInterface(RevertInterface):
 
     _y: Int
 
+    def _initialize_y_if_not_initialized(self) -> None:
+        """
+        Initialize the _y attribute if it hasn't been initialized yet.
+        """
+        if hasattr(self, '_y'):
+            return
+        self._y = Int(0)
+
     @property
     def y(self) -> Int:
         """
@@ -25,6 +33,7 @@ class PathYInterface(RevertInterface):
         with ap.DebugInfo(
                 callable_='y', locals_=locals(),
                 module_name=__name__, class_=PathYInterface):
+            self._initialize_y_if_not_initialized()
             return self._y._copy()
 
     @y.setter
@@ -41,6 +50,7 @@ class PathYInterface(RevertInterface):
         with ap.DebugInfo(
                 callable_='y', locals_=locals(),
                 module_name=__name__, class_=PathYInterface):
+            self._initialize_y_if_not_initialized()
             self._y.value = value
 
     _y_snapshots: Dict[str, int]
@@ -54,6 +64,7 @@ class PathYInterface(RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        self._initialize_y_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
             dict_name='_y_snapshots',
             value=int(self._y._value), snapshot_name=snapshot_name)
@@ -69,4 +80,5 @@ class PathYInterface(RevertInterface):
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
+        self._initialize_y_if_not_initialized()
         self._y._value = self._y_snapshots[snapshot_name]

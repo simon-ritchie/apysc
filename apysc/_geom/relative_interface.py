@@ -11,6 +11,15 @@ class RelativeInterface(RevertInterface):
 
     _relative: Boolean
 
+    def _initialize_relative_if_not_initialized(self) -> None:
+        """
+        Initialize the _relative attribute if it hasn't been
+        initialized yet.
+        """
+        if hasattr(self, '_relative'):
+            return
+        self._relative = Boolean(False)
+
     @property
     def relative(self) -> Boolean:
         """
@@ -23,6 +32,7 @@ class RelativeInterface(RevertInterface):
             A boolean value indicating whether path data
             is relative or not.
         """
+        self._initialize_relative_if_not_initialized()
         return self._relative._copy()
 
     @relative.setter
@@ -37,6 +47,7 @@ class RelativeInterface(RevertInterface):
             A boolean value indicating whether path data
             is relative or not.
         """
+        self._initialize_relative_if_not_initialized()
         self._relative.value = value
 
     _relative_snapshots: Dict[str, bool]
@@ -50,6 +61,7 @@ class RelativeInterface(RevertInterface):
         snapshot_name : str
             Target snapshot name.
         """
+        self._initialize_relative_if_not_initialized()
         self._set_single_snapshot_val_to_dict(
             dict_name='_relative_snapshots',
             value=self._relative._value, snapshot_name=snapshot_name)
@@ -65,4 +77,5 @@ class RelativeInterface(RevertInterface):
         """
         if not self._snapshot_exists(snapshot_name=snapshot_name):
             return
+        self._initialize_relative_if_not_initialized()
         self._relative._value = self._relative_snapshots[snapshot_name]

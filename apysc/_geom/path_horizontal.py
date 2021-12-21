@@ -82,7 +82,9 @@ class PathHorizontal(PathDataBase, PathXInterface):
                 callable_=self.update_path_data, locals_=locals(),
                 module_name=__name__, class_=PathHorizontal):
             from apysc._converter.to_apysc_val_from_builtin import \
-                get_copied_int_from_builtin_val, get_copied_boolean_from_builtin_val
+                get_copied_boolean_from_builtin_val
+            from apysc._converter.to_apysc_val_from_builtin import \
+                get_copied_int_from_builtin_val
             self.x = get_copied_int_from_builtin_val(integer=x)
             self.relative = get_copied_boolean_from_builtin_val(
                 bool_val=relative)

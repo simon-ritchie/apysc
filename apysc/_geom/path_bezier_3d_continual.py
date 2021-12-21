@@ -123,7 +123,9 @@ class PathBezier3DContinual(
                 callable_=self.update_path_data, locals_=locals(),
                 module_name=__name__, class_=PathBezier3DContinual):
             from apysc._converter.to_apysc_val_from_builtin import \
-                get_copied_int_from_builtin_val, get_copied_boolean_from_builtin_val
+                get_copied_boolean_from_builtin_val
+            from apysc._converter.to_apysc_val_from_builtin import \
+                get_copied_int_from_builtin_val
             self.control_x = get_copied_int_from_builtin_val(
                 integer=control_x)
             self.control_y = get_copied_int_from_builtin_val(

@@ -59,7 +59,7 @@ class PathBezier3D(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=PathBezier3D):
             from apysc._converter.to_apysc_val_from_builtin import \
-    get_copied_int_from_builtin_val
+                get_copied_int_from_builtin_val
             from apysc._geom.path_label import PathLabel
             super(PathBezier3D, self).__init__(
                 path_label=PathLabel.BEZIER_3D,
@@ -147,7 +147,9 @@ class PathBezier3D(
                 callable_=self.update_path_data, locals_=locals(),
                 module_name=__name__, class_=PathBezier3D):
             from apysc._converter.to_apysc_val_from_builtin import \
-                get_copied_int_from_builtin_val, get_copied_boolean_from_builtin_val
+                get_copied_boolean_from_builtin_val
+            from apysc._converter.to_apysc_val_from_builtin import \
+                get_copied_int_from_builtin_val
             self.control_x1 = get_copied_int_from_builtin_val(
                 integer=control_x1)
             self.control_y1 = get_copied_int_from_builtin_val(

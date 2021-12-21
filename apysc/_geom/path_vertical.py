@@ -33,9 +33,9 @@ class PathVertical(PathDataBase, PathYInterface):
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=PathVertical):
-            from apysc._geom.path_label import PathLabel
             from apysc._converter.to_apysc_val_from_builtin import \
                 get_copied_int_from_builtin_val
+            from apysc._geom.path_label import PathLabel
             super(PathVertical, self).__init__(
                 path_label=PathLabel.VERTICAL,
                 relative=relative)
@@ -82,7 +82,9 @@ class PathVertical(PathDataBase, PathYInterface):
                 callable_=self.update_path_data, locals_=locals(),
                 module_name=__name__, class_=PathVertical):
             from apysc._converter.to_apysc_val_from_builtin import \
-                get_copied_int_from_builtin_val, get_copied_boolean_from_builtin_val
+                get_copied_boolean_from_builtin_val
+            from apysc._converter.to_apysc_val_from_builtin import \
+                get_copied_int_from_builtin_val
             self.y = get_copied_int_from_builtin_val(integer=y)
             self.relative = get_copied_boolean_from_builtin_val(
                 bool_val=relative)

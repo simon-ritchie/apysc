@@ -7,7 +7,7 @@ import apysc as ap
 
 
 def get_copied_int_from_builtin_val(
-        integer: Union[int, ap.Int]) -> ap.Int:
+        *, integer: Union[int, ap.Int]) -> ap.Int:
     """
     Get a copied Int value from a Python built-in int.
 
@@ -32,7 +32,7 @@ def get_copied_int_from_builtin_val(
 
 
 def get_copied_number_from_builtin_val(
-        float_or_num: Union[float, ap.Number]) -> ap.Number:
+        *, float_or_num: Union[float, ap.Number]) -> ap.Number:
     """
     Get a copied number value from a Python built-in float.
 
@@ -57,7 +57,7 @@ def get_copied_number_from_builtin_val(
 
 
 def get_copied_string_from_builtin_val(
-        string: Union[str, ap.String]) -> ap.String:
+        *, string: Union[str, ap.String]) -> ap.String:
     """
     Get a copied String value from a Python built-in str.
 
@@ -82,7 +82,7 @@ def get_copied_string_from_builtin_val(
 
 
 def get_copied_boolean_from_builtin_val(
-        bool_val: Union[bool, ap.Boolean]) -> ap.Boolean:
+        *, bool_val: Union[bool, ap.Boolean]) -> ap.Boolean:
     """
     Get a copied Boolean value from a Python built-in bool.
 

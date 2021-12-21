@@ -6,7 +6,7 @@ from typing import Union
 import apysc as ap
 
 
-def get_builtin_str_from_apysc_val(string: Union[str, ap.String]) -> str:
+def get_builtin_str_from_apysc_val(*, string: Union[str, ap.String]) -> str:
     """
     Get a Python built-in string from an apysc one.
 

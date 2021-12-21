@@ -150,7 +150,8 @@ def test__actual_value_type_is_array() -> None:
     result: bool = assertion._actual_value_type_is_array(actual=100)
     assert not result
 
-    result = assertion._actual_value_type_is_array(ap.Array([100, 200]))
+    result = assertion._actual_value_type_is_array(
+        actual=ap.Array([100, 200]))
     assert result
 
 

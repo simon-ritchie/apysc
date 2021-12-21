@@ -390,7 +390,7 @@ def assert_undefined(actual: Any, *, msg: str = '') -> None:
 
 
 def _make_arrays_or_dicts_comparison_expression(
-        expected: Any, actual: Any, msg: str,
+        *, expected: Any, actual: Any, msg: str,
         not_condition: bool) -> str:
     """
     Make arrays or dicts comparison (assert_arrays_equal,
@@ -438,7 +438,7 @@ def _make_arrays_or_dicts_comparison_expression(
 
 
 def _trace_arrays_or_dicts_assertion_info(
-        interface_label: str, expected: Any, actual: Any) -> None:
+        *, interface_label: str, expected: Any, actual: Any) -> None:
     """
     Append arrays or dicts value's information trace expression.
 
@@ -478,7 +478,7 @@ def _trace_arrays_or_dicts_assertion_info(
             actual=actual_info_str)
 
 
-def _actual_value_type_is_array(actual: Any) -> bool:
+def _actual_value_type_is_array(*, actual: Any) -> bool:
     """
     Get a boolean value whether specified actual value is
     Array type or not.
@@ -499,7 +499,7 @@ def _actual_value_type_is_array(actual: Any) -> bool:
     return False
 
 
-def _actual_value_type_is_dict(actual: Any) -> bool:
+def _actual_value_type_is_dict(*, actual: Any) -> bool:
     """
     Get a boolean value whether specified actual value is
     Dictionary type or not.
@@ -521,7 +521,7 @@ def _actual_value_type_is_dict(actual: Any) -> bool:
 
 
 def _add_equal_if_type_strict_setting_is_true(
-        expression: str, type_strict: bool) -> str:
+        *, expression: str, type_strict: bool) -> str:
     """
     Add single equal character to expression if type_string setting
     is True.
@@ -546,7 +546,7 @@ def _add_equal_if_type_strict_setting_is_true(
 
 
 def _get_expected_and_actual_strs(
-        expected: Any, actual: Any) -> Tuple[str, str]:
+        *, expected: Any, actual: Any) -> Tuple[str, str]:
     """
     Get expected and actual value strings from specified values.
 
@@ -573,7 +573,7 @@ def _get_expected_and_actual_strs(
     return expected_str, actual_str
 
 
-def _trace_info(interface_label: str, expected: Any, actual: Any) -> None:
+def _trace_info(*, interface_label: str, expected: Any, actual: Any) -> None:
     """
     Append trace expression of specified values.
 

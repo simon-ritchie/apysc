@@ -11,7 +11,7 @@ from typing import Dict
 empty = inspect.Signature.empty
 
 
-def get_func_default_vals(func: Callable) -> Dict[str, Any]:
+def get_func_default_vals(*, func: Callable) -> Dict[str, Any]:
     """
     Get specified function's arguments default values.
 
@@ -39,7 +39,7 @@ def get_func_default_vals(func: Callable) -> Dict[str, Any]:
         return default_vals
 
 
-def get_arg_name_at(func: Callable, index: int) -> str:
+def get_arg_name_at(*, func: Callable, index: int) -> str:
     """
     Get specified index argument name from function.
 
@@ -70,7 +70,7 @@ def get_arg_name_at(func: Callable, index: int) -> str:
 
 
 def get_name_and_arg_value_dict_from_args(
-        func: Callable, args: list, kwargs: dict) -> Dict[str, Any]:
+        *, func: Callable, args: list, kwargs: dict) -> Dict[str, Any]:
     """
     Get dictionary that has an argument name at key and specified
     argument values at value.
@@ -102,7 +102,7 @@ def get_name_and_arg_value_dict_from_args(
         return name_and_arg_value_dict
 
 
-def get_method_class_name(method: Callable) -> str:
+def get_method_class_name(*, method: Callable) -> str:
     """
     Get a specified method's class name.
 

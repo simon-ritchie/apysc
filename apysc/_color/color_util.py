@@ -10,7 +10,7 @@ StrOrString = TypeVar('StrOrString', str, ap.String)
 
 
 def complement_hex_color(
-        hex_color_code: StrOrString) -> StrOrString:
+        *, hex_color_code: StrOrString) -> StrOrString:
     """
     Complement hex color for convenience, for instance, add # prefix or
     three digits to six digits, upper case to lower case etc.
@@ -60,7 +60,7 @@ def complement_hex_color(
 
 
 def _append_complement_hex_color_expression(
-        hex_color_code: Any) -> None:
+        *, hex_color_code: Any) -> None:
     """
     Append complement_hex_color function's expression.
 
@@ -98,7 +98,7 @@ def _append_complement_hex_color_expression(
         ap.append_js_expression(expression=expression)
 
 
-def _fill_three_digit_hex_color_code(hex_color_code: str) -> str:
+def _fill_three_digit_hex_color_code(*, hex_color_code: str) -> str:
     """
     Fill 3 digits hexadecimal color code until it becomes 6 digits.
 
@@ -119,7 +119,7 @@ def _fill_three_digit_hex_color_code(hex_color_code: str) -> str:
     return filled_color_code
 
 
-def _fill_one_digit_hex_color_code(hex_color_code: str) -> str:
+def _fill_one_digit_hex_color_code(*, hex_color_code: str) -> str:
     """
     Fill 1 digit hexadecimal color code until it becomes 6 digits.
 

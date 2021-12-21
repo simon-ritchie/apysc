@@ -30,7 +30,7 @@ class AnimationBase(
     _easing: Easing
     _started: ap.Boolean
 
-    def __init__(self, variable_name: str) -> None:
+    def __init__(self, *, variable_name: str) -> None:
         """
         Base class for each animation setting.
 
@@ -53,8 +53,8 @@ class AnimationBase(
 
     def _set_basic_animation_settings(
             self,
-            target: _T,
             *,
+            target: _T,
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:

@@ -22,9 +22,9 @@ class AnimationCx(AnimationBase[_T], Generic[_T]):
 
     def __init__(
             self,
+            *,
             target: _T,
             x: Union[int, ap.Int],
-            *,
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:

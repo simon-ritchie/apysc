@@ -27,11 +27,11 @@ class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
 
     def __init__(
             self,
+            *,
             target: _T,
             rotation_around_point: Union[int, ap.Int],
             x: Union[int, ap.Int],
             y: Union[int, ap.Int],
-            *,
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:

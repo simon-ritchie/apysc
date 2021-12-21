@@ -24,9 +24,9 @@ class AnimationScaleYFromCenter(AnimationBase[_T], Generic[_T]):
 
     def __init__(
             self,
+            *,
             target: _T,
             scale_y_from_center: Union[float, ap.Number],
-            *,
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:

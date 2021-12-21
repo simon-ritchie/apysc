@@ -26,9 +26,9 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
 
     def __init__(
             self,
+            *,
             target: _T,
             animations: List[AnimationBase],
-            *,
             duration: Union[int, ap.Int] = 3000,
             delay: Union[int, ap.Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:
@@ -203,7 +203,7 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
                 expression += ';'
         return expression
 
-    def _make_animation_attr_exp(self, attr_strs: List[str]) -> str:
+    def _make_animation_attr_exp(self, *, attr_strs: List[str]) -> str:
         """
         Make an animation attribute expression string.
 

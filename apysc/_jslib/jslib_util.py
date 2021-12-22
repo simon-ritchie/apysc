@@ -56,7 +56,7 @@ def get_jslib_abs_dir_path() -> str:
 
 
 def export_jslib_to_specified_dir(
-        dest_dir_path: str, jslib_name: str) -> str:
+        *, dest_dir_path: str, jslib_name: str) -> str:
     """
     Export a JavaScript library to specified directory.
 
@@ -89,7 +89,7 @@ def export_jslib_to_specified_dir(
     return dest_file_path
 
 
-def read_jslib_str(jslib_name: str) -> str:
+def read_jslib_str(*, jslib_name: str) -> str:
     """
     Read a JavaScript library file str.
 

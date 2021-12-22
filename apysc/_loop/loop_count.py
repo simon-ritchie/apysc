@@ -28,7 +28,7 @@ def get_current_loop_count() -> int:
     return result[0]
 
 
-def _save_loop_count(loop_count: int) -> None:
+def _save_loop_count(*, loop_count: int) -> None:
     """
     Save a loop count value.
 

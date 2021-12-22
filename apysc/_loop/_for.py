@@ -67,7 +67,7 @@ class For(Generic[T]):
             self._indent = Indent()
 
     def _validate_arr_or_dict_val_type(
-            self, arr_or_dict: Union[ap.Array, ap.Dictionary]) -> None:
+            self, *, arr_or_dict: Union[ap.Array, ap.Dictionary]) -> None:
         """
         Validate loop value type is Array of Dictionary.
 
@@ -120,20 +120,9 @@ class For(Generic[T]):
             return i_or_key  # type: ignore
 
     def __exit__(
-            self, exc_type: Type,
-            exc_value: Any,
-            traceback: Any) -> None:
+            self, *args) -> None:
         """
         Method to be called when end of with statement.
-
-        Parameters
-        ----------
-        exc_type : Type
-            Exception type.
-        exc_value : *
-            Exception value.
-        traceback : *
-            Traceback value.
         """
         with ap.DebugInfo(
                 callable_='__exit__', locals_=locals(),
@@ -150,7 +139,7 @@ class For(Generic[T]):
             ap.append_js_expression(expression='}')
             last_scope.set_last_scope(value=LastScope.FOR)
 
-    def _append_arr_enter_expression(self, i: ap.Int) -> None:
+    def _append_arr_enter_expression(self, *, i: ap.Int) -> None:
         """
         Append for loop start expression (for Array value).
 
@@ -169,7 +158,7 @@ class For(Generic[T]):
             )
             ap.append_js_expression(expression=expression)
 
-    def _append_dict_enter_expression(self, key: ap.String) -> None:
+    def _append_dict_enter_expression(self, *, key: ap.String) -> None:
         """
         Append for loop start expression (for Dictionary value).
 

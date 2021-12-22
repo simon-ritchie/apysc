@@ -110,7 +110,7 @@ class ChildInterface(RevertInterface):
             return result
 
     def _append_contains_expression(
-            self, result: ap.Boolean, child: DisplayObject) -> None:
+            self, *, result: ap.Boolean, child: DisplayObject) -> None:
         """
         Append contains method expression.
 
@@ -151,7 +151,7 @@ class ChildInterface(RevertInterface):
             return num_children
 
     def _append_num_children_expression(
-            self, num_children: ap.Int) -> None:
+            self, *, num_children: ap.Int) -> None:
         """
         Append num_children method expression.
 
@@ -166,7 +166,7 @@ class ChildInterface(RevertInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    def get_child_at(self, index: Union[int, ap.Int]) -> DisplayObject:
+    def get_child_at(self, *, index: Union[int, ap.Int]) -> DisplayObject:
         """
         Get child at specified index.
 
@@ -202,7 +202,7 @@ class ChildInterface(RevertInterface):
             return child
 
     def _append_get_child_at_expression(
-            self, child: DisplayObject, index: Union[int, ap.Int]) -> None:
+            self, *, child: DisplayObject, index: Union[int, ap.Int]) -> None:
         """
         Append get_child_at method expression.
 
@@ -224,7 +224,7 @@ class ChildInterface(RevertInterface):
 
     _children_snapshots: Dict[str, List[Any]]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make values' snapshot.
 
@@ -246,7 +246,7 @@ class ChildInterface(RevertInterface):
             dict_name='_children_snapshots',
             value=[*self._children._value], snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert values if snapshot exists.
 
@@ -265,7 +265,7 @@ class ChildInterface(RevertInterface):
             child._run_all_revert_methods(snapshot_name=snapshot_name)
 
 
-def append_expression_of_add_child(child: DisplayObject) -> None:
+def append_expression_of_add_child(*, child: DisplayObject) -> None:
     """
     Append expression of add_child (add).
 
@@ -285,7 +285,7 @@ def append_expression_of_add_child(child: DisplayObject) -> None:
         ap.append_js_expression(expression=expression)
 
 
-def append_expression_of_remove_child(child: DisplayObject) -> None:
+def append_expression_of_remove_child(*, child: DisplayObject) -> None:
     """
     Append expression of remove_child (removeElement).
 

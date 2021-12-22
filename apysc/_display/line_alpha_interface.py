@@ -102,7 +102,7 @@ class LineAlphaInterface(
             ap.append_js_expression(expression=expression)
 
     def _update_line_alpha_and_skip_appending_exp(
-            self, value: Union[float, ap.Number]) -> None:
+            self, *, value: Union[float, ap.Number]) -> None:
         """
         Update line alpha and skip appending expression.
 
@@ -121,7 +121,7 @@ class LineAlphaInterface(
 
     _line_alpha_snapshots: Dict[str, float]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -135,7 +135,7 @@ class LineAlphaInterface(
             dict_name='_line_alpha_snapshots',
             value=self._line_alpha._value, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert value if snapshot exists.
 

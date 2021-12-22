@@ -80,7 +80,7 @@ class FillColorInterface(
             ap.append_js_expression(expression=expression)
 
     def _set_initial_fill_color_if_not_blank(
-            self, fill_color: Union[str, ap.String]) -> None:
+            self, *, fill_color: Union[str, ap.String]) -> None:
         """
         Set initial fill color value if specified value is not
         blank string.
@@ -98,7 +98,7 @@ class FillColorInterface(
         self._update_fill_color_and_skip_appending_exp(value=fill_color)
 
     def _update_fill_color_and_skip_appending_exp(
-            self, value: ap.String) -> None:
+            self, *, value: ap.String) -> None:
         """
         Update fill color and skip appending expression.
 
@@ -124,7 +124,7 @@ class FillColorInterface(
 
     _fill_color_snapshots: Dict[str, str]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -138,7 +138,7 @@ class FillColorInterface(
             dict_name='_fill_color_snapshots',
             value=self._fill_color._value, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert value if snapshot exists.
 

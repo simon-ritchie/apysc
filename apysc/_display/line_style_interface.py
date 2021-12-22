@@ -125,7 +125,7 @@ class LineStyleInterface(RevertInterface):
             display_validation.validate_multiple_line_settings_isnt_set(
                 any_instance=self)
 
-    def _set_line_joints(self, joints: Optional[LineJoints]) -> None:
+    def _set_line_joints(self, *, joints: Optional[LineJoints]) -> None:
         """
         Set line joints setting to attribute.
 
@@ -145,7 +145,7 @@ class LineStyleInterface(RevertInterface):
             validate_line_joints(joints=joints)
             self._line_joints = ap.String(joints.value)
 
-    def _set_line_cap(self, cap: Optional[LineCaps]) -> None:
+    def _set_line_cap(self, *, cap: Optional[LineCaps]) -> None:
         """
         Set line cap setting to attribute.
 
@@ -408,7 +408,7 @@ class LineStyleInterface(RevertInterface):
         str, Optional[LineRoundDotSetting]]
     _line_dash_dot_setting_snapshots: Dict[str, Optional[LineDashDotSetting]]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make values' snapshot.
 
@@ -455,7 +455,7 @@ class LineStyleInterface(RevertInterface):
             dict_name='_line_dash_dot_setting_snapshots',
             value=self._line_dash_dot_setting, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert values if snapshot exists.
 

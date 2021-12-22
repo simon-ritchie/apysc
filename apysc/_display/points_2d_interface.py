@@ -101,7 +101,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         )
         return variable_name, expression
 
-    def _append_points_update_expression(self, value: ap.Array) -> None:
+    def _append_points_update_expression(self, *, value: ap.Array) -> None:
         """
         Append points updating expression.
 
@@ -121,7 +121,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
 
     _points_snapshots: Dict[str, ap.Array]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make values' snapshots.
 
@@ -137,7 +137,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
             dict_name='_points_snapshots',
             value=self._points, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert values if snapshots exist.
 

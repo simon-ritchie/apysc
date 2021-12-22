@@ -77,7 +77,7 @@ class FlipYInterface(
             self._append_flip_y_attr_linking_setting()
 
     def _append_flip_y_update_expression(
-            self, before_value: ap.Boolean) -> None:
+            self, *, before_value: ap.Boolean) -> None:
         """
         Append a y-axis flipping value updating expression.
 
@@ -101,7 +101,7 @@ class FlipYInterface(
 
     _flip_y_snapshots: Dict[str, bool]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
 
@@ -115,7 +115,7 @@ class FlipYInterface(
             dict_name='_flip_y_snapshots',
             value=self._flip_y._value, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert a value if snapshot exists.
 

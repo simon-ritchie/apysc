@@ -90,7 +90,7 @@ class ParentInterface(RevertInterface):
 
     _parent_snapshots: Dict[str, Optional[Any]]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -103,7 +103,7 @@ class ParentInterface(RevertInterface):
             dict_name='_parent_snapshots',
             value=self._parent, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert value if snapshot exists.
 

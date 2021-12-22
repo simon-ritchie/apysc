@@ -6,7 +6,7 @@ from apysc._display.graphics_base import GraphicsBase
 
 
 def append_fill_expression(
-        graphics: Graphics, expression: str, indent_num: int) -> str:
+        *, graphics: Graphics, expression: str, indent_num: int) -> str:
     """
     Append fill expression to specified expression's string.
 
@@ -40,7 +40,7 @@ def append_fill_expression(
 
 
 def append_fill_opacity_expression(
-        graphics: Graphics, expression: str, indent_num: int) -> str:
+        *, graphics: Graphics, expression: str, indent_num: int) -> str:
     """
     Append fill opacity expression to specified expression's string.
 
@@ -71,7 +71,7 @@ def append_fill_opacity_expression(
 
 
 def append_x_expression(
-        graphic: GraphicsBase, expression: str, indent_num: int) -> str:
+        *, graphic: GraphicsBase, expression: str, indent_num: int) -> str:
     """
     Append x position expression to specified expression's string.
 
@@ -102,7 +102,7 @@ def append_x_expression(
 
 
 def append_y_expression(
-        graphic: GraphicsBase, expression: str, indent_num: int) -> str:
+        *, graphic: GraphicsBase, expression: str, indent_num: int) -> str:
     """
     Append y position expression to specified expression's string.
 
@@ -133,7 +133,7 @@ def append_y_expression(
 
 
 def append_stroke_expression(
-        graphics: Graphics, expression: str, indent_num: int) -> str:
+        *, graphics: Graphics, expression: str, indent_num: int) -> str:
     """
     Append stroke expression to specified expression's string.
 
@@ -166,7 +166,7 @@ def append_stroke_expression(
 
 
 def append_stroke_width_expression(
-        graphics: Graphics, expression: str, indent_num: int) -> str:
+        *, graphics: Graphics, expression: str, indent_num: int) -> str:
     """
     Append stroke width expression to specified expression's string.
 
@@ -198,7 +198,7 @@ def append_stroke_width_expression(
 
 
 def append_stroke_opacity_expression(
-        graphics: Graphics, expression: str, indent_num: int) -> str:
+        *, graphics: Graphics, expression: str, indent_num: int) -> str:
     """
     Append stroke opacity expression to specified expression's string.
 
@@ -229,7 +229,7 @@ def append_stroke_opacity_expression(
 
 
 def append_stroke_linecap_expression(
-        graphics: Graphics, expression: str, indent_num: int) -> str:
+        *, graphics: Graphics, expression: str, indent_num: int) -> str:
     """
     Append stroke linecap expression to specified expression's string.
 
@@ -262,7 +262,7 @@ def append_stroke_linecap_expression(
 
 
 def append_stroke_linejoin_expression(
-        graphics: Graphics, expression: str, indent_num: int) -> str:
+        *, graphics: Graphics, expression: str, indent_num: int) -> str:
     """
     Append stroke linejoin expression to specified expression's string.
 

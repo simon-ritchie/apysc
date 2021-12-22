@@ -92,7 +92,7 @@ class WidthInterface(
             ap.append_js_expression(expression=expression)
 
     def _update_width_and_skip_appending_exp(
-            self, value: Union[int, ap.Int]) -> None:
+            self, *, value: Union[int, ap.Int]) -> None:
         """
         Update width value and skip appending expression.
 
@@ -113,7 +113,7 @@ class WidthInterface(
 
     _width_snapshots: Dict[str, int]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -127,7 +127,7 @@ class WidthInterface(
             dict_name='_width_snapshots',
             value=int(self._width._value), snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert value if snapshot exists.
 

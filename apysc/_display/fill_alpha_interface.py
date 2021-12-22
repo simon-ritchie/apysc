@@ -107,7 +107,7 @@ class FillAlphaInterface(
             ap.append_js_expression(expression=expression)
 
     def _update_fill_alpha_and_skip_appending_exp(
-            self, value: ap.Number) -> None:
+            self, *, value: ap.Number) -> None:
         """
         Update fill opacity and skip appending expression.
 
@@ -130,7 +130,7 @@ class FillAlphaInterface(
 
     _fill_alpha_snapshots: Dict[str, float]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -144,7 +144,7 @@ class FillAlphaInterface(
             dict_name='_fill_alpha_snapshots',
             value=self._fill_alpha._value, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert value if snapshot exists.
 

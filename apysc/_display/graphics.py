@@ -39,8 +39,7 @@ class Graphics(
     _current_line: Optional[Polyline] = None
 
     def __init__(
-            self, parent: 'ap.Sprite',
-            *,
+            self, *, parent: 'ap.Sprite',
             variable_name: Optional[str] = None) -> None:
         """
         Create a object that has each vector graphics interface.

@@ -101,7 +101,7 @@ class ScaleYFromCenterInterface(
             self._append_scale_y_from_center_attr_linking_setting()
 
     def _append_scale_y_from_center_update_expression(
-            self, before_value: ap.Number) -> None:
+            self, *, before_value: ap.Number) -> None:
         """
         Append the scale-y from the center of this instance
         updating expression.
@@ -129,7 +129,7 @@ class ScaleYFromCenterInterface(
 
     _scale_y_from_center_snapshots: Dict[str, float]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
 
@@ -144,7 +144,7 @@ class ScaleYFromCenterInterface(
             value=self._scale_y_from_center._value,
             snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert a value if snapshot exists.
 

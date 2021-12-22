@@ -31,7 +31,7 @@ class Line(LineBase):
     _end_point: _Point2D
 
     def __init__(
-            self, parent: _Graphics,
+            self, *, parent: _Graphics,
             start_point: _Point2D,
             end_point: _Point2D) -> None:
         """

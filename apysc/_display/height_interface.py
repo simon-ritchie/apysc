@@ -93,7 +93,7 @@ class HeightInterface(
             ap.append_js_expression(expression=expression)
 
     def _update_height_and_skip_appending_exp(
-            self, value: Union[int, ap.Int]) -> None:
+            self, *, value: Union[int, ap.Int]) -> None:
         """
         Update height value and skip appending expression.
 
@@ -114,7 +114,7 @@ class HeightInterface(
 
     _height_snapshots: Dict[str, int]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -128,7 +128,7 @@ class HeightInterface(
             dict_name='_height_snapshots',
             value=int(self._height._value), snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert value if snapshot exists.
 

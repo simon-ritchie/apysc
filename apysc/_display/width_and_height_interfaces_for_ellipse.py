@@ -177,7 +177,7 @@ class WidthAndHeightInterfacesForEllipse(
     _width_snapshots: Dict[str, int]
     _height_snapshots: Dict[str, int]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make the values' snapshots.
 
@@ -194,7 +194,7 @@ class WidthAndHeightInterfacesForEllipse(
             dict_name='_height_snapshots',
             value=int(self._height._value), snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert the values if the snapshots exist.
 

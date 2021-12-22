@@ -106,7 +106,7 @@ class Stage(
         expression_data_util.exec_query(sql=query)
 
     def _create_stage_elem_id_if_none(
-            self, stage_elem_id: Optional[str]) -> str:
+            self, *, stage_elem_id: Optional[str]) -> str:
         """
         Create random stage element id if specified id is None.
 

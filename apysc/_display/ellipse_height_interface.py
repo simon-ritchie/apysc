@@ -105,7 +105,7 @@ class EllipseHeightInterface(
 
     _ellipse_height_snapshots: Dict[str, int]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make the value's snapshot.
 
@@ -120,7 +120,7 @@ class EllipseHeightInterface(
             value=int(self._ellipse_height._value),
             snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert the value if the snapshot exists.
 

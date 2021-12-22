@@ -107,7 +107,7 @@ class LineThicknessInterface(
             ap.append_js_expression(expression=expression)
 
     def _update_line_thickness_and_skip_appending_exp(
-            self, value: Union[int, ap.Int]) -> None:
+            self, *, value: Union[int, ap.Int]) -> None:
         """
         Update line thickness and skip appending expression.
 
@@ -125,7 +125,7 @@ class LineThicknessInterface(
 
     _line_thickness_snapshots: Dict[str, int]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -139,7 +139,7 @@ class LineThicknessInterface(
             dict_name='_line_thickness_snapshots',
             value=self._line_thickness._value, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert value if snapshot exists.
 

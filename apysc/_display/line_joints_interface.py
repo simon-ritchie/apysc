@@ -57,7 +57,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
             self._append_line_joints_update_expression()
 
     def _update_line_joints_and_skip_appending_exp(
-            self, value: Union[ap.String, LineJoints]) -> None:
+            self, *, value: Union[ap.String, LineJoints]) -> None:
         """
         Update line joints and skip appending expression.
 
@@ -98,7 +98,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
 
     _line_joints_snapshots: Dict[str, str]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -112,7 +112,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
             dict_name='_line_joints_snapshots',
             value=self._line_joints._value, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert value if snapshot exists.
 

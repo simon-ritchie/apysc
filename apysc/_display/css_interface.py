@@ -56,7 +56,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
             return css
 
     def _append_get_css_expresion(
-            self, name: Union[str, ap.String], css: ap.String) -> None:
+            self, *, name: Union[str, ap.String], css: ap.String) -> None:
         """
         Append a css getter expression string.
 
@@ -113,7 +113,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
             self._append_set_css_expression(name=name, value=value)
 
     def _append_set_css_expression(
-            self, name: Union[str, ap.String],
+            self, *, name: Union[str, ap.String],
             value: Union[str, ap.String]) -> None:
         """
         Append a css setter expression string.
@@ -140,7 +140,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
 
     _css_snapshot: Dict[str, Dict[str, ap.String]]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make values' snapshot.
 
@@ -154,7 +154,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
             dict_name='_css_snapshot',
             value={**self._css}, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert values if snapshot exists.
 

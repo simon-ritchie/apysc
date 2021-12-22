@@ -91,7 +91,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
             ap.append_js_expression(expression=expression)
             return True
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make values' snapshot.
 
@@ -105,7 +105,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
         self.graphics._run_all_make_snapshot_methods(
             snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert values if snapshot exists.
 

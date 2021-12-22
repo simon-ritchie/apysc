@@ -76,7 +76,8 @@ class RevertInterface(ABC):
         for base_class in base_classes:
             if not issubclass(base_class, RevertInterface):
                 continue
-            base_class._make_snapshot(self, snapshot_name)
+            base_class._make_snapshot(
+                self, snapshot_name=snapshot_name)
             self._run_base_cls_make_snapshot_methods_recursively(
                 class_=base_class, snapshot_name=snapshot_name)
         class_._make_snapshot(self, snapshot_name=snapshot_name)

@@ -24,7 +24,7 @@ class Rectangle(
     """
 
     def __init__(
-            self, parent: 'ap.Graphics',
+            self, *, parent: 'ap.Graphics',
             x: Union[int, ap.Int],
             y: Union[int, ap.Int],
             width: Union[int, ap.Int],

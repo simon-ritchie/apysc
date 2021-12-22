@@ -70,7 +70,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
                 any_instance=self)
 
     def _update_line_dash_setting_and_skip_appending_exp(
-            self, value: Optional[LineDashSetting]) -> None:
+            self, *, value: Optional[LineDashSetting]) -> None:
         """
         Update line dash setting and skip appending expression.
 
@@ -112,7 +112,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
 
     _line_dash_setting_snapshots: Dict[str, Optional[LineDashSetting]]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -126,7 +126,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
             dict_name='_line_dash_setting_snapshots',
             value=self._line_dash_setting, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert value if snapshot exists.
 

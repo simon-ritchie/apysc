@@ -85,7 +85,8 @@ class SkewXInterface(
 
             self._append_skew_x_attr_linking_setting()
 
-    def _append_skew_x_update_expression(self, before_value: ap.Int) -> None:
+    def _append_skew_x_update_expression(
+            self, *, before_value: ap.Int) -> None:
         """
         Append the skew x updating expression.
 
@@ -112,7 +113,7 @@ class SkewXInterface(
 
     _skew_x_snapshots: Dict[str, int]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
 
@@ -126,7 +127,7 @@ class SkewXInterface(
             dict_name='_skew_x_snapshots',
             value=int(self._skew_x._value), snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert a value if snapshot exists.
 

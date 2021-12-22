@@ -9,6 +9,7 @@ from apysc._type.expression_string import ExpressionString
 
 
 def get_coordinate_key_for_expression(
+        *,
         coordinate: Union[int, ap.Int]) -> ExpressionString:
     """
     Get a key string for the expression from the x or y coordinate.
@@ -39,6 +40,7 @@ class CoordinateType(Enum):
 
 
 def get_scale_updating_expression(
+        *,
         coordinate: ap.Int,
         scale_dict: ap.Dictionary[str, ap.Number],
         interface_variable_name: str,

@@ -28,7 +28,7 @@ class DisplayObject(
         - https://simon-ritchie.github.io/apysc/display_object.html
     """
 
-    def __init__(self, stage: Any, variable_name: str) -> None:
+    def __init__(self, *, stage: Any, variable_name: str) -> None:
         """
         Display object (base) class for the common interfaces.
 

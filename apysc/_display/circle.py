@@ -23,6 +23,7 @@ class Circle(  # type: ignore
 
     def __init__(
             self,
+            *,
             parent: 'ap.Graphics',
             x: Union[int, ap.Int],
             y: Union[int, ap.Int],
@@ -72,6 +73,7 @@ class Circle(  # type: ignore
 
     def _set_center_coordinates(
             self,
+            *,
             x: Union[int, ap.Int],
             y: Union[int, ap.Int]) -> None:
         """

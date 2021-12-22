@@ -88,7 +88,7 @@ class ScaleYFromPointInterface(
             self._append_scale_y_from_point_update_expression(y=y)
 
     def _append_scale_y_from_point_update_expression(
-            self, y: ap.Int) -> None:
+            self, *, y: ap.Int) -> None:
         """
         Append the scale-y from the specified y-coordinate updating
         expression.
@@ -112,7 +112,7 @@ class ScaleYFromPointInterface(
 
     _scale_y_from_point_snapshots: Dict[str, Dict[str, Any]]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
 
@@ -127,7 +127,7 @@ class ScaleYFromPointInterface(
             value={**self._scale_y_from_point._value},
             snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert a value if snapshot exists.
 

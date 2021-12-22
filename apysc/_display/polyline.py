@@ -18,7 +18,8 @@ class Polyline(LineBase, AppendLinePointInterface):
     """
 
     def __init__(
-            self, parent: 'ap.Graphics', points: ap.Array[Point2D]) -> None:
+            self, *, parent: 'ap.Graphics',
+            points: ap.Array[Point2D]) -> None:
         """
         Create a polyline vector graphic.
 

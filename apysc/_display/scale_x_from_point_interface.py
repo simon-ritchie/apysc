@@ -89,7 +89,7 @@ class ScaleXFromPointInterface(
             self._append_scale_x_from_point_update_expression(x=x)
 
     def _append_scale_x_from_point_update_expression(
-            self, x: ap.Int) -> None:
+            self, *, x: ap.Int) -> None:
         """
         Append the scale-x from the specified x-coordinate updating
         expression.
@@ -114,7 +114,7 @@ class ScaleXFromPointInterface(
 
     _scale_x_from_point_snapshots: Dict[str, Dict[str, Any]]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
 
@@ -129,7 +129,7 @@ class ScaleXFromPointInterface(
             value={**self._scale_x_from_point._value},
             snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert a value if snapshot exists.
 

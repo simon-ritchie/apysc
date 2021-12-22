@@ -12,7 +12,7 @@ class Axis(Enum):
 
 
 def make_flip_update_expression(
-        before_value: ap.Boolean, after_value: ap.Boolean,
+        *, before_value: ap.Boolean, after_value: ap.Boolean,
         axis: Axis, interface_variable_name: str) -> str:
     """
     Make a flipping value updating expression.

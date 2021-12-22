@@ -18,7 +18,7 @@ class Polygon(LineBase, AppendLinePointInterface):
     """
 
     def __init__(
-            self, parent: 'ap.Graphics',
+            self, *, parent: 'ap.Graphics',
             points: ap.Array[Point2D]) -> None:
         """
         Create a polygon vector graphic. This is similar to Polyline

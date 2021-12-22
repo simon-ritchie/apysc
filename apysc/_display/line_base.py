@@ -36,7 +36,7 @@ class LineBase(
         """
 
     def _set_line_setting_if_not_none_value_exists(
-            self, parent_graphics: Any) -> None:
+            self, *, parent_graphics: Any) -> None:
         """
         If a line setting (dot, dash, or something else) with a value
         other than None exists, set that value to the attribute.
@@ -68,7 +68,8 @@ class LineBase(
                     parent_graphics_.line_dash_dot_setting
                 return
 
-    def _set_initial_basic_values(self, parent: _Graphics) -> None:
+    def _set_initial_basic_values(
+            self, *, parent: _Graphics) -> None:
         """
         Set initial basic values (fill color, line thickness, and so on).
 
@@ -126,7 +127,7 @@ class LineBase(
                 attr=self._line_thickness, attr_name='line_thickness')
 
     def _append_basic_vals_expression(
-            self, expression: str, indent_num: int) -> str:
+            self, *, expression: str, indent_num: int) -> str:
         """
         Append basic values expression to specified one.
 

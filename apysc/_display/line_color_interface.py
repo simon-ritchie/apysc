@@ -86,7 +86,7 @@ class LineColorInterface(
             ap.append_js_expression(expression=expression)
 
     def _set_initial_line_color_if_not_blank(
-            self, line_color: Union[str, ap.String]) -> None:
+            self, *, line_color: Union[str, ap.String]) -> None:
         """
         Set initial line color value if specified value is not
         blank string.
@@ -104,7 +104,7 @@ class LineColorInterface(
         self._update_line_color_and_skip_appending_exp(value=line_color)
 
     def _update_line_color_and_skip_appending_exp(
-            self, value: ap.String) -> None:
+            self, *, value: ap.String) -> None:
         """
         Update line color and skip appending expression.
 
@@ -131,7 +131,7 @@ class LineColorInterface(
 
     _line_color_snapshots: Dict[str, str]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -145,7 +145,7 @@ class LineColorInterface(
             dict_name='_line_color_snapshots',
             value=self._line_color._value, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert value if snapshot exists.
 

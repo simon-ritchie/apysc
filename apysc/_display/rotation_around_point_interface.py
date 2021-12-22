@@ -99,7 +99,7 @@ class RotationAroundPointInterface(
                 rotation=rotation, x=x, y=y)
 
     def _append_rotation_around_point_update_expression(
-            self, rotation: ap.Int, x: ap.Int, y: ap.Int) -> None:
+            self, *, rotation: ap.Int, x: ap.Int, y: ap.Int) -> None:
         """
         Append a rotation value around the given coordinates
         updating expression.
@@ -123,7 +123,7 @@ class RotationAroundPointInterface(
             ap.append_js_expression(expression=expression)
 
     def _get_rotation_around_point_updating_expression(
-            self, rotation: ap.Int, x: ap.Int, y: ap.Int) -> str:
+            self, *, rotation: ap.Int, x: ap.Int, y: ap.Int) -> str:
         """
         Get a rotation value around the given coordinates updating
         expression string.
@@ -181,7 +181,7 @@ class RotationAroundPointInterface(
 
     _rotation_around_point_snapshots: Dict[str, Dict[str, Any]]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
 
@@ -196,7 +196,7 @@ class RotationAroundPointInterface(
             value={**self._rotation_around_point._value},
             snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert a value if snapshot exists.
 

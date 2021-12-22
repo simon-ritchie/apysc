@@ -33,7 +33,9 @@ class GraphicsBase(
     _variable_name: str
 
     def __init__(
-            self, parent: 'ap.Graphics',
+            self,
+            *,
+            parent: 'ap.Graphics',
             x: Union[int, ap.Int],
             y: Union[int, ap.Int],
             variable_name: str) -> None:

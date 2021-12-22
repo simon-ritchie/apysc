@@ -95,7 +95,7 @@ class VisibleInterface(
 
     _visible_snapshots: Dict[str, bool]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -109,7 +109,7 @@ class VisibleInterface(
             dict_name='_visible_snapshots',
             value=self._visible._value, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert value is snapshot exists.
 

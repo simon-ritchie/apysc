@@ -86,7 +86,8 @@ class SkewYInterface(
 
             self._append_skew_y_attr_linking_setting()
 
-    def _append_skew_y_update_expression(self, before_value: ap.Int) -> None:
+    def _append_skew_y_update_expression(
+            self, *, before_value: ap.Int) -> None:
         """
         Append the skew y updating expression.
 
@@ -113,7 +114,7 @@ class SkewYInterface(
 
     _skew_y_snapshot: Dict[str, int]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
 
@@ -127,7 +128,7 @@ class SkewYInterface(
             dict_name='_skew_y_snapshot',
             value=int(self._skew_y._value), snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert a value if snapshot exists.
 

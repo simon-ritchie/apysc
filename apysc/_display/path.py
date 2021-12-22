@@ -19,6 +19,7 @@ class Path(LineBase):
 
     def __init__(
             self,
+            *,
             parent: _Graphics,
             path_data_list: List[PathDataBase]) -> None:
         """

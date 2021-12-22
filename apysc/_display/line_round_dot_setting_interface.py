@@ -77,7 +77,7 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
                 any_instance=self)
 
     def _update_line_round_dot_setting_and_skip_appending_exp(
-            self, value: Optional[LineRoundDotSetting]) -> None:
+            self, *, value: Optional[LineRoundDotSetting]) -> None:
         """
         Update line round setting and skip appending expression.
 
@@ -121,7 +121,7 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
     _line_round_dot_setting_snapshots: Dict[
         str, Optional[LineRoundDotSetting]]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -135,7 +135,7 @@ class LineRoundDotSettingInterface(LineCapInterface, LineThicknessInterface):
             dict_name='_line_round_dot_setting_snapshots',
             value=self._line_round_dot_setting, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert value if snapshot exists.
 

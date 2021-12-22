@@ -8,6 +8,7 @@ from apysc._type.expression_string import ExpressionString
 
 
 def get_coordinates_key_for_expression(
+        *,
         x: Union[int, ap.Int],
         y: Union[int, ap.Int]) -> ExpressionString:
     """

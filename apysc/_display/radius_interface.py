@@ -79,7 +79,8 @@ class RadiusInterface(
 
             self._append_raidus_attr_linking_setting()
 
-    def _get_converted_radius_int(self, radius: Union[int, ap.Int]) -> ap.Int:
+    def _get_converted_radius_int(
+            self, *, radius: Union[int, ap.Int]) -> ap.Int:
         """
         Get a radius converted Int instance.
 
@@ -121,7 +122,7 @@ class RadiusInterface(
 
     _radius_snapshots: Dict[str, int]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -135,7 +136,7 @@ class RadiusInterface(
             dict_name='_radius_snapshots',
             value=int(self._radius._value), snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert value if snapshot exists.
 

@@ -119,7 +119,7 @@ class BeginFillInterface(RevertInterface):
     _fill_color_snapshots: Dict[str, str]
     _fill_alpha_snapshots: Dict[str, float]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make values' snapshot.
 
@@ -137,7 +137,7 @@ class BeginFillInterface(RevertInterface):
             dict_name='_fill_alpha_snapshots',
             value=self._fill_alpha._value, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert values if snapshot exists.
 

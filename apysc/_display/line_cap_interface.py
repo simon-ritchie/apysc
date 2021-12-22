@@ -72,7 +72,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
             ap.append_js_expression(expression=expression)
 
     def _update_line_cap_and_skip_appending_exp(
-            self, value: Union[ap.String, LineCaps]) -> None:
+            self, *, value: Union[ap.String, LineCaps]) -> None:
         """
         Update line cap and skip appending expression.
 
@@ -95,7 +95,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
 
     _line_cap_snapshots: Dict[str, str]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -109,7 +109,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
             dict_name='_line_cap_snapshots',
             value=self._line_cap._value, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert value if snapshot exists.
 

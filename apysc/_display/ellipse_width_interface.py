@@ -106,7 +106,7 @@ class EllipseWidthInterface(
 
     _ellipse_width_snapshots: Dict[str, int]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make the value's snapshot.
 
@@ -121,7 +121,7 @@ class EllipseWidthInterface(
             value=int(self._ellipse_width._value),
             snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert the value if the snapshot exists.
 

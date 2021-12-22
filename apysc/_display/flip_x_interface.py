@@ -77,7 +77,7 @@ class FlipXInterface(
             self._append_flip_x_attr_linking_setting()
 
     def _append_flip_x_update_expression(
-            self, before_value: ap.Boolean) -> None:
+            self, *, before_value: ap.Boolean) -> None:
         """
         Append a x-axis flipping value updating expression.
 
@@ -101,7 +101,7 @@ class FlipXInterface(
 
     _flip_x_snapshots: Dict[str, bool]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
 
@@ -115,7 +115,7 @@ class FlipXInterface(
             dict_name='_flip_x_snapshots',
             value=self._flip_x._value, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert a value if snapshot exists.
 

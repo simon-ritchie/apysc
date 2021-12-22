@@ -25,6 +25,7 @@ class Ellipse(  # type: ignore
 
     def __init__(
             self,
+            *,
             parent: 'ap.Graphics',
             x: Union[int, ap.Int],
             y: Union[int, ap.Int],

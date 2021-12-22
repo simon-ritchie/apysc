@@ -45,7 +45,7 @@ class Event(Generic[T], VariableNameInterface):
                 get_next_variable_name(type_name=type_name)
 
     def _validate_type_name_and_self_type(
-            self, type_name: Optional[str]) -> None:
+            self, *, type_name: Optional[str]) -> None:
         """
         Validate type_name argument is None when self instance
         is not Event subclass, and the opposite pattern is true

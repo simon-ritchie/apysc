@@ -18,9 +18,8 @@ _Handler = Callable[[MouseEvent, _O], None]
 class MouseEventInterfaceBase:
 
     def _set_mouse_event_handler_data(
-            self, handler: _Handler[_O],
+            self, *, handler: _Handler[_O],
             handlers_dict: Dict[str, HandlerData],
-            *,
             options: Optional[_O]) -> None:
         """
         Set a handler's data to the given dictionary.
@@ -47,7 +46,7 @@ class MouseEventInterfaceBase:
         }
 
     def _unbind_mouse_event(
-            self, handler: _Handler[_O], mouse_event_type: MouseEventType,
+            self, *, handler: _Handler[_O], mouse_event_type: MouseEventType,
             handlers_dict: Dict[str, HandlerData]) -> None:
         """
         Unbind specified handler's mouse event.
@@ -79,7 +78,7 @@ class MouseEventInterfaceBase:
                 mouse_event_type=mouse_event_type)
 
     def _unbind_all_mouse_events(
-            self, mouse_event_type: MouseEventType,
+            self, *, mouse_event_type: MouseEventType,
             handlers_dict: Dict[str, HandlerData]) -> None:
         """
         Unbind specified all mouse event type's event.
@@ -105,7 +104,7 @@ class MouseEventInterfaceBase:
                 this=self_instance, mouse_event_type=mouse_event_type)
 
     def _append_mouse_event_binding_expression(
-            self, name: str, mouse_event_type: MouseEventType) -> None:
+            self, *, name: str, mouse_event_type: MouseEventType) -> None:
         """
         Append a mouse event binding expression.
 

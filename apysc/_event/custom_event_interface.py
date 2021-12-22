@@ -24,7 +24,7 @@ class CustomEventInterface(BlankObjectInterface):
         Dict[_HandlerName, HandlerData]]
 
     def _initialize_custom_event_handlers_if_not_initialized(
-            self, custom_event_type_str: str) -> None:
+            self, *, custom_event_type_str: str) -> None:
         """
         Initialize the _custom_event_handlers data if it hasn't been
         initialized yet.
@@ -40,7 +40,7 @@ class CustomEventInterface(BlankObjectInterface):
             self._custom_event_handlers[custom_event_type_str] = {}
 
     def _get_custom_event_type_str(
-            self,
+            self, *,
             custom_event_type: Union[CustomEventType, str]) -> str:
         """
         Get a custom event type string from a type value.
@@ -61,7 +61,7 @@ class CustomEventInterface(BlankObjectInterface):
         return custom_event_type_str
 
     def _set_custom_event_handler_data(
-            self, handler: _Handler,
+            self, *, handler: _Handler,
             custom_event_type_str: str,
             options: Optional[Any]) -> None:
         """
@@ -87,7 +87,7 @@ class CustomEventInterface(BlankObjectInterface):
         }
 
     def _unset_custom_event_handler_data(
-            self, handler: _Handler,
+            self, *, handler: _Handler,
             custom_event_type_str: str) -> None:
         """
         Unset a handler's data from the dictionary.
@@ -167,7 +167,7 @@ class CustomEventInterface(BlankObjectInterface):
             return name
 
     def _append_custom_event_binding_expression(
-            self, custom_event_type_str: str, name: str) -> None:
+            self, *, custom_event_type_str: str, name: str) -> None:
         """
         Append a custom event binding expression.
 
@@ -256,7 +256,7 @@ class CustomEventInterface(BlankObjectInterface):
             return name
 
     def _append_custom_event_unbinding_expression(
-            self, custom_event_type_str: str, name: str) -> None:
+            self, *, custom_event_type_str: str, name: str) -> None:
         """
         Add a custom event unbinding expression.
 

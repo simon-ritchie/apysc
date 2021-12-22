@@ -21,7 +21,7 @@ class HandlerData(TypedDict):
 
 
 def get_handler_name(
-        handler: _Handler, instance: Any) -> str:
+        *, handler: _Handler, instance: Any) -> str:
     """
     Get a handler name.
 
@@ -58,10 +58,10 @@ def get_handler_name(
 
 
 def append_handler_expression(
+        *,
         handler_data: HandlerData,
         handler_name: str,
         e: Event,
-        *,
         in_handler_head_expression: str = '') -> None:
     """
     Append a handler's expression.
@@ -117,7 +117,7 @@ def append_handler_expression(
 
 
 def _append_in_handler_head_expression(
-        in_handler_head_expression: str) -> None:
+        *, in_handler_head_expression: str) -> None:
     """
     Append an in-handler head expression if it is not blank.
 
@@ -137,7 +137,7 @@ def _append_in_handler_head_expression(
 
 
 def append_unbinding_expression(
-        this: VariableNameInterface, handler_name: str,
+        *, this: VariableNameInterface, handler_name: str,
         mouse_event_type: MouseEventType) -> None:
     """
     Append event unbinding expression.
@@ -166,7 +166,7 @@ def append_unbinding_expression(
 
 
 def append_unbinding_all_expression(
-        this: VariableNameInterface,
+        *, this: VariableNameInterface,
         mouse_event_type: MouseEventType) -> None:
     """
     Append all events unbinding expression.

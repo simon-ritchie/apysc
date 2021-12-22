@@ -6,7 +6,7 @@ from typing import Optional
 from typing import Tuple
 
 
-def is_handler_circular_calling(handler_name: str) -> bool:
+def is_handler_circular_calling(*, handler_name: str) -> bool:
     """
     Get a boolean value whether a specified handler is
     a circular call or not.
@@ -53,7 +53,7 @@ def is_handler_circular_calling(handler_name: str) -> bool:
     return False
 
 
-def _is_already_saved_circular_calling(handler_name: str) -> bool:
+def _is_already_saved_circular_calling(*, handler_name: str) -> bool:
     """
     Get a boolean indicating whether a specified handler name
     has been already saved as the circular calling handler or not.
@@ -76,7 +76,7 @@ def _is_already_saved_circular_calling(handler_name: str) -> bool:
     return True
 
 
-def get_prev_handler_name(handler_name: str) -> str:
+def get_prev_handler_name(*, handler_name: str) -> str:
     """
     Get a previous handler's name of a specified handler's
     one if it is a circular calling handler.
@@ -106,7 +106,7 @@ def get_prev_handler_name(handler_name: str) -> str:
     return result[0]
 
 
-def get_prev_variable_name(handler_name: str) -> str:
+def get_prev_variable_name(*, handler_name: str) -> str:
     """
     Get a previous handler binded instance's variable name if a
     specified handler is a circular calling handler.
@@ -137,7 +137,7 @@ def get_prev_variable_name(handler_name: str) -> str:
     return result[0]
 
 
-def _save_circular_calling_handler_name(handler_name: str) -> None:
+def _save_circular_calling_handler_name(*, handler_name: str) -> None:
     """
     Save a circular calling handler name to the SQLite.
 
@@ -162,7 +162,7 @@ def _save_circular_calling_handler_name(handler_name: str) -> None:
     expression_data_util.exec_query(sql=query)
 
 
-def _get_same_name_prev_hadler_name(handler_name: str) -> str:
+def _get_same_name_prev_hadler_name(*, handler_name: str) -> str:
     """
     Get a previous same name (but the suffix number is different)
     handler's name from the current stack.
@@ -184,7 +184,7 @@ def _get_same_name_prev_hadler_name(handler_name: str) -> str:
     return same_name_prev_hadler_name
 
 
-def _get_same_name_prev_variable_name(handler_name: str) -> str:
+def _get_same_name_prev_variable_name(*, handler_name: str) -> str:
     """
     Get a previous same name (but the suffix number is different)
     handler binded variable name from the current stack.
@@ -205,7 +205,7 @@ def _get_same_name_prev_variable_name(handler_name: str) -> str:
     return prev_variable_name
 
 
-def _get_same_name_prev_data(handler_name: str) -> Tuple[str, str]:
+def _get_same_name_prev_data(*, handler_name: str) -> Tuple[str, str]:
     """
     Get previous handler name and variable name values of the
     previous same name (but the suffix number is different) handler
@@ -258,7 +258,7 @@ def _get_same_name_prev_data(handler_name: str) -> Tuple[str, str]:
 
 
 def _append_handler_name_to_last_of_list(
-        handler_name: str, handler_names: List[str]) -> List[str]:
+        *, handler_name: str, handler_names: List[str]) -> List[str]:
     """
     Append a specified handler's name to the last of the list
     if the last one is an other handler's name.

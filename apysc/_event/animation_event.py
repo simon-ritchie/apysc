@@ -18,7 +18,7 @@ class AnimationEvent(Event, Generic[_T]):
 
     _this: AnimationBase[_T]
 
-    def __init__(self, this: AnimationBase[_T]) -> None:
+    def __init__(self, *, this: AnimationBase[_T]) -> None:
         """
         Animation event class.
 

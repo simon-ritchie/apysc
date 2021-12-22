@@ -68,7 +68,7 @@ class MouseEvent(
             self._append_stage_x_getter_expression(x=x)
             return x
 
-    def _append_stage_x_getter_expression(self, x: ap.Int) -> None:
+    def _append_stage_x_getter_expression(self, *, x: ap.Int) -> None:
         """
         Append stage_x getter property expression.
 
@@ -110,7 +110,7 @@ class MouseEvent(
             self._append_stage_y_getter_expression(y=y)
             return y
 
-    def _append_stage_y_getter_expression(self, y: ap.Int) -> None:
+    def _append_stage_y_getter_expression(self, *, y: ap.Int) -> None:
         """
         Append stage_y getter property expression.
 
@@ -154,7 +154,7 @@ class MouseEvent(
             self._append_local_x_getter_expression(x=x)
             return x
 
-    def _append_local_x_getter_expression(self, x: ap.Int) -> None:
+    def _append_local_x_getter_expression(self, *, x: ap.Int) -> None:
         """
         Append local_x getter property expression.
 
@@ -200,7 +200,7 @@ class MouseEvent(
             self._append_local_y_getter_expression(y=y)
             return y
 
-    def _append_local_y_getter_expression(self, y: ap.Int) -> None:
+    def _append_local_y_getter_expression(self, *, y: ap.Int) -> None:
         """
         Append local_y getter property expression.
 

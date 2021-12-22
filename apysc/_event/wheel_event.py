@@ -51,7 +51,7 @@ class WheelEvent(Event):
             self._append_delta_x_getter_expression(delta_x=delta_x)
             return delta_x
 
-    def _append_delta_x_getter_expression(self, delta_x: ap.Int) -> None:
+    def _append_delta_x_getter_expression(self, *, delta_x: ap.Int) -> None:
         """
         Append delta_x getter property's expression.
 
@@ -87,7 +87,7 @@ class WheelEvent(Event):
             self._append_delta_y_getter_expression(delta_y=delta_y)
             return delta_y
 
-    def _append_delta_y_getter_expression(self, delta_y: ap.Int) -> None:
+    def _append_delta_y_getter_expression(self, *, delta_y: ap.Int) -> None:
         """
         Append delta_y getter property's expression.
 

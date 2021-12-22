@@ -43,7 +43,7 @@ class LintType(Enum):
 _LINT_PACKAGE_ROOT_PATH: str = './apysc/_lint/'
 
 
-def get_lint_hash_dir_path(lint_type: LintType) -> str:
+def get_lint_hash_dir_path(*, lint_type: LintType) -> str:
     """
     Get a specified lint type's hash directory path.
 
@@ -71,7 +71,7 @@ def get_lint_hash_dir_path(lint_type: LintType) -> str:
 
 
 def get_target_module_hash_file_path(
-        module_path: str, lint_type: LintType) -> str:
+        *, module_path: str, lint_type: LintType) -> str:
     """
     Get a specified module's hash file path.
 
@@ -101,7 +101,7 @@ def get_target_module_hash_file_path(
     return file_path
 
 
-def read_target_module_hash(module_path: str) -> str:
+def read_target_module_hash(*, module_path: str) -> str:
     """
     Read a specified module's hashed string.
 
@@ -124,7 +124,7 @@ def read_target_module_hash(module_path: str) -> str:
     return hashed_string
 
 
-def read_saved_hash(module_path: str, lint_type: LintType) -> str:
+def read_saved_hash(*, module_path: str, lint_type: LintType) -> str:
     """
     Read an already-saved module's hashed string.
 
@@ -151,7 +151,7 @@ def read_saved_hash(module_path: str, lint_type: LintType) -> str:
     return saved_hash
 
 
-def save_target_module_hash(module_path: str, lint_type: LintType) -> None:
+def save_target_module_hash(*, module_path: str, lint_type: LintType) -> None:
     """
     Save a target module's current hash.
 
@@ -172,7 +172,7 @@ def save_target_module_hash(module_path: str, lint_type: LintType) -> None:
 
 
 def save_target_modules_hash(
-        module_paths: List[str], lint_type: LintType) -> None:
+        *, module_paths: List[str], lint_type: LintType) -> None:
     """
     Save target modules' current hash.
 
@@ -195,7 +195,7 @@ def save_target_modules_hash(
         _ = futures.as_completed(fs=future_list)
 
 
-def is_module_updated(module_path: str, lint_type: LintType) -> bool:
+def is_module_updated(*, module_path: str, lint_type: LintType) -> bool:
     """
     Get a boolean value whether a specified module has been updated
     after the last lint execution.
@@ -251,7 +251,7 @@ def _is_module_updated_func_for_multiprocessing(
 
 
 def _create_args_list_for_multiprocessing(
-        module_paths: List[str],
+        *, module_paths: List[str],
         lint_type: LintType) -> List[_IsModuleUpdatedArgs]:
     """
     Create an arguments list for the multiprocessing.
@@ -278,7 +278,7 @@ def _create_args_list_for_multiprocessing(
 
 
 def remove_not_updated_module_paths(
-        module_paths: List[str],
+        *, module_paths: List[str],
         lint_type: LintType) -> List[str]:
     """
     Remove not updated modules from specified module paths.

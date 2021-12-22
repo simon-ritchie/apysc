@@ -11,7 +11,7 @@ Mainly following interfaces are defined:
 from typing import List
 
 
-def make_spaces_for_html(indent_num: int) -> str:
+def make_spaces_for_html(*, indent_num: int) -> str:
     """
     Make spaces that multiplied 2 to specified indentation number.
 
@@ -32,7 +32,7 @@ def make_spaces_for_html(indent_num: int) -> str:
     return spaces
 
 
-def append_spaces_to_expression(expression: str, indent_num: int) -> str:
+def append_spaces_to_expression(*, expression: str, indent_num: int) -> str:
     """
     Append spaces to a js expression string.
 

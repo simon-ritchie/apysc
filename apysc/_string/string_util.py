@@ -17,7 +17,7 @@ from typing import Any
 from typing import TypeVar
 
 
-def escape_str(string: str) -> str:
+def escape_str(*, string: str) -> str:
     """
     Escape special characters (e.g. line breaks of `\n`).
 
@@ -35,7 +35,7 @@ def escape_str(string: str) -> str:
     return string
 
 
-def escape_double_quotation(string: str) -> str:
+def escape_double_quotation(*, string: str) -> str:
     """
     Escape double quotations.
 
@@ -56,7 +56,7 @@ def escape_double_quotation(string: str) -> str:
 T = TypeVar('T')
 
 
-def wrap_by_double_quotation_if_value_is_string(value: T) -> T:
+def wrap_by_double_quotation_if_value_is_string(*, value: T) -> T:
     """
     Wrap specified by double quotation if value is a string.
 
@@ -78,7 +78,7 @@ def wrap_by_double_quotation_if_value_is_string(value: T) -> T:
 
 
 def substitute_file_by_pattern(
-        file_path: str, pattern: str, repl: str,
+        *, file_path: str, pattern: str, repl: str,
         flags: Any) -> None:
     """
     Substitute text file by regular expression pattern.

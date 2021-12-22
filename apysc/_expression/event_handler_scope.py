@@ -19,7 +19,8 @@ class HandlerScope:
     _instance: VariableNameInterface
 
     def __init__(
-            self, handler_name: str, instance: VariableNameInterface) -> None:
+            self, *, handler_name: str,
+            instance: VariableNameInterface) -> None:
         """
         Class for a handler scope. This is used at a with statement.
 
@@ -55,7 +56,7 @@ class HandlerScope:
 
 
 def _save_handler_calling_stack(
-        handler_name: str, instance: VariableNameInterface) -> None:
+        *, handler_name: str, instance: VariableNameInterface) -> None:
     """
     Save the handler calling stack data to the SQLite.
 
@@ -78,7 +79,7 @@ def _save_handler_calling_stack(
     expression_data_util.exec_query(sql=query)
 
 
-def remove_suffix_num_from_handler_name(handler_name: str) -> str:
+def remove_suffix_num_from_handler_name(*, handler_name: str) -> str:
     """
     Remove the suffix number from a specified handler name.
 
@@ -98,7 +99,7 @@ def remove_suffix_num_from_handler_name(handler_name: str) -> str:
     return handler_name
 
 
-def _delete_handler_calling_stack(handler_name: str) -> None:
+def _delete_handler_calling_stack(*, handler_name: str) -> None:
     """
     Delete the handler calling stack data from the SQLite.
 
@@ -170,7 +171,7 @@ def _decrement_scope_count() -> None:
     _save_current_scope_count(count=scope_count)
 
 
-def _save_current_scope_count(count: int) -> None:
+def _save_current_scope_count(*, count: int) -> None:
     """
     Save current scope count.
 

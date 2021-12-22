@@ -36,7 +36,7 @@ def get_current_indent_num() -> int:
     return current_indent_num
 
 
-def _save_current_indent_num(indent_num: int) -> None:
+def _save_current_indent_num(*, indent_num: int) -> None:
     """
     Save the current indentation number.
 

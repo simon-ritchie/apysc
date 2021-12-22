@@ -51,7 +51,7 @@ def get_last_scope() -> LastScope:
     return last_scope
 
 
-def set_last_scope(value: LastScope) -> None:
+def set_last_scope(*, value: LastScope) -> None:
     """
     Set last scope value.
 

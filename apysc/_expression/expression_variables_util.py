@@ -14,7 +14,7 @@ from typing import Tuple
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
-def get_next_variable_name(type_name: str) -> str:
+def get_next_variable_name(*, type_name: str) -> str:
     """
     Get next variable name of specified type name.
 
@@ -45,7 +45,7 @@ def get_next_variable_name(type_name: str) -> str:
     return variable_name
 
 
-def _save_next_variable_name_count(type_name: str) -> None:
+def _save_next_variable_name_count(*, type_name: str) -> None:
     """
     Save a next variable name count value.
 
@@ -71,7 +71,7 @@ def _save_next_variable_name_count(type_name: str) -> None:
     expression_data_util.exec_query(sql=query)
 
 
-def _make_variable_name(type_name: str, variable_num: int) -> str:
+def _make_variable_name(*, type_name: str, variable_num: int) -> str:
     """
     Make variable name from type name and variable num.
 
@@ -91,7 +91,7 @@ def _make_variable_name(type_name: str, variable_num: int) -> str:
     return variable_name
 
 
-def _get_next_variable_num(type_name: str) -> int:
+def _get_next_variable_num(*, type_name: str) -> int:
     """
     Get a next variable number.
 
@@ -120,7 +120,7 @@ def _get_next_variable_num(type_name: str) -> int:
 
 
 def append_substitution_expression(
-        left_value: VariableNameInterface,
+        *, left_value: VariableNameInterface,
         right_value: VariableNameInterface) -> None:
     """
     Append a substitution expression between two variables.
@@ -140,7 +140,7 @@ def append_substitution_expression(
 
 
 def append_substitution_expression_with_names(
-        left_variable_name: str,
+        *, left_variable_name: str,
         right_variable_name: str) -> None:
     """
     Append a substitution expression between two variable names.

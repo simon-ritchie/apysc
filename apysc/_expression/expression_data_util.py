@@ -90,7 +90,7 @@ def _check_connection(func: _C) -> _C:
 
 
 @_check_connection
-def _table_exists(table_name: TableName) -> bool:
+def _table_exists(*, table_name: TableName) -> bool:
     """
     Get a boolean value whether a specified table exists or not.
 
@@ -117,7 +117,7 @@ def _table_exists(table_name: TableName) -> bool:
 
 
 def _make_create_table_query(
-        table_name: TableName,
+        *, table_name: TableName,
         column_ddl: str) -> str:
     """
     Make a create table sql query.
@@ -365,7 +365,7 @@ def empty_expression() -> None:
     connection.commit()
 
 
-def append_js_expression(expression: str) -> None:
+def append_js_expression(*, expression: str) -> None:
     """
     Append js expression.
 
@@ -449,7 +449,7 @@ def get_current_event_handler_scope_expression() -> str:
     return current_expression
 
 
-def _get_current_expression(table_name: TableName) -> str:
+def _get_current_expression(*, table_name: TableName) -> str:
     """
     Get a current expression string from a specified table.
 
@@ -479,7 +479,7 @@ class _LimitClauseCantUseError(Exception):
     ...
 
 
-def _validate_limit_clause(sql: str) -> None:
+def _validate_limit_clause(*, sql: str) -> None:
     """
     Validate whether a LIMIT clause is used in a UPDATE or DELETE sql.
 
@@ -502,7 +502,7 @@ def _validate_limit_clause(sql: str) -> None:
         f'LIMIT clause cannot use in the UPDATE or DELETE sql: {sql_}')
 
 
-def exec_query(sql: str, *, commit: bool = True) -> None:
+def exec_query(*, sql: str, commit: bool = True) -> None:
     """
     Execute a SQLite sql query.
 

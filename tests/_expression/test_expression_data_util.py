@@ -19,7 +19,7 @@ from tests.testing_helper import assert_raises
 def test_get_current_expression() -> None:
     expression_data_util.empty_expression()
     ap.append_js_expression(
-        'console.log("Hello!");'
+        expression='console.log("Hello!");'
     )
     expression: str = expression_data_util.get_current_expression()
     assert expression == 'console.log("Hello!");'

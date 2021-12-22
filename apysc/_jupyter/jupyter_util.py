@@ -19,7 +19,7 @@ from apysc._display.stage import Stage
 _TMP_ROOT_DIR_PATH: str = './'
 
 
-def _save_overall_html(html_file_name: str, minify: bool) -> None:
+def _save_overall_html(*, html_file_name: str, minify: bool) -> None:
     """
     Save the overall HTML file.
 

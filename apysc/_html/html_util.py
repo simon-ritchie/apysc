@@ -31,7 +31,7 @@ StrOrString = TypeVar('StrOrString', str, ap.String)
 
 
 def remove_first_selector_symbol_char(
-        str_val: StrOrString) -> StrOrString:
+        *, str_val: StrOrString) -> StrOrString:
     """
     Remove first selector symbol (`.` or `#`) from string.
 
@@ -71,7 +71,7 @@ def remove_first_selector_symbol_char(
 
 
 def _append_remove_first_selector_symbol_char_expression(
-        str_val: VariableNameInterface) -> None:
+        *, str_val: VariableNameInterface) -> None:
     """
     Append remove_first_selector_symbol_char function's
     expression.
@@ -92,7 +92,7 @@ def _append_remove_first_selector_symbol_char_expression(
 
 
 def append_html_to_str(
-        to_append_html: str, dest_html: str, indent_num: int) -> str:
+        *, to_append_html: str, dest_html: str, indent_num: int) -> str:
     """
     Add html string to another string with line break and specified
     number's indentation.
@@ -121,7 +121,7 @@ def append_html_to_str(
     return result
 
 
-def append_indent_to_each_script_line(html: str, indent_num: int) -> str:
+def append_indent_to_each_script_line(*, html: str, indent_num: int) -> str:
     """
     Append indentation spaces to each script lines of specified html.
 
@@ -165,7 +165,7 @@ class ScriptLineUtil:
     html: str
     script_line_ranges: List[Tuple[int, int]]
 
-    def __init__(self, html: str) -> None:
+    def __init__(self, *, html: str) -> None:
         """
         The class for HTML's script line utility.
 
@@ -194,7 +194,7 @@ class ScriptLineUtil:
                 self.script_line_ranges.append(
                     (start_line_num, end_line_num))
 
-    def is_script_line(self, line_number: int) -> bool:
+    def is_script_line(self, *, line_number: int) -> bool:
         """
         Get a boolean value whether specified line number is script line
         or not.
@@ -216,7 +216,7 @@ class ScriptLineUtil:
         return False
 
 
-def is_script_start_tag_line(line: str) -> bool:
+def is_script_start_tag_line(*, line: str) -> bool:
     """
     Get a boolean whether the specified line contains script start
     tag (`<script ...>`).
@@ -246,7 +246,7 @@ def is_script_start_tag_line(line: str) -> bool:
     return True
 
 
-def is_script_end_tag_line(line: str) -> bool:
+def is_script_end_tag_line(*, line: str) -> bool:
     """
     Get a boolean whether the specified line contains script end
     tag (`</script>`).
@@ -276,7 +276,7 @@ def is_script_end_tag_line(line: str) -> bool:
     return True
 
 
-def wrap_expression_by_script_tag(expression: str) -> str:
+def wrap_expression_by_script_tag(*, expression: str) -> str:
     """
     Wrap an expression string by script start and end tag.
 

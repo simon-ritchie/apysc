@@ -67,7 +67,7 @@ def is_debug_mode() -> bool:
     return result
 
 
-def _get_callable_str(callable_: Union[Callable, str]) -> str:
+def _get_callable_str(*, callable_: Union[Callable, str]) -> str:
     """
     Get a callable string (label).
 
@@ -89,9 +89,9 @@ def _get_callable_str(callable_: Union[Callable, str]) -> str:
 
 
 def _get_callable_path_name(
+        *,
         callable_: Union[Callable, str],
         module_name: str,
-        *,
         class_: Optional[Type] = None) -> str:
     """
     Get a specified callable count data path name.
@@ -122,9 +122,9 @@ def _get_callable_path_name(
 
 
 def _get_callable_count(
+        *,
         callable_: Union[Callable, str],
         module_name: str,
-        *,
         class_: Optional[Type] = None) -> int:
     """
     Get a specified callable count number.
@@ -161,9 +161,9 @@ def _get_callable_count(
 
 
 def _increment_callable_count(
+        *,
         callable_: Union[Callable, str],
         module_name: str,
-        *,
         class_: Optional[Type] = None) -> None:
     """
     Increment a specified callable count number.

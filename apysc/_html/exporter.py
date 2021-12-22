@@ -107,7 +107,7 @@ def save_overall_html(
 
 
 def _display_debug_mode_ignoring_minify_setting_info(
-        minify: bool, verbose: int) -> str:
+        *, minify: bool, verbose: int) -> str:
     """
     Display an information of ignoring minify setting if the
     debug mode is enabled.
@@ -138,7 +138,7 @@ def _display_debug_mode_ignoring_minify_setting_info(
     return msg
 
 
-def _display_info(msg: str, verbose: int) -> str:
+def _display_info(*, msg: str, verbose: int) -> str:
     """
     Display an info log message.
 
@@ -161,7 +161,7 @@ def _display_info(msg: str, verbose: int) -> str:
     return msg
 
 
-def _minify_html(html_str: str, minify: bool) -> str:
+def _minify_html(*, html_str: str, minify: bool) -> str:
     """
     Minify HTML and js string.
 
@@ -192,7 +192,7 @@ def _minify_html(html_str: str, minify: bool) -> str:
     return html_str
 
 
-def _append_stage_global_variable_to_html(html_str: str) -> str:
+def _append_stage_global_variable_to_html(*, html_str: str) -> str:
     """
     Append stage's global variable to html string.
 
@@ -236,7 +236,7 @@ def get_entry_point_func_name() -> str:
     return entry_point_func_name
 
 
-def _append_entry_point_function_call(html_str: str) -> str:
+def _append_entry_point_function_call(*, html_str: str) -> str:
     """
     Append entry point function call script to html string.
 
@@ -265,7 +265,7 @@ def _append_entry_point_function_call(html_str: str) -> str:
 
 
 def _save_html(
-        html_str: str, dir_path: str, file_name: str) -> None:
+        *, html_str: str, dir_path: str, file_name: str) -> None:
     """
     Save HTML string to file.
 
@@ -284,7 +284,7 @@ def _save_html(
     file_util.save_plain_txt(txt=html_str, file_path=file_path)
 
 
-def _append_expression_to_html_str(html_str: str, verbose: int) -> str:
+def _append_expression_to_html_str(*, html_str: str, verbose: int) -> str:
     """
     Append expression strings to a specified HTML string.
 
@@ -333,7 +333,7 @@ def _append_expression_to_html_str(html_str: str, verbose: int) -> str:
     return html_str
 
 
-def _append_event_handler_expressions(expression: str) -> str:
+def _append_event_handler_expressions(*, expression: str) -> str:
     """
     Append event handler's expressions to a specified string.
 
@@ -354,7 +354,7 @@ def _append_event_handler_expressions(expression: str) -> str:
     return expression
 
 
-def _remove_blank_lines(expression: str) -> str:
+def _remove_blank_lines(*, expression: str) -> str:
     """
     Remove blank (break or spaces only) lines from expression string.
 
@@ -380,7 +380,7 @@ def _remove_blank_lines(expression: str) -> str:
     return expression
 
 
-def _append_common_js_functions(expression: str) -> str:
+def _append_common_js_functions(*, expression: str) -> str:
     """
     Append common JavaScript functions (e.g., helper function)
     to a expression string.
@@ -403,7 +403,7 @@ def _append_common_js_functions(expression: str) -> str:
     return expression
 
 
-def _remove_unused_js_vars(expression: str) -> str:
+def _remove_unused_js_vars(*, expression: str) -> str:
     """
     Remove unused js variables from expression string.
 
@@ -439,7 +439,7 @@ def _remove_unused_js_vars(expression: str) -> str:
 
 
 def _target_js_variable_is_used(
-        var_name: str, exp_lines: List[str]) -> bool:
+        *, var_name: str, exp_lines: List[str]) -> bool:
     """
     Get a boolean value whether target variable is used in
     js expression or not.
@@ -482,7 +482,7 @@ def _target_js_variable_is_used(
 _VAR_PATTERN: Pattern = re.compile(pattern=r'^var (.+?) = ')
 
 
-def _get_var_name_from_line(line: str) -> str:
+def _get_var_name_from_line(*, line: str) -> str:
     """
     Get a js variable name from specified line string.
 
@@ -507,7 +507,7 @@ def _get_var_name_from_line(line: str) -> str:
 
 
 def _append_head_to_html_str(
-        html_str: str, js_lib_dir_path: str,
+        *, html_str: str, js_lib_dir_path: str,
         embed_js_libs: bool) -> str:
     """
     Append head tag section to specified html string.
@@ -547,7 +547,7 @@ def _append_head_to_html_str(
 
 
 def _append_jslib_str_to_html(
-        html_str: str, js_lib_dir_path: str,
+        *, html_str: str, js_lib_dir_path: str,
         jslib_file_name: str,
         embed_js_libs: bool) -> str:
     """
@@ -593,7 +593,7 @@ def _append_jslib_str_to_html(
 
 
 def _export_js_libs(
-        dest_dir_path: str, skip_js_lib_exporting: bool) -> List[str]:
+        *, dest_dir_path: str, skip_js_lib_exporting: bool) -> List[str]:
     """
     Export JavaScript libraries to a specified directory.
 

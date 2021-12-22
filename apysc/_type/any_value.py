@@ -86,7 +86,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             self._value = value
             self._append_value_setter_expression(value=value)
 
-    def _append_value_setter_expression(self, value: Any) -> None:
+    def _append_value_setter_expression(self, *, value: Any) -> None:
         """
         Append value's setter expression.
 
@@ -107,7 +107,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             ap.append_js_expression(expression=expression)
 
     def _append_arithmetic_operation_expression(
-            self, other: Any, operator: str) -> VariableNameInterface:
+            self, *, other: Any, operator: str) -> VariableNameInterface:
         """
         Append arithmetic operation (e.g., addition) expression.
 
@@ -254,7 +254,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             return result
 
     def _append_incremental_arithmetic_operation_expression(
-            self, other: Any, operator: str) -> None:
+            self, *, other: Any, operator: str) -> None:
         """
         Append incremental arithmetic operation (e.g., incremental
         addition) expression.
@@ -363,7 +363,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             return self
 
     def _append_comparison_expression(
-            self, comparison_operator: str, other: Any) -> ap.Boolean:
+            self, *, comparison_operator: str, other: Any) -> ap.Boolean:
         """
         Append comparison operation expression.
 
@@ -531,7 +531,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
 
     _any_value_snapshots: Dict[str, Any]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -544,7 +544,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             dict_name='_any_value_snapshots',
             value=self._value, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert value if snapshot exists.
 

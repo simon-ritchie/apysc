@@ -17,7 +17,7 @@ from typing import Union
 import apysc as ap
 
 
-def get_value_str_for_expression(value: Any) -> str:
+def get_value_str_for_expression(*, value: Any) -> str:
     """
     Get a value string for expression.
 
@@ -59,7 +59,7 @@ def get_value_str_for_expression(value: Any) -> str:
     return str(value)
 
 
-def _get_value_str_from_dict(value: Dict[Any, Any]) -> str:
+def _get_value_str_from_dict(*, value: Dict[Any, Any]) -> str:
     """
     Get a value string from dictionary object.
 
@@ -83,7 +83,7 @@ def _get_value_str_from_dict(value: Dict[Any, Any]) -> str:
     return value_str
 
 
-def _validate_dict_key_type(key: Any) -> None:
+def _validate_dict_key_type(*, key: Any) -> None:
     """
     Validate whether a dictionary key type is str or int.
 
@@ -103,7 +103,7 @@ def _validate_dict_key_type(key: Any) -> None:
         f'Dictionary key type only supports str and int: {type(key)}')
 
 
-def _get_value_str_from_iterable(value: Union[list, tuple, ap.Array]) -> str:
+def _get_value_str_from_iterable(*, value: Union[list, tuple, ap.Array]) -> str:
     """
     Get a value string from iterable object.
 
@@ -139,7 +139,7 @@ def _get_value_str_from_iterable(value: Union[list, tuple, ap.Array]) -> str:
 T = TypeVar('T')
 
 
-def get_copy(value: T) -> T:
+def get_copy(*, value: T) -> T:
     """
     Get a copy of specified instance if it is instance of CopyInterface.
 

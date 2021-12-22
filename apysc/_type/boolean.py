@@ -61,7 +61,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
                 self._append_constructor_expression()
 
     def _get_bool_from_arg_value(
-            self, value: Union[bool, int, ap.Int, 'Boolean']) -> bool:
+            self, *, value: Union[bool, int, ap.Int, 'Boolean']) -> bool:
         """
         Get bool value from specified argument value.
 
@@ -156,7 +156,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
                 self._append_value_setter_expression(value=self._value)
 
     def _append_value_setter_expression(
-            self, value: Union[bool, int, ap.Int, 'Boolean']) -> None:
+            self, *, value: Union[bool, int, ap.Int, 'Boolean']) -> None:
         """
         Append value's setter expression.
 
@@ -181,7 +181,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             ap.append_js_expression(expression=expression)
 
     def _set_value_and_skip_expression_appending(
-            self, value: Union[bool, int, ap.Int, 'Boolean']) -> None:
+            self, *, value: Union[bool, int, ap.Int, 'Boolean']) -> None:
         """
         Update value attribute and skip expression appending.
 
@@ -221,7 +221,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
 
     _value_snapshots: Dict[str, bool]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -234,7 +234,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             dict_name='_value_snapshots',
             value=self._value, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert value if snapshot exists.
 
@@ -280,7 +280,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             self._append_eq_expression(result=result, other=other)
             return result
 
-    def _validate_comparison_other_type(self, other: Any) -> None:
+    def _validate_comparison_other_type(self, *, other: Any) -> None:
         """
         Validate comparison's other value type.
 
@@ -303,7 +303,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             f'\nAcceptable value types are: {ACCEPTABLE_TYPES}')
 
     def _append_eq_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
         Append __eq__ method expression.
@@ -351,7 +351,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             return result
 
     def _append_ne_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
         Append __ne__ method expression.
@@ -393,7 +393,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             return result
 
     def _append_not_prop_expression(
-            self, result: VariableNameInterface) -> None:
+            self, *, result: VariableNameInterface) -> None:
         """
         Append not_ property expression.
 

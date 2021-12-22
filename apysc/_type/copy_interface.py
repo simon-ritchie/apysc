@@ -38,7 +38,7 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
             return result
 
     def _append_value_updating_cpy_exp_to_handler_scope(
-            self, result_variable_name: str) -> None:
+            self, *, result_variable_name: str) -> None:
         """
         Append a value updating copy expression
         if the current scope is an event handler's one.
@@ -64,7 +64,7 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
             )
             ap.append_js_expression(expression=expression)
 
-    def _append_copy_expression(self, result_variable_name: str) -> None:
+    def _append_copy_expression(self, *, result_variable_name: str) -> None:
         """
         Append copy expression.
 

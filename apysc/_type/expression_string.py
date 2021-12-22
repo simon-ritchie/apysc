@@ -38,7 +38,7 @@ class ExpressionString(RevertInterface):
         """
         return self._value
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
 
@@ -51,7 +51,7 @@ class ExpressionString(RevertInterface):
             dict_name='_value_snapshots',
             value=self._value, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert a value if snapshot exists.
 

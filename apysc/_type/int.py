@@ -63,7 +63,7 @@ class Int(NumberValueInterface[int, 'Int']):
                     is_number_specified=is_number_specified)
 
     def _append_cast_expression(
-            self, is_number_specified: bool) -> None:
+            self, *, is_number_specified: bool) -> None:
         """
         Append integer cast (parseInt) expression.
 
@@ -85,7 +85,7 @@ class Int(NumberValueInterface[int, 'Int']):
             ap.append_js_expression(expression=expression)
 
     def _set_value_and_skip_expression_appending(
-            self,
+            self, *,
             value: Union[int, float, NumberValueInterface]) -> None:
         """
         Update value attribute and skip expression appending.

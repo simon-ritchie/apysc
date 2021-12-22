@@ -19,7 +19,7 @@ from typing import Any
 from typing import Type
 
 
-def is_number(value: Any) -> bool:
+def is_number(*, value: Any) -> bool:
     """
     Get a boolean value whether specified value is Number value.
 
@@ -39,7 +39,7 @@ def is_number(value: Any) -> bool:
     return False
 
 
-def is_float_or_number(value: Any) -> bool:
+def is_float_or_number(*, value: Any) -> bool:
     """
     Get a boolean value whether specified value is float or Nuber
     value.
@@ -61,7 +61,7 @@ def is_float_or_number(value: Any) -> bool:
     return False
 
 
-def is_bool(value: Any) -> bool:
+def is_bool(*, value: Any) -> bool:
     """
     Get a boolean value whether specified value is bool or Boolean
     value.
@@ -84,7 +84,7 @@ def is_bool(value: Any) -> bool:
     return False
 
 
-def is_same_class_instance(class_: Type, instance: Any) -> bool:
+def is_same_class_instance(*, class_: Type, instance: Any) -> bool:
     """
     Get a boolean value whether specified class and instance's class
     are same or not.

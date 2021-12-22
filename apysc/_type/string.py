@@ -81,7 +81,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
                 expression += f'"{self._value}";'
             ap.append_js_expression(expression=expression)
 
-    def _get_str_value(self, value: Union[str, 'String']) -> str:
+    def _get_str_value(self, *, value: Union[str, 'String']) -> str:
         """
         Get a (Python's) str value from specified value.
 
@@ -141,7 +141,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             self._append_value_setter_expression(value=value)
 
     def _append_value_setter_expression(
-            self, value: Union[str, 'String']) -> None:
+            self, *, value: Union[str, 'String']) -> None:
         """
         Append value's setter expression.
 
@@ -192,7 +192,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             return result
 
     def _append_addition_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: Union[str, 'String']) -> None:
         """
         Append addition (string concatenation) expression.
@@ -247,7 +247,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             return result
 
     def _append_multiplication_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: Union[int, Any]) -> None:
         """
         Append multiplication (string repetition) expression.
@@ -369,7 +369,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
                 self._append_eq_expression(result=result, other=other)
             return result
 
-    def _convert_other_val_to_string(self, other: Any) -> Any:
+    def _convert_other_val_to_string(self, *, other: Any) -> Any:
         """
         If comparison other value is string, then convert it to
         String.
@@ -391,7 +391,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         return other
 
     def _append_eq_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
         Append __eq__ method expression.
@@ -444,7 +444,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             return result
 
     def _append_ne_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
         Append __ne__ method expression.
@@ -494,7 +494,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             return result
 
     def _append_lt_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
         Append __lt__ method expression.
@@ -544,7 +544,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             return result
 
     def _append_le_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
         Append __le__ method expression.
@@ -594,7 +594,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             return result
 
     def _append_gt_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
         Append __gt__ method expression.
@@ -644,7 +644,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             return result
 
     def _append_ge_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
         Append __ge__ method expression.
@@ -707,7 +707,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
 
     _value_snapshots: Dict[str, str]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
 
@@ -720,7 +720,7 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
             dict_name='_value_snapshots',
             value=self._value, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert a value if snapshot exists.
 

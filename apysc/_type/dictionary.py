@@ -76,7 +76,8 @@ class Dictionary(
             ap.append_js_expression(expression=expression)
 
     def _get_dict_value(
-            self, value: Union[Dict[_K, _V], 'Dictionary']) -> Dict[_K, _V]:
+            self, *,
+            value: Union[Dict[_K, _V], 'Dictionary']) -> Dict[_K, _V]:
         """
         Get a dict value from specified value.
 
@@ -95,7 +96,7 @@ class Dictionary(
         return value
 
     def _validate_acceptable_value_type(
-            self, value: Union[Dict[_K, _V], 'Dictionary']) -> None:
+            self, *, value: Union[Dict[_K, _V], 'Dictionary']) -> None:
         """
         Validate that specified value is acceptable type or not.
 
@@ -157,7 +158,7 @@ class Dictionary(
             self._append_value_setter_expression(value=value)
 
     def _append_value_setter_expression(
-            self, value: Union[Dict[_K, _V], 'Dictionary']) -> None:
+            self, *, value: Union[Dict[_K, _V], 'Dictionary']) -> None:
         """
         Append value's setter expression.
 
@@ -178,7 +179,7 @@ class Dictionary(
 
     _value_snapshot: Dict[str, Dict[_K, _V]]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make values' snapthot.
 
@@ -191,7 +192,7 @@ class Dictionary(
             dict_name='_value_snapshot',
             value={**self._value}, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert values if snapshot exists.
 
@@ -249,7 +250,7 @@ class Dictionary(
             self._append_length_expression(length=length)
             return length
 
-    def _append_length_expression(self, length: ap.Int) -> None:
+    def _append_length_expression(self, *, length: ap.Int) -> None:
         """
         Append length method expression.
 
@@ -303,7 +304,7 @@ class Dictionary(
             return value
 
     def _get_builtin_type_key(
-            self, key: Union[_K, ExpressionString]) -> _BuiltinKeys:
+            self, *, key: Union[_K, ExpressionString]) -> _BuiltinKeys:
         """
         Get a built-in type's key (str, int, or float) from
         a specified key.
@@ -325,7 +326,7 @@ class Dictionary(
         return key
 
     def _append_getitem_expression(
-            self, key: Union[_K, ExpressionString], value: Any) -> None:
+            self, *, key: Union[_K, ExpressionString], value: Any) -> None:
         """
         Append __getitem__ expression.
 
@@ -350,7 +351,7 @@ class Dictionary(
             ap.append_js_expression(expression=expression)
 
     def _validate_key_type_is_str_or_numeric(
-            self, key: Union[_K, ExpressionString]) -> None:
+            self, *, key: Union[_K, ExpressionString]) -> None:
         """
         Validate whether key value type is acceptable (str or int or
         flaot) or not.
@@ -394,7 +395,7 @@ class Dictionary(
             self._append_setitem_expression(key=key, value=value)
 
     def _append_setitem_expression(
-            self, key: Union[_K, ExpressionString], value: _V) -> None:
+            self, *, key: Union[_K, ExpressionString], value: _V) -> None:
         """
         Append __setitem__ method expression.
 
@@ -435,7 +436,7 @@ class Dictionary(
             self._append_delitem_expression(key=key)
 
     def _append_delitem_expression(
-            self, key: Union[_K, ExpressionString]) -> None:
+            self, *, key: Union[_K, ExpressionString]) -> None:
         """
         Append __delitem__ method expression.
 
@@ -482,7 +483,7 @@ class Dictionary(
             return result
 
     def _append_eq_expression(
-            self, result: ap.Boolean,
+            self, *, result: ap.Boolean,
             other: VariableNameInterface) -> None:
         """
         Append an __eq__ expression.
@@ -529,7 +530,7 @@ class Dictionary(
             return result
 
     def _append_ne_expression(
-            self, result: ap.Boolean,
+            self, *, result: ap.Boolean,
             other: VariableNameInterface) -> None:
         """
         Append a __ne__ expression.
@@ -552,6 +553,7 @@ class Dictionary(
 
     def get(
             self, key: Union[_K, ExpressionString],
+            *,
             default: DefaultType = None) -> DefaultType:
         """
         Get a specified key dictionary value. If this dictionary
@@ -579,7 +581,7 @@ class Dictionary(
         return result_value
 
     def _append_get_expression(
-            self, key: Union[_K, ExpressionString],
+            self, *, key: Union[_K, ExpressionString],
             result_value: Any,
             default: Any) -> None:
         """

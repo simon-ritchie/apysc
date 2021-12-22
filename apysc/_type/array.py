@@ -58,7 +58,7 @@ class Array(
                 self._append_constructor_expression()
 
     def _convert_range_to_list(
-            self,
+            self, *,
             value: Any) -> Union[List[Any], tuple, 'Array']:
         """
         Convert argument value to list that if specified
@@ -97,7 +97,7 @@ class Array(
             ap.append_js_expression(expression=expression)
 
     def _get_list_value(
-            self, value: Union[List[Any], tuple, 'Array']) -> List[Any]:
+            self, *, value: Union[List[Any], tuple, 'Array']) -> List[Any]:
         """
         Get a list value from specified list, tuple, or Array value.
 
@@ -118,7 +118,7 @@ class Array(
         return value
 
     def _validate_acceptable_value_type(
-            self,
+            self, *,
             value: Union[List[Any], tuple, range, 'Array']) -> None:
         """
         Validate that specified value is acceptable type or not.
@@ -180,7 +180,7 @@ class Array(
             self._append_value_setter_expression(value=value)
 
     def _append_value_setter_expression(
-            self, value: Union[List[Any], tuple, 'Array']) -> None:
+            self, *, value: Union[List[Any], tuple, 'Array']) -> None:
         """
         Append value's setter expression.
 
@@ -234,7 +234,8 @@ class Array(
                 module_name=__name__, class_=Array):
             self.append(value=value)
 
-    def _append_push_and_append_expression(self, value: T) -> None:
+    def _append_push_and_append_expression(
+            self, *, value: T) -> None:
         """
         Append push and append method expression.
 
@@ -279,7 +280,7 @@ class Array(
             self._append_extend_expression(other_arr=other_arr)
 
     def _append_extend_expression(
-            self, other_arr: Union[List[T], tuple, 'Array']) -> None:
+            self, *, other_arr: Union[List[T], tuple, 'Array']) -> None:
         """
         Append extend method expression.
 
@@ -328,7 +329,7 @@ class Array(
             return concatenated
 
     def _append_concat_expression(
-            self, concatenated: VariableNameInterface,
+            self, *, concatenated: VariableNameInterface,
             other_arr: Union[List[T], tuple, 'Array']) -> None:
         """
         Append concat method expression.
@@ -400,7 +401,7 @@ class Array(
             self.insert(index=index, value=value)
 
     def _append_insert_expression(
-            self, index: Union[int, ap.Int], value: T) -> None:
+            self, *, index: Union[int, ap.Int], value: T) -> None:
         """
         Append insert method expression.
 
@@ -440,7 +441,7 @@ class Array(
             self._append_pop_expression(value=value)
             return value
 
-    def _append_pop_expression(self, value: T) -> None:
+    def _append_pop_expression(self, *, value: T) -> None:
         """
         Append pop method expression.
 
@@ -472,7 +473,7 @@ class Array(
             self._value.remove(value)
             self._append_remove_expression(value=value)
 
-    def _append_remove_expression(self, value: T) -> None:
+    def _append_remove_expression(self, *, value: T) -> None:
         """
         Append remove method expression.
 
@@ -519,7 +520,7 @@ class Array(
             self._append_remove_at_expression(index=index)
 
     def _append_remove_at_expression(
-            self, index: Union[int, ap.Int]) -> None:
+            self, *, index: Union[int, ap.Int]) -> None:
         """
         Append remove_at method expression.
 
@@ -643,6 +644,7 @@ class Array(
 
     def _append_slice_expression(
             self,
+            *,
             sliced_arr: VariableNameInterface,
             start: Optional[Union[int, ap.Int]],
             end: Optional[Union[int, ap.Int]]) -> None:
@@ -706,7 +708,8 @@ class Array(
             self._append_getitem_expression(index=index, value=value)
             return value
 
-    def _get_builtin_int_from_index(self, index: Union[int, ap.Int]) -> int:
+    def _get_builtin_int_from_index(
+            self, *, index: Union[int, ap.Int]) -> int:
         """
         Get Python builtin integer from index value.
 
@@ -724,7 +727,8 @@ class Array(
             return int(index.value)
         return index
 
-    def _validate_index_type_is_int(self, index: Union[int, ap.Int]) -> None:
+    def _validate_index_type_is_int(
+            self, *, index: Union[int, ap.Int]) -> None:
         """
         Validate whether index value type is int (or Int) or not.
 
@@ -745,7 +749,7 @@ class Array(
             ' If you need to slice array please use slice method.')
 
     def _append_getitem_expression(
-            self, index: Union[int, ap.Int],
+            self, *, index: Union[int, ap.Int],
             value: T) -> None:
         """
         Append __getitem__ expression.
@@ -800,7 +804,7 @@ class Array(
             self._append_setitem_expression(index=index, value=value)
 
     def _append_setitem_expression(
-            self, index: Union[int, ap.Int], value: T) -> None:
+            self, *, index: Union[int, ap.Int], value: T) -> None:
         """
         Append __setitem__ method expression.
 
@@ -863,7 +867,7 @@ class Array(
             self._append_length_expression(length=length)
             return length
 
-    def _append_length_expression(self, length: ap.Int) -> None:
+    def _append_length_expression(self, *, length: ap.Int) -> None:
         """
         Append length method expression.
 
@@ -921,7 +925,7 @@ class Array(
             return joined
 
     def _append_join_expression(
-            self, joined: ap.String, sep: Union[str, ap.String]) -> None:
+            self, *, joined: ap.String, sep: Union[str, ap.String]) -> None:
         """
         Append join method expression.
 
@@ -999,7 +1003,7 @@ class Array(
             return index
 
     def _append_index_of_expression(
-            self, index: ap.Int, value: T) -> None:
+            self, *, index: ap.Int, value: T) -> None:
         """
         Append index_of method expression.
 
@@ -1050,7 +1054,7 @@ class Array(
                 self._append_eq_expression(result=result, other=other)
             return result
 
-    def _convert_other_val_to_array(self, other: Any) -> Any:
+    def _convert_other_val_to_array(self, *, other: Any) -> Any:
         """
         If comparison's other value is list value, then convert it to
         Array instance.
@@ -1075,7 +1079,8 @@ class Array(
             return other
 
     def _append_eq_expression(
-            self, result: ap.Boolean, other: VariableNameInterface) -> None:
+            self, *, result: ap.Boolean,
+            other: VariableNameInterface) -> None:
         """
         Append an __eq__ expression.
 
@@ -1120,7 +1125,8 @@ class Array(
             return result
 
     def _append_ne_expression(
-            self, result: ap.Boolean, other: VariableNameInterface) -> None:
+            self, *, result: ap.Boolean,
+            other: VariableNameInterface) -> None:
         """
         Append a __ne__ expression.
 
@@ -1153,7 +1159,7 @@ class Array(
 
     _value_snapshots: Dict[str, List[T]]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make values' snapshot.
 
@@ -1166,7 +1172,7 @@ class Array(
             dict_name='_value_snapshots',
             value=[*self._value], snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert values if snapshot exists.
 

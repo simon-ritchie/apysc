@@ -58,7 +58,7 @@ class Number(NumberValueInterface[float, 'Number']):
                 self.append_constructor_expression()
 
     def _set_value_and_skip_expression_appending(
-            self, value: Union[int, float, Any]) -> None:
+            self, *, value: Union[int, float, Any]) -> None:
         """
         Update value attribute and skip expression appending.
 

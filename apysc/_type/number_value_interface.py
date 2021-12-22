@@ -25,7 +25,7 @@ class NumberValueInterface(
     _value: _V
 
     def __init__(
-            self, value: _NumType,
+            self, *, value: _NumType,
             type_name: str) -> None:
         """
         Class for number value interface.
@@ -114,7 +114,7 @@ class NumberValueInterface(
                 self._append_value_setter_expression(value=self._value)
 
     def _set_value_and_skip_expression_appending(
-            self, value: _NumType) -> None:
+            self, *, value: _NumType) -> None:
         """
         Update value attribute and skip expression appending.
 
@@ -133,7 +133,7 @@ class NumberValueInterface(
         self._value = value_
 
     def _append_value_setter_expression(
-            self, value: _NumType) -> None:
+            self, *, value: _NumType) -> None:
         """
         Append value's setter expresion.
 
@@ -184,7 +184,7 @@ class NumberValueInterface(
             return result
 
     def _append_addition_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: _NumType) -> None:
         """
         Append addition expression.
@@ -236,7 +236,7 @@ class NumberValueInterface(
             return result
 
     def _append_subtraction_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: _NumType) -> None:
         """
         Append subtraction expression.
@@ -289,7 +289,7 @@ class NumberValueInterface(
             return result
 
     def _append_multiplication_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: _NumType) -> None:
         """
         Append multiplication expression.
@@ -342,7 +342,7 @@ class NumberValueInterface(
             return result
 
     def _append_true_division_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: _NumType) -> None:
         """
         Append true division expression.
@@ -395,7 +395,7 @@ class NumberValueInterface(
             return result
 
     def _append_floor_division_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: _NumType) -> None:
         """
         Append floor division expression.
@@ -577,7 +577,7 @@ class NumberValueInterface(
             return result
 
     def _append_modulo_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: _NumType) -> None:
         """
         Append a module expression.
@@ -664,7 +664,7 @@ class NumberValueInterface(
                 self._append_eq_expression(result=result, other=other)
             return result
 
-    def _convert_other_val_to_int_or_number(self, other: Any) -> Any:
+    def _convert_other_val_to_int_or_number(self, *, other: Any) -> Any:
         """
         If comparison other value is int or float, then
         convert it to Int or Number.
@@ -693,7 +693,7 @@ class NumberValueInterface(
             return other
 
     def _append_eq_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
         Append __eq__ method expression.
@@ -744,7 +744,7 @@ class NumberValueInterface(
             return result
 
     def _append_ne_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
         Append __ne__ method expression.
@@ -796,7 +796,7 @@ class NumberValueInterface(
             return result
 
     def _append_lt_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
         Append __lt__ method expression.
@@ -848,7 +848,7 @@ class NumberValueInterface(
             return result
 
     def _append_le_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
         Append __le__ method expression.
@@ -900,7 +900,7 @@ class NumberValueInterface(
             return result
 
     def _append_gt_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
         Append __gt__ expression.
@@ -952,7 +952,7 @@ class NumberValueInterface(
             return result
 
     def _append_ge_expression(
-            self, result: VariableNameInterface,
+            self, *, result: VariableNameInterface,
             other: VariableNameInterface) -> None:
         """
         Append __ge__ expression.
@@ -976,7 +976,7 @@ class NumberValueInterface(
 
     _value_snapshots: Dict[str, _V]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make value's snapshot.
 
@@ -989,7 +989,7 @@ class NumberValueInterface(
             dict_name='_value_snapshots',
             value=self._value, snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert value if snapshot exists.
 

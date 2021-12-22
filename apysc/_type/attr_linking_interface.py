@@ -18,7 +18,8 @@ class AttrLinkingInterface:
 
     _attr_linking_stack: Dict[_AttrName, List[_Attr]]
 
-    def _initialize_attr_linking_stack(self, attr_name: str) -> None:
+    def _initialize_attr_linking_stack(
+            self, *, attr_name: str) -> None:
         """
         Initialize the _attr_linking_stack attribute if it hasn't been
         initialized yet.
@@ -35,7 +36,7 @@ class AttrLinkingInterface:
         self._attr_linking_stack[attr_name] = []
 
     def _append_attr_to_linking_stack(
-            self, attr: _Attr, attr_name: str) -> None:
+            self, *, attr: _Attr, attr_name: str) -> None:
         """
         Append an attribute to the linking attribute stack.
 
@@ -53,7 +54,7 @@ class AttrLinkingInterface:
         self._attr_linking_stack[attr_name].append(attr)
 
     def _is_target_attr_already_linked(
-            self, attr: _Attr, attr_name: str) -> bool:
+            self, *, attr: _Attr, attr_name: str) -> bool:
         """
         Get a boolean value whether a specified attribute has already
         been appended to the linking attribute stack.
@@ -78,7 +79,7 @@ class AttrLinkingInterface:
         return False
 
     def _append_applying_new_attr_val_exp(
-            self, new_attr: _Attr, attr_name: str) -> None:
+            self, *, new_attr: _Attr, attr_name: str) -> None:
         """
         Append the expression of applying new attribute value to each
         stacked value.

@@ -106,7 +106,7 @@ class Point2D(
             self._x._append_incremental_calc_substitution_expression()
             self._append_x_setter_expression(value=value)
 
-    def _append_x_getter_expression(self, x: ap.Int) -> None:
+    def _append_x_getter_expression(self, *, x: ap.Int) -> None:
         """
         Append x property getter expression.
 
@@ -124,7 +124,7 @@ class Point2D(
             )
             ap.append_js_expression(expression=expression)
 
-    def _append_x_setter_expression(self, value: ap.Int) -> None:
+    def _append_x_setter_expression(self, *, value: ap.Int) -> None:
         """
         Append x property setter expression.
 
@@ -180,7 +180,7 @@ class Point2D(
             self._y._append_incremental_calc_substitution_expression()
             self._append_y_setter_expression(value=value)
 
-    def _append_y_getter_expression(self, y: ap.Int) -> None:
+    def _append_y_getter_expression(self, *, y: ap.Int) -> None:
         """
         Append y property getter expression.
 
@@ -198,7 +198,7 @@ class Point2D(
             )
             ap.append_js_expression(expression=expression)
 
-    def _append_y_setter_expression(self, value: ap.Int) -> None:
+    def _append_y_setter_expression(self, *, value: ap.Int) -> None:
         """
         Append y property setter expression.
 
@@ -267,7 +267,7 @@ class Point2D(
     _x_snapshots: Dict[str, int]
     _y_snapshots: Dict[str, int]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make values' snapshots.
 
@@ -283,7 +283,7 @@ class Point2D(
             dict_name='_y_snapshots',
             value=int(self._y._value), snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert values if snapshots exist.
 

@@ -55,7 +55,7 @@ class PathYInterface(RevertInterface):
 
     _y_snapshots: Dict[str, int]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
 
@@ -69,7 +69,7 @@ class PathYInterface(RevertInterface):
             dict_name='_y_snapshots',
             value=int(self._y._value), snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert a value if snapshot exists.
 

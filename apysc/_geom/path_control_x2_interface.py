@@ -56,7 +56,7 @@ class PathControlX2Interface(RevertInterface):
 
     _control_x2_snapshots: Dict[str, int]
 
-    def _make_snapshot(self, snapshot_name: str) -> None:
+    def _make_snapshot(self, *, snapshot_name: str) -> None:
         """
         Make a value's snapshot.
 
@@ -70,7 +70,7 @@ class PathControlX2Interface(RevertInterface):
             dict_name='_control_x2_snapshots',
             value=int(self._control_x2._value), snapshot_name=snapshot_name)
 
-    def _revert(self, snapshot_name: str) -> None:
+    def _revert(self, *, snapshot_name: str) -> None:
         """
         Revert a value if snapshot exists.
 

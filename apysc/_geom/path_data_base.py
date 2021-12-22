@@ -21,7 +21,7 @@ class PathDataBase(RelativeInterface, ABC):
     _path_label: PathLabel
 
     def __init__(
-            self, path_label: PathLabel,
+            self, *, path_label: PathLabel,
             relative: Union[bool, Boolean]) -> None:
         """
         Base class for the path data.

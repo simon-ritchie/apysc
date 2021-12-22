@@ -7,7 +7,7 @@ from apysc._geom.path_data_base import PathDataBase
 
 
 def make_paths_expression_from_list(
-        path_data_list: List[PathDataBase]) -> str:
+        *, path_data_list: List[PathDataBase]) -> str:
     """
     Make a paths expression from a specified list of path data.
 

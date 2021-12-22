@@ -127,7 +127,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
                     expression=f'var {self.variable_name};')
 
     def _convert_delay_to_number(
-            self,
+            self, *,
             delay: Union[int, float, NumberValueInterface, FPS]) -> ap.Number:
         """
         Convert each type of delay value to a `Number` value.
@@ -273,7 +273,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
                 e=e)
             self._running.value = True
 
-    def _wrap_handler(self, handler: _Handler[_O1]) -> _Handler[_O1]:
+    def _wrap_handler(self, *, handler: _Handler[_O1]) -> _Handler[_O1]:
         """
         Wrap a handler to update a current count value when
         it is called.
@@ -356,7 +356,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
             expression: str = self._get_stop_expression(indent_num=0)
             expression_data_util.append_js_expression(expression=expression)
 
-    def _get_stop_expression(self, indent_num: int) -> str:
+    def _get_stop_expression(self, *, indent_num: int) -> str:
         """
         Get a stop interface expression string.
 

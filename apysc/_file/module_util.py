@@ -19,8 +19,8 @@ from typing import Optional
 
 
 def get_module_paths_recursively(
-        dir_path: str = './',
         *,
+        dir_path: str = './',
         module_paths: Optional[List[str]] = None) -> List[str]:
     """
     Get all module paths under the specified directory.
@@ -56,7 +56,7 @@ def get_module_paths_recursively(
     return module_paths
 
 
-def save_tmp_module(script: str) -> str:
+def save_tmp_module(*, script: str) -> str:
     """
     Save a temporary Python module.
 
@@ -78,7 +78,7 @@ def save_tmp_module(script: str) -> str:
     return saved_module_path
 
 
-def save_tmp_module_and_run_script(script: str) -> str:
+def save_tmp_module_and_run_script(*, script: str) -> str:
     """
     Save a temporary Python module and run that script.
 

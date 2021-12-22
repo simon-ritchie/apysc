@@ -28,7 +28,7 @@ from typing import List
 from typing import Optional
 
 
-def empty_directory(directory_path: str) -> None:
+def empty_directory(*, directory_path: str) -> None:
     """
     Empty specified directory.
 
@@ -43,7 +43,7 @@ def empty_directory(directory_path: str) -> None:
     os.makedirs(directory_path, exist_ok=True)
 
 
-def read_txt(file_path: str) -> str:
+def read_txt(*, file_path: str) -> str:
     """
     Read specified file's text.
 
@@ -69,7 +69,7 @@ def read_txt(file_path: str) -> str:
     return txt
 
 
-def save_plain_txt(txt: str, file_path: str) -> None:
+def save_plain_txt(*, txt: str, file_path: str) -> None:
     """
     Save plain text string to file.
 
@@ -87,7 +87,7 @@ def save_plain_txt(txt: str, file_path: str) -> None:
         f.write(txt)
 
 
-def append_plain_txt(txt: str, file_path: str) -> None:
+def append_plain_txt(*, txt: str, file_path: str) -> None:
     """
     Append plain text string to file.
 
@@ -105,7 +105,7 @@ def append_plain_txt(txt: str, file_path: str) -> None:
         f.write(txt)
 
 
-def remove_file_if_exists(file_path: str) -> None:
+def remove_file_if_exists(*, file_path: str) -> None:
     """
     Remove specified file if exists.
 
@@ -119,7 +119,7 @@ def remove_file_if_exists(file_path: str) -> None:
     os.remove(file_path)
 
 
-def get_abs_directory_path_from_file_path(file_path: str) -> str:
+def get_abs_directory_path_from_file_path(*, file_path: str) -> str:
     """
     Get an absolute directory path of specified file.
 
@@ -138,7 +138,7 @@ def get_abs_directory_path_from_file_path(file_path: str) -> str:
     return dir_path
 
 
-def get_abs_module_dir_path(module: ModuleType) -> str:
+def get_abs_module_dir_path(*, module: ModuleType) -> str:
     """
     Get a specified module's abosulute directory path.
 
@@ -158,7 +158,7 @@ def get_abs_module_dir_path(module: ModuleType) -> str:
 
 
 def get_specified_ext_file_paths_recursively(
-        extension: str, *, dir_path: str = './',
+        *, extension: str, dir_path: str = './',
         file_paths: Optional[List[str]] = None) -> List[str]:
     """
     Get specified extension file paths recursively.

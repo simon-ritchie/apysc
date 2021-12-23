@@ -103,7 +103,8 @@ def _validate_dict_key_type(*, key: Any) -> None:
         f'Dictionary key type only supports str and int: {type(key)}')
 
 
-def _get_value_str_from_iterable(*, value: Union[list, tuple, ap.Array]) -> str:
+def _get_value_str_from_iterable(
+        *, value: Union[list, tuple, ap.Array]) -> str:
     """
     Get a value string from iterable object.
 

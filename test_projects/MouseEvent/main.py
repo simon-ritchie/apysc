@@ -32,7 +32,7 @@ def main() -> None:
     stage_elem_id: str = stage.stage_elem_id
     stage_elem_str: str = f'$("#{stage_elem_id}")'
     ap.append_js_expression(
-        f'{stage_elem_str}.css("margin-left", "150px");')
+        expression=f'{stage_elem_str}.css("margin-left", "150px");')
 
     sprite_1: ap.Sprite = ap.Sprite(stage=stage)
     sprite_1.graphics.begin_fill(color='#0af')

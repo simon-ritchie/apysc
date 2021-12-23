@@ -118,8 +118,7 @@ class For(Generic[T]):
             self._indent.__enter__()
             return i_or_key  # type: ignore
 
-    def __exit__(
-            self, *args) -> None:
+    def __exit__(self, *args: Any) -> None:
         """
         Method to be called when end of with statement.
         """

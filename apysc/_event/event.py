@@ -64,12 +64,12 @@ class Event(Generic[T], VariableNameInterface):
         """
         from apysc._type import type_util
         if type_name is not None:
-            if type_util.is_same_class_instance(Event, self):
+            if type_util.is_same_class_instance(class_=Event, instance=self):
                 raise ValueError(
                     'type_name argument can be set only when this instance '
                     'is subclass of Event.')
             return
-        if not type_util.is_same_class_instance(Event, self):
+        if not type_util.is_same_class_instance(class_=Event, instance=self):
             raise ValueError(
                 'type_name argument can\'t be set when this instance '
                 'is Event (this will be used by Event subclass).')

@@ -89,6 +89,14 @@ jobs:
           STATUS: 'running or failed'
           COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update the Pyright badge status to running or failing
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: pyright_checking
+          LABEL: 'Pyright checking'
+          STATUS: 'running or failed'
+          COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Checkout
         uses: actions/checkout@v2
       # For the sake of sequentiality, the following steps
@@ -341,6 +349,14 @@ jobs:
         with:
           NAME: numdoclint_checking
           LABEL: 'numdoclint checking'
+          STATUS: 'passing'
+          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update the Pyright badge status to passing
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: pyright_checking
+          LABEL: 'Pyright checking'
           STATUS: 'passing'
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

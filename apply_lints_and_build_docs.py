@@ -40,6 +40,7 @@ FLAKE8_NO_PATH_COMMAND: Final[str] = (
 _ROOT_MODULE_PATHS_STR: Final[str] = (
     './apply_lints_and_build_docs.py ./build_docs.py ./build.py '
     './run_flake8.py ./run_mypy.py ./run_numdoclint.py '
+    './run_pyright.py '
     './run_tests_and_save_coverage_and_num.py '
     './setup.py install_released_package.py'
 )
@@ -149,6 +150,11 @@ def _main() -> None:
     mypy_process: sp.Popen = sp.Popen(
         _MYPY_COMMAND['command'].split(' '), stdout=sp.PIPE, stderr=sp.PIPE)
 
+    logger.info(msg='Pyright command started.')
+    pyright_process: sp.Popen = sp.Popen(
+        _PYRIGHT_COMMAND['command'].split(' '),
+        stdout=sp.PIPE, stderr=sp.PIPE)
+
     lint_commands: List[LintCommand]
     updated_module_paths: List[str]
     lint_commands, updated_module_paths, = _make_inplace_lint_commands()
@@ -174,6 +180,7 @@ def _main() -> None:
     _check_flake8_process(flake8_process=flake8_process)
     _check_numdoclint_process(numdoclint_processes=numdoclint_processes)
     _check_mypy_process(mypy_process=mypy_process)
+    _check_pyright_process(pyright_process=pyright_process)
 
     logger.info(msg='Ended.')
 
@@ -198,6 +205,36 @@ def _start_numdoclint_processes() -> List[sp.Popen]:
             command_strs=command_strs)
         numdoclint_processes.append(process)
     return numdoclint_processes
+
+
+class _PyrightError(Exception):
+    pass
+
+
+def _check_pyright_process(pyright_process: sp.Popen) -> None:
+    """
+    Check the Pyright command process result.
+
+    Parameters
+    ----------
+    pyright_process : Popen
+        Target Pyright command process.
+
+    Raises
+    ------
+    _PyrightError
+        If there is a Pyright error.
+    """
+    stdout: bytes
+    logger.info(msg='Waiting Pyright command completion...')
+    stdout, _ = pyright_process.communicate()
+    stdout_str: str = stdout.decode()
+    lines: List[str] = stdout_str.splitlines()
+    print(stdout_str)
+    for line in lines:
+        if line.startswith('0 errors'):
+            return
+    raise _PyrightError(f'There is a Pyright error: \n{stdout_str}')
 
 
 class _MypyError(Exception):
@@ -340,14 +377,14 @@ _FLAKE8_COMMAND: LintCommand = {
     'lint_name': 'flake8',
 }
 
-_NUMDOCLINT_COMMAND: LintCommand = {
-    'command': NUMDOCLINT_COMMAND,
-    'lint_name': 'numdoclint',
-}
-
 _MYPY_COMMAND: LintCommand = {
     'command': MYPY_COMMAND,
     'lint_name': 'mypy',
+}
+
+_PYRIGHT_COMMAND: LintCommand = {
+    'command': PYRIGHT_COMMAND,
+    'lint_name': 'Pyright',
 }
 
 

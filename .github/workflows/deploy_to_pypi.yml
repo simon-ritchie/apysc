@@ -172,6 +172,22 @@ jobs:
       - name: Run the numdoclint command
         run: python run_numdoclint.py
 
+  RunPyright:
+    needs: [CreateCache, SetGlobalConstants]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
+        with:
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
+      - name: Set the Pyright alias
+        run: alias pyright=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/pyright
+      - name: Run the Pyright command
+        run: python run_pyright.py
+
   RunTestsOnPython36AndSaveCoverageAndPassedNum:
     needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
@@ -225,74 +241,77 @@ jobs:
       - name: Run the test runner command
         run: python run_tests.py
 
-  # DeployToPyPI:
-  #   needs: [
-  #     RunFlake8,
-  #     RunMypy,
-  #     RunNumdoclint,
-  #     RunTestsOnPython36AndSaveCoverageAndPassedNum,
-  #     RunTestsOnEachPythonVersion,
-  #     SetGlobalConstants,
-  #   ]
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 10
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
-  #     - name: Setup the Python dependencies
-  #       uses: ./.github/actions/setup_py_dependencies
-  #       with:
-  #         python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
-  #     - name: Execute the Python package build
-  #       run: python build.py
-  #     - name: Set the PyPI account setting
-  #       env:
-  #         PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
-  #         PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-  #       run: |
-  #         echo -e '[pypi]' >> ~/.pypirc
-  #         echo -e "username = ${PYPI_USERNAME}" >> ~/.pypirc
-  #         echo -e "password = ${PYPI_PASSWORD}" >> ~/.pypirc
-  #     - name: Set the twine alias
-  #       run: alias twine=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/twine
-  #     - name: Upload to PyPI
-  #       run: twine upload dist/*
+  DeployToPyPI:
+    needs: [
+      RunFlake8,
+      RunMypy,
+      RunNumdoclint,
+      RunPyright,
+      RunTestsOnPython36AndSaveCoverageAndPassedNum,
+      RunTestsOnEachPythonVersion,
+      SetGlobalConstants,
+    ]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
+        with:
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
+      - name: Execute the Python package build
+        run: python build.py
+      - name: Set the PyPI account setting
+        env:
+          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          echo -e '[pypi]' >> ~/.pypirc
+          echo -e "username = ${PYPI_USERNAME}" >> ~/.pypirc
+          echo -e "password = ${PYPI_PASSWORD}" >> ~/.pypirc
+      - name: Set the twine alias
+        run: alias twine=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/twine
+      - name: Upload to PyPI
+        run: twine upload dist/*
 
-  # CreateReleaseNotes:
-  #   needs: [
-  #     RunFlake8,
-  #     RunMypy,
-  #     RunNumdoclint,
-  #     RunTestsOnPython36AndSaveCoverageAndPassedNum,
-  #     RunTestsOnEachPythonVersion,
-  #     SetGlobalConstants,
-  #   ]
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 5
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
-  #     - name: Setup the Python dependencies
-  #       uses: ./.github/actions/setup_py_dependencies
-  #       with:
-  #         python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
-  #     - name: Set the apysc version to environment variable
-  #       run: python -c "import apysc; print(f'apysc_version={apysc.__version__}')" >> $GITHUB_ENV
-  #     - name: Create the release note
-  #       uses: actions/create-release@v1
-  #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #       with:
-  #         tag_name: v${{ env.apysc_version }}
-  #         release_name: v${{ env.apysc_version }}
-  #         draft: false
-  #         prerelease: false
+  CreateReleaseNotes:
+    needs: [
+      RunFlake8,
+      RunMypy,
+      RunNumdoclint,
+      RunPyright,
+      RunTestsOnPython36AndSaveCoverageAndPassedNum,
+      RunTestsOnEachPythonVersion,
+      SetGlobalConstants,
+    ]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
+        with:
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
+      - name: Set the apysc version to environment variable
+        run: python -c "import apysc; print(f'apysc_version={apysc.__version__}')" >> $GITHUB_ENV
+      - name: Create the release note
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ env.apysc_version }}
+          release_name: v${{ env.apysc_version }}
+          draft: false
+          prerelease: false
 
   UpdateReadmeBadgesToPassingStatus:
     needs: [
       RunFlake8,
       RunMypy,
       RunNumdoclint,
+      RunPyright,
       UpdateReadmeBadgesToCheckingStatus,
       RunTestsOnPython36AndSaveCoverageAndPassedNum,
       RunTestsOnEachPythonVersion,

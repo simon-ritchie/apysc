@@ -5,6 +5,7 @@ $ python test_projects/Dictionary/main.py
 """
 
 import sys
+from typing import Any
 
 sys.path.append('./')
 
@@ -50,7 +51,8 @@ def main() -> None:
     int_1: ap.Int = ap.Int(30)
     string_1: ap.String = ap.String('a')
     number_1: ap.Number = ap.Number(3.5)
-    dict_3: ap.Dictionary = ap.Dictionary({'a': 10, 2: 20, 3.5: int_1})
+    dict_3: ap.Dictionary[Any, Any] = ap.Dictionary(
+        {'a': 10, 2: 20, 3.5: int_1})
     ap.assert_equal(expected=10, actual=dict_3['a'])
     ap.assert_equal(expected=10, actual=dict_3[string_1])
     ap.assert_equal(expected=20, actual=dict_3[2])

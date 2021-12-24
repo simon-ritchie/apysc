@@ -1,6 +1,6 @@
 import re
 from random import randint
-from typing import Any
+from typing import Any, Union
 from typing import Dict
 from typing import List
 from typing import Match
@@ -167,7 +167,7 @@ class TestDictionary:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___getitem__(self) -> None:
         string_1: ap.String = ap.String('b')
-        dict_1: ap.Dictionary = ap.Dictionary(
+        dict_1: ap.Dictionary[Any, Any] = ap.Dictionary(
             value={'a': 10, 'b': 20, 3: 30, 4.5: 40})
         value: Any = dict_1['a']
         assert value == 10

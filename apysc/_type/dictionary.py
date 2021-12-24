@@ -18,8 +18,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 DefaultType = TypeVar('DefaultType')
 
 _BuiltinKeys = Union[str, int, float]
-_K = TypeVar(
-    '_K', str, int, float, ap.String, ap.Int, ap.Number, ExpressionString)
+_K = TypeVar('_K')
 _V = TypeVar('_V')
 
 
@@ -323,7 +322,8 @@ class Dictionary(
             return key.value
         if isinstance(key, (ap.String, ap.Int, ap.Number)):
             return key._value
-        return key
+        key_: _BuiltinKeys = key  # type: ignore
+        return key_
 
     def _append_getitem_expression(
             self, *, key: Union[_K, ExpressionString], value: Any) -> None:

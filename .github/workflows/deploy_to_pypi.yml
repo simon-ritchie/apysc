@@ -411,27 +411,27 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           background-color: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
 
-  # RunPackageInstallingTests:
-  #   needs: [DeployToPyPI, SetGlobalConstants]
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       python-version: [
-  #         '${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}',
-  #         '${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}',
-  #         '${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}',
-  #         '${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}',
-  #         '${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}',
-  #       ]
-  #   timeout-minutes: 10
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
-  #     - name: Setup the Python dependencies
-  #       uses: ./.github/actions/setup_py_dependencies
-  #       with:
-  #         python-version: ${{ matrix.python-version }}
-  #     - name: Run the package installing and testing script
-  #       run: python install_released_package.py
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
+  RunPackageInstallingTests:
+    needs: [DeployToPyPI, SetGlobalConstants]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}',
+        ]
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run the package installing and testing script
+        run: python install_released_package.py
+      - name: Checkout
+        uses: actions/checkout@v2

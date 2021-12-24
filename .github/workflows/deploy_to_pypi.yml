@@ -16,6 +16,8 @@ jobs:
       PYTHON_310_VERSION: 3.10.0
       CHECKING_BADGE_COLOR: FFAA00
       PASSING_BADGE_COLOR: 0088FF
+      RUNNING_OR_FAILING_STATUS: running or failed
+      PASSING_STATUS: passing
     steps:
       - run: echo 'Setting constans.'
 
@@ -70,7 +72,7 @@ jobs:
         with:
           NAME: flake8_checking
           LABEL: 'flake8 checking'
-          STATUS: 'running or failed'
+          STATUS: '${{ needs.SetGlobalConstants.outputs.RUNNING_OR_FAILING_STATUS }}'
           COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Update the mypy badge status to running or failing
@@ -78,7 +80,7 @@ jobs:
         with:
           NAME: mypy_checking
           LABEL: 'mypy checking'
-          STATUS: 'running or failed'
+          STATUS: '${{ needs.SetGlobalConstants.outputs.RUNNING_OR_FAILING_STATUS }}'
           COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Update the numdoclint badge status to running or failing
@@ -86,7 +88,7 @@ jobs:
         with:
           NAME: numdoclint_checking
           LABEL: 'numdoclint checking'
-          STATUS: 'running or failed'
+          STATUS: '${{ needs.SetGlobalConstants.outputs.RUNNING_OR_FAILING_STATUS }}'
           COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Update the Pyright badge status to running or failing
@@ -94,7 +96,7 @@ jobs:
         with:
           NAME: pyright_checking
           LABEL: 'Pyright checking'
-          STATUS: 'running or failed'
+          STATUS: '${{ needs.SetGlobalConstants.outputs.RUNNING_OR_FAILING_STATUS }}'
           COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Checkout

@@ -225,6 +225,7 @@ def _check_pyright_process(pyright_process: sp.Popen) -> None:
     _PyrightError
         If there is a Pyright error.
     """
+    print('-' * 20)
     stdout: bytes
     logger.info(msg='Waiting Pyright command completion...')
     stdout, _ = pyright_process.communicate()
@@ -255,6 +256,7 @@ def _check_mypy_process(mypy_process: sp.Popen) -> None:
     _MypyError
         If there is a mypy error.
     """
+    print('-' * 20)
     stdout: bytes
     logger.info(msg='Waiting mypy command completion...')
     stdout, _ = mypy_process.communicate()
@@ -289,7 +291,6 @@ def _check_numdoclint_process(
     for numdoclint_process in numdoclint_processes:
         stdout, _ = numdoclint_process.communicate()
         stdout_str: str = stdout.decode().replace('[]', '').strip()
-        print(stdout_str)
         if stdout_str == '':
             return
         raise _NumdoclintError(f'There is a numdoclint error: \n{stdout_str}')
@@ -317,7 +318,6 @@ def _check_flake8_process(flake8_process: sp.Popen) -> None:
     logger.info(msg='Waiting flake8 command completion...')
     stdout, _ = flake8_process.communicate()
     stdout_str: str = stdout.decode().strip()
-    print(stdout_str)
     if stdout_str == '':
         return
     raise _Flake8Error(f'There is a flake8 command error:\n{stdout_str}')

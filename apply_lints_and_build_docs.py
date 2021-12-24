@@ -68,6 +68,8 @@ MYPY_COMMAND: Final[str] = (
     f'./tests/ ./test_projects/ {_ROOT_MODULE_PATHS_STR}'
 )
 
+PYRIGHT_COMMAND: Final[str] = 'pyright'
+
 
 def _get_module_paths() -> List[str]:
     """

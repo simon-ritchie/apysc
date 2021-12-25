@@ -4,10 +4,11 @@
 from typing import Dict
 
 from apysc._type.int import Int
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 
 
-class PathDestXInterface(RevertInterface):
+class PathDestXInterface(RevertInterface, AttrLinkingInterface):
 
     _dest_x: Int
 
@@ -19,6 +20,22 @@ class PathDestXInterface(RevertInterface):
         if hasattr(self, '_dest_x'):
             return
         self._dest_x = Int(0)
+
+        self._append_dest_x_linking_setting()
+
+    def _append_dest_x_linking_setting(self) -> None:
+        """
+        Append a dest_x attribute linking setting.
+        """
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self._append_dest_x_linking_setting,
+                locals_=locals(),
+                module_name=__name__, class_=PathDestXInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._dest_x, attr_name='dest_x')
+            self._append_attr_to_linking_stack(
+                attr=self._dest_x, attr_name='dest_x')
 
     @property
     def dest_x(self) -> Int:
@@ -53,6 +70,8 @@ class PathDestXInterface(RevertInterface):
                 module_name=__name__, class_=PathDestXInterface):
             self._initialize_dest_x_if_not_initialized()
             self._dest_x.value = value
+
+            self._append_dest_x_linking_setting()
 
     _dest_x_snapshots: Dict[str, int]
 

@@ -45,3 +45,9 @@ class TestPathControlY1Interface:
         interface.control_y1 = ap.Int(10)
         interface._initialize_control_y1_if_not_initialized()
         assert interface.control_y1 == 10
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test__append_control_y1_linking_setting(self) -> None:
+        interface: PathControlY1Interface = PathControlY1Interface()
+        interface._initialize_control_y1_if_not_initialized()
+        assert interface._attr_linking_stack['control_y1'] == [ap.Int(0)]

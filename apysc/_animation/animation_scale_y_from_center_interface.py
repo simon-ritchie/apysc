@@ -4,7 +4,8 @@ interface.
 
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
 from apysc._animation.animation_scale_y_from_center import \
     AnimationScaleYFromCenter
@@ -15,10 +16,10 @@ class AnimationScaleYFromCenterInterface(AnimationInterfaceBase):
 
     def animation_scale_y_from_center(
             self,
-            scale_y_from_center: Union[float, ap.Number],
+            scale_y_from_center: Union[float, Number],
             *,
-            duration: Union[int, ap.Int] = 3000,
-            delay: Union[int, ap.Int] = 0,
+            duration: Union[int, Int] = 3000,
+            delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationScaleYFromCenter:
         """
         Set the scale-y from the center point animation setting.

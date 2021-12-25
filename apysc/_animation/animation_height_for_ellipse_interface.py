@@ -3,7 +3,7 @@
 
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._animation.animation_height_for_ellipse import \
     AnimationHeightForEllipse
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
@@ -14,10 +14,10 @@ class AnimationHeightForEllipseInterface(AnimationInterfaceBase):
 
     def animation_height(
             self,
-            height: Union[int, ap.Int],
+            height: Union[int, Int],
             *,
-            duration: Union[int, ap.Int] = 3000,
-            delay: Union[int, ap.Int] = 0,
+            duration: Union[int, Int] = 3000,
+            delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationHeightForEllipse:
         """
         Set the ellipse-height animation setting.

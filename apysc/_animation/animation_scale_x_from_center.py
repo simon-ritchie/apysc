@@ -5,7 +5,8 @@ from typing import Generic
 from typing import TypeVar
 from typing import Union
 
-import apysc as ap
+from apysc._type.number import Number
+from apysc._type.int import Int
 from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -18,17 +19,17 @@ class AnimationScaleXFromCenter(AnimationBase[_T], Generic[_T]):
     The animation class for a scale-x.
     """
 
-    _scale_x_from_center: ap.Number
-    _before_scale_x_from_center: ap.Number
-    _scale_x_from_center_diff_ratio: ap.Number
+    _scale_x_from_center: Number
+    _before_scale_x_from_center: Number
+    _scale_x_from_center_diff_ratio: Number
 
     def __init__(
             self,
             *,
             target: _T,
-            scale_x_from_center: Union[float, ap.Number],
-            duration: Union[int, ap.Int] = 3000,
-            delay: Union[int, ap.Int] = 0,
+            scale_x_from_center: Union[float, Number],
+            duration: Union[int, Int] = 3000,
+            delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:
         """
         The animation class for a scale-x.
@@ -53,6 +54,7 @@ class AnimationScaleXFromCenter(AnimationBase[_T], Generic[_T]):
             If a specified target is not a ScaleXFromCenterInterface
             instance.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=AnimationScaleXFromCenter):

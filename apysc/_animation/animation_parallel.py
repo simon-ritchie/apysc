@@ -9,7 +9,7 @@ from typing import Optional
 from typing import TypeVar
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -29,8 +29,8 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
             *,
             target: _T,
             animations: List[AnimationBase],
-            duration: Union[int, ap.Int] = 3000,
-            delay: Union[int, ap.Int] = 0,
+            duration: Union[int, Int] = 3000,
+            delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:
         """
         The parallel animation setting class.
@@ -57,6 +57,7 @@ class AnimationParallel(AnimationBase[_T], Generic[_T]):
         easing : Easing, default Easing.LINEAR
             Easing setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=AnimationParallel):

@@ -6,7 +6,7 @@ from typing import Generic
 from typing import TypeVar
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
 from apysc._type.variable_name_interface import VariableNameInterface

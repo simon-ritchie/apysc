@@ -4,7 +4,7 @@ interface.
 
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
 from apysc._animation.animation_rotation_around_point import \
     AnimationRotationAroundPoint
@@ -15,12 +15,12 @@ class AnimationRotationAroundPointInterface(AnimationInterfaceBase):
 
     def animation_rotation_around_point(
             self,
-            rotation_around_point: Union[int, ap.Int],
-            x: Union[int, ap.Int],
-            y: Union[int, ap.Int],
+            rotation_around_point: Union[int, Int],
+            x: Union[int, Int],
+            y: Union[int, Int],
             *,
-            duration: Union[int, ap.Int] = 3000,
-            delay: Union[int, ap.Int] = 0,
+            duration: Union[int, Int] = 3000,
+            delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationRotationAroundPoint:
         """
         Set the rotation around the given point animation setting.

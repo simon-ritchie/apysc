@@ -4,12 +4,13 @@
 from typing import TypeVar
 from typing import Union
 
-import apysc as ap
+from apysc._type.string import String
+from apysc._type.int import Int
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
 from apysc._animation.animation_line_color import AnimationLineColor
 from apysc._animation.easing import Easing
 
-StrOrString = TypeVar('StrOrString', str, ap.String)
+StrOrString = TypeVar('StrOrString', str, String)
 
 
 class AnimationLineColorInterface(AnimationInterfaceBase):
@@ -18,8 +19,8 @@ class AnimationLineColorInterface(AnimationInterfaceBase):
             self,
             line_color: StrOrString,
             *,
-            duration: Union[int, ap.Int] = 3000,
-            delay: Union[int, ap.Int] = 0,
+            duration: Union[int, Int] = 3000,
+            delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationLineColor:
         """
         Set the line color animation setting.

@@ -10,7 +10,8 @@ from typing import Optional
 from typing import TypeVar
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
+from apysc._type.boolean import Boolean
 from apysc._animation.easing import Easing
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -25,10 +26,10 @@ class AnimationBase(
         VariableNameInterface, CustomEventInterface, Generic[_T], ABC):
 
     _target: _T
-    _duration: ap.Int
-    _delay: ap.Int
+    _duration: Int
+    _delay: Int
     _easing: Easing
-    _started: ap.Boolean
+    _started: Boolean
 
     def __init__(self, *, variable_name: str) -> None:
         """
@@ -39,11 +40,12 @@ class AnimationBase(
         variable_name : str
             Variable name.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=AnimationBase):
             self.variable_name = variable_name
-            self._started = ap.Boolean(False)
+            self._started = Boolean(False)
 
     @abstractmethod
     def _get_animation_func_expression(self) -> str:
@@ -55,8 +57,8 @@ class AnimationBase(
             self,
             *,
             target: _T,
-            duration: Union[int, ap.Int] = 3000,
-            delay: Union[int, ap.Int] = 0,
+            duration: Union[int, Int] = 3000,
+            delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:
         """
         Set the basic animation settings.
@@ -73,6 +75,7 @@ class AnimationBase(
         easing : Easing, default Easing.LINEAR
             Easing setting. If None, Linear calculation is used.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._set_basic_animation_settings,
                 locals_=locals(),
@@ -118,6 +121,7 @@ class AnimationBase(
         - AnimationBase class start interface
             - https://simon-ritchie.github.io/apysc/animation_base_start.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.start, locals_=locals(),
                 module_name=__name__, class_=AnimationBase):
@@ -188,6 +192,7 @@ class AnimationBase(
         - About the handler options’ type document
             - https://bit.ly/39tnYxC
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.animation_complete, locals_=locals(),
                 module_name=__name__, class_=AnimationBase):

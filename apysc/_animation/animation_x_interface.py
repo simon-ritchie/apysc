@@ -3,7 +3,7 @@
 
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
 from apysc._animation.animation_x import AnimationX
 from apysc._animation.easing import Easing
@@ -13,10 +13,10 @@ class AnimationXInterface(AnimationInterfaceBase):
 
     def animation_x(
             self,
-            x: Union[int, ap.Int],
+            x: Union[int, Int],
             *,
-            duration: Union[int, ap.Int] = 3000,
-            delay: Union[int, ap.Int] = 0,
+            duration: Union[int, Int] = 3000,
+            delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationX:
         """
         Set the x-coordinate animation setting.

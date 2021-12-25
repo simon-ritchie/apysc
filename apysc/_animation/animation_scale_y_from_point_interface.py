@@ -4,7 +4,8 @@ interface.
 
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
 from apysc._animation.animation_scale_y_from_point import \
     AnimationScaleYFromPoint
@@ -15,11 +16,11 @@ class AnimationScaleYFromPointInterface(AnimationInterfaceBase):
 
     def animation_scale_y_from_point(
             self,
-            scale_y_from_point: Union[float, ap.Number],
-            y: Union[int, ap.Int],
+            scale_y_from_point: Union[float, Number],
+            y: Union[int, Int],
             *,
-            duration: Union[int, ap.Int] = 3000,
-            delay: Union[int, ap.Int] = 0,
+            duration: Union[int, Int] = 3000,
+            delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> AnimationScaleYFromPoint:
         """
         Set the scale-y from the given point animation setting.

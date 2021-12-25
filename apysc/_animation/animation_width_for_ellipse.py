@@ -5,7 +5,7 @@ from typing import Generic
 from typing import TypeVar
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -18,15 +18,15 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
     The animation class for a ellipse-width.
     """
 
-    _width: ap.Int
+    _width: Int
 
     def __init__(
             self,
             *,
             target: _T,
-            width: Union[int, ap.Int],
-            duration: Union[int, ap.Int] = 3000,
-            delay: Union[int, ap.Int] = 0,
+            width: Union[int, Int],
+            duration: Union[int, Int] = 3000,
+            delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:
         """
         The animation class for a ellipse-width.
@@ -45,6 +45,7 @@ class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
         easing : Easing, default Easing.LINEAR
             Easing setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=AnimationWidthForEllipse):

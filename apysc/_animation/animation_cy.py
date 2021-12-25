@@ -5,7 +5,7 @@ from typing import Generic
 from typing import TypeVar
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -18,15 +18,15 @@ class AnimationCy(AnimationBase[_T], Generic[_T]):
     The animation class for a center-y coordinate.
     """
 
-    _cy: ap.Int
+    _cy: Int
 
     def __init__(
             self,
             *,
             target: _T,
-            y: Union[int, ap.Int],
-            duration: Union[int, ap.Int] = 3000,
-            delay: Union[int, ap.Int] = 0,
+            y: Union[int, Int],
+            duration: Union[int, Int] = 3000,
+            delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:
         """
         The animation class for a center-y coordinate.

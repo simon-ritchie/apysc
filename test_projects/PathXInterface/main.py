@@ -17,7 +17,6 @@ import apysc as ap
 from apysc._file import file_util
 from apysc._geom.path_x_interface import PathXInterface
 
-
 this_module: ModuleType = sys.modules[__name__]
 
 _DEST_DIR_PATH: str = os.path.join(

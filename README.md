@@ -18,7 +18,7 @@
 
 ![logo](https://github.com/simon-ritchie/apysc/blob/main/assets/logo_v1/logo_small_v1.png)
 
-apysc is the Python frontend library to create HTML and js files, that has ActionScript 3 (as3)-like interface.
+apysc (pronounced `æpisk`) is the Python frontend library to create HTML and js files, that has ActionScript 3 (as3)-like interface.
 
 Notes: Currently developing and only works partially.
 

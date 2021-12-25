@@ -45,6 +45,7 @@ class AnimationCx(AnimationBase[_T], Generic[_T]):
         easing : Easing, default Easing.LINEAR
             Easing setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=AnimationCx):

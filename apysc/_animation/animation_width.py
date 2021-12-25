@@ -18,7 +18,7 @@ class AnimationWidth(AnimationBase[_T], Generic[_T]):
     The animation class for a width.
     """
 
-    _width: ap.Int
+    _width: Int
 
     def __init__(
             self,

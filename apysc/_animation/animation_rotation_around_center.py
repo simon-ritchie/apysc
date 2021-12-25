@@ -19,17 +19,17 @@ class AnimationRotationAroundCenter(AnimationBase[_T], Generic[_T]):
     The animation class for a rotation around the center point.
     """
 
-    _rotation_around_center: ap.Int
-    _before_rotation_around_center: ap.Int
-    _rotation_around_center_diff: ap.Int
+    _rotation_around_center: Int
+    _before_rotation_around_center: Int
+    _rotation_around_center_diff: Int
 
     def __init__(
             self,
             *,
             target: _T,
-            rotation_around_center: Union[int, ap.Int],
-            duration: Union[int, ap.Int] = 3000,
-            delay: Union[int, ap.Int] = 0,
+            rotation_around_center: Union[int, Int],
+            duration: Union[int, Int] = 3000,
+            delay: Union[int, Int] = 0,
             easing: Easing = Easing.LINEAR) -> None:
         """
         The animation class for a rotation around the center point.
@@ -54,6 +54,7 @@ class AnimationRotationAroundCenter(AnimationBase[_T], Generic[_T]):
             If a specified target is not a RotationAroundCenterInterface
             instance.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=AnimationRotationAroundCenter):

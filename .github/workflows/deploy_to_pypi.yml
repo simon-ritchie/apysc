@@ -335,7 +335,7 @@ jobs:
         with:
           NAME: flake8_checking
           LABEL: 'flake8 checking'
-          STATUS: 'passing'
+          STATUS: '${{ needs.SetGlobalConstants.outputs.PASSING_STATUS }}'
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Update the mypy badge status to passing
@@ -343,7 +343,7 @@ jobs:
         with:
           NAME: mypy_checking
           LABEL: 'mypy checking'
-          STATUS: 'passing'
+          STATUS: '${{ needs.SetGlobalConstants.outputs.PASSING_STATUS }}'
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Update the numdoclint badge status to passing
@@ -351,7 +351,7 @@ jobs:
         with:
           NAME: numdoclint_checking
           LABEL: 'numdoclint checking'
-          STATUS: 'passing'
+          STATUS: '${{ needs.SetGlobalConstants.outputs.PASSING_STATUS }}'
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Update the Pyright badge status to passing
@@ -359,7 +359,7 @@ jobs:
         with:
           NAME: pyright_checking
           LABEL: 'Pyright checking'
-          STATUS: 'passing'
+          STATUS: '${{ needs.SetGlobalConstants.outputs.PASSING_STATUS }}'
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Update tests line coverage

@@ -4,10 +4,11 @@
 from typing import Dict
 
 from apysc._type.int import Int
+from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 
 
-class PathControlYInterface(RevertInterface):
+class PathControlYInterface(RevertInterface, AttrLinkingInterface):
 
     _control_y: Int
 
@@ -19,6 +20,22 @@ class PathControlYInterface(RevertInterface):
         if hasattr(self, '_control_y'):
             return
         self._control_y = Int(0)
+
+        self._append_control_y_linking_setting()
+
+    def _append_control_y_linking_setting(self) -> None:
+        """
+        Append a control_y attribute linking setting.
+        """
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_=self._append_control_y_linking_setting,
+                locals_=locals(),
+                module_name=__name__, class_=PathControlYInterface):
+            self._append_applying_new_attr_val_exp(
+                new_attr=self._control_y, attr_name='control_y')
+            self._append_attr_to_linking_stack(
+                attr=self._control_y, attr_name='control_y')
 
     @property
     def control_y(self) -> Int:
@@ -53,6 +70,8 @@ class PathControlYInterface(RevertInterface):
                 module_name=__name__, class_=PathControlYInterface):
             self._initialize_control_y_if_not_initialized()
             self._control_y.value = value
+
+            self._append_control_y_linking_setting()
 
     _control_y_snapshots: Dict[str, int]
 

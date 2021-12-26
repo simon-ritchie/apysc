@@ -3,12 +3,13 @@
 
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._display.ellipse_height_interface import EllipseHeightInterface
 from apysc._display.ellipse_width_interface import EllipseWidthInterface
 from apysc._display.height_interface import HeightInterface
 from apysc._display.line_base import LineBase
 from apysc._display.width_interface import WidthInterface
+from apysc._display import graphics
 
 
 class Rectangle(
@@ -24,11 +25,11 @@ class Rectangle(
     """
 
     def __init__(
-            self, *, parent: 'ap.Graphics',
-            x: Union[int, ap.Int],
-            y: Union[int, ap.Int],
-            width: Union[int, ap.Int],
-            height: Union[int, ap.Int]) -> None:
+            self, *, parent: 'graphics.Graphics',
+            x: Union[int, Int],
+            y: Union[int, Int],
+            width: Union[int, Int],
+            height: Union[int, Int]) -> None:
         """
         Create a rectangle vector graphics.
 

@@ -4,7 +4,7 @@
 from typing import Dict
 from typing import Tuple
 
-import apysc as ap
+from apysc._type.array import Array
 from apysc._geom.point2d import Point2D
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -12,7 +12,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 class Points2DInterface(VariableNameInterface, RevertInterface):
 
-    _points: ap.Array[Point2D]
+    _points: Array[Point2D]
 
     def _initialize_points_if_not_initialized(self) -> None:
         """
@@ -20,10 +20,10 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_points'):
             return
-        self._points = ap.Array([])
+        self._points = Array([])
 
     @property
-    def points(self) -> ap.Array[Point2D]:
+    def points(self) -> Array[Point2D]:
         """
         Get current points.
 
@@ -32,6 +32,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         points : Array of Point2D
             Current points.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='points', locals_=locals(),
                 module_name=__name__, class_=Points2DInterface):
@@ -39,7 +40,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
             return self._points
 
     @points.setter
-    def points(self, value: ap.Array[Point2D]) -> None:
+    def points(self, value: Array[Point2D]) -> None:
         """
         Update points value.
 
@@ -101,7 +102,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         )
         return variable_name, expression
 
-    def _append_points_update_expression(self, *, value: ap.Array) -> None:
+    def _append_points_update_expression(self, *, value: Array) -> None:
         """
         Append points updating expression.
 
@@ -110,6 +111,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         value : Array
             Points value to set.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_points_update_expression,
                 locals_=locals(),
@@ -119,7 +121,7 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
             )
             ap.append_js_expression(expression=expression)
 
-    _points_snapshots: Dict[str, ap.Array]
+    _points_snapshots: Dict[str, Array]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """

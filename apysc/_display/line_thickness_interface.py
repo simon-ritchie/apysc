@@ -4,7 +4,7 @@
 from typing import Dict
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._animation.animation_line_thickness_interface import \
     AnimationLineThicknessInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
@@ -16,7 +16,7 @@ class LineThicknessInterface(
         RevertInterface,
         AttrLinkingInterface):
 
-    _line_thickness: ap.Int
+    _line_thickness: Int
 
     def _initialize_line_thickness_if_not_initialized(self) -> None:
         """
@@ -25,7 +25,7 @@ class LineThicknessInterface(
         """
         if hasattr(self, '_line_thickness'):
             return
-        self._line_thickness = ap.Int(1)
+        self._line_thickness = Int(1)
 
         self._append_line_thickness_attr_linking_setting()
 
@@ -33,6 +33,7 @@ class LineThicknessInterface(
         """
         Append a line thickness attribute linking setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_line_thickness_attr_linking_setting,
                 locals_=locals(),
@@ -43,7 +44,7 @@ class LineThicknessInterface(
                 attr=self._line_thickness, attr_name='line_thickness')
 
     @property
-    def line_thickness(self) -> ap.Int:
+    def line_thickness(self) -> Int:
         """
         Get this instance's line thickness.
 
@@ -57,6 +58,7 @@ class LineThicknessInterface(
         - Graphics line_thickness interface document
             - https://bit.ly/3HlbCYh
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='line_thickness', locals_=locals(),
                 module_name=__name__, class_=LineThicknessInterface):
@@ -64,7 +66,7 @@ class LineThicknessInterface(
             return value_util.get_copy(value=self._line_thickness)
 
     @line_thickness.setter
-    def line_thickness(self, value: ap.Int) -> None:
+    def line_thickness(self, value: Int) -> None:
         """
         Update this instance's line thickness.
 
@@ -78,6 +80,7 @@ class LineThicknessInterface(
         - Graphics line_thickness interface document
             - https://bit.ly/3HlbCYh
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='line_thickness', locals_=locals(),
                 module_name=__name__, class_=LineThicknessInterface):
@@ -107,7 +110,7 @@ class LineThicknessInterface(
             ap.append_js_expression(expression=expression)
 
     def _update_line_thickness_and_skip_appending_exp(
-            self, *, value: Union[int, ap.Int]) -> None:
+            self, *, value: Union[int, Int]) -> None:
         """
         Update line thickness and skip appending expression.
 
@@ -120,7 +123,7 @@ class LineThicknessInterface(
         number_validation.validate_integer(integer=value)
         number_validation.validate_num_is_gte_zero(num=value)
         if isinstance(value, int):
-            value = ap.Int(value)
+            value = Int(value)
         self._line_thickness = value
 
     _line_thickness_snapshots: Dict[str, int]

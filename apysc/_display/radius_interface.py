@@ -4,7 +4,7 @@
 from typing import Dict
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._animation.animation_radius_interface import \
     AnimationRadiusInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
@@ -14,7 +14,7 @@ from apysc._type.revert_interface import RevertInterface
 class RadiusInterface(
         AnimationRadiusInterface, RevertInterface, AttrLinkingInterface):
 
-    _radius: ap.Int
+    _radius: Int
 
     def _initialize_radius_if_not_initialized(self) -> None:
         """
@@ -22,7 +22,7 @@ class RadiusInterface(
         """
         if hasattr(self, '_radius'):
             return
-        self._radius = ap.Int(0)
+        self._radius = Int(0)
 
         self._append_raidus_attr_linking_setting()
 
@@ -30,6 +30,7 @@ class RadiusInterface(
         """
         Append a radius attribute linking setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_raidus_attr_linking_setting,
                 locals_=locals(),
@@ -40,7 +41,7 @@ class RadiusInterface(
                 attr=self._radius, attr_name='radius')
 
     @property
-    def radius(self) -> ap.Int:
+    def radius(self) -> Int:
         """
         Get radius value.
 
@@ -49,6 +50,7 @@ class RadiusInterface(
         radius : Int
             Radius value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='radius', locals_=locals(),
                 module_name=__name__, class_=RadiusInterface):
@@ -57,7 +59,7 @@ class RadiusInterface(
             return value_util.get_copy(value=self._radius)
 
     @radius.setter
-    def radius(self, value: ap.Int) -> None:
+    def radius(self, value: Int) -> None:
         """
         Update radius value.
 
@@ -80,7 +82,7 @@ class RadiusInterface(
             self._append_raidus_attr_linking_setting()
 
     def _get_converted_radius_int(
-            self, *, radius: Union[int, ap.Int]) -> ap.Int:
+            self, *, radius: Union[int, Int]) -> Int:
         """
         Get a radius converted Int instance.
 

@@ -1,10 +1,13 @@
 """Implementations of Polyline class.
 """
 
-import apysc as ap
+from typing import Any
+from apysc._type.array import Array
 from apysc._display.append_line_point_interface import AppendLinePointInterface
 from apysc._display.line_base import LineBase
 from apysc._geom.point2d import Point2D
+
+_Graphics = Any
 
 
 class Polyline(LineBase, AppendLinePointInterface):
@@ -18,8 +21,8 @@ class Polyline(LineBase, AppendLinePointInterface):
     """
 
     def __init__(
-            self, *, parent: 'ap.Graphics',
-            points: ap.Array[Point2D]) -> None:
+            self, *, parent: _Graphics,
+            points: Array[Point2D]) -> None:
         """
         Create a polyline vector graphic.
 
@@ -35,6 +38,7 @@ class Polyline(LineBase, AppendLinePointInterface):
         - Graphics move_to and line_to interfaces document
             - https://bit.ly/3eybhEP
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=Polyline):
@@ -72,6 +76,7 @@ class Polyline(LineBase, AppendLinePointInterface):
         """
         Append constructor expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_constructor_expression,
                 locals_=locals(),

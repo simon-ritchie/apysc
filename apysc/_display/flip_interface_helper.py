@@ -3,7 +3,7 @@
 
 from enum import Enum
 
-import apysc as ap
+from apysc._type.boolean import Boolean
 
 
 class Axis(Enum):
@@ -12,7 +12,7 @@ class Axis(Enum):
 
 
 def make_flip_update_expression(
-        *, before_value: ap.Boolean, after_value: ap.Boolean,
+        *, before_value: Boolean, after_value: Boolean,
         axis: Axis, interface_variable_name: str) -> str:
     """
     Make a flipping value updating expression.

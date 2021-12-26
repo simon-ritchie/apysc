@@ -3,7 +3,7 @@
 
 from typing import Dict
 
-import apysc as ap
+from apysc._type.boolean import Boolean
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -12,7 +12,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 class FlipXInterface(
         VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
-    _flip_x: ap.Boolean
+    _flip_x: Boolean
 
     def _initialize_flip_x_if_not_initialized(self) -> None:
         """
@@ -21,7 +21,7 @@ class FlipXInterface(
         """
         if hasattr(self, '_flip_x'):
             return
-        self._flip_x = ap.Boolean(False)
+        self._flip_x = Boolean(False)
 
         self._append_flip_x_attr_linking_setting()
 
@@ -29,6 +29,7 @@ class FlipXInterface(
         """
         Append a flip-x attribute linking setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_flip_x_attr_linking_setting,
                 locals_=locals(),
@@ -39,7 +40,7 @@ class FlipXInterface(
                 attr=self._flip_x, attr_name='flip_x')
 
     @property
-    def flip_x(self) -> ap.Boolean:
+    def flip_x(self) -> Boolean:
         """
         Get a boolean value whether the x-axis is flipped or not.
 
@@ -48,6 +49,7 @@ class FlipXInterface(
         flip_x : Boolean
             A boolean value whether the x-axis is flipped or not.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='flip_x', locals_=locals(),
                 module_name=__name__, class_=FlipXInterface):
@@ -56,7 +58,7 @@ class FlipXInterface(
             return value_util.get_copy(value=self._flip_x)
 
     @flip_x.setter
-    def flip_x(self, value: ap.Boolean) -> None:
+    def flip_x(self, value: Boolean) -> None:
         """
         Update a x-axis flipping value.
 
@@ -66,6 +68,7 @@ class FlipXInterface(
             Flipping value. If True, a x-axis will be flipped,
             otherwise it will be reset.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='flip_x', locals_=locals(),
                 module_name=__name__, class_=FlipXInterface):
@@ -77,7 +80,7 @@ class FlipXInterface(
             self._append_flip_x_attr_linking_setting()
 
     def _append_flip_x_update_expression(
-            self, *, before_value: ap.Boolean) -> None:
+            self, *, before_value: Boolean) -> None:
         """
         Append a x-axis flipping value updating expression.
 
@@ -86,6 +89,7 @@ class FlipXInterface(
         before_value : Boolean
             Before updating flipping value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_flip_x_update_expression,
                 locals_=locals(),

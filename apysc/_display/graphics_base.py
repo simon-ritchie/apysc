@@ -1,9 +1,9 @@
 """Class implementation for graphic base class.
 """
 
-from typing import Union
+from typing import Any, Union
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._display.display_object import DisplayObject
 from apysc._display.flip_x_interface import FlipXInterface
 from apysc._display.flip_y_interface import FlipYInterface
@@ -22,6 +22,8 @@ from apysc._display.scale_y_from_point_interface import \
 from apysc._display.skew_x_interface import SkewXInterface
 from apysc._display.skew_y_interface import SkewYInterface
 
+_Graphics = Any
+
 
 class GraphicsBase(
         DisplayObject, RotationAroundCenterInterface,
@@ -35,9 +37,9 @@ class GraphicsBase(
     def __init__(
             self,
             *,
-            parent: 'ap.Graphics',
-            x: Union[int, ap.Int],
-            y: Union[int, ap.Int],
+            parent: _Graphics,
+            x: Union[int, Int],
+            y: Union[int, Int],
             variable_name: str) -> None:
         """
         Vector graphic base class.

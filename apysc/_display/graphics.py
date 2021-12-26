@@ -1,11 +1,12 @@
 """Implementations for Graphics class.
 """
 
-from typing import List
+from typing import Any, List
 from typing import Optional
 from typing import Union
 
-import apysc as ap
+from apysc._type.array import Array
+from apysc._type.int import Int
 from apysc._display.begin_fill_interface import BeginFillInterface
 from apysc._display.child_interface import ChildInterface
 from apysc._display.circle import Circle
@@ -21,6 +22,8 @@ from apysc._display.rectangle import Rectangle
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.point2d import Point2D
 from apysc._type.variable_name_interface import VariableNameInterface
+
+_Sprite = Any
 
 
 class Graphics(
@@ -39,7 +42,7 @@ class Graphics(
     _current_line: Optional[Polyline] = None
 
     def __init__(
-            self, *, parent: 'ap.Sprite',
+            self, *, parent: _Sprite,
             variable_name: Optional[str] = None) -> None:
         """
         Create a object that has each vector graphics interface.
@@ -57,6 +60,7 @@ class Graphics(
         - Graphics document
             - https://simon-ritchie.github.io/apysc/graphics.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=Graphics):
@@ -85,6 +89,7 @@ class Graphics(
         """
         Append constructor expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_constructor_expression,
                 locals_=locals(),
@@ -96,10 +101,10 @@ class Graphics(
             ap.append_js_expression(expression=expression)
 
     def draw_rect(
-            self, x: Union[int, ap.Int],
-            y: Union[int, ap.Int],
-            width: Union[int, ap.Int],
-            height: Union[int, ap.Int]) -> Rectangle:
+            self, x: Union[int, Int],
+            y: Union[int, Int],
+            width: Union[int, Int],
+            height: Union[int, Int]) -> Rectangle:
         """
         Draw a rectangle vector graphics.
 
@@ -124,6 +129,7 @@ class Graphics(
         - Graphics draw_rect interface document
             - https://bit.ly/3zbSG9o
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.draw_rect, locals_=locals(),
                 module_name=__name__, class_=Graphics):
@@ -133,12 +139,12 @@ class Graphics(
             return rectangle
 
     def draw_round_rect(
-            self, x: Union[int, ap.Int],
-            y: Union[int, ap.Int],
-            width: Union[int, ap.Int],
-            height: Union[int, ap.Int],
-            ellipse_width: Union[int, ap.Int],
-            ellipse_height: Union[int, ap.Int]) -> Rectangle:
+            self, x: Union[int, Int],
+            y: Union[int, Int],
+            width: Union[int, Int],
+            height: Union[int, Int],
+            ellipse_width: Union[int, Int],
+            ellipse_height: Union[int, Int]) -> Rectangle:
         """
         Draw a rounded rectangle vector graphics.
 
@@ -167,6 +173,7 @@ class Graphics(
         - Graphics draw_round_rect interface document
             - https://bit.ly/2ThGcxJ
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.draw_round_rect, locals_=locals(),
                 module_name=__name__, class_=Graphics):
@@ -183,9 +190,9 @@ class Graphics(
 
     def draw_circle(
             self,
-            x: Union[int, ap.Int],
-            y: Union[int, ap.Int],
-            radius: Union[int, ap.Int]) -> Circle:
+            x: Union[int, Int],
+            y: Union[int, Int],
+            radius: Union[int, Int]) -> Circle:
         """
         Draw a circle vector graphics.
 
@@ -208,6 +215,7 @@ class Graphics(
         - Graphics draw_circle interface document
             - https://bit.ly/3it1q4y
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.draw_circle, locals_=locals(),
                 module_name=__name__, class_=Graphics):
@@ -217,10 +225,10 @@ class Graphics(
 
     def draw_ellipse(
             self,
-            x: Union[int, ap.Int],
-            y: Union[int, ap.Int],
-            width: Union[int, ap.Int],
-            height: Union[int, ap.Int]) -> Ellipse:
+            x: Union[int, Int],
+            y: Union[int, Int],
+            width: Union[int, Int],
+            height: Union[int, Int]) -> Ellipse:
         """
         Draw a ellipse vector graphics.
 
@@ -245,6 +253,7 @@ class Graphics(
         - Graphics draw_ellipse interface
             - https://bit.ly/3xPVicP
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.draw_ellipse, locals_=locals(),
                 module_name=__name__, class_=Graphics):
@@ -254,8 +263,8 @@ class Graphics(
             return ellipse
 
     def line_to(
-            self, x: Union[int, ap.Int],
-            y: Union[int, ap.Int]) -> Polyline:
+            self, x: Union[int, Int],
+            y: Union[int, Int]) -> Polyline:
         """
         Draw a line from previous point to specified point (initial
         point is x = 0, y = 0).
@@ -277,6 +286,7 @@ class Graphics(
         - Graphics move_to and line_to interfaces document
             - https://bit.ly/3eybhEP
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.line_to, locals_=locals(),
                 module_name=__name__, class_=Graphics):
@@ -290,7 +300,7 @@ class Graphics(
             return self._current_line
 
     def move_to(
-            self, x: Union[int, ap.Int], y: Union[int, ap.Int]) -> Polyline:
+            self, x: Union[int, Int], y: Union[int, Int]) -> Polyline:
         """
         Move a line position to specified point.
 
@@ -335,10 +345,10 @@ class Graphics(
 
     def draw_line(
             self,
-            x_start: Union[int, ap.Int],
-            y_start: Union[int, ap.Int],
-            x_end: Union[int, ap.Int],
-            y_end: Union[int, ap.Int]) -> Line:
+            x_start: Union[int, Int],
+            y_start: Union[int, Int],
+            x_end: Union[int, Int],
+            y_end: Union[int, Int]) -> Line:
         """
         Draw a normal line vector graphics.
 
@@ -368,6 +378,7 @@ class Graphics(
         - Graphics draw_line interface document
             - https://bit.ly/3ey4pYe
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.draw_line, locals_=locals(),
                 module_name=__name__, class_=Graphics):
@@ -384,11 +395,11 @@ class Graphics(
 
     def draw_dotted_line(
             self,
-            x_start: Union[int, ap.Int],
-            y_start: Union[int, ap.Int],
-            x_end: Union[int, ap.Int],
-            y_end: Union[int, ap.Int],
-            dot_size: Union[int, ap.Int]) -> Line:
+            x_start: Union[int, Int],
+            y_start: Union[int, Int],
+            x_end: Union[int, Int],
+            y_end: Union[int, Int],
+            dot_size: Union[int, Int]) -> Line:
         """
         Draw a dotted line vector graphics.
 
@@ -420,6 +431,7 @@ class Graphics(
         - Graphics draw_dotted_line interface document
             - https://bit.ly/3ig7Tzy
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.draw_dotted_line, locals_=locals(),
                 module_name=__name__, class_=Graphics):
@@ -437,12 +449,12 @@ class Graphics(
 
     def draw_dashed_line(
             self,
-            x_start: Union[int, ap.Int],
-            y_start: Union[int, ap.Int],
-            x_end: Union[int, ap.Int],
-            y_end: Union[int, ap.Int],
-            dash_size: Union[int, ap.Int],
-            space_size: Union[int, ap.Int]) -> Line:
+            x_start: Union[int, Int],
+            y_start: Union[int, Int],
+            x_end: Union[int, Int],
+            y_end: Union[int, Int],
+            dash_size: Union[int, Int],
+            space_size: Union[int, Int]) -> Line:
         """
         Draw a dashed line vector graphics.
 
@@ -476,6 +488,7 @@ class Graphics(
         - Graphics draw_dashed_line interface document
             - https://bit.ly/3ewoMF8
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.draw_dashed_line, locals_=locals(),
                 module_name=__name__, class_=Graphics):
@@ -494,12 +507,12 @@ class Graphics(
 
     def draw_round_dotted_line(
             self,
-            x_start: Union[int, ap.Int],
-            y_start: Union[int, ap.Int],
-            x_end: Union[int, ap.Int],
-            y_end: Union[int, ap.Int],
-            round_size: Union[int, ap.Int],
-            space_size: Union[int, ap.Int]) -> Line:
+            x_start: Union[int, Int],
+            y_start: Union[int, Int],
+            x_end: Union[int, Int],
+            y_end: Union[int, Int],
+            round_size: Union[int, Int],
+            space_size: Union[int, Int]) -> Line:
         """
         Draw a round dotted line vector graphics.
 
@@ -533,6 +546,7 @@ class Graphics(
         - Graphics draw_round_dotted_line interface document
             - https://bit.ly/3ri985m
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.draw_round_dotted_line, locals_=locals(),
                 module_name=__name__, class_=Graphics):
@@ -551,13 +565,13 @@ class Graphics(
 
     def draw_dash_dotted_line(
             self,
-            x_start: Union[int, ap.Int],
-            y_start: Union[int, ap.Int],
-            x_end: Union[int, ap.Int],
-            y_end: Union[int, ap.Int],
-            dot_size: Union[int, ap.Int],
-            dash_size: Union[int, ap.Int],
-            space_size: Union[int, ap.Int]) -> Line:
+            x_start: Union[int, Int],
+            y_start: Union[int, Int],
+            x_end: Union[int, Int],
+            y_end: Union[int, Int],
+            dot_size: Union[int, Int],
+            dash_size: Union[int, Int],
+            space_size: Union[int, Int]) -> Line:
         """
         Draw a dash dotted (1-dot chain) line vector graphics.
 
@@ -588,6 +602,7 @@ class Graphics(
         - Graphics draw_dash_dotted_line interface document
             - https://bit.ly/3wKRtUZ
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.draw_dash_dotted_line, locals_=locals(),
                 module_name=__name__, class_=Graphics):
@@ -607,7 +622,7 @@ class Graphics(
             return line
 
     def draw_polygon(
-            self, points: Union[List[Point2D], ap.Array[Point2D]]) -> Polygon:
+            self, points: Union[List[Point2D], Array[Point2D]]) -> Polygon:
         """
         Draw a polygon vector graphics. This is similar to Polyline
         class (created by move_to or line_to, or other interface),
@@ -628,6 +643,7 @@ class Graphics(
         - Graphics draw_polygon interface document
             - https://bit.ly/3wHVZUk
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.draw_polygon, locals_=locals(),
                 module_name=__name__, class_=Graphics):
@@ -651,6 +667,7 @@ class Graphics(
         path : Path
             Created path graphics instance.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.draw_path, locals_=locals(),
                 module_name=__name__, class_=Graphics):

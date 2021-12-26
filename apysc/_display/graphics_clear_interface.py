@@ -4,7 +4,10 @@
 
 from typing import Optional
 
-import apysc as ap
+from apysc._type.string import String
+from apysc._type.number import Number
+from apysc._type.int import Int
+from apysc._type.array import Array
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
 from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dot_setting import LineDotSetting
@@ -14,15 +17,15 @@ from apysc._display.polyline import Polyline
 
 class GraphicsClearInterface:
 
-    _fill_color: ap.String
-    _fill_alpha: ap.Number
-    _line_color: ap.String
-    _line_thickness: ap.Int
-    _line_alpha: ap.Number
-    _children: ap.Array
+    _fill_color: String
+    _fill_alpha: Number
+    _line_color: String
+    _line_thickness: Int
+    _line_alpha: Number
+    _children: Array
     _current_line: Optional[Polyline]
-    _line_cap: ap.String
-    _line_joints: ap.String
+    _line_cap: String
+    _line_joints: String
     _line_dot_setting: Optional[LineDotSetting]
     _line_dash_setting: Optional[LineDashSetting]
     _line_round_dot_setting: Optional[LineRoundDotSetting]

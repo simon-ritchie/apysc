@@ -14,7 +14,7 @@ Mainly following interfaces are defined.
 from typing import Any
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._type.number_value_interface import NumberValueInterface
 
 
@@ -34,6 +34,7 @@ def to_int_from_float(
     int_val : int or Int
         Converted integer value.
     """
+    import apysc as ap
     with ap.DebugInfo(
             callable_=to_int_from_float, locals_=locals(),
             module_name=__name__):
@@ -60,6 +61,7 @@ def to_float_from_int(
     float_val : float or Number
         Converted float value.
     """
+    import apysc as ap
     with ap.DebugInfo(
             callable_=to_float_from_int, locals_=locals(),
             module_name=__name__):
@@ -70,7 +72,7 @@ def to_float_from_int(
         return float(int_or_float)
 
 
-def to_bool_from_int(*, integer: Union[int, ap.Int]) -> bool:
+def to_bool_from_int(*, integer: Union[int, Int]) -> bool:
     """
     Convert int value to bool.
 
@@ -89,6 +91,7 @@ def to_bool_from_int(*, integer: Union[int, ap.Int]) -> bool:
     ValueError
         If argument value isn't zero or one.
     """
+    import apysc as ap
     with ap.DebugInfo(
             callable_=to_bool_from_int, locals_=locals(),
             module_name=__name__):

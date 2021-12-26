@@ -3,11 +3,14 @@
 
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
+from apysc._type.number import Number
+from apysc._type.string import String
+from apysc._type.boolean import Boolean
 
 
 def get_copied_int_from_builtin_val(
-        *, integer: Union[int, ap.Int]) -> ap.Int:
+        *, integer: Union[int, Int]) -> Int:
     """
     Get a copied Int value from a Python built-in int.
 
@@ -21,6 +24,7 @@ def get_copied_int_from_builtin_val(
     copied : Int
         Copied Int value.
     """
+    import apysc as ap
     with ap.DebugInfo(
             callable_=get_copied_int_from_builtin_val, locals_=locals(),
             module_name=__name__):
@@ -32,7 +36,7 @@ def get_copied_int_from_builtin_val(
 
 
 def get_copied_number_from_builtin_val(
-        *, float_or_num: Union[float, ap.Number]) -> ap.Number:
+        *, float_or_num: Union[float, Number]) -> Number:
     """
     Get a copied number value from a Python built-in float.
 
@@ -46,6 +50,7 @@ def get_copied_number_from_builtin_val(
     num : Number
         Copied Number value.
     """
+    import apysc as ap
     with ap.DebugInfo(
             callable_=get_copied_number_from_builtin_val, locals_=locals(),
             module_name=__name__):
@@ -57,7 +62,7 @@ def get_copied_number_from_builtin_val(
 
 
 def get_copied_string_from_builtin_val(
-        *, string: Union[str, ap.String]) -> ap.String:
+        *, string: Union[str, String]) -> String:
     """
     Get a copied String value from a Python built-in str.
 
@@ -71,6 +76,7 @@ def get_copied_string_from_builtin_val(
     copied : String
         Copied String value.
     """
+    import apysc as ap
     with ap.DebugInfo(
             callable_=get_copied_string_from_builtin_val, locals_=locals(),
             module_name=__name__):
@@ -82,7 +88,7 @@ def get_copied_string_from_builtin_val(
 
 
 def get_copied_boolean_from_builtin_val(
-        *, bool_val: Union[bool, ap.Boolean]) -> ap.Boolean:
+        *, bool_val: Union[bool, Boolean]) -> Boolean:
     """
     Get a copied Boolean value from a Python built-in bool.
 
@@ -96,6 +102,7 @@ def get_copied_boolean_from_builtin_val(
     copied : Boolean
         Copied Boolean value.
     """
+    import apysc as ap
     with ap.DebugInfo(
             callable_=get_copied_boolean_from_builtin_val, locals_=locals(),
             module_name=__name__):

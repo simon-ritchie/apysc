@@ -5,13 +5,13 @@ from typing import Any
 from typing import Dict
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._type.dictionary_structure import DictionaryStructure
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
-_int = Union[int, ap.Int]
+_Int = Union[int, Int]
 
 
 class Point2D(
@@ -21,10 +21,10 @@ class Point2D(
     2-dimensional geometry point class.
     """
 
-    _x: ap.Int
-    _y: ap.Int
+    _x: Int
+    _y: Int
 
-    def __init__(self, x: _int, y: _int) -> None:
+    def __init__(self, x: _Int, y: _Int) -> None:
         """
         2-dimensional geometry point.
 
@@ -35,6 +35,7 @@ class Point2D(
         y : int or Int
             Y-coordinate.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=Point2D):
@@ -58,6 +59,7 @@ class Point2D(
         """
         Append constructor expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_constructor_expression,
                 locals_=locals(),
@@ -69,7 +71,7 @@ class Point2D(
             ap.append_js_expression(expression=expression)
 
     @property
-    def x(self) -> ap.Int:
+    def x(self) -> Int:
         """
         X-coordinate property.
 
@@ -78,6 +80,7 @@ class Point2D(
         x : Int
             X-coordinate.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='x', locals_=locals(),
                 module_name=__name__, class_=Point2D):
@@ -86,7 +89,7 @@ class Point2D(
             return x
 
     @x.setter
-    def x(self, value: ap.Int) -> None:
+    def x(self, value: Int) -> None:
         """
         Update x-coordinate property.
 
@@ -95,6 +98,7 @@ class Point2D(
         value : Int
             X-coordinate to set.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='x', locals_=locals(),
                 module_name=__name__, class_=Point2D):
@@ -106,7 +110,7 @@ class Point2D(
             self._x._append_incremental_calc_substitution_expression()
             self._append_x_setter_expression(value=value)
 
-    def _append_x_getter_expression(self, *, x: ap.Int) -> None:
+    def _append_x_getter_expression(self, *, x: Int) -> None:
         """
         Append x property getter expression.
 
@@ -115,6 +119,7 @@ class Point2D(
         x : Int
             Target x value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_x_getter_expression, locals_=locals(),
                 module_name=__name__, class_=Point2D):
@@ -124,7 +129,7 @@ class Point2D(
             )
             ap.append_js_expression(expression=expression)
 
-    def _append_x_setter_expression(self, *, value: ap.Int) -> None:
+    def _append_x_setter_expression(self, *, value: Int) -> None:
         """
         Append x property setter expression.
 
@@ -133,6 +138,7 @@ class Point2D(
         value : Int
             X-coordinate to set.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_x_setter_expression, locals_=locals(),
                 module_name=__name__, class_=Point2D):
@@ -142,7 +148,7 @@ class Point2D(
             ap.append_js_expression(expression=expression)
 
     @property
-    def y(self) -> ap.Int:
+    def y(self) -> Int:
         """
         Y-coordinate property.
 
@@ -151,6 +157,7 @@ class Point2D(
         y : Int
             Y-coordinate.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='y', locals_=locals(),
                 module_name=__name__, class_=Point2D):
@@ -159,7 +166,7 @@ class Point2D(
             return y
 
     @y.setter
-    def y(self, value: ap.Int) -> None:
+    def y(self, value: Int) -> None:
         """
         Update y-coordinate property.
 
@@ -180,7 +187,7 @@ class Point2D(
             self._y._append_incremental_calc_substitution_expression()
             self._append_y_setter_expression(value=value)
 
-    def _append_y_getter_expression(self, *, y: ap.Int) -> None:
+    def _append_y_getter_expression(self, *, y: Int) -> None:
         """
         Append y property getter expression.
 
@@ -189,6 +196,7 @@ class Point2D(
         y : Int
             Target y value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_y_getter_expression, locals_=locals(),
                 module_name=__name__, class_=Point2D):
@@ -198,7 +206,7 @@ class Point2D(
             )
             ap.append_js_expression(expression=expression)
 
-    def _append_y_setter_expression(self, *, value: ap.Int) -> None:
+    def _append_y_setter_expression(self, *, value: Int) -> None:
         """
         Append y property setter expression.
 
@@ -207,6 +215,7 @@ class Point2D(
         value : Int
             Y-coordinate to set.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_y_setter_expression,
                 locals_=locals(),
@@ -230,6 +239,7 @@ class Point2D(
         result : Boolean
             Comparison result.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__eq__', locals_=locals(),
                 module_name=__name__, class_=Point2D):
@@ -257,6 +267,7 @@ class Point2D(
         result : Boolean
             Comparison result.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__ne__', locals_=locals(),
                 module_name=__name__, class_=Point2D):

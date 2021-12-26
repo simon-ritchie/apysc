@@ -198,6 +198,20 @@ jobs:
       - name: Run the Pyright command
         run: python run_pyright.py
 
+  RunCheckingApyscTopLevelImporting:
+    needs: [CreateCache, SetGlobalConstants]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
+        with:
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
+      - name: Run the checking command
+        run: python check_apysc_top_level_import.py
+
   RunTestsOnPython36AndSaveCoverageAndPassedNum:
     needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
@@ -257,6 +271,7 @@ jobs:
       RunMypy,
       RunNumdoclint,
       RunPyright,
+      RunCheckingApyscTopLevelImporting,
       RunTestsOnPython36AndSaveCoverageAndPassedNum,
       RunTestsOnEachPythonVersion,
       SetGlobalConstants,
@@ -291,6 +306,7 @@ jobs:
       RunMypy,
       RunNumdoclint,
       RunPyright,
+      RunCheckingApyscTopLevelImporting,
       RunTestsOnPython36AndSaveCoverageAndPassedNum,
       RunTestsOnEachPythonVersion,
       SetGlobalConstants,
@@ -322,6 +338,7 @@ jobs:
       RunMypy,
       RunNumdoclint,
       RunPyright,
+      RunCheckingApyscTopLevelImporting,
       UpdateReadmeBadgesToCheckingStatus,
       RunTestsOnPython36AndSaveCoverageAndPassedNum,
       RunTestsOnEachPythonVersion,

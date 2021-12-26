@@ -7,8 +7,7 @@ from apysc._display.append_line_point_interface import AppendLinePointInterface
 from apysc._display.line_base import LineBase
 from apysc._geom.point2d import Point2D
 from apysc._type.array import Array
-
-_Graphics = Any
+from apysc._display import graphics
 
 
 class Polygon(LineBase, AppendLinePointInterface):
@@ -22,7 +21,7 @@ class Polygon(LineBase, AppendLinePointInterface):
     """
 
     def __init__(
-            self, *, parent: _Graphics,
+            self, *, parent: 'graphics.Graphics',
             points: Array[Point2D]) -> None:
         """
         Create a polygon vector graphic. This is similar to Polyline

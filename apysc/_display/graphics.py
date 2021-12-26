@@ -15,7 +15,7 @@ from apysc._display.graphics_clear_interface import GraphicsClearInterface
 from apysc._display import line as _line
 from apysc._display.line_style_interface import LineStyleInterface
 from apysc._display import path as _path
-from apysc._display.polygon import Polygon
+from apysc._display import polygon as _poly
 from apysc._display.polyline import Polyline
 from apysc._display.rectangle import Rectangle
 from apysc._geom.path_data_base import PathDataBase
@@ -623,7 +623,8 @@ class Graphics(
             return line
 
     def draw_polygon(
-            self, points: Union[List[Point2D], Array[Point2D]]) -> Polygon:
+            self,
+            points: Union[List[Point2D], Array[Point2D]]) -> '_poly.Polygon':
         """
         Draw a polygon vector graphics. This is similar to Polyline
         class (created by move_to or line_to, or other interface),
@@ -650,7 +651,8 @@ class Graphics(
                 module_name=__name__, class_=Graphics):
             if isinstance(points, list):
                 points = ap.Array(points)
-            polygon: Polygon = Polygon(parent=self, points=points)
+            polygon: _poly.Polygon = _poly.Polygon(
+                parent=self, points=points)
             self.add_child(polygon)
             return polygon
 

@@ -11,12 +11,11 @@ from apysc._event.event import Event
 from apysc._event.mouse_event_type import MouseEventType
 from apysc._type.variable_name_interface import VariableNameInterface
 
-Event_ = Any
 _Handler = Callable[[Any, Any], None]
 
 
 class HandlerData(TypedDict):
-    handler: Callable[[Event_, Any], None]
+    handler: Callable[[Event, Any], None]
     options: Any
 
 

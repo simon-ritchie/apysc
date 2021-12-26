@@ -14,7 +14,7 @@ from apysc._display import ellipse as _ellipse
 from apysc._display.graphics_clear_interface import GraphicsClearInterface
 from apysc._display import line as _line
 from apysc._display.line_style_interface import LineStyleInterface
-from apysc._display.path import Path
+from apysc._display import path as _path
 from apysc._display.polygon import Polygon
 from apysc._display.polyline import Polyline
 from apysc._display.rectangle import Rectangle
@@ -654,7 +654,8 @@ class Graphics(
             self.add_child(polygon)
             return polygon
 
-    def draw_path(self, path_data_list: List[PathDataBase]) -> Path:
+    def draw_path(
+            self, path_data_list: List[PathDataBase]) -> '_path.Path':
         """
         Draw a path vector graphics.
 
@@ -672,7 +673,7 @@ class Graphics(
         with ap.DebugInfo(
                 callable_=self.draw_path, locals_=locals(),
                 module_name=__name__, class_=Graphics):
-            path: Path = Path(
+            path: _path.Path = _path.Path(
                 parent=self, path_data_list=path_data_list)
             self.add_child(path)
             return path

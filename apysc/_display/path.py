@@ -1,13 +1,11 @@
 """Implementations of the Path class.
 """
 
-from typing import Any
 from typing import List
 
 from apysc._display.line_base import LineBase
 from apysc._geom.path_data_base import PathDataBase
-
-_Graphics = Any
+from apysc._display import graphics
 
 
 class Path(LineBase):
@@ -20,7 +18,7 @@ class Path(LineBase):
     def __init__(
             self,
             *,
-            parent: _Graphics,
+            parent: 'graphics.Graphics',
             path_data_list: List[PathDataBase]) -> None:
         """
         Create a path vector graphics.

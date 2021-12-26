@@ -4,9 +4,9 @@
 from typing import Any
 from typing import TypeVar
 
-import apysc as ap
+from apysc._type.string import String
 
-StrOrString = TypeVar('StrOrString', str, ap.String)
+StrOrString = TypeVar('StrOrString', str, String)
 
 
 def complement_hex_color(

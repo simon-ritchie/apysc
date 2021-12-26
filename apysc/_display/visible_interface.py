@@ -3,7 +3,7 @@
 
 from typing import Dict
 
-import apysc as ap
+from apysc._type.boolean import Boolean
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -12,7 +12,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 class VisibleInterface(
         VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
-    _visible: ap.Boolean
+    _visible: Boolean
 
     def _initialize_visible_if_not_initialized(self) -> None:
         """
@@ -20,7 +20,7 @@ class VisibleInterface(
         """
         if hasattr(self, '_visible'):
             return
-        self._visible = ap.Boolean(True)
+        self._visible = Boolean(True)
 
         self._append_visible_attr_linking_setting()
 
@@ -28,6 +28,7 @@ class VisibleInterface(
         """
         Append a visible attribute linking setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_visible_attr_linking_setting,
                 locals_=locals(),
@@ -38,7 +39,7 @@ class VisibleInterface(
                 attr=self._visible, attr_name='visible')
 
     @property
-    def visible(self) -> ap.Boolean:
+    def visible(self) -> Boolean:
         """
         Get a visibility of this instance.
 
@@ -47,6 +48,7 @@ class VisibleInterface(
         result : Boolean
             If this instance is visible, True will be returned.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='visible', locals_=locals(),
                 module_name=__name__, class_=VisibleInterface):
@@ -55,7 +57,7 @@ class VisibleInterface(
             return value_util.get_copy(value=self._visible)
 
     @visible.setter
-    def visible(self, value: ap.Boolean) -> None:
+    def visible(self, value: Boolean) -> None:
         """
         Update visibility of this instance.
 
@@ -64,6 +66,7 @@ class VisibleInterface(
         value : Boolean
             Boolean value to set.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='visible', locals_=locals(),
                 module_name=__name__, class_=VisibleInterface):
@@ -80,6 +83,7 @@ class VisibleInterface(
         """
         Append visible property updating expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_visible_update_expression,
                 locals_=locals(),

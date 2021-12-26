@@ -4,7 +4,7 @@
 from typing import Dict
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._animation.animation_width_interface import AnimationWidthInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
@@ -13,7 +13,7 @@ from apysc._type.revert_interface import RevertInterface
 class WidthInterface(
         AnimationWidthInterface, RevertInterface, AttrLinkingInterface):
 
-    _width: ap.Int
+    _width: Int
 
     def _initialize_width_if_not_initialized(self) -> None:
         """
@@ -21,7 +21,7 @@ class WidthInterface(
         """
         if hasattr(self, '_width'):
             return
-        self._width = ap.Int(0)
+        self._width = Int(0)
 
         self._append_width_attr_linking_setting()
 
@@ -29,6 +29,7 @@ class WidthInterface(
         """
         Append a width attribute linking setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_width_attr_linking_setting,
                 locals_=locals(),
@@ -39,7 +40,7 @@ class WidthInterface(
                 attr=self._width, attr_name='width')
 
     @property
-    def width(self) -> ap.Int:
+    def width(self) -> Int:
         """
         Get this instance's width.
 
@@ -48,6 +49,7 @@ class WidthInterface(
         width : Int
             This instance's width.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='width', locals_=locals(),
                 module_name=__name__, class_=WidthInterface):
@@ -57,7 +59,7 @@ class WidthInterface(
             return width
 
     @width.setter
-    def width(self, value: ap.Int) -> None:
+    def width(self, value: Int) -> None:
         """
         Update this instance's width.
 
@@ -66,6 +68,7 @@ class WidthInterface(
         value : Int
             Width value to set.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='width', locals_=locals(),
                 module_name=__name__, class_=WidthInterface):
@@ -79,6 +82,7 @@ class WidthInterface(
         """
         Append width updating expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_width_update_expression,
                 locals_=locals(),
@@ -92,7 +96,7 @@ class WidthInterface(
             ap.append_js_expression(expression=expression)
 
     def _update_width_and_skip_appending_exp(
-            self, *, value: Union[int, ap.Int]) -> None:
+            self, *, value: Union[int, Int]) -> None:
         """
         Update width value and skip appending expression.
 
@@ -108,7 +112,7 @@ class WidthInterface(
         size_validation.validate_size_is_int(size=value)
         size_validation.validate_size_is_gte_zero(size=value)
         if isinstance(value, int):
-            value = ap.Int(value)
+            value = Int(value)
         self._width = value
 
     _width_snapshots: Dict[str, int]

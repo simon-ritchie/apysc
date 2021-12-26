@@ -3,7 +3,7 @@
 
 from typing import Dict
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._animation.animation_move_interface import AnimationMoveInterface
 from apysc._animation.animation_y_interface import AnimationYInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
@@ -14,7 +14,7 @@ class YInterface(
         AnimationYInterface, AnimationMoveInterface, RevertInterface,
         AttrLinkingInterface):
 
-    _y: ap.Int
+    _y: Int
 
     def _initialize_y_if_not_initialized(self) -> None:
         """
@@ -22,7 +22,7 @@ class YInterface(
         """
         if hasattr(self, '_y'):
             return
-        self._y = ap.Int(0)
+        self._y = Int(0)
 
         self._append_y_attr_linking_setting()
 
@@ -30,6 +30,7 @@ class YInterface(
         """
         Append a y attribute linking setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_y_attr_linking_setting,
                 locals_=locals(),
@@ -40,7 +41,7 @@ class YInterface(
                 attr=self._y, attr_name='y')
 
     @property
-    def y(self) -> ap.Int:
+    def y(self) -> Int:
         """
         Get a y-coordinate.
 
@@ -54,6 +55,7 @@ class YInterface(
         - Display object x and y interfaces document
             - https://bit.ly/2ToA5ba
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='y', locals_=locals(),
                 module_name=__name__, class_=YInterface):
@@ -63,7 +65,7 @@ class YInterface(
             return y
 
     @y.setter
-    def y(self, value: ap.Int) -> None:
+    def y(self, value: Int) -> None:
         """
         Update y-coordinate.
 
@@ -77,6 +79,7 @@ class YInterface(
         - Display object x and y interfaces document
             - https://bit.ly/2ToA5ba
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='y', locals_=locals(),
                 module_name=__name__, class_=YInterface):
@@ -95,6 +98,7 @@ class YInterface(
         """
         Append y position updating expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_y_update_expression, locals_=locals(),
                 module_name=__name__, class_=YInterface):

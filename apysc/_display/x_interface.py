@@ -3,7 +3,7 @@
 
 from typing import Dict
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._animation.animation_move_interface import AnimationMoveInterface
 from apysc._animation.animation_x_interface import AnimationXInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
@@ -14,7 +14,7 @@ class XInterface(
         AnimationXInterface, AnimationMoveInterface, RevertInterface,
         AttrLinkingInterface):
 
-    _x: ap.Int
+    _x: Int
 
     def _initialize_x_if_not_initialized(self) -> None:
         """
@@ -22,7 +22,7 @@ class XInterface(
         """
         if hasattr(self, '_x'):
             return
-        self._x = ap.Int(0)
+        self._x = Int(0)
 
         self._append_x_attr_linking_setting()
 
@@ -30,6 +30,7 @@ class XInterface(
         """
         Append a x attribute linking setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_x_attr_linking_setting,
                 locals_=locals(),
@@ -40,7 +41,7 @@ class XInterface(
                 attr=self._x, attr_name='x')
 
     @property
-    def x(self) -> ap.Int:
+    def x(self) -> Int:
         """
         Get a x-coordinate.
 
@@ -54,6 +55,7 @@ class XInterface(
         - Display object x and y interfaces document
             - https://bit.ly/2ToA5ba
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='x', locals_=locals(),
                 module_name=__name__, class_=XInterface):
@@ -63,7 +65,7 @@ class XInterface(
             return x
 
     @x.setter
-    def x(self, value: ap.Int) -> None:
+    def x(self, value: Int) -> None:
         """
         Update x-coordinate.
 
@@ -77,6 +79,7 @@ class XInterface(
         - Display object x and y interfaces document
             - https://bit.ly/2ToA5ba
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='x', locals_=locals(),
                 module_name=__name__, class_=XInterface):
@@ -95,6 +98,7 @@ class XInterface(
         """
         Append the x position updating expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_x_update_expression, locals_=locals(),
                 module_name=__name__, class_=XInterface):

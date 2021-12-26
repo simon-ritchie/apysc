@@ -9,8 +9,7 @@ from apysc._display.cy_interface import CyInterface
 from apysc._display.line_base import LineBase
 from apysc._display.radius_interface import RadiusInterface
 from apysc._type.int import Int
-
-_Graphics = Any
+from apysc._display import graphics
 
 
 class Circle(  # type: ignore
@@ -27,7 +26,7 @@ class Circle(  # type: ignore
     def __init__(
             self,
             *,
-            parent: _Graphics,
+            parent: 'graphics.Graphics',
             x: Union[int, Int],
             y: Union[int, Int],
             radius: Union[int, Int]) -> None:

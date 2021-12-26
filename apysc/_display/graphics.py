@@ -8,7 +8,7 @@ from typing import Union
 
 from apysc._display.begin_fill_interface import BeginFillInterface
 from apysc._display.child_interface import ChildInterface
-from apysc._display.circle import Circle
+from apysc._display import circle as _circle
 from apysc._display.display_object import DisplayObject
 from apysc._display.ellipse import Ellipse
 from apysc._display.graphics_clear_interface import GraphicsClearInterface
@@ -193,7 +193,7 @@ class Graphics(
             self,
             x: Union[int, Int],
             y: Union[int, Int],
-            radius: Union[int, Int]) -> Circle:
+            radius: Union[int, Int]) -> '_circle.Circle':
         """
         Draw a circle vector graphics.
 
@@ -220,7 +220,8 @@ class Graphics(
         with ap.DebugInfo(
                 callable_=self.draw_circle, locals_=locals(),
                 module_name=__name__, class_=Graphics):
-            circle: Circle = Circle(parent=self, x=x, y=y, radius=radius)
+            circle: _circle.Circle = _circle.Circle(
+                parent=self, x=x, y=y, radius=radius)
             self.add_child(child=circle)
             return circle
 

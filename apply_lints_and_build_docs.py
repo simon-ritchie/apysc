@@ -248,7 +248,7 @@ def _check_apysc_top_level_importing_process(process: sp.Popen) -> None:
         if 'Traceback' not in line:
             continue
         raise _ApyscTopLevelImportingError(
-            f'There is a invalid top-level apysc import: \n{stdout}')
+            f'There is a invalid top-level apysc import: \n{stdout_str}')
 
 
 class _PyrightError(Exception):

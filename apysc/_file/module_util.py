@@ -12,14 +12,14 @@ Mainly following interfaces are defined:
     - Read a module of the specified module path.
 """
 
+import importlib
 import os
 import subprocess as sp
 from datetime import datetime
 from random import randint
+from types import ModuleType
 from typing import List
 from typing import Optional
-from types import ModuleType
-import importlib
 
 
 def get_module_paths_recursively(

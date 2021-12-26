@@ -6,14 +6,16 @@ Command example:
 $ python check_apysc_top_level_import.py
 """
 
-from logging import Logger
-import os
-from types import ModuleType
-from typing import Any, List, Tuple
-from apysc._file import module_util
 import inspect
+import os
+from logging import Logger
+from types import ModuleType
+from typing import Any
+from typing import List
+from typing import Tuple
 
 from apysc._console import loggers
+from apysc._file import module_util
 
 logger: Logger = loggers.get_info_logger()
 

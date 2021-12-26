@@ -8,10 +8,13 @@ from typing import Dict
 from typing import List
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
+from apysc._type.string import String
+from apysc._type.number import Number
+from apysc._type.boolean import Boolean
 
 _AttrName = str
-_Attr = Union[ap.Int, ap.Number, ap.String, ap.Boolean]
+_Attr = Union[Int, Number, String, Boolean]
 
 
 class AttrLinkingInterface:
@@ -92,6 +95,7 @@ class AttrLinkingInterface:
         attr_name : str
             Target attribute name.
         """
+        import apysc as ap
         self._initialize_attr_linking_stack(attr_name=attr_name)
         if not self._attr_linking_stack:
             return

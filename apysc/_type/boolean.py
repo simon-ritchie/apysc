@@ -5,7 +5,7 @@ from typing import Any
 from typing import Dict
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.revert_interface import RevertInterface
@@ -22,10 +22,10 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         - https://simon-ritchie.github.io/apysc/boolean.html
     """
 
-    _initial_value: Union[bool, int, ap.Int, 'Boolean']
+    _initial_value: Union[bool, int, Int, 'Boolean']
     _value: bool
 
-    def __init__(self, value: Union[bool, int, ap.Int, 'Boolean']) -> None:
+    def __init__(self, value: Union[bool, int, Int, 'Boolean']) -> None:
         """
         Boolean class for apysc library.
 
@@ -40,6 +40,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         - Boolean document
             - https://simon-ritchie.github.io/apysc/boolean.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=Boolean):
@@ -61,7 +62,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
                 self._append_constructor_expression()
 
     def _get_bool_from_arg_value(
-            self, *, value: Union[bool, int, ap.Int, 'Boolean']) -> bool:
+            self, *, value: Union[bool, int, Int, 'Boolean']) -> bool:
         """
         Get bool value from specified argument value.
 
@@ -76,6 +77,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         result : bool
             Converted boolean value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._get_bool_from_arg_value,
                 locals_=locals(),
@@ -97,6 +99,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         """
         Append constructor expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_constructor_expression,
                 locals_=locals(),
@@ -113,7 +116,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             ap.append_js_expression(expression=expression)
 
     @property
-    def value(self) -> Union[bool, int, ap.Int, 'Boolean']:
+    def value(self) -> Union[bool, int, Int, 'Boolean']:
         """
         Get a current boolean value.
 
@@ -130,7 +133,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         return self._value
 
     @value.setter
-    def value(self, value: Union[bool, int, ap.Int, 'Boolean']) -> None:
+    def value(self, value: Union[bool, int, Int, 'Boolean']) -> None:
         """
         Set boolean value.
 
@@ -144,6 +147,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         apysc basic data classes common value interface
             https://bit.ly/3Be1aij
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='value', locals_=locals(),
                 module_name=__name__, class_=Boolean):
@@ -156,7 +160,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
                 self._append_value_setter_expression(value=self._value)
 
     def _append_value_setter_expression(
-            self, *, value: Union[bool, int, ap.Int, 'Boolean']) -> None:
+            self, *, value: Union[bool, int, Int, 'Boolean']) -> None:
         """
         Append value's setter expression.
 
@@ -165,6 +169,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         value : bool or VariableNameInterface
             Any value to set.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_value_setter_expression,
                 locals_=locals(),
@@ -181,7 +186,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
             ap.append_js_expression(expression=expression)
 
     def _set_value_and_skip_expression_appending(
-            self, *, value: Union[bool, int, ap.Int, 'Boolean']) -> None:
+            self, *, value: Union[bool, int, Int, 'Boolean']) -> None:
         """
         Update value attribute and skip expression appending.
 
@@ -261,6 +266,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         result : Boolean
             Comparison result.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__eq__', locals_=locals(),
                 module_name=__name__, class_=Boolean):
@@ -294,6 +300,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         ValueError
             If other value type is not Boolean, bool, Int, and int.
         """
+        import apysc as ap
         ACCEPTABLE_TYPES: tuple = (Boolean, bool, ap.Int, int)
         if isinstance(other, ACCEPTABLE_TYPES):
             return
@@ -315,6 +322,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         other : Boolean or Int
             Other value to compare.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_eq_expression, locals_=locals(),
                 module_name=__name__, class_=Boolean):
@@ -341,6 +349,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         result : Boolean
             Comparison result.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__ne__', locals_=locals(),
                 module_name=__name__, class_=Boolean):
@@ -363,6 +372,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         other : Boolean or Int
             Other value to compare.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_ne_expression, locals_=locals(),
                 module_name=__name__, class_=Boolean):
@@ -385,6 +395,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         result : Boolean
             Not condition Boolean value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='not_', locals_=locals(),
                 module_name=__name__, class_=Boolean):
@@ -402,6 +413,7 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         result : Boolean
             Result Boolean value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_not_prop_expression,
                 locals_=locals(),

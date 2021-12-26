@@ -7,7 +7,11 @@ from typing import Generic
 from typing import TypeVar
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
+from apysc._type.string import String
+from apysc._type.number import Number
+from apysc._type.boolean import Boolean
+from apysc._type.any_value import AnyValue
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.dictionary_structure import DictionaryStructure
@@ -42,6 +46,7 @@ class Dictionary(
         value : dict or Dictionary
             Initial dictionary value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=Dictionary):
@@ -149,6 +154,7 @@ class Dictionary(
         apysc basic data classes common value interface
             https://bit.ly/3Be1aij
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='value', locals_=locals(),
                 module_name=__name__, class_=Dictionary):
@@ -166,6 +172,7 @@ class Dictionary(
         value : dict or Dictionary.
             Dictionary value to set.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_value_setter_expression,
                 locals_=locals(),
@@ -233,7 +240,7 @@ class Dictionary(
         return repr_str
 
     @property
-    def length(self) -> ap.Int:
+    def length(self) -> Int:
         """
         Get length of this dictionary values.
 
@@ -242,6 +249,7 @@ class Dictionary(
         length : Int
             This dictionary value's length.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='length', locals_=locals(),
                 module_name=__name__, class_=Dictionary):
@@ -249,7 +257,7 @@ class Dictionary(
             self._append_length_expression(length=length)
             return length
 
-    def _append_length_expression(self, *, length: ap.Int) -> None:
+    def _append_length_expression(self, *, length: Int) -> None:
         """
         Append length method expression.
 
@@ -258,6 +266,7 @@ class Dictionary(
         length : Int
             Created length Int variable.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_length_expression, locals_=locals(),
                 module_name=__name__, class_=Dictionary):
@@ -289,6 +298,7 @@ class Dictionary(
         value : *
             Specified key's value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__getitem__', locals_=locals(),
                 module_name=__name__, class_=Dictionary):
@@ -320,7 +330,7 @@ class Dictionary(
         """
         if isinstance(key, ExpressionString):
             return key.value
-        if isinstance(key, (ap.String, ap.Int, ap.Number)):
+        if isinstance(key, (String, Int, Number)):
             return key._value
         key_: _BuiltinKeys = key  # type: ignore
         return key_
@@ -337,6 +347,7 @@ class Dictionary(
         value : *
             Specified key's value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_getitem_expression, locals_=locals(),
                 module_name=__name__, class_=Dictionary):
@@ -368,7 +379,7 @@ class Dictionary(
         """
         if isinstance(
                 key,
-                (str, ap.String, int, ap.Int, float, ap.Number,
+                (str, String, int, Int, float, Number,
                  ExpressionString)):
             return
         raise ValueError(
@@ -387,6 +398,7 @@ class Dictionary(
         value : *
             Any value to set.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__setitem__', locals_=locals(),
                 module_name=__name__, class_=Dictionary):
@@ -406,6 +418,7 @@ class Dictionary(
         value : *
             Any value to set.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_setitem_expression, locals_=locals(),
                 module_name=__name__, class_=Dictionary):
@@ -427,6 +440,7 @@ class Dictionary(
         key : _K
             Dictionary key to delete.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__delitem__', locals_=locals(),
                 module_name=__name__, class_=Dictionary):
@@ -445,6 +459,7 @@ class Dictionary(
         key : _K
             Dictionary key to delete.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_delitem_expression, locals_=locals(),
                 module_name=__name__, class_=Dictionary):
@@ -469,6 +484,7 @@ class Dictionary(
         result : Boolean
             Comparison result.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__eq__', locals_=locals(),
                 module_name=__name__, class_=Dictionary):
@@ -483,7 +499,7 @@ class Dictionary(
             return result
 
     def _append_eq_expression(
-            self, *, result: ap.Boolean,
+            self, *, result: Boolean,
             other: VariableNameInterface) -> None:
         """
         Append an __eq__ expression.
@@ -495,6 +511,7 @@ class Dictionary(
         other : Dictionary
             Dictionary other value to compare.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_eq_expression, locals_=locals(),
                 module_name=__name__, class_=Dictionary):
@@ -518,6 +535,7 @@ class Dictionary(
         result : Boolean
             Comparison result.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__ne__', locals_=locals(),
                 module_name=__name__, class_=Dictionary):
@@ -530,7 +548,7 @@ class Dictionary(
             return result
 
     def _append_ne_expression(
-            self, *, result: ap.Boolean,
+            self, *, result: Boolean,
             other: VariableNameInterface) -> None:
         """
         Append a __ne__ expression.
@@ -542,6 +560,7 @@ class Dictionary(
         other : Dictionary
             Dictionary other value to compare.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_ne_expression, locals_=locals(),
                 module_name=__name__, class_=Dictionary):
@@ -598,9 +617,10 @@ class Dictionary(
             String, and so on) are necessary.
         """
         from apysc._type import value_util
+        import apysc as ap
         key_str: str = value_util.get_value_str_for_expression(value=key)
         if not isinstance(result_value, VariableNameInterface):
-            result_value = ap.AnyValue(value=None)
+            result_value = AnyValue(value=None)
         result_value_str: str = value_util.get_value_str_for_expression(
             value=result_value)
         default_value_str: str = value_util.get_value_str_for_expression(

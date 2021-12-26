@@ -14,7 +14,7 @@ from typing import List
 from typing import TypeVar
 from typing import Union
 
-import apysc as ap
+from apysc._type.array import Array
 
 
 def get_value_str_for_expression(*, value: Any) -> str:
@@ -104,7 +104,7 @@ def _validate_dict_key_type(*, key: Any) -> None:
 
 
 def _get_value_str_from_iterable(
-        *, value: Union[list, tuple, ap.Array]) -> str:
+        *, value: Union[list, tuple, Array]) -> str:
     """
     Get a value string from iterable object.
 
@@ -119,7 +119,7 @@ def _get_value_str_from_iterable(
         Converted string, e.g., '[10, "Hello!", true, any_variable]'.
     """
     from apysc._type.variable_name_interface import VariableNameInterface
-    if isinstance(value, ap.Array):
+    if isinstance(value, Array):
         value_: List[Any] = value.value  # type: ignore
     elif isinstance(value, tuple):
         value_ = list(value)
@@ -155,6 +155,7 @@ def get_copy(*, value: T) -> T:
         Copied value. If value is not instance of CopyInterface,
         then argument value will be returned directly.
     """
+    import apysc as ap
     with ap.DebugInfo(
             callable_=get_copy, locals_=locals(),
             module_name=__name__):

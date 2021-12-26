@@ -4,7 +4,9 @@
 from typing import Any
 from typing import Dict
 
-import apysc as ap
+from apysc._type.number import Number
+from apysc._type.dictionary import Dictionary
+from apysc._type.int import Int
 from apysc._animation.animation_scale_x_from_point_interface import \
     AnimationScaleXFromPointInterface
 from apysc._type.revert_interface import RevertInterface
@@ -13,7 +15,7 @@ from apysc._type.revert_interface import RevertInterface
 class ScaleXFromPointInterface(
         AnimationScaleXFromPointInterface, RevertInterface):
 
-    _scale_x_from_point: ap.Dictionary[str, ap.Number]
+    _scale_x_from_point: Dictionary[str, Number]
 
     def _initialize_scale_x_from_point_if_not_initialized(self) -> None:
         """
@@ -22,9 +24,9 @@ class ScaleXFromPointInterface(
         """
         if hasattr(self, '_scale_x_from_point'):
             return
-        self._scale_x_from_point = ap.Dictionary({})
+        self._scale_x_from_point = Dictionary({})
 
-    def get_scale_x_from_point(self, x: ap.Int) -> ap.Number:
+    def get_scale_x_from_point(self, x: Int) -> Number:
         """
         Get a scale-x value from the given x-coordinate.
 
@@ -43,6 +45,7 @@ class ScaleXFromPointInterface(
         - GraphicsBase scale_from_point interfaces document
             - https://bit.ly/3xRBhlw
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.get_scale_x_from_point, locals_=locals(),
                 module_name=__name__, class_=ScaleXFromPointInterface):
@@ -58,7 +61,7 @@ class ScaleXFromPointInterface(
                 key=key_exp_str, default=default_val)
             return scale_x
 
-    def set_scale_x_from_point(self, scale_x: ap.Number, x: ap.Int) -> None:
+    def set_scale_x_from_point(self, scale_x: Number, x: Int) -> None:
         """
         Update a scale-x value from the given x-coordinate.
 
@@ -74,6 +77,7 @@ class ScaleXFromPointInterface(
         - GraphicsBase scale_from_point interfaces document
             - https://bit.ly/3xRBhlw
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.set_scale_x_from_point, locals_=locals(),
                 module_name=__name__, class_=ScaleXFromPointInterface):
@@ -89,7 +93,7 @@ class ScaleXFromPointInterface(
             self._append_scale_x_from_point_update_expression(x=x)
 
     def _append_scale_x_from_point_update_expression(
-            self, *, x: ap.Int) -> None:
+            self, *, x: Int) -> None:
         """
         Append the scale-x from the specified x-coordinate updating
         expression.
@@ -99,6 +103,7 @@ class ScaleXFromPointInterface(
         x : Int
             X-coordinate.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_scale_x_from_point_update_expression,
                 locals_=locals(),

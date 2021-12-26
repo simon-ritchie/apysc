@@ -4,7 +4,7 @@ interface.
 
 from typing import Dict
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._animation.animation_rotation_around_center_interface import \
     AnimationRotationAroundCenterInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
@@ -15,7 +15,7 @@ class RotationAroundCenterInterface(
         AnimationRotationAroundCenterInterface, RevertInterface,
         AttrLinkingInterface):
 
-    _rotation_around_center: ap.Int
+    _rotation_around_center: Int
 
     def _initialize_rotation_around_center_if_not_initialized(self) -> None:
         """
@@ -24,7 +24,7 @@ class RotationAroundCenterInterface(
         """
         if hasattr(self, '_rotation_around_center'):
             return
-        self._rotation_around_center = ap.Int(0)
+        self._rotation_around_center = Int(0)
 
         self._append_rotation_around_center_attr_linking_setting()
 
@@ -32,6 +32,7 @@ class RotationAroundCenterInterface(
         """
         Append a rotation around center attribute linking setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.
                 _append_rotation_around_center_attr_linking_setting,
@@ -45,7 +46,7 @@ class RotationAroundCenterInterface(
                 attr_name='rotation_around_center')
 
     @property
-    def rotation_around_center(self) -> ap.Int:
+    def rotation_around_center(self) -> Int:
         """
         Get a rotation value around the center of this instance.
 
@@ -59,6 +60,7 @@ class RotationAroundCenterInterface(
         - GraphicsBase rotation_around_center interface document
             - https://bit.ly/3AjeSPr
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='rotation_around_center', locals_=locals(),
                 module_name=__name__, class_=RotationAroundCenterInterface):
@@ -67,7 +69,7 @@ class RotationAroundCenterInterface(
             return value_util.get_copy(value=self._rotation_around_center)
 
     @rotation_around_center.setter
-    def rotation_around_center(self, value: ap.Int) -> None:
+    def rotation_around_center(self, value: Int) -> None:
         """
         Update a rotation value around the center of this instance.
 
@@ -81,6 +83,7 @@ class RotationAroundCenterInterface(
         - GraphicsBase rotation_around_center interface
             - https://bit.ly/3AjeSPr
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='rotation_around_center', locals_=locals(),
                 module_name=__name__, class_=RotationAroundCenterInterface):
@@ -97,7 +100,7 @@ class RotationAroundCenterInterface(
             self._append_rotation_around_center_attr_linking_setting()
 
     def _append_rotation_around_center_update_expression(
-            self, *, before_value: ap.Int) -> None:
+            self, *, before_value: Int) -> None:
         """
         Append the rotation around the center of this instance
         updating expression.
@@ -107,6 +110,7 @@ class RotationAroundCenterInterface(
         before_value : ap.Int
             Before updating value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_rotation_around_center_update_expression,  # noqa
                 locals_=locals(),

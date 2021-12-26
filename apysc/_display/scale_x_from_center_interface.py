@@ -3,7 +3,7 @@
 
 from typing import Dict
 
-import apysc as ap
+from apysc._type.number import Number
 from apysc._animation.animation_scale_x_from_center_interface import \
     AnimationScaleXFromCenterInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
@@ -14,13 +14,14 @@ class ScaleXFromCenterInterface(
         AnimationScaleXFromCenterInterface, RevertInterface,
         AttrLinkingInterface):
 
-    _scale_x_from_center: ap.Number
+    _scale_x_from_center: Number
 
     def _initialize_scale_x_from_center_if_not_initialized(self) -> None:
         """
         Initialize the `_scale_x_from_center` attribute if it hasn't been
         initialized yet.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.
                 _initialize_scale_x_from_center_if_not_initialized,
@@ -36,6 +37,7 @@ class ScaleXFromCenterInterface(
         """
         Append a scale-x attribute linking setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.
                 _append_scale_x_from_center_attr_linking_setting,
@@ -49,7 +51,7 @@ class ScaleXFromCenterInterface(
                 attr_name='scale_x_from_center')
 
     @property
-    def scale_x_from_center(self) -> ap.Number:
+    def scale_x_from_center(self) -> Number:
         """
         Get a scale-x value from the center of this instance.
 
@@ -63,6 +65,7 @@ class ScaleXFromCenterInterface(
         - GraphicsBase scale_x_from_center and scale_y_from_center interfaces
             - https://bit.ly/3ityoCX
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='scale_x_from_center', locals_=locals(),
                 module_name=__name__, class_=ScaleXFromCenterInterface):
@@ -71,7 +74,7 @@ class ScaleXFromCenterInterface(
             return value_util.get_copy(value=self._scale_x_from_center)
 
     @scale_x_from_center.setter
-    def scale_x_from_center(self, value: ap.Number) -> None:
+    def scale_x_from_center(self, value: Number) -> None:
         """
         Update a scale-x value from the center of this instance.
 
@@ -85,6 +88,7 @@ class ScaleXFromCenterInterface(
         - GraphicsBase scale_x_from_center and scale_y_from_center interfaces
             - https://bit.ly/3ityoCX
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='scale_x_from_center', locals_=locals(),
                 module_name=__name__, class_=ScaleXFromCenterInterface):
@@ -101,7 +105,7 @@ class ScaleXFromCenterInterface(
             self._append_scale_x_from_center_attr_linking_setting()
 
     def _append_scale_x_from_center_update_expression(
-            self, *, before_value: ap.Number) -> None:
+            self, *, before_value: Number) -> None:
         """
         Append the scale-x from the center of this instance
         updating expression.
@@ -111,6 +115,7 @@ class ScaleXFromCenterInterface(
         before_value : ap.Number
             Before updating value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_scale_x_from_center_update_expression,
                 locals_=locals(),

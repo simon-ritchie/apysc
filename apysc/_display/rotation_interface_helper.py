@@ -3,14 +3,14 @@
 
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._type.expression_string import ExpressionString
 
 
 def get_coordinates_key_for_expression(
         *,
-        x: Union[int, ap.Int],
-        y: Union[int, ap.Int]) -> ExpressionString:
+        x: Union[int, Int],
+        y: Union[int, Int]) -> ExpressionString:
     """
     Get a key string for the expression from the x and y coordinates.
 

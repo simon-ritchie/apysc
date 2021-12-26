@@ -4,13 +4,15 @@
 from enum import Enum
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
+from apysc._type.number import Number
+from apysc._type.dictionary import Dictionary
 from apysc._type.expression_string import ExpressionString
 
 
 def get_coordinate_key_for_expression(
         *,
-        coordinate: Union[int, ap.Int]) -> ExpressionString:
+        coordinate: Union[int, Int]) -> ExpressionString:
     """
     Get a key string for the expression from the x or y coordinate.
 
@@ -41,8 +43,8 @@ class CoordinateType(Enum):
 
 def get_scale_updating_expression(
         *,
-        coordinate: ap.Int,
-        scale_dict: ap.Dictionary[str, ap.Number],
+        coordinate: Int,
+        scale_dict: Dictionary[str, Number],
         interface_variable_name: str,
         coordinate_type: CoordinateType) -> str:
     """

@@ -4,7 +4,8 @@
 from typing import Any
 from typing import Dict
 
-import apysc as ap
+from apysc._type.int import Int
+from apysc._type.dictionary import Dictionary
 from apysc._animation.animation_rotation_around_point_interface import \
     AnimationRotationAroundPointInterface
 from apysc._type.revert_interface import RevertInterface
@@ -13,7 +14,7 @@ from apysc._type.revert_interface import RevertInterface
 class RotationAroundPointInterface(
         AnimationRotationAroundPointInterface, RevertInterface):
 
-    _rotation_around_point: ap.Dictionary[str, ap.Int]
+    _rotation_around_point: Dictionary[str, Int]
 
     def _initialize_rotation_around_point_if_not_initialized(self) -> None:
         """
@@ -22,9 +23,9 @@ class RotationAroundPointInterface(
         """
         if hasattr(self, '_rotation_around_point'):
             return
-        self._rotation_around_point = ap.Dictionary({})
+        self._rotation_around_point = Dictionary({})
 
-    def get_rotation_around_point(self, x: ap.Int, y: ap.Int) -> ap.Int:
+    def get_rotation_around_point(self, x: Int, y: Int) -> Int:
         """
         Get a rotation value around the given coordinates.
 
@@ -45,6 +46,7 @@ class RotationAroundPointInterface(
         - GraphicsBase rotate_around_point interfaces document
             - https://bit.ly/37TDwKs
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.get_rotation_around_point, locals_=locals(),
                 module_name=__name__, class_=RotationAroundPointInterface):
@@ -63,7 +65,7 @@ class RotationAroundPointInterface(
             return rotation
 
     def set_rotation_around_point(
-            self, rotation: ap.Int, x: ap.Int, y: ap.Int) -> None:
+            self, rotation: Int, x: Int, y: Int) -> None:
         """
         Update a rotation value around the given coordinates.
 
@@ -81,6 +83,7 @@ class RotationAroundPointInterface(
         - GraphicsBase rotate_around_point interfaces document
             - https://bit.ly/37TDwKs
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.set_rotation_around_point, locals_=locals(),
                 module_name=__name__, class_=RotationAroundPointInterface):
@@ -99,7 +102,7 @@ class RotationAroundPointInterface(
                 rotation=rotation, x=x, y=y)
 
     def _append_rotation_around_point_update_expression(
-            self, *, rotation: ap.Int, x: ap.Int, y: ap.Int) -> None:
+            self, *, rotation: Int, x: Int, y: Int) -> None:
         """
         Append a rotation value around the given coordinates
         updating expression.
@@ -113,6 +116,7 @@ class RotationAroundPointInterface(
         y : Int
             Y-coordinate.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_rotation_around_point_update_expression,  # noqa
                 locals_=locals(),
@@ -123,7 +127,7 @@ class RotationAroundPointInterface(
             ap.append_js_expression(expression=expression)
 
     def _get_rotation_around_point_updating_expression(
-            self, *, rotation: ap.Int, x: ap.Int, y: ap.Int) -> str:
+            self, *, rotation: Int, x: Int, y: Int) -> str:
         """
         Get a rotation value around the given coordinates updating
         expression string.

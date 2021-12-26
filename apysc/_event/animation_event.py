@@ -4,7 +4,7 @@
 from typing import Generic
 from typing import TypeVar
 
-from apysc._animation.animation_base import AnimationBase
+from apysc._animation import animation_base
 from apysc._event.event import Event
 from apysc._type.variable_name_interface import VariableNameInterface
 
@@ -16,9 +16,11 @@ class AnimationEvent(Event, Generic[_T]):
     Animation event class.
     """
 
-    _this: AnimationBase[_T]
+    _this: 'animation_base.AnimationBase[_T]'
 
-    def __init__(self, *, this: AnimationBase[_T]) -> None:
+    def __init__(
+            self, *,
+            this: 'animation_base.AnimationBase[_T]') -> None:
         """
         Animation event class.
 
@@ -36,7 +38,7 @@ class AnimationEvent(Event, Generic[_T]):
                 this=this, type_name=var_names.ANIMATION_EVENT)
 
     @property
-    def this(self) -> AnimationBase[_T]:
+    def this(self) -> 'animation_base.AnimationBase[_T]':
         """
         Get a animation setting instance that linstening this event.
 

@@ -3,7 +3,7 @@
 
 from typing import Dict
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -12,7 +12,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 class EllipseWidthInterface(
         VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
-    _ellipse_width: ap.Int
+    _ellipse_width: Int
 
     def _initialize_ellipse_width_if_not_initialized(self) -> None:
         """
@@ -20,7 +20,7 @@ class EllipseWidthInterface(
         """
         if hasattr(self, '_ellipse_width'):
             return
-        self._ellipse_width = ap.Int(0)
+        self._ellipse_width = Int(0)
 
         self._append_ellipse_width_attr_linking_setting()
 
@@ -28,6 +28,7 @@ class EllipseWidthInterface(
         """
         Append a ellipse-height attribute linking setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_ellipse_width_attr_linking_setting,
                 locals_=locals(),
@@ -38,7 +39,7 @@ class EllipseWidthInterface(
                 attr=self._ellipse_width, attr_name='ellipse_width')
 
     @property
-    def ellipse_width(self) -> ap.Int:
+    def ellipse_width(self) -> Int:
         """
         Get ellipse width value.
 
@@ -47,6 +48,7 @@ class EllipseWidthInterface(
         ellipse_width : Int
             Ellipse width value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='ellipse_width', locals_=locals(),
                 module_name=__name__, class_=EllipseWidthInterface):
@@ -55,7 +57,7 @@ class EllipseWidthInterface(
             return value_util.get_copy(value=self._ellipse_width)
 
     @ellipse_width.setter
-    def ellipse_width(self, value: ap.Int) -> None:
+    def ellipse_width(self, value: Int) -> None:
         """
         Update ellipse width value.
 
@@ -64,6 +66,7 @@ class EllipseWidthInterface(
         value : int or Int
             Ellipse width value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='ellipse_width', locals_=locals(),
                 module_name=__name__, class_=EllipseWidthInterface):

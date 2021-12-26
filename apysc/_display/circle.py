@@ -1,13 +1,15 @@
 """Implementations of Circle class.
 """
 
-from typing import Union
+from typing import Any, Union
 
-import apysc as ap
 from apysc._display.cx_interface import CxInterface
 from apysc._display.cy_interface import CyInterface
 from apysc._display.line_base import LineBase
 from apysc._display.radius_interface import RadiusInterface
+from apysc._type.int import Int
+
+_Graphics = Any
 
 
 class Circle(  # type: ignore
@@ -24,10 +26,10 @@ class Circle(  # type: ignore
     def __init__(
             self,
             *,
-            parent: 'ap.Graphics',
-            x: Union[int, ap.Int],
-            y: Union[int, ap.Int],
-            radius: Union[int, ap.Int]) -> None:
+            parent: _Graphics,
+            x: Union[int, Int],
+            y: Union[int, Int],
+            radius: Union[int, Int]) -> None:
         """
         Create a circle vector graphics.
 
@@ -47,6 +49,7 @@ class Circle(  # type: ignore
         - Graphics draw_circle interface document
             - https://bit.ly/36Sgmn3
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=Circle):
@@ -74,8 +77,8 @@ class Circle(  # type: ignore
     def _set_center_coordinates(
             self,
             *,
-            x: Union[int, ap.Int],
-            y: Union[int, ap.Int]) -> None:
+            x: Union[int, Int],
+            y: Union[int, Int]) -> None:
         """
         Set a center x-coordinate and a center y-coordinate.
 
@@ -86,6 +89,7 @@ class Circle(  # type: ignore
         y : int or Int
             Y-coordinate of the circle center.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._set_center_coordinates, locals_=locals(),
                 module_name=__name__, class_=Circle):
@@ -98,6 +102,7 @@ class Circle(  # type: ignore
         """
         Append a construcor expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_constructor_expression,
                 locals_=locals(),

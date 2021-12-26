@@ -3,7 +3,7 @@
 
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._display.points_2d_interface import Points2DInterface
 
 
@@ -12,7 +12,7 @@ class AppendLinePointInterface(Points2DInterface):
     _points_var_name: str
 
     def append_line_point(
-            self, x: Union[int, ap.Int], y: Union[int, ap.Int]) -> None:
+            self, x: Union[int, Int], y: Union[int, Int]) -> None:
         """
         Append line point at the end.
 

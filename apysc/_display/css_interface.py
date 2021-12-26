@@ -4,14 +4,14 @@
 from typing import Dict
 from typing import Union
 
-import apysc as ap
+from apysc._type.string import String
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
 class CssInterface(VariableNameInterface, RevertInterface):
 
-    _css: Dict[str, ap.String]
+    _css: Dict[str, String]
 
     def _initialize_css_if_not_initialized(self) -> None:
         """
@@ -21,7 +21,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
             return
         self._css = {}
 
-    def get_css(self, name: Union[str, ap.String]) -> ap.String:
+    def get_css(self, name: Union[str, String]) -> String:
         """
         Get a CSS value string.
 
@@ -56,7 +56,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
             return css
 
     def _append_get_css_expresion(
-            self, *, name: Union[str, ap.String], css: ap.String) -> None:
+            self, *, name: Union[str, String], css: String) -> None:
         """
         Append a css getter expression string.
 
@@ -67,6 +67,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
         css : String
             CSS value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_get_css_expresion, locals_=locals(),
                 module_name=__name__, class_=CssInterface):
@@ -82,8 +83,8 @@ class CssInterface(VariableNameInterface, RevertInterface):
             ap.append_js_expression(expression=expression)
 
     def set_css(
-            self, name: Union[str, ap.String],
-            value: Union[str, ap.String]) -> None:
+            self, name: Union[str, String],
+            value: Union[str, String]) -> None:
         """
         Set a specified value string to the CSS.
 
@@ -99,6 +100,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
         Display object get_css and set_css interfaces document
             https://bit.ly/3wNgIWI
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.set_css, locals_=locals(),
                 module_name=__name__, class_=CssInterface):
@@ -113,8 +115,8 @@ class CssInterface(VariableNameInterface, RevertInterface):
             self._append_set_css_expression(name=name, value=value)
 
     def _append_set_css_expression(
-            self, *, name: Union[str, ap.String],
-            value: Union[str, ap.String]) -> None:
+            self, *, name: Union[str, String],
+            value: Union[str, String]) -> None:
         """
         Append a css setter expression string.
 
@@ -125,6 +127,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
         value : str or String
             A CSS value string (e.g., 'none').
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_set_css_expression, locals_=locals(),
                 module_name=__name__, class_=CssInterface):
@@ -138,7 +141,7 @@ class CssInterface(VariableNameInterface, RevertInterface):
             )
             ap.append_js_expression(expression=expression)
 
-    _css_snapshot: Dict[str, Dict[str, ap.String]]
+    _css_snapshot: Dict[str, Dict[str, String]]
 
     def _make_snapshot(self, *, snapshot_name: str) -> None:
         """

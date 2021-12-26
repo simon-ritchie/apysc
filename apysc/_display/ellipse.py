@@ -1,14 +1,16 @@
 """Implementation of the Ellipse class.
 """
 
-from typing import Union
+from typing import Any, Union
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._display.cx_interface import CxInterface
 from apysc._display.cy_interface import CyInterface
 from apysc._display.line_base import LineBase
 from apysc._display.width_and_height_interfaces_for_ellipse import \
     WidthAndHeightInterfacesForEllipse
+
+_Graphics = Any
 
 
 class Ellipse(  # type: ignore
@@ -26,11 +28,11 @@ class Ellipse(  # type: ignore
     def __init__(
             self,
             *,
-            parent: 'ap.Graphics',
-            x: Union[int, ap.Int],
-            y: Union[int, ap.Int],
-            width: Union[int, ap.Int],
-            height: Union[int, ap.Int]) -> None:
+            parent: _Graphics,
+            x: Union[int, Int],
+            y: Union[int, Int],
+            width: Union[int, Int],
+            height: Union[int, Int]) -> None:
         """
         Create a ellipse vector graphics.
 
@@ -52,6 +54,7 @@ class Ellipse(  # type: ignore
         - Graphics draw_ellipse interface
             - https://bit.ly/3xPVicP
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=Ellipse):
@@ -83,6 +86,7 @@ class Ellipse(  # type: ignore
         """
         Append a constructor expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_constructor_expression,
                 locals_=locals(),

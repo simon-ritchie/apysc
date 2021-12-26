@@ -3,7 +3,7 @@
 
 from typing import Dict
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._animation.animation_cx_interface import AnimationCxInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
@@ -12,7 +12,7 @@ from apysc._type.revert_interface import RevertInterface
 class CxInterface(
         AnimationCxInterface, RevertInterface, AttrLinkingInterface):
 
-    _cx: ap.Int
+    _cx: Int
 
     def _initialize_cx_if_not_initialized(self) -> None:
         """
@@ -20,7 +20,7 @@ class CxInterface(
         """
         if hasattr(self, '_cx'):
             return
-        self._cx = ap.Int(0)
+        self._cx = Int(0)
 
         self._append_cx_attr_linking_setting()
 
@@ -28,6 +28,7 @@ class CxInterface(
         """
         Append a cx attribute linking setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_cx_attr_linking_setting,
                 locals_=locals(),
@@ -37,7 +38,7 @@ class CxInterface(
             self._append_attr_to_linking_stack(attr=self._cx, attr_name='cx')
 
     @property
-    def x(self) -> ap.Int:
+    def x(self) -> Int:
         """
         Get a center x-coordinate.
 
@@ -46,6 +47,7 @@ class CxInterface(
         x : Int
             Center x-coordinate.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='x', locals_=locals(),
                 module_name=__name__, class_=CxInterface):
@@ -55,7 +57,7 @@ class CxInterface(
             return x
 
     @x.setter
-    def x(self, value: ap.Int) -> None:
+    def x(self, value: Int) -> None:
         """
         Update a center x-coordinate.
 
@@ -64,6 +66,7 @@ class CxInterface(
         value : int or Int
             Center x-coordinate value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='x', locals_=locals(),
                 module_name=__name__, class_=CxInterface):
@@ -81,6 +84,7 @@ class CxInterface(
         """
         Append cx position updating expression.
         """
+        import apysc as ap
         from apysc._type import value_util
         self._initialize_cx_if_not_initialized()
         value_str: str = value_util.get_value_str_for_expression(

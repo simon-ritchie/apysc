@@ -3,7 +3,7 @@
 
 from typing import Dict
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -12,7 +12,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 class EllipseHeightInterface(
         VariableNameInterface, RevertInterface, AttrLinkingInterface):
 
-    _ellipse_height: ap.Int
+    _ellipse_height: Int
 
     def _initialize_ellipse_height_if_not_initialized(self) -> None:
         """
@@ -21,7 +21,7 @@ class EllipseHeightInterface(
         """
         if hasattr(self, '_ellipse_height'):
             return
-        self._ellipse_height = ap.Int(0)
+        self._ellipse_height = Int(0)
 
         self._append_ellipse_height_attr_linking_setting()
 
@@ -29,6 +29,7 @@ class EllipseHeightInterface(
         """
         Append a ellipse-height attribute linking setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_ellipse_height_attr_linking_setting,
                 locals_=locals(),
@@ -39,7 +40,7 @@ class EllipseHeightInterface(
                 attr=self._ellipse_height, attr_name='ellipse_height')
 
     @property
-    def ellipse_height(self) -> ap.Int:
+    def ellipse_height(self) -> Int:
         """
         Get ellipse height value.
 
@@ -48,6 +49,7 @@ class EllipseHeightInterface(
         ellipse_height : Int
             Ellipse height value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='ellipse_height', locals_=locals(),
                 module_name=__name__, class_=EllipseHeightInterface):
@@ -56,7 +58,7 @@ class EllipseHeightInterface(
             return value_util.get_copy(value=self._ellipse_height)
 
     @ellipse_height.setter
-    def ellipse_height(self, value: ap.Int) -> None:
+    def ellipse_height(self, value: Int) -> None:
         """
         Update ellipse height value.
 
@@ -65,6 +67,7 @@ class EllipseHeightInterface(
         value : int or Int
             Ellipse height value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='ellipse_height', locals_=locals(),
                 module_name=__name__, class_=EllipseHeightInterface):
@@ -83,6 +86,7 @@ class EllipseHeightInterface(
         """
         Append ellipse height updating expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_ellipse_height_update_expression,
                 locals_=locals(),

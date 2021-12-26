@@ -3,7 +3,7 @@
 
 from typing import Dict
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._animation.animation_cy_interface import AnimationCyInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
@@ -12,7 +12,7 @@ from apysc._type.revert_interface import RevertInterface
 class CyInterface(
         AnimationCyInterface, RevertInterface, AttrLinkingInterface):
 
-    _cy: ap.Int
+    _cy: Int
 
     def _initialize_cy_if_not_initialized(self) -> None:
         """
@@ -20,7 +20,7 @@ class CyInterface(
         """
         if hasattr(self, '_cy'):
             return
-        self._cy = ap.Int(0)
+        self._cy = Int(0)
 
         self._append_cy_attr_linking_setting()
 
@@ -28,6 +28,7 @@ class CyInterface(
         """
         Append a cy attribute linking setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_cy_attr_linking_setting,
                 locals_=locals(),
@@ -37,7 +38,7 @@ class CyInterface(
             self._append_attr_to_linking_stack(attr=self._cy, attr_name='cy')
 
     @property
-    def y(self) -> ap.Int:
+    def y(self) -> Int:
         """
         Get a center y-coordinate.
 
@@ -46,6 +47,7 @@ class CyInterface(
         y : Int
             Center y-coordinate.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='y', locals_=locals(),
                 module_name=__name__, class_=CyInterface):
@@ -55,7 +57,7 @@ class CyInterface(
             return y
 
     @y.setter
-    def y(self, value: ap.Int) -> None:
+    def y(self, value: Int) -> None:
         """
         Update a center y-coordinate.
 
@@ -64,6 +66,7 @@ class CyInterface(
         value : int or Int
             Center y-coordinate value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='y', locals_=locals(),
                 module_name=__name__, class_=CyInterface):
@@ -81,6 +84,7 @@ class CyInterface(
         """
         Append cy position updating expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_cy_update_expression, locals_=locals(),
                 module_name=__name__, class_=CyInterface):

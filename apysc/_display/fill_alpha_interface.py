@@ -3,7 +3,7 @@
 
 from typing import Dict
 
-import apysc as ap
+from apysc._type.number import Number
 from apysc._animation.animation_fill_alpha_interface import \
     AnimationFillAlphaInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
@@ -14,7 +14,7 @@ from apysc._type.revert_interface import RevertInterface
 class FillAlphaInterface(
         AnimationFillAlphaInterface, RevertInterface, AttrLinkingInterface):
 
-    _fill_alpha: ap.Number
+    _fill_alpha: Number
 
     def _initialize_fill_alpha_if_not_initialized(self) -> None:
         """
@@ -22,7 +22,7 @@ class FillAlphaInterface(
         """
         if hasattr(self, '_fill_alpha'):
             return
-        self._fill_alpha = ap.Number(1.0)
+        self._fill_alpha = Number(1.0)
 
         self._append_fill_alpha_attr_linking_setting()
 
@@ -30,6 +30,7 @@ class FillAlphaInterface(
         """
         Append a scale-y attribute linking setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_fill_alpha_attr_linking_setting,
                 locals_=locals(),
@@ -40,7 +41,7 @@ class FillAlphaInterface(
                 attr=self._fill_alpha, attr_name='fill_alpha')
 
     @property
-    def fill_alpha(self) -> ap.Number:
+    def fill_alpha(self) -> Number:
         """
         Get this instance's fill opacity.
 
@@ -54,6 +55,7 @@ class FillAlphaInterface(
         - Graphics fill_alpha interface document
             - https://simon-ritchie.github.io/apysc/graphics_fill_alpha.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='fill_alpha', locals_=locals(),
                 module_name=__name__, class_=FillAlphaInterface):
@@ -65,7 +67,7 @@ class FillAlphaInterface(
 
     @fill_alpha.setter
     def fill_alpha(
-            self, value: ap.Number) -> None:
+            self, value: Number) -> None:
         """
         Update this instance's fill opacity.
 
@@ -79,6 +81,7 @@ class FillAlphaInterface(
         - Graphics fill_alpha interface document
             - https://simon-ritchie.github.io/apysc/graphics_fill_alpha.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='fill_alpha', locals_=locals(),
                 module_name=__name__, class_=FillAlphaInterface):
@@ -94,6 +97,7 @@ class FillAlphaInterface(
         """
         Append fill alpha updating expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_fill_alpha_update_expression,
                 locals_=locals(),
@@ -107,7 +111,7 @@ class FillAlphaInterface(
             ap.append_js_expression(expression=expression)
 
     def _update_fill_alpha_and_skip_appending_exp(
-            self, *, value: ap.Number) -> None:
+            self, *, value: Number) -> None:
         """
         Update fill opacity and skip appending expression.
 
@@ -121,10 +125,10 @@ class FillAlphaInterface(
         from apysc._validation import number_validation
         self._initialize_fill_alpha_if_not_initialized()
         number_validation.validate_num(num=value)
-        if not isinstance(value, ap.Number):
+        if not isinstance(value, Number):
             value = cast.to_float_from_int(int_or_float=value)
             color_validation.validate_alpha_range(alpha=value)
-            value = ap.Number(value=value)
+            value = Number(value=value)
         color_validation.validate_alpha_range(alpha=value.value)
         self._fill_alpha = value
 

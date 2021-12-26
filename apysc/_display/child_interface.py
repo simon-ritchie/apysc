@@ -6,16 +6,20 @@ from typing import Dict
 from typing import List
 from typing import Union
 
-import apysc as ap
+from apysc._type.array import Array
+from apysc._type.boolean import Boolean
+from apysc._type.int import Int
 from apysc._display.display_object import DisplayObject
 from apysc._type.revert_interface import RevertInterface
+
+_Stage = Any
 
 
 class ChildInterface(RevertInterface):
 
-    _children: ap.Array[DisplayObject]
+    _children: Array[DisplayObject]
     _variable_name: str
-    stage: 'ap.Stage'
+    stage: _Stage
 
     def add_child(self, child: DisplayObject) -> None:
         """
@@ -31,6 +35,7 @@ class ChildInterface(RevertInterface):
         - Sprite class add_child and remove_child interfaces document
             - https://bit.ly/2Ugk47G
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.add_child, locals_=locals(),
                 module_name=__name__, class_=ChildInterface):
@@ -49,7 +54,7 @@ class ChildInterface(RevertInterface):
         """
         if hasattr(self, '_children'):
             return
-        self._children = ap.Array([])
+        self._children = Array([])
 
     def remove_child(self, child: DisplayObject) -> None:
         """
@@ -65,6 +70,7 @@ class ChildInterface(RevertInterface):
         - Sprite class add_child and remove_child interfaces document
             - https://bit.ly/2Ugk47G
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.remove_child, locals_=locals(),
                 module_name=__name__, class_=ChildInterface):
@@ -77,7 +83,7 @@ class ChildInterface(RevertInterface):
                 child.parent = None
                 return
 
-    def contains(self, child: DisplayObject) -> ap.Boolean:
+    def contains(self, child: DisplayObject) -> Boolean:
         """
         Get a boolean whether this instance contains specified child.
 
@@ -97,6 +103,7 @@ class ChildInterface(RevertInterface):
         - Sprite class contains interface document
             - https://simon-ritchie.github.io/apysc/sprite_contains.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.contains, locals_=locals(),
                 module_name=__name__, class_=ChildInterface):
@@ -110,7 +117,7 @@ class ChildInterface(RevertInterface):
             return result
 
     def _append_contains_expression(
-            self, *, result: ap.Boolean, child: DisplayObject) -> None:
+            self, *, result: Boolean, child: DisplayObject) -> None:
         """
         Append contains method expression.
 
@@ -121,6 +128,7 @@ class ChildInterface(RevertInterface):
         child : DisplayObject
             Child instance to check.
         """
+        import apysc as ap
         expression: str = (
             f'{result.variable_name} = '
             f'{self._variable_name}.has({child.variable_name});'
@@ -128,7 +136,7 @@ class ChildInterface(RevertInterface):
         ap.append_js_expression(expression=expression)
 
     @property
-    def num_children(self) -> ap.Int:
+    def num_children(self) -> Int:
         """
         Get a current children number.
 
@@ -142,6 +150,7 @@ class ChildInterface(RevertInterface):
         - Sprite class num_children interface document
             - https://simon-ritchie.github.io/apysc/sprite_num_children.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='num_children', locals_=locals(),
                 module_name=__name__, class_=ChildInterface):
@@ -151,7 +160,7 @@ class ChildInterface(RevertInterface):
             return num_children
 
     def _append_num_children_expression(
-            self, *, num_children: ap.Int) -> None:
+            self, *, num_children: Int) -> None:
         """
         Append num_children method expression.
 
@@ -160,13 +169,14 @@ class ChildInterface(RevertInterface):
         num_children : Int
             Current children number.
         """
+        import apysc as ap
         expression: str = (
             f'{num_children.variable_name} = '
             f'{self._variable_name}.children().length;'
         )
         ap.append_js_expression(expression=expression)
 
-    def get_child_at(self, *, index: Union[int, ap.Int]) -> DisplayObject:
+    def get_child_at(self, *, index: Union[int, Int]) -> DisplayObject:
         """
         Get child at specified index.
 
@@ -185,6 +195,7 @@ class ChildInterface(RevertInterface):
         - Sprite class get_child_at interface document
             - https://bit.ly/3rggoi6
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.get_child_at, locals_=locals(),
                 module_name=__name__, class_=ChildInterface):
@@ -202,7 +213,7 @@ class ChildInterface(RevertInterface):
             return child
 
     def _append_get_child_at_expression(
-            self, *, child: DisplayObject, index: Union[int, ap.Int]) -> None:
+            self, *, child: DisplayObject, index: Union[int, Int]) -> None:
         """
         Append get_child_at method expression.
 
@@ -213,6 +224,7 @@ class ChildInterface(RevertInterface):
         index : int or Int
             Child's index (start from 0).
         """
+        import apysc as ap
         from apysc._type import value_util
         index_str: str = value_util.get_value_str_for_expression(value=index)
         expression: str = (
@@ -274,6 +286,7 @@ def append_expression_of_add_child(*, child: DisplayObject) -> None:
     child : DisplayObject
         Child object to add.
     """
+    import apysc as ap
     with ap.DebugInfo(
             callable_=append_expression_of_add_child, locals_=locals(),
             module_name=__name__):
@@ -294,6 +307,7 @@ def append_expression_of_remove_child(*, child: DisplayObject) -> None:
     child : DisplayObject
         Child object to remove.
     """
+    import apysc as ap
     with ap.DebugInfo(
             callable_=append_expression_of_remove_child, locals_=locals(),
             module_name=__name__):

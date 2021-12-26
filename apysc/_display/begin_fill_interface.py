@@ -10,21 +10,22 @@ from typing import Dict
 from typing import TypeVar
 from typing import Union
 
-import apysc as ap
+from apysc._type.string import String
+from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
 
-StrOrString = TypeVar('StrOrString', str, ap.String)
+StrOrString = TypeVar('StrOrString', str, String)
 
 
 class BeginFillInterface(RevertInterface):
 
-    _fill_color: ap.String
-    _fill_alpha: ap.Number
+    _fill_color: String
+    _fill_alpha: Number
 
     def begin_fill(
             self, color: StrOrString,
             *,
-            alpha: Union[float, ap.Number] = 1.0) -> None:
+            alpha: Union[float, Number] = 1.0) -> None:
         """
         Set single color value for fill.
 
@@ -40,6 +41,7 @@ class BeginFillInterface(RevertInterface):
         - Graphics begin_fill interface document
             - https://bit.ly/3ikhNAh
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.begin_fill, locals_=locals(),
                 module_name=__name__, class_=BeginFillInterface):
@@ -63,7 +65,7 @@ class BeginFillInterface(RevertInterface):
                 self._fill_alpha.value = alpha
 
     @property
-    def fill_color(self) -> ap.String:
+    def fill_color(self) -> String:
         """
         Get current fill color.
 
@@ -73,6 +75,7 @@ class BeginFillInterface(RevertInterface):
             Current fill color (hexadecimal string, e.g., '#00aaff').
             If not be set, blank string will be returned.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='fill_color', locals_=locals(),
                 module_name=__name__, class_=BeginFillInterface):
@@ -87,10 +90,10 @@ class BeginFillInterface(RevertInterface):
         """
         if hasattr(self, '_fill_color'):
             return
-        self._fill_color = ap.String('')
+        self._fill_color = String('')
 
     @property
-    def fill_alpha(self) -> ap.Number:
+    def fill_alpha(self) -> Number:
         """
         Get current fill color opacity.
 
@@ -100,6 +103,7 @@ class BeginFillInterface(RevertInterface):
             Current fill color opacity (0.0 to 1.0).
             If not be set, 1.0 will be returned.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='fill_alpha', locals_=locals(),
                 module_name=__name__, class_=BeginFillInterface):
@@ -114,7 +118,7 @@ class BeginFillInterface(RevertInterface):
         """
         if hasattr(self, '_fill_alpha'):
             return
-        self._fill_alpha = ap.Number(1.0)
+        self._fill_alpha = Number(1.0)
 
     _fill_color_snapshots: Dict[str, str]
     _fill_alpha_snapshots: Dict[str, float]

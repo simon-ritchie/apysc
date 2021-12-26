@@ -4,7 +4,7 @@
 from typing import Dict
 from typing import Union
 
-import apysc as ap
+from apysc._type.string import String
 from apysc._animation.animation_fill_color_interface import \
     AnimationFillColorInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
@@ -14,10 +14,10 @@ from apysc._type.revert_interface import RevertInterface
 class FillColorInterface(
         AnimationFillColorInterface, RevertInterface, AttrLinkingInterface):
 
-    _fill_color: ap.String
+    _fill_color: String
 
     @property
-    def fill_color(self) -> ap.String:
+    def fill_color(self) -> String:
         """
         Get this instance's fill color.
 
@@ -32,6 +32,7 @@ class FillColorInterface(
         - Graphics fill_color interface document
             - https://simon-ritchie.github.io/apysc/graphics_fill_color.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='fill_color', locals_=locals(),
                 module_name=__name__, class_=FillColorInterface):
@@ -41,7 +42,7 @@ class FillColorInterface(
             return fill_color
 
     @fill_color.setter
-    def fill_color(self, value: ap.String) -> None:
+    def fill_color(self, value: String) -> None:
         """
         Update this instance's fill color.
 
@@ -55,6 +56,7 @@ class FillColorInterface(
         - Graphics fill_color interface document
             - https://simon-ritchie.github.io/apysc/graphics_fill_color.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='fill_color', locals_=locals(),
                 module_name=__name__, class_=FillColorInterface):
@@ -70,6 +72,7 @@ class FillColorInterface(
         """
         Append fill color updating expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_fill_color_update_expression,
                 locals_=locals(),
@@ -80,7 +83,7 @@ class FillColorInterface(
             ap.append_js_expression(expression=expression)
 
     def _set_initial_fill_color_if_not_blank(
-            self, *, fill_color: Union[str, ap.String]) -> None:
+            self, *, fill_color: Union[str, String]) -> None:
         """
         Set initial fill color value if specified value is not
         blank string.
@@ -94,11 +97,11 @@ class FillColorInterface(
         if fill_color == '':
             return
         if isinstance(fill_color, str):
-            fill_color = ap.String(fill_color)
+            fill_color = String(fill_color)
         self._update_fill_color_and_skip_appending_exp(value=fill_color)
 
     def _update_fill_color_and_skip_appending_exp(
-            self, *, value: ap.String) -> None:
+            self, *, value: String) -> None:
         """
         Update fill color and skip appending expression.
 
@@ -120,7 +123,7 @@ class FillColorInterface(
         """
         if hasattr(self, '_fill_color'):
             return
-        self._fill_color = ap.String('')
+        self._fill_color = String('')
 
     _fill_color_snapshots: Dict[str, str]
 

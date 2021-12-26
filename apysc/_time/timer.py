@@ -15,11 +15,11 @@ from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type.variable_name_interface import VariableNameInterface
+from apysc._event import timer_event
 
 _O1 = TypeVar('_O1')
 _O2 = TypeVar('_O2')
-_TimerEvent = Any
-_Handler = Callable[[_TimerEvent, _O1], None]
+_Handler = Callable[['timer_event.TimerEvent', _O1], None]
 
 
 class Timer(VariableNameInterface, CustomEventInterface):
@@ -122,7 +122,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
                 self._current_count = ap.Int(0)
                 if options is None:
                     options = {}  # type: ignore
-                self._handler_data = {
+                self._handler_data = {  # type: ignore
                     'handler': self._handler,
                     'options': options,
                 }

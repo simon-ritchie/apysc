@@ -2,7 +2,7 @@
 """
 
 from apysc._event.event import Event
-from apysc._time.timer import Timer
+from apysc._time import timer
 
 
 class TimerEvent(Event):
@@ -15,9 +15,9 @@ class TimerEvent(Event):
         - https://simon-ritchie.github.io/apysc/timer_event.html
     """
 
-    _this: Timer
+    _this: 'timer.Timer'
 
-    def __init__(self, this: Timer) -> None:
+    def __init__(self, this: 'timer.Timer') -> None:
         """
         Timer event class.
 
@@ -40,7 +40,7 @@ class TimerEvent(Event):
                 this=this, type_name=var_names.TIMER_EVENT)
 
     @property
-    def this(self) -> Timer:
+    def this(self) -> 'timer.Timer':
         """
         Get a timer instance that listening this event.
 

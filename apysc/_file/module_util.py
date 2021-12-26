@@ -119,8 +119,9 @@ def read_target_path_module(module_path: str) -> ModuleType:
     module : ModuleType
         Read module.
     """
-    module_path = module_path.lstrip('./')
-    module_path = module_path.rstrip('.py')
+    if module_path.startswith('./'):
+        module_path = module_path.replace('./', '', 1)
+    module_path = module_path.rsplit('.py', maxsplit=1)[0]
     module_path = module_path.replace('/', '.')
     module: ModuleType = importlib.import_module(name=module_path)
     return module

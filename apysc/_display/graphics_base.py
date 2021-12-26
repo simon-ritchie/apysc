@@ -22,8 +22,7 @@ from apysc._display.scale_y_from_point_interface import \
 from apysc._display.skew_x_interface import SkewXInterface
 from apysc._display.skew_y_interface import SkewYInterface
 from apysc._type.int import Int
-
-_Graphics = Any
+from apysc._display import graphics
 
 
 class GraphicsBase(
@@ -38,7 +37,7 @@ class GraphicsBase(
     def __init__(
             self,
             *,
-            parent: _Graphics,
+            parent: 'graphics.Graphics',
             x: Union[int, Int],
             y: Union[int, Int],
             variable_name: str) -> None:

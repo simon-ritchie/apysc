@@ -5,7 +5,7 @@ from typing import Optional
 
 from apysc._display.child_interface import ChildInterface
 from apysc._display.display_object import DisplayObject
-from apysc._display.graphics import Graphics
+from apysc._display import graphics
 from apysc._display.stage import Stage
 from apysc._type.revert_interface import RevertInterface
 
@@ -20,7 +20,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
         - https://simon-ritchie.github.io/apysc/sprite.html
     """
 
-    graphics: Graphics
+    graphics: 'graphics.Graphics'
 
     def __init__(
             self, stage: Stage, *,
@@ -56,7 +56,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
             super(Sprite, self).__init__(
                 stage=stage, variable_name=variable_name)
             self._append_constructor_expression()
-            self.graphics = Graphics(parent=self)
+            self.graphics = graphics.Graphics(parent=self)
             stage.add_child(child=self)
             self._set_overflow_visible_setting()
 

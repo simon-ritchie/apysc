@@ -17,8 +17,7 @@ from apysc._display.line_dot_setting_interface import LineDotSettingInterface
 from apysc._display.line_joints_interface import LineJointsInterface
 from apysc._display.line_round_dot_setting_interface import \
     LineRoundDotSettingInterface
-
-_Graphics = Any
+from apysc._display import graphics
 
 
 class LineBase(
@@ -36,7 +35,7 @@ class LineBase(
         """
 
     def _set_line_setting_if_not_none_value_exists(
-            self, *, parent_graphics: Any) -> None:
+            self, *, parent_graphics: 'graphics.Graphics') -> None:
         """
         If a line setting (dot, dash, or something else) with a value
         other than None exists, set that value to the attribute.
@@ -69,7 +68,7 @@ class LineBase(
                 return
 
     def _set_initial_basic_values(
-            self, *, parent: _Graphics) -> None:
+            self, *, parent: 'graphics.Graphics') -> None:
         """
         Set initial basic values (fill color, line thickness, and so on).
 

@@ -4,7 +4,7 @@
 from typing import Dict
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._animation.animation_height_interface import \
     AnimationHeightInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
@@ -14,7 +14,7 @@ from apysc._type.revert_interface import RevertInterface
 class HeightInterface(
         AnimationHeightInterface, RevertInterface, AttrLinkingInterface):
 
-    _height: ap.Int
+    _height: Int
 
     def _initialize_height_if_not_initialized(self) -> None:
         """
@@ -22,7 +22,7 @@ class HeightInterface(
         """
         if hasattr(self, '_height'):
             return
-        self._height = ap.Int(0)
+        self._height = Int(0)
 
         self._append_height_attr_linking_setting()
 
@@ -30,6 +30,7 @@ class HeightInterface(
         """
         Append a height attribute linking setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_height_attr_linking_setting,
                 locals_=locals(),
@@ -40,7 +41,7 @@ class HeightInterface(
                 attr=self._height, attr_name='height')
 
     @property
-    def height(self) -> ap.Int:
+    def height(self) -> Int:
         """
         Get this instance's height.
 
@@ -49,6 +50,7 @@ class HeightInterface(
         height : Int
             This instance's height.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='height', locals_=locals(),
                 module_name=__name__, class_=HeightInterface):
@@ -58,7 +60,7 @@ class HeightInterface(
             return height
 
     @height.setter
-    def height(self, value: ap.Int) -> None:
+    def height(self, value: Int) -> None:
         """
         Update this instance's height.
 
@@ -67,6 +69,7 @@ class HeightInterface(
         value : int
             Height value to set.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='height', locals_=locals(),
                 module_name=__name__, class_=HeightInterface):
@@ -80,6 +83,7 @@ class HeightInterface(
         """
         Append height updating expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_height_update_expression,
                 locals_=locals(),
@@ -93,7 +97,7 @@ class HeightInterface(
             ap.append_js_expression(expression=expression)
 
     def _update_height_and_skip_appending_exp(
-            self, *, value: Union[int, ap.Int]) -> None:
+            self, *, value: Union[int, Int]) -> None:
         """
         Update height value and skip appending expression.
 
@@ -109,7 +113,7 @@ class HeightInterface(
         size_validation.validate_size_is_int(size=value)
         size_validation.validate_size_is_gte_zero(size=value)
         if isinstance(value, int):
-            value = ap.Int(value)
+            value = Int(value)
         self._height = value
 
     _height_snapshots: Dict[str, int]

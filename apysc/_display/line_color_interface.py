@@ -4,7 +4,7 @@
 from typing import Dict
 from typing import Union
 
-import apysc as ap
+from apysc._type.string import String
 from apysc._animation.animation_line_color_interface import \
     AnimationLineColorInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
@@ -14,10 +14,10 @@ from apysc._type.revert_interface import RevertInterface
 class LineColorInterface(
         AnimationLineColorInterface, RevertInterface, AttrLinkingInterface):
 
-    _line_color: ap.String
+    _line_color: String
 
     @property
-    def line_color(self) -> ap.String:
+    def line_color(self) -> String:
         """
         Get this instance's line color.
 
@@ -43,7 +43,7 @@ class LineColorInterface(
             return line_color
 
     @line_color.setter
-    def line_color(self, value: ap.String) -> None:
+    def line_color(self, value: String) -> None:
         """
         Update this instance's line color.
 
@@ -57,6 +57,7 @@ class LineColorInterface(
         - Graphics line_color interface document
             - https://simon-ritchie.github.io/apysc/graphics_line_color.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='line_color', locals_=locals(),
                 module_name=__name__, class_=LineColorInterface):
@@ -73,6 +74,7 @@ class LineColorInterface(
         """
         Append line color updating expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_line_color_update_expression,
                 locals_=locals(),
@@ -86,7 +88,7 @@ class LineColorInterface(
             ap.append_js_expression(expression=expression)
 
     def _set_initial_line_color_if_not_blank(
-            self, *, line_color: Union[str, ap.String]) -> None:
+            self, *, line_color: Union[str, String]) -> None:
         """
         Set initial line color value if specified value is not
         blank string.
@@ -100,11 +102,11 @@ class LineColorInterface(
         if line_color == '':
             return
         if isinstance(line_color, str):
-            line_color = ap.String(line_color)
+            line_color = String(line_color)
         self._update_line_color_and_skip_appending_exp(value=line_color)
 
     def _update_line_color_and_skip_appending_exp(
-            self, *, value: ap.String) -> None:
+            self, *, value: String) -> None:
         """
         Update line color and skip appending expression.
 
@@ -127,7 +129,7 @@ class LineColorInterface(
         """
         if hasattr(self, '_line_color'):
             return
-        self._line_color = ap.String('')
+        self._line_color = String('')
 
     _line_color_snapshots: Dict[str, str]
 

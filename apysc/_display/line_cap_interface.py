@@ -4,7 +4,7 @@
 from typing import Dict
 from typing import Union
 
-import apysc as ap
+from apysc._type.string import String
 from apysc._display.line_caps import LineCaps
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -12,7 +12,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 class LineCapInterface(VariableNameInterface, RevertInterface):
 
-    _line_cap: ap.String
+    _line_cap: String
 
     def _initialize_line_cap_if_not_initialized(self) -> None:
         """
@@ -21,10 +21,10 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_line_cap'):
             return
-        self._line_cap = ap.String(LineCaps.BUTT.value)
+        self._line_cap = String(LineCaps.BUTT.value)
 
     @property
-    def line_cap(self) -> Union[ap.String, LineCaps]:
+    def line_cap(self) -> Union[String, LineCaps]:
         """
         Get this instance's line cap style setting.
 
@@ -33,6 +33,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         line_cap : String
             Line cap style setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='line_cap', locals_=locals(),
                 module_name=__name__, class_=LineCapInterface):
@@ -40,7 +41,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
             return self._line_cap._copy()
 
     @line_cap.setter
-    def line_cap(self, value: Union[ap.String, LineCaps]) -> None:
+    def line_cap(self, value: Union[String, LineCaps]) -> None:
         """
         Set line cap style setting.
 
@@ -49,6 +50,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         value : String or LineCaps
             Line cap style setting to set.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='line_cap', locals_=locals(),
                 module_name=__name__, class_=LineCapInterface):
@@ -59,6 +61,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
         """
         Append line cap updating expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_line_cap_update_expression,
                 locals_=locals(),
@@ -72,7 +75,7 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
             ap.append_js_expression(expression=expression)
 
     def _update_line_cap_and_skip_appending_exp(
-            self, *, value: Union[ap.String, LineCaps]) -> None:
+            self, *, value: Union[String, LineCaps]) -> None:
         """
         Update line cap and skip appending expression.
 
@@ -82,16 +85,16 @@ class LineCapInterface(VariableNameInterface, RevertInterface):
             Line cap style setting to set.
         """
         from apysc._validation.display_validation import validate_line_cap
-        if not isinstance(value, (ap.String, LineCaps)):
+        if not isinstance(value, (String, LineCaps)):
             raise TypeError(
                 'Not supported line_cap type specified: '
                 f'{type(value)}'
                 '\nAcceptable ones are: String or LineCaps.')
         validate_line_cap(cap=value)
-        if isinstance(value, ap.String):
+        if isinstance(value, String):
             self._line_cap = value._copy()
         else:
-            self._line_cap = ap.String(value.value)
+            self._line_cap = String(value.value)
 
     _line_cap_snapshots: Dict[str, str]
 

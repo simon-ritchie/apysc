@@ -10,7 +10,9 @@ from typing import Optional
 from typing import TypeVar
 from typing import Union
 
-import apysc as ap
+from apysc._type.string import String
+from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._display.line_caps import LineCaps
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
 from apysc._display.line_dash_setting import LineDashSetting
@@ -19,16 +21,16 @@ from apysc._display.line_joints import LineJoints
 from apysc._display.line_round_dot_setting import LineRoundDotSetting
 from apysc._type.revert_interface import RevertInterface
 
-StrOrString = TypeVar('StrOrString', str, ap.String)
+StrOrString = TypeVar('StrOrString', str, String)
 
 
 class LineStyleInterface(RevertInterface):
 
-    _line_color: ap.String
-    _line_thickness: ap.Int
-    _line_alpha: ap.Number
-    _line_cap: ap.String
-    _line_joints: ap.String
+    _line_color: String
+    _line_thickness: Int
+    _line_alpha: Number
+    _line_cap: String
+    _line_joints: String
     _line_dot_setting: Optional[LineDotSetting]
     _line_dash_setting: Optional[LineDashSetting]
     _line_round_dot_setting: Optional[LineRoundDotSetting]
@@ -37,8 +39,8 @@ class LineStyleInterface(RevertInterface):
     def line_style(
             self, color: StrOrString,
             *,
-            thickness: Union[int, ap.Int] = 1,
-            alpha: Union[float, ap.Number] = 1.0,
+            thickness: Union[int, Int] = 1,
+            alpha: Union[float, Number] = 1.0,
             cap: Optional[LineCaps] = None,
             joints: Optional[LineJoints] = None,
             dot_setting: Optional[LineDotSetting] = None,
@@ -89,6 +91,7 @@ class LineStyleInterface(RevertInterface):
         - Graphics line_style interface document
             - https://bit.ly/3zauILT
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='line_style', locals_=locals(),
                 module_name=__name__, class_=LineStyleInterface):
@@ -171,7 +174,7 @@ class LineStyleInterface(RevertInterface):
         """
         if hasattr(self, '_line_color'):
             return
-        self._line_color = ap.String('')
+        self._line_color = String('')
 
     def _initialize_line_thickness_if_not_initialized(self) -> None:
         """
@@ -180,7 +183,7 @@ class LineStyleInterface(RevertInterface):
         """
         if hasattr(self, '_line_thickness'):
             return
-        self._line_thickness = ap.Int(1)
+        self._line_thickness = Int(1)
 
     def _initialize_line_alpha_if_not_initialized(self) -> None:
         """
@@ -189,7 +192,7 @@ class LineStyleInterface(RevertInterface):
         """
         if hasattr(self, '_line_alpha'):
             return
-        self._line_alpha = ap.Number(1.0)
+        self._line_alpha = Number(1.0)
 
     def _initialize_line_cap_if_not_initialized(self) -> None:
         """
@@ -197,7 +200,7 @@ class LineStyleInterface(RevertInterface):
         """
         if hasattr(self, '_line_cap'):
             return
-        self._line_cap = ap.String(LineCaps.BUTT.value)
+        self._line_cap = String(LineCaps.BUTT.value)
 
     def _initialize_line_joints_if_not_initialized(self) -> None:
         """
@@ -205,7 +208,7 @@ class LineStyleInterface(RevertInterface):
         """
         if hasattr(self, '_line_joints'):
             return
-        self._line_joints = ap.String(LineJoints.MITER.value)
+        self._line_joints = String(LineJoints.MITER.value)
 
     def _initialize_line_dot_setting_if_not_initialized(self) -> None:
         """
@@ -244,7 +247,7 @@ class LineStyleInterface(RevertInterface):
         self._line_dash_dot_setting = None
 
     @property
-    def line_color(self) -> ap.String:
+    def line_color(self) -> String:
         """
         Get current line color.
 
@@ -263,7 +266,7 @@ class LineStyleInterface(RevertInterface):
             return value_util.get_copy(value=self._line_color)
 
     @property
-    def line_thickness(self) -> ap.Int:
+    def line_thickness(self) -> Int:
         """
         Get current line thickness.
 
@@ -281,7 +284,7 @@ class LineStyleInterface(RevertInterface):
             return value_util.get_copy(value=self._line_thickness)
 
     @property
-    def line_alpha(self) -> ap.Number:
+    def line_alpha(self) -> Number:
         """
         Get current line color opacity.
 
@@ -300,7 +303,7 @@ class LineStyleInterface(RevertInterface):
             return value_util.get_copy(value=self._line_alpha)
 
     @property
-    def line_cap(self) -> ap.String:
+    def line_cap(self) -> String:
         """
         Get current line cap (edge) style setting.
 
@@ -317,7 +320,7 @@ class LineStyleInterface(RevertInterface):
             return self._line_cap
 
     @property
-    def line_joints(self) -> ap.String:
+    def line_joints(self) -> String:
         """
         Get current line joints (vertices) style setting.
 
@@ -343,6 +346,7 @@ class LineStyleInterface(RevertInterface):
         line_dot_setting : LineDotSetting or None
             Current line dot setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='line_dot_setting', locals_=locals(),
                 module_name=__name__, class_=LineStyleInterface):
@@ -359,6 +363,7 @@ class LineStyleInterface(RevertInterface):
         line_dash_setting : LineDashSetting or None
             Current line dash setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='line_dash_setting', locals_=locals(),
                 module_name=__name__, class_=LineStyleInterface):
@@ -375,6 +380,7 @@ class LineStyleInterface(RevertInterface):
         line_round_dot_setting : LineRoundDotSetting or None
             Current line round dot setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='line_round_dot_setting', locals_=locals(),
                 module_name=__name__, class_=LineStyleInterface):
@@ -391,6 +397,7 @@ class LineStyleInterface(RevertInterface):
         line_dash_dot_setting : LineDashDotSetting or None
             Current line dash dot setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='line_dash_dot_setting', locals_=locals(),
                 module_name=__name__, class_=LineStyleInterface):

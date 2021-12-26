@@ -4,7 +4,7 @@
 from typing import Dict
 from typing import Union
 
-import apysc as ap
+from apysc._type.number import Number
 from apysc._animation.animation_line_alpha_interface import \
     AnimationLineAlphaInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
@@ -14,7 +14,7 @@ from apysc._type.revert_interface import RevertInterface
 class LineAlphaInterface(
         AnimationLineAlphaInterface, RevertInterface, AttrLinkingInterface):
 
-    _line_alpha: ap.Number
+    _line_alpha: Number
 
     def _initialize_line_alpha_if_not_initialized(self) -> None:
         """
@@ -22,7 +22,7 @@ class LineAlphaInterface(
         """
         if hasattr(self, '_line_alpha'):
             return
-        self._line_alpha = ap.Number(1.0)
+        self._line_alpha = Number(1.0)
 
         self._append_line_alpha_attr_linking_setting()
 
@@ -30,6 +30,7 @@ class LineAlphaInterface(
         """
         Append a line alpha attribute linking setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='line_alpha', locals_=locals(),
                 module_name=__name__, class_=LineAlphaInterface):
@@ -39,7 +40,7 @@ class LineAlphaInterface(
                 attr=self._line_alpha, attr_name='line_alpha')
 
     @property
-    def line_alpha(self) -> ap.Number:
+    def line_alpha(self) -> Number:
         """
         Get this instance's line alpha (opacity).
 
@@ -53,6 +54,7 @@ class LineAlphaInterface(
         - Graphics line_alpha interface document
             - https://simon-ritchie.github.io/apysc/graphics_line_alpha.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='line_alpha', locals_=locals(),
                 module_name=__name__, class_=LineAlphaInterface):
@@ -61,7 +63,7 @@ class LineAlphaInterface(
             return value_util.get_copy(value=self._line_alpha)
 
     @line_alpha.setter
-    def line_alpha(self, value: ap.Number) -> None:
+    def line_alpha(self, value: Number) -> None:
         """
         Update this instance's line alpha (opacity).
 
@@ -75,6 +77,7 @@ class LineAlphaInterface(
         - Graphics line_alpha interface document
             - https://simon-ritchie.github.io/apysc/graphics_line_alpha.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='line_alpha', locals_=locals(),
                 module_name=__name__, class_=LineAlphaInterface):
@@ -89,6 +92,7 @@ class LineAlphaInterface(
         """
         Append line alpha updating expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_line_alpha_update_expression,
                 locals_=locals(),
@@ -102,7 +106,7 @@ class LineAlphaInterface(
             ap.append_js_expression(expression=expression)
 
     def _update_line_alpha_and_skip_appending_exp(
-            self, *, value: Union[float, ap.Number]) -> None:
+            self, *, value: Union[float, Number]) -> None:
         """
         Update line alpha and skip appending expression.
 
@@ -116,7 +120,7 @@ class LineAlphaInterface(
         number_validation.validate_num(num=value)
         color_validation.validate_alpha_range(alpha=value)
         if isinstance(value, float):
-            value = ap.Number(value)
+            value = Number(value)
         self._line_alpha = value
 
     _line_alpha_snapshots: Dict[str, float]

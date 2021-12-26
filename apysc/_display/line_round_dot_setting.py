@@ -3,10 +3,11 @@
 
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
+from apysc._type.dictionary import Dictionary
 
 
-class LineRoundDotSetting(ap.Dictionary[str, ap.Int]):
+class LineRoundDotSetting(Dictionary[str, Int]):
     """
     Round dot setting class for a line.
 
@@ -17,8 +18,8 @@ class LineRoundDotSetting(ap.Dictionary[str, ap.Int]):
     """
 
     def __init__(
-            self, round_size: Union[int, ap.Int],
-            space_size: Union[int, ap.Int]) -> None:
+            self, round_size: Union[int, Int],
+            space_size: Union[int, Int]) -> None:
         """
         Round dot setting class for line.
 
@@ -34,6 +35,7 @@ class LineRoundDotSetting(ap.Dictionary[str, ap.Int]):
         - Graphics line_style interface document
             - https://bit.ly/3zauILT
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=LineRoundDotSetting):
@@ -52,7 +54,7 @@ class LineRoundDotSetting(ap.Dictionary[str, ap.Int]):
             })
 
     @property
-    def round_size(self) -> ap.Int:
+    def round_size(self) -> Int:
         """
         Get a round size setting.
 
@@ -61,13 +63,14 @@ class LineRoundDotSetting(ap.Dictionary[str, ap.Int]):
         round_size : Int
             Round size setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='round_size', locals_=locals(),
                 module_name=__name__, class_=LineRoundDotSetting):
             return self['round_size']
 
     @property
-    def space_size(self) -> ap.Int:
+    def space_size(self) -> Int:
         """
         Get a space size setting.
 
@@ -76,6 +79,7 @@ class LineRoundDotSetting(ap.Dictionary[str, ap.Int]):
         space_size : Int
             Blank space size between dots.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='space_size', locals_=locals(),
                 module_name=__name__, class_=LineRoundDotSetting):

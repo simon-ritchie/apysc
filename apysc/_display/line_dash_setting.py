@@ -3,10 +3,11 @@
 
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
+from apysc._type.dictionary import Dictionary
 
 
-class LineDashSetting(ap.Dictionary[str, ap.Int]):
+class LineDashSetting(Dictionary[str, Int]):
     """
     Dash setting class for a line.
 
@@ -17,8 +18,8 @@ class LineDashSetting(ap.Dictionary[str, ap.Int]):
     """
 
     def __init__(
-            self, dash_size: Union[int, ap.Int],
-            space_size: Union[int, ap.Int]) -> None:
+            self, dash_size: Union[int, Int],
+            space_size: Union[int, Int]) -> None:
         """
         Dash setting class for a line.
 
@@ -34,6 +35,7 @@ class LineDashSetting(ap.Dictionary[str, ap.Int]):
         - Graphics line_style interface document
             - https://bit.ly/3zauILT
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=LineDashSetting):
@@ -52,7 +54,7 @@ class LineDashSetting(ap.Dictionary[str, ap.Int]):
             })
 
     @property
-    def dash_size(self) -> ap.Int:
+    def dash_size(self) -> Int:
         """
         Get a dash size setting.
 
@@ -61,13 +63,14 @@ class LineDashSetting(ap.Dictionary[str, ap.Int]):
         dash_size : Int
             Dash size setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='dash_size', locals_=locals(),
                 module_name=__name__, class_=LineDashSetting):
             return self['dash_size']
 
     @property
-    def space_size(self) -> ap.Int:
+    def space_size(self) -> Int:
         """
         Get a space size setting.
 
@@ -76,6 +79,7 @@ class LineDashSetting(ap.Dictionary[str, ap.Int]):
         space_size : Int
             Space size setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='space_size', locals_=locals(),
                 module_name=__name__, class_=LineDashSetting):

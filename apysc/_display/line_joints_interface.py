@@ -4,7 +4,7 @@
 from typing import Dict
 from typing import Union
 
-import apysc as ap
+from apysc._type.string import String
 from apysc._display.line_joints import LineJoints
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
@@ -12,7 +12,7 @@ from apysc._type.variable_name_interface import VariableNameInterface
 
 class LineJointsInterface(VariableNameInterface, RevertInterface):
 
-    _line_joints: ap.String
+    _line_joints: String
 
     def _initialize_line_joints_if_not_initialized(self) -> None:
         """
@@ -21,10 +21,10 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         """
         if hasattr(self, '_line_joints'):
             return
-        self._line_joints = ap.String(LineJoints.MITER.value)
+        self._line_joints = String(LineJoints.MITER.value)
 
     @property
-    def line_joints(self) -> Union[ap.String, LineJoints]:
+    def line_joints(self) -> Union[String, LineJoints]:
         """
         Get this instance's line joints style setting.
 
@@ -33,6 +33,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
         line_joints : String
             Line joints style setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='line_joints', locals_=locals(),
                 module_name=__name__, class_=LineJointsInterface):
@@ -40,7 +41,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
             return self._line_joints._copy()
 
     @line_joints.setter
-    def line_joints(self, value: Union[ap.String, LineJoints]) -> None:
+    def line_joints(self, value: Union[String, LineJoints]) -> None:
         """
         Set line joints style setting.
 
@@ -57,7 +58,7 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
             self._append_line_joints_update_expression()
 
     def _update_line_joints_and_skip_appending_exp(
-            self, *, value: Union[ap.String, LineJoints]) -> None:
+            self, *, value: Union[String, LineJoints]) -> None:
         """
         Update line joints and skip appending expression.
 
@@ -67,16 +68,16 @@ class LineJointsInterface(VariableNameInterface, RevertInterface):
             Line joints style setting to set.
         """
         from apysc._validation.display_validation import validate_line_joints
-        if not isinstance(value, (ap.String, LineJoints)):
+        if not isinstance(value, (String, LineJoints)):
             raise TypeError(
                 'Not supported line_joints type specified: '
                 f'{type(value)}'
                 '\nAcceptable ones are: String or LineJoints.')
         validate_line_joints(joints=value)
-        if isinstance(value, ap.String):
+        if isinstance(value, String):
             self._line_joints = value._copy()
         else:
-            self._line_joints = ap.String(value.value)
+            self._line_joints = String(value.value)
 
     def _append_line_joints_update_expression(self) -> None:
         """

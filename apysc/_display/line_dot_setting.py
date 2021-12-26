@@ -3,10 +3,11 @@
 
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
+from apysc._type.dictionary import Dictionary
 
 
-class LineDotSetting(ap.Dictionary[str, ap.Int]):
+class LineDotSetting(Dictionary[str, Int]):
     """
     Dot setting class for a line.
 
@@ -16,7 +17,7 @@ class LineDotSetting(ap.Dictionary[str, ap.Int]):
         - https://bit.ly/3zauILT
     """
 
-    def __init__(self, dot_size: Union[int, ap.Int]) -> None:
+    def __init__(self, dot_size: Union[int, Int]) -> None:
         """
         Dot setting class for a line.
 
@@ -44,7 +45,7 @@ class LineDotSetting(ap.Dictionary[str, ap.Int]):
             super(LineDotSetting, self).__init__({'dot_size': dot_size_})
 
     @property
-    def dot_size(self) -> ap.Int:
+    def dot_size(self) -> Int:
         """
         Get a dot size setting.
 

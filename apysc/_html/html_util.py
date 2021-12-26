@@ -24,10 +24,10 @@ from typing import Optional
 from typing import Tuple
 from typing import TypeVar
 
-import apysc as ap
+from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
 
-StrOrString = TypeVar('StrOrString', str, ap.String)
+StrOrString = TypeVar('StrOrString', str, String)
 
 
 def remove_first_selector_symbol_char(
@@ -56,8 +56,8 @@ def remove_first_selector_symbol_char(
             str_val = str_val[1:]  # type: ignore
         return str_val
 
-    if isinstance(str_val, ap.String):
-        str_val_: ap.String = value_util.get_copy(
+    if isinstance(str_val, String):
+        str_val_: String = value_util.get_copy(
             value=str_val)
         if str_val_._value.startswith('.') or str_val_._value.startswith('#'):
             str_val_._value = str_val_._value[1:]
@@ -81,6 +81,7 @@ def _append_remove_first_selector_symbol_char_expression(
     str_val : String
         First character removed string instance.
     """
+    import apysc as ap
     var_name: str = str_val.variable_name
     expression: str = (
         f'var first_char = {var_name}.slice(0, 1);'

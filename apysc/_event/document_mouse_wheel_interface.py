@@ -10,10 +10,10 @@ from typing import Callable
 from typing import Optional
 from typing import TypeVar
 
-import apysc as ap
+from apysc._event.wheel_event import WheelEvent
 
 _O = TypeVar('_O')
-_Handler = Callable[[ap.WheelEvent, _O], None]
+_Handler = Callable[[WheelEvent, _O], None]
 
 
 def bind_wheel_event_to_document(
@@ -40,6 +40,7 @@ def bind_wheel_event_to_document(
     - About the handler options’ type document
         - https://bit.ly/39tnYxC
     """
+    import apysc as ap
     with ap.DebugInfo(
             callable_=bind_wheel_event_to_document, locals_=locals(),
             module_name=__name__):
@@ -76,6 +77,7 @@ def unbind_wheel_event_from_document(handler: _Handler[_O]) -> None:
     handler : _Handler
         Callable to unbind.
     """
+    import apysc as ap
     with ap.DebugInfo(
             callable_=unbind_wheel_event_from_document, locals_=locals(),
             module_name=__name__):
@@ -91,6 +93,7 @@ def unbind_wheel_event_all_from_document() -> None:
     """
     Unbind all wheel event from document (overall window).
     """
+    import apysc as ap
     with ap.DebugInfo(
             callable_=unbind_wheel_event_all_from_document, locals_=locals(),
             module_name=__name__):

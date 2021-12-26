@@ -49,7 +49,6 @@ class MouseMoveInterface(MouseEventInterfaceBase):
         with ap.DebugInfo(
                 callable_=self.mousemove, locals_=locals(),
                 module_name=__name__, class_=MouseMoveInterface):
-            import apysc as ap
             from apysc._event.handler import append_handler_expression
             from apysc._event.handler import get_handler_name
             from apysc._type.variable_name_interface import \

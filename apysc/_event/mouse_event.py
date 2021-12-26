@@ -4,7 +4,7 @@
 from typing import Generic
 from typing import TypeVar
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._event.event import Event
 from apysc._event.prevent_default_interface import PreventDefaultInterface
 from apysc._event.stop_propagation_interface import StopPropagationInterface
@@ -39,6 +39,7 @@ class MouseEvent(
         - Common mouse event interfaces
             - https://bit.ly/3eDWY1v
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=MouseEvent):
@@ -47,7 +48,7 @@ class MouseEvent(
                 this=this, type_name=var_names.MOUSE_EVENT)
 
     @property
-    def stage_x(self) -> ap.Int:
+    def stage_x(self) -> Int:
         """
         Get the x-coordinate of the stage reference.
 
@@ -61,6 +62,7 @@ class MouseEvent(
         - Common mouse event interfaces document
             - https://simon-ritchie.github.io/apysc/mouse_event_common.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='stage_x', locals_=locals(),
                 module_name=__name__, class_=MouseEvent):
@@ -68,7 +70,7 @@ class MouseEvent(
             self._append_stage_x_getter_expression(x=x)
             return x
 
-    def _append_stage_x_getter_expression(self, *, x: ap.Int) -> None:
+    def _append_stage_x_getter_expression(self, *, x: Int) -> None:
         """
         Append stage_x getter property expression.
 
@@ -77,6 +79,7 @@ class MouseEvent(
         x : Int
             Target x-coordinate value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_stage_x_getter_expression,
                 locals_=locals(),
@@ -89,7 +92,7 @@ class MouseEvent(
             ap.append_js_expression(expression=expression)
 
     @property
-    def stage_y(self) -> ap.Int:
+    def stage_y(self) -> Int:
         """
         Get the y-coordinate of the stage reference.
 
@@ -103,6 +106,7 @@ class MouseEvent(
         - Common mouse event interfaces document
             - https://simon-ritchie.github.io/apysc/mouse_event_common.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='stage_y', locals_=locals(),
                 module_name=__name__, class_=MouseEvent):
@@ -110,7 +114,7 @@ class MouseEvent(
             self._append_stage_y_getter_expression(y=y)
             return y
 
-    def _append_stage_y_getter_expression(self, *, y: ap.Int) -> None:
+    def _append_stage_y_getter_expression(self, *, y: Int) -> None:
         """
         Append stage_y getter property expression.
 
@@ -119,6 +123,7 @@ class MouseEvent(
         y : Int
             Target y-coordinate value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_stage_y_getter_expression,
                 locals_=locals(),
@@ -131,7 +136,7 @@ class MouseEvent(
             ap.append_js_expression(expression=expression)
 
     @property
-    def local_x(self) -> ap.Int:
+    def local_x(self) -> Int:
         """
         Get the local x-coordinate of the event listening instance.
         For example, if a Sprite instance is clicked, this value will be
@@ -147,6 +152,7 @@ class MouseEvent(
         - Common mouse event interfaces document
             - https://simon-ritchie.github.io/apysc/mouse_event_common.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='local_x', locals_=locals(),
                 module_name=__name__, class_=MouseEvent):
@@ -154,7 +160,7 @@ class MouseEvent(
             self._append_local_x_getter_expression(x=x)
             return x
 
-    def _append_local_x_getter_expression(self, *, x: ap.Int) -> None:
+    def _append_local_x_getter_expression(self, *, x: Int) -> None:
         """
         Append local_x getter property expression.
 
@@ -177,7 +183,7 @@ class MouseEvent(
             ap.append_js_expression(expression=expression)
 
     @property
-    def local_y(self) -> ap.Int:
+    def local_y(self) -> Int:
         """
         Get the local y-coordinate of the event listening instance.
         For example, if a Sprite instance is clicked, this value will be
@@ -193,6 +199,7 @@ class MouseEvent(
         - Common mouse event interfaces document
             - https://simon-ritchie.github.io/apysc/mouse_event_common.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='local_y', locals_=locals(),
                 module_name=__name__, class_=MouseEvent):
@@ -200,7 +207,7 @@ class MouseEvent(
             self._append_local_y_getter_expression(y=y)
             return y
 
-    def _append_local_y_getter_expression(self, *, y: ap.Int) -> None:
+    def _append_local_y_getter_expression(self, *, y: Int) -> None:
         """
         Append local_y getter property expression.
 

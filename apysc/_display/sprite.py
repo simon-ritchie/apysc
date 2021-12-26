@@ -3,7 +3,6 @@
 
 from typing import Optional
 
-import apysc as ap
 from apysc._display.child_interface import ChildInterface
 from apysc._display.display_object import DisplayObject
 from apysc._display.graphics import Graphics
@@ -43,6 +42,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
         - Sprite document
             - https://simon-ritchie.github.io/apysc/sprite.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=Sprite):

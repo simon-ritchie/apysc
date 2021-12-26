@@ -3,7 +3,7 @@
 
 from typing import Dict
 
-import apysc as ap
+from apysc._type.int import Int
 from apysc._animation.animation_skew_x_interface import AnimationSkewXInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
@@ -12,7 +12,7 @@ from apysc._type.revert_interface import RevertInterface
 class SkewXInterface(
         AnimationSkewXInterface, RevertInterface, AttrLinkingInterface):
 
-    _skew_x: ap.Int
+    _skew_x: Int
 
     def _initialize_skew_x_if_not_initialized(self) -> None:
         """
@@ -20,7 +20,7 @@ class SkewXInterface(
         """
         if hasattr(self, '_skew_x'):
             return
-        self._skew_x = ap.Int(0)
+        self._skew_x = Int(0)
 
         self._append_skew_x_attr_linking_setting()
 
@@ -28,6 +28,7 @@ class SkewXInterface(
         """
         Append a skew-x attribute linking setting.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='skew_x', locals_=locals(),
                 module_name=__name__, class_=SkewXInterface):
@@ -37,7 +38,7 @@ class SkewXInterface(
                 attr=self._skew_x, attr_name='skew_x')
 
     @property
-    def skew_x(self) -> ap.Int:
+    def skew_x(self) -> Int:
         """
         Get a current skew x value of the instance.
 
@@ -51,6 +52,7 @@ class SkewXInterface(
         - GraphicsBase skew_x and skew_y interfaces document
             - https://simon-ritchie.github.io/apysc/graphics_base_skew.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='skew_x', locals_=locals(),
                 module_name=__name__, class_=SkewXInterface):
@@ -59,7 +61,7 @@ class SkewXInterface(
             return value_util.get_copy(value=self._skew_x)
 
     @skew_x.setter
-    def skew_x(self, value: ap.Int) -> None:
+    def skew_x(self, value: Int) -> None:
         """
         Update a skew x value of this instance.
 
@@ -73,6 +75,7 @@ class SkewXInterface(
         - GraphicsBase skew_x and skew_y interfaces document
             - https://simon-ritchie.github.io/apysc/graphics_base_skew.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='skew_x', locals_=locals(),
                 module_name=__name__, class_=SkewXInterface):
@@ -86,7 +89,7 @@ class SkewXInterface(
             self._append_skew_x_attr_linking_setting()
 
     def _append_skew_x_update_expression(
-            self, *, before_value: ap.Int) -> None:
+            self, *, before_value: Int) -> None:
         """
         Append the skew x updating expression.
 
@@ -95,6 +98,7 @@ class SkewXInterface(
         before_value : ap.Int
             Before updating value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_skew_x_update_expression,
                 locals_=locals(),

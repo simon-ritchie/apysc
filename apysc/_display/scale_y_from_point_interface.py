@@ -4,7 +4,9 @@
 from typing import Any
 from typing import Dict
 
-import apysc as ap
+from apysc._type.dictionary import Dictionary
+from apysc._type.number import Number
+from apysc._type.int import Int
 from apysc._animation.animation_scale_y_from_point_interface import \
     AnimationScaleYFromPointInterface
 from apysc._type.expression_string import ExpressionString
@@ -14,7 +16,7 @@ from apysc._type.revert_interface import RevertInterface
 class ScaleYFromPointInterface(
         AnimationScaleYFromPointInterface, RevertInterface):
 
-    _scale_y_from_point: ap.Dictionary[str, ap.Number]
+    _scale_y_from_point: Dictionary[str, Number]
 
     def _initialize_scale_y_from_point_if_not_initialized(self) -> None:
         """
@@ -23,9 +25,9 @@ class ScaleYFromPointInterface(
         """
         if hasattr(self, '_scale_y_from_point'):
             return
-        self._scale_y_from_point = ap.Dictionary({})
+        self._scale_y_from_point = Dictionary({})
 
-    def get_scale_y_from_point(self, y: ap.Int) -> ap.Number:
+    def get_scale_y_from_point(self, y: Int) -> Number:
         """
         Get a scale-y value from the given y-coordinate.
 
@@ -44,6 +46,7 @@ class ScaleYFromPointInterface(
         - GraphicsBase scale_from_point interfaces document
             - https://bit.ly/3xRBhlw
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.get_scale_y_from_point, locals_=locals(),
                 module_name=__name__, class_=ScaleYFromPointInterface):
@@ -58,7 +61,7 @@ class ScaleYFromPointInterface(
                 key=key_exp_str, default=default_val)
             return scale_y
 
-    def set_scale_y_from_point(self, scale_y: ap.Number, y: ap. Int) -> None:
+    def set_scale_y_from_point(self, scale_y: Number, y: Int) -> None:
         """
         Update a scale-y value from the given y-coordinate.
 
@@ -74,6 +77,7 @@ class ScaleYFromPointInterface(
         - GraphicsBase scale_from_point interfaces document
             - https://bit.ly/3xRBhlw
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.set_scale_y_from_point, locals_=locals(),
                 module_name=__name__, class_=ScaleYFromPointInterface):
@@ -88,7 +92,7 @@ class ScaleYFromPointInterface(
             self._append_scale_y_from_point_update_expression(y=y)
 
     def _append_scale_y_from_point_update_expression(
-            self, *, y: ap.Int) -> None:
+            self, *, y: Int) -> None:
         """
         Append the scale-y from the specified y-coordinate updating
         expression.
@@ -98,6 +102,7 @@ class ScaleYFromPointInterface(
         y : Int
             Y-coordinate.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.set_scale_y_from_point, locals_=locals(),
                 module_name=__name__, class_=ScaleYFromPointInterface):

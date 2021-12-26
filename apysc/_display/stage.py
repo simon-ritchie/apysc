@@ -11,7 +11,6 @@ from datetime import datetime
 from typing import Optional
 from typing import Tuple
 
-import apysc as ap
 from apysc._display.child_interface import ChildInterface
 from apysc._display.height_interface import HeightInterface
 from apysc._display.width_interface import WidthInterface
@@ -68,6 +67,7 @@ class Stage(
         Stage document
             https://simon-ritchie.github.io/apysc/stage.html
         """
+        import apysc as ap
         from apysc._color import color_util
         from apysc._html import html_util
         from apysc._validation import string_validation
@@ -133,6 +133,7 @@ class Stage(
         """
         Append stage constructor expression.
         """
+        import apysc as ap
         expression: str = self._make_constructor_expression()
         ap.append_js_expression(expression=expression)
 

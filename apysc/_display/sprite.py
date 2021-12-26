@@ -3,9 +3,9 @@
 
 from typing import Optional
 
+from apysc._display import graphics
 from apysc._display.child_interface import ChildInterface
 from apysc._display.display_object import DisplayObject
-from apysc._display import graphics
 from apysc._display.stage import Stage
 from apysc._type.revert_interface import RevertInterface
 

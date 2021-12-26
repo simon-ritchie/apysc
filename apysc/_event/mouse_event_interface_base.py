@@ -40,8 +40,8 @@ class MouseEventInterfaceBase:
         name: str = get_handler_name(handler=handler, instance=self)
         if options is None:
             options = {}  # type: ignore
-        handlers_dict[name] = {
-            'handler': handler,
+        handlers_dict[name] = {  # type: ignore
+            'handler': handler,  # type: ignore
             'options': options,
         }
 

@@ -3,8 +3,8 @@
 
 from abc import ABC
 from abc import abstractmethod
-from typing import Any
 
+from apysc._display import graphics
 from apysc._display.fill_alpha_interface import FillAlphaInterface
 from apysc._display.fill_color_interface import FillColorInterface
 from apysc._display.graphics_base import GraphicsBase
@@ -17,7 +17,6 @@ from apysc._display.line_dot_setting_interface import LineDotSettingInterface
 from apysc._display.line_joints_interface import LineJointsInterface
 from apysc._display.line_round_dot_setting_interface import \
     LineRoundDotSettingInterface
-from apysc._display import graphics
 
 
 class LineBase(

@@ -1,13 +1,12 @@
 """Implementations of Polygon class.
 """
 
-from typing import Any
 
+from apysc._display import graphics
 from apysc._display.append_line_point_interface import AppendLinePointInterface
 from apysc._display.line_base import LineBase
 from apysc._geom.point2d import Point2D
 from apysc._type.array import Array
-from apysc._display import graphics
 
 
 class Polygon(LineBase, AppendLinePointInterface):

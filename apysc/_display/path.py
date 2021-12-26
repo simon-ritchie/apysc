@@ -3,9 +3,9 @@
 
 from typing import List
 
+from apysc._display import graphics
 from apysc._display.line_base import LineBase
 from apysc._geom.path_data_base import PathDataBase
-from apysc._display import graphics
 
 
 class Path(LineBase):

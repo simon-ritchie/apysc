@@ -1,29 +1,28 @@
 """Implementations for Graphics class.
 """
 
-from typing import Any
 from typing import List
 from typing import Optional
 from typing import Union
 
-from apysc._display.begin_fill_interface import BeginFillInterface
-from apysc._display.child_interface import ChildInterface
 from apysc._display import circle as _circle
-from apysc._display.display_object import DisplayObject
 from apysc._display import ellipse as _ellipse
-from apysc._display.graphics_clear_interface import GraphicsClearInterface
 from apysc._display import line as _line
-from apysc._display.line_style_interface import LineStyleInterface
 from apysc._display import path as _path
 from apysc._display import polygon as _polyg
 from apysc._display import polyline as _polyline
+from apysc._display import sprite
+from apysc._display.begin_fill_interface import BeginFillInterface
+from apysc._display.child_interface import ChildInterface
+from apysc._display.display_object import DisplayObject
+from apysc._display.graphics_clear_interface import GraphicsClearInterface
+from apysc._display.line_style_interface import LineStyleInterface
 from apysc._display.rectangle import Rectangle
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.point2d import Point2D
 from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
-from apysc._display import sprite
 
 
 class Graphics(

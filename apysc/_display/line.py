@@ -1,10 +1,9 @@
 """Implementations of the Line class.
 """
 
-from typing import Any
 
-from apysc._display.line_base import LineBase
 from apysc._display import graphics
+from apysc._display.line_base import LineBase
 from apysc._geom import point2d
 
 

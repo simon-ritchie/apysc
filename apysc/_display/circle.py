@@ -1,15 +1,14 @@
 """Implementations of Circle class.
 """
 
-from typing import Any
 from typing import Union
 
+from apysc._display import graphics
 from apysc._display.cx_interface import CxInterface
 from apysc._display.cy_interface import CyInterface
 from apysc._display.line_base import LineBase
 from apysc._display.radius_interface import RadiusInterface
 from apysc._type.int import Int
-from apysc._display import graphics
 
 
 class Circle(  # type: ignore

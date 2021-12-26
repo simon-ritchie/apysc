@@ -15,8 +15,8 @@ from apysc._display.graphics_clear_interface import GraphicsClearInterface
 from apysc._display import line as _line
 from apysc._display.line_style_interface import LineStyleInterface
 from apysc._display import path as _path
-from apysc._display import polygon as _poly
-from apysc._display.polyline import Polyline
+from apysc._display import polygon as _polyg
+from apysc._display import polyline as _polyline
 from apysc._display.rectangle import Rectangle
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.point2d import Point2D
@@ -39,7 +39,7 @@ class Graphics(
         - https://simon-ritchie.github.io/apysc/graphics.html
     """
 
-    _current_line: Optional[Polyline] = None
+    _current_line: Optional['_polyline.Polyline'] = None
 
     def __init__(
             self, *, parent: 'sprite.Sprite',
@@ -265,7 +265,7 @@ class Graphics(
 
     def line_to(
             self, x: Union[int, Int],
-            y: Union[int, Int]) -> Polyline:
+            y: Union[int, Int]) -> '_polyline.Polyline':
         """
         Draw a line from previous point to specified point (initial
         point is x = 0, y = 0).
@@ -292,7 +292,7 @@ class Graphics(
                 callable_=self.line_to, locals_=locals(),
                 module_name=__name__, class_=Graphics):
             if self._current_line is None:
-                self._current_line = Polyline(
+                self._current_line = _polyline.Polyline(
                     parent=self,
                     points=ap.Array([Point2D(x=0, y=0), Point2D(x=x, y=y)]))
                 self.add_child(self._current_line)
@@ -301,7 +301,9 @@ class Graphics(
             return self._current_line
 
     def move_to(
-            self, x: Union[int, Int], y: Union[int, Int]) -> Polyline:
+            self,
+            x: Union[int, Int],
+            y: Union[int, Int]) -> '_polyline.Polyline':
         """
         Move a line position to specified point.
 
@@ -326,7 +328,7 @@ class Graphics(
         with ap.DebugInfo(
                 callable_=self.move_to, locals_=locals(),
                 module_name=__name__, class_=Graphics):
-            self._current_line = Polyline(
+            self._current_line = _polyline.Polyline(
                 parent=self, points=ap.Array([Point2D(x=x, y=y)]))
             return self._current_line
 
@@ -624,7 +626,7 @@ class Graphics(
 
     def draw_polygon(
             self,
-            points: Union[List[Point2D], Array[Point2D]]) -> '_poly.Polygon':
+            points: Union[List[Point2D], Array[Point2D]]) -> '_polyg.Polygon':
         """
         Draw a polygon vector graphics. This is similar to Polyline
         class (created by move_to or line_to, or other interface),
@@ -651,7 +653,7 @@ class Graphics(
                 module_name=__name__, class_=Graphics):
             if isinstance(points, list):
                 points = ap.Array(points)
-            polygon: _poly.Polygon = _poly.Polygon(
+            polygon: _polyg.Polygon = _polyg.Polygon(
                 parent=self, points=points)
             self.add_child(polygon)
             return polygon

@@ -4,9 +4,8 @@
 from typing import Any
 
 from apysc._display.line_base import LineBase
-
-_Graphics = Any
-_Point2D = Any
+from apysc._display import graphics
+from apysc._geom import point2d
 
 
 class Line(LineBase):
@@ -27,13 +26,13 @@ class Line(LineBase):
         - https://bit.ly/3wKRtUZ
     """
 
-    _start_point: _Point2D
-    _end_point: _Point2D
+    _start_point: 'point2d.Point2D'
+    _end_point: 'point2d.Point2D'
 
     def __init__(
-            self, *, parent: _Graphics,
-            start_point: _Point2D,
-            end_point: _Point2D) -> None:
+            self, *, parent: 'graphics.Graphics',
+            start_point: 'point2d.Point2D',
+            end_point: 'point2d.Point2D') -> None:
         """
         Create a line vector graphics.
 

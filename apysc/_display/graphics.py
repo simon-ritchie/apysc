@@ -12,7 +12,7 @@ from apysc._display import circle as _circle
 from apysc._display.display_object import DisplayObject
 from apysc._display import ellipse as _ellipse
 from apysc._display.graphics_clear_interface import GraphicsClearInterface
-from apysc._display.line import Line
+from apysc._display import line as _line
 from apysc._display.line_style_interface import LineStyleInterface
 from apysc._display.path import Path
 from apysc._display.polygon import Polygon
@@ -349,7 +349,7 @@ class Graphics(
             x_start: Union[int, Int],
             y_start: Union[int, Int],
             x_end: Union[int, Int],
-            y_end: Union[int, Int]) -> Line:
+            y_end: Union[int, Int]) -> '_line.Line':
         """
         Draw a normal line vector graphics.
 
@@ -386,7 +386,7 @@ class Graphics(
             snapshot_name: str = self._get_next_snapshot_name()
             self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
             self._reset_each_line_settings()
-            line: Line = Line(
+            line: _line.Line = _line.Line(
                 parent=self,
                 start_point=Point2D(x=x_start, y=y_start),
                 end_point=Point2D(x=x_end, y=y_end))
@@ -400,7 +400,7 @@ class Graphics(
             y_start: Union[int, Int],
             x_end: Union[int, Int],
             y_end: Union[int, Int],
-            dot_size: Union[int, Int]) -> Line:
+            dot_size: Union[int, Int]) -> '_line.Line':
         """
         Draw a dotted line vector graphics.
 
@@ -440,7 +440,7 @@ class Graphics(
             self._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
             self._reset_each_line_settings()
             self._line_dot_setting = ap.LineDotSetting(dot_size=dot_size)
-            line: Line = Line(
+            line: _line.Line = _line.Line(
                 parent=self,
                 start_point=Point2D(x=x_start, y=y_start),
                 end_point=Point2D(x=x_end, y=y_end))
@@ -455,7 +455,7 @@ class Graphics(
             x_end: Union[int, Int],
             y_end: Union[int, Int],
             dash_size: Union[int, Int],
-            space_size: Union[int, Int]) -> Line:
+            space_size: Union[int, Int]) -> '_line.Line':
         """
         Draw a dashed line vector graphics.
 
@@ -498,7 +498,7 @@ class Graphics(
             self._reset_each_line_settings()
             self._line_dash_setting = ap.LineDashSetting(
                 dash_size=dash_size, space_size=space_size)
-            line: Line = Line(
+            line: _line.Line = _line.Line(
                 parent=self,
                 start_point=Point2D(x=x_start, y=y_start),
                 end_point=Point2D(x=x_end, y=y_end))
@@ -513,7 +513,7 @@ class Graphics(
             x_end: Union[int, Int],
             y_end: Union[int, Int],
             round_size: Union[int, Int],
-            space_size: Union[int, Int]) -> Line:
+            space_size: Union[int, Int]) -> '_line.Line':
         """
         Draw a round dotted line vector graphics.
 
@@ -556,7 +556,7 @@ class Graphics(
             self._reset_each_line_settings()
             self._line_round_dot_setting = ap.LineRoundDotSetting(
                 round_size=round_size, space_size=space_size)
-            line: Line = Line(
+            line: _line.Line = _line.Line(
                 parent=self,
                 start_point=Point2D(x=x_start, y=y_start),
                 end_point=Point2D(x=x_end, y=y_end))
@@ -572,7 +572,7 @@ class Graphics(
             y_end: Union[int, Int],
             dot_size: Union[int, Int],
             dash_size: Union[int, Int],
-            space_size: Union[int, Int]) -> Line:
+            space_size: Union[int, Int]) -> '_line.Line':
         """
         Draw a dash dotted (1-dot chain) line vector graphics.
 
@@ -614,7 +614,7 @@ class Graphics(
                 dot_size=dot_size,
                 dash_size=dash_size,
                 space_size=space_size)
-            line: Line = Line(
+            line: _line.Line = _line.Line(
                 parent=self,
                 start_point=Point2D(x=x_start, y=y_start),
                 end_point=Point2D(x=x_end, y=y_end))

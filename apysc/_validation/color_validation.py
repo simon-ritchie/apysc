@@ -6,10 +6,10 @@ from typing import Tuple
 from typing import TypeVar
 from typing import Union
 
-import apysc as ap
+from apysc._type.string import String
 from apysc._type.number_value_interface import NumberValueInterface
 
-StrOrString = TypeVar('StrOrString', str, ap.String)
+StrOrString = TypeVar('StrOrString', str, String)
 
 
 def validate_hex_color_code_format(hex_color_code: StrOrString) -> None:
@@ -27,12 +27,12 @@ def validate_hex_color_code_format(hex_color_code: StrOrString) -> None:
     ValueError
         If invalid hex color code specified.
     """
-    if not isinstance(hex_color_code, (str, ap.String)):
+    if not isinstance(hex_color_code, (str, String)):
         raise ValueError(
             'Hex color code only supports str type, specified: '
             f'{type(hex_color_code)}')
 
-    if isinstance(hex_color_code, ap.String):
+    if isinstance(hex_color_code, String):
         value_: str = hex_color_code._value
     else:
         value_ = hex_color_code

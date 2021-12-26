@@ -3,10 +3,10 @@
 
 from typing import Union
 
-import apysc as ap
+from apysc._type.string import String
 
 
-def validate_string_type(string: Union[str, ap.String]) -> None:
+def validate_string_type(string: Union[str, String]) -> None:
     """
     Validate specified string's type is str.
 
@@ -22,12 +22,12 @@ def validate_string_type(string: Union[str, ap.String]) -> None:
     """
     if isinstance(string, str):
         return
-    if isinstance(string, ap.String):
+    if isinstance(string, String):
         return
     raise ValueError(f'Specified value is not str type: {type(string)}')
 
 
-def validate_not_empty_string(string: Union[str, ap.String]) -> None:
+def validate_not_empty_string(string: Union[str, String]) -> None:
     """
     Validate specified string is not empty.
 

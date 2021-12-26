@@ -8,10 +8,11 @@ Mainly following interfaces are defined.
 
 from typing import Any
 
-import apysc as ap
+from apysc._event.event import Event
+from apysc._event.mouse_event_type import MouseEventType
 
 
-def validate_event(e: Any) -> ap.Event:
+def validate_event(e: Any) -> Event:
     """
     Validate whether specified instance is Event or not.
 
@@ -30,13 +31,13 @@ def validate_event(e: Any) -> ap.Event:
     e : Event
         Event instance.
     """
-    if isinstance(e, ap.Event):
+    if isinstance(e, Event):
         return e
     raise ValueError(
         f'Specified instance is not Event type: {type(e)}')
 
 
-def validate_event_type(mouse_event_type: Any) -> ap.MouseEventType:
+def validate_event_type(mouse_event_type: Any) -> MouseEventType:
     """
     Validate whether specified value is MouseEventType one or not.
 
@@ -50,7 +51,7 @@ def validate_event_type(mouse_event_type: Any) -> ap.MouseEventType:
     mouse_event_type : MouseEventType
         MouseEventType value.
     """
-    if isinstance(mouse_event_type, ap.MouseEventType):
+    if isinstance(mouse_event_type, MouseEventType):
         return mouse_event_type
     raise ValueError(
         f'Specified value is not a MouseEventType: {type(mouse_event_type)}')

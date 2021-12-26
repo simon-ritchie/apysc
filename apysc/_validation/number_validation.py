@@ -20,11 +20,12 @@ Mainly following interfaces are defined:
 from typing import List
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
+from apysc._type.number import Number
 
 
 def validate_num(
-        num: Union[int, float, ap.Int, ap.Number]) -> None:
+        num: Union[int, float, Int, Number]) -> None:
     """
     Validate specified value is integer or float type.
 
@@ -48,7 +49,7 @@ def validate_num(
         f'({type(num)})')
 
 
-def validate_integer(integer: Union[int, ap.Int]) -> None:
+def validate_integer(integer: Union[int, Int]) -> None:
     """
     Validate specified value is integer.
 
@@ -62,13 +63,13 @@ def validate_integer(integer: Union[int, ap.Int]) -> None:
     ValueError
         If specified value is not integer.
     """
-    if isinstance(integer, (int, ap.Int)):
+    if isinstance(integer, (int, Int)):
         return
     raise ValueError(
         f'Specified value is not integer: {integer}({type(integer)})')
 
 
-def validate_int_is_zero_or_one(integer: Union[int, ap.Int]) -> None:
+def validate_int_is_zero_or_one(integer: Union[int, Int]) -> None:
     """
     Validate specified integer value is zero or one.
 
@@ -87,7 +88,7 @@ def validate_int_is_zero_or_one(integer: Union[int, ap.Int]) -> None:
     ValueError
         If specified integer is not zero and one.
     """
-    if not isinstance(integer, (int, ap.Int)):
+    if not isinstance(integer, (int, Int)):
         return
     if integer == 0 or integer == 1:
         return
@@ -96,7 +97,7 @@ def validate_int_is_zero_or_one(integer: Union[int, ap.Int]) -> None:
 
 
 def validate_num_is_gt_zero(
-        num: Union[int, float, ap.Int, ap.Number]) -> None:
+        num: Union[int, float, Int, Number]) -> None:
     """
     Validate specified value is greater than zero.
 
@@ -116,7 +117,7 @@ def validate_num_is_gt_zero(
 
 
 def validate_num_is_gte_zero(
-        num: Union[int, float, ap.Int, ap.Number]) -> None:
+        num: Union[int, float, Int, Number]) -> None:
     """
     Validate specified value is greater than or equal to zero.
 
@@ -135,7 +136,7 @@ def validate_num_is_gte_zero(
     raise ValueError(f'Specified values is less than zero: {num}')
 
 
-def validate_nums_are_int_and_gt_zero(nums: List[Union[int, ap.Int]]) -> None:
+def validate_nums_are_int_and_gt_zero(nums: List[Union[int, Int]]) -> None:
     """
     Validate specified number values are greater integer and
     greater than zero.

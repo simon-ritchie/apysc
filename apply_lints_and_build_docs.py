@@ -71,6 +71,10 @@ MYPY_COMMAND: Final[str] = (
 
 PYRIGHT_COMMAND: Final[str] = 'pyright'
 
+CHECK_APYSC_TOP_LEVEL_IMPORT_COMMAND: Final[str] = (
+    'python check_apysc_top_level_import.py'
+)
+
 
 def _get_module_paths() -> List[str]:
     """
@@ -155,6 +159,11 @@ def _main() -> None:
         _PYRIGHT_COMMAND['command'].split(' '),
         stdout=sp.PIPE, stderr=sp.PIPE)
 
+    logger.info(msg='Checking apysc top-level importing command started.')
+    checking_apysc_top_level_import_process: sp.Popen = sp.Popen(
+        CHECK_APYSC_TOP_LEVEL_IMPORT_COMMAND.split(' '),
+        stdout=sp.PIPE, stderr=sp.PIPE)
+
     lint_commands: List[LintCommand]
     updated_module_paths: List[str]
     lint_commands, updated_module_paths, = _make_inplace_lint_commands()
@@ -181,6 +190,8 @@ def _main() -> None:
     _check_numdoclint_process(numdoclint_processes=numdoclint_processes)
     _check_mypy_process(mypy_process=mypy_process)
     _check_pyright_process(pyright_process=pyright_process)
+    _check_apysc_top_level_importing_process(
+        process=checking_apysc_top_level_import_process)
 
     logger.info(msg='Ended.')
 
@@ -205,6 +216,39 @@ def _start_numdoclint_processes() -> List[sp.Popen]:
             command_strs=command_strs)
         numdoclint_processes.append(process)
     return numdoclint_processes
+
+
+class _ApyscTopLevelImportingError(Exception):
+    pass
+
+
+def _check_apysc_top_level_importing_process(process: sp.Popen) -> None:
+    """
+    Check the apysc top-level import checking process result.
+
+    Parameters
+    ----------
+    process : Popen
+        Target checking command process.
+
+    Raises
+    ------
+    _ApyscTopLevelImportingError
+        If there is an error in the command output.
+    """
+    print('-' * 20)
+    stdout: bytes
+    logger.info(
+        msg='Waiting apysc top-level import checking command completion...')
+    stdout, _ = process.communicate()
+    stdout_str: str = stdout.decode()
+    lines: List[str] = stdout_str.splitlines()
+    print(stdout_str)
+    for line in lines:
+        if 'Traceback' not in line:
+            continue
+        raise _ApyscTopLevelImportingError(
+            f'There is a invalid top-level apysc import: \n{stdout}')
 
 
 class _PyrightError(Exception):

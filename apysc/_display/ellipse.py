@@ -10,8 +10,7 @@ from apysc._display.line_base import LineBase
 from apysc._display.width_and_height_interfaces_for_ellipse import \
     WidthAndHeightInterfacesForEllipse
 from apysc._type.int import Int
-
-_Graphics = Any
+from apysc._display import graphics
 
 
 class Ellipse(  # type: ignore
@@ -29,7 +28,7 @@ class Ellipse(  # type: ignore
     def __init__(
             self,
             *,
-            parent: _Graphics,
+            parent: 'graphics.Graphics',
             x: Union[int, Int],
             y: Union[int, Int],
             width: Union[int, Int],

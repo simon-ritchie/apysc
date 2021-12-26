@@ -10,7 +10,7 @@ from apysc._display.begin_fill_interface import BeginFillInterface
 from apysc._display.child_interface import ChildInterface
 from apysc._display import circle as _circle
 from apysc._display.display_object import DisplayObject
-from apysc._display.ellipse import Ellipse
+from apysc._display import ellipse as _ellipse
 from apysc._display.graphics_clear_interface import GraphicsClearInterface
 from apysc._display.line import Line
 from apysc._display.line_style_interface import LineStyleInterface
@@ -230,7 +230,7 @@ class Graphics(
             x: Union[int, Int],
             y: Union[int, Int],
             width: Union[int, Int],
-            height: Union[int, Int]) -> Ellipse:
+            height: Union[int, Int]) -> '_ellipse.Ellipse':
         """
         Draw a ellipse vector graphics.
 
@@ -259,7 +259,7 @@ class Graphics(
         with ap.DebugInfo(
                 callable_=self.draw_ellipse, locals_=locals(),
                 module_name=__name__, class_=Graphics):
-            ellipse: Ellipse = Ellipse(
+            ellipse: _ellipse.Ellipse = _ellipse.Ellipse(
                 parent=self, x=x, y=y, width=width, height=height)
             self.add_child(child=ellipse)
             return ellipse

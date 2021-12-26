@@ -23,8 +23,7 @@ from apysc._geom.point2d import Point2D
 from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
-
-_Sprite = Any
+from apysc._display import sprite
 
 
 class Graphics(
@@ -43,7 +42,7 @@ class Graphics(
     _current_line: Optional[Polyline] = None
 
     def __init__(
-            self, *, parent: _Sprite,
+            self, *, parent: 'sprite.Sprite',
             variable_name: Optional[str] = None) -> None:
         """
         Create a object that has each vector graphics interface.

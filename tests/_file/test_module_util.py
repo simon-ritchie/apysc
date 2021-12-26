@@ -1,5 +1,6 @@
 import os
 from random import randint
+from types import ModuleType
 from typing import List
 
 from retrying import retry
@@ -38,3 +39,10 @@ def test_save_tmp_module() -> None:
         saved_script: str = f.read()
     os.remove(saved_module_path)
     assert saved_script == 'print(100)'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_read_target_path_module() -> None:
+    module: ModuleType = module_util.read_target_path_module(
+        module_path='./apysc/_file/module_util.py')
+    assert module == module_util

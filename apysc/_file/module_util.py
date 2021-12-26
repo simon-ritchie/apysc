@@ -3,11 +3,13 @@
 Mainly following interfaces are defined:
 
 - get_module_paths_recursively
-    Get all module paths under the specified directory.
+    - Get all module paths under the specified directory.
 - save_tmp_module
-    Save a temporary Python module.
+    - Save a temporary Python module.
 - save_tmp_module_and_run_script
-    Save a temporary Python module and run that script.
+    - Save a temporary Python module and run that script.
+- read_target_path_module
+    - Read a module of the specified module path.
 """
 
 import os
@@ -16,6 +18,8 @@ from datetime import datetime
 from random import randint
 from typing import List
 from typing import Optional
+from types import ModuleType
+import importlib
 
 
 def get_module_paths_recursively(
@@ -99,3 +103,24 @@ def save_tmp_module_and_run_script(*, script: str) -> str:
     stdout: str = process.stdout.decode('utf-8')
     os.remove(tmp_mod_path)
     return stdout
+
+
+def read_target_path_module(module_path: str) -> ModuleType:
+    """
+    Read a module of the specified module path.
+
+    Parameters
+    ----------
+    module_path : str
+        Target module path.
+
+    Returns
+    -------
+    module : ModuleType
+        Read module.
+    """
+    module_path = module_path.lstrip('./')
+    module_path = module_path.rstrip('.py')
+    module_path = module_path.replace('/', '.')
+    module: ModuleType = importlib.import_module(name=module_path)
+    return module

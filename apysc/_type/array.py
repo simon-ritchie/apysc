@@ -9,7 +9,9 @@ from typing import Optional
 from typing import TypeVar
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
+from apysc._type.string import String
+from apysc._type.boolean import Boolean
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.revert_interface import RevertInterface
@@ -38,6 +40,7 @@ class Array(
         value : list or tuple or range or Array
             Initial array value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -82,6 +85,7 @@ class Array(
         """
         Append constructor expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_constructor_expression,
                 locals_=locals(),
@@ -172,6 +176,7 @@ class Array(
         apysc basic data classes common value interface
             https://bit.ly/3Be1aij
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='value', locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -189,6 +194,7 @@ class Array(
         value : list or tuple or Array
             Iterable value (list, tuple, or Array) to set.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_value_setter_expression,
                 locals_=locals(),
@@ -213,6 +219,7 @@ class Array(
         value : *
             Any value to append.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.append, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -229,6 +236,7 @@ class Array(
         value : *
             Any value to append.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.push, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -244,6 +252,7 @@ class Array(
         value : *
             Any value to append.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_push_and_append_expression,
                 locals_=locals(),
@@ -269,6 +278,7 @@ class Array(
         other_arr : list or tuple or Array
             Other array-like value to concatenate.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.extend, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -289,6 +299,7 @@ class Array(
         other_arr : list or tuple or Array
             Other array-like value to concatenate.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_extend_expression, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -319,6 +330,7 @@ class Array(
         concatenated : Array
             Concatenated array value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.concat, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -341,6 +353,7 @@ class Array(
         other_arr : list or tuple or Array
             Other array-like value to concatenate.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_concat_expression, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -354,7 +367,7 @@ class Array(
             ap.append_js_expression(expression=expression)
 
     def insert(
-            self, index: Union[int, ap.Int], value: T) -> None:
+            self, index: Union[int, Int], value: T) -> None:
         """
         Insert value to this array at a specified index.
         This behaves same as insert_at method.
@@ -366,6 +379,7 @@ class Array(
         value : *
             Any value to append.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.insert, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -383,7 +397,7 @@ class Array(
             self._value.insert(index_, value_)
             self._append_insert_expression(index=index, value=value)
 
-    def insert_at(self, index: Union[int, ap.Int], value: T) -> None:
+    def insert_at(self, index: Union[int, Int], value: T) -> None:
         """
         Insert value to this array at a specified index.
         This behaves same as insert method.
@@ -395,13 +409,14 @@ class Array(
         value : *
             Any value to append.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.insert_at, locals_=locals(),
                 module_name=__name__, class_=Array):
             self.insert(index=index, value=value)
 
     def _append_insert_expression(
-            self, *, index: Union[int, ap.Int], value: T) -> None:
+            self, *, index: Union[int, Int], value: T) -> None:
         """
         Append insert method expression.
 
@@ -412,6 +427,7 @@ class Array(
         value : *
             Any value to append.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_insert_expression, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -434,6 +450,7 @@ class Array(
         value : *
             Removed value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.pop, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -450,6 +467,7 @@ class Array(
         value : *
             Removed value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_pop_expression, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -467,6 +485,7 @@ class Array(
         value : Any
             Value to remove.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.remove, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -482,6 +501,7 @@ class Array(
         value : Any
             Value to remove.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_remove_expression, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -498,7 +518,7 @@ class Array(
                 f'\n{self.variable_name}.splice({index_var_name}, 1);')
             ap.append_js_expression(expression=expression)
 
-    def remove_at(self, index: Union[int, ap.Int]) -> None:
+    def remove_at(self, index: Union[int, Int]) -> None:
         """
         Remove specified index value from this array.
 
@@ -507,6 +527,7 @@ class Array(
         index : int or Int
             Index to remove value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.remove_at, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -520,7 +541,7 @@ class Array(
             self._append_remove_at_expression(index=index)
 
     def _append_remove_at_expression(
-            self, *, index: Union[int, ap.Int]) -> None:
+            self, *, index: Union[int, Int]) -> None:
         """
         Append remove_at method expression.
 
@@ -529,6 +550,7 @@ class Array(
         index : int or Int
             Index to remove value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_remove_at_expression,
                 locals_=locals(),
@@ -545,6 +567,7 @@ class Array(
         """
         Reverse this array in place.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.reverse, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -555,6 +578,7 @@ class Array(
         """
         Append reverse method expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_reverse_expression, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -573,6 +597,7 @@ class Array(
             Sort by ascending or not. If False is specified,
             values will be descending.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.sort, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -585,6 +610,7 @@ class Array(
         """
         Append sort method expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_sort_expression, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -596,8 +622,8 @@ class Array(
     def slice(
             self,
             *,
-            start: Optional[Union[int, ap.Int]] = None,
-            end: Optional[Union[int, ap.Int]] = None) -> 'Array':
+            start: Optional[Union[int, Int]] = None,
+            end: Optional[Union[int, Int]] = None) -> 'Array':
         """
         Slice this array by specified start and end indexes.
 
@@ -625,6 +651,7 @@ class Array(
         >>> arr.slice(end=2)
         [1, 2]
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.slice, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -646,8 +673,8 @@ class Array(
             self,
             *,
             sliced_arr: VariableNameInterface,
-            start: Optional[Union[int, ap.Int]],
-            end: Optional[Union[int, ap.Int]]) -> None:
+            start: Optional[Union[int, Int]],
+            end: Optional[Union[int, Int]]) -> None:
         """
         Append slice method expression.
 
@@ -660,6 +687,7 @@ class Array(
         end : int or Int or None
             Slicing end index.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_slice_expression, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -675,7 +703,7 @@ class Array(
             expression += ');'
             ap.append_js_expression(expression=expression)
 
-    def __getitem__(self, index: Union[int, ap.Int]) -> T:
+    def __getitem__(self, index: Union[int, Int]) -> T:
         """
         Get a specified index single value.
 
@@ -695,6 +723,7 @@ class Array(
         ValueError
             If specified index type is not int and Int.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__getitem__', locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -709,7 +738,7 @@ class Array(
             return value
 
     def _get_builtin_int_from_index(
-            self, *, index: Union[int, ap.Int]) -> int:
+            self, *, index: Union[int, Int]) -> int:
         """
         Get Python builtin integer from index value.
 
@@ -723,12 +752,13 @@ class Array(
         builtin_int_index : int
             Python builtin integer index value.
         """
+        import apysc as ap
         if isinstance(index, ap.Int):
             return int(index.value)
         return index
 
     def _validate_index_type_is_int(
-            self, *, index: Union[int, ap.Int]) -> None:
+            self, *, index: Union[int, Int]) -> None:
         """
         Validate whether index value type is int (or Int) or not.
 
@@ -742,14 +772,14 @@ class Array(
         ValueError
             If index type is not int or Int type.
         """
-        if isinstance(index, (int, ap.Int)):
+        if isinstance(index, (int, Int)):
             return
         raise ValueError(
             'Currently indexing is only supported int or Int types.'
             ' If you need to slice array please use slice method.')
 
     def _append_getitem_expression(
-            self, *, index: Union[int, ap.Int],
+            self, *, index: Union[int, Int],
             value: T) -> None:
         """
         Append __getitem__ expression.
@@ -761,6 +791,7 @@ class Array(
         value : *
             Specified index's value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_getitem_expression, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -778,7 +809,7 @@ class Array(
             )
             ap.append_js_expression(expression=expression)
 
-    def __setitem__(self, index: Union[int, ap.Int], value: T) -> None:
+    def __setitem__(self, index: Union[int, Int], value: T) -> None:
         """
         Set value to a specified index.
 
@@ -795,6 +826,7 @@ class Array(
         ValueError
             If specified index type is not int and Int.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__setitem__', locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -804,7 +836,7 @@ class Array(
             self._append_setitem_expression(index=index, value=value)
 
     def _append_setitem_expression(
-            self, *, index: Union[int, ap.Int], value: T) -> None:
+            self, *, index: Union[int, Int], value: T) -> None:
         """
         Append __setitem__ method expression.
 
@@ -816,6 +848,7 @@ class Array(
         value : *
             Any value to set.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_setitem_expression, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -830,7 +863,7 @@ class Array(
             )
             ap.append_js_expression(expression=expression)
 
-    def __delitem__(self, index: Union[int, ap.Int]) -> None:
+    def __delitem__(self, index: Union[int, Int]) -> None:
         """
         Delete specified index value from this array.
 
@@ -845,13 +878,14 @@ class Array(
         ValueError
             If specified index type is not int and Int.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__delitem__', locals_=locals(),
                 module_name=__name__, class_=Array):
             self.remove_at(index=index)
 
     @property
-    def length(self) -> ap.Int:
+    def length(self) -> Int:
         """
         Get length of this array.
 
@@ -860,6 +894,7 @@ class Array(
         length : Int
             This array's length.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='length', locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -867,7 +902,7 @@ class Array(
             self._append_length_expression(length=length)
             return length
 
-    def _append_length_expression(self, *, length: ap.Int) -> None:
+    def _append_length_expression(self, *, length: Int) -> None:
         """
         Append length method expression.
 
@@ -876,6 +911,7 @@ class Array(
         length : Int
             Created length Int variable.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_length_expression, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -892,7 +928,7 @@ class Array(
             'Array instance can\'t apply len function.'
             ' Please use length property instead.')
 
-    def join(self, sep: Union[str, ap.String]) -> ap.String:
+    def join(self, sep: Union[str, String]) -> String:
         """
         Join this array values with specified separator string.
 
@@ -912,6 +948,7 @@ class Array(
         >>> arr.join(sep=', ')
         '1, 2, 3'
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.join, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -925,7 +962,7 @@ class Array(
             return joined
 
     def _append_join_expression(
-            self, *, joined: ap.String, sep: Union[str, ap.String]) -> None:
+            self, *, joined: String, sep: Union[str, String]) -> None:
         """
         Append join method expression.
 
@@ -936,6 +973,7 @@ class Array(
         sep : str or String
             Separator string.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_join_expression, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -975,7 +1013,7 @@ class Array(
             repr_str = f'Array({self._value})'
         return repr_str
 
-    def index_of(self, value: T) -> ap.Int:
+    def index_of(self, value: T) -> Int:
         """
         Search specified value's index and return it.
 
@@ -990,6 +1028,7 @@ class Array(
             Found position of index. If value is not contains,
             -1 will be returned.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.index_of, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -1003,7 +1042,7 @@ class Array(
             return index
 
     def _append_index_of_expression(
-            self, *, index: ap.Int, value: T) -> None:
+            self, *, index: Int, value: T) -> None:
         """
         Append index_of method expression.
 
@@ -1015,6 +1054,7 @@ class Array(
         value : *
             Any value to search.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_index_of_expression, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -1041,6 +1081,7 @@ class Array(
         result : Boolean
             Comparison result.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__eq__', locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -1071,6 +1112,7 @@ class Array(
             be Array type. Otherwise this will be returned directly
             (not to be converted).
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._convert_other_val_to_array, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -1079,7 +1121,7 @@ class Array(
             return other
 
     def _append_eq_expression(
-            self, *, result: ap.Boolean,
+            self, *, result: Boolean,
             other: VariableNameInterface) -> None:
         """
         Append an __eq__ expression.
@@ -1091,6 +1133,7 @@ class Array(
         other : Array
             Array other value to compare.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_eq_expression, locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -1114,6 +1157,7 @@ class Array(
         result : Boolean
             Comparison result.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__ne__', locals_=locals(),
                 module_name=__name__, class_=Array):
@@ -1125,7 +1169,7 @@ class Array(
             return result
 
     def _append_ne_expression(
-            self, *, result: ap.Boolean,
+            self, *, result: Boolean,
             other: VariableNameInterface) -> None:
         """
         Append a __ne__ expression.
@@ -1137,6 +1181,7 @@ class Array(
         other : Array
             Array other value to compare.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_ne_expression, locals_=locals(),
                 module_name=__name__, class_=Array):

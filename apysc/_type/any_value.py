@@ -4,7 +4,7 @@
 from typing import Any
 from typing import Dict
 
-import apysc as ap
+from apysc._type.boolean import Boolean
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.revert_interface import RevertInterface
@@ -28,6 +28,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         value : *
             Initial any value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=AnyValue):
@@ -44,6 +45,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         """
         Append constructor expression.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_constructor_expression,
                 locals_=locals(),
@@ -80,6 +82,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         value : *
             Any value to set.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='value', locals_=locals(),
                 module_name=__name__, class_=AnyValue):
@@ -95,6 +98,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         value : *
             Any value to set.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_value_setter_expression,
                 locals_=locals(),
@@ -152,6 +156,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         result : AnyValue
             Addition result value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__add__', locals_=locals(),
                 module_name=__name__, class_=AnyValue):
@@ -174,6 +179,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         result : AnyValue
             Subtraction result value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__sub__', locals_=locals(),
                 module_name=__name__, class_=AnyValue):
@@ -196,6 +202,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         result : AnyValue
             Subtraction result value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__mul__', locals_=locals(),
                 module_name=__name__, class_=AnyValue):
@@ -218,6 +225,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         result : AnyValue
             True division result value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__truediv__', locals_=locals(),
                 module_name=__name__, class_=AnyValue):
@@ -240,6 +248,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         result : AnyValue
             Floor division result value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__floordiv__', locals_=locals(),
                 module_name=__name__, class_=AnyValue):
@@ -266,6 +275,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         operator : str
             JavaScript arithmetic operator, like '+=', '*=', and so on.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_incremental_arithmetic_operation_expression,  # noqa
                 locals_=locals(),
@@ -291,6 +301,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         result : AnyValue
             Incremental addition result value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__iadd__', locals_=locals(),
                 module_name=__name__, class_=AnyValue):
@@ -312,6 +323,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         result : AnyValue
             Incremental subtraction result value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__isub__', locals_=locals(),
                 module_name=__name__, class_=AnyValue):
@@ -333,6 +345,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         result : AnyValue
             Incremental multiplication result value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__imul__', locals_=locals(),
                 module_name=__name__, class_=AnyValue):
@@ -363,7 +376,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             return self
 
     def _append_comparison_expression(
-            self, *, comparison_operator: str, other: Any) -> ap.Boolean:
+            self, *, comparison_operator: str, other: Any) -> Boolean:
         """
         Append comparison operation expression.
 
@@ -381,6 +394,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             Comparison result. This will always be False on Python
             since correct comparison is not possible.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._append_comparison_expression,
                 locals_=locals(),
@@ -410,6 +424,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             Comparison result. This will always be False on Python
             since correct comparison is not possible.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__eq__', locals_=locals(),
                 module_name=__name__, class_=AnyValue):
@@ -432,6 +447,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             Comparison result. This will always be False on Python
             since correct comparison is not possible.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__ne__', locals_=locals(),
                 module_name=__name__, class_=AnyValue):
@@ -439,7 +455,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
                 comparison_operator='!==', other=other)
             return result
 
-    def __lt__(self, other: Any) -> ap.Boolean:
+    def __lt__(self, other: Any) -> Boolean:
         """
         Less than comparison method.
 
@@ -462,7 +478,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
                 comparison_operator='<', other=other)
             return result
 
-    def __le__(self, other: Any) -> ap.Boolean:
+    def __le__(self, other: Any) -> Boolean:
         """
         Less than equal comparison method.
 
@@ -477,6 +493,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             Comparison result. This will always be False on Python
             since correct comparison is not possible.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__le__', locals_=locals(),
                 module_name=__name__, class_=AnyValue):
@@ -484,7 +501,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
                 comparison_operator='<=', other=other)
             return result
 
-    def __gt__(self, other: Any) -> ap.Boolean:
+    def __gt__(self, other: Any) -> Boolean:
         """
         Greater than comparison method.
 
@@ -499,6 +516,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
             Comparison result. This will always be False on Python
             since correct comparison is not possible.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__gt__', locals_=locals(),
                 module_name=__name__, class_=AnyValue):
@@ -506,7 +524,7 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
                 comparison_operator='>', other=other)
             return result
 
-    def __ge__(self, other: Any) -> ap.Boolean:
+    def __ge__(self, other: Any) -> Boolean:
         """
         Greater than equal comparison method.
 

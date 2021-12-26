@@ -7,7 +7,9 @@ from typing import Optional
 from typing import TypeVar
 from typing import Union
 
-import apysc as ap
+from apysc._type.int import Int
+from apysc._type.boolean import Boolean
+from apysc._type.number import Number
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.handler import HandlerData
 from apysc._time.fps import FPS
@@ -38,19 +40,19 @@ class Timer(VariableNameInterface, CustomEventInterface):
         - https://simon-ritchie.github.io/apysc/timer_repeat_count.html
     """
 
-    _delay: ap.Number
-    _repeat_count: ap.Int
-    _current_count: ap.Int
+    _delay: Number
+    _repeat_count: Int
+    _current_count: Int
     _handler_data: HandlerData
     _handler_name: str
-    _running: ap.Boolean
+    _running: Boolean
 
     def __init__(
             self,
             handler: _Handler[_O1],
             delay: Union[int, float, NumberValueInterface, FPS],
             *,
-            repeat_count: Union[int, ap.Int] = 0,
+            repeat_count: Union[int, Int] = 0,
             options: Optional[_O1] = None) -> None:
         """
         Timer class to handle function calling at regular intervals.
@@ -88,6 +90,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         - About the handler options’ type document
             - https://bit.ly/39tnYxC
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=Timer):
@@ -128,7 +131,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
 
     def _convert_delay_to_number(
             self, *,
-            delay: Union[int, float, NumberValueInterface, FPS]) -> ap.Number:
+            delay: Union[int, float, NumberValueInterface, FPS]) -> Number:
         """
         Convert each type of delay value to a `Number` value.
 
@@ -143,6 +146,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         delay : Number
             Converted delay value.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._convert_delay_to_number, locals_=locals(),
                 module_name=__name__, class_=Timer):
@@ -155,7 +159,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
             return delay
 
     @property
-    def delay(self) -> ap.Number:
+    def delay(self) -> Number:
         """
         Get a delay value.
 
@@ -169,6 +173,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         - Timer class delay setting document
             - https://simon-ritchie.github.io/apysc/timer_delay.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='delay', locals_=locals(),
                 module_name=__name__, class_=Timer):
@@ -176,7 +181,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
             return value_util.get_copy(value=self._delay)
 
     @property
-    def repeat_count(self) -> ap.Int:
+    def repeat_count(self) -> Int:
         """
         Get a max count value of a handler's calling.
 
@@ -191,6 +196,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         - Timer class repeat_count setting
             - https://simon-ritchie.github.io/apysc/timer_repeat_count.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='repeat_count', locals_=locals(),
                 module_name=__name__, class_=Timer):
@@ -198,7 +204,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
             return value_util.get_copy(value=self._repeat_count)
 
     @property
-    def running(self) -> ap.Boolean:
+    def running(self) -> Boolean:
         """
         Get a boolean value whether this timer is running or not.
 
@@ -207,6 +213,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         running : Boolean.
             A boolean value whether this timer is running or not.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='running', locals_=locals(),
                 module_name=__name__, class_=Timer):
@@ -214,7 +221,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
             return value_util.get_copy(value=self._running)
 
     @property
-    def current_count(self) -> ap.Int:
+    def current_count(self) -> Int:
         """
         Get a current timer count.
 
@@ -239,6 +246,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         - Timer class start and stop interfaces
             - https://simon-ritchie.github.io/apysc/timer_start_and_stop.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.start, locals_=locals(),
                 module_name=__name__, class_=Timer):
@@ -288,8 +296,9 @@ class Timer(VariableNameInterface, CustomEventInterface):
         wrapped : _Handler
             Wrapped handler.
         """
+        from apysc._event.timer_event import TimerEvent
 
-        def wrapped(e: ap.TimerEvent, options: Any) -> None:
+        def wrapped(e: TimerEvent, options: Any) -> None:
             """
             Wrapped handler.
 
@@ -370,6 +379,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         expression : str
             Stop interface expression string.
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self._get_stop_expression, locals_=locals(),
                 module_name=__name__, class_=Timer):
@@ -393,6 +403,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         - Timer class reset interface document
             - https://simon-ritchie.github.io/apysc/timer_reset.html
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_=self.reset, locals_=locals(),
                 module_name=__name__, class_=Timer):

@@ -6,8 +6,8 @@ from typing import Tuple
 from typing import TypeVar
 from typing import Union
 
-from apysc._type.string import String
 from apysc._type.number_value_interface import NumberValueInterface
+from apysc._type.string import String
 
 StrOrString = TypeVar('StrOrString', str, String)
 

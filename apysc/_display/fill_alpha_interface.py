@@ -3,10 +3,10 @@
 
 from typing import Dict
 
-from apysc._type.number import Number
 from apysc._animation.animation_fill_alpha_interface import \
     AnimationFillAlphaInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
+from apysc._type.number import Number
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type.revert_interface import RevertInterface
 

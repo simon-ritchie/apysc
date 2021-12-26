@@ -1,9 +1,9 @@
 """Class implementation for graphic base class.
 """
 
-from typing import Any, Union
+from typing import Any
+from typing import Union
 
-from apysc._type.int import Int
 from apysc._display.display_object import DisplayObject
 from apysc._display.flip_x_interface import FlipXInterface
 from apysc._display.flip_y_interface import FlipYInterface
@@ -21,6 +21,7 @@ from apysc._display.scale_y_from_point_interface import \
     ScaleYFromPointInterface
 from apysc._display.skew_x_interface import SkewXInterface
 from apysc._display.skew_y_interface import SkewYInterface
+from apysc._type.int import Int
 
 _Graphics = Any
 

@@ -4,12 +4,12 @@ interface.
 
 from typing import Union
 
-from apysc._type.int import Int
-from apysc._type.number import Number
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
 from apysc._animation.animation_scale_y_from_point import \
     AnimationScaleYFromPoint
 from apysc._animation.easing import Easing
+from apysc._type.int import Int
+from apysc._type.number import Number
 
 
 class AnimationScaleYFromPointInterface(AnimationInterfaceBase):

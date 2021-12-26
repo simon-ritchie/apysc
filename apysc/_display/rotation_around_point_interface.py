@@ -4,10 +4,10 @@
 from typing import Any
 from typing import Dict
 
-from apysc._type.int import Int
-from apysc._type.dictionary import Dictionary
 from apysc._animation.animation_rotation_around_point_interface import \
     AnimationRotationAroundPointInterface
+from apysc._type.dictionary import Dictionary
+from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 
 

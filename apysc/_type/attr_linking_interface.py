@@ -8,10 +8,10 @@ from typing import Dict
 from typing import List
 from typing import Union
 
-from apysc._type.int import Int
-from apysc._type.string import String
-from apysc._type.number import Number
 from apysc._type.boolean import Boolean
+from apysc._type.int import Int
+from apysc._type.number import Number
+from apysc._type.string import String
 
 _AttrName = str
 _Attr = Union[Int, Number, String, Boolean]

@@ -4,9 +4,9 @@
 from typing import Dict
 from typing import Union
 
-from apysc._type.string import String
 from apysc._display.line_caps import LineCaps
 from apysc._type.revert_interface import RevertInterface
+from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
 
 

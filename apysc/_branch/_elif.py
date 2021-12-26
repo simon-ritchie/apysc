@@ -5,8 +5,8 @@ from typing import Any
 from typing import Dict
 from typing import Optional
 
-from apysc._type.boolean import Boolean
 from apysc._branch.if_base import IfBase
+from apysc._type.boolean import Boolean
 
 
 class Elif(IfBase):

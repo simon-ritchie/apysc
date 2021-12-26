@@ -4,11 +4,11 @@ interface.
 
 from typing import Union
 
-from apysc._type.int import Int
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
 from apysc._animation.animation_rotation_around_center import \
     AnimationRotationAroundCenter
 from apysc._animation.easing import Easing
+from apysc._type.int import Int
 
 
 class AnimationRotationAroundCenterInterface(AnimationInterfaceBase):

@@ -3,8 +3,8 @@
 
 from typing import Union
 
-from apysc._type.int import Int
 from apysc._type.expression_string import ExpressionString
+from apysc._type.int import Int
 
 
 def get_coordinates_key_for_expression(

@@ -10,10 +10,10 @@ from typing import Optional
 from typing import TypeVar
 from typing import Union
 
-from apysc._type.int import Int
-from apysc._type.boolean import Boolean
 from apysc._animation.easing import Easing
 from apysc._event.custom_event_interface import CustomEventInterface
+from apysc._type.boolean import Boolean
+from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
 
 _T = TypeVar('_T', bound=VariableNameInterface)

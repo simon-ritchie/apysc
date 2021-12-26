@@ -9,9 +9,9 @@ from typing import Optional
 from typing import TypeVar
 from typing import Union
 
-from apysc._type.int import Int
 from apysc._animation.animation_base import AnimationBase
 from apysc._animation.easing import Easing
+from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
 
 _T = TypeVar('_T', bound=VariableNameInterface)

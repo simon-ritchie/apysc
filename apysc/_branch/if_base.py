@@ -8,8 +8,8 @@ from typing import Dict
 from typing import Optional
 from typing import Type
 
-from apysc._type.boolean import Boolean
 from apysc._expression.indent_num import Indent
+from apysc._type.boolean import Boolean
 
 
 class IfBase(ABC):

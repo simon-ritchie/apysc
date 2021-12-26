@@ -3,13 +3,13 @@
 
 from typing import Union
 
-from apysc._type.int import Int
+from apysc._display import graphics
 from apysc._display.ellipse_height_interface import EllipseHeightInterface
 from apysc._display.ellipse_width_interface import EllipseWidthInterface
 from apysc._display.height_interface import HeightInterface
 from apysc._display.line_base import LineBase
 from apysc._display.width_interface import WidthInterface
-from apysc._display import graphics
+from apysc._type.int import Int
 
 
 class Rectangle(

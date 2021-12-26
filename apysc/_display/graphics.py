@@ -1,12 +1,11 @@
 """Implementations for Graphics class.
 """
 
-from typing import Any, List
+from typing import Any
+from typing import List
 from typing import Optional
 from typing import Union
 
-from apysc._type.array import Array
-from apysc._type.int import Int
 from apysc._display.begin_fill_interface import BeginFillInterface
 from apysc._display.child_interface import ChildInterface
 from apysc._display.circle import Circle
@@ -21,6 +20,8 @@ from apysc._display.polyline import Polyline
 from apysc._display.rectangle import Rectangle
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.point2d import Point2D
+from apysc._type.array import Array
+from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
 
 _Sprite = Any

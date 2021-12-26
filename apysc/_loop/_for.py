@@ -8,12 +8,12 @@ from typing import Optional
 from typing import TypeVar
 from typing import Union
 
-from apysc._type.int import Int
-from apysc._type.string import String
-from apysc._type.number import Number
+from apysc._expression.indent_num import Indent
 from apysc._type.array import Array
 from apysc._type.dictionary import Dictionary
-from apysc._expression.indent_num import Indent
+from apysc._type.int import Int
+from apysc._type.number import Number
+from apysc._type.string import String
 
 T = TypeVar('T', Int, String, Number)
 

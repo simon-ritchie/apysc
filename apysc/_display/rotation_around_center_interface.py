@@ -4,10 +4,10 @@ interface.
 
 from typing import Dict
 
-from apysc._type.int import Int
 from apysc._animation.animation_rotation_around_center_interface import \
     AnimationRotationAroundCenterInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
+from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 
 

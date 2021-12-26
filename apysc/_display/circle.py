@@ -1,7 +1,8 @@
 """Implementations of Circle class.
 """
 
-from typing import Any, Union
+from typing import Any
+from typing import Union
 
 from apysc._display.cx_interface import CxInterface
 from apysc._display.cy_interface import CyInterface

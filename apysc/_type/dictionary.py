@@ -7,16 +7,16 @@ from typing import Generic
 from typing import TypeVar
 from typing import Union
 
-from apysc._type.int import Int
-from apysc._type.string import String
-from apysc._type.number import Number
-from apysc._type.boolean import Boolean
-from apysc._type.any_value import AnyValue
 from apysc._event.custom_event_interface import CustomEventInterface
+from apysc._type.any_value import AnyValue
+from apysc._type.boolean import Boolean
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.dictionary_structure import DictionaryStructure
 from apysc._type.expression_string import ExpressionString
+from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
+from apysc._type.string import String
 from apysc._type.variable_name_interface import VariableNameInterface
 
 DefaultType = TypeVar('DefaultType')
@@ -616,8 +616,8 @@ class Dictionary(
             Any default value. Basically apysc types (e.g., Int, Number,
             String, and so on) are necessary.
         """
-        from apysc._type import value_util
         import apysc as ap
+        from apysc._type import value_util
         key_str: str = value_util.get_value_str_for_expression(value=key)
         if not isinstance(result_value, VariableNameInterface):
             result_value = AnyValue(value=None)

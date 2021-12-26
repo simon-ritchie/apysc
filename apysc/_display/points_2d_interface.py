@@ -4,8 +4,8 @@
 from typing import Dict
 from typing import Tuple
 
-from apysc._type.array import Array
 from apysc._geom.point2d import Point2D
+from apysc._type.array import Array
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 

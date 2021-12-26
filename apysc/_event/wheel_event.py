@@ -1,8 +1,8 @@
 """Class implementation for mouse wheel event.
 """
 
-from apysc._type.int import Int
 from apysc._event.event import Event
+from apysc._type.int import Int
 from apysc._type.variable_name_interface import VariableNameInterface
 
 

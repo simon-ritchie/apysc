@@ -3,8 +3,8 @@
 
 from typing import Dict
 
-from apysc._type.boolean import Boolean
 from apysc._type.attr_linking_interface import AttrLinkingInterface
+from apysc._type.boolean import Boolean
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 

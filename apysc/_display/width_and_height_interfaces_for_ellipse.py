@@ -9,12 +9,12 @@ can't use this interface.
 
 from typing import Dict
 
-from apysc._type.int import Int
 from apysc._animation.animation_height_for_ellipse_interface import \
     AnimationHeightForEllipseInterface
 from apysc._animation.animation_width_for_ellipse_interface import \
     AnimationWidthForEllipseInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
+from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 
 

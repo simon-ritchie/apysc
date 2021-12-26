@@ -4,11 +4,11 @@
 from typing import Dict
 from typing import Union
 
-from apysc._type.string import String
 from apysc._animation.animation_line_color_interface import \
     AnimationLineColorInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
 from apysc._type.revert_interface import RevertInterface
+from apysc._type.string import String
 
 
 class LineColorInterface(

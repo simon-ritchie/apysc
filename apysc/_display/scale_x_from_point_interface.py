@@ -4,11 +4,11 @@
 from typing import Any
 from typing import Dict
 
-from apysc._type.number import Number
-from apysc._type.dictionary import Dictionary
-from apysc._type.int import Int
 from apysc._animation.animation_scale_x_from_point_interface import \
     AnimationScaleXFromPointInterface
+from apysc._type.dictionary import Dictionary
+from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
 
 

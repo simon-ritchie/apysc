@@ -4,11 +4,11 @@
 from typing import TypeVar
 from typing import Union
 
-from apysc._type.string import String
-from apysc._type.int import Int
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
 from apysc._animation.animation_line_color import AnimationLineColor
 from apysc._animation.easing import Easing
+from apysc._type.int import Int
+from apysc._type.string import String
 
 StrOrString = TypeVar('StrOrString', str, String)
 

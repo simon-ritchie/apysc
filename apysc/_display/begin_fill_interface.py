@@ -10,9 +10,9 @@ from typing import Dict
 from typing import TypeVar
 from typing import Union
 
-from apysc._type.string import String
 from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
+from apysc._type.string import String
 
 StrOrString = TypeVar('StrOrString', str, String)
 

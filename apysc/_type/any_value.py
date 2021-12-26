@@ -4,8 +4,8 @@
 from typing import Any
 from typing import Dict
 
-from apysc._type.boolean import Boolean
 from apysc._event.custom_event_interface import CustomEventInterface
+from apysc._type.boolean import Boolean
 from apysc._type.copy_interface import CopyInterface
 from apysc._type.revert_interface import RevertInterface
 from apysc._type.variable_name_interface import VariableNameInterface

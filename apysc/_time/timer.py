@@ -7,12 +7,12 @@ from typing import Optional
 from typing import TypeVar
 from typing import Union
 
-from apysc._type.int import Int
-from apysc._type.boolean import Boolean
-from apysc._type.number import Number
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.handler import HandlerData
 from apysc._time.fps import FPS
+from apysc._type.boolean import Boolean
+from apysc._type.int import Int
+from apysc._type.number import Number
 from apysc._type.number_value_interface import NumberValueInterface
 from apysc._type.variable_name_interface import VariableNameInterface
 

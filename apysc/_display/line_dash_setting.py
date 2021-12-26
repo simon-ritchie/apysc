@@ -3,8 +3,8 @@
 
 from typing import Union
 
-from apysc._type.int import Int
 from apysc._type.dictionary import Dictionary
+from apysc._type.int import Int
 
 
 class LineDashSetting(Dictionary[str, Int]):

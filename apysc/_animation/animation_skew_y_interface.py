@@ -4,10 +4,10 @@
 import warnings
 from typing import Union
 
-from apysc._type.int import Int
 from apysc._animation.animation_interface_base import AnimationInterfaceBase
 from apysc._animation.animation_skew_y import AnimationSkewY
 from apysc._animation.easing import Easing
+from apysc._type.int import Int
 
 
 class AnimationSkewYInterface(AnimationInterfaceBase):

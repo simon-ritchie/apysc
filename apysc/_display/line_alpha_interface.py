@@ -4,10 +4,10 @@
 from typing import Dict
 from typing import Union
 
-from apysc._type.number import Number
 from apysc._animation.animation_line_alpha_interface import \
     AnimationLineAlphaInterface
 from apysc._type.attr_linking_interface import AttrLinkingInterface
+from apysc._type.number import Number
 from apysc._type.revert_interface import RevertInterface
 
 

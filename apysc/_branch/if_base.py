@@ -8,13 +8,13 @@ from typing import Dict
 from typing import Optional
 from typing import Type
 
-import apysc as ap
+from apysc._type.boolean import Boolean
 from apysc._expression.indent_num import Indent
 
 
 class IfBase(ABC):
 
-    _condition: Optional[ap.Boolean]
+    _condition: Optional[Boolean]
     _locals: Dict[str, Any]
     _globals: Dict[str, Any]
     _snapshot_name: str
@@ -23,7 +23,7 @@ class IfBase(ABC):
     def __init__(
             self,
             *,
-            condition: Optional[ap.Boolean],
+            condition: Optional[Boolean],
             locals_: Optional[Dict[str, Any]] = None,
             globals_: Optional[Dict[str, Any]] = None) -> None:
         """

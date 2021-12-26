@@ -5,7 +5,7 @@ from typing import Any
 from typing import Dict
 from typing import Optional
 
-import apysc as ap
+from apysc._type.boolean import Boolean
 from apysc._branch.if_base import IfBase
 
 
@@ -23,7 +23,7 @@ class If(IfBase):
 
     def __init__(
             self,
-            condition: Optional[ap.Boolean],
+            condition: Optional[Boolean],
             *,
             locals_: Optional[Dict[str, Any]] = None,
             globals_: Optional[Dict[str, Any]] = None) -> None:
@@ -53,6 +53,7 @@ class If(IfBase):
         - Each branch instruction class scope variables reverting setting
             - https://bit.ly/3rkAuaT
         """
+        import apysc as ap
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=If):

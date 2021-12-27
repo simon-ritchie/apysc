@@ -100,6 +100,17 @@
 </pre></div>
 </div>
 </section>
+<section id="note-for-the-float-class-alias">
+<h2>Note for the Float class alias<a class="headerlink" href="#note-for-the-float-class-alias" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Float</span></code> class is the alias of the <code class="docutils literal notranslate"><span class="pre">Number</span></code> class. It behaves the same as the <code class="docutils literal notranslate"><span class="pre">Number</span></code> class. Maybe a Python developer is familiar with its name rather than the <code class="docutils literal notranslate"><span class="pre">Number</span></code>, on the other hand, the <code class="docutils literal notranslate"><span class="pre">Number</span></code> is more common in JavaScript than the <code class="docutils literal notranslate"><span class="pre">Number</span></code>.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="k">assert</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">==</span> <span class="n">ap</span><span class="o">.</span><span class="n">Float</span>
+<span class="k">assert</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">10.5</span><span class="p">)</span> <span class="o">==</span> <span class="n">ap</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span><span class="mf">10.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 <section id="int-and-number-classes-common-interfaces">
 <h2>Int and Number classes common interfaces<a class="headerlink" href="#int-and-number-classes-common-interfaces" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Int</span></code> and <code class="docutils literal notranslate"><span class="pre">Number</span></code> classes have the same interfaces. For more details, please see:</p>
@@ -126,6 +137,7 @@
 <li><a class="reference internal" href="#">Int and Number</a><ul>
 <li><a class="reference internal" href="#int-class">Int class</a></li>
 <li><a class="reference internal" href="#number-class">Number class</a></li>
+<li><a class="reference internal" href="#note-for-the-float-class-alias">Note for the Float class alias</a></li>
 <li><a class="reference internal" href="#int-and-number-classes-common-interfaces">Int and Number classes common interfaces</a></li>
 </ul>
 </li>

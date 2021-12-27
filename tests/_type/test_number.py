@@ -103,3 +103,12 @@ class TestNumber:
 
         del number_1._value
         assert repr(number_1) == 'Number(0)'
+
+
+class TestFloat:
+
+    def test_top_level_import(self) -> None:
+        assert ap.Float == ap.Number
+        float_val_1: ap.Float = ap.Float(value=10.5)
+        float_val_2: ap.Float = ap.Float(value=10.5)
+        assert float_val_1 == float_val_2

@@ -31,6 +31,11 @@ class Number(NumberValueInterface[float, 'Number']):
             Initial floating point number value. If int or Int value
             is specified, that value will be cast to float.
 
+        Notes
+        -----
+        Float class is the alias of the Number, and it behaves
+        same as the Number class.
+
         References
         ----------
         - Int and Number document

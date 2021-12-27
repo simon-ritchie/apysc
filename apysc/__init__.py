@@ -1,5 +1,6 @@
 from apysc._type.int import Int  # isort:skip # noqa
 from apysc._type.number import Number  # isort:skip # noqa
+from apysc._type.number import Number as Float  # isort:skip # noqa
 from apysc._type.boolean import Boolean  # isort:skip # noqa
 from apysc._type.string import String  # isort:skip # noqa
 from apysc._type.array import Array  # isort:skip # noqa

@@ -13,7 +13,7 @@ def test_assert_equal() -> None:
     int_1: ap.Int = ap.Int(10)
     int_2: ap.Int = ap.Int(20)
     assertion.assert_equal(
-        expected=int_1, actual=int_2,
+        left=int_1, right=int_2,
         msg='Invalid int values.')
 
     expression: str = expression_data_util.get_current_expression()
@@ -24,14 +24,27 @@ def test_assert_equal() -> None:
     assert expected in expression
 
     expression_data_util.empty_expression()
-    assertion.assert_equal(expected=[1, 2, 3], actual=ap.Array([1, 2, 3]))
+    assertion.assert_equal(left=[1, 2, 3], right=ap.Array([1, 2, 3]))
+    expression = expression_data_util.get_current_expression()
+    assert 'assert_arrays_equal' in expression
+    assert 'assert_equal' not in expression
+
+    expression_data_util.empty_expression()
+    assertion.assert_equal(left=ap.Array([1, 2, 3]), right=[1, 2, 3])
     expression = expression_data_util.get_current_expression()
     assert 'assert_arrays_equal' in expression
     assert 'assert_equal' not in expression
 
     expression_data_util.empty_expression()
     assertion.assert_equal(
-        expected={'a': 10}, actual=ap.Dictionary({'a': 10}))
+        left={'a': 10}, right=ap.Dictionary({'a': 10}))
+    expression = expression_data_util.get_current_expression()
+    assert 'assert_dicts_equal' in expression
+    assert 'assert_equal' not in expression
+
+    expression_data_util.empty_expression()
+    assertion.assert_equal(
+        left=ap.Dictionary({'a': 10}), right={'a': 10})
     expression = expression_data_util.get_current_expression()
     assert 'assert_dicts_equal' in expression
     assert 'assert_equal' not in expression
@@ -43,7 +56,7 @@ def test__trace_info() -> None:
     int_1: ap.Int = ap.Int(10)
     int_2: ap.Int = ap.Int(20)
     assertion.assert_equal(
-        expected=int_1, actual=int_2,
+        left=int_1, right=int_2,
         msg='Invalid int values.')
     expression: str = expression_data_util.get_current_expression()
     expected: str = (

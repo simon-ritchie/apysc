@@ -31,7 +31,7 @@ from typing import Tuple
 
 
 def assert_equal(
-        expected: Any, actual: Any, *, msg: str = '') -> None:
+        left: Any, right: Any, *, msg: str = '') -> None:
     """
     JavaScript assertion interface for equal condition.
 
@@ -43,10 +43,10 @@ def assert_equal(
 
     Parameters
     ----------
-    expected : *
-        Expected value.
+    left : *
+        Left-side value to compare.
     actual : *
-        Actual value.
+        Right-side value to compare.
     msg : str, optional
         Message to display when assertion failed.
     """
@@ -55,22 +55,24 @@ def assert_equal(
             callable_=assert_equal, locals_=locals(),
             module_name=__name__):
         from apysc._string import string_util
-        if _actual_value_type_is_array(actual=actual):
-            assert_arrays_equal(expected=expected, actual=actual, msg=msg)
-            return
-        if _actual_value_type_is_dict(actual=actual):
-            assert_dicts_equal(expected=expected, actual=actual, msg=msg)
-            return
+        for value in (left, right):
+            if _actual_value_type_is_array(actual=value):
+                assert_arrays_equal(expected=left, actual=right, msg=msg)
+                return
+        for value in (left, right):
+            if _actual_value_type_is_dict(actual=value):
+                assert_dicts_equal(expected=left, actual=value, msg=msg)
+                return
 
         _trace_info(
-            interface_label='assert_equal', expected=expected, actual=actual)
+            interface_label='assert_equal', expected=left, actual=right)
 
-        expected_str, actual_str = _get_expected_and_actual_strs(
-            expected=expected, actual=actual)
+        left_str, right_str = _get_expected_and_actual_strs(
+            expected=left, actual=right)
 
         msg = string_util.escape_str(string=msg)
         expression: str = (
-            f'console.assert({expected_str} === {actual_str}, "{msg}");'
+            f'console.assert({left_str} === {right_str}, "{msg}");'
         )
         ap.append_js_expression(expression=expression)
 

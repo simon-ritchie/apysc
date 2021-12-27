@@ -34,7 +34,7 @@ class Number(NumberValueInterface[float, 'Number']):
         Notes
         -----
         Float class is the alias of the Number, and it behaves
-        same as the Number class.
+        the same as the Number class.
 
         References
         ----------

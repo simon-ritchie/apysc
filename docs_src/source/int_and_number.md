@@ -62,6 +62,18 @@ number_2 += 10.5
 assert number_2 == 21
 ```
 
+## Note for the Float class alias
+
+The `Float` class is the alias of the `Number` class. It behaves the same as the `Number` class. Maybe a Python developer is familiar with its name rather than the `Number`, on the other hand, the `Number` is more common in JavaScript than the `Number`.
+
+```py
+# runnable
+import apysc as ap
+
+assert ap.Number == ap.Float
+assert ap.Number(10.5) == ap.Float(10.5)
+```
+
 ## Int and Number classes common interfaces
 
 The `Int` and `Number` classes have the same interfaces. For more details, please see:

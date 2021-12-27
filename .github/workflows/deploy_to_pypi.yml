@@ -7,7 +7,7 @@ jobs:
 
   SetGlobalConstants:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     outputs:
       PYTHON_36_VERSION: 3.6.15
       PYTHON_37_VERSION: 3.7.12
@@ -65,7 +65,7 @@ jobs:
   UpdateReadmeBadgesToCheckingStatus:
     needs: SetGlobalConstants
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - name: Update the flake8 badge status to running or failing
         uses: RubbaBoy/BYOB@v1.2.1
@@ -137,7 +137,7 @@ jobs:
   RunFlake8:
     needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -153,7 +153,7 @@ jobs:
   RunMypy:
     needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -169,7 +169,7 @@ jobs:
   RunNumdoclint:
     needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -185,7 +185,7 @@ jobs:
   RunPyright:
     needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -201,7 +201,7 @@ jobs:
   RunCheckingApyscTopLevelImporting:
     needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -215,7 +215,7 @@ jobs:
   RunTestsOnPython36AndSaveCoverageAndPassedNum:
     needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     outputs:
       COVERAGE: ${{ steps.set-coverage.outputs.coverage }}
       PASSED_TESTS_NUM: ${{ steps.set-passed-tests-num.outputs.passed-tests-num }}
@@ -252,7 +252,7 @@ jobs:
           '${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}',
         ]
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -314,7 +314,7 @@ jobs:
       UpdateReadmeBadgesToCheckingStatus,
     ]
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -347,7 +347,7 @@ jobs:
       SetGlobalConstants,
     ]
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - name: Update the flake8 badge status to passing
         uses: RubbaBoy/BYOB@v1.2.1
@@ -444,7 +444,7 @@ jobs:
           '${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}',
           '${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}',
         ]
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v2

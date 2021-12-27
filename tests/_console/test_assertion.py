@@ -129,7 +129,7 @@ def test_assert_true() -> None:
     expression_data_util.empty_expression()
     boolean_1: ap.Boolean = ap.Boolean(True)
     assertion.assert_true(
-        actual=boolean_1,
+        value=boolean_1,
         type_strict=True,
         msg='Value is not true.')
     expression: str = expression_data_util.get_current_expression()
@@ -139,7 +139,7 @@ def test_assert_true() -> None:
     )
     assert expected in expression
 
-    assertion.assert_true(actual=boolean_1, type_strict=False)
+    assertion.assert_true(value=boolean_1, type_strict=False)
     expression = expression_data_util.get_current_expression()
     expected = (
         f'console.assert({boolean_1.variable_name} == true, "");'

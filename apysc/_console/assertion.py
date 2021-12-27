@@ -132,14 +132,14 @@ def assert_not_equal(
 
 
 def assert_true(
-        actual: Any, *, type_strict: bool = True, msg: str = '') -> None:
+        value: Any, *, type_strict: bool = True, msg: str = '') -> None:
     """
     JavaScript assertion interface for true condition.
 
     Parameters
     ----------
-    actual : *
-        Actual value.
+    value : *
+        Target value to check.
     type_strict : bool, default True
         Whether strictly check actual value or not.
         For example, if type_strict is True, interger 1 will
@@ -154,13 +154,13 @@ def assert_true(
             module_name=__name__):
         from apysc._string import string_util
         _trace_info(
-            interface_label='assert_true', expected='true', actual=actual)
-        _, actual_str = _get_expected_and_actual_strs(
-            expected='true', actual=actual)
+            interface_label='assert_true', expected='true', actual=value)
+        _, value_str = _get_expected_and_actual_strs(
+            expected='true', actual=value)
 
         msg = string_util.escape_str(string=msg)
         expression: str = (
-            f'console.assert({actual_str} =='
+            f'console.assert({value_str} =='
         )
         expression = _add_equal_if_type_strict_setting_is_true(
             expression=expression, type_strict=type_strict)

@@ -40,7 +40,7 @@ class LintType(Enum):
     AUTOPEP8 = 'autopep8'
 
 
-_LINT_PACKAGE_ROOT_PATH: str = './apysc/_lint/'
+_LINT_PACKAGE_ROOT_PATH: str = './.lint_hash/'
 
 
 def get_lint_hash_dir_path(*, lint_type: LintType) -> str:

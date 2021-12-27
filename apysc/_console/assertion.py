@@ -37,8 +37,11 @@ def assert_equal(
 
     Notes
     -----
-    - If specified actual value is type of Array (or list, etc),
+    - If specified values are type of Array (or list, etc),
         then assert_arrays_equal function will be called instead of
+        this function.
+    - If specified value are type of Dictionary (or dict, etc),
+        then assert_dicts_equal function will be called instead of
         this function.
 
     Parameters
@@ -78,22 +81,25 @@ def assert_equal(
 
 
 def assert_not_equal(
-        expected: Any, actual: Any, *, msg: str = '') -> None:
+        left: Any, right: Any, *, msg: str = '') -> None:
     """
     JavaScript assertion interface for not equal condition.
 
     Notes
     -----
-    - If specified actual value is type of Array (or list, etc),
-        then assert_not_arrays_equal function will be called instead
-        of this function.
+    - If specified values are type of Array (or list, etc),
+        then assert_arrays_not_equal function will be called instead of
+        this function.
+    - If specified value are type of Dictionary (or dict, etc),
+        then assert_dicts_not_equal function will be called instead of
+        this function.
 
     Parameters
     ----------
-    expected : *
-        Expected value.
-    actual : *
-        Actual value.
+    left : *
+        Left-side value to compare.
+    right : *
+        Right-side value to compare.
     msg : str, optional
         Message to display when assertion failed.
     """
@@ -102,23 +108,25 @@ def assert_not_equal(
             callable_=assert_not_equal, locals_=locals(),
             module_name=__name__):
         from apysc._string import string_util
-        if _actual_value_type_is_array(actual=actual):
-            assert_arrays_not_equal(expected=expected, actual=actual, msg=msg)
-            return
-        if _actual_value_type_is_dict(actual=actual):
-            assert_dicts_not_equal(expected=expected, actual=actual, msg=msg)
-            return
+        for value in (left, right):
+            if _actual_value_type_is_array(actual=value):
+                assert_arrays_not_equal(expected=left, actual=right, msg=msg)
+                return
+        for value in (left, right):
+            if _actual_value_type_is_dict(actual=value):
+                assert_dicts_not_equal(expected=left, actual=right, msg=msg)
+                return
 
         _trace_info(
             interface_label='assert_not_equal',
-            expected=expected,
-            actual=actual)
-        expected_str, actual_str = _get_expected_and_actual_strs(
-            expected=expected, actual=actual)
+            expected=left,
+            actual=right)
+        left_str, right_str = _get_expected_and_actual_strs(
+            expected=left, actual=right)
 
         msg = string_util.escape_str(string=msg)
         expression: str = (
-            f'console.assert({expected_str} !== {actual_str}, "{msg}");'
+            f'console.assert({left_str} !== {right_str}, "{msg}");'
         )
         ap.append_js_expression(expression=expression)
 

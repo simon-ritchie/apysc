@@ -74,7 +74,7 @@ def test_assert_not_equal() -> None:
     expression_data_util.empty_expression()
     int_1: ap.Int = ap.Int(10)
     assertion.assert_not_equal(
-        expected=11, actual=int_1,
+        left=11, right=int_1,
         msg='Invalid condition.')
     expression: str = expression_data_util.get_current_expression()
     expected: str = (
@@ -83,14 +83,27 @@ def test_assert_not_equal() -> None:
     assert expected in expression
 
     expression_data_util.empty_expression()
-    assertion.assert_not_equal(expected=[1, 2], actual=ap.Array([1, 2, 3]))
+    assertion.assert_not_equal(left=[1, 2], right=ap.Array([1, 2, 3]))
+    expression = expression_data_util.get_current_expression()
+    assert 'assert_arrays_not_equal' in expression
+    assert 'assert_not_equal' not in expression
+
+    expression_data_util.empty_expression()
+    assertion.assert_not_equal(left=ap.Array([1, 2, 3]), right=[1, 2])
     expression = expression_data_util.get_current_expression()
     assert 'assert_arrays_not_equal' in expression
     assert 'assert_not_equal' not in expression
 
     expression_data_util.empty_expression()
     assertion.assert_not_equal(
-        expected={'a': 10}, actual=ap.Dictionary({'a': 10}))
+        left={'a': 10}, right=ap.Dictionary({'a': 10}))
+    expression = expression_data_util.get_current_expression()
+    assert 'assert_dicts_not_equal' in expression
+    assert 'assert_not_equal' not in expression
+
+    expression_data_util.empty_expression()
+    assertion.assert_not_equal(
+        left=ap.Dictionary({'a': 10}), right={'a': 10})
     expression = expression_data_util.get_current_expression()
     assert 'assert_dicts_not_equal' in expression
     assert 'assert_not_equal' not in expression

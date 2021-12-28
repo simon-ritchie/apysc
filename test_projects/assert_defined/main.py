@@ -29,11 +29,11 @@ def main() -> None:
     stage: ap.Stage = ap.Stage(background_color='#333')
 
     int_1: ap.Int = ap.Int(3)
-    ap.assert_defined(actual=int_1)
+    ap.assert_defined(value=int_1)
 
     sprite_1: ap.Sprite = ap.Sprite(stage=stage)
     child_1: ap.DisplayObject = sprite_1.get_child_at(index=0)
-    ap.assert_undefined(actual=child_1)
+    ap.assert_undefined(value=child_1)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 

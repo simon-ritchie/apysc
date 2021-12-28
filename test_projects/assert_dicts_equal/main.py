@@ -30,28 +30,28 @@ def main() -> None:
     _: ap.Stage = ap.Stage(background_color='#333')
 
     ap.assert_dicts_equal(
-        expected={'a': 10}, actual=ap.Dictionary({'a': 10}))
+        left={'a': 10}, right=ap.Dictionary({'a': 10}))
     ap.assert_dicts_equal(
-        expected=ap.Dictionary({'a': 10}), actual={'a': 10})
+        left=ap.Dictionary({'a': 10}), right={'a': 10})
     ap.assert_dicts_equal(
-        expected={'a': 10}, actual={'a': 10})
+        left={'a': 10}, right={'a': 10})
     ap.assert_dicts_equal(
-        expected=ap.Dictionary({'a': 10}), actual=ap.Dictionary({'a': 10}))
+        left=ap.Dictionary({'a': 10}), right=ap.Dictionary({'a': 10}))
 
     ap.assert_dicts_not_equal(
-        expected={'a': 10}, actual=ap.Dictionary({'a': 11}))
+        left={'a': 10}, right=ap.Dictionary({'a': 11}))
     ap.assert_dicts_not_equal(
-        expected=ap.Dictionary({'a': 10}), actual={'a': 11})
+        left=ap.Dictionary({'a': 10}), right={'a': 11})
     ap.assert_dicts_not_equal(
-        expected={'a': 10}, actual={'a': 11})
+        left={'a': 10}, right={'a': 11})
     ap.assert_dicts_not_equal(
-        expected=ap.Dictionary({'a': 10}), actual=ap.Dictionary({'a': 11}))
+        left=ap.Dictionary({'a': 10}), right=ap.Dictionary({'a': 11}))
 
     ap.assert_equal(
-        expected={'a': 10}, actual=ap.Dictionary({'a': 10}))
+        left={'a': 10}, right=ap.Dictionary({'a': 10}))
 
     ap.assert_not_equal(
-        expected={'a': 10}, actual=ap.Dictionary({'a': 11}))
+        left={'a': 10}, right=ap.Dictionary({'a': 11}))
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 

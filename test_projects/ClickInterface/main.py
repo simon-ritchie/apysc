@@ -91,7 +91,7 @@ def on_sprite_1_clicked(e: ap.MouseEvent, options: _MsgOptions) -> None:
         Optional arguments dictionary.
     """
     ap.trace('Sprite 1 is clicked!')
-    ap.assert_equal(expected='Hello!', actual=options['msg'])
+    ap.assert_equal(left='Hello!', right=options['msg'])
 
 
 def on_sprite_2_clicked(e: ap.MouseEvent, options: dict) -> None:

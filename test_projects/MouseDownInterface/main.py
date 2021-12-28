@@ -70,7 +70,7 @@ def on_rectangle_1_mouse_down(
         Optional arguments dictionary.
     """
     ap.trace('Rectangle 1 is mouse downed!')
-    ap.assert_equal(expected='Hello!', actual=options['msg'])
+    ap.assert_equal(left='Hello!', right=options['msg'])
 
 
 def on_rectangle_2_mouse_down(

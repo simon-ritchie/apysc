@@ -34,14 +34,14 @@ def main() -> None:
         int_1 += 10
     with ap.Elif(condition_2, locals_=locals(), globals_=globals()):
         int_1 += 50
-    ap.assert_equal(expected=60, actual=int_1)
+    ap.assert_equal(left=60, right=int_1)
 
     int_2: ap.Int = ap.Int(10)
     with ap.If(condition_1, locals_=locals(), globals_=globals()):
         int_2 += 10
     with ap.Elif(condition_1, locals_=locals(), globals_=globals()):
         int_2 += 50
-    ap.assert_equal(expected=10, actual=int_2)
+    ap.assert_equal(left=10, right=int_2)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 

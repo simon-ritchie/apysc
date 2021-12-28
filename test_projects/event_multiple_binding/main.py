@@ -64,10 +64,10 @@ def on_click(e: ap.MouseEvent, options: _IntValOptions) -> None:
         'clicked! Integer value is:', options['int_val'],
         ', this instance\'s type:', type(e.this))
     if isinstance(e.this, ap.Stage):
-        ap.assert_equal(expected=10, actual=options['int_val'])
+        ap.assert_equal(left=10, right=options['int_val'])
         return
     if isinstance(e.this, ap.Sprite):
-        ap.assert_equal(expected=20, actual=options['int_val'])
+        ap.assert_equal(left=20, right=options['int_val'])
         return
 
 

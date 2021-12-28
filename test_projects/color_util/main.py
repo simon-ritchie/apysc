@@ -32,19 +32,19 @@ def main() -> None:
 
     string_1: ap.String = color_util.complement_hex_color(
         hex_color_code=ap.String('333'))
-    ap.assert_equal(expected='#333333', actual=string_1)
+    ap.assert_equal(left='#333333', right=string_1)
 
     string_2: ap.String = color_util.complement_hex_color(
         hex_color_code=ap.String('#5'))
-    ap.assert_equal(expected='#000005', actual=string_2)
+    ap.assert_equal(left='#000005', right=string_2)
 
     string_3: ap.String = color_util.complement_hex_color(
         hex_color_code=ap.String('#333'))
-    ap.assert_equal(expected='#333333', actual=string_3)
+    ap.assert_equal(left='#333333', right=string_3)
 
     string_4: ap.String = color_util.complement_hex_color(
         hex_color_code=ap.String('#555555'))
-    ap.assert_equal(expected='#555555', actual=string_4)
+    ap.assert_equal(left='#555555', right=string_4)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 

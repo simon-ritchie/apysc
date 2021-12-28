@@ -32,19 +32,19 @@ def main() -> None:
     sprite_2: ap.Sprite = ap.Sprite(stage=stage)
     sprite_1.add_child(sprite_2)
     bool_1: ap.Boolean = stage.contains(child=sprite_1)
-    ap.assert_true(actual=bool_1)
+    ap.assert_true(value=bool_1)
     bool_2: ap.Boolean = sprite_1.contains(child=sprite_2)
-    ap.assert_true(actual=bool_2)
+    ap.assert_true(value=bool_2)
     bool_3: ap.Boolean = stage.contains(child=sprite_2)
-    ap.assert_false(actual=bool_3)
+    ap.assert_false(value=bool_3)
 
     num_children: ap.Int = sprite_1.num_children
-    ap.assert_equal(expected=1, actual=num_children)
+    ap.assert_equal(left=1, right=num_children)
 
     child_1: ap.DisplayObject = sprite_1.get_child_at(index=0)
-    ap.assert_defined(actual=child_1)
+    ap.assert_defined(value=child_1)
     child_2: ap.DisplayObject = sprite_1.get_child_at(index=1)
-    ap.assert_undefined(actual=child_2)
+    ap.assert_undefined(value=child_2)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 

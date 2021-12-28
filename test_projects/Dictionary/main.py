@@ -35,38 +35,38 @@ def main() -> None:
     stage: ap.Stage = ap.Stage(background_color='#333')
 
     dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
-    ap.assert_dicts_equal(expected={'a': 10}, actual=dict_1)
+    ap.assert_dicts_equal(left={'a': 10}, right=dict_1)
 
     dict_1.value = {'b': 20}
-    ap.assert_dicts_equal(expected={'b': 20}, actual=dict_1)
+    ap.assert_dicts_equal(left={'b': 20}, right=dict_1)
 
     options: _Dict1Options = {'dict_1': dict_1}
     stage.click(on_stage_click, options=options)
-    ap.assert_dicts_equal(expected={'b': 20}, actual=dict_1)
+    ap.assert_dicts_equal(left={'b': 20}, right=dict_1)
 
     dict_2: ap.Dictionary = ap.Dictionary({'a': 10, 'b': 20})
     length: ap.Int = dict_2.length
-    ap.assert_equal(expected=2, actual=length)
+    ap.assert_equal(left=2, right=length)
 
     int_1: ap.Int = ap.Int(30)
     string_1: ap.String = ap.String('a')
     number_1: ap.Number = ap.Number(3.5)
     dict_3: ap.Dictionary[Any, Any] = ap.Dictionary(
         {'a': 10, 2: 20, 3.5: int_1})
-    ap.assert_equal(expected=10, actual=dict_3['a'])
-    ap.assert_equal(expected=10, actual=dict_3[string_1])
-    ap.assert_equal(expected=20, actual=dict_3[2])
-    ap.assert_equal(expected=int_1, actual=dict_3[number_1])
+    ap.assert_equal(left=10, right=dict_3['a'])
+    ap.assert_equal(left=10, right=dict_3[string_1])
+    ap.assert_equal(left=20, right=dict_3[2])
+    ap.assert_equal(left=int_1, right=dict_3[number_1])
 
     dict_3[string_1] = 40
-    ap.assert_equal(expected=40, actual=dict_3[string_1])
+    ap.assert_equal(left=40, right=dict_3[string_1])
     dict_3['a'] = int_1
-    ap.assert_equal(expected=int_1, actual=dict_3['a'])
+    ap.assert_equal(left=int_1, right=dict_3['a'])
 
     dict_4: ap.Dictionary = ap.Dictionary({'a': 10, 'b': 20})
     string_2: ap.String = ap.String('a')
     del dict_4[string_2]  # type: ignore
-    ap.assert_dicts_equal(expected={'b': 20}, actual=dict_4)
+    ap.assert_dicts_equal(left={'b': 20}, right=dict_4)
 
     dict_5: ap.Dictionary = ap.Dictionary({'a': 10})
     dict_6: ap.Dictionary = ap.Dictionary({'a': 10})
@@ -87,13 +87,13 @@ def main() -> None:
     int_3: ap.Int = ap.Int(30)
     dict_8: ap.Dictionary = ap.Dictionary({'a': int_2})
     got_val_1: ap.Int = dict_8.get('a', default=int_3)
-    ap.assert_equal(expected=20, actual=got_val_1)
+    ap.assert_equal(left=20, right=got_val_1)
     got_val_1 = dict_8.get('b', default=int_3)
-    ap.assert_equal(expected=30, actual=got_val_1)
+    ap.assert_equal(left=30, right=got_val_1)
     got_val_2: None = dict_8.get('c', default=None)
-    ap.assert_equal(expected=None, actual=got_val_2)
+    ap.assert_equal(left=None, right=got_val_2)
     got_val_3: int = dict_8.get('d', default=40)
-    ap.assert_equal(expected=40, actual=got_val_3)
+    ap.assert_equal(left=40, right=got_val_3)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 
@@ -112,7 +112,7 @@ def on_stage_click(e: ap.MouseEvent, options: _Dict1Options) -> None:
     ap.trace('stage clicked!')
     dict_1: ap.Dictionary = options['dict_1']
     dict_1.value = {'c': 30}
-    ap.assert_dicts_equal(expected={'c': 30}, actual=dict_1)
+    ap.assert_dicts_equal(left={'c': 30}, right=dict_1)
 
 
 if __name__ == '__main__':

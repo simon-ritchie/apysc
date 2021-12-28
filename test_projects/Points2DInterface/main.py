@@ -32,9 +32,9 @@ def main() -> None:
     interface.variable_name = 'test_point_2d_interface'
 
     interface.points = ap.Array([ap.Point2D(10, 20), ap.Point2D(30, 40)])
-    ap.assert_equal(expected=ap.Point2D(10, 20), actual=interface.points[0])
+    ap.assert_equal(left=ap.Point2D(10, 20), right=interface.points[0])
     interface.points[1] = ap.Point2D(50, 60)
-    ap.assert_equal(expected=ap.Point2D(50, 60), actual=interface.points[1])
+    ap.assert_equal(left=ap.Point2D(50, 60), right=interface.points[1])
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 

@@ -31,12 +31,12 @@ def main() -> None:
     condition_1: ap.Boolean = ap.Boolean(True)
     with ap.If(condition_1, locals_=locals(), globals_=globals()):
         int_1 += 10
-    ap.assert_equal(expected=20, actual=int_1)
+    ap.assert_equal(left=20, right=int_1)
 
     condition_2: ap.Boolean = ap.Boolean(False)
     with ap.If(condition_2, locals_=locals(), globals_=globals()):
         int_1 += 10
-    ap.assert_equal(expected=20, actual=int_1)
+    ap.assert_equal(left=20, right=int_1)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 

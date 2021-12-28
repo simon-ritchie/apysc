@@ -34,7 +34,7 @@ def main() -> None:
     with ap.For(arr_1, locals_=locals(), globals_=globals()) as i:
         arr_1[i] += 10
     ap.assert_arrays_equal(
-        expected=[11, 12, 13], actual=arr_1)
+        left=[11, 12, 13], right=arr_1)
 
     sprite: ap.Sprite = ap.Sprite(stage=stage)
     sprite.graphics.begin_fill(color='#0af')
@@ -52,8 +52,8 @@ def main() -> None:
         dict_1[key] *= ap.Int(2)  # type: ignore
     ap.trace('dict_1:', dict_1)
     ap.assert_dicts_equal(
-        expected={'a': 20, 'b': 40},
-        actual=dict_1)
+        left={'a': 20, 'b': 40},
+        right=dict_1)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH, minify=False)
 

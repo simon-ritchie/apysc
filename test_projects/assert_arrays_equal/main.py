@@ -30,38 +30,38 @@ def main() -> None:
     _: ap.Stage = ap.Stage(background_color='#333')
 
     ap.assert_arrays_equal(
-        expected=[1, 2, 3], actual=[1, 2, 3])
+        left=[1, 2, 3], right=[1, 2, 3])
     ap.assert_arrays_equal(
-        expected=(1, 2, 3), actual=[1, 2, 3])
+        left=(1, 2, 3), right=[1, 2, 3])
     ap.assert_arrays_equal(
-        expected=[1, 2, 3], actual=(1, 2, 3))
+        left=[1, 2, 3], right=(1, 2, 3))
     ap.assert_arrays_equal(
-        expected=(1, 2, 3), actual=(1, 2, 3))
+        left=(1, 2, 3), right=(1, 2, 3))
     ap.assert_arrays_equal(
-        expected=ap.Array([1, 2, 3]), actual=[1, 2, 3])
+        left=ap.Array([1, 2, 3]), right=[1, 2, 3])
     ap.assert_arrays_equal(
-        expected=[1, 2, 3], actual=ap.Array([1, 2, 3]))
+        left=[1, 2, 3], right=ap.Array([1, 2, 3]))
     ap.assert_arrays_equal(
-        expected=ap.Array([1, 2, 3]), actual=ap.Array([1, 2, 3]))
+        left=ap.Array([1, 2, 3]), right=ap.Array([1, 2, 3]))
 
     ap.assert_arrays_not_equal(
-        expected=[1, 2, 3], actual=[1, 2])
+        left=[1, 2, 3], right=[1, 2])
     ap.assert_arrays_not_equal(
-        expected=(1, 2, 3), actual=[1, 2])
+        left=(1, 2, 3), right=[1, 2])
     ap.assert_arrays_not_equal(
-        expected=[1, 2, 3], actual=ap.Array([1, 2]))
+        left=[1, 2, 3], right=ap.Array([1, 2]))
     ap.assert_arrays_not_equal(
-        expected=ap.Array([1, 2, 3]), actual=ap.Array([1, 2]))
+        left=ap.Array([1, 2, 3]), right=ap.Array([1, 2]))
 
     ap.assert_equal(
-        expected=ap.Array([1, 2, 3]), actual=ap.Array([1, 2, 3]))
+        left=ap.Array([1, 2, 3]), right=ap.Array([1, 2, 3]))
     ap.assert_equal(
-        expected=[1, 2, 3], actual=ap.Array([1, 2, 3]))
+        left=[1, 2, 3], right=ap.Array([1, 2, 3]))
 
     ap.assert_not_equal(
-        expected=ap.Array([1, 2, 3]), actual=ap.Array([1, 2]))
+        left=ap.Array([1, 2, 3]), right=ap.Array([1, 2]))
     ap.assert_not_equal(
-        expected=[1, 2, 3], actual=ap.Array([1, 2]))
+        left=[1, 2, 3], right=ap.Array([1, 2]))
 
     ap.save_overall_html(
         dest_dir_path=_DEST_DIR_PATH)

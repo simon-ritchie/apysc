@@ -33,11 +33,11 @@ def main() -> None:
         x=50, y=50, width=50, height=50)
     fill_alpha_1: ap.Number = rectangle.fill_alpha
     ap.assert_equal(
-        expected=0.5, actual=fill_alpha_1)
+        left=0.5, right=fill_alpha_1)
     rectangle.fill_alpha = ap.Number(0.3)
     fill_alpha_2: ap.Number = rectangle.fill_alpha
     ap.assert_equal(
-        expected=0.3, actual=fill_alpha_2)
+        left=0.3, right=fill_alpha_2)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 

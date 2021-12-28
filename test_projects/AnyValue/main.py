@@ -29,40 +29,40 @@ def main() -> None:
 
     any_value_1: ap.AnyValue = ap.AnyValue(10)
     any_value_1 = any_value_1 + 10
-    ap.assert_equal(expected=20, actual=any_value_1)
+    ap.assert_equal(left=20, right=any_value_1)
 
     any_value_2: ap.AnyValue = ap.AnyValue(20)
     int_1: ap.Int = ap.Int(10)
     any_value_2 = any_value_2 - int_1
-    ap.assert_equal(expected=10, actual=any_value_2)
+    ap.assert_equal(left=10, right=any_value_2)
 
     any_value_3: ap.AnyValue = ap.AnyValue(10)
     any_value_3 = any_value_3 * 3
-    ap.assert_equal(expected=30, actual=any_value_3)
+    ap.assert_equal(left=30, right=any_value_3)
 
     any_value_4: ap.AnyValue = ap.AnyValue(50)
     any_value_4 = any_value_4 / 2
-    ap.assert_equal(expected=25, actual=any_value_4)
+    ap.assert_equal(left=25, right=any_value_4)
 
     any_value_5: ap.AnyValue = ap.AnyValue(10)
     any_value_5 = any_value_5 // 3
-    ap.assert_equal(expected=3, actual=any_value_5)
+    ap.assert_equal(left=3, right=any_value_5)
 
     any_value_6: ap.AnyValue = ap.AnyValue(20)
     any_value_6 += 30
-    ap.assert_equal(expected=50, actual=any_value_6)
+    ap.assert_equal(left=50, right=any_value_6)
 
     any_value_7: ap.AnyValue = ap.AnyValue(60)
     any_value_7 -= 25
-    ap.assert_equal(expected=35, actual=(any_value_7))
+    ap.assert_equal(left=35, right=(any_value_7))
 
     any_value_8: ap.AnyValue = ap.AnyValue(3)
     any_value_8 *= 10
-    ap.assert_equal(expected=30, actual=any_value_8)
+    ap.assert_equal(left=30, right=any_value_8)
 
     any_value_9: ap.AnyValue = ap.AnyValue(20)
     any_value_9 /= 4
-    ap.assert_equal(expected=5, actual=any_value_9)
+    ap.assert_equal(left=5, right=any_value_9)
 
     any_value_10: ap.AnyValue = ap.AnyValue(10)
     result: ap.Boolean = any_value_10 == 10

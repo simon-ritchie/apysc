@@ -31,9 +31,9 @@ def main() -> None:
     with ap.If(int_1 == 20, locals_=locals(), globals_=globals()):
         int_1.value = 100
     with ap.Else(locals_=locals(), globals_=globals()):
-        ap.assert_equal(expected=10, actual=int_1)
+        ap.assert_equal(left=10, right=int_1)
         int_1.value = 300
-    ap.assert_equal(expected=300, actual=int_1)
+    ap.assert_equal(left=300, right=int_1)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 

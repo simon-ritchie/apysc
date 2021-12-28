@@ -56,7 +56,7 @@ def on_document_wheel(e: ap.WheelEvent, options: _MsgOptions) -> None:
     ap.trace('Wheeled!')
     ap.trace('delta_x:', e.delta_x)
     ap.trace('delta_y:', e.delta_y)
-    ap.assert_equal(expected='Hello!', actual=options['msg'])
+    ap.assert_equal(left='Hello!', right=options['msg'])
 
 
 if __name__ == '__main__':

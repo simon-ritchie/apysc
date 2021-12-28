@@ -31,11 +31,11 @@ def main() -> None:
     rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
     rectangle.line_color = ap.String('#aaa')
-    ap.assert_equal(expected='#aaaaaa', actual=rectangle.line_color)
+    ap.assert_equal(left='#aaaaaa', right=rectangle.line_color)
 
     string_1: ap.String = rectangle.line_color
     string_1.value = '#bbb'
-    ap.assert_not_equal(expected=rectangle.line_color, actual=string_1)
+    ap.assert_not_equal(left=rectangle.line_color, right=string_1)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 

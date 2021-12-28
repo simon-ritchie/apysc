@@ -106,36 +106,36 @@ def main() -> None:
     rectangle.fill_alpha = ap.Number(0.5)
     fill_alpha: ap.Number = rectangle.fill_alpha
     fill_alpha += 0.2
-    ap.assert_not_equal(expected=fill_alpha, actual=rectangle.fill_alpha)
+    ap.assert_not_equal(left=fill_alpha, right=rectangle.fill_alpha)
 
     rectangle.x = ap.Int(550)
     x: ap.Int = rectangle.x
     x += 100
-    ap.assert_not_equal(expected=x, actual=rectangle.x)
+    ap.assert_not_equal(left=x, right=rectangle.x)
 
     rectangle.y = ap.Int(150)
     y: ap.Int = rectangle.y
     y += 100
-    ap.assert_not_equal(expected=y, actual=rectangle.y)
+    ap.assert_not_equal(left=y, right=rectangle.y)
 
     rectangle.line_thickness = ap.Int(2)
     line_thickness: ap.Int = rectangle.line_thickness
     line_thickness += 1
     ap.assert_not_equal(
-        expected=line_thickness, actual=rectangle.line_thickness)
+        left=line_thickness, right=rectangle.line_thickness)
 
     rectangle.line_alpha = ap.Number(0.5)
     line_alpha: ap.Number = rectangle.line_alpha
     line_alpha += 0.2
-    ap.assert_not_equal(expected=line_alpha, actual=rectangle.line_alpha)
+    ap.assert_not_equal(left=line_alpha, right=rectangle.line_alpha)
 
     width: ap.Int = rectangle.width
     width = ap.Int(150)
-    ap.assert_not_equal(expected=width, actual=rectangle.width)
+    ap.assert_not_equal(left=width, right=rectangle.width)
 
     height: ap.Int = rectangle.height
     height = ap.Int(200)
-    ap.assert_not_equal(expected=height, actual=rectangle.height)
+    ap.assert_not_equal(left=height, right=rectangle.height)
 
     sprite.graphics.line_style(
         color='#fff', thickness=5, dot_setting=ap.LineDotSetting(dot_size=5))

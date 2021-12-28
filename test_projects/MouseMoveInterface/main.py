@@ -69,7 +69,7 @@ def on_rectangle_1_mouse_move(
         Optional arguments dictionary.
     """
     ap.trace('Mouse moved on rectangle 1!')
-    ap.assert_equal(expected='Hello!', actual=options['msg'])
+    ap.assert_equal(left='Hello!', right=options['msg'])
 
 
 def on_rectangle_2_mouse_move(

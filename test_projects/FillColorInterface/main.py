@@ -34,10 +34,10 @@ def main() -> None:
     string_1: ap.String = ap.String('#999')
     rectangle_1.fill_color = string_1
     string_2: ap.String = rectangle_1.fill_color
-    ap.assert_equal(expected='#999999', actual=string_2)
+    ap.assert_equal(left='#999999', right=string_2)
     string_2.value = '#666666'
     string_3: ap.String = rectangle_1.fill_color
-    ap.assert_not_equal(expected=string_2, actual=string_3)
+    ap.assert_not_equal(left=string_2, right=string_3)
 
     ap.save_overall_html(dest_dir_path=_DEST_DIR_PATH)
 

@@ -114,7 +114,7 @@ def assert_not_equal(
                 return
         for value in (left, right):
             if _actual_value_type_is_dict(actual=value):
-                assert_dicts_not_equal(expected=left, actual=right, msg=msg)
+                assert_dicts_not_equal(left=left, right=right, msg=msg)
                 return
 
         _trace_info(
@@ -306,7 +306,7 @@ def assert_dicts_equal(left: Any, right: Any, *, msg: str = '') -> None:
 
 
 def assert_dicts_not_equal(
-        expected: Any, actual: Any, *, msg: str = '') -> None:
+        left: Any, right: Any, *, msg: str = '') -> None:
     """
     JavaScript assertion interface for Dictionary values not equal
     condition.
@@ -320,10 +320,10 @@ def assert_dicts_not_equal(
 
     Parameters
     ----------
-    expected : *
-        Expected value.
-    actual : *
-        Actual value.
+    left : *
+        Left-side value to compare.
+    right : *
+        Right-side value to compare.
     msg : str, optional
         Message to display when assertion failed.
     """
@@ -333,10 +333,10 @@ def assert_dicts_not_equal(
             module_name=__name__):
         _trace_arrays_or_dicts_assertion_info(
             interface_label='assert_dicts_not_equal',
-            expected=expected, actual=actual)
+            expected=left, actual=right)
 
         expression: str = _make_arrays_or_dicts_comparison_expression(
-            expected=expected, actual=actual, msg=msg, not_condition=True)
+            expected=left, actual=right, msg=msg, not_condition=True)
         ap.append_js_expression(expression=expression)
 
 

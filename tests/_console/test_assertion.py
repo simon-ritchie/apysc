@@ -339,7 +339,7 @@ def test_assert_dicts_not_equal() -> None:
     expression_data_util.empty_expression()
     dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
     assertion.assert_dicts_not_equal(
-        expected={'a': 10}, actual=dict_1,
+        left={'a': 10}, right=dict_1,
         msg='Dictionary values are equal.')
     expression: str = expression_data_util.get_current_expression()
     expected: str = (

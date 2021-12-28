@@ -282,7 +282,7 @@ def test_assert_arrays_not_equal() -> None:
 def test_assert_defined() -> None:
     expression_data_util.empty_expression()
     int_1: ap.Int = ap.Int(3)
-    assertion.assert_defined(actual=int_1, msg='value is undefined.')
+    assertion.assert_defined(value=int_1, msg='value is undefined.')
     expression: str = expression_data_util.get_current_expression()
     expected: str = (
         f'console.assert(!_.isUndefined({int_1.variable_name}), '

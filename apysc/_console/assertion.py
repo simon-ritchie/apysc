@@ -48,7 +48,7 @@ def assert_equal(
     ----------
     left : *
         Left-side value to compare.
-    actual : *
+    right : *
         Right-side value to compare.
     msg : str, optional
         Message to display when assertion failed.
@@ -63,7 +63,7 @@ def assert_equal(
                 assert_arrays_equal(left=left, right=right, msg=msg)
                 return
         for value in (left, right):
-            if _actual_value_type_is_dict(actual=value):
+            if _value_type_is_dict(value=value):
                 assert_dicts_equal(left=left, right=right, msg=msg)
                 return
 
@@ -113,7 +113,7 @@ def assert_not_equal(
                 assert_arrays_not_equal(left=left, right=right, msg=msg)
                 return
         for value in (left, right):
-            if _actual_value_type_is_dict(actual=value):
+            if _value_type_is_dict(value=value):
                 assert_dicts_not_equal(left=left, right=right, msg=msg)
                 return
 
@@ -490,7 +490,7 @@ def _trace_arrays_or_dicts_assertion_info(
 
 def _value_type_is_array(*, value: Any) -> bool:
     """
-    Get a boolean value whether specified value is
+    Get a boolean value whether the specified value is
     Array type or not.
 
     Parameters
@@ -501,7 +501,7 @@ def _value_type_is_array(*, value: Any) -> bool:
     Returns
     -------
     result : bool
-        If actual value type is Array, True will be returned.
+        If the value type is Array, True will be returned.
     """
     import apysc as ap
     if isinstance(value, ap.Array):
@@ -509,23 +509,23 @@ def _value_type_is_array(*, value: Any) -> bool:
     return False
 
 
-def _actual_value_type_is_dict(*, actual: Any) -> bool:
+def _value_type_is_dict(*, value: Any) -> bool:
     """
-    Get a boolean value whether specified actual value is
+    Get a boolean value whether the specified value is
     Dictionary type or not.
 
     Parameters
     ----------
-    actual : *
-        Actual value.
+    value : *
+        Target value to check.
 
     Returns
     -------
     result : bool
-        If actual value type is Dictionary, True will be returned.
+        If the value type is Dictionary, True will be returned.
     """
     from apysc._type.dictionary_structure import DictionaryStructure
-    if isinstance(actual, DictionaryStructure):
+    if isinstance(value, DictionaryStructure):
         return True
     return False
 

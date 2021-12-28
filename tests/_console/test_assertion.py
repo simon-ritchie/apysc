@@ -321,16 +321,16 @@ def test_assert_dicts_equal() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__actual_value_type_is_dict() -> None:
+def test__value_type_is_dict() -> None:
     dict_1: ap.Dictionary = ap.Dictionary({"a": 10})
-    result: bool = assertion._actual_value_type_is_dict(actual=dict_1)
+    result: bool = assertion._value_type_is_dict(value=dict_1)
     assert result
 
-    result = assertion._actual_value_type_is_dict(actual=10)
+    result = assertion._value_type_is_dict(value=10)
     assert not result
 
     point: ap.Point2D = ap.Point2D(x=10, y=20)
-    result = assertion._actual_value_type_is_dict(actual=point)
+    result = assertion._value_type_is_dict(value=point)
     assert result
 
 

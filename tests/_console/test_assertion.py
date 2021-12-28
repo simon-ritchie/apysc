@@ -60,11 +60,11 @@ def test__trace_info() -> None:
         msg='Invalid int values.')
     expression: str = expression_data_util.get_current_expression()
     expected: str = (
-        f'Expected variable name: {int_1.variable_name}'
+        f'Left-side variable name: {int_1.variable_name}'
     )
     assert expected in expression
     expected = (
-        f'Actual variable name: {int_2.variable_name}'
+        f'Right-side variable name: {int_2.variable_name}'
     )
     assert expected in expression
 
@@ -113,15 +113,15 @@ def test_assert_not_equal() -> None:
 def test__get_left_and_right_strs() -> None:
     int_1: ap.Int = ap.Int(10)
     int_2: ap.Int = ap.Int(20)
-    expected_str, actual_str = assertion._get_left_and_right_strs(
+    left_str, right_str = assertion._get_left_and_right_strs(
         left=int_1, right=int_2)
-    assert expected_str == int_1.variable_name
-    assert actual_str == int_2.variable_name
+    assert left_str == int_1.variable_name
+    assert right_str == int_2.variable_name
 
-    expected_str, actual_str = assertion._get_left_and_right_strs(
+    left_str, right_str = assertion._get_left_and_right_strs(
         left='Hello', right='World!')
-    assert expected_str == '"Hello"'
-    assert actual_str == '"World!"'
+    assert left_str == '"Hello"'
+    assert right_str == '"World!"'
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -205,8 +205,8 @@ def test__trace_arrays_or_dicts_assertion_info() -> None:
         left=[1, 2, 3], right=array_1)
     expression: str = expression_data_util.get_current_expression()
     assert '[assert_arrays_equal]' in expression
-    assert '"\\nExpected:", "[1, 2, 3]"' in expression
-    expected = f'"actual:", "{array_1.variable_name}'
+    assert '"\\nLeft value:", "[1, 2, 3]"' in expression
+    expected = f'"right value:", "{array_1.variable_name}'
     assert expected in expression
 
     expression_data_util.empty_expression()
@@ -214,9 +214,9 @@ def test__trace_arrays_or_dicts_assertion_info() -> None:
         interface_label='assert_arrays_not_equal',
         left=array_1, right=[1, 2, 3])
     expression = expression_data_util.get_current_expression()
-    expected = f'"\\nExpected:", "{array_1.variable_name} ([1, 2, 3])"'
+    expected = f'"\\nLeft value:", "{array_1.variable_name} ([1, 2, 3])"'
     assert expected in expression
-    assert '"actual:", "[1, 2, 3]"' in expression
+    assert '"right value:", "[1, 2, 3]"' in expression
 
     expression_data_util.empty_expression()
     dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
@@ -224,9 +224,9 @@ def test__trace_arrays_or_dicts_assertion_info() -> None:
         interface_label='assert_dicts_equal',
         left=dict_1, right={'a': 10})
     expression = expression_data_util.get_current_expression()
-    expected = f'"\\nExpected:", "{dict_1.variable_name} ({{a: 10}})"'
+    expected = f'"\\nLeft value:", "{dict_1.variable_name} ({{a: 10}})"'
     assert expected in expression
-    assert '"actual:", "{a: 10}"' in expression
+    assert '"right value:", "{a: 10}"' in expression
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

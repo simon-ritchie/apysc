@@ -68,7 +68,7 @@ def assert_equal(
                 return
 
         _trace_info(
-            interface_label='assert_equal', expected=left, actual=right)
+            interface_label='assert_equal', left=left, right=right)
 
         left_str, right_str = _get_left_and_right_strs(
             left=left, right=right)
@@ -119,8 +119,8 @@ def assert_not_equal(
 
         _trace_info(
             interface_label='assert_not_equal',
-            expected=left,
-            actual=right)
+            left=left,
+            right=right)
         left_str, right_str = _get_left_and_right_strs(
             left=left, right=right)
 
@@ -154,7 +154,7 @@ def assert_true(
             module_name=__name__):
         from apysc._string import string_util
         _trace_info(
-            interface_label='assert_true', expected='true', actual=value)
+            interface_label='assert_true', left='true', right=value)
         _, value_str = _get_left_and_right_strs(
             left='_', right=value)
 
@@ -191,7 +191,7 @@ def assert_false(
             module_name=__name__):
         from apysc._string import string_util
         _trace_info(
-            interface_label='assert_false', expected='false', actual=value)
+            interface_label='assert_false', left='false', right=value)
         _, value_str = _get_left_and_right_strs(
             left='_', right=value)
 
@@ -358,8 +358,8 @@ def assert_defined(value: Any, *, msg: str = '') -> None:
             module_name=__name__):
         from apysc._string import string_util
         _trace_info(
-            interface_label='assert_defined', expected='other than undefined',
-            actual=value)
+            interface_label='assert_defined', left='other than undefined',
+            right=value)
         _, value_str = _get_left_and_right_strs(
             left='_', right=value)
 
@@ -387,8 +387,8 @@ def assert_undefined(value: Any, *, msg: str = '') -> None:
             module_name=__name__):
         from apysc._string import string_util
         _trace_info(
-            interface_label='assert_undefined', expected='undefined',
-            actual=value)
+            interface_label='assert_undefined', left='undefined',
+            right=value)
         _, value_str = _get_left_and_right_strs(
             left='_', right=value)
 
@@ -484,8 +484,8 @@ def _trace_arrays_or_dicts_assertion_info(
         right_info_str = right_exp_str
         _trace_info(
             interface_label=interface_label,
-            expected=left_info_str,
-            actual=right_info_str)
+            left=left_info_str,
+            right=right_info_str)
 
 
 def _value_type_is_array(*, value: Any) -> bool:
@@ -583,7 +583,7 @@ def _get_left_and_right_strs(
     return left_str, right_str
 
 
-def _trace_info(*, interface_label: str, expected: Any, actual: Any) -> None:
+def _trace_info(*, interface_label: str, left: Any, right: Any) -> None:
     """
     Append trace expression of specified values.
 
@@ -591,10 +591,10 @@ def _trace_info(*, interface_label: str, expected: Any, actual: Any) -> None:
     ----------
     interface_label : str
         Target assertion interface label, e.g., 'assert_equal'.
-    expected : *
-        Expected value.
-    actual : *
-        Actual value.
+    left : *
+        Left-side value to compare.
+    right : *
+        Right-side value to compare.
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -602,8 +602,8 @@ def _trace_info(*, interface_label: str, expected: Any, actual: Any) -> None:
             module_name=__name__):
         from apysc._type.variable_name_interface import VariableNameInterface
         info: str = f'[{interface_label}]'
-        if isinstance(expected, VariableNameInterface):
-            info += f'\nExpected variable name: {expected.variable_name}'
-        if isinstance(actual, VariableNameInterface):
-            info += f'\nActual variable name: {actual.variable_name}'
-        ap.trace(info, '\nExpected:', expected, 'actual:', actual)
+        if isinstance(left, VariableNameInterface):
+            info += f'\nLeft-side variable name: {left.variable_name}'
+        if isinstance(right, VariableNameInterface):
+            info += f'\nRight-side variable name: {right.variable_name}'
+        ap.trace(info, '\nLeft value:', left, 'right value:', right)

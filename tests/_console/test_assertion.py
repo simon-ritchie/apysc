@@ -202,7 +202,7 @@ def test__trace_arrays_or_dicts_assertion_info() -> None:
     array_1: ap.Array = ap.Array([1, 2, 3])
     assertion._trace_arrays_or_dicts_assertion_info(
         interface_label='assert_arrays_equal',
-        expected=[1, 2, 3], actual=array_1)
+        left=[1, 2, 3], right=array_1)
     expression: str = expression_data_util.get_current_expression()
     assert '[assert_arrays_equal]' in expression
     assert '"\\nExpected:", "[1, 2, 3]"' in expression
@@ -212,7 +212,7 @@ def test__trace_arrays_or_dicts_assertion_info() -> None:
     expression_data_util.empty_expression()
     assertion._trace_arrays_or_dicts_assertion_info(
         interface_label='assert_arrays_not_equal',
-        expected=array_1, actual=[1, 2, 3])
+        left=array_1, right=[1, 2, 3])
     expression = expression_data_util.get_current_expression()
     expected = f'"\\nExpected:", "{array_1.variable_name} ([1, 2, 3])"'
     assert expected in expression
@@ -222,7 +222,7 @@ def test__trace_arrays_or_dicts_assertion_info() -> None:
     dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
     assertion._trace_arrays_or_dicts_assertion_info(
         interface_label='assert_dicts_equal',
-        expected=dict_1, actual={'a': 10})
+        left=dict_1, right={'a': 10})
     expression = expression_data_util.get_current_expression()
     expected = f'"\\nExpected:", "{dict_1.variable_name} ({{a: 10}})"'
     assert expected in expression

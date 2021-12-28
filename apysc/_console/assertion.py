@@ -231,7 +231,7 @@ def assert_arrays_equal(
             module_name=__name__):
         _trace_arrays_or_dicts_assertion_info(
             interface_label='assert_arrays_equal',
-            expected=left, actual=right)
+            left=left, right=right)
 
         expression: str = _make_arrays_or_dicts_comparison_expression(
             left=left, right=right, msg=msg, not_condition=False)
@@ -264,7 +264,7 @@ def assert_arrays_not_equal(
             module_name=__name__):
         _trace_arrays_or_dicts_assertion_info(
             interface_label='assert_arrays_not_equal',
-            expected=left, actual=right)
+            left=left, right=right)
 
         expression: str = _make_arrays_or_dicts_comparison_expression(
             left=left, right=right, msg=msg, not_condition=True)
@@ -298,7 +298,7 @@ def assert_dicts_equal(left: Any, right: Any, *, msg: str = '') -> None:
             module_name=__name__):
         _trace_arrays_or_dicts_assertion_info(
             interface_label='assert_dicts_equal',
-            expected=left, actual=right)
+            left=left, right=right)
 
         expression: str = _make_arrays_or_dicts_comparison_expression(
             left=left, right=right, msg=msg, not_condition=False)
@@ -333,7 +333,7 @@ def assert_dicts_not_equal(
             module_name=__name__):
         _trace_arrays_or_dicts_assertion_info(
             interface_label='assert_dicts_not_equal',
-            expected=left, actual=right)
+            left=left, right=right)
 
         expression: str = _make_arrays_or_dicts_comparison_expression(
             left=left, right=right, msg=msg, not_condition=True)
@@ -448,7 +448,7 @@ def _make_arrays_or_dicts_comparison_expression(
 
 
 def _trace_arrays_or_dicts_assertion_info(
-        *, interface_label: str, expected: Any, actual: Any) -> None:
+        *, interface_label: str, left: Any, right: Any) -> None:
     """
     Append arrays or dicts value's information trace expression.
 
@@ -456,36 +456,36 @@ def _trace_arrays_or_dicts_assertion_info(
     ----------
     interface_label : str
         Target assertion interface label, e.g., 'assert_arrays_equal'.
-    expected : *
-        Expected value.
-    actual : *
-        Actual value.
+    left : *
+        Left-side value to compare.
+    right : *
+        Right-side value to compare.
     """
     import apysc as ap
     with ap.DebugInfo(
             callable_=_trace_arrays_or_dicts_assertion_info, locals_=locals(),
             module_name=__name__):
         from apysc._type import value_util
-        expected_exp_str: str = value_util.get_value_str_for_expression(
-            value=expected)
-        if isinstance(expected, dict):
-            expected_exp_str = expected_exp_str.replace('"', '')
-        actual_exp_str: str = value_util.get_value_str_for_expression(
-            value=actual)
-        if isinstance(actual, dict):
-            actual_exp_str = actual_exp_str.replace('"', '')
-        if isinstance(expected, (ap.Array, ap.Dictionary)):
+        left_exp_str: str = value_util.get_value_str_for_expression(
+            value=left)
+        if isinstance(left, dict):
+            left_exp_str = left_exp_str.replace('"', '')
+        right_exp_str: str = value_util.get_value_str_for_expression(
+            value=right)
+        if isinstance(right, dict):
+            right_exp_str = right_exp_str.replace('"', '')
+        if isinstance(left, (ap.Array, ap.Dictionary)):
             value_str: str = value_util.get_value_str_for_expression(
-                value=expected.value)
+                value=left.value)
             value_str = value_str.replace('"', '')
-            expected_info_str: str = f'{expected_exp_str} ({value_str})'
+            left_info_str: str = f'{left_exp_str} ({value_str})'
         else:
-            expected_info_str = expected_exp_str
-        actual_info_str = actual_exp_str
+            left_info_str = left_exp_str
+        right_info_str = right_exp_str
         _trace_info(
             interface_label=interface_label,
-            expected=expected_info_str,
-            actual=actual_info_str)
+            expected=left_info_str,
+            actual=right_info_str)
 
 
 def _actual_value_type_is_array(*, actual: Any) -> bool:

@@ -370,14 +370,14 @@ def assert_defined(value: Any, *, msg: str = '') -> None:
         ap.append_js_expression(expression=expression)
 
 
-def assert_undefined(actual: Any, *, msg: str = '') -> None:
+def assert_undefined(value: Any, *, msg: str = '') -> None:
     """
     JavaScript assertion interface for undefined value condition.
 
     Parameters
     ----------
-    actual : *
-        Actual value.
+    value : *
+        Target value to check.
     msg : str, optional
         Message to display when assertion failed.
     """
@@ -388,13 +388,13 @@ def assert_undefined(actual: Any, *, msg: str = '') -> None:
         from apysc._string import string_util
         _trace_info(
             interface_label='assert_undefined', expected='undefined',
-            actual=actual)
-        _, actual_str = _get_expected_and_actual_strs(
-            expected='undefined', actual=actual)
+            actual=value)
+        _, value_str = _get_expected_and_actual_strs(
+            expected='undefined', actual=value)
 
         msg = string_util.escape_str(string=msg)
         expression: str = (
-            f'console.assert(_.isUndefined({actual_str}), "{msg}");'
+            f'console.assert(_.isUndefined({value_str}), "{msg}");'
         )
         ap.append_js_expression(expression=expression)
 

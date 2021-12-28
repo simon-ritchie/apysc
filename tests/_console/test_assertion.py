@@ -295,7 +295,7 @@ def test_assert_defined() -> None:
 def test_assert_undefined() -> None:
     expression_data_util.empty_expression()
     int_1: ap.Int = ap.Int(3)
-    assertion.assert_undefined(actual=int_1, msg='value is not undefined.')
+    assertion.assert_undefined(value=int_1, msg='value is not undefined.')
     expression: str = expression_data_util.get_current_expression()
     expected: str = (
         f'console.assert(_.isUndefined({int_1.variable_name}), '

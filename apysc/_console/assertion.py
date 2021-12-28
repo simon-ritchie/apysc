@@ -70,8 +70,8 @@ def assert_equal(
         _trace_info(
             interface_label='assert_equal', expected=left, actual=right)
 
-        left_str, right_str = _get_expected_and_actual_strs(
-            expected=left, actual=right)
+        left_str, right_str = _get_left_and_right_strs(
+            left=left, right=right)
 
         msg = string_util.escape_str(string=msg)
         expression: str = (
@@ -121,8 +121,8 @@ def assert_not_equal(
             interface_label='assert_not_equal',
             expected=left,
             actual=right)
-        left_str, right_str = _get_expected_and_actual_strs(
-            expected=left, actual=right)
+        left_str, right_str = _get_left_and_right_strs(
+            left=left, right=right)
 
         msg = string_util.escape_str(string=msg)
         expression: str = (
@@ -155,8 +155,8 @@ def assert_true(
         from apysc._string import string_util
         _trace_info(
             interface_label='assert_true', expected='true', actual=value)
-        _, value_str = _get_expected_and_actual_strs(
-            expected='true', actual=value)
+        _, value_str = _get_left_and_right_strs(
+            left='_', right=value)
 
         msg = string_util.escape_str(string=msg)
         expression: str = (
@@ -192,8 +192,8 @@ def assert_false(
         from apysc._string import string_util
         _trace_info(
             interface_label='assert_false', expected='false', actual=value)
-        _, value_str = _get_expected_and_actual_strs(
-            expected='false', actual=value)
+        _, value_str = _get_left_and_right_strs(
+            left='_', right=value)
 
         msg = string_util.escape_str(string=msg)
         expression: str = (
@@ -360,8 +360,8 @@ def assert_defined(value: Any, *, msg: str = '') -> None:
         _trace_info(
             interface_label='assert_defined', expected='other than undefined',
             actual=value)
-        _, value_str = _get_expected_and_actual_strs(
-            expected='other than undefined', actual=value)
+        _, value_str = _get_left_and_right_strs(
+            left='_', right=value)
 
         msg = string_util.escape_str(string=msg)
         expression: str = (
@@ -389,8 +389,8 @@ def assert_undefined(value: Any, *, msg: str = '') -> None:
         _trace_info(
             interface_label='assert_undefined', expected='undefined',
             actual=value)
-        _, value_str = _get_expected_and_actual_strs(
-            expected='undefined', actual=value)
+        _, value_str = _get_left_and_right_strs(
+            left='_', right=value)
 
         msg = string_util.escape_str(string=msg)
         expression: str = (
@@ -555,32 +555,32 @@ def _add_equal_if_type_strict_setting_is_true(
     return expression
 
 
-def _get_expected_and_actual_strs(
-        *, expected: Any, actual: Any) -> Tuple[str, str]:
+def _get_left_and_right_strs(
+        *, left: Any, right: Any) -> Tuple[str, str]:
     """
-    Get expected and actual value strings from specified values.
+    Get left and right value strings from specified values.
 
     Parameters
     ----------
-    expected : *
-        Expected value.
-    actual : *
-        Actual value.
+    left : *
+        Left-side value to compare.
+    right : *
+        Right-side value to compare.
 
     Returns
     -------
-    expected_str : str
-        Expected value's string. If value is string, this will be
+    left_str : str
+        Left-side value's string. If value is string, this will be
         wrapped by double quotation.
-    actual_str : str
-        Actual value's string. If value is string, this will be
+    right_str : str
+        Right-side value's string. If value is string, this will be
         wrapped by double quotation.
     """
     from apysc._type import value_util
-    expected_str: str = value_util.get_value_str_for_expression(
-        value=expected)
-    actual_str: str = value_util.get_value_str_for_expression(value=actual)
-    return expected_str, actual_str
+    left_str: str = value_util.get_value_str_for_expression(
+        value=left)
+    right_str: str = value_util.get_value_str_for_expression(value=right)
+    return left_str, right_str
 
 
 def _trace_info(*, interface_label: str, expected: Any, actual: Any) -> None:

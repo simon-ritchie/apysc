@@ -110,16 +110,16 @@ def test_assert_not_equal() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__get_expected_and_actual_strs() -> None:
+def test__get_left_and_right_strs() -> None:
     int_1: ap.Int = ap.Int(10)
     int_2: ap.Int = ap.Int(20)
-    expected_str, actual_str = assertion._get_expected_and_actual_strs(
-        expected=int_1, actual=int_2)
+    expected_str, actual_str = assertion._get_left_and_right_strs(
+        left=int_1, right=int_2)
     assert expected_str == int_1.variable_name
     assert actual_str == int_2.variable_name
 
-    expected_str, actual_str = assertion._get_expected_and_actual_strs(
-        expected='Hello', actual='World!')
+    expected_str, actual_str = assertion._get_left_and_right_strs(
+        left='Hello', right='World!')
     assert expected_str == '"Hello"'
     assert actual_str == '"World!"'
 

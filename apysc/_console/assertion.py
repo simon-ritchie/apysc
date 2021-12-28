@@ -60,7 +60,7 @@ def assert_equal(
         from apysc._string import string_util
         for value in (left, right):
             if _actual_value_type_is_array(actual=value):
-                assert_arrays_equal(expected=left, actual=right, msg=msg)
+                assert_arrays_equal(left=left, right=right, msg=msg)
                 return
         for value in (left, right):
             if _actual_value_type_is_dict(actual=value):
@@ -206,7 +206,7 @@ def assert_false(
 
 
 def assert_arrays_equal(
-        expected: Any, actual: Any, *, msg: str = '') -> None:
+        left: Any, right: Any, *, msg: str = '') -> None:
     """
     JavaScript assertion interface for Array values equal condition.
 
@@ -218,10 +218,10 @@ def assert_arrays_equal(
 
     Parameters
     ----------
-    expected : *
-        Expected value.
-    actual : *
-        Actual value.
+    left : *
+        Left-side value to compare.
+    right : *
+        Right-side value to compare.
     msg : str, optional
         Message to display when assertion failed.
     """
@@ -231,10 +231,10 @@ def assert_arrays_equal(
             module_name=__name__):
         _trace_arrays_or_dicts_assertion_info(
             interface_label='assert_arrays_equal',
-            expected=expected, actual=actual)
+            expected=left, actual=right)
 
         expression: str = _make_arrays_or_dicts_comparison_expression(
-            expected=expected, actual=actual, msg=msg, not_condition=False)
+            expected=left, actual=right, msg=msg, not_condition=False)
         ap.append_js_expression(expression=expression)
 
 

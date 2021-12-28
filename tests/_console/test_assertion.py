@@ -186,7 +186,7 @@ def test_assert_arrays_equal() -> None:
     expression_data_util.empty_expression()
     array_1: ap.Array = ap.Array([1, 2, 3])
     assertion.assert_arrays_equal(
-        expected=[1, 2, 3], actual=array_1,
+        left=[1, 2, 3], right=array_1,
         msg='Array values are not equal.')
     expression: str = expression_data_util.get_current_expression()
     expected: str = (

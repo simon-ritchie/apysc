@@ -172,12 +172,12 @@ def test_assert_false() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__actual_value_type_is_array() -> None:
-    result: bool = assertion._actual_value_type_is_array(actual=100)
+def test__value_type_is_array() -> None:
+    result: bool = assertion._value_type_is_array(value=100)
     assert not result
 
-    result = assertion._actual_value_type_is_array(
-        actual=ap.Array([100, 200]))
+    result = assertion._value_type_is_array(
+        value=ap.Array([100, 200]))
     assert result
 
 

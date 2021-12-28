@@ -59,7 +59,7 @@ def assert_equal(
             module_name=__name__):
         from apysc._string import string_util
         for value in (left, right):
-            if _actual_value_type_is_array(actual=value):
+            if _value_type_is_array(value=value):
                 assert_arrays_equal(left=left, right=right, msg=msg)
                 return
         for value in (left, right):
@@ -109,7 +109,7 @@ def assert_not_equal(
             module_name=__name__):
         from apysc._string import string_util
         for value in (left, right):
-            if _actual_value_type_is_array(actual=value):
+            if _value_type_is_array(value=value):
                 assert_arrays_not_equal(left=left, right=right, msg=msg)
                 return
         for value in (left, right):
@@ -488,15 +488,15 @@ def _trace_arrays_or_dicts_assertion_info(
             actual=right_info_str)
 
 
-def _actual_value_type_is_array(*, actual: Any) -> bool:
+def _value_type_is_array(*, value: Any) -> bool:
     """
-    Get a boolean value whether specified actual value is
+    Get a boolean value whether specified value is
     Array type or not.
 
     Parameters
     ----------
-    actual : *
-        Actual value.
+    value : *
+        Target value to check.
 
     Returns
     -------
@@ -504,7 +504,7 @@ def _actual_value_type_is_array(*, actual: Any) -> bool:
         If actual value type is Array, True will be returned.
     """
     import apysc as ap
-    if isinstance(actual, ap.Array):
+    if isinstance(value, ap.Array):
         return True
     return False
 

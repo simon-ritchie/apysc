@@ -234,7 +234,7 @@ def assert_arrays_equal(
             expected=left, actual=right)
 
         expression: str = _make_arrays_or_dicts_comparison_expression(
-            expected=left, actual=right, msg=msg, not_condition=False)
+            left=left, right=right, msg=msg, not_condition=False)
         ap.append_js_expression(expression=expression)
 
 
@@ -267,7 +267,7 @@ def assert_arrays_not_equal(
             expected=left, actual=right)
 
         expression: str = _make_arrays_or_dicts_comparison_expression(
-            expected=left, actual=right, msg=msg, not_condition=True)
+            left=left, right=right, msg=msg, not_condition=True)
         ap.append_js_expression(expression=expression)
 
 
@@ -301,7 +301,7 @@ def assert_dicts_equal(left: Any, right: Any, *, msg: str = '') -> None:
             expected=left, actual=right)
 
         expression: str = _make_arrays_or_dicts_comparison_expression(
-            expected=left, actual=right, msg=msg, not_condition=False)
+            left=left, right=right, msg=msg, not_condition=False)
         ap.append_js_expression(expression=expression)
 
 
@@ -336,7 +336,7 @@ def assert_dicts_not_equal(
             expected=left, actual=right)
 
         expression: str = _make_arrays_or_dicts_comparison_expression(
-            expected=left, actual=right, msg=msg, not_condition=True)
+            left=left, right=right, msg=msg, not_condition=True)
         ap.append_js_expression(expression=expression)
 
 
@@ -400,7 +400,7 @@ def assert_undefined(value: Any, *, msg: str = '') -> None:
 
 
 def _make_arrays_or_dicts_comparison_expression(
-        *, expected: Any, actual: Any, msg: str,
+        *, left: Any, right: Any, msg: str,
         not_condition: bool) -> str:
     """
     Make arrays or dicts comparison (assert_arrays_equal,
@@ -409,10 +409,10 @@ def _make_arrays_or_dicts_comparison_expression(
 
     Parameters
     ----------
-    expected : *
-        Expected value.
-    actual : *
-        Actual value.
+    left : *
+        Left-side value to compare.
+    right : *
+        Right-side value to compare.
     msg : str, optional
         Message to display when assertion failed.
     not_condition : bool
@@ -431,18 +431,18 @@ def _make_arrays_or_dicts_comparison_expression(
             module_name=__name__):
         from apysc._string import string_util
         from apysc._type import value_util
-        expected_exp_str: str = value_util.get_value_str_for_expression(
-            value=expected)
-        actual_exp_str: str = value_util.get_value_str_for_expression(
-            value=actual)
+        left_exp_str: str = value_util.get_value_str_for_expression(
+            value=left)
+        right_exp_str: str = value_util.get_value_str_for_expression(
+            value=right)
         msg = string_util.escape_str(string=msg)
         if not_condition:
             not_condition_str: str = '!'
         else:
             not_condition_str = ''
         expression: str = (
-            f'console.assert({not_condition_str}_.isEqual({expected_exp_str}, '
-            f'{actual_exp_str}), "{msg}");'
+            f'console.assert({not_condition_str}_.isEqual({left_exp_str}, '
+            f'{right_exp_str}), "{msg}");'
         )
         return expression
 

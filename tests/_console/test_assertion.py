@@ -234,8 +234,8 @@ def test__make_arrays_or_dicts_comparison_expression() -> None:
     expression_data_util.empty_expression()
     array_1: ap.Array = ap.Array([1, 2, 3])
     expression: str = assertion._make_arrays_or_dicts_comparison_expression(
-        expected=[1, 2, 3],
-        actual=array_1,
+        left=[1, 2, 3],
+        right=array_1,
         msg='Array values is not equal.',
         not_condition=False)
     expected: str = (
@@ -245,8 +245,8 @@ def test__make_arrays_or_dicts_comparison_expression() -> None:
     assert expression == expected
 
     expression = assertion._make_arrays_or_dicts_comparison_expression(
-        expected=[1, 2, 3],
-        actual=[1],
+        left=[1, 2, 3],
+        right=[1],
         msg='',
         not_condition=True)
     expected = (
@@ -255,7 +255,7 @@ def test__make_arrays_or_dicts_comparison_expression() -> None:
 
     dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
     expression = assertion._make_arrays_or_dicts_comparison_expression(
-        expected=dict_1, actual={'a': 10}, msg='', not_condition=False)
+        left=dict_1, right={'a': 10}, msg='', not_condition=False)
     expected = (
         f'console.assert(_.isEqual({dict_1.variable_name}, '
         '{"a": 10}), "");'

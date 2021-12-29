@@ -54,7 +54,7 @@
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>Both of the <code class="docutils literal notranslate"><span class="pre">assert_defined</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_undefined</span></code> interfaces requires <code class="docutils literal notranslate"><span class="pre">actual</span></code> argument and <code class="docutils literal notranslate"><span class="pre">msg</span></code> argument is optional.</p>
+<p>Both of the <code class="docutils literal notranslate"><span class="pre">assert_defined</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_undefined</span></code> interfaces requires <code class="docutils literal notranslate"><span class="pre">value</span></code> argument and <code class="docutils literal notranslate"><span class="pre">msg</span></code> argument is optional.</p>
 <p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_defined</span></code> and value is initialized) will pass:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -65,15 +65,15 @@
 
 <span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">ap</span><span class="o">.</span><span class="n">assert_defined</span><span class="p">(</span>
-    <span class="n">actual</span><span class="o">=</span><span class="n">int_val</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Value is not defined!&#39;</span><span class="p">)</span>
+    <span class="n">value</span><span class="o">=</span><span class="n">int_val</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Value is not defined!&#39;</span><span class="p">)</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;assert_defined_basic_usage_1/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">assert_defined</span><span class="p">]</span>
-<span class="n">Actual</span> <span class="n">variable</span> <span class="n">name</span><span class="p">:</span> <span class="n">i_11</span>
-<span class="n">Expected</span><span class="p">:</span> <span class="n">other</span> <span class="n">than</span> <span class="n">undefined</span> <span class="n">actual</span><span class="p">:</span> <span class="mi">10</span>
+<span class="n">Right</span><span class="o">-</span><span class="n">side</span> <span class="n">variable</span> <span class="n">name</span><span class="p">:</span> <span class="n">i_11</span>
+<span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="n">other</span> <span class="n">than</span> <span class="n">undefined</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="mi">10</span>
 </pre></div>
 </div>
 <iframe src="static/assert_defined_basic_usage_1/index.html" width="0" height="0"></iframe><p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_defined</span></code> and the value is deleted) will fail:</p>
@@ -88,15 +88,15 @@
 <span class="n">ap</span><span class="o">.</span><span class="n">append_js_expression</span><span class="p">(</span>
     <span class="n">expression</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">int_val</span><span class="o">.</span><span class="n">variable_name</span><span class="si">}</span><span class="s1"> = undefined;&#39;</span><span class="p">)</span>
 <span class="n">ap</span><span class="o">.</span><span class="n">assert_defined</span><span class="p">(</span>
-    <span class="n">actual</span><span class="o">=</span><span class="n">int_val</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Value is not defined!&#39;</span><span class="p">)</span>
+    <span class="n">value</span><span class="o">=</span><span class="n">int_val</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Value is not defined!&#39;</span><span class="p">)</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;assert_defined_basic_usage_2/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[assert_defined]
-Actual variable name: i_11
-Expected: other than undefined actual: undefined
+Right-side variable name: i_11
+Left value: other than undefined right value: undefined
 ...
 Assertion failed: Value is not defined!
 </pre></div>
@@ -113,15 +113,15 @@ Assertion failed: Value is not defined!
 <span class="n">ap</span><span class="o">.</span><span class="n">append_js_expression</span><span class="p">(</span>
     <span class="n">expression</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">int_val</span><span class="o">.</span><span class="n">variable_name</span><span class="si">}</span><span class="s1"> = undefined;&#39;</span><span class="p">)</span>
 <span class="n">ap</span><span class="o">.</span><span class="n">assert_undefined</span><span class="p">(</span>
-    <span class="n">actual</span><span class="o">=</span><span class="n">int_val</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Value is defined!&#39;</span><span class="p">)</span>
+    <span class="n">value</span><span class="o">=</span><span class="n">int_val</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Value is defined!&#39;</span><span class="p">)</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;assert_undefined_basic_usage_1/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">assert_undefined</span><span class="p">]</span>
-<span class="n">Actual</span> <span class="n">variable</span> <span class="n">name</span><span class="p">:</span> <span class="n">i_11</span>
-<span class="n">Expected</span><span class="p">:</span> <span class="n">undefined</span> <span class="n">actual</span><span class="p">:</span> <span class="n">undefined</span>
+<span class="n">Right</span><span class="o">-</span><span class="n">side</span> <span class="n">variable</span> <span class="n">name</span><span class="p">:</span> <span class="n">i_11</span>
+<span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="n">undefined</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="n">undefined</span>
 </pre></div>
 </div>
 <iframe src="static/assert_undefined_basic_usage_1/index.html" width="0" height="0"></iframe></section>

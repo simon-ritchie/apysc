@@ -61,15 +61,15 @@
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 <span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">expected</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">actual</span><span class="o">=</span><span class="n">int_1</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">int_1</span><span class="p">)</span>
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;assertion_common_behavior_results/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This code will display the information message on the browser console, like this (please press the F12 key to see):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">assert_equal</span><span class="p">]</span>
-<span class="n">Actual</span> <span class="n">variable</span> <span class="n">name</span><span class="p">:</span> <span class="n">i_11</span>
-<span class="n">Expected</span><span class="p">:</span> <span class="mi">10</span> <span class="n">actual</span><span class="p">:</span> <span class="mi">10</span>
+<span class="n">Right</span><span class="o">-</span><span class="n">side</span> <span class="n">variable</span> <span class="n">name</span><span class="p">:</span> <span class="n">i_11</span>
+<span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="mi">10</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="mi">10</span>
 </pre></div>
 </div>
 <iframe src="static/assertion_common_behavior_results/index.html" width="0" height="0"></iframe><p>If the assertion failed, then an error message will also be displayed on the browser console:</p>
@@ -80,14 +80,14 @@
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 <span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">expected</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">actual</span><span class="o">=</span><span class="n">int_1</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">int_1</span><span class="p">)</span>
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;assertion_common_behavior_results_failed/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">assert_equal</span><span class="p">]</span>
-<span class="n">Actual</span> <span class="n">variable</span> <span class="n">name</span><span class="p">:</span> <span class="n">i_11</span>
-<span class="n">Expected</span><span class="p">:</span> <span class="mi">11</span> <span class="n">actual</span><span class="p">:</span> <span class="mi">10</span>
+<span class="n">Right</span><span class="o">-</span><span class="n">side</span> <span class="n">variable</span> <span class="n">name</span><span class="p">:</span> <span class="n">i_11</span>
+<span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="mi">11</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="mi">10</span>
 <span class="o">...</span>
 <span class="n">Assertion</span> <span class="n">failed</span><span class="p">:</span>
 <span class="o">...</span>
@@ -104,14 +104,14 @@
     <span class="n">stage_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
 <span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">expected</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">actual</span><span class="o">=</span><span class="n">int_1</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Values are not equal!&#39;</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">int_1</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Values are not equal!&#39;</span><span class="p">)</span>
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;assertion_common_behavior_msg/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[assert_equal]
-Actual variable name: i_11
-Expected: 11 actual: 10
+Right-side variable name: i_11
+Left value: 11 right value: 10
 ...
 Assertion failed: Values are not equal!
 </pre></div>

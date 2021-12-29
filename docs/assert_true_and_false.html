@@ -58,8 +58,8 @@
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">assert_true</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_false</span></code> interfaces requires <code class="docutils literal notranslate"><span class="pre">actual</span></code> argument. The <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> and <code class="docutils literal notranslate"><span class="pre">msg</span></code> arguments are optional (default value of the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> argument is <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
-<p>If the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> argument is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the assertion will use the JavaScript strict comparison operator (<code class="docutils literal notranslate"><span class="pre">===</span></code>). For instance, if the <code class="docutils literal notranslate"><span class="pre">actual</span></code> value is <code class="docutils literal notranslate"><span class="pre">Int(1)</span></code> and the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, an assertion will fail (because of the comparison between the <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> and <code class="docutils literal notranslate"><span class="pre">Int</span></code>). Conversely, if the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">Int(1)</span></code> will pass the <code class="docutils literal notranslate"><span class="pre">assert_true</span></code> assertion.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">assert_true</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_false</span></code> interfaces requires <code class="docutils literal notranslate"><span class="pre">value</span></code> argument. The <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> and <code class="docutils literal notranslate"><span class="pre">msg</span></code> arguments are optional (default value of the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> argument is <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> argument is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the assertion will use the JavaScript strict comparison operator (<code class="docutils literal notranslate"><span class="pre">===</span></code>). For instance, if the <code class="docutils literal notranslate"><span class="pre">value</span></code> is <code class="docutils literal notranslate"><span class="pre">Int(1)</span></code> and the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, an assertion will fail (because of the comparison between the <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> and <code class="docutils literal notranslate"><span class="pre">Int</span></code>). Conversely, if the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">Int(1)</span></code> will pass the <code class="docutils literal notranslate"><span class="pre">assert_true</span></code> assertion.</p>
 <p>An assertion result will be displayed on the browser console.</p>
 <p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_true</span></code> and value is the <code class="docutils literal notranslate"><span class="pre">Boolean(True)</span></code>) will pass:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -77,8 +77,8 @@
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">assert_true</span><span class="p">]</span>
-<span class="n">Actual</span> <span class="n">variable</span> <span class="n">name</span><span class="p">:</span> <span class="n">b_3</span>
-<span class="n">Expected</span><span class="p">:</span> <span class="n">true</span> <span class="n">actual</span><span class="p">:</span> <span class="n">true</span>
+<span class="n">Right</span><span class="o">-</span><span class="n">side</span> <span class="n">variable</span> <span class="n">name</span><span class="p">:</span> <span class="n">b_3</span>
+<span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="n">true</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="n">true</span>
 </pre></div>
 </div>
 <iframe src="static/assert_true_basic_usage_1/index.html" width="0" height="0"></iframe><p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_true</span></code> and value is the <code class="docutils literal notranslate"><span class="pre">Boolean(False)</span></code>) will fail:</p>
@@ -97,8 +97,8 @@
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[assert_true]
-Actual variable name: b_3
-Expected: true actual: false
+Right-side variable name: b_3
+Left value: true right value: false
 ...
 Assertion failed: Boolean value is not True!
 </pre></div>
@@ -119,8 +119,8 @@ Assertion failed: Boolean value is not True!
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[assert_true]
-Actual variable name: i_11
-Expected: true actual: 1
+Right-side variable name: i_11
+Left value: true right value: 1
 ...
 Assertion failed: Value is not Boolean(True)!
 </pre></div>
@@ -141,8 +141,8 @@ Assertion failed: Value is not Boolean(True)!
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">assert_true</span><span class="p">]</span>
-<span class="n">Actual</span> <span class="n">variable</span> <span class="n">name</span><span class="p">:</span> <span class="n">i_11</span>
-<span class="n">Expected</span><span class="p">:</span> <span class="n">true</span> <span class="n">actual</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">Right</span><span class="o">-</span><span class="n">side</span> <span class="n">variable</span> <span class="n">name</span><span class="p">:</span> <span class="n">i_11</span>
+<span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="n">true</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <iframe src="static/assert_true_basic_usage_4/index.html" width="0" height="0"></iframe><p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_false</span></code> and value is the <code class="docutils literal notranslate"><span class="pre">Boolean(False)</span></code>) will pass:</p>
@@ -161,8 +161,8 @@ Assertion failed: Value is not Boolean(True)!
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">assert_false</span><span class="p">]</span>
-<span class="n">Actual</span> <span class="n">variable</span> <span class="n">name</span><span class="p">:</span> <span class="n">b_3</span>
-<span class="n">Expected</span><span class="p">:</span> <span class="n">false</span> <span class="n">actual</span><span class="p">:</span> <span class="n">false</span>
+<span class="n">Right</span><span class="o">-</span><span class="n">side</span> <span class="n">variable</span> <span class="n">name</span><span class="p">:</span> <span class="n">b_3</span>
+<span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="n">false</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="n">false</span>
 </pre></div>
 </div>
 <iframe src="static/assert_false_basic_usage_1/index.html" width="0" height="0"></iframe></section>

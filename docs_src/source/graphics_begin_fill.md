@@ -1,14 +1,14 @@
 # Graphics begin_fill interface
 
-This page will explain the `Graphics` class `begin_fill` method interface.
+This page would explain the `Graphics` class `begin_fill` method interface.
 
 ## What interface is this?
 
-`begin_fill` interface will set the fill color and fill alpha settings. This setting will be maintained until it is called again or called the `clear` method.
+`begin_fill` interface would set the fill color and fill alpha settings. This setting would be maintained until it is called again or called the `clear` method.
 
 ## Basic usage
 
-Draw vector graphics interfaces (e.g., `draw_rect`) will use these fill settings when they are creating, so the `begin_fill` method needs to be called before calling each drawing interface.
+Draw vector graphics interfaces (e.g., `draw_rect`) would use these fill settings when creating, so the `begin_fill` method needs to be called before calling each drawing interface.
 
 ```py
 # runnable

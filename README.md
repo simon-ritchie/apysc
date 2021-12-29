@@ -64,10 +64,10 @@ rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 ...
 ```
 
-Documents: [begin_fill interface](https://simon-ritchie.github.io/apysc/graphics_begin_fill.html), [line_style interface](https://simon-ritchie.github.io/apysc/graphics_line_style.html), [draw_rect interface](https://simon-ritchie.github.io/apysc/graphics_draw_rect.html), [draw_round_rect interface](https://simon-ritchie.github.io/apysc/graphics_draw_round_rect.html), [draw_circle interface](https://simon-ritchie.github.io/apysc/graphics_draw_circle.html), [draw_ellipse interfac](https://simon-ritchie.github.io/apysc/graphics_draw_ellipse.html), [move_to and line_to interfaces](https://simon-ritchie.github.io/apysc/graphics_move_to_and_line_to.html), [draw_line interface](https://simon-ritchie.github.io/apysc/graphics_draw_line.html), [draw_dotted_line interface](https://simon-ritchie.github.io/apysc/graphics_draw_dotted_line.html), [draw_dashed_line interface](https://simon-ritchie.github.io/apysc/graphics_draw_dashed_line.html), [draw_round_dotted_line interface](https://simon-ritchie.github.io/apysc/graphics_draw_round_dotted_line.html), [draw_dash_dotted_line interface](https://simon-ritchie.github.io/apysc/graphics_draw_dash_dotted_line.html), [draw_dash_dotted_line interface](https://simon-ritchie.github.io/apysc/graphics_draw_dash_dotted_line.html), [draw_polygon interface](https://simon-ritchie.github.io/apysc/graphics_draw_polygon.html)
+Abstract document: [Draw interfaces abstract](https://simon-ritchie.github.io/apysc/draw_interfaces_abstract.html)
 
 
-- **Lots of the vector graphics updating interfaces, such as the `x`, `width`, `rotation`, `alpha (opacity)`, `ellipse size`, `scale`**
+- **Lots of the vector graphics updating interfaces, such as the x, width, rotation, alpha (opacity), ellipse size, scale**
 
 Example code fragments:
 
@@ -129,7 +129,7 @@ rectangle.animation_x(
 ...
 ```
 
-Abstract documents: [Animation interfaces abstract (each animation attribute)](https://simon-ritchie.github.io/apysc/animation_interfaces_abstract.html)
+Abstract document: [Animation interfaces abstract (each animation attribute)](https://simon-ritchie.github.io/apysc/animation_interfaces_abstract.html)
 
 
 - **Basic control, like the for loop, if branch instruction, and so on**

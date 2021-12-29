@@ -12,9 +12,9 @@ The `assert_equal` function interface will assert two JavaScript values are equa
 
 ## Basic usage
 
-The `assert_equal` and `assert_not_equal` interfaces requires the `expected` and `actual` arguments. The `msg` argument is optional.
+The `assert_equal` and `assert_not_equal` interfaces requires the `left` and `right` arguments. The `msg` argument is optional.
 
-If an `expected` value and `actual` values are not the same, the `assert_equal` assertion will fail and display an error message on the browser console:
+If an `left` value and `right` values are not the same, the `assert_equal` assertion will fail and display an error message on the browser console:
 
 ```py
 # runnable
@@ -25,7 +25,7 @@ stage: ap.Stage = ap.Stage(
     stage_elem_id='stage')
 
 int_1: ap.Int = ap.Int(10)
-ap.assert_equal(expected=11, actual=int_1, msg='Values are not equal!')
+ap.assert_equal(left=11, right=int_1, msg='Values are not equal!')
 
 ap.save_overall_html(
     dest_dir_path='assert_equal_basic_usage/')
@@ -33,15 +33,15 @@ ap.save_overall_html(
 
 ```
 [assert_equal]
-Actual variable name: i_11
-Expected: 11 actual: 10
+Left-side variable name: i_11
+Left value: 11 right value: 10
 ...
 Assertion failed: Values are not equal!
 ```
 
 <iframe src="static/assert_equal_basic_usage/index.html" width="0" height="0"></iframe>
 
-The `assert_not_equal` interface has the same arguments and if an `expected` value and `actual` value are the same values, an assertion will fail:
+The `assert_not_equal` interface has the same arguments and if an `left` value and `right` value are the same values, an assertion will fail:
 
 ```py
 # runnable
@@ -52,7 +52,7 @@ stage: ap.Stage = ap.Stage(
     stage_elem_id='stage')
 
 int_1: ap.Int = ap.Int(10)
-ap.assert_not_equal(expected=10, actual=int_1, msg='Values are equal!')
+ap.assert_not_equal(left=10, right=int_1, msg='Values are equal!')
 
 ap.save_overall_html(
     dest_dir_path='assert_not_equal_basic_usage/')
@@ -60,8 +60,8 @@ ap.save_overall_html(
 
 ```
 [assert_not_equal]
-Actual variable name: i_11
-Expected: 10 actual: 10
+Right-side variable name: i_11
+Left value: 10 right value: 10
 ...
 Assertion failed: Values are equal!
 ```

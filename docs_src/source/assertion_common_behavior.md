@@ -20,7 +20,7 @@ stage: ap.Stage = ap.Stage(
     stage_width=0, stage_height=0, background_color='#333',
     stage_elem_id='stage')
 int_1: ap.Int = ap.Int(10)
-ap.assert_equal(expected=10, actual=int_1)
+ap.assert_equal(left=10, right=int_1)
 ap.save_overall_html(
     dest_dir_path='assertion_common_behavior_results/')
 ```
@@ -29,8 +29,8 @@ This code will display the information message on the browser console, like this
 
 ```
 [assert_equal]
-Actual variable name: i_11
-Expected: 10 actual: 10
+Right-side variable name: i_11
+Left value: 10 right value: 10
 ```
 
 <iframe src="static/assertion_common_behavior_results/index.html" width="0" height="0"></iframe>
@@ -45,15 +45,15 @@ stage: ap.Stage = ap.Stage(
     stage_width=0, stage_height=0, background_color='#333',
     stage_elem_id='stage')
 int_1: ap.Int = ap.Int(10)
-ap.assert_equal(expected=11, actual=int_1)
+ap.assert_equal(left=11, right=int_1)
 ap.save_overall_html(
     dest_dir_path='assertion_common_behavior_results_failed/')
 ```
 
 ```
 [assert_equal]
-Actual variable name: i_11
-Expected: 11 actual: 10
+Right-side variable name: i_11
+Left value: 11 right value: 10
 ...
 Assertion failed:
 ...
@@ -73,15 +73,15 @@ stage: ap.Stage = ap.Stage(
     stage_width=0, stage_height=0, background_color='#333',
     stage_elem_id='stage')
 int_1: ap.Int = ap.Int(10)
-ap.assert_equal(expected=11, actual=int_1, msg='Values are not equal!')
+ap.assert_equal(left=11, right=int_1, msg='Values are not equal!')
 ap.save_overall_html(
     dest_dir_path='assertion_common_behavior_msg/')
 ```
 
 ```
 [assert_equal]
-Actual variable name: i_11
-Expected: 11 actual: 10
+Right-side variable name: i_11
+Left value: 11 right value: 10
 ...
 Assertion failed: Values are not equal!
 ```

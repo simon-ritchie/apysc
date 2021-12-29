@@ -12,9 +12,9 @@ The `assert_dicts_equal` function interface will assert specified two dictionari
 
 ## Basic usage
 
-Both of the `assert_dicts_equal` and `assert_dicts_not_equal` interfaces require the `expected` and `actual` arguments. The `msg` argument is optional.
+Both of the `assert_dicts_equal` and `assert_dicts_not_equal` interfaces require the `left` and `right` arguments. The `msg` argument is optional.
 
-The `expected` argument can specify a Python built-in `dict` value and `Dictionary` value.
+You can specify a Python built-in `dict` and `Dictionary` values to these arguments.
 
 The following example (`assert_dicts_equal` and values are equal) will pass:
 
@@ -28,7 +28,7 @@ stage: ap.Stage = ap.Stage(
 
 dict_val: ap.Dictionary = ap.Dictionary({'a': 10, 'b': 20})
 ap.assert_dicts_equal(
-    expected={'a': 10, 'b': 20}, actual=dict_val,
+    left={'a': 10, 'b': 20}, right=dict_val,
     msg='Values are not equal!')
 
 ap.save_overall_html(
@@ -37,7 +37,7 @@ ap.save_overall_html(
 
 ```
 [assert_dicts_equal]
-Expected: {a: 10, b: 20} actual: dct_1
+Left value: {a: 10, b: 20} right value: dct_1
 ```
 
 <iframe src="static/assert_dicts_equal_basic_usage_1/index.html" width="0" height="0"></iframe>
@@ -54,7 +54,7 @@ stage: ap.Stage = ap.Stage(
 
 dict_val: ap.Dictionary = ap.Dictionary({'a': 10, 'b': 20})
 ap.assert_dicts_equal(
-    expected={'a': 30}, actual=dict_val, msg='Values are not equal!')
+    left={'a': 30}, right=dict_val, msg='Values are not equal!')
 
 ap.save_overall_html(
     dest_dir_path='assert_dicts_equal_basic_usage_2/')
@@ -62,7 +62,7 @@ ap.save_overall_html(
 
 ```
 [assert_dicts_equal]
-Expected: {a: 30} actual: dct_1
+Left value: {a: 30} right value: dct_1
 ...
 Assertion failed: Values are not equal!
 ```
@@ -81,7 +81,7 @@ stage: ap.Stage = ap.Stage(
 
 dict_val: ap.Dictionary = ap.Dictionary({'a': 10, 'b': 20})
 ap.assert_dicts_not_equal(
-    expected={'a': 30}, actual=dict_val, msg='Values are equal!')
+    left={'a': 30}, right=dict_val, msg='Values are equal!')
 
 ap.save_overall_html(
     dest_dir_path='assert_dicts_not_equal_basic_usage_1/')
@@ -89,14 +89,14 @@ ap.save_overall_html(
 
 ```
 [assert_dicts_not_equal]
-Expected: {a: 30} actual: dct_1
+Left value: {a: 30} right value: dct_1
 ```
 
 <iframe src="static/assert_dicts_not_equal_basic_usage_1/index.html" width="0" height="0"></iframe>
 
 ## Notes for the assert_equal and assert_not_equal interfaces
 
-If a `Dictionary` value is specified to the `assert_equal` or `assert_not_equal` interface's `actual` value, then the `assert_dicts_equal` or `assert_dicts_not_equal` interfaces will be called instead of the `assert_equal` or `assert_not_equal` interfaces automatically.
+If a `Dictionary` value is specified to the `assert_equal` or `assert_not_equal` interface's argument value, then the `assert_dicts_equal` or `assert_dicts_not_equal` interfaces will be called instead of the `assert_equal` or `assert_not_equal` interfaces automatically.
 
 ```py
 # runnable
@@ -108,7 +108,7 @@ stage: ap.Stage = ap.Stage(
 
 dict_val: ap.Dictionary = ap.Dictionary({'a': 30})
 ap.assert_equal(
-    expected={'a': 30}, actual=dict_val,
+    left={'a': 30}, right=dict_val,
     msg='Values are not equal!')
 
 ap.save_overall_html(
@@ -117,7 +117,7 @@ ap.save_overall_html(
 
 ```
 [assert_dicts_equal]
-Expected: {a: 30} actual: dct_1
+Left value: {a: 30} right value: dct_1
 ```
 
 <iframe src="static/assert_dicts_equal_notes_for_assert_equal/index.html" width="0" height="0"></iframe>

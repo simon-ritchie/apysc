@@ -12,9 +12,9 @@ The `assert_true` function interface will assert a specified `Boolean` value is 
 
 ## Basic usage
 
-The `assert_true` and `assert_false` interfaces requires `actual` argument. The `type_strict` and `msg` arguments are optional (default value of the `type_strict` argument is `True`).
+The `assert_true` and `assert_false` interfaces requires `value` argument. The `type_strict` and `msg` arguments are optional (default value of the `type_strict` argument is `True`).
 
-If the `type_strict` argument is `True`, the assertion will use the JavaScript strict comparison operator (`===`). For instance, if the `actual` value is `Int(1)` and the `type_strict` is `True`, an assertion will fail (because of the comparison between the `Boolean` and `Int`). Conversely, if the `type_strict` is `False`, `Int(1)` will pass the `assert_true` assertion.
+If the `type_strict` argument is `True`, the assertion will use the JavaScript strict comparison operator (`===`). For instance, if the `value` is `Int(1)` and the `type_strict` is `True`, an assertion will fail (because of the comparison between the `Boolean` and `Int`). Conversely, if the `type_strict` is `False`, `Int(1)` will pass the `assert_true` assertion.
 
 An assertion result will be displayed on the browser console.
 
@@ -37,8 +37,8 @@ ap.save_overall_html(
 
 ```
 [assert_true]
-Actual variable name: b_3
-Expected: true actual: true
+Right-side variable name: b_3
+Left value: true right value: true
 ```
 
 <iframe src="static/assert_true_basic_usage_1/index.html" width="0" height="0"></iframe>
@@ -62,8 +62,8 @@ ap.save_overall_html(
 
 ```
 [assert_true]
-Actual variable name: b_3
-Expected: true actual: false
+Right-side variable name: b_3
+Left value: true right value: false
 ...
 Assertion failed: Boolean value is not True!
 ```
@@ -89,8 +89,8 @@ ap.save_overall_html(
 
 ```
 [assert_true]
-Actual variable name: i_11
-Expected: true actual: 1
+Right-side variable name: i_11
+Left value: true right value: 1
 ...
 Assertion failed: Value is not Boolean(True)!
 ```
@@ -116,8 +116,8 @@ ap.save_overall_html(
 
 ```
 [assert_true]
-Actual variable name: i_11
-Expected: true actual: 1
+Right-side variable name: i_11
+Left value: true right value: 1
 ```
 
 <iframe src="static/assert_true_basic_usage_4/index.html" width="0" height="0"></iframe>
@@ -141,8 +141,8 @@ ap.save_overall_html(
 
 ```
 [assert_false]
-Actual variable name: b_3
-Expected: false actual: false
+Right-side variable name: b_3
+Left value: false right value: false
 ```
 
 <iframe src="static/assert_false_basic_usage_1/index.html" width="0" height="0"></iframe>

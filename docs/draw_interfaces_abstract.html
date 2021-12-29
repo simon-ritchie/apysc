@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Draw interfaces abstract &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Graphics" href="graphics.html" />
+    <link rel="prev" title="Sprite class get_child_at interface" href="sprite_get_child_at.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="graphics.html" title="Graphics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="sprite_get_child_at.html" title="Sprite class get_child_at interface"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Draw interfaces abstract</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="draw-interfaces-abstract">
+<h1>Draw interfaces abstract<a class="headerlink" href="#draw-interfaces-abstract" title="Permalink to this headline">¶</a></h1>
+<p>This page would explain the drawing interfaces abstract.</p>
+<section id="what-apysc-can-do-in-its-drawing-interfaces">
+<h2>What apysc can do in its drawing interfaces<a class="headerlink" href="#what-apysc-can-do-in-its-drawing-interfaces" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>You can set the fill-color, fill-alpha (opacity), line-color, line-alpha, line-thickness values and draw each SVG graphic with these.</p></li>
+<li><p>Supported graphics: The rectangle, circle, ellipse, polygon, line, polyline, and path.</p></li>
+</ul>
+</section>
+<section id="fill-settings">
+<h2>Fill settings<a class="headerlink" href="#fill-settings" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">begin_fill</span></code> interface sets the fill-color and fill-alpha (opacity).</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;draw_interfaces_abstract_begin_fill/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/draw_interfaces_abstract_begin_fill/index.html" width="150" height="150"></iframe><p>For more details, please see the <a class="reference internal" href="graphics_begin_fill.html"><span class="doc">Graphics class begin fill interface</span></a>.</p>
+</section>
+<section id="line-style-settings">
+<h2>Line style settings<a class="headerlink" href="#line-style-settings" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">line_style</span></code> interface sets the line-color, line-alpha (opacity), line-thickness.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#fff&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span><span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;draw_interfaces_abstract_line_style/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/draw_interfaces_abstract_line_style/index.html" width="200" height="100"></iframe><p>For more details, please see the <a class="reference internal" href="graphics_line_style.html"><span class="doc">Graphics class line style interface</span></a>.</p>
+</section>
+<section id="each-drawing-interface">
+<h2>Each drawing interface<a class="headerlink" href="#each-drawing-interface" title="Permalink to this headline">¶</a></h2>
+<p>Each drawing interface has the <code class="docutils literal notranslate"><span class="pre">draw_</span></code> prefix draw SVG graphics (e.g., draw_rect, draw_circle).</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_circle</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">175</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;draw_interfaces_abstract_each_drawing_interface/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe src="static/draw_interfaces_abstract_each_drawing_interface/index.html" width="250" height="150"></iframe><p>For more details, please see the following:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="graphics_draw_rect.html"><span class="doc">Graphics class draw rect interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_round_rect.html"><span class="doc">Graphics class draw round rect interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_circle.html"><span class="doc">Graphics class draw circle interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_ellipse.html"><span class="doc">Graphics class draw ellipse interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_move_to_and_line_to.html"><span class="doc">Graphics class move to and line to interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_line.html"><span class="doc">Graphics class draw line interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_dotted_line.html"><span class="doc">Graphics class draw dotted line interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_dashed_line.html"><span class="doc">Graphics class draw dashed line interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_round_dotted_line.html"><span class="doc">Graphics class draw round dotted line interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_dash_dotted_line.html"><span class="doc">Graphics class draw dash dotted line interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_draw_polygon.html"><span class="doc">Graphics class draw polygon interface</span></a></p></li>
+</ul>
+</section>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="graphics.html"><span class="doc">Graphics class</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_fill_color.html"><span class="doc">Graphics class fill color interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_fill_alpha.html"><span class="doc">Graphics class fill alpha interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_line_color.html"><span class="doc">Graphics class line color interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_line_alpha.html"><span class="doc">Graphics class line alpha interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_line_thickness.html"><span class="doc">Graphics class line thickness interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_line_dot_setting.html"><span class="doc">Graphics class line dot setting interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_line_dash_setting.html"><span class="doc">Graphics class line dash setting interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_line_round_dot_setting.html"><span class="doc">Graphics class line round dot setting interface</span></a></p></li>
+<li><p><a class="reference internal" href="graphics_line_dash_dot_setting.html"><span class="doc">Graphics class line dash dot setting interface</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Draw interfaces abstract</a><ul>
+<li><a class="reference internal" href="#what-apysc-can-do-in-its-drawing-interfaces">What apysc can do in its drawing interfaces</a></li>
+<li><a class="reference internal" href="#fill-settings">Fill settings</a></li>
+<li><a class="reference internal" href="#line-style-settings">Line style settings</a></li>
+<li><a class="reference internal" href="#each-drawing-interface">Each drawing interface</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="sprite_get_child_at.html"
+                        title="previous chapter">Sprite class get_child_at interface</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="graphics.html"
+                        title="next chapter">Graphics</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="graphics.html" title="Graphics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="sprite_get_child_at.html" title="Sprite class get_child_at interface"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Draw interfaces abstract</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

@@ -42,7 +42,7 @@ import apysc as ap
 
 stage: ap.Stage = ap.Stage(
     background_color='#333',
-    stage_width=150,
+    stage_width=200,
     stage_height=100,
     stage_elem_id='stage')
 sprite: ap.Sprite = ap.Sprite(stage=stage)
@@ -53,7 +53,7 @@ ap.save_overall_html(
     dest_dir_path='draw_interfaces_abstract_line_style/')
 ```
 
-<iframe src="static/draw_interfaces_abstract_line_style/index.html" width="150" height="100"></iframe>
+<iframe src="static/draw_interfaces_abstract_line_style/index.html" width="200" height="100"></iframe>
 
 For more details, please see the [Graphics class line style interface](graphics_line_style.md).
 
@@ -73,7 +73,7 @@ stage: ap.Stage = ap.Stage(
 sprite: ap.Sprite = ap.Sprite(stage=stage)
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
-sprite.graphics.draw_circle(x=175, y=50, radius=25)
+sprite.graphics.draw_circle(x=175, y=75, radius=25)
 
 ap.save_overall_html(
     dest_dir_path='draw_interfaces_abstract_each_drawing_interface/')
@@ -94,3 +94,16 @@ For more details, please see the following:
 - [Graphics class draw round dotted line interface](graphics_draw_round_dotted_line.md)
 - [Graphics class draw dash dotted line interface](graphics_draw_dash_dotted_line.md)
 - [Graphics class draw polygon interface](graphics_draw_polygon.md)
+
+## See also
+
+- [Graphics class](graphics.md)
+- [Graphics class fill color interface](graphics_fill_color.md)
+- [Graphics class fill alpha interface](graphics_fill_alpha.md)
+- [Graphics class line color interface](graphics_line_color.md)
+- [Graphics class line alpha interface](graphics_line_alpha.md)
+- [Graphics class line thickness interface](graphics_line_thickness.md)
+- [Graphics class line dot setting interface](graphics_line_dot_setting.md)
+- [Graphics class line dash setting interface](graphics_line_dash_setting.md)
+- [Graphics class line round dot setting interface](graphics_line_round_dot_setting.md)
+- [Graphics class line dash dot setting interface](graphics_line_dash_dot_setting.md)

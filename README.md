@@ -44,7 +44,11 @@ Please see [apysc documentation](https://simon-ritchie.github.io/apysc/index.htm
 
 ![](https://github.com/simon-ritchie/apysc/blob/main/assets/jupyterlab_interface.png)
 
-Documents: [save_overall_html interface](https://simon-ritchie.github.io/apysc/save_overall_html.html), [display_on_jupyter interface](https://simon-ritchie.github.io/apysc/display_on_jupyter.html), [display_on_colaboratory interface](https://simon-ritchie.github.io/apysc/display_on_colaboratory.html)
+Documents:
+
+- [save_overall_html interface](https://simon-ritchie.github.io/apysc/save_overall_html.html)
+- [display_on_jupyter interface](https://simon-ritchie.github.io/apysc/display_on_jupyter.html)
+- [display_on_colaboratory interface](https://simon-ritchie.github.io/apysc/display_on_colaboratory.html)
 
 - **Draw the many types of vector graphics**
 
@@ -130,7 +134,12 @@ Abstract documents: [Animation interfaces abstract (each animation attribute)](h
 
 - **Basic control, like the for loop, if branch instruction, and so on**
 
-Documents: [If](https://simon-ritchie.github.io/apysc/if.html), [Elif](https://simon-ritchie.github.io/apysc/elif.html), [Else](https://simon-ritchie.github.io/apysc/else.html), [For](https://simon-ritchie.github.io/apysc/for.html)
+Documents:
+
+- [If](https://simon-ritchie.github.io/apysc/if.html)
+- [Elif](https://simon-ritchie.github.io/apysc/elif.html)
+- [Else](https://simon-ritchie.github.io/apysc/else.html)
+- [For](https://simon-ritchie.github.io/apysc/for.html)
 
 For more details, please see the following document:
 

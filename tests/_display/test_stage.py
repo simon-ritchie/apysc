@@ -1,5 +1,5 @@
 from random import randint
-from typing import Any
+from typing import Any, Optional, Tuple
 from typing import Dict
 
 from retrying import retry
@@ -9,6 +9,7 @@ from apysc._display import stage
 from apysc._display.display_object import DisplayObject
 from apysc._expression import expression_data_util
 from tests import testing_helper
+from tests.testing_helper import assert_raises
 
 
 class TestStage:
@@ -135,3 +136,29 @@ def test_get_stage_elem_str() -> None:
     stage_elem_str: str = stage.get_stage_elem_str()
     expected: str = f'$("#{stage_.stage_elem_id}")'
     assert stage_elem_str == expected
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_get_stage() -> None:
+    stage_: ap.Stage = ap.Stage()
+    restored_stage: ap.Stage = stage.get_stage()
+    assert stage_ == restored_stage
+
+    table_name: str = expression_data_util.TableName.STAGE_ID.value
+    query: str = f'DELETE FROM {table_name};'
+    expression_data_util.exec_query(sql=query)
+    assert_raises(
+        expected_error_class=stage._StageNotCreatedError,
+        func_or_method=stage.get_stage)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__save_stage_id_to_db() -> None:
+    stage_: ap.Stage = ap.Stage()
+    table_name: str = expression_data_util.TableName.STAGE_ID.value
+    query: str = f'SELECT stage_id FROM {table_name} LIMIT 1;'
+    expression_data_util.exec_query(sql=query)
+    result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
+    if result is None:
+        raise AssertionError('result value is None.')
+    assert id(stage_) == result[0]

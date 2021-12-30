@@ -10,13 +10,13 @@ import random
 from datetime import datetime
 from typing import Optional
 from typing import Tuple
+import ctypes
 
 from apysc._display.child_interface import ChildInterface
 from apysc._display.height_interface import HeightInterface
 from apysc._display.width_interface import WidthInterface
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
-from apysc._expression import expression_data_util
 from apysc._type.variable_name_interface import VariableNameInterface
 
 
@@ -71,6 +71,7 @@ class Stage(
         from apysc._color import color_util
         from apysc._html import html_util
         from apysc._validation import string_validation
+        from apysc._expression import expression_data_util
         expression_data_util.empty_expression()
         self.stage = self
         self._stage_elem_id = self._create_stage_elem_id_if_none(
@@ -91,6 +92,7 @@ class Stage(
         self._add_to = add_to
         self._append_constructor_expression()
         self._children = ap.Array([])
+        _save_stage_id_to_db(stage=self)
 
     def _save_stage_elem_id(self) -> None:
         """
@@ -250,3 +252,55 @@ def get_stage_elem_str() -> str:
     stage_elem_id: str = get_stage_elem_id()
     stage_elem_str: str = f'$("#{stage_elem_id}")'
     return stage_elem_str
+
+
+def _save_stage_id_to_db(stage: Stage) -> None:
+    """
+    Save a stage's memory address (id) to the database.
+
+    Parameters
+    ----------
+    stage : Stage
+        Target stage.
+    """
+    from apysc._expression import expression_data_util
+    table_name: str = expression_data_util.TableName.STAGE_ID.value
+    query: str = f'DELETE FROM {table_name};'
+    expression_data_util.exec_query(sql=query, commit=False)
+    id_: int = id(stage)
+    query = (
+        f'INSERT INTO {table_name}(stage_id) '
+        f'VALUES ({id_});'
+    )
+    expression_data_util.exec_query(sql=query)
+
+
+class _StageNotCreatedError(Exception):
+    pass
+
+
+def get_stage() -> Stage:
+    """
+    Get a already instantiated stage instance.
+
+    Returns
+    -------
+    stage : Stage
+        Target stage instance.
+
+    Raises
+    ------
+    _StageNotCreatedError
+        If a stage is not instantiated yet.
+    """
+    from apysc._expression import expression_data_util
+    table_name: str = expression_data_util.TableName.STAGE_ID.value
+    query: str = f'SELECT stage_id FROM {table_name} LIMIT 1;'
+    expression_data_util.exec_query(sql=query)
+    result: Optional[Tuple[int]] = expression_data_util.cursor.fetchone()
+    if result is None:
+        raise _StageNotCreatedError(
+            'Stage is not instantiated yet. Please instantiate the '
+            'ap.Stage class before calling this function.')
+    stage: Stage = ctypes.cast(result[0], ctypes.py_object).value
+    return stage

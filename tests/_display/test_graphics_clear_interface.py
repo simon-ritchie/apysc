@@ -12,8 +12,8 @@ class TestGraphicsClearInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_clear(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color='#000')
         sprite.graphics.line_style(
             color='#aaa', cap=ap.LineCaps.ROUND, joints=ap.LineJoints.BEVEL,

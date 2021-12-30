@@ -26,11 +26,11 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    stage: ap.Stage = ap.Stage(
+    ap.Stage(
         background_color='#111',
         stage_width=1000, stage_height=500)
 
-    sprite: ap.Sprite = ap.Sprite(stage=stage)
+    sprite: ap.Sprite = ap.Sprite()
     sprite.graphics.begin_fill(color='#0af', alpha=0.5)
     sprite.graphics.line_style(color='#eee', thickness=4, alpha=0.75)
     sprite.graphics.line_to(x=100, y=0)

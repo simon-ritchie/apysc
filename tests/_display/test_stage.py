@@ -95,7 +95,7 @@ class TestStage:
     def test_add_child(self) -> None:
         stage: ap.Stage = ap.Stage()
         display_object: DisplayObject = DisplayObject(
-            stage=stage, variable_name='test_display_object_1')
+            variable_name='test_display_object_1')
         stage.add_child(child=display_object)
         assert stage._children == ap.Array([display_object])
 

@@ -34,13 +34,13 @@ def main() -> None:
     ap.append_js_expression(
         expression=f'{stage_elem_str}.css("margin-left", "150px");')
 
-    sprite_1: ap.Sprite = ap.Sprite(stage=stage)
+    sprite_1: ap.Sprite = ap.Sprite()
     sprite_1.graphics.begin_fill(color='#0af')
     rectangle_1: ap.Rectangle = sprite_1.graphics.draw_rect(
         x=50, y=100, width=50, height=50)
     rectangle_1.click(on_rectangle_1_clicked)
 
-    sprite_2: ap.Sprite = ap.Sprite(stage=stage)
+    sprite_2: ap.Sprite = ap.Sprite()
     sprite_2.graphics.begin_fill(color='#f0a')
     sprite_2.x = ap.Int(150)
     sprite_2.y = ap.Int(100)

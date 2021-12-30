@@ -23,11 +23,11 @@ def test_validate_parent_instance() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_validate_parent_contains_chils() -> None:
     stage: ap.Stage = ap.Stage()
-    sprite_1: ap.Sprite = ap.Sprite(stage=stage)
+    sprite_1: ap.Sprite = ap.Sprite()
     parent_validation.validate_parent_contains_child(
         parent=stage, child=sprite_1)
 
-    sprite_2: ap.Sprite = ap.Sprite(stage=stage)
+    sprite_2: ap.Sprite = ap.Sprite()
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         func_or_method=parent_validation.validate_parent_contains_child,

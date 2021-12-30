@@ -55,7 +55,6 @@ class DisplayObject(
             from apysc._validation import string_validation
             stage: ap.Stage = ap.get_stage()
             self.stage: ap.Stage = stage
-            display_validation.validate_stage(stage=stage)
             self._variable_name = variable_name
             string_validation.validate_not_empty_string(string=variable_name)
 

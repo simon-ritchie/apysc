@@ -30,12 +30,12 @@ def main() -> None:
         background_color='#333',
         stage_width=1000, stage_height=500)
 
-    sprite_1: ap.Sprite = ap.Sprite(stage=stage)
+    sprite_1: ap.Sprite = ap.Sprite()
     sprite_1.graphics.begin_fill(color='#666')
     sprite_1.graphics.draw_rect(x=50, y=50, width=100, height=100)
     stage.add_child(sprite_1)
 
-    sprite_2: ap.Sprite = ap.Sprite(stage=stage)
+    sprite_2: ap.Sprite = ap.Sprite()
     sprite_2.graphics.begin_fill(color='#666')
     sprite_2.graphics.draw_rect(x=150, y=50, width=100, height=100)
     stage.add_child(sprite_2)

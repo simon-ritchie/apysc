@@ -34,9 +34,9 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    stage: ap.Stage = ap.Stage(background_color='#333', stage_height=300)
+    ap.Stage(background_color='#333', stage_height=300)
 
-    sprite_1: ap.Sprite = ap.Sprite(stage=stage)
+    sprite_1: ap.Sprite = ap.Sprite()
     sprite_1.graphics.begin_fill(color='#0af')
     rectangle_1: ap.Rectangle = sprite_1.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
@@ -44,7 +44,7 @@ def main() -> None:
         x=150, y=50, width=50, height=50)
     rectangle_2.visible = ap.Boolean(False)
 
-    sprite_2: ap.Sprite = ap.Sprite(stage=stage)
+    sprite_2: ap.Sprite = ap.Sprite()
     sprite_2.graphics.begin_fill(color='#f0a')
     rectangle_3: ap.Rectangle = sprite_2.graphics.draw_rect(
         x=50, y=150, width=50, height=50)

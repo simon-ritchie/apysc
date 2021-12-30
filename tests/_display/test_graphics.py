@@ -15,8 +15,8 @@ class TestGraphics:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         graphics: Graphics = Graphics(parent=sprite)
         testing_helper.assert_attrs(
             expected_attrs={
@@ -28,8 +28,8 @@ class TestGraphics:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_begin_fill(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         graphics: Graphics = Graphics(parent=sprite)
         testing_helper.assert_raises(
             expected_error_class=ValueError,
@@ -45,8 +45,8 @@ class TestGraphics:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_draw_rect(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         graphics: Graphics = Graphics(parent=sprite)
         rectangle: Rectangle = graphics.draw_rect(
             x=100, y=200, width=300, height=400)
@@ -64,8 +64,8 @@ class TestGraphics:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_clear(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color='#333')
         sprite.graphics.draw_rect(x=50, y=50, width=100, height=100)
         assert sprite.graphics.num_children == 1
@@ -75,7 +75,7 @@ class TestGraphics:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
         stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        sprite: ap.Sprite = ap.Sprite()
         expression: str = expression_data_util.get_current_expression()
         expected: str = (
             f'var {sprite.graphics.variable_name} = '
@@ -85,15 +85,15 @@ class TestGraphics:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         repr_str: str = repr(sprite.graphics)
         assert repr_str == f"Graphics('{sprite.graphics.variable_name}')"
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_line_to(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         polyline: ap.Polyline = sprite.graphics.line_to(x=100, y=200)
         assert polyline.points == ap.Array(
             [ap.Point2D(0, 0), ap.Point2D(100, 200)])
@@ -106,8 +106,8 @@ class TestGraphics:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_move_to(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         polyline: ap.Polyline = sprite.graphics.move_to(x=100, y=200)
         assert polyline.points == ap.Array([ap.Point2D(100, 200)])
         pre_var_name: str = polyline.variable_name
@@ -119,8 +119,8 @@ class TestGraphics:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__reset_each_line_settings(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics._line_dot_setting = ap.LineDotSetting(dot_size=10)
         sprite.graphics._line_dash_setting = ap.LineDashSetting(
             dash_size=10, space_size=5)
@@ -169,8 +169,8 @@ class TestGraphics:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_draw_line(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.line_style(
             color='#333', thickness=3,
             dot_setting=ap.LineDotSetting(dot_size=10))
@@ -185,8 +185,8 @@ class TestGraphics:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_draw_dashed_line(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.line_style(
             color='#333', thickness=3,
             dot_setting=ap.LineDotSetting(dot_size=5))
@@ -206,8 +206,8 @@ class TestGraphics:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_draw_dotted_line(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.line_style(
             color='#333',
             dash_setting=ap.LineDashSetting(dash_size=10, space_size=5))
@@ -222,8 +222,8 @@ class TestGraphics:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_draw_round_dotted_line(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.line_style(
             color='#333',
             dash_setting=ap.LineDashSetting(dash_size=10, space_size=5))
@@ -239,8 +239,8 @@ class TestGraphics:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_draw_dash_dotted_line(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.line_style(
             color='#333',
             dash_setting=ap.LineDashSetting(dash_size=10, space_size=5))
@@ -256,8 +256,8 @@ class TestGraphics:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_draw_polygon(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color='#333')
         polygon: ap.Polygon = sprite.graphics.draw_polygon(
             points=[
@@ -270,8 +270,8 @@ class TestGraphics:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_draw_round_rect(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         rectangle: Rectangle = sprite.graphics.draw_round_rect(
             x=50, y=100, width=150, height=200, ellipse_width=20,
             ellipse_height=30)
@@ -285,8 +285,8 @@ class TestGraphics:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_draw_circle(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         circle: ap.Circle = sprite.graphics.draw_circle(
             x=50, y=100, radius=30)
         assert circle.x == 50
@@ -296,8 +296,8 @@ class TestGraphics:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_draw_ellipse(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(
             x=50, y=100, width=150, height=200)
         assert ellipse.x == 50
@@ -308,8 +308,8 @@ class TestGraphics:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_draw_path(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         path_data_list: List[ap.PathDataBase] = [
             ap.PathMoveTo(x=50, y=50),
         ]

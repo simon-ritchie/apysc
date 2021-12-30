@@ -26,7 +26,7 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    stage: ap.Stage = ap.Stage(
+    ap.Stage(
         background_color='#333',
         stage_width=1000, stage_height=500)
 
@@ -37,7 +37,7 @@ def main() -> None:
         condition = condition.not_
         with ap.If(condition):
             ap.Continue()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color='#0af')
         sprite.graphics.draw_rect(x=i * 50, y=50, width=50, height=50)
 

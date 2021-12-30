@@ -27,9 +27,9 @@ def main() -> None:
     Entry point of this test project.
     """
     stage: ap.Stage = ap.Stage(background_color='#333')
-    sprite_1: ap.Sprite = ap.Sprite(stage=stage)
+    sprite_1: ap.Sprite = ap.Sprite()
     stage.add_child(sprite_1)
-    sprite_2: ap.Sprite = ap.Sprite(stage=stage)
+    sprite_2: ap.Sprite = ap.Sprite()
     sprite_1.add_child(sprite_2)
     bool_1: ap.Boolean = stage.contains(child=sprite_1)
     ap.assert_true(value=bool_1)

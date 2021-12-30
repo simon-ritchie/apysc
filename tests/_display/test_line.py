@@ -17,8 +17,8 @@ class TestLine:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         line_dot_setting: ap.LineDotSetting = ap.LineDotSetting(dot_size=10)
         sprite.graphics.line_style(
             color='#0af', dot_setting=line_dot_setting)
@@ -34,8 +34,8 @@ class TestLine:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_points_expression(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         line: ap.Line = ap.Line(
             parent=sprite.graphics,
             start_point=ap.Point2D(x=10, y=20),
@@ -51,9 +51,9 @@ class TestLine:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
-        stage: ap.Stage = ap.Stage()
+        ap.Stage()
         stage_variable_name: str = get_stage_variable_name()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.line_style(color='#333', thickness=3)
         line: ap.Line = ap.Line(
             parent=sprite.graphics,
@@ -73,8 +73,8 @@ class TestLine:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         line: ap.Line = ap.Line(
             parent=sprite.graphics,
             start_point=ap.Point2D(x=10, y=20),

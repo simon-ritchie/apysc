@@ -15,9 +15,9 @@ class TestCircle:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
         expression_data_util.empty_expression()
-        stage: ap.Stage = ap.Stage()
+        ap.Stage()
         stage_variable_name: str = get_stage_variable_name()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        sprite: ap.Sprite = ap.Sprite()
         circle: ap.Circle = ap.Circle(
             parent=sprite.graphics,
             x=50,
@@ -36,8 +36,8 @@ class TestCircle:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color='#0af')
         sprite.graphics.line_style(color='#fff')
         circle: ap.Circle = ap.Circle(
@@ -53,8 +53,8 @@ class TestCircle:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         circle: ap.Circle = ap.Circle(
             parent=sprite.graphics,
             x=50,
@@ -66,8 +66,8 @@ class TestCircle:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_center_coordinates(self) -> None:
         expression_data_util.empty_expression()
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         circle: ap.Circle = ap.Circle(
             parent=sprite.graphics,
             x=50,

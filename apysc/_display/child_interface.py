@@ -209,8 +209,7 @@ class ChildInterface(RevertInterface):
             else:
                 variable_name: str = expression_variables_util.\
                     get_next_variable_name(type_name=var_names.DISPLAY_OBJECT)
-                child = DisplayObject(
-                    stage=self.stage, variable_name=variable_name)
+                child = DisplayObject(variable_name=variable_name)
             self._append_get_child_at_expression(child=child, index=index)
             return child
 

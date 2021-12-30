@@ -268,7 +268,7 @@ def test__remove_blank_lines() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__minify_html() -> None:
-    stage: ap.Stage = ap.Stage()
+    ap.Stage()
     html_str: str = (
         '<html>'
         '\n<body>'
@@ -279,7 +279,7 @@ def test__minify_html() -> None:
     html_str = exporter._minify_html(html_str=html_str, minify=False)
     assert html_str.startswith('<html>\n<body>')
 
-    ap.set_debug_mode(stage=stage)
+    ap.set_debug_mode()
     html_str = exporter._minify_html(html_str=html_str, minify=True)
     assert html_str.startswith('<html>\n<body>')
 
@@ -349,18 +349,19 @@ def test__display_info() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__display_debug_mode_ignoring_minify_setting_info() -> None:
-    stage: ap.Stage = ap.Stage()
-    ap.set_debug_mode(stage=stage)
+    ap.Stage()
+    ap.set_debug_mode()
     msg: str = exporter._display_debug_mode_ignoring_minify_setting_info(
         minify=False, verbose=1)
     assert msg == ''
 
     expression_data_util.empty_expression()
+    ap.Stage()
     msg = exporter._display_debug_mode_ignoring_minify_setting_info(
         minify=True, verbose=1)
     assert msg == ''
 
-    ap.set_debug_mode(stage=stage)
+    ap.set_debug_mode()
     msg = exporter._display_debug_mode_ignoring_minify_setting_info(
         minify=True, verbose=1)
     assert msg != ''

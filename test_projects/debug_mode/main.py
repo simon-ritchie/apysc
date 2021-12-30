@@ -26,11 +26,11 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    stage: ap.Stage = ap.Stage(
+    ap.Stage(
         background_color='#333',
         stage_width=1000, stage_height=500)
-    ap.set_debug_mode(stage=stage)
-    _: ap.Sprite = ap.Sprite(stage=stage)
+    ap.set_debug_mode()
+    _: ap.Sprite = ap.Sprite()
     int_1: ap.Int = ap.Int(10)
     int_1 += 5
     ap.unset_debug_mode()

@@ -50,8 +50,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
                 variable_name = expression_variables_util.\
                     get_next_variable_name(type_name=var_names.SPRITE)
             self._children = ap.Array([])
-            super(Sprite, self).__init__(
-                stage=stage, variable_name=variable_name)
+            super(Sprite, self).__init__(variable_name=variable_name)
             self._append_constructor_expression()
             self.graphics = graphics.Graphics(parent=self)
             stage.add_child(child=self)

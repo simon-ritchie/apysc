@@ -21,16 +21,16 @@ class TestChildInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_add_child(self) -> None:
         stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        sprite: ap.Sprite = ap.Sprite()
         assert stage._children == ap.Array([sprite])
         assert sprite.parent == stage
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_remove_child(self) -> None:
         stage: ap.Stage = ap.Stage()
-        sprite_1: ap.Sprite = ap.Sprite(stage=stage)
+        sprite_1: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite_1)
-        sprite_2: ap.Sprite = ap.Sprite(stage=stage)
+        sprite_2: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite_2)
         stage.remove_child(child=sprite_2)
         assert stage._children == ap.Array([sprite_1])
@@ -39,18 +39,18 @@ class TestChildInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_contains(self) -> None:
         stage: ap.Stage = ap.Stage()
-        sprite_1: ap.Sprite = ap.Sprite(stage=stage)
+        sprite_1: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite_1)
         assert stage.contains(child=sprite_1)
 
-        sprite_2: ap.Sprite = ap.Sprite(stage=stage)
+        sprite_2: ap.Sprite = ap.Sprite()
         assert not sprite_1.contains(child=sprite_2)
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_contains_expression(self) -> None:
         expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
-        sprite_1: ap.Sprite = ap.Sprite(stage=stage)
+        sprite_1: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite_1)
         result: ap.Boolean = stage.contains(sprite_1)
         expression: str = expression_data_util.get_current_expression()
@@ -64,21 +64,21 @@ class TestChildInterface:
     def test_num_children(self) -> None:
         stage: ap.Stage = ap.Stage()
         assert stage.num_children == 0
-        sprite_1: ap.Sprite = ap.Sprite(stage=stage)
+        sprite_1: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite_1)
         assert stage.num_children == 1
-        sprite_2: ap.Sprite = ap.Sprite(stage=stage)
+        sprite_2: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite_2)
         assert stage.num_children == 2
 
-        sprite_3: ap.Sprite = ap.Sprite(stage=stage)
+        sprite_3: ap.Sprite = ap.Sprite()
         sprite_1.add_child(child=sprite_3)
         assert sprite_1.num_children == 2
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_get_child_at(self) -> None:
         stage: ap.Stage = ap.Stage()
-        sprite_1: ap.Sprite = ap.Sprite(stage=stage)
+        sprite_1: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite_1)
         child_1: DisplayObject = stage.get_child_at(index=0)
         assert child_1 == sprite_1
@@ -91,7 +91,7 @@ class TestChildInterface:
     def test__append_num_children_expression(self) -> None:
         expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
-        sprite_1: ap.Sprite = ap.Sprite(stage=stage)
+        sprite_1: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite_1)
         num_children_1: ap.Int = stage.num_children
         expression: str = expression_data_util.get_current_expression()
@@ -101,7 +101,7 @@ class TestChildInterface:
         )
         assert expected in expression
 
-        sprite_2: ap.Sprite = ap.Sprite(stage=stage)
+        sprite_2: ap.Sprite = ap.Sprite()
         sprite_1.add_child(child=sprite_2)
         num_children_2 = sprite_1.num_children
         expression = expression_data_util.get_current_expression()
@@ -115,7 +115,7 @@ class TestChildInterface:
     def test__append_get_child_at_expression(self) -> None:
         expression_data_util.empty_expression()
         stage: ap.Stage = ap.Stage()
-        sprite_1: ap.Sprite = ap.Sprite(stage=stage)
+        sprite_1: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite_1)
         int_1: ap.Int = ap.Int(0)
         child_1: DisplayObject = stage.get_child_at(index=int_1)
@@ -127,7 +127,7 @@ class TestChildInterface:
         )
         assert expected in expression
 
-        sprite_2: ap.Sprite = ap.Sprite(stage=stage)
+        sprite_2: ap.Sprite = ap.Sprite()
         sprite_1.add_child(child=sprite_2)
         child_2: DisplayObject = sprite_1.get_child_at(index=0)
         expression = expression_data_util.get_current_expression()
@@ -144,7 +144,7 @@ class TestChildInterface:
         assert child_interface._children == []
 
         stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        sprite: ap.Sprite = ap.Sprite()
         child_interface._children = ap.Array([sprite])
         child_interface._initialize_children_if_not_initialized()
         assert child_interface._children == [sprite]
@@ -153,9 +153,9 @@ class TestChildInterface:
     def test__make_snapshot(self) -> None:
 
         stage: ap.Stage = ap.Stage()
-        sprite_1: ap.Sprite = ap.Sprite(stage=stage)
+        sprite_1: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite_1)
-        sprite_2: ap.Sprite = ap.Sprite(stage=stage)
+        sprite_2: ap.Sprite = ap.Sprite()
         sprite_1.add_child(child=sprite_2)
         stage._children.append(100)  # type: ignore
 
@@ -178,9 +178,9 @@ class TestChildInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         stage: ap.Stage = ap.Stage()
-        sprite_1: ap.Sprite = ap.Sprite(stage=stage)
+        sprite_1: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite_1)
-        sprite_2: ap.Sprite = ap.Sprite(stage=stage)
+        sprite_2: ap.Sprite = ap.Sprite()
         sprite_1.add_child(child=sprite_2)
         stage._children.append(100)  # type: ignore
 
@@ -205,7 +205,7 @@ class TestChildInterface:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_expression_of_add_child() -> None:
     stage: ap.Stage = ap.Stage()
-    sprite: ap.Sprite = ap.Sprite(stage=stage)
+    sprite: ap.Sprite = ap.Sprite()
     stage.add_child(child=sprite)
     expected: str = (
         f'{stage.variable_name}.add({sprite.variable_name});'
@@ -217,7 +217,7 @@ def test_append_expression_of_add_child() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_expression_of_remove_child() -> None:
     stage: ap.Stage = ap.Stage()
-    sprite: ap.Sprite = ap.Sprite(stage=stage)
+    sprite: ap.Sprite = ap.Sprite()
     stage.add_child(child=sprite)
     stage.remove_child(child=sprite)
     expression: str = expression_data_util.get_current_expression()

@@ -74,8 +74,8 @@ class TestMouseEvent:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_local_x_getter_expression(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         mouse_event: ap.MouseEvent[ap.Sprite] = ap.MouseEvent(this=sprite)
         local_x: ap.Int = mouse_event.local_x
         expression: str = expression_data_util.get_current_expression()
@@ -98,8 +98,8 @@ class TestMouseEvent:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_local_y_getter_expression(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         mouse_event: ap.MouseEvent[ap.Sprite] = ap.MouseEvent(this=sprite)
         local_y: ap.Int = mouse_event.local_y
         expression: str = expression_data_util.get_current_expression()

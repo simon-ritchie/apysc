@@ -13,8 +13,8 @@ class TestAnimationParallel:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         rectangle: ap.Rectangle = sprite.graphics.draw_rect(
             x=50, y=50, width=50, height=50)
         animations: List[ap.AnimationBase] = [
@@ -41,8 +41,8 @@ class TestAnimationParallel:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_animation_func_expression(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         rectangle: ap.Rectangle = sprite.graphics.draw_rect(
             x=50, y=50, width=50, height=50)
         animation_x: ap.AnimationX = rectangle.animation_x(x=100)
@@ -67,8 +67,8 @@ class TestAnimationParallel:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__get_complete_event_in_handler_head_expression(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         rectangle: ap.Rectangle = sprite.graphics.draw_rect(
             x=50, y=50, width=50, height=50)
         animations: List[ap.AnimationBase] = [
@@ -88,8 +88,8 @@ class TestAnimationParallel:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__validate_animation_targets_are_unified(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
             x=50, y=50, width=50, height=50)
         animations: List[ap.AnimationBase] = [
@@ -114,8 +114,8 @@ class TestAnimationParallel:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__validate_animations_duration_are_default_vals(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         rectangle: ap.Rectangle = sprite.graphics.draw_rect(
             x=50, y=50, width=50, height=50)
         animations: List[ap.AnimationBase] = [
@@ -140,8 +140,8 @@ class TestAnimationParallel:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__validate_animations_delay_are_default_vals(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         rectangle: ap.Rectangle = sprite.graphics.draw_rect(
             x=50, y=50, width=50, height=50)
         animations: List[ap.AnimationBase] = [
@@ -166,8 +166,8 @@ class TestAnimationParallel:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__validate_animations_easing_are_default_vals(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         rectangle: ap.Rectangle = sprite.graphics.draw_rect(
             x=50, y=50, width=50, height=50)
         animations: List[ap.AnimationBase] = [
@@ -192,8 +192,8 @@ class TestAnimationParallel:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_animation_attr_exp(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         rectangle: ap.Rectangle = sprite.graphics.draw_rect(
             x=50, y=50, width=50, height=50)
         animation_fill_color: ap.AnimationFillColor = \

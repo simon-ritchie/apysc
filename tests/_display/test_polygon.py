@@ -14,8 +14,8 @@ class TestPolygon:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.line_style(
             color='#333', dot_setting=ap.LineDotSetting(dot_size=10))
         points: ap.Array[ap.Point2D] = ap.Array(
@@ -30,8 +30,8 @@ class TestPolygon:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         points: ap.Array[ap.Point2D] = ap.Array(
             [ap.Point2D(50, 50), ap.Point2D(150, 50), ap.Point2D(100, 100)])
         polygon: ap.Polygon = ap.Polygon(
@@ -43,9 +43,9 @@ class TestPolygon:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
         expression_data_util.empty_expression()
-        stage: ap.Stage = ap.Stage()
+        ap.Stage()
         stage_variable_name: str = get_stage_variable_name()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        sprite: ap.Sprite = ap.Sprite()
         points: ap.Array[ap.Point2D] = ap.Array(
             [ap.Point2D(50, 50), ap.Point2D(150, 50), ap.Point2D(100, 100)])
         sprite.graphics.line_style(color='#333')

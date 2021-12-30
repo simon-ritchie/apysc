@@ -11,8 +11,8 @@ class TestAnimationParallelInterface:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_animation_parallel(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         animations: List[ap.AnimationBase] = [
             sprite.animation_x(x=100),
             sprite.animation_y(y=100),

@@ -37,7 +37,7 @@ def main() -> None:
         stage_width=1000, stage_height=500)
     stage.click(on_stage_clicked)
 
-    sprite_1: ap.Sprite = ap.Sprite(stage=stage)
+    sprite_1: ap.Sprite = ap.Sprite()
     sprite_1.graphics.begin_fill(color='#0af')
     rectangle_1: ap.Rectangle = sprite_1.graphics.draw_rect(
         x=50, y=50, width=50, height=50)
@@ -46,7 +46,7 @@ def main() -> None:
     sprite_1.click(on_sprite_1_clicked, options=options)
     rectangle_1.click(on_rectangle_1_clicked)
 
-    sprite_2: ap.Sprite = ap.Sprite(stage=stage)
+    sprite_2: ap.Sprite = ap.Sprite()
     sprite_2.graphics.begin_fill(color='#f0a')
     sprite_2.click(on_sprite_2_clicked)
     rectangle_2: ap.Rectangle = sprite_2.graphics.draw_rect(

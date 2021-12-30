@@ -36,8 +36,8 @@ class TestPolyline:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color='0af', alpha=0.5)
         sprite.graphics.line_style(
             color='f0a', thickness=2, alpha=0.7, cap=ap.LineCaps.ROUND,
@@ -73,8 +73,8 @@ class TestPolyline:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         points: ap.Array = ap.Array([ap.Point2D(10, 20), ap.Point2D(30, 40)])
         polyline: ap.Polyline = ap.Polyline(
             parent=sprite.graphics,
@@ -88,8 +88,8 @@ class TestPolyline:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
         expression_data_util.empty_expression()
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color='#0af')
         sprite.graphics.line_style(
             color='#f0a', cap=ap.LineCaps.ROUND, joints=ap.LineJoints.BEVEL,
@@ -127,8 +127,8 @@ class TestPolyline:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_append_line_point(self) -> None:
         expression_data_util.empty_expression()
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color='#0af')
         sprite.graphics.line_style(color='#f0a')
         points: ap.Array = ap.Array([ap.Point2D(10, 20), ap.Point2D(30, 40)])

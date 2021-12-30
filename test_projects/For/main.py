@@ -26,7 +26,7 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    stage: ap.Stage = ap.Stage(
+    ap.Stage(
         background_color='#333',
         stage_width=1000, stage_height=500)
 
@@ -36,7 +36,7 @@ def main() -> None:
     ap.assert_arrays_equal(
         left=[11, 12, 13], right=arr_1)
 
-    sprite: ap.Sprite = ap.Sprite(stage=stage)
+    sprite: ap.Sprite = ap.Sprite()
     sprite.graphics.begin_fill(color='#0af')
     arr_2: ap.Array = ap.Array(list(range(3)))
     with ap.For(arr_2, locals_=locals(), globals_=globals()) as i:

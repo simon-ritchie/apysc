@@ -16,8 +16,8 @@ class TestPath:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         path_data_list: List[ap.PathDataBase] = [
             ap.PathData.MoveTo(x=500, y=100),
         ]
@@ -35,8 +35,8 @@ class TestPath:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         path_data_list: List[ap.PathDataBase] = [
             ap.PathData.MoveTo(x=500, y=100),
         ]
@@ -48,7 +48,7 @@ class TestPath:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
         stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        sprite: ap.Sprite = ap.Sprite()
         path_move_to: ap.PathMoveTo = ap.PathData.MoveTo(x=500, y=100)
         path_data_list: List[ap.PathDataBase] = [path_move_to]
         path: ap.Path = ap.Path(

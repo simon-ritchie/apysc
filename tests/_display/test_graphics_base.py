@@ -12,7 +12,7 @@ class TestGraphicsBase:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        sprite: ap.Sprite = ap.Sprite()
         graphics_base: GraphicsBase = GraphicsBase(
             parent=sprite.graphics, x=ap.Int(100), y=ap.Int(200),
             variable_name='test_graphics')
@@ -39,8 +39,8 @@ class TestGraphicsBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_x(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         graphics_base: GraphicsBase = GraphicsBase(
             parent=sprite.graphics, x=ap.Int(100), y=ap.Int(200),
             variable_name='test_graphics')
@@ -49,8 +49,8 @@ class TestGraphicsBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_y(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         graphics_base: GraphicsBase = GraphicsBase(
             parent=sprite.graphics, x=ap.Int(100), y=ap.Int(200),
             variable_name='test_graphics')
@@ -59,8 +59,8 @@ class TestGraphicsBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_variable_name(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         graphics_base: GraphicsBase = GraphicsBase(
             parent=sprite.graphics, x=ap.Int(100), y=ap.Int(200),
             variable_name='test_graphics_1')

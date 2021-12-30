@@ -38,7 +38,7 @@ def main() -> None:
     int_1: ap.Int = ap.Int(10)
     options: _IntValOptions = {'int_val': int_1}
     stage.click(on_click, options=options)
-    sprite_1: ap.Sprite = ap.Sprite(stage=stage)
+    sprite_1: ap.Sprite = ap.Sprite()
     int_2: ap.Int = ap.Int(20)
     options = {'int_val': int_2}
     sprite_1.click(on_click, options=options)

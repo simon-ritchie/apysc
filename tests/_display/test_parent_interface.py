@@ -12,7 +12,7 @@ class TestParentInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_parent(self) -> None:
         stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        sprite: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite)
         assert sprite.parent == stage
 
@@ -22,7 +22,7 @@ class TestParentInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_remove_from_parent(self) -> None:
         stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        sprite: ap.Sprite = ap.Sprite()
         sprite.remove_from_parent()
         assert stage.num_children == 0
         assert sprite.parent is None
@@ -35,7 +35,7 @@ class TestParentInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
         stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        sprite: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite)
         snapshot_name: str = 'snapshot_1'
         sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -48,7 +48,7 @@ class TestParentInterface:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
         stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        sprite: ap.Sprite = ap.Sprite()
         stage.add_child(child=sprite)
         snapshot_name: str = 'snapshot_1'
         sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)

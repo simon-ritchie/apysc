@@ -17,8 +17,8 @@ class TestEllipse:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color='#0af')
         stage_variable_name: str = get_stage_variable_name()
         ellipse: ap.Ellipse = ap.Ellipse(
@@ -39,8 +39,8 @@ class TestEllipse:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.line_style(
             color='#fff',
             dot_setting=ap.LineDotSetting(dot_size=5))
@@ -55,8 +55,8 @@ class TestEllipse:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         ellipse: ap.Ellipse = ap.Ellipse(
             parent=sprite.graphics, x=50, y=100, width=150, height=200)
         repr_str: str = repr(ellipse)

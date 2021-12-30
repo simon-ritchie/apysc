@@ -13,8 +13,8 @@ from apysc._expression import var_names
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_fill_expression() -> None:
-    stage: ap.Stage = ap.Stage()
-    sprite: ap.Sprite = ap.Sprite(stage=stage)
+    ap.Stage()
+    sprite: ap.Sprite = ap.Sprite()
     graphics: Graphics = sprite.graphics
     expression: str = '.attr({'
     expression = graphics_expression.append_fill_expression(
@@ -37,8 +37,8 @@ def test_append_fill_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_x_expression() -> None:
-    stage: ap.Stage = ap.Stage()
-    sprite: ap.Sprite = ap.Sprite(stage=stage)
+    ap.Stage()
+    sprite: ap.Sprite = ap.Sprite()
     rectangle: ap.Rectangle = ap.Rectangle(
         parent=sprite.graphics,
         x=100, y=200, width=300, height=400)
@@ -57,8 +57,8 @@ def test_append_x_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_y_expression() -> None:
-    stage: ap.Stage = ap.Stage()
-    sprite: ap.Sprite = ap.Sprite(stage=stage)
+    ap.Stage()
+    sprite: ap.Sprite = ap.Sprite()
     rectangle: ap.Rectangle = ap.Rectangle(
         parent=sprite.graphics,
         x=100, y=200, width=300, height=400)
@@ -75,8 +75,8 @@ def test_append_y_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_fill_opacity_expression() -> None:
-    stage: ap.Stage = ap.Stage()
-    sprite: ap.Sprite = ap.Sprite(stage=stage)
+    ap.Stage()
+    sprite: ap.Sprite = ap.Sprite()
     graphics: Graphics = sprite.graphics
     expression: str = '.attr({'
     graphics.begin_fill(color='#333', alpha=0.5)
@@ -93,8 +93,8 @@ def test_append_fill_opacity_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_stroke_expression() -> None:
-    stage: ap.Stage = ap.Stage()
-    sprite: ap.Sprite = ap.Sprite(stage=stage)
+    ap.Stage()
+    sprite: ap.Sprite = ap.Sprite()
     graphics: Graphics = sprite.graphics
     expression: str = '.attr({'
     expression = graphics_expression.append_stroke_expression(
@@ -116,8 +116,8 @@ def test_append_stroke_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_stroke_width_expression() -> None:
-    stage: ap.Stage = ap.Stage()
-    sprite: ap.Sprite = ap.Sprite(stage=stage)
+    ap.Stage()
+    sprite: ap.Sprite = ap.Sprite()
     graphics: Graphics = sprite.graphics
     expression: str = '.attr({'
     expression = graphics_expression.append_stroke_expression(
@@ -138,8 +138,8 @@ def test_append_stroke_width_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_stroke_opacity_expression() -> None:
-    stage: ap.Stage = ap.Stage()
-    sprite: ap.Sprite = ap.Sprite(stage=stage)
+    ap.Stage()
+    sprite: ap.Sprite = ap.Sprite()
     graphics: Graphics = sprite.graphics
     expression: str = '.attr({'
     expression = graphics_expression.append_stroke_expression(
@@ -160,8 +160,8 @@ def test_append_stroke_opacity_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_stroke_linecap_expression() -> None:
-    stage: ap.Stage = ap.Stage()
-    sprite: ap.Sprite = ap.Sprite(stage=stage)
+    ap.Stage()
+    sprite: ap.Sprite = ap.Sprite()
     expression: str = graphics_expression.append_stroke_linecap_expression(
         graphics=sprite.graphics,
         expression='.attr({',
@@ -184,8 +184,8 @@ def test_append_stroke_linecap_expression() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_append_stroke_linejoin_expression() -> None:
-    stage: ap.Stage = ap.Stage()
-    sprite: ap.Sprite = ap.Sprite(stage=stage)
+    ap.Stage()
+    sprite: ap.Sprite = ap.Sprite()
     expression: str = graphics_expression.append_stroke_linejoin_expression(
         graphics=sprite.graphics,
         expression='.attr({',

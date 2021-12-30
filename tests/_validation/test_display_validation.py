@@ -13,7 +13,7 @@ from tests.testing_helper import assert_raises
 def test_validate_stage() -> None:
     stage: ap.Stage = ap.Stage()
     display_validation.validate_stage(stage=stage)
-    sprite: ap.Sprite = ap.Sprite(stage=stage)
+    sprite: ap.Sprite = ap.Sprite()
     testing_helper.assert_raises(
         expected_error_class=ValueError,
         func_or_method=display_validation.validate_stage,
@@ -28,18 +28,18 @@ def test_validate_display_object() -> None:
         func_or_method=display_validation.validate_display_object,
         kwargs={'display_object': stage})
 
-    sprite: ap.Sprite = ap.Sprite(stage=stage)
+    sprite: ap.Sprite = ap.Sprite()
     display_validation.validate_display_object(display_object=sprite)
 
     display_object: DisplayObject = DisplayObject(
-        stage=stage, variable_name='test_display_object')
+        variable_name='test_display_object')
     display_validation.validate_display_object(display_object=display_object)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_validate_graphics() -> None:
-    stage: ap.Stage = ap.Stage()
-    sprite: ap.Sprite = ap.Sprite(stage=stage)
+    ap.Stage()
+    sprite: ap.Sprite = ap.Sprite()
     display_validation.validate_graphics(graphics=sprite.graphics)
 
     testing_helper.assert_raises(
@@ -51,7 +51,7 @@ def test_validate_graphics() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_validate_sprite() -> None:
     stage: ap.Stage = ap.Stage()
-    sprite: ap.Sprite = ap.Sprite(stage=stage)
+    sprite: ap.Sprite = ap.Sprite()
     display_validation.validate_sprite(sprite=sprite)
 
     testing_helper.assert_raises(
@@ -102,8 +102,8 @@ def test_validate_line_joints() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_validate_multiple_line_settings_isnt_set() -> None:
-    stage: ap.Stage = ap.Stage()
-    sprite: ap.Sprite = ap.Sprite(stage=stage)
+    ap.Stage()
+    sprite: ap.Sprite = ap.Sprite()
     display_validation.validate_multiple_line_settings_isnt_set(
         any_instance=sprite.graphics)
 

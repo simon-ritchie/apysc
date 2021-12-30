@@ -26,12 +26,12 @@ def main() -> None:
     """
     Entry point of this test project.
     """
-    stage: ap.Stage = ap.Stage(background_color='#333')
+    ap.Stage(background_color='#333')
 
     int_1: ap.Int = ap.Int(3)
     ap.assert_defined(value=int_1)
 
-    sprite_1: ap.Sprite = ap.Sprite(stage=stage)
+    sprite_1: ap.Sprite = ap.Sprite()
     child_1: ap.DisplayObject = sprite_1.get_child_at(index=0)
     ap.assert_undefined(value=child_1)
 

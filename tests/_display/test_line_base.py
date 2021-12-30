@@ -28,8 +28,8 @@ class TestLineBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_line_setting_if_not_none_value_exists(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.line_style(
             color='#333', dot_setting=ap.LineDotSetting(dot_size=10))
         points: ap.Array = ap.Array([ap.Point2D(10, 20), ap.Point2D(30, 40)])
@@ -64,8 +64,8 @@ class TestLineBase:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__set_initial_basic_values(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color='#333', alpha=0.5)
         points: ap.Array[ap.Point2D] = ap.Array([ap.Point2D(0, 0)])
         sprite.graphics.line_style(
@@ -85,8 +85,8 @@ class TestLineBase:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_basic_vals_expression(self) -> None:
         expression_data_util.empty_expression()
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color='#333', alpha=0.5)
         sprite.graphics.line_style(
             color='#666', thickness=2, alpha=0.3,

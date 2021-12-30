@@ -288,6 +288,14 @@ def test__create_circular_calling_handler_name_table() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__create_stage_id_table() -> None:
+    expression_data_util._create_stage_id_table()
+    result: bool = expression_data_util._table_exists(
+        table_name=expression_data_util.TableName.STAGE_ID)
+    assert result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__validate_limit_clause() -> None:
     sqls: List[str] = [
         'DELETE FROM test_table LIMIT 1;',

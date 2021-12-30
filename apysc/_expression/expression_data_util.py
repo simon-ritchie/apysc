@@ -35,6 +35,7 @@ class TableName(Enum):
     VARIABLE_NAME_COUNT = 'variable_name_count'
     HANDLER_CALLING_STACK = 'handler_calling_stack'
     CIRCULAR_CALLING_HANDLER_NAME = 'circular_calling_handler_name'
+    STAGE_ID = 'stage_id'
 
 
 _SQLITE_IN_MEMORY_SETTING: str = 'file::memory:?cache=shared'
@@ -322,6 +323,17 @@ def _create_circular_calling_handler_name_table() -> None:
     cursor.execute(query)
 
 
+@_check_connection
+def _create_stage_id_table() -> None:
+    """
+    Create the stage id data SQLite table.
+    """
+    query: str = _make_create_table_query(
+        table_name=TableName.STAGE_ID,
+        column_ddl='  stage_id INTEGER NOT NULL')
+    cursor.execute(query)
+
+
 def initialize_sqlite_tables_if_not_initialized() -> bool:
     """
     Initialize the sqlite tables if they have not been
@@ -349,6 +361,7 @@ def initialize_sqlite_tables_if_not_initialized() -> bool:
     _create_variable_name_count_table()
     _create_handler_calling_stack_table()
     _create_circular_calling_handler_name_table()
+    _create_stage_id_table()
     return True
 
 

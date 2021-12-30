@@ -1,11 +1,11 @@
 """Class implementation for child related interface.
 """
 
+from typing import TYPE_CHECKING
 from typing import Any
 from typing import Dict
 from typing import List
 from typing import Union
-from typing import TYPE_CHECKING
 
 from apysc._display.display_object import DisplayObject
 from apysc._type.array import Array

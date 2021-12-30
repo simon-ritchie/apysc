@@ -95,11 +95,11 @@ rectangle.click(on_click)
 ...
 ```
 
-Documents: [Click interface](https://simon-ritchie.github.io/apysc/click.html), [Double click interface](https://simon-ritchie.github.io/apysc/dblclick.html), [Mousedown and mouseup interfaces](https://simon-ritchie.github.io/apysc/mousedown_and_mouseup.html), [Mouseover and mouseout interfaces](https://simon-ritchie.github.io/apysc/mouseover_and_mouseout.html), [Mousemove interface](https://simon-ritchie.github.io/apysc/mousemove.html)
+Abstract document: [](https://simon-ritchie.github.io/apysc/mouse_event_abstract.html)
 
 - **Use the timer interface and animation**
 
-![](https://github.com/simon-ritchie/apysc/blob/main/assets/rotation_and_alpha_animation.gif)
+![MouseEvent interfaces abstract](https://github.com/simon-ritchie/apysc/blob/main/assets/rotation_and_alpha_animation.gif)
 
 Example code fragments:
 

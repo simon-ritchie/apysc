@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>DisplayObject and GraphicsBase classes base properties abstract &#8212; apysc  documentation</title>
+    <link rel="stylesheet" type="text/css" href="static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="static/base.css" />
+    <link rel="stylesheet" type="text/css" href="static/codeblock.css" />
+    <link rel="stylesheet" type="text/css" href="static/iframe.css" />
+    <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+    <script src="static/jquery.js"></script>
+    <script src="static/underscore.js"></script>
+    <script src="static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Display object x and y interfaces" href="display_object_x_and_y.html" />
+    <link rel="prev" title="DisplayObject" href="display_object.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="display_object_x_and_y.html" title="Display object x and y interfaces"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="display_object.html" title="DisplayObject"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DisplayObject and GraphicsBase classes base properties abstract</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="displayobject-and-graphicsbase-classes-base-properties-abstract">
+<h1>DisplayObject and GraphicsBase classes base properties abstract<a class="headerlink" href="#displayobject-and-graphicsbase-classes-base-properties-abstract" title="Permalink to this headline">¶</a></h1>
+<p>This page would explain the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> and <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> classes’ each property (such as the x, visible) abstract.</p>
+<section id="what-apysc-can-do-in-its-properties">
+<h2>What apysc can do in its properties<a class="headerlink" href="#what-apysc-can-do-in-its-properties" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>You can get/set each property value, such as the x, y, visible, scale, etc.</p></li>
+</ul>
+</section>
+<section id="x-and-y-properties">
+<h2>x and y properties<a class="headerlink" href="#x-and-y-properties" title="Permalink to this headline">¶</a></h2>
+<p>The x and y properties can get/set the x and y coordinates.</p>
+<details>
+<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+
+<span class="k">class</span> <span class="nc">RectOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler would be called from a timer.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : RectOptions</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;rectangle&#39;</span><span class="p">]</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">rectangle</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">):</span>
+        <span class="n">rectangle</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">Else</span><span class="p">():</span>
+        <span class="n">rectangle</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">rectangle</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">):</span>
+        <span class="n">rectangle</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">Else</span><span class="p">():</span>
+        <span class="n">rectangle</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="mi">1</span>
+
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="n">options</span><span class="p">:</span> <span class="n">RectOptions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;rectangle&#39;</span><span class="p">:</span> <span class="n">rectangle</span><span class="p">}</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;do_and_graphics_base_prop_abstract_x_and_y/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</details><iframe src="static/do_and_graphics_base_prop_abstract_x_and_y/index.html" width="200" height="200"></iframe></section>
+<section id="visible-property">
+<h2>visible property<a class="headerlink" href="#visible-property" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rotation-properties">
+<h2>rotation properties<a class="headerlink" href="#rotation-properties" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="scale-properties">
+<h2>scale properties<a class="headerlink" href="#scale-properties" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="flip-properties">
+<h2>flip properties<a class="headerlink" href="#flip-properties" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="skew-properties">
+<h2>skew properties<a class="headerlink" href="#skew-properties" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="static/logo_for_document.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">DisplayObject and GraphicsBase classes base properties abstract</a><ul>
+<li><a class="reference internal" href="#what-apysc-can-do-in-its-properties">What apysc can do in its properties</a></li>
+<li><a class="reference internal" href="#x-and-y-properties">x and y properties</a></li>
+<li><a class="reference internal" href="#visible-property">visible property</a></li>
+<li><a class="reference internal" href="#rotation-properties">rotation properties</a></li>
+<li><a class="reference internal" href="#scale-properties">scale properties</a></li>
+<li><a class="reference internal" href="#flip-properties">flip properties</a></li>
+<li><a class="reference internal" href="#skew-properties">skew properties</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="display_object.html"
+                        title="previous chapter">DisplayObject</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="display_object_x_and_y.html"
+                        title="next chapter">Display object x and y interfaces</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="display_object_x_and_y.html" title="Display object x and y interfaces"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="display_object.html" title="DisplayObject"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DisplayObject and GraphicsBase classes base properties abstract</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, apysc project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+    </div>
+  </body>
+</html>

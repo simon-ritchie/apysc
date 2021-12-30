@@ -76,6 +76,7 @@ The HTML and JavaScript exporting interfaces.
 The `DisplayObject` class is the base class for each display object. The `GraphicsBase` class is the `DisplayObject` subclass, and the base class of each graphics class, such as the `Rectangle`.
 
 - [DisplayObject class](display_object.md)
+- [DisplayObject and GraphicsBase classes basic properties abstract](display_object_and_graphics_base_prop_abstract.md)
 - [DisplayObject class x and y interfaces](display_object_x_and_y.md)
 - [DisplayObject class parent interfaces](display_object_parent.md)
 - [DisplayObject class visible interface](display_object_visible.md)

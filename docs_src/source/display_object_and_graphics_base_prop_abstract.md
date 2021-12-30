@@ -306,11 +306,65 @@ ap.save_overall_html(
 
 </details>
 
-<iframe src="static/do_and_graphics_base_prop_abstract_flip/index.html" width="150" height="150">
+<iframe src="static/do_and_graphics_base_prop_abstract_flip/index.html" width="150" height="150"></iframe>
 
 For more details, please see [GraphicsBase class flip x and flip y interfaces](graphics_base_flip_interfaces.md).
 
 ## skew properties
+
+The `skew_x` and `skew_y` properties can get/set the skew-value.
+
+<details>
+<summary>Display the code block:</summary>
+
+```py
+# runnable
+from typing_extensions import TypedDict
+
+import apysc as ap
+
+
+class RectOptions(TypedDict):
+    rectangle: ap.Rectangle
+
+
+def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
+    """
+    The handler would be called from a timer.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : RectOptions
+        Optional arguments dictionary.
+    """
+    rectangle: ap.Rectangle = options['rectangle']
+    rectangle.skew_x += 1
+
+
+stage: ap.Stage = ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite.graphics.begin_fill(color='#0af')
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+    x=50, y=50, width=50, height=50)
+
+options: RectOptions = {'rectangle': rectangle}
+ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options).start()
+
+ap.save_overall_html(
+    dest_dir_path='do_and_graphics_base_prop_abstract_skew/')
+```
+
+</details>
+
+<iframe src="static/do_and_graphics_base_prop_abstract_skew/index.html" width="150" height="150"></iframe>
+
+For more details, please see [GraphicsBase class skew x and skew y interfaces](graphics_base_skew.md).
 
 ## See also
 

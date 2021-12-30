@@ -16,6 +16,7 @@ from apysc._display._document import document  # isort:skip # noqa
 from apysc._display.sprite import Sprite  # isort:skip # noqa
 from apysc._display.graphics import Graphics  # isort:skip # noqa
 from apysc._display.stage import Stage  # isort:skip # noqa
+from apysc._display.stage import get_stage  # isort:skip # noqa
 from apysc._display.rectangle import Rectangle  # isort:skip # noqa
 from apysc._display.circle import Circle  # isort:skip # noqa
 from apysc._display.ellipse import Ellipse  # isort:skip # noqa

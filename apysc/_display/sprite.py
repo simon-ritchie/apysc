@@ -6,7 +6,6 @@ from typing import Optional
 from apysc._display import graphics
 from apysc._display.child_interface import ChildInterface
 from apysc._display.display_object import DisplayObject
-from apysc._display.stage import Stage
 from apysc._type.revert_interface import RevertInterface
 
 
@@ -23,15 +22,13 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
     graphics: 'graphics.Graphics'
 
     def __init__(
-            self, stage: Stage, *,
+            self, *,
             variable_name: Optional[str] = None) -> None:
         """
         Basic display object that can be parent.
 
         Parameters
         ----------
-        stage : Stage
-            Stage instance to link this object.
         variable_name : str or None, default None
             Variable name of this instance. This will be used to
             js expression. It is not necessary to specify any
@@ -48,7 +45,7 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
                 module_name=__name__, class_=Sprite):
             from apysc._expression import expression_variables_util
             from apysc._expression import var_names
-
+            stage: ap.Stage = ap.get_stage()
             if variable_name is None:
                 variable_name = expression_variables_util.\
                     get_next_variable_name(type_name=var_names.SPRITE)

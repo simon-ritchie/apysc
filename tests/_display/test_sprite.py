@@ -15,7 +15,7 @@ class TestSprite:
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
         stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        sprite: ap.Sprite = ap.Sprite()
         testing_helper.assert_attrs(
             expected_attrs={
                 'stage': stage,
@@ -29,18 +29,18 @@ class TestSprite:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_add_child(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        parent_sprite: ap.Sprite = ap.Sprite(stage=stage)
-        child_sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        parent_sprite: ap.Sprite = ap.Sprite()
+        child_sprite: ap.Sprite = ap.Sprite()
         parent_sprite.add_child(child=child_sprite)
         assert parent_sprite._children == ap.Array(
             [parent_sprite.graphics, child_sprite])
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__append_constructor_expression(self) -> None:
-        stage: ap.Stage = ap.Stage()
+        ap.Stage()
         stage_variable_name: str = get_stage_variable_name()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        sprite: ap.Sprite = ap.Sprite()
         expression: str = expression_data_util.get_current_expression()
         expected_strs: List[str] = [
             f'\nvar {sprite.variable_name} = {stage_variable_name}.nested();',
@@ -57,14 +57,15 @@ class TestSprite:
         class SubClass(ap.Sprite):
             pass
 
-        subclass_instance: SubClass = SubClass(stage=stage)
+        ap.Stage()
+        subclass_instance: SubClass = SubClass()
         appended: bool = subclass_instance._append_constructor_expression()
         assert not appended
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__make_snapshot(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color='#333', alpha=0.5)
         snapshot_name: str = 'snapshot_1'
         sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -84,8 +85,8 @@ class TestSprite:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test__revert(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         sprite.graphics.begin_fill(color='#333', alpha=0.5)
         snapshot_name: str = 'snapshot_1'
         sprite._run_all_make_snapshot_methods(snapshot_name=snapshot_name)
@@ -100,7 +101,7 @@ class TestSprite:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___repr__(self) -> None:
-        stage: ap.Stage = ap.Stage()
-        sprite: ap.Sprite = ap.Sprite(stage=stage)
+        ap.Stage()
+        sprite: ap.Sprite = ap.Sprite()
         repr_str: str = repr(sprite)
         assert repr_str == f"Sprite('{sprite.variable_name}')"

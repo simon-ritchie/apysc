@@ -8,7 +8,7 @@ This page would explain the `DisplayObject` and `GraphicsBase` classes' each pro
 
 ## x and y properties
 
-The `x` and `y` properties can get/set the x and y coordinates.
+The x and y properties can get/set the x and y coordinates.
 
 <details>
 <summary>Display the code block:</summary>
@@ -186,7 +186,73 @@ ap.save_overall_html(
 
 For more details, please see [GraphicsBase class rotation around center interface](graphics_base_rotation_around_center.md) and [GraphicsBase class rotation around point interfaces](graphics_base_rotation_around_point.md).
 
-## scale properties
+## scale interfaces
+
+The `scale_x_from_center` property, `scale_y_from_center` property, `get_scale_x_from_point` method, `set_scale_x_from_point` method, `get_scale_y_from_point` method, and `set_scale_y_from_point` method can get/set the scale values.
+
+<details>
+<summary>Display the code block:</summary>
+
+```py
+# runnable
+from typing_extensions import TypedDict
+
+import apysc as ap
+
+
+class RectOptions(TypedDict):
+    rectangle: ap.Rectangle
+    scale_value: ap.Number
+
+
+def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
+    """
+    The handler would be called from a timer.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : RectOptions
+        Optional arguments dictionary.
+    """
+    rectangle: ap.Rectangle = options['rectangle']
+    scale_value: ap.Number = options['scale_value']
+    rectangle.scale_x_from_center += scale_value
+    rectangle.scale_y_from_center += scale_value
+
+    with ap.If(rectangle.scale_x_from_center >= 2.0):
+        scale_value.value = -0.01
+        ap.Return()
+
+    with ap.If(rectangle.scale_y_from_center <= 0.5):
+        scale_value.value = 0.01
+        ap.Return()
+
+
+stage: ap.Stage = ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite.graphics.begin_fill(color='#0af')
+rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+    x=50, y=50, width=50, height=50)
+
+scale_value: ap.Number = ap.Number(0.01)
+options: RectOptions = {'rectangle': rectangle, 'scale_value': scale_value}
+ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options).start()
+
+ap.save_overall_html(
+    dest_dir_path='do_and_graphics_base_prop_abstract_scale/')
+```
+
+</details>
+
+<iframe src="static/do_and_graphics_base_prop_abstract_scale/index.html" width="150" height="150"></iframe>
+
+For more details, please see [GraphicsBase class scale from center interfaces](graphics_base_scale_from_center.md) and [GraphicsBase class scale from point interfaces](graphics_base_scale_from_point.md).
 
 ## flip properties
 

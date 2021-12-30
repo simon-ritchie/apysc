@@ -64,6 +64,7 @@
 
 <span class="k">class</span> <span class="nc">RectOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
     <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span>
+    <span class="n">direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span>
 
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -78,15 +79,17 @@
 <span class="sd">        Optional arguments dictionary.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;rectangle&#39;</span><span class="p">]</span>
-    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">rectangle</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">):</span>
-        <span class="n">rectangle</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">Else</span><span class="p">():</span>
-        <span class="n">rectangle</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;direction&#39;</span><span class="p">]</span>
+    <span class="n">rectangle</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">direction</span>
+    <span class="n">rectangle</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">direction</span>
 
-    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">rectangle</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">):</span>
-        <span class="n">rectangle</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">Else</span><span class="p">():</span>
-        <span class="n">rectangle</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">rectangle</span><span class="o">.</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">):</span>
+        <span class="n">direction</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Return</span><span class="p">()</span>
+
+    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">rectangle</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">50</span><span class="p">):</span>
+        <span class="n">direction</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">ap</span><span class="o">.</span><span class="n">Return</span><span class="p">()</span>
 
 
 <span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
@@ -99,7 +102,8 @@
 <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
-<span class="n">options</span><span class="p">:</span> <span class="n">RectOptions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;rectangle&#39;</span><span class="p">:</span> <span class="n">rectangle</span><span class="p">}</span>
+<span class="n">direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">options</span><span class="p">:</span> <span class="n">RectOptions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;rectangle&#39;</span><span class="p">:</span> <span class="n">rectangle</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="n">direction</span><span class="p">}</span>
 <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>

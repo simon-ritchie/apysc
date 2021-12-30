@@ -22,6 +22,7 @@ import apysc as ap
 
 class RectOptions(TypedDict):
     rectangle: ap.Rectangle
+    direction: ap.Int
 
 
 def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
@@ -36,15 +37,17 @@ def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
         Optional arguments dictionary.
     """
     rectangle: ap.Rectangle = options['rectangle']
-    with ap.If(rectangle.x <= 100):
-        rectangle.x = rectangle.x + 1
-    with ap.Else():
-        rectangle.x = rectangle.x - 1
+    direction: ap.Int = options['direction']
+    rectangle.x += direction
+    rectangle.y += direction
 
-    with ap.If(rectangle.y <= 100):
-        rectangle.y = rectangle.y + 1
-    with ap.Else():
-        rectangle.y = rectangle.y - 1
+    with ap.If(rectangle.x >= 100):
+        direction.value = -1
+        ap.Return()
+
+    with ap.If(rectangle.x <= 50):
+        direction.value = 1
+        ap.Return()
 
 
 stage: ap.Stage = ap.Stage(
@@ -57,7 +60,8 @@ sprite.graphics.begin_fill(color='#0af')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 
-options: RectOptions = {'rectangle': rectangle}
+direction: ap.Int = ap.Int(1)
+options: RectOptions = {'rectangle': rectangle, 'direction': direction}
 ap.Timer(on_timer, delay=ap.FPS.FPS_60, options=options).start()
 
 ap.save_overall_html(

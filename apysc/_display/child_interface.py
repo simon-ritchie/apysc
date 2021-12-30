@@ -5,6 +5,7 @@ from typing import Any
 from typing import Dict
 from typing import List
 from typing import Union
+from typing import TYPE_CHECKING
 
 from apysc._display.display_object import DisplayObject
 from apysc._type.array import Array
@@ -12,14 +13,15 @@ from apysc._type.boolean import Boolean
 from apysc._type.int import Int
 from apysc._type.revert_interface import RevertInterface
 
-_Stage = Any
+if TYPE_CHECKING:
+    from apysc._display.stage import Stage
 
 
 class ChildInterface(RevertInterface):
 
     _children: Array[DisplayObject]
     _variable_name: str
-    stage: _Stage
+    stage: 'Stage'
 
     def add_child(self, child: DisplayObject) -> None:
         """

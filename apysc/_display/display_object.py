@@ -1,8 +1,7 @@
 """Implementations for DisplayObject class.
 """
 
-from typing import Any
-from typing import Type
+from typing import TYPE_CHECKING
 
 from apysc._animation.animation_parallel_interface import \
     AnimationParallelInterface
@@ -13,6 +12,9 @@ from apysc._display.x_interface import XInterface
 from apysc._display.y_interface import YInterface
 from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
+
+if TYPE_CHECKING:
+    from apysc._display.stage import Stage
 
 
 class DisplayObject(
@@ -28,14 +30,14 @@ class DisplayObject(
         - https://simon-ritchie.github.io/apysc/display_object.html
     """
 
-    def __init__(self, *, stage: Any, variable_name: str) -> None:
+    stage: 'Stage'
+
+    def __init__(self, *, variable_name: str) -> None:
         """
         Display object (base) class for the common interfaces.
 
         Parameters
         ----------
-        stage : Stage
-            Stage instance to link this object.
         variable_name : str
             Variable name of this instance. This will be used to
             js expression.
@@ -51,7 +53,7 @@ class DisplayObject(
                 module_name=__name__, class_=DisplayObject):
             from apysc._validation import display_validation
             from apysc._validation import string_validation
-            self._stage_cls: Type[ap.Stage] = ap.Stage
+            stage: ap.Stage = ap.get_stage()
             self.stage: ap.Stage = stage
             display_validation.validate_stage(stage=stage)
             self._variable_name = variable_name

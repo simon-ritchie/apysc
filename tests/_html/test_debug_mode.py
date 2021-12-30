@@ -13,18 +13,18 @@ from tests.testing_helper import assert_attrs
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_set_debug_mode() -> None:
-    stage: ap.Stage = ap.Stage()
-    ap.set_debug_mode(stage=stage)
+    ap.Stage()
+    ap.set_debug_mode()
     assert debug_mode.is_debug_mode()
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_is_debug_mode() -> None:
-    stage: ap.Stage = ap.Stage()
+    ap.Stage()
     result: bool = ap.is_debug_mode()
     assert not result
 
-    ap.set_debug_mode(stage=stage)
+    ap.set_debug_mode()
     result = ap.is_debug_mode()
     assert result
 
@@ -56,7 +56,7 @@ class TestDebugInfo:
     def test___enter__(self) -> None:
         import os
         os_var = os  # noqa
-        stage: ap.Stage = ap.Stage()
+        ap.Stage()
         with ap.DebugInfo(
                 callable_=self.test___init__, locals_=locals(),
                 module_name=__name__, class_=TestDebugInfo):
@@ -64,7 +64,7 @@ class TestDebugInfo:
         expression: str = expression_data_util.get_current_expression()
         assert f'\n// [{self.test___init__.__name__}' not in expression
 
-        ap.set_debug_mode(stage=stage)
+        ap.set_debug_mode()
         __any_val__: str = 'Hello'
         blank_str: str = ''  # noqa
         with_break_str: str = 'a\nb'  # noqa
@@ -84,7 +84,8 @@ class TestDebugInfo:
         assert f"\n//    int_val = 10({int_val.variable_name})"
 
         expression_data_util.empty_expression()
-        ap.set_debug_mode(stage=stage)
+        ap.Stage()
+        ap.set_debug_mode()
         with ap.DebugInfo(
                 callable_=self.test___init__, locals_={},
                 module_name=__name__, class_=TestDebugInfo):
@@ -112,7 +113,7 @@ class TestDebugInfo:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___exit__(self) -> None:
-        stage: ap.Stage = ap.Stage()
+        ap.Stage()
         with ap.DebugInfo(
                 callable_=self.test___init__, locals_=locals(),
                 module_name=__name__, class_=TestDebugInfo):
@@ -126,7 +127,7 @@ class TestDebugInfo:
             string=expression, flags=re.MULTILINE | re.DOTALL)
         assert match is None
 
-        ap.set_debug_mode(stage=stage)
+        ap.set_debug_mode()
         with ap.DebugInfo(
                 callable_=self.test___init__, locals_=locals(),
                 module_name=__name__, class_=TestDebugInfo):
@@ -187,8 +188,8 @@ def test__get_callable_str() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_unset_debug_mode() -> None:
-    stage: ap.Stage = ap.Stage()
-    ap.set_debug_mode(stage=stage)
+    ap.Stage()
+    ap.set_debug_mode()
     assert ap.is_debug_mode()
     ap.unset_debug_mode()
     assert not ap.is_debug_mode()

@@ -11,24 +11,20 @@ from typing import Tuple
 from typing import Type
 from typing import Union
 
-from apysc._display.stage import Stage
 from apysc._expression.indent_num import Indent
 
 
-def set_debug_mode(stage: Stage) -> None:
+def set_debug_mode() -> None:
     """
     Set the debug mode for the HTML and JavaScript debugging.
     If this functions is called, the following setting will be applied:
     - HTML minify setting will be disabled.
     - Per each interface JavaScript divider string will be appended.
-
-    Parameters
-    ----------
-    stage : Stage
-        A current project stage instance.
     """
+    import apysc as ap
     from apysc._expression import expression_data_util
     from apysc._validation.display_validation import validate_stage
+    stage: ap.Stage = ap.get_stage()
     validate_stage(stage=stage)
     table_name: str = expression_data_util.TableName.DEBUG_MODE_SETTING.value
     query: str = f'DELETE FROM {table_name};'

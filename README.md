@@ -77,7 +77,7 @@ rectangle.x = ap.Int(100)
 ...
 ```
 
-Abstract document: [DisplayObject and GraphicsBase classes base properties abstract](https://simon-ritchie.github.io/apysc/display_object_and_graphics_base_prop_abstract.md)
+Abstract document: [DisplayObject and GraphicsBase classes base properties abstract](https://simon-ritchie.github.io/apysc/display_object_and_graphics_base_prop_abstract.html)
 
 - **Set each mouse event, such as the click, double click, mouse down, mouse up, mouse over, mouse out, mouse move**
 

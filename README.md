@@ -77,7 +77,7 @@ rectangle.x = ap.Int(100)
 ...
 ```
 
-Document: [x and y interfaces](https://simon-ritchie.github.io/apysc/display_object_x_and_y.html), [visible interface](https://simon-ritchie.github.io/apysc/display_object_visible.html), [get_css and set_css interfaces](https://simon-ritchie.github.io/apysc/display_object_get_and_set_css.html), [rotation_around_center interface](https://simon-ritchie.github.io/apysc/graphics_base_rotation_around_center.html), [rotation_around_point interfaces](https://simon-ritchie.github.io/apysc/graphics_base_rotation_around_point.html), [scale_x_from_center and scale_y_from_center interfaces](https://simon-ritchie.github.io/apysc/graphics_base_scale_from_center.html), [get_scale_from_point and set_scale_from_point interfaces](https://simon-ritchie.github.io/apysc/graphics_base_scale_from_point.html), [flip_x and flip_y interfaces](https://simon-ritchie.github.io/apysc/graphics_base_flip_interfaces.html), [skew_x and skew_y interfaces](https://simon-ritchie.github.io/apysc/graphics_base_skew.html)
+Abstract document: [DisplayObject and GraphicsBase classes base properties abstract](https://simon-ritchie.github.io/apysc/display_object_and_graphics_base_prop_abstract.md)
 
 - **Set each mouse event, such as the click, double click, mouse down, mouse up, mouse over, mouse out, mouse move**
 

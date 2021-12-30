@@ -14,8 +14,6 @@ import shutil
 from datetime import datetime
 from random import randint
 
-from apysc._display.stage import Stage
-
 _TMP_ROOT_DIR_PATH: str = './'
 
 
@@ -48,7 +46,6 @@ def _save_overall_html(*, html_file_name: str, minify: bool) -> None:
 
 
 def display_on_jupyter(
-        stage: Stage,
         html_file_name: str,
         *,
         minify: bool = True) -> None:
@@ -61,8 +58,6 @@ def display_on_jupyter(
 
     Parameters
     ----------
-    stage : Stage
-        Target stage instance.
     html_file_name : str, default 'index.html'
         The output HTML file name.
     minify : bool, default True
@@ -78,9 +73,11 @@ def display_on_jupyter(
     - display_on_jupyter interface document
         - https://simon-ritchie.github.io/apysc/display_on_jupyter.html
     """
+    import apysc as ap
     from IPython.display import IFrame
     from IPython.display import display
 
+    stage: ap.Stage = ap.get_stage()
     _save_overall_html(
         html_file_name=html_file_name,
         minify=minify)

@@ -13,9 +13,8 @@ def test_display_on_jupyter() -> None:
     original_tmp_root_dir: str = jupyter_util._TMP_ROOT_DIR_PATH
     jupyter_util._TMP_ROOT_DIR_PATH = '../tmp_test_1/'
 
-    stage: ap.Stage = ap.Stage()
+    ap.Stage()
     jupyter_util.display_on_jupyter(
-        stage=stage,
         html_file_name='test_file.html')
     assert os.path.isfile('test_file.html')
 

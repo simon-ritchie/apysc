@@ -95,11 +95,11 @@ rectangle.click(on_click)
 ...
 ```
 
-Abstract document: [](https://simon-ritchie.github.io/apysc/mouse_event_abstract.html)
+Abstract document: [MouseEvent interfaces abstract](https://simon-ritchie.github.io/apysc/mouse_event_abstract.html)
 
 - **Use the timer interface and animation**
 
-![MouseEvent interfaces abstract](https://github.com/simon-ritchie/apysc/blob/main/assets/rotation_and_alpha_animation.gif)
+![](https://github.com/simon-ritchie/apysc/blob/main/assets/rotation_and_alpha_animation.gif)
 
 Example code fragments:
 

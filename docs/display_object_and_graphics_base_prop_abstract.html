@@ -54,7 +54,7 @@
 </section>
 <section id="x-and-y-properties">
 <h2>x and y properties<a class="headerlink" href="#x-and-y-properties" title="Permalink to this headline">¶</a></h2>
-<p>The x and y properties can get/set the x and y coordinates.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> properties can get/set the x and y coordinates.</p>
 <details>
 <summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
@@ -114,7 +114,7 @@
 </section>
 <section id="visible-property">
 <h2>visible property<a class="headerlink" href="#visible-property" title="Permalink to this headline">¶</a></h2>
-<p>The visible property can get/set the visibility of an object.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">visible</span></code> property can get/set the visibility of an object.</p>
 <details>
 <summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
@@ -151,7 +151,6 @@
 <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
-<span class="n">direction</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">options</span><span class="p">:</span> <span class="n">RectOptions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;rectangle&#39;</span><span class="p">:</span> <span class="n">rectangle</span><span class="p">}</span>
 <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
@@ -159,9 +158,55 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;do_and_graphics_base_prop_abstract_visible/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</details><iframe src="static/do_and_graphics_base_prop_abstract_visible/index.html" width="150" height="150"></iframe></section>
-<section id="rotation-properties">
-<h2>rotation properties<a class="headerlink" href="#rotation-properties" title="Permalink to this headline">¶</a></h2>
+</details><iframe src="static/do_and_graphics_base_prop_abstract_visible/index.html" width="150" height="150"></iframe><p>For more details, please see <a class="reference internal" href="display_object_visible.html"><span class="doc">DisplayObject class visible interface</span></a>.</p>
+</section>
+<section id="rotation-interfaces">
+<h2>rotation interfaces<a class="headerlink" href="#rotation-interfaces" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">rotation_around_center</span></code> property, <code class="docutils literal notranslate"><span class="pre">get_rotation_around_point</span></code> method, and <code class="docutils literal notranslate"><span class="pre">set_rotation_around_point</span></code> method can get/set the rotation angle.</p>
+<details>
+<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+
+<span class="k">class</span> <span class="nc">RectOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler would be called from a timer.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : RectOptions</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;rectangle&#39;</span><span class="p">]</span>
+    <span class="n">rectangle</span><span class="o">.</span><span class="n">rotation_around_center</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="n">options</span><span class="p">:</span> <span class="n">RectOptions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;rectangle&#39;</span><span class="p">:</span> <span class="n">rectangle</span><span class="p">}</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;do_and_graphics_base_prop_abstract_rotation/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</details><iframe src="static/do_and_graphics_base_prop_abstract_rotation/index.html" width="150" height="150"></iframe><p>For more details, please see <a class="reference internal" href="graphics_base_rotation_around_center.html"><span class="doc">GraphicsBase class rotation around center interface</span></a> and <a class="reference internal" href="graphics_base_rotation_around_point.html"><span class="doc">GraphicsBase class rotation around point interfaces</span></a>.</p>
 </section>
 <section id="scale-properties">
 <h2>scale properties<a class="headerlink" href="#scale-properties" title="Permalink to this headline">¶</a></h2>
@@ -171,6 +216,13 @@
 </section>
 <section id="skew-properties">
 <h2>skew properties<a class="headerlink" href="#skew-properties" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="display_object.html"><span class="doc">DisplayObject class</span></a></p></li>
+<li><p><a class="reference internal" href="display_object_parent.html"><span class="doc">DisplayObject class parent interfaces</span></a></p></li>
+</ul>
 </section>
 </section>
 
@@ -190,10 +242,11 @@
 <li><a class="reference internal" href="#what-apysc-can-do-in-its-properties">What apysc can do in its properties</a></li>
 <li><a class="reference internal" href="#x-and-y-properties">x and y properties</a></li>
 <li><a class="reference internal" href="#visible-property">visible property</a></li>
-<li><a class="reference internal" href="#rotation-properties">rotation properties</a></li>
+<li><a class="reference internal" href="#rotation-interfaces">rotation interfaces</a></li>
 <li><a class="reference internal" href="#scale-properties">scale properties</a></li>
 <li><a class="reference internal" href="#flip-properties">flip properties</a></li>
 <li><a class="reference internal" href="#skew-properties">skew properties</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
 </ul>
 </li>
 </ul>

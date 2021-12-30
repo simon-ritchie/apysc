@@ -256,6 +256,60 @@ For more details, please see [GraphicsBase class scale from center interfaces](g
 
 ## flip properties
 
+The `flip_x` and `flip_y` properties can get/set the flip (reflection) setting.
+
+<details>
+<summary>Display the code block:</summary>
+
+```py
+# runnable
+from typing_extensions import TypedDict
+
+import apysc as ap
+
+
+class LineOptions(TypedDict):
+    line: ap.Line
+
+
+def on_timer(e: ap.TimerEvent, options: LineOptions) -> None:
+    """
+    The handler would be called from a timer.
+
+    Parameters
+    ----------
+    e : ap.TimerEvent
+        Event instance.
+    options : LineOptions
+        Optional arguments dictionary.
+    """
+    line: ap.Line = options['line']
+    line.flip_x = line.flip_x.not_
+
+
+stage: ap.Stage = ap.Stage(
+    background_color='#333',
+    stage_width=150,
+    stage_height=150,
+    stage_elem_id='stage')
+sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite.graphics.line_style(color='#fff', thickness=5)
+line: ap.Line = sprite.graphics.draw_line(
+    x_start=50, y_start=50, x_end=100, y_end=100)
+
+options: LineOptions = {'line': line}
+ap.Timer(on_timer, delay=1000, options=options).start()
+
+ap.save_overall_html(
+    dest_dir_path='do_and_graphics_base_prop_abstract_flip/')
+```
+
+</details>
+
+<iframe src="static/do_and_graphics_base_prop_abstract_flip/index.html" width="150" height="150">
+
+For more details, please see [GraphicsBase class flip x and flip y interfaces](graphics_base_flip_interfaces.md).
+
 ## skew properties
 
 ## See also

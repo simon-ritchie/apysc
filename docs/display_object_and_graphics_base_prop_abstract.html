@@ -208,8 +208,8 @@
 </div>
 </details><iframe src="static/do_and_graphics_base_prop_abstract_rotation/index.html" width="150" height="150"></iframe><p>For more details, please see <a class="reference internal" href="graphics_base_rotation_around_center.html"><span class="doc">GraphicsBase class rotation around center interface</span></a> and <a class="reference internal" href="graphics_base_rotation_around_point.html"><span class="doc">GraphicsBase class rotation around point interfaces</span></a>.</p>
 </section>
-<section id="scale-properties">
-<h2>scale properties<a class="headerlink" href="#scale-properties" title="Permalink to this headline">¶</a></h2>
+<section id="scale-interfaces">
+<h2>scale interfaces<a class="headerlink" href="#scale-interfaces" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">scale_x_from_center</span></code> property, <code class="docutils literal notranslate"><span class="pre">scale_y_from_center</span></code> property, <code class="docutils literal notranslate"><span class="pre">get_scale_x_from_point</span></code> method, <code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point</span></code> method, <code class="docutils literal notranslate"><span class="pre">get_scale_y_from_point</span></code> method, and <code class="docutils literal notranslate"><span class="pre">set_scale_y_from_point</span></code> method can get/set the scale values.</p>
 <details>
 <summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -270,7 +270,50 @@
 </section>
 <section id="flip-properties">
 <h2>flip properties<a class="headerlink" href="#flip-properties" title="Permalink to this headline">¶</a></h2>
-</section>
+<details>
+<summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+
+<span class="k">class</span> <span class="nc">LineOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">line</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span>
+
+
+<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">LineOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The handler would be called from a timer.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    e : ap.TimerEvent</span>
+<span class="sd">        Event instance.</span>
+<span class="sd">    options : LineOptions</span>
+<span class="sd">        Optional arguments dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">line</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;line&#39;</span><span class="p">]</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">flip_x</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">flip_x</span><span class="o">.</span><span class="n">not_</span>
+
+
+<span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span>
+    <span class="n">stage_width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">stage_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+<span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">stage</span><span class="o">=</span><span class="n">stage</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#fff&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">line</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span>
+    <span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">options</span><span class="p">:</span> <span class="n">LineOptions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;line&#39;</span><span class="p">:</span> <span class="n">line</span><span class="p">}</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span>
+    <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;do_and_graphics_base_prop_abstract_flip/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</details><iframe src="static/do_and_graphics_base_prop_abstract_flip/index.html" width="150" height="150"></section>
 <section id="skew-properties">
 <h2>skew properties<a class="headerlink" href="#skew-properties" title="Permalink to this headline">¶</a></h2>
 </section>
@@ -300,7 +343,7 @@
 <li><a class="reference internal" href="#x-and-y-properties">x and y properties</a></li>
 <li><a class="reference internal" href="#visible-property">visible property</a></li>
 <li><a class="reference internal" href="#rotation-interfaces">rotation interfaces</a></li>
-<li><a class="reference internal" href="#scale-properties">scale properties</a></li>
+<li><a class="reference internal" href="#scale-interfaces">scale interfaces</a></li>
 <li><a class="reference internal" href="#flip-properties">flip properties</a></li>
 <li><a class="reference internal" href="#skew-properties">skew properties</a></li>
 <li><a class="reference internal" href="#see-also">See also</a></li>

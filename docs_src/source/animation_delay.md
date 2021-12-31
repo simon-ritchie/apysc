@@ -1,16 +1,16 @@
 # Animation interfaces delay setting
 
-This page will explain the animation interfaces `delay` setting.
+This page explains the animation interfaces `delay` setting.
 
 ## What setting is this?
 
-The `delay` setting will determine the delay time before the animation starts. For instance, if 3000 is specified to the `delay` argument, the animation will start after 2 seconds passed.
+The `delay` setting determines the delay time before the animation starts. For instance, if you specify 3000 to the `delay` argument, the animation starts after 2 seconds after.
 
-Each animation method interface (such as the `animation_move`, `animation_x`, and so on) has the `delay` argument.
+Each animation method interface (such as the `animation_move`\, `animation_x`\, and so on) has the `delay` argument.
 
 ## Basic usage
 
-The following example will set 2 seconds between each x-coordinate animation (pause 2 seconds before animation starts):
+The following example sets 2 seconds between each x-coordinate animation (pause 2 seconds before animation starts):
 
 ```py
 # runnable
@@ -25,7 +25,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: dict) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that animation calls when its end.
 
     Parameters
     ----------
@@ -44,7 +44,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that animation calls when its end.
 
     Parameters
     ----------

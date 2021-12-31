@@ -8,8 +8,8 @@ import hashlib
 import multiprocessing as mp
 import os
 import re
-import shutil
 import subprocess as sp
+from distutils.dir_util import copy_tree
 from logging import Logger
 from typing import Any
 from typing import Dict
@@ -40,8 +40,6 @@ def _main() -> None:
     _exec_document_lint_and_script()
 
     logger.info(msg='Removing old document static files...')
-    shutil.rmtree('./docs/static/', ignore_errors=True)
-    shutil.rmtree('./docs/images/', ignore_errors=True)
 
     logger.info(msg='Sphinx build command started...')
     complete_process: sp.CompletedProcess = sp.run(
@@ -689,8 +687,10 @@ def _replace_static_path() -> None:
     """
     Replace document `_static` paths by `static`.
     """
-    shutil.move(src='./docs/_static/', dst='./docs/static/')
-    shutil.move(src='./docs/_images/', dst='./docs/images/')
+    if os.path.isdir('./docs/_static/'):
+        copy_tree(src='./docs/_static/', dst='./docs/static/')
+    if os.path.isdir('./docs/_images/'):
+        copy_tree(src='./docs/_images/', dst='./docs/images/')
     _replace_static_path_recursively(dir_path='./docs/')
 
 

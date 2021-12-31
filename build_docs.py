@@ -165,8 +165,6 @@ def _move_code_block_outputs(
             './docs/static/',
             1,
         )
-        print('src_dir_path', src_dir_path)
-        print('dst_dir_path', dst_dir_path)
         copy_tree(src=src_dir_path, dst=dst_dir_path)
         shutil.rmtree(src_dir_path, ignore_errors=True)
 

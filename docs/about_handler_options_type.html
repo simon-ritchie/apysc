@@ -45,7 +45,7 @@
             
   <section id="about-the-handler-options-type">
 <h1>About the handler options’ type<a class="headerlink" href="#about-the-handler-options-type" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the event handler <code class="docutils literal notranslate"><span class="pre">options</span></code> argument’s type.</p>
+<p>This page explains the event handler <code class="docutils literal notranslate"><span class="pre">options</span></code> argument’s type.</p>
 <section id="the-dictionary-type-is-acceptable">
 <h2>The dictionary type is acceptable<a class="headerlink" href="#the-dictionary-type-is-acceptable" title="Permalink to this headline">¶</a></h2>
 <p>Each handler’s <code class="docutils literal notranslate"><span class="pre">options</span></code> argument can accept a dictionary type value, like the following:</p>
@@ -57,7 +57,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called from a timer.</span>
+<span class="sd">    The handler that a timer calls.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -76,7 +76,7 @@
 </section>
 <section id="about-the-typeddict-annotation">
 <h2>About the TypedDict annotation<a class="headerlink" href="#about-the-typeddict-annotation" title="Permalink to this headline">¶</a></h2>
-<p>Sometimes the using the <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> type annotation instead of the <code class="docutils literal notranslate"><span class="pre">dict</span></code> type annotation is useful and makes it easy to read the code. The apysc will check a handler <code class="docutils literal notranslate"><span class="pre">options</span></code>’ annotation and the actual <code class="docutils literal notranslate"><span class="pre">options</span></code> value type when the <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> is used.</p>
+<p>Sometimes using the <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> type annotation instead of the <code class="docutils literal notranslate"><span class="pre">dict</span></code> type annotation is helpful and makes it easy to read the code. The apysc check a handler options annotation and the actual options value type when you use the <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code>.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -89,7 +89,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_MsgOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called from a timer.</span>
+<span class="sd">    The handler that a timer calls.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -106,7 +106,7 @@
 <span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Notes: if you are using a Python 3.8 or later version then the importing of the <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> from the <code class="docutils literal notranslate"><span class="pre">typing</span></code> package instead of the <code class="docutils literal notranslate"><span class="pre">typing_extensions</span></code> is available (e.g., <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">typing</span> <span class="pre">import</span> <span class="pre">TypedDict</span></code>).</p>
+<p>Notes: if you are using a Python 3.8 or later version, then importing the <code class="docutils literal notranslate"><span class="pre">TypedDict</span></code> from the <code class="docutils literal notranslate"><span class="pre">typing</span></code> package instead of the <code class="docutils literal notranslate"><span class="pre">typing_extensions</span></code> is available (e.g., <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">typing</span> <span class="pre">import</span> <span class="pre">TypedDict</span></code>).</p>
 </section>
 </section>
 

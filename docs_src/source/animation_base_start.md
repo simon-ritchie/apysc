@@ -1,14 +1,14 @@
 # AnimationBase class start interface
 
-This page will explain the `AnimationBase` class `start` method interface.
+This page explains the `AnimationBase` class `start` method interface.
 
 ## What interface is this?
 
-The `start` method interface will start the target animation. The `AnimationBase` subclass instance will be returned when you call each animation interface, such as the `animation_move` or `animation_x` and it has the `start` method.
+The `start` method interface starts the target animation. This interface returns the `AnimationBase` subclass instance is when you call each animation interface, such as the `animation_move` or `animation_x`\, and it has the `start` method.
 
 ## Basic usage
 
-Notes: you need to call the `start` method to start an animation after the calling of the animation method, such as the `animation_x`, as follows:
+Notes: you need to call the `start` method to start an animation after the calling of the animation method, such as the `animation_x`\, as follows:
 
 ```py
 # runnable

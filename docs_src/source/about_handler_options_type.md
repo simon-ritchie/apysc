@@ -1,6 +1,6 @@
 # About the handler options' type
 
-This page will explain the event handler `options` argument's type.
+This page explains the event handler `options` argument's type.
 
 ## The dictionary type is acceptable
 
@@ -15,7 +15,7 @@ import apysc as ap
 
 def on_timer(e: ap.TimerEvent, options: Dict[str, str]) -> None:
     """
-    The handler will be called from a timer.
+    The handler that a timer calls.
 
     Parameters
     ----------
@@ -33,7 +33,7 @@ timer.start()
 
 ## About the TypedDict annotation
 
-Sometimes the using the `TypedDict` type annotation instead of the `dict` type annotation is useful and makes it easy to read the code. The apysc will check a handler `options`' annotation and the actual `options` value type when the `TypedDict` is used.
+Sometimes using the `TypedDict` type annotation instead of the `dict` type annotation is helpful and makes it easy to read the code. The apysc check a handler options annotation and the actual options value type when you use the `TypedDict`\.
 
 ```py
 # runnable
@@ -48,7 +48,7 @@ class _MsgOptions(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: _MsgOptions) -> None:
     """
-    The handler will be called from a timer.
+    The handler that a timer calls.
 
     Parameters
     ----------
@@ -65,4 +65,4 @@ timer: ap.Timer = ap.Timer(on_timer, delay=1000, options=options)
 timer.start()
 ```
 
-Notes: if you are using a Python 3.8 or later version then the importing of the `TypedDict` from the `typing` package instead of the `typing_extensions` is available (e.g., `from typing import TypedDict`).
+Notes: if you are using a Python 3.8 or later version, then importing the `TypedDict` from the `typing` package instead of the `typing_extensions` is available (e.g., `from typing import TypedDict`).

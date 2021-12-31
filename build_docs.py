@@ -149,19 +149,30 @@ def _exec_document_lint_and_script(
     return executed_scripts
 
 
-def _move_code_block_outputs() -> None:
+_CODE_BLOCK_OUTPUT_DIR_PATH: str = './docs_src/source/_static/'
+
+
+def _move_code_block_outputs(
+        output_dir_path: str = _CODE_BLOCK_OUTPUT_DIR_PATH) -> None:
     """
     Move each created output by the code block script execution.
     """
     code_block_outputs_dir_paths: List[str] = \
-        _get_code_block_output_dir_paths()
-    pass
+        _get_code_block_output_dir_paths(output_dir_path=output_dir_path)
+    for src_dir_path in code_block_outputs_dir_paths:
+        dst_dir_path: str = src_dir_path.replace(
+            output_dir_path,
+            './docs/static/',
+            1,
+        )
+        print('src_dir_path', src_dir_path)
+        print('dst_dir_path', dst_dir_path)
+        copy_tree(src=src_dir_path, dst=dst_dir_path)
+        shutil.rmtree(src_dir_path, ignore_errors=True)
 
 
-_CODE_BLOCK_OUTPUT_DIR_PATH: str = 'apysc/docs_src/source/_static/'
-
-
-def _get_code_block_output_dir_paths() -> List[str]:
+def _get_code_block_output_dir_paths(
+        output_dir_path: str = _CODE_BLOCK_OUTPUT_DIR_PATH) -> List[str]:
     """
     Get the created output directory paths by the code block script
     execution.
@@ -171,14 +182,13 @@ def _get_code_block_output_dir_paths() -> List[str]:
     dir_paths : list of str
         Target directory paths.
     """
-    if not os.path.isdir(_CODE_BLOCK_OUTPUT_DIR_PATH):
+    if not os.path.isdir(output_dir_path):
         return []
-    file_or_dir_names: List[str] = os.listdir(
-        _CODE_BLOCK_OUTPUT_DIR_PATH)
+    file_or_dir_names: List[str] = os.listdir(output_dir_path)
     dir_paths: List[str] = []
     for file_or_dir_name in file_or_dir_names:
         file_or_dir_path: str = os.path.join(
-            _CODE_BLOCK_OUTPUT_DIR_PATH, file_or_dir_name)
+            output_dir_path, file_or_dir_name)
         if not os.path.isdir(file_or_dir_path):
             continue
         in_dir_file_or_dir_names: List[str] = os.listdir(file_or_dir_path)

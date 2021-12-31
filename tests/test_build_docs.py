@@ -18,8 +18,6 @@ from tests.testing_helper import assert_attrs
 from tests.testing_helper import assert_raises
 
 _CHECKOUT_FILE_PATHS: List[str] = [
-    'docs_src/source/_static/quick_start_sprite_graphics/index.html',
-    'docs_src/source/_static/quick_start_stage_creation/index.html',
     'docs_src/hashed_vals/stage.md',
 ]
 
@@ -548,12 +546,10 @@ def test__check_code_block_with_mypy() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_code_block_output_dir_paths() -> None:
-    original_code_block_output_dir_path: str = \
-        build_docs._CODE_BLOCK_OUTPUT_DIR_PATH
-    tmp_test_dir_path: str = 'tmp/test_build_docs/'
-    build_docs._CODE_BLOCK_OUTPUT_DIR_PATH = tmp_test_dir_path
+    tmp_test_dir_path: str = 'tmp/test_build_docs_1/'
     shutil.rmtree(tmp_test_dir_path, ignore_errors=True)
-    dir_paths: List[str] = build_docs._get_code_block_output_dir_paths()
+    dir_paths: List[str] = build_docs._get_code_block_output_dir_paths(
+        output_dir_path=tmp_test_dir_path)
     assert dir_paths == []
 
     tmp_subdir_path_1: str = os.path.join(
@@ -571,9 +567,32 @@ def test__get_code_block_output_dir_paths() -> None:
         tmp_test_dir_path, 'tmp_test.js')
     with open(tmp_static_file_path, 'w') as f:
         f.write('')
-    dir_paths = build_docs._get_code_block_output_dir_paths()
-    assert dir_paths == ['tmp/test_build_docs/test_2/']
+    dir_paths = build_docs._get_code_block_output_dir_paths(
+        output_dir_path=tmp_test_dir_path)
+    assert dir_paths == ['tmp/test_build_docs_1/test_2/']
 
-    build_docs._CODE_BLOCK_OUTPUT_DIR_PATH = \
-        original_code_block_output_dir_path
     shutil.rmtree(tmp_test_dir_path, ignore_errors=True)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__move_code_block_outputs() -> None:
+    tmp_test_dir_path: str = 'tmp/test_build_docs_2/'
+    shutil.rmtree(tmp_test_dir_path, ignore_errors=True)
+    tmp_subdir_path: str = os.path.join(
+        tmp_test_dir_path, 'tmp_test_build_docs/')
+    os.makedirs(tmp_subdir_path, exist_ok=True)
+    tmp_index_path: str = os.path.join(tmp_subdir_path, 'index.html')
+    with open(tmp_index_path, 'w') as f:
+        f.write('')
+    expected_dir_path: str = './docs/static/tmp_test_build_docs/'
+    expected_file_path: str = os.path.join(
+        expected_dir_path, 'index.html',
+    )
+    shutil.rmtree(expected_dir_path, ignore_errors=True)
+    build_docs._move_code_block_outputs(
+        output_dir_path=tmp_test_dir_path)
+    assert os.path.isfile(expected_file_path)
+    assert not os.path.isdir(tmp_subdir_path)
+
+    shutil.rmtree(tmp_test_dir_path, ignore_errors=True)
+    shutil.rmtree(expected_dir_path, ignore_errors=True)

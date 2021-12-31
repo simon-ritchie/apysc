@@ -25,7 +25,7 @@ def _main() -> None:
     logger.info('testing command started.')
     stdout: str = command_util.run_command(
         command=(
-            'pytest tests/ -v -s --workers auto'
+            'pytest tests/ -v -s --workers 8'
         ))
     if ' failed, ' in stdout or 'Traceback' in stdout:
         raise Exception('There are failed tests.')

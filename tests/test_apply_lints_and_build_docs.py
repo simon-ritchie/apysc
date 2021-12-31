@@ -334,10 +334,9 @@ def test__check_mypy_process() -> None:
 def test__start_numdoclint_processes() -> None:
     numdoclint_processes: List[sp.Popen] = apply_lints_and_build_docs.\
         _start_numdoclint_processes()
-    EXPECTED_LENGTH: int = 3
-    assert len(numdoclint_processes) == EXPECTED_LENGTH
+    assert len(numdoclint_processes) >= 3
     joined_commands: List[str] = [
         str(process.args) for process in numdoclint_processes]
-    assert len(set(joined_commands)) == EXPECTED_LENGTH
+    assert len(set(joined_commands)) == len(joined_commands)
     for joined_command in joined_commands:
         assert 'numdoclint' in joined_command

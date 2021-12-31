@@ -8,6 +8,7 @@ import hashlib
 import multiprocessing as mp
 import os
 import re
+import shutil
 import subprocess as sp
 from distutils.dir_util import copy_tree
 from logging import Logger
@@ -17,13 +18,11 @@ from typing import List
 from typing import Match
 from typing import Optional
 from typing import Tuple
-import shutil
 
 from typing_extensions import Final
 from typing_extensions import TypedDict
 
 from apysc._console import loggers
-from apysc._file import file_util
 from apysc._jslib import jslib_util
 
 logger: Logger = loggers.get_info_logger()

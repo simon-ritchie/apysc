@@ -51,7 +51,6 @@ class DisplayObject(
         with ap.DebugInfo(
                 callable_='__init__', locals_=locals(),
                 module_name=__name__, class_=DisplayObject):
-            from apysc._validation import display_validation
             from apysc._validation import string_validation
             stage: ap.Stage = ap.get_stage()
             self.stage: ap.Stage = stage

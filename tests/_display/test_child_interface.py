@@ -143,7 +143,7 @@ class TestChildInterface:
         child_interface._initialize_children_if_not_initialized()
         assert child_interface._children == []
 
-        stage: ap.Stage = ap.Stage()
+        ap.Stage()
         sprite: ap.Sprite = ap.Sprite()
         child_interface._children = ap.Array([sprite])
         child_interface._initialize_children_if_not_initialized()

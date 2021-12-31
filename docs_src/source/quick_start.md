@@ -51,7 +51,7 @@ import apysc as ap
 stage: ap.Stage = ap.Stage(
     stage_width=250, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Draw polyline vector graphics.
 sprite.graphics.line_style(color='#fff', thickness=3)

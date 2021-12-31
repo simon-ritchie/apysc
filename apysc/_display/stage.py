@@ -6,11 +6,11 @@ References
     - https://simon-ritchie.github.io/apysc/stage.html
 """
 
+import ctypes
 import random
 from datetime import datetime
 from typing import Optional
 from typing import Tuple
-import ctypes
 
 from apysc._display.child_interface import ChildInterface
 from apysc._display.height_interface import HeightInterface
@@ -69,9 +69,9 @@ class Stage(
         """
         import apysc as ap
         from apysc._color import color_util
+        from apysc._expression import expression_data_util
         from apysc._html import html_util
         from apysc._validation import string_validation
-        from apysc._expression import expression_data_util
         expression_data_util.empty_expression()
         self.stage = self
         self._stage_elem_id = self._create_stage_elem_id_if_none(

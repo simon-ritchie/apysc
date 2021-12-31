@@ -1,6 +1,8 @@
 from random import randint
-from typing import Any, Optional, Tuple
+from typing import Any
 from typing import Dict
+from typing import Optional
+from typing import Tuple
 
 from retrying import retry
 

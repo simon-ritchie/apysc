@@ -73,9 +73,10 @@ def display_on_jupyter(
     - display_on_jupyter interface document
         - https://simon-ritchie.github.io/apysc/display_on_jupyter.html
     """
-    import apysc as ap
     from IPython.display import IFrame
     from IPython.display import display
+
+    import apysc as ap
 
     stage: ap.Stage = ap.get_stage()
     _save_overall_html(

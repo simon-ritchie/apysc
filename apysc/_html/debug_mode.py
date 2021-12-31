@@ -21,10 +21,7 @@ def set_debug_mode() -> None:
     - HTML minify setting will be disabled.
     - Per each interface JavaScript divider string will be appended.
     """
-    import apysc as ap
     from apysc._expression import expression_data_util
-    from apysc._validation.display_validation import validate_stage
-    stage: ap.Stage = ap.get_stage()
     table_name: str = expression_data_util.TableName.DEBUG_MODE_SETTING.value
     query: str = f'DELETE FROM {table_name};'
     expression_data_util.exec_query(sql=query, commit=False)

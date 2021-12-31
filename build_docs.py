@@ -23,6 +23,7 @@ from typing_extensions import Final
 from typing_extensions import TypedDict
 
 from apysc._console import loggers
+from apysc._file import file_util
 from apysc._jslib import jslib_util
 
 logger: Logger = loggers.get_info_logger()
@@ -139,12 +140,52 @@ def _exec_document_lint_and_script(
     with mp.Pool(workers) as p:
         run_return_data_list: List[_RunReturnData] = p.map(
             func=_run_code_block_script, iterable=script_data_list)
+    _move_code_block_outputs()
     _validate_script_return_data(return_data_list=run_return_data_list)
 
     _save_hashed_val(script_data_list=script_data_list)
     executed_scripts: List[str] = [
         script_data['runnable_script'] for script_data in script_data_list]
     return executed_scripts
+
+
+def _move_code_block_outputs() -> None:
+    """
+    Move each created output by the code block script execution.
+    """
+    code_block_outputs_dir_paths: List[str] = \
+        _get_code_block_output_dir_paths()
+    pass
+
+
+_CODE_BLOCK_OUTPUT_DIR_PATH: str = 'apysc/docs_src/source/_static/'
+
+
+def _get_code_block_output_dir_paths() -> List[str]:
+    """
+    Get the created output directory paths by the code block script
+    execution.
+
+    Returns
+    -------
+    dir_paths : list of str
+        Target directory paths.
+    """
+    if not os.path.isdir(_CODE_BLOCK_OUTPUT_DIR_PATH):
+        return []
+    file_or_dir_names: List[str] = os.listdir(
+        _CODE_BLOCK_OUTPUT_DIR_PATH)
+    dir_paths: List[str] = []
+    for file_or_dir_name in file_or_dir_names:
+        file_or_dir_path: str = os.path.join(
+            _CODE_BLOCK_OUTPUT_DIR_PATH, file_or_dir_name)
+        if not os.path.isdir(file_or_dir_path):
+            continue
+        in_dir_file_or_dir_names: List[str] = os.listdir(file_or_dir_path)
+        if in_dir_file_or_dir_names != ['index.html']:
+            continue
+        dir_paths.append(f'{file_or_dir_path}/')
+    return dir_paths
 
 
 class _CodeBlockMypyError(Exception):

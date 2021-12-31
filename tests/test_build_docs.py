@@ -544,3 +544,36 @@ def test__check_code_block_with_mypy() -> None:
         'runnable_script': 'print(100)',
     }
     build_docs._check_code_block_with_mypy(script_data=script_data)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_code_block_output_dir_paths() -> None:
+    original_code_block_output_dir_path: str = \
+        build_docs._CODE_BLOCK_OUTPUT_DIR_PATH
+    tmp_test_dir_path: str = 'tmp/test_build_docs/'
+    build_docs._CODE_BLOCK_OUTPUT_DIR_PATH = tmp_test_dir_path
+    shutil.rmtree(tmp_test_dir_path, ignore_errors=True)
+    dir_paths: List[str] = build_docs._get_code_block_output_dir_paths()
+    assert dir_paths == []
+
+    tmp_subdir_path_1: str = os.path.join(
+        tmp_test_dir_path, 'test_1/')
+    os.makedirs(tmp_subdir_path_1, exist_ok=True)
+    tmp_subdir_path_2: str = os.path.join(
+        tmp_test_dir_path, 'test_2/')
+    os.makedirs(tmp_subdir_path_2, exist_ok=True)
+    tmp_index_path: str = os.path.join(
+        tmp_subdir_path_2, 'index.html',
+    )
+    with open(tmp_index_path, 'w') as f:
+        f.write('')
+    tmp_static_file_path: str = os.path.join(
+        tmp_test_dir_path, 'tmp_test.js')
+    with open(tmp_static_file_path, 'w') as f:
+        f.write('')
+    dir_paths = build_docs._get_code_block_output_dir_paths()
+    assert dir_paths == ['tmp/test_build_docs/test_2/']
+
+    build_docs._CODE_BLOCK_OUTPUT_DIR_PATH = \
+        original_code_block_output_dir_path
+    shutil.rmtree(tmp_test_dir_path, ignore_errors=True)

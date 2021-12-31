@@ -18,6 +18,8 @@ Mainly following interfaces are defined:
     - Get a specified module's abosulute directory path.
 - get_specified_ext_file_paths_recursively
     - Get specified extension file paths recursively.
+- count_files_recursively
+    - Count the existing files number in a specified directory.
 """
 
 import os
@@ -194,3 +196,32 @@ def get_specified_ext_file_paths_recursively(
             continue
         file_paths.append(file_or_dir_path)
     return file_paths
+
+
+def count_files_recursively(dir_path: str) -> int:
+    """
+    Count the existing files number in a specified directory
+    recursively.
+
+    Parameters
+    ----------
+    dir_path : str
+        Target directory path.
+
+    Returns
+    -------
+    count : int
+        Existing files count.
+    """
+    if not os.path.isdir(dir_path):
+        return 0
+    file_or_dir_names: List[str] = os.listdir(dir_path)
+    count: int = 0
+    for file_or_dir_name in file_or_dir_names:
+        file_or_dir_path: str = os.path.join(dir_path, file_or_dir_name)
+        if os.path.isdir(file_or_dir_path):
+            count += count_files_recursively(file_or_dir_path)
+            continue
+        if os.path.isfile(file_or_dir_path):
+            count += 1
+    return count

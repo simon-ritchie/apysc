@@ -9,6 +9,7 @@ from apysc._file import file_util
 from tests import testing_helper
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_empty_directory() -> None:
     tmp_dir_path: str = '../.tmp_apysc/'
     os.makedirs(tmp_dir_path, exist_ok=True)
@@ -106,3 +107,24 @@ def test_get_specified_ext_file_paths_recursively() -> None:
     assert './docs_src/source/index.md' in file_paths
     assert './docs_src/source/quick_start.md' in file_paths
     assert './docs_src/source/conf.py' not in file_paths
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_count_files_recursively() -> None:
+    tmp_dir_path: str = 'tmp/tmp_test_file_util/'
+    shutil.rmtree(tmp_dir_path, ignore_errors=True)
+    count: int = file_util.count_files_recursively(dir_path=tmp_dir_path)
+    assert count == 0
+    os.makedirs(tmp_dir_path, exist_ok=True)
+
+    tmp_subdir_path: str = os.path.join(tmp_dir_path, 'subdir/')
+    os.makedirs(tmp_subdir_path, exist_ok=True)
+    tmp_file_path_1: str = os.path.join(tmp_dir_path, 'test_1.txt')
+    tmp_file_path_2: str = os.path.join(tmp_dir_path, 'test_2.txt')
+    tmp_file_path_3: str = os.path.join(tmp_subdir_path, 'test_1.txt')
+    for tmp_file_path in (tmp_file_path_1, tmp_file_path_2, tmp_file_path_3):
+        with open(tmp_file_path, 'w') as f:
+            f.write('')
+    count = file_util.count_files_recursively(dir_path=tmp_dir_path)
+    assert count == 3
+    shutil.rmtree(tmp_dir_path, ignore_errors=True)

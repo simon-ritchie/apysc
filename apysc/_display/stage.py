@@ -72,6 +72,7 @@ class Stage(
         from apysc._expression import expression_data_util
         from apysc._html import html_util
         from apysc._validation import string_validation
+        global _current_stage
         expression_data_util.empty_expression()
         self.stage = self
         self._stage_elem_id = self._create_stage_elem_id_if_none(
@@ -93,6 +94,7 @@ class Stage(
         self._append_constructor_expression()
         self._children = ap.Array([])
         _save_stage_id_to_db(stage=self)
+        _current_stage = self
 
     def _save_stage_elem_id(self) -> None:
         """

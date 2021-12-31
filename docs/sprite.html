@@ -50,9 +50,13 @@
 <h2>What is the Sprite?<a class="headerlink" href="#what-is-the-sprite" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class is the container of each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance. It also has the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class interfaces and can draw each vector graphic.</p>
 </section>
+<section id="note-for-the-automated-addition">
+<h2>Note for the automated addition<a class="headerlink" href="#note-for-the-automated-addition" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance is automated added to the stage (no need to call <code class="docutils literal notranslate"><span class="pre">add_child</span></code> or other related interfaces). However, suppose you want to add to the other instance. In that case, you need to call the <code class="docutils literal notranslate"><span class="pre">add_child</span></code> method manually.</p>
+</section>
 <section id="graphics-attribute-interfaces">
 <h2>graphics attribute interfaces<a class="headerlink" href="#graphics-attribute-interfaces" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">graphics</span></code> attribute and you can draw each vector graphic with it. For example, the following code will draw the cyan color rectangle.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">graphics</span></code> attribute, and you can draw each vector graphic with it. For example, the following code will draw the cyan color rectangle.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -81,7 +85,7 @@
 </section>
 <section id="move-displayobject-instances-simultaneously">
 <h2>Move DisplayObject instances simultaneously<a class="headerlink" href="#move-displayobject-instances-simultaneously" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class is a container and if you move that coordinates, then children’s coordinates will be changed simultaneously. For example, the following code will change the sprite y-coordinate when you click the rectangle.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class is a container, and if you move that coordinates, then children’s coordinates will be changed simultaneously. For example, the following code will change the sprite y-coordinate when you click the rectangle.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -145,6 +149,7 @@
   <ul>
 <li><a class="reference internal" href="#">Sprite</a><ul>
 <li><a class="reference internal" href="#what-is-the-sprite">What is the Sprite?</a></li>
+<li><a class="reference internal" href="#note-for-the-automated-addition">Note for the automated addition</a></li>
 <li><a class="reference internal" href="#graphics-attribute-interfaces">graphics attribute interfaces</a></li>
 <li><a class="reference internal" href="#move-displayobject-instances-simultaneously">Move DisplayObject instances simultaneously</a></li>
 <li><a class="reference internal" href="#see-also">See also</a></li>

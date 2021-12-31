@@ -205,13 +205,16 @@ def _start_numdoclint_processes() -> List[sp.Popen]:
     numdoclint_processes : list of Popen
         Started subprocesses.
     """
-    dir_paths: List[str] = [
+    paths: List[str] = [
         './apysc/', './tests/', './test_projects/',
+        *_ROOT_MODULE_PATHS_STR.split(' ')
     ]
     numdoclint_processes: List[sp.Popen] = []
-    for dir_path in dir_paths:
+    for path in paths:
         command_strs: List[str] = NUMDOCLINT_NO_PATH_COMMAND.split(' ')
-        command_strs.extend(['-p', f'{dir_path}'])
+        if not path.endswith('/'):
+            command_strs.remove('-r')
+        command_strs.extend(['-p', f'{path}'])
         process: sp.Popen = _start_subprocess(
             command_strs=command_strs)
         numdoclint_processes.append(process)
@@ -336,7 +339,7 @@ def _check_numdoclint_process(
         stdout, _ = numdoclint_process.communicate()
         stdout_str: str = stdout.decode().replace('[]', '').strip()
         if stdout_str == '':
-            return
+            continue
         raise _NumdoclintError(f'There is a numdoclint error: \n{stdout_str}')
 
 
@@ -386,16 +389,13 @@ def _check_build_doc_process(build_doc_process: sp.Popen) -> None:
         If there is a documentation build error.
     """
     stdout: bytes
-    stderr: bytes
     logger.info(msg='Waiting documentation build completion...')
-    stdout, stderr = build_doc_process.communicate()
+    stdout, _ = build_doc_process.communicate()
     stdout_str: str = stdout.decode()
-    stderr_str: str = stderr.decode()
-    for string in (stdout_str, stderr_str):
-        if 'Traceback' not in string:
-            continue
-        raise _DocumentBuildError(
-            f'There is a document build error: {string}')
+    if 'Traceback' not in stdout_str:
+        return
+    raise _DocumentBuildError(
+        f'There is a document build error: {stdout_str}')
 
 
 def _start_subprocess(command_strs: List[str]) -> sp.Popen:
@@ -412,7 +412,8 @@ def _start_subprocess(command_strs: List[str]) -> sp.Popen:
     process : Popen
         Created subprocess object.
     """
-    process: sp.Popen = sp.Popen(command_strs, stdout=sp.PIPE, stderr=sp.PIPE)
+    process: sp.Popen = sp.Popen(
+        command_strs, stdout=sp.PIPE, stderr=sp.STDOUT)
     return process
 
 

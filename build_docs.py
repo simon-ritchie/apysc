@@ -157,6 +157,11 @@ def _move_code_block_outputs(
         output_dir_path: str = _CODE_BLOCK_OUTPUT_DIR_PATH) -> None:
     """
     Move each created output by the code block script execution.
+
+    Parameters
+    ----------
+    output_dir_path : str, default _CODE_BLOCK_OUTPUT_DIR_PATH
+        Expected output root directory path.
     """
     code_block_outputs_dir_paths: List[str] = \
         _get_code_block_output_dir_paths(output_dir_path=output_dir_path)
@@ -175,6 +180,11 @@ def _get_code_block_output_dir_paths(
     """
     Get the created output directory paths by the code block script
     execution.
+
+    Parameters
+    ----------
+    output_dir_path : str, default _CODE_BLOCK_OUTPUT_DIR_PATH
+        Expected output root directory path.
 
     Returns
     -------

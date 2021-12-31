@@ -45,10 +45,10 @@
             
   <section id="animationbase-class-target-property-interface">
 <h1>AnimationBase class target property interface<a class="headerlink" href="#animationbase-class-target-property-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> class <code class="docutils literal notranslate"><span class="pre">target</span></code> property interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> class <code class="docutils literal notranslate"><span class="pre">target</span></code> property interface.</p>
 <section id="what-property-is-this">
 <h2>What property is this?<a class="headerlink" href="#what-property-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">target</span></code> property will return the animation target instance (e.g., <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>, <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">target</span></code> property returns the animation target instance (e.g., <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>, <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>).</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
@@ -70,8 +70,8 @@
 </section>
 <section id="generic-type-annotation-setting">
 <h2>Generic type annotation setting<a class="headerlink" href="#generic-type-annotation-setting" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> class and its subclasses can set a generic type annotation and if it is set the <code class="docutils literal notranslate"><span class="pre">target</span></code> property type will be its type.</p>
-<p>The following code will set the <code class="docutils literal notranslate"><span class="pre">[ap.Rectangle]</span></code> generic type annotation:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> class and its subclasses can set a generic type annotation. For example, the <code class="docutils literal notranslate"><span class="pre">target</span></code> property type becomes its type if you set it.</p>
+<p>The following code sets the <code class="docutils literal notranslate"><span class="pre">[ap.Rectangle]</span></code> generic type annotation:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -94,7 +94,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

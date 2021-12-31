@@ -1,14 +1,14 @@
 # AnimationBase class target property interface
 
-This page will explain the `AnimationBase` class `target` property interface.
+This page explains the `AnimationBase` class `target` property interface.
 
 ## What property is this?
 
-The `target` property will return the animation target instance (e.g., `Sprite`, `Rectangle`).
+The `target` property returns the animation target instance (e.g., `Sprite`\, `Rectangle`).
 
 ## Basic usage
 
-Each subclass of the `AnimationBase` (e.g., `AnimationMove`, `AnimationX`) has the `target` getter property.
+Each subclass of the `AnimationBase` (e.g., `AnimationMove`\, `AnimationX`) has the `target` getter property.
 
 ```py
 # runnable
@@ -27,9 +27,9 @@ assert isinstance(animation_x.target, ap.Rectangle)
 
 ## Generic type annotation setting
 
-The `AnimationBase` class and its subclasses can set a generic type annotation and if it is set the `target` property type will be its type.
+The `AnimationBase` class and its subclasses can set a generic type annotation. For example, the `target` property type becomes its type if you set it.
 
-The following code will set the `[ap.Rectangle]` generic type annotation:
+The following code sets the `[ap.Rectangle]` generic type annotation:
 
 ```py
 # runnable
@@ -46,7 +46,7 @@ animation_x: ap.AnimationX[ap.Rectangle] = rectangle.animation_x(x=100)
 assert isinstance(animation_x.target, ap.Rectangle)
 ```
 
-It is also sometimes useful to annotate generic type to the handler's `AnimationEvent`. This generic type annotation also affects the `target` type (`e.this.target`), as follows:
+It is also sometimes useful to annotate generic type to the handler's `AnimationEvent`\. This generic type annotation also affects the `target` type (`e.this.target`), as follows:
 
 ```py
 # runnable
@@ -56,7 +56,7 @@ import apysc as ap
 def on_animation_complete(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler the animation calls when its end.
 
     Parameters
     ----------

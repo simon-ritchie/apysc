@@ -6,9 +6,13 @@ This page will explain the `Sprite` class.
 
 The `Sprite` class is the container of each `DisplayObject` instance. It also has the `Graphics` class interfaces and can draw each vector graphic.
 
+## Note for the automated addition
+
+The `Sprite` instance is automated added to the stage (no need to call `add_child` or other related interfaces). However, suppose you want to add to the other instance. In that case, you need to call the `add_child` method manually.
+
 ## graphics attribute interfaces
 
-The `Sprite` instance has the `graphics` attribute and you can draw each vector graphic with it. For example, the following code will draw the cyan color rectangle.
+The `Sprite` instance has the `graphics` attribute, and you can draw each vector graphic with it. For example, the following code will draw the cyan color rectangle.
 
 ```py
 # runnable
@@ -40,7 +44,7 @@ For more details, please see the `Graphics` related documents, for example:
 
 ## Move DisplayObject instances simultaneously
 
-The `Sprite` class is a container and if you move that coordinates, then children's coordinates will be changed simultaneously. For example, the following code will change the sprite y-coordinate when you click the rectangle.
+The `Sprite` class is a container, and if you move that coordinates, then children's coordinates will be changed simultaneously. For example, the following code will change the sprite y-coordinate when you click the rectangle.
 
 ```py
 # runnable

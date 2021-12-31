@@ -1,16 +1,16 @@
 # Animation interfaces duration setting
 
-This page will explain the animation interfaces `duration` setting.
+This page explains the animation interfaces `duration` setting.
 
 ## What setting is this?
 
-The `duration` setting will determine the animation time from start to end in milliseconds. For instance, if 3000 is specified to the `duration` argument, the animation will take 3 seconds to complete.
+The `duration` setting determines the animation time from start to end in milliseconds. For instance, if you specify 3000 to the `duration` argument, the animation takes 3 seconds to complete.
 
-Each animation method interface (such as the `animation_move`, `animation_x`, and so on) has the `duration` argument.
+Each animation method interface (such as the `animation_move`\, `animation_x`\, and so on) has the `duration` argument.
 
 ## Basic usage
 
-The following example will set 3 seconds to the `duration` option and animate x-coordinate.
+The following example sets 3 seconds to the `duration` option and animate x-coordinate.
 
 ```py
 # runnable
@@ -24,7 +24,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: dict) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that animation calls when its end.
 
     Parameters
     ----------
@@ -43,7 +43,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that animation calls when its end.
 
     Parameters
     ----------

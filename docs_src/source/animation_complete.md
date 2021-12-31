@@ -91,7 +91,7 @@ def on_animation_complete(
         e: ap.AnimationEvent[ap.Rectangle],
         options: dict) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that animation calls when its end.
 
     Parameters
     ----------
@@ -132,7 +132,7 @@ def on_animation_complete(
         e: ap.AnimationEvent[ap.Rectangle],
         options: dict) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that animation calls when its end.
 
     Parameters
     ----------

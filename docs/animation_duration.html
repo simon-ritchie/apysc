@@ -45,15 +45,15 @@
             
   <section id="animation-interfaces-duration-setting">
 <h1>Animation interfaces duration setting<a class="headerlink" href="#animation-interfaces-duration-setting" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the animation interfaces <code class="docutils literal notranslate"><span class="pre">duration</span></code> setting.</p>
+<p>This page explains the animation interfaces <code class="docutils literal notranslate"><span class="pre">duration</span></code> setting.</p>
 <section id="what-setting-is-this">
 <h2>What setting is this?<a class="headerlink" href="#what-setting-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">duration</span></code> setting will determine the animation time from start to end in milliseconds. For instance, if 3000 is specified to the <code class="docutils literal notranslate"><span class="pre">duration</span></code> argument, the animation will take 3 seconds to complete.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">duration</span></code> setting determines the animation time from start to end in milliseconds. For instance, if you specify 3000 to the <code class="docutils literal notranslate"><span class="pre">duration</span></code> argument, the animation takes 3 seconds to complete.</p>
 <p>Each animation method interface (such as the <code class="docutils literal notranslate"><span class="pre">animation_move</span></code>, <code class="docutils literal notranslate"><span class="pre">animation_x</span></code>, and so on) has the <code class="docutils literal notranslate"><span class="pre">duration</span></code> argument.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The following example will set 3 seconds to the <code class="docutils literal notranslate"><span class="pre">duration</span></code> option and animate x-coordinate.</p>
+<p>The following example sets 3 seconds to the <code class="docutils literal notranslate"><span class="pre">duration</span></code> option and animate x-coordinate.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -65,7 +65,7 @@
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span>
         <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is complete.</span>
+<span class="sd">    The handler that animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -84,7 +84,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is complete.</span>
+<span class="sd">    The handler that animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

@@ -1,14 +1,14 @@
 # AnimationEvent
 
-This page will explain the `AnimationEvent` class.
+This page explains the `AnimationEvent` class.
 
 ## What class is this?
 
-The `AnimationEvent` class is used by an animation-related event handler, such as the animation complete event. This instance will be passed to the handler's first argument.
+An animation-related event handler uses the `AnimationEvent` class, such as the complete animation event. Each animation interface passes this event instance to the handler.
 
 ## Basic usage
 
-The following example will set the animation complete event handler and the `AnimationEvent` instance argument is set as the `e: ap.AnimationEvent`:
+The following example sets the animation complete event handler. The animation interface passes the `AnimationEvent` instance argument as the `e: ap.AnimationEvent`:
 
 ```py
 # runnable
@@ -17,7 +17,7 @@ import apysc as ap
 
 def on_animation_complete(e: ap.AnimationEvent, options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that animation calls when its end.
 
     Parameters
     ----------
@@ -43,7 +43,9 @@ animation_x.start()
 
 ## this property
 
-The `AnimationEvent` instance's `this` property will be a subclass instance of the `AnimationBase` class, such as the `AnimationMove`, `AnimationX` or other class (this depends on the called interface, e.g., if you use the `animation_x` interface, `this` property type will be an `AnimationX` instance).
+The `AnimationEvent` instance's `this` property is a subclass instance of the `AnimationBase` class, such as the `AnimationMove`\, `AnimationX`\, or other class.
+
+This type depends on the called interface, e.g., if you use the `animation_x` interface, `this` property type becomes an `AnimationX` instance.
 
 ```py
 # runnable
@@ -52,7 +54,7 @@ import apysc as ap
 
 def on_animation_complete(e: ap.AnimationEvent, options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that animation calls when its end.
 
     Parameters
     ----------
@@ -78,9 +80,9 @@ animation_x.start()
 
 ## Generic type annotation
 
-The `AnimationEvent` class can set a generic type annotation. If you set a generic type annotation, then the animation target property type (e.g., `DisplayObject`) will change to it.
+The `AnimationEvent` class can set a generic type annotation. If you set a generic type annotation, then the animation target property type (e.g., `DisplayObject`) changes.
 
-The following example will set a `Rectangle` generic type annotation to the `AnimationEvent` and get the benefit of type checking libraries (such as the `mypy` or `Pylance`).
+The following example sets a `Rectangle` generic type annotation to the `AnimationEvent` and benefits from type checking libraries (such as the `mypy` or `Pylance`).
 
 ```py
 # runnable
@@ -90,7 +92,7 @@ import apysc as ap
 def on_animation_complete(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that animation calls when its end.
 
     Parameters
     ----------

@@ -45,21 +45,21 @@
             
   <section id="animationevent">
 <h1>AnimationEvent<a class="headerlink" href="#animationevent" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code> class.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code> class.</p>
 <section id="what-class-is-this">
 <h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code> class is used by an animation-related event handler, such as the animation complete event. This instance will be passed to the handler’s first argument.</p>
+<p>An animation-related event handler uses the <code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code> class, such as the complete animation event. Each animation interface passes this event instance to the handler.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The following example will set the animation complete event handler and the <code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code> instance argument is set as the <code class="docutils literal notranslate"><span class="pre">e:</span> <span class="pre">ap.AnimationEvent</span></code>:</p>
+<p>The following example sets the animation complete event handler. The animation interface passes the <code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code> instance argument as the <code class="docutils literal notranslate"><span class="pre">e:</span> <span class="pre">ap.AnimationEvent</span></code>:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
 <span class="k">def</span> <span class="nf">on_animation_complete</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -86,14 +86,15 @@
 </section>
 <section id="this-property">
 <h2>this property<a class="headerlink" href="#this-property" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code> instance’s <code class="docutils literal notranslate"><span class="pre">this</span></code> property will be a subclass instance of the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> class, such as the <code class="docutils literal notranslate"><span class="pre">AnimationMove</span></code>, <code class="docutils literal notranslate"><span class="pre">AnimationX</span></code> or other class (this depends on the called interface, e.g., if you use the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code> interface, <code class="docutils literal notranslate"><span class="pre">this</span></code> property type will be an <code class="docutils literal notranslate"><span class="pre">AnimationX</span></code> instance).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code> instance’s <code class="docutils literal notranslate"><span class="pre">this</span></code> property is a subclass instance of the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> class, such as the <code class="docutils literal notranslate"><span class="pre">AnimationMove</span></code>, <code class="docutils literal notranslate"><span class="pre">AnimationX</span></code>, or other class.</p>
+<p>This type depends on the called interface, e.g., if you use the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code> interface, <code class="docutils literal notranslate"><span class="pre">this</span></code> property type becomes an <code class="docutils literal notranslate"><span class="pre">AnimationX</span></code> instance.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
 <span class="k">def</span> <span class="nf">on_animation_complete</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -120,8 +121,8 @@
 </section>
 <section id="generic-type-annotation">
 <h2>Generic type annotation<a class="headerlink" href="#generic-type-annotation" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code> class can set a generic type annotation. If you set a generic type annotation, then the animation target property type (e.g., <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>) will change to it.</p>
-<p>The following example will set a <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> generic type annotation to the <code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code> and get the benefit of type checking libraries (such as the <code class="docutils literal notranslate"><span class="pre">mypy</span></code> or <code class="docutils literal notranslate"><span class="pre">Pylance</span></code>).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code> class can set a generic type annotation. If you set a generic type annotation, then the animation target property type (e.g., <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>) changes.</p>
+<p>The following example sets a <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> generic type annotation to the <code class="docutils literal notranslate"><span class="pre">AnimationEvent</span></code> and benefits from type checking libraries (such as the <code class="docutils literal notranslate"><span class="pre">mypy</span></code> or <code class="docutils literal notranslate"><span class="pre">Pylance</span></code>).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -129,7 +130,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

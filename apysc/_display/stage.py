@@ -19,6 +19,9 @@ from apysc._event.custom_event_interface import CustomEventInterface
 from apysc._event.mouse_event_interfaces import MouseEventInterfaces
 from apysc._type.variable_name_interface import VariableNameInterface
 
+# This is used only for avoiding gabage collection.
+_current_stage: 'Stage'
+
 
 class Stage(
         ChildInterface, WidthInterface, HeightInterface,

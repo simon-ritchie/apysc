@@ -1,10 +1,10 @@
 # AnimationBase class animation_complete interface
 
-This page will explain the `AnimationBase` class `animation_complete` method interface.
+This page explains the `AnimationBase` class `animation_complete` method interface.
 
 ## What interface is this?
 
-The `animation_complete` method will bind a handler will be called when an animation is complete.
+The `animation_complete` method binds a handler that the animation calls when its end.
 
 The handler's arguments require the event instance (`ap.AnimationEvent`) at the first argument and the options dictionary at the second argument.
 
@@ -12,7 +12,7 @@ The handler's arguments require the event instance (`ap.AnimationEvent`) at the 
 
 The `animation_complete` method requires a handler at the first argument and the optional options dictionary at the second argument.
 
-The following example will call the `animation_complete` method at the x-coordinate animation end and start another animation to reset the x-coordinate:
+The following example calls the `animation_complete` method at the x-coordinate animation end. It starts another animation to reset the x-coordinate:
 
 ```py
 # runnable
@@ -25,7 +25,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: dict) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that animation calls when its end.
 
     Parameters
     ----------
@@ -44,7 +44,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that animation calls when its end.
 
     Parameters
     ----------
@@ -81,7 +81,7 @@ ap.save_overall_html(
 
 ## Notes about the other interface calling order
 
-The `animation_complete` method can only be called before the animation start, so if you call the `animation_complete` method after the `start` method, an exception will be raised:
+You can only call the `animation_complete` before the animation start, so if you call the `animation_complete` method after the `start` method, it raises an exception:
 
 ```py
 import apysc as ap

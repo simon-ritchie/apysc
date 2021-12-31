@@ -45,16 +45,16 @@
             
   <section id="animationbase-class-animation-complete-interface">
 <h1>AnimationBase class animation_complete interface<a class="headerlink" href="#animationbase-class-animation-complete-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> class <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> class <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method will bind a handler will be called when an animation is complete.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method binds a handler that the animation calls when its end.</p>
 <p>The handler’s arguments require the event instance (<code class="docutils literal notranslate"><span class="pre">ap.AnimationEvent</span></code>) at the first argument and the options dictionary at the second argument.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method requires a handler at the first argument and the optional options dictionary at the second argument.</p>
-<p>The following example will call the <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method at the x-coordinate animation end and start another animation to reset the x-coordinate:</p>
+<p>The following example calls the <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method at the x-coordinate animation end. It starts another animation to reset the x-coordinate:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -65,7 +65,7 @@
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span>
         <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is complete.</span>
+<span class="sd">    The handler that animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -84,7 +84,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is complete.</span>
+<span class="sd">    The handler that animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -120,7 +120,7 @@
 <iframe src="static/animation_complete_basic_usage/index.html" width="200" height="150"></iframe></section>
 <section id="notes-about-the-other-interface-calling-order">
 <h2>Notes about the other interface calling order<a class="headerlink" href="#notes-about-the-other-interface-calling-order" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method can only be called before the animation start, so if you call the <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method after the <code class="docutils literal notranslate"><span class="pre">start</span></code> method, an exception will be raised:</p>
+<p>You can only call the <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> before the animation start, so if you call the <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> method after the <code class="docutils literal notranslate"><span class="pre">start</span></code> method, it raises an exception:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 

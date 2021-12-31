@@ -17,6 +17,7 @@ from typing import List
 from typing import Match
 from typing import Optional
 from typing import Tuple
+import shutil
 
 from typing_extensions import Final
 from typing_extensions import TypedDict
@@ -38,8 +39,6 @@ def _main() -> None:
     logger.info(msg='Documentation build started...')
 
     _exec_document_lint_and_script()
-
-    logger.info(msg='Removing old document static files...')
 
     logger.info(msg='Sphinx build command started...')
     complete_process: sp.CompletedProcess = sp.run(
@@ -683,17 +682,22 @@ def _move_and_adjust_updated_files() -> None:
     """
     if os.path.isdir('./docs/_static/'):
         logger.info(
-            msg='Replacing `_static` and `_images` paths by `static`...')
-        _replace_static_path_recursively(dir_path='./docs/_static/')
+            msg='Replacing `_static` and `_images` paths by `static` '
+                'and `images`...')
+        _replace_static_path_recursively(dir_path='./docs/')
         logger.info(
             msg='Removing `# runnable` inline comment from code blocks...')
         _remove_runnable_inline_comment_from_code_blocks(
-            dir_path='./docs/static/')
-        logger.info(msg='Copying update document files...')
+            dir_path='./docs/')
+        logger.info(msg='Copying updated document files...')
         copy_tree(src='./docs/_static/', dst='./docs/static/')
+        logger.info(msg='Removing unnecessary static files...')
+        shutil.rmtree('./docs/_static/', ignore_errors=True)
     if os.path.isdir('./docs/_images/'):
         logger.info(msg='Copying document images...')
         copy_tree(src='./docs/_images/', dst='./docs/images/')
+        logger.info(msg='Removing unnecessary image files...')
+        shutil.rmtree('./docs/_images/', ignore_errors=True)
 
 
 def _replace_static_path_recursively(dir_path: str) -> None:

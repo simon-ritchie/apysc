@@ -13,3 +13,4 @@ test_output
 /tmp_*.py
 /tmp.md
 /tmp_2.md
+/docs/.doctrees/*

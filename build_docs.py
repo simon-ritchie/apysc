@@ -39,8 +39,9 @@ def _main() -> None:
 
     _exec_document_lint_and_script()
 
-    logger.info(msg='Removing old documents...')
-    shutil.rmtree('./docs/', ignore_errors=True)
+    logger.info(msg='Removing old document static files...')
+    shutil.rmtree('./docs/static/', ignore_errors=True)
+    shutil.rmtree('./docs/images/', ignore_errors=True)
 
     logger.info(msg='Sphinx build command started...')
     complete_process: sp.CompletedProcess = sp.run(
@@ -48,7 +49,6 @@ def _main() -> None:
         stdout=sp.PIPE, stderr=sp.STDOUT)
     stdout: str = complete_process.stdout.decode('utf-8')
     print(stdout)
-    shutil.rmtree('./docs/.doctrees', ignore_errors=True)
 
     logger.info(msg='Replacing `_static` and `_images` paths by `static`...')
     _replace_static_path()

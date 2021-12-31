@@ -47,13 +47,7 @@ def _main() -> None:
         stdout=sp.PIPE, stderr=sp.STDOUT)
     stdout: str = complete_process.stdout.decode('utf-8')
     print(stdout)
-
-    logger.info(msg='Replacing `_static` and `_images` paths by `static`...')
-    _replace_static_path()
-
-    logger.info(
-        msg='Removing `# runnable` inline comment from code blocks...')
-    _remove_runnable_inline_comment_from_code_blocks()
+    _move_and_adjust_updated_files()
 
     logger.info(msg='Build completed!')
 
@@ -683,15 +677,23 @@ def _get_code_blocks_from_txt(md_txt: str) -> List[_CodeBlock]:
     return code_blocks
 
 
-def _replace_static_path() -> None:
+def _move_and_adjust_updated_files() -> None:
     """
-    Replace document `_static` paths by `static`.
+    Move and adjust (remove unnecessary string, etc) updated files.
     """
     if os.path.isdir('./docs/_static/'):
+        logger.info(
+            msg='Replacing `_static` and `_images` paths by `static`...')
+        _replace_static_path_recursively(dir_path='./docs/_static/')
+        logger.info(
+            msg='Removing `# runnable` inline comment from code blocks...')
+        _remove_runnable_inline_comment_from_code_blocks(
+            dir_path='./docs/static/')
+        logger.info(msg='Copying update document files...')
         copy_tree(src='./docs/_static/', dst='./docs/static/')
     if os.path.isdir('./docs/_images/'):
+        logger.info(msg='Copying document images...')
         copy_tree(src='./docs/_images/', dst='./docs/images/')
-    _replace_static_path_recursively(dir_path='./docs/')
 
 
 def _replace_static_path_recursively(dir_path: str) -> None:

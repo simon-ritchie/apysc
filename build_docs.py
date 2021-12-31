@@ -34,23 +34,21 @@ _jslib_file_name_keys_dict: Dict[str, Any] = {
 def _main() -> None:
     """Entry point of this command.
     """
-    shutil.rmtree('./docs_src/build/', ignore_errors=True)
-    os.makedirs('./docs_src/build/', exist_ok=True)
+    print('-' * 20)
+    logger.info(msg='Documentation build started...')
 
     _exec_document_lint_and_script()
 
+    logger.info(msg='Removing old documents...')
+    shutil.rmtree('./docs/', ignore_errors=True)
+
     logger.info(msg='Sphinx build command started...')
-    os.chdir('./docs_src/')
     complete_process: sp.CompletedProcess = sp.run(
-        'make html', shell=True,
+        'sphinx-build ./docs_src/source/ ./docs/', shell=True,
         stdout=sp.PIPE, stderr=sp.STDOUT)
     stdout: str = complete_process.stdout.decode('utf-8')
     print(stdout)
-
-    logger.info(msg='Moving documentation to docs directory...')
-    os.chdir('../')
-    shutil.rmtree('./docs/', ignore_errors=True)
-    shutil.copytree(src='./docs_src/build/html/', dst='./docs/')
+    shutil.rmtree('./docs/.doctrees', ignore_errors=True)
 
     logger.info(msg='Replacing `_static` and `_images` paths by `static`...')
     _replace_static_path()

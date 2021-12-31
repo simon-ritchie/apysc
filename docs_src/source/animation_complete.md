@@ -121,7 +121,7 @@ animation_move.animation_complete(on_animation_complete)
 Exception: This interface can not be called after the animation is started.
 ```
 
-The calling of the `animation_complete` method before the `start` method will work correctly:
+The calling of the `animation_complete` method before the `start` method works correctly:
 
 ```py
 # runnable

@@ -70,6 +70,8 @@ def _remove_runnable_inline_comment_from_code_blocks(
     file_or_dir_names: List[str] = os.listdir(dir_path)
     for file_or_dir_name in file_or_dir_names:
         file_or_dir_path: str = os.path.join(dir_path, file_or_dir_name)
+        if file_or_dir_name == 'static' or file_or_dir_name == '_static':
+            continue
         if os.path.isdir(file_or_dir_path):
             _remove_runnable_inline_comment_from_code_blocks(
                 dir_path=file_or_dir_path)
@@ -762,6 +764,8 @@ def _replace_static_path_recursively(dir_path: str) -> None:
     file_extensions: List[str] = ['.html', '.js']
     for file_or_dir_name in file_or_dir_names:
         if file_or_dir_name in _jslib_file_name_keys_dict:
+            continue
+        if file_or_dir_name == 'static' or file_or_dir_name == '_static':
             continue
         file_or_dir_path: str = os.path.join(dir_path, file_or_dir_name)
         if os.path.isdir(file_or_dir_path):

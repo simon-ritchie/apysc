@@ -60,10 +60,10 @@ def on_animation_complete_2(
     animation_width.start()
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=200, stage_height=150,
     background_color='#333', stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#00aaff')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
@@ -126,10 +126,10 @@ def on_animation_complete_2(
     animation_height.start()
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=150, stage_height=200,
     background_color='#333', stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#00aaff')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
@@ -152,10 +152,10 @@ The ellipse instance's `animation_width` and `animation_height` interfaces will 
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=150, stage_height=200,
     background_color='#333', stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#00aaff')
 ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(
     x=100, y=100, width=100, height=100)

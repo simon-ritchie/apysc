@@ -41,13 +41,13 @@ def on_mousemove(
     circle.y = e.stage_y
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=200,
     stage_elem_id='stage')
 
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=100)
 circle.mousemove(on_mousemove)
@@ -102,13 +102,13 @@ def on_click(e: ap.MouseEvent[ap.Circle], options: dict) -> None:
     circle.unbind_mousemove(handler=on_mousemove)
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=200,
     stage_elem_id='stage')
 
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=100)
 circle.mousemove(on_mousemove)

@@ -86,10 +86,10 @@ def on_timer_1_complete(e: ap.TimerEvent, options: _RectOptions) -> None:
     timer_2.start()
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=250, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 
 rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(

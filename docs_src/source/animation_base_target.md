@@ -14,10 +14,10 @@ Each subclass of the `AnimationBase` (e.g., `AnimationMove`, `AnimationX`) has t
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=200, stage_height=150,
     background_color='#333', stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#00aaff')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
@@ -35,10 +35,10 @@ The following code will set the `[ap.Rectangle]` generic type annotation:
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=200, stage_height=150,
     background_color='#333', stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#00aaff')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
@@ -69,10 +69,10 @@ def on_animation_complete(
     rectangle.animation_x(x=50).start()
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=200, stage_height=150,
     background_color='#333', stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#00aaff')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)

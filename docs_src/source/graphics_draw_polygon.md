@@ -8,19 +8,19 @@ This page will explain the `Graphics` class `draw_polygon` method interface.
 
 ## Basic usage
 
-`draw_polygon` interface has the `points` argument and this will determine the polygon vertices coordinates.
+The `draw_polygon` interface has the `points` argument, and this will determine the polygon vertices coordinates.
 
 ```py
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Draw the triangle with the draw_polygon interface.
 sprite.graphics.begin_fill(color='#0af')
@@ -54,13 +54,13 @@ If you set the fill color, then the `draw_polygon` interface will be slightly si
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 
 # Draw the triangle with the draw_polygon interface.
@@ -82,7 +82,7 @@ ap.save_overall_html(
 
 <iframe src="static/graphics_draw_polygon_line_to_difference_1/index.html" width="250" height="150"></iframe>
 
-But there is a difference that whether the closing of the paths is necessary or not. This difference will be significant when you set the line style setting. The `line_to` interface will not close the paths from end coordinates to start coordinates.
+But there is a difference of whether the closing of the paths is necessary or not. This difference will be significant when you set the line style setting. The `line_to` interface will not close the paths from end coordinates to start coordinates.
 
 ```py
 # runnable
@@ -94,7 +94,7 @@ stage: ap.Stage = ap.Stage(
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 
 # Set the line style to see the difference.
@@ -123,19 +123,19 @@ ap.save_overall_html(
 
 `draw_polygon` interface will return the `Polygon` instance, and that has the basic interface as same as the other type graphics instances. The `Polygon` instance also has the `append_line_point` method interface to append points dynamically.
 
-For instance, the following code is appending the point and change from the triangle to the rectangle.
+For instance, the following code is appending the point and changing from the triangle to the rectangle.
 
 ```py
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 
 # Draw the triangle.

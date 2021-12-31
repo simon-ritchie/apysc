@@ -16,10 +16,10 @@ The following example will show the default scale rectangle (left), horizontally
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=350, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 
 left_rectangle: ap.Rectangle = sprite.graphics.draw_rect(
@@ -43,10 +43,10 @@ The scaling will be applied from the center coordinates, as follows:
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=150, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af', alpha=0.3)
 
 rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
@@ -110,10 +110,10 @@ def on_timer(e: ap.TimerEvent, options: _RectanglesOptions) -> None:
     rectangle_2.scale_y_from_center += direction * 0.03
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=150, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 sprite.graphics.begin_fill(color='#0af', alpha=0.5)
 rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(

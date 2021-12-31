@@ -14,13 +14,13 @@ The `Sprite` instance has the `graphics` attribute and you can draw each vector 
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
@@ -63,13 +63,13 @@ def on_sprite_click(
     sprite.y += 50
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=250,
     stage_elem_id='stage')
 
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)

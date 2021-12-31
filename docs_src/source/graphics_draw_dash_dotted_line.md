@@ -16,12 +16,12 @@ This page will explain the `Graphics` class `draw_dash_dotted_line` method inter
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=130,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Set 2-pixel dot size and 6-pixel dash size and draw the line.
 sprite.graphics.line_style(color='#0af', thickness=5)

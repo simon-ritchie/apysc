@@ -61,13 +61,13 @@ def on_rectangle_2_click(
     rectangle_2.visible = ap.Boolean(False)
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 sprite.graphics.begin_fill(color='#0af')
 rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(

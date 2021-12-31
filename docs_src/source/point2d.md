@@ -57,10 +57,10 @@ The following will draw the triangle vector graphics by specification of the thr
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=150, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 
 sprite.graphics.draw_polygon(

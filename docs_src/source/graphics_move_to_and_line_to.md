@@ -16,12 +16,12 @@ Calling the `move_to` interface after the calling of `line_to`, then a new line 
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=300,
     stage_height=100,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 sprite.graphics.line_style(color='#0af', thickness=5)
 
@@ -38,7 +38,7 @@ ap.save_overall_html(
 
 <iframe src="static/graphics_move_to_and_line_to_basic_usage/index.html" width="300" height="100"></iframe>
 
-## Sequential calling of the line_to interface.
+## Sequential calling of the line_to interface
 
 If you call the `line_to` interface sequentially, then the result line will become the polyline.
 
@@ -46,12 +46,12 @@ If you call the `line_to` interface sequentially, then the result line will beco
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=200,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 sprite.graphics.line_style(color='#0af', thickness=5)
 
@@ -85,12 +85,12 @@ If you call the `move_to` interface after calling the `line_to` interface, then 
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=150,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 sprite.graphics.line_style(color='#0af', thickness=5)
 
@@ -142,12 +142,12 @@ def on_line_click(
     polyline.line_dot_setting = ap.LineDotSetting(dot_size=5)
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=100,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 sprite.graphics.line_style(color='#0af', thickness=30)
 polyline: ap.Polyline = sprite.graphics.move_to(x=50, y=50)

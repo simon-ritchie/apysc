@@ -61,13 +61,13 @@ def on_mouseout(
     rectangle.fill_color = ap.String('#0af')
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 sprite.graphics.begin_fill(color='#0af')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
@@ -133,13 +133,13 @@ def on_mouseout(
     rectangle.unbind_mouseout(handler=on_mouseout)
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
 
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 sprite.graphics.begin_fill(color='#0af')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(

@@ -1,10 +1,10 @@
 # Graphics draw_rect interface
 
-This page will explain the `Graphics` class `draw_rect` method interface.
+This page explains the `Graphics` class `draw_rect` method interface.
 
 ## What interface is this?
 
-`draw_rect` interface will draw vector rectangle graphics.
+`draw_rect` interface draws vector rectangle graphics.
 
 ## Basic usage
 
@@ -14,12 +14,12 @@ This page will explain the `Graphics` class `draw_rect` method interface.
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=150,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(x=50, y=50, width=100, height=50)
 
@@ -27,7 +27,7 @@ ap.save_overall_html(
     dest_dir_path='graphics_draw_rect_basic_usage/')
 ```
 
-The previous script will draw horizontal rectangle graphics.
+The previous script draws horizontal rectangle graphics.
 
 <iframe src="static/graphics_draw_rect_basic_usage/index.html" width="200" height="150"></iframe>
 
@@ -42,7 +42,7 @@ stage: ap.Stage = ap.Stage(
     stage_width=200,
     stage_height=150,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.draw_rect(x=50, y=50, width=100, height=50)
 
 ap.save_overall_html(
@@ -55,7 +55,7 @@ ap.save_overall_html(
 
 `draw_rect` interface will return `Rectangle` instance. You can update each setting or bind events.
 
-For instance, the following script will set the mouse event to `Rectangle` and updating x position in the handler (`on_click`).
+For instance, the following script sets the mouse event to `Rectangle` and updates x position in the handler (`on_click`).
 
 ```py
 # runnable
@@ -77,12 +77,12 @@ def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     rectangle.x = ap.Int(100)
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=150,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 sprite.graphics.begin_fill(color='#0af')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(

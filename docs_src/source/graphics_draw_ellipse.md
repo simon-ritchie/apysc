@@ -14,13 +14,13 @@ This page will explain the `Graphics` class `draw_ellipse` method interface.
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=325,
     stage_height=200,
     stage_elem_id='stage')
 
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Set the cyan fill color and draw the ellipse.
 sprite.graphics.begin_fill(color='#0af')
@@ -68,13 +68,13 @@ def on_ellipse_click(
     ellipse.height += 10
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=200,
     stage_elem_id='stage')
 
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 sprite.graphics.begin_fill(color='#0af')
 ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(

@@ -36,10 +36,10 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     ap.trace('Animation elapsed time:', rectangle.animation_time())
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=500, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(

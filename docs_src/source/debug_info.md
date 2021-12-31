@@ -37,11 +37,11 @@ def add_two(int_val: ap.Int) -> ap.Int:
         return int_val
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=150, stage_height=150, background_color='#333',
     stage_elem_id='stage')
 int_val: ap.Int = ap.Int(10)
-ap.set_debug_mode(stage=stage)
+ap.set_debug_mode()
 int_val = add_two(int_val=int_val)
 
 ap.save_overall_html(
@@ -135,12 +135,12 @@ class Calc:
         return 'Calc()'
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=150, stage_height=150, background_color='#333',
     stage_elem_id='stage')
 int_val: ap.Int = ap.Int(10)
 calc: Calc = Calc()
-ap.set_debug_mode(stage=stage)
+ap.set_debug_mode()
 int_val = calc.add_two(int_val=int_val)
 
 ap.save_overall_html(
@@ -207,11 +207,11 @@ class Coordinates:
         return 'Coordinates()'
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=150, stage_height=150, background_color='#333',
     stage_elem_id='stage')
 coordinates: Coordinates = Coordinates()
-ap.set_debug_mode(stage=stage)
+ap.set_debug_mode()
 x: ap.Int = coordinates.x
 x += 10
 
@@ -268,12 +268,12 @@ class Coordinates:
         return f'Coordinates({x}, {y})'
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=150, stage_height=150, background_color='#333',
     stage_elem_id='stage')
 x: ap.Int = ap.Int(10)
 y: ap.Int = ap.Int(20)
-ap.set_debug_mode(stage=stage)
+ap.set_debug_mode()
 coordinates: Coordinates = Coordinates(x=x, y=y)
 
 

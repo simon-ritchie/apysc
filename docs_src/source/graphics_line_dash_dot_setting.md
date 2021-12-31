@@ -16,10 +16,10 @@ The following example will set the 10-pixel dash and 3-pixel dot to the line:
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=250, stage_height=100, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.line_style(color='#0af', thickness=5)
 
 line: ap.Line = sprite.graphics.draw_line(

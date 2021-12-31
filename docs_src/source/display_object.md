@@ -12,13 +12,13 @@ You can verify the inheritance of the `DisplayObject` with each instance by the 
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=200,
     stage_elem_id='stage')
 
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 circle: ap.Circle = sprite.graphics.draw_circle(x=100, y=100, radius=100)
 

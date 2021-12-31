@@ -14,12 +14,12 @@ This page will explain the `Graphics` class `draw_dashed_line` method interface.
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=130,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Set 5-pixel dash setting and draw the line.
 sprite.graphics.line_style(

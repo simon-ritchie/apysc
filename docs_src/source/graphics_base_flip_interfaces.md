@@ -42,10 +42,10 @@ def on_timer(e: ap.TimerEvent, options: _PolygonOptions) -> None:
     polygon.flip_x = flip_x
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=150, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 
 polygon: ap.Polygon = sprite.graphics.draw_polygon(

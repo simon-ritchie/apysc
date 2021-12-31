@@ -14,10 +14,10 @@ The following example will show you the default rectangle (left) and the skewed 
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=250, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 
 left_rectangle: ap.Rectangle = sprite.graphics.draw_rect(
@@ -60,10 +60,10 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     rectangle.skew_y += 1
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=150, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(

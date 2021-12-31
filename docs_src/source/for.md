@@ -20,10 +20,10 @@ The following example will draw the three rectangles in the `with For` block:
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=350, stage_height=150,
     background_color='#333', stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 
 arr: ap.Array[int] = ap.Array(range(3))
@@ -44,10 +44,10 @@ The `For` class constructor's first argument will accept an `Array` or `Dictiona
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=250, stage_height=150,
     background_color='#333', stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 dict_val: ap.Dictionary = ap.Dictionary(
     {'magenta': ap.String('#f0a'), 'cyan': ap.String('#0af')})

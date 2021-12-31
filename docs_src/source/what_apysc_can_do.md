@@ -23,10 +23,10 @@ The apysc library can draw many types of vector graphics, like the rectangle, ci
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=650, stage_height=210, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
@@ -117,10 +117,10 @@ def on_click(
         e.this.fill_color = ap.String('#0af')
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=150, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 sprite.graphics.begin_fill(color='#0af')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
@@ -186,10 +186,10 @@ def on_timer(e: ap.TimerEvent, options: _Options) -> None:
     rectangle.rotation_around_center += 1
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=150, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 sprite.graphics.begin_fill(color='#0af')
 alpha_direction: ap.Int = ap.Int(1)

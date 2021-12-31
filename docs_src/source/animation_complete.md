@@ -60,10 +60,10 @@ def on_animation_complete_2(
     animation_x.start()
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=200, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
@@ -103,10 +103,10 @@ def on_animation_complete(
     ap.trace('Animation complete!')
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=200, stage_height=200, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
@@ -144,10 +144,10 @@ def on_animation_complete(
     ap.trace('Animation complete!')
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=200, stage_height=200, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)

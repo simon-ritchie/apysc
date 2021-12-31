@@ -14,12 +14,12 @@ The `rotation_around_center` interface accepts the `int` or `Int` value.
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Set the cyan fill color and draw the rectangle.
 sprite.graphics.begin_fill(color='#0af', alpha=0.5)

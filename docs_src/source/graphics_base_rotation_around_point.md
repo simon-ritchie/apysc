@@ -52,10 +52,10 @@ def on_timer(e: ap.TimerEvent, options: _RectanglesOptions) -> None:
     rectangle_2.set_rotation_around_point(rotation=rotation, x=x, y=y)
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=150, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af', alpha=0.5)
 
 rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(

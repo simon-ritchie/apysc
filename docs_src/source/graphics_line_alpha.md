@@ -16,10 +16,10 @@ The following example will set the 0.5 line alpha to the second rectangle and 0.
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=350, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.line_style(color='#0af', thickness=5)
 
 rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(

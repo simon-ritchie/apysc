@@ -20,11 +20,11 @@ You can set the debug mode by the `set_debug_mode` after the stage instantiation
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=150, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-ap.set_debug_mode(stage=stage)
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+ap.set_debug_mode()
+sprite: ap.Sprite = ap.Sprite()
 int_1: ap.Int = ap.Int(10)
 
 ap.save_overall_html(
@@ -41,7 +41,6 @@ The exported HTML will be appended the information (Python's function and method
   // class: Sprite
   // arguments and variables:
   //    variable_name = None
-  //    stage = Stage('stage')(stage)
   //    self = Sprite('')()
     //////////////////////////////////////////////////////////////////////
     // [__init__ 2] started.
@@ -71,7 +70,6 @@ The exported HTML will be appended the information (Python's function and method
     // class: DisplayObject
     // arguments and variables:
     //    variable_name = 'sp_1'
-    //    stage = Stage('stage')(stage)
     //    self = Sprite('')()
     // [__init__ 1] ended.
     // module name: apysc._display.display_object

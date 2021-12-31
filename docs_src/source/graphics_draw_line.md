@@ -14,12 +14,12 @@ This page will explain the `Graphics` class `draw_line` method interface.
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=100,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 sprite.graphics.line_style(color='#0af', thickness=5)
 sprite.graphics.draw_line(x_start=50, y_start=50, x_end=150, y_end=50)
@@ -38,12 +38,12 @@ This interface will ignore `dot_setting`, `dash_setting`, `round_dot_setting`, a
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=100,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # dot_setting will be ignored, and the result line will not be dotted.
 sprite.graphics.line_style(
@@ -59,18 +59,19 @@ ap.save_overall_html(
 
 ## Line instance
 
-`draw_line` interface will return the `Line` instance. You can update each setting or bind events to that instance. `draw_dotted_line`, `draw_dashed_line`, `draw_round_dotted_line`, and `draw_dash_dotted_line` will also return the same type instance.
+`draw_line` interface will return the `Line` instance. You can update each setting or bind events to that instance. `draw_dotted_line`, `draw_dashed_line`, `draw_round_dotted_line`
+, and `draw_dash_dotted_line` will also return the same type instance.
 
 ```py
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=100,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 sprite.graphics.line_style(
     color='#0af', thickness=5)

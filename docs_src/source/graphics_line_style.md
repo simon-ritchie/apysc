@@ -14,12 +14,12 @@ Draw vector graphics interfaces (e.g., `draw_rect` `line_to` and so on) will use
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=162,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Draw a white line with 3px line thickness.
 sprite.graphics.line_style(color='#ccc', thickness=8)
@@ -49,12 +49,12 @@ A line color will be set by the `color` argument, and this is required one.
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=102,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Set a cyan line color and draw the line.
 sprite.graphics.line_style(color='#0af', thickness=4)
@@ -74,12 +74,12 @@ For example, since the following code will clear line color setting, so a result
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=102,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Set a cyan line color.
 sprite.graphics.line_style(color='#0af', thickness=4)
@@ -106,12 +106,12 @@ Color code is acceptable like the following list (same as `begin_fill` interface
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=162,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # The six characters line color setting (a cyan color).
 sprite.graphics.line_style(color='#00aaff', thickness=4)
@@ -139,12 +139,12 @@ Line thickness can be set by the `thickness` argument. It can accept greater tha
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=165,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Set 1-pixel line thickness.
 sprite.graphics.line_style(color='#0af', thickness=1)
@@ -172,12 +172,12 @@ A line alpha (opacity) can be set by the `alpha` argument. It can accept 0.0 (tr
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Draw the cyan line from upper-left to lower-right.
 sprite.graphics.line_style(color='#0af', thickness=15, alpha=0.3)
@@ -207,12 +207,12 @@ There are three `LineCaps` options, as follows:
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=180,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # BUTT caps setting (default).
 sprite.graphics.line_style(color='#0af', thickness=20, cap=ap.LineCaps.BUTT)
@@ -247,12 +247,12 @@ There are three LineJoints enum values, as follows:
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=350,
     stage_height=150,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Set MITER joints setting and draw the polyline.
 sprite.graphics.line_style(
@@ -289,12 +289,12 @@ Line dot setting will change line to dotted line. This can be set by the `dot_se
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=300,
     stage_height=160,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Set the line dot settings with 2-pixel dot size and draw the dotted line.
 sprite.graphics.line_style(
@@ -326,12 +326,12 @@ This setting (or other similar settings) will also be applied to the `Rectangle`
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=150,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Set the line dot setting with 2-pixel dot size and draw the rectangle.
 # Fill color setting is skipped.
@@ -359,12 +359,12 @@ Line dash setting will change the line to the dashed line. This can be set by th
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=300,
     stage_height=130,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Set 10-pixel dash size and 3-pixel space size and draw the line.
 sprite.graphics.line_style(
@@ -396,12 +396,12 @@ Line round dot setting will change the line to the round dotted line. This can b
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=300,
     stage_height=130,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Set 5-pixel round size and draw the line.
 sprite.graphics.line_style(
@@ -435,12 +435,12 @@ Line dash-dot setting will change the line to the dash-dotted line (also called 
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=300,
     stage_height=130,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Set 3-pixel dot size and 10-pixel dash size and draw the line.
 sprite.graphics.line_style(

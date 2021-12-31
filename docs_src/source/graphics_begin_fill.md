@@ -14,12 +14,12 @@ Draw vector graphics interfaces (e.g., `draw_rect`) would use these fill setting
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=350,
     stage_height=150,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Set blue fill color and draw the first rectangle.
 sprite.graphics.begin_fill(color='#0af')
@@ -49,12 +49,12 @@ A fill color can be set by the `color` argument, and this is required.
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Set a cyan fill color and draw the rectangle.
 sprite.graphics.begin_fill(color='#0af')
@@ -74,12 +74,12 @@ For example, since the following code will clear fill color setting, so a result
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 sprite.graphics.begin_fill(color='#0af')
 
@@ -108,12 +108,12 @@ Color code is acceptable like the following list:
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=450,
     stage_height=150,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Six characters fill color setting (a cyan color).
 sprite.graphics.begin_fill(color='#00aaff')
@@ -149,12 +149,12 @@ Fill color alpha (opacity) can be set by the `alpha` argument. It can accept 0.0
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=200,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 sprite.graphics.begin_fill(color='#00aaff', alpha=0.2)
 sprite.graphics.draw_rect(

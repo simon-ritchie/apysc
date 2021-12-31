@@ -14,13 +14,13 @@ This page will explain the `Graphics` class `draw_circle` method interface.
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=350,
     stage_height=200,
     stage_elem_id='stage')
 
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Set the cyan color and draw the circle.
 sprite.graphics.begin_fill(color='#0af')
@@ -51,13 +51,13 @@ It has the `radius` attribute or other basic interfaces and you can change these
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=400,
     stage_height=400,
     stage_elem_id='stage')
 
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Draw the small radius circle.
 sprite.graphics.begin_fill(color='#0af')

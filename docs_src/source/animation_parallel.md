@@ -18,10 +18,10 @@ The following example will set the simultaneous animations of the x, fill alpha,
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=400, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.line_style(color='#fff', thickness=3)
 

@@ -15,12 +15,12 @@ The `begin_fill` interface sets the fill-color and fill-alpha (opacity).
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=150,
     stage_height=150,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af', alpha=0.5)
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
@@ -40,12 +40,12 @@ The `line_style` interface sets the line-color, line-alpha (opacity), line-thick
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=100,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.line_style(color='#fff', thickness=5, alpha=0.5)
 sprite.graphics.draw_line(x_start=50, y_start=50, x_end=150, y_end=50)
 
@@ -65,12 +65,12 @@ Each drawing interface has the `draw_` prefix draw SVG graphics (e.g., draw_rect
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=150,
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 sprite.graphics.draw_circle(x=175, y=75, radius=25)

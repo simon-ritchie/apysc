@@ -30,16 +30,16 @@ The `html_file_name` argument is required to be unique if you need to output mul
 ```py
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=250, stage_height=150, background_color='#333')
-sprite = ap.Sprite(stage=stage)
+sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0af')
 sprite.graphics.draw_rect(x=50, y=50, width=50, height=50)
 
 sprite.graphics.begin_fill(color='#f0a')
 sprite.graphics.draw_rect(x=150, y=50, width=50, height=50)
 
-ap.display_on_jupyter(stage=stage, html_file_name='jupyter_sample_1.html')
+ap.display_on_jupyter(html_file_name='jupyter_sample_1.html')
 ```
 
 ![](_static/jupyter_notebook_interface.png)

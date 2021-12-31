@@ -55,10 +55,10 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     options['rectangle'].animation_reset()
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=600, stage_height=150,
     background_color='#333', stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#00aaff')
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)

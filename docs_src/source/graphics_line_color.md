@@ -36,10 +36,10 @@ def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
         rectangle.line_color = ap.String('#0af')
 
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=150, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 sprite.graphics.begin_fill(color='#0', alpha=0.0)
 sprite.graphics.line_style(color='#0af', thickness=5)
 

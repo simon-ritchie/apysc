@@ -16,13 +16,13 @@ Sprite (object container) instance has the `graphics` attribute so with this att
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=250,
     stage_height=180,
     stage_elem_id='stage')
 
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 # Draw the white border and cyan color rectangle.
 sprite.graphics.line_style(color='#fff', thickness=5)
@@ -53,19 +53,19 @@ ap.save_overall_html(
 
 Each interface will return created graphic instances (e.g., `Rectangle`, `Polyline`, and so on). These instances have the basic `DisplayObject` attributes and methods, like x, y, fill_alpha, visible, or something else.
 
-For example, you can set an event and coordinates updating to these instances, as follows:
+For example, you can set an event and coordinates' updating to these instances, as follows:
 
 ```py
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     background_color='#333',
     stage_width=200,
     stage_height=200,
     stage_elem_id='stage')
 
-sprite: ap.Sprite = ap.Sprite(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
 
 
 def on_rectangle_click(

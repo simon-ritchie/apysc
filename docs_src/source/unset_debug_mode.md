@@ -22,11 +22,11 @@ The following example will append the debug information only at the `int_1` inst
 # runnable
 import apysc as ap
 
-stage: ap.Stage = ap.Stage(
+ap.Stage(
     stage_width=150, stage_height=150, background_color='#333',
     stage_elem_id='stage')
-sprite: ap.Sprite = ap.Sprite(stage=stage)
-ap.set_debug_mode(stage=stage)
+sprite: ap.Sprite = ap.Sprite()
+ap.set_debug_mode()
 int_1: ap.Int = ap.Int(10)
 int_1 += 10
 ap.unset_debug_mode()

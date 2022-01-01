@@ -1,14 +1,14 @@
 # GraphicsBase get_scale_from_point and set_scale_from_point interfaces
 
-This page will explain the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `get_scale_x_from_point`, `get_scale_y_from_point`, `set_scale_x_from_point`, and `set_scale_y_from_point` method interfaces.
+This page explains the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `get_scale_x_from_point`, `get_scale_y_from_point`, `set_scale_x_from_point`, and `set_scale_y_from_point` method interfaces.
 
 ## What interfaces are these?
 
-The `set_scale_x_from_point` method will change the object's horizontal scale from a given x-coordinate, and the `set_scale_y_from_point` method will change the object's vertical scale from a given y-coordinate.
+The `set_scale_x_from_point` method changes the object's horizontal scale from a given x-coordinate. Similarly, the `set_scale_y_from_point` method changes the object's vertical scale from a given y-coordinate.
 
 The `scale_x_from_center` and `scale_y_from_center` interfaces are property, but the `set_scale_x_from_point` and `set_scale_y_from_point` interfaces are methods since these interfaces require a coodinate argument.
 
-Similarly, the `get_scale_x_from_point` and `get_scale_y_from_point` methods will return the current scale from a given point. These interfaces also require a coodinate argument.
+Similarly, the `get_scale_x_from_point` and `get_scale_y_from_point` methods will return the current scale from a given point. These interfaces also require a coordinate argument.
 
 Return value is set for each coordinate. For example, if you set the scale-x value at the 50px x-coordinate, 100px x-coordinate scale will not be affected.
 
@@ -16,7 +16,7 @@ Return value is set for each coordinate. For example, if you set the scale-x val
 
 The `get_scale_x_from_point` method requires the `x` argument (`Int` value), and the `set_scale_x_from_point` requires the `scale_x` (`Number` value) and `x` arguments.
 
-The following example will create three rectangles and increment (or decrement) each rectangle scale-x value. The top rectangle will scale from the left-x position, and the middle one will scale from the center-x, and the bottom one will scale from the right-x.
+The following example creates three rectangles and increments (or decrements) for each rectangle scale-x value. The top rectangle scales from the left-x position. The middle one scales from the center-x. And the bottom one scales from the right-x.
 
 ```py
 # runnable
@@ -33,7 +33,7 @@ class _Options(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: _Options) -> None:
     """
-    The handler will be called from a timer.
+    The handler that the timer calls.
 
     Parameters
     ----------
@@ -100,7 +100,7 @@ ap.save_overall_html(
 
 <iframe src="static/graphics_base_scale_from_point_basic_usage_x/index.html" width="150" height="350"></iframe>
 
-The `get_scale_y_from_point` and `set_scale_y_from_point` methods have the similar arguments, `scale_y` and `y`. These interfaces work in the same way as the x-axis interfaces, except that the axis directions are different.
+The `get_scale_y_from_point` and `set_scale_y_from_point` methods have the similar arguments, `scale_y` and `y`. These interfaces work the same way as the x-axis interfaces, except that the axis directions are different.
 
 ```py
 # runnable
@@ -117,7 +117,7 @@ class _Options(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: _Options) -> None:
     """
-    The handler will be called from a timer.
+    The handler that the timer calls.
 
     Parameters
     ----------

@@ -1,6 +1,6 @@
 # GraphicsBase rotation_around_point interfaces
 
-This page will explain the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `get_rotation_around_point` and `set_rotation_around_point` method interfaces.
+This page explains the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `get_rotation_around_point` and `set_rotation_around_point` method interfaces.
 
 ## What interfaces are these?
 
@@ -12,7 +12,7 @@ These rotation values are relative, and each point has the rotation value. For e
 
 The `get_rotation_around_point` method requires the `x` and `y` arguments and return a rotation value around the given coordinates. The `set_rotation_around_point` requires `x`, `y` and `rotation` arguments. All the arguments and return value are `Int` type.
 
-The following example will create the two rectangles and rotate each rectangle in the timer handler. The first rectangle will rotate around the top-left coordinates (`x=50, y=50`) and the second one will rotate around the bottom-right coordinates (`x=100, y=100`).
+The following example creates the two rectangles and rotates each rectangle in the timer handler. The first rectangle rotates around the top-left coordinates (`x=50, y=50`). Also, the second one rotates around the bottom-right coordinates (`x=100, y=100`).
 
 ```py
 # runnable
@@ -28,7 +28,7 @@ class _RectanglesOptions(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: _RectanglesOptions) -> None:
     """
-    The handler will be called from a timer.
+    The handler that the timer calls.
 
     Parameters
     ----------

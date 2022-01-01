@@ -45,16 +45,16 @@
             
   <section id="graphicsbase-flip-x-and-flip-y-interfaces">
 <h1>GraphicsBase flip_x and flip_y interfaces<a class="headerlink" href="#graphicsbase-flip-x-and-flip-y-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> class (base class of each graphics, such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>) <code class="docutils literal notranslate"><span class="pre">flip_x</span></code> and <code class="docutils literal notranslate"><span class="pre">flip_y</span></code> property interfaces.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> class (base class of each graphics, such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>) <code class="docutils literal notranslate"><span class="pre">flip_x</span></code> and <code class="docutils literal notranslate"><span class="pre">flip_y</span></code> property interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">flip_x</span></code> property will flip an object in the x-axis direction, and the <code class="docutils literal notranslate"><span class="pre">flip_y</span></code> property will flip in the y-axis direction.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">flip_x</span></code> property flips an object in the x-axis direction, and the <code class="docutils literal notranslate"><span class="pre">flip_y</span></code> property flips in the y-axis direction.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">flip_x</span></code> and <code class="docutils literal notranslate"><span class="pre">flip_y</span></code> can be set a <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value. If you set the <code class="docutils literal notranslate"><span class="pre">True</span></code> then an object will be flipped, conversely, if you set the <code class="docutils literal notranslate"><span class="pre">False</span></code> then an object flipping will be reset.</p>
-<p>The getter interface will return a <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value of a current flipping value.</p>
-<p>The following example will flip the triangle polygon in the x-axis direction and reset per second:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">flip_x</span></code> and <code class="docutils literal notranslate"><span class="pre">flip_y</span></code> can be set a <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value. If you set the <code class="docutils literal notranslate"><span class="pre">True</span></code>, an object becomes flipped. Conversely, if you set the <code class="docutils literal notranslate"><span class="pre">False</span></code>, an object resets flipping.</p>
+<p>The getter interface returns a <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value of a current flipping value.</p>
+<p>The following example flips the triangle polygon in the x-axis direction and resets per second:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -67,7 +67,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_PolygonOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called from a timer.</span>
+<span class="sd">    The handler that the timer calls.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -103,7 +103,7 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_base_flip_x_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_base_flip_x_basic_usage/index.html" width="150" height="150"></iframe><p>The <code class="docutils literal notranslate"><span class="pre">flip_y</span></code> interface will behave the same as the <code class="docutils literal notranslate"><span class="pre">flip_x</span></code> interface, except the axis direction.</p>
+<iframe src="static/graphics_base_flip_x_basic_usage/index.html" width="150" height="150"></iframe><p>The <code class="docutils literal notranslate"><span class="pre">flip_y</span></code> interface behaves the same as the <code class="docutils literal notranslate"><span class="pre">flip_x</span></code> interface, except the axis direction.</p>
 </section>
 </section>
 

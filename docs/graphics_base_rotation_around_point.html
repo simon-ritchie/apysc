@@ -45,7 +45,7 @@
             
   <section id="graphicsbase-rotation-around-point-interfaces">
 <h1>GraphicsBase rotation_around_point interfaces<a class="headerlink" href="#graphicsbase-rotation-around-point-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> class (base class of each graphics, such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>) <code class="docutils literal notranslate"><span class="pre">get_rotation_around_point</span></code> and <code class="docutils literal notranslate"><span class="pre">set_rotation_around_point</span></code> method interfaces.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> class (base class of each graphics, such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>) <code class="docutils literal notranslate"><span class="pre">get_rotation_around_point</span></code> and <code class="docutils literal notranslate"><span class="pre">set_rotation_around_point</span></code> method interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">get_rotation_around_point</span></code> method will return a rotation value around the given coordinates, and the <code class="docutils literal notranslate"><span class="pre">set_rotation_around_point</span></code> method will update a rotation value around the given coordinates.</p>
@@ -54,7 +54,7 @@
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">get_rotation_around_point</span></code> method requires the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> arguments and return a rotation value around the given coordinates. The <code class="docutils literal notranslate"><span class="pre">set_rotation_around_point</span></code> requires <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">rotation</span></code> arguments. All the arguments and return value are <code class="docutils literal notranslate"><span class="pre">Int</span></code> type.</p>
-<p>The following example will create the two rectangles and rotate each rectangle in the timer handler. The first rectangle will rotate around the top-left coordinates (<code class="docutils literal notranslate"><span class="pre">x=50,</span> <span class="pre">y=50</span></code>) and the second one will rotate around the bottom-right coordinates (<code class="docutils literal notranslate"><span class="pre">x=100,</span> <span class="pre">y=100</span></code>).</p>
+<p>The following example creates the two rectangles and rotates each rectangle in the timer handler. The first rectangle rotates around the top-left coordinates (<code class="docutils literal notranslate"><span class="pre">x=50,</span> <span class="pre">y=50</span></code>). Also, the second one rotates around the bottom-right coordinates (<code class="docutils literal notranslate"><span class="pre">x=100,</span> <span class="pre">y=100</span></code>).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -68,7 +68,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectanglesOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called from a timer.</span>
+<span class="sd">    The handler that the timer calls.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

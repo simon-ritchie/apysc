@@ -1,20 +1,20 @@
 # For
 
-This page will explain the `For` class.
+This page explains the `For` class.
 
-Before reading on, maybe it is useful to read the following page (the `For` class will be used for the same reason of each apysc data type):
+Before reading on, maybe it is helpful to read the following page (the apysc uses the `For` class for the same reason for each data type):
 
 - [Why not using the Python built-in data type in the apysc library?](why_not_using_python_builtin_data_type.md)
 
 ## What is the For class?
 
-The `For` class is the apysc for loop class. It will behave like the Python built-in `for` keyword.
+The `For` class is the apysc for loop class. It behaves like the Python built-in `for` keyword.
 
 ## Basic usage
 
-The `For` class will be used at the `with` statement. The `as` keyword value will be the `Int` type index (`i` variable).
+The `For` class requires using the `with` statement. The `as` keyword value becomes the `Int` type index (an `i` variable).
 
-The following example will draw the three rectangles in the `with For` block:
+The following example draws the three rectangles in the `with For` block:
 
 ```py
 # runnable
@@ -38,7 +38,7 @@ ap.save_overall_html(
 
 <iframe src="static/for_basic_usage/index.html" width="350" height="150"></iframe>
 
-The `For` class constructor's first argument will accept an `Array` or `Dictionary` value. If a `Dictionary` value is passed then the `as` keyword value will be a `String` value, not `Int`.
+The `For` class constructor's first argument accepts an `Array` or `Dictionary` value. If you pass a `Dictionary` value, the `as` keyword value becomes a `String` value, not `Int`\.
 
 ```py
 # runnable
@@ -71,4 +71,4 @@ ap.save_overall_html(
 ## See also
 
 - [Each branch instruction class scope variables reverting setting](branch_instruction_variables_reverting_setting.md)
-  - Notes: the `For` class also has the same arguments and behaves as the same way.
+  - Notes: the `For` class also has the same arguments and behaves in the same way.

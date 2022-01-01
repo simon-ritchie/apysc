@@ -45,18 +45,18 @@
             
   <section id="graphicsbase-get-scale-from-point-and-set-scale-from-point-interfaces">
 <h1>GraphicsBase get_scale_from_point and set_scale_from_point interfaces<a class="headerlink" href="#graphicsbase-get-scale-from-point-and-set-scale-from-point-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> class (base class of each graphics, such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>) <code class="docutils literal notranslate"><span class="pre">get_scale_x_from_point</span></code>, <code class="docutils literal notranslate"><span class="pre">get_scale_y_from_point</span></code>, <code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point</span></code>, and <code class="docutils literal notranslate"><span class="pre">set_scale_y_from_point</span></code> method interfaces.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> class (base class of each graphics, such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>) <code class="docutils literal notranslate"><span class="pre">get_scale_x_from_point</span></code>, <code class="docutils literal notranslate"><span class="pre">get_scale_y_from_point</span></code>, <code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point</span></code>, and <code class="docutils literal notranslate"><span class="pre">set_scale_y_from_point</span></code> method interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point</span></code> method will change the object’s horizontal scale from a given x-coordinate, and the <code class="docutils literal notranslate"><span class="pre">set_scale_y_from_point</span></code> method will change the object’s vertical scale from a given y-coordinate.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point</span></code> method changes the object’s horizontal scale from a given x-coordinate. Similarly, the <code class="docutils literal notranslate"><span class="pre">set_scale_y_from_point</span></code> method changes the object’s vertical scale from a given y-coordinate.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">scale_x_from_center</span></code> and <code class="docutils literal notranslate"><span class="pre">scale_y_from_center</span></code> interfaces are property, but the <code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point</span></code> and <code class="docutils literal notranslate"><span class="pre">set_scale_y_from_point</span></code> interfaces are methods since these interfaces require a coodinate argument.</p>
-<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">get_scale_x_from_point</span></code> and <code class="docutils literal notranslate"><span class="pre">get_scale_y_from_point</span></code> methods will return the current scale from a given point. These interfaces also require a coodinate argument.</p>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">get_scale_x_from_point</span></code> and <code class="docutils literal notranslate"><span class="pre">get_scale_y_from_point</span></code> methods will return the current scale from a given point. These interfaces also require a coordinate argument.</p>
 <p>Return value is set for each coordinate. For example, if you set the scale-x value at the 50px x-coordinate, 100px x-coordinate scale will not be affected.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">get_scale_x_from_point</span></code> method requires the <code class="docutils literal notranslate"><span class="pre">x</span></code> argument (<code class="docutils literal notranslate"><span class="pre">Int</span></code> value), and the <code class="docutils literal notranslate"><span class="pre">set_scale_x_from_point</span></code> requires the <code class="docutils literal notranslate"><span class="pre">scale_x</span></code> (<code class="docutils literal notranslate"><span class="pre">Number</span></code> value) and <code class="docutils literal notranslate"><span class="pre">x</span></code> arguments.</p>
-<p>The following example will create three rectangles and increment (or decrement) each rectangle scale-x value. The top rectangle will scale from the left-x position, and the middle one will scale from the center-x, and the bottom one will scale from the right-x.</p>
+<p>The following example creates three rectangles and increments (or decrements) for each rectangle scale-x value. The top rectangle scales from the left-x position. The middle one scales from the center-x. And the bottom one scales from the right-x.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -71,7 +71,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_Options</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called from a timer.</span>
+<span class="sd">    The handler that the timer calls.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -136,7 +136,7 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_base_scale_from_point_basic_usage_x/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_base_scale_from_point_basic_usage_x/index.html" width="150" height="350"></iframe><p>The <code class="docutils literal notranslate"><span class="pre">get_scale_y_from_point</span></code> and <code class="docutils literal notranslate"><span class="pre">set_scale_y_from_point</span></code> methods have the similar arguments, <code class="docutils literal notranslate"><span class="pre">scale_y</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>. These interfaces work in the same way as the x-axis interfaces, except that the axis directions are different.</p>
+<iframe src="static/graphics_base_scale_from_point_basic_usage_x/index.html" width="150" height="350"></iframe><p>The <code class="docutils literal notranslate"><span class="pre">get_scale_y_from_point</span></code> and <code class="docutils literal notranslate"><span class="pre">set_scale_y_from_point</span></code> methods have the similar arguments, <code class="docutils literal notranslate"><span class="pre">scale_y</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>. These interfaces work the same way as the x-axis interfaces, except that the axis directions are different.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -151,7 +151,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_Options</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called from a timer.</span>
+<span class="sd">    The handler that the timer calls.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

@@ -1,16 +1,16 @@
 # GraphicsBase scale_x_from_center and scale_y_from_center interfaces
 
-This page will explain the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `scale_x_from_center` and `scale_y_from_center` property interfaces.
+This page explains the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `scale_x_from_center` and `scale_y_from_center` property interfaces.
 
 ## What interfaces are these?
 
-The `scale_x_from_center` property will change the object's horizontal scale, and the `scale_y_from_center` property will change the object's vertical scale. These scaling interfaces will change the scale from the center coordinates of each object.
+The `scale_x_from_center` property changes the object's horizontal scale, and the `scale_y_from_center` property changes the object's vertical scale. These scaling interfaces change the scale from the center coordinates of each object.
 
 ## Basic usage
 
-Each property getter interface returns a `Number` value. The setter interfaces also require a `Number` to update scales (If 0.0 is specified, the object will be invisible. 1.0 will be the default scale, and 2.0 will be the twice-scale value).
+Each property getter interface returns a `Number` value. The setter interfaces also require a `Number` to update scales (If 0.0 is specified, the object becomes invisible. 1.0 becomes the default scale, and 2.0 becomes the twice-scale value).
 
-The following example will show the default scale rectangle (left), horizontally half-scaled rectangle (center), vertically half-scaled rectangle (right).
+The following example shows the default scale rectangle (left), horizontally half-scaled rectangle (center), vertically half-scaled rectangle (right).
 
 ```py
 # runnable
@@ -37,7 +37,7 @@ ap.save_overall_html(
 
 <iframe src="static/graphics_base_scale_from_center_basic_usage_1/index.html" width="350" height="150"></iframe>
 
-The scaling will be applied from the center coordinates, as follows:
+These interfaces apply the scaling from the center coordinates, as follows:
 
 ```py
 # runnable
@@ -85,7 +85,7 @@ class _RectanglesOptions(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: _RectanglesOptions) -> None:
     """
-    The handler will be called from the timer.
+    The handler that the timer calls.
 
     Parameters
     ----------

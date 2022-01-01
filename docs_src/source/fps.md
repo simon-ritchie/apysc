@@ -1,14 +1,14 @@
 # FPS enum
 
-This page will explain the `FPS` enum class.
+This page explains the `FPS` enum class.
 
 ## What class is this?
 
-The `FPS` enum class is the definition of each FPS (frames per second). This is used by the timer to determine the timer tick interval.
+The `FPS` enum class is the definition of each FPS (frames per second). The timer uses this enum to determine the timer tick interval.
 
 ## Basic usage
 
-There is an enum definition of FPS in 5 intervals. The `Timer` class `delay` argument is acceptable `FPS` enum value. If you specify the `FPS.FPS_60` value to that argument then a timer interval will approximately be `16.6666667` milliseconds, and be the `33.3333333` milliseconds when you specify `FPS.FPS_30` value.
+There is an enum definition of FPS in 5 intervals. The `Timer` class `delay` argument is acceptable `FPS` enum value. For example, specify the `FPS.FPS_60` value to that argument. A timer interval becomes approximately `16.6666667` milliseconds. Similarly, it becomes the `33.3333333` milliseconds when you specify the `FPS.FPS_30` value.
 
 ```py
 # runnable
@@ -23,7 +23,7 @@ class _RectOptions(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
-    The handler would be called from a timer.
+    The handler that the timer calls.
 
     Parameters
     ----------

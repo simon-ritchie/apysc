@@ -1,18 +1,18 @@
 # GraphicsBase flip_x and flip_y interfaces
 
-This page will explain the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `flip_x` and `flip_y` property interfaces.
+This page explains the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `flip_x` and `flip_y` property interfaces.
 
 ## What interfaces are these?
 
-The `flip_x` property will flip an object in the x-axis direction, and the `flip_y` property will flip in the y-axis direction.
+The `flip_x` property flips an object in the x-axis direction, and the `flip_y` property flips in the y-axis direction.
 
 ## Basic usage
 
-The `flip_x` and `flip_y` can be set a `Boolean` value. If you set the `True` then an object will be flipped, conversely, if you set the `False` then an object flipping will be reset.
+The `flip_x` and `flip_y` can be set a `Boolean` value. If you set the `True`\, an object becomes flipped. Conversely, if you set the `False`\, an object resets flipping.
 
-The getter interface will return a `Boolean` value of a current flipping value.
+The getter interface returns a `Boolean` value of a current flipping value.
 
-The following example will flip the triangle polygon in the x-axis direction and reset per second:
+The following example flips the triangle polygon in the x-axis direction and resets per second:
 
 ```py
 # runnable
@@ -27,7 +27,7 @@ class _PolygonOptions(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: _PolygonOptions) -> None:
     """
-    The handler will be called from a timer.
+    The handler that the timer calls.
 
     Parameters
     ----------
@@ -65,4 +65,4 @@ ap.save_overall_html(
 
 <iframe src="static/graphics_base_flip_x_basic_usage/index.html" width="150" height="150"></iframe>
 
-The `flip_y` interface will behave the same as the `flip_x` interface, except the axis direction.
+The `flip_y` interface behaves the same as the `flip_x` interface, except the axis direction.

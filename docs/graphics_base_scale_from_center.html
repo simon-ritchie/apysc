@@ -45,15 +45,15 @@
             
   <section id="graphicsbase-scale-x-from-center-and-scale-y-from-center-interfaces">
 <h1>GraphicsBase scale_x_from_center and scale_y_from_center interfaces<a class="headerlink" href="#graphicsbase-scale-x-from-center-and-scale-y-from-center-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> class (base class of each graphics, such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>) <code class="docutils literal notranslate"><span class="pre">scale_x_from_center</span></code> and <code class="docutils literal notranslate"><span class="pre">scale_y_from_center</span></code> property interfaces.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> class (base class of each graphics, such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>) <code class="docutils literal notranslate"><span class="pre">scale_x_from_center</span></code> and <code class="docutils literal notranslate"><span class="pre">scale_y_from_center</span></code> property interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">scale_x_from_center</span></code> property will change the object’s horizontal scale, and the <code class="docutils literal notranslate"><span class="pre">scale_y_from_center</span></code> property will change the object’s vertical scale. These scaling interfaces will change the scale from the center coordinates of each object.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">scale_x_from_center</span></code> property changes the object’s horizontal scale, and the <code class="docutils literal notranslate"><span class="pre">scale_y_from_center</span></code> property changes the object’s vertical scale. These scaling interfaces change the scale from the center coordinates of each object.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>Each property getter interface returns a <code class="docutils literal notranslate"><span class="pre">Number</span></code> value. The setter interfaces also require a <code class="docutils literal notranslate"><span class="pre">Number</span></code> to update scales (If 0.0 is specified, the object will be invisible. 1.0 will be the default scale, and 2.0 will be the twice-scale value).</p>
-<p>The following example will show the default scale rectangle (left), horizontally half-scaled rectangle (center), vertically half-scaled rectangle (right).</p>
+<p>Each property getter interface returns a <code class="docutils literal notranslate"><span class="pre">Number</span></code> value. The setter interfaces also require a <code class="docutils literal notranslate"><span class="pre">Number</span></code> to update scales (If 0.0 is specified, the object becomes invisible. 1.0 becomes the default scale, and 2.0 becomes the twice-scale value).</p>
+<p>The following example shows the default scale rectangle (left), horizontally half-scaled rectangle (center), vertically half-scaled rectangle (right).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -76,7 +76,7 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_base_scale_from_center_basic_usage_1/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_base_scale_from_center_basic_usage_1/index.html" width="350" height="150"></iframe><p>The scaling will be applied from the center coordinates, as follows:</p>
+<iframe src="static/graphics_base_scale_from_center_basic_usage_1/index.html" width="350" height="150"></iframe><p>These interfaces apply the scaling from the center coordinates, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -118,7 +118,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectanglesOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called from the timer.</span>
+<span class="sd">    The handler that the timer calls.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

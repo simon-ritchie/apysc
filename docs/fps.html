@@ -45,14 +45,14 @@
             
   <section id="fps-enum">
 <h1>FPS enum<a class="headerlink" href="#fps-enum" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">FPS</span></code> enum class.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">FPS</span></code> enum class.</p>
 <section id="what-class-is-this">
 <h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">FPS</span></code> enum class is the definition of each FPS (frames per second). This is used by the timer to determine the timer tick interval.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">FPS</span></code> enum class is the definition of each FPS (frames per second). The timer uses this enum to determine the timer tick interval.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>There is an enum definition of FPS in 5 intervals. The <code class="docutils literal notranslate"><span class="pre">Timer</span></code> class <code class="docutils literal notranslate"><span class="pre">delay</span></code> argument is acceptable <code class="docutils literal notranslate"><span class="pre">FPS</span></code> enum value. If you specify the <code class="docutils literal notranslate"><span class="pre">FPS.FPS_60</span></code> value to that argument then a timer interval will approximately be <code class="docutils literal notranslate"><span class="pre">16.6666667</span></code> milliseconds, and be the <code class="docutils literal notranslate"><span class="pre">33.3333333</span></code> milliseconds when you specify <code class="docutils literal notranslate"><span class="pre">FPS.FPS_30</span></code> value.</p>
+<p>There is an enum definition of FPS in 5 intervals. The <code class="docutils literal notranslate"><span class="pre">Timer</span></code> class <code class="docutils literal notranslate"><span class="pre">delay</span></code> argument is acceptable <code class="docutils literal notranslate"><span class="pre">FPS</span></code> enum value. For example, specify the <code class="docutils literal notranslate"><span class="pre">FPS.FPS_60</span></code> value to that argument. A timer interval becomes approximately <code class="docutils literal notranslate"><span class="pre">16.6666667</span></code> milliseconds. Similarly, it becomes the <code class="docutils literal notranslate"><span class="pre">33.3333333</span></code> milliseconds when you specify the <code class="docutils literal notranslate"><span class="pre">FPS.FPS_30</span></code> value.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -65,7 +65,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called from a timer.</span>
+<span class="sd">    The handler that the timer calls.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

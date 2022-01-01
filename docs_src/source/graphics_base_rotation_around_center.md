@@ -1,6 +1,6 @@
 # GraphicsBase rotation_around_center interface
 
-This page will explain the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `rotation_around_center` property interface.
+This page explains the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `rotation_around_center` property interface.
 
 ## What interface is this?
 

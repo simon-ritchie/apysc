@@ -1,10 +1,10 @@
 # Dictionary length interface
 
-This page will explain the `Dictionary` class `length` property interface.
+This page explains the `Dictionary` class `length` property interface.
 
 ## What interface is this?
 
-The `length` property will return the length of dictionary keys.
+The `length` property returns the length of dictionary keys.
 
 ## Basic usage
 

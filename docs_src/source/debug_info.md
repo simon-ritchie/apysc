@@ -1,16 +1,16 @@
 # DebugInfo class
 
-This page will explain the `DebugInfo` class.
+This page explains the `DebugInfo` class.
 
 ## What class is this?
 
-The `DebugInfo` class append the debug mode information exporting setting. This class will be used with the `with` statement and cover the entire implementation of any callable (function or method) that needs to export the debug information.
+The `DebugInfo` class append the debug mode information exporting setting. The apysc uses this class with the `with` statement. It covers the entire implementation of any callable (function or method) that needs to export the debug information.
 
 ## Basic usage for a function call
 
 The `DebugInfo` class constructor requires the `callable_`, `locals_`, and `module_name` arguments.
 
-The `callable_` argument needs to specify the target function (or method), and the `locals_` needs to specify the `locals()` built-in function return value (this will be used to inspect the function arguments). The module name needs to specify the `__name__` fixed value.
+The `callable_` argument needs to specify the target function (or method), and the `locals_` needs to specify the `locals()` built-in function return value. This interface uses these arguments to inspect the function arguments. Also, the module name must specify the `__name__` fixed value.
 
 ```py
 # runnable
@@ -29,7 +29,7 @@ def add_two(int_val: ap.Int) -> ap.Int:
     Returns
     -------
     int_val : ap.Int
-        Added integer value.
+        An added integer value.
     """
     with ap.DebugInfo(
             callable_=add_two, locals_=locals(), module_name=__name__):
@@ -48,7 +48,7 @@ ap.save_overall_html(
     minify=False, dest_dir_path='debug_info_basic_usage_for_function/')
 ```
 
-This code will export the HTML with the debug info for the `add_two` function, as follows:
+This code exports the HTML with the debug info for the `add_two` function, as follows:
 
 ```js
 ...
@@ -90,11 +90,11 @@ This code will export the HTML with the debug info for the `add_two` function, a
 
 ## Notes about the debug mode setting
 
-The `DebugInfo` class setting will be ignored if the debug mode isn't enabled, so you don't need to drop that setting when debugging is ended.
+If the debug mode isn't enabled, the apysc ignores the `DebugInfo` class setting, so you don't need to drop that setting when debugging ends.
 
 ## Basic usage for a method call
 
-If the `callable_` argument value is a method, then the `class_` argument is also required to export class information, as follows:
+Suppose the `callable_` argument value is a method. In that case, this interface also requires the `class_` argument to export class information, as follows:
 
 ```py
 # runnable
@@ -115,7 +115,7 @@ class Calc:
         Returns
         -------
         int_val : ap.Int
-            Added integer value.
+            An added integer value.
         """
         with ap.DebugInfo(
                 callable_=self.add_two, locals_=locals(),
@@ -147,7 +147,7 @@ ap.save_overall_html(
     minify=False, dest_dir_path='debug_info_basic_usage_for_method/')
 ```
 
-The class information will be appended to the exported HTML:
+This setting appends the class information to the exported HTML:
 
 ```js
 ...
@@ -219,7 +219,7 @@ ap.save_overall_html(
     minify=False, dest_dir_path='debug_info_notes_for_property/')
 ```
 
-Also, the direct referring of the dunder method (e.g., `__init__`) will raise the mypy type check error, so these methods name string specification is also acceptable:
+Also, the direct referring of the dunder method (e.g., `__init__`)  raises the mypy type check error, so these methods name string specification is also acceptable:
 
 ```py
 # runnable

@@ -1,8 +1,8 @@
 # Dictionary
 
-This page will explain the `Dictionary` class.
+This page explains the `Dictionary` class.
 
-Before reading on, maybe it is useful to read the following page:
+Before reading on, maybe it is helpful to read the following page:
 
 - [Why not using the Python built-in data type in the apysc library?](why_not_using_python_builtin_data_type.md)
 
@@ -55,7 +55,7 @@ assert int_2 == 10
 
 ## Notes of the getter interface
 
-If a `Dictionary` value doesn't have the specified key, then a retrieved value type will be the `AnyValue` type. This behavior will occasionally be useful when a `Dictionary` value is updated dynamically (e.g., updating by the JavaScript event handler).
+If a `Dictionary` value doesn't have the specified key, a retrieved value type becomes the `AnyValue` type. This behavior occasionally is helpful when a `Dictionary` value is updated dynamically (e.g., updating by the JavaScript event handler).
 
 ```py
 # runnable

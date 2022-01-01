@@ -45,7 +45,7 @@
             
   <section id="dictionary-class-generic-type-settings">
 <h1>Dictionary class generic type settings<a class="headerlink" href="#dictionary-class-generic-type-settings" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> class key and value’s generic type settings.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> class key and value’s generic type settings.</p>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>You can specify the key and value’s type at the <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> type-annotation, as follows:</p>
@@ -56,8 +56,8 @@
 <span class="n">a_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>These generic type-annotations will sometimes be useful for the types checking with the mypy, Pylance, or other libraries, and enhance the safety.</p>
-<p>For example, the following code will be an error of value’s type when checking with the Pylance:</p>
+<p>These generic type-annotations are sometimes helpful for checking with the mypy, Pylance, or other libraries and enhancing safety.</p>
+<p>For example, the following code raises an error of value’s type when checking with the Pylance:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -69,7 +69,7 @@
   <span class="s2">&quot;int&quot;</span> <span class="ow">is</span> <span class="n">incompatible</span> <span class="k">with</span> <span class="s2">&quot;str&quot;</span>
 </pre></div>
 </div>
-<p>Also, the following code will be an error of key’s type (<code class="docutils literal notranslate"><span class="pre">str</span></code> is required but <code class="docutils literal notranslate"><span class="pre">int</span></code> is specified):</p>
+<p>Also, the following code raises an error of key’s type (<code class="docutils literal notranslate"><span class="pre">str</span></code> is required but <code class="docutils literal notranslate"><span class="pre">int</span></code> is specified):</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -77,7 +77,8 @@
 <span class="n">a_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dict_value</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>If you need to use multiple types and type checking, then use the <code class="docutils literal notranslate"><span class="pre">Union</span></code> (alternatively use the <code class="docutils literal notranslate"><span class="pre">|</span></code> symbol, if you are using Python 3.10 or later) or <code class="docutils literal notranslate"><span class="pre">Any</span></code> type, as follows:</p>
+<p>If you need to use multiple types and type checking, then use the <code class="docutils literal notranslate"><span class="pre">Union</span></code>, as follows:</p>
+<p>Notes: Alternatively, use the <code class="docutils literal notranslate"><span class="pre">|</span></code> symbol, if you are using Python 3.10 or later) or <code class="docutils literal notranslate"><span class="pre">Any</span></code> type.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 

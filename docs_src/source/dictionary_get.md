@@ -1,14 +1,14 @@
 # Dictionary get interface
 
-This page will explain the `Dictionary` class `get` method interface.
+This page explains the `Dictionary` class `get` method interface.
 
 ## What interface is this?
 
-The `get` method will return the specified key's value. If that key does not exist in the dictionary, it will return the default value (not raises an exception).
+The `get` method returns the specified key's value. If that key does not exist in the dictionary, it returns the default value (not raising an exception).
 
 ## Basic usage
 
-The `get` method requires the first argument, `key` (dictionary key). The second argument, `default` is optional, and if not provided, it will return the `None` value.
+The `get` method requires the first argument, `key` (dictionary key). The second argument of the `default` is optional, and if not provided, it returns the `None` value.
 
 ```py
 # runnable

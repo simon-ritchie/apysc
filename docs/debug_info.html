@@ -18,7 +18,7 @@
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="JavaScript assertion interface common behavior" href="assertion_common_behavior.html" />
+    <link rel="next" title="JavaScript assertion interface basic behaviors" href="assertion_common_behavior.html" />
     <link rel="prev" title="unset_debug_mode interface" href="unset_debug_mode.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -28,7 +28,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="assertion_common_behavior.html" title="JavaScript assertion interface common behavior"
+          <a href="assertion_common_behavior.html" title="JavaScript assertion interface basic behaviors"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="unset_debug_mode.html" title="unset_debug_mode interface"
@@ -45,15 +45,15 @@
             
   <section id="debuginfo-class">
 <h1>DebugInfo class<a class="headerlink" href="#debuginfo-class" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">DebugInfo</span></code> class.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">DebugInfo</span></code> class.</p>
 <section id="what-class-is-this">
 <h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">DebugInfo</span></code> class append the debug mode information exporting setting. This class will be used with the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement and cover the entire implementation of any callable (function or method) that needs to export the debug information.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">DebugInfo</span></code> class append the debug mode information exporting setting. The apysc uses this class with the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement. It covers the entire implementation of any callable (function or method) that needs to export the debug information.</p>
 </section>
 <section id="basic-usage-for-a-function-call">
 <h2>Basic usage for a function call<a class="headerlink" href="#basic-usage-for-a-function-call" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">DebugInfo</span></code> class constructor requires the <code class="docutils literal notranslate"><span class="pre">callable_</span></code>, <code class="docutils literal notranslate"><span class="pre">locals_</span></code>, and <code class="docutils literal notranslate"><span class="pre">module_name</span></code> arguments.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">callable_</span></code> argument needs to specify the target function (or method), and the <code class="docutils literal notranslate"><span class="pre">locals_</span></code> needs to specify the <code class="docutils literal notranslate"><span class="pre">locals()</span></code> built-in function return value (this will be used to inspect the function arguments). The module name needs to specify the <code class="docutils literal notranslate"><span class="pre">__name__</span></code> fixed value.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">callable_</span></code> argument needs to specify the target function (or method), and the <code class="docutils literal notranslate"><span class="pre">locals_</span></code> needs to specify the <code class="docutils literal notranslate"><span class="pre">locals()</span></code> built-in function return value. This interface uses these arguments to inspect the function arguments. Also, the module name must specify the <code class="docutils literal notranslate"><span class="pre">__name__</span></code> fixed value.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -70,7 +70,7 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    int_val : ap.Int</span>
-<span class="sd">        Added integer value.</span>
+<span class="sd">        An added integer value.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">DebugInfo</span><span class="p">(</span>
             <span class="n">callable_</span><span class="o">=</span><span class="n">add_two</span><span class="p">,</span> <span class="n">locals_</span><span class="o">=</span><span class="nb">locals</span><span class="p">(),</span> <span class="n">module_name</span><span class="o">=</span><span class="vm">__name__</span><span class="p">):</span>
@@ -89,7 +89,7 @@
     <span class="n">minify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;debug_info_basic_usage_for_function/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This code will export the HTML with the debug info for the <code class="docutils literal notranslate"><span class="pre">add_two</span></code> function, as follows:</p>
+<p>This code exports the HTML with the debug info for the <code class="docutils literal notranslate"><span class="pre">add_two</span></code> function, as follows:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
 <span class="c1">//////////////////////////////////////////////////////////////////////</span>
   <span class="c1">// [add_two 1] started.</span>
@@ -130,11 +130,11 @@
 </section>
 <section id="notes-about-the-debug-mode-setting">
 <h2>Notes about the debug mode setting<a class="headerlink" href="#notes-about-the-debug-mode-setting" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">DebugInfo</span></code> class setting will be ignored if the debug mode isn’t enabled, so you don’t need to drop that setting when debugging is ended.</p>
+<p>If the debug mode isn’t enabled, the apysc ignores the <code class="docutils literal notranslate"><span class="pre">DebugInfo</span></code> class setting, so you don’t need to drop that setting when debugging ends.</p>
 </section>
 <section id="basic-usage-for-a-method-call">
 <h2>Basic usage for a method call<a class="headerlink" href="#basic-usage-for-a-method-call" title="Permalink to this headline">¶</a></h2>
-<p>If the <code class="docutils literal notranslate"><span class="pre">callable_</span></code> argument value is a method, then the <code class="docutils literal notranslate"><span class="pre">class_</span></code> argument is also required to export class information, as follows:</p>
+<p>Suppose the <code class="docutils literal notranslate"><span class="pre">callable_</span></code> argument value is a method. In that case, this interface also requires the <code class="docutils literal notranslate"><span class="pre">class_</span></code> argument to export class information, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -153,7 +153,7 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        int_val : ap.Int</span>
-<span class="sd">            Added integer value.</span>
+<span class="sd">            An added integer value.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">DebugInfo</span><span class="p">(</span>
                 <span class="n">callable_</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">add_two</span><span class="p">,</span> <span class="n">locals_</span><span class="o">=</span><span class="nb">locals</span><span class="p">(),</span>
@@ -185,7 +185,7 @@
     <span class="n">minify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;debug_info_basic_usage_for_method/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The class information will be appended to the exported HTML:</p>
+<p>This setting appends the class information to the exported HTML:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
   <span class="c1">//////////////////////////////////////////////////////////////////////</span>
   <span class="c1">// [add_two 1] started.</span>
@@ -254,7 +254,7 @@
     <span class="n">minify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;debug_info_notes_for_property/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Also, the direct referring of the dunder method (e.g., <code class="docutils literal notranslate"><span class="pre">__init__</span></code>) will raise the mypy type check error, so these methods name string specification is also acceptable:</p>
+<p>Also, the direct referring of the dunder method (e.g., <code class="docutils literal notranslate"><span class="pre">__init__</span></code>)  raises the mypy type check error, so these methods name string specification is also acceptable:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -352,7 +352,7 @@
                         title="previous chapter">unset_debug_mode interface</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="assertion_common_behavior.html"
-                        title="next chapter">JavaScript assertion interface common behavior</a></p>
+                        title="next chapter">JavaScript assertion interface basic behaviors</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -374,7 +374,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="assertion_common_behavior.html" title="JavaScript assertion interface common behavior"
+          <a href="assertion_common_behavior.html" title="JavaScript assertion interface basic behaviors"
              >next</a> |</li>
         <li class="right" >
           <a href="unset_debug_mode.html" title="unset_debug_mode interface"

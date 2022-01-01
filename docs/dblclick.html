@@ -45,10 +45,10 @@
             
   <section id="double-click-interface">
 <h1>Double click interface<a class="headerlink" href="#double-click-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">dblclick</span></code> (double-click) interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">dblclick</span></code> (double-click) interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">dblclick</span></code> interface will bind the double-click event to any <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance (e.g., <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>, <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>, and so on). If you double-click on that instance, the registered handler function will be called.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">dblclick</span></code> interface binds the double-click event to any <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance (e.g., <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>, <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>, and so on). If you double-click on that instance, this interface calls the registered handler function.</p>
 </section>
 <section id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
@@ -60,15 +60,14 @@
 <section id="basic-usage-of-the-dblclick-interface">
 <h2>Basic usage of the dblclick interface<a class="headerlink" href="#basic-usage-of-the-dblclick-interface" title="Permalink to this headline">¶</a></h2>
 <p>Each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">dblclick</span></code> method, and you can bind handlers by that.</p>
-<p>The following example will bind the double-click event handler to the rectangle, and if you double-click on that instance, the rectangle color will change from cyan to magenta.</p>
+<p>The following example binds the double-click event handler to the rectangle. If you double-click on that instance, the rectangle color changes from cyan to magenta.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
 <span class="k">def</span> <span class="nf">on_double_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rectangle is</span>
-<span class="sd">    double clicked.</span>
+<span class="sd">    The handler that the rectangle calls when double-clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -97,16 +96,15 @@
 <iframe src="static/dblclick_basic_usage/index.html" width="150" height="150"></iframe></section>
 <section id="basic-usage-of-the-unbind-dblclick-interfaces">
 <h2>Basic usage of the unbind_dblclick interfaces<a class="headerlink" href="#basic-usage-of-the-unbind-dblclick-interfaces" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">unbind_dblclick</span></code> interface can remove the single binded double-click event from a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance, and <code class="docutils literal notranslate"><span class="pre">unbind_dblclick_all</span></code> interface will remove all double-click events.</p>
-<p>The following example is removing the double click event by the <code class="docutils literal notranslate"><span class="pre">unbind_dblclick</span></code> method and if you double-click the rectangle, nothing happens.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">unbind_dblclick</span></code> interface can remove the single binded double-click event from a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance. The <code class="docutils literal notranslate"><span class="pre">unbind_dblclick_all</span></code> interface removes all double-click events.</p>
+<p>The following example removes the double click event by the <code class="docutils literal notranslate"><span class="pre">unbind_dblclick</span></code> method. If you double-click the rectangle, nothing happens.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
 <span class="k">def</span> <span class="nf">on_double_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rectangle is</span>
-<span class="sd">    double clicked.</span>
+<span class="sd">    The handler that the rectangle calls when double-clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

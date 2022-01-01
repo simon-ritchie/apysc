@@ -1,10 +1,10 @@
 # Double click interface
 
-This page will explain the `dblclick` (double-click) interface.
+This page explains the `dblclick` (double-click) interface.
 
 ## What interface is this?
 
-The `dblclick` interface will bind the double-click event to any `DisplayObject` instance (e.g., `Sprite`, `Rectangle`, and so on). If you double-click on that instance, the registered handler function will be called.
+The `dblclick` interface binds the double-click event to any `DisplayObject` instance (e.g., `Sprite`\, `Rectangle`\, and so on). If you double-click on that instance, this interface calls the registered handler function.
 
 ## See also
 
@@ -16,7 +16,7 @@ Common mouse event interfaces are described by the following page.
 
 Each `DisplayObject` instance has the `dblclick` method, and you can bind handlers by that.
 
-The following example will bind the double-click event handler to the rectangle, and if you double-click on that instance, the rectangle color will change from cyan to magenta.
+The following example binds the double-click event handler to the rectangle. If you double-click on that instance, the rectangle color changes from cyan to magenta.
 
 ```py
 # runnable
@@ -25,8 +25,7 @@ import apysc as ap
 
 def on_double_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the rectangle is
-    double clicked.
+    The handler that the rectangle calls when double-clicked.
 
     Parameters
     ----------
@@ -56,9 +55,9 @@ ap.save_overall_html(
 
 ## Basic usage of the unbind_dblclick interfaces
 
-The `unbind_dblclick` interface can remove the single binded double-click event from a `DisplayObject` instance, and `unbind_dblclick_all` interface will remove all double-click events.
+The `unbind_dblclick` interface can remove the single binded double-click event from a `DisplayObject` instance. The `unbind_dblclick_all` interface removes all double-click events.
 
-The following example is removing the double click event by the `unbind_dblclick` method and if you double-click the rectangle, nothing happens.
+The following example removes the double click event by the `unbind_dblclick` method. If you double-click the rectangle, nothing happens.
 
 ```py
 # runnable
@@ -67,8 +66,7 @@ import apysc as ap
 
 def on_double_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the rectangle is
-    double clicked.
+    The handler that the rectangle calls when double-clicked.
 
     Parameters
     ----------

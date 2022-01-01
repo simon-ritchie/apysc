@@ -1,10 +1,10 @@
 # DisplayObject and GraphicsBase classes base properties abstract
 
-This page would explain the `DisplayObject` and `GraphicsBase` classes' each property (such as the x, visible) abstract.
+This page explains the `DisplayObject` and `GraphicsBase` classes' each property (such as the x, visible) abstract.
 
 ## What apysc can do in its properties
 
-- You can get/set each property value, such as the x, y, visible, scale, etc.
+- You can get/set each property value, such as the x, y, visible.
 
 ## x and y properties
 
@@ -27,7 +27,7 @@ class RectOptions(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
     """
-    The handler would be called from a timer.
+    The handler that the timer calls.
 
     Parameters
     ----------
@@ -94,7 +94,7 @@ class RectOptions(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
     """
-    The handler would be called from a timer.
+    The handler that the timer calls.
 
     Parameters
     ----------
@@ -150,7 +150,7 @@ class RectOptions(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
     """
-    The handler would be called from a timer.
+    The handler that the timer calls.
 
     Parameters
     ----------
@@ -207,7 +207,7 @@ class RectOptions(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
     """
-    The handler would be called from a timer.
+    The handler that the timer calls.
 
     Parameters
     ----------
@@ -274,7 +274,7 @@ class LineOptions(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: LineOptions) -> None:
     """
-    The handler would be called from a timer.
+    The handler that the timer calls.
 
     Parameters
     ----------
@@ -330,7 +330,7 @@ class RectOptions(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
     """
-    The handler would be called from a timer.
+    The handler that the timer calls.
 
     Parameters
     ----------

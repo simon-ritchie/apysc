@@ -1,12 +1,12 @@
 # animation_scale_x_from_center and animation_scale_x_from_center interfaces
 
-This page will explain the `animation_scale_x_from_center` and `animation_scale_y_from_center` method interfaces.
+This page explains the `animation_scale_x_from_center` and `animation_scale_y_from_center` method interfaces.
 
 ## What interfaces are these?
 
-The `animation_scale_x_from_center` method interface will create an `ap.AnimationScaleXFromCenter` instance (animation setting instance and the subclass of the `AnimationBase`) and you can animate x-directional scale with it.
+The `animation_scale_x_from_center` method interface creates an `ap.AnimationScaleXFromCenter` instance. You can animate x-direction's scale with it.
 
-Similarly, the `animation_scale_y_from_center` method interface will create an `ap.AnimationScaleYFromCenter` instance and you can animate y-directional scale with it.
+Similarly, the `animation_scale_y_from_center` method interface creates an `ap.AnimationScaleYFromCenter` instance. You can animate y-direction's scale with it.
 
 These interfaces exist on a `GraphicsBase` subclass (that has the `scale_x_from_center` and `scale_y_from_center` interfaces), such as the `Rectangle` or `Circle`.
 
@@ -38,7 +38,7 @@ class Options(TypedDict):
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: Options) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -72,7 +72,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: Options) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------

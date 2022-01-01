@@ -1,12 +1,12 @@
 # animation_skew_x interface
 
-This page will explain the `animation_skew_x` method interface.
+This page explains the `animation_skew_x` method interface.
 
 ## What interface is this?
 
-The `animation_skew_x` method interface will create an `ap.AnimationSkewX` instance (animation setting instance and the subclass of the `AnimationBase`) and you can animate x-directional skewing with it.
+The `animation_skew_x` method interface creates an `ap.AnimationSkewX` instance. You can animate x-directional skewing with it.
 
-This interface exists on a `GraphicsBase` subclass (that has the `skew_x` and `skew_y` interfaces), such as the `Rectangle`.
+This interface exists on a `GraphicsBase` subclass, such as the `Rectangle`.
 
 ## Basic usage
 
@@ -23,7 +23,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -43,7 +43,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------

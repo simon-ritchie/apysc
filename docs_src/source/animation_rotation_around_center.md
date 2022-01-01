@@ -1,16 +1,16 @@
 # animation_rotation_around_center interface
 
-This page will explain the `animation_rotation_around_center` method interface.
+This page explains the `animation_rotation_around_center` method interface.
 
 ## What interface is this?
 
-The `animation_rotation_around_center` method interface will create an `ap.AnimationRotationAroundCenter` instance (animation setting instance and the subclass of the `AnimationBase`) and you can animate rotation around the instance's center point.
+The `animation_rotation_around_center` method interface creates an `ap.AnimationRotationAroundCenter` instance. You can animate rotation around the instance's center point with it.
 
-This interface exists on a `GraphicsBase` subclass (that has the `rotation_around_center` interface), such as the `Rectangle` or `Circle`.
+This interface exists on a `GraphicsBase`, such as the `Rectangle` or `Circle`.
 
 ## Basic usage
 
-The following example will set the rotation animation (from 0 to 90 degrees) with the `animation_rotation_around_center` method:
+The following example sets the rotation animation (from 0 to 90 degrees) with the `animation_rotation_around_center` method:
 
 ```py
 # runnable
@@ -22,7 +22,7 @@ DURATION: int = 1000
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -42,7 +42,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------

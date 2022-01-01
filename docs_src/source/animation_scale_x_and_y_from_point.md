@@ -1,12 +1,12 @@
 # animation_scale_x_from_point and animation_scale_y_from_point interfaces
 
-This page will explain the `animation_scale_x_from_point` and `animation_scale_y_from_point` method interfaces.
+This page explains the `animation_scale_x_from_point` and `animation_scale_y_from_point` method interfaces.
 
 ## What interfaces are these?
 
-The `animation_scale_x_from_point` method interface will create an `ap.AnimationScaleXFromPoint` instance (animation setting instance and the subclass of the `AnimationBase`) and you can animate x-directional scale with it from a specified x-coordinate.
+The `animation_scale_x_from_point` method interface will create an `ap.AnimationScaleXFromPoint` instance. You can animate the x-directional scale with it from a specified x-coordinate.
 
-Similarly, the `animation_scale_y_from_point` method interface will create an `ap.AnimationScaleYFromPoint` instance and you can animate y-directional scale with it from a specified y-coordinate.
+Similarly, the `animation_scale_y_from_point` method interface creates an `ap.AnimationScaleYFromPoint` instance. You can animate the y-directional scale with it from a specified y-coordinate.
 
 These interfaces exist on a `GraphicsBase` subclass (that has the `scale_x_from_center` and `scale_y_from_center` interfaces), such as the `Rectangle` or `Circle`.
 
@@ -14,7 +14,7 @@ These interfaces exist on a `GraphicsBase` subclass (that has the `scale_x_from_
 
 The following example sets the x-directional scale (left-side rectangle) and y-directional scale (right-side rectangle) animation (from 1.0 to 2.0) with the `animation_scale_x_from_point` and `animation_scale_y_from_point` methods.
 
-The left-side rectangle will scale from the left end (x=50) and the right-side rectangle will scale from the bottom end (y=100).
+These settings set the left-side rectangle scales from the left end (x=50) and the right-side rectangle scales from the bottom end (y=100).
 
 ```py
 # runnable
@@ -44,7 +44,7 @@ class Options(TypedDict):
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: Options) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -79,7 +79,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: Options) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------

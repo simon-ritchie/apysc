@@ -45,11 +45,11 @@
             
   <section id="animation-scale-x-from-center-and-animation-scale-x-from-center-interfaces">
 <h1>animation_scale_x_from_center and animation_scale_x_from_center interfaces<a class="headerlink" href="#animation-scale-x-from-center-and-animation-scale-x-from-center-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">animation_scale_x_from_center</span></code> and <code class="docutils literal notranslate"><span class="pre">animation_scale_y_from_center</span></code> method interfaces.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">animation_scale_x_from_center</span></code> and <code class="docutils literal notranslate"><span class="pre">animation_scale_y_from_center</span></code> method interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">animation_scale_x_from_center</span></code> method interface will create an <code class="docutils literal notranslate"><span class="pre">ap.AnimationScaleXFromCenter</span></code> instance (animation setting instance and the subclass of the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>) and you can animate x-directional scale with it.</p>
-<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">animation_scale_y_from_center</span></code> method interface will create an <code class="docutils literal notranslate"><span class="pre">ap.AnimationScaleYFromCenter</span></code> instance and you can animate y-directional scale with it.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">animation_scale_x_from_center</span></code> method interface creates an <code class="docutils literal notranslate"><span class="pre">ap.AnimationScaleXFromCenter</span></code> instance. You can animate x-direction’s scale with it.</p>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">animation_scale_y_from_center</span></code> method interface creates an <code class="docutils literal notranslate"><span class="pre">ap.AnimationScaleYFromCenter</span></code> instance. You can animate y-direction’s scale with it.</p>
 <p>These interfaces exist on a <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> subclass (that has the <code class="docutils literal notranslate"><span class="pre">scale_x_from_center</span></code> and <code class="docutils literal notranslate"><span class="pre">scale_y_from_center</span></code> interfaces), such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> or <code class="docutils literal notranslate"><span class="pre">Circle</span></code>.</p>
 </section>
 <section id="basic-usage">
@@ -78,7 +78,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Options</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -112,7 +112,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Options</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

@@ -45,15 +45,15 @@
             
   <section id="animation-reverse-interface">
 <h1>animation_reverse interface<a class="headerlink" href="#animation-reverse-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">animation_reverse</span></code> method interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">animation_reverse</span></code> method interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">animation_reverse</span></code> interface will reverse the running animations.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">animation_reverse</span></code> interface reverses the running animations.</p>
 <p>This interface exists in the instances that have the animation interfaces (such as the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code>, <code class="docutils literal notranslate"><span class="pre">animation_move</span></code>).</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The following example will set the x-coordinate animation and start the 1-second interval timer to reverse animation with the <code class="docutils literal notranslate"><span class="pre">animation_reverse</span></code> interface.</p>
+<p>The following example sets the x-coordinate animation and starts the 1-second interval timer to reverse animation with the <code class="docutils literal notranslate"><span class="pre">animation_reverse</span></code> interface.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -66,7 +66,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer_1</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The timer event handler will be called after the 3 seconds.</span>
+<span class="sd">    The event handler that timer calls after the 3 seconds.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -80,7 +80,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer_2</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The timer event handler will be called every second.</span>
+<span class="sd">    The event handler that timer calls every second.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -114,7 +114,7 @@
 <iframe src="static/animation_reverse_basic_usage/index.html" width="500" height="150"></iframe></section>
 <section id="interface-notes">
 <h2>Interface Notes<a class="headerlink" href="#interface-notes" title="Permalink to this headline">¶</a></h2>
-<p>This interface can only use during animation. If you use this at the end of animation nothing will happen, as follows:</p>
+<p>This interface can only use during animation. If you use this at the end of the animation, nothing happens, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -127,7 +127,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called from a timer.</span>
+<span class="sd">    The handler that the timer calls.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -138,7 +138,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;rectangle&#39;</span><span class="p">]</span>
 
-    <span class="c1"># Nothing will happen since animation has already been completed.</span>
+    <span class="c1"># Nothing happens since the animation has already been completed.</span>
     <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_reverse</span><span class="p">()</span>
 
 

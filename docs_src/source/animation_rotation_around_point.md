@@ -1,18 +1,18 @@
 # animation_rotation_around_point interface
 
-This page will explain the `animation_rotation_around_point` method interface.
+This page explains the `animation_rotation_around_point` method interface.
 
 ## What interface is this?
 
-The `animation_rotation_around_point` method interface will create an `ap.AnimationRotationAroundPoint` instance (animation setting instance and the subclass of the `AnimationBase`) and you can animate rotation around the given point of the instance.
+The `animation_rotation_around_point` method interface creates an `ap.AnimationRotationAroundPoint` instance. You can animate rotation around the given point of the instance with it.
 
-This interface exists on a `GraphicsBase` subclass (that has the `rotation_around_point` interface), such as the `Rectangle` or `Circle`.
+This interface exists on a `GraphicsBase` subclass, such as the `Rectangle` or `Circle`.
 
 ## Basic usage
 
 The `animation_rotation_around_point` method requires rotation and x and y coordinates arguments to animate.
 
-The following example will set the rotation animation around the x=100, y=100 coordinates (the bottom-right coordinates of the rectangle) from 0 to 90 degrees.
+The following example sets the rotation animation around the x=100, y=100 coordinates (the bottom-right coordinates of the rectangle) from 0 to 90 degrees.
 
 ```py
 # runnable
@@ -24,7 +24,7 @@ DURATION: int = 1000
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -46,7 +46,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------

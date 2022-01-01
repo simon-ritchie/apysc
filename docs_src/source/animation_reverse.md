@@ -1,16 +1,16 @@
 # animation_reverse interface
 
-This page will explain the `animation_reverse` method interface.
+This page explains the `animation_reverse` method interface.
 
 ## What interface is this?
 
-The `animation_reverse` interface will reverse the running animations.
+The `animation_reverse` interface reverses the running animations.
 
-This interface exists in the instances that have the animation interfaces (such as the `animation_x`, `animation_move`).
+This interface exists in the instances that have the animation interfaces (such as the `animation_x`\, `animation_move`).
 
 ## Basic usage
 
-The following example will set the x-coordinate animation and start the 1-second interval timer to reverse animation with the `animation_reverse` interface.
+The following example sets the x-coordinate animation and starts the 1-second interval timer to reverse animation with the `animation_reverse` interface.
 
 ```py
 # runnable
@@ -25,7 +25,7 @@ class _RectOptions(TypedDict):
 
 def on_timer_1(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
-    The timer event handler will be called after the 3 seconds.
+    The event handler that timer calls after the 3 seconds.
 
     Parameters
     ----------
@@ -39,7 +39,7 @@ def on_timer_1(e: ap.TimerEvent, options: _RectOptions) -> None:
 
 def on_timer_2(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
-    The timer event handler will be called every second.
+    The event handler that timer calls every second.
 
     Parameters
     ----------
@@ -74,7 +74,7 @@ ap.save_overall_html(
 
 ## Interface Notes
 
-This interface can only use during animation. If you use this at the end of animation nothing will happen, as follows:
+This interface can only use during animation. If you use this at the end of the animation, nothing happens, as follows:
 
 ```py
 # runnable
@@ -89,7 +89,7 @@ class _RectOptions(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
-    The handler will be called from a timer.
+    The handler that the timer calls.
 
     Parameters
     ----------
@@ -100,7 +100,7 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
     rectangle: ap.Rectangle = options['rectangle']
 
-    # Nothing will happen since animation has already been completed.
+    # Nothing happens since the animation has already been completed.
     rectangle.animation_reverse()
 
 

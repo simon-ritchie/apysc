@@ -45,17 +45,17 @@
             
   <section id="animation-scale-x-from-point-and-animation-scale-y-from-point-interfaces">
 <h1>animation_scale_x_from_point and animation_scale_y_from_point interfaces<a class="headerlink" href="#animation-scale-x-from-point-and-animation-scale-y-from-point-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">animation_scale_x_from_point</span></code> and <code class="docutils literal notranslate"><span class="pre">animation_scale_y_from_point</span></code> method interfaces.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">animation_scale_x_from_point</span></code> and <code class="docutils literal notranslate"><span class="pre">animation_scale_y_from_point</span></code> method interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">animation_scale_x_from_point</span></code> method interface will create an <code class="docutils literal notranslate"><span class="pre">ap.AnimationScaleXFromPoint</span></code> instance (animation setting instance and the subclass of the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>) and you can animate x-directional scale with it from a specified x-coordinate.</p>
-<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">animation_scale_y_from_point</span></code> method interface will create an <code class="docutils literal notranslate"><span class="pre">ap.AnimationScaleYFromPoint</span></code> instance and you can animate y-directional scale with it from a specified y-coordinate.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">animation_scale_x_from_point</span></code> method interface will create an <code class="docutils literal notranslate"><span class="pre">ap.AnimationScaleXFromPoint</span></code> instance. You can animate the x-directional scale with it from a specified x-coordinate.</p>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">animation_scale_y_from_point</span></code> method interface creates an <code class="docutils literal notranslate"><span class="pre">ap.AnimationScaleYFromPoint</span></code> instance. You can animate the y-directional scale with it from a specified y-coordinate.</p>
 <p>These interfaces exist on a <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> subclass (that has the <code class="docutils literal notranslate"><span class="pre">scale_x_from_center</span></code> and <code class="docutils literal notranslate"><span class="pre">scale_y_from_center</span></code> interfaces), such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> or <code class="docutils literal notranslate"><span class="pre">Circle</span></code>.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The following example sets the x-directional scale (left-side rectangle) and y-directional scale (right-side rectangle) animation (from 1.0 to 2.0) with the <code class="docutils literal notranslate"><span class="pre">animation_scale_x_from_point</span></code> and <code class="docutils literal notranslate"><span class="pre">animation_scale_y_from_point</span></code> methods.</p>
-<p>The left-side rectangle will scale from the left end (x=50) and the right-side rectangle will scale from the bottom end (y=100).</p>
+<p>These settings set the left-side rectangle scales from the left end (x=50) and the right-side rectangle scales from the bottom end (y=100).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 
@@ -83,7 +83,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Options</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -118,7 +118,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">Options</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

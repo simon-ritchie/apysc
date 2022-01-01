@@ -1,12 +1,12 @@
 # animation_width and animation_height interfaces
 
-This page will explain the `animation_width` and `animation_height` interfaces.
+This page explains the `animation_width` and `animation_height` interfaces.
 
 ## What interfaces are these?
 
-The `animation_width` method interface will create an `AnimationWidth` instance (animation setting instance and the subclass of the `AnimationBase`) and you can animate object width with it.
+The `animation_width` method interface creates an `AnimationWidth` instance. You can animate object width with it.
 
-Similarly, the `animation_height` method interface will create an `AnimationHeight` instance and can animate object height with it.
+Similarly, the `animation_height` method interface creates an `AnimationHeight` instance. You can animate object height with it.
 
 These interfaces exist on some `DisplayObject` instances, such as the `Rectangle`.
 
@@ -25,7 +25,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -44,7 +44,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -78,7 +78,7 @@ ap.save_overall_html(
 
 <iframe src="static/animation_width_basic_usage/index.html" width="200" height="150"></iframe>
 
-Similarly, the following example will animate the height with the `animation_height` method:
+Similarly, the following example animates the height with the `animation_height` method:
 
 ```py
 # runnable
@@ -91,7 +91,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -110,7 +110,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------

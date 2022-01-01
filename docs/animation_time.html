@@ -45,14 +45,14 @@
             
   <section id="animation-time-interface">
 <h1>animation_time interface<a class="headerlink" href="#animation-time-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">animation_time</span></code> method interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">animation_time</span></code> method interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">animation_time</span></code> interface will return the current animation elapsed time in milliseconds (<code class="docutils literal notranslate"><span class="pre">Number</span></code> type value).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">animation_time</span></code> interface returns the current animation elapsed time in milliseconds (<code class="docutils literal notranslate"><span class="pre">Number</span></code> type value).</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The following example will set the x-coordinate animation of the rectangle and 1-second interval timer to display an animation’s current elapsed time to console (please press the F12 key).</p>
+<p>The following example sets the x-coordinate animation of the rectangle and the 1-second interval timer to display an animation’s current elapsed time to console (please press the F12 key).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -65,7 +65,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called from a timer.</span>
+<span class="sd">    The handler that the animation calls.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

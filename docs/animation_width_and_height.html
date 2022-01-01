@@ -45,11 +45,11 @@
             
   <section id="animation-width-and-animation-height-interfaces">
 <h1>animation_width and animation_height interfaces<a class="headerlink" href="#animation-width-and-animation-height-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">animation_width</span></code> and <code class="docutils literal notranslate"><span class="pre">animation_height</span></code> interfaces.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">animation_width</span></code> and <code class="docutils literal notranslate"><span class="pre">animation_height</span></code> interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">animation_width</span></code> method interface will create an <code class="docutils literal notranslate"><span class="pre">AnimationWidth</span></code> instance (animation setting instance and the subclass of the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>) and you can animate object width with it.</p>
-<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">animation_height</span></code> method interface will create an <code class="docutils literal notranslate"><span class="pre">AnimationHeight</span></code> instance and can animate object height with it.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">animation_width</span></code> method interface creates an <code class="docutils literal notranslate"><span class="pre">AnimationWidth</span></code> instance. You can animate object width with it.</p>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">animation_height</span></code> method interface creates an <code class="docutils literal notranslate"><span class="pre">AnimationHeight</span></code> instance. You can animate object height with it.</p>
 <p>These interfaces exist on some <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instances, such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>.</p>
 </section>
 <section id="basic-usage">
@@ -65,7 +65,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -84,7 +84,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -116,7 +116,7 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;./animation_width_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/animation_width_basic_usage/index.html" width="200" height="150"></iframe><p>Similarly, the following example will animate the height with the <code class="docutils literal notranslate"><span class="pre">animation_height</span></code> method:</p>
+<iframe src="static/animation_width_basic_usage/index.html" width="200" height="150"></iframe><p>Similarly, the following example animates the height with the <code class="docutils literal notranslate"><span class="pre">animation_height</span></code> method:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -127,7 +127,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -146,7 +146,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

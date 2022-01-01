@@ -1,14 +1,14 @@
 # animation_time interface
 
-This page will explain the `animation_time` method interface.
+This page explains the `animation_time` method interface.
 
 ## What interface is this?
 
-The `animation_time` interface will return the current animation elapsed time in milliseconds (`Number` type value).
+The `animation_time` interface returns the current animation elapsed time in milliseconds (`Number` type value).
 
 ## Basic usage
 
-The following example will set the x-coordinate animation of the rectangle and 1-second interval timer to display an animation's current elapsed time to console (please press the F12 key).
+The following example sets the x-coordinate animation of the rectangle and the 1-second interval timer to display an animation's current elapsed time to console (please press the F12 key).
 
 ```py
 # runnable
@@ -23,7 +23,7 @@ class _RectOptions(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
-    The handler will be called from a timer.
+    The handler that the animation calls.
 
     Parameters
     ----------

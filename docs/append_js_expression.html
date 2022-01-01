@@ -45,15 +45,15 @@
             
   <section id="append-js-expression-interface">
 <h1>append_js_expression interface<a class="headerlink" href="#append-js-expression-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">append_js_expression</span></code> function interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">append_js_expression</span></code> function interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">append_js_expression</span></code> function interface will append any JavaScript to the exported HTML at any position. This interface may be useful if you need to use the apysc not supported interfaces or irregular JavaScript implementation, like the Django template tags or parameters (e.g., <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">if</span> <span class="pre">...</span> <span class="pre">%}</span></code>).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">append_js_expression</span></code> function interface appends any JavaScript to the exported HTML at any position. This interface may be helpful if you need to use the apysc not supported interfaces or irregular JavaScript implementation, like the Django template tags or parameters (e.g., <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">if</span> <span class="pre">...</span> <span class="pre">%}</span></code>).</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">append_js_expression</span></code> function requires JavaScript string at the argument.</p>
-<p>The following example will append the <code class="docutils literal notranslate"><span class="pre">console.log</span></code> JavaScript calling at the rectangle click handler:</p>
+<p>The following example appends the <code class="docutils literal notranslate"><span class="pre">console.log</span></code> JavaScript calling at the rectangle click handler:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -61,7 +61,7 @@
 <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rectangle is clicked.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -87,7 +87,7 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;append_js_expression_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you click the following rectangle, the <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">rectangle</span> <span class="pre">is</span> <span class="pre">clicked!</span></code> message will be displayed on the browser console (please press the F12 key).</p>
+<p>If you click the following rectangle, the handler displays the <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">rectangle</span> <span class="pre">is</span> <span class="pre">clicked!</span></code> message on the browser console (please press the F12 key).</p>
 <iframe src="static/append_js_expression_basic_usage/index.html" width="150" height="150"></iframe></section>
 </section>
 

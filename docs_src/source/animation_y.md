@@ -1,10 +1,10 @@
 # animation_y interface
 
-This page will explain the `animation_y` method interface.
+This page explains the `animation_y` method interface.
 
 ## What interface is this?
 
-The `animation_y` method interface will create an `AnimationY` instance (animation setting instance and the subclass of the `AnimationBase`) and you can animate y-coordinate with it.
+The `animation_y` method interface creates an `AnimationY` instance. You can animate y-coordinate with it.
 
 This interface exists on a `DisplayObject` subclass instance, such as the `Sprite` or `Rectangle`.
 
@@ -23,7 +23,7 @@ DURATION: int = 1000
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -42,7 +42,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------

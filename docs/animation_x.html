@@ -45,10 +45,10 @@
             
   <section id="animation-x-interface">
 <h1>animation_x interface<a class="headerlink" href="#animation-x-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code> method interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code> method interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">animation_x</span></code> method interface will create an <code class="docutils literal notranslate"><span class="pre">AnimationX</span></code> instance (animation setting instance and the subclass of the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>) and you can animate x-coordinate with it.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">animation_x</span></code> method interface creates an <code class="docutils literal notranslate"><span class="pre">AnimationX</span></code> instance. You can animate x-coordinate with it.</p>
 <p>This interface exists on a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> subclass instance, such as the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> or <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>.</p>
 </section>
 <section id="basic-usage">
@@ -64,7 +64,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -83,7 +83,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

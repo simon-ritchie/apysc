@@ -45,7 +45,7 @@
             
   <section id="graphics-begin-fill-interface">
 <h1>Graphics begin_fill interface<a class="headerlink" href="#graphics-begin-fill-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page would explain the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">begin_fill</span></code> method interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">begin_fill</span></code> method interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">begin_fill</span></code> interface would set the fill color and fill alpha settings. This setting would be maintained until it is called again or called the <code class="docutils literal notranslate"><span class="pre">clear</span></code> method.</p>
@@ -84,7 +84,7 @@
 <iframe src="static/graphics_begin_fill_basic_usage/index.html" width="350" height="150"></iframe></section>
 <section id="fill-color-setting">
 <h2>Fill color setting<a class="headerlink" href="#fill-color-setting" title="Permalink to this headline">¶</a></h2>
-<p>A fill color can be set by the <code class="docutils literal notranslate"><span class="pre">color</span></code> argument, and this is required.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">color</span></code> argument sets the fill color, and the <code class="docutils literal notranslate"><span class="pre">begin_fill</span></code> interface requires this argument.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -103,8 +103,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_begin_fill_fill_color/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_begin_fill_fill_color/index.html" width="150" height="150"></iframe><p>If you want to clear fill color, then specify a blank string to this argument.</p>
-<p>For example, since the following code will clear fill color setting, so a result rectangle graphic is invisible.</p>
+<iframe src="static/graphics_begin_fill_fill_color/index.html" width="150" height="150"></iframe><p>If you want to clear fill color, specify a blank string to this argument.</p>
+<p>For example, since the following code clears fill color settings, a rectangle graphic becomes invisible.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -131,10 +131,10 @@
 <iframe src="static/graphics_begin_fill_color_setting_clear/index.html" width="150" height="150"></iframe><p>Color code is acceptable like the following list:</p>
 <ul class="simple">
 <li><p>Six characters, e.g., <code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>.</p></li>
-<li><p>Three characters, e.g., <code class="docutils literal notranslate"><span class="pre">#0af</span></code> (this will be interpreted as <code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>).</p></li>
-<li><p>Single character, e.g., <code class="docutils literal notranslate"><span class="pre">#5</span></code> (this will be interpreted as <code class="docutils literal notranslate"><span class="pre">#000005</span></code>).</p></li>
-<li><p>Skipped <code class="docutils literal notranslate"><span class="pre">#</span></code> symbol, e.g., <code class="docutils literal notranslate"><span class="pre">0af</span></code> (this will be interpreted as <code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>).</p></li>
-<li><p>Blank string, e.g., <code class="docutils literal notranslate"><span class="pre">''</span></code> (this will clear fill color setting).</p></li>
+<li><p>Three characters, e.g., <code class="docutils literal notranslate"><span class="pre">#0af</span></code> (this becomes <code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>).</p></li>
+<li><p>Single character, e.g., <code class="docutils literal notranslate"><span class="pre">#5</span></code> (this becomes <code class="docutils literal notranslate"><span class="pre">#000005</span></code>).</p></li>
+<li><p>Skipped <code class="docutils literal notranslate"><span class="pre">#</span></code> symbol, e.g., <code class="docutils literal notranslate"><span class="pre">0af</span></code> (this becomes <code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>).</p></li>
+<li><p>Blank string, e.g., <code class="docutils literal notranslate"><span class="pre">''</span></code> (this setting clears the fill color setting).</p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>

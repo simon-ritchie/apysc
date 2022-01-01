@@ -45,12 +45,12 @@
             
   <section id="graphicsbase-skew-x-and-skew-y-interfaces">
 <h1>GraphicsBase skew_x and skew_y interfaces<a class="headerlink" href="#graphicsbase-skew-x-and-skew-y-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> class (base class of each graphics, such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>) <code class="docutils literal notranslate"><span class="pre">skew_x</span></code> and <code class="docutils literal notranslate"><span class="pre">skew_y</span></code> property interfaces.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> class (base class of each graphics, such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>) <code class="docutils literal notranslate"><span class="pre">skew_x</span></code> and <code class="docutils literal notranslate"><span class="pre">skew_y</span></code> property interfaces.</p>
 <p>Each interface value type is the <code class="docutils literal notranslate"><span class="pre">Int</span></code> value.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">skew_x</span></code> property will skew an object’s x-axis, conversely, the <code class="docutils literal notranslate"><span class="pre">skew_y</span></code> property skew a y-axis. These interfaces have getter and setter interfaces.</p>
-<p>The following example will show you the default rectangle (left) and the skewed 50px in the x-direction rectangle (right).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">skew_x</span></code> property skews an object’s x-axis. Conversely, the <code class="docutils literal notranslate"><span class="pre">skew_y</span></code> property skew a y-axis. These interfaces have getter and setter interfaces.</p>
+<p>The following example shows you the default rectangle (left) and the skewed 50px in the x-direction rectangle (right).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -70,7 +70,7 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_base_skew_x_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_base_skew_x_basic_usage/index.html" width="250" height="150"></iframe><p>The following example will skew the rectangle in the y-direction incrementally.</p>
+<iframe src="static/graphics_base_skew_x_basic_usage/index.html" width="250" height="150"></iframe><p>The following example skews the rectangle in the y-direction incrementally.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -83,7 +83,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called from a timer.</span>
+<span class="sd">    The handler that the timer calls.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

@@ -1,6 +1,6 @@
 # Graphics draw_line interface
 
-This page will explain the `Graphics` class `draw_line` method interface.
+This page explains the `Graphics` class `draw_line` method interface.
 
 ## What interface is this?
 
@@ -59,7 +59,7 @@ ap.save_overall_html(
 
 ## Line instance
 
-`draw_line` interface will return the `Line` instance. You can update each setting or bind events to that instance. `draw_dotted_line`, `draw_dashed_line`, `draw_round_dotted_line`
+`draw_line` interface returns the `Line` instance. You can update each setting or bind events to that instance. `draw_dotted_line`, `draw_dashed_line`, `draw_round_dotted_line`
 , and `draw_dash_dotted_line` will also return the same type instance.
 
 ```py

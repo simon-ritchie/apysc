@@ -1,6 +1,6 @@
 # Graphics begin_fill interface
 
-This page would explain the `Graphics` class `begin_fill` method interface.
+This page explains the `Graphics` class `begin_fill` method interface.
 
 ## What interface is this?
 
@@ -43,7 +43,7 @@ ap.save_overall_html(
 
 ## Fill color setting
 
-A fill color can be set by the `color` argument, and this is required.
+The `color` argument sets the fill color, and the `begin_fill` interface requires this argument.
 
 ```py
 # runnable
@@ -66,9 +66,9 @@ ap.save_overall_html(
 
 <iframe src="static/graphics_begin_fill_fill_color/index.html" width="150" height="150"></iframe>
 
-If you want to clear fill color, then specify a blank string to this argument.
+If you want to clear fill color, specify a blank string to this argument.
 
-For example, since the following code will clear fill color setting, so a result rectangle graphic is invisible.
+For example, since the following code clears fill color settings, a rectangle graphic becomes invisible.
 
 ```py
 # runnable
@@ -99,10 +99,10 @@ ap.save_overall_html(
 Color code is acceptable like the following list:
 
 - Six characters, e.g., `#00aaff`.
-- Three characters, e.g., `#0af` (this will be interpreted as `#00aaff`).
-- Single character, e.g., `#5` (this will be interpreted as `#000005`).
-- Skipped `#` symbol, e.g., `0af` (this will be interpreted as `#00aaff`).
-- Blank string, e.g., `''` (this will clear fill color setting).
+- Three characters, e.g., `#0af` (this becomes `#00aaff`).
+- Single character, e.g., `#5` (this becomes `#000005`).
+- Skipped `#` symbol, e.g., `0af` (this becomes `#00aaff`).
+- Blank string, e.g., `''` (this setting clears the fill color setting).
 
 ```py
 # runnable

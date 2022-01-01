@@ -1,14 +1,14 @@
 # Graphics draw_ellipse interface
 
-This page will explain the `Graphics` class `draw_ellipse` method interface.
+This page explains the `Graphics` class `draw_ellipse` method interface.
 
 ## What interface is this?
 
-`draw_ellipse` interface will draw the vector ellipse graphics.
+The `draw_ellipse` interface draws the vector ellipse graphics.
 
 ## Basic usage
 
-`draw_ellipse` interface has the `x`, `y`, `width`, and `height` arguments. The `x` and the `y` arguments are the ellipse center coordinates. The `width` and the `height` arguments are the ellipse size. These sizes are twice the size of the radius.
+The `draw_ellipse` interface has the `x`\, `y`\, `width`\, and `height` arguments. The `x` and `y` arguments are the ellipse center coordinates. The `width` and `height` arguments are the ellipse size. These sizes are twice the size of the radius.
 
 ```py
 # runnable
@@ -44,7 +44,7 @@ The return value of the `draw_ellipse` interface is the instance of the `Ellipse
 
 It has the basic interfaces (like the `x` or the `width` attributes) similar to the other graphics classes.
 
-The following code example will bind the click event handler and if you click the ellipse the width and height will be widening.
+The following code example binds the click event handler. If you click the ellipse, the width and height become wider.
 
 ```py
 # runnable
@@ -54,7 +54,7 @@ import apysc as ap
 def on_ellipse_click(
         e: ap.MouseEvent[ap.Ellipse], options: dict) -> None:
     """
-    The handler would be called when the ellipse is clicked.
+    The handler that the ellipse calls when clicked.
 
     Parameters
     ----------

@@ -45,14 +45,14 @@
             
   <section id="graphics-draw-ellipse-interface">
 <h1>Graphics draw_ellipse interface<a class="headerlink" href="#graphics-draw-ellipse-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">draw_ellipse</span></code> method interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">draw_ellipse</span></code> method interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">draw_ellipse</span></code> interface will draw the vector ellipse graphics.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">draw_ellipse</span></code> interface draws the vector ellipse graphics.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">draw_ellipse</span></code> interface has the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">width</span></code>, and <code class="docutils literal notranslate"><span class="pre">height</span></code> arguments. The <code class="docutils literal notranslate"><span class="pre">x</span></code> and the <code class="docutils literal notranslate"><span class="pre">y</span></code> arguments are the ellipse center coordinates. The <code class="docutils literal notranslate"><span class="pre">width</span></code> and the <code class="docutils literal notranslate"><span class="pre">height</span></code> arguments are the ellipse size. These sizes are twice the size of the radius.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">draw_ellipse</span></code> interface has the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">width</span></code>, and <code class="docutils literal notranslate"><span class="pre">height</span></code> arguments. The <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> arguments are the ellipse center coordinates. The <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code> arguments are the ellipse size. These sizes are twice the size of the radius.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -83,7 +83,7 @@
 <h2>Return value<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h2>
 <p>The return value of the <code class="docutils literal notranslate"><span class="pre">draw_ellipse</span></code> interface is the instance of the <code class="docutils literal notranslate"><span class="pre">Ellipse</span></code> class.</p>
 <p>It has the basic interfaces (like the <code class="docutils literal notranslate"><span class="pre">x</span></code> or the <code class="docutils literal notranslate"><span class="pre">width</span></code> attributes) similar to the other graphics classes.</p>
-<p>The following code example will bind the click event handler and if you click the ellipse the width and height will be widening.</p>
+<p>The following code example binds the click event handler. If you click the ellipse, the width and height become wider.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -91,7 +91,7 @@
 <span class="k">def</span> <span class="nf">on_ellipse_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when the ellipse is clicked.</span>
+<span class="sd">    The handler that the ellipse calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

@@ -1,14 +1,14 @@
 # GraphicsBase skew_x and skew_y interfaces
 
-This page will explain the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `skew_x` and `skew_y` property interfaces.
+This page explains the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `skew_x` and `skew_y` property interfaces.
 
 Each interface value type is the `Int` value.
 
 ## What interfaces are these?
 
-The `skew_x` property will skew an object's x-axis, conversely, the `skew_y` property skew a y-axis. These interfaces have getter and setter interfaces.
+The `skew_x` property skews an object's x-axis. Conversely, the `skew_y` property skew a y-axis. These interfaces have getter and setter interfaces.
 
-The following example will show you the default rectangle (left) and the skewed 50px in the x-direction rectangle (right).
+The following example shows you the default rectangle (left) and the skewed 50px in the x-direction rectangle (right).
 
 ```py
 # runnable
@@ -32,7 +32,7 @@ ap.save_overall_html(
 
 <iframe src="static/graphics_base_skew_x_basic_usage/index.html" width="250" height="150"></iframe>
 
-The following example will skew the rectangle in the y-direction incrementally.
+The following example skews the rectangle in the y-direction incrementally.
 
 ```py
 # runnable
@@ -47,7 +47,7 @@ class _RectOptions(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
-    The handler will be called from a timer.
+    The handler that the timer calls.
 
     Parameters
     ----------

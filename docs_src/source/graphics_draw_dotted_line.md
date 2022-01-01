@@ -1,6 +1,6 @@
 # Graphics draw_dotted_line interface
 
-This page will explain the `Graphics` class `draw_dotted_line` method interface.
+This page explains the `Graphics` class `draw_dotted_line` method interface.
 
 ## What interface is this?
 

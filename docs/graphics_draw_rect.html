@@ -70,7 +70,7 @@
 </pre></div>
 </div>
 <p>The previous script draws horizontal rectangle graphics.</p>
-<iframe src="static/graphics_draw_rect_basic_usage/index.html" width="200" height="150"></iframe><p>Notes: <code class="docutils literal notranslate"><span class="pre">begin_fill</span></code> call (fill color setting) is necessary before <code class="docutils literal notranslate"><span class="pre">draw_rect</span></code> interface call. If it is skipped, nothing will be displayed on stage.</p>
+<iframe src="static/graphics_draw_rect_basic_usage/index.html" width="200" height="150"></iframe><p>Notes: <code class="docutils literal notranslate"><span class="pre">begin_fill</span></code> call (fill color setting) is necessary before <code class="docutils literal notranslate"><span class="pre">draw_rect</span></code> interface call. If you skip it, it displays nothing on stage.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -97,7 +97,7 @@
 
 <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler that it will be called when the rectangle is clicked.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -126,7 +126,7 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_rect_rectangle/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you click rectangle, x position will be changed to 100.</p>
+<p>If you click rectangle, the handler changes the x position to 100.</p>
 <iframe src="static/graphics_draw_rect_rectangle/index.html" width="200" height="150"></iframe></section>
 </section>
 

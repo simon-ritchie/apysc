@@ -1,14 +1,14 @@
 # Graphics draw_polygon interface
 
-This page will explain the `Graphics` class `draw_polygon` method interface.
+This page explains the `Graphics` class `draw_polygon` method interface.
 
 ## What interface is this?
 
-`draw_polygon` interface will draw vector polygon graphics. This works slightly similar to the `line_to` and `move_to` interfaces, but no need to close the paths.
+The `draw_polygon` interface draws vector polygon graphics. This interface works slightly similar to the `line_to` and `move_to` interfaces, but the paths do not need to be closed.
 
 ## Basic usage
 
-The `draw_polygon` interface has the `points` argument, and this will determine the polygon vertices coordinates.
+The `draw_polygon` interface has the `points` argument, which determines the polygon vertices coordinates.
 
 ```py
 # runnable
@@ -48,7 +48,9 @@ ap.save_overall_html(
 
 ## Difference between the line_to and draw_polygon interfaces
 
-If you set the fill color, then the `draw_polygon` interface will be slightly similar to the `line_to` (and `move_to`) interfaces. For example, the following code will both draw the triangle (left is drawn by the `draw_polygon` interface, and right is drawn by the `move_to` and `line_to` interfaces).
+If you set the fill color, the `draw_polygon` interface becomes slightly similar to the `line_to` (and `move_to`) interfaces. So, for example, the following codes both draw the triangle.
+
+The `draw_polygon` interface draws the left rectangle. Similarly, the `move_to` and `line_to` interfaces draw the right one.
 
 ```py
 # runnable
@@ -82,7 +84,7 @@ ap.save_overall_html(
 
 <iframe src="static/graphics_draw_polygon_line_to_difference_1/index.html" width="250" height="150"></iframe>
 
-But there is a difference of whether the closing of the paths is necessary or not. This difference will be significant when you set the line style setting. The `line_to` interface will not close the paths from end coordinates to start coordinates.
+But there is a difference in whether closing the paths is necessary or not. This difference becomes significant when you set the line style setting. The `line_to` interface does not close the paths from end coordinates to start coordinates.
 
 ```py
 # runnable
@@ -121,9 +123,9 @@ ap.save_overall_html(
 
 ## Return value
 
-`draw_polygon` interface will return the `Polygon` instance, and that has the basic interface as same as the other type graphics instances. The `Polygon` instance also has the `append_line_point` method interface to append points dynamically.
+The `draw_polygon` interface returns the `Polygon` instance. And that has the basic interface as same as the other type graphics instances. The `Polygon` instance also has the `append_line_point` method interface to append points dynamically.
 
-For instance, the following code is appending the point and changing from the triangle to the rectangle.
+For instance, the following code appends the point and changes from the triangle to the rectangle.
 
 ```py
 # runnable

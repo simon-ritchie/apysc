@@ -45,14 +45,14 @@
             
   <section id="graphics-draw-polygon-interface">
 <h1>Graphics draw_polygon interface<a class="headerlink" href="#graphics-draw-polygon-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code> method interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code> method interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code> interface will draw vector polygon graphics. This works slightly similar to the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> and <code class="docutils literal notranslate"><span class="pre">move_to</span></code> interfaces, but no need to close the paths.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code> interface draws vector polygon graphics. This interface works slightly similar to the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> and <code class="docutils literal notranslate"><span class="pre">move_to</span></code> interfaces, but the paths do not need to be closed.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code> interface has the <code class="docutils literal notranslate"><span class="pre">points</span></code> argument, and this will determine the polygon vertices coordinates.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code> interface has the <code class="docutils literal notranslate"><span class="pre">points</span></code> argument, which determines the polygon vertices coordinates.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -89,7 +89,8 @@
 <iframe src="static/graphics_draw_polygon_basic_usage/index.html" width="250" height="150"></iframe></section>
 <section id="difference-between-the-line-to-and-draw-polygon-interfaces">
 <h2>Difference between the line_to and draw_polygon interfaces<a class="headerlink" href="#difference-between-the-line-to-and-draw-polygon-interfaces" title="Permalink to this headline">¶</a></h2>
-<p>If you set the fill color, then the <code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code> interface will be slightly similar to the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> (and <code class="docutils literal notranslate"><span class="pre">move_to</span></code>) interfaces. For example, the following code will both draw the triangle (left is drawn by the <code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code> interface, and right is drawn by the <code class="docutils literal notranslate"><span class="pre">move_to</span></code> and <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interfaces).</p>
+<p>If you set the fill color, the <code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code> interface becomes slightly similar to the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> (and <code class="docutils literal notranslate"><span class="pre">move_to</span></code>) interfaces. So, for example, the following codes both draw the triangle.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code> interface draws the left rectangle. Similarly, the <code class="docutils literal notranslate"><span class="pre">move_to</span></code> and <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interfaces draw the right one.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -119,7 +120,7 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_draw_polygon_line_to_difference_1/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_draw_polygon_line_to_difference_1/index.html" width="250" height="150"></iframe><p>But there is a difference of whether the closing of the paths is necessary or not. This difference will be significant when you set the line style setting. The <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interface will not close the paths from end coordinates to start coordinates.</p>
+<iframe src="static/graphics_draw_polygon_line_to_difference_1/index.html" width="250" height="150"></iframe><p>But there is a difference in whether closing the paths is necessary or not. This difference becomes significant when you set the line style setting. The <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interface does not close the paths from end coordinates to start coordinates.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -155,8 +156,8 @@
 <iframe src="static/graphics_draw_polygon_line_to_difference_2/index.html" width="250" height="150"></iframe></section>
 <section id="return-value">
 <h2>Return value<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code> interface will return the <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> instance, and that has the basic interface as same as the other type graphics instances. The <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> instance also has the <code class="docutils literal notranslate"><span class="pre">append_line_point</span></code> method interface to append points dynamically.</p>
-<p>For instance, the following code is appending the point and changing from the triangle to the rectangle.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">draw_polygon</span></code> interface returns the <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> instance. And that has the basic interface as same as the other type graphics instances. The <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> instance also has the <code class="docutils literal notranslate"><span class="pre">append_line_point</span></code> method interface to append points dynamically.</p>
+<p>For instance, the following code appends the point and changes from the triangle to the rectangle.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 

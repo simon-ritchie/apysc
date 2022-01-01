@@ -45,10 +45,10 @@
             
   <section id="graphics-draw-round-dotted-line-interface">
 <h1>Graphics draw_round_dotted_line interface<a class="headerlink" href="#graphics-draw-round-dotted-line-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code> method interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code> method interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code> interface will draw the simple straight round dotted-line graphics. This interface will ignore <code class="docutils literal notranslate"><span class="pre">dot_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">dash_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">round_dot_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">dash_dot_setting</span></code>, and <code class="docutils literal notranslate"><span class="pre">cap</span></code> settings (this is using round cap setting so cap setting will also be ignored).</p>
+<p><code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code> interface draws the simple straight round dotted-line graphics. This interface ignores <code class="docutils literal notranslate"><span class="pre">dot_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">dash_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">round_dot_setting</span></code>, <code class="docutils literal notranslate"><span class="pre">dash_dot_setting</span></code>, and <code class="docutils literal notranslate"><span class="pre">cap</span></code> settings (this interface is using round cap setting so cap setting will also be ignored).</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
@@ -81,8 +81,8 @@
 <iframe src="static/graphics_draw_round_dotted_line_basic_usage/index.html" width="250" height="130"></iframe></section>
 <section id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
-<p>This interface is using the round cap setting, so the line length will be longer by the amount of caps size.</p>
-<p>If you want to align the left line position with other lines, then subtract half-round size from other lines <code class="docutils literal notranslate"><span class="pre">x_start</span></code> argument.</p>
+<p>Since this interface uses the round cap setting, the line length becomes longer by the size of the cap.</p>
+<p>If you want to align the left line position with other lines, subtract half-round size from the <code class="docutils literal notranslate"><span class="pre">x_start</span></code> argument.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 

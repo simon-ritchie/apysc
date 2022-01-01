@@ -1,10 +1,10 @@
 # Graphics draw_round_dotted_line interface
 
-This page will explain the `Graphics` class `draw_round_dotted_line` method interface.
+This page explains the `Graphics` class `draw_round_dotted_line` method interface.
 
 ## What interface is this?
 
-`draw_round_dotted_line` interface will draw the simple straight round dotted-line graphics. This interface will ignore `dot_setting`, `dash_setting`, `round_dot_setting`, `dash_dot_setting`, and `cap` settings (this is using round cap setting so cap setting will also be ignored).
+`draw_round_dotted_line` interface draws the simple straight round dotted-line graphics. This interface ignores `dot_setting`\, `dash_setting`\, `round_dot_setting`\, `dash_dot_setting`\, and `cap` settings (this interface is using round cap setting so cap setting will also be ignored).
 
 ## Basic usage
 
@@ -40,9 +40,9 @@ ap.save_overall_html(
 
 ## Notes
 
-This interface is using the round cap setting, so the line length will be longer by the amount of caps size.
+Since this interface uses the round cap setting, the line length becomes longer by the size of the cap.
 
-If you want to align the left line position with other lines, then subtract half-round size from other lines `x_start` argument.
+If you want to align the left line position with other lines, subtract half-round size from the `x_start` argument.
 
 ```py
 # runnable

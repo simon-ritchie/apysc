@@ -1,10 +1,10 @@
 # Graphics draw_round_rect interface
 
-This page will explain the `Graphics` class `draw_round_rect` method interface.
+This page explains the `Graphics` class `draw_round_rect` method interface.
 
 ## What interface is this?
 
-`draw_round_rect` interface will draw vector rounded rectangle graphics.
+`draw_round_rect` interface draws vector rounded rectangle graphics.
 
 ## Basic usage
 
@@ -48,7 +48,7 @@ ap.save_overall_html(
 
 `draw_round_rect` interface will return the `Rectangle` instance, same as the `draw_rect` interface.
 
-`Rectangle` instance has the `ellipse_width` and `ellipse_height` attributes to change the rectangle round size.
+The `Rectangle` instance has the `ellipse_width` attribute and `ellipse_height` to change the rectangle round size.
 
 ```py
 # runnable

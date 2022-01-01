@@ -31,7 +31,7 @@ The previous script draws horizontal rectangle graphics.
 
 <iframe src="static/graphics_draw_rect_basic_usage/index.html" width="200" height="150"></iframe>
 
-Notes: `begin_fill` call (fill color setting) is necessary before `draw_rect` interface call. If it is skipped, nothing will be displayed on stage.
+Notes: `begin_fill` call (fill color setting) is necessary before `draw_rect` interface call. If you skip it, it displays nothing on stage.
 
 ```py
 # runnable
@@ -64,7 +64,7 @@ import apysc as ap
 
 def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler that it will be called when the rectangle is clicked.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------
@@ -93,6 +93,6 @@ ap.save_overall_html(
     dest_dir_path='graphics_draw_rect_rectangle/')
 ```
 
-If you click rectangle, x position will be changed to 100.
+If you click rectangle, the handler changes the x position to 100.
 
 <iframe src="static/graphics_draw_rect_rectangle/index.html" width="200" height="150"></iframe>

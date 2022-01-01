@@ -41,10 +41,10 @@
             
   <section id="assert-defined-and-assert-undefined-interfaces">
 <h1>assert_defined and assert_undefined interfaces<a class="headerlink" href="#assert-defined-and-assert-undefined-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">assert_defined</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_undefined</span></code> function interfaces.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">assert_defined</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_undefined</span></code> function interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">assert_defined</span></code> function interface will assert a specified value is defined (initialized). Conversely, the <code class="docutils literal notranslate"><span class="pre">assert_undefined</span></code> function interface will assert a specified value is undefined (not initialized or deleted).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">assert_defined</span></code> function interface asserts specified value is defined (initialized). Conversely, the <code class="docutils literal notranslate"><span class="pre">assert_undefined</span></code> function interface asserts specified value is undefined (not initialized or deleted).</p>
 </section>
 <section id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
@@ -55,7 +55,7 @@
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>Both of the <code class="docutils literal notranslate"><span class="pre">assert_defined</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_undefined</span></code> interfaces requires <code class="docutils literal notranslate"><span class="pre">value</span></code> argument and <code class="docutils literal notranslate"><span class="pre">msg</span></code> argument is optional.</p>
-<p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_defined</span></code> and value is initialized) will pass:</p>
+<p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_defined</span></code> and initialized value) passes:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -76,7 +76,7 @@
 <span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="n">other</span> <span class="n">than</span> <span class="n">undefined</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="mi">10</span>
 </pre></div>
 </div>
-<iframe src="static/assert_defined_basic_usage_1/index.html" width="0" height="0"></iframe><p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_defined</span></code> and the value is deleted) will fail:</p>
+<iframe src="static/assert_defined_basic_usage_1/index.html" width="0" height="0"></iframe><p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_defined</span></code> and the deleted value) fails:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -101,7 +101,7 @@ Left value: other than undefined right value: undefined
 Assertion failed: Value is not defined!
 </pre></div>
 </div>
-<iframe src="static/assert_defined_basic_usage_2/index.html" width="0" height="0"></iframe><p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_undefined</span></code> and the value is deleted) will pass:</p>
+<iframe src="static/assert_defined_basic_usage_2/index.html" width="0" height="0"></iframe><p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_undefined</span></code> and the deleted value) passes:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 

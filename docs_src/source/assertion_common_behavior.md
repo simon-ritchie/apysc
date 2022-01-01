@@ -1,16 +1,16 @@
-# JavaScript assertion interface common behavior
+# JavaScript assertion interface basic behaviors
 
-This page will explain the JavaScript assertion interface common behavior.
+This page explains the JavaScript assertion interface basic behavior.
 
 ## Interface names
 
-Each JavaScript assertion interface is named with the prefix of the `assert_` (e.g., `assert_equal`, `assert_true`, and so on).
+Each JavaScript assertion interface has the prefix of the `assert_` (e.g., `assert_equal`, `assert_true`, and so on).
 
 These interfaces are positioned in the root package so you can use them, for example, `ap.assert_equal(...)`.
 
 ## Assertion results
 
-Assertion results will be displayed on the browser console, as follows:
+These interfaces display the results on the browser console, as follows:
 
 ```py
 # runnable
@@ -25,7 +25,7 @@ ap.save_overall_html(
     dest_dir_path='assertion_common_behavior_results/')
 ```
 
-This code will display the information message on the browser console, like this (please press the F12 key to see):
+This code displays the information message on the browser console, like this (please press the F12 key to see):
 
 ```
 [assert_equal]
@@ -35,7 +35,7 @@ Left value: 10 right value: 10
 
 <iframe src="static/assertion_common_behavior_results/index.html" width="0" height="0"></iframe>
 
-If the assertion failed, then an error message will also be displayed on the browser console:
+If the assertion fails, then an error message also is displayed on the browser console:
 
 ```py
 # runnable
@@ -63,7 +63,7 @@ Assertion failed:
 
 ## Optional msg argument
 
-Each assertion interface has the `msg` optional argument. If this argument is provided, then the error message will also be displayed on the browser console when an assertion failed.
+Each assertion interface has the `msg` optional argument. If you provide this argument, the error message is displayed on the browser console when an assertion fails.
 
 ```py
 # runnable

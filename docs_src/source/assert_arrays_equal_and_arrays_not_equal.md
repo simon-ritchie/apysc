@@ -1,10 +1,10 @@
 # assert_arrays_equal and assert_arrays_not_equal interfaces
 
-This page will explain the `assert_arrays_equal` and `assert_arrays_not_equal` function interfaces.
+This page explains the `assert_arrays_equal` and `assert_arrays_not_equal` function interfaces.
 
 ## What interfaces are these?
 
-The `assert_arrays_equal` function interface will assert specified two arrays are equal. Conversely, the `assert_arrays_not_equal` function interface will assert specified two arrays are not equal.
+The `assert_arrays_equal` function interface asserts that the two arrays are equal. Conversely, the `assert_arrays_not_equal` function interface asserts that the two arrays are not equal.
 
 ## See also
 
@@ -14,9 +14,9 @@ The `assert_arrays_equal` function interface will assert specified two arrays ar
 
 Both of the `assert_arrays_equal` and `assert_arrays_not_equal` interfaces require the `left` and `right` arguments. The `msg` argument is optional.
 
-The arguments can specify a Python built-in `list` value and `Array` value.
+The arguments accept a Python built-in `list` value and `Array` value.
 
-The following example (`assert_arrays_equal` and values are equal) will pass:
+The following example (`assert_arrays_equal` and values are equal) passes:
 
 ```py
 # runnable
@@ -41,7 +41,7 @@ Left value: [1, 2, 3] right value: arr_2
 
 <iframe src="static/assert_arrays_equal_basic_usage_1/index.html" width="0" height="0"></iframe>
 
-The following example (`assert_arrays_equal` and values are not equal) will fail:
+The following example (`assert_arrays_equal` and values are not equal) fails:
 
 ```py
 # runnable
@@ -68,7 +68,7 @@ Assertion failed: Values are not equal!
 
 <iframe src="static/assert_arrays_equal_basic_usage_2/index.html" width="0" height="0"></iframe>
 
-The following example (`assert_arrays_not_equal` and values are not equal) will pass:
+The following example (`assert_arrays_not_equal` and values are not equal) passes:
 
 ```py
 # runnable

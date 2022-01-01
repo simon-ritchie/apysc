@@ -1,10 +1,10 @@
 # assert_true and assert_false interfaces
 
-This page will explain the `assert_true` and `assert_false` function interfaces.
+This page explains the `assert_true` and `assert_false` function interfaces.
 
 ## What interfaces are these?
 
-The `assert_true` function interface will assert a specified `Boolean` value is true. Conversely, the `assert_false` function interface will assert a specified `Boolean` value is false.
+The `assert_true` function interface asserts a specified `Boolean` value is true. Conversely, the `assert_false` function interface asserts a specified `Boolean` value is false.
 
 ## See also
 
@@ -16,9 +16,9 @@ The `assert_true` and `assert_false` interfaces requires `value` argument. The `
 
 If the `type_strict` argument is `True`, the assertion will use the JavaScript strict comparison operator (`===`). For instance, if the `value` is `Int(1)` and the `type_strict` is `True`, an assertion will fail (because of the comparison between the `Boolean` and `Int`). Conversely, if the `type_strict` is `False`, `Int(1)` will pass the `assert_true` assertion.
 
-An assertion result will be displayed on the browser console.
+These interfaces display an assertion result on the browser console.
 
-The following assertion example (`assert_true` and value is the `Boolean(True)`) will pass:
+The following assertion example (`assert_true` and value is the `Boolean(True)`) passes:
 
 ```py
 # runnable
@@ -43,7 +43,7 @@ Left value: true right value: true
 
 <iframe src="static/assert_true_basic_usage_1/index.html" width="0" height="0"></iframe>
 
-The following assertion example (`assert_true` and value is the `Boolean(False)`) will fail:
+The following assertion example (`assert_true` and value is the `Boolean(False)`) fails:
 
 ```py
 # runnable
@@ -122,7 +122,7 @@ Left value: true right value: 1
 
 <iframe src="static/assert_true_basic_usage_4/index.html" width="0" height="0"></iframe>
 
-The following assertion example (`assert_false` and value is the `Boolean(False)`) will pass:
+The following assertion example (`assert_false` and value is the `Boolean(False)`) passes:
 
 ```py
 # runnable

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>JavaScript assertion interface common behavior &#8212; apysc  documentation</title>
+    <title>JavaScript assertion interface basic behaviors &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -34,7 +34,7 @@
           <a href="debug_info.html" title="DebugInfo class"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">JavaScript assertion interface common behavior</a></li> 
+        <li class="nav-item nav-item-this"><a href="">JavaScript assertion interface basic behaviors</a></li> 
       </ul>
     </div>  
 
@@ -43,17 +43,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="javascript-assertion-interface-common-behavior">
-<h1>JavaScript assertion interface common behavior<a class="headerlink" href="#javascript-assertion-interface-common-behavior" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the JavaScript assertion interface common behavior.</p>
+  <section id="javascript-assertion-interface-basic-behaviors">
+<h1>JavaScript assertion interface basic behaviors<a class="headerlink" href="#javascript-assertion-interface-basic-behaviors" title="Permalink to this headline">¶</a></h1>
+<p>This page explains the JavaScript assertion interface basic behavior.</p>
 <section id="interface-names">
 <h2>Interface names<a class="headerlink" href="#interface-names" title="Permalink to this headline">¶</a></h2>
-<p>Each JavaScript assertion interface is named with the prefix of the <code class="docutils literal notranslate"><span class="pre">assert_</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">assert_equal</span></code>, <code class="docutils literal notranslate"><span class="pre">assert_true</span></code>, and so on).</p>
+<p>Each JavaScript assertion interface has the prefix of the <code class="docutils literal notranslate"><span class="pre">assert_</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">assert_equal</span></code>, <code class="docutils literal notranslate"><span class="pre">assert_true</span></code>, and so on).</p>
 <p>These interfaces are positioned in the root package so you can use them, for example, <code class="docutils literal notranslate"><span class="pre">ap.assert_equal(...)</span></code>.</p>
 </section>
 <section id="assertion-results">
 <h2>Assertion results<a class="headerlink" href="#assertion-results" title="Permalink to this headline">¶</a></h2>
-<p>Assertion results will be displayed on the browser console, as follows:</p>
+<p>These interfaces display the results on the browser console, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -66,13 +66,13 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;assertion_common_behavior_results/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This code will display the information message on the browser console, like this (please press the F12 key to see):</p>
+<p>This code displays the information message on the browser console, like this (please press the F12 key to see):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">assert_equal</span><span class="p">]</span>
 <span class="n">Right</span><span class="o">-</span><span class="n">side</span> <span class="n">variable</span> <span class="n">name</span><span class="p">:</span> <span class="n">i_11</span>
 <span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="mi">10</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="mi">10</span>
 </pre></div>
 </div>
-<iframe src="static/assertion_common_behavior_results/index.html" width="0" height="0"></iframe><p>If the assertion failed, then an error message will also be displayed on the browser console:</p>
+<iframe src="static/assertion_common_behavior_results/index.html" width="0" height="0"></iframe><p>If the assertion fails, then an error message also is displayed on the browser console:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -96,7 +96,7 @@
 <iframe src="static/assertion_common_behavior_results_failed/index.html" width="0" height="0"></iframe></section>
 <section id="optional-msg-argument">
 <h2>Optional msg argument<a class="headerlink" href="#optional-msg-argument" title="Permalink to this headline">¶</a></h2>
-<p>Each assertion interface has the <code class="docutils literal notranslate"><span class="pre">msg</span></code> optional argument. If this argument is provided, then the error message will also be displayed on the browser console when an assertion failed.</p>
+<p>Each assertion interface has the <code class="docutils literal notranslate"><span class="pre">msg</span></code> optional argument. If you provide this argument, the error message is displayed on the browser console when an assertion fails.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -131,7 +131,7 @@ Assertion failed: Values are not equal!
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">JavaScript assertion interface common behavior</a><ul>
+<li><a class="reference internal" href="#">JavaScript assertion interface basic behaviors</a><ul>
 <li><a class="reference internal" href="#interface-names">Interface names</a></li>
 <li><a class="reference internal" href="#assertion-results">Assertion results</a></li>
 <li><a class="reference internal" href="#optional-msg-argument">Optional msg argument</a></li>
@@ -172,7 +172,7 @@ Assertion failed: Values are not equal!
           <a href="debug_info.html" title="DebugInfo class"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">JavaScript assertion interface common behavior</a></li> 
+        <li class="nav-item nav-item-this"><a href="">JavaScript assertion interface basic behaviors</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

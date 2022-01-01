@@ -45,10 +45,10 @@
             
   <section id="assert-true-and-assert-false-interfaces">
 <h1>assert_true and assert_false interfaces<a class="headerlink" href="#assert-true-and-assert-false-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">assert_true</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_false</span></code> function interfaces.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">assert_true</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_false</span></code> function interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">assert_true</span></code> function interface will assert a specified <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value is true. Conversely, the <code class="docutils literal notranslate"><span class="pre">assert_false</span></code> function interface will assert a specified <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value is false.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">assert_true</span></code> function interface asserts a specified <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value is true. Conversely, the <code class="docutils literal notranslate"><span class="pre">assert_false</span></code> function interface asserts a specified <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value is false.</p>
 </section>
 <section id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
@@ -60,8 +60,8 @@
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">assert_true</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_false</span></code> interfaces requires <code class="docutils literal notranslate"><span class="pre">value</span></code> argument. The <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> and <code class="docutils literal notranslate"><span class="pre">msg</span></code> arguments are optional (default value of the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> argument is <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> argument is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the assertion will use the JavaScript strict comparison operator (<code class="docutils literal notranslate"><span class="pre">===</span></code>). For instance, if the <code class="docutils literal notranslate"><span class="pre">value</span></code> is <code class="docutils literal notranslate"><span class="pre">Int(1)</span></code> and the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, an assertion will fail (because of the comparison between the <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> and <code class="docutils literal notranslate"><span class="pre">Int</span></code>). Conversely, if the <code class="docutils literal notranslate"><span class="pre">type_strict</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">Int(1)</span></code> will pass the <code class="docutils literal notranslate"><span class="pre">assert_true</span></code> assertion.</p>
-<p>An assertion result will be displayed on the browser console.</p>
-<p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_true</span></code> and value is the <code class="docutils literal notranslate"><span class="pre">Boolean(True)</span></code>) will pass:</p>
+<p>These interfaces display an assertion result on the browser console.</p>
+<p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_true</span></code> and value is the <code class="docutils literal notranslate"><span class="pre">Boolean(True)</span></code>) passes:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -81,7 +81,7 @@
 <span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="n">true</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="n">true</span>
 </pre></div>
 </div>
-<iframe src="static/assert_true_basic_usage_1/index.html" width="0" height="0"></iframe><p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_true</span></code> and value is the <code class="docutils literal notranslate"><span class="pre">Boolean(False)</span></code>) will fail:</p>
+<iframe src="static/assert_true_basic_usage_1/index.html" width="0" height="0"></iframe><p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_true</span></code> and value is the <code class="docutils literal notranslate"><span class="pre">Boolean(False)</span></code>) fails:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -145,7 +145,7 @@ Assertion failed: Value is not Boolean(True)!
 <span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="n">true</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<iframe src="static/assert_true_basic_usage_4/index.html" width="0" height="0"></iframe><p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_false</span></code> and value is the <code class="docutils literal notranslate"><span class="pre">Boolean(False)</span></code>) will pass:</p>
+<iframe src="static/assert_true_basic_usage_4/index.html" width="0" height="0"></iframe><p>The following assertion example (<code class="docutils literal notranslate"><span class="pre">assert_false</span></code> and value is the <code class="docutils literal notranslate"><span class="pre">Boolean(False)</span></code>) passes:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 

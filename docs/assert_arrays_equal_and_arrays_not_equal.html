@@ -45,10 +45,10 @@
             
   <section id="assert-arrays-equal-and-assert-arrays-not-equal-interfaces">
 <h1>assert_arrays_equal and assert_arrays_not_equal interfaces<a class="headerlink" href="#assert-arrays-equal-and-assert-arrays-not-equal-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">assert_arrays_equal</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_arrays_not_equal</span></code> function interfaces.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">assert_arrays_equal</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_arrays_not_equal</span></code> function interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">assert_arrays_equal</span></code> function interface will assert specified two arrays are equal. Conversely, the <code class="docutils literal notranslate"><span class="pre">assert_arrays_not_equal</span></code> function interface will assert specified two arrays are not equal.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">assert_arrays_equal</span></code> function interface asserts that the two arrays are equal. Conversely, the <code class="docutils literal notranslate"><span class="pre">assert_arrays_not_equal</span></code> function interface asserts that the two arrays are not equal.</p>
 </section>
 <section id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
@@ -59,8 +59,8 @@
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>Both of the <code class="docutils literal notranslate"><span class="pre">assert_arrays_equal</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_arrays_not_equal</span></code> interfaces require the <code class="docutils literal notranslate"><span class="pre">left</span></code> and <code class="docutils literal notranslate"><span class="pre">right</span></code> arguments. The <code class="docutils literal notranslate"><span class="pre">msg</span></code> argument is optional.</p>
-<p>The arguments can specify a Python built-in <code class="docutils literal notranslate"><span class="pre">list</span></code> value and <code class="docutils literal notranslate"><span class="pre">Array</span></code> value.</p>
-<p>The following example (<code class="docutils literal notranslate"><span class="pre">assert_arrays_equal</span></code> and values are equal) will pass:</p>
+<p>The arguments accept a Python built-in <code class="docutils literal notranslate"><span class="pre">list</span></code> value and <code class="docutils literal notranslate"><span class="pre">Array</span></code> value.</p>
+<p>The following example (<code class="docutils literal notranslate"><span class="pre">assert_arrays_equal</span></code> and values are equal) passes:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -80,7 +80,7 @@
 <span class="n">Left</span> <span class="n">value</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="n">right</span> <span class="n">value</span><span class="p">:</span> <span class="n">arr_2</span>
 </pre></div>
 </div>
-<iframe src="static/assert_arrays_equal_basic_usage_1/index.html" width="0" height="0"></iframe><p>The following example (<code class="docutils literal notranslate"><span class="pre">assert_arrays_equal</span></code> and values are not equal) will fail:</p>
+<iframe src="static/assert_arrays_equal_basic_usage_1/index.html" width="0" height="0"></iframe><p>The following example (<code class="docutils literal notranslate"><span class="pre">assert_arrays_equal</span></code> and values are not equal) fails:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -102,7 +102,7 @@ Left value: [1, 2] right value: arr_2
 Assertion failed: Values are not equal!
 </pre></div>
 </div>
-<iframe src="static/assert_arrays_equal_basic_usage_2/index.html" width="0" height="0"></iframe><p>The following example (<code class="docutils literal notranslate"><span class="pre">assert_arrays_not_equal</span></code> and values are not equal) will pass:</p>
+<iframe src="static/assert_arrays_equal_basic_usage_2/index.html" width="0" height="0"></iframe><p>The following example (<code class="docutils literal notranslate"><span class="pre">assert_arrays_not_equal</span></code> and values are not equal) passes:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 

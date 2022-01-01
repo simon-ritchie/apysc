@@ -1,10 +1,10 @@
 # assert_defined and assert_undefined interfaces
 
-This page will explain the `assert_defined` and `assert_undefined` function interfaces.
+This page explains the `assert_defined` and `assert_undefined` function interfaces.
 
 ## What interfaces are these?
 
-The `assert_defined` function interface will assert a specified value is defined (initialized). Conversely, the `assert_undefined` function interface will assert a specified value is undefined (not initialized or deleted).
+The `assert_defined` function interface asserts specified value is defined (initialized). Conversely, the `assert_undefined` function interface asserts specified value is undefined (not initialized or deleted).
 
 ## See also
 
@@ -14,7 +14,7 @@ The `assert_defined` function interface will assert a specified value is defined
 
 Both of the `assert_defined` and `assert_undefined` interfaces requires `value` argument and `msg` argument is optional.
 
-The following assertion example (`assert_defined` and value is initialized) will pass:
+The following assertion example (`assert_defined` and initialized value) passes:
 
 ```py
 # runnable
@@ -40,7 +40,7 @@ Left value: other than undefined right value: 10
 
 <iframe src="static/assert_defined_basic_usage_1/index.html" width="0" height="0"></iframe>
 
-The following assertion example (`assert_defined` and the value is deleted) will fail:
+The following assertion example (`assert_defined` and the deleted value) fails:
 
 ```py
 # runnable
@@ -70,7 +70,7 @@ Assertion failed: Value is not defined!
 
 <iframe src="static/assert_defined_basic_usage_2/index.html" width="0" height="0"></iframe>
 
-The following assertion example (`assert_undefined` and the value is deleted) will pass:
+The following assertion example (`assert_undefined` and the deleted value) passes:
 
 ```py
 # runnable

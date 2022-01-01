@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="assert_true and assert_false interfaces" href="assert_true_and_false.html" />
-    <link rel="prev" title="JavaScript assertion interface common behavior" href="assertion_common_behavior.html" /> 
+    <link rel="prev" title="JavaScript assertion interface basic behaviors" href="assertion_common_behavior.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,7 +31,7 @@
           <a href="assert_true_and_false.html" title="assert_true and assert_false interfaces"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="assertion_common_behavior.html" title="JavaScript assertion interface common behavior"
+          <a href="assertion_common_behavior.html" title="JavaScript assertion interface basic behaviors"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">assert_equal and assert_not_equal interfaces</a></li> 
@@ -45,10 +45,10 @@
             
   <section id="assert-equal-and-assert-not-equal-interfaces">
 <h1>assert_equal and assert_not_equal interfaces<a class="headerlink" href="#assert-equal-and-assert-not-equal-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">assert_equal</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_not_equal</span></code> function interfaces.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">assert_equal</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_not_equal</span></code> function interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">assert_equal</span></code> function interface will assert two JavaScript values are equal. The <code class="docutils literal notranslate"><span class="pre">assert_not_equal</span></code> function interface will assert two JavaScript values are not equal.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">assert_equal</span></code> function interface asserts that two JavaScript values are equal. The <code class="docutils literal notranslate"><span class="pre">assert_not_equal</span></code> function interface asserts that the two JavaScript values are not equal.</p>
 </section>
 <section id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
@@ -59,7 +59,7 @@
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">assert_equal</span></code> and <code class="docutils literal notranslate"><span class="pre">assert_not_equal</span></code> interfaces requires the <code class="docutils literal notranslate"><span class="pre">left</span></code> and <code class="docutils literal notranslate"><span class="pre">right</span></code> arguments. The <code class="docutils literal notranslate"><span class="pre">msg</span></code> argument is optional.</p>
-<p>If an <code class="docutils literal notranslate"><span class="pre">left</span></code> value and <code class="docutils literal notranslate"><span class="pre">right</span></code> values are not the same, the <code class="docutils literal notranslate"><span class="pre">assert_equal</span></code> assertion will fail and display an error message on the browser console:</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">left</span></code> value and <code class="docutils literal notranslate"><span class="pre">right</span></code> values are not the same, the <code class="docutils literal notranslate"><span class="pre">assert_equal</span></code> assertion fails and display an error message on the browser console:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -81,7 +81,7 @@ Left value: 11 right value: 10
 Assertion failed: Values are not equal!
 </pre></div>
 </div>
-<iframe src="static/assert_equal_basic_usage/index.html" width="0" height="0"></iframe><p>The <code class="docutils literal notranslate"><span class="pre">assert_not_equal</span></code> interface has the same arguments and if an <code class="docutils literal notranslate"><span class="pre">left</span></code> value and <code class="docutils literal notranslate"><span class="pre">right</span></code> value are the same values, an assertion will fail:</p>
+<iframe src="static/assert_equal_basic_usage/index.html" width="0" height="0"></iframe><p>The <code class="docutils literal notranslate"><span class="pre">assert_not_equal</span></code> interface has the same arguments, and if the <code class="docutils literal notranslate"><span class="pre">left</span></code> value and <code class="docutils literal notranslate"><span class="pre">right</span></code> value are the same values, an assertion fails:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -128,7 +128,7 @@ Assertion failed: Values are equal!
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="assertion_common_behavior.html"
-                        title="previous chapter">JavaScript assertion interface common behavior</a></p>
+                        title="previous chapter">JavaScript assertion interface basic behaviors</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="assert_true_and_false.html"
                         title="next chapter">assert_true and assert_false interfaces</a></p>
@@ -156,7 +156,7 @@ Assertion failed: Values are equal!
           <a href="assert_true_and_false.html" title="assert_true and assert_false interfaces"
              >next</a> |</li>
         <li class="right" >
-          <a href="assertion_common_behavior.html" title="JavaScript assertion interface common behavior"
+          <a href="assertion_common_behavior.html" title="JavaScript assertion interface basic behaviors"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">assert_equal and assert_not_equal interfaces</a></li> 

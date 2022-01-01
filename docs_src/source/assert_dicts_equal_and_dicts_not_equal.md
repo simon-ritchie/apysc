@@ -1,10 +1,10 @@
 # assert_dicts_equal and assert_dicts_not_equal interfaces
 
-This page will explain the `assert_dicts_equal` and `assert_dicts_not_equal` function interfaces.
+This page explains the `assert_dicts_equal` and `assert_dicts_not_equal` function interfaces.
 
 ## What interfaces are these?
 
-The `assert_dicts_equal` function interface will assert specified two dictionaries (`Dictionary` type value) are equal. Conversely, the `assert_dicts_not_equal` function interface will assert specified two dictionaries are not equal.
+The `assert_dicts_equal` function interface asserts specified two dictionaries (`Dictionary` type value) are equal. Conversely, the `assert_dicts_not_equal` function interface asserts specified two dictionaries are not equal.
 
 ## See also
 
@@ -16,7 +16,7 @@ Both of the `assert_dicts_equal` and `assert_dicts_not_equal` interfaces require
 
 You can specify a Python built-in `dict` and `Dictionary` values to these arguments.
 
-The following example (`assert_dicts_equal` and values are equal) will pass:
+The following example (`assert_dicts_equal` and values are equal) passes:
 
 ```py
 # runnable
@@ -42,7 +42,7 @@ Left value: {a: 10, b: 20} right value: dct_1
 
 <iframe src="static/assert_dicts_equal_basic_usage_1/index.html" width="0" height="0"></iframe>
 
-The following example (`assert_dicts_equal` and values are not equal) will fail:
+The following example (`assert_dicts_equal` and values are not equal)  fails:
 
 ```py
 # runnable
@@ -69,7 +69,7 @@ Assertion failed: Values are not equal!
 
 <iframe src="static/assert_dicts_equal_basic_usage_2/index.html" width="0" height="0"></iframe>
 
-The following example (`assert_dicts_not_equal` and values are not equal) will pass:
+The following example (`assert_dicts_not_equal` and values are not equal) passes:
 
 ```py
 # runnable

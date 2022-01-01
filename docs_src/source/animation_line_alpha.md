@@ -1,12 +1,12 @@
 # animation_line_alpha interface
 
-This page will explain the `animation_line_alpha` method interface.
+This page explains the `animation_line_alpha` method interface.
 
 ## What interface is this?
 
-The `animation_line_alpha` method interface will create an `ap.AnimationLineAlpha` instance (animation setting instance and the subclass of the `AnimationBase`) and you can animate line alpha (opacity) with it.
+The `animation_line_alpha` method interface creates an `ap.AnimationLineAlpha` instance. You can animate line alpha (opacity) with it.
 
-This interface exists on a `GraphicsBase` subclass (that has the `line_color` interface), such as the `Rectangle` or `Circle`.
+This interface exists on a `GraphicsBase` subclass, such as the `Rectangle` or `Circle`.
 
 ## Basic usage
 
@@ -22,7 +22,7 @@ DURATION: int = 1000
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -40,7 +40,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------

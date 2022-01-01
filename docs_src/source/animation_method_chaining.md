@@ -1,10 +1,10 @@
 # AnimationBase class interfaces method chaining
 
-This page will describe the method chaining of the animation interfaces.
+This page describes the method chaining of the animation interfaces.
 
 ## Each AnimationBase related interface returns its instance
 
-Each `AnimationBase` class-related interface (such as the `animation_x`, `start`, `animation_complete`) returns its instance so that these interfaces can be used with the method chaining, as follows (method chaining of the `animation_x`, `animation_complete`, and `start` methods):
+Each `AnimationBase` class-related interface (such as the `animation_x`\, `start`\, `animation_complete`) returns its instance. So that these interfaces can be used with the method chaining, as follows (method chaining of the `animation_x`\, `animation_complete`\, and `start` methods):
 
 ```py
 # runnable
@@ -14,7 +14,7 @@ import apysc as ap
 def on_animation_complete(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -56,7 +56,7 @@ import apysc as ap
 def on_animation_complete(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------

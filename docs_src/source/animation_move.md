@@ -1,10 +1,10 @@
 # animation_move interface
 
-This page will explain the `animation_move` method interface.
+This page explains the `animation_move` method interface.
 
 ## What interface is this?
 
-The `animation_move` method interface will create an `AnimationMove` instance (animation setting instance and the subclass of the `AnimationBase`) and you can animate the x and y coordinates with it.
+The `animation_move` method interface creates an `AnimationMove` instance. You can animate the x and y coordinates with it.
 
 This interface exists on a `DisplayObject` subclass instance, such as the `Sprite` or `Rectangle`.
 
@@ -21,7 +21,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: dict) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -40,7 +40,7 @@ def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle],
         options: dict) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------

@@ -1,18 +1,18 @@
 # Elif
 
-This page will explain the `Elif` class.
+This page explains the `Elif` class.
 
-Before reading on, maybe it is useful to read the following page (the `Elif` class will be used for the same reason of each apysc data type):
+Before reading on, maybe it is helpful to read the following page (the apysc uses the `Elif` class for the same reason of each other data type):
 
 - [Why not using the Python built-in data type in the apysc library?](why_not_using_python_builtin_data_type.md)
 
 ## What is the Elif class?
 
-The `Elif` class is the apysc branch instruction class. It will behave like the Python built-in `elif` keyword.
+The `Elif` class is the apysc branch instruction class. It behaves like the Python built-in `elif` keyword.
 
 ## Basic usage
 
-The `Elif` class will be used at the `with` statement. The `Elif` class statement is only acceptable to implement right after the `If` or `Elif` classes statement.
+The `Elif` class requires using the `with` statement. Also, The `Elif` class statement is only acceptable to implement right after the `If` or `Elif` classes statement.
 
 ```py
 # runnable
@@ -30,7 +30,7 @@ with ap.Elif(condition_2):
 
 ## Notes
 
-If you insert the code between the `If` (or `Elif`) and `Elif` statements, then exceptions will be raised:
+If you insert the code between the `If` (or `Elif`) and `Elif` statements, then it raises exceptions:
 
 ```py
 import apysc as ap
@@ -51,7 +51,7 @@ with ap.Elif(condition_2):
 ValueError: Elif interface can only use right after If or Elif interfaces.
 ```
 
-Also, the condition (`Boolean` value) can not be created at the `Elif` constructor position (the same goes for the comparison operators), for instance:
+Also, you can't create the condition (`Boolean` value) at the `Elif` constructor position (the same goes for the comparison operators), for instance:
 
 ```py
 import apysc as ap

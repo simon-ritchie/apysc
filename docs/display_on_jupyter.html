@@ -45,14 +45,14 @@
             
   <section id="display-on-jupyter-interface">
 <h1>display_on_jupyter interface<a class="headerlink" href="#display-on-jupyter-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">display_on_jupyter</span></code> function interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">display_on_jupyter</span></code> function interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">display_on_jupyter</span></code> interface will display the apysc HTML on the Jupyter.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">display_on_jupyter</span></code> interface displays the apysc HTML on the Jupyter.</p>
 </section>
 <section id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p>This interface requires the Jupyter library. If you are not installed Jupyter, you need to install it before going on (e.g., <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">notebook</span></code>).</p>
+<p>This interface requires the Jupyter library. Therefore, if you haven’t installed Jupyter, you need to install it before going on (e.g., <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">notebook</span></code>).</p>
 <p>For more information, please see:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://jupyter.org/install">Installing the Jupyter Software</a></p></li>
@@ -69,7 +69,7 @@
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">display_on_jupyter</span></code> interface to display an output HTML instead of the <code class="docutils literal notranslate"><span class="pre">save_overall_html</span></code> function.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">html_file_name</span></code> argument is required to be unique if you need to output multiple HTML otherwise the HTML file will be overwritten:</p>
+<p>This interface requires the <code class="docutils literal notranslate"><span class="pre">html_file_name</span></code> argument to be unique if you need to output multiple HTML. Otherwise, this interface overwrites the HTML file:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>

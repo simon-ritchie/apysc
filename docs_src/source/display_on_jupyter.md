@@ -1,14 +1,14 @@
 # display_on_jupyter interface
 
-This page will explain the `display_on_jupyter` function interface.
+This page explains the `display_on_jupyter` function interface.
 
 ## What interface is this?
 
-The `display_on_jupyter` interface will display the apysc HTML on the Jupyter.
+The `display_on_jupyter` interface displays the apysc HTML on the Jupyter.
 
 ## Requirements
 
-This interface requires the Jupyter library. If you are not installed Jupyter, you need to install it before going on (e.g., `pip install notebook`).
+This interface requires the Jupyter library. Therefore, if you haven't installed Jupyter, you need to install it before going on (e.g., `pip install notebook`).
 
 For more information, please see:
 
@@ -25,7 +25,7 @@ Also, this interface uses the `IPython.display.IFrame` interface. If you encount
 
 You can use the `display_on_jupyter` interface to display an output HTML instead of the `save_overall_html` function.
 
-The `html_file_name` argument is required to be unique if you need to output multiple HTML otherwise the HTML file will be overwritten:
+This interface requires the `html_file_name` argument to be unique if you need to output multiple HTML. Otherwise, this interface overwrites the HTML file:
 
 ```py
 import apysc as ap

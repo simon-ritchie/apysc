@@ -45,18 +45,18 @@
             
   <section id="elif">
 <h1>Elif<a class="headerlink" href="#elif" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Elif</span></code> class.</p>
-<p>Before reading on, maybe it is useful to read the following page (the <code class="docutils literal notranslate"><span class="pre">Elif</span></code> class will be used for the same reason of each apysc data type):</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Elif</span></code> class.</p>
+<p>Before reading on, maybe it is helpful to read the following page (the apysc uses the <code class="docutils literal notranslate"><span class="pre">Elif</span></code> class for the same reason of each other data type):</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="why_not_using_python_builtin_data_type.html"><span class="doc">Why not using the Python built-in data type in the apysc library?</span></a></p></li>
 </ul>
 <section id="what-is-the-elif-class">
 <h2>What is the Elif class?<a class="headerlink" href="#what-is-the-elif-class" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Elif</span></code> class is the apysc branch instruction class. It will behave like the Python built-in <code class="docutils literal notranslate"><span class="pre">elif</span></code> keyword.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Elif</span></code> class is the apysc branch instruction class. It behaves like the Python built-in <code class="docutils literal notranslate"><span class="pre">elif</span></code> keyword.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Elif</span></code> class will be used at the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement. The <code class="docutils literal notranslate"><span class="pre">Elif</span></code> class statement is only acceptable to implement right after the <code class="docutils literal notranslate"><span class="pre">If</span></code> or <code class="docutils literal notranslate"><span class="pre">Elif</span></code> classes statement.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Elif</span></code> class requires using the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement. Also, The <code class="docutils literal notranslate"><span class="pre">Elif</span></code> class statement is only acceptable to implement right after the <code class="docutils literal notranslate"><span class="pre">If</span></code> or <code class="docutils literal notranslate"><span class="pre">Elif</span></code> classes statement.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -73,7 +73,7 @@
 </section>
 <section id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
-<p>If you insert the code between the <code class="docutils literal notranslate"><span class="pre">If</span></code> (or <code class="docutils literal notranslate"><span class="pre">Elif</span></code>) and <code class="docutils literal notranslate"><span class="pre">Elif</span></code> statements, then exceptions will be raised:</p>
+<p>If you insert the code between the <code class="docutils literal notranslate"><span class="pre">If</span></code> (or <code class="docutils literal notranslate"><span class="pre">Elif</span></code>) and <code class="docutils literal notranslate"><span class="pre">Elif</span></code> statements, then it raises exceptions:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -91,7 +91,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">ValueError</span><span class="p">:</span> <span class="n">Elif</span> <span class="n">interface</span> <span class="n">can</span> <span class="n">only</span> <span class="n">use</span> <span class="n">right</span> <span class="n">after</span> <span class="n">If</span> <span class="ow">or</span> <span class="n">Elif</span> <span class="n">interfaces</span><span class="o">.</span>
 </pre></div>
 </div>
-<p>Also, the condition (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value) can not be created at the <code class="docutils literal notranslate"><span class="pre">Elif</span></code> constructor position (the same goes for the comparison operators), for instance:</p>
+<p>Also, you can’t create the condition (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value) at the <code class="docutils literal notranslate"><span class="pre">Elif</span></code> constructor position (the same goes for the comparison operators), for instance:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 <span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>

@@ -4,11 +4,11 @@ This page will explain the `display_on_colaboratory` function interface.
 
 ## What interface is this?
 
-The `display_on_colaboratory` interface will display the apysc HTML on the Google Colaboratory.
+The `display_on_colaboratory` interface displays the apysc HTML on the Google Colaboratory.
 
 ## Requirements
 
-You need to install apysc on the Google Colaboratory before going on.  A `!` symbol and pip command on the Google Colaboratory will install this library:
+You need to install apysc on the Google Colaboratory before going on. A `!` symbol and pip command on the Google Colaboratory installs this library:
 
 ```
 !pip install apysc
@@ -18,7 +18,7 @@ You need to install apysc on the Google Colaboratory before going on.  A `!` sym
 
 You can use the `display_on_colaboratory` interface to display an output HTML instead of the `save_overall_html` function.
 
-The `html_file_name` argument is required to be unique if you need to output multiple HTML otherwise the HTML file will be overwritten:
+This interface requires the `html_file_name` argument to be unique if you need to output multiple HTML. Otherwise, it overwrites the HTML file:
 
 ```py
 import apysc as ap

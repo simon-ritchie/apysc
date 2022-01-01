@@ -1,6 +1,6 @@
 # Easing enum
 
-This page will explain the `Easing` enum class.
+This page explains the `Easing` enum class.
 
 ## What class is this?
 
@@ -8,7 +8,7 @@ The `Easing` enum class defines each easing function. These are used at the anim
 
 ## Basic usage
 
-Each animation method interface, such as the `animation_move`, `animation_x`, has the `easing` argument and you can specify any of the `Easing` enum, as follows:
+Each animation method interface, such as the `animation_move`\, `animation_x`\, has the `easing` argument. You can specify any of the `Easing` enums, as follows:
 
 ```py
 # runnable
@@ -19,7 +19,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: dict) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -38,7 +38,7 @@ def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle],
         options: dict) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -72,7 +72,7 @@ ap.save_overall_html(
 
 <iframe src="static/easing_enum_basic_usage/index.html" width="200" height="200"></iframe>
 
-If you skip the specification of the `easing` argument the animation will be a linear one:
+If you skip the specification of the `easing` argument, the animation becomes a linear one:
 
 ```py
 # runnable
@@ -83,7 +83,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: dict) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -102,7 +102,7 @@ def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle],
         options: dict) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -138,11 +138,11 @@ ap.save_overall_html(
 
 ## What difference between the ease-in, ease-out, and ease-in-out
 
-- Ease-in will start with slow speed, and stop with fast speed.
-- Ease-out will start with fast speed, and stop with slow speed.
-- Ease-in-out will start and stop with slow speed, and it gets faster on the way.
+- Ease-in starts with slow speed and stops with fast speed.
+- Ease-out starts with fast speed and stops with slow speed.
+- Ease-in-out starts and stops with slow speed, and it gets faster on the way.
 
-The following example will show the difference between the `EASE_IN_QUINT`, `EASE_OUT_QUINT`, and `EASE_IN_OUT_QUINT`.
+The following example shows the difference between the `EASE_IN_QUINT`\, `EASE_OUT_QUINT`\, and `EASE_IN_OUT_QUINT`\.
 
 <details>
 <summary>Display the code block:</summary>
@@ -168,7 +168,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -187,7 +187,7 @@ def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -244,7 +244,7 @@ ap.save_overall_html(
 
 ## Ease-in examples
 
-This section will show each ease-in setting result with the x-coordinate animation.
+This section shows each ease-in setting result with the x-coordinate animation.
 
 The following is the example of the `EASE_IN_SINE`, `EASE_IN_QUAD`, and `EASE_IN_CUBIC`:
 
@@ -272,7 +272,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -291,7 +291,7 @@ def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -372,7 +372,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -391,7 +391,7 @@ def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -471,7 +471,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -490,7 +490,7 @@ def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -564,7 +564,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -583,7 +583,7 @@ def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -634,7 +634,7 @@ ap.save_overall_html(
 
 ## Ease-out examples
 
-This section will show each ease-out result with the x-coordinate animation.
+This section shows each ease-out result with the x-coordinate animation.
 
 The following is the example of the `EASE_OUT_SINE`, `EASE_OUT_QUAD`, and `EASE_OUT_CUBIC`:
 
@@ -662,7 +662,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -681,7 +681,7 @@ def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -762,7 +762,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -781,7 +781,7 @@ def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -861,7 +861,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -880,7 +880,7 @@ def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -954,7 +954,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -973,7 +973,7 @@ def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1024,7 +1024,7 @@ ap.save_overall_html(
 
 ## Ease-in-out examples
 
-This section will show each ease-in-out setting result with the x-coordinate animation.
+This section shows each ease-in-out setting result with the x-coordinate animation.
 
 The following is the example of the `EASE_IN_OUT_SINE`, `EASE_IN_OUT_QUAD`, and `EASE_IN_OUT_CUBIC`:
 
@@ -1052,7 +1052,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1071,7 +1071,7 @@ def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1152,7 +1152,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1171,7 +1171,7 @@ def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1251,7 +1251,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1270,7 +1270,7 @@ def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1344,7 +1344,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1363,7 +1363,7 @@ def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle],
         options: _EasingOptions) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------

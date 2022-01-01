@@ -45,11 +45,11 @@
             
   <section id="event-class-prevent-default-and-stop-propagation-interfaces">
 <h1>Event class prevent_default and stop_propagation interfaces<a class="headerlink" href="#event-class-prevent-default-and-stop-propagation-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class <code class="docutils literal notranslate"><span class="pre">prevent_default</span></code> and <code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code> method interfaces.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class <code class="docutils literal notranslate"><span class="pre">prevent_default</span></code> and <code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code> method interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">prevent_default</span></code> method interface will append the calling expression of the JavaScript <code class="docutils literal notranslate"><span class="pre">preventDefault</span></code> method. This will prevent the browser default behavior of any event.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code> method interface will stop an event propagation, for example, the triggered child event will not propagate to a parent event (parent event will not be triggered).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">prevent_default</span></code> method interface appends the calling expression of the JavaScript <code class="docutils literal notranslate"><span class="pre">preventDefault</span></code> method. This interface prevents the browser default behavior of any event.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code> method interface stops an event’s propagation; for example, the triggered child event does not propagate to a parent event (it ignores the parent event).</p>
 </section>
 <section id="basic-usage-of-the-prevent-default-interface">
 <h2>Basic usage of the prevent_default interface<a class="headerlink" href="#basic-usage-of-the-prevent-default-interface" title="Permalink to this headline">¶</a></h2>
@@ -61,7 +61,7 @@
 <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rectangle is clicked.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -90,7 +90,7 @@
 <section id="basic-usage-of-the-stop-propagation-interface">
 <h2>Basic usage of the stop_propagation interface<a class="headerlink" href="#basic-usage-of-the-stop-propagation-interface" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Event</span></code> instance and its subclass instance have the <code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code> method. The <code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code> method, like the <code class="docutils literal notranslate"><span class="pre">prevent_default</span></code> one, requires no arguments.</p>
-<p>The following example will bind the click event to the sprite and rectangle instances. The rectangle (child) click handler will call the <code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code> method so the sprite (parent) click handler will not be called:</p>
+<p>The following example binds the click event to the sprite and rectangle instances. The rectangle (child) click handler calls the <code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code> method, so the sprite (parent) doesn’t call the click handler:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -98,7 +98,7 @@
 <span class="k">def</span> <span class="nf">on_rectangle_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rectangle is clicked.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -114,7 +114,7 @@
 <span class="k">def</span> <span class="nf">on_sprite_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the sprite is clicked.</span>
+<span class="sd">    The handler that the sprite calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -140,35 +140,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;event_stop_propagation_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you click the following rectangle, the only message of <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">rectangle</span> <span class="pre">is</span> <span class="pre">clicked!</span></code> will be displayed browser console (please press the F12 key), and the sprite console message will not be displayed.</p>
+<p>If you click the following rectangle, the only message of <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">rectangle</span> <span class="pre">is</span> <span class="pre">clicked!</span></code> is displayed browser console (please press the F12 key). Also, the sprite console message is not displayed.</p>
 <iframe src="static/event_stop_propagation_basic_usage/index.html" width="150" height="150"></iframe></section>
-<section id="notes-for-the-timerevent-class">
-<h2>Notes for the TimerEvent class<a class="headerlink" href="#notes-for-the-timerevent-class" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">TimerEvent</span></code> class (subclass of the <code class="docutils literal notranslate"><span class="pre">Event</span></code>) is disabled the <code class="docutils literal notranslate"><span class="pre">prevent_default</span></code> and <code class="docutils literal notranslate"><span class="pre">stop_propagation</span></code> interfaces and if you call these interfaces, the error will be raised:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
-
-
-<span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called from a timer.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    e : ap.TimerEvent</span>
-<span class="sd">        Event instance.</span>
-<span class="sd">    options : dict</span>
-<span class="sd">        Optional arguments dictionary.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">e</span><span class="o">.</span><span class="n">prevent_default</span><span class="p">()</span>
-
-
-<span class="n">timer</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>NotImplementedError: `TimerEvent` class is not supported the `prevent_default`interface.
-</pre></div>
-</div>
-</section>
 </section>
 
 
@@ -187,7 +160,6 @@
 <li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#basic-usage-of-the-prevent-default-interface">Basic usage of the prevent_default interface</a></li>
 <li><a class="reference internal" href="#basic-usage-of-the-stop-propagation-interface">Basic usage of the stop_propagation interface</a></li>
-<li><a class="reference internal" href="#notes-for-the-timerevent-class">Notes for the TimerEvent class</a></li>
 </ul>
 </li>
 </ul>

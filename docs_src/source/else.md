@@ -1,18 +1,18 @@
 # Else
 
-This page will explain the `Else` class.
+This page explains the `Else` class.
 
-Before reading on, maybe it is useful to read the following page (the `Else` class will be used for the same reason of each apysc data type):
+Before reading on, maybe it is helpful to read the following page (the apysc uses the `Else` class for the same reason of each apysc data type):
 
 - [Why not using the Python built-in data type in the apysc library?](why_not_using_python_builtin_data_type.md)
 
 ## What is the Else class?
 
-The `Else` class is the apysc branch instruction class. It will behave like the Python built-in `else` keyword.
+The `Else` class is the apysc branch instruction class. It behaves like the Python built-in `else` keyword.
 
 ## Basic usage
 
-The `Else` class will be used at the `with` statement. The `Else` class statement is only acceptable to implement right after the `If` or `Elif` classes statement.
+The `Else` requires using the `with` statement. The `Else` class statement is only acceptable to implement right after the `If` or `Elif` classes statement.
 
 ```py
 # runnable
@@ -29,7 +29,7 @@ with ap.Else():
 
 ## Notes
 
-if you insert the code between the `If` (or `Elif`) and `Else` statements, then exceptions will be raised:
+if you insert the code between the `If` (or `Elif`) and `Else` statements, it raises an exception:
 
 ```py
 import apysc as ap

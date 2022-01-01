@@ -122,19 +122,13 @@ def _exec_document_lint_and_script(
     script_data_list: List[_ScriptData] = _make_script_data_list(
         md_file_paths=md_file_paths, hashed_vals=hashed_vals,
         limit_count=limit_count)
-    workers: int = max(mp.cpu_count() // 2, 1)
+    workers: int = mp.cpu_count()
 
-    logger.info(msg="Document's code block flake8 checking started...")
+    logger.info(msg="Document's code block lint checking started...")
     with mp.Pool(workers) as p:
         p.map(func=_check_code_block_with_flake8, iterable=script_data_list)
-
-    logger.info(msg="Document's code block numdoclint checking started...")
-    with mp.Pool(workers) as p:
         p.map(
             func=_check_code_block_with_numdoclint, iterable=script_data_list)
-
-    logger.info(msg="Document's code block mypy checking started...")
-    with mp.Pool(workers) as p:
         p.map(func=_check_code_block_with_mypy, iterable=script_data_list)
 
     logger.info(msg="Document's scripts execution started...")

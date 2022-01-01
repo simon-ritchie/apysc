@@ -1,10 +1,10 @@
 # Array class join interface
 
-This page will explain the `Array` class `join` method interface.
+This page explains the `Array` class `join` method interface.
 
 ## What interface is this?
 
-The `join` method will return a joined `String` with the specified separator string.
+The `join` method returns a joined `String` with the specified separator string.
 
 ## Basic usage
 

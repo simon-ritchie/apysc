@@ -1,16 +1,16 @@
 # Array class extend and concat interfaces
 
-This page will explain the `Array` class `extend` and `concat` method interfaces.
+This page explains the `Array` class `extend` and `concat` method interfaces.
 
 ## What interfaces are these?
 
 The `extend` and `concat` method interfaces are the two arrays' concatenation interfaces.
 
-The `extend` method will update an original array in place and return the `None`. The `concat` method will return the concatenated array and an original one will not be updated.
+The `extend` method updates an original array in place and returns the `None`. The `concat` method returns the concatenated array, and an original one is not updated.
 
 ## Basic usage
 
-The `extend` and `concat` methods require other iterable objects, like the `list`, `tuple`, or `Array` value at the first argument, as follows:
+The `extend` and `concat` methods require other iterable objects, like the `list`\, `tuple`\, or `Array` value at the first argument, as follows:
 
 ```py
 # runnable

@@ -1,10 +1,10 @@
 # Array class pop interface
 
-This page will explain the `Array` class `pop` method interface.
+This page explains the `Array` class `pop` method interface.
 
 ## What interface is this?
 
-The `pop` method interface will remove the last value from an array and return that value.
+The `pop` method interface removes the last value from an array and returns that value.
 
 ## Basic usage
 

@@ -1,14 +1,14 @@
 # Array class reverse interface
 
-This page will explain the `Array` class `reverse` method interface.
+This page explains the `Array` class `reverse` method interface.
 
 ## What interface is this?
 
-The `reverse` method interface will reverse an array's values order in place.
+The `reverse` method interface reverses an array's values order in place.
 
 ## Basic usage
 
-The `reverse` method requires no arguments and will return no value.
+The `reverse` method requires no arguments and returns no value.
 
 ```py
 # runnable

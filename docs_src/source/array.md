@@ -1,8 +1,8 @@
 # Array
 
-This page will explain the `Array` class.
+This page explains the `Array` class.
 
-Before reading on, maybe it is useful to read the following page:
+Before reading on, maybe it is helpful to read the following page:
 
 - [Why not using the Python built-in data type in the apysc library?](why_not_using_python_builtin_data_type.md)
 
@@ -12,7 +12,7 @@ The `Array` class is the apysc array class. It behaves like the Python built-in 
 
 ## Constructor method
 
-The `Array` class constructor method requires iterable objects, like the `list`, `tuple`, `range`, or `Array` value.
+The `Array` class constructor method requires iterable objects, like the `list`\, `tuple`\, `range`\, or `Array` value.
 
 ```py
 # runnable
@@ -31,7 +31,7 @@ assert arr_from_arr == [7, 8, 9]
 
 ## Generic type
 
-If the `Array` values are unique types, then you can set the generic type to an `Array` value. This may be useful when you use it on the IDE (for type checkers).
+If the `Array` values types are unique, you can set the generic type to an `Array` value. This annotation may be helpful when you use it on the IDE (for type checkers).
 
 ```py
 # runnable

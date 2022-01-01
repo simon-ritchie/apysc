@@ -1,10 +1,10 @@
 # Array class sort interface
 
-This page will explain the `Array` class `sort` method interface.
+This page explains the `Array` class `sort` method interface.
 
 ## What interface is this?
 
-The `sort` method interface will sort an array's values (ascending order).
+The `sort` method interface sorts an array's values (ascending order).
 
 ## Basic usage
 

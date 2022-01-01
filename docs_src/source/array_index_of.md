@@ -1,10 +1,10 @@
 # Array class index_of interface
 
-This page will explain the `Array` class `index_of` method interface.
+This page explains the `Array` class `index_of` method interface.
 
 ## What interface is this?
 
-The `index_of` method will return the specified value's index in the array.
+The `index_of` method returns the specified value's index in the array.
 
 ## Basic usage
 
@@ -19,7 +19,7 @@ index: ap.Int = arr.index_of(value=3)
 assert index == 1
 ```
 
-If there is no found value the return index will be `-1`.
+If there is no found value, the return index becomes `-1`.
 
 ```py
 # runnable

@@ -1,10 +1,10 @@
 # Array class remove and remove_at interfaces
 
-This page will explain the `Array` class `remove` and `remove_at` method interfaces.
+This page explains the `Array` class `remove` and `remove_at` method interfaces.
 
 ## What interfaces are these?
 
-The `remove` method will remove a specified value from an array, and the `remove_at` method will remove a specified index value from an array.
+The `remove` method removes a specified value from an array, and the `remove_at` method removes a specified index value.
 
 ## Basic usage
 

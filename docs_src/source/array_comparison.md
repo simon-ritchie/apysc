@@ -1,10 +1,10 @@
 # Array class comparison interfaces
 
-This page will explain the `Array` class comparison interfaces (equal and not equal comparison).
+This page explains the `Array` class comparison interfaces (equal and not equal comparison).
 
 ## Basic usage
 
-The `Array` value can compare with a Python built-in `list` value and `Array` value. A return value will be the `Boolean` type.
+The `Array` value can compare with a Python built-in `list` value and `Array` value. A return value becomes the `Boolean` type.
 
 ```py
 # runnable

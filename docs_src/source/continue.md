@@ -1,14 +1,14 @@
 # Continue
 
-This page will explain the `Continue` class.
+This page explains the `Continue` class.
 
-Before reading on, maybe it is useful to read the following page (the `Continue` class will be used for the same reason of each apysc data type):
+Before reading on, maybe it is helpful to read the following page (apysc uses the `Continue` class for the same reason):
 
 - [Why not using the Python built-in data type in the apysc library?](why_not_using_python_builtin_data_type.md)
 
 ## What is the Continue class?
 
-The `Continue` class will be used in the `with For` block to skip a current loop iteration (in JavaScript). It will behave like the Python built-in `continue` keyword.
+The `with For` block uses the `Continue` class to skip a current loop iteration (in JavaScript). It behaves like the Python built-in `continue` keyword.
 
 ## Basic usage
 
@@ -41,7 +41,7 @@ ap.save_overall_html(
 
 <iframe src="static/continue_basic_usage/index.html" width="250" height="150"></iframe>
 
-If you use the `Continue` class in the out of the `with For` block then an exception will be raised:
+If you use the `Continue` class in the out of the `with For` block, then an exception is raised:
 
 ```py
 import apysc as ap

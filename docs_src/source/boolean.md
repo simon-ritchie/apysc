@@ -1,6 +1,6 @@
 # Boolean
 
-This page will explain the `Boolean` class.
+This page explains the `Boolean` class.
 
 Before reading on, maybe it is useful to read the following page:
 
@@ -26,9 +26,9 @@ assert bool_3
 
 ## Boolean comparison
 
-The `Boolean` comparison interface will behave like the Python built-in `bool` value.
+The `Boolean` comparison interface behaves like the Python built-in `bool` value.
 
-You can compare it with the equal comparison operator (`=`), and the `Boolean`, `bool`, `int`, `Int` types are acceptable, as follows:
+You can compare it with the equal comparison operator (`=`), and the `Boolean`\, `bool`\, `int`\, `Int` types are acceptable, as follows:
 
 ```py
 # runnable
@@ -69,7 +69,7 @@ assert not bool_2
 
 ## Reverse a Boolean value
 
-The `not_` property will return the reversed `Boolean` value:
+The `not_` property returns the reversed `Boolean` value:
 
 ```py
 # runnable

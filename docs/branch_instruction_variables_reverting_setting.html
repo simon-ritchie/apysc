@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Each branch instruction class scope variables reverting setting &#8212; apysc  documentation</title>
+    <title>Each branch instruction class’s scope variable reverting setting &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -34,7 +34,7 @@
           <a href="else.html" title="Else"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Each branch instruction class scope variables reverting setting</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Each branch instruction class’s scope variable reverting setting</a></li> 
       </ul>
     </div>  
 
@@ -43,13 +43,13 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="each-branch-instruction-class-scope-variables-reverting-setting">
-<h1>Each branch instruction class scope variables reverting setting<a class="headerlink" href="#each-branch-instruction-class-scope-variables-reverting-setting" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain each branch instruction class (like the <code class="docutils literal notranslate"><span class="pre">If</span></code>, <code class="docutils literal notranslate"><span class="pre">Elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">Else</span></code>) scope variables reverting setting.</p>
-<section id="with-statement-code-will-be-executed">
-<h2>With statement code will be executed<a class="headerlink" href="#with-statement-code-will-be-executed" title="Permalink to this headline">¶</a></h2>
-<p>Regardless of the condition, the code in each branch instruction will be executed and variables will be updated.</p>
-<p>For example, the following code of the condition is the <code class="docutils literal notranslate"><span class="pre">False</span></code> but the value of int will be 20 on the Python:</p>
+  <section id="each-branch-instruction-class-s-scope-variable-reverting-setting">
+<h1>Each branch instruction class’s scope variable reverting setting<a class="headerlink" href="#each-branch-instruction-class-s-scope-variable-reverting-setting" title="Permalink to this headline">¶</a></h1>
+<p>This page explains each branch instruction class (like the <code class="docutils literal notranslate"><span class="pre">If</span></code>, <code class="docutils literal notranslate"><span class="pre">Elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">Else</span></code>) scope variables reverting setting.</p>
+<section id="these-interfaces-execute-with-statement-code">
+<h2>These interfaces execute With statement code<a class="headerlink" href="#these-interfaces-execute-with-statement-code" title="Permalink to this headline">¶</a></h2>
+<p>These interfaces execute the code in each branch instruction regardless of the condition, and variables are updated.</p>
+<p>For example, the following code of the condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>, but the value of int is 20 on the Python:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -61,12 +61,12 @@
 <span class="k">assert</span> <span class="n">int_1</span> <span class="o">==</span> <span class="mi">20</span>
 </pre></div>
 </div>
-<p>In JavaScript (converted code), this condition will be skipped since the condition is not satisfied.</p>
+<p>This condition is skipped in JavaScript (converted code) since the condition is not satisfied.</p>
 </section>
 <section id="scope-variables-reverting-setting">
 <h2>Scope variables reverting setting<a class="headerlink" href="#scope-variables-reverting-setting" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">If</span></code>, <code class="docutils literal notranslate"><span class="pre">Elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">Else</span></code> classes have the arguments of the <code class="docutils literal notranslate"><span class="pre">locals_</span></code> and <code class="docutils literal notranslate"><span class="pre">globals_</span></code> (basically set the <code class="docutils literal notranslate"><span class="pre">locals()</span></code> and <code class="docutils literal notranslate"><span class="pre">globals</span></code> built-in functions return value). If these arguments are specified, then the scope variables will be reverted when each scope (e.g, <code class="docutils literal notranslate"><span class="pre">If</span></code> scope) is ended.</p>
-<p>This is occasionally useful when you don’t want to update the variables in each branch instruction scope.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">If</span></code>, <code class="docutils literal notranslate"><span class="pre">Elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">Else</span></code> classes have the arguments of the <code class="docutils literal notranslate"><span class="pre">locals_</span></code> and <code class="docutils literal notranslate"><span class="pre">globals_</span></code> (basically set the <code class="docutils literal notranslate"><span class="pre">locals()</span></code> and <code class="docutils literal notranslate"><span class="pre">globals</span></code> built-in functions return value). If these arguments are specified, the scope variables are reverted when ended each scope (e.g., <code class="docutils literal notranslate"><span class="pre">If</span></code> scope).</p>
+<p>This interface is occasionally helpful when you don’t want to update the variables in each branch instruction scope.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -101,8 +101,8 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Each branch instruction class scope variables reverting setting</a><ul>
-<li><a class="reference internal" href="#with-statement-code-will-be-executed">With statement code will be executed</a></li>
+<li><a class="reference internal" href="#">Each branch instruction class’s scope variable reverting setting</a><ul>
+<li><a class="reference internal" href="#these-interfaces-execute-with-statement-code">These interfaces execute With statement code</a></li>
 <li><a class="reference internal" href="#scope-variables-reverting-setting">Scope variables reverting setting</a></li>
 <li><a class="reference internal" href="#see-also">See also</a></li>
 </ul>
@@ -142,7 +142,7 @@
           <a href="else.html" title="Else"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Each branch instruction class scope variables reverting setting</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Each branch instruction class’s scope variable reverting setting</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

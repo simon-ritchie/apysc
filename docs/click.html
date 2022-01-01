@@ -45,15 +45,15 @@
             
   <section id="click-interface">
 <h1>Click interface<a class="headerlink" href="#click-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">click</span></code> interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">click</span></code> interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">click</span></code> interface will bind the click event to any <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance (e.g., <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>, <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>, and so on). If you mouse down on that instance and also mouse up, the registered handler function will be called.</p>
-<p>Conversely, the <code class="docutils literal notranslate"><span class="pre">unbind_click</span></code> interface will unbind the click event from the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">click</span></code> interface binds the click event to any <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance (e.g., <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>, <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>, and so on). These interfaces call the registered handler function if you mouse down on that instance and mouse up.</p>
+<p>Conversely, the <code class="docutils literal notranslate"><span class="pre">unbind_click</span></code> interface unbinds the click event from the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
 </section>
 <section id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
-<p>Common mouse event interfaces are described by the following page.</p>
+<p>The following page describes basic mouse event interfaces.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="mouse_event_common.html"><span class="doc">Common mouse event interfaces</span></a></p></li>
 </ul>
@@ -61,7 +61,7 @@
 <section id="basic-usage-of-the-click-interface">
 <h2>Basic usage of the click interface<a class="headerlink" href="#basic-usage-of-the-click-interface" title="Permalink to this headline">¶</a></h2>
 <p>Each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">click</span></code> method, and you can bind handlers by that.</p>
-<p>The following example will bind the click event handler to the rectangle.</p>
+<p>The following example binds the click event handler to the rectangle.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -78,7 +78,7 @@
 <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rectangle is clicked.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -99,12 +99,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;click_basic_usage_of_the_click_interface/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you click the following rectangle, the rectangle color will become the magenta color.</p>
+<p>If you click the following rectangle, the rectangle color becomes the magenta color.</p>
 <iframe src="static/click_basic_usage_of_the_click_interface/index.html" width="150" height="150"></iframe></section>
 <section id="basic-usage-of-the-unbind-click-interface">
 <h2>Basic usage of the unbind_click interface<a class="headerlink" href="#basic-usage-of-the-unbind-click-interface" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">unbind_click</span></code> interface can remove the binded click event from a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
-<p>The following example is removing the click event by the <code class="docutils literal notranslate"><span class="pre">unbind_click</span></code> method and if you click the rectangle, nothing will happen.</p>
+<p>The following example removes the click event by the <code class="docutils literal notranslate"><span class="pre">unbind_click</span></code> method, and nothing happens if you click the rectangle.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -121,8 +121,7 @@
 <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rectangle is clicked.</span>
-<span class="sd">    the rectangle.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -148,7 +147,7 @@
 <section id="unbind-all-the-click-event-handlers">
 <h2>Unbind all the click event handlers<a class="headerlink" href="#unbind-all-the-click-event-handlers" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code> interface can unbind all the click event handlers from the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
-<p>The following example is removing all the click events by the <code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code> method (if you click the rectangle, nothing will happen).</p>
+<p>The following example removes all the click events by the <code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code> method (if you click the rectangle, nothing happens).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -165,8 +164,7 @@
 <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rectangle is clicked.</span>
-<span class="sd">    the rectangle.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

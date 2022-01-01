@@ -45,17 +45,17 @@
             
   <section id="bind-and-trigger-the-custom-event">
 <h1>Bind and trigger the custom event<a class="headerlink" href="#bind-and-trigger-the-custom-event" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">bind_custom_event</span></code> and <code class="docutils literal notranslate"><span class="pre">trigger_custom_event</span></code> interfaces.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">bind_custom_event</span></code> and <code class="docutils literal notranslate"><span class="pre">trigger_custom_event</span></code> interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">bind_custom_event</span></code> interface will register your original event to the instance, and the <code class="docutils literal notranslate"><span class="pre">trigger_custom_event</span></code> one will trigger registered custom events at any timing.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">bind_custom_event</span></code> interface registers your custom event to the instance, and the <code class="docutils literal notranslate"><span class="pre">trigger_custom_event</span></code> one triggers the registered custom events at any timing.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">bind_custom_event</span></code> interface has the <code class="docutils literal notranslate"><span class="pre">custom_event_type</span></code>, <code class="docutils literal notranslate"><span class="pre">handler</span></code>, <code class="docutils literal notranslate"><span class="pre">e</span></code>, and <code class="docutils literal notranslate"><span class="pre">options</span></code> arguments (<code class="docutils literal notranslate"><span class="pre">options</span></code> is optional).</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">custom_event_type</span></code> argument is the custom event type name string. This value needs to specify the same string at the calling of the <code class="docutils literal notranslate"><span class="pre">trigger_custom_event</span></code> interface.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">e</span></code> argument is an event instance, which may be become the subclass of the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class, such as the <code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code> or <code class="docutils literal notranslate"><span class="pre">TimerEvent</span></code> and so on.</p>
-<p>The following example will rotate the rectangle when you click it. If the rectangle is rotated 90 degrees, then the custom event (<code class="docutils literal notranslate"><span class="pre">rotate_90_degrees</span></code>) will be triggered and the <code class="docutils literal notranslate"><span class="pre">on_rotate_90_degrees</span></code> handler (custom event) will be called and display the second rectangle (toggle the <code class="docutils literal notranslate"><span class="pre">visible</span></code> property):</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">custom_event_type</span></code> argument is the custom event type name’s string. This value needs to specify the same one at the calling of the <code class="docutils literal notranslate"><span class="pre">trigger_custom_event</span></code> interface.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">e</span></code> argument is an event instance that may become the subclass of the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class, such as the <code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code> or <code class="docutils literal notranslate"><span class="pre">TimerEvent</span></code>.</p>
+<p>The following example rotates the rectangle when you click it. If the rectangle rotated 90 degrees, then the custom event (<code class="docutils literal notranslate"><span class="pre">rotate_90_degrees</span></code>) is triggered, and the <code class="docutils literal notranslate"><span class="pre">on_rotate_90_degrees</span></code> handler (custom event) is called and display the second rectangle (toggle the <code class="docutils literal notranslate"><span class="pre">visible</span></code> property):</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -72,7 +72,7 @@
 <span class="k">def</span> <span class="nf">on_rectangle_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when the rectangle is clicked.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -94,7 +94,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called from a timer.</span>
+<span class="sd">    The handler that the timer calls.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -109,7 +109,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer_complete</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when a time is complete.</span>
+<span class="sd">    The handler that timer calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -124,8 +124,7 @@
 
 <span class="k">def</span> <span class="nf">on_rotate_90_degrees</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Event</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when the rectangle is rotated</span>
-<span class="sd">    90 degrees (custom event).</span>
+<span class="sd">    The handler that the rectangle rates 90 degrees (custom event).</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

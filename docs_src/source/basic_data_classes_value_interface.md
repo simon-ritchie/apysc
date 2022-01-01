@@ -1,16 +1,16 @@
-# apysc basic data classes common value interface
+# apysc fundamental data classes value interface
 
-This page will explain the apysc basic data classes (such as the `Int`, `Number`, `String`) common `value` interface.
+This page explains the apysc fundamental data classes (such as the `Int`\, `Number`\, `String`) `value` interface.
 
 ## What interface is this?
 
-The `value` getter interface will return the value of each data class value. And the setter interface will update these data class values.
+The `value` getter interface returns each data class value. And the setter interface updates these data class values.
 
-A return value of the getter interface will become a Python built-in value, like the `int`, `float`, `str`, `list`.
+A return value of the getter interface becomes a Python built-in value, like the `int`\, `float`\, `str`\, `list`\.
 
 ## Basic usage of the getter interface
 
-The `value` getter interface will return the Python built-in value.
+The `value` getter interface returns the Python built-in value.
 
 ```py
 # runnable
@@ -32,7 +32,7 @@ assert isinstance(value, float)
 
 ## Basic usage of the setter interface
 
-You can update the apysc basic data class values with the `value` setter interface. Python built-in values and the same type value is acceptable:
+You can update the apysc fundamental data class values with the `value` setter interface. Python built-in values and the same type value is acceptable:
 
 ```py
 # runnable

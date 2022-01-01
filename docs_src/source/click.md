@@ -1,16 +1,16 @@
 # Click interface
 
-This page will explain the `click` interface.
+This page explains the `click` interface.
 
 ## What interface is this?
 
-The `click` interface will bind the click event to any `DisplayObject` instance (e.g., `Sprite`, `Rectangle`, and so on). If you mouse down on that instance and also mouse up, the registered handler function will be called.
+The `click` interface binds the click event to any `DisplayObject` instance (e.g., `Sprite`\, `Rectangle`\, and so on). These interfaces call the registered handler function if you mouse down on that instance and mouse up.
 
-Conversely, the `unbind_click` interface will unbind the click event from the `DisplayObject` instance.
+Conversely, the `unbind_click` interface unbinds the click event from the `DisplayObject` instance.
 
 ## See also
 
-Common mouse event interfaces are described by the following page.
+The following page describes basic mouse event interfaces.
 
 - [Common mouse event interfaces](mouse_event_common.md)
 
@@ -18,7 +18,7 @@ Common mouse event interfaces are described by the following page.
 
 Each `DisplayObject` instance has the `click` method, and you can bind handlers by that.
 
-The following example will bind the click event handler to the rectangle.
+The following example binds the click event handler to the rectangle.
 
 ```py
 # runnable
@@ -37,7 +37,7 @@ sprite.graphics.begin_fill(color='#0af')
 def on_click(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the rectangle is clicked.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------
@@ -58,7 +58,7 @@ ap.save_overall_html(
     dest_dir_path='click_basic_usage_of_the_click_interface/')
 ```
 
-If you click the following rectangle, the rectangle color will become the magenta color.
+If you click the following rectangle, the rectangle color becomes the magenta color.
 
 <iframe src="static/click_basic_usage_of_the_click_interface/index.html" width="150" height="150"></iframe>
 
@@ -67,7 +67,7 @@ If you click the following rectangle, the rectangle color will become the magent
 
 The `unbind_click` interface can remove the binded click event from a `DisplayObject` instance.
 
-The following example is removing the click event by the `unbind_click` method and if you click the rectangle, nothing will happen.
+The following example removes the click event by the `unbind_click` method, and nothing happens if you click the rectangle.
 
 ```py
 # runnable
@@ -86,8 +86,7 @@ sprite.graphics.begin_fill(color='#0af')
 def on_click(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the rectangle is clicked.
-    the rectangle.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------
@@ -116,7 +115,7 @@ ap.save_overall_html(
 
 `unbind_click_all` interface can unbind all the click event handlers from the `DisplayObject` instance.
 
-The following example is removing all the click events by the `unbind_click_all` method (if you click the rectangle, nothing will happen).
+The following example removes all the click events by the `unbind_click_all` method (if you click the rectangle, nothing happens).
 
 ```py
 # runnable
@@ -135,8 +134,7 @@ sprite.graphics.begin_fill(color='#0af')
 def on_click(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the rectangle is clicked.
-    the rectangle.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------

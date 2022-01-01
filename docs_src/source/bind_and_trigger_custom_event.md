@@ -1,20 +1,20 @@
 # Bind and trigger the custom event
 
-This page will explain the `bind_custom_event` and `trigger_custom_event` interfaces.
+This page explains the `bind_custom_event` and `trigger_custom_event` interfaces.
 
 ## What interfaces are these?
 
-The `bind_custom_event` interface will register your original event to the instance, and the `trigger_custom_event` one will trigger registered custom events at any timing.
+The `bind_custom_event` interface registers your custom event to the instance, and the `trigger_custom_event` one triggers the registered custom events at any timing.
 
 ## Basic usage
 
 The `bind_custom_event` interface has the `custom_event_type`, `handler`, `e`, and `options` arguments (`options` is optional).
 
-The `custom_event_type` argument is the custom event type name string. This value needs to specify the same string at the calling of the `trigger_custom_event` interface.
+The `custom_event_type` argument is the custom event type name's string. This value needs to specify the same one at the calling of the `trigger_custom_event` interface.
 
-The `e` argument is an event instance, which may be become the subclass of the `Event` class, such as the `MouseEvent` or `TimerEvent` and so on.
+The `e` argument is an event instance that may become the subclass of the `Event` class, such as the `MouseEvent` or `TimerEvent`\.
 
-The following example will rotate the rectangle when you click it. If the rectangle is rotated 90 degrees, then the custom event (`rotate_90_degrees`) will be triggered and the `on_rotate_90_degrees` handler (custom event) will be called and display the second rectangle (toggle the `visible` property):
+The following example rotates the rectangle when you click it. If the rectangle rotated 90 degrees, then the custom event (`rotate_90_degrees`) is triggered, and the `on_rotate_90_degrees` handler (custom event) is called and display the second rectangle (toggle the `visible` property):
 
 ```py
 # runnable
@@ -33,7 +33,7 @@ class _RectOptions(TypedDict):
 def on_rectangle_click(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler would be called when the rectangle is clicked.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------
@@ -55,7 +55,7 @@ def on_rectangle_click(
 
 def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
-    The handler would be called from a timer.
+    The handler that the timer calls.
 
     Parameters
     ----------
@@ -70,7 +70,7 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
 
 def on_timer_complete(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
-    The handler would be called when a time is complete.
+    The handler that timer calls when its end.
 
     Parameters
     ----------
@@ -85,8 +85,7 @@ def on_timer_complete(e: ap.TimerEvent, options: _RectOptions) -> None:
 
 def on_rotate_90_degrees(e: ap.Event, options: _RectOptions) -> None:
     """
-    The handler would be called when the rectangle is rotated
-    90 degrees (custom event).
+    The handler that the rectangle rates 90 degrees (custom event).
 
     Parameters
     ----------

@@ -45,15 +45,15 @@
             
   <section id="display-object-visible-interface">
 <h1>Display object visible interface<a class="headerlink" href="#display-object-visible-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> class <code class="docutils literal notranslate"><span class="pre">visible</span></code> property interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> class <code class="docutils literal notranslate"><span class="pre">visible</span></code> property interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">visible</span></code> property interface will change the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> visible / invisible state.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">visible</span></code> property accepts a <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value. If you set the True value then a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance will be visible (default), conversely, if you set the False value then a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance will be invisible.</p>
-<p>The following example will switch the visible values when you click the rectangle. If you click the left rectangle (rectangle_1) then the left rectangle will be invisible and the right rectangle (rectangle_2) will be visible.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">visible</span></code> property accepts a <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> value. If you set the True value, a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance becomes visible (default). Conversely, if you set the False value, a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance becomes invisible.</p>
+<p>The following example switches the visible values when you click the rectangle. For example, suppose you click the left rectangle (the rectangle_1). In that case, the left rectangle becomes invisible, and the right rectangle (rectangle_2) becomes visible.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -67,8 +67,7 @@
 <span class="k">def</span> <span class="nf">on_rectangle_1_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when the first rectangle</span>
-<span class="sd">    is clicked.</span>
+<span class="sd">    The handler that the first rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -86,8 +85,7 @@
 <span class="k">def</span> <span class="nf">on_rectangle_2_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when the second rectangle</span>
-<span class="sd">    is clicked.</span>
+<span class="sd">    The handler that the second rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

@@ -1,18 +1,18 @@
 # Display object mouse event binding interfaces
 
-This page will explain the `DisplayObject` class mouse event binding interfaces.
+This page explains the `DisplayObject` class mouse event binding interfaces.
 
 ## What interfaces are these?
 
-Each `DisplayObject` instance has the mouse event binding interfaces, like the click, mouse over, mouse move, and so on.
+Each `DisplayObject` instance has the mouse event binding interfaces, like the click, mouse over, mouse move.
 
-These interfaces can bind the mouse event to a `DisplayObject` instance. For instance, you can assign any function to handle when a `DisplayObject` instance is clicked.
+These interfaces can bind the mouse event to a `DisplayObject` instance. So, for instance, you can assign any function to handle when a `DisplayObject` instance click.
 
 ## Basic usage
 
-You can bind event handler (callable) with each interface, like the `click`, `mouseover`.
+You can bind event handler (callable) with each interface, like the `click`\, `mouseover`\.
 
-The following example will bind the click event handler and if you click the rectangle, the fill color will be changed.
+The following example binds the click event handler, and if you click the rectangle, the fill color is changed.
 
 ```py
 # runnable
@@ -22,7 +22,7 @@ import apysc as ap
 def on_click(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler would be called when the rectangle is clicked.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------

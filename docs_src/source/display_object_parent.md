@@ -1,10 +1,10 @@
 # Display object parent interfaces
 
-This page will explain the `DisplayObject` class `parent` interfaces (the `parent` property and `remove_from_parent` method).
+This page explains the `DisplayObject` class `parent` interfaces (the `parent` property and `remove_from_parent` method).
 
 ## What interfaces are these?
 
-The `parent` attribute is the getter property. This will become a `Stage` instance or a container instance like a `Sprite` instance.
+The `parent` attribute is the getter property. This attribute becomes a `Stage` instance or a container instance like a `Sprite` instance.
 
 ```py
 # runnable
@@ -25,13 +25,13 @@ assert isinstance(sprite.graphics.parent, ap.Sprite)
 assert isinstance(rectangle.parent, ap.Graphics)
 ```
 
-Notes: the `Sprite` instance will be added to the stage in the constructor automatically. Similarly, the `Graphics` instance will be added to the `Sprite` instance.
+Notes: This interface automatically adds the sprite to the stage at the constructor. Similarly, this interface adds the `Graphics` instance to the `Sprite` instance.
 
-The `remove_from_parent` interface will remove self-instance from the parent (and will not be displayed on the stage).
+The `remove_from_parent` interface removes self-instance from the parent (and not be displayed on the stage).
 
 ## Basic usage of the remove_from_parent interface
 
-The `remove_from_parent` method interface (no argument options) will remove the self-instance from the parent. A Removed instance will not be displayed until it will add to any parent again.
+The `remove_from_parent` method interface (no argument options) removes the self-instance from the parent. A Removed instance is not displayed until any parent adds it again.
 
 ```py
 # runnable
@@ -47,7 +47,7 @@ sprite: ap.Sprite = ap.Sprite()
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 
-# Remove the rectangle from the parent and nothing will display
+# Remove the rectangle from the parent and nothing displays
 # on the stage.
 rectangle.remove_from_parent()
 

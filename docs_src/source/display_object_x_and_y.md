@@ -1,14 +1,14 @@
 # Display object x and y interfaces
 
-This page will explain the `DisplayObject` class `x` and `y` property interfaces.
+This page explains the `DisplayObject` class x and y property interfaces.
 
 ## What interfaces are these?
 
-The `x` and `y` properties will change the `DisplayObject` instance 2-dimensional coordinates.
+The x and y properties change the `DisplayObject` instance 2-dimensional coordinates.
 
 ## Basic usage
 
-Each `DisplayObject` instance has the `x` and `y` properties and can get or set the value with it.
+Each `DisplayObject` instance has the x and y properties and can get/set the value with it.
 
 ```py
 # runnable
@@ -37,9 +37,9 @@ ap.save_overall_html(
 
 ## Augmented assignment
 
-The `x` and `y` properties support the Augmented assignments, like the `+=`, `-=`, `/=`, and `*=` operators.
+The x and y properties support the Augmented assignments, like the `+=`\, `-=`\, `/=`\, and `*=` operators.
 
-The following example will append 10-pixel to the y-coordinate when you click the rectangle.
+The following example appends 10-pixel to the y-coordinate when you click the rectangle.
 
 ```py
 # runnable
@@ -48,7 +48,7 @@ import apysc as ap
 
 def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler would be called when the rectangle is clicked.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------

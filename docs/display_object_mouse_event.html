@@ -45,16 +45,16 @@
             
   <section id="display-object-mouse-event-binding-interfaces">
 <h1>Display object mouse event binding interfaces<a class="headerlink" href="#display-object-mouse-event-binding-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> class mouse event binding interfaces.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> class mouse event binding interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>Each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance has the mouse event binding interfaces, like the click, mouse over, mouse move, and so on.</p>
-<p>These interfaces can bind the mouse event to a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance. For instance, you can assign any function to handle when a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance is clicked.</p>
+<p>Each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance has the mouse event binding interfaces, like the click, mouse over, mouse move.</p>
+<p>These interfaces can bind the mouse event to a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance. So, for instance, you can assign any function to handle when a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance click.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>You can bind event handler (callable) with each interface, like the <code class="docutils literal notranslate"><span class="pre">click</span></code>, <code class="docutils literal notranslate"><span class="pre">mouseover</span></code>.</p>
-<p>The following example will bind the click event handler and if you click the rectangle, the fill color will be changed.</p>
+<p>The following example binds the click event handler, and if you click the rectangle, the fill color is changed.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -62,7 +62,7 @@
 <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when the rectangle is clicked.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

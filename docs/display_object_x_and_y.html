@@ -45,14 +45,14 @@
             
   <section id="display-object-x-and-y-interfaces">
 <h1>Display object x and y interfaces<a class="headerlink" href="#display-object-x-and-y-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> class <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> property interfaces.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> class x and y property interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> properties will change the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance 2-dimensional coordinates.</p>
+<p>The x and y properties change the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance 2-dimensional coordinates.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>Each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> properties and can get or set the value with it.</p>
+<p>Each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance has the x and y properties and can get/set the value with it.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -78,15 +78,15 @@
 <iframe src="static/display_object_x_and_y_basic_usage/index.html" width="150" height="150"></iframe></section>
 <section id="augmented-assignment">
 <h2>Augmented assignment<a class="headerlink" href="#augmented-assignment" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> properties support the Augmented assignments, like the <code class="docutils literal notranslate"><span class="pre">+=</span></code>, <code class="docutils literal notranslate"><span class="pre">-=</span></code>, <code class="docutils literal notranslate"><span class="pre">/=</span></code>, and <code class="docutils literal notranslate"><span class="pre">*=</span></code> operators.</p>
-<p>The following example will append 10-pixel to the y-coordinate when you click the rectangle.</p>
+<p>The x and y properties support the Augmented assignments, like the <code class="docutils literal notranslate"><span class="pre">+=</span></code>, <code class="docutils literal notranslate"><span class="pre">-=</span></code>, <code class="docutils literal notranslate"><span class="pre">/=</span></code>, and <code class="docutils literal notranslate"><span class="pre">*=</span></code> operators.</p>
+<p>The following example appends 10-pixel to the y-coordinate when you click the rectangle.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
 <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when the rectangle is clicked.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

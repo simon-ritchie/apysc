@@ -52,8 +52,8 @@
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>Each interface requires the <code class="docutils literal notranslate"><span class="pre">name</span></code> argument as the CSS name. The <code class="docutils literal notranslate"><span class="pre">set_css</span></code> method interface also requires the <code class="docutils literal notranslate"><span class="pre">value</span></code> argument as the CSS value string.</p>
-<p>The following example will set the <code class="docutils literal notranslate"><span class="pre">none</span></code> value to the <code class="docutils literal notranslate"><span class="pre">display</span></code> CSS if the current CSS value is the default (blank string, <code class="docutils literal notranslate"><span class="pre">''</span></code>) or otherwise revert the value to default (<code class="docutils literal notranslate"><span class="pre">Else</span></code> case) by the timer event (ticks every second).</p>
+<p>Each interface requires the <code class="docutils literal notranslate"><span class="pre">name</span></code> argument as the CSS name. In addition, the <code class="docutils literal notranslate"><span class="pre">set_css</span></code> method interface also requires the <code class="docutils literal notranslate"><span class="pre">value</span></code> argument as the CSS value string.</p>
+<p>The following example sets the <code class="docutils literal notranslate"><span class="pre">none</span></code> value to the <code class="docutils literal notranslate"><span class="pre">display</span></code> CSS if the current CSS value is the default (blank string, <code class="docutils literal notranslate"><span class="pre">''</span></code>). Otherwise, revert the value to default (<code class="docutils literal notranslate"><span class="pre">Else</span></code> case) by the timer event (ticks every second).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -66,7 +66,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_SpriteOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called from the timer.</span>
+<span class="sd">    The handler that the timer calls.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

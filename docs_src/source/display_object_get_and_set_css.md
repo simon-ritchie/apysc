@@ -8,9 +8,9 @@ The `get_css` method will return a `css` string, and the `set_css` method will s
 
 ## Basic usage
 
-Each interface requires the `name` argument as the CSS name. The `set_css` method interface also requires the `value` argument as the CSS value string.
+Each interface requires the `name` argument as the CSS name. In addition, the `set_css` method interface also requires the `value` argument as the CSS value string.
 
-The following example will set the `none` value to the `display` CSS if the current CSS value is the default (blank string, `''`) or otherwise revert the value to default (`Else` case) by the timer event (ticks every second).
+The following example sets the `none` value to the `display` CSS if the current CSS value is the default (blank string, `''`). Otherwise, revert the value to default (`Else` case) by the timer event (ticks every second).
 
 ```py
 # runnable
@@ -25,7 +25,7 @@ class _SpriteOptions(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: _SpriteOptions) -> None:
     """
-    The handler would be called from the timer.
+    The handler that the timer calls.
 
     Parameters
     ----------

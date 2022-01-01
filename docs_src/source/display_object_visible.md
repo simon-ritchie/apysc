@@ -1,6 +1,6 @@
 # Display object visible interface
 
-This page will explain the `DisplayObject` class `visible` property interface.
+This page explains the `DisplayObject` class `visible` property interface.
 
 ## What interface is this?
 
@@ -8,9 +8,9 @@ The `visible` property interface will change the `DisplayObject` visible / invis
 
 ## Basic usage
 
-The `visible` property accepts a `Boolean` value. If you set the True value then a `DisplayObject` instance will be visible (default), conversely, if you set the False value then a `DisplayObject` instance will be invisible.
+The `visible` property accepts a `Boolean` value. If you set the True value, a `DisplayObject` instance becomes visible (default). Conversely, if you set the False value, a `DisplayObject` instance becomes invisible.
 
-The following example will switch the visible values when you click the rectangle. If you click the left rectangle (rectangle_1) then the left rectangle will be invisible and the right rectangle (rectangle_2) will be visible.
+The following example switches the visible values when you click the rectangle. For example, suppose you click the left rectangle (the rectangle_1). In that case, the left rectangle becomes invisible, and the right rectangle (rectangle_2) becomes visible.
 
 ```py
 # runnable
@@ -26,8 +26,7 @@ class _RectOptions(TypedDict):
 def on_rectangle_1_click(
         e: ap.MouseEvent[ap.Rectangle], options: _RectOptions) -> None:
     """
-    The handler would be called when the first rectangle
-    is clicked.
+    The handler that the first rectangle calls when clicked.
 
     Parameters
     ----------
@@ -45,8 +44,7 @@ def on_rectangle_1_click(
 def on_rectangle_2_click(
         e: ap.MouseEvent[ap.Rectangle], options: _RectOptions) -> None:
     """
-    The handler would be called when the second rectangle
-    is clicked.
+    The handler that the second rectangle calls when clicked.
 
     Parameters
     ----------

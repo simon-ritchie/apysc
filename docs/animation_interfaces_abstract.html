@@ -45,14 +45,14 @@
             
   <section id="animation-interfaces-abstract">
 <h1>Animation interfaces abstract<a class="headerlink" href="#animation-interfaces-abstract" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the animation interfaces abstract.</p>
+<p>This page explains the animation interfaces’ abstract.</p>
 <section id="what-apysc-can-do-in-its-animation-interfaces">
 <h2>What apysc can do in its animation interfaces<a class="headerlink" href="#what-apysc-can-do-in-its-animation-interfaces" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>You can animate each attribute, such as the coordinates, rotation, color, alpha (opacity), and so on.</p></li>
+<li><p>You can animate each attribute, such as the coordinates, rotation, color, alpha (opacity), scale.</p></li>
 <li><p>You can set the animation’s duration in milliseconds.</p></li>
 <li><p>You can set the animation’s delay in milliseconds.</p></li>
-<li><p>You can use lots of easing settings, such as the <code class="docutils literal notranslate"><span class="pre">EASE_IN_CUBIC</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_OUT_QUINT</span></code>, and <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_BOUNCE</span></code>.</p></li>
+<li><p>You can use many easing settings, such as the <code class="docutils literal notranslate"><span class="pre">EASE_IN_CUBIC</span></code>, <code class="docutils literal notranslate"><span class="pre">EASE_OUT_QUINT</span></code>, and <code class="docutils literal notranslate"><span class="pre">EASE_IN_OUT_BOUNCE</span></code>.</p></li>
 <li><p>You can control the target instance’s animation with the pause, play, reset, finish, reverse, time interfaces.</p></li>
 <li><p>You can set the parallel animation or sequential animation.</p></li>
 <li><p>Animation complete event is supported.</p></li>
@@ -80,7 +80,7 @@
 <span class="k">def</span> <span class="nf">on_x_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the x animation is completed.</span>
+<span class="sd">    The handler that the x-animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -97,7 +97,7 @@
 <span class="k">def</span> <span class="nf">on_x_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the x animation is completed.</span>
+<span class="sd">    The handler that the x-animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -121,7 +121,7 @@
 <span class="k">def</span> <span class="nf">on_y_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the y animation is completed.</span>
+<span class="sd">    The handler that the y-animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -138,7 +138,7 @@
 <span class="k">def</span> <span class="nf">on_y_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the y animation is completed.</span>
+<span class="sd">    The handler that the y-animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -162,8 +162,7 @@
 <span class="k">def</span> <span class="nf">on_cx_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the center-x animation</span>
-<span class="sd">    is completed.</span>
+<span class="sd">    The handler that the center-x animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -180,8 +179,7 @@
 <span class="k">def</span> <span class="nf">on_cx_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the center-x animation</span>
-<span class="sd">    is completed.</span>
+<span class="sd">    The handler that the center-x animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -205,8 +203,7 @@
 <span class="k">def</span> <span class="nf">on_cy_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the center-y animation</span>
-<span class="sd">    is completed.</span>
+<span class="sd">    The handler that the center-y animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -223,8 +220,7 @@
 <span class="k">def</span> <span class="nf">on_cy_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the center-y animation</span>
-<span class="sd">    is completed.</span>
+<span class="sd">    The handler that the center-y animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -248,7 +244,7 @@
 <span class="k">def</span> <span class="nf">on_move_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the move animation is completed.</span>
+<span class="sd">    The handler that move-animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -265,7 +261,7 @@
 <span class="k">def</span> <span class="nf">on_move_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the move animation is completed.</span>
+<span class="sd">    The handler that move-animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -289,7 +285,7 @@
 <span class="k">def</span> <span class="nf">on_width_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the width animation is completed.</span>
+<span class="sd">    The handler that the width animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -306,7 +302,7 @@
 <span class="k">def</span> <span class="nf">on_width_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the width animation is completed.</span>
+<span class="sd">    The handler that the width animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -330,7 +326,7 @@
 <span class="k">def</span> <span class="nf">on_height_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the height animation is completed.</span>
+<span class="sd">    The handler that the height animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -347,7 +343,7 @@
 <span class="k">def</span> <span class="nf">on_height_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the width animation is completed.</span>
+<span class="sd">    The handler that the height animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -371,8 +367,7 @@
 <span class="k">def</span> <span class="nf">on_ellipse_width_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the ellipse-width animation</span>
-<span class="sd">    is completed.</span>
+<span class="sd">    The handler that the ellipse-width animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -389,8 +384,7 @@
 <span class="k">def</span> <span class="nf">on_ellipse_width_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the ellipse-width animation</span>
-<span class="sd">    is completed.</span>
+<span class="sd">    The handler that the ellipse-width animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -414,8 +408,7 @@
 <span class="k">def</span> <span class="nf">on_ellipse_height_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the ellipse-height animation</span>
-<span class="sd">    is completed.</span>
+<span class="sd">    The handler that the ellipse-height animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -432,8 +425,7 @@
 <span class="k">def</span> <span class="nf">on_ellipse_height_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the ellipse-height animation</span>
-<span class="sd">    is completed.</span>
+<span class="sd">    The handler that the ellipse-height animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -457,8 +449,7 @@
 <span class="k">def</span> <span class="nf">on_fill_color_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the fill-color animation</span>
-<span class="sd">    is completed.</span>
+<span class="sd">    The handler that the fill-color animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -475,8 +466,7 @@
 <span class="k">def</span> <span class="nf">on_fill_color_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the fill-color animation</span>
-<span class="sd">    is completed.</span>
+<span class="sd">    The handler that the fill-color animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -500,8 +490,7 @@
 <span class="k">def</span> <span class="nf">on_fill_alpha_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the fill-alpha animation</span>
-<span class="sd">    is completed.</span>
+<span class="sd">    The handler that the fill-alpha animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -518,8 +507,7 @@
 <span class="k">def</span> <span class="nf">on_fill_alpha_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the fill-alpha animation</span>
-<span class="sd">    is completed.</span>
+<span class="sd">    The handler that the fill-alpha animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -543,8 +531,7 @@
 <span class="k">def</span> <span class="nf">on_line_color_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the line-color animation</span>
-<span class="sd">    is completed.</span>
+<span class="sd">    The handler that the line-color animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -561,8 +548,7 @@
 <span class="k">def</span> <span class="nf">on_line_color_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the line-color animation</span>
-<span class="sd">    is completed.</span>
+<span class="sd">    The handler that the line-color animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -587,8 +573,7 @@
 <span class="k">def</span> <span class="nf">on_line_alpha_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the line-alpha animation</span>
-<span class="sd">    is completed.</span>
+<span class="sd">    The handler that the line-alpha animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -605,8 +590,7 @@
 <span class="k">def</span> <span class="nf">on_line_alpha_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the line-alpha animation</span>
-<span class="sd">    is completed.</span>
+<span class="sd">    The handler that the line-alpha animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -631,8 +615,7 @@
 <span class="k">def</span> <span class="nf">on_line_thickness_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the line-thickness animation</span>
-<span class="sd">    is completed.</span>
+<span class="sd">    The handler that the line-thickness animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -649,8 +632,7 @@
 <span class="k">def</span> <span class="nf">on_line_thickness_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the line-thickness animation</span>
-<span class="sd">    is completed.</span>
+<span class="sd">    The handler that the line-thickness animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -674,7 +656,7 @@
 <span class="k">def</span> <span class="nf">on_radius_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the radius animation is completed.</span>
+<span class="sd">    The handler that the radius-animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -691,7 +673,7 @@
 <span class="k">def</span> <span class="nf">on_radius_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the radius animation is completed.</span>
+<span class="sd">    The handler that the radius-animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -715,8 +697,8 @@
 <span class="k">def</span> <span class="nf">on_rotation_around_center_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rotation around the</span>
-<span class="sd">    center point animation is completed.</span>
+<span class="sd">    The handler that the rotation around the center point animation</span>
+<span class="sd">    calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -736,8 +718,8 @@
 <span class="k">def</span> <span class="nf">on_rotation_around_center_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rotation around the</span>
-<span class="sd">    center point animation is completed.</span>
+<span class="sd">    The handler that the rotation around the center point animation</span>
+<span class="sd">    calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -764,8 +746,8 @@
 <span class="k">def</span> <span class="nf">on_rotation_around_point_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rotation around the</span>
-<span class="sd">    specified point animation is completed.</span>
+<span class="sd">    The handler that the rotation around the specified point</span>
+<span class="sd">    animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -785,8 +767,8 @@
 <span class="k">def</span> <span class="nf">on_rotation_around_point_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rotation around the</span>
-<span class="sd">    specified point animation is completed.</span>
+<span class="sd">    The handler that the rotation around the specified point</span>
+<span class="sd">    animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -814,8 +796,8 @@
 <span class="k">def</span> <span class="nf">on_scale_x_from_center_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the scale-x from the center</span>
-<span class="sd">    point animation is completed.</span>
+<span class="sd">    The handler that the scale-x from the center point animation</span>
+<span class="sd">    calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -833,8 +815,8 @@
 <span class="k">def</span> <span class="nf">on_scale_x_from_center_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the scale-x from the center</span>
-<span class="sd">    point animation is completed.</span>
+<span class="sd">    The handler that the scale-x from the center point animation</span>
+<span class="sd">    calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -859,8 +841,8 @@
 <span class="k">def</span> <span class="nf">on_scale_y_from_center_animation_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the scale-y from the center</span>
-<span class="sd">    point animation is completed.</span>
+<span class="sd">    The handler that the scale-y from the center point</span>
+<span class="sd">    animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -878,8 +860,8 @@
 <span class="k">def</span> <span class="nf">on_scale_y_from_center_animation_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the scale-y from the center</span>
-<span class="sd">    point animation is completed.</span>
+<span class="sd">    The handler that the scale-y from the center point</span>
+<span class="sd">    animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -904,8 +886,8 @@
 <span class="k">def</span> <span class="nf">on_scale_x_from_point_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the scale-x from the</span>
-<span class="sd">    specified point animation is completed.</span>
+<span class="sd">    The handler that the scale-x from the specified point</span>
+<span class="sd">    animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -923,8 +905,8 @@
 <span class="k">def</span> <span class="nf">on_scale_x_from_point_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the scale-x from the</span>
-<span class="sd">    specified point animation is completed.</span>
+<span class="sd">    The handler that the scale-x from the specified point</span>
+<span class="sd">    animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -950,8 +932,8 @@
 <span class="k">def</span> <span class="nf">on_scale_y_from_point_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the scale-y from the</span>
-<span class="sd">    specified point animation is completed.</span>
+<span class="sd">    The handler that the scale-y from the specified point</span>
+<span class="sd">    animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -969,8 +951,8 @@
 <span class="k">def</span> <span class="nf">on_scale_y_from_point_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the scale-y from the</span>
-<span class="sd">    specified point animation is completed.</span>
+<span class="sd">    The handler that the scale-y from the specified point</span>
+<span class="sd">    animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -995,7 +977,7 @@
 <span class="k">def</span> <span class="nf">on_skew_x_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the skew-x animation is completed.</span>
+<span class="sd">    The handler that the skew-x animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1012,7 +994,7 @@
 <span class="k">def</span> <span class="nf">on_skew_x_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the skew-x animation is completed.</span>
+<span class="sd">    The handler that the skew-x animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1064,7 +1046,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">EasingOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1084,7 +1066,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">EasingOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1157,7 +1139,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1174,7 +1156,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1220,7 +1202,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1237,7 +1219,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1283,7 +1265,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1300,7 +1282,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1346,7 +1328,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1363,7 +1345,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1409,7 +1391,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1426,7 +1408,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1472,7 +1454,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1489,7 +1471,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1535,7 +1517,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1552,7 +1534,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1578,7 +1560,7 @@
 </div>
 </details><iframe src="static/animation_interfaces_abstract_fill_alpha/index.html" width="150" height="150"></iframe></section>
 <section id="line-color-animation">
-<h2>Line color animation<a class="headerlink" href="#line-color-animation" title="Permalink to this headline">¶</a></h2>
+<h2>Line-color animation<a class="headerlink" href="#line-color-animation" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">animation_line_color</span></code> interface sets the line color animation. For more details: <a class="reference internal" href="animation_line_color.html"><span class="doc">animation_line_color interface document</span></a></p>
 <details>
 <summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -1598,7 +1580,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1615,7 +1597,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1661,7 +1643,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1678,7 +1660,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1724,7 +1706,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1741,7 +1723,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1787,7 +1769,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1804,7 +1786,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Circle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1850,7 +1832,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1868,7 +1850,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1916,7 +1898,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1934,7 +1916,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1961,8 +1943,8 @@
 </pre></div>
 </div>
 </details><iframe src="static/animation_interfaces_abstract_rotation_around_point/index.html" width="200" height="150"></iframe></section>
-<section id="scale-x-animation-from-center-point">
-<h2>Scale-x animation from center point<a class="headerlink" href="#scale-x-animation-from-center-point" title="Permalink to this headline">¶</a></h2>
+<section id="scale-x-animation-from-the-center-point">
+<h2>Scale-x animation from the center point<a class="headerlink" href="#scale-x-animation-from-the-center-point" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">animation_scale_x_from_center</span></code> interface sets the scale-x animation from the center point. For more details: <a class="reference internal" href="animation_scale_x_and_y_from_center.html"><span class="doc">animation_scale_x_from_center and animation_scale_x_from_center interfaces document</span></a></p>
 <details>
 <summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -1982,7 +1964,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -2000,7 +1982,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -2048,7 +2030,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -2066,7 +2048,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -2114,7 +2096,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -2132,7 +2114,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -2180,7 +2162,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -2198,7 +2180,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -2246,7 +2228,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_1</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -2264,7 +2246,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete_2</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -2316,13 +2298,13 @@
 <li><a class="reference internal" href="#height-animation">Height animation</a></li>
 <li><a class="reference internal" href="#fill-color-animation">Fill color animation</a></li>
 <li><a class="reference internal" href="#fill-alpha-animation">Fill alpha animation</a></li>
-<li><a class="reference internal" href="#line-color-animation">Line color animation</a></li>
+<li><a class="reference internal" href="#line-color-animation">Line-color animation</a></li>
 <li><a class="reference internal" href="#line-alpha-animation">Line alpha animation</a></li>
 <li><a class="reference internal" href="#line-thickness-animation">Line thickness animation</a></li>
 <li><a class="reference internal" href="#radius-animation">Radius animation</a></li>
 <li><a class="reference internal" href="#rotation-animation-around-the-center-point">Rotation animation around the center point</a></li>
 <li><a class="reference internal" href="#rotation-animation-around-the-specified-point">Rotation animation around the specified point</a></li>
-<li><a class="reference internal" href="#scale-x-animation-from-center-point">Scale-x animation from center point</a></li>
+<li><a class="reference internal" href="#scale-x-animation-from-the-center-point">Scale-x animation from the center point</a></li>
 <li><a class="reference internal" href="#scale-y-animation-from-the-center-point">Scale-y animation from the center point</a></li>
 <li><a class="reference internal" href="#scale-x-animation-from-the-specified-point">Scale-x animation from the specified point</a></li>
 <li><a class="reference internal" href="#scale-y-animation-from-the-specified-point">Scale-y animation from the specified point</a></li>
@@ -2368,7 +2350,7 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2021, apysc project.
+        &#169; Copyright 2022, apysc project.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
   </body>

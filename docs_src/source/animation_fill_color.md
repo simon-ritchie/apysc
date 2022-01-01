@@ -1,12 +1,12 @@
 # animation_fill_color interface
 
-This page will explain the `animation_fill_color` method interface.
+This page explains the `animation_fill_color` method interface.
 
 ## What interface is this?
 
-The `animation_fill_color` method interface will create an `ap.AnimationFillColor` instance (animation setting instance and the subclass of the `AnimationBase`) and you can animate fill color with it.
+The `animation_fill_color` method interface creates an `ap.AnimationFillColor` instance. You can animate fill color with it.
 
-This interface exists on a `GraphicsBase` subclass (that has the `fill_color` interface), such as the `Rectangle` or `Circle`.
+This interface exists on a `GraphicsBase` subclass, such as the `Rectangle` or `Circle`.
 
 ## Basic usage
 
@@ -22,7 +22,7 @@ DURATION: int = 1000
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that animation calls when its end.
 
     Parameters
     ----------
@@ -40,7 +40,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that animation calls when its end.
 
     Parameters
     ----------

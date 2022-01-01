@@ -1,13 +1,13 @@
 # Animation interfaces abstract
 
-This page will explain the animation interfaces abstract.
+This page explains the animation interfaces' abstract.
 
 ## What apysc can do in its animation interfaces
 
-- You can animate each attribute, such as the coordinates, rotation, color, alpha (opacity), and so on.
+- You can animate each attribute, such as the coordinates, rotation, color, alpha (opacity), scale.
 - You can set the animation's duration in milliseconds.
 - You can set the animation's delay in milliseconds.
-- You can use lots of easing settings, such as the `EASE_IN_CUBIC`, `EASE_OUT_QUINT`, and `EASE_IN_OUT_BOUNCE`.
+- You can use many easing settings, such as the `EASE_IN_CUBIC`\, `EASE_OUT_QUINT`\, and `EASE_IN_OUT_BOUNCE`\.
 - You can control the target instance's animation with the pause, play, reset, finish, reverse, time interfaces.
 - You can set the parallel animation or sequential animation.
 - Animation complete event is supported.
@@ -38,7 +38,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_x_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the x animation is completed.
+    The handler that the x-animation calls when its end.
 
     Parameters
     ----------
@@ -55,7 +55,7 @@ def on_x_animation_complete_1(
 def on_x_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the x animation is completed.
+    The handler that the x-animation calls when its end.
 
     Parameters
     ----------
@@ -79,7 +79,7 @@ sprite.graphics.draw_rect(
 def on_y_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the y animation is completed.
+    The handler that the y-animation calls when its end.
 
     Parameters
     ----------
@@ -96,7 +96,7 @@ def on_y_animation_complete_1(
 def on_y_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the y animation is completed.
+    The handler that the y-animation calls when its end.
 
     Parameters
     ----------
@@ -120,8 +120,7 @@ sprite.graphics.draw_rect(
 def on_cx_animation_complete_1(
         e: ap.AnimationEvent[ap.Circle], options: dict) -> None:
     """
-    The handler will be called when the center-x animation
-    is completed.
+    The handler that the center-x animation calls when its end.
 
     Parameters
     ----------
@@ -138,8 +137,7 @@ def on_cx_animation_complete_1(
 def on_cx_animation_complete_2(
         e: ap.AnimationEvent[ap.Circle], options: dict) -> None:
     """
-    The handler will be called when the center-x animation
-    is completed.
+    The handler that the center-x animation calls when its end.
 
     Parameters
     ----------
@@ -163,8 +161,7 @@ sprite.graphics.draw_circle(
 def on_cy_animation_complete_1(
         e: ap.AnimationEvent[ap.Circle], options: dict) -> None:
     """
-    The handler will be called when the center-y animation
-    is completed.
+    The handler that the center-y animation calls when its end.
 
     Parameters
     ----------
@@ -181,8 +178,7 @@ def on_cy_animation_complete_1(
 def on_cy_animation_complete_2(
         e: ap.AnimationEvent[ap.Circle], options: dict) -> None:
     """
-    The handler will be called when the center-y animation
-    is completed.
+    The handler that the center-y animation calls when its end.
 
     Parameters
     ----------
@@ -206,7 +202,7 @@ sprite.graphics.draw_circle(
 def on_move_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the move animation is completed.
+    The handler that move-animation calls when its end.
 
     Parameters
     ----------
@@ -223,7 +219,7 @@ def on_move_animation_complete_1(
 def on_move_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the move animation is completed.
+    The handler that move-animation calls when its end.
 
     Parameters
     ----------
@@ -247,7 +243,7 @@ sprite.graphics.draw_rect(
 def on_width_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the width animation is completed.
+    The handler that the width animation calls when its end.
 
     Parameters
     ----------
@@ -264,7 +260,7 @@ def on_width_animation_complete_1(
 def on_width_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the width animation is completed.
+    The handler that the width animation calls when its end.
 
     Parameters
     ----------
@@ -288,7 +284,7 @@ sprite.graphics.draw_rect(
 def on_height_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the height animation is completed.
+    The handler that the height animation calls when its end.
 
     Parameters
     ----------
@@ -305,7 +301,7 @@ def on_height_animation_complete_1(
 def on_height_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the width animation is completed.
+    The handler that the height animation calls when its end.
 
     Parameters
     ----------
@@ -329,8 +325,7 @@ sprite.graphics.draw_rect(
 def on_ellipse_width_animation_complete_1(
         e: ap.AnimationEvent[ap.Ellipse], options: dict) -> None:
     """
-    The handler will be called when the ellipse-width animation
-    is completed.
+    The handler that the ellipse-width animation calls when its end.
 
     Parameters
     ----------
@@ -347,8 +342,7 @@ def on_ellipse_width_animation_complete_1(
 def on_ellipse_width_animation_complete_2(
         e: ap.AnimationEvent[ap.Ellipse], options: dict) -> None:
     """
-    The handler will be called when the ellipse-width animation
-    is completed.
+    The handler that the ellipse-width animation calls when its end.
 
     Parameters
     ----------
@@ -372,8 +366,7 @@ sprite.graphics.draw_ellipse(
 def on_ellipse_height_animation_complete_1(
         e: ap.AnimationEvent[ap.Ellipse], options: dict) -> None:
     """
-    The handler will be called when the ellipse-height animation
-    is completed.
+    The handler that the ellipse-height animation calls when its end.
 
     Parameters
     ----------
@@ -390,8 +383,7 @@ def on_ellipse_height_animation_complete_1(
 def on_ellipse_height_animation_complete_2(
         e: ap.AnimationEvent[ap.Ellipse], options: dict) -> None:
     """
-    The handler will be called when the ellipse-height animation
-    is completed.
+    The handler that the ellipse-height animation calls when its end.
 
     Parameters
     ----------
@@ -415,8 +407,7 @@ sprite.graphics.draw_ellipse(
 def on_fill_color_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the fill-color animation
-    is completed.
+    The handler that the fill-color animation calls when its end.
 
     Parameters
     ----------
@@ -433,8 +424,7 @@ def on_fill_color_animation_complete_1(
 def on_fill_color_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the fill-color animation
-    is completed.
+    The handler that the fill-color animation calls when its end.
 
     Parameters
     ----------
@@ -458,8 +448,7 @@ sprite.graphics.draw_rect(
 def on_fill_alpha_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the fill-alpha animation
-    is completed.
+    The handler that the fill-alpha animation calls when its end.
 
     Parameters
     ----------
@@ -476,8 +465,7 @@ def on_fill_alpha_animation_complete_1(
 def on_fill_alpha_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the fill-alpha animation
-    is completed.
+    The handler that the fill-alpha animation calls when its end.
 
     Parameters
     ----------
@@ -501,8 +489,7 @@ sprite.graphics.draw_rect(
 def on_line_color_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the line-color animation
-    is completed.
+    The handler that the line-color animation calls when its end.
 
     Parameters
     ----------
@@ -519,8 +506,7 @@ def on_line_color_animation_complete_1(
 def on_line_color_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the line-color animation
-    is completed.
+    The handler that the line-color animation calls when its end.
 
     Parameters
     ----------
@@ -545,8 +531,7 @@ sprite.graphics.draw_rect(
 def on_line_alpha_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the line-alpha animation
-    is completed.
+    The handler that the line-alpha animation calls when its end.
 
     Parameters
     ----------
@@ -563,8 +548,7 @@ def on_line_alpha_animation_complete_1(
 def on_line_alpha_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the line-alpha animation
-    is completed.
+    The handler that the line-alpha animation calls when its end.
 
     Parameters
     ----------
@@ -589,8 +573,7 @@ sprite.graphics.line_style(color='#fff', thickness=1)
 def on_line_thickness_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the line-thickness animation
-    is completed.
+    The handler that the line-thickness animation calls when its end.
 
     Parameters
     ----------
@@ -607,8 +590,7 @@ def on_line_thickness_animation_complete_1(
 def on_line_thickness_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the line-thickness animation
-    is completed.
+    The handler that the line-thickness animation calls when its end.
 
     Parameters
     ----------
@@ -632,7 +614,7 @@ sprite.graphics.draw_rect(
 def on_radius_animation_complete_1(
         e: ap.AnimationEvent[ap.Circle], options: dict) -> None:
     """
-    The handler will be called when the radius animation is completed.
+    The handler that the radius-animation calls when its end.
 
     Parameters
     ----------
@@ -649,7 +631,7 @@ def on_radius_animation_complete_1(
 def on_radius_animation_complete_2(
         e: ap.AnimationEvent[ap.Circle], options: dict) -> None:
     """
-    The handler will be called when the radius animation is completed.
+    The handler that the radius-animation calls when its end.
 
     Parameters
     ----------
@@ -673,8 +655,8 @@ sprite.graphics.draw_circle(
 def on_rotation_around_center_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the rotation around the
-    center point animation is completed.
+    The handler that the rotation around the center point animation
+    calls when its end.
 
     Parameters
     ----------
@@ -694,8 +676,8 @@ def on_rotation_around_center_animation_complete_1(
 def on_rotation_around_center_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the rotation around the
-    center point animation is completed.
+    The handler that the rotation around the center point animation
+    calls when its end.
 
     Parameters
     ----------
@@ -722,8 +704,8 @@ sprite.graphics.draw_rect(
 def on_rotation_around_point_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the rotation around the
-    specified point animation is completed.
+    The handler that the rotation around the specified point
+    animation calls when its end.
 
     Parameters
     ----------
@@ -743,8 +725,8 @@ def on_rotation_around_point_animation_complete_1(
 def on_rotation_around_point_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the rotation around the
-    specified point animation is completed.
+    The handler that the rotation around the specified point
+    animation calls when its end.
 
     Parameters
     ----------
@@ -772,8 +754,8 @@ sprite.graphics.draw_rect(
 def on_scale_x_from_center_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the scale-x from the center
-    point animation is completed.
+    The handler that the scale-x from the center point animation
+    calls when its end.
 
     Parameters
     ----------
@@ -791,8 +773,8 @@ def on_scale_x_from_center_animation_complete_1(
 def on_scale_x_from_center_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the scale-x from the center
-    point animation is completed.
+    The handler that the scale-x from the center point animation
+    calls when its end.
 
     Parameters
     ----------
@@ -817,8 +799,8 @@ sprite.graphics.draw_rect(
 def on_scale_y_from_center_animation_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the scale-y from the center
-    point animation is completed.
+    The handler that the scale-y from the center point
+    animation calls when its end.
 
     Parameters
     ----------
@@ -836,8 +818,8 @@ def on_scale_y_from_center_animation_1(
 def on_scale_y_from_center_animation_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the scale-y from the center
-    point animation is completed.
+    The handler that the scale-y from the center point
+    animation calls when its end.
 
     Parameters
     ----------
@@ -862,8 +844,8 @@ sprite.graphics.draw_rect(
 def on_scale_x_from_point_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the scale-x from the
-    specified point animation is completed.
+    The handler that the scale-x from the specified point
+    animation calls when its end.
 
     Parameters
     ----------
@@ -881,8 +863,8 @@ def on_scale_x_from_point_animation_complete_1(
 def on_scale_x_from_point_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the scale-x from the
-    specified point animation is completed.
+    The handler that the scale-x from the specified point
+    animation calls when its end.
 
     Parameters
     ----------
@@ -908,8 +890,8 @@ sprite.graphics.draw_rect(
 def on_scale_y_from_point_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the scale-y from the
-    specified point animation is completed.
+    The handler that the scale-y from the specified point
+    animation calls when its end.
 
     Parameters
     ----------
@@ -927,8 +909,8 @@ def on_scale_y_from_point_animation_complete_1(
 def on_scale_y_from_point_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the scale-y from the
-    specified point animation is completed.
+    The handler that the scale-y from the specified point
+    animation calls when its end.
 
     Parameters
     ----------
@@ -953,7 +935,7 @@ sprite.graphics.draw_rect(
 def on_skew_x_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the skew-x animation is completed.
+    The handler that the skew-x animation calls when its end.
 
     Parameters
     ----------
@@ -970,7 +952,7 @@ def on_skew_x_animation_complete_1(
 def on_skew_x_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the skew-x animation is completed.
+    The handler that the skew-x animation calls when its end.
 
     Parameters
     ----------
@@ -1029,7 +1011,7 @@ class EasingOptions(TypedDict):
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: EasingOptions) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1049,7 +1031,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: EasingOptions) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1129,7 +1111,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1146,7 +1128,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1200,7 +1182,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1217,7 +1199,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1270,7 +1252,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1287,7 +1269,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1340,7 +1322,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1357,7 +1339,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1410,7 +1392,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1427,7 +1409,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1480,7 +1462,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1497,7 +1479,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1550,7 +1532,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1567,7 +1549,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1595,7 +1577,7 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_fill_alpha/index.html" width="150" height="150"></iframe>
 
-## Line color animation
+## Line-color animation
 
 The `animation_line_color` interface sets the line color animation. For more details: [animation_line_color interface document](animation_line_color.md)
 
@@ -1620,7 +1602,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1637,7 +1619,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1690,7 +1672,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1707,7 +1689,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1760,7 +1742,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1777,7 +1759,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1830,7 +1812,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Circle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1847,7 +1829,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Circle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1900,7 +1882,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1918,7 +1900,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1973,7 +1955,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -1991,7 +1973,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -2021,7 +2003,7 @@ ap.save_overall_html(
 
 <iframe src="static/animation_interfaces_abstract_rotation_around_point/index.html" width="200" height="150"></iframe>
 
-## Scale-x animation from center point
+## Scale-x animation from the center point
 
 The `animation_scale_x_from_center` interface sets the scale-x animation from the center point. For more details: [animation_scale_x_from_center and animation_scale_x_from_center interfaces document](animation_scale_x_and_y_from_center.md)
 
@@ -2046,7 +2028,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -2064,7 +2046,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -2119,7 +2101,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -2137,7 +2119,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -2192,7 +2174,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -2210,7 +2192,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -2265,7 +2247,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -2283,7 +2265,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -2338,7 +2320,7 @@ EASING: ap.Easing = ap.Easing.EASE_OUT_QUINT
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -2356,7 +2338,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------

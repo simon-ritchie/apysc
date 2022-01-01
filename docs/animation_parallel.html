@@ -45,16 +45,16 @@
             
   <section id="animation-parallel-interface">
 <h1>animation_parallel interface<a class="headerlink" href="#animation-parallel-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code> interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code> interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code> method interface will create an <code class="docutils literal notranslate"><span class="pre">AnimationParallel</span></code> instance (animation setting instance and the subclass of the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>) and you can set multiple simultaneous animations to the same instance.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code> method interface creates an <code class="docutils literal notranslate"><span class="pre">AnimationParallel</span></code> instance. You can set multiple simultaneous animations to the same instance with it.</p>
 <p>This interface exists on a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> subclass instance, such as the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> or <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>You can use this interface with the <code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code> method. The <code class="docutils literal notranslate"><span class="pre">animations</span></code> list argument requires any animation settings.</p>
-<p>The following example will set the simultaneous animations of the x, fill alpha, fill color, and line thickness.</p>
+<p>The following example sets the simultaneous animations of the x, fill alpha, fill color, and line thickness.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -84,7 +84,7 @@
 <iframe src="static/animation_parallel_basic_usage/index.html" width="400" height="150"></iframe></section>
 <section id="note-for-each-animation-s-duration-delay-and-easing-setting">
 <h2>Note for each animation’s duration, delay, and easing setting<a class="headerlink" href="#note-for-each-animation-s-duration-delay-and-easing-setting" title="Permalink to this headline">¶</a></h2>
-<p>Animation settings of the <code class="docutils literal notranslate"><span class="pre">duration</span></code>, <code class="docutils literal notranslate"><span class="pre">delay</span></code>, and <code class="docutils literal notranslate"><span class="pre">easing</span></code> in the <code class="docutils literal notranslate"><span class="pre">animations</span></code> argument can’t be changed since these animation settings are referred the <code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code> arguments. If you set these parameters in the <code class="docutils literal notranslate"><span class="pre">animations</span></code> argument an error will be raised:</p>
+<p>Animation settings of the <code class="docutils literal notranslate"><span class="pre">duration</span></code>, <code class="docutils literal notranslate"><span class="pre">delay</span></code>, and <code class="docutils literal notranslate"><span class="pre">easing</span></code> in the <code class="docutils literal notranslate"><span class="pre">animations</span></code> argument can’t be changed since these animation settings are referring to the <code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code> arguments. If you set these parameters in the <code class="docutils literal notranslate"><span class="pre">animations</span></code> arguments, setting raise an error:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
 <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_parallel</span><span class="p">(</span>
     <span class="n">animations</span><span class="o">=</span><span class="p">[</span>

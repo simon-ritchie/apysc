@@ -1,16 +1,16 @@
 # animation_reset interface
 
-This page will explain the `animation_reset` method interface.
+This page explains the `animation_reset` method interface.
 
 ## What interface is this?
 
-The `animation_reset` interface will reset all animations and stop.
+The `animation_reset` interface resets all animations and stop.
 
-This interface exists in the instances that have the animation interfaces (such as the `animation_x`, `animation_move`).
+This interface exists in the instances that have the animation interfaces (such as the `animation_x`\, `animation_move`).
 
 ## Basic usage
 
-The following example will set the click event to the rectangle and if you click the rectangle x-coordinate animation will start. After 1 second passed the x-coordinate animation will reset by the `animation_reset` interface:
+The following example sets the click event to the rectangle. If you click the rectangle, the x-coordinate animation starts. After 1 second has passed, the `animation_reset` interface resets the x-coordinate animation:
 
 ```py
 # runnable
@@ -25,7 +25,7 @@ class _RectOptions(TypedDict):
 
 def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the rectangle is clicked.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------
@@ -43,7 +43,7 @@ def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
 
 def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
-    The handler will be called from a timer.
+    The handler that the timer calls.
 
     Parameters
     ----------

@@ -1,10 +1,10 @@
 # animation_parallel interface
 
-This page will explain the `animation_parallel` interface.
+This page explains the `animation_parallel` interface.
 
 ## What interface is this?
 
-The `animation_parallel` method interface will create an `AnimationParallel` instance (animation setting instance and the subclass of the `AnimationBase`) and you can set multiple simultaneous animations to the same instance.
+The `animation_parallel` method interface creates an `AnimationParallel` instance. You can set multiple simultaneous animations to the same instance with it.
 
 This interface exists on a `DisplayObject` subclass instance, such as the `Sprite` or `Rectangle`.
 
@@ -12,7 +12,7 @@ This interface exists on a `DisplayObject` subclass instance, such as the `Sprit
 
 You can use this interface with the `animation_parallel` method. The `animations` list argument requires any animation settings.
 
-The following example will set the simultaneous animations of the x, fill alpha, fill color, and line thickness.
+The following example sets the simultaneous animations of the x, fill alpha, fill color, and line thickness.
 
 ```py
 # runnable
@@ -45,7 +45,7 @@ ap.save_overall_html(
 
 ## Note for each animation's duration, delay, and easing setting
 
-Animation settings of the `duration`, `delay`, and `easing` in the `animations` argument can't be changed since these animation settings are referred the `animation_parallel` arguments. If you set these parameters in the `animations` argument an error will be raised:
+Animation settings of the `duration`\, `delay`\, and `easing` in the `animations` argument can't be changed since these animation settings are referring to the `animation_parallel` arguments. If you set these parameters in the `animations` arguments, setting raise an error:
 
 ```py
 ...

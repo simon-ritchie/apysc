@@ -1,12 +1,12 @@
 # animation_radius interface
 
-This page will explain the `animation_radius` method interface.
+This page explains the `animation_radius` method interface.
 
 ## What interface is this?
 
-The `animation_radius` method interface will create an `ap.AnimationRadius` instance (animation setting instance and the subclass of the `AnimationBase`) and you can animate radius with it.
+The `animation_radius` method interface creates an `ap.AnimationRadius` instance. You can animate radius with it.
 
-This interface exists on a `GraphicsBase` subclass (that has the `radius` interface), such as the `Circle`.
+This interface exists on a `GraphicsBase` subclass, such as the `Circle`.
 
 ## Basic usage
 
@@ -22,7 +22,7 @@ DURATION: int = 1000
 def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Circle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -40,7 +40,7 @@ def on_animation_complete_1(
 def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Circle], options: dict) -> None:
     """
-    The handler will be called when the animation is completed.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------

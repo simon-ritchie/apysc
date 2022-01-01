@@ -1,16 +1,16 @@
 # animation_pause and animation_play interfaces
 
-This page will explain the `animation_pause` and `animation_play` method interfaces.
+This page explains the `animation_pause` and `animation_play` method interfaces.
 
 ## What interface are these?
 
-The `animation_pause` interface will pause all the running animations of the target instance. The `animation_play` interface will restart the paused animation.
+The `animation_pause` interface pauses all the running animations of the target instance. The `animation_play` interface restarts the paused animation.
 
-These interfaces exist in the instances that have the animation interfaces (such as the `animation_x`, `animation_move`).
+These interfaces exist in the instances that have the animation interfaces (such as the `animation_x`\, `animation_move`).
 
 ## Basic usage
 
-The following example will start x-coordinate animation and stop after 1 second. After stopping the animation and additionally 500 milliseconds passed, restarting the animation:
+The following example starts the x-coordinate animation and stops after 1 second. After stopping the animation and additionally 500 milliseconds passed, restarting the animation:
 
 ```py
 # runnable
@@ -25,7 +25,7 @@ class _RectOptions(TypedDict):
 
 def on_timer_1(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
-    The handler will be called from a timer.
+    The handler that the timer calls.
 
     Parameters
     ----------
@@ -42,7 +42,7 @@ def on_timer_1(e: ap.TimerEvent, options: _RectOptions) -> None:
 
 def on_timer_2(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
-    The handler will be called from a timer.
+    The handler that the timer calls.
 
     Parameters
     ----------

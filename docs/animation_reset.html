@@ -45,15 +45,15 @@
             
   <section id="animation-reset-interface">
 <h1>animation_reset interface<a class="headerlink" href="#animation-reset-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">animation_reset</span></code> method interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">animation_reset</span></code> method interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">animation_reset</span></code> interface will reset all animations and stop.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">animation_reset</span></code> interface resets all animations and stop.</p>
 <p>This interface exists in the instances that have the animation interfaces (such as the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code>, <code class="docutils literal notranslate"><span class="pre">animation_move</span></code>).</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The following example will set the click event to the rectangle and if you click the rectangle x-coordinate animation will start. After 1 second passed the x-coordinate animation will reset by the <code class="docutils literal notranslate"><span class="pre">animation_reset</span></code> interface:</p>
+<p>The following example sets the click event to the rectangle. If you click the rectangle, the x-coordinate animation starts. After 1 second has passed, the <code class="docutils literal notranslate"><span class="pre">animation_reset</span></code> interface resets the x-coordinate animation:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -66,7 +66,7 @@
 
 <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rectangle is clicked.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -84,7 +84,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called from a timer.</span>
+<span class="sd">    The handler that the timer calls.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

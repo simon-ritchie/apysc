@@ -1,18 +1,18 @@
 # Each animation interface return value
 
-This page will explain each animation interface, such as the `animation_move`, return value (`AnimationBase` instance).
+This page explains each animation interface, such as the `animation_move`\, return value (`AnimationBase` instance).
 
-## Each interface will return the subclass instance of the AnimationBase
+## Each interface returns the subclass instance of the AnimationBase
 
-Each animation interface will return the subclass instance of the `AnimationBase`. For example, the `animation_move` interface will return the `AnimationMove` instance and the `animation_x` interface will return the `AnimationX` instance.
+Each animation interface returns the subclass instance of the `AnimationBase`\. So, for example, the `animation_move` interface returns the `AnimationMove` instance, and the `animation_x` interface  returns the `AnimationX` instance.
 
-The `AnimationBase` class has common animation interfaces, such as the `start` (method to start animation), `animation_complete` (method to bind the animation complete event), `target` (property of the animation target).
+The `AnimationBase` class has the standard animation interfaces, such as the `start` (method to start animation), `animation_complete` (method to bind the animation completion event), `target` (property of the animation target).
 
 ## Basic usage
 
-Each return value class is in the apysc package (e.g., `ap.AnimationMove`) and you can use it to the type annotation.
+Each return value class is in the apysc package (e.g., `ap.AnimationMove`). Therefore, you can set the type annotation with it.
 
-The following code example is using the `animation_x` method interface and get an `AnimationX` instance to start and bind the animation complete event with it.
+The following code example uses the `animation_x` method interface. And You get an `AnimationX` instance to start and bind the animation completion event with it.
 
 ```py
 # runnable
@@ -25,7 +25,7 @@ def on_animation_complete_1(
         e: ap.AnimationEvent[ap.Rectangle],
         options: dict) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------
@@ -45,7 +45,7 @@ def on_animation_complete_2(
         e: ap.AnimationEvent[ap.Rectangle],
         options: dict) -> None:
     """
-    The handler will be called when the animation is complete.
+    The handler that the animation calls when its end.
 
     Parameters
     ----------

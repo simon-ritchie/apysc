@@ -45,16 +45,16 @@
             
   <section id="each-animation-interface-return-value">
 <h1>Each animation interface return value<a class="headerlink" href="#each-animation-interface-return-value" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain each animation interface, such as the <code class="docutils literal notranslate"><span class="pre">animation_move</span></code>, return value (<code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> instance).</p>
-<section id="each-interface-will-return-the-subclass-instance-of-the-animationbase">
-<h2>Each interface will return the subclass instance of the AnimationBase<a class="headerlink" href="#each-interface-will-return-the-subclass-instance-of-the-animationbase" title="Permalink to this headline">¶</a></h2>
-<p>Each animation interface will return the subclass instance of the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>. For example, the <code class="docutils literal notranslate"><span class="pre">animation_move</span></code> interface will return the <code class="docutils literal notranslate"><span class="pre">AnimationMove</span></code> instance and the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code> interface will return the <code class="docutils literal notranslate"><span class="pre">AnimationX</span></code> instance.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> class has common animation interfaces, such as the <code class="docutils literal notranslate"><span class="pre">start</span></code> (method to start animation), <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> (method to bind the animation complete event), <code class="docutils literal notranslate"><span class="pre">target</span></code> (property of the animation target).</p>
+<p>This page explains each animation interface, such as the <code class="docutils literal notranslate"><span class="pre">animation_move</span></code>, return value (<code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> instance).</p>
+<section id="each-interface-returns-the-subclass-instance-of-the-animationbase">
+<h2>Each interface returns the subclass instance of the AnimationBase<a class="headerlink" href="#each-interface-returns-the-subclass-instance-of-the-animationbase" title="Permalink to this headline">¶</a></h2>
+<p>Each animation interface returns the subclass instance of the <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code>. So, for example, the <code class="docutils literal notranslate"><span class="pre">animation_move</span></code> interface returns the <code class="docutils literal notranslate"><span class="pre">AnimationMove</span></code> instance, and the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code> interface  returns the <code class="docutils literal notranslate"><span class="pre">AnimationX</span></code> instance.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> class has the standard animation interfaces, such as the <code class="docutils literal notranslate"><span class="pre">start</span></code> (method to start animation), <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code> (method to bind the animation completion event), <code class="docutils literal notranslate"><span class="pre">target</span></code> (property of the animation target).</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>Each return value class is in the apysc package (e.g., <code class="docutils literal notranslate"><span class="pre">ap.AnimationMove</span></code>) and you can use it to the type annotation.</p>
-<p>The following code example is using the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code> method interface and get an <code class="docutils literal notranslate"><span class="pre">AnimationX</span></code> instance to start and bind the animation complete event with it.</p>
+<p>Each return value class is in the apysc package (e.g., <code class="docutils literal notranslate"><span class="pre">ap.AnimationMove</span></code>). Therefore, you can set the type annotation with it.</p>
+<p>The following code example uses the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code> method interface. And You get an <code class="docutils literal notranslate"><span class="pre">AnimationX</span></code> instance to start and bind the animation completion event with it.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -65,7 +65,7 @@
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span>
         <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is complete.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -85,7 +85,7 @@
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span>
         <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is complete.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -133,7 +133,7 @@
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Each animation interface return value</a><ul>
-<li><a class="reference internal" href="#each-interface-will-return-the-subclass-instance-of-the-animationbase">Each interface will return the subclass instance of the AnimationBase</a></li>
+<li><a class="reference internal" href="#each-interface-returns-the-subclass-instance-of-the-animationbase">Each interface returns the subclass instance of the AnimationBase</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 </ul>
 </li>

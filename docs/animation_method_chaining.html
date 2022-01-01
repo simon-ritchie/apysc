@@ -45,10 +45,10 @@
             
   <section id="animationbase-class-interfaces-method-chaining">
 <h1>AnimationBase class interfaces method chaining<a class="headerlink" href="#animationbase-class-interfaces-method-chaining" title="Permalink to this headline">¶</a></h1>
-<p>This page will describe the method chaining of the animation interfaces.</p>
+<p>This page describes the method chaining of the animation interfaces.</p>
 <section id="each-animationbase-related-interface-returns-its-instance">
 <h2>Each AnimationBase related interface returns its instance<a class="headerlink" href="#each-animationbase-related-interface-returns-its-instance" title="Permalink to this headline">¶</a></h2>
-<p>Each <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> class-related interface (such as the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code>, <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code>) returns its instance so that these interfaces can be used with the method chaining, as follows (method chaining of the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code>, <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code>, and <code class="docutils literal notranslate"><span class="pre">start</span></code> methods):</p>
+<p>Each <code class="docutils literal notranslate"><span class="pre">AnimationBase</span></code> class-related interface (such as the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code>, <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code>) returns its instance. So that these interfaces can be used with the method chaining, as follows (method chaining of the <code class="docutils literal notranslate"><span class="pre">animation_x</span></code>, <code class="docutils literal notranslate"><span class="pre">animation_complete</span></code>, and <code class="docutils literal notranslate"><span class="pre">start</span></code> methods):</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -56,7 +56,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -93,7 +93,7 @@
 <span class="k">def</span> <span class="nf">on_animation_complete</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">AnimationEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the animation is completed.</span>
+<span class="sd">    The handler that the animation calls when its end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

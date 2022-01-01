@@ -1,16 +1,16 @@
 # Graphics line_dot_setting interface
 
-This page will explain the `Graphics` class `line_dot_setting` property interface.
+This page explains the `Graphics` class `line_dot_setting` property interface.
 
 ## What interface is this?
 
-The `line_dot_setting` property interface will update or get the instance's current line dot setting.
+The `line_dot_setting` property interface updates or gets the instance's current line dot setting.
 
 ## Basic usage
 
-The getter or setter interface will be (or require) the `LineDotSetting` instance value.
+The getter or setter interface becomes (or requires) the `LineDotSetting` instance value.
 
-The following example will set the 5-pixel dot to the line:
+The following example sets the 5-pixel dot to the line:
 
 ```py
 # runnable

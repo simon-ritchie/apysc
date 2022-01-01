@@ -45,22 +45,22 @@
             
   <section id="graphics-line-color-interface">
 <h1>Graphics line_color interface<a class="headerlink" href="#graphics-line-color-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">line_color</span></code> property interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">line_color</span></code> property interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">line_color</span></code> property interface will update or get the instance’s line color.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">line_color</span></code> property interface updates or get the instance’s line color.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The getter or setter interface will be (or require) the <code class="docutils literal notranslate"><span class="pre">String</span></code> hex color code value.</p>
-<p>The following example will change the line color (from cyan to magenta, and magenta to cyan) when you click the rectangle:</p>
+<p>The getter or setter interface becomes (or requires) the <code class="docutils literal notranslate"><span class="pre">String</span></code> hex color code value.</p>
+<p>The following example changes the line color (from cyan to magenta and magenta to cyan) when you click the rectangle:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
 
 <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rectangle is clicked.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

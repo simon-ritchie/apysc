@@ -1,16 +1,16 @@
 # Graphics line_dash_setting interface
 
-This page will explain the `Graphics` class `line_dash_setting` property interface.
+This page explains the `Graphics` class `line_dash_setting` property interface.
 
 ## What interface is this?
 
-The `line_dash_setting` property interface will update or get the instance's current line dash setting.
+The `line_dash_setting` property interface updates or gets the instance's current line dash setting.
 
 ## Basic usage
 
-The getter or setter interface will be (or require) the `LineDashSetting` instance value.
+The getter or setter interface becomes (or requires) the `LineDashSetting` instance value.
 
-The following example will set the 10-pixel dash size and 3-pixel space size to the line:
+The following example sets the 10-pixel dash size and 3-pixel space size to the line:
 
 ```py
 # runnable

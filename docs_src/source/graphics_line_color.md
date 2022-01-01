@@ -1,16 +1,16 @@
 # Graphics line_color interface
 
-This page will explain the `Graphics` class `line_color` property interface.
+This page explains the `Graphics` class `line_color` property interface.
 
 ## What interface is this?
 
-The `line_color` property interface will update or get the instance's line color.
+The `line_color` property interface updates or get the instance's line color.
 
 ## Basic usage
 
-The getter or setter interface will be (or require) the `String` hex color code value.
+The getter or setter interface becomes (or requires) the `String` hex color code value.
 
-The following example will change the line color (from cyan to magenta, and magenta to cyan) when you click the rectangle:
+The following example changes the line color (from cyan to magenta and magenta to cyan) when you click the rectangle:
 
 ```py
 # runnable
@@ -19,7 +19,7 @@ import apysc as ap
 
 def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the rectangle is clicked.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------

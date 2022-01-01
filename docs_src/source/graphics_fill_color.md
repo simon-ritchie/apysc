@@ -1,16 +1,16 @@
 # Graphics fill_color interface
 
-This page will explain the `Graphics` class `fill_color` property interface.
+This page explains the `Graphics` class `fill_color` property interface.
 
 ## What interface is this?
 
-The `fill_color` property interface will update or get the instance's fill color.
+The `fill_color` property interface updates or get the instance's fill color.
 
 ## Basic usage
 
-The getter interface will be the `String` hex color code value and the setter one also requires the `String` hex color code value.
+The getter interface becomes the `String` hex color code value, and the setter one also requires the `String` hex color code value.
 
-The following example will change the fill color (from cyan to magenta and magenta to cyan) when you click the rectangle:
+The following example changes the fill color (from cyan to magenta and magenta to cyan) when you click the rectangle:
 
 ```py
 # runnable
@@ -19,7 +19,7 @@ import apysc as ap
 
 def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the rectangle is clicked.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------

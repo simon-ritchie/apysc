@@ -2,18 +2,18 @@ import hashlib
 import os
 import shutil
 from random import randint
-from typing import List
+from typing import List, Optional
 
 from retrying import retry
 
 import build_docs
 from apysc._file import file_util
-from build_docs import _CodeBlock
+from build_docs import _CodeBlock, HASHED_VALS_DIR_PATH
 from build_docs import _CodeBlockFlake8Error
 from build_docs import _CodeBlockMypyError
 from build_docs import _CodeBlockNumdoclintError
 from build_docs import _RunReturnData
-from build_docs import _ScriptData
+from build_docs import _ScriptData, _MarkdownData
 from tests.testing_helper import assert_attrs
 from tests.testing_helper import assert_raises
 
@@ -255,67 +255,6 @@ def test__get_md_under_source_file_path() -> None:
     assert under_source_file_path == 'any/path.md'
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__slice_md_file_by_hashed_val() -> None:
-    original_hashed_vals_dir_path: str = build_docs.HASHED_VALS_DIR_PATH
-    build_docs.HASHED_VALS_DIR_PATH = '../tmp_test_build_docs_3/hashed_vals/'
-    shutil.rmtree(build_docs.HASHED_VALS_DIR_PATH, ignore_errors=True)
-    os.makedirs(build_docs.HASHED_VALS_DIR_PATH, exist_ok=True)
-    tmp_hash_file_path_1: str = os.path.join(
-        build_docs.HASHED_VALS_DIR_PATH,
-        'tmp_1.md'
-    )
-    file_util.save_plain_txt(
-        txt=hashlib.sha1('0123'.encode()).hexdigest(),
-        file_path=tmp_hash_file_path_1)
-
-    tmp_hash_file_path_2: str = os.path.join(
-        build_docs.HASHED_VALS_DIR_PATH,
-        'tmp_2.md'
-    )
-    file_util.save_plain_txt(
-        txt=hashlib.sha1('4567'.encode()).hexdigest(),
-        file_path=tmp_hash_file_path_2)
-
-    tmp_src_dir_path: str = '../tmp_test_build_docs_4/source/'
-    shutil.rmtree(tmp_src_dir_path, ignore_errors=True)
-    os.makedirs(tmp_src_dir_path, exist_ok=True)
-    tmp_md_file_path_1: str = os.path.join(
-        tmp_src_dir_path, 'tmp_1.md')
-    tmp_md_file_path_2: str = os.path.join(
-        tmp_src_dir_path, 'tmp_2.md')
-    tmp_md_file_path_3: str = os.path.join(
-        tmp_src_dir_path, 'tmp_3.md')
-    tmp_md_file_path_4: str = os.path.join(
-        build_docs.HASHED_VALS_DIR_PATH, 'tmp_4.md')
-    md_file_paths: List[str] = [
-        tmp_md_file_path_1,
-        tmp_md_file_path_2,
-        tmp_md_file_path_3,
-        tmp_md_file_path_4,
-    ]
-    with open(tmp_md_file_path_1, 'w') as f:
-        f.write('0123')
-    with open(tmp_md_file_path_2, 'w') as f:
-        f.write('0000')
-    with open(tmp_md_file_path_3, 'w') as f:
-        f.write('890')
-    sliced_md_file_paths: List[str]
-    hashed_vals: List[str]
-    sliced_md_file_paths, hashed_vals = \
-        build_docs._slice_md_file_by_hashed_val(
-            md_file_paths=md_file_paths)
-    assert sliced_md_file_paths == [tmp_md_file_path_2, tmp_md_file_path_3]
-    assert hashed_vals == [
-        hashlib.sha1('0000'.encode()).hexdigest(),
-        hashlib.sha1('890'.encode()).hexdigest(),
-    ]
-
-    shutil.rmtree(tmp_src_dir_path, ignore_errors=True)
-    shutil.rmtree(build_docs.HASHED_VALS_DIR_PATH, ignore_errors=True)
-    build_docs.HASHED_VALS_DIR_PATH = original_hashed_vals_dir_path
-
-
 def test__save_md_hashed_val() -> None:
     original_hashed_vals_dir_path: str = build_docs.HASHED_VALS_DIR_PATH
     build_docs.HASHED_VALS_DIR_PATH = '../tmp_test_build_docs_5/hashed_vals/'
@@ -376,12 +315,15 @@ def test__make_script_data_list() -> None:
             '\n```'
             '\n'
         )
+    markdown_data_list: List[_MarkdownData] = [{
+        'md_file_path': tmp_file_path_1,
+        'hashed_val': 'abc',
+    }, {
+        'md_file_path': tmp_file_path_2,
+        'hashed_val': 'def',
+    }]
     script_data_list: List[_ScriptData] = build_docs._make_script_data_list(
-        md_file_paths=[
-            tmp_file_path_1,
-            tmp_file_path_2,
-        ],
-        hashed_vals=['abc', 'def'],
+        markdown_data_list=markdown_data_list,
         limit_count=None)
     assert len(script_data_list) == 3
     assert script_data_list[0] == {
@@ -401,11 +343,7 @@ def test__make_script_data_list() -> None:
     }
 
     script_data_list = build_docs._make_script_data_list(
-        md_file_paths=[
-            tmp_file_path_1,
-            tmp_file_path_2,
-        ],
-        hashed_vals=['abc', 'def'],
+        markdown_data_list=markdown_data_list,
         limit_count=2)
     assert len(script_data_list) == 2
 
@@ -596,3 +534,39 @@ def test__move_code_block_outputs() -> None:
 
     shutil.rmtree(tmp_test_dir_path, ignore_errors=True)
     shutil.rmtree(expected_dir_path, ignore_errors=True)
+
+
+def test__convert_path_to_markdown_data_with_hashed_val() -> None:
+    test_md_file_path: str = './docs_src/source/test_build_docs.md'
+    with open(test_md_file_path, 'w') as f:
+        f.write('Hello')
+
+    markdown_data: Optional[_MarkdownData] = build_docs.\
+        _convert_path_to_markdown_data_with_hashed_val(
+            md_file_path='./docs_src/hashed_vals/test_build_docs.md')
+    assert markdown_data is None
+
+    under_source_file_path: str = build_docs._get_md_under_source_file_path(
+        md_file_path=test_md_file_path)
+    hash_file_path: str = os.path.join(
+        HASHED_VALS_DIR_PATH,
+        under_source_file_path,
+    )
+    expected_md_hashed_val: str = build_docs._read_md_file_and_hash_txt(
+        md_file_path=test_md_file_path)
+    file_util.remove_file_if_exists(file_path=hash_file_path)
+    markdown_data = build_docs._convert_path_to_markdown_data_with_hashed_val(
+        md_file_path=test_md_file_path)
+    assert markdown_data == {
+        'md_file_path': test_md_file_path,
+        'hashed_val': expected_md_hashed_val,
+    }
+
+    with open(hash_file_path, 'w') as f:
+        f.write(expected_md_hashed_val)
+    markdown_data = build_docs._convert_path_to_markdown_data_with_hashed_val(
+        md_file_path=test_md_file_path)
+    assert markdown_data is None
+
+    file_util.remove_file_if_exists(file_path=test_md_file_path)
+    file_util.remove_file_if_exists(file_path=hash_file_path)

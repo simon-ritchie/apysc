@@ -116,15 +116,22 @@ def _exec_document_lint_and_script(
     md_file_paths: List[str] = \
         file_util.get_specified_ext_file_paths_recursively(
             extension='.md', dir_path='./docs_src/')
-    hashed_vals: List[str]
-    md_file_paths, hashed_vals = _slice_md_file_by_hashed_val(
-        md_file_paths=md_file_paths)
-    script_data_list: List[_ScriptData] = _make_script_data_list(
-        md_file_paths=md_file_paths, hashed_vals=hashed_vals,
-        limit_count=limit_count)
     workers: int = mp.cpu_count()
 
     with mp.Pool(workers) as p:
+        logger.info(msg="Slicing not updated markdown files...")
+        markdown_data_list_: List[Optional[_MarkdownData]] = p.map(
+            func=_convert_path_to_markdown_data_with_hashed_val,
+            iterable=md_file_paths)
+        markdown_data_list: List[_MarkdownData] = []
+        for markdown_data in markdown_data_list_:
+            if markdown_data is None:
+                continue
+            markdown_data_list.append(markdown_data)
+        script_data_list: List[_ScriptData] = _make_script_data_list(
+            markdown_data_list=markdown_data_list,
+            limit_count=limit_count)
+
         logger.info(msg="Document's code block flake8 checking started...")
         p.map(func=_check_code_block_with_flake8, iterable=script_data_list)
         logger.info(
@@ -387,19 +394,21 @@ def _run_code_block_script(script_data: _ScriptData) -> _RunReturnData:
     return return_data
 
 
+class _MarkdownData(TypedDict):
+    md_file_path: str
+    hashed_val: str
+
+
 def _make_script_data_list(
-        md_file_paths: List[str],
-        hashed_vals: List[str],
+        markdown_data_list: List[_MarkdownData],
         limit_count: Optional[int]) -> List[_ScriptData]:
     """
     Make a script data list for the multiprocessing argument.
 
     Parameters
     ----------
-    md_file_paths : list of str
-        Target markdown file paths.
-    hashed_vals : list of str
-        Target markdown files' hashed values.
+    markdown_data_list : list of _MarkdownData
+        Target markdown data list.
     limit_count : int or None
         Limitation of the script execution count.
 
@@ -411,13 +420,13 @@ def _make_script_data_list(
     count: int = 0
     is_limit: bool = False
     script_data_list: List[_ScriptData] = []
-    for md_file_path, hashed_val in zip(md_file_paths, hashed_vals):
+    for markdown_data in markdown_data_list:
         runnable_scripts: List[str] = _get_runnable_scripts_in_md_code_blocks(
-            md_file_path=md_file_path)
+            md_file_path=markdown_data['md_file_path'])
         for runnable_script in runnable_scripts:
             script_data_list.append({
-                'md_file_path': md_file_path,
-                'hashed_val': hashed_val,
+                'md_file_path': markdown_data['md_file_path'],
+                'hashed_val': markdown_data['hashed_val'],
                 'runnable_script': runnable_script,
             })
             count += 1
@@ -452,49 +461,50 @@ def _save_md_hashed_val(md_file_path: str, hashed_val: str) -> None:
 HASHED_VALS_DIR_PATH: str = './docs_src/hashed_vals/'
 
 
-def _slice_md_file_by_hashed_val(
-        md_file_paths: List[str]) -> Tuple[List[str], List[str]]:
+def _convert_path_to_markdown_data_with_hashed_val(
+        md_file_path: str) -> Optional[_MarkdownData]:
     """
-    Slice markdown file paths by hashed values (remove unchanged
-    documents from list).
+    Convert the markdown path to the markdown data with
+    hashed value.
+
+    Notes
+    -----
+    If the specified markdown isn't updated, this function
+    returns None.
 
     Parameters
     ----------
-    md_file_paths : list of str
-        Target markdown file paths.
+    md_file_path : str
+        Markdown file path.
 
     Returns
     -------
-    sliced_md_file_paths : list of str
-        Sliced markdown file paths.
-    hashed_vals : list of str
-        Hashed values.
+    markdown_data : _MarkdownData or None
+        Converted markdown data.
     """
-    sliced_md_file_paths: List[str] = []
-    hashed_vals: List[str] = []
-    for md_file_path in md_file_paths:
-        if '/hashed_vals/' in md_file_path:
-            continue
-        under_source_file_path: str = _get_md_under_source_file_path(
-            md_file_path=md_file_path)
-        hash_file_path: str = os.path.join(
-            HASHED_VALS_DIR_PATH,
-            under_source_file_path,
-        )
-        hash_file_dir_path: str = os.path.dirname(hash_file_path)
-        os.makedirs(hash_file_dir_path, exist_ok=True)
-        saved_hashed_val: str = _read_md_file_hashed_val_from_file(
-            hash_file_path=hash_file_path)
-        md_hashed_val: str = _read_md_file_and_hash_txt(
-            md_file_path=md_file_path)
-        if saved_hashed_val == md_hashed_val:
-            print(
-                'Skipped markdown file since it is not changed: '
-                f'{md_file_path}')
-            continue
-        sliced_md_file_paths.append(md_file_path)
-        hashed_vals.append(md_hashed_val)
-    return sliced_md_file_paths, hashed_vals
+    if '/hashed_vals/' in md_file_path:
+        return None
+    under_source_file_path: str = _get_md_under_source_file_path(
+        md_file_path=md_file_path)
+    hash_file_path: str = os.path.join(
+        HASHED_VALS_DIR_PATH,
+        under_source_file_path,
+    )
+    hash_file_dir_path: str = os.path.dirname(hash_file_path)
+    os.makedirs(hash_file_dir_path, exist_ok=True)
+    saved_hashed_val: str = _read_md_file_hashed_val_from_file(
+        hash_file_path=hash_file_path)
+    md_hashed_val: str = _read_md_file_and_hash_txt(
+        md_file_path=md_file_path)
+    if saved_hashed_val == md_hashed_val:
+        print(
+            'Skipped markdown file since it is not changed: '
+            f'{md_file_path}')
+        return None
+    return {
+        'md_file_path': md_file_path,
+        'hashed_val': md_hashed_val,
+    }
 
 
 def _get_md_under_source_file_path(md_file_path: str) -> str:

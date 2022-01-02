@@ -18,8 +18,8 @@
     <script src="static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Int and Number common arithmetic operations" href="int_and_number_arithmetic_operations.html" />
-    <link rel="prev" title="apysc basic data classes common value interface" href="basic_data_classes_value_interface.html" /> 
+    <link rel="next" title="Int and Number basic arithmetic operations" href="int_and_number_arithmetic_operations.html" />
+    <link rel="prev" title="apysc fundamental data classes value interface" href="basic_data_classes_value_interface.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,10 +28,10 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="int_and_number_arithmetic_operations.html" title="Int and Number common arithmetic operations"
+          <a href="int_and_number_arithmetic_operations.html" title="Int and Number basic arithmetic operations"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="basic_data_classes_value_interface.html" title="apysc basic data classes common value interface"
+          <a href="basic_data_classes_value_interface.html" title="apysc fundamental data classes value interface"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Int and Number</a></li> 
@@ -45,8 +45,8 @@
             
   <section id="int-and-number">
 <h1>Int and Number<a class="headerlink" href="#int-and-number" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Int</span></code> and <code class="docutils literal notranslate"><span class="pre">Number</span></code> classes.</p>
-<p>Before reading on, maybe it is useful to read the following page:</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Int</span></code> and <code class="docutils literal notranslate"><span class="pre">Number</span></code> classes.</p>
+<p>Before reading on, maybe it is helpful to read the following page:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="why_not_using_python_builtin_data_type.html"><span class="doc">Why not using the Python built-in data type in the apysc library?</span></a></p></li>
 </ul>
@@ -76,7 +76,7 @@
 <span class="k">assert</span> <span class="n">int_2</span> <span class="o">==</span> <span class="mi">25</span>
 </pre></div>
 </div>
-<p>If you specify a float value to the constructor argument, then a value will be floored:</p>
+<p>If you specify a float value to the constructor argument, then the <code class="docutils literal notranslate"><span class="pre">Int</span></code> class floor a value:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -102,7 +102,7 @@
 </section>
 <section id="note-for-the-float-class-alias">
 <h2>Note for the Float class alias<a class="headerlink" href="#note-for-the-float-class-alias" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Float</span></code> class is the alias of the <code class="docutils literal notranslate"><span class="pre">Number</span></code> class. It behaves the same as the <code class="docutils literal notranslate"><span class="pre">Number</span></code> class. Maybe a Python developer is familiar with its name rather than the <code class="docutils literal notranslate"><span class="pre">Number</span></code>, on the other hand, the <code class="docutils literal notranslate"><span class="pre">Number</span></code> is more common in JavaScript than the <code class="docutils literal notranslate"><span class="pre">Number</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Float</span></code> class is the alias of the <code class="docutils literal notranslate"><span class="pre">Number</span></code> class. It behaves the same as the <code class="docutils literal notranslate"><span class="pre">Number</span></code> class. Maybe a Python developer is familiar with its name rather than the <code class="docutils literal notranslate"><span class="pre">Number</span></code>. On the other hand, the <code class="docutils literal notranslate"><span class="pre">Number</span></code> is more common in JavaScript than the <code class="docutils literal notranslate"><span class="pre">Number</span></code>.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -111,13 +111,13 @@
 </pre></div>
 </div>
 </section>
-<section id="int-and-number-classes-common-interfaces">
-<h2>Int and Number classes common interfaces<a class="headerlink" href="#int-and-number-classes-common-interfaces" title="Permalink to this headline">¶</a></h2>
+<section id="int-and-number-classes-basic-interfaces">
+<h2>Int and Number classes basic interfaces<a class="headerlink" href="#int-and-number-classes-basic-interfaces" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Int</span></code> and <code class="docutils literal notranslate"><span class="pre">Number</span></code> classes have the same interfaces. For more details, please see:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="int_and_number_arithmetic_operations.html"><span class="doc">Int and Number classes common arithmetic operations</span></a></p></li>
-<li><p><a class="reference internal" href="int_and_number_comparison_operations.html"><span class="doc">Int and Number classes common comparison operations</span></a></p></li>
-<li><p><a class="reference internal" href="basic_data_classes_value_interface.html"><span class="doc">apysc basic data classes common value interface</span></a></p></li>
+<li><p><a class="reference internal" href="int_and_number_arithmetic_operations.html"><span class="doc">Int and Number classes basic arithmetic operations</span></a></p></li>
+<li><p><a class="reference internal" href="int_and_number_comparison_operations.html"><span class="doc">Int and Number classes basic comparison operations</span></a></p></li>
+<li><p><a class="reference internal" href="basic_data_classes_value_interface.html"><span class="doc">apysc fundamental data classes common interface</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -138,17 +138,17 @@
 <li><a class="reference internal" href="#int-class">Int class</a></li>
 <li><a class="reference internal" href="#number-class">Number class</a></li>
 <li><a class="reference internal" href="#note-for-the-float-class-alias">Note for the Float class alias</a></li>
-<li><a class="reference internal" href="#int-and-number-classes-common-interfaces">Int and Number classes common interfaces</a></li>
+<li><a class="reference internal" href="#int-and-number-classes-basic-interfaces">Int and Number classes basic interfaces</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="basic_data_classes_value_interface.html"
-                        title="previous chapter">apysc basic data classes common value interface</a></p>
+                        title="previous chapter">apysc fundamental data classes value interface</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="int_and_number_arithmetic_operations.html"
-                        title="next chapter">Int and Number common arithmetic operations</a></p>
+                        title="next chapter">Int and Number basic arithmetic operations</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -170,10 +170,10 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="int_and_number_arithmetic_operations.html" title="Int and Number common arithmetic operations"
+          <a href="int_and_number_arithmetic_operations.html" title="Int and Number basic arithmetic operations"
              >next</a> |</li>
         <li class="right" >
-          <a href="basic_data_classes_value_interface.html" title="apysc basic data classes common value interface"
+          <a href="basic_data_classes_value_interface.html" title="apysc fundamental data classes value interface"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Int and Number</a></li> 

@@ -1,10 +1,10 @@
-# Int and Number common comparison operations
+# Int and Number basic comparison operations
 
-This page will explain the `Int` and `Number` classes common comparison operations, like the `>=`, `<`.
+This page explains basic comparison operations of the `Int` and `Number` classes, like the `>=`\, `<`\.
 
 ## Common behaviors
 
-Each comparison operation will return a `Boolean` value, not a Python built-in `bool` value:
+Each comparison operation returns a `Boolean` value, not a Python built-in `bool` value:
 
 ```py
 # runnable
@@ -35,7 +35,7 @@ result: ap.Boolean = number_1 == 10.5
 assert result
 ```
 
-Also, the comparison between the `Int` and `Int`, `Number` and `Number`, `Int` and `Number` are supported:
+Also, the comparison between the `Int` and `Int`\, `Number` and `Number`\, `Int` and `Number` are supported:
 
 ```py
 # runnable

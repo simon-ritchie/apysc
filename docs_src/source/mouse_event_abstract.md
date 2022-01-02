@@ -20,7 +20,7 @@ import apysc as ap
 
 def on_click(e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the rectangle is clicked.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------

@@ -1,14 +1,14 @@
 # Common mouse event interfaces
 
-This page will explain the common mouse event interfaces, like `this`.
+This page explains the basic mouse event interfaces, like the `this` attribute.
 
 ## Basic binding usage
 
-Each mouse event binding interface accepts `handler` and `options` arguments. The `handler` argument is a callable called when the target event is dispatched.
+Each mouse event binding interface accepts `handler` and `options` arguments. The `handler` argument is a callable object each interface calls when event dispatching.
 
-The `options` argument is an optional parameter dictionary to be passed to the handler. This argument can be skipped.
+The `options` argument is an optional parameter dictionary to be passed to the handler. You can skip this argument.
 
-For instance, the `click` event can be set as follows:
+For instance, you can set the `click` event as follows:
 
 ```py
 # runnable
@@ -32,7 +32,7 @@ class _ColorOptions(TypedDict):
 
 def on_rectangle_click(e: ap.MouseEvent, options: _ColorOptions) -> None:
     """
-    The handler will be called when the rectangle is clicked.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------
@@ -57,11 +57,11 @@ ap.save_overall_html(
     dest_dir_path='mouse_event_common_basic_binding_usage/')
 ```
 
-If you click the following rectangle, the rectangle color will be changed to the specified options color.
+If you click the rectangle, the handler changes the rectangle color to the specified options color.
 
 <iframe src="static/mouse_event_common_basic_binding_usage/index.html" width="150" height="150"></iframe>
 
-There are the `click`, `mousedown`, `mouseup`, `mouseover`, `mouseout`, and `mousemove` mouse event binding interfaces that the `DisplayObject` instance has.
+There are many mouse events binding interfaces, such as the `click`\, `mousedown`\, `mouseup`\, `mouseover`\, `mouseout`\, and `mousemove` that the `DisplayObject` instance has.
 
 ## Basic unbinding usage
 
@@ -69,7 +69,7 @@ Each `DisplayObject` instance has the `unbind_<event_name>` interfaces, for exam
 
 These interfaces can unbind the single handler setting (remove binding setting).
 
-For example, the following code will unbind the click event, so the handler function will not be called.
+For example, the following code unbinds the click event, so the interface doesn't call the handler function.
 
 ```py
 # runnable
@@ -93,7 +93,7 @@ class _ColorOptions(TypedDict):
 
 def on_rectangle_click(e: ap.MouseEvent, options: _ColorOptions) -> None:
     """
-    The handler will be called when the rectangle is clicked.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------
@@ -120,15 +120,15 @@ ap.save_overall_html(
     dest_dir_path='mouse_event_common_basic_unbinding_usage/')
 ```
 
-When you click the following rectangle, nothing will happen.
+When you click the following rectangle, nothing happens.
 
 <iframe src="static/mouse_event_common_basic_unbinding_usage/index.html" width="150" height="150"></iframe>
 
 ## Unbind all event handlers
 
-Sometimes, it is useful to unbind specific all the events at once. Each event interface has the `unbind_<event_name>_all` method (e.g., `unbind_click_all`), and it can unbind all event handlers from that instance.
+Sometimes, it is helpful to unbind specific all the events at once. For example, each event interface has the `unbind_<event_name>_all` method (e.g., `unbind_click_all`). It can unbind all event handlers from that instance.
 
-The following code is calling the `unbind_click_all` method, so all hander settings are removed.
+The following code calls the `unbind_click_all` method and removes all handler settings.
 
 ```py
 # runnable
@@ -153,8 +153,7 @@ class _ColorOptions(TypedDict):
 def change_color_on_rectangle_click(
         e: ap.MouseEvent, options: _ColorOptions) -> None:
     """
-    The handler will change the rectangle color and be called
-    when the rectangle is clicked.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------
@@ -171,8 +170,7 @@ def change_color_on_rectangle_click(
 def change_x_on_rectangle_click(
         e: ap.MouseEvent, options: dict) -> None:
     """
-    The handler will change the rectangle x-coordinate and be called
-    when the rectangle is clicked.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------
@@ -198,25 +196,25 @@ ap.save_overall_html(
     dest_dir_path='mouse_event_common_unbind_all_event_handlers/')
 ```
 
-If you click the following rectangle, also nothing will happen (no color change and no x-coordinate change).
+Nothing happens if you click the rectangle (no color change and no x-coordinate change).
 
 <iframe src="static/mouse_event_common_unbind_all_event_handlers/index.html" width="150" height="150"></iframe>
 
 ## Handler argument names and types
 
-Handler function (or method) first argument requires the type of the `MouseEvent`.
+Handler function (or method) first argument requires the type of the `MouseEvent`\.
 
-Also, a second argument name is required to be `options`. This argument type will be `dict`. If you skipped options argument specification at binding the event, then this argument will become a blank dictionary (`{}`).
+Also, a second argument name is required to be `options`\. This argument type becomes `dict`\. If you skip options argument specification at binding the event, then this argument becomes a blank dictionary (`{}`).
 
 ## MouseEvent this attribute
 
-`MouseEvent` instance has the `this` attribute, and this will be an instance that the event handler is set. For example, if you bind the click event to the rectangle instance, the `this` attribute will be that rectangle instance.
+The `MouseEvent` instance has the `this` attribute, which becomes an event target instance. So, if you bind the click event to the rectangle instance, the `this` attribute becomes that rectangle instance.
 
 ## MouseEvent generic type settings
 
-If you know that one of the handlers will only be used by an instance of a particular type, you can set generic type settings to the `MouseEvent` type annotation (e.g., `MouseEvent[Rectangle]`).
+Suppose you know that you only use one of the handlers by an instance of a particular type. In that case, you can set generic type settings to the `MouseEvent` type annotation (e.g., `MouseEvent[Rectangle]`).
 
-This is useful to determine the `this` attribute type and will be checked by the `mypy`, `Pylance`, or other type checkers.
+This setting is helpful to determine the `this` attribute type, and the type-checking library, such as the `mypy` or `Pylance`\, checks the instance type.
 
 ```py
 # runnable
@@ -235,7 +233,7 @@ sprite.graphics.begin_fill(color='#0af')
 def on_rectangle_mousedown(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the rectangle is mouse downed.
+    The handler that the rectangle calls when mousedown.
 
     Parameters
     ----------
@@ -274,8 +272,7 @@ sprite.graphics.begin_fill(color='#0af')
 def on_mousemove(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the mouse is moving on
-    the rectangle.
+    The handler that the rectangle calls when mousemove.
 
     Parameters
     ----------
@@ -295,7 +292,7 @@ ap.save_overall_html(
     dest_dir_path='mouse_event_common_stage_x_and_stage_y')
 ```
 
-If you open the DevTools console on Chrome (press F12) and move the mouse cursor on the following rectangle, you can check the `stage_x` and `stage_y` coordinates. The rectangle is positioned at `(50, 100)`, so the `stage_x` will become the range of 50 to 100, and `stage_y` will become 100 to 150.
+If you open the DevTools console on Chrome (press F12) and move the mouse cursor on the following rectangle, you can check the `stage_x` and `stage_y` coordinates. The previous code positions the rectangle at `(50, 100)`, so the `stage_x` becomes the range of 50 to 100, and `stage_y` becomes 100 to 150.
 
 <iframe src="static/mouse_event_common_stage_x_and_stage_y/index.html" width="150" height="200"></iframe>
 
@@ -303,7 +300,7 @@ If you open the DevTools console on Chrome (press F12) and move the mouse cursor
 
 MouseEvent instance also has `local_x` and `local_y` attributes. These attributes are the local coordinates from the event registered instance position.
 
-The following example will show that local_x and local_y will become the coordinates in the rectangle area (both `local_x` and `local_y` will be a range of 0 to 50 because the rectangle size is 50-pixel).
+The following example shows that local_x and local_y become the coordinates in the rectangle area. Both of the `local_x` and `local_y` become a range of 0 to 50 because the rectangle size is 50-pixel.
 
 ```py
 # runnable
@@ -322,8 +319,7 @@ sprite.graphics.begin_fill(color='#0af')
 def on_mousemove(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the mouse is moving on
-    the rectangle.
+    The handler that the rectangle calls when mousemove.
 
     Parameters
     ----------

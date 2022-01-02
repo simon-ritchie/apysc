@@ -1,8 +1,8 @@
 # Int and Number
 
-This page will explain the `Int` and `Number` classes.
+This page explains the `Int` and `Number` classes.
 
-Before reading on, maybe it is useful to read the following page:
+Before reading on, maybe it is helpful to read the following page:
 
 - [Why not using the Python built-in data type in the apysc library?](why_not_using_python_builtin_data_type.md)
 
@@ -36,7 +36,7 @@ int_2 += 15
 assert int_2 == 25
 ```
 
-If you specify a float value to the constructor argument, then a value will be floored:
+If you specify a float value to the constructor argument, then the `Int` class floor a value:
 
 ```py
 # runnable
@@ -64,7 +64,7 @@ assert number_2 == 21
 
 ## Note for the Float class alias
 
-The `Float` class is the alias of the `Number` class. It behaves the same as the `Number` class. Maybe a Python developer is familiar with its name rather than the `Number`, on the other hand, the `Number` is more common in JavaScript than the `Number`.
+The `Float` class is the alias of the `Number` class. It behaves the same as the `Number` class. Maybe a Python developer is familiar with its name rather than the `Number`\. On the other hand, the `Number` is more common in JavaScript than the `Number`\.
 
 ```py
 # runnable
@@ -74,10 +74,10 @@ assert ap.Number == ap.Float
 assert ap.Number(10.5) == ap.Float(10.5)
 ```
 
-## Int and Number classes common interfaces
+## Int and Number classes basic interfaces
 
 The `Int` and `Number` classes have the same interfaces. For more details, please see:
 
-- [Int and Number classes common arithmetic operations](int_and_number_arithmetic_operations.md)
-- [Int and Number classes common comparison operations](int_and_number_comparison_operations.md)
-- [apysc basic data classes common value interface](basic_data_classes_value_interface.md)
+- [Int and Number classes basic arithmetic operations](int_and_number_arithmetic_operations.md)
+- [Int and Number classes basic comparison operations](int_and_number_comparison_operations.md)
+- [apysc fundamental data classes common interface](basic_data_classes_value_interface.md)

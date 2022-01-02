@@ -45,12 +45,12 @@
             
   <section id="common-mouse-event-interfaces">
 <h1>Common mouse event interfaces<a class="headerlink" href="#common-mouse-event-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the common mouse event interfaces, like <code class="docutils literal notranslate"><span class="pre">this</span></code>.</p>
+<p>This page explains the basic mouse event interfaces, like the <code class="docutils literal notranslate"><span class="pre">this</span></code> attribute.</p>
 <section id="basic-binding-usage">
 <h2>Basic binding usage<a class="headerlink" href="#basic-binding-usage" title="Permalink to this headline">¶</a></h2>
-<p>Each mouse event binding interface accepts <code class="docutils literal notranslate"><span class="pre">handler</span></code> and <code class="docutils literal notranslate"><span class="pre">options</span></code> arguments. The <code class="docutils literal notranslate"><span class="pre">handler</span></code> argument is a callable called when the target event is dispatched.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">options</span></code> argument is an optional parameter dictionary to be passed to the handler. This argument can be skipped.</p>
-<p>For instance, the <code class="docutils literal notranslate"><span class="pre">click</span></code> event can be set as follows:</p>
+<p>Each mouse event binding interface accepts <code class="docutils literal notranslate"><span class="pre">handler</span></code> and <code class="docutils literal notranslate"><span class="pre">options</span></code> arguments. The <code class="docutils literal notranslate"><span class="pre">handler</span></code> argument is a callable object each interface calls when event dispatching.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">options</span></code> argument is an optional parameter dictionary to be passed to the handler. You can skip this argument.</p>
+<p>For instance, you can set the <code class="docutils literal notranslate"><span class="pre">click</span></code> event as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -72,7 +72,7 @@
 
 <span class="k">def</span> <span class="nf">on_rectangle_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_ColorOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rectangle is clicked.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -97,14 +97,14 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mouse_event_common_basic_binding_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you click the following rectangle, the rectangle color will be changed to the specified options color.</p>
-<iframe src="static/mouse_event_common_basic_binding_usage/index.html" width="150" height="150"></iframe><p>There are the <code class="docutils literal notranslate"><span class="pre">click</span></code>, <code class="docutils literal notranslate"><span class="pre">mousedown</span></code>, <code class="docutils literal notranslate"><span class="pre">mouseup</span></code>, <code class="docutils literal notranslate"><span class="pre">mouseover</span></code>, <code class="docutils literal notranslate"><span class="pre">mouseout</span></code>, and <code class="docutils literal notranslate"><span class="pre">mousemove</span></code> mouse event binding interfaces that the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance has.</p>
+<p>If you click the rectangle, the handler changes the rectangle color to the specified options color.</p>
+<iframe src="static/mouse_event_common_basic_binding_usage/index.html" width="150" height="150"></iframe><p>There are many mouse events binding interfaces, such as the <code class="docutils literal notranslate"><span class="pre">click</span></code>, <code class="docutils literal notranslate"><span class="pre">mousedown</span></code>, <code class="docutils literal notranslate"><span class="pre">mouseup</span></code>, <code class="docutils literal notranslate"><span class="pre">mouseover</span></code>, <code class="docutils literal notranslate"><span class="pre">mouseout</span></code>, and <code class="docutils literal notranslate"><span class="pre">mousemove</span></code> that the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance has.</p>
 </section>
 <section id="basic-unbinding-usage">
 <h2>Basic unbinding usage<a class="headerlink" href="#basic-unbinding-usage" title="Permalink to this headline">¶</a></h2>
 <p>Each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">unbind_&lt;event_name&gt;</span></code> interfaces, for example, <code class="docutils literal notranslate"><span class="pre">unbind_click</span></code> or <code class="docutils literal notranslate"><span class="pre">unbind_mousedown</span></code> or something else.</p>
 <p>These interfaces can unbind the single handler setting (remove binding setting).</p>
-<p>For example, the following code will unbind the click event, so the handler function will not be called.</p>
+<p>For example, the following code unbinds the click event, so the interface doesn’t call the handler function.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -126,7 +126,7 @@
 
 <span class="k">def</span> <span class="nf">on_rectangle_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_ColorOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rectangle is clicked.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -153,12 +153,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mouse_event_common_basic_unbinding_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>When you click the following rectangle, nothing will happen.</p>
+<p>When you click the following rectangle, nothing happens.</p>
 <iframe src="static/mouse_event_common_basic_unbinding_usage/index.html" width="150" height="150"></iframe></section>
 <section id="unbind-all-event-handlers">
 <h2>Unbind all event handlers<a class="headerlink" href="#unbind-all-event-handlers" title="Permalink to this headline">¶</a></h2>
-<p>Sometimes, it is useful to unbind specific all the events at once. Each event interface has the <code class="docutils literal notranslate"><span class="pre">unbind_&lt;event_name&gt;_all</span></code> method (e.g., <code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code>), and it can unbind all event handlers from that instance.</p>
-<p>The following code is calling the <code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code> method, so all hander settings are removed.</p>
+<p>Sometimes, it is helpful to unbind specific all the events at once. For example, each event interface has the <code class="docutils literal notranslate"><span class="pre">unbind_&lt;event_name&gt;_all</span></code> method (e.g., <code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code>). It can unbind all event handlers from that instance.</p>
+<p>The following code calls the <code class="docutils literal notranslate"><span class="pre">unbind_click_all</span></code> method and removes all handler settings.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -181,8 +181,7 @@
 <span class="k">def</span> <span class="nf">change_color_on_rectangle_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_ColorOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will change the rectangle color and be called</span>
-<span class="sd">    when the rectangle is clicked.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -199,8 +198,7 @@
 <span class="k">def</span> <span class="nf">change_x_on_rectangle_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will change the rectangle x-coordinate and be called</span>
-<span class="sd">    when the rectangle is clicked.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -226,21 +224,21 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mouse_event_common_unbind_all_event_handlers/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you click the following rectangle, also nothing will happen (no color change and no x-coordinate change).</p>
+<p>Nothing happens if you click the rectangle (no color change and no x-coordinate change).</p>
 <iframe src="static/mouse_event_common_unbind_all_event_handlers/index.html" width="150" height="150"></iframe></section>
 <section id="handler-argument-names-and-types">
 <h2>Handler argument names and types<a class="headerlink" href="#handler-argument-names-and-types" title="Permalink to this headline">¶</a></h2>
 <p>Handler function (or method) first argument requires the type of the <code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code>.</p>
-<p>Also, a second argument name is required to be <code class="docutils literal notranslate"><span class="pre">options</span></code>. This argument type will be <code class="docutils literal notranslate"><span class="pre">dict</span></code>. If you skipped options argument specification at binding the event, then this argument will become a blank dictionary (<code class="docutils literal notranslate"><span class="pre">{}</span></code>).</p>
+<p>Also, a second argument name is required to be <code class="docutils literal notranslate"><span class="pre">options</span></code>. This argument type becomes <code class="docutils literal notranslate"><span class="pre">dict</span></code>. If you skip options argument specification at binding the event, then this argument becomes a blank dictionary (<code class="docutils literal notranslate"><span class="pre">{}</span></code>).</p>
 </section>
 <section id="mouseevent-this-attribute">
 <h2>MouseEvent this attribute<a class="headerlink" href="#mouseevent-this-attribute" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">this</span></code> attribute, and this will be an instance that the event handler is set. For example, if you bind the click event to the rectangle instance, the <code class="docutils literal notranslate"><span class="pre">this</span></code> attribute will be that rectangle instance.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">this</span></code> attribute, which becomes an event target instance. So, if you bind the click event to the rectangle instance, the <code class="docutils literal notranslate"><span class="pre">this</span></code> attribute becomes that rectangle instance.</p>
 </section>
 <section id="mouseevent-generic-type-settings">
 <h2>MouseEvent generic type settings<a class="headerlink" href="#mouseevent-generic-type-settings" title="Permalink to this headline">¶</a></h2>
-<p>If you know that one of the handlers will only be used by an instance of a particular type, you can set generic type settings to the <code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code> type annotation (e.g., <code class="docutils literal notranslate"><span class="pre">MouseEvent[Rectangle]</span></code>).</p>
-<p>This is useful to determine the <code class="docutils literal notranslate"><span class="pre">this</span></code> attribute type and will be checked by the <code class="docutils literal notranslate"><span class="pre">mypy</span></code>, <code class="docutils literal notranslate"><span class="pre">Pylance</span></code>, or other type checkers.</p>
+<p>Suppose you know that you only use one of the handlers by an instance of a particular type. In that case, you can set generic type settings to the <code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code> type annotation (e.g., <code class="docutils literal notranslate"><span class="pre">MouseEvent[Rectangle]</span></code>).</p>
+<p>This setting is helpful to determine the <code class="docutils literal notranslate"><span class="pre">this</span></code> attribute type, and the type-checking library, such as the <code class="docutils literal notranslate"><span class="pre">mypy</span></code> or <code class="docutils literal notranslate"><span class="pre">Pylance</span></code>, checks the instance type.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -257,7 +255,7 @@
 <span class="k">def</span> <span class="nf">on_rectangle_mousedown</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rectangle is mouse downed.</span>
+<span class="sd">    The handler that the rectangle calls when mousedown.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -295,8 +293,7 @@
 <span class="k">def</span> <span class="nf">on_mousemove</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the mouse is moving on</span>
-<span class="sd">    the rectangle.</span>
+<span class="sd">    The handler that the rectangle calls when mousemove.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -316,12 +313,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mouse_event_common_stage_x_and_stage_y&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you open the DevTools console on Chrome (press F12) and move the mouse cursor on the following rectangle, you can check the <code class="docutils literal notranslate"><span class="pre">stage_x</span></code> and <code class="docutils literal notranslate"><span class="pre">stage_y</span></code> coordinates. The rectangle is positioned at <code class="docutils literal notranslate"><span class="pre">(50,</span> <span class="pre">100)</span></code>, so the <code class="docutils literal notranslate"><span class="pre">stage_x</span></code> will become the range of 50 to 100, and <code class="docutils literal notranslate"><span class="pre">stage_y</span></code> will become 100 to 150.</p>
+<p>If you open the DevTools console on Chrome (press F12) and move the mouse cursor on the following rectangle, you can check the <code class="docutils literal notranslate"><span class="pre">stage_x</span></code> and <code class="docutils literal notranslate"><span class="pre">stage_y</span></code> coordinates. The previous code positions the rectangle at <code class="docutils literal notranslate"><span class="pre">(50,</span> <span class="pre">100)</span></code>, so the <code class="docutils literal notranslate"><span class="pre">stage_x</span></code> becomes the range of 50 to 100, and <code class="docutils literal notranslate"><span class="pre">stage_y</span></code> becomes 100 to 150.</p>
 <iframe src="static/mouse_event_common_stage_x_and_stage_y/index.html" width="150" height="200"></iframe></section>
 <section id="mouseevent-local-x-and-local-y-attributes">
 <h2>MouseEvent local_x and local_y attributes<a class="headerlink" href="#mouseevent-local-x-and-local-y-attributes" title="Permalink to this headline">¶</a></h2>
 <p>MouseEvent instance also has <code class="docutils literal notranslate"><span class="pre">local_x</span></code> and <code class="docutils literal notranslate"><span class="pre">local_y</span></code> attributes. These attributes are the local coordinates from the event registered instance position.</p>
-<p>The following example will show that local_x and local_y will become the coordinates in the rectangle area (both <code class="docutils literal notranslate"><span class="pre">local_x</span></code> and <code class="docutils literal notranslate"><span class="pre">local_y</span></code> will be a range of 0 to 50 because the rectangle size is 50-pixel).</p>
+<p>The following example shows that local_x and local_y become the coordinates in the rectangle area. Both of the <code class="docutils literal notranslate"><span class="pre">local_x</span></code> and <code class="docutils literal notranslate"><span class="pre">local_y</span></code> become a range of 0 to 50 because the rectangle size is 50-pixel.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -338,8 +335,7 @@
 <span class="k">def</span> <span class="nf">on_mousemove</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the mouse is moving on</span>
-<span class="sd">    the rectangle.</span>
+<span class="sd">    The handler that the rectangle calls when mousemove.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

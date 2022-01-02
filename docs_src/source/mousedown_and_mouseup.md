@@ -1,22 +1,22 @@
 # Mousedown and mouseup interfaces
 
-This page will explain the `mousedown` and `mouseup` interfaces.
+This page explains the `mousedown` and `mouseup` interfaces.
 
 ## What interfaces are these?
 
-The `mousedown` interface will bind the event handler would be called when a user mouse downed on a `DisplayObject` instance. Conversely, the `mouseup` interface will bind the event handler called when a user mouse upped on a `DisplayObject` one.
+The `mousedown` interface binds the event handler that the interface calls when a user mouse downed on a `DisplayObject` instance. Conversely, the `mouseup` interface binds the event handler that the interface calls when a user mouse upped on a `DisplayObject` one.
 
 ## See also
 
-Common mouse event interfaces are described by the following page.
+The following page describes the basic mouse event interfaces:
 
-- [Common mouse event interfaces](mouse_event_common.md)
+- [Basic mouse event interfaces](mouse_event_common.md)
 
 ## Basic usage of the mousedown and mouseup interfaces
 
 Each `DisplayObject` instance has the `mousedown` and `mouseup` method interfaces, and you can bind handlers by these.
 
-The following example will bind the mouse down handler and mouse upped one to the rectangle. The rectangle color will change the different color when you did mouse downed and will revert to the original one when you did mouse upped.
+The following example binds the mouse down handler and mouse upped one to the rectangle. The handler changes the rectangle color when the mouse downs and reverts to the original one when the mouse upped.
 
 ```py
 # runnable
@@ -26,7 +26,7 @@ import apysc as ap
 def on_mousedown(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler would be called when a mouse is downed on the rectangle.
+    The handler that the rectangle calls when mousedown.
 
     Parameters
     ----------
@@ -42,7 +42,7 @@ def on_mousedown(
 def on_mouseup(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler would be called when a mouse is upped on the rectangle.
+    The handler that the rectangle calls when mouseup.
 
     Parameters
     ----------
@@ -78,9 +78,9 @@ ap.save_overall_html(
 
 ## Unbind interfaces
 
-The `unbind_mousedown` and `unbind_mouseup` interfaces will unbind each registered handler from the `DisplayObject`.
+The `unbind_mousedown` and `unbind_mouseup` interfaces unbind each registered handler from the `DisplayObject`\.
 
-The following example will unbind handlers in the `on_mousedown` and `on_mouseup` functions so these handlers will be called only once.
+The following example unbinds handlers in the `on_mousedown` and `on_mouseup` functions so that the rectangle calls these handlers only once.
 
 ```py
 # runnable
@@ -90,7 +90,7 @@ import apysc as ap
 def on_mousedown(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler would be called when a mouse is downed on the rectangle.
+    The handler that the rectangle calls when mousedown.
 
     Parameters
     ----------
@@ -107,7 +107,7 @@ def on_mousedown(
 def on_mouseup(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler would be called when a mouse is upped on the rectangle.
+    The handler that the rectangle calls when mouseup.
 
     Parameters
     ----------
@@ -141,4 +141,4 @@ ap.save_overall_html(
 
 <iframe src="static/mousedown_and_mouseup_unbind_interfaces/index.html" width="150" height="150"></iframe>
 
-There are also existing the `unbind_mousedown_all` and `unbind_mouseup_all` interfaces. These interfaces will unbind all the handlers from the target `DisplayObject` instance.
+There are also existing the `unbind_mousedown_all` and `unbind_mouseup_all` interfaces. These interfaces unbind all the handlers from the target `DisplayObject` instance.

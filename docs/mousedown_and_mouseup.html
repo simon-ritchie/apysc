@@ -45,22 +45,22 @@
             
   <section id="mousedown-and-mouseup-interfaces">
 <h1>Mousedown and mouseup interfaces<a class="headerlink" href="#mousedown-and-mouseup-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">mousedown</span></code> and <code class="docutils literal notranslate"><span class="pre">mouseup</span></code> interfaces.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">mousedown</span></code> and <code class="docutils literal notranslate"><span class="pre">mouseup</span></code> interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">mousedown</span></code> interface will bind the event handler would be called when a user mouse downed on a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance. Conversely, the <code class="docutils literal notranslate"><span class="pre">mouseup</span></code> interface will bind the event handler called when a user mouse upped on a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> one.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">mousedown</span></code> interface binds the event handler that the interface calls when a user mouse downed on a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance. Conversely, the <code class="docutils literal notranslate"><span class="pre">mouseup</span></code> interface binds the event handler that the interface calls when a user mouse upped on a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> one.</p>
 </section>
 <section id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
-<p>Common mouse event interfaces are described by the following page.</p>
+<p>The following page describes the basic mouse event interfaces:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="mouse_event_common.html"><span class="doc">Common mouse event interfaces</span></a></p></li>
+<li><p><a class="reference internal" href="mouse_event_common.html"><span class="doc">Basic mouse event interfaces</span></a></p></li>
 </ul>
 </section>
 <section id="basic-usage-of-the-mousedown-and-mouseup-interfaces">
 <h2>Basic usage of the mousedown and mouseup interfaces<a class="headerlink" href="#basic-usage-of-the-mousedown-and-mouseup-interfaces" title="Permalink to this headline">¶</a></h2>
 <p>Each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">mousedown</span></code> and <code class="docutils literal notranslate"><span class="pre">mouseup</span></code> method interfaces, and you can bind handlers by these.</p>
-<p>The following example will bind the mouse down handler and mouse upped one to the rectangle. The rectangle color will change the different color when you did mouse downed and will revert to the original one when you did mouse upped.</p>
+<p>The following example binds the mouse down handler and mouse upped one to the rectangle. The handler changes the rectangle color when the mouse downs and reverts to the original one when the mouse upped.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -68,7 +68,7 @@
 <span class="k">def</span> <span class="nf">on_mousedown</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when a mouse is downed on the rectangle.</span>
+<span class="sd">    The handler that the rectangle calls when mousedown.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -84,7 +84,7 @@
 <span class="k">def</span> <span class="nf">on_mouseup</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when a mouse is upped on the rectangle.</span>
+<span class="sd">    The handler that the rectangle calls when mouseup.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -119,8 +119,8 @@
 <iframe src="static/mousedown_and_mouseup_basic_usage/index.html" width="150" height="150"></iframe></section>
 <section id="unbind-interfaces">
 <h2>Unbind interfaces<a class="headerlink" href="#unbind-interfaces" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">unbind_mousedown</span></code> and <code class="docutils literal notranslate"><span class="pre">unbind_mouseup</span></code> interfaces will unbind each registered handler from the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>.</p>
-<p>The following example will unbind handlers in the <code class="docutils literal notranslate"><span class="pre">on_mousedown</span></code> and <code class="docutils literal notranslate"><span class="pre">on_mouseup</span></code> functions so these handlers will be called only once.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">unbind_mousedown</span></code> and <code class="docutils literal notranslate"><span class="pre">unbind_mouseup</span></code> interfaces unbind each registered handler from the <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>.</p>
+<p>The following example unbinds handlers in the <code class="docutils literal notranslate"><span class="pre">on_mousedown</span></code> and <code class="docutils literal notranslate"><span class="pre">on_mouseup</span></code> functions so that the rectangle calls these handlers only once.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -128,7 +128,7 @@
 <span class="k">def</span> <span class="nf">on_mousedown</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when a mouse is downed on the rectangle.</span>
+<span class="sd">    The handler that the rectangle calls when mousedown.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -145,7 +145,7 @@
 <span class="k">def</span> <span class="nf">on_mouseup</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when a mouse is upped on the rectangle.</span>
+<span class="sd">    The handler that the rectangle calls when mouseup.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -177,7 +177,7 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;mousedown_and_mouseup_unbind_interfaces/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/mousedown_and_mouseup_unbind_interfaces/index.html" width="150" height="150"></iframe><p>There are also existing the <code class="docutils literal notranslate"><span class="pre">unbind_mousedown_all</span></code> and <code class="docutils literal notranslate"><span class="pre">unbind_mouseup_all</span></code> interfaces. These interfaces will unbind all the handlers from the target <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
+<iframe src="static/mousedown_and_mouseup_unbind_interfaces/index.html" width="150" height="150"></iframe><p>There are also existing the <code class="docutils literal notranslate"><span class="pre">unbind_mousedown_all</span></code> and <code class="docutils literal notranslate"><span class="pre">unbind_mouseup_all</span></code> interfaces. These interfaces unbind all the handlers from the target <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
 </section>
 </section>
 

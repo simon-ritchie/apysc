@@ -17,7 +17,6 @@ from typing import Dict
 from typing import List
 from typing import Match
 from typing import Optional as Op
-from typing import Tuple
 
 from typing_extensions import Final
 from typing_extensions import TypedDict

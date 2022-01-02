@@ -1,16 +1,16 @@
 # Graphics line_round_dot interface
 
-This page will explain the `Graphics` class `line_round_dot_setting` property interface.
+This page explains the `Graphics` class `line_round_dot_setting` property interface.
 
 ## What interface is this?
 
-The `line_round_dot_setting` property interface will update or get the instance's current line round dot setting.
+The `line_round_dot_setting` property interface updates or get the instance's current line round dot setting.
 
 ## Basic usage
 
-The getter or setter interface will be (or require) the `LineRoundDotSetting` instance value.
+The getter or setter interface value becomes (or requires) the `LineRoundDotSetting` instance value.
 
-The following example will set the 10-pixel round size to the line:
+The following example sets the 10-pixel round size to the line:
 
 ```py
 # runnable

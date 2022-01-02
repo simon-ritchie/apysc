@@ -8,7 +8,7 @@ The `line_color` property interface updates or get the instance's line color.
 
 ## Basic usage
 
-The getter or setter interface becomes (or requires) the `String` hex color code value.
+The getter or setter interface value becomes (or requires) the `String` hex color code value.
 
 The following example changes the line color (from cyan to magenta and magenta to cyan) when you click the rectangle:
 

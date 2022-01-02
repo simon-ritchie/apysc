@@ -1,14 +1,14 @@
 # Graphics line_style interface
 
-This page will explain the `Graphics` class `line_style` method interface.
+This page explains the `Graphics` class `line_style` method interface.
 
 ## What interface is this?
 
-The `line_style` interface will set each line style, like the line color, line alpha, line thickness, line dot setting, and so on. This setting will be maintained until it is called again or called the `clear` method (similar to the `begin_fill` interface).
+The `line_style` interface sets each line style, such as the line color, line alpha, line thickness, line dot setting. This interface maintains these settings until it is called again or called the `clear` method (similar to the `begin_fill` interface).
 
 ## Basic usage
 
-Draw vector graphics interfaces (e.g., `draw_rect` `line_to` and so on) will use these line settings when they are creating, so the `line_style` method needs to be called before calling each drawing interface.
+Draw vector graphics interfaces (e.g., the `draw_rect` or `line_to`) use these line settings when creating, so the `line_style` method needs to be called before calling each drawing interface.
 
 ```py
 # runnable
@@ -43,7 +43,7 @@ ap.save_overall_html(
 
 ## Line-color setting
 
-A line color will be set by the `color` argument, and this is required one.
+The required `color` argument sets the line color.
 
 ```py
 # runnable
@@ -66,9 +66,9 @@ ap.save_overall_html(
 
 <iframe src="static/graphics_line_style_line_color/index.html" width="200" height="102"></iframe>
 
-If you want to clear line color, then specify a blank string to this argument.
+If you want to clear line color, specify a blank string to this argument.
 
-For example, since the following code will clear line color setting, so a result line graphic is invisible.
+For example, the result line graphic becomes invisible since the following code clears the line color setting.
 
 ```py
 # runnable
@@ -97,10 +97,10 @@ ap.save_overall_html(
 Color code is acceptable like the following list (same as `begin_fill` interface `color` argument):
 
 - Six characters, e.g., `#00aaff`.
-- Three characters, e.g., `#0af` (this will be interpreted as `#00aaff`).
-- Single character, e.g., `#5` (this will be interpreted as `#000005`).
-- Skipped `#` symbol, e.g., `0af` (this will be interpreted as `#00aaff`).
-- Blank string, e.g., `''` (this will clear line color setting).
+- Three characters, e.g., `#0af` (this becomes `#00aaff`).
+- Single character, e.g., `#5` (this becomes `#000005`).
+- Skipped `#` symbol, e.g., `0af` (this becomes `#00aaff`).
+- Blank string, e.g., `''` (this clears line color setting).
 
 ```py
 # runnable
@@ -133,7 +133,7 @@ ap.save_overall_html(
 
 ## Line thickness setting
 
-Line thickness can be set by the `thickness` argument. It can accept greater than or equal to 1.
+The `thickness` argument sets the line thickness. It can accept greater than or equal to 1.
 
 ```py
 # runnable
@@ -195,13 +195,13 @@ ap.save_overall_html(
 
 ## Line cap setting
 
-Line cap setting will change line edge style. This can be set by the `cap` argument and `LineCaps` enum values are acceptable.
+Line cap setting changes line edge style. The `cap` argument sets this style setting, and `LineCaps` enum values are acceptable.
 
 There are three `LineCaps` options, as follows:
 
-- BUTT: This is the default value, and no cap will be applied.
-- ROUND: This will change the line edge to the rounded one.
-- SQUARE: This is similar to BUTT, but the line length will be increased by the squared edge.
+- BUTT: This is the default value, and it sets no cap.
+- ROUND: This changes the line edge to the rounded one.
+- SQUARE: This is similar to BUTT, but it increases the line length by the squared edge.
 
 ```py
 # runnable
@@ -235,13 +235,13 @@ ap.save_overall_html(
 
 ## Line joints setting
 
-Line joints setting will change the line vertices style. This can be set by the `joints` argument and `LineJoints` enum values are acceptable. Mainly this argument will be used by the `Polyline` class (`move_to` and `line_to` interfaces).
+Line joints setting changes the line vertices style. The `joints` argument sets this style, and `LineJoints` enum values are acceptable. The `Polyline` class (`move_to` and `line_to` interfaces) mainly uses this argument.
 
 There are three LineJoints enum values, as follows:
 
-- MITER: This setting will set the style like a picture frame vertices. This is the default style setting.
-- ROUND: This setting will set the rounded vertices style.
-- BEVEL: This setting will set a sloping vertices style.
+- MITER: This setting sets the style like a picture frame vertices. This setting is the default style setting.
+- ROUND: This setting sets the rounded vertices style.
+- BEVEL: This setting sets a sloping vertices style.
 
 ```py
 # runnable
@@ -283,7 +283,7 @@ ap.save_overall_html(
 
 ## Line dot setting
 
-Line dot setting will change line to dotted line. This can be set by the `dot_setting` argument. This argument accepts the `LineDotSetting` and can change dot size by the `dot_size` argument (a value that greater than or equal to 1 is acceptable).
+Line dot setting changes the line to dotted line. The `dot_setting` argument (`LineDotSetting` value) sets this setting. It can change dot size by the `dot_size` argument (greater than or equal to 1 value is acceptable).
 
 ```py
 # runnable
@@ -320,7 +320,7 @@ ap.save_overall_html(
 
 <iframe src="static/graphics_line_style_line_dot_setting/index.html" width="300" height="160"></iframe>
 
-This setting (or other similar settings) will also be applied to the `Rectangle` or other graphics classes.
+This setting (or the other similar settings) also changes the `Rectangle` or other graphics classes.
 
 ```py
 # runnable
@@ -353,7 +353,7 @@ Notes: This setting will be ignored by `draw_line`, `draw_dotted_line`, `draw_da
 
 ## Line dash setting
 
-Line dash setting will change the line to the dashed line. This can be set by the `dash_setting` argument. This argument accepts the `LineDashSetting` and can change dash size and space size by the `dash_size` and `space_size` arguments.
+Line dash setting changes the line to the dashed line. The `dash_setting` argument (`LineDashSetting` value) sets this setting. It can change dash size and space size by the `dash_size` and `space_size` arguments.
 
 ```py
 # runnable
@@ -390,7 +390,7 @@ Notes: This setting will be ignored by `draw_line`, `draw_dotted_line`, `draw_da
 
 ## Line round dot setting
 
-Line round dot setting will change the line to the round dotted line. This can be set by the `round_dot_setting` argument. This argument accepts the `LineRoundDotSetting` and can change round size and space size by the `round_size` and `space_size` arguments.
+Line round dot setting changes the line to the round dotted line. The `round_dot_setting` argument (`LineRoundDotSetting` value) sets this setting. It can change round size and space size by the `round_size` and `space_size` arguments.
 
 ```py
 # runnable
@@ -423,13 +423,13 @@ ap.save_overall_html(
 
 <iframe src="static/graphics_line_style_line_round_dot_setting/index.html" width="300" height="130"></iframe>
 
-Notes: Since this setting is using the `cap` setting internally, the `cap` setting will be ignored, and line length will be increased by the `cap` size.
+Notes: Since this setting uses the `cap` setting internally, this setting ignores the `cap` setting, increasing the line length by the capsize.
 
 Notes: This setting will be ignored by `draw_line`, `draw_dotted_line`, `draw_dashed_line`, `draw_round_dotted_line`, and `draw_dash_dotted_line` interfaces.
 
 ## Line dash-dot setting
 
-Line dash-dot setting will change the line to the dash-dotted line (also called long dashed short dashed line or one-dot chain line). This can be set by the `dash_dot_setting` argument. This argument accepts the `dot_size` (short dashed size), `dash_size` (long dashed size), and `space_size` arguments.
+Line dash-dot setting changes the line to the dash-dotted line (also called long dashed short dashed line or one-dot chain line). The `dash_dot_setting` arguments set this setting. This argument accepts the `dot_size` (short dashed size), `dash_size` (long dashed size), and `space_size` arguments.
 
 ```py
 # runnable

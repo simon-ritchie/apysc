@@ -45,14 +45,14 @@
             
   <section id="graphics-line-style-interface">
 <h1>Graphics line_style interface<a class="headerlink" href="#graphics-line-style-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">line_style</span></code> method interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">line_style</span></code> method interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">line_style</span></code> interface will set each line style, like the line color, line alpha, line thickness, line dot setting, and so on. This setting will be maintained until it is called again or called the <code class="docutils literal notranslate"><span class="pre">clear</span></code> method (similar to the <code class="docutils literal notranslate"><span class="pre">begin_fill</span></code> interface).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">line_style</span></code> interface sets each line style, such as the line color, line alpha, line thickness, line dot setting. This interface maintains these settings until it is called again or called the <code class="docutils literal notranslate"><span class="pre">clear</span></code> method (similar to the <code class="docutils literal notranslate"><span class="pre">begin_fill</span></code> interface).</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>Draw vector graphics interfaces (e.g., <code class="docutils literal notranslate"><span class="pre">draw_rect</span></code> <code class="docutils literal notranslate"><span class="pre">line_to</span></code> and so on) will use these line settings when they are creating, so the <code class="docutils literal notranslate"><span class="pre">line_style</span></code> method needs to be called before calling each drawing interface.</p>
+<p>Draw vector graphics interfaces (e.g., the <code class="docutils literal notranslate"><span class="pre">draw_rect</span></code> or <code class="docutils literal notranslate"><span class="pre">line_to</span></code>) use these line settings when creating, so the <code class="docutils literal notranslate"><span class="pre">line_style</span></code> method needs to be called before calling each drawing interface.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -84,7 +84,7 @@
 <iframe src="static/graphics_line_style_basics/index.html" width="200" height="162"></iframe></section>
 <section id="line-color-setting">
 <h2>Line-color setting<a class="headerlink" href="#line-color-setting" title="Permalink to this headline">¶</a></h2>
-<p>A line color will be set by the <code class="docutils literal notranslate"><span class="pre">color</span></code> argument, and this is required one.</p>
+<p>The required <code class="docutils literal notranslate"><span class="pre">color</span></code> argument sets the line color.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -103,8 +103,8 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_line_color/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_line_style_line_color/index.html" width="200" height="102"></iframe><p>If you want to clear line color, then specify a blank string to this argument.</p>
-<p>For example, since the following code will clear line color setting, so a result line graphic is invisible.</p>
+<iframe src="static/graphics_line_style_line_color/index.html" width="200" height="102"></iframe><p>If you want to clear line color, specify a blank string to this argument.</p>
+<p>For example, the result line graphic becomes invisible since the following code clears the line color setting.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -129,10 +129,10 @@
 <iframe src="static/graphics_line_style_clear_line_color/index.html" width="200" height="102"></iframe><p>Color code is acceptable like the following list (same as <code class="docutils literal notranslate"><span class="pre">begin_fill</span></code> interface <code class="docutils literal notranslate"><span class="pre">color</span></code> argument):</p>
 <ul class="simple">
 <li><p>Six characters, e.g., <code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>.</p></li>
-<li><p>Three characters, e.g., <code class="docutils literal notranslate"><span class="pre">#0af</span></code> (this will be interpreted as <code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>).</p></li>
-<li><p>Single character, e.g., <code class="docutils literal notranslate"><span class="pre">#5</span></code> (this will be interpreted as <code class="docutils literal notranslate"><span class="pre">#000005</span></code>).</p></li>
-<li><p>Skipped <code class="docutils literal notranslate"><span class="pre">#</span></code> symbol, e.g., <code class="docutils literal notranslate"><span class="pre">0af</span></code> (this will be interpreted as <code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>).</p></li>
-<li><p>Blank string, e.g., <code class="docutils literal notranslate"><span class="pre">''</span></code> (this will clear line color setting).</p></li>
+<li><p>Three characters, e.g., <code class="docutils literal notranslate"><span class="pre">#0af</span></code> (this becomes <code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>).</p></li>
+<li><p>Single character, e.g., <code class="docutils literal notranslate"><span class="pre">#5</span></code> (this becomes <code class="docutils literal notranslate"><span class="pre">#000005</span></code>).</p></li>
+<li><p>Skipped <code class="docutils literal notranslate"><span class="pre">#</span></code> symbol, e.g., <code class="docutils literal notranslate"><span class="pre">0af</span></code> (this becomes <code class="docutils literal notranslate"><span class="pre">#00aaff</span></code>).</p></li>
+<li><p>Blank string, e.g., <code class="docutils literal notranslate"><span class="pre">''</span></code> (this clears line color setting).</p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -163,7 +163,7 @@
 <iframe src="static/graphics_line_style_line_color_color_code/index.html" width="200" height="162"></iframe></section>
 <section id="line-thickness-setting">
 <h2>Line thickness setting<a class="headerlink" href="#line-thickness-setting" title="Permalink to this headline">¶</a></h2>
-<p>Line thickness can be set by the <code class="docutils literal notranslate"><span class="pre">thickness</span></code> argument. It can accept greater than or equal to 1.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">thickness</span></code> argument sets the line thickness. It can accept greater than or equal to 1.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -219,12 +219,12 @@
 <iframe src="static/graphics_line_style_alpha/index.html" width="150" height="150"></iframe></section>
 <section id="line-cap-setting">
 <h2>Line cap setting<a class="headerlink" href="#line-cap-setting" title="Permalink to this headline">¶</a></h2>
-<p>Line cap setting will change line edge style. This can be set by the <code class="docutils literal notranslate"><span class="pre">cap</span></code> argument and <code class="docutils literal notranslate"><span class="pre">LineCaps</span></code> enum values are acceptable.</p>
+<p>Line cap setting changes line edge style. The <code class="docutils literal notranslate"><span class="pre">cap</span></code> argument sets this style setting, and <code class="docutils literal notranslate"><span class="pre">LineCaps</span></code> enum values are acceptable.</p>
 <p>There are three <code class="docutils literal notranslate"><span class="pre">LineCaps</span></code> options, as follows:</p>
 <ul class="simple">
-<li><p>BUTT: This is the default value, and no cap will be applied.</p></li>
-<li><p>ROUND: This will change the line edge to the rounded one.</p></li>
-<li><p>SQUARE: This is similar to BUTT, but the line length will be increased by the squared edge.</p></li>
+<li><p>BUTT: This is the default value, and it sets no cap.</p></li>
+<li><p>ROUND: This changes the line edge to the rounded one.</p></li>
+<li><p>SQUARE: This is similar to BUTT, but it increases the line length by the squared edge.</p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -256,12 +256,12 @@
 <iframe src="static/graphics_line_style_caps/index.html" width="200" height="180"></iframe></section>
 <section id="line-joints-setting">
 <h2>Line joints setting<a class="headerlink" href="#line-joints-setting" title="Permalink to this headline">¶</a></h2>
-<p>Line joints setting will change the line vertices style. This can be set by the <code class="docutils literal notranslate"><span class="pre">joints</span></code> argument and <code class="docutils literal notranslate"><span class="pre">LineJoints</span></code> enum values are acceptable. Mainly this argument will be used by the <code class="docutils literal notranslate"><span class="pre">Polyline</span></code> class (<code class="docutils literal notranslate"><span class="pre">move_to</span></code> and <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interfaces).</p>
+<p>Line joints setting changes the line vertices style. The <code class="docutils literal notranslate"><span class="pre">joints</span></code> argument sets this style, and <code class="docutils literal notranslate"><span class="pre">LineJoints</span></code> enum values are acceptable. The <code class="docutils literal notranslate"><span class="pre">Polyline</span></code> class (<code class="docutils literal notranslate"><span class="pre">move_to</span></code> and <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interfaces) mainly uses this argument.</p>
 <p>There are three LineJoints enum values, as follows:</p>
 <ul class="simple">
-<li><p>MITER: This setting will set the style like a picture frame vertices. This is the default style setting.</p></li>
-<li><p>ROUND: This setting will set the rounded vertices style.</p></li>
-<li><p>BEVEL: This setting will set a sloping vertices style.</p></li>
+<li><p>MITER: This setting sets the style like a picture frame vertices. This setting is the default style setting.</p></li>
+<li><p>ROUND: This setting sets the rounded vertices style.</p></li>
+<li><p>BEVEL: This setting sets a sloping vertices style.</p></li>
 </ul>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -301,7 +301,7 @@
 <iframe src="static/graphics_line_style_joints/index.html" width="350" height="150"></iframe></section>
 <section id="line-dot-setting">
 <h2>Line dot setting<a class="headerlink" href="#line-dot-setting" title="Permalink to this headline">¶</a></h2>
-<p>Line dot setting will change line to dotted line. This can be set by the <code class="docutils literal notranslate"><span class="pre">dot_setting</span></code> argument. This argument accepts the <code class="docutils literal notranslate"><span class="pre">LineDotSetting</span></code> and can change dot size by the <code class="docutils literal notranslate"><span class="pre">dot_size</span></code> argument (a value that greater than or equal to 1 is acceptable).</p>
+<p>Line dot setting changes the line to dotted line. The <code class="docutils literal notranslate"><span class="pre">dot_setting</span></code> argument (<code class="docutils literal notranslate"><span class="pre">LineDotSetting</span></code> value) sets this setting. It can change dot size by the <code class="docutils literal notranslate"><span class="pre">dot_size</span></code> argument (greater than or equal to 1 value is acceptable).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -334,7 +334,7 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_line_dot_setting/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_line_style_line_dot_setting/index.html" width="300" height="160"></iframe><p>This setting (or other similar settings) will also be applied to the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> or other graphics classes.</p>
+<iframe src="static/graphics_line_style_line_dot_setting/index.html" width="300" height="160"></iframe><p>This setting (or the other similar settings) also changes the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> or other graphics classes.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -363,7 +363,7 @@
 </section>
 <section id="line-dash-setting">
 <h2>Line dash setting<a class="headerlink" href="#line-dash-setting" title="Permalink to this headline">¶</a></h2>
-<p>Line dash setting will change the line to the dashed line. This can be set by the <code class="docutils literal notranslate"><span class="pre">dash_setting</span></code> argument. This argument accepts the <code class="docutils literal notranslate"><span class="pre">LineDashSetting</span></code> and can change dash size and space size by the <code class="docutils literal notranslate"><span class="pre">dash_size</span></code> and <code class="docutils literal notranslate"><span class="pre">space_size</span></code> arguments.</p>
+<p>Line dash setting changes the line to the dashed line. The <code class="docutils literal notranslate"><span class="pre">dash_setting</span></code> argument (<code class="docutils literal notranslate"><span class="pre">LineDashSetting</span></code> value) sets this setting. It can change dash size and space size by the <code class="docutils literal notranslate"><span class="pre">dash_size</span></code> and <code class="docutils literal notranslate"><span class="pre">space_size</span></code> arguments.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -396,7 +396,7 @@
 </section>
 <section id="line-round-dot-setting">
 <h2>Line round dot setting<a class="headerlink" href="#line-round-dot-setting" title="Permalink to this headline">¶</a></h2>
-<p>Line round dot setting will change the line to the round dotted line. This can be set by the <code class="docutils literal notranslate"><span class="pre">round_dot_setting</span></code> argument. This argument accepts the <code class="docutils literal notranslate"><span class="pre">LineRoundDotSetting</span></code> and can change round size and space size by the <code class="docutils literal notranslate"><span class="pre">round_size</span></code> and <code class="docutils literal notranslate"><span class="pre">space_size</span></code> arguments.</p>
+<p>Line round dot setting changes the line to the round dotted line. The <code class="docutils literal notranslate"><span class="pre">round_dot_setting</span></code> argument (<code class="docutils literal notranslate"><span class="pre">LineRoundDotSetting</span></code> value) sets this setting. It can change round size and space size by the <code class="docutils literal notranslate"><span class="pre">round_size</span></code> and <code class="docutils literal notranslate"><span class="pre">space_size</span></code> arguments.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -425,12 +425,12 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_line_style_line_round_dot_setting/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/graphics_line_style_line_round_dot_setting/index.html" width="300" height="130"></iframe><p>Notes: Since this setting is using the <code class="docutils literal notranslate"><span class="pre">cap</span></code> setting internally, the <code class="docutils literal notranslate"><span class="pre">cap</span></code> setting will be ignored, and line length will be increased by the <code class="docutils literal notranslate"><span class="pre">cap</span></code> size.</p>
+<iframe src="static/graphics_line_style_line_round_dot_setting/index.html" width="300" height="130"></iframe><p>Notes: Since this setting uses the <code class="docutils literal notranslate"><span class="pre">cap</span></code> setting internally, this setting ignores the <code class="docutils literal notranslate"><span class="pre">cap</span></code> setting, increasing the line length by the capsize.</p>
 <p>Notes: This setting will be ignored by <code class="docutils literal notranslate"><span class="pre">draw_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_dotted_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_dashed_line</span></code>, <code class="docutils literal notranslate"><span class="pre">draw_round_dotted_line</span></code>, and <code class="docutils literal notranslate"><span class="pre">draw_dash_dotted_line</span></code> interfaces.</p>
 </section>
 <section id="line-dash-dot-setting">
 <h2>Line dash-dot setting<a class="headerlink" href="#line-dash-dot-setting" title="Permalink to this headline">¶</a></h2>
-<p>Line dash-dot setting will change the line to the dash-dotted line (also called long dashed short dashed line or one-dot chain line). This can be set by the <code class="docutils literal notranslate"><span class="pre">dash_dot_setting</span></code> argument. This argument accepts the <code class="docutils literal notranslate"><span class="pre">dot_size</span></code> (short dashed size), <code class="docutils literal notranslate"><span class="pre">dash_size</span></code> (long dashed size), and <code class="docutils literal notranslate"><span class="pre">space_size</span></code> arguments.</p>
+<p>Line dash-dot setting changes the line to the dash-dotted line (also called long dashed short dashed line or one-dot chain line). The <code class="docutils literal notranslate"><span class="pre">dash_dot_setting</span></code> arguments set this setting. This argument accepts the <code class="docutils literal notranslate"><span class="pre">dot_size</span></code> (short dashed size), <code class="docutils literal notranslate"><span class="pre">dash_size</span></code> (long dashed size), and <code class="docutils literal notranslate"><span class="pre">space_size</span></code> arguments.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 

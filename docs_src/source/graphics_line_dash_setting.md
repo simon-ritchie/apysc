@@ -8,7 +8,7 @@ The `line_dash_setting` property interface updates or gets the instance's curren
 
 ## Basic usage
 
-The getter or setter interface becomes (or requires) the `LineDashSetting` instance value.
+The getter or setter interface value becomes (or requires) the `LineDashSetting` instance value.
 
 The following example sets the 10-pixel dash size and 3-pixel space size to the line:
 

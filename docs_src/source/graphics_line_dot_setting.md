@@ -8,7 +8,7 @@ The `line_dot_setting` property interface updates or gets the instance's current
 
 ## Basic usage
 
-The getter or setter interface becomes (or requires) the `LineDotSetting` instance value.
+The getter or setter interface value becomes (or requires) the `LineDotSetting` instance value.
 
 The following example sets the 5-pixel dot to the line:
 

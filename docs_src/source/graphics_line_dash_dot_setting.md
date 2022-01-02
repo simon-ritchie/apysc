@@ -8,7 +8,7 @@ The `line_dash_dot_setting` property interface updates or get the instance's cur
 
 ## Basic usage
 
-The getter or setter interface becomes (or requires) the `LineDashDotSetting` instance value.
+The getter or setter interface value becomes (or requires) the `LineDashDotSetting` instance value.
 
 The following example sets the 10-pixel dash and 3-pixel dot to the line:
 

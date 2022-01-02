@@ -8,7 +8,7 @@ The `line_alpha` property interface updates or get the instance's line alpha (op
 
 ## Basic usage
 
-The getter or setter interface becomes (or requires) the `Number` value (0.0 to 1.0).
+The getter or setter interface value becomes (or requires) the `Number` value (0.0 to 1.0).
 
 The following example sets the 0.5 line alpha to the second rectangle and 0.25 to the third rectangle:
 

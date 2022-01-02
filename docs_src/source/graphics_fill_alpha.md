@@ -8,7 +8,7 @@ The `fill_alpha` property interface updates or get the instance's fill alpha (op
 
 ## Basic usage
 
-The getter or setter interface becomes (or require) the `Number` value (0.0 to 1.0).
+The getter or setter interface value becomes (or require) the `Number` value (0.0 to 1.0).
 
 The following example sets the 0.5 fill alpha to the second rectangle and 0.25 to the third rectangle:
 

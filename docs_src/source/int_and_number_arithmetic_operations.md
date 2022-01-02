@@ -1,10 +1,10 @@
-# Int and Number common arithmetic operations
+# Int and Number basic arithmetic operations
 
-This page will explain the `Int` and `Number` classes common arithmetic operations, like addition, multiplication, or incremental addition.
+This page explains basic arithmetic operations of the `Int` and `Number` classes, like addition, multiplication, or incremental addition.
 
 ## Common behaviors
 
-You can calculate the `Int` and `Number` values with the Python built-in values, such as `int` or `float`, as follows:
+You can calculate the `Int` and `Number` values with the Python built-in values, such as `int` or `float`\, as follows:
 
 ```py
 # runnable
@@ -27,7 +27,7 @@ int_1 = int_1 + int_2
 assert int_1 == 30
 ```
 
-Arithmetic operations are not supported if the left value is the Python built-in value. For instance, the following code will raise the exception:
+Arithmetic operations are not supported if the left value is the Python built-in value. For instance, the following code raises an exception:
 
 ```py
 import apysc as ap
@@ -164,7 +164,7 @@ assert int_1 == 30
 
 ## Division
 
-You can divide values with the `/` operator. A return value will be a `Number` value, not an `Int` one.
+You can divide values with the `/` operator. A return value becomes a `Number` value, not an `Int`\.
 
 ```py
 # runnable
@@ -198,7 +198,7 @@ assert number_1 == 2.5
 
 ## Floor division
 
-You can divide and floor values with the `//` operator. A return value will be an `Int` value, not a `Number` one.
+You can divide and floor values with the `//` operator. A return value becomes an `Int` value, not a `Number`\.
 
 ```py
 # runnable

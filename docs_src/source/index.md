@@ -7,7 +7,7 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 - [GitHub](https://github.com/simon-ritchie/apysc)
   - Stargazers are very welcome!
 - [Twitter](https://twitter.com/apysc)
-  - The progress and updates will be informed on Twitter. Please follow!
+  - The progress and updates are informed on Twitter. Please follow!
 - [PyPI](https://pypi.org/project/apysc/)
 
 ## Contents
@@ -73,7 +73,7 @@ The HTML and JavaScript exporting interfaces.
 
 **DisplayObject and GraphicsBase classes**
 
-The `DisplayObject` class is the base class for each display object. The `GraphicsBase` class is the `DisplayObject` subclass, and the base class of each graphics class, such as the `Rectangle`.
+The `DisplayObject` class is the base class for each display object. The `GraphicsBase` class is the `DisplayObject` subclass and the base class of each graphics class, such as the `Rectangle`\.
 
 - [DisplayObject class](display_object.md)
 - [DisplayObject and GraphicsBase classes basic properties abstract](display_object_and_graphics_base_prop_abstract.md)

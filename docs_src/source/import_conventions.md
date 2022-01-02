@@ -1,10 +1,10 @@
 # Import conventions
 
-In the `apysc` library, it is recommended to use the `import apysc as ap` to import the package, like the `import numpy as np`, `import pandas as pd`, `import tkinter as tk`, or something like that.
+The apysc library recommends using the `import apysc as ap` to import the package, like the `import numpy as np`\, `import pandas as pd`\, `import tkinter as tk`\, or something like that.
 
-All interfaces that you need are packaged in the `apysc` package (for instance, `Sprite`, `Int`, `Stage`).
+The root package module packages all interfaces you need (for instance, `Sprite`\, `Int`\, `Stage`).
 
-The `apysc` internal logic packages are named with the underscore prefix like the `_file`. These packages are not necessary.
+Also, it packages internal logic modules with the underscore prefix like the `_file`\. These packages are not necessary for you.
 
 ```py
 # runnable

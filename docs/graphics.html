@@ -45,15 +45,15 @@
             
   <section id="graphics">
 <h1>Graphics<a class="headerlink" href="#graphics" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class.</p>
 <section id="what-is-graphics">
 <h2>What is Graphics?<a class="headerlink" href="#what-is-graphics" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> is the class to handle each vector graphics interface. This interface has the draw rectangle interface, draw line interface, or something else.</p>
-<p>This class instance is instantiated by the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> or other <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instances.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> or other <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instances instantiate this class instance.</p>
 </section>
 <section id="call-interfaces-from-sprite-instance">
 <h2>Call interfaces from sprite instance<a class="headerlink" href="#call-interfaces-from-sprite-instance" title="Permalink to this headline">¶</a></h2>
-<p>Sprite (object container) instance has the <code class="docutils literal notranslate"><span class="pre">graphics</span></code> attribute so with this attribute, each drawing interface can be called.</p>
+<p>Sprite (object container) instance has the <code class="docutils literal notranslate"><span class="pre">graphics</span></code> attribute to call each drawing interface with this attribute.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -91,8 +91,8 @@
 <iframe src="static/graphics_call_interfaces_from_sprite_instance/index.html" width="250" height="180"></iframe></section>
 <section id="return-values">
 <h2>Return values<a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
-<p>Each interface will return created graphic instances (e.g., <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>, <code class="docutils literal notranslate"><span class="pre">Polyline</span></code>, and so on). These instances have the basic <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> attributes and methods, like x, y, fill_alpha, visible, or something else.</p>
-<p>For example, you can set an event and coordinates’ updating to these instances, as follows:</p>
+<p>Each interface returns created graphic instances (e.g., <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>, <code class="docutils literal notranslate"><span class="pre">Polyline</span></code>, and so on). These instances have the basic <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> attributes and methods, like x, y, fill_alpha, visible, or something else.</p>
+<p>For example, you can set an event and coordinate’s updating to these instances, as follows:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -108,7 +108,7 @@
 <span class="k">def</span> <span class="nf">on_rectangle_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    A Handler that called when the rectangle is clicked.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -138,7 +138,7 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;graphics_return_values/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you click the following rectangle, that rectangle will change x and y coordinates, fill color, and alpha (opacity) values.</p>
+<p>If you click the following rectangle, that rectangle changes x and y coordinates, fill color, and alpha (opacity) values.</p>
 <iframe src="static/graphics_return_values/index.html" width="200" height="200"></iframe></section>
 <section id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>

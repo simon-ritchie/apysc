@@ -1,16 +1,16 @@
 # Graphics line_thickness interface
 
-This page will explain the `Graphics` class `line_thickness` property interface.
+This page explains the `Graphics` class `line_thickness` property interface.
 
 ## What interface is this?
 
-The `line_thickness` property interface will update or get the instance's line thickness (line width).
+The `line_thickness` property interface updates or get the instance's line thickness (line width).
 
 ## Basic usage
 
-The getter or setter interface will be (or require) the `Int` value.
+The getter or setter interface value becomes (or requires) the `Int` value.
 
-The following example will set the 5-pixel line thickness to the first rectangle and the 10-pixel line thickness to the second one:
+The following example sets the 5-pixel line thickness to the first rectangle and the 10-pixel line thickness to the second one:
 
 ```py
 # runnable

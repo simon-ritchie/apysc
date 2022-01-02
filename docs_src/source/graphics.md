@@ -1,16 +1,16 @@
 # Graphics
 
-This page will explain the `Graphics` class.
+This page explains the `Graphics` class.
 
 ## What is Graphics?
 
 The `Graphics` is the class to handle each vector graphics interface. This interface has the draw rectangle interface, draw line interface, or something else.
 
-This class instance is instantiated by the `Sprite` or other `DisplayObject` instances.
+The `Sprite` or other `DisplayObject` instances instantiate this class instance.
 
 ## Call interfaces from sprite instance
 
-Sprite (object container) instance has the `graphics` attribute so with this attribute, each drawing interface can be called.
+Sprite (object container) instance has the `graphics` attribute to call each drawing interface with this attribute.
 
 ```py
 # runnable
@@ -51,9 +51,9 @@ ap.save_overall_html(
 
 ## Return values
 
-Each interface will return created graphic instances (e.g., `Rectangle`, `Polyline`, and so on). These instances have the basic `DisplayObject` attributes and methods, like x, y, fill_alpha, visible, or something else.
+Each interface returns created graphic instances (e.g., `Rectangle`\, `Polyline`\, and so on). These instances have the basic `DisplayObject` attributes and methods, like x, y, fill_alpha, visible, or something else.
 
-For example, you can set an event and coordinates' updating to these instances, as follows:
+For example, you can set an event and coordinate's updating to these instances, as follows:
 
 ```py
 # runnable
@@ -71,7 +71,7 @@ sprite: ap.Sprite = ap.Sprite()
 def on_rectangle_click(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    A Handler that called when the rectangle is clicked.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------
@@ -101,7 +101,7 @@ ap.save_overall_html(
     dest_dir_path='graphics_return_values/')
 ```
 
-If you click the following rectangle, that rectangle will change x and y coordinates, fill color, and alpha (opacity) values.
+If you click the following rectangle, that rectangle changes x and y coordinates, fill color, and alpha (opacity) values.
 
 <iframe src="static/graphics_return_values/index.html" width="200" height="200"></iframe>
 

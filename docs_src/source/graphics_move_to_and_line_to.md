@@ -1,16 +1,16 @@
 # Graphics move_to and line_to interfaces
 
-This page will explain the `Graphics` class `move_to` and `line_to` method interfaces.
+This page explains the `Graphics` class `move_to` and `line_to` method interfaces.
 
 ## What interfaces are they?
 
-`move_to` interface will set the line start point. and `line_to` will draw the line from a current point to a destination point. If you call the `line_to` interface sequentially, then the line will be polyline.
+The `move_to` interface sets the line start point. The `line_to` draws the line from a current point to a destination point. Sequentially, if you call the `line_to` interface, the line becomes polyline.
 
-Calling the `move_to` interface after the calling of `line_to`, then a new line instance will be created.
+If you call the `move_to` interface after the calling of `line_to`\, it creates a new line instance.
 
 ## Basic usage
 
-`move_to` and `line_to` interfaces are both having x and y arguments.
+The `move_to` and `line_to` interfaces have x and y arguments.
 
 ```py
 # runnable
@@ -40,7 +40,7 @@ ap.save_overall_html(
 
 ## Sequential calling of the line_to interface
 
-If you call the `line_to` interface sequentially, then the result line will become the polyline.
+Sequentially, if you call the `line_to` interface, the result line becomes the polyline.
 
 ```py
 # runnable
@@ -63,7 +63,7 @@ sprite.graphics.move_to(x=50, y=50)
 sprite.graphics.line_to(x=150, y=50)
 
 # Draw the line from the current point (250, 50) to the
-# destination point (50, 150). This will change the line
+# destination point (50, 150). This calling changes the line
 # to the polyline.
 sprite.graphics.line_to(x=50, y=150)
 
@@ -79,7 +79,7 @@ ap.save_overall_html(
 
 ## move_to interface calling after line_to interface calling
 
-If you call the `move_to` interface after calling the `line_to` interface, then a new line instance will be created.
+If you call the `move_to` interface after calling the `line_to` interface, it creates a new line instance.
 
 ```py
 # runnable
@@ -117,7 +117,7 @@ ap.save_overall_html(
 
 `move_to` and `line_to` interfaces will return `Polyline` instance. You can update each setting or bind events to that instance.
 
-For instance, the following script will set the mouse event to `Polyline` and updating the line color, and set dot style in the handler (`on_line_click`).
+For instance, the following script sets the mouse event to `Polyline`\, updates the line color, and sets dot style in the handler (`on_line_click`).
 
 ```py
 # runnable
@@ -127,8 +127,7 @@ import apysc as ap
 def on_line_click(
         e: ap.MouseEvent[ap.Polyline], options: dict) -> None:
     """
-    The handler that this will be called when the line instance
-    is clicked.
+    The handler that the line instance calls when clicked.
 
     Parameters
     ----------

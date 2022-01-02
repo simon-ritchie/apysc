@@ -45,15 +45,15 @@
             
   <section id="graphics-move-to-and-line-to-interfaces">
 <h1>Graphics move_to and line_to interfaces<a class="headerlink" href="#graphics-move-to-and-line-to-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">move_to</span></code> and <code class="docutils literal notranslate"><span class="pre">line_to</span></code> method interfaces.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class <code class="docutils literal notranslate"><span class="pre">move_to</span></code> and <code class="docutils literal notranslate"><span class="pre">line_to</span></code> method interfaces.</p>
 <section id="what-interfaces-are-they">
 <h2>What interfaces are they?<a class="headerlink" href="#what-interfaces-are-they" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">move_to</span></code> interface will set the line start point. and <code class="docutils literal notranslate"><span class="pre">line_to</span></code> will draw the line from a current point to a destination point. If you call the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interface sequentially, then the line will be polyline.</p>
-<p>Calling the <code class="docutils literal notranslate"><span class="pre">move_to</span></code> interface after the calling of <code class="docutils literal notranslate"><span class="pre">line_to</span></code>, then a new line instance will be created.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">move_to</span></code> interface sets the line start point. The <code class="docutils literal notranslate"><span class="pre">line_to</span></code> draws the line from a current point to a destination point. Sequentially, if you call the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interface, the line becomes polyline.</p>
+<p>If you call the <code class="docutils literal notranslate"><span class="pre">move_to</span></code> interface after the calling of <code class="docutils literal notranslate"><span class="pre">line_to</span></code>, it creates a new line instance.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">move_to</span></code> and <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interfaces are both having x and y arguments.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">move_to</span></code> and <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interfaces have x and y arguments.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -80,7 +80,7 @@
 <iframe src="static/graphics_move_to_and_line_to_basic_usage/index.html" width="300" height="100"></iframe></section>
 <section id="sequential-calling-of-the-line-to-interface">
 <h2>Sequential calling of the line_to interface<a class="headerlink" href="#sequential-calling-of-the-line-to-interface" title="Permalink to this headline">¶</a></h2>
-<p>If you call the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interface sequentially, then the result line will become the polyline.</p>
+<p>Sequentially, if you call the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interface, the result line becomes the polyline.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -101,7 +101,7 @@
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
 <span class="c1"># Draw the line from the current point (250, 50) to the</span>
-<span class="c1"># destination point (50, 150). This will change the line</span>
+<span class="c1"># destination point (50, 150). This calling changes the line</span>
 <span class="c1"># to the polyline.</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 
@@ -116,7 +116,7 @@
 <iframe src="static/graphics_move_to_and_line_to_sequential_calling/index.html" width="200" height="200"></iframe></section>
 <section id="move-to-interface-calling-after-line-to-interface-calling">
 <h2>move_to interface calling after line_to interface calling<a class="headerlink" href="#move-to-interface-calling-after-line-to-interface-calling" title="Permalink to this headline">¶</a></h2>
-<p>If you call the <code class="docutils literal notranslate"><span class="pre">move_to</span></code> interface after calling the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interface, then a new line instance will be created.</p>
+<p>If you call the <code class="docutils literal notranslate"><span class="pre">move_to</span></code> interface after calling the <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interface, it creates a new line instance.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -150,7 +150,7 @@
 <section id="polyline-instance">
 <h2>Polyline instance<a class="headerlink" href="#polyline-instance" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">move_to</span></code> and <code class="docutils literal notranslate"><span class="pre">line_to</span></code> interfaces will return <code class="docutils literal notranslate"><span class="pre">Polyline</span></code> instance. You can update each setting or bind events to that instance.</p>
-<p>For instance, the following script will set the mouse event to <code class="docutils literal notranslate"><span class="pre">Polyline</span></code> and updating the line color, and set dot style in the handler (<code class="docutils literal notranslate"><span class="pre">on_line_click</span></code>).</p>
+<p>For instance, the following script sets the mouse event to <code class="docutils literal notranslate"><span class="pre">Polyline</span></code>, updates the line color, and sets dot style in the handler (<code class="docutils literal notranslate"><span class="pre">on_line_click</span></code>).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -158,8 +158,7 @@
 <span class="k">def</span> <span class="nf">on_line_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Polyline</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler that this will be called when the line instance</span>
-<span class="sd">    is clicked.</span>
+<span class="sd">    The handler that the line instance calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

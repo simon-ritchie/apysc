@@ -570,3 +570,21 @@ def test__convert_path_to_markdown_data_with_hashed_val() -> None:
 
     file_util.remove_file_if_exists(file_path=test_md_file_path)
     file_util.remove_file_if_exists(file_path=hash_file_path)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__remove_none_from_markdown_data_list() -> None:
+    markdown_data_list: List[Optional[_MarkdownData]] = [
+        {
+            'md_file_path': 'test_path.md',
+            'hashed_val': 'abc',
+        },
+        None,
+    ]
+    markdown_data_list_: List[_MarkdownData] = build_docs.\
+        _remove_none_from_markdown_data_list(
+            markdown_data_list=markdown_data_list)
+    assert markdown_data_list_ == [{
+        'md_file_path': 'test_path.md',
+        'hashed_val': 'abc',
+    }]

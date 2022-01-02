@@ -16,7 +16,7 @@ from typing import Any
 from typing import Dict
 from typing import List
 from typing import Match
-from typing import Optional
+from typing import Optional as Op
 from typing import Tuple
 
 from typing_extensions import Final
@@ -97,7 +97,7 @@ class _RunReturnData(TypedDict):
 
 
 def _exec_document_lint_and_script(
-        limit_count: Optional[int] = None) -> List[str]:
+        limit_count: Op[int] = None) -> List[str]:
     """
     Execute each runnable scripts in the documents and check with
     each lint.
@@ -120,14 +120,12 @@ def _exec_document_lint_and_script(
 
     with mp.Pool(workers) as p:
         logger.info(msg="Slicing not updated markdown files...")
-        markdown_data_list_: List[Optional[_MarkdownData]] = p.map(
+        markdown_data_list_: List[Op[_MarkdownData]] = p.map(
             func=_convert_path_to_markdown_data_with_hashed_val,
             iterable=md_file_paths)
-        markdown_data_list: List[_MarkdownData] = []
-        for markdown_data in markdown_data_list_:
-            if markdown_data is None:
-                continue
-            markdown_data_list.append(markdown_data)
+        markdown_data_list: List[_MarkdownData] = \
+            _remove_none_from_markdown_data_list(
+                markdown_data_list=markdown_data_list_)
         script_data_list: List[_ScriptData] = _make_script_data_list(
             markdown_data_list=markdown_data_list,
             limit_count=limit_count)
@@ -151,6 +149,34 @@ def _exec_document_lint_and_script(
     executed_scripts: List[str] = [
         script_data['runnable_script'] for script_data in script_data_list]
     return executed_scripts
+
+
+class _MarkdownData(TypedDict):
+    md_file_path: str
+    hashed_val: str
+
+
+def _remove_none_from_markdown_data_list(
+        markdown_data_list: List[Op[_MarkdownData]]) -> List[_MarkdownData]:
+    """
+    Remove the None values from the specified markdown data list.
+
+    Parameters
+    ----------
+    markdown_data_list : list of _MarkdownData or None
+        Target list.
+
+    Returns
+    -------
+    markdown_data_list_ : list of _MarkdownData
+        The list after removing the None values.
+    """
+    markdown_data_list_: List[_MarkdownData] = []
+    for markdown_data in markdown_data_list:
+        if markdown_data is None:
+            continue
+        markdown_data_list_.append(markdown_data)
+    return markdown_data_list_
 
 
 _CODE_BLOCK_OUTPUT_DIR_PATH: str = './docs_src/source/_static/'
@@ -394,14 +420,9 @@ def _run_code_block_script(script_data: _ScriptData) -> _RunReturnData:
     return return_data
 
 
-class _MarkdownData(TypedDict):
-    md_file_path: str
-    hashed_val: str
-
-
 def _make_script_data_list(
         markdown_data_list: List[_MarkdownData],
-        limit_count: Optional[int]) -> List[_ScriptData]:
+        limit_count: Op[int]) -> List[_ScriptData]:
     """
     Make a script data list for the multiprocessing argument.
 
@@ -462,7 +483,7 @@ HASHED_VALS_DIR_PATH: str = './docs_src/hashed_vals/'
 
 
 def _convert_path_to_markdown_data_with_hashed_val(
-        md_file_path: str) -> Optional[_MarkdownData]:
+        md_file_path: str) -> Op[_MarkdownData]:
     """
     Convert the markdown path to the markdown data with
     hashed value.
@@ -669,7 +690,7 @@ def _replace_html_saving_export_path_by_doc_path(code: str) -> str:
         for example, `save_overall_html` `dest_dir_path`
         will be replaced by './docs_src/_static/<original_path>/'.
     """
-    match: Optional[Match] = re.search(
+    match: Op[Match] = re.search(
         pattern=(
             r"save_overall_html\(.*?dest_dir_path='(.+?)'\)"
         ),

@@ -518,9 +518,6 @@ def _convert_path_to_markdown_data_with_hashed_val(
     md_hashed_val: str = _read_md_file_and_hash_txt(
         md_file_path=md_file_path)
     if saved_hashed_val == md_hashed_val:
-        print(
-            'Skipped markdown file since it is not changed: '
-            f'{md_file_path}')
         return None
     return {
         'md_file_path': md_file_path,

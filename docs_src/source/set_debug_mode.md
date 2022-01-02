@@ -1,20 +1,20 @@
 # set_debug_mode interface
 
-This page will explain the `set_debug_mode` function interface.
+This page explains the `set_debug_mode` function interface.
 
 ## What interface is this?
 
-The `set_debug_mode` function interface will set the debug mode setting and the debug information (Python function or method calls and arguments information) will be appended to the exported HTML.
+The `set_debug_mode` function interface sets the debug mode setting. This setting appends the debug information (Python function or method calls and arguments information) to the exported HTML.
 
 ## Notes
 
-The debug mode setting will append lots of information to the HTML, so the exporting time will be longer and the HTML file will be bigger.
+The debug mode setting appends lots of information to the HTML. As a result, the exporting time becomes long, and the HTML file size becomes large.
 
-Also, the `minify` setting will be ignored.
+Also, this setting ignores the `minify` setting.
 
 ## Basic usage
 
-You can set the debug mode by the `set_debug_mode` after the stage instantiation. This function requires the stage instance since the stage instance will reset the settings at first, including the debug mode.
+After the stage instantiation, you can set the debug mode by the `set_debug_mode` function. This function requires the stage instance since the stage instance resets the settings at first, including the debug mode.
 
 ```py
 # runnable
@@ -31,7 +31,7 @@ ap.save_overall_html(
     dest_dir_path='set_debug_mode_basic_usage/')
 ```
 
-The exported HTML will be appended the information (Python's function and method callings, its module and class names, and argument information) as the JavaScript comment, like the following:
+This setting appends the information (Python's function and method callings, its module and class names, and argument information) as the JavaScript comment to the exported HTML, like the following:
 
 ```js
 ...

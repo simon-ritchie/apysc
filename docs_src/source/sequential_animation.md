@@ -1,12 +1,12 @@
 # Sequential animation setting
 
-This page will explain how to animate sequentially.
+This page explains how to animate sequentially.
 
 ## Sequential animation interface calling on the same instance
 
-If you call each animation interface sequentially, these animations will start in order (e.g., when the first animation is completed then the second one will be started).
+If you call each animation interface sequentially, these animations start in order (e.g., when the first animation completion, the second one starts).
 
-The following example will set the four animations of the coordinates. These animations will not start simultaneously:
+The following example sets the four animations of the coordinates. These animations do not start simultaneously:
 
 ```py
 # runnable

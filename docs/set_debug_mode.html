@@ -45,19 +45,19 @@
             
   <section id="set-debug-mode-interface">
 <h1>set_debug_mode interface<a class="headerlink" href="#set-debug-mode-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">set_debug_mode</span></code> function interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">set_debug_mode</span></code> function interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">set_debug_mode</span></code> function interface will set the debug mode setting and the debug information (Python function or method calls and arguments information) will be appended to the exported HTML.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">set_debug_mode</span></code> function interface sets the debug mode setting. This setting appends the debug information (Python function or method calls and arguments information) to the exported HTML.</p>
 </section>
 <section id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
-<p>The debug mode setting will append lots of information to the HTML, so the exporting time will be longer and the HTML file will be bigger.</p>
-<p>Also, the <code class="docutils literal notranslate"><span class="pre">minify</span></code> setting will be ignored.</p>
+<p>The debug mode setting appends lots of information to the HTML. As a result, the exporting time becomes long, and the HTML file size becomes large.</p>
+<p>Also, this setting ignores the <code class="docutils literal notranslate"><span class="pre">minify</span></code> setting.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>You can set the debug mode by the <code class="docutils literal notranslate"><span class="pre">set_debug_mode</span></code> after the stage instantiation. This function requires the stage instance since the stage instance will reset the settings at first, including the debug mode.</p>
+<p>After the stage instantiation, you can set the debug mode by the <code class="docutils literal notranslate"><span class="pre">set_debug_mode</span></code> function. This function requires the stage instance since the stage instance resets the settings at first, including the debug mode.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -72,7 +72,7 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;set_debug_mode_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The exported HTML will be appended the information (Python’s function and method callings, its module and class names, and argument information) as the JavaScript comment, like the following:</p>
+<p>This setting appends the information (Python’s function and method callings, its module and class names, and argument information) as the JavaScript comment to the exported HTML, like the following:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
   <span class="c1">//////////////////////////////////////////////////////////////////////</span>
   <span class="c1">// [__init__ 1] started.</span>

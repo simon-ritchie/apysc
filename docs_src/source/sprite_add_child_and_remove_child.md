@@ -1,22 +1,22 @@
 # Sprite class add_child and remove_child interfaces
 
-This page will explain the `Sprite` class (or the other container class, like the `Graphics`) `add_child` and `remove_child` method interfaces.
+This page explains the `Sprite` class (or the other container class, like the `Graphics`) `add_child` and `remove_child` method interfaces.
 
 ## What interfaces are these?
 
-The `add_child` and `remove_child` will add or remove a `DisplayObject` child instance from a `Sprite` container instance. A removed `DisplayObject` instance will not be displayed.
+The `add_child` and `remove_child` will add or remove a `DisplayObject` child instance from a `Sprite` container instance. The apysc does not display a removed `DisplayObject` instance.
 
 ## Automatic addition of the children
 
-Each `DisplayObject` instance will be added to a parent at the constructor. For example, a `Sprite` instance will be added to a parent stage basically, and `graphics` instances will be added to a parent `Sprite` instance. The `Rectangle` or the other `DisplayObject` instances, like the `Circle`, behaves in the same way (they will be added to a `graphics` container instance automatically).
+The apysc appends each `DisplayObject` instance to a parent at the constructor. So, for example, it appends a `Sprite` instance to a parent stage. Similarly, it appends a `graphics` instance to a parent `Sprite` instance.
 
-If you need to adjust a parent, then it will be necessary to call the `add_child` or `remove_child` interfaces manually (for instance, set a `Sprite` parent to the other `Sprite`).
+If you need to adjust a parent, it is necessary to call the `add_child` or `remove_child` interfaces manually (for instance, set a `Sprite` parent to the other `Sprite`).
 
 ## Basic usage of the remove_child interface
 
-The `remove_child` interface will remove a child from a parent `Sprite` instance. A removed `DisplayObject` instance will not be displayed on a stage.
+The `remove_child` interface removes a child from a parent `Sprite` instance. The apysc does not display a removed `DisplayObject` instance.
 
-For example, the following code will call the `remove_child` interface in the click handler, so if you click the rectangle, that one will be removed.
+For example, the following code calls the `remove_child` interface in the click handler, so if you click the rectangle, it removes that rectangle.
 
 ```py
 # runnable
@@ -32,7 +32,7 @@ class _RectOptions(TypedDict):
 def on_sprite_click(
         e: ap.MouseEvent[ap.Sprite], options: _RectOptions) -> None:
     """
-    The handler would be called when the sprite instance is clicked.
+    The handler that the sprite calls when clicked.
 
     Parameters
     ----------
@@ -67,9 +67,9 @@ ap.save_overall_html(
 
 ## The basic usage of the add_child interface
 
-The `add_child` interface will add a removed child again or add a child to the other container instance.
+The `add_child` interface adds a removed child again or adds a child to the other container instance.
 
-The following code example will remove the rectangle from the first `Sprite` container (be positioned to the left) when you click the rectangle, and then add it to the second `Sprite` container (be positioned to the right).
+The following code example removes the rectangle from the first `Sprite` container (be positioned to the left) when you click the rectangle. Also, that click event adds the rectangle to the second `Sprite` container (be positioned to the right).
 
 ```py
 # runnable
@@ -87,7 +87,7 @@ def on_sprite_click(
         e: ap.MouseEvent[ap.Sprite],
         options: _SpriteAndRectOptions) -> None:
     """
-    The handler would be called when the sprite instance is clicked.
+    The handler that the sprite calls when clicked.
 
     Parameters
     ----------

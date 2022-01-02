@@ -45,20 +45,20 @@
             
   <section id="sprite-class-add-child-and-remove-child-interfaces">
 <h1>Sprite class add_child and remove_child interfaces<a class="headerlink" href="#sprite-class-add-child-and-remove-child-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class (or the other container class, like the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code>) <code class="docutils literal notranslate"><span class="pre">add_child</span></code> and <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> method interfaces.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class (or the other container class, like the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code>) <code class="docutils literal notranslate"><span class="pre">add_child</span></code> and <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> method interfaces.</p>
 <section id="what-interfaces-are-these">
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">add_child</span></code> and <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> will add or remove a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> child instance from a <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> container instance. A removed <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance will not be displayed.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">add_child</span></code> and <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> will add or remove a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> child instance from a <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> container instance. The apysc does not display a removed <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
 </section>
 <section id="automatic-addition-of-the-children">
 <h2>Automatic addition of the children<a class="headerlink" href="#automatic-addition-of-the-children" title="Permalink to this headline">¶</a></h2>
-<p>Each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance will be added to a parent at the constructor. For example, a <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance will be added to a parent stage basically, and <code class="docutils literal notranslate"><span class="pre">graphics</span></code> instances will be added to a parent <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance. The <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> or the other <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instances, like the <code class="docutils literal notranslate"><span class="pre">Circle</span></code>, behaves in the same way (they will be added to a <code class="docutils literal notranslate"><span class="pre">graphics</span></code> container instance automatically).</p>
-<p>If you need to adjust a parent, then it will be necessary to call the <code class="docutils literal notranslate"><span class="pre">add_child</span></code> or <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> interfaces manually (for instance, set a <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> parent to the other <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>).</p>
+<p>The apysc appends each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance to a parent at the constructor. So, for example, it appends a <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance to a parent stage. Similarly, it appends a <code class="docutils literal notranslate"><span class="pre">graphics</span></code> instance to a parent <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance.</p>
+<p>If you need to adjust a parent, it is necessary to call the <code class="docutils literal notranslate"><span class="pre">add_child</span></code> or <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> interfaces manually (for instance, set a <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> parent to the other <code class="docutils literal notranslate"><span class="pre">Sprite</span></code>).</p>
 </section>
 <section id="basic-usage-of-the-remove-child-interface">
 <h2>Basic usage of the remove_child interface<a class="headerlink" href="#basic-usage-of-the-remove-child-interface" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> interface will remove a child from a parent <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance. A removed <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance will not be displayed on a stage.</p>
-<p>For example, the following code will call the <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> interface in the click handler, so if you click the rectangle, that one will be removed.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> interface removes a child from a parent <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance. The apysc does not display a removed <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance.</p>
+<p>For example, the following code calls the <code class="docutils literal notranslate"><span class="pre">remove_child</span></code> interface in the click handler, so if you click the rectangle, it removes that rectangle.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -72,7 +72,7 @@
 <span class="k">def</span> <span class="nf">on_sprite_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when the sprite instance is clicked.</span>
+<span class="sd">    The handler that the sprite calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -106,8 +106,8 @@
 <iframe src="static/sprite_basic_usage_of_remove_child/index.html" width="150" height="150"></iframe></section>
 <section id="the-basic-usage-of-the-add-child-interface">
 <h2>The basic usage of the add_child interface<a class="headerlink" href="#the-basic-usage-of-the-add-child-interface" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">add_child</span></code> interface will add a removed child again or add a child to the other container instance.</p>
-<p>The following code example will remove the rectangle from the first <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> container (be positioned to the left) when you click the rectangle, and then add it to the second <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> container (be positioned to the right).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">add_child</span></code> interface adds a removed child again or adds a child to the other container instance.</p>
+<p>The following code example removes the rectangle from the first <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> container (be positioned to the left) when you click the rectangle. Also, that click event adds the rectangle to the second <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> container (be positioned to the right).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -123,7 +123,7 @@
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">],</span>
         <span class="n">options</span><span class="p">:</span> <span class="n">_SpriteAndRectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when the sprite instance is clicked.</span>
+<span class="sd">    The handler that the sprite calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="For" href="for.html" />
-    <link rel="prev" title="Each branch instruction class scope variables reverting setting" href="branch_instruction_variables_reverting_setting.html" /> 
+    <link rel="prev" title="Each branch instruction class’s scope variable reverting setting" href="branch_instruction_variables_reverting_setting.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,7 +31,7 @@
           <a href="for.html" title="For"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="branch_instruction_variables_reverting_setting.html" title="Each branch instruction class scope variables reverting setting"
+          <a href="branch_instruction_variables_reverting_setting.html" title="Each branch instruction class’s scope variable reverting setting"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Return</a></li> 
@@ -45,19 +45,19 @@
             
   <section id="return">
 <h1>Return<a class="headerlink" href="#return" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Return</span></code> class.</p>
-<p>Before reading on, maybe it is useful to read the following page (the <code class="docutils literal notranslate"><span class="pre">Return</span></code> class will be used for the same reason of each apysc data type):</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Return</span></code> class.</p>
+<p>Before reading on, maybe it is helpful to read the following page (the apysc uses the <code class="docutils literal notranslate"><span class="pre">Return</span></code> class for the same reason of each apysc data type):</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="why_not_using_python_builtin_data_type.html"><span class="doc">Why not using the Python built-in data type in the apysc library?</span></a></p></li>
 </ul>
 <section id="what-is-the-return-class">
 <h2>What is the Return class?<a class="headerlink" href="#what-is-the-return-class" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Return</span></code> class will be used to append the <code class="docutils literal notranslate"><span class="pre">return;</span></code> JavaScript code. This class can be used only in an event handler (function or method) scope.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Return</span></code> class behaves to append the <code class="docutils literal notranslate"><span class="pre">return;</span></code> JavaScript code. Therefore, this class can be used only in an event handler (function or method) scope.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Return</span></code> class constructor accepts no arguments. This interface will be used with the branch condition, like the <code class="docutils literal notranslate"><span class="pre">ap.If</span></code> class.</p>
-<p>The following example will change the rectangle fill color when you click it. Each <code class="docutils literal notranslate"><span class="pre">ap.If</span></code> branch instantiate <code class="docutils literal notranslate"><span class="pre">Return</span></code> class so the changing of fill color will be applied one by one:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Return</span></code> class constructor accepts no arguments. You can use this interface with the branch condition, for example, the <code class="docutils literal notranslate"><span class="pre">ap.If</span></code> class.</p>
+<p>The following example changes the rectangle fill color when you click it. Each <code class="docutils literal notranslate"><span class="pre">ap.If</span></code> branch instantiate <code class="docutils literal notranslate"><span class="pre">Return</span></code> class, so the code applies the changing of fill color one by one:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -65,7 +65,7 @@
 <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rectangle is clicked.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -124,7 +124,7 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="branch_instruction_variables_reverting_setting.html"
-                        title="previous chapter">Each branch instruction class scope variables reverting setting</a></p>
+                        title="previous chapter">Each branch instruction class’s scope variable reverting setting</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="for.html"
                         title="next chapter">For</a></p>
@@ -152,7 +152,7 @@
           <a href="for.html" title="For"
              >next</a> |</li>
         <li class="right" >
-          <a href="branch_instruction_variables_reverting_setting.html" title="Each branch instruction class scope variables reverting setting"
+          <a href="branch_instruction_variables_reverting_setting.html" title="Each branch instruction class’s scope variable reverting setting"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Return</a></li> 

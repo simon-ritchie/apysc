@@ -1,22 +1,22 @@
 # Mouseover and mouseout interfaces
 
-This page will explain the `mouseover` and `mouseout` interfaces.
+This page explains the `mouseover` and `mouseout` interfaces.
 
 ## What interfaces are these?
 
-The `mouseover` interface will bind the event handler would be called when a mouse cursor over on a `DisplayObject` instance. Conversely, the `mouseout` interface will bind the event handler would be called when a cursor out from the `DisplayObject` one.
+The `mouseover` interface binds the event handler. Moreover, this interface calls the handler when a mouse cursor is over on a `DisplayObject` instance. Conversely, the `mouseout` interface also binds and calls the handler when a cursor is out from the `DisplayObject` one.
 
 ## See also
 
-Common mouse event interfaces are described by the following page.
+The following page describes the basic mouse event interfaces.
 
-- [Common mouse event interfaces](mouse_event_common.md)
+- [Basic mouse event interfaces](mouse_event_common.md)
 
 ## Basic usage of the mouseover and mouseout interfaces
 
 Each `DisplayObject` instance has the `mouseover` and `mouseout` interfaces, and you can bind handlers by these.
 
-The following example will bind the mouse over and handler and mouse out one to the rectangle. The rectangle color will change the different color when your cursor is over the rectangle and will revert to the original one when your cursor is outed from the rectangle.
+The following example binds the mouse over and handler and mouse out one to the rectangle. The rectangle color changes when your cursor is over the rectangle. Also, it reverts to the original one when your cursor is outed from the rectangle.
 
 ```py
 # runnable
@@ -26,8 +26,7 @@ import apysc as ap
 def on_mouseover(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler would be called when the cursor is over
-    the rectangle.
+    The handler that the rectangle calls when mouseover.
 
     Parameters
     ----------
@@ -45,8 +44,7 @@ def on_mouseover(
 def on_mouseout(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler would be called when the cursor is outed
-    from the rectangle.
+    The handler that the rectangle calls when mouseout.
 
     Parameters
     ----------
@@ -85,9 +83,9 @@ ap.save_overall_html(
 
 ## Unbind Interfaces
 
-The `unbind_mouseover` and `unbind_mouseout` interfaces will unbind each registered handler from the `DisplayObject`.
+The `unbind_mouseover` and `unbind_mouseout` interfaces unbind each registered handler from the `DisplayObject`\.
 
-The following example will unbind handlers in the `on_mouseover` and `on_mouseout` functions so these handlers will be called only once.
+The following example unbind handlers in the `on_mouseover` and `on_mouseout` functions so that the interface calls these handlers only once.
 
 ```py
 # runnable
@@ -97,8 +95,7 @@ import apysc as ap
 def on_mouseover(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler would be called when the cursor is over
-    the rectangle.
+    The handler that the rectangle calls when mouseover.
 
     Parameters
     ----------
@@ -117,8 +114,7 @@ def on_mouseover(
 def on_mouseout(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler would be called when the cursor is outed
-    from the rectangle.
+    The handler that the rectangle calls when mouseout.
 
     Parameters
     ----------
@@ -154,4 +150,4 @@ ap.save_overall_html(
 
 <iframe src="static/mouseover_and_mouseout_unbind_interfaces/index.html" width="150" height="150"></iframe>
 
-There are also existing the `unbind_mouseover_all` and `unbind_mouseover_all` interfaces. These interfaces will unbind all the handlers from the target `DisplayObject` instance.
+There are also existing the `unbind_mouseover_all` and `unbind_mouseover_all` interfaces. These interfaces unbind all the handlers from the target `DisplayObject` instance.

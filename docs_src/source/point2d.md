@@ -1,14 +1,14 @@
 # Point2D
 
-This page will explain the `Point2D` class.
+This page explains the `Point2D` class.
 
 ## What is the Point2D class?
 
-The `Point2D` class is the basic 2D coordinates class interface. This handles the x-coordinate and y-coordinate. This is used, for example, the `Polygon` class drawing to specify each vertex point.
+The `Point2D` class is the 2D coordinates class interface. This interface handles the x-coordinate and y-coordinate. This interface is used, for example, the `Polygon` class drawing to specify each vertex point.
 
 ## Basic usage
 
-The `Point2D` class constructor requires two parameters, the `x` and `y`. Both parameters type is the Python built-in `int` or `Int`.
+The `Point2D` class constructor requires the `x` and `y` arguments. Both parameters type is the Python built-in `int` or `Int`\.
 
 ```py
 # runnable
@@ -23,7 +23,7 @@ point_2: ap.Point2D = ap.Point2D(x=x, y=y)
 
 ## X and y getter interfaces
 
-The `Point2D` class `x` and `y` property interfaces will return the `Int` type value, as follows:
+The `Point2D` class `x` and `y` property interfaces returns the `Int` type value, as follows:
 
 ```py
 # runnable
@@ -36,7 +36,7 @@ assert point.y == 20
 
 ## X and y setter interfaces
 
-The `x` and `y` property can be updated with a `Int` type value, as follows:
+The `x` and `y` property can be updated with an `Int` type value, as follows:
 
 ```py
 # runnable
@@ -49,9 +49,9 @@ assert point.x == 30
 
 ## Usage example of the draw_polygon interface
 
-The `draw_polygon` interface will requires `Point2D` list argument, so this section will show the example of the `Point2D` class with that drawing interface.
+The `draw_polygon` interface requires the `Point2D` list argument so that this section shows the example of the `Point2D` class with that drawing interface.
 
-The following will draw the triangle vector graphics by specification of the three points:
+The following draws the triangle vector graphics by specifying the three points:
 
 ```py
 # runnable

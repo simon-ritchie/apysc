@@ -1,22 +1,22 @@
 # Mousemove interface
 
-This page will explain the `mousemove` interface.
+This page explains the `mousemove` interface.
 
 ## What interface is this?
 
-`mousemove` interface will bind the mouse moving event handler to any `DisplayObject` instance. If you move the mouse cursor on that instance the registered handler will be called.
+The `mousemove` interface binds the mouse moving event handler to any `DisplayObject` instance. If you move the mouse cursor on that instance, the interface calls the registered handler.
 
 ## See also
 
-Common mouse event interfaces are described by the following page.
+The following page describes the basic mouse event interfaces.
 
-- [Common mouse event interfaces](mouse_event_common.md)
+- [Basic mouse event interfaces](mouse_event_common.md)
 
 ## Basic usage
 
 Each `DisplayObject` instance has the `mousemove` method, and you can bind handlers by that.
 
-The following example will bind the mouse move event handler to the circle and if you move a mouse cursor on that, the circle will follow the cursor position.
+The following example binds the mouse move event handler to the circle. So if you move a mouse cursor on that, the circle follows the cursor position.
 
 ```py
 # runnable
@@ -26,8 +26,7 @@ import apysc as ap
 def on_mousemove(
         e: ap.MouseEvent[ap.Circle], options: dict) -> None:
     """
-    The handler would be called when a mouse cursor is moved
-    on the circle.
+    The handler that the circle calls when mousemove.
 
     Parameters
     ----------
@@ -60,9 +59,9 @@ ap.save_overall_html(
 
 ## Unbind interfaces
 
-`unbind_mousemove` interface can remove the binding of the mouse move event from the `DisplayObject`.
+`unbind_mousemove` interface can remove the binding of the mouse move event from the `DisplayObject`\.
 
-In the following example, if you click the circle then the mouse move event handler will be removed.
+In the following example, the interface removes the mouse move event handler if you click the circle.
 
 ```py
 # runnable
@@ -72,8 +71,7 @@ import apysc as ap
 def on_mousemove(
         e: ap.MouseEvent[ap.Circle], options: dict) -> None:
     """
-    The handler would be called when a mouse cursor is moved
-    on the circle.
+    The handler that the circle calls when mousemove.
 
     Parameters
     ----------
@@ -89,7 +87,7 @@ def on_mousemove(
 
 def on_click(e: ap.MouseEvent[ap.Circle], options: dict) -> None:
     """
-    The handler would be called when the circle is clicked.
+    The handler that the circle calls when clicked.
 
     Parameters
     ----------
@@ -120,4 +118,4 @@ ap.save_overall_html(
 
 <iframe src="static/mousemove_unbind_interface/index.html" width="200" height="200"></iframe>
 
-There are also existing the `unbind_mousemove_all` interface. This interface will unbind all the handlers from the target `DisplayObject` instance.
+There are also existing the `unbind_mousemove_all` interface. This interface unbinds all the handlers from the target `DisplayObject` instance.

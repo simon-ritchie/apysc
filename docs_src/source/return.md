@@ -1,20 +1,20 @@
 # Return
 
-This page will explain the `Return` class.
+This page explains the `Return` class.
 
-Before reading on, maybe it is useful to read the following page (the `Return` class will be used for the same reason of each apysc data type):
+Before reading on, maybe it is helpful to read the following page (the apysc uses the `Return` class for the same reason of each apysc data type):
 
 - [Why not using the Python built-in data type in the apysc library?](why_not_using_python_builtin_data_type.md)
 
 ## What is the Return class?
 
-The `Return` class will be used to append the `return;` JavaScript code. This class can be used only in an event handler (function or method) scope.
+The `Return` class behaves to append the `return;` JavaScript code. Therefore, this class can be used only in an event handler (function or method) scope.
 
 ## Basic usage
 
-The `Return` class constructor accepts no arguments. This interface will be used with the branch condition, like the `ap.If` class.
+The `Return` class constructor accepts no arguments. You can use this interface with the branch condition, for example, the `ap.If` class.
 
-The following example will change the rectangle fill color when you click it. Each `ap.If` branch instantiate `Return` class so the changing of fill color will be applied one by one:
+The following example changes the rectangle fill color when you click it. Each `ap.If` branch instantiate `Return` class, so the code applies the changing of fill color one by one:
 
 ```py
 # runnable
@@ -24,7 +24,7 @@ import apysc as ap
 def on_click(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the rectangle is clicked.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------

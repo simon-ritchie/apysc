@@ -1,6 +1,6 @@
 # Quick start guide
 
-This page will explain the first step of the apysc library journey.
+This page explains the first step of the apysc library journey.
 
 ## Installing
 
@@ -23,7 +23,7 @@ import apysc as ap
 stage = ap.Stage(stage_width=300, stage_height=180, background_color='#333')
 ```
 
-Then you can export each HTML and js files by the `save_overall_html` function (in this case, only the black background stage will be displayed).
+Then you can export each HTML and js file by the `save_overall_html` function (in this case, that code displays only the black background stage).
 
 ```py
 # runnable
@@ -42,7 +42,7 @@ This code will create each HTML and js files to `dest_dir_path`. You can confirm
 
 ## Add sprite container and vector graphics
 
-`Sprite` class is the basic container object of each display object, and it can make vector graphics with the `graphics` property.
+The `Sprite` class is the container object of each display object, and it can make vector graphics with the `graphics` property.
 
 ```py
 # runnable
@@ -70,4 +70,9 @@ ap.save_overall_html(
 
 <iframe src="static/quick_start_sprite_graphics/index.html" width="250" height="150"></iframe>
 
-For more details of `Sprite` and `Graphics` and so on, please see each interface documentation page.
+Please see each interface documentation page for more details of `Sprite` and `Graphics`\.
+
+## See also
+
+- [Sprite class](sprite.md)
+- [Draw interfaces abstract](draw_interfaces_abstract.md)

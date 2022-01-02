@@ -45,7 +45,7 @@
             
   <section id="quick-start-guide">
 <h1>Quick start guide<a class="headerlink" href="#quick-start-guide" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the first step of the apysc library journey.</p>
+<p>This page explains the first step of the apysc library journey.</p>
 <section id="installing">
 <h2>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h2>
 <p>To use apysc library Python 3.6 or the later version is required.</p>
@@ -63,7 +63,7 @@
 <span class="n">stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span><span class="n">stage_width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Then you can export each HTML and js files by the <code class="docutils literal notranslate"><span class="pre">save_overall_html</span></code> function (in this case, only the black background stage will be displayed).</p>
+<p>Then you can export each HTML and js file by the <code class="docutils literal notranslate"><span class="pre">save_overall_html</span></code> function (in this case, that code displays only the black background stage).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -78,7 +78,7 @@
 <iframe src="static/quick_start_stage_creation/index.html" width="300" height="180"></iframe></section>
 <section id="add-sprite-container-and-vector-graphics">
 <h2>Add sprite container and vector graphics<a class="headerlink" href="#add-sprite-container-and-vector-graphics" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class is the basic container object of each display object, and it can make vector graphics with the <code class="docutils literal notranslate"><span class="pre">graphics</span></code> property.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class is the container object of each display object, and it can make vector graphics with the <code class="docutils literal notranslate"><span class="pre">graphics</span></code> property.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -102,7 +102,14 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;quick_start_sprite_graphics/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/quick_start_sprite_graphics/index.html" width="250" height="150"></iframe><p>For more details of <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> and <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> and so on, please see each interface documentation page.</p>
+<iframe src="static/quick_start_sprite_graphics/index.html" width="250" height="150"></iframe><p>Please see each interface documentation page for more details of <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> and <code class="docutils literal notranslate"><span class="pre">Graphics</span></code>.</p>
+</section>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="sprite.html"><span class="doc">Sprite class</span></a></p></li>
+<li><p><a class="reference internal" href="draw_interfaces_abstract.html"><span class="doc">Draw interfaces abstract</span></a></p></li>
+</ul>
 </section>
 </section>
 
@@ -122,6 +129,7 @@
 <li><a class="reference internal" href="#installing">Installing</a></li>
 <li><a class="reference internal" href="#create-stage-and-export-html">Create stage and export HTML</a></li>
 <li><a class="reference internal" href="#add-sprite-container-and-vector-graphics">Add sprite container and vector graphics</a></li>
+<li><a class="reference internal" href="#see-also">See also</a></li>
 </ul>
 </li>
 </ul>

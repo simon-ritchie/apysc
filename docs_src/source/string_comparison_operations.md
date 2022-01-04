@@ -1,10 +1,10 @@
 # String class comparison operations
 
-This page will explain the `String` class comparison operations, like the `=`, `>=`.
+This page explains the `String` class comparison operations, like the `=`\, `>=`\.
 
 ## Comparison return value type
 
-Each `String` class comparison operation will return a `Boolean` value, not a Python built-in `bool` value.
+Each `String` class comparison operation returns a `Boolean` value, not a Python built-in `bool` value.
 
 ```py
 # runnable
@@ -67,7 +67,7 @@ assert result
 
 ## Less than or greater than comparison
 
-You can use each less than, less than or equal, greater than, greater than or equal comparison, with the `<`, `<=`, `>`, `>=` operators, like the Python built-in `str` value. Sometimes these operations are useful to compare with the date (or date-time) string.
+You can use each less than, less than or equal, greater than, greater than equal comparison, with the `<`\, `<=`\, `>`\, `>=` operators, like the Python built-in `str` value. Sometimes these operations are helpful to compare with the date (or date-time) string.
 
 ```py
 # runnable

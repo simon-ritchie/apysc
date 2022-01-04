@@ -45,11 +45,11 @@
             
   <section id="stage">
 <h1>Stage<a class="headerlink" href="#stage" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Stage</span></code> class.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Stage</span></code> class.</p>
 <section id="what-is-the-stage">
 <h2>What is the Stage?<a class="headerlink" href="#what-is-the-stage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Stage</span></code> is the apysc overall drawing area (it’s like a viewport or canvas, or something else) and a container of all elements.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">Stage</span></code> must be created at the first of the apysc project (this will run cleaning up files).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Stage</span></code> is the apysc overall drawing area (like a viewport or canvas, or something else) and a container of all elements.</p>
+<p>You must create the <code class="docutils literal notranslate"><span class="pre">Stage</span></code> at the first of the apysc project (this runs cleaning up internal data and files).</p>
 </section>
 <section id="create-stage">
 <h2>Create stage<a class="headerlink" href="#create-stage" title="Permalink to this headline">¶</a></h2>
@@ -63,7 +63,7 @@
 </section>
 <section id="stage-background-color-setting">
 <h2>Stage background color setting<a class="headerlink" href="#stage-background-color-setting" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Stage</span></code> class has a <code class="docutils literal notranslate"><span class="pre">background_color</span></code> option, and this will change the stage’s background color.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Stage</span></code> class has a <code class="docutils literal notranslate"><span class="pre">background_color</span></code> option, which changes the stage’s background color.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -79,7 +79,7 @@
 <iframe src="static/stage_background_color/index.html" width="300" height="185"></iframe></section>
 <section id="stage-size-setting">
 <h2>Stage size setting<a class="headerlink" href="#stage-size-setting" title="Permalink to this headline">¶</a></h2>
-<p>Stage class has options to set stage width and stage height (arguments of <code class="docutils literal notranslate"><span class="pre">stage_width</span></code> and <code class="docutils literal notranslate"><span class="pre">stage_height</span></code>). These settings will change stage sizes.</p>
+<p>Stage class has options to set stage width and stage height (arguments of <code class="docutils literal notranslate"><span class="pre">stage_width</span></code> and <code class="docutils literal notranslate"><span class="pre">stage_height</span></code>). These settings change stage sizes.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -96,7 +96,7 @@
 <iframe src="static/stage_size/index.html" width="500", height="50"></iframe></section>
 <section id="stage-element-id-setting">
 <h2>Stage element id setting<a class="headerlink" href="#stage-element-id-setting" title="Permalink to this headline">¶</a></h2>
-<p>Stage element id (HTML id) can be set by <code class="docutils literal notranslate"><span class="pre">stage_elem_id</span></code> argument. If this will not be specified, then any unique id will be set (based on created timestamp, like <code class="docutils literal notranslate"><span class="pre">stage_12345...</span></code>).</p>
+<p>Stage element id (HTML id) can be set by <code class="docutils literal notranslate"><span class="pre">stage_elem_id</span></code> argument. If you don’t specify this, the apysc sets any unique id (based on created timestamp, like <code class="docutils literal notranslate"><span class="pre">stage_12345...</span></code>).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -105,7 +105,7 @@
     <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;line_chart_1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This option is useful when apysc project is used multiple times (for an easily identifiable ID) or for version control.</p>
+<p>This option is useful when using the apysc project multiple times (for an easily identifiable ID) or version control.</p>
 </section>
 </section>
 

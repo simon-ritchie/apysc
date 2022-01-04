@@ -1,8 +1,8 @@
 # String
 
-This page will explain the `String` class.
+This page explains the `String` class.
 
-Before reading on, maybe it is useful to read the following page:
+Before reading on, maybe it is helpful to read the following page:
 
 - [Why not using the Python built-in data type in the apysc library?](why_not_using_python_builtin_data_type.md)
 

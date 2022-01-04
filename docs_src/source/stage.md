@@ -1,12 +1,12 @@
 # Stage
 
-This page will explain the `Stage` class.
+This page explains the `Stage` class.
 
 ## What is the Stage?
 
-The `Stage` is the apysc overall drawing area (it's like a viewport or canvas, or something else) and a container of all elements.
+The `Stage` is the apysc overall drawing area (like a viewport or canvas, or something else) and a container of all elements.
 
-The `Stage` must be created at the first of the apysc project (this will run cleaning up files).
+You must create the `Stage` at the first of the apysc project (this runs cleaning up internal data and files).
 
 ## Create stage
 
@@ -21,7 +21,7 @@ stage: ap.Stage = ap.Stage()
 
 ## Stage background color setting
 
-`Stage` class has a `background_color` option, and this will change the stage's background color.
+`Stage` class has a `background_color` option, which changes the stage's background color.
 
 ```py
 # runnable
@@ -41,7 +41,7 @@ This will create HTML with black background stage, as follows:
 
 ## Stage size setting
 
-Stage class has options to set stage width and stage height (arguments of `stage_width` and `stage_height`). These settings will change stage sizes.
+Stage class has options to set stage width and stage height (arguments of `stage_width` and `stage_height`). These settings change stage sizes.
 
 ```py
 # runnable
@@ -62,7 +62,7 @@ The Previous script will create a horizontal stage, as follows:
 
 ## Stage element id setting
 
-Stage element id (HTML id) can be set by `stage_elem_id` argument. If this will not be specified, then any unique id will be set (based on created timestamp, like `stage_12345...`).
+Stage element id (HTML id) can be set by `stage_elem_id` argument. If you don't specify this, the apysc sets any unique id (based on created timestamp, like `stage_12345...`).
 
 ```py
 # runnable
@@ -73,4 +73,4 @@ stage: ap.Stage = ap.Stage(
     stage_elem_id='line_chart_1')
 ```
 
-This option is useful when apysc project is used multiple times (for an easily identifiable ID) or for version control.
+This option is useful when using the apysc project multiple times (for an easily identifiable ID) or version control.

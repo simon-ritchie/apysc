@@ -1,10 +1,10 @@
 # String class addition and multiplication operations
 
-This page will explain the `String` class addition and multiplication operations.
+This page explains the `String` class addition and multiplication operations.
 
 ## Addition
 
-The `String` class addition operation (`+`) will return the concatenated `String` value:
+The `String` class addition operation (`+`) returns the concatenated `String` value:
 
 ```py
 # runnable
@@ -39,7 +39,7 @@ string_3: ap.String = string_1 + string_2
 assert string_3 == 'Hello World!'
 ```
 
-But a Python built-in `str` + `String` value is not supported, for instance, the following code will raise the error:
+But a Python built-in `str` + `String` value is not supported; for instance, the following code raises an error:
 
 ```py
 import apysc as ap
@@ -54,7 +54,7 @@ TypeError: must be str, not String
 
 ## Multiplication
 
-The `String` class multiplication operation (`*`) will return the repeated `String` value, same behaviors as the Python built-in `str` value:
+The `String` class multiplication operation (`*`) returns the repeated `String` value, same behaviors as the Python built-in `str` value:
 
 ```py
 # runnable

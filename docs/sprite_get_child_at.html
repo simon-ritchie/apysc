@@ -45,14 +45,14 @@
             
   <section id="sprite-class-get-child-at-interface">
 <h1>Sprite class get_child_at interface<a class="headerlink" href="#sprite-class-get-child-at-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class (or the other container class, like the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code>) <code class="docutils literal notranslate"><span class="pre">get_child_at</span></code> method interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class (or the other container class, like the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code>) <code class="docutils literal notranslate"><span class="pre">get_child_at</span></code> method interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">get_child_at</span></code> interface will return a child (<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>) instance at the specified index.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">get_child_at</span></code> interface returns a child (<code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code>) instance at the specified index.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The following code example is adding the rectangle to the sprite container. The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class will add the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> instance at the constructor, so the first child will be the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> instance. The second child will be the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> instance, that added by the <code class="docutils literal notranslate"><span class="pre">add_child</span></code> method.</p>
+<p>The following code example is adding the rectangle to the sprite container. The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class adds the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> instance at the constructor so that the first child becomes the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> instance. The second child becomes the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> instance, which the sprite added with the <code class="docutils literal notranslate"><span class="pre">add_child</span></code> method.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 

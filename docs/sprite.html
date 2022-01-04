@@ -45,7 +45,7 @@
             
   <section id="sprite">
 <h1>Sprite<a class="headerlink" href="#sprite" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class.</p>
 <section id="what-is-the-sprite">
 <h2>What is the Sprite?<a class="headerlink" href="#what-is-the-sprite" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class is the container of each <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instance. It also has the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> class interfaces and can draw each vector graphic.</p>
@@ -56,7 +56,7 @@
 </section>
 <section id="graphics-attribute-interfaces">
 <h2>graphics attribute interfaces<a class="headerlink" href="#graphics-attribute-interfaces" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">graphics</span></code> attribute, and you can draw each vector graphic with it. For example, the following code will draw the cyan color rectangle.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance has the <code class="docutils literal notranslate"><span class="pre">graphics</span></code> attribute, and you can draw each vector graphic with it. For example, the following code draws the cyan color rectangle.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -85,7 +85,7 @@
 </section>
 <section id="move-displayobject-instances-simultaneously">
 <h2>Move DisplayObject instances simultaneously<a class="headerlink" href="#move-displayobject-instances-simultaneously" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class is a container, and if you move that coordinates, then children’s coordinates will be changed simultaneously. For example, the following code will change the sprite y-coordinate when you click the rectangle.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class is a container, and if you move that coordinates, it changes children’s coordinates simultaneously. For example, the following code changes the sprite y-coordinate when clicking the rectangle.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -93,7 +93,7 @@
 <span class="k">def</span> <span class="nf">on_sprite_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when the sprite instance is clicked.</span>
+<span class="sd">    The handler that the sprite calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -122,7 +122,7 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;sprite_move_instances_simultaneously/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe src="static/sprite_move_instances_simultaneously/index.html" width="250" height="250"></iframe><p>The subsequent pages will explain the other interfaces, such as the <code class="docutils literal notranslate"><span class="pre">add_child</span></code> interface.</p>
+<iframe src="static/sprite_move_instances_simultaneously/index.html" width="250" height="250"></iframe><p>The subsequent pages explain the other interfaces, such as the <code class="docutils literal notranslate"><span class="pre">add_child</span></code> interface.</p>
 </section>
 <section id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>

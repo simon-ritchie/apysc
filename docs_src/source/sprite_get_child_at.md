@@ -1,14 +1,14 @@
 # Sprite class get_child_at interface
 
-This page will explain the `Sprite` class (or the other container class, like the `Graphics`) `get_child_at` method interface.
+This page explains the `Sprite` class (or the other container class, like the `Graphics`) `get_child_at` method interface.
 
 ## What interface is this?
 
-The `get_child_at` interface will return a child (`DisplayObject`) instance at the specified index.
+The `get_child_at` interface returns a child (`DisplayObject`) instance at the specified index.
 
 ## Basic usage
 
-The following code example is adding the rectangle to the sprite container. The `Sprite` class will add the `Graphics` instance at the constructor, so the first child will be the `Graphics` instance. The second child will be the `Rectangle` instance, that added by the `add_child` method.
+The following code example is adding the rectangle to the sprite container. The `Sprite` class adds the `Graphics` instance at the constructor so that the first child becomes the `Graphics` instance. The second child becomes the `Rectangle` instance, which the sprite added with the `add_child` method.
 
 ```py
 # runnable

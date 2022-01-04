@@ -45,14 +45,14 @@
             
   <section id="sprite-class-contains-interface">
 <h1>Sprite class contains interface<a class="headerlink" href="#sprite-class-contains-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class (or the other container class, like the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code>) <code class="docutils literal notranslate"><span class="pre">contains</span></code> method interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class (or the other container class, like the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code>) <code class="docutils literal notranslate"><span class="pre">contains</span></code> method interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">contains</span></code> interface will return the boolean (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>) value whether that <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance has a given child or not.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">contains</span></code> interface returns the boolean (<code class="docutils literal notranslate"><span class="pre">Boolean</span></code>) value whether that <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> instance has a given child or not.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The following example will check whether the first rectangle is a child of the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> container and if it is true then remove the rectangle from the sprite and display a log to the console (please press F12 to display that message).</p>
+<p>The following example checks whether the first rectangle is a child of the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> container. If it is <code class="docutils literal notranslate"><span class="pre">true</span></code>, remove the rectangle from the sprite and display a log to the console (please press F12 to display that message).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -66,7 +66,7 @@
 <span class="k">def</span> <span class="nf">on_sprite_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when the sprite instance is clicked.</span>
+<span class="sd">    The handler that the sprite calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

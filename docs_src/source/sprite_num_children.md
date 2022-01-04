@@ -1,10 +1,10 @@
 # Sprite class num_children interface
 
-This page will explain the `Sprite` class (or the other container class, like the `Graphics`) `num_children` property interface.
+This page explains the `Sprite` class (or the other container class, like the `Graphics`) `num_children` property interface.
 
 ## What interface is this?
 
-The `num_children` property interface will return the integer (`Int`) value of the number of children.
+The `num_children` property interface returns the integer (`Int`) value of the number of children.
 
 ## Notes
 
@@ -12,9 +12,9 @@ The `Sprite` instance's initial children number is 1, not 0 since a sprite insta
 
 ## Basic usage
 
-The `num_children` property will return the number of children (`Int` value). You can use it for the calculation, for instance, coordinates calculation.
+The `num_children` property returns the number of children (`Int` value). You can use it for the calculation, for instance, coordinates calculation.
 
-The following example will append a new rectangle when you click the sprite (rectangle) instance. A new rectangle x-coordinate will be determined by the `num_children` property. The current `num_children` property value will be also displayed to the browser console when you click a rectangle (please press the F12 key).
+The following example appends a new rectangle when you click the sprite (rectangle) instance. The `num_children` property determines a new rectangle x-coordinate. This code also displays the current `num_children` property value to the browser console when clicking a rectangle (please press the F12 key).
 
 ```py
 # runnable
@@ -24,7 +24,7 @@ import apysc as ap
 def on_sprite_click(
         e: ap.MouseEvent[ap.Sprite], options: dict) -> None:
     """
-    The handler would be called when the sprite instance is clicked.
+    The handler that the sprite calls when clicked.
 
     Parameters
     ----------

@@ -1,14 +1,14 @@
 # Sprite class contains interface
 
-This page will explain the `Sprite` class (or the other container class, like the `Graphics`) `contains` method interface.
+This page explains the `Sprite` class (or the other container class, like the `Graphics`) `contains` method interface.
 
 ## What interface is this?
 
-The `contains` interface will return the boolean (`Boolean`) value whether that `Sprite` instance has a given child or not.
+The `contains` interface returns the boolean (`Boolean`) value whether that `Sprite` instance has a given child or not.
 
 ## Basic usage
 
-The following example will check whether the first rectangle is a child of the `Sprite` container and if it is true then remove the rectangle from the sprite and display a log to the console (please press F12 to display that message).
+The following example checks whether the first rectangle is a child of the `Sprite` container. If it is `true`\, remove the rectangle from the sprite and display a log to the console (please press F12 to display that message).
 
 ```py
 # runnable
@@ -24,7 +24,7 @@ class _RectOptions(TypedDict):
 def on_sprite_click(
         e: ap.MouseEvent[ap.Sprite], options: _RectOptions) -> None:
     """
-    The handler would be called when the sprite instance is clicked.
+    The handler that the sprite calls when clicked.
 
     Parameters
     ----------

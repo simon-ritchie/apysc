@@ -1,6 +1,6 @@
 # Sprite
 
-This page will explain the `Sprite` class.
+This page explains the `Sprite` class.
 
 ## What is the Sprite?
 
@@ -12,7 +12,7 @@ The `Sprite` instance is automated added to the stage (no need to call `add_chil
 
 ## graphics attribute interfaces
 
-The `Sprite` instance has the `graphics` attribute, and you can draw each vector graphic with it. For example, the following code will draw the cyan color rectangle.
+The `Sprite` instance has the `graphics` attribute, and you can draw each vector graphic with it. For example, the following code draws the cyan color rectangle.
 
 ```py
 # runnable
@@ -44,7 +44,7 @@ For more details, please see the `Graphics` related documents, for example:
 
 ## Move DisplayObject instances simultaneously
 
-The `Sprite` class is a container, and if you move that coordinates, then children's coordinates will be changed simultaneously. For example, the following code will change the sprite y-coordinate when you click the rectangle.
+The `Sprite` class is a container, and if you move that coordinates, it changes children's coordinates simultaneously. For example, the following code changes the sprite y-coordinate when clicking the rectangle.
 
 ```py
 # runnable
@@ -54,7 +54,7 @@ import apysc as ap
 def on_sprite_click(
         e: ap.MouseEvent[ap.Sprite], options: dict) -> None:
     """
-    The handler would be called when the sprite instance is clicked.
+    The handler that the sprite calls when clicked.
 
     Parameters
     ----------
@@ -85,7 +85,7 @@ ap.save_overall_html(
 
 <iframe src="static/sprite_move_instances_simultaneously/index.html" width="250" height="250"></iframe>
 
-The subsequent pages will explain the other interfaces, such as the `add_child` interface.
+The subsequent pages explain the other interfaces, such as the `add_child` interface.
 
 ## See also
 

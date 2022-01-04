@@ -45,10 +45,10 @@
             
   <section id="sprite-class-num-children-interface">
 <h1>Sprite class num_children interface<a class="headerlink" href="#sprite-class-num-children-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class (or the other container class, like the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code>) <code class="docutils literal notranslate"><span class="pre">num_children</span></code> property interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> class (or the other container class, like the <code class="docutils literal notranslate"><span class="pre">Graphics</span></code>) <code class="docutils literal notranslate"><span class="pre">num_children</span></code> property interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">num_children</span></code> property interface will return the integer (<code class="docutils literal notranslate"><span class="pre">Int</span></code>) value of the number of children.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">num_children</span></code> property interface returns the integer (<code class="docutils literal notranslate"><span class="pre">Int</span></code>) value of the number of children.</p>
 </section>
 <section id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
@@ -56,8 +56,8 @@
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">num_children</span></code> property will return the number of children (<code class="docutils literal notranslate"><span class="pre">Int</span></code> value). You can use it for the calculation, for instance, coordinates calculation.</p>
-<p>The following example will append a new rectangle when you click the sprite (rectangle) instance. A new rectangle x-coordinate will be determined by the <code class="docutils literal notranslate"><span class="pre">num_children</span></code> property. The current <code class="docutils literal notranslate"><span class="pre">num_children</span></code> property value will be also displayed to the browser console when you click a rectangle (please press the F12 key).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">num_children</span></code> property returns the number of children (<code class="docutils literal notranslate"><span class="pre">Int</span></code> value). You can use it for the calculation, for instance, coordinates calculation.</p>
+<p>The following example appends a new rectangle when you click the sprite (rectangle) instance. The <code class="docutils literal notranslate"><span class="pre">num_children</span></code> property determines a new rectangle x-coordinate. This code also displays the current <code class="docutils literal notranslate"><span class="pre">num_children</span></code> property value to the browser console when clicking a rectangle (please press the F12 key).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -65,7 +65,7 @@
 <span class="k">def</span> <span class="nf">on_sprite_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when the sprite instance is clicked.</span>
+<span class="sd">    The handler that the sprite calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

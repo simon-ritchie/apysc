@@ -45,15 +45,15 @@
             
   <section id="timer-class-timer-complete-interface">
 <h1>Timer class timer_complete interface<a class="headerlink" href="#timer-class-timer-complete-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Timer</span></code> class <code class="docutils literal notranslate"><span class="pre">timer_complete</span></code> method interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Timer</span></code> class <code class="docutils literal notranslate"><span class="pre">timer_complete</span></code> method interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">timer_complete</span></code> method interface will bind a new handler would be called when a timer is complete. For instance, if the <code class="docutils literal notranslate"><span class="pre">repeat_count</span></code> argument is set to 100, then this handler will be called when a timer handling count is reached 100 times.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">timer_complete</span></code> method interface binds a new handler that a timer calls when it is complete. For instance, if the <code class="docutils literal notranslate"><span class="pre">repeat_count</span></code> argument is 100, it calls this handler when a timer count reaches 100 times.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">timer_complete</span></code> method has the same interface as the other event binding interface (arguments of the <code class="docutils literal notranslate"><span class="pre">handler</span></code> callable and <code class="docutils literal notranslate"><span class="pre">options</span></code> dictionary).</p>
-<p>The following example will start the first timer (rotating the left-side rectangle) when you click the rectangle, and if that one is complete then the second timer will be started:</p>
+<p>The following example starts the first timer (rotating the left-side rectangle) when you click the rectangle. If that one completes, then the second timer starts:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -71,7 +71,7 @@
 
 <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectsOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when any rectangle is clicked.</span>
+<span class="sd">    The handler that a rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -95,7 +95,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called from a timer.</span>
+<span class="sd">    The handler that a timer calls.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -110,7 +110,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer_1_complete</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when the first timer is complete.</span>
+<span class="sd">    The handler that the first time calls when completed.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

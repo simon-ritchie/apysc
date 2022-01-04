@@ -45,15 +45,14 @@
             
   <section id="timerevent-class">
 <h1>TimerEvent class<a class="headerlink" href="#timerevent-class" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">TimerEvent</span></code> class.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">TimerEvent</span></code> class.</p>
 <section id="what-class-is-this">
 <h2>What class is this?<a class="headerlink" href="#what-class-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">TimerEvent</span></code> class is the event class that would be passed to a timer event handler function.</p>
-<p>The handler would be passed to the <code class="docutils literal notranslate"><span class="pre">Timer</span></code> class constructor handler and the <code class="docutils literal notranslate"><span class="pre">timer_complete</span></code> interfaces event instance will be this event instance.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">TimerEvent</span></code> class is the event class that a timer passes to a timer event handler function, such as the <code class="docutils literal notranslate"><span class="pre">Timer</span></code> class constructor or the <code class="docutils literal notranslate"><span class="pre">timer_complete</span></code> function.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>Each timer event handler’s <code class="docutils literal notranslate"><span class="pre">e</span></code> argument will be <code class="docutils literal notranslate"><span class="pre">TimerEvent</span></code> class instance.</p>
+<p>Each timer event handler’s <code class="docutils literal notranslate"><span class="pre">e</span></code> argument becomes the <code class="docutils literal notranslate"><span class="pre">TimerEvent</span></code> class instance.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -66,7 +65,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called from a timer.</span>
+<span class="sd">    The handler that the timer calls.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -81,7 +80,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer_complete</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when the timer is complete.</span>
+<span class="sd">    The handler that the timer calls when completed.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -114,7 +113,7 @@
 <iframe src="static/timer_event_basic_usage/index.html" width="150" height="150"></iframe></section>
 <section id="this-attribute">
 <h2>This attribute<a class="headerlink" href="#this-attribute" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">TimerEvent</span></code> instance’s <code class="docutils literal notranslate"><span class="pre">this</span></code> attribute will be the target <code class="docutils literal notranslate"><span class="pre">Timer</span></code> instance, and you can use each timer instance interface from it.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">TimerEvent</span></code> instance’s <code class="docutils literal notranslate"><span class="pre">this</span></code> attribute becomes the target <code class="docutils literal notranslate"><span class="pre">Timer</span></code> instance, and you can use each timer instance interface from it.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -127,7 +126,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called from a timer.</span>
+<span class="sd">    The handler that the timer calls.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

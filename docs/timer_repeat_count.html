@@ -45,15 +45,15 @@
             
   <section id="timer-class-repeat-count-setting">
 <h1>Timer class repeat_count setting<a class="headerlink" href="#timer-class-repeat-count-setting" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Timer</span></code> class <code class="docutils literal notranslate"><span class="pre">repeat_count</span></code> argument setting.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Timer</span></code> class <code class="docutils literal notranslate"><span class="pre">repeat_count</span></code> argument setting.</p>
 <section id="what-argument-is-this">
 <h2>What argument is this?<a class="headerlink" href="#what-argument-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">repeat_count</span></code> argument setting will determine the max handler calling number. If you specify the 10 value, then a timer will call the handler 10 times and will stop.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">repeat_count</span></code> argument setting determines the max handler calling number. For example, if you specify the 10 value, a timer calls the handler 10 times and stops.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>You can set the <code class="docutils literal notranslate"><span class="pre">repeat_count</span></code> parameter at the <code class="docutils literal notranslate"><span class="pre">Timer</span></code> constructor. The following example will set the timer with the 100 times <code class="docutils literal notranslate"><span class="pre">repeat_count</span></code> value when you click the rectangle.</p>
-<p>If the rectangle was moved 100 times (100-pixels to the right) then the timer will stop.</p>
+<p>You can set the <code class="docutils literal notranslate"><span class="pre">repeat_count</span></code> parameter at the <code class="docutils literal notranslate"><span class="pre">Timer</span></code> constructor. The following example sets the timer with the 100 times <code class="docutils literal notranslate"><span class="pre">repeat_count</span></code> value when clicking the rectangle.</p>
+<p>If the timer moves the rectangle 100 times (100-pixels to the right), the timer stops.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -67,7 +67,7 @@
 <span class="k">def</span> <span class="nf">on_rectangle_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when a rectangle is clicked.</span>
+<span class="sd">    The handler that a rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -86,7 +86,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called from a timer.</span>
+<span class="sd">    The handler that a timer calls.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

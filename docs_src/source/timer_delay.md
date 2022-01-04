@@ -1,18 +1,18 @@
 # Timer class delay setting
 
-This page will explain the `Timer` class `delay` argument setting.
+This page explains the `Timer` class `delay` argument setting.
 
 ## What argument is this?
 
-The `delay` argument setting will determine the timer tick interval. This setting is a milliseconds unit, so a value of 1000 will tick every 1 second.
+The `delay` argument setting determines the timer tick interval. This setting is a milliseconds unit, so a value of 1000 ticks every 1 second.
 
-The `int`, `float`, `Int`, `Number`, and `FPS` enum can be acceptable.
+The `int`\, `float`\, `Int`\, `Number`\, and `FPS` enum can be acceptable.
 
 ## Basic usage
 
-You can set the `delay` parameter at the `Timer` class constructor. The following example will set each timer (`timer_1`, `timer_2`, `timer_3`) and passing the delay values of `100`, `333.3333333`, `16.6666667`.
+You can set the `delay` parameter at the `Timer` class constructor. The following example sets each timer (`timer_1`, `timer_2`, `timer_3`) and passes the delay values of `100`, `333.3333333`, `16.6666667`.
 
-The first-timer (`delay` is 100) will be called 10 times in a second, and the second one (`delay` is 33.3333333) will be called approximately 30 times in a second, and the third one (`delay` is 16.6666667) will be called approximately 60 times.
+The first-timer (`delay` is 100) is called 10 times in a second, and the second one (`delay` is 33.3333333) is 30 times in a second, and the third one (`delay` is 16.6666667) is 60 times.
 
 ```py
 # runnable
@@ -76,7 +76,7 @@ ap.save_overall_html(
 
 ## Set the FPS enum value to the delay argument
 
-You can also pass the `FPS` (frames per second) enum value to the `delay` argument. If the `FPS.FPS_60` is specified, a timer delay will be 60 frames per second (16.6666667 milliseconds). Likely, the `FPS.FPS_30` is specified, a timer delay will be 30 frames per second (33.3333333 milliseconds).
+You can also pass the `FPS` (frames per second) enum value to the `delay` argument. For example, if the `FPS.FPS_60` is specified, a timer delay becomes 60 frames per second (16.6666667 milliseconds). Likely, the `FPS.FPS_30` is specified, a timer delay becomes 30 frames per second (33.3333333 milliseconds).
 
 ```py
 # runnable

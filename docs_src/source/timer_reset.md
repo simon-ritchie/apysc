@@ -1,16 +1,16 @@
 # Timer class reset interface
 
-This page will explain the `Timer` class `reset` method interface.
+This page explains the `Timer` class `reset` method interface.
 
 ## What interface is this?
 
-The `reset` method interface will reset a timer count and stop it.
+The `reset` method interface resets a timer count and stops it.
 
 ## Basic usage
 
 The `reset` method has no arguments.
 
-The following example will rotate the rectangle 90 degrees (`repeat_count=90`) by the first-timer, and then reset and start the second one. The second-timer will reset and restart the first-timer after 1 second.
+The following example rotates the rectangle 90 degrees (`repeat_count=90`) by the first-timer and then reset and start the second one. The second-timer resets and restart the first-timer after 1 second.
 
 ```py
 # runnable
@@ -37,7 +37,7 @@ class _TimerOptions(TypedDict):
 
 def on_first_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
-    The handler would be called from the first timer.
+    The handler that the first-timer calls.
 
     Parameters
     ----------
@@ -53,7 +53,7 @@ def on_first_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
 def on_first_timer_complete(
         e: ap.TimerEvent, options: _TimerOptions) -> None:
     """
-    The handler would be called when the first timer is complete.
+    The handler that the first-timer calls when completed.
 
     Parameters
     ----------
@@ -69,7 +69,7 @@ def on_first_timer_complete(
 
 def on_second_timer(e: ap.TimerEvent, options: _TimerOptions) -> None:
     """
-    The handler would be called from the second timer.
+    The handler that the second timer calls.
 
     Parameters
     ----------

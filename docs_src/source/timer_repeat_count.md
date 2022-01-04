@@ -1,16 +1,16 @@
 # Timer class repeat_count setting
 
-This page will explain the `Timer` class `repeat_count` argument setting.
+This page explains the `Timer` class `repeat_count` argument setting.
 
 ## What argument is this?
 
-The `repeat_count` argument setting will determine the max handler calling number. If you specify the 10 value, then a timer will call the handler 10 times and will stop.
+The `repeat_count` argument setting determines the max handler calling number. For example, if you specify the 10 value, a timer calls the handler 10 times and stops.
 
 ## Basic usage
 
-You can set the `repeat_count` parameter at the `Timer` constructor. The following example will set the timer with the 100 times `repeat_count` value when you click the rectangle.
+You can set the `repeat_count` parameter at the `Timer` constructor. The following example sets the timer with the 100 times `repeat_count` value when clicking the rectangle.
 
-If the rectangle was moved 100 times (100-pixels to the right) then the timer will stop.
+If the timer moves the rectangle 100 times (100-pixels to the right), the timer stops.
 
 ```py
 # runnable
@@ -26,7 +26,7 @@ class _RectOptions(TypedDict):
 def on_rectangle_click(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler would be called when a rectangle is clicked.
+    The handler that a rectangle calls when clicked.
 
     Parameters
     ----------
@@ -45,7 +45,7 @@ def on_rectangle_click(
 
 def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
-    The handler would be called from a timer.
+    The handler that a timer calls.
 
     Parameters
     ----------

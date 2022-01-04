@@ -1,16 +1,14 @@
 # TimerEvent class
 
-This page will explain the `TimerEvent` class.
+This page explains the `TimerEvent` class.
 
 ## What class is this?
 
-The `TimerEvent` class is the event class that would be passed to a timer event handler function.
-
-The handler would be passed to the `Timer` class constructor handler and the `timer_complete` interfaces event instance will be this event instance.
+The `TimerEvent` class is the event class that a timer passes to a timer event handler function, such as the `Timer` class constructor or the `timer_complete` function\.
 
 ## Basic usage
 
-Each timer event handler's `e` argument will be `TimerEvent` class instance.
+Each timer event handler's `e` argument becomes the `TimerEvent` class instance.
 
 ```py
 # runnable
@@ -25,7 +23,7 @@ class _RectOptions(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
-    The handler would be called from a timer.
+    The handler that the timer calls.
 
     Parameters
     ----------
@@ -40,7 +38,7 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
 
 def on_timer_complete(e: ap.TimerEvent, options: dict) -> None:
     """
-    The handler would be called when the timer is complete.
+    The handler that the timer calls when completed.
 
     Parameters
     ----------
@@ -74,7 +72,7 @@ ap.save_overall_html(
 
 ## This attribute
 
-The `TimerEvent` instance's `this` attribute will be the target `Timer` instance, and you can use each timer instance interface from it.
+The `TimerEvent` instance's `this` attribute becomes the target `Timer` instance, and you can use each timer instance interface from it.
 
 ```py
 # runnable
@@ -89,7 +87,7 @@ class _RectOptions(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
-    The handler would be called from a timer.
+    The handler that the timer calls.
 
     Parameters
     ----------

@@ -1,16 +1,16 @@
 # Timer class timer_complete interface
 
-This page will explain the `Timer` class `timer_complete` method interface.
+This page explains the `Timer` class `timer_complete` method interface.
 
 ## What interface is this?
 
-The `timer_complete` method interface will bind a new handler would be called when a timer is complete. For instance, if the `repeat_count` argument is set to 100, then this handler will be called when a timer handling count is reached 100 times.
+The `timer_complete` method interface binds a new handler that a timer calls when it is complete. For instance, if the `repeat_count` argument is 100, it calls this handler when a timer count reaches 100 times.
 
 ## Basic usage
 
 The `timer_complete` method has the same interface as the other event binding interface (arguments of the `handler` callable and `options` dictionary).
 
-The following example will start the first timer (rotating the left-side rectangle) when you click the rectangle, and if that one is complete then the second timer will be started:
+The following example starts the first timer (rotating the left-side rectangle) when you click the rectangle. If that one completes, then the second timer starts:
 
 ```py
 # runnable
@@ -30,7 +30,7 @@ class _RectOptions(TypedDict):
 
 def on_click(e: ap.MouseEvent[ap.Sprite], options: _RectsOptions) -> None:
     """
-    The handler would be called when any rectangle is clicked.
+    The handler that a rectangle calls when clicked.
 
     Parameters
     ----------
@@ -54,7 +54,7 @@ def on_click(e: ap.MouseEvent[ap.Sprite], options: _RectsOptions) -> None:
 
 def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
-    The handler would be called from a timer.
+    The handler that a timer calls.
 
     Parameters
     ----------
@@ -69,7 +69,7 @@ def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
 
 def on_timer_1_complete(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
-    The handler would be called when the first timer is complete.
+    The handler that the first time calls when completed.
 
     Parameters
     ----------

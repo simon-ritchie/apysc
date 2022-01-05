@@ -8,7 +8,7 @@ The `assert_arrays_equal` function interface asserts that the two arrays are equ
 
 ## See also
 
-- [JavaScript assertion interface common behavior](assertion_common_behavior.md)
+- [JavaScript assertion interface basic behavior](assertion_basic_behavior.md)
 
 ## Basic usage
 

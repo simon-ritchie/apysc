@@ -8,7 +8,7 @@ The `assert_equal` function interface asserts that two JavaScript values are equ
 
 ## See also
 
-- [JavaScript assertion interface common behavior](assertion_common_behavior.md)
+- [JavaScript assertion interface basic behavior](assertion_basic_behavior.md)
 
 ## Basic usage
 

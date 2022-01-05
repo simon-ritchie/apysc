@@ -1,14 +1,14 @@
 # Timer class start and stop interfaces
 
-This page will explain the `Timer` class `start` and `stop` method interfaces.
+This page explains the interface of the Timer class `start` and `stop` methods.
 
 ## What interfaces are these?
 
-The `start` method interface will start a timer. Conversely, the `stop` method interface will stop a timer.
+The `start` method interface starts a timer. Conversely, the `stop` method interface stops a timer.
 
 ## Basic usage
 
-Each `start` and `stop` method has no arguments. The following example will start the time when you click the rectangle and stop when the timer count is reached 100.
+Each `start` and `stop` method has no arguments. The following example starts the timer when you click the rectangle and stops when the count reaches 100.
 
 ```py
 # runnable
@@ -24,7 +24,7 @@ class _RectOptions(TypedDict):
 def on_rectangle_click(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler would be called when a rectangle is clicked.
+    The handler that a rectangle calls when clicked.
 
     Parameters
     ----------
@@ -43,7 +43,7 @@ def on_rectangle_click(
 
 def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
-    The handler would be called from a timer.
+    The handler what a timer calls.
 
     Parameters
     ----------

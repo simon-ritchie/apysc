@@ -1,16 +1,16 @@
 # Trace interface
 
-This page will explain the `trace` function interface.
+This page explains the `trace` function interface.
 
 ## What interface is this?
 
-The `trace` function interface will display any message on the browser console. This behaves like the JavaScript `console.log` function.
+The `trace` function interface displays any message on the browser console. This interface behaves like the JavaScript `console.log` function.
 
 ## Basic usage
 
 The `trace` function can accept any number of arguments and various value types.
 
-The following example will draw the rectangle and if you click it, the message will be displayed on the browser console (please press the F12 key).
+The following example draws the rectangle. When clicking the rectangle, the handler displays the message on the browser console (please press the F12 key).
 
 ```py
 # runnable
@@ -20,7 +20,7 @@ import apysc as ap
 def on_rectangle_click(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the rectangle is clicked.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------

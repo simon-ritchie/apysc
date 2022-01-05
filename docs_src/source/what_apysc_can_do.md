@@ -1,10 +1,10 @@
 # What apysc can do in its current implementation
 
-This page will explain the current apysc implementation and functionality summary.
+This page explains the current apysc implementation and functionality summary.
 
 ## Write with the Python and export HTML or use it on the Jupyter
 
-The apysc library can write the front-end with the Python language and export the HTML or use it on the Jupyter notebook, JupyterLab, and Google Colaboratory!
+The apysc library can write the front-end with the Python language and export the HTML or use it on the Jupyter notebook, JupyterLab, and the Google Colaboratory!
 
 See also:
 
@@ -14,7 +14,7 @@ See also:
 
 ## Draw the many types of the vector graphics
 
-The apysc library can draw many types of vector graphics, like the rectangle, circle, line, and so on.
+The apysc library can draw many vector graphics types, like the rectangle, circle, line.
 
 <details>
 <summary>Display the code block:</summary>
@@ -85,7 +85,7 @@ See also:
 
 ## Set each mouse event
 
-The apysc library supports each mouse event, like the click, mouse down, mouse over, mouse move, and so on.
+The apysc library supports each mouse event, like the click, mouse down, mouse over, mouse move.
 
 The click event example (please click the following rectangle):
 
@@ -100,7 +100,7 @@ import apysc as ap
 def on_click(
         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
     """
-    The handler will be called when the rectangle is clicked.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------
@@ -164,7 +164,7 @@ class _Options(TypedDict):
 
 def on_timer(e: ap.TimerEvent, options: _Options) -> None:
     """
-    The handler will be called from the timer.
+    The handler that the timer calls.
 
     Parameters
     ----------

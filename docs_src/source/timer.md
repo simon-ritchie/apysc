@@ -1,16 +1,16 @@
 # Timer
 
-This page will explain the `Timer` class.
+This page explains the `Timer` class.
 
 ## What is the Timer?
 
-The `Timer` class will handle the timer's tick. You can call a handler at any intervals by it.
+The `Timer` class handles the timer's tick. You can call a handler at any intervals by it.
 
 ## Basic usage
 
-The `Timer` class requires the `handler` and `delay` (timer interval in milliseconds) arguments. And the `start` method will start that timer. A handler would be received a `TimerEvent` instance and options arguments.
+The `Timer` class requires arguments for the `handler` and `delay` (timer interval in milliseconds). And the `start` method starts that timer. A timer passes the `TimerEvent` instance and options arguments to a specified handler.
 
-The following code will set the `Timer` when the rectangle (`Sprite`) is clicked:
+The following code sets the `Timer` when clicking the rectangle (`Sprite`):
 
 ```py
 # runnable
@@ -26,7 +26,7 @@ class _RectOptions(TypedDict):
 def on_sprite_click(
         e: ap.MouseEvent[ap.Sprite], options: _RectOptions) -> None:
     """
-    The handler would be called when the sprite is clicked.
+    The handler that the rectangle calls when clicked.
 
     Parameters
     ----------
@@ -69,7 +69,7 @@ ap.save_overall_html(
     dest_dir_path='timer_basic_usage/')
 ```
 
-If you click the following rectangle, then the timer will be started, and the rectangle x value will be increased by the timer.
+If you click the rectangle, the timer starts, and the handler increases the rectangle x value.
 
 <iframe src="static/timer_basic_usage/index.html" width="350" height="150"></iframe>
 

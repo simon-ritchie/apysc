@@ -10,7 +10,7 @@ The `mouseover` interface binds the event handler. Moreover, this interface call
 
 The following page describes the basic mouse event interfaces.
 
-- [Basic mouse event interfaces](mouse_event_common.md)
+- [Basic mouse event interfaces](mouse_event_basic.md)
 
 ## Basic usage of the mouseover and mouseout interfaces
 

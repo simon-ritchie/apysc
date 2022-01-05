@@ -8,9 +8,9 @@ The `dblclick` interface binds the double-click event to any `DisplayObject` ins
 
 ## See also
 
-Common mouse event interfaces are described by the following page.
+The following page describes the basic mouse event interfaces.
 
-- [Common mouse event interfaces](mouse_event_common.md)
+- [Basic mouse event interfaces](mouse_event_basic.md)
 
 ## Basic usage of the dblclick interface
 

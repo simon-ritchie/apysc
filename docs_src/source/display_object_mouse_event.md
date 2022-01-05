@@ -57,7 +57,7 @@ ap.save_overall_html(
 
 For more details, please see the following pages:
 
-- [Common mouse event interfaces](mouse_event_common.md)
+- [Basic mouse event interfaces](mouse_event_basic.md)
 - [Click interface](click.md)
 - [Mousedown and mouseup interfaces](mousedown_and_mouseup.md)
 - [Mouseover and mouseout interfaces](mouseover_and_mouseout.md)

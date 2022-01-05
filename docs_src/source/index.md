@@ -145,7 +145,7 @@ The `Graphics` class handles each vector graphics drawing.
 **MouseEvent class and mouse event binding**
 
 - [MouseEvent interfaces abstract](mouse_event_abstract.md)
-- [Common mouse event interfaces](mouse_event_common.md)
+- [Basic mouse event interfaces](mouse_event_basic.md)
 - [Click interface](click.md)
 - [Double click interface](dblclick.md)
 - [Mousedown and mouseup interfaces](mousedown_and_mouseup.md)

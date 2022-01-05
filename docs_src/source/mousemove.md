@@ -10,7 +10,7 @@ The `mousemove` interface binds the mouse moving event handler to any `DisplayOb
 
 The following page describes the basic mouse event interfaces.
 
-- [Basic mouse event interfaces](mouse_event_common.md)
+- [Basic mouse event interfaces](mouse_event_basic.md)
 
 ## Basic usage
 

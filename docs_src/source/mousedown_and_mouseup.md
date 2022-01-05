@@ -10,7 +10,7 @@ The `mousedown` interface binds the event handler that the interface calls when 
 
 The following page describes the basic mouse event interfaces:
 
-- [Basic mouse event interfaces](mouse_event_common.md)
+- [Basic mouse event interfaces](mouse_event_basic.md)
 
 ## Basic usage of the mousedown and mouseup interfaces
 

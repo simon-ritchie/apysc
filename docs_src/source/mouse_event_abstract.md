@@ -60,7 +60,7 @@ ap.save_overall_html(
 
 There are a lot of other mouse event binding interfaces, such as the mouse down, mouse over, and mouse move. For more details, please see the following:
 
-- [Common mouse event interfaces](mouse_event_common.md)
+- [Basic mouse event interfaces](mouse_event_basic.md)
 - [Click interface](click.md)
 - [Double click interface](dblclick.md)
 - [Mousedown and mouseup interfaces](mousedown_and_mouseup.md)

@@ -12,7 +12,7 @@ Conversely, the `unbind_click` interface unbinds the click event from the `Displ
 
 The following page describes basic mouse event interfaces.
 
-- [Common mouse event interfaces](mouse_event_common.md)
+- [Basic mouse event interfaces](mouse_event_basic.md)
 
 ## Basic usage of the click interface
 

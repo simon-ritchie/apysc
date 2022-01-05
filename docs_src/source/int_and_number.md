@@ -80,4 +80,4 @@ The `Int` and `Number` classes have the same interfaces. For more details, pleas
 
 - [Int and Number classes basic arithmetic operations](int_and_number_arithmetic_operations.md)
 - [Int and Number classes basic comparison operations](int_and_number_comparison_operations.md)
-- [apysc fundamental data classes common interface](basic_data_classes_value_interface.md)
+- [Funcdamental data classes common value interface](fundamental_data_classes_value_interface.md)

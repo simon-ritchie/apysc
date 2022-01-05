@@ -44,7 +44,7 @@ assert isinstance(int_val, int)
 
 ## See also
 
-- [apysc basic data classes common value interface](basic_data_classes_value_interface.md)
+- [Funcdamental data classes common value interface](fundamental_data_classes_value_interface.md)
 - [Array class append and push interfaces](array_append_and_push.md)
 - [Array class extend and concat interfaces](array_extend_and_concat.md)
 - [Array class insert and insert at interfaces](array_insert_and_insert_at.md)

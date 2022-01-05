@@ -42,7 +42,7 @@ The HTML and JavaScript exporting interfaces.
 **apysc basic data classes**
 
 - [Why not using the Python built-in data type in the apysc library?](why_not_using_python_builtin_data_type.md)
-- [apysc basic data classes common value interface](basic_data_classes_value_interface.md)
+- [Funcdamental data classes common value interface](fundamental_data_classes_value_interface.md)
 - [Int and Number classes](int_and_number.md)
 - [Int and Number classes common arithmetic operations](int_and_number_arithmetic_operations.md)
 - [Int and Number classes common comparison operations](int_and_number_comparison_operations.md)

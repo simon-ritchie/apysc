@@ -4,7 +4,7 @@ This page explains the `Int` and `Number` classes.
 
 Before reading on, maybe it is helpful to read the following page:
 
-- [Why not using the Python built-in data type in the apysc library?](why_not_using_python_builtin_data_type.md)
+- [Why the apysc library doesn't use the Python built-in data type](why_apysc_doesnt_use_python_builtin_data_type.md)
 
 ## Int class
 

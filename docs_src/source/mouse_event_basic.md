@@ -1,10 +1,10 @@
-# Common mouse event interfaces
+# Basic mouse event interfaces
 
 This page explains the basic mouse event interfaces, like the `this` attribute.
 
 ## Basic binding usage
 
-Each mouse event binding interface accepts `handler` and `options` arguments. The `handler` argument is a callable object each interface calls when event dispatching.
+Each mouse event binding interface accepts `handler` and `options` arguments. The `handler` argument is each interface's callable object when event dispatching.
 
 The `options` argument is an optional parameter dictionary to be passed to the handler. You can skip this argument.
 
@@ -196,7 +196,7 @@ ap.save_overall_html(
     dest_dir_path='mouse_event_common_unbind_all_event_handlers/')
 ```
 
-Nothing happens if you click the rectangle (no color change and no x-coordinate change).
+Nothing happens when clicking the rectangle (no color change and no x-coordinate change).
 
 <iframe src="static/mouse_event_common_unbind_all_event_handlers/index.html" width="150" height="150"></iframe>
 

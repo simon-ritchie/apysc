@@ -4,7 +4,7 @@ This page explains the `If` class.
 
 Before reading on, maybe it is helpful to read the following page (the apysc uses the `If` class for the same reason of each apysc data type):
 
-- [Why not using the Python built-in data type in the apysc library?](why_not_using_python_builtin_data_type.md)
+- [Why the apysc library doesn't use the Python built-in data type](why_apysc_doesnt_use_python_builtin_data_type.md)
 
 ## What is the If class?
 

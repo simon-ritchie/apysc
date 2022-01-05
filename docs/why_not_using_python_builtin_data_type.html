@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Why not using the Python built-in data type in the apysc library? &#8212; apysc  documentation</title>
+    <title>Why the apysc library doesn’t use the Python built-in data type &#8212; apysc  documentation</title>
     <link rel="stylesheet" type="text/css" href="static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="static/groundwork.css" />
     <link rel="stylesheet" type="text/css" href="static/base.css" />
@@ -34,7 +34,7 @@
           <a href="append_js_expression.html" title="append_js_expression interface"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Why not using the Python built-in data type in the apysc library?</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Why the apysc library doesn’t use the Python built-in data type</a></li> 
       </ul>
     </div>  
 
@@ -43,15 +43,15 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="why-not-using-the-python-built-in-data-type-in-the-apysc-library">
-<h1>Why not using the Python built-in data type in the apysc library?<a class="headerlink" href="#why-not-using-the-python-built-in-data-type-in-the-apysc-library" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain why the apysc library is not using the Python built-in data type, such as <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, and using the apysc data type like the <code class="docutils literal notranslate"><span class="pre">Int</span></code>, <code class="docutils literal notranslate"><span class="pre">Number</span></code>, <code class="docutils literal notranslate"><span class="pre">Array</span></code>.</p>
+  <section id="why-the-apysc-library-doesn-t-use-the-python-built-in-data-type">
+<h1>Why the apysc library doesn’t use the Python built-in data type<a class="headerlink" href="#why-the-apysc-library-doesn-t-use-the-python-built-in-data-type" title="Permalink to this headline">¶</a></h1>
+<p>This page explains why the apysc library doesn’t use the Python built-in data type, such as <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>. And why the apysc library uses the apysc data type like the <code class="docutils literal notranslate"><span class="pre">Int</span></code>, <code class="docutils literal notranslate"><span class="pre">Number</span></code>, <code class="docutils literal notranslate"><span class="pre">Array</span></code> instead.</p>
 <section id="apysc-needs-to-convert-python-to-javascript-and-track-variables-change">
 <h2>apysc needs to convert Python to JavaScript and track variables change<a class="headerlink" href="#apysc-needs-to-convert-python-to-javascript-and-track-variables-change" title="Permalink to this headline">¶</a></h2>
-<p>To convert Python codes written with the apysc library, apysc needs to track variables creation and changing. For this reason, apysc using the original data types, such as <code class="docutils literal notranslate"><span class="pre">Int</span></code>, <code class="docutils literal notranslate"><span class="pre">Number</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Boolean</span></code>, <code class="docutils literal notranslate"><span class="pre">Array</span></code>, and <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>.</p>
-<p>Occasionally, these are not necessary to create HTML, but these types will be important when you use the asynchronous function, such as the event handler.</p>
-<p>The apysc library will set the names to each variable automatically and use it when exporting the HTML and JavaScript files. This one will also track variables creation and change, and apply them to the exported JavaScript.</p>
-<p>If you use the Python built-in data type, these variables’ change will not be applied to an exported result.</p>
+<p>The apysc library needs to track variable creation and update to convert the Python code to JavaScript. For this reason, apysc using the original data types, such as <code class="docutils literal notranslate"><span class="pre">Int</span></code>, <code class="docutils literal notranslate"><span class="pre">Number</span></code> (<code class="docutils literal notranslate"><span class="pre">Float</span></code>), <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Boolean</span></code>, <code class="docutils literal notranslate"><span class="pre">Array</span></code>, and <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>.</p>
+<p>Occasionally, these are unnecessary to create HTML. Still, these types become essential when you use the asynchronous function, such as the event handler.</p>
+<p>The apysc library automatically sets each variable’s names and uses them when exporting the HTML and JavaScript files. It also tracks variables creation and updating and applies them to the exported JavaScript.</p>
+<p>Using the Python built-in data type, these variables’ values become fixed (the apysc doesn’t apply asynchronous function’s changes).</p>
 </section>
 </section>
 
@@ -67,7 +67,7 @@
             </a></p>
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Why not using the Python built-in data type in the apysc library?</a><ul>
+<li><a class="reference internal" href="#">Why the apysc library doesn’t use the Python built-in data type</a><ul>
 <li><a class="reference internal" href="#apysc-needs-to-convert-python-to-javascript-and-track-variables-change">apysc needs to convert Python to JavaScript and track variables change</a></li>
 </ul>
 </li>
@@ -106,7 +106,7 @@
           <a href="append_js_expression.html" title="append_js_expression interface"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Why not using the Python built-in data type in the apysc library?</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Why the apysc library doesn’t use the Python built-in data type</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

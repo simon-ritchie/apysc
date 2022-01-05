@@ -45,15 +45,15 @@
             
   <section id="timer">
 <h1>Timer<a class="headerlink" href="#timer" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">Timer</span></code> class.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">Timer</span></code> class.</p>
 <section id="what-is-the-timer">
 <h2>What is the Timer?<a class="headerlink" href="#what-is-the-timer" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Timer</span></code> class will handle the timer’s tick. You can call a handler at any intervals by it.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Timer</span></code> class handles the timer’s tick. You can call a handler at any intervals by it.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Timer</span></code> class requires the <code class="docutils literal notranslate"><span class="pre">handler</span></code> and <code class="docutils literal notranslate"><span class="pre">delay</span></code> (timer interval in milliseconds) arguments. And the <code class="docutils literal notranslate"><span class="pre">start</span></code> method will start that timer. A handler would be received a <code class="docutils literal notranslate"><span class="pre">TimerEvent</span></code> instance and options arguments.</p>
-<p>The following code will set the <code class="docutils literal notranslate"><span class="pre">Timer</span></code> when the rectangle (<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>) is clicked:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Timer</span></code> class requires arguments for the <code class="docutils literal notranslate"><span class="pre">handler</span></code> and <code class="docutils literal notranslate"><span class="pre">delay</span></code> (timer interval in milliseconds). And the <code class="docutils literal notranslate"><span class="pre">start</span></code> method starts that timer. A timer passes the <code class="docutils literal notranslate"><span class="pre">TimerEvent</span></code> instance and options arguments to a specified handler.</p>
+<p>The following code sets the <code class="docutils literal notranslate"><span class="pre">Timer</span></code> when clicking the rectangle (<code class="docutils literal notranslate"><span class="pre">Sprite</span></code>):</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
 
@@ -67,7 +67,7 @@
 <span class="k">def</span> <span class="nf">on_sprite_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="n">_RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler would be called when the sprite is clicked.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -110,7 +110,7 @@
     <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;timer_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you click the following rectangle, then the timer will be started, and the rectangle x value will be increased by the timer.</p>
+<p>If you click the rectangle, the timer starts, and the handler increases the rectangle x value.</p>
 <iframe src="static/timer_basic_usage/index.html" width="350" height="150"></iframe></section>
 <section id="see-also">
 <h2>See also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>

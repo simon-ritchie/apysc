@@ -45,15 +45,15 @@
             
   <section id="trace-interface">
 <h1>Trace interface<a class="headerlink" href="#trace-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">trace</span></code> function interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">trace</span></code> function interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">trace</span></code> function interface will display any message on the browser console. This behaves like the JavaScript <code class="docutils literal notranslate"><span class="pre">console.log</span></code> function.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">trace</span></code> function interface displays any message on the browser console. This interface behaves like the JavaScript <code class="docutils literal notranslate"><span class="pre">console.log</span></code> function.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">trace</span></code> function can accept any number of arguments and various value types.</p>
-<p>The following example will draw the rectangle and if you click it, the message will be displayed on the browser console (please press the F12 key).</p>
+<p>The following example draws the rectangle. When clicking the rectangle, the handler displays the message on the browser console (please press the F12 key).</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -61,7 +61,7 @@
 <span class="k">def</span> <span class="nf">on_rectangle_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rectangle is clicked.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

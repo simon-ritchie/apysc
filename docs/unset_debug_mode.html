@@ -45,20 +45,20 @@
             
   <section id="unset-debug-mode-interface">
 <h1>unset_debug_mode interface<a class="headerlink" href="#unset-debug-mode-interface" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the <code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code> function interface.</p>
+<p>This page explains the <code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code> function interface.</p>
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code> function interface will unset the debug mode setting and the debug information appending will be stopped.</p>
-<p>The debug mode will export lots of information and sometimes it will be cumbersome and in that case, stop the debug mode at the point where it is no longer needed.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code> function interface unsets the debug mode setting. It stops the debug information appending.</p>
+<p>The debug mode exports lots of information. Sometimes it becomes cumbersome. In that case, stopping the debug mode is helpful when it is no longer needed.</p>
 </section>
 <section id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
-<p>If the exporting interface (e.g., <code class="docutils literal notranslate"><span class="pre">ap.save_overall_html</span></code>) <code class="docutils literal notranslate"><span class="pre">minify</span></code> option is enabled, debug mode information will be removed. So it is required to set the <code class="docutils literal notranslate"><span class="pre">minify=False</span></code> when you use the <code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code> interface.</p>
+<p>If the exporting interface (e.g., <code class="docutils literal notranslate"><span class="pre">ap.save_overall_html</span></code>) <code class="docutils literal notranslate"><span class="pre">minify</span></code> option is enabled, it removes debug mode information. So it is required to set the <code class="docutils literal notranslate"><span class="pre">minify=False</span></code> when you use the <code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code> interface.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">unset_debug_mode</span></code> interface requires no arguments.</p>
-<p>The following example will append the debug information only at the <code class="docutils literal notranslate"><span class="pre">int_1</span></code> instantiation and incremental addition of 10.</p>
+<p>The following example appends the debug information only at the <code class="docutils literal notranslate"><span class="pre">int_1</span></code> instantiation and incremental addition of 10.</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 
@@ -77,7 +77,7 @@
     <span class="n">minify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;unset_debug_mode_basic_usage/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The exported HTML will include the debug information at the first integer position and not include the sprite and second integer positions, as follows:</p>
+<p>The exported HTML includes the debug information at the first integer position. It doesn’t include the sprite and second integer positions, as follows:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
   <span class="kd">var</span> <span class="nx">sp_1</span> <span class="o">=</span> <span class="nx">stage</span><span class="p">.</span><span class="nx">nested</span><span class="p">();</span>
   <span class="kd">var</span> <span class="nx">g_1</span> <span class="o">=</span> <span class="nx">stage</span><span class="p">.</span><span class="nx">nested</span><span class="p">();</span>

@@ -45,10 +45,10 @@
             
   <section id="what-apysc-can-do-in-its-current-implementation">
 <h1>What apysc can do in its current implementation<a class="headerlink" href="#what-apysc-can-do-in-its-current-implementation" title="Permalink to this headline">¶</a></h1>
-<p>This page will explain the current apysc implementation and functionality summary.</p>
+<p>This page explains the current apysc implementation and functionality summary.</p>
 <section id="write-with-the-python-and-export-html-or-use-it-on-the-jupyter">
 <h2>Write with the Python and export HTML or use it on the Jupyter<a class="headerlink" href="#write-with-the-python-and-export-html-or-use-it-on-the-jupyter" title="Permalink to this headline">¶</a></h2>
-<p>The apysc library can write the front-end with the Python language and export the HTML or use it on the Jupyter notebook, JupyterLab, and Google Colaboratory!</p>
+<p>The apysc library can write the front-end with the Python language and export the HTML or use it on the Jupyter notebook, JupyterLab, and the Google Colaboratory!</p>
 <p>See also:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="save_overall_html.html"><span class="doc">Save overall html interface</span></a></p></li>
@@ -58,7 +58,7 @@
 </section>
 <section id="draw-the-many-types-of-the-vector-graphics">
 <h2>Draw the many types of the vector graphics<a class="headerlink" href="#draw-the-many-types-of-the-vector-graphics" title="Permalink to this headline">¶</a></h2>
-<p>The apysc library can draw many types of vector graphics, like the rectangle, circle, line, and so on.</p>
+<p>The apysc library can draw many vector graphics types, like the rectangle, circle, line.</p>
 <details>
 <summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
 <span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
@@ -122,7 +122,7 @@
 </section>
 <section id="set-each-mouse-event">
 <h2>Set each mouse event<a class="headerlink" href="#set-each-mouse-event" title="Permalink to this headline">¶</a></h2>
-<p>The apysc library supports each mouse event, like the click, mouse down, mouse over, mouse move, and so on.</p>
+<p>The apysc library supports each mouse event, like the click, mouse down, mouse over, mouse move.</p>
 <p>The click event example (please click the following rectangle):</p>
 <details>
 <summary>Display the code block:</summary><div class="highlight-py notranslate"><div class="highlight"><pre>
@@ -132,7 +132,7 @@
 <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span>
         <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called when the rectangle is clicked.</span>
+<span class="sd">    The handler that the rectangle calls when clicked.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -189,7 +189,7 @@
 
 <span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">_Options</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The handler will be called from the timer.</span>
+<span class="sd">    The handler that the timer calls.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

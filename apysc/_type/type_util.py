@@ -18,7 +18,8 @@ Mainly following interface is defined:
     type or not.
 """
 
-from typing import Any, List, Tuple
+from typing import Any
+from typing import Tuple
 from typing import Type
 
 

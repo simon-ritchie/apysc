@@ -48,8 +48,22 @@ class TestCopyInterface:
         expression: str = \
             expression_data_util.get_current_event_handler_scope_expression()
         pattern: str = (
-            rf'^{int_2.variable_name} = cpy\({int_1.variable_name}\);')
+            rf'^{int_2.variable_name} = {int_1.variable_name};')
         match: Optional[Match] = re.search(
+            pattern=pattern,
+            string=expression, flags=re.MULTILINE)
+        assert match is not None
+
+        expression_data_util.empty_expression()
+        arr_1: ap.Array = ap.Array([1, 2, 3])
+        with HandlerScope(handler_name='test_handler_1', instance=instance):
+            arr_2: ap.Array = arr_1._copy()
+        expression = \
+            expression_data_util.get_current_event_handler_scope_expression()
+        pattern = (
+            rf'^{arr_2.variable_name} = cpy\({arr_1.variable_name}\);'
+        )
+        match = re.search(
             pattern=pattern,
             string=expression, flags=re.MULTILINE)
         assert match is not None

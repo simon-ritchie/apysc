@@ -49,6 +49,7 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
             Copied value's variable name.
         """
         import apysc as ap
+        from apysc._type.type_util import is_immutable_type
         with ap.DebugInfo(
                 callable_=self._append_value_updating_cpy_exp_to_handler_scope,
                 locals_=locals(),
@@ -58,10 +59,15 @@ class CopyInterface(TypeNameInterface, VariableNameInterface):
                 get_current_event_handler_scope_count()
             if evt_handler_scope_count == 0:
                 return
-            expression: str = (
-                f'{result_variable_name} = '
-                f'cpy({self.variable_name});'
-            )
+            if is_immutable_type(value=self):
+                expression: str = (
+                    f'{result_variable_name} = {self.variable_name};'
+                )
+            else:
+                expression = (
+                    f'{result_variable_name} = '
+                    f'cpy({self.variable_name});'
+                )
             ap.append_js_expression(expression=expression)
 
     def _append_copy_expression(self, *, result_variable_name: str) -> None:

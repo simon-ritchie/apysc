@@ -3,19 +3,22 @@
 Mainly following interface is defined:
 
 - is_number
-    Get a boolean value whether specified value is Number value.
+    - Get a boolean value whether specified value is Number value.
 - is_float_or_number
-    Get a boolean value whether specified value is float or Nuber
+    - Get a boolean value whether specified value is float or Nuber
     value.
 - is_bool
-    Get a boolean value whether specified value is bool or Boolean
+    - Get a boolean value whether specified value is bool or Boolean
     value.
 - is_same_class_instance
-    Get a boolean value whether specified class and instance's class
+    - Get a boolean value whether specified class and instance's class
     are same or not.
+- is_immutable_type
+    - Get a boolean value whether specified value is immutable
+    type or not.
 """
 
-from typing import Any
+from typing import Any, List, Tuple
 from typing import Type
 
 
@@ -109,5 +112,36 @@ def is_same_class_instance(*, class_: Type, instance: Any) -> bool:
     """
     instance_type: Type = type(instance)  # type: ignore
     if instance_type == class_:
+        return True
+    return False
+
+
+def is_immutable_type(value: Any) -> bool:
+    """
+    Get a boolean value whether specified value is immutable
+    type or not.
+
+    Notes
+    -----
+    apysc's value types, such as the `Int`, are checked
+    as immutable since these js types are immutable.
+
+    Parameters
+    ----------
+    value : Any
+        Target value to check.
+
+    Returns
+    -------
+    result : bool
+        If a specified value is immutable, then True
+        will be set.
+    """
+    import apysc as ap
+    immutable_types: Tuple = (
+        int, float, bool, str, complex, tuple, range, bytes,
+        ap.Int, ap.Number, ap.String, ap.Boolean,
+    )
+    if isinstance(value, immutable_types):
         return True
     return False

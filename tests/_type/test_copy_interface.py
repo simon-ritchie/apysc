@@ -38,8 +38,8 @@ class TestCopyInterface:
         expression_data_util.empty_expression()
         arr_1: ap.Array = ap.Array([10, 20, 30])
         arr_2: ap.Array = arr_1._copy()
-        expression: str = expression_data_util.get_current_expression()
-        expected: str = (
+        expression = expression_data_util.get_current_expression()
+        expected = (
             f'{arr_2.variable_name} = '
             f'cpy({arr_1.variable_name});'
         )

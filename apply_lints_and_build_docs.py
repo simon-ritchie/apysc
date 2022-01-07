@@ -12,12 +12,12 @@ import shutil
 import subprocess as sp
 from argparse import ArgumentParser
 from argparse import Namespace
+from datetime import datetime
 from logging import Logger
 from typing import List
 from typing import Match
 from typing import Optional
 from typing import Tuple
-from datetime import datetime
 
 from typing_extensions import Final
 from typing_extensions import TypedDict

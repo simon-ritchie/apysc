@@ -1,9 +1,9 @@
 import os
+import shutil
 import subprocess as sp
+import time
 from random import randint
 from typing import List
-import time
-import shutil
 
 from retrying import retry
 

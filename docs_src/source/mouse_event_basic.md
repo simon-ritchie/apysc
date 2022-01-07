@@ -54,12 +54,12 @@ rectangle.click(
     handler=on_rectangle_click, options=options)
 
 ap.save_overall_html(
-    dest_dir_path='mouse_event_common_basic_binding_usage/')
+    dest_dir_path='mouse_event_basic_basic_binding_usage/')
 ```
 
 If you click the rectangle, the handler changes the rectangle color to the specified options color.
 
-<iframe src="static/mouse_event_common_basic_binding_usage/index.html" width="150" height="150"></iframe>
+<iframe src="static/mouse_event_basic_basic_binding_usage/index.html" width="150" height="150"></iframe>
 
 There are many mouse events binding interfaces, such as the `click`\, `mousedown`\, `mouseup`\, `mouseover`\, `mouseout`\, and `mousemove` that the `DisplayObject` instance has.
 
@@ -117,12 +117,12 @@ rectangle.click(
 rectangle.unbind_click(handler=on_rectangle_click)
 
 ap.save_overall_html(
-    dest_dir_path='mouse_event_common_basic_unbinding_usage/')
+    dest_dir_path='mouse_event_basic_basic_unbinding_usage/')
 ```
 
 When you click the following rectangle, nothing happens.
 
-<iframe src="static/mouse_event_common_basic_unbinding_usage/index.html" width="150" height="150"></iframe>
+<iframe src="static/mouse_event_basic_basic_unbinding_usage/index.html" width="150" height="150"></iframe>
 
 ## Unbind all event handlers
 
@@ -193,12 +193,12 @@ rectangle.click(handler=change_x_on_rectangle_click)
 rectangle.unbind_click_all()
 
 ap.save_overall_html(
-    dest_dir_path='mouse_event_common_unbind_all_event_handlers/')
+    dest_dir_path='mouse_event_basic_unbind_all_event_handlers/')
 ```
 
 Nothing happens when clicking the rectangle (no color change and no x-coordinate change).
 
-<iframe src="static/mouse_event_common_unbind_all_event_handlers/index.html" width="150" height="150"></iframe>
+<iframe src="static/mouse_event_basic_unbind_all_event_handlers/index.html" width="150" height="150"></iframe>
 
 ## Handler argument names and types
 
@@ -289,12 +289,12 @@ rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 rectangle.mousemove(handler=on_mousemove)
 
 ap.save_overall_html(
-    dest_dir_path='mouse_event_common_stage_x_and_stage_y')
+    dest_dir_path='mouse_event_basic_stage_x_and_stage_y')
 ```
 
 If you open the DevTools console on Chrome (press F12) and move the mouse cursor on the following rectangle, you can check the `stage_x` and `stage_y` coordinates. The previous code positions the rectangle at `(50, 100)`, so the `stage_x` becomes the range of 50 to 100, and `stage_y` becomes 100 to 150.
 
-<iframe src="static/mouse_event_common_stage_x_and_stage_y/index.html" width="150" height="200"></iframe>
+<iframe src="static/mouse_event_basic_stage_x_and_stage_y/index.html" width="150" height="200"></iframe>
 
 ## MouseEvent local_x and local_y attributes
 
@@ -336,12 +336,12 @@ rectangle: ap.Rectangle = sprite.graphics.draw_rect(
 rectangle.mousemove(handler=on_mousemove)
 
 ap.save_overall_html(
-    dest_dir_path='mouse_event_common_local_x_and_local_y')
+    dest_dir_path='mouse_event_basic_local_x_and_local_y')
 ```
 
 Please check on Chrome DevTools (press F12) and move the mouse cursor on the following rectangle.
 
-<iframe src="static/mouse_event_common_local_x_and_local_y/index.html" width="150" height="150"></iframe>
+<iframe src="static/mouse_event_basic_local_x_and_local_y/index.html" width="150" height="150"></iframe>
 
 ## See also
 

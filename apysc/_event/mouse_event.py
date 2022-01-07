@@ -60,7 +60,7 @@ class MouseEvent(
         References
         ----------
         - Common mouse event interfaces document
-            - https://simon-ritchie.github.io/apysc/mouse_event_common.html
+            - https://simon-ritchie.github.io/apysc/mouse_event_basic.html
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -104,7 +104,7 @@ class MouseEvent(
         References
         ----------
         - Common mouse event interfaces document
-            - https://simon-ritchie.github.io/apysc/mouse_event_common.html
+            - https://simon-ritchie.github.io/apysc/mouse_event_basic.html
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -150,7 +150,7 @@ class MouseEvent(
         References
         ----------
         - Common mouse event interfaces document
-            - https://simon-ritchie.github.io/apysc/mouse_event_common.html
+            - https://simon-ritchie.github.io/apysc/mouse_event_basic.html
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -197,7 +197,7 @@ class MouseEvent(
         References
         ----------
         - Common mouse event interfaces document
-            - https://simon-ritchie.github.io/apysc/mouse_event_common.html
+            - https://simon-ritchie.github.io/apysc/mouse_event_basic.html
         """
         import apysc as ap
         with ap.DebugInfo(

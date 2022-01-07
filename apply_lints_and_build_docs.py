@@ -17,6 +17,7 @@ from typing import List
 from typing import Match
 from typing import Optional
 from typing import Tuple
+from datetime import datetime
 
 from typing_extensions import Final
 from typing_extensions import TypedDict
@@ -141,6 +142,7 @@ def _main() -> None:
     shutil.rmtree('./build/', ignore_errors=True)
     if not options['skip_overall_docs_build']:
         shutil.rmtree(HASHED_VALS_DIR_PATH, ignore_errors=True)
+        _update_doc_files_timestamp()
     _remove_tmp_py_module()
 
     logger.info(msg='Documentation build started.')
@@ -194,6 +196,28 @@ def _main() -> None:
         process=checking_apysc_top_level_import_process)
 
     logger.info(msg='Ended.')
+
+
+_SRC_DOCS_DIR_PATH: str = './docs_src/source/'
+
+
+def _update_doc_files_timestamp() -> None:
+    """
+    Update each document timestamp (file updated time)
+    to build with the Sphinx.
+    """
+    file_or_dir_names: List[str] = os.listdir(_SRC_DOCS_DIR_PATH)
+    for file_or_dir_name in file_or_dir_names:
+        file_or_dir_path: str = os.path.join(
+            _SRC_DOCS_DIR_PATH, file_or_dir_name,
+        )
+        if os.path.isdir(file_or_dir_path):
+            continue
+        if not file_or_dir_path.endswith('.md'):
+            continue
+        now_unix_time: float = datetime.now().timestamp()
+        print('file_path:', file_or_dir_path)
+        os.utime(file_or_dir_path, (now_unix_time, now_unix_time))
 
 
 def _start_numdoclint_processes() -> List[sp.Popen]:

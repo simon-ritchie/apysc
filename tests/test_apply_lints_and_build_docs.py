@@ -2,6 +2,8 @@ import os
 import subprocess as sp
 from random import randint
 from typing import List
+import time
+import shutil
 
 from retrying import retry
 
@@ -340,3 +342,44 @@ def test__start_numdoclint_processes() -> None:
     assert len(set(joined_commands)) == len(joined_commands)
     for joined_command in joined_commands:
         assert 'numdoclint' in joined_command
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__update_doc_files_timestamp() -> None:
+    original_src_doc_dir_path: str = \
+        apply_lints_and_build_docs._SRC_DOCS_DIR_PATH
+    tmp_dir_path: str = './tmp/test_apply_lints_and_build_docs/'
+    apply_lints_and_build_docs._SRC_DOCS_DIR_PATH = tmp_dir_path
+    shutil.rmtree(tmp_dir_path, ignore_errors=True)
+    os.makedirs(tmp_dir_path, exist_ok=True)
+    subdir_path: str = os.path.join(
+        tmp_dir_path, 'subdir/'
+    )
+    os.makedirs(subdir_path, exist_ok=True)
+    tmp_file_path_1: str = os.path.join(
+        tmp_dir_path, 'tmp_1.md',
+    )
+    tmp_file_path_2: str = os.path.join(
+        tmp_dir_path, 'tmp_2.py',
+    )
+    tmp_file_path_3: str = os.path.join(
+        subdir_path, 'tmp_3.md',
+    )
+    for tmp_file_path in (
+            tmp_file_path_1, tmp_file_path_2, tmp_file_path_3):
+        with open(tmp_file_path, 'w') as f:
+            f.write('')
+    pre_tmp_file_path_1_mtime: float = os.path.getmtime(tmp_file_path_1)
+    pre_tmp_file_path_2_mtime: float = os.path.getmtime(tmp_file_path_2)
+    pre_tmp_file_path_3_mtime: float = os.path.getmtime(tmp_file_path_3)
+    time.sleep(1)
+    apply_lints_and_build_docs._update_doc_files_timestamp()
+    after_tmp_file_path_1_mtime: float = os.path.getmtime(tmp_file_path_1)
+    after_tmp_file_path_2_mtime: float = os.path.getmtime(tmp_file_path_2)
+    after_tmp_file_path_3_mtime: float = os.path.getmtime(tmp_file_path_3)
+    assert after_tmp_file_path_1_mtime > pre_tmp_file_path_1_mtime
+    assert after_tmp_file_path_2_mtime == pre_tmp_file_path_2_mtime
+    assert after_tmp_file_path_3_mtime == pre_tmp_file_path_3_mtime
+
+    apply_lints_and_build_docs._SRC_DOCS_DIR_PATH = original_src_doc_dir_path
+    shutil.rmtree(tmp_dir_path, ignore_errors=True)

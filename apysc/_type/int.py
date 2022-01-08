@@ -39,6 +39,30 @@ class Int(NumberValueInterface[int, 'Int']):
             - https://bit.ly/3evzcVj
         - Int and Number common comparison operations document
             - https://bit.ly/3zolw6T
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> int_val: ap.Int = ap.Int(10)
+        >>> int_val
+        Int(10)
+
+        >>> int_val == 10
+        Boolean(True)
+
+        >>> int_val == ap.Int(10)
+        Boolean(True)
+
+        >>> int_val >= 10
+        Boolean(True)
+
+        >>> int_val += 10
+        >>> int_val
+        Int(20)
+
+        >>> int_val = ap.Int(10.5)
+        >>> int_val
+        Int(10)
         """
         import apysc as ap
         with ap.DebugInfo(

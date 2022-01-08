@@ -620,6 +620,14 @@ class Array(
         ----------
         - Array class remove and remove_at interfaces document
             - https://bit.ly/3zDO6Cl
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> arr: ap.Array = ap.Array([1, 3, 5])
+        >>> arr.remove(3)
+        >>> arr
+        Array([1, 5])
         """
         import apysc as ap
         with ap.DebugInfo(

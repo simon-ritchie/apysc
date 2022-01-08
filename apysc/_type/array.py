@@ -345,6 +345,14 @@ class Array(
         ----------
         - Array class extend and concat interfaces document
             - https://bit.ly/3r1TdIu
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> arr: ap.Array = ap.Array([1, 2, 3])
+        >>> arr.extend([4, 5, 6])
+        >>> arr
+        Array([1, 2, 3, 4, 5, 6])
         """
         import apysc as ap
         with ap.DebugInfo(

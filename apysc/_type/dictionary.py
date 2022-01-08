@@ -642,6 +642,23 @@ class Dictionary(
         ----------
         - Dictionary get interface document
             - https://bit.ly/3FbSHNg
+
+        Examples
+        --------
+        >>> from typing import Optional
+        >>> import apysc as ap
+        >>> dictionary: ap.Dictionary = ap.Dictionary({'a': 10})
+        >>> value_1: Optional[int] = dictionary.get('a')
+        >>> value_1
+        10
+
+        >>> value_2: Optional[int] = dictionary.get('b')
+        >>> print(value_2)
+        None
+
+        >>> value_3: int = dictionary.get('c', default=0)
+        >>> value_3
+        0
         """
         key_: _BuiltinKeys = self._get_builtin_type_key(key=key)
         if key_ in self._value:

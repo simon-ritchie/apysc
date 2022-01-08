@@ -16,6 +16,11 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
     """
     Boolean class for the apysc library.
 
+    Notes
+    -----
+    The Bool class is the alias of the Boolean, and it behaves
+    the same as the Boolean class.
+
     References
     ----------
     - Boolean document
@@ -28,6 +33,11 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
     def __init__(self, value: Union[bool, int, Int, 'Boolean']) -> None:
         """
         Boolean class for apysc library.
+
+        Notes
+        -----
+        The Bool class is the alias of the Boolean, and it behaves
+        the same as the Boolean class.
 
         Parameters
         ----------

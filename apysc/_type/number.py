@@ -11,6 +11,11 @@ class Number(NumberValueInterface[float, 'Number']):
     """
     Floating point number class for the apysc library.
 
+    Notes
+    -----
+    Float class is the alias of the Number, and it behaves
+    the same as the Number class.
+
     References
     ----------
     - Int and Number document

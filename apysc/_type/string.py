@@ -124,6 +124,14 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         ----------
         - apysc basic data classes common value interface
             - https://bit.ly/3Be1aij
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> string: ap.String = ap.String('Hello')
+        >>> string.value = 'World!'
+        >>> string.value
+        'World!'
         """
         return self._value
 

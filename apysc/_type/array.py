@@ -771,6 +771,18 @@ class Array(
         ----------
         - Array class sort interface document
             - https://simon-ritchie.github.io/apysc/array_sort.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> arr: ap.Array = ap.Array([3, 5, 1, 4, 2])
+        >>> arr.sort()
+        >>> arr
+        Array([1, 2, 3, 4, 5])
+
+        >>> arr.sort(ascending=False)
+        >>> arr
+        Array([5, 4, 3, 2, 1])
         """
         import apysc as ap
         with ap.DebugInfo(

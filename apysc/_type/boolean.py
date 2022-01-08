@@ -49,6 +49,17 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         ----------
         - Boolean document
             - https://simon-ritchie.github.io/apysc/boolean.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> bool_val_1: ap.Boolean = ap.Boolean(True)
+        >>> bool_val_1
+        Boolean(True)
+
+        >>> bool_val_2: ap.Bool = ap.Bool(True)
+        >>> bool_val_2
+        Boolean(True)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -139,6 +150,18 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         ----------
         - apysc basic data classes common value interface
             - https://bit.ly/3Be1aij
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> bool_val: ap.Boolean = ap.Boolean(True)
+        >>> bool_val.value = False
+        >>> bool_val.value
+        False
+
+        >>> bool_val.value = ap.Boolean(True)
+        >>> bool_val.value
+        True
         """
         return self._value
 

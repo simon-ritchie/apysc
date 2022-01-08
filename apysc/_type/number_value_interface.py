@@ -96,6 +96,10 @@ class NumberValueInterface(
         >>> int_val.value = 20
         >>> int_val.value
         20
+
+        >>> int_val.value = ap.Int(30)
+        >>> int_val.value
+        30
         """
         return self._value
 

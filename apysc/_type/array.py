@@ -728,6 +728,14 @@ class Array(
         ----------
         - Array class reverse interface document
             - https://simon-ritchie.github.io/apysc/array_reverse.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> arr: ap.Array = ap.Array([1, 2, 3])
+        >>> arr.reverse()
+        >>> arr
+        Array([3, 2, 1])
         """
         import apysc as ap
         with ap.DebugInfo(

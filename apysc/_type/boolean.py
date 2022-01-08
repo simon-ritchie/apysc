@@ -427,6 +427,17 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         -------
         result : Boolean
             Not condition Boolean value.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> bool_val: ap.Boolean = ap.Boolean(True)
+        >>> bool_val.not_
+        Boolean(False)
+
+        >>> bool_val.value = False
+        >>> bool_val.not_
+        Boolean(True)
         """
         import apysc as ap
         with ap.DebugInfo(

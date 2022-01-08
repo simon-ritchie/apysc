@@ -294,3 +294,10 @@ class TestBoolean:
             expected_error_class=ValueError,
             func_or_method=bool_1._validate_comparison_other_type,
             kwargs={'other': 'Hello!'})
+
+
+class TestBool:
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_alias(self) -> None:
+        assert ap.Boolean == ap.Bool

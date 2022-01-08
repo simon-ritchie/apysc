@@ -472,6 +472,14 @@ class Array(
         ----------
         - Array class insert and insert_at interfaces document
             - https://bit.ly/3G9LBtQ
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> arr: ap.Array = ap.Array([1, 3])
+        >>> arr.insert(index=1, value=2)
+        >>> arr
+        Array([1, 2, 3])
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -507,6 +515,14 @@ class Array(
         ----------
         - Array class insert and insert_at interfaces document
             - https://bit.ly/3G9LBtQ
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> arr: ap.Array = ap.Array([1, 3])
+        >>> arr.insert_at(index=1, value=2)
+        >>> arr
+        Array([1, 2, 3])
         """
         import apysc as ap
         with ap.DebugInfo(

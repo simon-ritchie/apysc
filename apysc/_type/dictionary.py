@@ -69,6 +69,10 @@ class Dictionary(
 
         >>> dictionary['a']
         10
+
+        >>> dictionary['b'] = 20
+        >>> dictionary['b']
+        20
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -160,6 +164,14 @@ class Dictionary(
         ----------
         - apysc basic data classes common value interface
             - https://bit.ly/3Be1aij
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> dictionary: ap.Dictionary = ap.Dictionary({})
+        >>> dictionary.value = {'a': 10}
+        >>> dictionary.value
+        {'a': 10}
         """
         return self._value
 

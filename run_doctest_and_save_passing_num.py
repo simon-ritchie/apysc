@@ -46,6 +46,27 @@ def _save_passing_tests_num(stdout: str) -> None:
     stdout : str
         Test command stdout.
     """
+    passing_test_num: str = _get_passing_test_num_from_stdout(
+        stdout=stdout)
+    logger.info('Saving a doctest passing tests number to the .env file.')
+    with open('.env', 'a') as f:
+        f.write(f'PASSING_TESTS_NUM="{passing_test_num}"\n')
+
+
+def _get_passing_test_num_from_stdout(stdout: str) -> str:
+    """
+    Get a passing tests number from the stdout.
+
+    Parameters
+    ----------
+    stdout : str
+        Test command stdout.
+
+    Returns
+    -------
+    passing_test_num : str
+        Retrieved passing tests number.
+    """
     lines: List[str] = stdout.splitlines()
     passing_test_num: str = ''
     for line in lines:
@@ -57,9 +78,7 @@ def _save_passing_tests_num(stdout: str) -> None:
         if match is None:
             continue
         passing_test_num = match.group(1)
-    logger.info('Saving a doctest passing tests number to the .env file.')
-    with open('.env', 'a') as f:
-        f.write(f'PASSING_TESTS_NUM="{passing_test_num}"\n')
+    return passing_test_num
 
 
 if __name__ == '__main__':

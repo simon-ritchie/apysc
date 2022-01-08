@@ -59,6 +59,16 @@ class Dictionary(
             - https://simon-ritchie.github.io/apysc/dictionary.html
         - Dictionary class generic type settings document
             - https://bit.ly/3HL8HaF
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> dictionary: ap.Dictionary = ap.Dictionary({'a': 10})
+        >>> dictionary
+        Dictionary({'a': 10})
+
+        >>> dictionary['a']
+        10
         """
         import apysc as ap
         with ap.DebugInfo(

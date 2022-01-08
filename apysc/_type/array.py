@@ -290,6 +290,14 @@ class Array(
         ----------
         - Array class append and push interfaces document
             - https://simon-ritchie.github.io/apysc/array_append_and_push.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> arr: ap.Array = ap.Array([1, 2, 3])
+        >>> arr.push(4)
+        >>> arr
+        Array([1, 2, 3, 4])
         """
         import apysc as ap
         with ap.DebugInfo(

@@ -641,7 +641,8 @@ class Array(
 
         Examples
         --------
-        >>> arr: Array = Array([1, 2, 3, 4])
+        >>> import apysc as ap
+        >>> arr: ap.Array = ap.Array([1, 2, 3, 4])
         >>> arr.slice(start=1, end=3)
         Array([2, 3])
 
@@ -944,7 +945,8 @@ class Array(
 
         Examples
         --------
-        >>> arr: Array = Array([1, 2, 3])
+        >>> import apysc as ap
+        >>> arr: ap.Array = ap.Array([1, 2, 3])
         >>> arr.join(sep=', ')
         String('1, 2, 3')
         """

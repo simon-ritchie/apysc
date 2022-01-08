@@ -1243,6 +1243,13 @@ class Array(
         ----------
         - Array class index_of interface document
             - https://simon-ritchie.github.io/apysc/array_index_of.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> arr: ap.Array = ap.Array([1, 3, 5])
+        >>> arr.index_of(3)
+        Int(1)
         """
         import apysc as ap
         with ap.DebugInfo(

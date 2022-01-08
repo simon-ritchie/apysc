@@ -52,10 +52,8 @@ def _save_passing_tests_num(stdout: str) -> None:
         if ' passed in ' not in line:
             continue
         match: Optional[Match] = re.search(
-            pattern=r'.* (\d+?) passed',
+            pattern=r'.*? (\d+?) passed',
             string=line)
-        if match is None:
-            continue
         if match is None:
             continue
         passing_test_num = match.group(1)

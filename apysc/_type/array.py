@@ -24,6 +24,13 @@ class Array(
         CopyInterface, RevertInterface, CustomEventInterface, Generic[T]):
     """
     Array class for the apysc library.
+
+    References
+    ----------
+    - Array document
+        - https://simon-ritchie.github.io/apysc/array.html
+    - Array class comparison interfaces document
+        - https://simon-ritchie.github.io/apysc/array_comparison.html
     """
 
     _initial_value: Union[List[Any], tuple, 'Array']
@@ -39,6 +46,13 @@ class Array(
         ----------
         value : list or tuple or range or Array
             Initial array value.
+
+        References
+        ----------
+        - Array document
+            - https://simon-ritchie.github.io/apysc/array.html
+        - Array class comparison interfaces document
+            - https://simon-ritchie.github.io/apysc/array_comparison.html
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -218,6 +232,11 @@ class Array(
         ----------
         value : *
             Any value to append.
+
+        References
+        ----------
+        - Array class append and push interfaces document
+            - https://simon-ritchie.github.io/apysc/array_append_and_push.html
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -235,6 +254,11 @@ class Array(
         ----------
         value : *
             Any value to append.
+
+        References
+        ----------
+        - Array class append and push interfaces document
+            - https://simon-ritchie.github.io/apysc/array_append_and_push.html
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -277,6 +301,11 @@ class Array(
         ----------
         other_arr : list or tuple or Array
             Other array-like value to concatenate.
+
+        References
+        ----------
+        - Array class extend and concat interfaces document
+            - https://bit.ly/3r1TdIu
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -329,6 +358,11 @@ class Array(
         -------
         concatenated : Array
             Concatenated array value.
+
+        References
+        ----------
+        - Array class extend and concat interfaces document
+            - https://bit.ly/3r1TdIu
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -378,6 +412,11 @@ class Array(
             Index to append value to.
         value : *
             Any value to append.
+
+        References
+        ----------
+        - Array class insert and insert_at interfaces document
+            - https://bit.ly/3G9LBtQ
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -408,6 +447,11 @@ class Array(
             Index to append value to.
         value : *
             Any value to append.
+
+        References
+        ----------
+        - Array class insert and insert_at interfaces document
+            - https://bit.ly/3G9LBtQ
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -449,6 +493,11 @@ class Array(
         -------
         value : *
             Removed value.
+
+        References
+        ----------
+        - Array class pop interface document
+            - https://simon-ritchie.github.io/apysc/array_pop.html
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -484,6 +533,11 @@ class Array(
         ----------
         value : Any
             Value to remove.
+
+        References
+        ----------
+        - Array class remove and remove_at interfaces document
+            - https://bit.ly/3zDO6Cl
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -526,6 +580,11 @@ class Array(
         ----------
         index : int or Int
             Index to remove value.
+
+        References
+        ----------
+        - Array class remove and remove_at interfaces document
+            - https://bit.ly/3zDO6Cl
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -566,6 +625,11 @@ class Array(
     def reverse(self) -> None:
         """
         Reverse this array in place.
+
+        References
+        ----------
+        - Array class reverse interface document
+            - https://simon-ritchie.github.io/apysc/array_reverse.html
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -596,6 +660,11 @@ class Array(
         ascending : bool, default True
             Sort by ascending or not. If False is specified,
             values will be descending.
+
+        References
+        ----------
+        - Array class sort interface document
+            - https://simon-ritchie.github.io/apysc/array_sort.html
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -638,6 +707,11 @@ class Array(
         -------
         sliced_arr : Array
             Sliced array.
+
+        References
+        ----------
+        - Array class slice interface document
+            - https://simon-ritchie.github.io/apysc/array_slice.html
 
         Examples
         --------
@@ -894,6 +968,11 @@ class Array(
         -------
         length : Int
             This array's length.
+
+        References
+        ----------
+        - Array class length interface document
+            - https://simon-ritchie.github.io/apysc/array_length.html
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -942,6 +1021,11 @@ class Array(
         -------
         joined : String
             Joined string.
+
+        References
+        ----------
+        - Array class join interface document
+            - https://simon-ritchie.github.io/apysc/array_join.html
 
         Examples
         --------
@@ -1029,6 +1113,11 @@ class Array(
         index : Int
             Found position of index. If value is not contains,
             -1 will be returned.
+
+        References
+        ----------
+        - Array class index_of interface document
+            - https://simon-ritchie.github.io/apysc/array_index_of.html
         """
         import apysc as ap
         with ap.DebugInfo(

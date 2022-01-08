@@ -212,13 +212,13 @@ jobs:
       - name: Run the checking command
         run: python check_apysc_top_level_import.py
 
-  RunTestsOnPython36AndSaveCoverageAndPassedNum:
+  RunTestsOnPython36AndSaveCoverageAndPassingNum:
     needs: [CreateCache, SetGlobalConstants]
     runs-on: ubuntu-latest
     timeout-minutes: 20
     outputs:
       COVERAGE: ${{ steps.set-coverage.outputs.coverage }}
-      PASSED_TESTS_NUM: ${{ steps.set-passed-tests-num.outputs.passed-tests-num }}
+      PASSING_TESTS_NUM: ${{ steps.set-passing-tests-num.outputs.passing-tests-num }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -237,9 +237,9 @@ jobs:
       - name: Set the coverage to outputs value
         id: set-coverage
         run: echo '::set-output name=coverage::${{ env.COVERAGE }}'
-      - name: Set the passed tests number to outputs value
-        id: set-passed-tests-num
-        run: echo '::set-output name=passed-tests-num::${{ env.PASSED_TESTS_NUM }}'
+      - name: Set the passing tests number to outputs value
+        id: set-passing-tests-num
+        run: echo '::set-output name=passing-tests-num::${{ env.PASSING_TESTS_NUM }}'
 
   RunTestsOnEachPythonVersion:
     needs: [CreateCache, SetGlobalConstants]
@@ -272,7 +272,7 @@ jobs:
       RunNumdoclint,
       RunPyright,
       RunCheckingApyscTopLevelImporting,
-      RunTestsOnPython36AndSaveCoverageAndPassedNum,
+      RunTestsOnPython36AndSaveCoverageAndPassingNum,
       RunTestsOnEachPythonVersion,
       SetGlobalConstants,
       UpdateReadmeBadgesToCheckingStatus,
@@ -308,7 +308,7 @@ jobs:
       RunNumdoclint,
       RunPyright,
       RunCheckingApyscTopLevelImporting,
-      RunTestsOnPython36AndSaveCoverageAndPassedNum,
+      RunTestsOnPython36AndSaveCoverageAndPassingNum,
       RunTestsOnEachPythonVersion,
       SetGlobalConstants,
       UpdateReadmeBadgesToCheckingStatus,
@@ -342,7 +342,7 @@ jobs:
       RunPyright,
       RunCheckingApyscTopLevelImporting,
       UpdateReadmeBadgesToCheckingStatus,
-      RunTestsOnPython36AndSaveCoverageAndPassedNum,
+      RunTestsOnPython36AndSaveCoverageAndPassingNum,
       RunTestsOnEachPythonVersion,
       SetGlobalConstants,
     ]
@@ -386,16 +386,16 @@ jobs:
         with:
           NAME: pytest_coverage
           LABEL: 'pytest coverage'
-          STATUS: ${{ needs.RunTestsOnPython36AndSaveCoverageAndPassedNum.outputs.COVERAGE }}
+          STATUS: ${{ needs.RunTestsOnPython36AndSaveCoverageAndPassingNum.outputs.COVERAGE }}
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Update the passed tests number
+      - name: Update the passing tests number
         uses: RubbaBoy/BYOB@v1.2.1
         with:
-          NAME: passed_tests_num
-          LABEL: 'passed tests number'
-          STATUS: ${{ needs.RunTestsOnPython36AndSaveCoverageAndPassedNum.outputs.PASSED_TESTS_NUM }}
-          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSED_TESTS_NUM }}
+          NAME: passing_tests_num
+          LABEL: 'passing tests number'
+          STATUS: ${{ needs.RunTestsOnPython36AndSaveCoverageAndPassingNum.outputs.PASSING_TESTS_NUM }}
+          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_TESTS_NUM }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # For the sake of sequentiality, the following steps
       # are not using strategy matrix.

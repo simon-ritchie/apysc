@@ -265,6 +265,31 @@ jobs:
       - name: Run the test runner command
         run: python run_tests.py
 
+  RunDocTest:
+    needs: [CreateCache, SetGlobalConstants]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      PASSING_TESTS_NUM: ${{ steps.set-passing-tests.outputs.passing-tests-num }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
+        with:
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
+      - name: Set the pytest alias
+        run: alias pytest=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/pytest
+      - name: Run the doctest runner command
+        run: python run_doctest_and_save_passing_num.py
+      - name: Set the environment variables from .env file
+        uses: c-py/action-dotenv-to-setenv@v3
+        with:
+          env-file: .env
+      - name: Set the passing tests number to outputs value
+        id: set-passing-tests-num
+        run: echo '::set-output name=passing-tests-num::${{ env.PASSING_TESTS_NUM }}'
+
   DeployToPyPI:
     needs: [
       RunFlake8,
@@ -274,6 +299,7 @@ jobs:
       RunCheckingApyscTopLevelImporting,
       RunTestsOnPython36AndSaveCoverageAndPassingNum,
       RunTestsOnEachPythonVersion,
+      RunDocTest,
       SetGlobalConstants,
       UpdateReadmeBadgesToCheckingStatus,
     ]
@@ -310,6 +336,7 @@ jobs:
       RunCheckingApyscTopLevelImporting,
       RunTestsOnPython36AndSaveCoverageAndPassingNum,
       RunTestsOnEachPythonVersion,
+      RunDocTest,
       SetGlobalConstants,
       UpdateReadmeBadgesToCheckingStatus,
     ]
@@ -344,6 +371,7 @@ jobs:
       UpdateReadmeBadgesToCheckingStatus,
       RunTestsOnPython36AndSaveCoverageAndPassingNum,
       RunTestsOnEachPythonVersion,
+      RunDocTest,
       SetGlobalConstants,
     ]
     runs-on: ubuntu-latest
@@ -389,12 +417,20 @@ jobs:
           STATUS: ${{ needs.RunTestsOnPython36AndSaveCoverageAndPassingNum.outputs.COVERAGE }}
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Update the passing tests number
+      - name: Update the passing unit test number
         uses: RubbaBoy/BYOB@v1.2.1
         with:
-          NAME: passing_tests_num
-          LABEL: 'passing tests number'
+          NAME: passing_unit_test_num
+          LABEL: 'passing unit test number'
           STATUS: ${{ needs.RunTestsOnPython36AndSaveCoverageAndPassingNum.outputs.PASSING_TESTS_NUM }}
+          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update the passsing doctest number
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: passing_doctest_num
+          LABEL: 'passing doctest number'
+          STATUS: ${{ needs.RunDocTest.outputs.PASSING_TESTS_NUM }}
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # For the sake of sequentiality, the following steps

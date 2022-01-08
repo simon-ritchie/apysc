@@ -270,7 +270,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     outputs:
-      PASSING_TESTS_NUM: ${{ steps.set-passing-tests.outputs.passing-tests-num }}
+      PASSING_TESTS_NUM: ${{ steps.set-passing-tests-num.outputs.passing-tests-num }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2

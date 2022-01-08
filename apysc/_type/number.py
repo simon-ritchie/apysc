@@ -49,6 +49,26 @@ class Number(NumberValueInterface[float, 'Number']):
             - https://bit.ly/3evzcVj
         - Int and Number common comparison operations document
             - https://bit.ly/3zolw6T
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> number: ap.Number = ap.Number(10.5)
+        >>> number
+        Number(10.5)
+
+        >>> number == 10.5
+        Boolean(True)
+
+        >>> number == ap.Number(10.5)
+        Boolean(True)
+
+        >>> number >= 10.5
+        Boolean(True)
+
+        >>> number += 10.3
+        >>> number
+        Number(20.8)
         """
         import apysc as ap
         with ap.DebugInfo(

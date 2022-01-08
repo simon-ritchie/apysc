@@ -32,6 +32,13 @@ class Dictionary(
         CustomEventInterface):
     """
     Dictionary class for the apysc library.
+
+    References
+    ----------
+    - Dictionary document
+        - https://simon-ritchie.github.io/apysc/dictionary.html
+    - Dictionary class generic type settings document
+        - https://bit.ly/3HL8HaF
     """
 
     _initial_value: Union[Dict[_K, _V], 'Dictionary']
@@ -45,6 +52,13 @@ class Dictionary(
         ----------
         value : dict or Dictionary
             Initial dictionary value.
+
+        References
+        ----------
+        - Dictionary document
+            - https://simon-ritchie.github.io/apysc/dictionary.html
+        - Dictionary class generic type settings document
+            - https://bit.ly/3HL8HaF
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -248,6 +262,11 @@ class Dictionary(
         -------
         length : Int
             This dictionary value's length.
+
+        References
+        ----------
+        - Dictionary length interface document
+            - https://simon-ritchie.github.io/apysc/dictionary_length.html
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -589,6 +608,11 @@ class Dictionary(
         -------
         result_value : Any
             Extracted value or a default value.
+
+        References
+        ----------
+        - Dictionary get interface document
+            - https://bit.ly/3FbSHNg
         """
         key_: _BuiltinKeys = self._get_builtin_type_key(key=key)
         if key_ in self._value:

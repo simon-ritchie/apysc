@@ -289,6 +289,13 @@ class Dictionary(
         ----------
         - Dictionary length interface document
             - https://simon-ritchie.github.io/apysc/dictionary_length.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> dictionary: ap.Dictionary = ap.Dictionary({'a': 1, 'b': 2})
+        >>> dictionary.length
+        Int(2)
         """
         import apysc as ap
         with ap.DebugInfo(

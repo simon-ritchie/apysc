@@ -24,6 +24,18 @@ bool_3: ap.Boolean = ap.Boolean(bool_1)
 assert bool_3
 ```
 
+## Note for the Bool class alias
+
+The `Bool` class is the alias of the `Boolean` class. And it behaves the same as the `Boolean` class.
+
+```py
+# runnable
+import apysc as ap
+
+assert ap.Boolean == ap.Bool
+assert ap.Boolean(True) == ap.Bool(True)
+```
+
 ## Boolean comparison
 
 The `Boolean` comparison interface behaves like the Python built-in `bool` value.

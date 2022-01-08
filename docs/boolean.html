@@ -67,6 +67,17 @@
 </pre></div>
 </div>
 </section>
+<section id="note-for-the-bool-class-alias">
+<h2>Note for the Bool class alias<a class="headerlink" href="#note-for-the-bool-class-alias" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Bool</span></code> class is the alias of the <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> class. And it behaves the same as the <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> class.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+
+<span class="k">assert</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">==</span> <span class="n">ap</span><span class="o">.</span><span class="n">Bool</span>
+<span class="k">assert</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> <span class="o">==</span> <span class="n">ap</span><span class="o">.</span><span class="n">Bool</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 <section id="boolean-comparison">
 <h2>Boolean comparison<a class="headerlink" href="#boolean-comparison" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> comparison interface behaves like the Python built-in <code class="docutils literal notranslate"><span class="pre">bool</span></code> value.</p>
@@ -135,6 +146,7 @@
   <ul>
 <li><a class="reference internal" href="#">Boolean</a><ul>
 <li><a class="reference internal" href="#what-is-the-boolean-class">What is the Boolean class?</a></li>
+<li><a class="reference internal" href="#note-for-the-bool-class-alias">Note for the Bool class alias</a></li>
 <li><a class="reference internal" href="#boolean-comparison">Boolean comparison</a></li>
 <li><a class="reference internal" href="#reverse-a-boolean-value">Reverse a Boolean value</a></li>
 </ul>

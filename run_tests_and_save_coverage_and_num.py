@@ -1,5 +1,5 @@
 """The test runner command execution script and save the
-test coverage and passed test number.
+test coverage and passing test number.
 This is used by the deploying job mainly.
 
 Command example:
@@ -36,12 +36,12 @@ def _main() -> None:
     if ' failed, ' in stdout or 'Traceback' in stdout:
         raise Exception('There are failed tests.')
     _save_coverage(stdout=stdout)
-    _save_passed_tests_num(stdout=stdout)
+    _save_passing_tests_num(stdout=stdout)
 
 
-def _save_passed_tests_num(stdout: str) -> None:
+def _save_passing_tests_num(stdout: str) -> None:
     """
-    Save a passed tests number to the `.env` file.
+    Save a passing tests number to the `.env` file.
 
     Parameters
     ----------
@@ -49,7 +49,7 @@ def _save_passed_tests_num(stdout: str) -> None:
         Test command stdout.
     """
     lines: List[str] = stdout.splitlines()
-    passed_test_num: str = ''
+    passing_test_num: str = ''
     for line in lines:
         if ' passed in ' not in stdout:
             continue
@@ -58,10 +58,10 @@ def _save_passed_tests_num(stdout: str) -> None:
             string=line)
         if match is None:
             continue
-        passed_test_num = match.group(1)
-    logger.info('Saving a passed tests number to the .env file.')
+        passing_test_num = match.group(1)
+    logger.info('Saving a passing tests number to the .env file.')
     with open('.env', 'a') as f:
-        f.write(f'PASSED_TESTS_NUM="{passed_test_num}"\n')
+        f.write(f'PASSING_TESTS_NUM="{passing_test_num}"\n')
 
 
 def _save_coverage(stdout: str) -> None:

@@ -1091,6 +1091,13 @@ class Array(
         ----------
         - Array class length interface document
             - https://simon-ritchie.github.io/apysc/array_length.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> arr: ap.Array = ap.Array([1, 2, 3])
+        >>> arr.length
+        Int(3)
         """
         import apysc as ap
         with ap.DebugInfo(

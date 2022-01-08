@@ -187,6 +187,14 @@ class Array(
         ----------
         - apysc basic data classes common value interface
             - https://bit.ly/3Be1aij
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> arr: ap.Array = ap.Array([1, 2, 3])
+        >>> arr.value = [4, 5, 6]
+        >>> arr.value
+        [4, 5, 6]
         """
         return self._value
 

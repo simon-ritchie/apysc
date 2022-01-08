@@ -61,6 +61,12 @@ class Array(
         >>> arr
         Array([1, 2, 3])
 
+        >>> arr[0]
+        1
+
+        >>> arr[1]
+        2
+
         >>> arr = ap.Array((4, 5, 6))
         >>> arr
         Array([4, 5, 6])

@@ -569,6 +569,17 @@ class Array(
         ----------
         - Array class pop interface document
             - https://simon-ritchie.github.io/apysc/array_pop.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> arr: ap.Array = ap.Array([1, 2, 3])
+        >>> popped_val: int = arr.pop()
+        >>> popped_val
+        3
+
+        >>> arr
+        Array([1, 2])
         """
         import apysc as ap
         with ap.DebugInfo(

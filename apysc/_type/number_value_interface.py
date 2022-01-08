@@ -85,6 +85,17 @@ class NumberValueInterface(
         ----------
         - apysc basic data classes common value interface
             - https://bit.ly/3Be1aij
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> int_val: ap.Int = ap.Int(10)
+        >>> int_val.value
+        10
+
+        >>> int_val.value = 20
+        >>> int_val.value
+        20
         """
         return self._value
 

@@ -10,7 +10,7 @@
 ![](https://byob.yarr.is/simon-ritchie/apysc/pytest_on_py3.9.9)
 ![](https://byob.yarr.is/simon-ritchie/apysc/pytest_on_py3.10.0)
 ![](https://byob.yarr.is/simon-ritchie/apysc/pytest_coverage)
-![](https://byob.yarr.is/simon-ritchie/apysc/passed_tests_num)
+![](https://byob.yarr.is/simon-ritchie/apysc/passing_tests_num)
 ![](https://byob.yarr.is/simon-ritchie/apysc/flake8_checking)
 ![](https://byob.yarr.is/simon-ritchie/apysc/mypy_checking)
 ![](https://byob.yarr.is/simon-ritchie/apysc/pyright_checking)

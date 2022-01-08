@@ -642,14 +642,14 @@ class Array(
         Examples
         --------
         >>> arr: Array = Array([1, 2, 3, 4])
-        >>> arr.slice(1, 3)
-        [2, 3]
+        >>> arr.slice(start=1, end=3)
+        Array([2, 3])
 
-        >>> arr.slice(1)
-        [2, 3, 4]
+        >>> arr.slice(start=1)
+        Array([2, 3, 4])
 
         >>> arr.slice(end=2)
-        [1, 2]
+        Array([1, 2])
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -944,9 +944,9 @@ class Array(
 
         Examples
         --------
-        >>> arr: Array = Array([1, 2', 3])
+        >>> arr: Array = Array([1, 2, 3])
         >>> arr.join(sep=', ')
-        '1, 2, 3'
+        String('1, 2, 3')
         """
         import apysc as ap
         with ap.DebugInfo(

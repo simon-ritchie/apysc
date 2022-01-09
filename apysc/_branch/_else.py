@@ -28,6 +28,11 @@ class Else(IfBase):
         """
         A class to append else branch instruction expression.
 
+        Notes
+        -----
+        - You can only use this class immediately after the
+            `If` or `Elif` statement.
+
         Parameters
         ----------
         locals_ : dict or None, default None
@@ -43,6 +48,15 @@ class Else(IfBase):
             - https://simon-ritchie.github.io/apysc/else.html
         - Each branch instruction class scope variables reverting setting
             - https://bit.ly/3rkAuaT
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> int_val: ap.Int = ap.Int(10)
+        >>> with ap.If(int_val >= 11):
+        ...     ap.trace('Value is greater than equal 11.')
+        >>> with ap.Else():
+        ...     ap.trace('Value is less than 11.')
         """
         import apysc as ap
         with ap.DebugInfo(

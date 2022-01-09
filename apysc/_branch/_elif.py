@@ -35,7 +35,8 @@ class Elif(IfBase):
         - Currently the apysc can not initialize condition value
             in the constructor. For example, the following raises
             exception:
-        - This class can only use immediately after the `If` statement.
+        - You can only use this class immediately after the
+            `If` or `Elif` statement.
 
         ```py
         import apysc as ap

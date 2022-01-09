@@ -40,6 +40,17 @@ class BeginFillInterface(RevertInterface):
         ----------
         - Graphics begin_fill interface document
             - https://bit.ly/3ikhNAh
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> rectangle.fill_color
+        String('#00aaff')
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -74,6 +85,17 @@ class BeginFillInterface(RevertInterface):
         fill_color : String
             Current fill color (hexadecimal string, e.g., '#00aaff').
             If not be set, blank string will be returned.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> rectangle.fill_color
+        String('#00aaff')
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -102,6 +124,17 @@ class BeginFillInterface(RevertInterface):
         fill_alpha : Number
             Current fill color opacity (0.0 to 1.0).
             If not be set, 1.0 will be returned.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> rectangle.fill_alpha
+        Number(0.5)
         """
         import apysc as ap
         with ap.DebugInfo(

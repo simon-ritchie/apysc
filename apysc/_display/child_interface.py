@@ -258,7 +258,8 @@ class ChildInterface(RevertInterface):
         ...     x=50, y=50, width=50, height=50)
         >>> rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
         ...     x=150, y=50, width=50, height=50)
-        >>> child_at_index_1: ap.DisplayObject = sprite.graphics.get_child_at(1)
+        >>> child_at_index_1: ap.DisplayObject = \
+        ...     sprite.graphics.get_child_at(1)
         >>> child_at_index_1 == rectangle_2
         True
         """

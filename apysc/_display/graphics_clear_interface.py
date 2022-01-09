@@ -4,6 +4,7 @@
 
 from typing import Optional
 
+from apysc._display.display_object import DisplayObject
 from apysc._display.line_dash_dot_setting import LineDashDotSetting
 from apysc._display.line_dash_setting import LineDashSetting
 from apysc._display.line_dot_setting import LineDotSetting
@@ -13,7 +14,6 @@ from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
-from apysc._display.display_object import DisplayObject
 
 
 class GraphicsClearInterface:

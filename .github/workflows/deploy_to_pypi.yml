@@ -340,8 +340,8 @@ jobs:
       - name: Update tests line coverage
         uses: RubbaBoy/BYOB@v1.2.1
         with:
-          NAME: pytest_coverage
-          LABEL: 'pytest coverage'
+          NAME: unit_tests_coverage
+          LABEL: 'unit tests coverage'
           STATUS: ${{ needs.RunTestsOnPython36AndSaveCoverageAndPassingNum.outputs.COVERAGE }}
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

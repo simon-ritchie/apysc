@@ -36,6 +36,17 @@ class ChildInterface(RevertInterface):
         ----------
         - Sprite class add_child and remove_child interfaces document
             - https://bit.ly/2Ugk47G
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite_1: ap.Sprite = ap.Sprite()
+        >>> sprite_1.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> sprite_2: ap.Sprite = ap.Sprite()
+        >>> sprite_2.add_child(rectangle)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -71,6 +82,18 @@ class ChildInterface(RevertInterface):
         ----------
         - Sprite class add_child and remove_child interfaces document
             - https://bit.ly/2Ugk47G
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> sprite.graphics.remove_child(rectangle)
+        >>> print(rectangle.parent)
+        None
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -104,6 +127,21 @@ class ChildInterface(RevertInterface):
         ----------
         - Sprite class contains interface document
             - https://simon-ritchie.github.io/apysc/sprite_contains.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> sprite.graphics.contains(rectangle)
+        Boolean(True)
+
+        >>> rectangle.remove_from_parent()
+        >>> sprite.graphics.contains(rectangle)
+        Boolean(False)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -151,6 +189,19 @@ class ChildInterface(RevertInterface):
         ----------
         - Sprite class num_children interface document
             - https://simon-ritchie.github.io/apysc/sprite_num_children.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+        >>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=150, y=50, width=50, height=50)
+        >>> sprite.graphics.num_children
+        Int(2)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -178,7 +229,7 @@ class ChildInterface(RevertInterface):
         )
         ap.append_js_expression(expression=expression)
 
-    def get_child_at(self, *, index: Union[int, Int]) -> DisplayObject:
+    def get_child_at(self, index: Union[int, Int]) -> DisplayObject:
         """
         Get child at specified index.
 
@@ -196,6 +247,20 @@ class ChildInterface(RevertInterface):
         ----------
         - Sprite class get_child_at interface document
             - https://bit.ly/3rggoi6
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+        >>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=150, y=50, width=50, height=50)
+        >>> child_at_index_1: ap.DisplayObject = sprite.graphics.get_child_at(1)
+        >>> child_at_index_1 == rectangle_2
+        True
         """
         import apysc as ap
         with ap.DebugInfo(

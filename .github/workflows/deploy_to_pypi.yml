@@ -18,6 +18,10 @@ jobs:
       PASSING_BADGE_COLOR: 0088FF
       RUNNING_OR_FAILING_STATUS: running or failed
       PASSING_STATUS: passing
+      PASSING_LINTS_BADGE_NAME: passing_lints
+      PASSING_LINTS_BADGE_LABEL: 'passing lints'
+      PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_NAME: passing_unit_test_python_versions
+      PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_LABEL: 'passing unit tests Python versions'
     steps:
       - run: echo 'Setting constans.'
 
@@ -70,8 +74,8 @@ jobs:
       - name: Update each lint badge status to running or failing
         uses: RubbaBoy/BYOB@v1.2.1
         with:
-          NAME: passing_lints
-          LABEL: 'passing lints'
+          NAME: '${{ needs.SetGlobalConstants.outputs.PASSING_LINTS_BADGE_NAME }}'
+          LABEL: '${{ needs.SetGlobalConstants.outputs.PASSING_LINTS_BADGE_LABEL }}'
           STATUS: '${{ needs.SetGlobalConstants.outputs.RUNNING_OR_FAILING_STATUS }}'
           COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -80,8 +84,8 @@ jobs:
       - name: Update the passing unit tests Python versions status
         uses: RubbaBoy/BYOB@v1.2.1
         with:
-          NAME: passing_unit_test_python_versions
-          LABEL: 'passing unit tests Python versions'
+          NAME: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_NAME }}'
+          LABEL: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_LABEL }}'
           STATUS: '${{ needs.SetGlobalConstants.outputs.RUNNING_OR_FAILING_STATUS }}'
           COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -332,8 +336,8 @@ jobs:
       - name: Update each lint badge status
         uses: RubbaBoy/BYOB@v1.2.1
         with:
-          NAME: passing_lints
-          LABEL: 'passing lints'
+          NAME: '${{ needs.SetGlobalConstants.outputs.PASSING_LINTS_BADGE_NAME }}'
+          LABEL: '${{ needs.SetGlobalConstants.outputs.PASSING_LINTS_BADGE_LABEL }}'
           STATUS: 'flake8, mypy, Pyright, numdoclint'
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -364,8 +368,8 @@ jobs:
       - name: Update the passing unit tests Python versions status
         uses: RubbaBoy/BYOB@v1.2.1
         with:
-          NAME: passing_unit_test_python_versions
-          LABEL: 'passing unit tests Python versions'
+          NAME: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_NAME }}'
+          LABEL: '${{ needs.SetGlobalConstants.outputs.PASSING_UNIT_TEST_PYTHON_VERSIONS_BADGE_LABEL }}'
           STATUS: '${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}, ${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}, ${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}, ${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}, ${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}'
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

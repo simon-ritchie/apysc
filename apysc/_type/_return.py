@@ -24,6 +24,25 @@ class Return:
         ----------
         - Return document
             - https://simon-ritchie.github.io/apysc/return.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
+        ...     \"\"\"
+        ...     The handler that the timer calls.
+        ...
+        ...     Parameters
+        ...     ----------
+        ...     e : ap.TimerEvent
+        ...         Event instance.
+        ...     options : dict
+        ...         Optional arguments dictionary.
+        ...     \"\"\"
+        ...     with ap.If(e.this.current_count > 10):
+        ...         ap.Return()
+        ...     ap.trace('Not returned.')
+        >>> ap.Timer(on_timer, delay=100).start()
         """
         import apysc as ap
         self._validate_current_scope_is_event_handler()

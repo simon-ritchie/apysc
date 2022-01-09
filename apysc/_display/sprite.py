@@ -38,6 +38,31 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
         ----------
         - Sprite document
             - https://simon-ritchie.github.io/apysc/sprite.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite_1: ap.Sprite = ap.Sprite()
+        >>> # Create the sprite child rectangle
+        >>> sprite_1.graphics.begin_fill(color='#0af')
+        >>> rect: ap.Rectangle = sprite_1.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> sprite_1.graphics.contains(rect)
+        Boolean(True)
+        >>>
+        >>> # Move the created rectangle to the other sprite
+        >>> sprite_2: ap.Sprite = ap.Sprite()
+        >>> sprite_2.add_child(rect)
+        >>> sprite_1.graphics.contains(rect)
+        Boolean(False)
+        >>> sprite_2.contains(rect)
+        Boolean(True)
+        >>>
+        >>> # Move the sprite container
+        >>> sprite_2.x = ap.Int(50)
+        >>> sprite_2.x
+        Int(50)
         """
         import apysc as ap
         with ap.DebugInfo(

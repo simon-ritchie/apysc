@@ -47,6 +47,19 @@ class EllipseWidthInterface(
         -------
         ellipse_width : Int
             Ellipse width value.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> rectangle.ellipse_width = ap.Int(10)
+        >>> rectangle.ellipse_height = ap.Int(15)
+        >>> rectangle.ellipse_width
+        Int(10)
         """
         import apysc as ap
         with ap.DebugInfo(

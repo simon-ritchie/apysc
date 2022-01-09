@@ -53,6 +53,22 @@ class FlipXInterface(
         ----------
         - GraphicsBase flip_x and flip_y interfaces document
             - https://bit.ly/31F9lHv
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
+        ...     points=[
+        ...         ap.Point2D(x=0, y=0),
+        ...         ap.Point2D(x=0, y=50),
+        ...         ap.Point2D(x=50, y=25),
+        ...     ])
+        >>> polygon.flip_x = ap.Boolean(True)
+        >>> polygon.flip_x
+        Boolean(True)
         """
         import apysc as ap
         with ap.DebugInfo(

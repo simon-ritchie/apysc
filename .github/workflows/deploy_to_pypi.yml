@@ -67,35 +67,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Update the flake8 badge status to running or failing
+      - name: Update each lint badge status to running or failing
         uses: RubbaBoy/BYOB@v1.2.1
         with:
-          NAME: flake8_checking
-          LABEL: 'flake8 checking'
-          STATUS: '${{ needs.SetGlobalConstants.outputs.RUNNING_OR_FAILING_STATUS }}'
-          COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Update the mypy badge status to running or failing
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: mypy_checking
-          LABEL: 'mypy checking'
-          STATUS: '${{ needs.SetGlobalConstants.outputs.RUNNING_OR_FAILING_STATUS }}'
-          COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Update the numdoclint badge status to running or failing
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: numdoclint_checking
-          LABEL: 'numdoclint checking'
-          STATUS: '${{ needs.SetGlobalConstants.outputs.RUNNING_OR_FAILING_STATUS }}'
-          COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Update the Pyright badge status to running or failing
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: pyright_checking
-          LABEL: 'Pyright checking'
+          NAME: passing_lints
+          LABEL: 'passing lints'
           STATUS: '${{ needs.SetGlobalConstants.outputs.RUNNING_OR_FAILING_STATUS }}'
           COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -353,37 +329,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Update the flake8 badge status to passing
+      - name: Update each lint badge status
         uses: RubbaBoy/BYOB@v1.2.1
         with:
-          NAME: flake8_checking
-          LABEL: 'flake8 checking'
-          STATUS: '${{ needs.SetGlobalConstants.outputs.PASSING_STATUS }}'
-          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Update the mypy badge status to passing
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: mypy_checking
-          LABEL: 'mypy checking'
-          STATUS: '${{ needs.SetGlobalConstants.outputs.PASSING_STATUS }}'
-          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Update the numdoclint badge status to passing
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: numdoclint_checking
-          LABEL: 'numdoclint checking'
-          STATUS: '${{ needs.SetGlobalConstants.outputs.PASSING_STATUS }}'
-          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Update the Pyright badge status to passing
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: pyright_checking
-          LABEL: 'Pyright checking'
-          STATUS: '${{ needs.SetGlobalConstants.outputs.PASSING_STATUS }}'
-          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
+          NAME: passing_lints
+          LABEL: 'passing lints'
+          STATUS: 'flake8, mypy, Pyright, numdoclint'
+          COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Update tests line coverage
         uses: RubbaBoy/BYOB@v1.2.1

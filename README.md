@@ -8,10 +8,8 @@
 ![](https://byob.yarr.is/simon-ritchie/apysc/pytest_coverage)
 ![](https://byob.yarr.is/simon-ritchie/apysc/passing_unit_test_num)
 ![](https://byob.yarr.is/simon-ritchie/apysc/passing_doctest_num)
-![](https://byob.yarr.is/simon-ritchie/apysc/flake8_checking)
-![](https://byob.yarr.is/simon-ritchie/apysc/mypy_checking)
-![](https://byob.yarr.is/simon-ritchie/apysc/pyright_checking)
-![](https://byob.yarr.is/simon-ritchie/apysc/numdoclint_checking)
+![](https://byob.yarr.is/simon-ritchie/apysc/passing_lints)
+
 
 ![logo](https://github.com/simon-ritchie/apysc/blob/main/assets/logo_v1/logo_small_v1.png)
 

@@ -335,7 +335,7 @@ jobs:
           NAME: passing_lints
           LABEL: 'passing lints'
           STATUS: 'flake8, mypy, Pyright, numdoclint'
-          COLOR: ${{ needs.SetGlobalConstants.outputs.CHECKING_BADGE_COLOR }}
+          COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Update tests line coverage
         uses: RubbaBoy/BYOB@v1.2.1

@@ -10,6 +10,11 @@ class Continue:
     -----
     This class can be instantiated in the with loop statement,
     for example, after the `with ap.For(...):` statement.
+
+    References
+    ----------
+    - Continue document
+        - https://simon-ritchie.github.io/apysc/continue.html
     """
 
     def __init__(self) -> None:
@@ -20,6 +25,11 @@ class Continue:
         -----
         This class can be instantiated in the with loop statement,
         for example, after the `with ap.For(...):` statement.
+
+        References
+        ----------
+        - Continue document
+            - https://simon-ritchie.github.io/apysc/continue.html
         """
         import apysc as ap
         with ap.DebugInfo(

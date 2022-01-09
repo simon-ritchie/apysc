@@ -30,6 +30,14 @@ class Continue:
         ----------
         - Continue document
             - https://simon-ritchie.github.io/apysc/continue.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> arr: ap.Array = ap.Array(range(3))
+        >>> with ap.For(arr) as i:
+        ...     with ap.If(i == 1):
+        ...         _ = ap.Continue()
         """
         import apysc as ap
         with ap.DebugInfo(

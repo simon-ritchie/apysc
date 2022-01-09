@@ -7,7 +7,7 @@
 ![](https://byob.yarr.is/simon-ritchie/apysc/passing_unit_test_python_versions)
 ![](https://byob.yarr.is/simon-ritchie/apysc/unit_tests_coverage)
 ![](https://byob.yarr.is/simon-ritchie/apysc/passing_unit_tests_num)
-![](https://byob.yarr.is/simon-ritchie/apysc/passing_doctest_num)
+![](https://byob.yarr.is/simon-ritchie/apysc/passing_doctests_num)
 ![](https://byob.yarr.is/simon-ritchie/apysc/passing_lints)
 
 

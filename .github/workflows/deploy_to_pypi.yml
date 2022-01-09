@@ -353,11 +353,11 @@ jobs:
           STATUS: ${{ needs.RunTestsOnPython36AndSaveCoverageAndPassingNum.outputs.PASSING_TESTS_NUM }}
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Update the passsing doctest number
+      - name: Update the passsing doctests number
         uses: RubbaBoy/BYOB@v1.2.1
         with:
-          NAME: passing_doctest_num
-          LABEL: 'passing doctest number'
+          NAME: passing_doctests_num
+          LABEL: 'passing doctests number'
           STATUS: ${{ needs.RunDocTest.outputs.PASSING_TESTS_NUM }}
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -52,6 +52,14 @@ class If(IfBase):
             - https://simon-ritchie.github.io/apysc/if.html
         - Each branch instruction class scope variables reverting setting
             - https://bit.ly/3rkAuaT
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> int_val: ap.Int = ap.Int(10)
+        >>> condition: ap.Boolean = int_val >= 10
+        >>> with ap.If(condition):
+        ...     ap.trace('Int value is greater than equal 10!')
         """
         import apysc as ap
         with ap.DebugInfo(

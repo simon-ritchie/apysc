@@ -413,7 +413,7 @@ jobs:
         uses: RubbaBoy/BYOB@v1.2.1
         with:
           NAME: passing_unit_test_python_versions
-          LABEL: 'passing doctest number'
+          LABEL: 'passing unit tests Python versions'
           STATUS: '${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}, ${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}, ${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}, ${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}, ${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}'
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

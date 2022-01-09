@@ -62,6 +62,7 @@ class CyInterface(
         ...     x=100, y=100, radius=50)
         >>> circle.y = ap.Int(120)
         >>> circle.y
+        Int(120)
         """
         import apysc as ap
         with ap.DebugInfo(

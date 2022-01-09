@@ -13,6 +13,7 @@ from apysc._type.array import Array
 from apysc._type.int import Int
 from apysc._type.number import Number
 from apysc._type.string import String
+from apysc._display.display_object import DisplayObject
 
 
 class GraphicsClearInterface:
@@ -22,7 +23,7 @@ class GraphicsClearInterface:
     _line_color: String
     _line_thickness: Int
     _line_alpha: Number
-    _children: Array
+    _children: Array[DisplayObject]
     _current_line: Optional[Polyline]
     _line_cap: String
     _line_joints: String
@@ -34,6 +35,29 @@ class GraphicsClearInterface:
     def clear(self) -> None:
         """
         Clear all graphics and reset fill and line settings.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> _ = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> _ = sprite.graphics.draw_rect(
+        ...     x=150, y=50, width=50, height=50)
+        >>> sprite.graphics.num_children
+        Int(2)
+
+        >>> sprite.graphics.fill_color
+        String('#00aaff')
+
+        >>> sprite.graphics.clear()
+        >>> sprite.graphics.num_children
+        Int(0)
+
+        >>> sprite.graphics.fill_color
+        String('')
         """
         import apysc as ap
         with ap.DebugInfo(

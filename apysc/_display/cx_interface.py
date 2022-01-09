@@ -47,6 +47,11 @@ class CxInterface(
         x : Int
             Center x-coordinate.
 
+        References
+        ----------
+        - Display object x and y interfaces document
+            - https://bit.ly/3q7GFQM
+
         Examples
         --------
         >>> import apysc as ap
@@ -77,6 +82,11 @@ class CxInterface(
         ----------
         value : int or Int
             Center x-coordinate value.
+
+        References
+        ----------
+        - Display object x and y interfaces document
+            - https://bit.ly/3q7GFQM
         """
         import apysc as ap
         with ap.DebugInfo(

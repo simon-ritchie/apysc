@@ -47,6 +47,11 @@ class CyInterface(
         y : Int
             Center y-coordinate.
 
+        References
+        ----------
+        - Display object x and y interfaces document
+            - https://bit.ly/3q7GFQM
+
         Examples
         --------
         >>> import apysc as ap
@@ -76,6 +81,11 @@ class CyInterface(
         ----------
         value : int or Int
             Center y-coordinate value.
+
+        References
+        ----------
+        - Display object x and y interfaces document
+            - https://bit.ly/3q7GFQM
         """
         import apysc as ap
         with ap.DebugInfo(

@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/simon-ritchie/apysc/blob/main/LICENSE)
 ![](https://byob.yarr.is/simon-ritchie/apysc/passing_unit_test_python_versions)
 ![](https://byob.yarr.is/simon-ritchie/apysc/unit_tests_coverage)
-![](https://byob.yarr.is/simon-ritchie/apysc/passing_unit_test_num)
+![](https://byob.yarr.is/simon-ritchie/apysc/passing_unit_tests_num)
 ![](https://byob.yarr.is/simon-ritchie/apysc/passing_doctest_num)
 ![](https://byob.yarr.is/simon-ritchie/apysc/passing_lints)
 

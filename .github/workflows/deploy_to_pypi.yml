@@ -345,11 +345,11 @@ jobs:
           STATUS: ${{ needs.RunTestsOnPython36AndSaveCoverageAndPassingNum.outputs.COVERAGE }}
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Update the passing unit test number
+      - name: Update the passing unit tests number
         uses: RubbaBoy/BYOB@v1.2.1
         with:
-          NAME: passing_unit_test_num
-          LABEL: 'passing unit test number'
+          NAME: passing_unit_tests_num
+          LABEL: 'passing unit tests number'
           STATUS: ${{ needs.RunTestsOnPython36AndSaveCoverageAndPassingNum.outputs.PASSING_TESTS_NUM }}
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

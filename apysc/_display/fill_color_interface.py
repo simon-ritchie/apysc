@@ -31,6 +31,18 @@ class FillColorInterface(
         ----------
         - Graphics fill_color interface document
             - https://simon-ritchie.github.io/apysc/graphics_fill_color.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> rectangle.fill_color = ap.String('#f0a')
+        >>> rectangle.fill_color
+        String('#ff00aa')
         """
         import apysc as ap
         with ap.DebugInfo(

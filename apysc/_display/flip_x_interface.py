@@ -48,6 +48,11 @@ class FlipXInterface(
         -------
         flip_x : Boolean
             A boolean value whether the x-axis is flipped or not.
+
+        References
+        ----------
+        - GraphicsBase flip_x and flip_y interfaces document
+            - https://bit.ly/31F9lHv
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -67,6 +72,11 @@ class FlipXInterface(
         value : Boolean
             Flipping value. If True, a x-axis will be flipped,
             otherwise it will be reset.
+
+        References
+        ----------
+        - GraphicsBase flip_x and flip_y interfaces document
+            - https://bit.ly/31F9lHv
         """
         import apysc as ap
         with ap.DebugInfo(

@@ -126,6 +126,22 @@ class Graphics(
         ----------
         - Graphics draw_rect interface document
             - https://bit.ly/3zbSG9o
+
+        Examples
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> rectangle.x
+        Int(50)
+
+        >>> rectangle.width
+        Int(50)
+
+        >>> rectangle.fill_color
+        String('#00aaff')
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -170,6 +186,21 @@ class Graphics(
         ----------
         - Graphics draw_round_rect interface document
             - https://bit.ly/2ThGcxJ
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> round_rect: ap.Rectangle = sprite.graphics.draw_round_rect(
+        ...     x=50, y=50, width=50, height=50,
+        ...     ellipse_width=10, ellipse_height=15)
+        >>> round_rect.ellipse_width
+        Int(10)
+
+        >>> round_rect.ellipse_height
+        Int(15)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -212,6 +243,26 @@ class Graphics(
         ----------
         - Graphics draw_circle interface document
             - https://bit.ly/3it1q4y
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> circle: ap.Circle = sprite.graphics.draw_circle(
+        ...     x=100, y=100, radius=50)
+        >>> circle.x
+        Int(100)
+
+        >>> circle.y
+        Int(100)
+
+        >>> circle.radius
+        Int(50)
+
+        >>> circle.fill_color
+        String('#00aaff')
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -251,6 +302,29 @@ class Graphics(
         ----------
         - Graphics draw_ellipse interface
             - https://bit.ly/3xPVicP
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(
+        ...     x=100, y=100, width=100, height=50)
+        >>> ellipse.x
+        Int(100)
+
+        >>> ellipse.y
+        Int(100)
+
+        >>> ellipse.width
+        Int(100)
+
+        >>> ellipse.height
+        Int(50)
+
+        >>> ellipse.fill_color
+        String('#00aaff')
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -284,6 +358,24 @@ class Graphics(
         ----------
         - Graphics move_to and line_to interfaces document
             - https://bit.ly/3eybhEP
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(color='#fff', thickness=5)
+        >>> line_1: ap.Polyline = sprite.graphics.move_to(x=50, y=50)
+        >>> line_2: ap.Polyline = sprite.graphics.line_to(x=150, y=50)
+        >>> line_3: ap.Polyline = sprite.graphics.line_to(x=50, y=150)
+        >>> line_1 == line_2 == line_3
+        True
+
+        >>> line_1.line_color
+        String('#ffffff')
+
+        >>> line_1.line_thickness
+        Int(5)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -321,6 +413,23 @@ class Graphics(
         ----------
         - Graphics move_to and line_to interfaces document
             - https://bit.ly/3eybhEP
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(color='#fff', thickness=5)
+        >>> line_1: ap.Polyline = sprite.graphics.move_to(x=50, y=50)
+        >>> line_2: ap.Polyline = sprite.graphics.line_to(x=150, y=50)
+        >>> line_1 == line_2
+        True
+
+        >>> line_1.line_color
+        String('#ffffff')
+
+        >>> line_1.line_thickness
+        Int(5)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -378,6 +487,20 @@ class Graphics(
         ----------
         - Graphics draw_line interface document
             - https://bit.ly/3ey4pYe
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(color='#fff', thickness=5)
+        >>> line: ap.Line = sprite.graphics.draw_line(
+        ...     x_start=50, y_start=50, x_end=150, y_end=50)
+        >>> line.line_color
+        String('#ffffff')
+
+        >>> line.line_thickness
+        Int(5)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -431,6 +554,23 @@ class Graphics(
         ----------
         - Graphics draw_dotted_line interface document
             - https://bit.ly/3ig7Tzy
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(color='#fff', thickness=5)
+        >>> line: ap.Line = sprite.graphics.draw_dotted_line(
+        ...     x_start=50, y_start=50, x_end=150, y_end=50, dot_size=5)
+        >>> line.line_color
+        String('#ffffff')
+
+        >>> line.line_thickness
+        Int(5)
+
+        >>> line.line_dot_setting.dot_size
+        Int(5)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -488,6 +628,24 @@ class Graphics(
         ----------
         - Graphics draw_dashed_line interface document
             - https://bit.ly/3ewoMF8
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(color='#fff', thickness=5)
+        >>> line: ap.Line = sprite.graphics.draw_dashed_line(
+        ...     x_start=50, y_start=50, x_end=150, y_end=50,
+        ...     dash_size=5, space_size=2)
+        >>> line.line_color
+        String('#ffffff')
+
+        >>> line.line_dash_setting.dash_size
+        Int(5)
+
+        >>> line.line_dash_setting.space_size
+        Int(2)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -546,6 +704,24 @@ class Graphics(
         ----------
         - Graphics draw_round_dotted_line interface document
             - https://bit.ly/3ri985m
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(color='#fff', thickness=5)
+        >>> line: ap.Line = sprite.graphics.draw_round_dotted_line(
+        ...    x_start=50, y_start=50, x_end=150, y_end=50,
+        ...    round_size=6, space_size=3)
+        >>> line.line_color
+        String('#ffffff')
+
+        >>> line.line_round_dot_setting.round_size
+        Int(6)
+
+        >>> line.line_round_dot_setting.space_size
+        Int(3)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -602,6 +778,27 @@ class Graphics(
         ----------
         - Graphics draw_dash_dotted_line interface document
             - https://bit.ly/3wKRtUZ
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(color='#fff', thickness=5)
+        >>> line: ap.Line = sprite.graphics.draw_dash_dotted_line(
+        ...    x_start=50, y_start=50, x_end=150, y_end=50,
+        ...    dot_size=2, dash_size=5, space_size=3)
+        >>> line.line_color
+        String('#ffffff')
+
+        >>> line.line_dash_dot_setting.dot_size
+        Int(2)
+
+        >>> line.line_dash_dot_setting.dash_size
+        Int(5)
+
+        >>> line.line_dash_dot_setting.space_size
+        Int(3)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -644,6 +841,21 @@ class Graphics(
         ----------
         - Graphics draw_polygon interface document
             - https://bit.ly/3wHVZUk
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
+        ...     points=[
+        ...         ap.Point2D(x=25, y=0),
+        ...         ap.Point2D(x=0, y=50),
+        ...         ap.Point2D(x=50, y=50),
+        ...     ])
+        >>> polygon.fill_color
+        String('#00aaff')
         """
         import apysc as ap
         with ap.DebugInfo(

@@ -29,6 +29,19 @@ class ParentInterface(RevertInterface):
         ----------
         - Display object parent interfaces document
             - https://bit.ly/3wQX782
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite_1: ap.Sprite = ap.Sprite()
+        >>> sprite_1.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> sprite_2: ap.Sprite = ap.Sprite()
+        >>> sprite_2.add_child(rectangle)
+        >>> rectangle.parent == sprite_2
+        True
         """
         return self._parent
 

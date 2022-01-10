@@ -31,6 +31,20 @@ class Points2DInterface(VariableNameInterface, RevertInterface):
         -------
         points : Array of Point2D
             Current points.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(color='#fff')
+        >>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
+        ...     points=[
+        ...         ap.Point2D(x=0, y=0),
+        ...         ap.Point2D(x=50, y=0),
+        ...     ])
+        >>> polygon.points
+        Array([Point2D(Int(0), Int(0)), Point2D(Int(50), Int(0))])
         """
         import apysc as ap
         with ap.DebugInfo(

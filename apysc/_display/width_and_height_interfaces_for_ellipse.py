@@ -83,6 +83,7 @@ class WidthAndHeightInterfacesForEllipse(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
         >>> ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(
         ...     x=100, y=100, width=50, height=50)
         >>> ellipse.width = ap.Int(100)
@@ -138,6 +139,7 @@ class WidthAndHeightInterfacesForEllipse(
         >>> import apysc as ap
         >>> stage: ap.Stage = ap.Stage()
         >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
         >>> ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(
         ...     x=100, y=100, width=50, height=50)
         >>> ellipse.height = ap.Int(100)

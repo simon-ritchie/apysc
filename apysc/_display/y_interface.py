@@ -54,6 +54,18 @@ class YInterface(
         ----------
         - Display object x and y interfaces document
             - https://bit.ly/2ToA5ba
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> rectangle.y = ap.Int(100)
+        >>> rectangle.y
+        Int(100)
         """
         import apysc as ap
         with ap.DebugInfo(

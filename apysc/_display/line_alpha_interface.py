@@ -53,6 +53,18 @@ class LineAlphaInterface(
         ----------
         - Graphics line_alpha interface document
             - https://simon-ritchie.github.io/apysc/graphics_line_alpha.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(color='#fff', thickness=5, alpha=1.0)
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> rectangle.line_alpha = ap.Number(0.5)
+        >>> rectangle.line_alpha
+        Number(0.5)
         """
         import apysc as ap
         with ap.DebugInfo(

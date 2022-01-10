@@ -36,6 +36,20 @@ class Polyline(LineBase, AppendLinePointInterface):
         ----------
         - Graphics move_to and line_to interfaces document
             - https://bit.ly/3eybhEP
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(color='#fff', thickness=5)
+        >>> _ = sprite.graphics.move_to(x=50, y=50)
+        >>> polyline: ap.Polyline = sprite.graphics.line_to(x=150, y=50)
+        >>> polyline.line_color
+        String('#ffffff')
+
+        >>> polyline.line_thickness
+        Int(5)
         """
         import apysc as ap
         with ap.DebugInfo(

@@ -69,6 +69,13 @@ class Stage(
         ----------
         Stage document
             https://simon-ritchie.github.io/apysc/stage.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage(
+        ...     stage_width=500, stage_height=300,
+        ...     background_color='#333', stage_elem_id='sales_chart')
         """
         import apysc as ap
         from apysc._color import color_util
@@ -190,6 +197,15 @@ class Stage(
         stage_elem_id : str
             Stage's html element id (not including class or id symbol).
             e.g., 'line-graph'
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage(
+        ...     stage_width=500, stage_height=300,
+        ...     background_color='#333', stage_elem_id='sales_chart')
+        >>> stage.stage_elem_id
+        'sales_chart'
         """
         return self._stage_elem_id
 

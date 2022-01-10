@@ -90,6 +90,28 @@ class LineStyleInterface(RevertInterface):
         ----------
         - Graphics line_style interface document
             - https://bit.ly/3zauILT
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(
+        ...     color='#fff', thickness=5, alpha=0.5,
+        ...     cap=ap.LineCaps.ROUND)
+        >>> line: ap.Line = sprite.graphics.draw_line(
+        ...     x_start=50, y_start=50, x_end=150, y_end=50)
+        >>> line.line_color
+        String('#ffffff')
+
+        >>> line.line_thickness
+        Int(5)
+
+        >>> line.line_alpha
+        Number(0.5)
+
+        >>> line.line_cap
+        String('round')
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -256,6 +278,17 @@ class LineStyleInterface(RevertInterface):
         line_color : String
             Current line color (hexadecimal string, e.g., '#00aaff').
             If not be set, blank string will be returned.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(
+        ...     color='#fff', thickness=5, alpha=0.5,
+        ...     cap=ap.LineCaps.ROUND)
+        >>> sprite.graphics.line_color
+        String('#ffffff')
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -274,6 +307,16 @@ class LineStyleInterface(RevertInterface):
         -------
         line_thickness : Int
             Current line thickness.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(
+        ...     color='#fff', thickness=5, alpha=0.5)
+        >>> sprite.graphics.line_thickness
+        Int(5)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -293,6 +336,17 @@ class LineStyleInterface(RevertInterface):
         line_alpha : Number
             Current line opacity (0.0 to 1.0).
             If not be set, None will be returned.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(
+        ...     color='#fff', thickness=5, alpha=0.5,
+        ...     cap=ap.LineCaps.ROUND)
+        >>> sprite.graphics.line_alpha
+        Number(0.5)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -311,6 +365,17 @@ class LineStyleInterface(RevertInterface):
         -------
         line_cap : String
             Current line cap (edge) style setting.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(
+        ...     color='#fff', thickness=5, alpha=0.5,
+        ...     cap=ap.LineCaps.ROUND)
+        >>> sprite.graphics.line_cap
+        String('round')
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -328,6 +393,17 @@ class LineStyleInterface(RevertInterface):
         -------
         line_joints : String
             Current line joints (vertices) style setting.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(
+        ...     color='#fff', thickness=5,
+        ...     joints=ap.LineJoints.ROUND)
+        >>> sprite.graphics.line_joints
+        String('round')
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -345,6 +421,17 @@ class LineStyleInterface(RevertInterface):
         -------
         line_dot_setting : LineDotSetting or None
             Current line dot setting.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(
+        ...     color='#fff', thickness=5,
+        ...     dot_setting=ap.LineDotSetting(dot_size=5))
+        >>> sprite.graphics.line_dot_setting.dot_size
+        Int(5)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -362,6 +449,21 @@ class LineStyleInterface(RevertInterface):
         -------
         line_dash_setting : LineDashSetting or None
             Current line dash setting.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(
+        ...     color='#fff', thickness=5,
+        ...     dash_setting=ap.LineDashSetting(
+        ...         dash_size=10, space_size=5))
+        >>> sprite.graphics.line_dash_setting.dash_size
+        Int(10)
+
+        >>> sprite.graphics.line_dash_setting.space_size
+        Int(5)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -379,6 +481,21 @@ class LineStyleInterface(RevertInterface):
         -------
         line_round_dot_setting : LineRoundDotSetting or None
             Current line round dot setting.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(
+        ...     color='#fff', thickness=5,
+        ...     round_dot_setting=ap.LineRoundDotSetting(
+        ...         round_size=6, space_size=3))
+        >>> sprite.graphics.line_round_dot_setting.round_size
+        Int(6)
+
+        >>> sprite.graphics.line_round_dot_setting.space_size
+        Int(3)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -396,6 +513,24 @@ class LineStyleInterface(RevertInterface):
         -------
         line_dash_dot_setting : LineDashDotSetting or None
             Current line dash dot setting.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(
+        ...     color='#fff', thickness=5,
+        ...     dash_dot_setting=ap.LineDashDotSetting(
+        ...         dot_size=2, dash_size=5, space_size=3))
+        >>> sprite.graphics.line_dash_dot_setting.dot_size
+        Int(2)
+
+        >>> sprite.graphics.line_dash_dot_setting.dash_size
+        Int(5)
+
+        >>> sprite.graphics.line_dash_dot_setting.space_size
+        Int(3)
         """
         import apysc as ap
         with ap.DebugInfo(

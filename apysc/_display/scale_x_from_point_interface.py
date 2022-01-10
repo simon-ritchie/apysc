@@ -44,6 +44,19 @@ class ScaleXFromPointInterface(
         ----------
         - GraphicsBase scale_from_point interfaces document
             - https://bit.ly/3xRBhlw
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> x: ap.Int = ap.Int(100)
+        >>> rectangle.set_scale_x_from_point(scale_x=ap.Number(1.5), x=x)
+        >>> rectangle.get_scale_x_from_point(x=x)
+        Number(1.5)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -76,6 +89,19 @@ class ScaleXFromPointInterface(
         ----------
         - GraphicsBase scale_from_point interfaces document
             - https://bit.ly/3xRBhlw
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> x: ap.Int = ap.Int(100)
+        >>> rectangle.set_scale_x_from_point(scale_x=ap.Number(1.5), x=x)
+        >>> rectangle.get_scale_x_from_point(x=x)
+        Number(1.5)
         """
         import apysc as ap
         with ap.DebugInfo(

@@ -47,6 +47,17 @@ class VisibleInterface(
         -------
         result : Boolean
             If this instance is visible, True will be returned.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> rectangle.visible = ap.Boolean(False)
+        >>> rectangle.visible
+        Boolean(False)
         """
         import apysc as ap
         with ap.DebugInfo(

@@ -1227,7 +1227,7 @@ class Array(
         if not hasattr(self, '_value'):
             repr_str: str = 'Array([])'
         else:
-            repr_str = f'Array({self._value})'
+            repr_str = f'Array({repr(self._value)})'
         return repr_str
 
     def index_of(self, value: T) -> Int:

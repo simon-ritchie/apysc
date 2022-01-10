@@ -56,6 +56,20 @@ class Line(LineBase):
             - https://bit.ly/3ri985m
         - Graphics draw_dash_dotted_line interface document
             - https://bit.ly/3wKRtUZ
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(color='#fff', thickness=5)
+        >>> line: ap.Line = sprite.graphics.draw_line(
+        ...     x_start=50, y_start=50, x_end=150, y_end=50)
+        >>> line.line_color
+        String('#ffffff')
+
+        >>> line.line_thickness
+        Int(5)
         """
         import apysc as ap
         with ap.DebugInfo(

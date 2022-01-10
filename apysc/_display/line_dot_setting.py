@@ -30,6 +30,18 @@ class LineDotSetting(Dictionary[str, Int]):
         ----------
         - Graphics line_style interface document
             - https://bit.ly/3zauILT
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(color='#fff', thickness=10)
+        >>> line: ap.Line = sprite.graphics.draw_line(
+        ...     x_start=50, y_start=50, x_end=150, y_end=50)
+        >>> line.line_dot_setting = ap.LineDotSetting(dot_size=5)
+        >>> line.line_dot_setting.dot_size
+        Int(5)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -53,6 +65,18 @@ class LineDotSetting(Dictionary[str, Int]):
         -------
         dot_size : Int
             Dot size setting.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(color='#fff', thickness=10)
+        >>> line: ap.Line = sprite.graphics.draw_line(
+        ...     x_start=50, y_start=50, x_end=150, y_end=50)
+        >>> line.line_dot_setting = ap.LineDotSetting(dot_size=5)
+        >>> line.line_dot_setting.dot_size
+        Int(5)
         """
         import apysc as ap
         with ap.DebugInfo(

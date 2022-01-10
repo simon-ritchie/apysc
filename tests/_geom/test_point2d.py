@@ -165,3 +165,9 @@ class TestPoint2D:
         point._run_all_revert_methods(snapshot_name=snapshot_name)
         assert point.x == 10
         assert point.y == 20
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___repr__(self) -> None:
+        point: ap.Point2D = ap.Point2D(x=10, y=20)
+        repr_str: str = repr(point)
+        assert repr_str == 'Point2D(Int(10), Int(20))'

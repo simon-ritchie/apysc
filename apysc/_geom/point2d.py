@@ -275,6 +275,22 @@ class Point2D(
             result = result.not_
             return result
 
+    def __repr__(self) -> str:
+        """
+        Get a string representation of this instance (for the
+        sake of debugging).
+
+        Returns
+        -------
+        repr_str : str
+            Type name and coordinates values are set
+            (e.g., `Point2D(Int(50), Int(100))`).
+        """
+        x_repr: str = repr(self._x)
+        y_repr: str = repr(self._y)
+        repr_str: str = f'Point2D({x_repr}, {y_repr})'
+        return repr_str
+
     _x_snapshots: Dict[str, int]
     _y_snapshots: Dict[str, int]
 

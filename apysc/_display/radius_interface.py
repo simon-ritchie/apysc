@@ -49,6 +49,18 @@ class RadiusInterface(
         -------
         radius : Int
             Radius value.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> circle: ap.Circle = sprite.graphics.draw_circle(
+        ...     x=100, y=100, radius=50)
+        >>> circle.radius = ap.Int(75)
+        >>> circle.radius
+        Int(75)
         """
         import apysc as ap
         with ap.DebugInfo(

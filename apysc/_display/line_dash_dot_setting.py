@@ -87,6 +87,19 @@ class LineDashDotSetting(Dictionary[str, Int]):
         -------
         dot_size : Int
             Dot size setting.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(color='#fff', thickness=10)
+        >>> line: ap.Line = sprite.graphics.draw_line(
+        ...     x_start=50, y_start=50, x_end=150, y_end=50)
+        >>> line.line_dash_dot_setting = ap.LineDashDotSetting(
+        ...     dot_size=2, dash_size=5, space_size=3)
+        >>> line.line_dash_dot_setting.dot_size
+        Int(2)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -103,6 +116,19 @@ class LineDashDotSetting(Dictionary[str, Int]):
         -------
         dash_size : Int
             Dash size setting.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(color='#fff', thickness=10)
+        >>> line: ap.Line = sprite.graphics.draw_line(
+        ...     x_start=50, y_start=50, x_end=150, y_end=50)
+        >>> line.line_dash_dot_setting = ap.LineDashDotSetting(
+        ...     dot_size=2, dash_size=5, space_size=3)
+        >>> line.line_dash_dot_setting.dash_size
+        Int(5)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -119,6 +145,19 @@ class LineDashDotSetting(Dictionary[str, Int]):
         -------
         space_size : Int
             Space size setting.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(color='#fff', thickness=10)
+        >>> line: ap.Line = sprite.graphics.draw_line(
+        ...     x_start=50, y_start=50, x_end=150, y_end=50)
+        >>> line.line_dash_dot_setting = ap.LineDashDotSetting(
+        ...     dot_size=2, dash_size=5, space_size=3)
+        >>> line.line_dash_dot_setting.space_size
+        Int(3)
         """
         import apysc as ap
         with ap.DebugInfo(

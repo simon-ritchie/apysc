@@ -32,6 +32,21 @@ class PathBezier2DContinual(PathDataBase, PathXInterface, PathYInterface):
         relative : bool or Boolean, default False
             The boolean value indicating whether the path
             coordinates are relative or not (absolute).
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(color='#fff', thickness=3)
+        >>> path: ap.Path = sprite.graphics.draw_path(
+        ...     path_data_list=[
+        ...         ap.PathMoveTo(x=0, y=50),
+        ...         ap.PathBezier2D(
+        ...             control_x=50, control_y=0,
+        ...             dest_x=100, dest_y=50),
+        ...         ap.PathBezier2DContinual(x=150, y=50),
+        ...     ])
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -73,7 +88,8 @@ class PathBezier2DContinual(PathDataBase, PathXInterface, PathYInterface):
 
     def update_path_data(
             self, x: Union[int, Int], y: Union[int, Int],
-            relative: Union[bool, Boolean]) -> None:
+            *,
+            relative: Union[bool, Boolean] = False) -> None:
         """
         Update the path's data settings.
 
@@ -86,6 +102,17 @@ class PathBezier2DContinual(PathDataBase, PathXInterface, PathYInterface):
         relative : bool or Boolean, default False
             The boolean value indicating whether the path
             coordinates are relative or not (absolute).
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> bezier_2d_continual = ap.PathBezier2DContinual(x=100, y=50)
+        >>> bezier_2d_continual.update_path_data(x=150, y=100)
+        >>> bezier_2d_continual.x
+        Int(150)
+
+        >>> bezier_2d_continual.y
+        Int(100)
         """
         import apysc as ap
         with ap.DebugInfo(

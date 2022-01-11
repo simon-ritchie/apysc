@@ -882,6 +882,20 @@ class Graphics(
         -------
         path : Path
             Created path graphics instance.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(color='#fff', thickness=3)
+        >>> path: ap.Path = sprite.graphics.draw_path(
+        ...     path_data_list=[
+        ...         ap.PathMoveTo(x=0, y=50),
+        ...         ap.PathBezier2D(
+        ...             control_x=50, control_y=0,
+        ...             dest_x=100, dest_y=50),
+        ...     ])
         """
         import apysc as ap
         with ap.DebugInfo(

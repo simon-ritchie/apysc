@@ -34,6 +34,19 @@ class Point2D(
             X-coordinate.
         y : int or Int
             Y-coordinate.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
+        ...     points=[
+        ...         ap.Point2D(x=0, y=0),
+        ...         ap.Point2D(x=0, y=50),
+        ...         ap.Point2D(x=50, y=25),
+        ...     ])
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -79,6 +92,14 @@ class Point2D(
         -------
         x : Int
             X-coordinate.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> point: ap.Point2D = ap.Point2D(x=50, y=100)
+        >>> point.x = ap.Int(150)
+        >>> point.x
+        Int(150)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -156,6 +177,14 @@ class Point2D(
         -------
         y : Int
             Y-coordinate.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> point: ap.Point2D = ap.Point2D(x=50, y=100)
+        >>> point.y = ap.Int(150)
+        >>> point.y
+        Int(150)
         """
         import apysc as ap
         with ap.DebugInfo(

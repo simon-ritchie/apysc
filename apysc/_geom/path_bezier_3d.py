@@ -120,7 +120,8 @@ class PathBezier3D(
             control_y2: Union[int, Int],
             dest_x: Union[int, Int],
             dest_y: Union[int, Int],
-            relative: Union[bool, Boolean]) -> None:
+            *,
+            relative: Union[bool, Boolean] = False) -> None:
         """
         Update the path's data settings.
 

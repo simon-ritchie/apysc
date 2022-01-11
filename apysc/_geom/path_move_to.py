@@ -72,7 +72,8 @@ class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
 
     def update_path_data(
             self, x: Union[int, Int], y: Union[int, Int],
-            relative: Union[bool, Boolean]) -> None:
+            *,
+            relative: Union[bool, Boolean] = False) -> None:
         """
         Update the path's data settings.
 

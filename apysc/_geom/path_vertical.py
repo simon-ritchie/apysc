@@ -65,7 +65,8 @@ class PathVertical(PathDataBase, PathYInterface):
 
     def update_path_data(
             self, y: Union[int, Int],
-            relative: Union[bool, Boolean]) -> None:
+            *,
+            relative: Union[bool, Boolean] = False) -> None:
         """
         Update the path's data settings.
 

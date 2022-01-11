@@ -100,7 +100,8 @@ class PathBezier3DContinual(
             control_y: Union[int, Int],
             dest_x: Union[int, Int],
             dest_y: Union[int, Int],
-            relative: Union[bool, Boolean]) -> None:
+            *,
+            relative: Union[bool, Boolean] = False) -> None:
         """
         Update the path's data settings.
 

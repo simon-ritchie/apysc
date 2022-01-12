@@ -46,6 +46,15 @@ class PathControlYInterface(RevertInterface, AttrLinkingInterface):
         -------
         control_y : Int
             Y-coordinate of the control point.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> bezier_2d: ap.PathBezier2D = ap.PathBezier2D(
+        ...     control_x=0, control_y=0, dest_x=50, dest_y=50)
+        >>> bezier_2d.control_y = ap.Int(25)
+        >>> bezier_2d.control_y
+        Int(25)
         """
         import apysc as ap
         with ap.DebugInfo(

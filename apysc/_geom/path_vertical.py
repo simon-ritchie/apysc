@@ -93,9 +93,6 @@ class PathVertical(PathDataBase, PathYInterface):
         Examples
         --------
         >>> import apysc as ap
-        >>> stage: ap.Stage = ap.Stage()
-        >>> sprite: ap.Sprite = ap.Sprite()
-        >>> sprite.graphics.line_style(color='#fff', thickness=3)
         >>> path_vertical: ap.PathVertical = ap.PathVertical(y=50)
         >>> path_vertical.update_path_data(y=100)
         >>> path_vertical.y

@@ -31,6 +31,15 @@ class RelativeInterface(RevertInterface):
         relative : Boolean
             A boolean value indicating whether path data
             is relative or not.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> line_to: ap.PathLineTo = ap.PathLineTo(
+        ...     x=50, y=50, relative=False)
+        >>> line_to.relative = ap.Boolean(True)
+        >>> line_to.relative
+        Boolean(True)
         """
         self._initialize_relative_if_not_initialized()
         return self._relative._copy()

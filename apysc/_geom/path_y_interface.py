@@ -45,6 +45,14 @@ class PathYInterface(RevertInterface, AttrLinkingInterface):
         -------
         y : Int
             A y-coordinate of the destination point.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> line_to: ap.PathLineTo = ap.PathLineTo(x=50, y=50)
+        >>> line_to.y = ap.Int(100)
+        >>> line_to.y
+        Int(100)
         """
         import apysc as ap
         with ap.DebugInfo(

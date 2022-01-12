@@ -31,6 +31,18 @@ class PathLineTo(PathDataBase, PathXInterface, PathYInterface):
         relative : bool or Boolean, default False
             The boolean value indicating whether the path
             coordinates are relative or not (absolute).
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.line_style(color='#fff', thickness=3)
+        >>> path: ap.Path = sprite.graphics.draw_path(
+        ...     path_data_list=[
+        ...         ap.PathMoveTo(x=0, y=50),
+        ...         ap.PathLineTo(x=50, y=50),
+        ...     ])
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -86,6 +98,18 @@ class PathLineTo(PathDataBase, PathXInterface, PathYInterface):
         relative : bool or Boolean, default False
             The boolean value indicating whether the path
             coordinates are relative or not (absolute).
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> line_to: ap.PathLineTo = ap.PathLineTo(x=50, y=50)
+        >>> line_to.x = ap.Int(100)
+        >>> line_to.x
+        Int(100)
+
+        >>> line_to.y = ap.Int(150)
+        >>> line_to.y
+        Int(150)
         """
         import apysc as ap
         with ap.DebugInfo(

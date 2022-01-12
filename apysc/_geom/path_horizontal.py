@@ -94,7 +94,7 @@ class PathHorizontal(PathDataBase, PathXInterface):
         --------
         >>> import apysc as ap
         >>> path_horizontal: ap.PathHorizontal = ap.PathHorizontal(x=50)
-        >>> path_horizontal.x = ap.Int(100)
+        >>> path_horizontal.update_path_data(x=100)
         >>> path_horizontal.x
         Int(100)
         """

@@ -103,11 +103,10 @@ class PathLineTo(PathDataBase, PathXInterface, PathYInterface):
         --------
         >>> import apysc as ap
         >>> line_to: ap.PathLineTo = ap.PathLineTo(x=50, y=50)
-        >>> line_to.x = ap.Int(100)
+        >>> line_to.update_path_data(x=100, y=150)
         >>> line_to.x
         Int(100)
 
-        >>> line_to.y = ap.Int(150)
         >>> line_to.y
         Int(150)
         """

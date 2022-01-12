@@ -45,7 +45,17 @@ class PathDestYInterface(RevertInterface, AttrLinkingInterface):
         Returns
         -------
         dest_y : Int
-            Y-coordinate of the destination point
+            Y-coordinate of the destination point.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> bezier_2d: ap.PathBezier2D = ap.PathBezier2D(
+        ...     control_x=50, control_y=0,
+        ...     dest_x=100, dest_y=50)
+        >>> bezier_2d.dest_y = ap.Int(75)
+        >>> bezier_2d.dest_y
+        Int(75)
         """
         import apysc as ap
         with ap.DebugInfo(

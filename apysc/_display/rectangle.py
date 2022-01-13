@@ -22,6 +22,29 @@ class Rectangle(
     ----------
     - Graphics draw_rect interface document
         - https://simon-ritchie.github.io/apysc/graphics_draw_rect.html
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> stage: ap.Stage = ap.Stage()
+    >>> sprite: ap.Sprite = ap.Sprite()
+    >>> sprite.graphics.begin_fill(color='#0af')
+    >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+    ...     x=50, y=50, width=100, height=75)
+    >>> rectangle.x
+    Int(50)
+
+    >>> rectangle.y
+    Int(50)
+
+    >>> rectangle.width
+    Int(100)
+
+    >>> rectangle.height
+    Int(75)
+
+    >>> rectangle.fill_color
+    String('#00aaff')
     """
 
     def __init__(

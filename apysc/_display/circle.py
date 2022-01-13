@@ -20,6 +20,26 @@ class Circle(  # type: ignore
     ----------
     - Graphics draw_circle interface document
         - https://bit.ly/36Sgmn3
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> stage: ap.Stage = ap.Stage()
+    >>> sprite: ap.Sprite = ap.Sprite()
+    >>> sprite.graphics.begin_fill(color='#0af')
+    >>> circle: ap.Circle = sprite.graphics.draw_circle(
+    ...     x=100, y=100, radius=50)
+    >>> circle.x
+    Int(100)
+
+    >>> circle.y
+    Int(100)
+
+    >>> circle.radius
+    Int(50)
+
+    >>> circle.fill_color
+    String('#00aaff')
     """
 
     def __init__(

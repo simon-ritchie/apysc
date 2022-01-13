@@ -23,6 +23,26 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         - https://bit.ly/3ewROEr
     - String class addition and multiplication operations document
         - https://bit.ly/2URRhWL
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> string: ap.String = ap.String('Hello')
+    >>> string
+    String('Hello')
+
+    >>> string += ' World!'
+    >>> string
+    String('Hello World!')
+
+    >>> string.value = 'World!'
+    >>> string
+    String('World!')
+
+    >>> string.value = 'Hello!'
+    >>> string *= 3
+    >>> string
+    String('Hello!Hello!Hello!')
     """
 
     _initial_value: Union[str, 'String']

@@ -31,6 +31,37 @@ class Array(
         - https://simon-ritchie.github.io/apysc/array.html
     - Array class comparison interfaces document
         - https://simon-ritchie.github.io/apysc/array_comparison.html
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> arr: ap.Array = ap.Array([1, 2, 3])
+    >>> arr
+    Array([1, 2, 3])
+
+    >>> arr[0]
+    1
+
+    >>> arr[1]
+    2
+
+    >>> arr = ap.Array((4, 5, 6))
+    >>> arr
+    Array([4, 5, 6])
+
+    >>> arr = ap.Array(range(3))
+    >>> arr
+    Array([0, 1, 2])
+
+    >>> arr = ap.Array([1, 2, 3])
+    >>> arr.append(4)
+    >>> arr
+    Array([1, 2, 3, 4])
+
+    >>> arr = ap.Array([1, 2, 3])
+    >>> arr = arr.concat([4, 5, 6])
+    >>> arr
+    Array([1, 2, 3, 4, 5, 6])
     """
 
     _initial_value: Union[List[Any], tuple, 'Array']

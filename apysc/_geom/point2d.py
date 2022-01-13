@@ -19,6 +19,26 @@ class Point2D(
         CustomEventInterface):
     """
     2-dimensional geometry point class.
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> stage: ap.Stage = ap.Stage()
+    >>> sprite: ap.Sprite = ap.Sprite()
+    >>> sprite.graphics.begin_fill(color='#0af')
+    >>> point_1: ap.Point2D = ap.Point2D(x=0, y=0)
+    >>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
+    ...     points=[
+    ...         point_1,
+    ...         ap.Point2D(x=0, y=50),
+    ...         ap.Point2D(x=50, y=25),
+    ...     ])
+
+    >>> point_1.x
+    Int(0)
+
+    >>> point_1.y
+    Int(0)
     """
 
     _x: Int

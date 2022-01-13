@@ -13,6 +13,18 @@ from apysc._type.string import String
 class PathVertical(PathDataBase, PathYInterface):
     """
     Path data class for the svg's `vertical line` (V).
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> stage: ap.Stage = ap.Stage()
+    >>> sprite: ap.Sprite = ap.Sprite()
+    >>> sprite.graphics.line_style(color='#fff', thickness=3)
+    >>> path: ap.Path = sprite.graphics.draw_path(
+    ...     path_data_list=[
+    ...         ap.PathMoveTo(x=0, y=50),
+    ...         ap.PathVertical(y=100),
+    ...     ])
     """
 
     def __init__(

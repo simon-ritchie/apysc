@@ -25,6 +25,20 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
     ----------
     - Boolean document
         - https://simon-ritchie.github.io/apysc/boolean.html
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> bool_val_1: ap.Boolean = ap.Boolean(True)
+    >>> bool_val_1
+    Boolean(True)
+
+    >>> bool_val_2: ap.Bool = ap.Bool(True)
+    >>> bool_val_2
+    Boolean(True)
+
+    >>> bool_val_2.not_
+    Boolean(False)
     """
 
     _initial_value: Union[bool, int, Int, 'Boolean']

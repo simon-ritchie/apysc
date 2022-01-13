@@ -14,6 +14,18 @@ from apysc._type.string import String
 class PathMoveTo(PathDataBase, PathXInterface, PathYInterface):
     """
     Path data class for the svg's `move to` (M).
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> stage: ap.Stage = ap.Stage()
+    >>> sprite: ap.Sprite = ap.Sprite()
+    >>> sprite.graphics.line_style(color='#fff', thickness=3)
+    >>> path: ap.Path = sprite.graphics.draw_path(
+    ...     path_data_list=[
+    ...         ap.PathMoveTo(x=0, y=50),
+    ...         ap.PathLineTo(x=50, y=50),
+    ...     ])
     """
 
     def __init__(

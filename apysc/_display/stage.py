@@ -34,6 +34,13 @@ class Stage(
     ----------
     Stage document
         https://simon-ritchie.github.io/apysc/stage.html
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> stage: ap.Stage = ap.Stage(
+    ...     stage_width=500, stage_height=300,
+    ...     background_color='#333', stage_elem_id='sales_chart')
     """
 
     _background_color: str

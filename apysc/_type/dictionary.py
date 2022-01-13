@@ -39,6 +39,27 @@ class Dictionary(
         - https://simon-ritchie.github.io/apysc/dictionary.html
     - Dictionary class generic type settings document
         - https://bit.ly/3HL8HaF
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> dictionary: ap.Dictionary = ap.Dictionary({'a': 10})
+    >>> dictionary
+    Dictionary({'a': 10})
+
+    >>> dictionary['a']
+    10
+
+    >>> dictionary['b'] = 20
+    >>> dictionary['b']
+    20
+
+    >>> dictionary.length
+    Int(2)
+
+    >>> value_1: int = dictionary.get('c', default=0)
+    >>> value_1
+    0
     """
 
     _initial_value: Union[Dict[_K, _V], 'Dictionary']

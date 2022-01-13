@@ -14,6 +14,17 @@ from apysc._type.variable_name_interface import VariableNameInterface
 class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
     """
     Class implementation of any value (value that can't determine type).
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> any_value: ap.AnyValue = ap.AnyValue(10)
+    >>> any_value.value
+    10
+
+    >>> any_value.value = 20
+    >>> any_value.value
+    20
     """
 
     _value: Any
@@ -27,6 +38,13 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         ----------
         value : *
             Initial any value.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> any_value: ap.AnyValue = ap.AnyValue(10)
+        >>> any_value.value
+        10
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -69,6 +87,14 @@ class AnyValue(CopyInterface, RevertInterface, CustomEventInterface):
         -------
         value : *
             Any value.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> any_value: ap.AnyValue = ap.AnyValue(10)
+        >>> any_value.value = 20
+        >>> any_value.value
+        20
         """
         return self._value
 

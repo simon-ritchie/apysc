@@ -142,6 +142,26 @@ class CustomEventInterface(BlankObjectInterface):
             - https://bit.ly/3rky7VI
         - About the handler options’ type document
             - https://bit.ly/39tnYxC
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_custom_event(
+        ...         e: ap.Event[ap.Rectangle], options: dict) -> None:
+        ...     rectangle: ap.Rectangle = e.this
+        ...     rectangle.fill_color = ap.String('#f0a')
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> e: ap.Event = ap.Event(this=rectangle)
+        >>> _ = rectangle.bind_custom_event(
+        ...     custom_event_type='my_custom_event',
+        ...     handler=on_custom_event, e=e)
+        >>> # Do something here and then trigger the custom event
+        >>> rectangle.trigger_custom_event(
+        ...     custom_event_type='my_custom_event')
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -206,6 +226,26 @@ class CustomEventInterface(BlankObjectInterface):
         ----------
         - Bind and trigger the custom event document
             - https://bit.ly/3rky7VI
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_custom_event(
+        ...         e: ap.Event[ap.Rectangle], options: dict) -> None:
+        ...     rectangle: ap.Rectangle = e.this
+        ...     rectangle.fill_color = ap.String('#f0a')
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> e: ap.Event = ap.Event(this=rectangle)
+        >>> _ = rectangle.bind_custom_event(
+        ...     custom_event_type='my_custom_event',
+        ...     handler=on_custom_event, e=e)
+        >>> # Do something here and then trigger the custom event
+        >>> rectangle.trigger_custom_event(
+        ...     custom_event_type='my_custom_event')
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -238,6 +278,29 @@ class CustomEventInterface(BlankObjectInterface):
         -------
         name : str
             Handler's name.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_custom_event(
+        ...         e: ap.Event[ap.Rectangle], options: dict) -> None:
+        ...     rectangle: ap.Rectangle = e.this
+        ...     rectangle.fill_color = ap.String('#f0a')
+        ...     rectangle.unbind_custom_event(
+        ...         custom_event_type='my_custom_event',
+        ...         handler=on_custom_event)
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> e: ap.Event = ap.Event(this=rectangle)
+        >>> _ = rectangle.bind_custom_event(
+        ...     custom_event_type='my_custom_event',
+        ...     handler=on_custom_event, e=e)
+        >>> # Do something here and then trigger the custom event
+        >>> rectangle.trigger_custom_event(
+        ...     custom_event_type='my_custom_event')
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -287,6 +350,28 @@ class CustomEventInterface(BlankObjectInterface):
         ----------
         custom_event_type : CustomEventType or str
             Target custom event type.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_custom_event(
+        ...         e: ap.Event[ap.Rectangle], options: dict) -> None:
+        ...     rectangle: ap.Rectangle = e.this
+        ...     rectangle.fill_color = ap.String('#f0a')
+        ...     rectangle.unbind_custom_event_all(
+        ...         custom_event_type='my_custom_event')
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> e: ap.Event = ap.Event(this=rectangle)
+        >>> _ = rectangle.bind_custom_event(
+        ...     custom_event_type='my_custom_event',
+        ...     handler=on_custom_event, e=e)
+        >>> # Do something here and then trigger the custom event
+        >>> rectangle.trigger_custom_event(
+        ...     custom_event_type='my_custom_event')
         """
         import apysc as ap
         with ap.DebugInfo(

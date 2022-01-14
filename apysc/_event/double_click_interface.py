@@ -43,6 +43,20 @@ class DoubleClickInterface(MouseEventInterfaceBase):
             - https://simon-ritchie.github.io/apysc/dblclick.html
         - About the handler options’ type document
             - https://bit.ly/39tnYxC
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_double_click(
+        ...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+        ...     rectangle: ap.Rectangle = e.this
+        ...     rectangle.fill_color = ap.String('#f0a')
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> _ = rectangle.dblclick(on_double_click)
         """
         import apysc as ap
         from apysc._validation.variable_name_validation import \
@@ -89,6 +103,21 @@ class DoubleClickInterface(MouseEventInterfaceBase):
         ----------
         handler : _Handler
             Callable to be unbinded.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_double_click(
+        ...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+        ...     rectangle: ap.Rectangle = e.this
+        ...     rectangle.fill_color = ap.String('#f0a')
+        ...     rectangle.unbind_dblclick(on_double_click)
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> _ = rectangle.dblclick(on_double_click)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -102,6 +131,21 @@ class DoubleClickInterface(MouseEventInterfaceBase):
     def unbind_dblclick_all(self) -> None:
         """
         Unbind all double click events.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_double_click(
+        ...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+        ...     rectangle: ap.Rectangle = e.this
+        ...     rectangle.fill_color = ap.String('#f0a')
+        ...     rectangle.unbind_dblclick_all()
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> _ = rectangle.dblclick(on_double_click)
         """
         import apysc as ap
         with ap.DebugInfo(

@@ -23,6 +23,21 @@ class MouseEvent(
     ----------
     - Common mouse event interfaces
         - https://bit.ly/3eDWY1v
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> def on_mousedown(
+    ...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+    ...     rectangle: ap.Rectangle = e.this
+    ...     rectangle.fill_color = ap.String('#f0a')
+    ...     rectangle.unbind_mousedown_all()
+    >>> stage: ap.Stage = ap.Stage()
+    >>> sprite: ap.Sprite = ap.Sprite()
+    >>> sprite.graphics.begin_fill(color='#0af')
+    >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+    ...     x=50, y=50, width=50, height=50)
+    >>> _ = rectangle.mousedown(on_mousedown)
     """
 
     def __init__(self, this: T) -> None:
@@ -38,6 +53,16 @@ class MouseEvent(
         ----------
         - Common mouse event interfaces
             - https://bit.ly/3eDWY1v
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> e: ap.MouseEvent = ap.MouseEvent(this=rectangle)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -61,6 +86,20 @@ class MouseEvent(
         ----------
         - Common mouse event interfaces document
             - https://simon-ritchie.github.io/apysc/mouse_event_basic.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_mousedown(
+        ...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+        ...     stage_x: ap.Int = e.stage_x
+        ...     # Do something here with the coordinate.
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> _ = rectangle.mousedown(on_mousedown)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -105,6 +144,20 @@ class MouseEvent(
         ----------
         - Common mouse event interfaces document
             - https://simon-ritchie.github.io/apysc/mouse_event_basic.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_mousedown(
+        ...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+        ...     stage_y: ap.Int = e.stage_y
+        ...     # Do something here with the coordinate.
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> _ = rectangle.mousedown(on_mousedown)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -151,6 +204,20 @@ class MouseEvent(
         ----------
         - Common mouse event interfaces document
             - https://simon-ritchie.github.io/apysc/mouse_event_basic.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_mousedown(
+        ...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+        ...     local_x: ap.Int = e.local_x
+        ...     # Do something here with the coordinate.
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> _ = rectangle.mousedown(on_mousedown)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -198,6 +265,20 @@ class MouseEvent(
         ----------
         - Common mouse event interfaces document
             - https://simon-ritchie.github.io/apysc/mouse_event_basic.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_mousedown(
+        ...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+        ...     local_y: ap.Int = e.local_y
+        ...     # Do something here with the coordinate.
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> _ = rectangle.mousedown(on_mousedown)
         """
         import apysc as ap
         with ap.DebugInfo(

@@ -386,6 +386,16 @@ def append_js_expression(*, expression: str) -> None:
     ----------
     expression : str
         JavaScript Expression string.
+
+    References
+    ----------
+    - append_js_expression interface document
+        - https://simon-ritchie.github.io/apysc/append_js_expression.html
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> ap.append_js_expression(expression='console.log("Hello!")')
     """
     from apysc._expression import indent_num
     from apysc._expression import last_scope

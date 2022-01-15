@@ -16,6 +16,21 @@ _T = TypeVar('_T', bound=VariableNameInterface)
 class AnimationCy(AnimationBase[_T], Generic[_T]):
     """
     The animation class for a center-y coordinate.
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> stage: ap.Stage = ap.Stage()
+    >>> sprite: ap.Sprite = ap.Sprite()
+    >>> sprite.graphics.begin_fill(color='#0af')
+    >>> circle: ap.Circle = sprite.graphics.draw_circle(
+    ...     x=100, y=100, radius=50)
+    >>> animation: ap.AnimationCy = circle.animation_y(
+    ...     y=100,
+    ...     duration=1500,
+    ...     easing=ap.Easing.EASE_OUT_QUINT,
+    ... )
+    >>> _ = animation.start()
     """
 
     _cy: Int

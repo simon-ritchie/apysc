@@ -17,6 +17,21 @@ _T = TypeVar('_T', bound=VariableNameInterface)
 class AnimationFillAlpha(AnimationBase[_T], Generic[_T]):
     """
     The animation class for a fill alpha (opacity).
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> stage: ap.Stage = ap.Stage()
+    >>> sprite: ap.Sprite = ap.Sprite()
+    >>> sprite.graphics.begin_fill(color='#0af')
+    >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+    ...     x=50, y=50, width=50, height=50)
+    >>> animation: ap.AnimationFillAlpha = rectangle.animation_fill_alpha(
+    ...     alpha=0.5,
+    ...     duration=1500,
+    ...     easing=ap.Easing.EASE_OUT_QUINT,
+    ... )
+    >>> _ = animation.start()
     """
 
     _fill_alpha: Number

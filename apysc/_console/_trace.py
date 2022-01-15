@@ -14,6 +14,17 @@ def trace(*args: Any) -> None:
     ----------
     *args : list
         Any arguments to display to console.
+
+    References
+    ----------
+    - Trace interface document
+        - https://simon-ritchie.github.io/apysc/trace.html
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> int_val: ap.Int = ap.Int(10)
+    >>> ap.trace('Int value is:', int_val)
     """
     import apysc as ap
     with ap.DebugInfo(

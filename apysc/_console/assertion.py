@@ -52,6 +52,11 @@ def assert_equal(
         Right-side value to compare.
     msg : str, optional
         Message to display when assertion failed.
+
+    References
+    ----------
+    - assert_equal and assert_not_equal interfaces document
+        - https://bit.ly/3qwx9ad
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -102,6 +107,11 @@ def assert_not_equal(
         Right-side value to compare.
     msg : str, optional
         Message to display when assertion failed.
+
+    References
+    ----------
+    - assert_equal and assert_not_equal interfaces document
+        - https://bit.ly/3qwx9ad
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -147,6 +157,11 @@ def assert_true(
         will pass test.
     msg : str, optional
         Message to display when assertion failed.
+
+    References
+    ----------
+    - assert_true and assert_false interfaces document
+        - https://simon-ritchie.github.io/apysc/assert_true_and_false.html
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -184,6 +199,11 @@ def assert_false(
         will pass test.
     msg : str, optional
         Message to display when assertion failed.
+
+    References
+    ----------
+    - assert_true and assert_false interfaces document
+        - https://simon-ritchie.github.io/apysc/assert_true_and_false.html
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -224,6 +244,11 @@ def assert_arrays_equal(
         Right-side value to compare.
     msg : str, optional
         Message to display when assertion failed.
+
+    References
+    ----------
+    - assert_arrays_equal and assert_arrays_not_equal interfaces document
+        - https://bit.ly/3I6CgUf
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -257,6 +282,11 @@ def assert_arrays_not_equal(
         Right-side value to compare.
     msg : str, optional
         Message to display when assertion failed.
+
+    References
+    ----------
+    - assert_arrays_equal and assert_arrays_not_equal interfaces document
+        - https://bit.ly/3I6CgUf
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -291,6 +321,11 @@ def assert_dicts_equal(left: Any, right: Any, *, msg: str = '') -> None:
         Right-side value to compare.
     msg : str, optional
         Message to display when assertion failed.
+
+    References
+    ----------
+    - assert_dicts_equal and assert_dicts_not_equal interfaces document
+        - https://bit.ly/3GxWLJ4
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -326,6 +361,11 @@ def assert_dicts_not_equal(
         Right-side value to compare.
     msg : str, optional
         Message to display when assertion failed.
+
+    References
+    ----------
+    - assert_dicts_equal and assert_dicts_not_equal interfaces document
+        - https://bit.ly/3GxWLJ4
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -351,6 +391,11 @@ def assert_defined(value: Any, *, msg: str = '') -> None:
         Target value to check.
     msg : str, optional
         Message to display when assertion failed.
+
+    References
+    ----------
+    - assert_defined and assert_undefined interfaces document
+        - https://bit.ly/3A2bmKz
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -380,6 +425,11 @@ def assert_undefined(value: Any, *, msg: str = '') -> None:
         Target value to check.
     msg : str, optional
         Message to display when assertion failed.
+
+    References
+    ----------
+    - assert_defined and assert_undefined interfaces document
+        - https://bit.ly/3A2bmKz
     """
     import apysc as ap
     with ap.DebugInfo(

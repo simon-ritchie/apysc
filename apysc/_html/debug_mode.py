@@ -20,6 +20,11 @@ def set_debug_mode() -> None:
     If this functions is called, the following setting will be applied:
     - HTML minify setting will be disabled.
     - Per each interface JavaScript divider string will be appended.
+
+    References
+    ----------
+    - set_debug_mode interface document
+        - https://simon-ritchie.github.io/apysc/set_debug_mode.html
     """
     from apysc._expression import expression_data_util
     table_name: str = expression_data_util.TableName.DEBUG_MODE_SETTING.value
@@ -32,6 +37,11 @@ def set_debug_mode() -> None:
 def unset_debug_mode() -> None:
     """
     Unset the debug mode for the HTML and JavaScript debugging.
+
+    References
+    ----------
+    - unset_debug_mode interface document
+        - https://simon-ritchie.github.io/apysc/unset_debug_mode.html
     """
     from apysc._expression import expression_data_util
     table_name: str = expression_data_util.TableName.DEBUG_MODE_SETTING.value
@@ -195,6 +205,16 @@ class DebugInfo:
     Save a debug information (append callable interface name
     comment and arguments information) to the JavaScript
     expression file. This class is used at the `with` statement.
+
+    Notes
+    -----
+    If the debug mode setting is not enabled, saving will
+    be skipped.
+
+    References
+    ----------
+    - DebugInfo class document
+        - https://simon-ritchie.github.io/apysc/debug_info.html
     """
 
     _callable: Union[Callable, str]
@@ -233,6 +253,11 @@ class DebugInfo:
         class_ : Type or None, optional
             Target class type. If the target callable_ variable is not
             a method, this argument will be ignored.
+
+        References
+        ----------
+        - DebugInfo class document
+            - https://simon-ritchie.github.io/apysc/debug_info.html
         """
         self._callable = callable_
         self._locals = locals_

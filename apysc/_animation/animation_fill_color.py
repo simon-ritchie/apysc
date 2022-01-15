@@ -19,6 +19,21 @@ StrOrString = TypeVar('StrOrString', str, String)
 class AnimationFillColor(AnimationBase[_T], Generic[_T]):
     """
     The animation class for a fill color.
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> stage: ap.Stage = ap.Stage()
+    >>> sprite: ap.Sprite = ap.Sprite()
+    >>> sprite.graphics.begin_fill(color='#0af')
+    >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+    ...     x=50, y=50, width=50, height=50)
+    >>> animation: ap.AnimationFillColor = rectangle.animation_fill_color(
+    ...     fill_color='#f0a',
+    ...     duration=1500,
+    ...     easing=ap.Easing.EASE_OUT_QUINT,
+    ... )
+    >>> _ = animation.start()
     """
 
     _fill_color: String

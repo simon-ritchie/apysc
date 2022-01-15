@@ -19,6 +19,27 @@ class Elif(IfBase):
         - https://simon-ritchie.github.io/apysc/elif.html
     - Each branch instruction class scope variables reverting setting
         - https://bit.ly/3rkAuaT
+
+    Notes
+    -----
+    - Currently the apysc can not initialize condition value
+        in the constructor. For example, the following raises
+        exception:
+    - You can only use this class immediately after the
+        `If` or `Elif` statement.
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> any_value: ap.Int = ap.Int(10)
+    >>> condition_1: ap.Boolean = any_value >= 10
+    >>> condition_2: ap.Boolean = any_value >= 5
+    >>> with ap.If(condition_1):
+    ...     # Do something here
+    ...     pass
+    >>> with ap.Elif(condition_2):
+    ...     # Do something else here
+    ...     pass
     """
 
     def __init__(
@@ -52,8 +73,10 @@ class Elif(IfBase):
         >>> condition_1: ap.Boolean = any_value >= 10
         >>> condition_2: ap.Boolean = any_value >= 5
         >>> with ap.If(condition_1):
+        ...     # Do something here
         ...     pass
         >>> with ap.Elif(condition_2):
+        ...     # Do something else here
         ...     pass
 
         Parameters

@@ -38,6 +38,29 @@ class Timer(VariableNameInterface, CustomEventInterface):
         - https://simon-ritchie.github.io/apysc/fps.html
     - Timer class repeat_count setting
         - https://simon-ritchie.github.io/apysc/timer_repeat_count.html
+
+    Examples
+    --------
+    >>> from typing_extensions import TypedDict
+    >>> import apysc as ap
+    >>> class RectOptions(TypedDict):
+    ...     rectangle: ap.Rectangle
+    >>> def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
+    ...     rectangle: ap.Rectangle = options['rectangle']
+    ...     rectangle.x += 1
+    >>> def on_timer_complete(e: ap.TimerEvent, options: dict) -> None:
+    ...     ap.trace('Timer completed!')
+    >>> stage: ap.Stage = ap.Stage()
+    >>> sprite: ap.Sprite = ap.Sprite()
+    >>> sprite.graphics.begin_fill(color='#0af')
+    >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+    ...     x=50, y=50, width=50, height=50)
+    >>> options: RectOptions = {'rectangle': rectangle}
+    >>> timer: ap.Timer = ap.Timer(
+    ...     on_timer, delay=ap.FPS.FPS_60, repeat_count=50,
+    ...     options=options)
+    >>> _ = timer.timer_complete(on_timer_complete)
+    >>> timer.start()
     """
 
     _delay: Number
@@ -87,8 +110,26 @@ class Timer(VariableNameInterface, CustomEventInterface):
             - https://simon-ritchie.github.io/apysc/fps.html
         - Timer class repeat_count setting
             - https://simon-ritchie.github.io/apysc/timer_repeat_count.html
-        - About the handler options’ type document
+        - About the handler options' type document
             - https://bit.ly/39tnYxC
+
+        Examples
+        --------
+        >>> from typing_extensions import TypedDict
+        >>> import apysc as ap
+        >>> class RectOptions(TypedDict):
+        ...     rectangle: ap.Rectangle
+        >>> def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
+        ...     rectangle: ap.Rectangle = options['rectangle']
+        ...     rectangle.x += 1
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> options: RectOptions = {'rectangle': rectangle}
+        >>> _ = ap.Timer(
+        ...     on_timer, delay=ap.FPS.FPS_60, options=options).start()
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -172,6 +213,16 @@ class Timer(VariableNameInterface, CustomEventInterface):
         ----------
         - Timer class delay setting document
             - https://simon-ritchie.github.io/apysc/timer_delay.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
+        ...     pass
+        >>> timer: ap.Timer = ap.Timer(
+        ...     on_timer, delay=33.3, repeat_count=50)
+        >>> timer.delay
+        Number(33.3)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -195,6 +246,16 @@ class Timer(VariableNameInterface, CustomEventInterface):
         ----------
         - Timer class repeat_count setting
             - https://simon-ritchie.github.io/apysc/timer_repeat_count.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
+        ...     pass
+        >>> timer: ap.Timer = ap.Timer(
+        ...     on_timer, delay=33.3, repeat_count=50)
+        >>> timer.repeat_count
+        Int(50)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -212,6 +273,20 @@ class Timer(VariableNameInterface, CustomEventInterface):
         -------
         running : Boolean.
             A boolean value whether this timer is running or not.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
+        ...     pass
+        >>> timer: ap.Timer = ap.Timer(
+        ...     on_timer, delay=33.3, repeat_count=50)
+        >>> timer.running
+        Boolean(False)
+
+        >>> timer.start()
+        >>> timer.running
+        Boolean(True)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -229,6 +304,15 @@ class Timer(VariableNameInterface, CustomEventInterface):
         -------
         current_count : Int
             A current timer count.
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
+        ...     timer: ap.Timer = e.this
+        ...     ap.trace(timer.current_count)
+        >>> _ = ap.Timer(
+        ...     on_timer, delay=33.3, repeat_count=50).start()
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -245,6 +329,14 @@ class Timer(VariableNameInterface, CustomEventInterface):
         ----------
         - Timer class start and stop interfaces
             - https://simon-ritchie.github.io/apysc/timer_start_and_stop.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
+        ...     pass
+        >>> _ = ap.Timer(
+        ...     on_timer, delay=33.3, repeat_count=50).start()
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -353,8 +445,31 @@ class Timer(VariableNameInterface, CustomEventInterface):
         """
         Stop this timer.
 
-        - Timer class start and stop interfaces
+        References
+        ----------
+        - Timer class start and stop interfaces document
             - https://simon-ritchie.github.io/apysc/timer_start_and_stop.html
+
+        Examples
+        --------
+        >>> from typing_extensions import TypedDict
+        >>> import apysc as ap
+        >>> class RectOptions(TypedDict):
+        ...     rectangle: ap.Rectangle
+        >>> def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
+        ...     rectangle: ap.Rectangle = options['rectangle']
+        ...     rectangle.x += 1
+        ...     with ap.If(rectangle.x > 100):
+        ...         timer: ap.Timer = e.this
+        ...         timer.stop()
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> options: RectOptions = {'rectangle': rectangle}
+        >>> _ = ap.Timer(
+        ...     on_timer, delay=33.3, options=options).start()
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -402,6 +517,27 @@ class Timer(VariableNameInterface, CustomEventInterface):
         ----------
         - Timer class reset interface document
             - https://simon-ritchie.github.io/apysc/timer_reset.html
+
+        Examples
+        --------
+        >>> from typing_extensions import TypedDict
+        >>> import apysc as ap
+        >>> class RectOptions(TypedDict):
+        ...     rectangle: ap.Rectangle
+        >>> def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
+        ...     rectangle: ap.Rectangle = options['rectangle']
+        ...     rectangle.x += 1
+        ...     with ap.If(rectangle.x > 100):
+        ...         timer: ap.Timer = e.this
+        ...         timer.reset()
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> options: RectOptions = {'rectangle': rectangle}
+        >>> _ = ap.Timer(
+        ...     on_timer, delay=33.3, options=options).start()
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -434,6 +570,29 @@ class Timer(VariableNameInterface, CustomEventInterface):
             - https://simon-ritchie.github.io/apysc/timer_complete.html
         - About the handler options’ type document
             - https://bit.ly/39tnYxC
+
+        Examples
+        --------
+        >>> from typing_extensions import TypedDict
+        >>> import apysc as ap
+        >>> class RectOptions(TypedDict):
+        ...     rectangle: ap.Rectangle
+        >>> def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
+        ...     rectangle: ap.Rectangle = options['rectangle']
+        ...     rectangle.x += 1
+        >>> def on_timer_complete(
+        ...         e: ap.TimerEvent, options: RectOptions) -> None:
+        ...     ap.trace('Timer completed!')
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> options: RectOptions = {'rectangle': rectangle}
+        >>> timer: ap.Timer = ap.Timer(
+        ...     on_timer, delay=33.3, options=options)
+        >>> _ = timer.timer_complete(on_timer_complete)
+        >>> timer.start()
         """
         import apysc as ap
         with ap.DebugInfo(

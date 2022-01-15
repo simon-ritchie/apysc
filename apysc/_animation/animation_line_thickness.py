@@ -16,6 +16,24 @@ _T = TypeVar('_T', bound=VariableNameInterface)
 class AnimationLineThickness(AnimationBase[_T], Generic[_T]):
     """
     The animation class for a line thickness.
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> stage: ap.Stage = ap.Stage()
+    >>> sprite: ap.Sprite = ap.Sprite()
+    >>> sprite.graphics.begin_fill(color='#0af')
+    >>> sprite.graphics.line_style(
+    ...     color='#fff', thickness=1)
+    >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+    ...     x=50, y=50, width=50, height=50)
+    >>> animation: ap.AnimationLineThickness
+    >>> animation = rectangle.animation_line_thickness(
+    ...     thickness=6,
+    ...     duration=1500,
+    ...     easing=ap.Easing.EASE_OUT_QUINT,
+    ... )
+    >>> _ = animation.start()
     """
 
     _line_thickness: Int

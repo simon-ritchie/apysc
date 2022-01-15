@@ -119,6 +119,16 @@ class AnimationBase(
         ----------
         - AnimationBase class start interface
             - https://simon-ritchie.github.io/apysc/animation_base_start.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> _ = rectangle.animation_x(x=100).start()
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -190,6 +200,22 @@ class AnimationBase(
             - https://simon-ritchie.github.io/apysc/animation_complete.html
         - About the handler options’ type document
             - https://bit.ly/39tnYxC
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_animation_complete(
+        ...         e: ap.AnimationEvent[ap.Rectangle],
+        ...         options: dict) -> None:
+        ...     ap.trace('Animation completed!')
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> _ = rectangle.animation_x(
+        ...     x=100,
+        ... ).animation_complete(on_animation_complete).start()
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -247,5 +273,21 @@ class AnimationBase(
         ----------
         - AnimationBase class target property interface document
             - https://simon-ritchie.github.io/apysc/animation_base_target.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_animation_complete(
+        ...         e: ap.AnimationEvent[ap.Rectangle],
+        ...         options: dict) -> None:
+        ...     rectangle: ap.Rectangle = e.this.target
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> _ = rectangle.animation_x(
+        ...     x=100,
+        ... ).animation_complete(on_animation_complete).start()
         """
         return self._target

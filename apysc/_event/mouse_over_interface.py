@@ -40,8 +40,22 @@ class MouseOverInterface(MouseEventInterfaceBase):
         ----------
         - Mouseover and mouseout interfaces
             - https://bit.ly/3hOtaBl
-        - About the handler options’ type document
+        - About the handler options' type document
             - https://bit.ly/39tnYxC
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_mouseover(
+        ...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+        ...     rectangle: ap.Rectangle = e.this
+        ...     rectangle.fill_color = ap.String('#f0a')
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> _ = rectangle.mouseout(on_mouseover)
         """
         import apysc as ap
         from apysc._validation.variable_name_validation import \
@@ -93,6 +107,21 @@ class MouseOverInterface(MouseEventInterfaceBase):
         ----------
         - Mouseover and mouseout interfaces
             - https://bit.ly/3hOtaBl
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_mouseover(
+        ...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+        ...     rectangle: ap.Rectangle = e.this
+        ...     rectangle.fill_color = ap.String('#f0a')
+        ...     rectangle.unbind_mouseover(on_mouseover)
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> _ = rectangle.mouseout(on_mouseover)
         """
         import apysc as ap
         with ap.DebugInfo(
@@ -111,6 +140,21 @@ class MouseOverInterface(MouseEventInterfaceBase):
         ----------
         - Mouseover and mouseout interfaces
             - https://bit.ly/3hOtaBl
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> def on_mouseover(
+        ...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+        ...     rectangle: ap.Rectangle = e.this
+        ...     rectangle.fill_color = ap.String('#f0a')
+        ...     rectangle.unbind_mouseover_all()
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> _ = rectangle.mouseout(on_mouseover)
         """
         import apysc as ap
         with ap.DebugInfo(

@@ -25,6 +25,13 @@ def set_debug_mode() -> None:
     ----------
     - set_debug_mode interface document
         - https://simon-ritchie.github.io/apysc/set_debug_mode.html
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> stage: ap.Stage = ap.Stage()
+    >>> ap.set_debug_mode()
+    >>> int_val: ap.Int = ap.Int(10)
     """
     from apysc._expression import expression_data_util
     table_name: str = expression_data_util.TableName.DEBUG_MODE_SETTING.value
@@ -42,6 +49,14 @@ def unset_debug_mode() -> None:
     ----------
     - unset_debug_mode interface document
         - https://simon-ritchie.github.io/apysc/unset_debug_mode.html
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> stage: ap.Stage = ap.Stage()
+    >>> ap.set_debug_mode()
+    >>> int_val: ap.Int = ap.Int(10)
+    >>> ap.unset_debug_mode()
     """
     from apysc._expression import expression_data_util
     table_name: str = expression_data_util.TableName.DEBUG_MODE_SETTING.value
@@ -57,6 +72,19 @@ def is_debug_mode() -> bool:
     -------
     result : bool
         If the current debug mode is enabled, True will be returned.
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> stage: ap.Stage = ap.Stage()
+    >>> ap.set_debug_mode()
+    >>> ap.is_debug_mode()
+    True
+
+    >>> int_val: ap.Int = ap.Int(10)
+    >>> ap.unset_debug_mode()
+    >>> ap.is_debug_mode()
+    False
     """
     from apysc._expression import expression_data_util
     table_name: str = expression_data_util.TableName.DEBUG_MODE_SETTING.value
@@ -215,6 +243,16 @@ class DebugInfo:
     ----------
     - DebugInfo class document
         - https://simon-ritchie.github.io/apysc/debug_info.html
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> stage: ap.Stage = ap.Stage()
+    >>> def any_func(a: int, b: str) -> None:
+    ...     with ap.DebugInfo(
+    ...             callable_=any_func, locals_=locals(),
+    ...             module_name=__name__):
+    ...         int_val: ap.Int = ap.Int(10)
     """
 
     _callable: Union[Callable, str]
@@ -258,6 +296,16 @@ class DebugInfo:
         ----------
         - DebugInfo class document
             - https://simon-ritchie.github.io/apysc/debug_info.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> def any_func(a: int, b: str) -> None:
+        ...     with ap.DebugInfo(
+        ...             callable_=any_func, locals_=locals(),
+        ...             module_name=__name__):
+        ...         int_val: ap.Int = ap.Int(10)
         """
         self._callable = callable_
         self._locals = locals_

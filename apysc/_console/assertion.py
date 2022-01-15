@@ -57,6 +57,13 @@ def assert_equal(
     ----------
     - assert_equal and assert_not_equal interfaces document
         - https://bit.ly/3qwx9ad
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> int_1: ap.Int = ap.Int(10)
+    >>> int_2: ap.Int = ap.Int(10)
+    >>> ap.assert_equal(int_1, int_2)
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -112,6 +119,13 @@ def assert_not_equal(
     ----------
     - assert_equal and assert_not_equal interfaces document
         - https://bit.ly/3qwx9ad
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> int_1: ap.Int = ap.Int(10)
+    >>> int_2: ap.Int = ap.Int(11)
+    >>> ap.assert_not_equal(int_1, int_2)
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -162,6 +176,13 @@ def assert_true(
     ----------
     - assert_true and assert_false interfaces document
         - https://simon-ritchie.github.io/apysc/assert_true_and_false.html
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> int_val: ap.Int = ap.Int(10)
+    >>> boolean: ap.Boolean = int_val == 10
+    >>> ap.assert_true(boolean)
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -204,6 +225,13 @@ def assert_false(
     ----------
     - assert_true and assert_false interfaces document
         - https://simon-ritchie.github.io/apysc/assert_true_and_false.html
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> int_val: ap.Int = ap.Int(10)
+    >>> boolean: ap.Boolean = int_val == 11
+    >>> ap.assert_false(boolean)
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -249,6 +277,13 @@ def assert_arrays_equal(
     ----------
     - assert_arrays_equal and assert_arrays_not_equal interfaces document
         - https://bit.ly/3I6CgUf
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> arr_1: ap.Array = ap.Array([1, 2, 3])
+    >>> arr_2: ap.Array = ap.Array([1, 2, 3])
+    >>> ap.assert_arrays_equal(arr_1, arr_2)
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -287,6 +322,13 @@ def assert_arrays_not_equal(
     ----------
     - assert_arrays_equal and assert_arrays_not_equal interfaces document
         - https://bit.ly/3I6CgUf
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> arr_1: ap.Array = ap.Array([1, 2, 3])
+    >>> arr_2: ap.Array = ap.Array([4, 5, 6])
+    >>> ap.assert_arrays_not_equal(arr_1, arr_2)
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -326,6 +368,13 @@ def assert_dicts_equal(left: Any, right: Any, *, msg: str = '') -> None:
     ----------
     - assert_dicts_equal and assert_dicts_not_equal interfaces document
         - https://bit.ly/3GxWLJ4
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
+    >>> dict_2: ap.Dictionary = ap.Dictionary({'a': 10})
+    >>> ap.assert_dicts_equal(dict_1, dict_2)
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -366,6 +415,13 @@ def assert_dicts_not_equal(
     ----------
     - assert_dicts_equal and assert_dicts_not_equal interfaces document
         - https://bit.ly/3GxWLJ4
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> dict_1: ap.Dictionary = ap.Dictionary({'a': 10})
+    >>> dict_2: ap.Dictionary = ap.Dictionary({'a': 20})
+    >>> ap.assert_dicts_not_equal(dict_1, dict_2)
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -396,6 +452,12 @@ def assert_defined(value: Any, *, msg: str = '') -> None:
     ----------
     - assert_defined and assert_undefined interfaces document
         - https://bit.ly/3A2bmKz
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> int_val: ap.Int = ap.Int(10)
+    >>> ap.assert_defined(int_val)
     """
     import apysc as ap
     with ap.DebugInfo(
@@ -430,6 +492,14 @@ def assert_undefined(value: Any, *, msg: str = '') -> None:
     ----------
     - assert_defined and assert_undefined interfaces document
         - https://bit.ly/3A2bmKz
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> int_val: ap.Int = ap.Int(10)
+    >>> ap.append_js_expression(
+    ...     expression=f'{int_val.variable_name} = undefined;')
+    >>> ap.assert_undefined(int_val)
     """
     import apysc as ap
     with ap.DebugInfo(

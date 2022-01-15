@@ -47,6 +47,13 @@ class FPS(Enum):
     ----------
     - FPS enum document
         - https://simon-ritchie.github.io/apysc/fps.html
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
+    ...     pass
+    >>> ap.Timer(on_timer, delay=ap.FPS.FPS_60).start()
     """
 
     FPS_5 = FPSDefinition(fps=5, milisecond_intervals=200)

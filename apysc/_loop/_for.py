@@ -26,6 +26,13 @@ class For(Generic[T]):
     ----------
     - For document
         - https://simon-ritchie.github.io/apysc/for.html
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> arr: ap.Array = ap.Array(range(3))
+    >>> with ap.For(arr) as i:
+    ...     ap.trace('Loop index is:', i)
     """
 
     _arr_or_dict: Union[Array, Dictionary]

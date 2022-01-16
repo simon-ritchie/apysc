@@ -7,8 +7,8 @@ from typing import List
 
 from retrying import retry
 
-import apply_lints_and_build_docs
-from apply_lints_and_build_docs import LintCommand
+import scripts.apply_lints_and_build_docs as apply_lints_and_build_docs
+from scripts.apply_lints_and_build_docs import LintCommand
 from apysc._file import file_util
 from apysc._lint.lint_hash_util import LintType
 from tests.testing_helper import assert_raises
@@ -43,7 +43,6 @@ def test__get_root_dir_module_paths() -> None:
     module_paths: List[str] = apply_lints_and_build_docs.\
         _get_root_dir_module_paths()
     expected_paths: List[str] = [
-        './apply_lints_and_build_docs.py',
         './build.py',
     ]
     for expected in expected_paths:

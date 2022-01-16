@@ -1,8 +1,8 @@
 """Apply each lint to all modules and build documentation.
 
 Command example:
-$ python apply_lints_and_build_docs.py
-$ python apply_lints_and_build_docs.py --skip_overall_docs_build
+$ python scripts/apply_lints_and_build_docs.py
+$ python scripts/apply_lints_and_build_docs.py --skip_overall_docs_build
 """
 
 import multiprocessing as mp
@@ -39,7 +39,7 @@ FLAKE8_NO_PATH_COMMAND: Final[str] = (
 )
 
 _ROOT_MODULE_PATHS_STR: Final[str] = (
-    './apply_lints_and_build_docs.py ./build_docs.py ./build.py '
+    './build_docs.py ./build.py '
     './run_flake8.py ./run_mypy.py ./run_numdoclint.py '
     './run_pyright.py '
     './run_tests_and_save_coverage_and_num.py '

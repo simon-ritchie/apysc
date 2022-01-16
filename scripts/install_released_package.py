@@ -54,6 +54,7 @@ def _main() -> None:
 
     os.system(f'python -c "{_APYSC_TEST_CODE}"')
     assert os.path.exists('./index.html')
+    assert os.path.exists('./jquery.min.js')
     print('HTML file is created by the apysc package correctly.')
 
 

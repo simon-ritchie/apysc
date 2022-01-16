@@ -50,7 +50,7 @@ class AnimationScaleYFromPointInterface(AnimationInterfaceBase):
 
         References
         ----------
-        - animation_scale_x_from_point interface document
+        - animation_scale_from_point interfaces document
             - https://bit.ly/3j3It9o
         - Animation interfaces duration setting document
             - https://simon-ritchie.github.io/apysc/animation_duration.html

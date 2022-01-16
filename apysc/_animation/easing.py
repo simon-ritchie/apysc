@@ -8,6 +8,11 @@ class Easing(Enum):
     """
     Enum class for the easing setting.
 
+    References
+    ----------
+    - Easing enum document
+        - https://simon-ritchie.github.io/apysc/easing_enum.html
+
     Examples
     --------
     >>> import apysc as ap

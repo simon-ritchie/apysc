@@ -20,6 +20,23 @@ class AnimationFillColor(AnimationBase[_T], Generic[_T]):
     """
     The animation class for a fill color.
 
+    References
+    ----------
+    - animation_fill_color interface document
+        - https://simon-ritchie.github.io/apysc/animation_fill_color.html
+    - Animation interfaces duration setting document
+        - https://simon-ritchie.github.io/apysc/animation_duration.html
+    - Animation interfaces delay setting document
+        - https://simon-ritchie.github.io/apysc/animation_delay.html
+    - Each animation interface return value document
+        - https://bit.ly/2XOoa8w
+    - Sequential animation setting document
+        - https://simon-ritchie.github.io/apysc/sequential_animation.html
+    - animation_parallel interface document
+        - https://simon-ritchie.github.io/apysc/animation_parallel.html
+    - Easing enum document
+        - https://simon-ritchie.github.io/apysc/easing_enum.html
+
     Examples
     --------
     >>> import apysc as ap

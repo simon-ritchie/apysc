@@ -166,7 +166,7 @@ jobs:
         with:
           python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
       - name: Run the checking command
-        run: python check_apysc_top_level_import.py
+        run: python ./scripts/check_apysc_top_level_import.py
 
   RunTestsOnPython36AndSaveCoverageAndPassingNum:
     needs: [CreateCache, SetGlobalConstants]

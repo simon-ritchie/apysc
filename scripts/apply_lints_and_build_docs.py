@@ -68,7 +68,7 @@ MYPY_COMMAND: Final[str] = (
 PYRIGHT_COMMAND: Final[str] = 'pyright'
 
 CHECK_APYSC_TOP_LEVEL_IMPORT_COMMAND: Final[str] = (
-    'python check_apysc_top_level_import.py'
+    'python ./scripts/check_apysc_top_level_import.py'
 )
 
 

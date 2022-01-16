@@ -3,7 +3,7 @@
 modules.
 
 Command example:
-$ python check_apysc_top_level_import.py
+$ python ./scripts/check_apysc_top_level_import.py
 """
 
 import inspect

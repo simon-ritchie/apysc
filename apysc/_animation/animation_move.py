@@ -16,6 +16,23 @@ _T = TypeVar('_T', bound=VariableNameInterface)
 class AnimationMove(AnimationBase[_T], Generic[_T]):
     """
     The animation class for moving x and y coordinates.
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> stage: ap.Stage = ap.Stage()
+    >>> sprite: ap.Sprite = ap.Sprite()
+    >>> sprite.graphics.begin_fill(color='#0af')
+    >>> sprite.graphics.line_style(
+    ...     color='#fff', thickness=1)
+    >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+    ...     x=50, y=50, width=50, height=50)
+    >>> animation: ap.AnimationMove = rectangle.animation_move(
+    ...     x=100, y=150,
+    ...     duration=1500,
+    ...     easing=ap.Easing.EASE_OUT_QUINT,
+    ... )
+    >>> _ = animation.start()
     """
 
     _x: Int

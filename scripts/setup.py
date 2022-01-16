@@ -32,7 +32,9 @@ setup(
     description=_DESCRIPTION,
     long_description=_LONG_DESCRIPTION,
     packages=find_packages(
-        exclude=('tests', 'tests.*', 'test_projects', 'test_projects.*')),
+        exclude=(
+            'tests', 'tests.*', 'test_projects', 'test_projects.*',
+            'scripts', 'scripts.*')),
     install_requires=[
         'typing-extensions',
         'html-minifier',

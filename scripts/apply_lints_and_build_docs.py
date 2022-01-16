@@ -38,11 +38,9 @@ FLAKE8_NO_PATH_COMMAND: Final[str] = (
     'flake8 --ignore E402,W503'
 )
 
-_ROOT_MODULE_PATHS_STR: Final[str] = ('')
-
 FLAKE8_COMMAND: Final[str] = (
     f'{FLAKE8_NO_PATH_COMMAND} ./apysc/ ./tests/ ./test_projects/ '
-    f'./scripts/ {_ROOT_MODULE_PATHS_STR}'
+    f'./scripts/'
 )
 
 NUMDOCLINT_NO_PATH_COMMAND: Final[str] = (
@@ -61,7 +59,7 @@ MYPY_NO_PATH_COMMAND: Final[str] = (
 
 MYPY_COMMAND: Final[str] = (
     f'{MYPY_NO_PATH_COMMAND} ./apysc/ ./scripts/ '
-    f'./tests/ ./test_projects/ {_ROOT_MODULE_PATHS_STR}'
+    f'./tests/ ./test_projects/'
 )
 
 PYRIGHT_COMMAND: Final[str] = 'pyright'
@@ -226,7 +224,6 @@ def _start_numdoclint_processes() -> List[sp.Popen]:
     """
     paths: List[str] = [
         './apysc/', './tests/', './test_projects/', './scripts/',
-        *_ROOT_MODULE_PATHS_STR.split(' ')
     ]
     numdoclint_processes: List[sp.Popen] = []
     for path in paths:

@@ -120,7 +120,7 @@ jobs:
       - name: Set the mypy alias
         run: alias mypy=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/mypy
       - name: Run the mypy command
-        run: python run_mypy.py
+        run: python ./scripts/run_mypy.py
 
   RunNumdoclint:
     needs: [CreateCache, SetGlobalConstants]

@@ -2,7 +2,7 @@
 job mainly.
 
 Command example:
-$ python run_flake8.py
+$ python ./scripts/run_flake8.py
 """
 
 from logging import Logger

@@ -2,7 +2,7 @@
 job mainly.
 
 Command example:
-$ python run_mypy.py
+$ python ./scripts/run_mypy.py
 """
 
 from logging import Logger

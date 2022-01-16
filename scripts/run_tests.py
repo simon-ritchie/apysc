@@ -2,7 +2,7 @@
 deploying job mainly.
 
 Command example:
-$ python run_tests.py
+$ python ./scripts/run_tests.py
 """
 
 from logging import Logger

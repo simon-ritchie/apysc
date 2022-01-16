@@ -219,7 +219,7 @@ jobs:
       - name: Set the pytest alias
         run: alias pytest=/opt/hostedtoolcache/Python/${{ matrix.python-version }}/x64/bin/pytest
       - name: Run the test runner command
-        run: python run_tests.py
+        run: python ./scripts/run_tests.py
 
   RunDocTest:
     needs: [CreateCache, SetGlobalConstants]

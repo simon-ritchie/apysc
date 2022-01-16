@@ -16,6 +16,21 @@ _T = TypeVar('_T', bound=VariableNameInterface)
 class AnimationWidthForEllipse(AnimationBase[_T], Generic[_T]):
     """
     The animation class for a ellipse-width.
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> stage: ap.Stage = ap.Stage()
+    >>> sprite: ap.Sprite = ap.Sprite()
+    >>> sprite.graphics.begin_fill(color='#0af')
+    >>> ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(
+    ...     x=50, y=50, width=50, height=50)
+    >>> animation: ap.AnimationWidthForEllipse = ellipse.animation_width(
+    ...     width=100,
+    ...     duration=1500,
+    ...     easing=ap.Easing.EASE_OUT_QUINT,
+    ... )
+    >>> _ = animation.start()
     """
 
     _width: Int

@@ -62,6 +62,20 @@ class AnimationSkewYInterface(AnimationInterfaceBase):
             - https://simon-ritchie.github.io/apysc/animation_parallel.html
         - Easing enum document
             - https://simon-ritchie.github.io/apysc/easing_enum.html
+
+        Examples
+        --------
+        >>> import apysc as ap
+        >>> stage: ap.Stage = ap.Stage()
+        >>> sprite: ap.Sprite = ap.Sprite()
+        >>> sprite.graphics.begin_fill(color='#0af')
+        >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+        ...     x=50, y=50, width=50, height=50)
+        >>> _ = rectangle._animation_skew_y(
+        ...     skew_y=50,
+        ...     duration=1500,
+        ...     easing=ap.Easing.EASE_OUT_QUINT,
+        ... ).start()
         """
         warnings.warn(
             'Currently the `animation_skew_y` interface does not '

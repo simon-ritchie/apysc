@@ -17,9 +17,12 @@ from typing import Dict
 from typing import List
 from typing import Match
 from typing import Optional as Op
+import sys
 
 from typing_extensions import Final
 from typing_extensions import TypedDict
+
+sys.path.append('./')
 
 from apysc._console import loggers
 from apysc._jslib import jslib_util

@@ -8,6 +8,9 @@ import shutil
 import subprocess as sp
 from logging import Logger
 from typing import List
+import sys
+
+sys.path.append('./')
 
 from apysc._console import loggers
 

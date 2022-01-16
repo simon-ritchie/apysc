@@ -11,6 +11,9 @@ from logging import Logger
 from typing import List
 from typing import Match
 from typing import Optional
+import sys
+
+sys.path.append('./')
 
 import command_util
 from apysc._console import loggers

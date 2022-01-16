@@ -7,6 +7,9 @@ $ python ./scripts/run_pyright.py
 
 from logging import Logger
 from typing import List
+import sys
+
+sys.path.append('./')
 
 import command_util
 from scripts.apply_lints_and_build_docs import PYRIGHT_COMMAND

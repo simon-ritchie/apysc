@@ -6,6 +6,9 @@ $ python ./scripts/run_tests.py
 """
 
 from logging import Logger
+import sys
+
+sys.path.append('./')
 
 import command_util
 from apysc._console import loggers

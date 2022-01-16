@@ -3,6 +3,9 @@
 
 from setuptools import find_packages
 from setuptools import setup
+import sys
+
+sys.path.append('./')
 
 from apysc import __version__
 

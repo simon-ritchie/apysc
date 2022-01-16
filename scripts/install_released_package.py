@@ -9,6 +9,9 @@ import os
 import shutil
 import time
 from typing import List
+import sys
+
+sys.path.append('./')
 
 import apysc as ap
 import command_util

@@ -6,6 +6,9 @@ $ python ./scripts/run_flake8.py
 """
 
 from logging import Logger
+import sys
+
+sys.path.append('./')
 
 import command_util
 from scripts.apply_lints_and_build_docs import FLAKE8_COMMAND

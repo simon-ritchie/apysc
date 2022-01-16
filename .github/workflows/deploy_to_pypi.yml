@@ -104,7 +104,7 @@ jobs:
       - name: Set the flake8 alias
         run: alias flake8=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/flake8
       - name: Run the flake8 command
-        run: python run_flake8.py
+        run: python ./scripts/run_flake8.py
 
   RunMypy:
     needs: [CreateCache, SetGlobalConstants]

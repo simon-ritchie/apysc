@@ -2,7 +2,7 @@
 deploying job mainly.
 
 Command example:
-$ python run_numdoclint.py
+$ python ./scripts/run_numdoclint.py
 """
 
 from logging import Logger

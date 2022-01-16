@@ -3,6 +3,9 @@
 
 import subprocess as sp
 from logging import Logger
+import sys
+
+sys.path.append('./')
 
 from apysc._console import loggers
 

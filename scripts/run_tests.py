@@ -10,7 +10,7 @@ import sys
 
 sys.path.append('./')
 
-import command_util
+import scripts.command_util as command_util
 from apysc._console import loggers
 
 logger: Logger = loggers.get_info_logger()

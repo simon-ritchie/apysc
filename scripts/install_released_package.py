@@ -14,7 +14,7 @@ import sys
 sys.path.append('./')
 
 import apysc as ap
-import command_util
+import scripts.command_util as command_util
 
 _PIP_COMMAND: str = f'pip install apysc=={ap.__version__}'
 _APYSC_TEST_CODE: str = (

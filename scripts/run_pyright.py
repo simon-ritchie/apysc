@@ -11,7 +11,7 @@ import sys
 
 sys.path.append('./')
 
-import command_util
+import scripts.command_util as command_util
 from scripts.apply_lints_and_build_docs import PYRIGHT_COMMAND
 from apysc._console import loggers
 

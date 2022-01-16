@@ -3,7 +3,7 @@ test coverage and passing tests number.
 This is used by the deploying job mainly.
 
 Command example:
-$ python run_tests_and_save_coverage_and_num.py
+$ python ./scripts/run_tests_and_save_coverage_and_num.py
 """
 
 import re

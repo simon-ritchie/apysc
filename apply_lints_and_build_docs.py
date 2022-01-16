@@ -49,7 +49,7 @@ _ROOT_MODULE_PATHS_STR: Final[str] = (
 
 FLAKE8_COMMAND: Final[str] = (
     f'{FLAKE8_NO_PATH_COMMAND} ./apysc/ ./tests/ ./test_projects/ '
-    f'{_ROOT_MODULE_PATHS_STR}'
+    f'./scripts/ {_ROOT_MODULE_PATHS_STR}'
 )
 
 NUMDOCLINT_NO_PATH_COMMAND: Final[str] = (
@@ -67,7 +67,7 @@ MYPY_NO_PATH_COMMAND: Final[str] = (
 )
 
 MYPY_COMMAND: Final[str] = (
-    f'{MYPY_NO_PATH_COMMAND} ./apysc/ '
+    f'{MYPY_NO_PATH_COMMAND} ./apysc/ ./scripts/ '
     f'./tests/ ./test_projects/ {_ROOT_MODULE_PATHS_STR}'
 )
 
@@ -93,6 +93,7 @@ def _get_module_paths() -> List[str]:
         './docs_src/',
         './tests/',
         './test_projects/',
+        './scripts/',
     ]
     with mp.Pool(processes=len(dir_paths)) as p:
         module_paths_list: List[List[str]] = p.map(
@@ -231,7 +232,7 @@ def _start_numdoclint_processes() -> List[sp.Popen]:
         Started subprocesses.
     """
     paths: List[str] = [
-        './apysc/', './tests/', './test_projects/',
+        './apysc/', './tests/', './test_projects/', './scripts/',
         *_ROOT_MODULE_PATHS_STR.split(' ')
     ]
     numdoclint_processes: List[sp.Popen] = []

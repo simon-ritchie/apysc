@@ -23,8 +23,6 @@ class AnimationMove(AnimationBase[_T], Generic[_T]):
     >>> stage: ap.Stage = ap.Stage()
     >>> sprite: ap.Sprite = ap.Sprite()
     >>> sprite.graphics.begin_fill(color='#0af')
-    >>> sprite.graphics.line_style(
-    ...     color='#fff', thickness=1)
     >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     ...     x=50, y=50, width=50, height=50)
     >>> animation: ap.AnimationMove = rectangle.animation_move(

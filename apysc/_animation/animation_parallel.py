@@ -20,6 +20,25 @@ _T = TypeVar('_T', bound=VariableNameInterface)
 class AnimationParallel(AnimationBase[_T], Generic[_T]):
     """
     The parallel animation setting class.
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> stage: ap.Stage = ap.Stage()
+    >>> sprite: ap.Sprite = ap.Sprite()
+    >>> sprite.graphics.begin_fill(color='#0af')
+    >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+    ...     x=50, y=50, width=50, height=50)
+    >>> animation: ap.AnimationParallel = rectangle.animation_parallel(
+    ...     animations=[
+    ...         rectangle.animation_x(x=100),
+    ...         rectangle.animation_fill_color(fill_color='#f0a'),
+    ...         rectangle.animation_fill_alpha(alpha=0.5),
+    ...     ],
+    ...     duration=1500,
+    ...     easing=ap.Easing.EASE_OUT_QUINT,
+    ... )
+    >>> _ = animation.start()
     """
 
     _animations: List[AnimationBase]

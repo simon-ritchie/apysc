@@ -2,7 +2,8 @@ from random import randint
 
 from retrying import retry
 
-import run_doctest_and_save_passing_num
+import scripts.run_doctest_and_save_passing_num as \
+    run_doctest_and_save_passing_num
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

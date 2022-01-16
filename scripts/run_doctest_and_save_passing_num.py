@@ -3,7 +3,7 @@ passing tests number.
 This is used by the deploying job mainly.
 
 Command example:
-$ python run_doctest_and_save_passing_num.py
+$ python ./scripts/run_doctest_and_save_passing_num.py
 """
 
 import re

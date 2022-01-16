@@ -38,9 +38,7 @@ FLAKE8_NO_PATH_COMMAND: Final[str] = (
     'flake8 --ignore E402,W503'
 )
 
-_ROOT_MODULE_PATHS_STR: Final[str] = (
-    './run_doctest_and_save_passing_num.py'
-)
+_ROOT_MODULE_PATHS_STR: Final[str] = ('')
 
 FLAKE8_COMMAND: Final[str] = (
     f'{FLAKE8_NO_PATH_COMMAND} ./apysc/ ./tests/ ./test_projects/ '

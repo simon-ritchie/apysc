@@ -14,3 +14,4 @@ test_output
 /tmp.md
 /tmp_2.md
 /docs/.doctrees/*
+.env

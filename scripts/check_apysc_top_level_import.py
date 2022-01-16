@@ -8,12 +8,12 @@ $ python ./scripts/check_apysc_top_level_import.py
 
 import inspect
 import os
+import sys
 from logging import Logger
 from types import ModuleType
 from typing import Any
 from typing import List
 from typing import Tuple
-import sys
 
 sys.path.append('./')
 

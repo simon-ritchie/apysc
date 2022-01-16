@@ -246,76 +246,76 @@ jobs:
         id: set-passing-tests-num
         run: echo '::set-output name=passing-tests-num::${{ env.PASSING_TESTS_NUM }}'
 
-  # DeployToPyPI:
-  #   needs: [
-  #     RunFlake8,
-  #     RunMypy,
-  #     RunNumdoclint,
-  #     RunPyright,
-  #     RunCheckingApyscTopLevelImporting,
-  #     RunTestsOnPython36AndSaveCoverageAndPassingNum,
-  #     RunTestsOnEachPythonVersion,
-  #     RunDocTest,
-  #     SetGlobalConstants,
-  #     UpdateReadmeBadgesToCheckingStatus,
-  #   ]
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 10
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
-  #     - name: Setup the Python dependencies
-  #       uses: ./.github/actions/setup_py_dependencies
-  #       with:
-  #         python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
-  #     - name: Execute the Python package build
-  #       run: python ./scripts/build.py
-  #     - name: Set the PyPI account setting
-  #       env:
-  #         PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
-  #         PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-  #       run: |
-  #         echo -e '[pypi]' >> ~/.pypirc
-  #         echo -e "username = ${PYPI_USERNAME}" >> ~/.pypirc
-  #         echo -e "password = ${PYPI_PASSWORD}" >> ~/.pypirc
-  #     - name: Set the twine alias
-  #       run: alias twine=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/twine
-  #     - name: Upload to PyPI
-  #       run: twine upload dist/*
+  DeployToPyPI:
+    needs: [
+      RunFlake8,
+      RunMypy,
+      RunNumdoclint,
+      RunPyright,
+      RunCheckingApyscTopLevelImporting,
+      RunTestsOnPython36AndSaveCoverageAndPassingNum,
+      RunTestsOnEachPythonVersion,
+      RunDocTest,
+      SetGlobalConstants,
+      UpdateReadmeBadgesToCheckingStatus,
+    ]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
+        with:
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
+      - name: Execute the Python package build
+        run: python ./scripts/build.py
+      - name: Set the PyPI account setting
+        env:
+          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          echo -e '[pypi]' >> ~/.pypirc
+          echo -e "username = ${PYPI_USERNAME}" >> ~/.pypirc
+          echo -e "password = ${PYPI_PASSWORD}" >> ~/.pypirc
+      - name: Set the twine alias
+        run: alias twine=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/twine
+      - name: Upload to PyPI
+        run: twine upload dist/*
 
-  # CreateReleaseNotes:
-  #   needs: [
-  #     RunFlake8,
-  #     RunMypy,
-  #     RunNumdoclint,
-  #     RunPyright,
-  #     RunCheckingApyscTopLevelImporting,
-  #     RunTestsOnPython36AndSaveCoverageAndPassingNum,
-  #     RunTestsOnEachPythonVersion,
-  #     RunDocTest,
-  #     SetGlobalConstants,
-  #     UpdateReadmeBadgesToCheckingStatus,
-  #   ]
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 10
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
-  #     - name: Setup the Python dependencies
-  #       uses: ./.github/actions/setup_py_dependencies
-  #       with:
-  #         python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
-  #     - name: Set the apysc version to environment variable
-  #       run: python -c "import apysc; print(f'apysc_version={apysc.__version__}')" >> $GITHUB_ENV
-  #     - name: Create the release note
-  #       uses: actions/create-release@v1
-  #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #       with:
-  #         tag_name: v${{ env.apysc_version }}
-  #         release_name: v${{ env.apysc_version }}
-  #         draft: false
-  #         prerelease: false
+  CreateReleaseNotes:
+    needs: [
+      RunFlake8,
+      RunMypy,
+      RunNumdoclint,
+      RunPyright,
+      RunCheckingApyscTopLevelImporting,
+      RunTestsOnPython36AndSaveCoverageAndPassingNum,
+      RunTestsOnEachPythonVersion,
+      RunDocTest,
+      SetGlobalConstants,
+      UpdateReadmeBadgesToCheckingStatus,
+    ]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
+        with:
+          python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
+      - name: Set the apysc version to environment variable
+        run: python -c "import apysc; print(f'apysc_version={apysc.__version__}')" >> $GITHUB_ENV
+      - name: Create the release note
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ env.apysc_version }}
+          release_name: v${{ env.apysc_version }}
+          draft: false
+          prerelease: false
 
   UpdateReadmeBadgesToPassingStatus:
     needs: [
@@ -374,27 +374,27 @@ jobs:
           COLOR: ${{ needs.SetGlobalConstants.outputs.PASSING_BADGE_COLOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  # RunPackageInstallingTests:
-  #   needs: [DeployToPyPI, SetGlobalConstants]
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       python-version: [
-  #         '${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}',
-  #         '${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}',
-  #         '${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}',
-  #         '${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}',
-  #         '${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}',
-  #       ]
-  #   timeout-minutes: 20
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
-  #     - name: Setup the Python dependencies
-  #       uses: ./.github/actions/setup_py_dependencies
-  #       with:
-  #         python-version: ${{ matrix.python-version }}
-  #     - name: Run the package installing and testing script
-  #       run: python ./scripts/install_released_package.py
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
+  RunPackageInstallingTests:
+    needs: [DeployToPyPI, SetGlobalConstants]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_37_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_38_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_39_VERSION }}',
+          '${{ needs.SetGlobalConstants.outputs.PYTHON_310_VERSION }}',
+        ]
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup the Python dependencies
+        uses: ./.github/actions/setup_py_dependencies
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run the package installing and testing script
+        run: python ./scripts/install_released_package.py
+      - name: Checkout
+        uses: actions/checkout@v2

@@ -39,7 +39,7 @@ FLAKE8_NO_PATH_COMMAND: Final[str] = (
 )
 
 _ROOT_MODULE_PATHS_STR: Final[str] = (
-    './build_docs.py ./build.py '
+    './build.py '
     './run_flake8.py ./run_mypy.py ./run_numdoclint.py '
     './run_pyright.py '
     './run_tests_and_save_coverage_and_num.py '
@@ -139,7 +139,7 @@ class _CommandOptions(TypedDict):
 def _main() -> None:
     """Entry point of this command.
     """
-    from build_docs import HASHED_VALS_DIR_PATH
+    from scripts.build_docs import HASHED_VALS_DIR_PATH
     options: _CommandOptions = _get_command_options()
     shutil.rmtree('./build/', ignore_errors=True)
     if not options['skip_overall_docs_build']:
@@ -149,7 +149,7 @@ def _main() -> None:
 
     logger.info(msg='Documentation build started.')
     build_doc_process: sp.Popen = _start_subprocess(
-        command_strs=['python', 'build_docs.py'])
+        command_strs=['python', './scripts/build_docs.py'])
 
     logger.info(msg='numdoclint command started.')
     numdoclint_processes: List[sp.Popen] = _start_numdoclint_processes()

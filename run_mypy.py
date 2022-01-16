@@ -8,7 +8,7 @@ $ python run_mypy.py
 from logging import Logger
 
 import command_util
-from apply_lints_and_build_docs import MYPY_COMMAND
+from scripts.apply_lints_and_build_docs import MYPY_COMMAND
 from apysc._console import loggers
 
 logger: Logger = loggers.get_info_logger()

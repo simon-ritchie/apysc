@@ -9,7 +9,7 @@ from logging import Logger
 from typing import List
 
 import command_util
-from apply_lints_and_build_docs import PYRIGHT_COMMAND
+from scripts.apply_lints_and_build_docs import PYRIGHT_COMMAND
 from apysc._console import loggers
 
 logger: Logger = loggers.get_info_logger()

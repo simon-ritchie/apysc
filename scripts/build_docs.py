@@ -1,7 +1,7 @@
 """Documentations build script.
 
 Command example:
-$ python build_docs.py
+$ python ./scripts/build_docs.py
 """
 
 import hashlib
@@ -253,8 +253,8 @@ def _check_code_block_with_mypy(script_data: _ScriptData) -> None:
     _CodeBlockMypyError
         If there is a mypy error.
     """
-    from apply_lints_and_build_docs import MYPY_NO_PATH_COMMAND
-    from apply_lints_and_build_docs import run_command
+    from scripts.apply_lints_and_build_docs import MYPY_NO_PATH_COMMAND
+    from scripts.apply_lints_and_build_docs import run_command
     from apysc._file import module_util
     runnable_script: str = script_data['runnable_script']
     md_file_path: str = script_data['md_file_path']
@@ -288,7 +288,7 @@ def _check_code_block_with_numdoclint(script_data: _ScriptData) -> None:
     _CodeBlockNumdoclintError
         If there is a numdoclint error.
     """
-    from apply_lints_and_build_docs import run_command
+    from scripts.apply_lints_and_build_docs import run_command
     from apysc._file import module_util
     runnable_script: str = script_data['runnable_script']
     md_file_path: str = script_data['md_file_path']
@@ -325,8 +325,8 @@ def _check_code_block_with_flake8(script_data: _ScriptData) -> None:
     _CodeBlockFlake8Error
         If there is a flake8 lint error.
     """
-    from apply_lints_and_build_docs import FLAKE8_NO_PATH_COMMAND
-    from apply_lints_and_build_docs import run_command
+    from scripts.apply_lints_and_build_docs import FLAKE8_NO_PATH_COMMAND
+    from scripts.apply_lints_and_build_docs import run_command
     from apysc._file import module_util
     runnable_script: str = script_data['runnable_script']
     md_file_path: str = script_data['md_file_path']

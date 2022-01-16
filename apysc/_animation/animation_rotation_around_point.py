@@ -17,6 +17,24 @@ _T = TypeVar('_T', bound=VariableNameInterface)
 class AnimationRotationAroundPoint(AnimationBase[_T], Generic[_T]):
     """
     The animation class for a rotation around the given point.
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> stage: ap.Stage = ap.Stage()
+    >>> sprite: ap.Sprite = ap.Sprite()
+    >>> sprite.graphics.begin_fill(color='#0af')
+    >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+    ...     x=50, y=50, width=50, height=50)
+    >>> animation: ap.AnimationRotationAroundPoint
+    >>> animation = rectangle.animation_rotation_around_point(
+    ...     rotation_around_point=90,
+    ...     x=ap.Int(100),
+    ...     y=ap.Int(100),
+    ...     duration=1500,
+    ...     easing=ap.Easing.EASE_OUT_QUINT,
+    ... )
+    >>> _ = animation.start()
     """
 
     _rotation_around_point: Int

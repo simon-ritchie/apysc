@@ -5,15 +5,15 @@ Command example:
 $ python ./scripts/run_pyright.py
 """
 
+import sys
 from logging import Logger
 from typing import List
-import sys
 
 sys.path.append('./')
 
 import scripts.command_util as command_util
-from scripts.apply_lints_and_build_docs import PYRIGHT_COMMAND
 from apysc._console import loggers
+from scripts.apply_lints_and_build_docs import PYRIGHT_COMMAND
 
 logger: Logger = loggers.get_info_logger()
 

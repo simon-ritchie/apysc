@@ -6,9 +6,9 @@ $ python ./scripts/build.py
 
 import shutil
 import subprocess as sp
+import sys
 from logging import Logger
 from typing import List
-import sys
 
 sys.path.append('./')
 

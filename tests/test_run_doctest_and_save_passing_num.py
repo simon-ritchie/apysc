@@ -2,8 +2,7 @@ from random import randint
 
 from retrying import retry
 
-import scripts.run_doctest_and_save_passing_num as \
-    run_doctest_and_save_passing_num
+import scripts.run_doctest_and_save_passing_num as mod
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -20,6 +19,6 @@ def test__get_passing_test_num_from_stdout() -> None:
         'passed in 2.10s ========================================='
         '========='
     )
-    passing_test_num: str = run_doctest_and_save_passing_num.\
-        _get_passing_test_num_from_stdout(stdout=stdout)
+    passing_test_num: str = mod._get_passing_test_num_from_stdout(
+        stdout=stdout)
     assert passing_test_num == '25'

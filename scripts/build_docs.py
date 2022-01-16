@@ -10,6 +10,7 @@ import os
 import re
 import shutil
 import subprocess as sp
+import sys
 from distutils.dir_util import copy_tree
 from logging import Logger
 from typing import Any
@@ -17,7 +18,6 @@ from typing import Dict
 from typing import List
 from typing import Match
 from typing import Optional as Op
-import sys
 
 from typing_extensions import Final
 from typing_extensions import TypedDict
@@ -256,9 +256,9 @@ def _check_code_block_with_mypy(script_data: _ScriptData) -> None:
     _CodeBlockMypyError
         If there is a mypy error.
     """
+    from apysc._file import module_util
     from scripts.apply_lints_and_build_docs import MYPY_NO_PATH_COMMAND
     from scripts.apply_lints_and_build_docs import run_command
-    from apysc._file import module_util
     runnable_script: str = script_data['runnable_script']
     md_file_path: str = script_data['md_file_path']
     tmp_module_path: str = module_util.save_tmp_module(script=runnable_script)
@@ -291,8 +291,8 @@ def _check_code_block_with_numdoclint(script_data: _ScriptData) -> None:
     _CodeBlockNumdoclintError
         If there is a numdoclint error.
     """
-    from scripts.apply_lints_and_build_docs import run_command
     from apysc._file import module_util
+    from scripts.apply_lints_and_build_docs import run_command
     runnable_script: str = script_data['runnable_script']
     md_file_path: str = script_data['md_file_path']
     tmp_module_path: str = module_util.save_tmp_module(script=runnable_script)
@@ -328,9 +328,9 @@ def _check_code_block_with_flake8(script_data: _ScriptData) -> None:
     _CodeBlockFlake8Error
         If there is a flake8 lint error.
     """
+    from apysc._file import module_util
     from scripts.apply_lints_and_build_docs import FLAKE8_NO_PATH_COMMAND
     from scripts.apply_lints_and_build_docs import run_command
-    from apysc._file import module_util
     runnable_script: str = script_data['runnable_script']
     md_file_path: str = script_data['md_file_path']
     tmp_module_path: str = module_util.save_tmp_module(script=runnable_script)

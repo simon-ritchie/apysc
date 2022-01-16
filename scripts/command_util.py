@@ -2,8 +2,8 @@
 """
 
 import subprocess as sp
-from logging import Logger
 import sys
+from logging import Logger
 
 sys.path.append('./')
 

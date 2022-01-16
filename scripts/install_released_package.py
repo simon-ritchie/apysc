@@ -7,9 +7,9 @@ This is used by the deploying job mainly.
 
 import os
 import shutil
+import sys
 import time
 from typing import List
-import sys
 
 sys.path.append('./')
 

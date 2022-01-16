@@ -5,14 +5,14 @@ Command example:
 $ python ./scripts/run_flake8.py
 """
 
-from logging import Logger
 import sys
+from logging import Logger
 
 sys.path.append('./')
 
 import scripts.command_util as command_util
-from scripts.apply_lints_and_build_docs import FLAKE8_COMMAND
 from apysc._console import loggers
+from scripts.apply_lints_and_build_docs import FLAKE8_COMMAND
 
 logger: Logger = loggers.get_info_logger()
 

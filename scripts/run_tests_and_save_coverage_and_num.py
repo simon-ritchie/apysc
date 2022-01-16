@@ -7,11 +7,11 @@ $ python ./scripts/run_tests_and_save_coverage_and_num.py
 """
 
 import re
+import sys
 from logging import Logger
 from typing import List
 from typing import Match
 from typing import Optional
-import sys
 
 sys.path.append('./')
 

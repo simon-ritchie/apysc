@@ -5,8 +5,8 @@ Command example:
 $ python ./scripts/run_tests.py
 """
 
-from logging import Logger
 import sys
+from logging import Logger
 
 sys.path.append('./')
 

@@ -10,6 +10,7 @@ import os
 import re
 import shutil
 import subprocess as sp
+import sys
 from argparse import ArgumentParser
 from argparse import Namespace
 from datetime import datetime
@@ -18,7 +19,6 @@ from typing import List
 from typing import Match
 from typing import Optional
 from typing import Tuple
-import sys
 
 from typing_extensions import Final
 from typing_extensions import TypedDict

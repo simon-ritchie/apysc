@@ -62,10 +62,10 @@ def _main() -> None:
     """
     _remove_build_dirs()
 
-    command: str = 'python setup.py sdist'
+    command: str = 'python ./scripts/setup.py sdist'
     _run_command(command=command)
 
-    command = 'python setup.py bdist_wheel'
+    command = 'python ./scripts/setup.py bdist_wheel'
     _run_command(command=command)
 
     logger.info('Build completed!')

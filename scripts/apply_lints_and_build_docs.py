@@ -39,7 +39,7 @@ FLAKE8_NO_PATH_COMMAND: Final[str] = (
 )
 
 _ROOT_MODULE_PATHS_STR: Final[str] = (
-    './setup.py ./install_released_package.py '
+    './install_released_package.py '
     './run_doctest_and_save_passing_num.py'
 )
 

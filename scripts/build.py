@@ -1,7 +1,7 @@
 """Build this project for PyPI.
 
 Command example:
-$ python build.py
+$ python ./scripts/build.py
 """
 
 import shutil

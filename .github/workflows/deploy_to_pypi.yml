@@ -152,7 +152,7 @@ jobs:
       - name: Set the Pyright alias
         run: alias pyright=/opt/hostedtoolcache/Python/${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}/x64/bin/pyright
       - name: Run the Pyright command
-        run: python run_pyright.py
+        run: python ./scripts/run_pyright.py
 
   RunCheckingApyscTopLevelImporting:
     needs: [CreateCache, SetGlobalConstants]

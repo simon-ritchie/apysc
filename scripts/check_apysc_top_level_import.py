@@ -13,6 +13,9 @@ from types import ModuleType
 from typing import Any
 from typing import List
 from typing import Tuple
+import sys
+
+sys.path.append('./')
 
 from apysc._console import loggers
 from apysc._file import module_util

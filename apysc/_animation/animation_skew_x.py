@@ -16,6 +16,21 @@ _T = TypeVar('_T', bound=VariableNameInterface)
 class AnimationSkewX(AnimationBase[_T], Generic[_T]):
     """
     The animation class for a skew-x.
+
+    Examples
+    --------
+    >>> import apysc as ap
+    >>> stage: ap.Stage = ap.Stage()
+    >>> sprite: ap.Sprite = ap.Sprite()
+    >>> sprite.graphics.begin_fill(color='#0af')
+    >>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+    ...     x=50, y=50, width=50, height=50)
+    >>> animation: ap.AnimationSkewX = rectangle.animation_skew_x(
+    ...     skew_x=50,
+    ...     duration=1500,
+    ...     easing=ap.Easing.EASE_OUT_QUINT,
+    ... )
+    >>> _ = animation.start()
     """
 
     _skew_x: Int

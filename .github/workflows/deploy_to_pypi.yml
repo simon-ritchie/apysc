@@ -269,7 +269,7 @@ jobs:
   #       with:
   #         python-version: ${{ needs.SetGlobalConstants.outputs.PYTHON_36_VERSION }}
   #     - name: Execute the Python package build
-  #       run: python build.py
+  #       run: python ./scripts/build.py
   #     - name: Set the PyPI account setting
   #       env:
   #         PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}

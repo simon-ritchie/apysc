@@ -39,26 +39,6 @@ def test_run_command() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__get_root_dir_module_paths() -> None:
-    module_paths: List[str] = apply_lints_and_build_docs.\
-        _get_root_dir_module_paths()
-    expected_paths: List[str] = [
-        './build.py',
-    ]
-    for expected in expected_paths:
-        assert expected in module_paths
-
-    unexpected_paths: List[str] = [
-        './__init__.py',
-        './apysc',
-        './requirements.txt',
-        './tmp.py',
-    ]
-    for unexpected in unexpected_paths:
-        assert unexpected not in module_paths
-
-
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_module_paths() -> None:
     module_paths: List[str] = apply_lints_and_build_docs._get_module_paths()
     expected_paths: List[str] = [
@@ -66,7 +46,7 @@ def test__get_module_paths() -> None:
         './docs_src/source/conf.py',
         './tests/_display/test_sprite.py',
         './test_projects/draw_rect/main.py',
-        './build.py',
+        './scripts/build.py',
     ]
     for expected in expected_paths:
         assert expected in module_paths

@@ -57,7 +57,7 @@ def _remove_replaced_docstring_section_from_md_txt(
     for line in lines:
         if is_reset_section_range:
             if line.startswith('#'):
-                result_lines.append(f'\n\n{line}')
+                result_lines.append(f'\n{line}')
                 is_reset_section_range = False
             continue
         docstring_path_specification_comment: str = \
@@ -67,7 +67,9 @@ def _remove_replaced_docstring_section_from_md_txt(
             result_lines.append(line)
             is_reset_section_range = True
             continue
-    pass
+        result_lines.append(line)
+    md_txt = '\n'.join(result_lines)
+    return md_txt
 
 
 def _extract_docstring_path_specification_comment_from_line(

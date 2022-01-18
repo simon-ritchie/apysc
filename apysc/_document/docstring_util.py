@@ -31,7 +31,9 @@ def reset_replaced_docstring_section(md_file_path: str) -> bool:
         return False
     md_txt = _remove_replaced_docstring_section_from_md_txt(
         md_txt=md_txt, matches=matches)
-    pass
+    with open(md_file_path, 'w') as f:
+        f.write(md_txt)
+    return True
 
 
 def _remove_replaced_docstring_section_from_md_txt(

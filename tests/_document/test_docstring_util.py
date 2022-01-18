@@ -1,9 +1,11 @@
+import os
 from random import randint
 from typing import List
 
 from retrying import retry
 
 from apysc._document import docstring_util
+from apysc._file import file_util
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -81,3 +83,60 @@ def test__remove_replaced_docstring_section_from_md_txt() -> None:
         '\n\nLorem ipsum dolor sit amet.'
     )
     assert md_txt == expected
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_reset_replaced_docstring_section() -> None:
+    tmp_md_file_path: str = './tmp/test_docstring_util_1.md'
+    os.makedirs('./tmp/', exist_ok=True)
+    file_util.remove_file_if_exists(file_path=tmp_md_file_path)
+
+    is_executed: bool = docstring_util.reset_replaced_docstring_section(
+        md_file_path=tmp_md_file_path)
+    assert not is_executed
+
+    with open(tmp_md_file_path, 'w') as f:
+        f.write(
+            '# Test title'
+            '\n\nLorem ipsum dolor sit amet.'
+        )
+    is_executed = docstring_util.reset_replaced_docstring_section(
+        md_file_path=tmp_md_file_path)
+    assert not is_executed
+
+    with open(tmp_md_file_path, 'w') as f:
+        f.write(
+            '# Test title'
+            '\n\nLorem ipsum dolor sit amet.'
+            '\n\n## Sub heading 1'
+            '\n\n<!-- Docstring: apysc._display.sprite.Sprite.__init__ -->'
+            '\n\n**Parameters**'
+            '\n\n- a: str'
+            '\n\n## Sub heading 2'
+            '\n\nLorem ipsum dolor sit amet.'
+            '\n\n## Sub heading 3'
+            '\n\n<!-- Docstring: apysc._display.sprite.Sprite.add_child -->'
+            '\n\n**Parameters**'
+            '\n\n- b: str'
+            '\n\n## Sub heading 4'
+            '\n\nLorem ipsum dolor sit amet.'
+        )
+    is_executed = docstring_util.reset_replaced_docstring_section(
+        md_file_path=tmp_md_file_path)
+    assert is_executed
+    saved_md_txt: str = file_util.read_txt(file_path=tmp_md_file_path)
+    expected: str = (
+        '# Test title'
+        '\n\nLorem ipsum dolor sit amet.'
+        '\n\n## Sub heading 1'
+        '\n\n<!-- Docstring: apysc._display.sprite.Sprite.__init__ -->'
+        '\n\n## Sub heading 2'
+        '\n\nLorem ipsum dolor sit amet.'
+        '\n\n## Sub heading 3'
+        '\n\n<!-- Docstring: apysc._display.sprite.Sprite.add_child -->'
+        '\n\n## Sub heading 4'
+        '\n\nLorem ipsum dolor sit amet.'
+    )
+    assert saved_md_txt == expected
+
+    file_util.remove_file_if_exists(file_path=tmp_md_file_path)

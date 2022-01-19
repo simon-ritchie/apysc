@@ -148,3 +148,21 @@ def test__extract_path_from_docstring_comment() -> None:
         docstring_path_comment=(
             '<!-- Docstring: apysc._display.sprite.Sprite.add_child -->'))
     assert path == 'apysc._display.sprite.Sprite.add_child'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__extract_package_path_and_callable_name_from_path() -> None:
+    module_or_class_package_path: str
+    callable_name: str
+    module_or_class_package_path, callable_name = \
+        docstring_util._extract_package_path_and_callable_name_from_path(
+            docstring_path_comment='# Test title')
+    assert module_or_class_package_path == ''
+    assert callable_name == ''
+
+    module_or_class_package_path, callable_name = \
+        docstring_util._extract_package_path_and_callable_name_from_path(
+            docstring_path_comment=(
+                '<!-- Docstring: apysc._display.sprite.Sprite.add_child -->'))
+    assert module_or_class_package_path == 'apysc._display.sprite.Sprite'
+    assert callable_name == 'add_child'

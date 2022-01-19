@@ -201,7 +201,12 @@ def _extract_package_path_and_callable_name_from_path(
     """
     path: str = _extract_path_from_docstring_comment(
         docstring_path_comment=docstring_path_comment)
-    pass
+    if '.' not in path:
+        return '', ''
+    splitted: List[str] = path.rsplit('.', maxsplit=1)
+    module_or_class_package_path: str = splitted[0]
+    callable_name: str = splitted[1]
+    return module_or_class_package_path, callable_name
 
 
 def _extract_path_from_docstring_comment(

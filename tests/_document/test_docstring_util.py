@@ -91,10 +91,6 @@ def test_reset_replaced_docstring_section() -> None:
     os.makedirs('./tmp/', exist_ok=True)
     file_util.remove_file_if_exists(file_path=tmp_md_file_path)
 
-    is_executed: bool = docstring_util.reset_replaced_docstring_section(
-        md_file_path=tmp_md_file_path)
-    assert not is_executed
-
     with open(tmp_md_file_path, 'w') as f:
         f.write(
             '# Test title'
@@ -140,3 +136,15 @@ def test_reset_replaced_docstring_section() -> None:
     assert saved_md_txt == expected
 
     file_util.remove_file_if_exists(file_path=tmp_md_file_path)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__extract_path_from_docstring_comment() -> None:
+    path: str = docstring_util._extract_path_from_docstring_comment(
+        docstring_path_comment='# Test title')
+    assert path == ''
+
+    path = docstring_util._extract_path_from_docstring_comment(
+        docstring_path_comment=(
+            '<!-- Docstring: apysc._display.sprite.Sprite.add_child -->'))
+    assert path == 'apysc._display.sprite.Sprite.add_child'

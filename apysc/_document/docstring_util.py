@@ -1,11 +1,15 @@
 """Utility implementations for docstrings.
 """
 
-from typing import List
+from typing import List, Match, Optional, Tuple
 import os
 import re
 
 _DOCSTRING_PATH_COMMENT_KEYWORD: str = 'Docstring:'
+_DOCSTRING_PATH_COMMENT_PATTERN: str = (
+    rf'\<\!\-\-.*?{_DOCSTRING_PATH_COMMENT_KEYWORD}'
+    r'(?P<path>.*?)\-\-\>'
+)
 
 
 def reset_replaced_docstring_section(md_file_path: str) -> bool:
@@ -23,8 +27,6 @@ def reset_replaced_docstring_section(md_file_path: str) -> bool:
         Replacing is executed or not.
     """
     from apysc._file import file_util
-    if not os.path.isfile(md_file_path):
-        return False
     md_txt: str = file_util.read_txt(file_path=md_file_path)
     matches: List[str] = _get_docstring_path_comment_matches(md_txt=md_txt)
     if not matches:
@@ -112,11 +114,116 @@ def _get_docstring_path_comment_matches(md_txt: str) -> List[str]:
     matches : list of str
         Matched comments.
     """
-    matches: List[str] = re.findall(
-        pattern=(
-            rf'\<\!\-\-.*?{_DOCSTRING_PATH_COMMENT_KEYWORD}.*?'
-            r'.*?\-\-\>'
-        ),
-        string=md_txt,
-        flags=re.MULTILINE)
+    matches: List[str] = []
+    for match in re.finditer(
+            pattern=_DOCSTRING_PATH_COMMENT_PATTERN,
+            string=md_txt,
+            flags=re.MULTILINE):
+        matches.append(match.group(0))
     return matches
+
+
+def replace_docstring_path_specification(md_file_path: str) -> None:
+    """
+    Replace a docstring path specification in a specified
+    markdown document by a converted docstring text.
+
+    Parameters
+    ----------
+    md_file_path : str
+        Target markdown file path.
+    """
+    from apysc._file import file_util
+    md_txt: str = file_util.read_txt(file_path=md_file_path)
+    lines: List[str] = md_txt.splitlines()
+    result_lines: List[str] = []
+    for line in lines:
+        match: Optional[Match] = re.search(
+            pattern=_DOCSTRING_PATH_COMMENT_PATTERN, string=line)
+        if match is not None:
+            result_lines.append(line)
+            result_lines.append('')
+            markdown_format_docstring: str = \
+                _convert_docstring_path_comment_to_markdown_format(
+                    docstring_path_comment=match.group(0)
+                )
+            result_lines.append(markdown_format_docstring)
+            continue
+
+        result_lines.append(line)
+        continue
+    pass
+
+
+def _convert_docstring_path_comment_to_markdown_format(
+        docstring_path_comment: str) -> str:
+    """
+    Convert a specified docstring path comment to a
+    markdown format text.
+
+    Parameters
+    ----------
+    docstring_path_comment : str
+        Target docstring path comment.
+
+    Returns
+    -------
+    markdown_format_docstring : str
+        Converted text.
+    """
+    module_or_class_package_path: str
+    callable_name: str
+    module_or_class_package_path, callable_name = \
+        _extract_package_path_and_callable_name_from_path(
+            docstring_path_comment=docstring_path_comment,
+        )
+    pass
+
+
+def _extract_package_path_and_callable_name_from_path(
+        docstring_path_comment) -> Tuple[str, str]:
+    """
+    Extract a module or class package path and callable
+    name from a specified path comment.
+
+    Parameters
+    ----------
+    docstring_path_comment : str
+        Target docstring path comment.
+
+    Returns
+    -------
+    module_or_class_package_path : str
+        Extracted module or class package path.
+        e.g., 'apy.path' or 'any.path.AnyClass'.
+    callable_name : str
+        Extracted callable name.
+    """
+    path: str = _extract_path_from_docstring_comment(
+        docstring_path_comment=docstring_path_comment)
+    pass
+
+
+def _extract_path_from_docstring_comment(
+        docstring_path_comment: str) -> str:
+    """
+    Extract a path string from a specified docstring path comment.
+
+    Parameters
+    ----------
+    docstring_path_comment : str
+        Target docstring path comment.
+
+    Returns
+    -------
+    path : str
+        Extracted path string.
+    """
+    match: Optional[Match] = re.search(
+        pattern=_DOCSTRING_PATH_COMMENT_PATTERN,
+        string=docstring_path_comment)
+    if match is None:
+        return ''
+    path: str = match.group(1)
+    path = path.strip()
+    return path

@@ -10,6 +10,8 @@ Mainly following interfaces are defined:
     - Save a temporary Python module and run that script.
 - read_target_path_module
     - Read a module of the specified module path.
+- read_module_or_class_from_package_path
+    - Read a specified package path module or class.
 """
 
 import importlib
@@ -18,7 +20,7 @@ import subprocess as sp
 from datetime import datetime
 from random import randint
 from types import ModuleType
-from typing import List
+from typing import Any, List
 from typing import Optional
 
 
@@ -124,4 +126,33 @@ def read_target_path_module(module_path: str) -> ModuleType:
     module_path = module_path.rsplit('.py', maxsplit=1)[0]
     module_path = module_path.replace('/', '.')
     module: ModuleType = importlib.import_module(name=module_path)
+    return module
+
+
+def read_module_or_class_from_package_path(
+        module_or_class_package_path: str) -> Any:
+    """
+    Read a specified package path module or class.
+
+    Parameters
+    ----------
+    module_or_class_package_path : str
+        Target package module or class path.
+
+    Returns
+    -------
+    module_or_class : ModuleType or Type
+        Read module or class.
+    """
+    try:
+        module: ModuleType = importlib.import_module(
+            module_or_class_package_path)
+    except Exception:
+        splitted: List[str] = module_or_class_package_path.rsplit(
+            '.', maxsplit=1)
+        module_or_class_package_path = splitted[0]
+        class_name: str = splitted[1]
+        module = importlib.import_module(
+            module_or_class_package_path)
+        return getattr(module, class_name)
     return module

@@ -1,11 +1,13 @@
 import os
 from random import randint
 from types import ModuleType
-from typing import List
+from typing import Any, List
 
 from retrying import retry
 
 from apysc._file import module_util
+from apysc._display.sprite import Sprite
+from apysc._display import sprite
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -46,3 +48,14 @@ def test_read_target_path_module() -> None:
     module: ModuleType = module_util.read_target_path_module(
         module_path='./apysc/_file/module_util.py')
     assert module == module_util
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__read_module_or_class() -> None:
+    module_or_class: Any = module_util.read_module_or_class_from_package_path(
+        module_or_class_package_path='apysc._display.sprite')
+    assert module_or_class == sprite
+
+    module_or_class = module_util.read_module_or_class_from_package_path(
+        module_or_class_package_path='apysc._display.sprite.Sprite')
+    assert module_or_class == Sprite

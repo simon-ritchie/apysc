@@ -4,7 +4,7 @@ from typing import Any, List
 
 from retrying import retry
 
-from apysc._document import docstring_util
+from apysc._string import docstring_util
 from apysc._file import file_util
 from apysc._display.sprite import Sprite
 from apysc._display import sprite

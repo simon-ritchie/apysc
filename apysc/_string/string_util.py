@@ -10,6 +10,8 @@ Mainly following interfaces and defined.
     Wrap specified by double quotation if value is a string.
 - substitute_file_by_pattern
     Substitute text file by regular expression pattern.
+- replace_double_spaces_to_single_space
+    Replace double spaces to a single space.
 """
 
 import re
@@ -102,3 +104,22 @@ def substitute_file_by_pattern(
         string=string,
         flags=flags)
     file_util.save_plain_txt(txt=string, file_path=file_path)
+
+
+def replace_double_spaces_to_single_space(*, string: str) -> str:
+    """
+    Replace double spaces to a single space.
+
+    Parameters
+    ----------
+    string : str
+        Target string to replace.
+
+    Returns
+    -------
+    string : str
+        Replaced string.
+    """
+    while '  ' in string:
+        string = string.replace('  ', ' ')
+    return string

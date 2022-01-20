@@ -52,3 +52,11 @@ def test_substitute_file_by_pattern() -> None:
         '\nb = a * 10'
     )
     os.remove(tmp_file_path)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_replace_double_spaces_to_single_space() -> None:
+    string: str = 'Lorem   ipsum  dolor sit    amet'
+    string = string_util.replace_double_spaces_to_single_space(
+        string=string)
+    assert string == 'Lorem ipsum dolor sit amet'

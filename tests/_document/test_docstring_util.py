@@ -1,11 +1,13 @@
 import os
 from random import randint
-from typing import List
+from typing import Any, List
 
 from retrying import retry
 
 from apysc._document import docstring_util
 from apysc._file import file_util
+from apysc._display.sprite import Sprite
+from apysc._display import sprite
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -166,3 +168,22 @@ def test__extract_package_path_and_callable_name_from_path() -> None:
                 '<!-- Docstring: apysc._display.sprite.Sprite.add_child -->'))
     assert module_or_class_package_path == 'apysc._display.sprite.Sprite'
     assert callable_name == 'add_child'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__is_section_line() -> None:
+    result: bool = docstring_util._is_section_line(
+        line='    Parameters')
+    assert result
+
+    result = docstring_util._is_section_line(
+        line='        Parameters')
+    assert result
+
+    result = docstring_util._is_section_line(
+        line='    Returns')
+    assert result
+
+    result = docstring_util._is_section_line(
+        line='Test function.')
+    assert not result

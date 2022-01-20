@@ -8,15 +8,19 @@ from typing import Any, Callable, List, Match, Optional, Tuple, Type
 import os
 import re
 
+from typing_extensions import TypedDict
+
 _DOCSTRING_PATH_COMMENT_KEYWORD: str = 'Docstring:'
 _DOCSTRING_PATH_COMMENT_PATTERN: str = (
     rf'\<\!\-\-.*?{_DOCSTRING_PATH_COMMENT_KEYWORD}'
     r'(?P<path>.*?)\-\-\>'
 )
 
+_PARAMETERS_SECTION_PATTERN: str = r'\s{4}Parameters$'
+_RETURNS_SECTION_PATTERN: str = r'\s{4}Returns$'
 _SECTION_PATTERNS: List[str] = [
-    r'\s{4}Parameters$',
-    r'\s{4}Returns$',
+    _PARAMETERS_SECTION_PATTERN,
+    _RETURNS_SECTION_PATTERN,
     r'\s{4}Yields$',
     r'\s{4}Receives$',
     r'\s{4}Raises$',
@@ -223,7 +227,62 @@ def _convert_docstring_to_markdown(*, docstring: str) -> str:
         Converted markdown text.
     """
     summary: str = _extract_summary_from_docstring(docstring=docstring)
+    parameters: List[_Parameter] = _extract_parameters_from_docstring(
+        docstring=docstring)
     pass
+
+
+class _Parameter(TypedDict):
+    name: str
+    type_str: str
+    description: str
+
+
+def _extract_parameters_from_docstring(
+        docstring: str) -> List[_Parameter]:
+    """
+    Extract parameter values from a docstring.
+
+    Parameters
+    ----------
+    docstring : str
+        Target docstring.
+
+    Returns
+    -------
+    parameters : list of _Parameter
+        Extracted parameter values.
+    """
+    lines: List[str] = docstring.splitlines()
+    is_parameter_section_range: bool = False
+    for line in lines:
+        if _is_parameters_section_pattern_line(line=line):
+            pass
+        pass
+    pass
+
+
+def _is_parameters_section_pattern_line(line: str) -> bool:
+    """
+    Get a boolean indicating whether a specified line
+    is the parameters section or not.
+
+    Parameters
+    ----------
+    line : str
+        Target docstring line.
+
+    Returns
+    -------
+    result : bool
+        If a specified line is the parameters section,
+        this function returns True.
+    """
+    match: Optional[Match] = re.search(
+        pattern=_PARAMETERS_SECTION_PATTERN, string=line)
+    if match is None:
+        return False
+    return True
 
 
 def _extract_summary_from_docstring(*, docstring: str) -> str:

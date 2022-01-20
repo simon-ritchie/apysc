@@ -204,3 +204,14 @@ def test__extract_summary_from_docstring() -> None:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, '
         'sed do eiusmod tempor incididunt ut.'
     )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__is_parameters_section_pattern_line() -> None:
+    result: bool = docstring_util._is_parameters_section_pattern_line(
+        line='    Parameters')
+    assert result
+
+    result = docstring_util._is_parameters_section_pattern_line(
+        line='    a : str')
+    assert not result

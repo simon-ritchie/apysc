@@ -215,3 +215,14 @@ def test__is_parameters_section_pattern_line() -> None:
     result = docstring_util._is_parameters_section_pattern_line(
         line='    a : str')
     assert not result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__is_hyphens_line() -> None:
+    line: str = '    Parameters'
+    result: bool = docstring_util._is_hyphens_line(line=line)
+    assert not result
+
+    line = '    ----------'
+    result = docstring_util._is_hyphens_line(line=line)
+    assert result

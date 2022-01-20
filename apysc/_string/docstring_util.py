@@ -34,6 +34,7 @@ _SECTION_PATTERNS: List[str] = [
     r'\s{4}Methods$',
     r'\s{4}Methods$',
 ]
+_HYPHENS_LINE_PATTERN: str = r'\s{4}-----'
 
 
 def reset_replaced_docstring_section(*, md_file_path: str) -> bool:
@@ -257,15 +258,43 @@ def _extract_parameters_from_docstring(
     is_parameter_section_range: bool = False
     for line in lines:
         if _is_parameters_section_pattern_line(line=line):
-            pass
+            is_parameter_section_range = True
+            continue
+        if not is_parameter_section_range:
+            continue
+        if _is_hyphens_line(line=line):
+            continue
         pass
     pass
+
+
+def _is_hyphens_line(line: str) -> bool:
+    """
+    Get a boolean indicating whether a specified line is
+    a hyphens line or not.
+
+    Parameters
+    ----------
+    line : str
+        Target docstring line.
+
+    Returns
+    -------
+    result : bool
+        If a specified line is a hyphens line, this function
+        returns True.
+    """
+    match: Optional[Match] = re.search(
+        pattern=_HYPHENS_LINE_PATTERN, string=line)
+    if match is None:
+        return False
+    return True
 
 
 def _is_parameters_section_pattern_line(line: str) -> bool:
     """
     Get a boolean indicating whether a specified line
-    is the parameters section or not.
+    is a parameters section or not.
 
     Parameters
     ----------

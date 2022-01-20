@@ -244,12 +244,20 @@ def _extract_summary_from_docstring(docstring: str) -> str:
     -----
     This function converts line break to a space.
     """
+    from apysc._string import string_util
     lines: List[str] = docstring.splitlines()
-    summary: str = ''
+    result_lines: List[str] = []
     for line in lines:
         if _is_section_line(line=line):
             break
-        pass
+        result_lines.append(line)
+    summary: str = '\n'.join(result_lines)
+    summary = summary.strip()
+    summary = summary.replace('\n', ' ')
+    summary = string_util.replace_double_spaces_to_single_space(
+        string=summary)
+    summary = summary.strip()
+    return summary
 
 
 def _is_section_line(line: str) -> bool:

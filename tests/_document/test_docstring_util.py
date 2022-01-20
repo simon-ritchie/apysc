@@ -187,3 +187,20 @@ def test__is_section_line() -> None:
     result = docstring_util._is_section_line(
         line='Test function.')
     assert not result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__extract_summary_from_docstring() -> None:
+    docstring: str = (
+        '    Lorem ipsum dolor sit amet, consectetur adipiscing'
+        '\n    elit, sed do eiusmod tempor incididunt ut.'
+        '\n    Parameters'
+        '\n    ----------'
+        '\n    a : int'
+    )
+    summary: str = docstring_util._extract_summary_from_docstring(
+        docstring=docstring)
+    assert summary == (
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, '
+        'sed do eiusmod tempor incididunt ut.'
+    )

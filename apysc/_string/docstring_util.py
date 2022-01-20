@@ -32,7 +32,7 @@ _SECTION_PATTERNS: List[str] = [
 ]
 
 
-def reset_replaced_docstring_section(md_file_path: str) -> bool:
+def reset_replaced_docstring_section(*, md_file_path: str) -> bool:
     """
     Reset converted a markdown's docstring section.
 
@@ -59,7 +59,7 @@ def reset_replaced_docstring_section(md_file_path: str) -> bool:
 
 
 def _remove_replaced_docstring_section_from_md_txt(
-        md_txt: str, matches: List[str]) -> str:
+        *, md_txt: str, matches: List[str]) -> str:
     """
     Remove replaced docstring from a specified markdown text.
 
@@ -97,7 +97,7 @@ def _remove_replaced_docstring_section_from_md_txt(
 
 
 def _extract_docstring_path_specification_comment_from_line(
-        line: str, matches: List[str]) -> str:
+        *, line: str, matches: List[str]) -> str:
     """
     Extract a docstring path specification comment
     from a specified markdown line text.
@@ -120,7 +120,7 @@ def _extract_docstring_path_specification_comment_from_line(
     return ''
 
 
-def _get_docstring_path_comment_matches(md_txt: str) -> List[str]:
+def _get_docstring_path_comment_matches(*, md_txt: str) -> List[str]:
     """
     Get matched docstring path specification comments.
 
@@ -143,7 +143,7 @@ def _get_docstring_path_comment_matches(md_txt: str) -> List[str]:
     return matches
 
 
-def replace_docstring_path_specification(md_file_path: str) -> None:
+def replace_docstring_path_specification(*, md_file_path: str) -> None:
     """
     Replace a docstring path specification in a specified
     markdown document by a converted docstring text.
@@ -176,7 +176,7 @@ def replace_docstring_path_specification(md_file_path: str) -> None:
 
 
 def _convert_docstring_path_comment_to_markdown_format(
-        docstring_path_comment: str) -> str:
+        *, docstring_path_comment: str) -> str:
     """
     Convert a specified docstring path comment to a
     markdown format text.
@@ -208,7 +208,7 @@ def _convert_docstring_path_comment_to_markdown_format(
     pass
 
 
-def _convert_docstring_to_markdown(docstring: str) -> str:
+def _convert_docstring_to_markdown(*, docstring: str) -> str:
     """
     Convert a specified docstring to a markdown format text.
 
@@ -226,7 +226,7 @@ def _convert_docstring_to_markdown(docstring: str) -> str:
     pass
 
 
-def _extract_summary_from_docstring(docstring: str) -> str:
+def _extract_summary_from_docstring(*, docstring: str) -> str:
     """
     Extract a summary text from a docstring.
 
@@ -260,7 +260,7 @@ def _extract_summary_from_docstring(docstring: str) -> str:
     return summary
 
 
-def _is_section_line(line: str) -> bool:
+def _is_section_line(*, line: str) -> bool:
     """
     Get a boolean indicating whether a specified docstring line
     is a section line or not.
@@ -286,7 +286,7 @@ def _is_section_line(line: str) -> bool:
 
 
 def _extract_package_path_and_callable_name_from_path(
-        docstring_path_comment) -> Tuple[str, str]:
+        *, docstring_path_comment) -> Tuple[str, str]:
     """
     Extract a module or class package path and callable
     name from a specified path comment.
@@ -315,7 +315,7 @@ def _extract_package_path_and_callable_name_from_path(
 
 
 def _extract_path_from_docstring_comment(
-        docstring_path_comment: str) -> str:
+        *, docstring_path_comment: str) -> str:
     """
     Extract a path string from a specified docstring path comment.
 

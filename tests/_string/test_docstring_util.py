@@ -241,3 +241,14 @@ def test__get_value_name_and_type_from_line() -> None:
         line='    any_value : int')
     assert value_name == 'any_value'
     assert type_name == 'int'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_indent_num_from_line() -> None:
+    indent_num: int = docstring_util._get_indent_num_from_line(
+        line='    any_value : int')
+    assert indent_num == 1
+
+    indent_num = docstring_util._get_indent_num_from_line(
+        line='        any_value : int')
+    assert indent_num == 2

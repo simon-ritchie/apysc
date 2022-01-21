@@ -276,12 +276,36 @@ def _extract_parameters_from_docstring(
             description_lines = []
             param_name, param_type_str = _get_value_name_and_type_from_line(
                 line=line)
+            base_indent_num = _get_indent_num_from_line(line=line)
             continue
         pass
     pass
 
 
-def _get_value_name_and_type_from_line(line: str) -> Tuple[str, str]:
+def _get_indent_num_from_line(*, line: str) -> int:
+    """
+    Get an indent number from a specified docstring line.
+
+    Parameters
+    ----------
+    line : str
+        Target docstring line.
+
+    Returns
+    -------
+    indent_num : int
+        Indent number of a specified docstring line.
+    """
+    spaces: int = 0
+    for char in line:
+        if char != ' ':
+            break
+        spaces += 1
+    indent_num: int = spaces // 4
+    return indent_num
+
+
+def _get_value_name_and_type_from_line(*, line: str) -> Tuple[str, str]:
     """
     Get a parameter or return value and type from
     a specified line.

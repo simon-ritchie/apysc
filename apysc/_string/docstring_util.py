@@ -256,11 +256,12 @@ def _extract_parameters_from_docstring(
     """
     lines: List[str] = docstring.splitlines()
     is_parameter_section_range: bool = False
-    base_indent_num: int = 0
     is_description_area: bool = False
     param_name: str = ''
     param_type_str: str = ''
+    base_indent_num: int = 0
     description_lines: List[str] = []
+    parameters: List[_Parameter] = []
     for line in lines:
         if _is_parameters_section_pattern_line(line=line):
             is_parameter_section_range = True
@@ -277,6 +278,15 @@ def _extract_parameters_from_docstring(
             param_name, param_type_str = _get_value_name_and_type_from_line(
                 line=line)
             base_indent_num = _get_indent_num_from_line(line=line)
+            continue
+        current_indent_num: int = _get_indent_num_from_line(line=line)
+        if current_indent_num == base_indent_num:
+            # description: str = ''
+            # parameters.append({
+            #     'name': param_name,
+            #     'type_str': param_type_str,
+            #     ''
+            # })
             continue
         pass
     pass
@@ -394,7 +404,6 @@ def _extract_summary_from_docstring(*, docstring: str) -> str:
     -----
     This function converts line break to a space.
     """
-    from apysc._string import string_util
     lines: List[str] = docstring.splitlines()
     result_lines: List[str] = []
     for line in lines:
@@ -402,12 +411,32 @@ def _extract_summary_from_docstring(*, docstring: str) -> str:
             break
         result_lines.append(line)
     summary: str = '\n'.join(result_lines)
-    summary = summary.strip()
-    summary = summary.replace('\n', ' ')
-    summary = string_util.replace_double_spaces_to_single_space(
-        string=summary)
-    summary = summary.strip()
+    summary = _remove_line_breaks_and_unnecessary_spaces(text=summary)
     return summary
+
+
+def _remove_line_breaks_and_unnecessary_spaces(*, text: str) -> str:
+    """
+    Remove line breaks to a single space and unnecessary
+    spaces (e.g., double spaces and leading and trailing spaces).
+
+    Parameters
+    ----------
+    text : str
+        Target text.
+
+    Returns
+    -------
+    text : str
+        Converted text.
+    """
+    from apysc._string import string_util
+    text = text.strip()
+    text = text.replace('\n', ' ')
+    text = string_util.replace_double_spaces_to_single_space(
+        string=text)
+    text = text.strip()
+    return text
 
 
 def _is_section_line(*, line: str) -> bool:

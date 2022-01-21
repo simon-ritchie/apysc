@@ -252,3 +252,18 @@ def test__get_indent_num_from_line() -> None:
     indent_num = docstring_util._get_indent_num_from_line(
         line='        any_value : int')
     assert indent_num == 2
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__remove_line_breaks_and_unnecessary_spaces() -> None:
+    text: str = docstring_util._remove_line_breaks_and_unnecessary_spaces(
+        text=(
+            '    Lorem ipsum dolor sit amet, consectetur   '
+            '\nadipiscing elit, sed do eiusmod  tempor incididunt '
+            '\nut labore et dolore magna aliqua. '
+        ))
+    assert text == (
+        'Lorem ipsum dolor sit amet, consectetur adipiscing '
+        'elit, sed do eiusmod tempor incididunt ut labore et '
+        'dolore magna aliqua.'
+    )

@@ -226,3 +226,18 @@ def test__is_hyphens_line() -> None:
     line = '    ----------'
     result = docstring_util._is_hyphens_line(line=line)
     assert result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_value_name_and_type_from_line() -> None:
+    value_name: str
+    type_name: str
+    value_name, type_name = docstring_util._get_value_name_and_type_from_line(
+        line='    Lorem ipsum dolor sit')
+    assert value_name == ''
+    assert type_name == ''
+
+    value_name, type_name = docstring_util._get_value_name_and_type_from_line(
+        line='    any_value : int')
+    assert value_name == 'any_value'
+    assert type_name == 'int'

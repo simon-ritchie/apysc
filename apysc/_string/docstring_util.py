@@ -256,6 +256,11 @@ def _extract_parameters_from_docstring(
     """
     lines: List[str] = docstring.splitlines()
     is_parameter_section_range: bool = False
+    base_indent_num: int = 0
+    is_description_area: bool = False
+    param_name: str = ''
+    param_type_str: str = ''
+    description_lines: List[str] = []
     for line in lines:
         if _is_parameters_section_pattern_line(line=line):
             is_parameter_section_range = True
@@ -264,11 +269,44 @@ def _extract_parameters_from_docstring(
             continue
         if _is_hyphens_line(line=line):
             continue
+        if _is_section_line(line=line):
+            break
+        if not is_description_area:
+            is_description_area = True
+            description_lines = []
+            param_name, param_type_str = _get_value_name_and_type_from_line(
+                line=line)
+            continue
         pass
     pass
 
 
-def _is_hyphens_line(line: str) -> bool:
+def _get_value_name_and_type_from_line(line: str) -> Tuple[str, str]:
+    """
+    Get a parameter or return value and type from
+    a specified line.
+
+    Parameters
+    ----------
+    line : str
+        Target docstring line.
+
+    Returns
+    -------
+    value_name : str
+        Target parameter or return value name.
+    type_name : str
+        Target parameter or return value type name.
+    """
+    if ':' not in line:
+        return '', ''
+    splitted: List[str] = line.split(':', maxsplit=1)
+    value_name: str = splitted[0].strip()
+    type_name: str = splitted[1].strip()
+    return value_name, type_name
+
+
+def _is_hyphens_line(*, line: str) -> bool:
     """
     Get a boolean indicating whether a specified line is
     a hyphens line or not.
@@ -291,7 +329,7 @@ def _is_hyphens_line(line: str) -> bool:
     return True
 
 
-def _is_parameters_section_pattern_line(line: str) -> bool:
+def _is_parameters_section_pattern_line(*, line: str) -> bool:
     """
     Get a boolean indicating whether a specified line
     is a parameters section or not.

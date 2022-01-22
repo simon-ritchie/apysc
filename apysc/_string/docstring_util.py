@@ -325,7 +325,7 @@ def _extract_param_or_rtn_values_from_docstring(
             continue
         if _is_section_line(line=line):
             if description_lines:
-                _make_description_from_lines_and_append_parameter_to_list(
+                _make_description_from_lines_and_append_param_to_list(
                     target_type=target_type,
                     parameters=param_or_rtn_values,
                     param_name=param_name,
@@ -335,7 +335,7 @@ def _extract_param_or_rtn_values_from_docstring(
             break
         if current_indent_num == base_indent_num:
             if description_lines:
-                _make_description_from_lines_and_append_parameter_to_list(
+                _make_description_from_lines_and_append_param_to_list(
                     target_type=target_type,
                     parameters=param_or_rtn_values,
                     param_name=param_name,
@@ -350,15 +350,15 @@ def _extract_param_or_rtn_values_from_docstring(
     return param_or_rtn_values
 
 
-def _make_description_from_lines_and_append_parameter_to_list(
+def _make_description_from_lines_and_append_param_to_list(
         target_type: Type[_ParamOrRtnBase],
         parameters: List[_ParamOrRtnBase],
         param_name: str,
         param_type_str: str,
         description_lines: List[str]) -> None:
     """
-    Make a parameter description from a list of lines
-    and append parameter value to a specified list.
+    Make a parameter or return value description from a list of
+    lines and append parameter or return value to a specified list.
 
     Notes
     -----
@@ -379,7 +379,8 @@ def _make_description_from_lines_and_append_parameter_to_list(
     description = _remove_line_breaks_and_unnecessary_spaces(
         text=description)
     parameter: _ParamOrRtnBase = target_type(
-        name=param_name, type_str=param_type_str, description=description)
+        name=param_name, type_str=param_type_str,
+        description=description)
     parameters.append(parameter)
     description_lines.clear()
 

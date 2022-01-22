@@ -433,20 +433,18 @@ def _extract_raise_values_from_docstring(docstring: str) -> List[_Raise]:
         if _is_hyphens_line(line=line):
             continue
         if _is_section_line(line=line):
-            if description_lines:
-                _make_raise_description_and_append_to_list(
-                    raise_values=raise_values,
-                    err_class_name=err_class_name,
-                    description_lines=description_lines,
-                )
+            _make_raise_description_and_append_to_list(
+                raise_values=raise_values,
+                err_class_name=err_class_name,
+                description_lines=description_lines,
+            )
             break
         if current_indent_num == base_indent_num:
-            if description_lines:
-                _make_raise_description_and_append_to_list(
-                    raise_values=raise_values,
-                    err_class_name=err_class_name,
-                    description_lines=description_lines,
-                )
+            _make_raise_description_and_append_to_list(
+                raise_values=raise_values,
+                err_class_name=err_class_name,
+                description_lines=description_lines,
+            )
             err_class_name = line.strip()
             continue
         description_lines.append(line)
@@ -522,6 +520,8 @@ def _make_raise_description_and_append_to_list(
     description_lines : list of str
         A list of description lines.
     """
+    if not description_lines:
+        return
     description: str = '\n'.join(description_lines)
     description = _remove_line_breaks_and_unnecessary_spaces(
         text=description)

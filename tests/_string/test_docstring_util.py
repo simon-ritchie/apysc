@@ -573,6 +573,13 @@ class Test_Raise:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__make_raise_description_and_append_to_list() -> None:
     raise_values: List[_Raise] = []
+
+    docstring_util._make_raise_description_and_append_to_list(
+        raise_values=raise_values,
+        err_class_name='ValueError',
+        description_lines=[])
+    assert raise_values == []
+
     docstring_util._make_raise_description_and_append_to_list(
         raise_values=raise_values,
         err_class_name='ValueError',

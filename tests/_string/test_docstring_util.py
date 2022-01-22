@@ -373,6 +373,30 @@ def test__extract_param_or_rtn_values_from_docstring() -> None:
         ))
     assert param_or_rtn_values[1] == parameter
 
+    param_or_rtn_values = docstring_util.\
+        _extract_param_or_rtn_values_from_docstring(
+            target_type=_Return,
+            docstring=_TEST_DOCSTRING)
+    assert len(param_or_rtn_values) == 2
+    for return__ in param_or_rtn_values:
+        assert isinstance(return__, _Return)
+    return_: _Return = _Return(
+        name='test_return_val_1',
+        type_str='bool or int',
+        description=(
+            'Fugiat nulla pariatur. Excepteur sint occaecat '
+            'cupidatat non proident, sunt in culpa qui '
+            'officia deserunt mollit anim id est laborum. '
+            'Omnis dolor repellendus. Temporibus autem quibusdam.'
+        ))
+    assert param_or_rtn_values[0] == return_
+    return_ = _Return(
+        name='test_return_val_2',
+        type_str='Sprite',
+        description=(
+            'Officiis debitis aut rerum necessitatibus saepe eveniet.'
+        ))
+
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__make_description_from_lines_and_append_param_to_list() -> None:

@@ -361,6 +361,18 @@ class _Raise:
         """
         return self._err_class_name
 
+    @property
+    def description(self) -> str:
+        """
+        Get a error condition description.
+
+        Returns
+        -------
+        description : str
+            A error condition description.
+        """
+        return self._description
+
 
 _ParamOrRtn = TypeVar('_ParamOrRtn', _Parameter, _Return)
 

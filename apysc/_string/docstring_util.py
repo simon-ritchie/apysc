@@ -295,6 +295,18 @@ class _ParamOrRtnBase:
         """
         return self._name
 
+    @property
+    def type_str(self) -> str:
+        """
+        Get a parameter or return value type name.
+
+        Returns
+        -------
+        type_str : str
+            A parameter or return value type name.
+        """
+        return self._type_str
+
 
 class _Parameter(_ParamOrRtnBase):
     """Parameter value type.

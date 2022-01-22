@@ -335,12 +335,12 @@ _TEST_DOCSTRING: str = (
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__extract_param_or_rtn_values_from_docstring() -> None:
-    parameters: List[_ParamOrRtnBase] = docstring_util.\
+    param_or_rtn_values: List[_ParamOrRtnBase] = docstring_util.\
         _extract_param_or_rtn_values_from_docstring(
             target_type=_Parameter,
             docstring=_TEST_DOCSTRING)
-    assert len(parameters) == 2
-    for parameter_ in parameters:
+    assert len(param_or_rtn_values) == 2
+    for parameter_ in param_or_rtn_values:
         assert isinstance(parameter_, _Parameter)
     parameter: _Parameter = _Parameter(
         name='test_param_1',
@@ -349,7 +349,7 @@ def test__extract_param_or_rtn_values_from_docstring() -> None:
             'Ut enim ad minim veniam, quis nostrud exercitation '
             'ullamco laboris nisi.'
         ))
-    assert parameters[0] == parameter
+    assert param_or_rtn_values[0] == parameter
     parameter = _Parameter(
         name='test_param_2',
         type_str='str, optional',
@@ -359,7 +359,7 @@ def test__extract_param_or_rtn_values_from_docstring() -> None:
             'voluptate velit esse cillum dolore. '
             'Omnis dolor repellendus. Temporibus autem quibusdam.'
         ))
-    assert parameters[1] == parameter
+    assert param_or_rtn_values[1] == parameter
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

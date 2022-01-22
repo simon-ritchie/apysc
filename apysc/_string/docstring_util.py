@@ -19,12 +19,13 @@ _DOCSTRING_PATH_COMMENT_PATTERN: str = (
 
 _PARAMETERS_SECTION_PATTERN: str = r'\s{4}Parameters$'
 _RETURNS_SECTION_PATTERN: str = r'\s{4}Returns$'
+_RAISES_SECTION_PATTERN: str = r'\s{4}Raises$'
 _SECTION_PATTERNS: List[str] = [
     _PARAMETERS_SECTION_PATTERN,
     _RETURNS_SECTION_PATTERN,
     r'\s{4}Yields$',
     r'\s{4}Receives$',
-    r'\s{4}Raises$',
+    _RAISES_SECTION_PATTERN,
     r'\s{4}Warns$',
     r'\s{4}Warnings$',
     r'\s{4}See Also$',
@@ -38,7 +39,7 @@ _SECTION_PATTERNS: List[str] = [
 _HYPHENS_LINE_PATTERN: str = r'\s{4}-----'
 
 
-class _ParamsOrRtnsSectionPattern(Enum):
+class _SectionPattern(Enum):
     PARAMETERS = _PARAMETERS_SECTION_PATTERN
     RETURNS = _RETURNS_SECTION_PATTERN
 
@@ -238,6 +239,8 @@ def _convert_docstring_to_markdown(*, docstring: str) -> str:
         target_type=_Parameter, docstring=docstring)
     returns: List[_Return] = _extract_param_or_rtn_values_from_docstring(
         target_type=_Return, docstring=docstring)
+    raises: List[_Raise] = _extract_raise_values_from_docstring(
+        docstring=docstring)
     pass
 
 
@@ -374,6 +377,36 @@ class _Raise:
         return self._description
 
 
+def _extract_raise_values_from_docstring(docstring: str) -> List[_Raise]:
+    """
+    Extract raise values from a docstring.
+
+    Parameters
+    ----------
+    docstring : str
+        Target docstring.
+
+    Returns
+    -------
+    raise_values : list of _Raise
+        Extracted raise values.
+    """
+    lines: List[str] = docstring.splitlines()
+    is_raises_section_range: bool = False
+    err_class_name: str = ''
+    base_indent_num: int = 0
+    description_lines: List[str] = []
+    raise_values: List[_Raise] = []
+    for line in lines:
+        current_indent_num: int = _get_indent_num_from_line(line=line)
+        if current_indent_num == 0:
+            continue
+        if base_indent_num == 0:
+            base_indent_num = current_indent_num
+        pass
+    pass
+
+
 _ParamOrRtn = TypeVar('_ParamOrRtn', _Parameter, _Return)
 
 
@@ -400,7 +433,7 @@ def _extract_param_or_rtn_values_from_docstring(
     base_indent_num: int = 0
     description_lines: List[str] = []
     param_or_rtn_values: List[_ParamOrRtn] = []
-    params_or_rtns_section_pattern: _ParamsOrRtnsSectionPattern = \
+    params_or_rtns_section_pattern: _SectionPattern = \
         _get_params_or_rtns_section_pattern_by_type(target_type=target_type)
     for line in lines:
         current_indent_num: int = _get_indent_num_from_line(line=line)
@@ -446,7 +479,7 @@ def _extract_param_or_rtn_values_from_docstring(
 
 def _get_params_or_rtns_section_pattern_by_type(
         *,
-        target_type: Type[_ParamOrRtnBase]) -> _ParamsOrRtnsSectionPattern:
+        target_type: Type[_ParamOrRtnBase]) -> _SectionPattern:
     """
     Get the parameters or returns section pattern
     of a specified type.
@@ -458,7 +491,7 @@ def _get_params_or_rtns_section_pattern_by_type(
 
     Returns
     -------
-    pattern : _ParamsOrRtnsSectionPattern
+    pattern : _SectionPattern
         Target section pattern.
 
     Raises
@@ -467,9 +500,9 @@ def _get_params_or_rtns_section_pattern_by_type(
         If an invalid target type is provided.
     """
     if target_type == _Parameter:
-        return _ParamsOrRtnsSectionPattern.PARAMETERS
+        return _SectionPattern.PARAMETERS
     if target_type == _Return:
-        return _ParamsOrRtnsSectionPattern.RETURNS
+        return _SectionPattern.RETURNS
     raise ValueError(
         f'Invalid type argument is provided: {target_type}')
 
@@ -584,7 +617,7 @@ def _is_hyphens_line(*, line: str) -> bool:
 def _is_target_section_pattern_line(
         *,
         line: str,
-        section_pattern: _ParamsOrRtnsSectionPattern) -> bool:
+        section_pattern: _SectionPattern) -> bool:
     """
     Get a boolean indicating whether a specified line
     is matching with a target section pattern or not.
@@ -593,7 +626,7 @@ def _is_target_section_pattern_line(
     ----------
     line : str
         Target docstring line.
-    section_pattern : _ParamsOrRtnsSectionPattern
+    section_pattern : _SectionPattern
         Target section pattern.
 
     Returns

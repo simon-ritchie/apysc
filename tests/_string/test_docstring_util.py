@@ -5,7 +5,7 @@ from typing import Any, List, TypeVar
 from retrying import retry
 
 from apysc._string import docstring_util
-from apysc._string.docstring_util import _Parameter, _ParamOrRtnBase, _ParamsOrRtnsSectionPattern, _Raise, _Return
+from apysc._string.docstring_util import _Parameter, _ParamOrRtnBase, _SectionPattern, _Raise, _Return
 from apysc._file import file_util
 from apysc._display.sprite import Sprite
 from apysc._display import sprite
@@ -214,22 +214,22 @@ def test__extract_summary_from_docstring() -> None:
 def test__is_target_section_pattern_line() -> None:
     result: bool = docstring_util._is_target_section_pattern_line(
         line='    Parameters',
-        section_pattern=_ParamsOrRtnsSectionPattern.PARAMETERS)
+        section_pattern=_SectionPattern.PARAMETERS)
     assert result
 
     result = docstring_util._is_target_section_pattern_line(
         line='    a : str',
-        section_pattern=_ParamsOrRtnsSectionPattern.PARAMETERS)
+        section_pattern=_SectionPattern.PARAMETERS)
     assert not result
 
     result = docstring_util._is_target_section_pattern_line(
         line='    Returns',
-        section_pattern=_ParamsOrRtnsSectionPattern.PARAMETERS)
+        section_pattern=_SectionPattern.PARAMETERS)
     assert not result
 
     result = docstring_util._is_target_section_pattern_line(
         line='    Returns',
-        section_pattern=_ParamsOrRtnsSectionPattern.RETURNS)
+        section_pattern=_SectionPattern.RETURNS)
     assert result
 
 
@@ -496,14 +496,14 @@ class Test_ParamOrRtnBase:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_params_or_rtns_section_pattern_by_type() -> None:
-    pattern: _ParamsOrRtnsSectionPattern = docstring_util.\
+    pattern: _SectionPattern = docstring_util.\
         _get_params_or_rtns_section_pattern_by_type(
             target_type=_Parameter)
-    assert pattern == _ParamsOrRtnsSectionPattern.PARAMETERS
+    assert pattern == _SectionPattern.PARAMETERS
 
     pattern = docstring_util._get_params_or_rtns_section_pattern_by_type(
         target_type=_Return)
-    assert pattern == _ParamsOrRtnsSectionPattern.RETURNS
+    assert pattern == _SectionPattern.RETURNS
 
     assert_raises(
         expected_error_class=ValueError,

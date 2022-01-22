@@ -17,32 +17,23 @@ _DOCSTRING_PATH_COMMENT_PATTERN: str = (
     r'(?P<path>.*?)\-\-\>'
 )
 
-_PARAMETERS_SECTION_PATTERN: str = r'\s{4}Parameters$'
-_RETURNS_SECTION_PATTERN: str = r'\s{4}Returns$'
-_RAISES_SECTION_PATTERN: str = r'\s{4}Raises$'
-_SECTION_PATTERNS: List[str] = [
-    _PARAMETERS_SECTION_PATTERN,
-    _RETURNS_SECTION_PATTERN,
-    r'\s{4}Yields$',
-    r'\s{4}Receives$',
-    _RAISES_SECTION_PATTERN,
-    r'\s{4}Warns$',
-    r'\s{4}Warnings$',
-    r'\s{4}See Also$',
-    r'\s{4}Notes$',
-    r'\s{4}References$',
-    r'\s{4}Examples$',
-    r'\s{4}Attributes$',
-    r'\s{4}Methods$',
-    r'\s{4}Methods$',
-]
 _HYPHENS_LINE_PATTERN: str = r'\s{4}-----'
 
 
 class _SectionPattern(Enum):
-    PARAMETERS = _PARAMETERS_SECTION_PATTERN
-    RETURNS = _RETURNS_SECTION_PATTERN
-    RAISES = _RAISES_SECTION_PATTERN
+    PARAMETERS = r'\s{4}Parameters$'
+    RETURNS = r'\s{4}Returns$'
+    YIELDS = r'\s{4}Yields$'
+    RECEIVES = r'\s{4}Receives$'
+    RAISES = r'\s{4}Raises$'
+    WARNS = r'\s{4}Warns$'
+    WARNINGS = r'\s{4}Warnings$'
+    SEE_ALSO = r'\s{4}See Also$'
+    NOTES = r'\s{4}Notes$'
+    REFERENCES = r'\s{4}References$'
+    EXAMPLES = r'\s{4}Examples$'
+    ATTRIBUTES = r'\s{4}Attributes$'
+    METHODS = r'\s{4}Methods$'
 
 
 def reset_replaced_docstring_section(*, md_file_path: str) -> bool:
@@ -712,9 +703,9 @@ def _is_section_line(*, line: str) -> bool:
         If a specified docstring line is section line, this
         function returns True.
     """
-    for pattern in _SECTION_PATTERNS:
+    for pattern in _SectionPattern:
         match: Optional[Match] = re.search(
-            pattern=pattern, string=line)
+            pattern=pattern.value, string=line)
         if match is None:
             continue
         return True

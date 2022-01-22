@@ -228,19 +228,58 @@ def _convert_docstring_to_markdown(*, docstring: str) -> str:
         Converted markdown text.
     """
     summary: str = _extract_summary_from_docstring(docstring=docstring)
-    parameters: List[_Parameter] = _extract_parameters_from_docstring(
+    parameters: List[_ParamOrRtnBase] = _extract_parameters_from_docstring(
         docstring=docstring)
     pass
 
 
-class _Parameter(TypedDict):
-    name: str
-    type_str: str
-    description: str
+class _ParamOrRtnBase:
+    _name: str
+    _type_str: str
+    _description: str
+
+    def __init__(
+            self, name: str, type_str: str, description: str) -> None:
+        """
+        Parameter or return value's base class.
+
+        Parameters
+        ----------
+        name : str
+            Parameter or return value name.
+        type_str : str
+            Parameter or return value type name.
+        description : str
+            Parameter or return value description.
+        """
+        self._name = name
+        self._type_str = type_str
+        self._description = description
+
+    def __eq__(self, other: Any) -> bool:
+        if not isinstance(other, _ParamOrRtnBase):
+            return False
+        if self._name != other._name:
+            return False
+        if self._type_str != other._type_str:
+            return False
+        if self._description != other._description:
+            return False
+        return True
+
+
+class _Parameter(_ParamOrRtnBase):
+    """Parameter value type.
+    """
+
+
+class _Return(_ParamOrRtnBase):
+    """Return value type.
+    """
 
 
 def _extract_parameters_from_docstring(
-        docstring: str) -> List[_Parameter]:
+        docstring: str) -> List[_ParamOrRtnBase]:
     """
     Extract parameter values from a docstring.
 
@@ -260,7 +299,7 @@ def _extract_parameters_from_docstring(
     param_type_str: str = ''
     base_indent_num: int = 0
     description_lines: List[str] = []
-    parameters: List[_Parameter] = []
+    parameters: List[_ParamOrRtnBase] = []
     for line in lines:
         current_indent_num: int = _get_indent_num_from_line(line=line)
         if current_indent_num == 0:
@@ -300,7 +339,7 @@ def _extract_parameters_from_docstring(
 
 
 def _make_description_from_lines_and_append_parameter_to_list(
-        parameters: List[_Parameter], param_name: str,
+        parameters: List[_ParamOrRtnBase], param_name: str,
         param_type_str: str, description_lines: List[str]) -> None:
     """
     Make a parameter description from a list of lines
@@ -324,11 +363,9 @@ def _make_description_from_lines_and_append_parameter_to_list(
     description: str = '\n'.join(description_lines)
     description = _remove_line_breaks_and_unnecessary_spaces(
         text=description)
-    parameters.append({
-        'name': param_name,
-        'type_str': param_type_str,
-        'description': description,
-    })
+    parameter: _ParamOrRtnBase = _Parameter(
+        name=param_name, type_str=param_type_str, description=description)
+    parameters.append(parameter)
     description_lines.clear()
 
 

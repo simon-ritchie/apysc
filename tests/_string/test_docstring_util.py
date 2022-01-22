@@ -5,10 +5,11 @@ from typing import Any, List
 from retrying import retry
 
 from apysc._string import docstring_util
-from apysc._string.docstring_util import _Parameter
+from apysc._string.docstring_util import _Parameter, _ParamOrRtnBase
 from apysc._file import file_util
 from apysc._display.sprite import Sprite
 from apysc._display import sprite
+from tests.testing_helper import assert_attrs
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -334,31 +335,32 @@ _TEST_DOCSTRING: str = (
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__extract_parameters_from_docstring() -> None:
-    parameters: List[_Parameter] = docstring_util.\
+    parameters: List[_ParamOrRtnBase] = docstring_util.\
         _extract_parameters_from_docstring(docstring=_TEST_DOCSTRING)
-    print(parameters)
     assert len(parameters) == 2
-    assert parameters[0] == {
-        'name': 'test_param_1',
-        'type_str': 'int',
-        'description':
-        'Ut enim ad minim veniam, quis nostrud exercitation '
-        'ullamco laboris nisi.',
-    }
-    assert parameters[1] == {
-        'name': 'test_param_2',
-        'type_str': 'str, optional',
-        'description':
-        'Ut aliquip ex ea commodo consequat. '
-        'Duis aute irure dolor in reprehenderit in '
-        'voluptate velit esse cillum dolore. '
-        'Omnis dolor repellendus. Temporibus autem quibusdam.'
-    }
+    parameter: _Parameter = _Parameter(
+        name='test_param_1',
+        type_str='int',
+        description=(
+            'Ut enim ad minim veniam, quis nostrud exercitation '
+            'ullamco laboris nisi.'
+        ))
+    assert parameters[0] == parameter
+    parameter = _Parameter(
+        name='test_param_2',
+        type_str='str, optional',
+        description=(
+            'Ut aliquip ex ea commodo consequat. '
+            'Duis aute irure dolor in reprehenderit in '
+            'voluptate velit esse cillum dolore. '
+            'Omnis dolor repellendus. Temporibus autem quibusdam.'
+        ))
+    assert parameters[1] == parameter
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__make_description_from_lines_and_append_parameter_to_list() -> None:
-    parameters: List[_Parameter] = []
+    parameters: List[_ParamOrRtnBase] = []
     description_lines: List[str] = [
         '    At vero eos et accusamus et iusto odio dignissimos'
         '    ducimus, qui blanditiis praesentium voluptatum.'
@@ -368,11 +370,28 @@ def test__make_description_from_lines_and_append_parameter_to_list() -> None:
         param_name='test_value',
         param_type_str='int',
         description_lines=description_lines)
-    assert parameters == [{
-        'name': 'test_value',
-        'type_str': 'int',
-        'description':
-        'At vero eos et accusamus et iusto odio dignissimos '
-        'ducimus, qui blanditiis praesentium voluptatum.'
-    }]
+    parameter: _ParamOrRtnBase = _ParamOrRtnBase(
+        name='test_value',
+        type_str='int',
+        description=(
+            'At vero eos et accusamus et iusto odio dignissimos '
+            'ducimus, qui blanditiis praesentium voluptatum.'
+        ))
+    assert parameters == [parameter]
     assert description_lines == []
+
+
+class Test_ParamOrRtnBase:
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___init__(self) -> None:
+        param_or_rtn: _ParamOrRtnBase = _ParamOrRtnBase(
+            name='test_value', type_str='int',
+            description='Lorem ipsum dolor sit.')
+        assert_attrs(
+            expected_attrs={
+                '_name': 'test_value',
+                '_type_str': 'int',
+                '_description': 'Lorem ipsum dolor sit.',
+            },
+            any_obj=param_or_rtn)

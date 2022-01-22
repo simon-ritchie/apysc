@@ -401,13 +401,13 @@ def test__extract_param_or_rtn_values_from_docstring() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__make_description_from_lines_and_append_param_to_list() -> None:
+def test__make_prm_or_rtn_description_and_append_to_list() -> None:
     parameters: List[_Parameter] = []
     description_lines: List[str] = [
         '    At vero eos et accusamus et iusto odio dignissimos'
         '    ducimus, qui blanditiis praesentium voluptatum.'
     ]
-    docstring_util._make_description_from_lines_and_append_param_to_list(
+    docstring_util._make_prm_or_rtn_description_and_append_to_list(
         target_type=_Parameter,
         param_or_rtn_values=parameters,
         value_name='test_value',

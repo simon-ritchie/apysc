@@ -395,7 +395,19 @@ def _extract_raise_values_from_docstring(docstring: str) -> List[_Raise]:
             continue
         if base_indent_num == 0:
             base_indent_num = current_indent_num
-        pass
+        if _is_target_section_pattern_line(
+                line=line,
+                section_pattern=_SectionPattern.RAISES):
+            is_raises_section_range = True
+            continue
+        if not is_raises_section_range:
+            continue
+        if _is_hyphens_line(line=line):
+            continue
+        if _is_section_line(line=line):
+            if description_lines:
+                pass
+            break
     pass
 
 
@@ -444,7 +456,7 @@ def _extract_param_or_rtn_values_from_docstring(
             continue
         if _is_section_line(line=line):
             if description_lines:
-                _make_description_from_lines_and_append_param_to_list(
+                _make_prm_or_rtn_description_and_append_to_list(
                     target_type=target_type,
                     param_or_rtn_values=param_or_rtn_values,
                     value_name=value_name,
@@ -454,7 +466,7 @@ def _extract_param_or_rtn_values_from_docstring(
             break
         if current_indent_num == base_indent_num:
             if description_lines:
-                _make_description_from_lines_and_append_param_to_list(
+                _make_prm_or_rtn_description_and_append_to_list(
                     target_type=target_type,
                     param_or_rtn_values=param_or_rtn_values,
                     value_name=value_name,
@@ -499,7 +511,7 @@ def _get_params_or_rtns_section_pattern_by_type(
         f'Invalid type argument is provided: {target_type}')
 
 
-def _make_description_from_lines_and_append_param_to_list(
+def _make_prm_or_rtn_description_and_append_to_list(
         *,
         target_type: Type[_ParamOrRtn],
         param_or_rtn_values: List[_ParamOrRtn],

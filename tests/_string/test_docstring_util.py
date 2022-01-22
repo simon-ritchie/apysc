@@ -336,8 +336,12 @@ _TEST_DOCSTRING: str = (
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__extract_parameters_from_docstring() -> None:
     parameters: List[_ParamOrRtnBase] = docstring_util.\
-        _extract_parameters_from_docstring(docstring=_TEST_DOCSTRING)
+        _extract_parameters_from_docstring(
+            target_type=_Parameter,
+            docstring=_TEST_DOCSTRING)
     assert len(parameters) == 2
+    for parameter_ in parameters:
+        assert isinstance(parameter_, _Parameter)
     parameter: _Parameter = _Parameter(
         name='test_param_1',
         type_str='int',
@@ -366,11 +370,12 @@ def test__make_description_from_lines_and_append_parameter_to_list() -> None:
         '    ducimus, qui blanditiis praesentium voluptatum.'
     ]
     docstring_util._make_description_from_lines_and_append_parameter_to_list(
+        target_type=_Parameter,
         parameters=parameters,
         param_name='test_value',
         param_type_str='int',
         description_lines=description_lines)
-    parameter: _ParamOrRtnBase = _ParamOrRtnBase(
+    parameter: _Parameter = _Parameter(
         name='test_value',
         type_str='int',
         description=(
@@ -378,6 +383,7 @@ def test__make_description_from_lines_and_append_parameter_to_list() -> None:
             'ducimus, qui blanditiis praesentium voluptatum.'
         ))
     assert parameters == [parameter]
+    assert isinstance(parameters[0], _Parameter)
     assert description_lines == []
 
 

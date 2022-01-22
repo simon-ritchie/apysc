@@ -229,6 +229,7 @@ def _convert_docstring_to_markdown(*, docstring: str) -> str:
     """
     summary: str = _extract_summary_from_docstring(docstring=docstring)
     parameters: List[_ParamOrRtnBase] = _extract_parameters_from_docstring(
+        target_type=_Parameter,
         docstring=docstring)
     pass
 
@@ -287,6 +288,7 @@ class _Return(_ParamOrRtnBase):
 
 
 def _extract_parameters_from_docstring(
+        target_type: Type[_ParamOrRtnBase],
         docstring: str) -> List[_ParamOrRtnBase]:
     """
     Extract parameter values from a docstring.
@@ -298,8 +300,8 @@ def _extract_parameters_from_docstring(
 
     Returns
     -------
-    parameters : list of _Parameter
-        Extracted parameter values.
+    parameters : list of _Parameter or _Return
+        Extracted parameter or return values.
     """
     lines: List[str] = docstring.splitlines()
     is_parameter_section_range: bool = False
@@ -324,6 +326,7 @@ def _extract_parameters_from_docstring(
         if _is_section_line(line=line):
             if description_lines:
                 _make_description_from_lines_and_append_parameter_to_list(
+                    target_type=target_type,
                     parameters=parameters,
                     param_name=param_name,
                     param_type_str=param_type_str,
@@ -333,6 +336,7 @@ def _extract_parameters_from_docstring(
         if current_indent_num == base_indent_num:
             if description_lines:
                 _make_description_from_lines_and_append_parameter_to_list(
+                    target_type=target_type,
                     parameters=parameters,
                     param_name=param_name,
                     param_type_str=param_type_str,
@@ -347,8 +351,11 @@ def _extract_parameters_from_docstring(
 
 
 def _make_description_from_lines_and_append_parameter_to_list(
-        parameters: List[_ParamOrRtnBase], param_name: str,
-        param_type_str: str, description_lines: List[str]) -> None:
+        target_type: Type[_ParamOrRtnBase],
+        parameters: List[_ParamOrRtnBase],
+        param_name: str,
+        param_type_str: str,
+        description_lines: List[str]) -> None:
     """
     Make a parameter description from a list of lines
     and append parameter value to a specified list.
@@ -371,7 +378,7 @@ def _make_description_from_lines_and_append_parameter_to_list(
     description: str = '\n'.join(description_lines)
     description = _remove_line_breaks_and_unnecessary_spaces(
         text=description)
-    parameter: _ParamOrRtnBase = _Parameter(
+    parameter: _ParamOrRtnBase = target_type(
         name=param_name, type_str=param_type_str, description=description)
     parameters.append(parameter)
     description_lines.clear()

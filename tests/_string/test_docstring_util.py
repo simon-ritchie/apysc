@@ -5,11 +5,11 @@ from typing import Any, List
 from retrying import retry
 
 from apysc._string import docstring_util
-from apysc._string.docstring_util import _Parameter, _ParamOrRtnBase
+from apysc._string.docstring_util import _Parameter, _ParamOrRtnBase, _ParamsOrRtnsSectionPattern, _Return
 from apysc._file import file_util
 from apysc._display.sprite import Sprite
 from apysc._display import sprite
-from tests.testing_helper import assert_attrs
+from tests.testing_helper import assert_attrs, assert_raises
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -433,3 +433,23 @@ class Test_ParamOrRtnBase:
             description='Lorem ipsum dolor sit.')
         result = param_or_rtn == other
         assert result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_params_or_rtns_section_pattern_by_type() -> None:
+    pattern: _ParamsOrRtnsSectionPattern = docstring_util.\
+        _get_params_or_rtns_section_pattern_by_type(
+            target_type=_Parameter)
+    assert pattern == _ParamsOrRtnsSectionPattern.PARAMETERS
+
+    pattern = docstring_util._get_params_or_rtns_section_pattern_by_type(
+        target_type=_Return)
+    assert pattern == _ParamsOrRtnsSectionPattern.RETURNS
+
+    assert_raises(
+        expected_error_class=ValueError,
+        func_or_method=docstring_util.
+        _get_params_or_rtns_section_pattern_by_type,
+        kwargs={'target_type': 10},
+        match='Invalid type argument is provided: ',
+    )

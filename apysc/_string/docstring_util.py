@@ -4,6 +4,7 @@
 from ctypes import Union
 from types import ModuleType
 import importlib
+from enum import Enum
 from typing import Any, Callable, List, Match, Optional, Tuple, Type
 import os
 import re
@@ -35,6 +36,11 @@ _SECTION_PATTERNS: List[str] = [
     r'\s{4}Methods$',
 ]
 _HYPHENS_LINE_PATTERN: str = r'\s{4}-----'
+
+
+class _ParamsOrRtnsSectionPattern(Enum):
+    PARAMETERS = _PARAMETERS_SECTION_PATTERN
+    RETURNS = _RETURNS_SECTION_PATTERN
 
 
 def reset_replaced_docstring_section(*, md_file_path: str) -> bool:
@@ -310,6 +316,8 @@ def _extract_param_or_rtn_values_from_docstring(
     base_indent_num: int = 0
     description_lines: List[str] = []
     param_or_rtn_values: List[_ParamOrRtnBase] = []
+    params_or_rtns_section_pattern: _ParamsOrRtnsSectionPattern = \
+        _get_params_or_rtns_section_pattern_by_type(target_type=target_type)
     for line in lines:
         current_indent_num: int = _get_indent_num_from_line(line=line)
         if current_indent_num == 0:
@@ -348,6 +356,35 @@ def _extract_param_or_rtn_values_from_docstring(
             continue
         description_lines.append(line)
     return param_or_rtn_values
+
+
+def _get_params_or_rtns_section_pattern_by_type(
+        target_type: Type[_ParamOrRtnBase]) -> _ParamsOrRtnsSectionPattern:
+    """
+    Get the parameters or returns section pattern
+    of a specified type.
+
+    Parameters
+    ----------
+    target_type : _Parameter or _Return
+        Target type.
+
+    Returns
+    -------
+    pattern : _ParamsOrRtnsSectionPattern
+        Target section pattern.
+
+    Raises
+    ------
+    ValueError
+        If an invalid target type is provided.
+    """
+    if target_type == _Parameter:
+        return _ParamsOrRtnsSectionPattern.PARAMETERS
+    if target_type == _Return:
+        return _ParamsOrRtnsSectionPattern.RETURNS
+    raise ValueError(
+        f'Invalid type argument is provided: {target_type}')
 
 
 def _make_description_from_lines_and_append_param_to_list(

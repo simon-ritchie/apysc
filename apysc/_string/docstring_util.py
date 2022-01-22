@@ -247,7 +247,7 @@ class _ParamOrRtnBase:
     _description: str
 
     def __init__(
-            self, name: str, type_str: str, description: str) -> None:
+            self, *, name: str, type_str: str, description: str) -> None:
         """
         Parameter or return value's base class.
 
@@ -327,6 +327,27 @@ class _Parameter(_ParamOrRtnBase):
 class _Return(_ParamOrRtnBase):
     """Return value type.
     """
+
+
+class _Raise:
+    """Raise value type.
+    """
+    _err_class_name: str
+    _description: str
+
+    def __init__(self, *, err_class_name: str, description: str) -> None:
+        """
+        Raise value type.
+
+        Parameters
+        ----------
+        err_class_name : str
+            Target error class name.
+        description : str
+            Error condition description.
+        """
+        self._err_class_name = err_class_name
+        self._description = description
 
 
 _ParamOrRtn = TypeVar('_ParamOrRtn', _Parameter, _Return)

@@ -5,7 +5,7 @@ from typing import Any, List, TypeVar
 from retrying import retry
 
 from apysc._string import docstring_util
-from apysc._string.docstring_util import _Parameter, _ParamOrRtnBase, _ParamsOrRtnsSectionPattern, _Return
+from apysc._string.docstring_util import _Parameter, _ParamOrRtnBase, _ParamsOrRtnsSectionPattern, _Raise, _Return
 from apysc._file import file_util
 from apysc._display.sprite import Sprite
 from apysc._display import sprite
@@ -512,3 +512,18 @@ def test__get_params_or_rtns_section_pattern_by_type() -> None:
         kwargs={'target_type': 10},
         match='Invalid type argument is provided: ',
     )
+
+
+class Test_Raise:
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___init__(self) -> None:
+        raise_: _Raise = _Raise(
+            err_class_name='ValueError',
+            description='Lorem ipsum dolor sit.')
+        assert_attrs(
+            expected_attrs={
+                '_err_class_name': 'ValueError',
+                '_description': 'Lorem ipsum dolor sit.'
+            },
+            any_obj=raise_)

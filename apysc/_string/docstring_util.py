@@ -419,7 +419,7 @@ def _extract_param_or_rtn_values_from_docstring(
         Extracted parameter or return values.
     """
     lines: List[str] = docstring.splitlines()
-    is_parameter_section_range: bool = False
+    is_param_or_rtn_section_range: bool = False
     value_name: str = ''
     value_type_str: str = ''
     base_indent_num: int = 0
@@ -436,9 +436,9 @@ def _extract_param_or_rtn_values_from_docstring(
         if _is_target_section_pattern_line(
                 line=line,
                 section_pattern=params_or_rtns_section_pattern):
-            is_parameter_section_range = True
+            is_param_or_rtn_section_range = True
             continue
-        if not is_parameter_section_range:
+        if not is_param_or_rtn_section_range:
             continue
         if _is_hyphens_line(line=line):
             continue

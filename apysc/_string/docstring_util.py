@@ -349,6 +349,18 @@ class _Raise:
         self._err_class_name = err_class_name
         self._description = description
 
+    @property
+    def err_class_name(self) -> str:
+        """
+        Get a target error class name.
+
+        Returns
+        -------
+        err_class_name : str
+            A target error class name.
+        """
+        return self._err_class_name
+
 
 _ParamOrRtn = TypeVar('_ParamOrRtn', _Parameter, _Return)
 

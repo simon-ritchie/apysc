@@ -527,3 +527,10 @@ class Test_Raise:
                 '_description': 'Lorem ipsum dolor sit.'
             },
             any_obj=raise_)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_err_class_name(self) -> None:
+        raise_: _Raise = _Raise(
+            err_class_name='ValueError',
+            description='Lorem ipsum dolor sit.')
+        assert raise_.err_class_name == 'ValueError'

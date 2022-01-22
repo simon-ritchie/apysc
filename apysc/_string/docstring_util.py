@@ -441,7 +441,17 @@ def _extract_raise_values_from_docstring(docstring: str) -> List[_Raise]:
                     description_lines=description_lines,
                 )
             break
-    pass
+        if current_indent_num == base_indent_num:
+            if description_lines:
+                _make_raise_description_and_append_to_list(
+                    raise_values=raise_values,
+                    err_class_name=err_class_name,
+                    description_lines=description_lines,
+                )
+            err_class_name = line.strip()
+            continue
+        description_lines.append(line)
+    return raise_values
 
 
 def _make_raise_description_and_append_to_list(
@@ -539,7 +549,6 @@ def _extract_param_or_rtn_values_from_docstring(
                 )
             value_name, value_type_str = _get_value_name_and_type_from_line(
                 line=line)
-            base_indent_num = _get_indent_num_from_line(line=line)
             continue
         description_lines.append(line)
     return param_or_rtn_values

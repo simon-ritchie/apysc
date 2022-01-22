@@ -589,3 +589,24 @@ def test__make_raise_description_and_append_to_list() -> None:
             'et dolore magna aliqua.'
         ))
     assert raise_values == [expected_raise]
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__extract_raise_values_from_docstring() -> None:
+    raise_values: List[_Raise] = docstring_util.\
+        _extract_raise_values_from_docstring(docstring=_TEST_DOCSTRING)
+    assert len(raise_values) == 2
+    expected_raise: _Raise = _Raise(
+        err_class_name='ValueError',
+        description=(
+            'Quos dolores et quas molestias excepturi sint, '
+            'obcaecati.'
+        ))
+    assert raise_values[0] == expected_raise
+
+    expected_raise = _Raise(
+        err_class_name='ImportError',
+        description=(
+            'Cupiditate non provident, similique sunt in culpa.'
+        ))
+    assert raise_values[1] == expected_raise

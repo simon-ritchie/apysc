@@ -472,6 +472,13 @@ class Test_ParamOrRtnBase:
         result = param_or_rtn == other
         assert result
 
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_name(self) -> None:
+        param_or_rtn: _ParamOrRtnBase = _ParamOrRtnBase(
+            name='test_value', type_str='int',
+            description='Lorem ipsum dolor sit.')
+        assert param_or_rtn.name == 'test_value'
+
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_params_or_rtns_section_pattern_by_type() -> None:

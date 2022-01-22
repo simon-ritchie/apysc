@@ -235,8 +235,9 @@ def _convert_docstring_to_markdown(*, docstring: str) -> str:
     """
     summary: str = _extract_summary_from_docstring(docstring=docstring)
     parameters: List[_Parameter] = _extract_param_or_rtn_values_from_docstring(
-        target_type=_Parameter,
-        docstring=docstring)
+        target_type=_Parameter, docstring=docstring)
+    returns: List[_Return] = _extract_param_or_rtn_values_from_docstring(
+        target_type=_Return, docstring=docstring)
     pass
 
 
@@ -281,6 +282,18 @@ class _ParamOrRtnBase:
         if self._description != other._description:
             return False
         return True
+
+    @property
+    def name(self) -> str:
+        """
+        Get a parameter or return value name.
+
+        Returns
+        -------
+        name : str
+            A parameter or return value name.
+        """
+        return self._name
 
 
 class _Parameter(_ParamOrRtnBase):

@@ -257,6 +257,14 @@ class _ParamOrRtnBase:
         self._description = description
 
     def __eq__(self, other: Any) -> bool:
+        """
+        The method for equality comparisons.
+
+        Parameters
+        ----------
+        other : Any
+            Other instance to compare with.
+        """
         if not isinstance(other, _ParamOrRtnBase):
             return False
         if self._name != other._name:

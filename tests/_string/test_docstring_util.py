@@ -395,3 +395,35 @@ class Test_ParamOrRtnBase:
                 '_description': 'Lorem ipsum dolor sit.',
             },
             any_obj=param_or_rtn)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___eq__(self) -> None:
+        param_or_rtn: _ParamOrRtnBase = _ParamOrRtnBase(
+            name='test_value', type_str='int',
+            description='Lorem ipsum dolor sit.')
+        result: bool = param_or_rtn == 10
+        assert not result
+
+        other: _ParamOrRtnBase = _ParamOrRtnBase(
+            name='test_value_2', type_str='int',
+            description='Lorem ipsum dolor sit.')
+        result = param_or_rtn == other
+        assert not result
+
+        other = _ParamOrRtnBase(
+            name='test_value', type_str='str',
+            description='Lorem ipsum dolor sit.')
+        result = param_or_rtn == other
+        assert not result
+
+        other = _ParamOrRtnBase(
+            name='test_value', type_str='int',
+            description='Lorem ipsum dolor.')
+        result = param_or_rtn == other
+        assert not result
+
+        other = _ParamOrRtnBase(
+            name='test_value', type_str='int',
+            description='Lorem ipsum dolor sit.')
+        result = param_or_rtn == other
+        assert result

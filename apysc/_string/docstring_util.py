@@ -5,7 +5,7 @@ from ctypes import Union
 from types import ModuleType
 import importlib
 from enum import Enum
-from typing import Any, Callable, List, Match, Optional, Tuple, Type
+from typing import Any, Callable, List, Match, Optional, Tuple, Type, TypeVar
 import os
 import re
 
@@ -234,7 +234,7 @@ def _convert_docstring_to_markdown(*, docstring: str) -> str:
         Converted markdown text.
     """
     summary: str = _extract_summary_from_docstring(docstring=docstring)
-    parameters: List[_ParamOrRtnBase] = _extract_param_or_rtn_values_from_docstring(
+    parameters: List[_Parameter] = _extract_param_or_rtn_values_from_docstring(
         target_type=_Parameter,
         docstring=docstring)
     pass
@@ -293,9 +293,12 @@ class _Return(_ParamOrRtnBase):
     """
 
 
+_ParamOrRtn = TypeVar('_ParamOrRtn', _Parameter, _Return)
+
+
 def _extract_param_or_rtn_values_from_docstring(
-        target_type: Type[_ParamOrRtnBase],
-        docstring: str) -> List[_ParamOrRtnBase]:
+        target_type: Type[_ParamOrRtn],
+        docstring: str) -> List[_ParamOrRtn]:
     """
     Extract parameter or return values from a docstring.
 
@@ -315,7 +318,7 @@ def _extract_param_or_rtn_values_from_docstring(
     value_type_str: str = ''
     base_indent_num: int = 0
     description_lines: List[str] = []
-    param_or_rtn_values: List[_ParamOrRtnBase] = []
+    param_or_rtn_values: List[_ParamOrRtn] = []
     params_or_rtns_section_pattern: _ParamsOrRtnsSectionPattern = \
         _get_params_or_rtns_section_pattern_by_type(target_type=target_type)
     for line in lines:
@@ -392,8 +395,8 @@ def _get_params_or_rtns_section_pattern_by_type(
 
 def _make_description_from_lines_and_append_param_to_list(
         *,
-        target_type: Type[_ParamOrRtnBase],
-        param_or_rtn_values: List[_ParamOrRtnBase],
+        target_type: Type[_ParamOrRtn],
+        param_or_rtn_values: List[_ParamOrRtn],
         value_name: str,
         value_type_str: str,
         description_lines: List[str]) -> None:
@@ -419,7 +422,7 @@ def _make_description_from_lines_and_append_param_to_list(
     description: str = '\n'.join(description_lines)
     description = _remove_line_breaks_and_unnecessary_spaces(
         text=description)
-    param_or_rtn: _ParamOrRtnBase = target_type(
+    param_or_rtn: _ParamOrRtn = target_type(
         name=value_name, type_str=value_type_str,
         description=description)
     param_or_rtn_values.append(param_or_rtn)

@@ -1,6 +1,6 @@
 import os
 from random import randint
-from typing import Any, List
+from typing import Any, List, TypeVar
 
 from retrying import retry
 
@@ -10,6 +10,8 @@ from apysc._file import file_util
 from apysc._display.sprite import Sprite
 from apysc._display import sprite
 from tests.testing_helper import assert_attrs, assert_raises
+
+_ParamOrRtn = TypeVar('_ParamOrRtn', _Parameter, _Return)
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -347,12 +349,12 @@ _TEST_DOCSTRING: str = (
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__extract_param_or_rtn_values_from_docstring() -> None:
-    param_or_rtn_values: List[_ParamOrRtnBase] = docstring_util.\
+    param_values: List[_Parameter] = docstring_util.\
         _extract_param_or_rtn_values_from_docstring(
             target_type=_Parameter,
             docstring=_TEST_DOCSTRING)
-    assert len(param_or_rtn_values) == 2
-    for parameter_ in param_or_rtn_values:
+    assert len(param_values) == 2
+    for parameter_ in param_values:
         assert isinstance(parameter_, _Parameter)
     parameter: _Parameter = _Parameter(
         name='test_param_1',
@@ -361,7 +363,7 @@ def test__extract_param_or_rtn_values_from_docstring() -> None:
             'Ut enim ad minim veniam, quis nostrud exercitation '
             'ullamco laboris nisi.'
         ))
-    assert param_or_rtn_values[0] == parameter
+    assert param_values[0] == parameter
     parameter = _Parameter(
         name='test_param_2',
         type_str='str, optional',
@@ -371,14 +373,14 @@ def test__extract_param_or_rtn_values_from_docstring() -> None:
             'voluptate velit esse cillum dolore. '
             'Omnis dolor repellendus. Temporibus autem quibusdam.'
         ))
-    assert param_or_rtn_values[1] == parameter
+    assert param_values[1] == parameter
 
-    param_or_rtn_values = docstring_util.\
+    return_values: List[_Return] = docstring_util.\
         _extract_param_or_rtn_values_from_docstring(
             target_type=_Return,
             docstring=_TEST_DOCSTRING)
-    assert len(param_or_rtn_values) == 2
-    for return__ in param_or_rtn_values:
+    assert len(return_values) == 2
+    for return__ in return_values:
         assert isinstance(return__, _Return)
     return_: _Return = _Return(
         name='test_return_val_1',
@@ -389,7 +391,7 @@ def test__extract_param_or_rtn_values_from_docstring() -> None:
             'officia deserunt mollit anim id est laborum. '
             'Omnis dolor repellendus. Temporibus autem quibusdam.'
         ))
-    assert param_or_rtn_values[0] == return_
+    assert return_values[0] == return_
     return_ = _Return(
         name='test_return_val_2',
         type_str='Sprite',
@@ -400,7 +402,7 @@ def test__extract_param_or_rtn_values_from_docstring() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__make_description_from_lines_and_append_param_to_list() -> None:
-    parameters: List[_ParamOrRtnBase] = []
+    parameters: List[_Parameter] = []
     description_lines: List[str] = [
         '    At vero eos et accusamus et iusto odio dignissimos'
         '    ducimus, qui blanditiis praesentium voluptatum.'

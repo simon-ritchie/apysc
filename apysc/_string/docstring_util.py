@@ -327,9 +327,9 @@ def _extract_param_or_rtn_values_from_docstring(
             if description_lines:
                 _make_description_from_lines_and_append_param_to_list(
                     target_type=target_type,
-                    parameters=param_or_rtn_values,
-                    param_name=param_name,
-                    param_type_str=param_type_str,
+                    param_or_rtn_values=param_or_rtn_values,
+                    value_name=param_name,
+                    value_type_str=param_type_str,
                     description_lines=description_lines,
                 )
             break
@@ -337,9 +337,9 @@ def _extract_param_or_rtn_values_from_docstring(
             if description_lines:
                 _make_description_from_lines_and_append_param_to_list(
                     target_type=target_type,
-                    parameters=param_or_rtn_values,
-                    param_name=param_name,
-                    param_type_str=param_type_str,
+                    param_or_rtn_values=param_or_rtn_values,
+                    value_name=param_name,
+                    value_type_str=param_type_str,
                     description_lines=description_lines,
                 )
             param_name, param_type_str = _get_value_name_and_type_from_line(
@@ -352,9 +352,9 @@ def _extract_param_or_rtn_values_from_docstring(
 
 def _make_description_from_lines_and_append_param_to_list(
         target_type: Type[_ParamOrRtnBase],
-        parameters: List[_ParamOrRtnBase],
-        param_name: str,
-        param_type_str: str,
+        param_or_rtn_values: List[_ParamOrRtnBase],
+        value_name: str,
+        value_type_str: str,
         description_lines: List[str]) -> None:
     """
     Make a parameter or return value description from a list of
@@ -366,22 +366,22 @@ def _make_description_from_lines_and_append_param_to_list(
 
     Parameters
     ----------
-    parameters : lisf of _Parameter
-        A list to append a parameter value.
-    param_name : str
-        Parameter name.
-    param_type_str : str
-        Parameter type name.
+    param_or_rtn_values : lisf of _ParamOrRtnBase
+        A list to append a parameter or return value.
+    value_name : str
+        Parameter or return value name.
+    value_type_str : str
+        Parameter or return type name.
     description_lines : list of str
         A list of description lines.
     """
     description: str = '\n'.join(description_lines)
     description = _remove_line_breaks_and_unnecessary_spaces(
         text=description)
-    parameter: _ParamOrRtnBase = target_type(
-        name=param_name, type_str=param_type_str,
+    param_or_rtn: _ParamOrRtnBase = target_type(
+        name=value_name, type_str=value_type_str,
         description=description)
-    parameters.append(parameter)
+    param_or_rtn_values.append(param_or_rtn)
     description_lines.clear()
 
 

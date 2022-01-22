@@ -371,9 +371,9 @@ def test__make_description_from_lines_and_append_param_to_list() -> None:
     ]
     docstring_util._make_description_from_lines_and_append_param_to_list(
         target_type=_Parameter,
-        parameters=parameters,
-        param_name='test_value',
-        param_type_str='int',
+        param_or_rtn_values=parameters,
+        value_name='test_value',
+        value_type_str='int',
         description_lines=description_lines)
     parameter: _Parameter = _Parameter(
         name='test_value',

@@ -324,7 +324,9 @@ def _extract_param_or_rtn_values_from_docstring(
             continue
         if base_indent_num == 0:
             base_indent_num = current_indent_num
-        if _is_target_section_pattern_line(line=line):
+        if _is_target_section_pattern_line(
+                line=line,
+                section_pattern=params_or_rtns_section_pattern):
             is_parameter_section_range = True
             continue
         if not is_parameter_section_range:
@@ -359,6 +361,7 @@ def _extract_param_or_rtn_values_from_docstring(
 
 
 def _get_params_or_rtns_section_pattern_by_type(
+        *,
         target_type: Type[_ParamOrRtnBase]) -> _ParamsOrRtnsSectionPattern:
     """
     Get the parameters or returns section pattern
@@ -388,6 +391,7 @@ def _get_params_or_rtns_section_pattern_by_type(
 
 
 def _make_description_from_lines_and_append_param_to_list(
+        *,
         target_type: Type[_ParamOrRtnBase],
         param_or_rtn_values: List[_ParamOrRtnBase],
         value_name: str,
@@ -493,15 +497,20 @@ def _is_hyphens_line(*, line: str) -> bool:
     return True
 
 
-def _is_target_section_pattern_line(*, line: str) -> bool:
+def _is_target_section_pattern_line(
+        *,
+        line: str,
+        section_pattern: _ParamsOrRtnsSectionPattern) -> bool:
     """
     Get a boolean indicating whether a specified line
-    is a parameters section or not.
+    is matching with a target section pattern or not.
 
     Parameters
     ----------
     line : str
         Target docstring line.
+    section_pattern : _ParamsOrRtnsSectionPattern
+        Target section pattern.
 
     Returns
     -------
@@ -510,7 +519,7 @@ def _is_target_section_pattern_line(*, line: str) -> bool:
         this function returns True.
     """
     match: Optional[Match] = re.search(
-        pattern=_PARAMETERS_SECTION_PATTERN, string=line)
+        pattern=section_pattern.value, string=line)
     if match is None:
         return False
     return True

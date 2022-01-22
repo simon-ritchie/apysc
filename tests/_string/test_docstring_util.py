@@ -211,12 +211,24 @@ def test__extract_summary_from_docstring() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__is_target_section_pattern_line() -> None:
     result: bool = docstring_util._is_target_section_pattern_line(
-        line='    Parameters')
+        line='    Parameters',
+        section_pattern=_ParamsOrRtnsSectionPattern.PARAMETERS)
     assert result
 
     result = docstring_util._is_target_section_pattern_line(
-        line='    a : str')
+        line='    a : str',
+        section_pattern=_ParamsOrRtnsSectionPattern.PARAMETERS)
     assert not result
+
+    result = docstring_util._is_target_section_pattern_line(
+        line='    Returns',
+        section_pattern=_ParamsOrRtnsSectionPattern.PARAMETERS)
+    assert not result
+
+    result = docstring_util._is_target_section_pattern_line(
+        line='    Returns',
+        section_pattern=_ParamsOrRtnsSectionPattern.RETURNS)
+    assert result
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

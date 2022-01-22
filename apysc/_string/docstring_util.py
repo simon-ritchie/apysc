@@ -307,6 +307,17 @@ class _ParamOrRtnBase:
         """
         return self._type_str
 
+    @property
+    def description(self) -> str:
+        """
+        Get a parameter or return value description.
+
+        Returns
+        -------
+            A parameter or return value description.
+        """
+        return self._description
+
 
 class _Parameter(_ParamOrRtnBase):
     """Parameter value type.

@@ -256,13 +256,17 @@ def _extract_parameters_from_docstring(
     """
     lines: List[str] = docstring.splitlines()
     is_parameter_section_range: bool = False
-    is_description_area: bool = False
     param_name: str = ''
     param_type_str: str = ''
     base_indent_num: int = 0
     description_lines: List[str] = []
     parameters: List[_Parameter] = []
     for line in lines:
+        current_indent_num: int = _get_indent_num_from_line(line=line)
+        if current_indent_num == 0:
+            continue
+        if base_indent_num == 0:
+            base_indent_num = current_indent_num
         if _is_parameters_section_pattern_line(line=line):
             is_parameter_section_range = True
             continue
@@ -271,25 +275,61 @@ def _extract_parameters_from_docstring(
         if _is_hyphens_line(line=line):
             continue
         if _is_section_line(line=line):
+            if description_lines:
+                _make_description_from_lines_and_append_parameter_to_list(
+                    parameters=parameters,
+                    param_name=param_name,
+                    param_type_str=param_type_str,
+                    description_lines=description_lines,
+                )
             break
-        if not is_description_area:
-            is_description_area = True
-            description_lines = []
+        if current_indent_num == base_indent_num:
+            if description_lines:
+                _make_description_from_lines_and_append_parameter_to_list(
+                    parameters=parameters,
+                    param_name=param_name,
+                    param_type_str=param_type_str,
+                    description_lines=description_lines,
+                )
             param_name, param_type_str = _get_value_name_and_type_from_line(
                 line=line)
             base_indent_num = _get_indent_num_from_line(line=line)
             continue
-        current_indent_num: int = _get_indent_num_from_line(line=line)
-        if current_indent_num == base_indent_num:
-            # description: str = ''
-            # parameters.append({
-            #     'name': param_name,
-            #     'type_str': param_type_str,
-            #     ''
-            # })
-            continue
-        pass
-    pass
+        description_lines.append(line)
+    return parameters
+
+
+def _make_description_from_lines_and_append_parameter_to_list(
+        parameters: List[_Parameter], param_name: str,
+        param_type_str: str, description_lines: List[str]) -> None:
+    """
+    Make a parameter description from a list of lines
+    and append parameter value to a specified list.
+
+    Notes
+    -----
+    This function clears s list of description lines.
+
+    Parameters
+    ----------
+    parameters : lisf of _Parameter
+        A list to append a parameter value.
+    param_name : str
+        Parameter name.
+    param_type_str : str
+        Parameter type name.
+    description_lines : list of str
+        A list of description lines.
+    """
+    description: str = '\n'.join(description_lines)
+    description = _remove_line_breaks_and_unnecessary_spaces(
+        text=description)
+    parameters.append({
+        'name': param_name,
+        'type_str': param_type_str,
+        'description': description,
+    })
+    description_lines.clear()
 
 
 def _get_indent_num_from_line(*, line: str) -> int:

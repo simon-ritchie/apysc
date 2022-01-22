@@ -5,6 +5,7 @@ from typing import Any, List
 from retrying import retry
 
 from apysc._string import docstring_util
+from apysc._string.docstring_util import _Parameter
 from apysc._file import file_util
 from apysc._display.sprite import Sprite
 from apysc._display import sprite
@@ -267,3 +268,111 @@ def test__remove_line_breaks_and_unnecessary_spaces() -> None:
         'elit, sed do eiusmod tempor incididunt ut labore et '
         'dolore magna aliqua.'
     )
+
+_TEST_DOCSTRING: str = (
+    '    """'
+    '\n    Lorem ipsum dolor sit amet, consectetur '
+    '\n    adipiscing elit, sed do eiusmod tempor incididunt '
+    '\n    ut labore et dolore magna aliqua.'
+    '\n'
+    '\n    Parameters'
+    '\n    ----------'
+    '\n    test_param_1 : int'
+    '\n        Ut enim ad minim veniam, quis nostrud exercitation'
+    '\n        ullamco laboris nisi.'
+    '\n    test_param_2 : str, optional'
+    '\n        Ut aliquip ex ea commodo consequat.'
+    '\n        Duis aute irure dolor in reprehenderit in'
+    '\n        voluptate velit esse cillum dolore.'
+    '\n'
+    '\n        Omnis dolor repellendus. Temporibus autem quibusdam.'
+    '\n'
+    '\n    Returns'
+    '\n    -------'
+    '\n    test_return_val_1 : bool or int'
+    '\n        Fugiat nulla pariatur. Excepteur sint occaecat '
+    '\n        cupidatat non proident, sunt in culpa qui '
+    '\n        officia deserunt mollit anim id est laborum.'
+    '\n'
+    '\n        Omnis dolor repellendus. Temporibus autem quibusdam.'
+    '\n    test_return_val_2 : Sprite'
+    '\n        Officiis debitis aut rerum necessitatibus saepe eveniet.'
+    '\n'
+    '\n    Notes'
+    '\n    -----'
+    '\n    At vero eos et accusamus et iusto odio dignissimos'
+    '\n    ducimus, qui blanditiis praesentium voluptatum'
+    '\n    deleniti atque corrupt.'
+    '\n'
+    '\n    Raises'
+    '\n    ------'
+    '\n    ValueError'
+    '\n        Quos dolores et quas molestias excepturi sint,'
+    '\n        obcaecati.'
+    '\n    ImportError'
+    '\n        Cupiditate non provident, similique sunt in culpa.'
+    '\n'
+    '\n    Examples'
+    '\n    --------'
+    '\n    >>> test_value_1: int = 10'
+    '\n    >>> test_value_1'
+    '\n    10'
+    '\n'
+    '\n    >>> test_value_2: int = test_function('
+    '\n    ...    any_arg=10)'
+    '\n    >>> test_value_2'
+    '\n    30'
+    '\n'
+    '\n    References'
+    '\n    ----------'
+    '\n    - Test interface1 document'
+    '\n        - https://en.wikipedia.org/test_page_1.html'
+    '\n    - Test interface2 document'
+    '\n        - https://en.wikipedia.org/test_page_2.html'
+)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__extract_parameters_from_docstring() -> None:
+    parameters: List[_Parameter] = docstring_util.\
+        _extract_parameters_from_docstring(docstring=_TEST_DOCSTRING)
+    print(parameters)
+    assert len(parameters) == 2
+    assert parameters[0] == {
+        'name': 'test_param_1',
+        'type_str': 'int',
+        'description':
+        'Ut enim ad minim veniam, quis nostrud exercitation '
+        'ullamco laboris nisi.',
+    }
+    assert parameters[1] == {
+        'name': 'test_param_2',
+        'type_str': 'str, optional',
+        'description':
+        'Ut aliquip ex ea commodo consequat. '
+        'Duis aute irure dolor in reprehenderit in '
+        'voluptate velit esse cillum dolore. '
+        'Omnis dolor repellendus. Temporibus autem quibusdam.'
+    }
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__make_description_from_lines_and_append_parameter_to_list() -> None:
+    parameters: List[_Parameter] = []
+    description_lines: List[str] = [
+        '    At vero eos et accusamus et iusto odio dignissimos'
+        '    ducimus, qui blanditiis praesentium voluptatum.'
+    ]
+    docstring_util._make_description_from_lines_and_append_parameter_to_list(
+        parameters=parameters,
+        param_name='test_value',
+        param_type_str='int',
+        description_lines=description_lines)
+    assert parameters == [{
+        'name': 'test_value',
+        'type_str': 'int',
+        'description':
+        'At vero eos et accusamus et iusto odio dignissimos '
+        'ducimus, qui blanditiis praesentium voluptatum.'
+    }]
+    assert description_lines == []

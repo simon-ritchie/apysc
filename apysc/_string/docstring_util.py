@@ -305,8 +305,8 @@ def _extract_param_or_rtn_values_from_docstring(
     """
     lines: List[str] = docstring.splitlines()
     is_parameter_section_range: bool = False
-    param_name: str = ''
-    param_type_str: str = ''
+    value_name: str = ''
+    value_type_str: str = ''
     base_indent_num: int = 0
     description_lines: List[str] = []
     param_or_rtn_values: List[_ParamOrRtnBase] = []
@@ -328,8 +328,8 @@ def _extract_param_or_rtn_values_from_docstring(
                 _make_description_from_lines_and_append_param_to_list(
                     target_type=target_type,
                     param_or_rtn_values=param_or_rtn_values,
-                    value_name=param_name,
-                    value_type_str=param_type_str,
+                    value_name=value_name,
+                    value_type_str=value_type_str,
                     description_lines=description_lines,
                 )
             break
@@ -338,11 +338,11 @@ def _extract_param_or_rtn_values_from_docstring(
                 _make_description_from_lines_and_append_param_to_list(
                     target_type=target_type,
                     param_or_rtn_values=param_or_rtn_values,
-                    value_name=param_name,
-                    value_type_str=param_type_str,
+                    value_name=value_name,
+                    value_type_str=value_type_str,
                     description_lines=description_lines,
                 )
-            param_name, param_type_str = _get_value_name_and_type_from_line(
+            value_name, value_type_str = _get_value_name_and_type_from_line(
                 line=line)
             base_indent_num = _get_indent_num_from_line(line=line)
             continue

@@ -324,7 +324,7 @@ def _extract_param_or_rtn_values_from_docstring(
             continue
         if base_indent_num == 0:
             base_indent_num = current_indent_num
-        if _is_parameters_section_pattern_line(line=line):
+        if _is_target_section_pattern_line(line=line):
             is_parameter_section_range = True
             continue
         if not is_parameter_section_range:
@@ -493,7 +493,7 @@ def _is_hyphens_line(*, line: str) -> bool:
     return True
 
 
-def _is_parameters_section_pattern_line(*, line: str) -> bool:
+def _is_target_section_pattern_line(*, line: str) -> bool:
     """
     Get a boolean indicating whether a specified line
     is a parameters section or not.

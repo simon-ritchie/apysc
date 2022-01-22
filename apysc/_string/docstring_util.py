@@ -42,6 +42,7 @@ _HYPHENS_LINE_PATTERN: str = r'\s{4}-----'
 class _SectionPattern(Enum):
     PARAMETERS = _PARAMETERS_SECTION_PATTERN
     RETURNS = _RETURNS_SECTION_PATTERN
+    RAISES = _RAISES_SECTION_PATTERN
 
 
 def reset_replaced_docstring_section(*, md_file_path: str) -> bool:

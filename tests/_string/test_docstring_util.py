@@ -610,3 +610,16 @@ def test__extract_raise_values_from_docstring() -> None:
             'Cupiditate non provident, similique sunt in culpa.'
         ))
     assert raise_values[1] == expected_raise
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_base_indent_num_if_not_set() -> None:
+    base_indent_num: int = docstring_util._get_base_indent_num_if_not_set(
+        line='        test_value : int',
+        base_indent_num=1)
+    assert base_indent_num == 1
+
+    base_indent_num = docstring_util._get_base_indent_num_if_not_set(
+        line='    Lorem ipsum dolor sit.',
+        base_indent_num=0)
+    assert base_indent_num == 1

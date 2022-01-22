@@ -422,8 +422,8 @@ def _extract_raise_values_from_docstring(docstring: str) -> List[_Raise]:
         current_indent_num: int = _get_indent_num_from_line(line=line)
         if current_indent_num == 0:
             continue
-        if base_indent_num == 0:
-            base_indent_num = current_indent_num
+        base_indent_num = _get_base_indent_num_if_not_set(
+            line=line, base_indent_num=base_indent_num)
         if _is_target_section_pattern_line(
                 line=line,
                 section_pattern=_SectionPattern.RAISES):
@@ -452,6 +452,31 @@ def _extract_raise_values_from_docstring(docstring: str) -> List[_Raise]:
             continue
         description_lines.append(line)
     return raise_values
+
+
+def _get_base_indent_num_if_not_set(
+        line: str, base_indent_num: int) -> int:
+    """
+    Get a base indent number from line if it is not set.
+
+    Parameters
+    ----------
+    line : str
+        Target docstring line.
+    base_indent_num : int
+        Current base indent number.
+
+    Returns
+    -------
+    base_indent_num : int
+        If the base_indent_num argument is zero, this function
+        returns the current line indent number. Otherwise, it
+        returns the same value of the base_indent_num argument.
+    """
+    if base_indent_num != 0:
+        return base_indent_num
+    current_indent_num: int = _get_indent_num_from_line(line=line)
+    return current_indent_num
 
 
 def _make_raise_description_and_append_to_list(
@@ -517,8 +542,8 @@ def _extract_param_or_rtn_values_from_docstring(
         current_indent_num: int = _get_indent_num_from_line(line=line)
         if current_indent_num == 0:
             continue
-        if base_indent_num == 0:
-            base_indent_num = current_indent_num
+        base_indent_num = _get_base_indent_num_if_not_set(
+            line=line, base_indent_num=base_indent_num)
         if _is_target_section_pattern_line(
                 line=line,
                 section_pattern=params_or_rtns_section_pattern):

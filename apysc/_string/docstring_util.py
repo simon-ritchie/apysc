@@ -228,7 +228,7 @@ def _convert_docstring_to_markdown(*, docstring: str) -> str:
         Converted markdown text.
     """
     summary: str = _extract_summary_from_docstring(docstring=docstring)
-    parameters: List[_ParamOrRtnBase] = _extract_parameters_from_docstring(
+    parameters: List[_ParamOrRtnBase] = _extract_param_or_rtn_values_from_docstring(
         target_type=_Parameter,
         docstring=docstring)
     pass
@@ -287,11 +287,11 @@ class _Return(_ParamOrRtnBase):
     """
 
 
-def _extract_parameters_from_docstring(
+def _extract_param_or_rtn_values_from_docstring(
         target_type: Type[_ParamOrRtnBase],
         docstring: str) -> List[_ParamOrRtnBase]:
     """
-    Extract parameter values from a docstring.
+    Extract parameter or return values from a docstring.
 
     Parameters
     ----------

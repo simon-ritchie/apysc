@@ -591,7 +591,7 @@ def test__make_raise_description_and_append_to_list() -> None:
     assert raise_values == [expected_raise]
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__extract_raise_values_from_docstring() -> None:
     raise_values: List[_Raise] = docstring_util.\
         _extract_raise_values_from_docstring(docstring=_TEST_DOCSTRING)
@@ -623,3 +623,18 @@ def test__get_base_indent_num_if_not_set() -> None:
         line='    Lorem ipsum dolor sit.',
         base_indent_num=0)
     assert base_indent_num == 1
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__remove_blank_lines_from_list() -> None:
+    result_lines: List[str] = docstring_util._remove_blank_lines_from_list(
+        lines=[
+            '    Lorem ipsum dolor sit amet, consectetur adipiscing',
+            '',
+            '    ',
+            '    elit, sed do eiusmod tempor incididunt ut.',
+        ])
+    assert result_lines == [
+        '    Lorem ipsum dolor sit amet, consectetur adipiscing',
+        '    elit, sed do eiusmod tempor incididunt ut.',
+    ]

@@ -413,6 +413,7 @@ def _extract_raise_values_from_docstring(docstring: str) -> List[_Raise]:
         Extracted raise values.
     """
     lines: List[str] = docstring.splitlines()
+    lines = _remove_blank_lines_from_list(lines=lines)
     is_raises_section_range: bool = False
     err_class_name: str = ''
     base_indent_num: int = 0
@@ -420,8 +421,6 @@ def _extract_raise_values_from_docstring(docstring: str) -> List[_Raise]:
     raise_values: List[_Raise] = []
     for line in lines:
         current_indent_num: int = _get_indent_num_from_line(line=line)
-        if current_indent_num == 0:
-            continue
         base_indent_num = _get_base_indent_num_if_not_set(
             line=line, base_indent_num=base_indent_num)
         if _is_target_section_pattern_line(
@@ -452,6 +451,28 @@ def _extract_raise_values_from_docstring(docstring: str) -> List[_Raise]:
             continue
         description_lines.append(line)
     return raise_values
+
+
+def _remove_blank_lines_from_list(lines: List[str]) -> List[str]:
+    """
+    Remove blank lines from a list of lines.
+
+    Parameters
+    ----------
+    lines : list of str
+        Target list of lines.
+
+    Returns
+    -------
+    result_lines : list of str
+        A lines list which removed blank lines.
+    """
+    result_lines: List[str] = []
+    for line in lines:
+        if line.strip() == '':
+            continue
+        result_lines.append(line)
+    return result_lines
 
 
 def _get_base_indent_num_if_not_set(
@@ -530,6 +551,7 @@ def _extract_param_or_rtn_values_from_docstring(
         Extracted parameter or return values.
     """
     lines: List[str] = docstring.splitlines()
+    lines = _remove_blank_lines_from_list(lines=lines)
     is_param_or_rtn_section_range: bool = False
     value_name: str = ''
     value_type_str: str = ''
@@ -540,8 +562,6 @@ def _extract_param_or_rtn_values_from_docstring(
         _get_params_or_rtns_section_pattern_by_type(target_type=target_type)
     for line in lines:
         current_indent_num: int = _get_indent_num_from_line(line=line)
-        if current_indent_num == 0:
-            continue
         base_indent_num = _get_base_indent_num_if_not_set(
             line=line, base_indent_num=base_indent_num)
         if _is_target_section_pattern_line(

@@ -267,6 +267,12 @@ class _ParamOrRtnBase:
         ----------
         other : Any
             Other instance to compare with.
+
+        Returns
+        -------
+        result : bool
+            If each attribute is equal to the other, this
+            method returns True.
         """
         if not isinstance(other, _ParamOrRtnBase):
             return False
@@ -368,6 +374,29 @@ class _Raise:
         """
         return self._description
 
+    def __eq__(self, other: Any) -> bool:
+        """
+        The method for equality comparisons.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to compare with.
+
+        Returns
+        -------
+        result : bool
+            If each attribute is equal to the other, this
+            method returns True.
+        """
+        if not isinstance(other, _Raise):
+            return False
+        if self.err_class_name != other.err_class_name:
+            return False
+        if self._description != other._description:
+            return False
+        return True
+
 
 def _extract_raise_values_from_docstring(docstring: str) -> List[_Raise]:
     """
@@ -406,16 +435,51 @@ def _extract_raise_values_from_docstring(docstring: str) -> List[_Raise]:
             continue
         if _is_section_line(line=line):
             if description_lines:
-                pass
+                _make_raise_description_and_append_to_list(
+                    raise_values=raise_values,
+                    err_class_name=err_class_name,
+                    description_lines=description_lines,
+                )
             break
     pass
+
+
+def _make_raise_description_and_append_to_list(
+        *,
+        raise_values: List[_Raise],
+        err_class_name: str,
+        description_lines: List[str]) -> None:
+    """
+    Make a raise value description from a list of lines and
+    append raise value to a specified list.
+
+    Notes
+    -----
+    This function clears a list of description lines.
+
+    Parameters
+    ----------
+    raise_values : list of _Raise
+        A list to append a raise value.
+    err_class_name : str
+        Target error class name.
+    description_lines : list of str
+        A list of description lines.
+    """
+    description: str = '\n'.join(description_lines)
+    description = _remove_line_breaks_and_unnecessary_spaces(
+        text=description)
+    raise_: _Raise = _Raise(
+        err_class_name=err_class_name, description=description)
+    raise_values.append(raise_)
+    description_lines.clear()
 
 
 _ParamOrRtn = TypeVar('_ParamOrRtn', _Parameter, _Return)
 
 
 def _extract_param_or_rtn_values_from_docstring(
-        target_type: Type[_ParamOrRtn],
+        *, target_type: Type[_ParamOrRtn],
         docstring: str) -> List[_ParamOrRtn]:
     """
     Extract parameter or return values from a docstring.
@@ -524,7 +588,7 @@ def _make_prm_or_rtn_description_and_append_to_list(
 
     Notes
     -----
-    This function clears s list of description lines.
+    This function clears a list of description lines.
 
     Parameters
     ----------

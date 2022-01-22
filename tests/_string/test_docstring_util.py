@@ -5,7 +5,7 @@ from typing import Any, List, TypeVar
 from retrying import retry
 
 from apysc._string import docstring_util
-from apysc._string.docstring_util import _Parameter, _ParamOrRtnBase, _SectionPattern, _Raise, _Return
+from apysc._string.docstring_util import _Parameter, _ParamOrRtnBase, _SectionPattern, _Raise, _Return, _Raise
 from apysc._file import file_util
 from apysc._display.sprite import Sprite
 from apysc._display import sprite
@@ -541,3 +541,51 @@ class Test_Raise:
             err_class_name='ValueError',
             description='Lorem ipsum dolor sit.')
         assert raise_.description == 'Lorem ipsum dolor sit.'
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___eq__(self) -> None:
+        raise_: _Raise = _Raise(
+            err_class_name='ValueError',
+            description='Lorem ipsum dolor sit.')
+
+        result: bool = raise_ == 10
+        assert not result
+
+        other: _Raise = _Raise(
+            err_class_name='ImportError',
+            description='Lorem ipsum dolor sit.')
+        result = raise_ == other
+        assert not result
+
+        other = _Raise(
+            err_class_name='ValueError',
+            description='Lorem ipsum dolor.')
+        result = raise_ == other
+        assert not result
+
+        other = _Raise(
+            err_class_name='ValueError',
+            description='Lorem ipsum dolor sit.')
+        result = raise_ == other
+        assert result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__make_raise_description_and_append_to_list() -> None:
+    raise_values: List[_Raise] = []
+    docstring_util._make_raise_description_and_append_to_list(
+        raise_values=raise_values,
+        err_class_name='ValueError',
+        description_lines=[
+            '    Lorem ipsum dolor sit amet, consectetur adipiscing ',
+            '    elit, sed do eiusmod tempor incididunt ut labore ',
+            '    et dolore magna aliqua. '
+        ])
+    expected_raise: _Raise = _Raise(
+        err_class_name='ValueError',
+        description=(
+            'Lorem ipsum dolor sit amet, consectetur adipiscing '
+            'elit, sed do eiusmod tempor incididunt ut labore '
+            'et dolore magna aliqua.'
+        ))
+    assert raise_values == [expected_raise]

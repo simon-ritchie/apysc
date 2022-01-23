@@ -19,6 +19,7 @@ from scripts.build_docs import _RunReturnData
 from scripts.build_docs import _ScriptData
 from tests.testing_helper import assert_attrs
 from tests.testing_helper import assert_raises
+from apysc._string.docstring_util import _DOCSTRING_PATH_COMMENT_KEYWORD
 
 _CHECKOUT_FILE_PATHS: List[str] = [
     'docs_src/hashed_vals/stage.md',
@@ -591,3 +592,28 @@ def test__remove_none_from_markdown_data_list() -> None:
         'md_file_path': 'test_path.md',
         'hashed_val': 'abc',
     }]
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__replace_docstring_specification() -> None:
+    tmp_dir_path: str = './tmp/'
+    os.makedirs(tmp_dir_path, exist_ok=True)
+    tmp_file_path: str = os.path.join(
+        tmp_dir_path, 'test_build_docs.md',
+    )
+    file_util.save_plain_txt(
+        txt=(
+            '# Test document'
+            '\n\nLorem ipsum dolor sit amet.'
+            '\n\n## Constructor API'
+            f'\n\n<!-- {_DOCSTRING_PATH_COMMENT_KEYWORD} '
+            'apysc._display.sprite.Sprite.__init__ -->'
+        ),
+        file_path=tmp_file_path)
+    build_docs._replace_docstring_specification(
+        markdown_data={
+            'md_file_path': tmp_file_path,
+            'hashed_val': 'abc',
+        })
+
+    file_util.remove_file_if_exists(file_path=tmp_file_path)

@@ -11,8 +11,6 @@ from apysc._display.sprite import Sprite
 from apysc._display import sprite
 from tests.testing_helper import assert_attrs, assert_raises
 
-_ParamOrRtn = TypeVar('_ParamOrRtn', _Parameter, _Return)
-
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_docstring_path_comment_matches() -> None:
@@ -990,14 +988,16 @@ def test__convert_docstring_to_markdown() -> None:
     assert len(markdown_lines) == len(expected_lines)
 
 
+_PATH_COMMENT_KEYWORD: str = \
+    docstring_util._DOCSTRING_PATH_COMMENT_KEYWORD
+
+
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__convert_docstring_path_comment_to_markdown_format() -> None:
-    PATH_COMMENT_KEYWORD: str = \
-        docstring_util._DOCSTRING_PATH_COMMENT_KEYWORD
     markdown_format_docstring: str = docstring_util.\
         _convert_docstring_path_comment_to_markdown_format(
             docstring_path_comment=(
-                f'<!-- {PATH_COMMENT_KEYWORD}'
+                f'<!-- {_PATH_COMMENT_KEYWORD}'
                 ' tests._string.test_docstring_util.'
                 'test__convert_docstring_path_comment_to_markdown_format'
                 ' -->'
@@ -1007,9 +1007,44 @@ def test__convert_docstring_path_comment_to_markdown_format() -> None:
     markdown_format_docstring = docstring_util.\
         _convert_docstring_path_comment_to_markdown_format(
             docstring_path_comment=(
-                f'<!-- {PATH_COMMENT_KEYWORD} '
+                f'<!-- {_PATH_COMMENT_KEYWORD} '
                 'apysc._display.sprite.Sprite.__init__ -->'
             ))
     assert '**[Interface summary]**' in markdown_format_docstring
     assert 'Basic display object that can be parent.' \
         in markdown_format_docstring
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_replace_docstring_path_specification() -> None:
+    tmp_dir_path: str = './tmp/'
+    os.makedirs(tmp_dir_path, exist_ok=True)
+    tmp_md_path: str = os.path.join(
+        tmp_dir_path, 'tmp_md_path.md')
+    with open(tmp_md_path, 'w') as f:
+        f.write(
+            '# Test document'
+            '\n\nLorem ipsum dolor sit amet.'
+            '\n\n## Constructor interface API'
+            f'\n\n<!-- {_PATH_COMMENT_KEYWORD} '
+            'apysc._display.sprite.Sprite.__init__ -->'
+        )
+    file_util.save_plain_txt(
+        txt=(
+            '# Test document'
+            '\n\nLorem ipsum dolor sit amet.'
+            '\n\n## Constructor interface API'
+            f'\n\n<!-- {_PATH_COMMENT_KEYWORD} '
+            'apysc._display.sprite.Sprite.__init__ -->'
+        ),
+        file_path=tmp_md_path)
+    docstring_util.replace_docstring_path_specification(
+        md_file_path=tmp_md_path)
+    md_txt: str = file_util.read_txt(file_path=tmp_md_path)
+    assert md_txt.startswith('# Test document')
+    assert (
+        f'\n\n<!-- {_PATH_COMMENT_KEYWORD} '
+        'apysc._display.sprite.Sprite.__init__ -->') in md_txt
+    assert '**[Interface summary]**' in md_txt
+
+    file_util.remove_file_if_exists(file_path=tmp_md_path)

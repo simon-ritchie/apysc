@@ -164,6 +164,7 @@ def replace_docstring_path_specification(*, md_file_path: str) -> None:
         match: Optional[Match] = re.search(
             pattern=_DOCSTRING_PATH_COMMENT_PATTERN, string=line)
         if match is not None:
+            print(102)
             result_lines.append(line)
             result_lines.append('')
             markdown_format_docstring: str = \
@@ -175,7 +176,9 @@ def replace_docstring_path_specification(*, md_file_path: str) -> None:
 
         result_lines.append(line)
         continue
-    pass
+    md_txt = '\n'.join(result_lines)
+    file_util.save_plain_txt(
+        txt=md_txt, file_path=md_file_path)
 
 
 def _convert_docstring_path_comment_to_markdown_format(

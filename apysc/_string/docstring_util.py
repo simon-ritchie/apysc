@@ -247,7 +247,7 @@ def _convert_docstring_to_markdown(*, docstring: str) -> str:
     markdown = _append_notes_to_markdown(markdown=markdown, notes=notes)
     markdown = _append_references_to_markdown(
         markdown=markdown, references=references)
-    pass
+    return markdown
 
 
 def _append_summary_to_markdown(markdown: str, summary: str) -> str:

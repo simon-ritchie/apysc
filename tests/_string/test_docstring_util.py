@@ -931,3 +931,60 @@ def test__append_summary_to_markdown() -> None:
         '\n\n**[Interface summary]**'
         '\n\nLorem ipsum dolor sit.'
     )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__convert_docstring_to_markdown() -> None:
+    markdown: str = docstring_util._convert_docstring_to_markdown(
+        docstring=_TEST_DOCSTRING)
+    markdown_lines: List[str] = markdown.splitlines()
+    expected_lines: List[str] = [
+        '**[Interface summary]**',
+        '',
+        'Lorem ipsum dolor sit amet, consectetur '
+        'adipiscing elit, sed do eiusmod tempor incididunt '
+        'ut labore et dolore magna aliqua.',
+        '',
+        '**[Parameters]**',
+        '',
+        '- test_param_1: int',
+        '  - Ut enim ad minim veniam, quis nostrud exercitation '
+        'ullamco laboris nisi.',
+        '- test_param_2: str, optional',
+        '  - Ut aliquip ex ea commodo consequat. '
+        'Duis aute irure dolor in reprehenderit in '
+        'voluptate velit esse cillum dolore. '
+        'Omnis dolor repellendus. Temporibus autem quibusdam.',
+        '',
+        '**[Returns]**',
+        '',
+        '- test_return_val_1: bool or int',
+        '  - Fugiat nulla pariatur. Excepteur sint occaecat '
+        'cupidatat non proident, sunt in culpa qui '
+        'officia deserunt mollit anim id est laborum. '
+        'Omnis dolor repellendus. Temporibus autem quibusdam.',
+        '- test_return_val_2: Sprite',
+        '  - Officiis debitis aut rerum necessitatibus saepe eveniet.',
+        '',
+        '**[Raises]**',
+        '',
+        '- ValueError: Quos dolores et quas molestias excepturi sint, '
+        'obcaecati.',
+        '- ImportError: Cupiditate non provident, similique sunt in culpa.',
+        '',
+        '**[Notes]**',
+        '',
+        'At vero eos et accusamus et iusto odio dignissimos '
+        'ducimus, qui blanditiis praesentium voluptatum '
+        'deleniti atque corrupt.',
+        '',
+        '**[References]**',
+        '',
+        '- [Test interface1 document]'
+        '(https://en.wikipedia.org/test_page_1.html)',
+        '- [Test interface2 document]'
+        '(https://en.wikipedia.org/test_page_2.html)',
+    ]
+    for i, expected_line in enumerate(expected_lines):
+        assert markdown_lines[i] == expected_line
+    assert len(markdown_lines) == len(expected_lines)

@@ -930,8 +930,8 @@ def test__append_summary_to_markdown() -> None:
         summary='Lorem ipsum dolor sit.')
     assert markdown == (
         '## add_child interface api document'
-        '\n\n**[Interface summary]**'
-        '\n\nLorem ipsum dolor sit.'
+        '\n\n**[Interface summary]** '
+        'Lorem ipsum dolor sit.'
     )
 
 
@@ -941,8 +941,10 @@ def test__convert_docstring_to_markdown() -> None:
         docstring=_TEST_DOCSTRING)
     markdown_lines: List[str] = markdown.splitlines()
     expected_lines: List[str] = [
-        '**[Interface summary]**',
+        'Note: the interface docstring generates and updates '
+        'this section automatically.',
         '',
+        '**[Interface summary]** '
         'Lorem ipsum dolor sit amet, consectetur '
         'adipiscing elit, sed do eiusmod tempor incididunt '
         'ut labore et dolore magna aliqua.',

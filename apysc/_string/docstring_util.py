@@ -574,24 +574,22 @@ def _extract_param_or_rtn_values_from_docstring(
         if _is_hyphens_line(line=line):
             continue
         if _is_section_line(line=line):
-            if description_lines:
-                _make_prm_or_rtn_description_and_append_to_list(
-                    target_type=target_type,
-                    param_or_rtn_values=param_or_rtn_values,
-                    value_name=value_name,
-                    value_type_str=value_type_str,
-                    description_lines=description_lines,
-                )
+            _make_prm_or_rtn_description_and_append_to_list(
+                target_type=target_type,
+                param_or_rtn_values=param_or_rtn_values,
+                value_name=value_name,
+                value_type_str=value_type_str,
+                description_lines=description_lines,
+            )
             break
         if current_indent_num == base_indent_num:
-            if description_lines:
-                _make_prm_or_rtn_description_and_append_to_list(
-                    target_type=target_type,
-                    param_or_rtn_values=param_or_rtn_values,
-                    value_name=value_name,
-                    value_type_str=value_type_str,
-                    description_lines=description_lines,
-                )
+            _make_prm_or_rtn_description_and_append_to_list(
+                target_type=target_type,
+                param_or_rtn_values=param_or_rtn_values,
+                value_name=value_name,
+                value_type_str=value_type_str,
+                description_lines=description_lines,
+            )
             value_name, value_type_str = _get_value_name_and_type_from_line(
                 line=line)
             continue
@@ -655,6 +653,8 @@ def _make_prm_or_rtn_description_and_append_to_list(
     description_lines : list of str
         A list of description lines.
     """
+    if not description_lines:
+        return
     description: str = '\n'.join(description_lines)
     description = _remove_line_breaks_and_unnecessary_spaces(
         text=description)

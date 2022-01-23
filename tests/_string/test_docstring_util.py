@@ -701,7 +701,14 @@ class Test_Reference:
             url='https://simon-ritchie.github.io/apysc/sprite.html')
         assert_attrs(
             expected_attrs={
-                '_path_label': 'Sprite document',
+                '_page_label': 'Sprite document',
                 '_url': 'https://simon-ritchie.github.io/apysc/sprite.html',
             },
             any_obj=reference)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_page_label(self) -> None:
+        reference: _Reference = _Reference(
+            page_label='Sprite document',
+            url='https://simon-ritchie.github.io/apysc/sprite.html')
+        assert reference.page_label == 'Sprite document'

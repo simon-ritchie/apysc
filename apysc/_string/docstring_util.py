@@ -459,6 +459,18 @@ class _Reference:
         self._page_label = page_label
         self._url = url
 
+    @property
+    def page_label(self) -> str:
+        """
+        Get a target reference page label.
+
+        Returns
+        -------
+        page_label : str
+            A target reference page label.
+        """
+        return self._page_label
+
 
 def _extract_raise_values_from_docstring(*, docstring: str) -> List[_Raise]:
     """

@@ -233,7 +233,47 @@ def _convert_docstring_to_markdown(*, docstring: str) -> str:
         target_type=_Return, docstring=docstring)
     raises: List[_Raise] = _extract_raise_values_from_docstring(
         docstring=docstring)
+    notes: str = _extract_notes_from_docstring(docstring=docstring)
     pass
+
+
+def _extract_notes_from_docstring(*, docstring: str) -> str:
+    """
+    Extract a notes value from a docstring.
+
+    Parameters
+    ----------
+    docstring : str
+        Target docstring.
+
+    Returns
+    -------
+    notes : str
+        Extract notes text value.
+    """
+    lines: List[str] = docstring.splitlines()
+    lines = _remove_blank_lines_from_list(lines=lines)
+    is_notes_section_range: bool = False
+    base_indent_num: int = 0
+    notes_lines: List[str] = []
+    for line in lines:
+        base_indent_num = _get_base_indent_num_if_not_set(
+            line=line, base_indent_num=base_indent_num)
+        if _is_target_section_pattern_line(
+                line=line,
+                section_pattern=_SectionPattern.NOTES):
+            is_notes_section_range = True
+            continue
+        if _is_skip_target_line(
+                is_target_section_range=is_notes_section_range,
+                line=line):
+            continue
+        if _is_section_line(line=line):
+            break
+        notes_lines.append(line)
+    notes: str = '\n'.join(notes_lines)
+    notes = _remove_line_breaks_and_unnecessary_spaces(text=notes)
+    return notes
 
 
 class _ParamOrRtnBase:
@@ -398,7 +438,7 @@ class _Raise:
         return True
 
 
-def _extract_raise_values_from_docstring(docstring: str) -> List[_Raise]:
+def _extract_raise_values_from_docstring(*, docstring: str) -> List[_Raise]:
     """
     Extract raise values from a docstring.
 
@@ -451,7 +491,7 @@ def _extract_raise_values_from_docstring(docstring: str) -> List[_Raise]:
     return raise_values
 
 
-def _remove_blank_lines_from_list(lines: List[str]) -> List[str]:
+def _remove_blank_lines_from_list(*, lines: List[str]) -> List[str]:
     """
     Remove blank lines from a list of lines.
 
@@ -474,7 +514,7 @@ def _remove_blank_lines_from_list(lines: List[str]) -> List[str]:
 
 
 def _get_base_indent_num_if_not_set(
-        line: str, base_indent_num: int) -> int:
+        *, line: str, base_indent_num: int) -> int:
     """
     Get a base indent number from line if it is not set.
 
@@ -598,7 +638,7 @@ def _extract_param_or_rtn_values_from_docstring(
 
 
 def _is_skip_target_line(
-        is_target_section_range: bool, line: str) -> bool:
+        *, is_target_section_range: bool, line: str) -> bool:
     """
     Get a boolean indicating whether a specified line
     is skipping target or not.

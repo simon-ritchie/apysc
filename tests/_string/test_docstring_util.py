@@ -679,3 +679,14 @@ def test__is_skip_target_line() -> None:
         is_target_section_range=True,
         line='        any_value : int')
     assert not result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__extract_notes_from_docstring() -> None:
+    notes: str = docstring_util._extract_notes_from_docstring(
+        docstring=_TEST_DOCSTRING)
+    assert notes == (
+        'At vero eos et accusamus et iusto odio dignissimos '
+        'ducimus, qui blanditiis praesentium voluptatum '
+        'deleniti atque corrupt.'
+    )

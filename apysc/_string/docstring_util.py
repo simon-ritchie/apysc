@@ -576,6 +576,8 @@ def _make_reference_and_append_to_list(
     url : str
         Target reference page URL.
     """
+    if url == '':
+        return
     reference: _Reference = _Reference(
         page_label=page_label, url=url)
     reference_values.append(reference)

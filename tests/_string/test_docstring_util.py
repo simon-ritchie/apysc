@@ -758,6 +758,13 @@ def test__remove_unnecessary_markdown_list_from_line() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__make_reference_and_append_to_list() -> None:
     reference_values: List[_Reference] = []
+
+    docstring_util._make_reference_and_append_to_list(
+        reference_values=reference_values,
+        page_label='Sprite document',
+        url='')
+    assert reference_values == []
+
     docstring_util._make_reference_and_append_to_list(
         reference_values=reference_values,
         page_label='Sprite document',

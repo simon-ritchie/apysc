@@ -48,3 +48,9 @@ hr {
 div.sphinxsidebar {
     position: absolute !important;
 }
+
+/* The style for a inconspicuous text. */
+.inconspicuous-txt {
+    color: #888 !important;
+    font-size: 14px !important;
+}

@@ -241,8 +241,9 @@ def _convert_docstring_to_markdown(*, docstring: str) -> str:
     references: List[_Reference] = _extract_reference_values_from_docstring(
         docstring=docstring)
     markdown: str = (
-        'Note: the interface docstring generates and updates '
-        'this section automatically.'
+        '<span class="inconspicuous-txt">Note: the document build script generates and updates this '
+        'API document section automatically. Maybe this section '
+        'is duplicated compared with previous sections.</span>'
     )
     markdown = _append_summary_to_markdown(
         markdown=markdown, summary=summary)

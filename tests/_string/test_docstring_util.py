@@ -941,8 +941,10 @@ def test__convert_docstring_to_markdown() -> None:
         docstring=_TEST_DOCSTRING)
     markdown_lines: List[str] = markdown.splitlines()
     expected_lines: List[str] = [
-        'Note: the interface docstring generates and updates '
-        'this section automatically.',
+        '<span class="inconspicuous-txt">Note: the document '
+        'build script generates and updates this '
+        'API document section automatically. Maybe this section '
+        'is duplicated compared with previous sections.</span>',
         '',
         '**[Interface summary]** '
         'Lorem ipsum dolor sit amet, consectetur '

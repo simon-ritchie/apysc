@@ -86,7 +86,7 @@ The `Int` and `Number` classes have the same interfaces. For more details, pleas
 
 <!-- Docstring: apysc._type.int.Int.__init__ -->
 
-Note: the interface docstring generates and updates this section automatically.
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
 **[Interface summary]** Integer class for apysc library.
 
@@ -105,7 +105,7 @@ Note: the interface docstring generates and updates this section automatically.
 
 <!-- Docstring: apysc._type.number.Number.__init__ -->
 
-Note: the interface docstring generates and updates this section automatically.
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
 **[Interface summary]** Floating point number class for apysc library.
 

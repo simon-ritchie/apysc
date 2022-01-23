@@ -753,3 +753,16 @@ def test__remove_unnecessary_markdown_list_from_line() -> None:
     line: str = docstring_util._remove_unnecessary_markdown_list_from_line(
         line='    - Sprite document')
     assert line == 'Sprite document'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__make_reference_and_append_to_list() -> None:
+    reference_values: List[_Reference] = []
+    docstring_util._make_reference_and_append_to_list(
+        reference_values=reference_values,
+        page_label='Sprite document',
+        url='https://simon-ritchie.github.io/apysc/sprite.html')
+    expected_reference: _Reference = _Reference(
+        page_label='Sprite document',
+        url='https://simon-ritchie.github.io/apysc/sprite.html')
+    assert reference_values == [expected_reference]

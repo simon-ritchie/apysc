@@ -551,7 +551,34 @@ def _extract_reference_values_from_docstring(
             page_label = _remove_unnecessary_markdown_list_from_line(
                 line=line)
             continue
+        url = _remove_unnecessary_markdown_list_from_line(line=line)
+        _make_reference_and_append_to_list(
+            reference_values=reference_values,
+            page_label=page_label, url=url)
+        url = ''
     pass
+
+
+def _make_reference_and_append_to_list(
+        *,
+        reference_values: List[_Reference],
+        page_label: str,
+        url: str) -> None:
+    """
+    Make a reference value and append it to a specified list.
+
+    Parameters
+    ----------
+    reference_values : list of _Reference
+        A list to append a reference value.
+    page_label : str
+        Target reference page label.
+    url : str
+        Target reference page URL.
+    """
+    reference: _Reference = _Reference(
+        page_label=page_label, url=url)
+    reference_values.append(reference)
 
 
 def _remove_unnecessary_markdown_list_from_line(

@@ -301,7 +301,7 @@ class _ParamOrRtnBase:
 
     def __eq__(self, other: Any) -> bool:
         """
-        The method for equality comparisons.
+        The method for equality comparison.
 
         Parameters
         ----------
@@ -416,7 +416,7 @@ class _Raise:
 
     def __eq__(self, other: Any) -> bool:
         """
-        The method for equality comparisons.
+        The method for equality comparison.
 
         Parameters
         ----------
@@ -482,6 +482,29 @@ class _Reference:
             A target reference page.
         """
         return self._url
+
+    def __eq__(self, other: Any) -> bool:
+        """
+        The method for equality comparison.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to compare with.
+
+        Returns
+        -------
+        result : bool
+            If each attribute is equal to the other, this
+            method returns True.
+        """
+        if not isinstance(other, _Reference):
+            return False
+        if self.page_label != other.page_label:
+            return False
+        if self.url != other.url:
+            return False
+        return True
 
 
 def _extract_raise_values_from_docstring(*, docstring: str) -> List[_Raise]:

@@ -720,3 +720,29 @@ class Test_Reference:
             url='https://simon-ritchie.github.io/apysc/sprite.html')
         assert reference.url == \
             'https://simon-ritchie.github.io/apysc/sprite.html'
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___eq__(self) -> None:
+        reference: _Reference = _Reference(
+            page_label='Sprite document',
+            url='https://simon-ritchie.github.io/apysc/sprite.html')
+        result: bool = reference == 10
+        assert not result
+
+        other: _Reference = _Reference(
+            page_label='DisplayObject document',
+            url='https://simon-ritchie.github.io/apysc/sprite.html')
+        result = reference == other
+        assert not result
+
+        other = _Reference(
+            page_label='Sprite document',
+            url='https://simon-ritchie.github.io/apysc/display_object.html')
+        result = reference == other
+        assert not result
+
+        other = _Reference(
+            page_label='Sprite document',
+            url='https://simon-ritchie.github.io/apysc/sprite.html')
+        result = reference == other
+        assert result

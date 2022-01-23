@@ -138,4 +138,3 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/graphics_base_scale_from_center_basic_usage_3/index.html" width="150" height="150"></iframe>
-

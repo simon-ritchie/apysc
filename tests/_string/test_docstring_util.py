@@ -285,7 +285,6 @@ def test__remove_line_breaks_and_unnecessary_spaces() -> None:
     )
 
 _TEST_DOCSTRING: str = (
-    '    """'
     '\n    Lorem ipsum dolor sit amet, consectetur '
     '\n    adipiscing elit, sed do eiusmod tempor incididunt '
     '\n    ut labore et dolore magna aliqua.'
@@ -598,7 +597,7 @@ def test__make_raise_description_and_append_to_list() -> None:
     assert raise_values == [expected_raise]
 
 
-# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__extract_raise_values_from_docstring() -> None:
     raise_values: List[_Raise] = docstring_util.\
         _extract_raise_values_from_docstring(docstring=_TEST_DOCSTRING)

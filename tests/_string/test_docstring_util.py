@@ -653,3 +653,21 @@ def test__remove_blank_lines_from_list() -> None:
         '    Lorem ipsum dolor sit amet, consectetur adipiscing',
         '    elit, sed do eiusmod tempor incididunt ut.',
     ]
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__is_skip_target_line() -> None:
+    result: bool = docstring_util._is_skip_target_line(
+        is_target_section_range=False,
+        line='        any_value : int')
+    assert result
+
+    result = docstring_util._is_skip_target_line(
+        is_target_section_range=True,
+        line='    ------')
+    assert result
+
+    result = docstring_util._is_skip_target_line(
+        is_target_section_range=True,
+        line='        any_value : int')
+    assert not result

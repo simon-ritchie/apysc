@@ -428,9 +428,9 @@ def _extract_raise_values_from_docstring(docstring: str) -> List[_Raise]:
                 section_pattern=_SectionPattern.RAISES):
             is_raises_section_range = True
             continue
-        if not is_raises_section_range:
-            continue
-        if _is_hyphens_line(line=line):
+        if _is_skip_target_line(
+                is_target_section_range=is_raises_section_range,
+                line=line):
             continue
         if _is_section_line(line=line):
             _make_raise_description_and_append_to_list(
@@ -569,9 +569,9 @@ def _extract_param_or_rtn_values_from_docstring(
                 section_pattern=params_or_rtns_section_pattern):
             is_param_or_rtn_section_range = True
             continue
-        if not is_param_or_rtn_section_range:
-            continue
-        if _is_hyphens_line(line=line):
+        if _is_skip_target_line(
+                is_target_section_range=is_param_or_rtn_section_range,
+                line=line):
             continue
         if _is_section_line(line=line):
             _make_prm_or_rtn_description_and_append_to_list(
@@ -595,6 +595,33 @@ def _extract_param_or_rtn_values_from_docstring(
             continue
         description_lines.append(line)
     return param_or_rtn_values
+
+
+def _is_skip_target_line(
+        is_target_section_range: bool, line: str) -> bool:
+    """
+    Get a boolean indicating whether a specified line
+    is skipping target or not.
+
+    Parameters
+    ----------
+    is_target_section_range : bool
+        A boolean indicating whether a specified line
+        is in a range of target section.
+    line : str
+        Target docstring line.
+
+    Returns
+    -------
+    result : bool
+        A boolean indicating whether a specified line
+        is skipping target or not.
+    """
+    if not is_target_section_range:
+        return True
+    if _is_hyphens_line(line=line):
+        return True
+    return False
 
 
 def _get_params_or_rtns_section_pattern_by_type(

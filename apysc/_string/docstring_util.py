@@ -471,6 +471,18 @@ class _Reference:
         """
         return self._page_label
 
+    @property
+    def url(self) -> str:
+        """
+        Get a target reference page URL.
+
+        Returns
+        -------
+        url : str
+            A target reference page.
+        """
+        return self._url
+
 
 def _extract_raise_values_from_docstring(*, docstring: str) -> List[_Raise]:
     """

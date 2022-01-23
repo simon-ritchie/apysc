@@ -712,3 +712,11 @@ class Test_Reference:
             page_label='Sprite document',
             url='https://simon-ritchie.github.io/apysc/sprite.html')
         assert reference.page_label == 'Sprite document'
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_url(self) -> None:
+        reference: _Reference = _Reference(
+            page_label='Sprite document',
+            url='https://simon-ritchie.github.io/apysc/sprite.html')
+        assert reference.url == \
+            'https://simon-ritchie.github.io/apysc/sprite.html'

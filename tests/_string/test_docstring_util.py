@@ -866,3 +866,21 @@ def test__append_raises_to_markdown() -> None:
         '\n- ImportError: Amet, consectetur adipiscing elit.'
     )
     assert markdown == expected
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__append_notes_to_markdown() -> None:
+    markdown: str = '## add_child interface api document'
+    markdown = docstring_util._append_notes_to_markdown(
+        markdown=markdown,
+        notes='')
+    assert markdown == '## add_child interface api document'
+
+    markdown = docstring_util._append_notes_to_markdown(
+        markdown=markdown,
+        notes='Lorem ipsum dolor sit.')
+    assert markdown == (
+        '## add_child interface api document'
+        '\n\n**[Notes]**'
+        '\n\nLorem ipsum dolor sit.'
+    )

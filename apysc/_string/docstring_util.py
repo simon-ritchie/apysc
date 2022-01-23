@@ -242,7 +242,35 @@ def _convert_docstring_to_markdown(*, docstring: str) -> str:
     markdown = _append_params_or_rtns_to_markdown(
         markdown=markdown, params_or_rtns=returns)
     markdown = _append_raises_to_markdown(markdown=markdown, raises=raises)
+    markdown = _append_notes_to_markdown(markdown=markdown, notes=notes)
     pass
+
+
+def _append_notes_to_markdown(*, markdown: str, notes: str) -> str:
+    """
+    Append a notes string to a specified markdown string.
+
+    Parameters
+    ----------
+    markdown : str
+        Target markdown string.
+    notes : str
+        Target notes string.
+
+    Returns
+    -------
+    markdown : str
+        Result markdown string.
+    """
+    if notes == '':
+        return markdown
+    if markdown != '':
+        markdown += '\n\n'
+    markdown += (
+        '**[Notes]**'
+        f'\n\n{notes}'
+    )
+    return markdown
 
 
 def _extract_notes_from_docstring(*, docstring: str) -> str:
@@ -516,7 +544,7 @@ class _Reference:
 
 
 def _append_raises_to_markdown(
-        markdown: str, raises: List[_Raise]) -> str:
+        *, markdown: str, raises: List[_Raise]) -> str:
     """
     Append raises to a specified markdown string.
 

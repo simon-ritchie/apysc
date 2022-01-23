@@ -674,11 +674,6 @@ def _extract_raise_values_from_docstring(*, docstring: str) -> List[_Raise]:
                 line=line):
             continue
         if _is_section_line(line=line):
-            _make_raise_description_and_append_to_list(
-                raise_values=raise_values,
-                err_class_name=err_class_name,
-                description_lines=description_lines,
-            )
             break
         if current_indent_num == base_indent_num:
             _make_raise_description_and_append_to_list(
@@ -689,6 +684,11 @@ def _extract_raise_values_from_docstring(*, docstring: str) -> List[_Raise]:
             err_class_name = line.strip()
             continue
         description_lines.append(line)
+    _make_raise_description_and_append_to_list(
+        raise_values=raise_values,
+        err_class_name=err_class_name,
+        description_lines=description_lines,
+    )
     return raise_values
 
 
@@ -815,13 +815,6 @@ def _extract_param_or_rtn_values_from_docstring(
                 line=line):
             continue
         if _is_section_line(line=line):
-            _make_prm_or_rtn_description_and_append_to_list(
-                target_type=target_type,
-                param_or_rtn_values=param_or_rtn_values,
-                value_name=value_name,
-                value_type_str=value_type_str,
-                description_lines=description_lines,
-            )
             break
         if current_indent_num == base_indent_num:
             _make_prm_or_rtn_description_and_append_to_list(
@@ -835,6 +828,13 @@ def _extract_param_or_rtn_values_from_docstring(
                 line=line)
             continue
         description_lines.append(line)
+    _make_prm_or_rtn_description_and_append_to_list(
+        target_type=target_type,
+        param_or_rtn_values=param_or_rtn_values,
+        value_name=value_name,
+        value_type_str=value_type_str,
+        description_lines=description_lines,
+    )
     return param_or_rtn_values
 
 

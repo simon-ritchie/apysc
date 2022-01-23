@@ -227,13 +227,16 @@ def _convert_docstring_to_markdown(*, docstring: str) -> str:
         Converted markdown text.
     """
     summary: str = _extract_summary_from_docstring(docstring=docstring)
-    parameters: List[_Parameter] = _extract_param_or_rtn_values_from_docstring(
-        target_type=_Parameter, docstring=docstring)
+    parameters: List[_Parameter] = \
+        _extract_param_or_rtn_values_from_docstring(
+            target_type=_Parameter, docstring=docstring)
     returns: List[_Return] = _extract_param_or_rtn_values_from_docstring(
         target_type=_Return, docstring=docstring)
     raises: List[_Raise] = _extract_raise_values_from_docstring(
         docstring=docstring)
     notes: str = _extract_notes_from_docstring(docstring=docstring)
+    references: List[_Reference] = _extract_reference_values_from_docstring(
+        docstring=docstring)
     pass
 
 
@@ -505,6 +508,70 @@ class _Reference:
         if self.url != other.url:
             return False
         return True
+
+
+def _extract_reference_values_from_docstring(
+        *, docstring: str) -> List[_Reference]:
+    """
+    Extract reference values from a docstring
+
+    Parameters
+    ----------
+    docstring : str
+        Target docstring.
+
+    Returns
+    -------
+    reference_values : list of _Reference
+        Extracted reference values.
+    """
+    lines: List[str] = docstring.splitlines()
+    lines = _remove_blank_lines_from_list(lines=lines)
+    is_references_section_range: bool = False
+    page_label: str = ''
+    url: str = ''
+    base_indent_num: int = 0
+    reference_values: List[_Reference] = []
+    for line in lines:
+        current_indent_num: int = _get_indent_num_from_line(line=line)
+        base_indent_num = _get_base_indent_num_if_not_set(
+            line=line, base_indent_num=base_indent_num)
+        if _is_target_section_pattern_line(
+                line=line,
+                section_pattern=_SectionPattern.REFERENCES):
+            is_references_section_range = True
+            continue
+        if _is_skip_target_line(
+                is_target_section_range=is_references_section_range,
+                line=line):
+            continue
+        if _is_section_line(line=line):
+            break
+        if current_indent_num == base_indent_num:
+            page_label = _remove_unnecessary_markdown_list_from_line(
+                line=line)
+            continue
+    pass
+
+
+def _remove_unnecessary_markdown_list_from_line(
+        *, line: str) -> str:
+    """
+    Remove unnecessary markdown list string from a line.
+
+    Parameters
+    ----------
+    line : str
+        Target docstring line.
+
+    Returns
+    -------
+    line : str
+        Result docstring line.
+    """
+    line = line.replace('- ', '', 1)
+    line = line.strip()
+    return line
 
 
 def _extract_raise_values_from_docstring(*, docstring: str) -> List[_Raise]:

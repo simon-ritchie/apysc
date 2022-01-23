@@ -746,3 +746,10 @@ class Test_Reference:
             url='https://simon-ritchie.github.io/apysc/sprite.html')
         result = reference == other
         assert result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__remove_unnecessary_markdown_list_from_line() -> None:
+    line: str = docstring_util._remove_unnecessary_markdown_list_from_line(
+        line='    - Sprite document')
+    assert line == 'Sprite document'

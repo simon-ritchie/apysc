@@ -23,10 +23,10 @@ from typing_extensions import Final
 from typing_extensions import TypedDict
 
 sys.path.append('./')
-print(os.listdir('./'))
 
 from apysc._console import loggers
 from apysc._jslib import jslib_util
+from apysc._string import docstring_util
 
 logger: Logger = loggers.get_info_logger()
 
@@ -146,11 +146,11 @@ def _exec_document_lint_and_script(
         run_return_data_list: List[_RunReturnData] = p.map(
             func=_run_code_block_script, iterable=script_data_list)
 
-        # logger.info(
-        #     msg="Replacing docstring path specification in documents...")
-        # p.map(
-        #     func=_replace_docstring_specification,
-        #     iterable=markdown_data_list)
+        logger.info(
+            msg="Replacing docstring path specification in documents...")
+        p.map(
+            func=_replace_docstring_specification,
+            iterable=markdown_data_list)
     _move_code_block_outputs()
     _validate_script_return_data(return_data_list=run_return_data_list)
 
@@ -176,7 +176,6 @@ def _replace_docstring_specification(
     markdown_data : _MarkdownData
         Target markdown data.
     """
-    from apysc._string import docstring_util
     docstring_util.reset_replaced_docstring_section(
         md_file_path=markdown_data['md_file_path'])
     docstring_util.replace_docstring_path_specification(

@@ -237,6 +237,8 @@ def _convert_docstring_to_markdown(*, docstring: str) -> str:
     references: List[_Reference] = _extract_reference_values_from_docstring(
         docstring=docstring)
     markdown: str = ''
+    markdown = _append_summary_to_markdown(
+        markdown=markdown, summary=summary)
     markdown = _append_params_or_rtns_to_markdown(
         markdown=markdown, params_or_rtns=parameters)
     markdown = _append_params_or_rtns_to_markdown(
@@ -246,6 +248,30 @@ def _convert_docstring_to_markdown(*, docstring: str) -> str:
     markdown = _append_references_to_markdown(
         markdown=markdown, references=references)
     pass
+
+
+def _append_summary_to_markdown(markdown: str, summary: str) -> str:
+    """
+    Append a interface summary string to a specified markdown string.
+
+    Parameters
+    ----------
+    markdown : str
+        Target markdown string.
+    summary : str
+        Target summary string.
+
+    Returns
+    -------
+    markdown : str
+        Result markdown string.
+    """
+    if summary == '':
+        return markdown
+    if markdown != '':
+        markdown += '\n\n'
+    markdown += f'**[Interface summary]**\n\n{summary}'
+    return markdown
 
 
 def _append_notes_to_markdown(*, markdown: str, notes: str) -> str:

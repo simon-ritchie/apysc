@@ -914,3 +914,20 @@ def test__append_references_to_markdown() -> None:
         '(https://simon-ritchie.github.io/apysc/display_object.html)'
     )
     assert markdown == expected
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__append_summary_to_markdown() -> None:
+    markdown: str = '## add_child interface api document'
+    markdown = docstring_util._append_summary_to_markdown(
+        markdown=markdown, summary='')
+    assert markdown == '## add_child interface api document'
+
+    markdown = docstring_util._append_summary_to_markdown(
+        markdown=markdown,
+        summary='Lorem ipsum dolor sit.')
+    assert markdown == (
+        '## add_child interface api document'
+        '\n\n**[Interface summary]**'
+        '\n\nLorem ipsum dolor sit.'
+    )

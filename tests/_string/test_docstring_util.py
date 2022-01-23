@@ -839,3 +839,30 @@ def test__append_params_or_rtns_to_markdown() -> None:
         '\n  - Lorem  ipsum dolor sit.'
     )
     assert markdown == expected
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__append_raises_to_markdown() -> None:
+    markdown: str = '## add_child interface api document'
+    markdown = docstring_util._append_raises_to_markdown(
+        markdown=markdown,
+        raises=[])
+    assert markdown == '## add_child interface api document'
+
+    raises: List[_Raise] = [
+        _Raise(
+            err_class_name='ValueError',
+            description='Lorem ipsum dolor sit.'),
+        _Raise(
+            err_class_name='ImportError',
+            description='Amet, consectetur adipiscing elit.'),
+    ]
+    markdown = docstring_util._append_raises_to_markdown(
+        markdown=markdown, raises=raises)
+    expected: str = (
+        '## add_child interface api document'
+        '\n\n**[Raises]**'
+        '\n\n- ValueError: Lorem ipsum dolor sit.'
+        '\n- ImportError: Amet, consectetur adipiscing elit.'
+    )
+    assert markdown == expected

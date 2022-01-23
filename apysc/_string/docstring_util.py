@@ -241,6 +241,7 @@ def _convert_docstring_to_markdown(*, docstring: str) -> str:
         markdown=markdown, params_or_rtns=parameters)
     markdown = _append_params_or_rtns_to_markdown(
         markdown=markdown, params_or_rtns=returns)
+    markdown = _append_raises_to_markdown(markdown=markdown, raises=raises)
     pass
 
 
@@ -512,6 +513,35 @@ class _Reference:
         if self.url != other.url:
             return False
         return True
+
+
+def _append_raises_to_markdown(
+        markdown: str, raises: List[_Raise]) -> str:
+    """
+    Append raises to a specified markdown string.
+
+    Parameters
+    ----------
+    markdown : str
+        Target markdown string.
+    raises : list of _Raise
+        Raises list value to append to.
+
+    Returns
+    -------
+    markdown : str
+        Result markdown string.
+    """
+    if not raises:
+        return markdown
+    if markdown != '':
+        markdown += '\n\n'
+    markdown += '**[Raises]**\n'
+    for raise_ in raises:
+        markdown += (
+            f'\n- {raise_.err_class_name}: {raise_.description}'
+        )
+    return markdown
 
 
 _ParamOrRtn = TypeVar('_ParamOrRtn', _Parameter, _Return)

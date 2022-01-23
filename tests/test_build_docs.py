@@ -9,6 +9,7 @@ from retrying import retry
 
 import scripts.build_docs as build_docs
 from apysc._file import file_util
+from apysc._string.docstring_util import _DOCSTRING_PATH_COMMENT_KEYWORD
 from scripts.build_docs import HASHED_VALS_DIR_PATH
 from scripts.build_docs import _CodeBlock
 from scripts.build_docs import _CodeBlockFlake8Error
@@ -19,7 +20,6 @@ from scripts.build_docs import _RunReturnData
 from scripts.build_docs import _ScriptData
 from tests.testing_helper import assert_attrs
 from tests.testing_helper import assert_raises
-from apysc._string.docstring_util import _DOCSTRING_PATH_COMMENT_KEYWORD
 
 _CHECKOUT_FILE_PATHS: List[str] = [
     'docs_src/hashed_vals/stage.md',

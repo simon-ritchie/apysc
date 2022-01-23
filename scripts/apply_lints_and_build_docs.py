@@ -185,7 +185,6 @@ def _update_doc_files_timestamp() -> None:
         if not file_or_dir_path.endswith('.md'):
             continue
         now_unix_time: float = datetime.now().timestamp()
-        print('file_path:', file_or_dir_path)
         os.utime(file_or_dir_path, (now_unix_time, now_unix_time))
 
 

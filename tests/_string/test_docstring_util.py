@@ -1,15 +1,19 @@
 import os
 from random import randint
-from typing import Any, List, TypeVar
+from typing import List
 
 from retrying import retry
 
-from apysc._string import docstring_util
-from apysc._string.docstring_util import _Parameter, _ParamOrRtnBase, _SectionPattern, _Raise, _Return, _Raise, _Reference
 from apysc._file import file_util
-from apysc._display.sprite import Sprite
-from apysc._display import sprite
-from tests.testing_helper import assert_attrs, assert_raises
+from apysc._string import docstring_util
+from apysc._string.docstring_util import _Parameter
+from apysc._string.docstring_util import _ParamOrRtnBase
+from apysc._string.docstring_util import _Raise
+from apysc._string.docstring_util import _Reference
+from apysc._string.docstring_util import _Return
+from apysc._string.docstring_util import _SectionPattern
+from tests.testing_helper import assert_attrs
+from tests.testing_helper import assert_raises
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
@@ -36,9 +40,8 @@ def test__extract_docstring_path_specification_comment_from_line() -> None:
                 '<!-- Docstring: apysc._display.sprite.Sprite.__init__ -->',
                 '<!-- Docstring: apysc._display.sprite.Sprite.add_child -->',
             ])
-    assert (
-        docstring_path_specification_comment ==
-        '<!-- Docstring: apysc._display.sprite.Sprite.add_child -->')
+    assert docstring_path_specification_comment == \
+        '<!-- Docstring: apysc._display.sprite.Sprite.add_child -->'
 
     docstring_path_specification_comment = docstring_util.\
         _extract_docstring_path_specification_comment_from_line(
@@ -208,7 +211,7 @@ def test__extract_summary_from_docstring() -> None:
         '\n    ----------'
         '\n    a : int'
     )
-    summary: str = docstring_util._extract_summary_from_docstring(
+    summary = docstring_util._extract_summary_from_docstring(
         docstring=docstring)
     assert summary == (
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, '
@@ -289,6 +292,7 @@ def test__remove_line_breaks_and_unnecessary_spaces() -> None:
         'elit, sed do eiusmod tempor incididunt ut labore et '
         'dolore magna aliqua.'
     )
+
 
 _TEST_DOCSTRING: str = (
     '\n    Lorem ipsum dolor sit amet, consectetur '
@@ -1033,7 +1037,7 @@ def test_replace_docstring_path_specification() -> None:
         txt=(
             '# Test document'
             '\n\nLorem ipsum dolor sit amet.'
-            '\n\n## Constructor interface API'
+            '\n\n## Constructor API'
             f'\n\n<!-- {_PATH_COMMENT_KEYWORD} '
             'apysc._display.sprite.Sprite.__init__ -->'
         ),

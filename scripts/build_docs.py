@@ -13,7 +13,7 @@ import subprocess as sp
 import sys
 from distutils.dir_util import copy_tree
 from logging import Logger
-from typing import Any, Optional
+from typing import Any
 from typing import Dict
 from typing import List
 from typing import Match
@@ -23,6 +23,7 @@ from typing_extensions import Final
 from typing_extensions import TypedDict
 
 sys.path.append('./')
+print(os.listdir('./'))
 
 from apysc._console import loggers
 from apysc._jslib import jslib_util
@@ -145,11 +146,11 @@ def _exec_document_lint_and_script(
         run_return_data_list: List[_RunReturnData] = p.map(
             func=_run_code_block_script, iterable=script_data_list)
 
-        logger.info(
-            msg="Replacing docstring path specification in documents...")
-        p.map(
-            func=_replace_docstring_specification,
-            iterable=markdown_data_list)
+        # logger.info(
+        #     msg="Replacing docstring path specification in documents...")
+        # p.map(
+        #     func=_replace_docstring_specification,
+        #     iterable=markdown_data_list)
     _move_code_block_outputs()
     _validate_script_return_data(return_data_list=run_return_data_list)
 

@@ -20,7 +20,8 @@ import subprocess as sp
 from datetime import datetime
 from random import randint
 from types import ModuleType
-from typing import Any, List
+from typing import Any
+from typing import List
 from typing import Optional
 
 

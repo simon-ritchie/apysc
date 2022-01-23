@@ -1,14 +1,16 @@
 """Utility implementations for docstrings.
 """
 
-from types import ModuleType
-import importlib
-from enum import Enum
-from typing import Any, Callable, List, Match, Optional, Tuple, Type, TypeVar, Union
-import os
 import re
-
-from typing_extensions import TypedDict
+from enum import Enum
+from typing import Any
+from typing import Callable
+from typing import List
+from typing import Match
+from typing import Optional
+from typing import Tuple
+from typing import Type
+from typing import TypeVar
 
 _DOCSTRING_PATH_COMMENT_KEYWORD: str = 'Docstring:'
 _DOCSTRING_PATH_COMMENT_PATTERN: str = (
@@ -422,6 +424,7 @@ class _ParamOrRtnBase:
 
         Returns
         -------
+        description : str
             A parameter or return value description.
         """
         return self._description
@@ -907,6 +910,8 @@ def _extract_param_or_rtn_values_from_docstring(
 
     Parameters
     ----------
+    target_type : Type
+        Target type of the _Parameter or _Return.
     docstring : str
         Target docstring.
 
@@ -1036,6 +1041,8 @@ def _make_prm_or_rtn_description_and_append_to_list(
 
     Parameters
     ----------
+    target_type : Type
+        Target type of the _Parameter or _Return.
     param_or_rtn_values : lisf of _ParamOrRtnBase
         A list to append a parameter or return value.
     value_name : str
@@ -1235,7 +1242,7 @@ def _is_section_line(*, line: str) -> bool:
 
 
 def _extract_package_path_and_callable_name_from_path(
-        *, docstring_path_comment) -> Tuple[str, str]:
+        *, docstring_path_comment: str) -> Tuple[str, str]:
     """
     Extract a module or class package path and callable
     name from a specified path comment.

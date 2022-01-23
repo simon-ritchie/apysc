@@ -790,3 +790,31 @@ def test__extract_reference_values_from_docstring() -> None:
         page_label='Test interface2 document',
         url='https://en.wikipedia.org/test_page_2.html')
     assert reference_values[1] == expected_reference
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__append_parameters_to_markdown() -> None:
+    markdown: str = '## add_child interface api document'
+    markdown = docstring_util._append_parameters_to_markdown(
+        markdown=markdown, parameters=[])
+    assert markdown == '## add_child interface api document'
+
+    parameters: List[_Parameter] = [
+        _Parameter(
+            name='test_param_1', type_str='int',
+            description='Lorem ipsum dolor sit.'),
+        _Parameter(
+            name='test_param_2', type_str='str, optional',
+            description='Amet, consectetur adipiscing elit.'),
+    ]
+    markdown = docstring_util._append_parameters_to_markdown(
+        markdown=markdown, parameters=parameters)
+    expected: str = (
+        '## add_child interface api document'
+        '\n\n**Parameters**'
+        '\n\n- test_param_1: int'
+        '\n  - Lorem ipsum dolor sit.'
+        '\n- test_param_2: str, optional'
+        '\n  - Amet, consectetur adipiscing elit.'
+    )
+    assert markdown == expected

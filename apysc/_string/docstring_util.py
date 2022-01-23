@@ -243,6 +243,8 @@ def _convert_docstring_to_markdown(*, docstring: str) -> str:
         markdown=markdown, params_or_rtns=returns)
     markdown = _append_raises_to_markdown(markdown=markdown, raises=raises)
     markdown = _append_notes_to_markdown(markdown=markdown, notes=notes)
+    markdown = _append_references_to_markdown(
+        markdown=markdown, references=references)
     pass
 
 
@@ -541,6 +543,35 @@ class _Reference:
         if self.url != other.url:
             return False
         return True
+
+
+def _append_references_to_markdown(
+        markdown: str, references: List[_Reference]) -> str:
+    """
+    Append references to a specified markdown string.
+
+    Parameters
+    ----------
+    markdown : str
+        Target markdown string.
+    references : list of _Reference
+        References list value to append to.
+
+    Returns
+    -------
+    markdown : str
+        Result markdown string.
+    """
+    if not references:
+        return markdown
+    if markdown != '':
+        markdown += '\n\n'
+    markdown += '**[References]**\n'
+    for reference in references:
+        markdown += (
+            f'\n- [{reference.page_label}]({reference.url})'
+        )
+    return markdown
 
 
 def _append_raises_to_markdown(

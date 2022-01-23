@@ -884,3 +884,33 @@ def test__append_notes_to_markdown() -> None:
         '\n\n**[Notes]**'
         '\n\nLorem ipsum dolor sit.'
     )
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__append_references_to_markdown() -> None:
+    markdown: str = '## add_child interface api document'
+    markdown = docstring_util._append_references_to_markdown(
+        markdown=markdown, references=[])
+    assert markdown == '## add_child interface api document'
+
+    references: List[_Reference] = [
+        _Reference(
+            page_label='Sprite document',
+            url='https://simon-ritchie.github.io/apysc/sprite.html'),
+        _Reference(
+            page_label='DisplayObject document',
+            url='https://simon-ritchie.github.io/apysc/display_object.html')
+    ]
+    markdown = docstring_util._append_references_to_markdown(
+        markdown=markdown, references=references)
+    markdown = docstring_util._append_references_to_markdown(
+        markdown=markdown, references=[])
+    expected: str = (
+        '## add_child interface api document'
+        '\n\n**[References]**'
+        '\n\n- [Sprite document]'
+        '(https://simon-ritchie.github.io/apysc/sprite.html)'
+        '\n- [DisplayObject document]'
+        '(https://simon-ritchie.github.io/apysc/display_object.html)'
+    )
+    assert markdown == expected

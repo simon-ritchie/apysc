@@ -208,7 +208,7 @@ def _convert_docstring_path_comment_to_markdown_format(
         return ''
     markdown_format_docstring: str = _convert_docstring_to_markdown(
         docstring=callable_.__doc__)
-    pass
+    return markdown_format_docstring
 
 
 def _convert_docstring_to_markdown(*, docstring: str) -> str:
@@ -250,7 +250,7 @@ def _convert_docstring_to_markdown(*, docstring: str) -> str:
     return markdown
 
 
-def _append_summary_to_markdown(markdown: str, summary: str) -> str:
+def _append_summary_to_markdown(*, markdown: str, summary: str) -> str:
     """
     Append a interface summary string to a specified markdown string.
 

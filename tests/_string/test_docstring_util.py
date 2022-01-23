@@ -988,3 +988,28 @@ def test__convert_docstring_to_markdown() -> None:
     for i, expected_line in enumerate(expected_lines):
         assert markdown_lines[i] == expected_line
     assert len(markdown_lines) == len(expected_lines)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__convert_docstring_path_comment_to_markdown_format() -> None:
+    PATH_COMMENT_KEYWORD: str = \
+        docstring_util._DOCSTRING_PATH_COMMENT_KEYWORD
+    markdown_format_docstring: str = docstring_util.\
+        _convert_docstring_path_comment_to_markdown_format(
+            docstring_path_comment=(
+                f'<!-- {PATH_COMMENT_KEYWORD}'
+                ' tests._string.test_docstring_util.'
+                'test__convert_docstring_path_comment_to_markdown_format'
+                ' -->'
+            ))
+    assert markdown_format_docstring == ''
+
+    markdown_format_docstring = docstring_util.\
+        _convert_docstring_path_comment_to_markdown_format(
+            docstring_path_comment=(
+                f'<!-- {PATH_COMMENT_KEYWORD} '
+                'apysc._display.sprite.Sprite.__init__ -->'
+            ))
+    assert '**[Interface summary]**' in markdown_format_docstring
+    assert 'Basic display object that can be parent.' \
+        in markdown_format_docstring

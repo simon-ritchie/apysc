@@ -1,11 +1,10 @@
 """Utility implementations for docstrings.
 """
 
-from ctypes import Union
 from types import ModuleType
 import importlib
 from enum import Enum
-from typing import Any, Callable, List, Match, Optional, Tuple, Type, TypeVar
+from typing import Any, Callable, List, Match, Optional, Tuple, Type, TypeVar, Union
 import os
 import re
 
@@ -238,8 +237,10 @@ def _convert_docstring_to_markdown(*, docstring: str) -> str:
     references: List[_Reference] = _extract_reference_values_from_docstring(
         docstring=docstring)
     markdown: str = ''
-    markdown = _append_parameters_to_markdown(
-        markdown=markdown, parameters=parameters)
+    markdown = _append_params_or_rtns_to_markdown(
+        markdown=markdown, params_or_rtns=parameters)
+    markdown = _append_params_or_rtns_to_markdown(
+        markdown=markdown, params_or_rtns=returns)
     pass
 
 
@@ -513,29 +514,37 @@ class _Reference:
         return True
 
 
-def _append_parameters_to_markdown(
-        *, markdown: str, parameters: List[_Parameter]) -> str:
+_ParamOrRtn = TypeVar('_ParamOrRtn', _Parameter, _Return)
+
+
+def _append_params_or_rtns_to_markdown(
+        *, markdown: str,
+        params_or_rtns: List[_ParamOrRtn]) -> str:
     """
-    Append parameters to a specified markdown string.
+    Append parameters or returns to a specified markdown string.
 
     Parameters
     ----------
     markdown : str
         Target markdown string.
-    parameters : list of _Parameter
-        Parameters to append to.
+    params_or_rtns : list of _ParamOrRtn
+        Parameters or returns to append to.
 
     Returns
     -------
     markdown : str
         Result markdown string.
     """
-    if not parameters:
+    if not params_or_rtns:
         return markdown
+    if isinstance(params_or_rtns[0], _Parameter):
+        section_label: str = 'Parameters'
+    else:
+        section_label = 'Returns'
     if markdown != '':
         markdown += '\n\n'
-    markdown += '**Parameters**\n'
-    for parameter in parameters:
+    markdown += f'**[{section_label}]**\n'
+    for parameter in params_or_rtns:
         markdown += (
             f'\n- {parameter.name}: {parameter.type_str}'
             f'\n  - {parameter.description}'
@@ -770,9 +779,6 @@ def _make_raise_description_and_append_to_list(
         err_class_name=err_class_name, description=description)
     raise_values.append(raise_)
     description_lines.clear()
-
-
-_ParamOrRtn = TypeVar('_ParamOrRtn', _Parameter, _Return)
 
 
 def _extract_param_or_rtn_values_from_docstring(

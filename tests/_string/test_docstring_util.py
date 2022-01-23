@@ -793,10 +793,10 @@ def test__extract_reference_values_from_docstring() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__append_parameters_to_markdown() -> None:
+def test__append_params_or_rtns_to_markdown() -> None:
     markdown: str = '## add_child interface api document'
-    markdown = docstring_util._append_parameters_to_markdown(
-        markdown=markdown, parameters=[])
+    markdown = docstring_util._append_params_or_rtns_to_markdown(
+        markdown=markdown, params_or_rtns=[])
     assert markdown == '## add_child interface api document'
 
     parameters: List[_Parameter] = [
@@ -807,14 +807,35 @@ def test__append_parameters_to_markdown() -> None:
             name='test_param_2', type_str='str, optional',
             description='Amet, consectetur adipiscing elit.'),
     ]
-    markdown = docstring_util._append_parameters_to_markdown(
-        markdown=markdown, parameters=parameters)
+    markdown = docstring_util._append_params_or_rtns_to_markdown(
+        markdown=markdown, params_or_rtns=parameters)
     expected: str = (
         '## add_child interface api document'
-        '\n\n**Parameters**'
+        '\n\n**[Parameters]**'
         '\n\n- test_param_1: int'
         '\n  - Lorem ipsum dolor sit.'
         '\n- test_param_2: str, optional'
         '\n  - Amet, consectetur adipiscing elit.'
+    )
+    assert markdown == expected
+
+    returns: List[_Return] = [
+        _Return(
+            name='test_return_value',
+            type_str='int',
+            description='Lorem  ipsum dolor sit.'),
+    ]
+    markdown = docstring_util._append_params_or_rtns_to_markdown(
+        markdown=markdown, params_or_rtns=returns)
+    expected = (
+        '## add_child interface api document'
+        '\n\n**[Parameters]**'
+        '\n\n- test_param_1: int'
+        '\n  - Lorem ipsum dolor sit.'
+        '\n- test_param_2: str, optional'
+        '\n  - Amet, consectetur adipiscing elit.'
+        '\n\n**[Returns]**'
+        '\n\n- test_return_value: int'
+        '\n  - Lorem  ipsum dolor sit.'
     )
     assert markdown == expected

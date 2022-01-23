@@ -513,7 +513,7 @@ class _Reference:
 def _extract_reference_values_from_docstring(
         *, docstring: str) -> List[_Reference]:
     """
-    Extract reference values from a docstring
+    Extract reference values from a docstring.
 
     Parameters
     ----------
@@ -556,7 +556,10 @@ def _extract_reference_values_from_docstring(
             reference_values=reference_values,
             page_label=page_label, url=url)
         url = ''
-    pass
+    _make_reference_and_append_to_list(
+        reference_values=reference_values,
+        page_label=page_label, url=url)
+    return reference_values
 
 
 def _make_reference_and_append_to_list(

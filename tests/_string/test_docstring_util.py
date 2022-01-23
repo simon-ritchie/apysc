@@ -773,3 +773,20 @@ def test__make_reference_and_append_to_list() -> None:
         page_label='Sprite document',
         url='https://simon-ritchie.github.io/apysc/sprite.html')
     assert reference_values == [expected_reference]
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__extract_reference_values_from_docstring() -> None:
+    reference_values: List[_Reference] = docstring_util.\
+        _extract_reference_values_from_docstring(
+            docstring=_TEST_DOCSTRING)
+    assert len(reference_values) == 2
+    expected_reference: _Reference = _Reference(
+        page_label='Test interface1 document',
+        url='https://en.wikipedia.org/test_page_1.html')
+    assert reference_values[0] == expected_reference
+
+    expected_reference = _Reference(
+        page_label='Test interface2 document',
+        url='https://en.wikipedia.org/test_page_2.html')
+    assert reference_values[1] == expected_reference

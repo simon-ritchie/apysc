@@ -438,6 +438,28 @@ class _Raise:
         return True
 
 
+class _Reference:
+    """Reference value type.
+    """
+
+    _page_label: str
+    _url: str
+
+    def __init__(self, *, page_label: str, url: str) -> None:
+        """
+        Reference value type.
+
+        Parameters
+        ----------
+        page_label : str
+            Target reference page label.
+        url : str
+            Target reference page URL.
+        """
+        self._page_label = page_label
+        self._url = url
+
+
 def _extract_raise_values_from_docstring(*, docstring: str) -> List[_Raise]:
     """
     Extract raise values from a docstring.

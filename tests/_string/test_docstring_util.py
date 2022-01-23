@@ -5,7 +5,7 @@ from typing import Any, List, TypeVar
 from retrying import retry
 
 from apysc._string import docstring_util
-from apysc._string.docstring_util import _Parameter, _ParamOrRtnBase, _SectionPattern, _Raise, _Return, _Raise
+from apysc._string.docstring_util import _Parameter, _ParamOrRtnBase, _SectionPattern, _Raise, _Return, _Raise, _Reference
 from apysc._file import file_util
 from apysc._display.sprite import Sprite
 from apysc._display import sprite
@@ -690,3 +690,18 @@ def test__extract_notes_from_docstring() -> None:
         'ducimus, qui blanditiis praesentium voluptatum '
         'deleniti atque corrupt.'
     )
+
+
+class Test_Reference:
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___init__(self) -> None:
+        reference: _Reference = _Reference(
+            page_label='Sprite document',
+            url='https://simon-ritchie.github.io/apysc/sprite.html')
+        assert_attrs(
+            expected_attrs={
+                '_path_label': 'Sprite document',
+                '_url': 'https://simon-ritchie.github.io/apysc/sprite.html',
+            },
+            any_obj=reference)

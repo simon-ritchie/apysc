@@ -52,8 +52,8 @@ class Int(NumberValueInterface[int, 'Int']):
         Parameters
         ----------
         value : int or float or Int or Number
-            Initial integer value. If float or Number value is specified,
-            that value will be cast to integer.
+            Initial integer value. If the `float` or `Number`
+            value is specified, this class casts it to an integer.
 
         References
         ----------

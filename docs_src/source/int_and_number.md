@@ -93,7 +93,7 @@ Note: the interface docstring generates and updates this section automatically.
 **[Parameters]**
 
 - value: int or float or Int or Number
-  - Initial integer value. If float or Number value is specified, that value will be cast to integer.
+  - Initial integer value. If the `float` or `Number` value is specified, this class casts it to an integer.
 
 **[References]**
 
@@ -112,11 +112,11 @@ Note: the interface docstring generates and updates this section automatically.
 **[Parameters]**
 
 - value: int or float or Int or Number
-  - Initial floating point number value. If int or Int value is specified, that value will be cast to float.
+  - Initial floating point number value. This class casts it to float if you specify int or Int value.
 
 **[Notes]**
 
-Float class is the alias of the Number, and it behaves the same as the Number class.
+The `Float` class is the alias of the Number, and it behaves the same as the Number class.
 
 **[References]**
 

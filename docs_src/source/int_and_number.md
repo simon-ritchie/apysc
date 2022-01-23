@@ -81,3 +81,45 @@ The `Int` and `Number` classes have the same interfaces. For more details, pleas
 - [Int and Number classes basic arithmetic operations](int_and_number_arithmetic_operations.md)
 - [Int and Number classes basic comparison operations](int_and_number_comparison_operations.md)
 - [Funcdamental data classes common value interface](fundamental_data_classes_value_interface.md)
+
+## Int class constructor API
+
+<!-- Docstring: apysc._type.int.Int.__init__ -->
+
+Note: the interface docstring generates and updates this section automatically.
+
+**[Interface summary]** Integer class for apysc library.
+
+**[Parameters]**
+
+- value: int or float or Int or Number
+  - Initial integer value. If float or Number value is specified, that value will be cast to integer.
+
+**[References]**
+
+- [Int and Number document](https://simon-ritchie.github.io/apysc/int_and_number.html)
+- [Int and Number common arithmetic operations document](https://bit.ly/3evzcVj)
+- [Int and Number common comparison operations document](https://bit.ly/3zolw6T)
+
+## Number class constructor API
+
+<!-- Docstring: apysc._type.number.Number.__init__ -->
+
+Note: the interface docstring generates and updates this section automatically.
+
+**[Interface summary]** Floating point number class for apysc library.
+
+**[Parameters]**
+
+- value: int or float or Int or Number
+  - Initial floating point number value. If int or Int value is specified, that value will be cast to float.
+
+**[Notes]**
+
+Float class is the alias of the Number, and it behaves the same as the Number class.
+
+**[References]**
+
+- [Int and Number document](https://simon-ritchie.github.io/apysc/int_and_number.html)
+- [Int and Number common arithmetic operations document](https://bit.ly/3evzcVj)
+- [Int and Number common comparison operations document](https://bit.ly/3zolw6T)

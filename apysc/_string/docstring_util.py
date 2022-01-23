@@ -276,11 +276,11 @@ class _ParamOrRtnBase:
         """
         if not isinstance(other, _ParamOrRtnBase):
             return False
-        if self._name != other._name:
+        if self.name != other.name:
             return False
-        if self._type_str != other._type_str:
+        if self.type_str != other.type_str:
             return False
-        if self._description != other._description:
+        if self.description != other.description:
             return False
         return True
 

@@ -88,11 +88,13 @@ The `Int` and `Number` classes have the same interfaces. For more details, pleas
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
+**[Interface signature]** `__init__(self, value:Union[int, float, apysc._type.number_value_interface.NumberValueInterface]) -> None`
+
 **[Interface summary]** Integer class for apysc library.
 
 **[Parameters]**
 
-- value: int or float or Int or Number
+- `value`: int or float or Int or Number
   - Initial integer value. If the `float` or `Number` value is specified, this class casts it to an integer.
 
 **[References]**
@@ -107,11 +109,13 @@ The `Int` and `Number` classes have the same interfaces. For more details, pleas
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
+**[Interface signature]** `__init__(self, value:Union[int, float, Any]) -> None`
+
 **[Interface summary]** Floating point number class for apysc library.
 
 **[Parameters]**
 
-- value: int or float or Int or Number
+- `value`: int or float or Int or Number
   - Initial floating point number value. This class casts it to float if you specify int or Int value.
 
 **[Notes]**

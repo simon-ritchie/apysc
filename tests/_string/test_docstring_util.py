@@ -816,9 +816,9 @@ def test__append_params_or_rtns_to_markdown() -> None:
     expected: str = (
         '## add_child interface api document'
         '\n\n**[Parameters]**'
-        '\n\n- test_param_1: int'
+        '\n\n- `test_param_1`: int'
         '\n  - Lorem ipsum dolor sit.'
-        '\n- test_param_2: str, optional'
+        '\n- `test_param_2`: str, optional'
         '\n  - Amet, consectetur adipiscing elit.'
     )
     assert markdown == expected
@@ -834,12 +834,12 @@ def test__append_params_or_rtns_to_markdown() -> None:
     expected = (
         '## add_child interface api document'
         '\n\n**[Parameters]**'
-        '\n\n- test_param_1: int'
+        '\n\n- `test_param_1`: int'
         '\n  - Lorem ipsum dolor sit.'
-        '\n- test_param_2: str, optional'
+        '\n- `test_param_2`: str, optional'
         '\n  - Amet, consectetur adipiscing elit.'
         '\n\n**[Returns]**'
-        '\n\n- test_return_value: int'
+        '\n\n- `test_return_value`: int'
         '\n  - Lorem  ipsum dolor sit.'
     )
     assert markdown == expected
@@ -954,7 +954,7 @@ def test__convert_docstring_to_markdown() -> None:
         'is duplicated compared with previous sections.</span>',
         '',
         '**[Interface signature]** '
-        'test_func() -> None',
+        '`test_func() -> None`',
         '',
         '**[Interface summary]** '
         'Lorem ipsum dolor sit amet, consectetur '
@@ -963,10 +963,10 @@ def test__convert_docstring_to_markdown() -> None:
         '',
         '**[Parameters]**',
         '',
-        '- test_param_1: int',
+        '- `test_param_1`: int',
         '  - Ut enim ad minim veniam, quis nostrud exercitation '
         'ullamco laboris nisi.',
-        '- test_param_2: str, optional',
+        '- `test_param_2`: str, optional',
         '  - Ut aliquip ex ea commodo consequat. '
         'Duis aute irure dolor in reprehenderit in '
         'voluptate velit esse cillum dolore. '
@@ -974,12 +974,12 @@ def test__convert_docstring_to_markdown() -> None:
         '',
         '**[Returns]**',
         '',
-        '- test_return_val_1: bool or int',
+        '- `test_return_val_1`: bool or int',
         '  - Fugiat nulla pariatur. Excepteur sint occaecat '
         'cupidatat non proident, sunt in culpa qui '
         'officia deserunt mollit anim id est laborum. '
         'Omnis dolor repellendus. Temporibus autem quibusdam.',
-        '- test_return_val_2: Sprite',
+        '- `test_return_val_2`: Sprite',
         '  - Officiis debitis aut rerum necessitatibus saepe eveniet.',
         '',
         '**[Raises]**',

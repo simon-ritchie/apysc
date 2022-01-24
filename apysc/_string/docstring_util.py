@@ -313,7 +313,7 @@ def _convert_docstring_to_markdown(
         '<span class="inconspicuous-txt">Note: the document build script generates and updates this '
         'API document section automatically. Maybe this section '
         'is duplicated compared with previous sections.</span>'
-        f'\n\n**[Interface signature]** {callable_name}{signature}'
+        f'\n\n**[Interface signature]** `{callable_name}{signature}`'
     )
     markdown = _append_summary_to_markdown(
         markdown=markdown, summary=summary)
@@ -740,7 +740,7 @@ def _append_params_or_rtns_to_markdown(
     markdown += f'**[{section_label}]**\n'
     for parameter in params_or_rtns:
         markdown += (
-            f'\n- {parameter.name}: {parameter.type_str}'
+            f'\n- `{parameter.name}`: {parameter.type_str}'
             f'\n  - {parameter.description}'
         )
     return markdown

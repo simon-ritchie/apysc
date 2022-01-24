@@ -8,7 +8,7 @@ from retrying import retry
 
 from apysc._file import file_util
 from apysc._string import docstring_util
-from apysc._string.docstring_util import _Parameter, _DocstringPathNotFoundError, _DocstringCallableNotExistsError
+from apysc._string.docstring_util import _Parameter, _DocstringPathNotFoundError, _DocstringCallableNotExistsError, _Example
 from apysc._string.docstring_util import _ParamOrRtnBase
 from apysc._string.docstring_util import _Raise
 from apysc._string.docstring_util import _Reference
@@ -1095,3 +1095,18 @@ def test__get_callable_from_package_path_and_callable_name() -> None:
             module_or_class_package_path='apysc._display.sprite.Sprite',
             callable_name='__init__')
     assert callable_.__name__ == '__init__'
+
+
+class Test_Example:
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___init__(self) -> None:
+        example: _Example = _Example(
+            input_code_block='x = 10\nx',
+            expected_output='10')
+        assert_attrs(
+            expected_attrs={
+                '_input_code_block': 'x = 10\nx',
+                '_expected_output': '10',
+            },
+            any_obj=example)

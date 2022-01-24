@@ -307,6 +307,8 @@ def _convert_docstring_to_markdown(
     raises: List[_Raise] = _extract_raise_values_from_docstring(
         docstring=docstring)
     notes: str = _extract_notes_from_docstring(docstring=docstring)
+    examples: List[_Example] = _extract_example_values_from_docstring(
+        docstring=docstring)
     references: List[_Reference] = _extract_reference_values_from_docstring(
         docstring=docstring)
     markdown: str = (
@@ -648,6 +650,35 @@ class _Reference:
         if self.url != other.url:
             return False
         return True
+
+
+class _Example:
+    """Example value type.
+    """
+
+    _input_code_block: str
+    _expected_output: str
+
+    def __init__(
+            self, *, input_code_block: str,
+            expected_output: str = '') -> None:
+        """
+        Example value type.
+
+        Parameters
+        ----------
+        input_code_block : str
+            Input code block string.
+        expected_output : str, default ''
+            Expected output string.
+        """
+        self._input_code_block = input_code_block
+        self._expected_output = expected_output
+
+
+def _extract_example_values_from_docstring(
+        docstring: str) -> List[_Example]:
+    pass
 
 
 def _append_references_to_markdown(

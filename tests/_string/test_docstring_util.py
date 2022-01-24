@@ -1,6 +1,8 @@
 import os
 from random import randint
 from typing import Callable, List
+import inspect
+from inspect import Signature
 
 from retrying import retry
 
@@ -935,16 +937,24 @@ def test__append_summary_to_markdown() -> None:
     )
 
 
+
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__convert_docstring_to_markdown() -> None:
+    signature: Signature = inspect.signature(
+        test__convert_docstring_to_markdown)
     markdown: str = docstring_util._convert_docstring_to_markdown(
-        docstring=_TEST_DOCSTRING)
+        docstring=_TEST_DOCSTRING,
+        signature=signature,
+        callable_name='test_func')
     markdown_lines: List[str] = markdown.splitlines()
     expected_lines: List[str] = [
         '<span class="inconspicuous-txt">Note: the document '
         'build script generates and updates this '
         'API document section automatically. Maybe this section '
         'is duplicated compared with previous sections.</span>',
+        '',
+        '**[Interface signature]** '
+        'test_func() -> None',
         '',
         '**[Interface summary]** '
         'Lorem ipsum dolor sit amet, consectetur '
@@ -1058,7 +1068,7 @@ def test_replace_docstring_path_specification() -> None:
     file_util.remove_file_if_exists(file_path=tmp_md_path)
 
 
-# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_callable_from_package_path_and_callable_name() -> None:
     assert_raises(
         expected_error_class=_DocstringPathNotFoundError,

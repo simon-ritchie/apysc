@@ -182,6 +182,14 @@ def replace_docstring_path_specification(*, md_file_path: str) -> None:
         txt=md_txt, file_path=md_file_path)
 
 
+class _DocstringPathNotFoundError(Exception):
+    pass
+
+
+class _DocstringCallableNotExistsError(Exception):
+    pass
+
+
 def _convert_docstring_path_comment_to_markdown_format(
         *, docstring_path_comment: str) -> str:
     """
@@ -198,21 +206,70 @@ def _convert_docstring_path_comment_to_markdown_format(
     markdown_format_docstring : str
         Converted text.
     """
-    from apysc._file import module_util
     module_or_class_package_path: str
     callable_name: str
     module_or_class_package_path, callable_name = \
         _extract_package_path_and_callable_name_from_path(
             docstring_path_comment=docstring_path_comment,
         )
-    module_or_class: Any = module_util.read_module_or_class_from_package_path(
-        module_or_class_package_path=module_or_class_package_path)
-    callable_: Callable = getattr(module_or_class, callable_name)
+    callable_: Callable = _get_callable_from_package_path_and_callable_name(
+        module_or_class_package_path=module_or_class_package_path,
+        callable_name=callable_name,
+    )
     if callable_.__doc__ is None:
         return ''
     markdown_format_docstring: str = _convert_docstring_to_markdown(
         docstring=callable_.__doc__)
     return markdown_format_docstring
+
+
+def _get_callable_from_package_path_and_callable_name(
+        module_or_class_package_path: str,
+        callable_name: str) -> Callable:
+    """
+    Get a callable object from a specified package path and
+    callable name.
+
+    Parameters
+    ----------
+    module_or_class_package_path : str
+        Target module or class package path.
+    callable_name : str
+        Target callable name.
+
+    Raises
+    ------
+    _DocstringPathNotFoundError
+        If a specified package path's module or class
+        does not exist.
+    _DocstringCallableNotExistsError
+        If a target module or class does not have a specified
+        name function or method.
+
+    Returns
+    -------
+    callable_ : Callable
+        Target callable object.
+    """
+    from apysc._file import module_util
+    try:
+        module_or_class: Any = \
+            module_util.read_module_or_class_from_package_path(
+                module_or_class_package_path=module_or_class_package_path)
+    except Exception:
+        raise _DocstringPathNotFoundError(
+            'Could not found module or class of the docstring path.'
+            f'\nModule or class package path: {module_or_class_package_path}'
+        )
+    try:
+        callable_: Callable = getattr(module_or_class, callable_name)
+    except Exception:
+        raise _DocstringCallableNotExistsError(
+            "Specified docstring path's module or class does not have "
+            'a target callable attribute.'
+            f'\nModule or class package path: {module_or_class_package_path}',
+            f'\nCallable name: {callable_name}')
+    return callable_
 
 
 def _convert_docstring_to_markdown(*, docstring: str) -> str:

@@ -1,12 +1,12 @@
 import os
 from random import randint
-from typing import List
+from typing import Callable, List
 
 from retrying import retry
 
 from apysc._file import file_util
 from apysc._string import docstring_util
-from apysc._string.docstring_util import _Parameter
+from apysc._string.docstring_util import _Parameter, _DocstringPathNotFoundError, _DocstringCallableNotExistsError
 from apysc._string.docstring_util import _ParamOrRtnBase
 from apysc._string.docstring_util import _Raise
 from apysc._string.docstring_util import _Reference
@@ -1056,3 +1056,32 @@ def test_replace_docstring_path_specification() -> None:
     assert '**[Interface summary]**' in md_txt
 
     file_util.remove_file_if_exists(file_path=tmp_md_path)
+
+
+# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_callable_from_package_path_and_callable_name() -> None:
+    assert_raises(
+        expected_error_class=_DocstringPathNotFoundError,
+        func_or_method=docstring_util.
+        _get_callable_from_package_path_and_callable_name,
+        kwargs={
+            'module_or_class_package_path': 'not.existing.package.path',
+            'callable_name': '__init__',
+        },
+        match='Module or class package path: not.existing.package.path')
+
+    assert_raises(
+        expected_error_class=_DocstringCallableNotExistsError,
+        func_or_method=docstring_util.
+        _get_callable_from_package_path_and_callable_name,
+        kwargs={
+            'module_or_class_package_path': 'apysc._display.sprite.Sprite',
+            'callable_name': 'not_existing_method',
+        },
+        match='Callable name: not_existing_method')
+
+    callable_: Callable = docstring_util.\
+        _get_callable_from_package_path_and_callable_name(
+            module_or_class_package_path='apysc._display.sprite.Sprite',
+            callable_name='__init__')
+    assert callable_.__name__ == '__init__'

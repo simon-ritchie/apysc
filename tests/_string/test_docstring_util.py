@@ -1110,3 +1110,10 @@ class Test_Example:
                 '_expected_output': '10',
             },
             any_obj=example)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test_input_code_block(self) -> None:
+        example: _Example = _Example(
+            input_code_block='x = 10\nx',
+            expected_output='10')
+        assert example.input_code_block == 'x = 10\nx'

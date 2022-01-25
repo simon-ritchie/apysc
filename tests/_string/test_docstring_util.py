@@ -1148,3 +1148,18 @@ class Test_Example:
             input_code_block='x = 10\nx', expected_output='10')
         result = example == other
         assert result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__is_example_output_line() -> None:
+    result: bool = docstring_util._is_example_output_line(
+        line='    >>> x = 10')
+    assert not result
+
+    result = docstring_util._is_example_output_line(
+        line='    ...     x=10,')
+    assert not result
+
+    result = docstring_util._is_example_output_line(
+        line='    10')
+    assert result

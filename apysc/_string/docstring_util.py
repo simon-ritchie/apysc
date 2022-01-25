@@ -725,7 +725,67 @@ class _Example:
 
 def _extract_example_values_from_docstring(
         docstring: str) -> List[_Example]:
+    """
+    Extract example values from a docstring.
+
+    Parameters
+    ----------
+    docstring : str
+        Target docstring.
+
+    Returns
+    -------
+    example_values : list of _Example
+        Extracted example values.
+    """
+    lines: List[str] = docstring.splitlines()
+    lines = _remove_blank_lines_from_list(lines=lines)
+    is_example_section_range: bool = False
+    input_code_block_lines: List[str] = []
+    # expected_output: str = ''
+    base_indent_num: int = 0
+    example_values: List[_Example] = []
+    for line in lines:
+        current_indent_num: int = _get_indent_num_from_line(line=line)
+        base_indent_num = _get_base_indent_num_if_not_set(
+            line=line, base_indent_num=base_indent_num)
+        if _is_target_section_pattern_line(
+                line=line,
+                section_pattern=_SectionPattern.EXAMPLES):
+            is_example_section_range = True
+            continue
+        if _is_skip_target_line(
+                is_target_section_range=is_example_section_range,
+                line=line):
+            continue
+        if _is_section_line(line=line):
+            break
+        if _is_example_output_line(line=line):
+            continue
+        input_code_block_lines.append(line)
     pass
+
+
+def _is_example_output_line(line: str) -> bool:
+    """
+    Get a boolean indicating whether a specified line is
+    example section's output line or not.
+
+    Parameters
+    ----------
+    line : str
+        Target docstring line.
+
+    Returns
+    -------
+    result : bool
+        This function return True if a specified line is
+        example section's output line.
+    """
+    line = line.strip()
+    if line.startswith('>>>') or line.startswith('...'):
+        return False
+    return True
 
 
 def _append_references_to_markdown(

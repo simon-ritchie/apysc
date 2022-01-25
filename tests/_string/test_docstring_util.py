@@ -349,6 +349,8 @@ _TEST_DOCSTRING: str = (
     '\n    >>> test_value_2'
     '\n    30'
     '\n'
+    '\n    >>> test_value_3: int = x + 10'
+    '\n'
     '\n    References'
     '\n    ----------'
     '\n    - Test interface1 document'
@@ -1171,7 +1173,7 @@ def test__make_example_and_append_to_list() -> None:
     docstring_util._make_example_and_append_to_list(
         example_values=example_values,
         input_code_block_lines=[],
-        expected_output='10')
+        expected_output='    10')
     assert example_values == []
 
     input_code_block_lines: List[str] = [
@@ -1181,10 +1183,37 @@ def test__make_example_and_append_to_list() -> None:
     docstring_util._make_example_and_append_to_list(
         example_values=example_values,
         input_code_block_lines=input_code_block_lines,
-        expected_output='10')
+        expected_output='    10')
     assert input_code_block_lines == []
     assert example_values == [
         _Example(
             input_code_block='>>> x = 10\n>>> x',
             expected_output='10')
     ]
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__extract_example_values_from_docstring() -> None:
+    example_values: List[_Example] = docstring_util.\
+        _extract_example_values_from_docstring(docstring=_TEST_DOCSTRING)
+    assert len(example_values) == 3
+    assert example_values[0] == _Example(
+        input_code_block=(
+            '>>> test_value_1: int = 10'
+            '\n>>> test_value_1'
+        ),
+        expected_output='10')
+
+    assert example_values[1] == _Example(
+        input_code_block=(
+            '>>> test_value_2: int = test_function('
+            '\n...    any_arg=10)'
+            '\n>>> test_value_2'
+        ),
+        expected_output='30')
+
+    assert example_values[2] == _Example(
+        input_code_block=(
+            '>>> test_value_3: int = x + 10'
+        ),
+        expected_output='')

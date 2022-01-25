@@ -742,12 +742,8 @@ def _extract_example_values_from_docstring(
     lines = _remove_blank_lines_from_list(lines=lines)
     is_example_section_range: bool = False
     input_code_block_lines: List[str] = []
-    base_indent_num: int = 0
     example_values: List[_Example] = []
     for line in lines:
-        current_indent_num: int = _get_indent_num_from_line(line=line)
-        base_indent_num = _get_base_indent_num_if_not_set(
-            line=line, base_indent_num=base_indent_num)
         if _is_target_section_pattern_line(
                 line=line,
                 section_pattern=_SectionPattern.EXAMPLES):
@@ -770,7 +766,7 @@ def _extract_example_values_from_docstring(
         example_values=example_values,
         input_code_block_lines=input_code_block_lines,
         expected_output='')
-    pass
+    return example_values
 
 
 def _make_example_and_append_to_list(
@@ -800,7 +796,8 @@ def _make_example_and_append_to_list(
         line.strip() for line in input_code_block_lines]
     input_code_block: str = '\n'.join(input_code_block_lines_)
     example: _Example = _Example(
-        input_code_block=input_code_block, expected_output=expected_output)
+        input_code_block=input_code_block,
+        expected_output=expected_output.strip())
     example_values.append(example)
     input_code_block_lines.clear()
 

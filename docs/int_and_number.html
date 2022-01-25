@@ -133,6 +133,30 @@
 </ul>
 </li>
 </ul>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span>
+<span class="go">Int(10)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span> <span class="o">==</span> <span class="mi">10</span>
+<span class="go">Boolean(True)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span> <span class="o">==</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">Boolean(True)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span> <span class="o">&gt;=</span> <span class="mi">10</span>
+<span class="go">Boolean(True)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span> <span class="o">+=</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span>
+<span class="go">Int(20)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mf">10.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span>
+<span class="go">Int(10)</span>
+</pre></div>
+</div>
 <p><strong>[References]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/int_and_number.html">Int and Number document</a></p></li>
@@ -155,6 +179,26 @@
 </ul>
 <p><strong>[Notes]</strong></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Float</span></code> class is the alias of the Number, and it behaves the same as the Number class.</p>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">number</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">10.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">number</span>
+<span class="go">Number(10.5)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">number</span> <span class="o">==</span> <span class="mf">10.5</span>
+<span class="go">Boolean(True)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">number</span> <span class="o">==</span> <span class="n">ap</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">10.5</span><span class="p">)</span>
+<span class="go">Boolean(True)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">number</span> <span class="o">&gt;=</span> <span class="mf">10.5</span>
+<span class="go">Boolean(True)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">number</span> <span class="o">+=</span> <span class="mf">10.3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">number</span>
+<span class="go">Number(20.8)</span>
+</pre></div>
+</div>
 <p><strong>[References]</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/int_and_number.html">Int and Number document</a></p></li>

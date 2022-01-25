@@ -97,6 +97,32 @@ The `Int` and `Number` classes have the same interfaces. For more details, pleas
 - `value`: int or float or Int or Number
   - Initial integer value. If the `float` or `Number` value is specified, this class casts it to an integer.
 
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> int_val: ap.Int = ap.Int(10)
+>>> int_val
+Int(10)
+
+>>> int_val == 10
+Boolean(True)
+
+>>> int_val == ap.Int(10)
+Boolean(True)
+
+>>> int_val >= 10
+Boolean(True)
+
+>>> int_val += 10
+>>> int_val
+Int(20)
+
+>>> int_val = ap.Int(10.5)
+>>> int_val
+Int(10)
+```
+
 **[References]**
 
 - [Int and Number document](https://simon-ritchie.github.io/apysc/int_and_number.html)
@@ -121,6 +147,28 @@ The `Int` and `Number` classes have the same interfaces. For more details, pleas
 **[Notes]**
 
 The `Float` class is the alias of the Number, and it behaves the same as the Number class.
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> number: ap.Number = ap.Number(10.5)
+>>> number
+Number(10.5)
+
+>>> number == 10.5
+Boolean(True)
+
+>>> number == ap.Number(10.5)
+Boolean(True)
+
+>>> number >= 10.5
+Boolean(True)
+
+>>> number += 10.3
+>>> number
+Number(20.8)
+```
 
 **[References]**
 

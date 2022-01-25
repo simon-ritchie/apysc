@@ -996,6 +996,21 @@ def test__convert_docstring_to_markdown() -> None:
         'ducimus, qui blanditiis praesentium voluptatum '
         'deleniti atque corrupt.',
         '',
+        '**[Examples]**',
+        '',
+        '```py',
+        '>>> test_value_1: int = 10',
+        '>>> test_value_1',
+        '10',
+        '',
+        '>>> test_value_2: int = test_function(',
+        '...    any_arg=10)',
+        '>>> test_value_2',
+        '30',
+        '',
+        '>>> test_value_3: int = x + 10',
+        '```',
+        '',
         '**[References]**',
         '',
         '- [Test interface1 document]'
@@ -1217,3 +1232,45 @@ def test__extract_example_values_from_docstring() -> None:
             '>>> test_value_3: int = x + 10'
         ),
         expected_output='')
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__append_examples_to_markdown() -> None:
+    markdown: str = '## add_child interface api document'
+    markdown = docstring_util._append_examples_to_markdown(
+        markdown=markdown,
+        examples=[])
+    assert markdown == '## add_child interface api document'
+
+    examples: List[_Example] = [
+        _Example(
+            input_code_block=(
+                '>>> x = 10'
+                '\n>>> x'
+            ),
+            expected_output='10'),
+        _Example(
+            input_code_block=(
+                '>>> y = x + 10'
+            ),
+            expected_output='')
+    ]
+    markdown = docstring_util._append_examples_to_markdown(
+        markdown=markdown, examples=examples)
+    expected_lines: List[str] = [
+        '## add_child interface api document',
+        '',
+        '**[Examples]**',
+        '',
+        '```py',
+        '>>> x = 10',
+        '>>> x',
+        '10',
+        '',
+        '>>> y = x + 10',
+        '```',
+    ]
+    lines: List[str] = markdown.splitlines()
+    for i, line in enumerate(lines):
+        assert line == expected_lines[i]
+    assert len(lines) == len(expected_lines)

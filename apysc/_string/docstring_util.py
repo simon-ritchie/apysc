@@ -325,6 +325,8 @@ def _convert_docstring_to_markdown(
         markdown=markdown, params_or_rtns=returns)
     markdown = _append_raises_to_markdown(markdown=markdown, raises=raises)
     markdown = _append_notes_to_markdown(markdown=markdown, notes=notes)
+    markdown = _append_examples_to_markdown(
+        markdown=markdown, examples=examples)
     markdown = _append_references_to_markdown(
         markdown=markdown, references=references)
     return markdown
@@ -723,8 +725,42 @@ class _Example:
         return True
 
 
+def _append_examples_to_markdown(
+        *, markdown: str, examples: List[_Example]) -> str:
+    """
+    Append examples to a specified markdown string.
+
+    Parameters
+    ----------
+    markdown : str
+        Target markdown string.
+    examples : list of _Example
+        Examples list value to append to.
+
+    Returns
+    -------
+    markdown : str
+        Result markdown string.
+    """
+    if not examples:
+        return markdown
+    if markdown != '':
+        markdown += '\n\n'
+    markdown += '**[Examples]**\n\n```py'
+    for i, example in enumerate(examples):
+        if i != 0:
+            markdown += '\n'
+        markdown += (
+            f'\n{example.input_code_block}'
+        )
+        if example.expected_output != '':
+            markdown += f'\n{example.expected_output}'
+    markdown += '\n```'
+    return markdown
+
+
 def _extract_example_values_from_docstring(
-        docstring: str) -> List[_Example]:
+        *, docstring: str) -> List[_Example]:
     """
     Extract example values from a docstring.
 

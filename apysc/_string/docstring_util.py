@@ -742,7 +742,6 @@ def _extract_example_values_from_docstring(
     lines = _remove_blank_lines_from_list(lines=lines)
     is_example_section_range: bool = False
     input_code_block_lines: List[str] = []
-    # expected_output: str = ''
     base_indent_num: int = 0
     example_values: List[_Example] = []
     for line in lines:
@@ -761,12 +760,52 @@ def _extract_example_values_from_docstring(
         if _is_section_line(line=line):
             break
         if _is_example_output_line(line=line):
+            _make_example_and_append_to_list(
+                example_values=example_values,
+                input_code_block_lines=input_code_block_lines,
+                expected_output=line)
             continue
         input_code_block_lines.append(line)
+    _make_example_and_append_to_list(
+        example_values=example_values,
+        input_code_block_lines=input_code_block_lines,
+        expected_output='')
     pass
 
 
-def _is_example_output_line(line: str) -> bool:
+def _make_example_and_append_to_list(
+        *,
+        example_values: List[_Example],
+        input_code_block_lines: List[str],
+        expected_output: str) -> None:
+    """
+    Make an example value and append it ot a specified list.
+
+    Notes
+    -----
+    This function clears a list of input code block lines.
+
+    Parameters
+    ----------
+    example_values : list of _Example
+        A list to append an example value.
+    input_code_block_lines : list of str
+        A list of input code block lines.
+    expected_output : str
+        An expected output string.
+    """
+    if not input_code_block_lines:
+        return
+    input_code_block_lines_: List[str] = [
+        line.strip() for line in input_code_block_lines]
+    input_code_block: str = '\n'.join(input_code_block_lines_)
+    example: _Example = _Example(
+        input_code_block=input_code_block, expected_output=expected_output)
+    example_values.append(example)
+    input_code_block_lines.clear()
+
+
+def _is_example_output_line(*, line: str) -> bool:
     """
     Get a boolean indicating whether a specified line is
     example section's output line or not.

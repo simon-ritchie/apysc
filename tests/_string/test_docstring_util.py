@@ -1163,3 +1163,28 @@ def test__is_example_output_line() -> None:
     result = docstring_util._is_example_output_line(
         line='    10')
     assert result
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__make_example_and_append_to_list() -> None:
+    example_values: List[_Example] = []
+    docstring_util._make_example_and_append_to_list(
+        example_values=example_values,
+        input_code_block_lines=[],
+        expected_output='10')
+    assert example_values == []
+
+    input_code_block_lines: List[str] = [
+        '    >>> x = 10',
+        '    >>> x',
+    ]
+    docstring_util._make_example_and_append_to_list(
+        example_values=example_values,
+        input_code_block_lines=input_code_block_lines,
+        expected_output='10')
+    assert input_code_block_lines == []
+    assert example_values == [
+        _Example(
+            input_code_block='>>> x = 10\n>>> x',
+            expected_output='10')
+    ]

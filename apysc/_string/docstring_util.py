@@ -699,6 +699,29 @@ class _Example:
         """
         return self._expected_output
 
+    def __eq__(self, other: Any) -> bool:
+        """
+        The method for equality comparison.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to compare with.
+
+        Returns
+        -------
+        result : bool
+            If each attribute is equal to the other, this
+            method returns True.
+        """
+        if not isinstance(other, _Example):
+            return False
+        if self.input_code_block != other.input_code_block:
+            return False
+        if self.expected_output != other.expected_output:
+            return False
+        return True
+
 
 def _extract_example_values_from_docstring(
         docstring: str) -> List[_Example]:

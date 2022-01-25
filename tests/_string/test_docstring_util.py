@@ -1124,3 +1124,27 @@ class Test_Example:
             input_code_block='x = 10\nx',
             expected_output='10')
         assert example.expected_output == '10'
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___eq__(self) -> None:
+        example: _Example = _Example(
+            input_code_block='x = 10\nx',
+            expected_output='10')
+
+        result: bool = example == 10
+        assert not result
+
+        other: _Example = _Example(
+            input_code_block='x = 10', expected_output='10')
+        result = example == other
+        assert not result
+
+        other = _Example(
+            input_code_block='x = 10\nx', expected_output='20')
+        result = example == other
+        assert not result
+
+        other = _Example(
+            input_code_block='x = 10\nx', expected_output='10')
+        result = example == other
+        assert result

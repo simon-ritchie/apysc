@@ -687,6 +687,18 @@ class _Example:
         """
         return self._input_code_block
 
+    @property
+    def expected_output(self) -> str:
+        """
+        Get a expected output string.
+
+        Returns
+        -------
+        expected_output : str
+            A expected output string.
+        """
+        return self._expected_output
+
 
 def _extract_example_values_from_docstring(
         docstring: str) -> List[_Example]:

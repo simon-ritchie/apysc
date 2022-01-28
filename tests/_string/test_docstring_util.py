@@ -1298,3 +1298,11 @@ def test__slice_references_by_md_file_path() -> None:
             page_label='test document 1',
             url='https://simon-ritchie.github.io/apysc/display_object.html')
     ]
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_get_docstring_src_module_paths() -> None:
+    module_paths: List[str] = docstring_util.get_docstring_src_module_paths(
+        md_file_path='./docs_src/source/int_and_number.md')
+    assert './apysc/_type/int.py' in module_paths
+    assert './apysc/_type/number.py' in module_paths

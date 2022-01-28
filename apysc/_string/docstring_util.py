@@ -40,6 +40,45 @@ class _SectionPattern(Enum):
     METHODS = r'\s{4}Methods$'
 
 
+def get_docstring_src_module_paths(md_file_path: str) -> List[str]:
+    """
+    Get docstring source module paths from a specified
+    markdown file path.
+
+    Parameters
+    ----------
+    md_file_path : str
+        Target markdown file path.
+
+    Returns
+    -------
+    module_paths : list of str
+        Extracted docstring source module paths.
+    """
+    from apysc._file import file_util
+    from apysc._file import module_util
+    md_txt: str = file_util.read_txt(file_path=md_file_path)
+    lines: List[str] = md_txt.splitlines()
+    module_paths: List[str] = []
+    for line in lines:
+        match: Optional[Match] = re.search(
+            pattern=DOCSTRING_PATH_COMMENT_PATTERN,
+            string=line)
+        if match is None:
+            continue
+        package_path: str = match.group(1).rsplit('.', maxsplit=1)[0]
+        package_path = package_path.strip()
+        module_or_class: Any = module_util.\
+            read_module_or_class_from_package_path(
+                module_or_class_package_path=package_path)
+        if inspect.isclass(module_or_class):
+            package_path = package_path.rsplit('.', maxsplit=1)[0]
+        module_path: str = package_path.replace('.', '/')
+        module_path = f'./{module_path}.py'
+        module_paths.append(module_path)
+    return module_paths
+
+
 def reset_replaced_docstring_section(*, md_file_path: str) -> bool:
     """
     Reset converted a markdown's docstring section.

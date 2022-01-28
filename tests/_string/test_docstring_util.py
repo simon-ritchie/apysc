@@ -1277,3 +1277,24 @@ def test__append_examples_to_markdown() -> None:
     for i, line in enumerate(lines):
         assert line == expected_lines[i]
     assert len(lines) == len(expected_lines)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__slice_references_by_md_file_path() -> None:
+    references: List[_Reference] = [
+        _Reference(
+            page_label='test document 1',
+            url='https://simon-ritchie.github.io/apysc/sprite.html'),
+        _Reference(
+            page_label='test document 1',
+            url='https://simon-ritchie.github.io/apysc/display_object.html'),
+    ]
+    sliced_references: List[_Reference] = docstring_util.\
+        _slice_references_by_md_file_path(
+            references=references,
+            md_file_path='./docs_src/source/sprite.md')
+    assert sliced_references == [
+        _Reference(
+            page_label='test document 1',
+            url='https://simon-ritchie.github.io/apysc/display_object.html')
+    ]

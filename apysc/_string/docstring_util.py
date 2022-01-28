@@ -1,6 +1,7 @@
 """Utility implementations for docstrings.
 """
 
+import os
 import re
 from enum import Enum
 from typing import Any
@@ -319,6 +320,8 @@ def _convert_docstring_to_markdown(
         docstring=docstring)
     references: List[_Reference] = _extract_reference_values_from_docstring(
         docstring=docstring)
+    references = _slice_references_by_md_file_path(
+        references=references, md_file_path=md_file_path)
     markdown: str = (
         '<span class="inconspicuous-txt">Note: the document build script generates and updates this '
         'API document section automatically. Maybe this section '
@@ -731,6 +734,38 @@ class _Example:
         if self.expected_output != other.expected_output:
             return False
         return True
+
+
+def _slice_references_by_md_file_path(
+        references: List[_Reference],
+        md_file_path: str) -> List[_Reference]:
+    """
+    Slice a specified references list to exclude a same
+    URL's document file.
+
+    Parameters
+    ----------
+    references : list of _Reference
+        Target references list to slice.
+    md_file_path : str
+        Target markdown file path.
+
+    Returns
+    -------
+    sliced_references : list of _Reference
+        Sliced list.
+    """
+    md_file_name: str = os.path.basename(md_file_path)
+    md_file_name = md_file_name.rsplit('.', maxsplit=1)[0]
+    sliced_references: List[_Reference] = []
+    for reference in references:
+        reference_file_name: str = reference.url.rsplit('/', 1)[-1]
+        reference_file_name = reference_file_name.rsplit(
+            '.', maxsplit=1)[0]
+        if reference_file_name == md_file_name:
+            continue
+        sliced_references.append(reference)
+    return sliced_references
 
 
 def _append_examples_to_markdown(

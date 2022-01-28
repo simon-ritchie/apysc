@@ -947,7 +947,8 @@ def test__convert_docstring_to_markdown() -> None:
     markdown: str = docstring_util._convert_docstring_to_markdown(
         docstring=_TEST_DOCSTRING,
         signature=signature,
-        callable_name='test_func')
+        callable_name='test_func',
+        md_file_path='./docs_src/source/test_document.md')
     markdown_lines: List[str] = markdown.splitlines()
     expected_lines: List[str] = [
         '<span class="inconspicuous-txt">Note: the document '
@@ -1036,7 +1037,8 @@ def test__convert_docstring_path_comment_to_markdown_format() -> None:
                 ' tests._string.test_docstring_util.'
                 'test__convert_docstring_path_comment_to_markdown_format'
                 ' -->'
-            ))
+            ),
+            md_file_path='./docs_src/source/test_document.md')
     assert markdown_format_docstring == ''
 
     markdown_format_docstring = docstring_util.\
@@ -1044,7 +1046,8 @@ def test__convert_docstring_path_comment_to_markdown_format() -> None:
             docstring_path_comment=(
                 f'<!-- {_PATH_COMMENT_KEYWORD} '
                 'apysc._display.sprite.Sprite.__init__ -->'
-            ))
+            ),
+            md_file_path='./docs_src/source/test_document.md')
     assert '**[Interface summary]**' in markdown_format_docstring
     assert 'Basic display object that can be parent.' \
         in markdown_format_docstring

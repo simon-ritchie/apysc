@@ -172,7 +172,8 @@ def replace_docstring_path_specification(*, md_file_path: str) -> None:
             result_lines.append('')
             markdown_format_docstring: str = \
                 _convert_docstring_path_comment_to_markdown_format(
-                    docstring_path_comment=match.group(0)
+                    docstring_path_comment=match.group(0),
+                    md_file_path=md_file_path,
                 )
             result_lines.append(markdown_format_docstring)
             continue
@@ -193,7 +194,8 @@ class _DocstringCallableNotExistsError(Exception):
 
 
 def _convert_docstring_path_comment_to_markdown_format(
-        *, docstring_path_comment: str) -> str:
+        *, docstring_path_comment: str,
+        md_file_path: str) -> str:
     """
     Convert a specified docstring path comment to a
     markdown format text.
@@ -202,6 +204,8 @@ def _convert_docstring_path_comment_to_markdown_format(
     ----------
     docstring_path_comment : str
         Target docstring path comment.
+    md_file_path : str
+        Target markdown file path.
 
     Returns
     -------
@@ -224,7 +228,8 @@ def _convert_docstring_path_comment_to_markdown_format(
     markdown_format_docstring: str = _convert_docstring_to_markdown(
         docstring=callable_.__doc__,
         signature=signature,
-        callable_name=callable_.__name__)
+        callable_name=callable_.__name__,
+        md_file_path=md_file_path)
     return markdown_format_docstring
 
 
@@ -280,7 +285,8 @@ def _get_callable_from_package_path_and_callable_name(
 def _convert_docstring_to_markdown(
         *, docstring: str,
         signature: Signature,
-        callable_name: str) -> str:
+        callable_name: str,
+        md_file_path: str) -> str:
     """
     Convert a specified docstring to a markdown format text.
 
@@ -292,6 +298,8 @@ def _convert_docstring_to_markdown(
         Target callable's signature.
     callable_name : str
         Target callable name.
+    md_file_path : str
+        Target markdown file path.
 
     Returns
     -------

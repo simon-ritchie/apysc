@@ -62,3 +62,33 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/num_children_basic_usage/index.html" width="450" height="150"></iframe>
+
+## num_children API
+
+<!-- Docstring: apysc._display.child_interface.ChildInterface.num_children -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get a current children's number.<hr>
+
+**[Returns]**
+
+- `num_children`: int
+  - Current children number.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+>>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=150, y=50, width=50, height=50)
+>>> sprite.graphics.num_children
+Int(2)
+```

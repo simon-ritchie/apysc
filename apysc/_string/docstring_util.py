@@ -267,11 +267,16 @@ def _convert_docstring_path_comment_to_markdown_format(
     )
     if callable_.__doc__ is None:
         return ''
-    signature: Signature = inspect.signature(callable_)
+    if callable(callable_):
+        signature: Optional[Signature] = inspect.signature(callable_)
+        callable_name: str = callable_.__name__
+    else:
+        signature = None
+        callable_name = ''
     markdown_format_docstring: str = _convert_docstring_to_markdown(
         docstring=callable_.__doc__,
         signature=signature,
-        callable_name=callable_.__name__,
+        callable_name=callable_name,
         md_file_path=md_file_path)
     return markdown_format_docstring
 
@@ -327,7 +332,7 @@ def _get_callable_from_package_path_and_callable_name(
 
 def _convert_docstring_to_markdown(
         *, docstring: str,
-        signature: Signature,
+        signature: Optional[Signature],
         callable_name: str,
         md_file_path: str) -> str:
     """
@@ -337,8 +342,9 @@ def _convert_docstring_to_markdown(
     ----------
     docstring : str
         Target docstring.
-    signature : Signature
-        Target callable's signature.
+    signature : Signature or None
+        Target callable's signature. If a target interface
+        is property, this argument becomes None.
     callable_name : str
         Target callable name.
     md_file_path : str
@@ -368,8 +374,10 @@ def _convert_docstring_to_markdown(
         '<span class="inconspicuous-txt">Note: the document '
         'build script generates and updates this '
         'API document section automatically. Maybe this section '
-        'is duplicated compared with previous sections.</span>'
-        f'\n\n**[Interface signature]** `{callable_name}{signature}`')
+        'is duplicated compared with previous sections.</span>')
+    if signature is not None:
+        markdown += (
+            f'\n\n**[Interface signature]** `{callable_name}{signature}`')
     markdown = _append_summary_to_markdown(
         markdown=markdown, summary=summary)
     markdown = _append_params_or_rtns_to_markdown(

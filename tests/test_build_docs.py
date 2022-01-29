@@ -595,7 +595,7 @@ def test__remove_none_from_markdown_data_list() -> None:
     }]
 
 
-@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__replace_docstring_specification() -> None:
     tmp_dir_path: str = './tmp/'
     os.makedirs(tmp_dir_path, exist_ok=True)
@@ -609,6 +609,9 @@ def test__replace_docstring_specification() -> None:
             '\n\n## Constructor API'
             f'\n\n<!-- {_DOCSTRING_PATH_COMMENT_KEYWORD} '
             'apysc._display.sprite.Sprite.__init__ -->'
+            '\n\n## stage_elem_id property API'
+            f'\n\n<!-- {_DOCSTRING_PATH_COMMENT_KEYWORD} '
+            'apysc._display.stage.Stage.stage_elem_id -->'
         ),
         file_path=tmp_file_path)
     build_docs._replace_docstring_specification(

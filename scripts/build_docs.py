@@ -178,12 +178,55 @@ def _remove_document_hash_files_if_docstring_src_modified(
     md_file_path : str
         Target markdown file path.
     """
-    from apysc._string import docstring_util
     module_paths: List[str] = docstring_util.get_docstring_src_module_paths(
         md_file_path=md_file_path)
     if not module_paths:
         return
+    for module_path in module_paths:
+        saved_hashed_val: str = _read_docstring_src_hash(
+            module_path=module_path)
     pass
+
+
+def _read_docstring_src_hash(*, module_path: str) -> str:
+    """
+    Read a docstring source module's hashed string.
+
+    Parameters
+    ----------
+    module_path : str
+        Target module path.
+
+    Returns
+    -------
+    hash : str
+        Hashed string. If there is no saved hash file,
+        this function returns blank string.
+    """
+    hash_file_path: str = _get_docstring_src_hash_file_path(
+        module_path=module_path)
+    pass
+
+
+def _get_docstring_src_hash_file_path(*, module_path: str) -> str:
+    """
+    Get a docstring source hash file path.
+
+    Parameters
+    ----------
+    module_path : str
+        Target module path.
+
+    Returns
+    -------
+    hash_file_path : str
+        Target hash file path.
+    """
+    from apysc._lint import lint_hash_util
+    hash_file_path: str = lint_hash_util.get_target_module_hash_file_path(
+        module_path=module_path,
+        lint_type=lint_hash_util.LintType.DOCSTRING_SRC)
+    return hash_file_path
 
 
 class _MarkdownData(TypedDict):

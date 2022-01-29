@@ -20,6 +20,7 @@ from scripts.build_docs import _RunReturnData
 from scripts.build_docs import _ScriptData
 from tests.testing_helper import assert_attrs
 from tests.testing_helper import assert_raises
+from apysc._lint import lint_hash_util
 
 _CHECKOUT_FILE_PATHS: List[str] = [
     'docs_src/hashed_vals/stage.md',
@@ -617,3 +618,13 @@ def test__replace_docstring_specification() -> None:
         })
 
     file_util.remove_file_if_exists(file_path=tmp_file_path)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_docstring_src_hash_file_path() -> None:
+    hash_file_path: str = build_docs._get_docstring_src_hash_file_path(
+        module_path='./apysc/_display/sprite.py')
+    assert hash_file_path.startswith(
+        lint_hash_util._LINT_PACKAGE_ROOT_PATH
+    )
+    assert '/apysc/_display/sprite' in hash_file_path

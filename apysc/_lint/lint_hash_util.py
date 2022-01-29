@@ -38,6 +38,7 @@ class LintType(Enum):
     AUTOFLAKE = 'autoflake'
     ISORT = 'isort'
     AUTOPEP8 = 'autopep8'
+    DOCSTRING_SRC = 'docstring_src'
 
 
 _LINT_PACKAGE_ROOT_PATH: str = './.lint_hash/'

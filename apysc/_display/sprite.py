@@ -11,7 +11,7 @@ from apysc._type.revert_interface import RevertInterface
 
 class Sprite(DisplayObject, ChildInterface, RevertInterface):
     """
-    Basic display object that can be parent.
+    Basic display object that can be a parent.
 
     References
     ----------
@@ -55,9 +55,9 @@ class Sprite(DisplayObject, ChildInterface, RevertInterface):
         Parameters
         ----------
         variable_name : str or None, default None
-            Variable name of this instance. This will be used to
-            js expression. It is not necessary to specify any
-            string except when Sprite subclass will be instantiated.
+            Variable name of this instance. A js expression uses
+            this setting. It is unnecessary to specify any
+            string except when instantiating the `Sprite` subclass.
 
         References
         ----------

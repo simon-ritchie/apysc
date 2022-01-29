@@ -93,3 +93,48 @@ The subsequent pages explain the other interfaces, such as the `add_child` inter
 - [Contains interface](contains.md)
 - [Num children interface](num_children.md)
 - [Get child at interface](get_child_at.md)
+
+## Sprite class constructor API
+
+<!-- Docstring: apysc._display.sprite.Sprite.__init__ -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `__init__(self, *, variable_name:Union[str, NoneType]=None) -> None`<hr>
+
+**[Interface summary]** Basic display object that can be a parent.<hr>
+
+**[Parameters]**
+
+- `variable_name`: str or None, default None
+  - Variable name of this instance. A js expression uses this setting. It is unnecessary to specify any string except when instantiating the `Sprite` subclass.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite_1: ap.Sprite = ap.Sprite()
+>>> # Create the sprite child rectangle
+>>> sprite_1.graphics.begin_fill(color='#0af')
+>>> rect: ap.Rectangle = sprite_1.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> sprite_1.graphics.contains(rect)
+Boolean(True)
+
+>>> # Move the created rectangle to the other sprite
+>>> sprite_2: ap.Sprite = ap.Sprite()
+>>> sprite_2.add_child(rect)
+>>> sprite_1.graphics.contains(rect)
+Boolean(False)
+
+>>> sprite_2.contains(rect)
+Boolean(True)
+
+>>> # Move the sprite container
+>>> sprite_2.x = ap.Int(50)
+>>> sprite_2.x
+Int(50)
+```

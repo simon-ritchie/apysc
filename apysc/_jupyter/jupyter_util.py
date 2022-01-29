@@ -54,7 +54,9 @@ def display_on_jupyter(
 
     Notes
     -----
-    Currently not supported the Jupyter on the VS Code.
+    Currently, this interface does not support Jupyter on the VS Code.
+    This interface requires the Jupyter library
+    (e.g., `notebook` package).
 
     Parameters
     ----------
@@ -63,10 +65,6 @@ def display_on_jupyter(
     minify : bool, default True
         Boolean value whether minify a HTML or not.
         False setting is useful when debugging.
-
-    Notes
-    -----
-    This interface requires the Jupyter library (e.g., `notebook` package).
 
     References
     ----------

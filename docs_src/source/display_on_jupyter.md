@@ -47,3 +47,26 @@ ap.display_on_jupyter(html_file_name='jupyter_sample_1.html')
 Also, this interface can use on the JupyterLab:
 
 ![](_static/jupyterlab_interface.png)
+
+## display_on_jupyter API
+
+<!-- Docstring: apysc._jupyter.jupyter_util.display_on_jupyter -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `display_on_jupyter(html_file_name:str, *, minify:bool=True) -> None`<hr>
+
+**[Interface summary]** Save the overall HTML and display it on the Jupyter.<hr>
+
+**[Parameters]**
+
+- `html_file_name`: str, default 'index.html'
+  - The output HTML file name.
+- `minify`: bool, default True
+  - Boolean value whether minify a HTML or not. False setting is useful when debugging.
+
+<hr>
+
+**[Notes]**
+
+Currently, this interface does not support Jupyter on the VS Code. This interface requires the Jupyter library (e.g., `notebook` package).

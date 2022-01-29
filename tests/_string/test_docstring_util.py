@@ -1331,3 +1331,10 @@ def test__remove_trailing_hr_tag() -> None:
     markdown: str = docstring_util._remove_trailing_hr_tag(
         markdown='Lorem ipsum dolor sit.\n\n<hr>\n')
     assert markdown == 'Lorem ipsum dolor sit.'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__remove_noqa() -> None:
+    string: str = docstring_util._remove_noqa(
+        string='Lorem ipsum dolor sit.  # noqa')
+    assert string == 'Lorem ipsum dolor sit.'

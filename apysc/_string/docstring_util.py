@@ -1119,6 +1119,7 @@ def _extract_reference_values_from_docstring(
                 line=line)
             continue
         url = _remove_unnecessary_markdown_list_from_line(line=line)
+        url = _remove_noqa(string=url)
         _make_reference_and_append_to_list(
             reference_values=reference_values,
             page_label=page_label, url=url)
@@ -1127,6 +1128,24 @@ def _extract_reference_values_from_docstring(
         reference_values=reference_values,
         page_label=page_label, url=url)
     return reference_values
+
+
+def _remove_noqa(string: str) -> str:
+    """
+    Remove a noqa comment from a specified string.
+
+    Parameters
+    ----------
+    string : str
+        Target string.
+
+    Returns
+    -------
+    string : str
+        Result string.
+    """
+    string = string.replace('# noqa', '', 1).strip()
+    return string
 
 
 def _make_reference_and_append_to_list(

@@ -88,14 +88,16 @@ The `Int` and `Number` classes have the same interfaces. For more details, pleas
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, value:Union[int, float, apysc._type.number_value_interface.NumberValueInterface]) -> None`
+**[Interface signature]** `__init__(self, value:Union[int, float, apysc._type.number_value_interface.NumberValueInterface]) -> None`<hr>
 
-**[Interface summary]** Integer class for apysc library.
+**[Interface summary]** Integer class for apysc library.<hr>
 
 **[Parameters]**
 
 - `value`: int or float or Int or Number
   - Initial integer value. If the `float` or `Number` value is specified, this class casts it to an integer.
+
+<hr>
 
 **[Examples]**
 
@@ -123,10 +125,14 @@ Int(20)
 Int(10)
 ```
 
+<hr>
+
 **[References]**
 
 - [Int and Number common arithmetic operations document](https://bit.ly/3evzcVj)
 - [Int and Number common comparison operations document](https://bit.ly/3zolw6T)
+
+<hr>
 
 ## Number class constructor API
 
@@ -134,18 +140,20 @@ Int(10)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, value:Union[int, float, Any]) -> None`
+**[Interface signature]** `__init__(self, value:Union[int, float, Any]) -> None`<hr>
 
-**[Interface summary]** Floating point number class for apysc library.
+**[Interface summary]** Floating point number class for apysc library.<hr>
 
 **[Parameters]**
 
 - `value`: int or float or Int or Number
   - Initial floating point number value. This class casts it to float if you specify int or Int value.
 
+<hr>
+
 **[Notes]**
 
-The `Float` class is the alias of the Number, and it behaves the same as the Number class.
+The `Float` class is the alias of the Number, and it behaves the same as the Number class.<hr>
 
 **[Examples]**
 
@@ -169,7 +177,11 @@ Boolean(True)
 Number(20.8)
 ```
 
+<hr>
+
 **[References]**
 
 - [Int and Number common arithmetic operations document](https://bit.ly/3evzcVj)
 - [Int and Number common comparison operations document](https://bit.ly/3zolw6T)
+
+<hr>

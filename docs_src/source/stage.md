@@ -81,9 +81,9 @@ This option is useful when using the apysc project multiple times (for an easily
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `__init__(self, *, stage_width:int=300, stage_height:int=185, background_color:str='#ffffff', add_to:str='body', stage_elem_id:Union[str, NoneType]=None) -> None`
+**[Interface signature]** `__init__(self, *, stage_width:int=300, stage_height:int=185, background_color:str='#ffffff', add_to:str='body', stage_elem_id:Union[str, NoneType]=None) -> None`<hr>
 
-**[Interface summary]** Create Stage (overall viewport) instance.
+**[Interface summary]** Create Stage (overall viewport) instance.<hr>
 
 **[Parameters]**
 
@@ -98,6 +98,8 @@ This option is useful when using the apysc project multiple times (for an easily
 - `stage_elem_id`: str or None, optional
   - ID attribute set to stage html element (e.g., 'line-graph'). If None is set, random integer will be applied.
 
+<hr>
+
 **[Examples]**
 
 ```py
@@ -107,18 +109,22 @@ This option is useful when using the apysc project multiple times (for an easily
 ...     background_color='#333', stage_elem_id='sales_chart')
 ```
 
+<hr>
+
 ## stage_elem_id property API
 
 <!-- Docstring: apysc._display.stage.Stage.stage_elem_id -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get stage's html element id.
+**[Interface summary]** Get stage's html element id.<hr>
 
 **[Returns]**
 
 - `stage_elem_id`: str
   - Stage's html element id (not including class or id symbol). e.g., 'line-graph'
+
+<hr>
 
 **[Examples]**
 
@@ -131,20 +137,24 @@ This option is useful when using the apysc project multiple times (for an easily
 'sales_chart'
 ```
 
+<hr>
+
 ## add_child API
 
 <!-- Docstring: apysc._display.child_interface.ChildInterface.add_child -->
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `add_child(self, child:apysc._display.display_object.DisplayObject) -> None`
+**[Interface signature]** `add_child(self, child:apysc._display.display_object.DisplayObject) -> None`<hr>
 
-**[Interface summary]** Add display object child to this instance.
+**[Interface summary]** Add display object child to this instance.<hr>
 
 **[Parameters]**
 
 - `child`: DisplayObject
   - Child instance to add.
+
+<hr>
 
 **[Examples]**
 
@@ -159,9 +169,13 @@ This option is useful when using the apysc project multiple times (for an easily
 >>> sprite_2.add_child(rectangle)
 ```
 
+<hr>
+
 **[References]**
 
 - [add_child and remove_child interfaces document](https://bit.ly/3g7TMf0)
+
+<hr>
 
 ## remove_child API
 
@@ -169,14 +183,16 @@ This option is useful when using the apysc project multiple times (for an easily
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `remove_child(self, child:apysc._display.display_object.DisplayObject) -> None`
+**[Interface signature]** `remove_child(self, child:apysc._display.display_object.DisplayObject) -> None`<hr>
 
-**[Interface summary]** Remove display object child from this instance.
+**[Interface summary]** Remove display object child from this instance.<hr>
 
 **[Parameters]**
 
 - `child`: DisplayObject
   - Child instance to remove.
+
+<hr>
 
 **[Examples]**
 
@@ -192,9 +208,13 @@ This option is useful when using the apysc project multiple times (for an easily
 None
 ```
 
+<hr>
+
 **[References]**
 
 - [add_child and remove_child interfaces document](https://bit.ly/3g7TMf0)
+
+<hr>
 
 ## contains API
 
@@ -202,19 +222,23 @@ None
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `contains(self, child:apysc._display.display_object.DisplayObject) -> apysc._type.boolean.Boolean`
+**[Interface signature]** `contains(self, child:apysc._display.display_object.DisplayObject) -> apysc._type.boolean.Boolean`<hr>
 
-**[Interface summary]** Get a boolean whether this instance contains a specified child.
+**[Interface summary]** Get a boolean whether this instance contains a specified child.<hr>
 
 **[Parameters]**
 
 - `child`: DisplayObject
   - Child instance to check.
 
+<hr>
+
 **[Returns]**
 
 - `result`: Boolean
   - If this instance contains a specified child, this method returns True.
+
+<hr>
 
 **[Examples]**
 
@@ -233,9 +257,13 @@ Boolean(True)
 Boolean(False)
 ```
 
+<hr>
+
 **[References]**
 
 - [contains interface document](https://simon-ritchie.github.io/apysc/contains.html)
+
+<hr>
 
 ## num_children property API
 
@@ -243,12 +271,14 @@ Boolean(False)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface summary]** Get a current children's number.
+**[Interface summary]** Get a current children's number.<hr>
 
 **[Returns]**
 
 - `num_children`: int
   - Current children number.
+
+<hr>
 
 **[Examples]**
 
@@ -265,9 +295,13 @@ Boolean(False)
 Int(2)
 ```
 
+<hr>
+
 **[References]**
 
 - [num_children interface document](https://simon-ritchie.github.io/apysc/num_children.html)
+
+<hr>
 
 ## get_child_at API
 
@@ -275,19 +309,23 @@ Int(2)
 
 <span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
 
-**[Interface signature]** `get_child_at(self, index:Union[int, apysc._type.int.Int]) -> apysc._display.display_object.DisplayObject`
+**[Interface signature]** `get_child_at(self, index:Union[int, apysc._type.int.Int]) -> apysc._display.display_object.DisplayObject`<hr>
 
-**[Interface summary]** Get child at a specified index.
+**[Interface summary]** Get child at a specified index.<hr>
 
 **[Parameters]**
 
 - `index`: int or Int
   - Child's index (start from 0).
 
+<hr>
+
 **[Returns]**
 
 - `child`: DisplayObject
   - Target index child instance.
+
+<hr>
 
 **[Examples]**
 
@@ -306,6 +344,10 @@ Int(2)
 True
 ```
 
+<hr>
+
 **[References]**
 
 - [get_child_at interface document](https://simon-ritchie.github.io/apysc/get_child_at.html)
+
+<hr>

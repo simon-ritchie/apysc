@@ -20,7 +20,7 @@ from scripts.build_docs import _RunReturnData
 from scripts.build_docs import _ScriptData
 from tests.testing_helper import assert_attrs
 from tests.testing_helper import assert_raises
-from apysc._lint import lint_hash_util
+from apysc._lint_and_doc import lint_hash_util
 
 _CHECKOUT_FILE_PATHS: List[str] = [
     'docs_src/hashed_vals/stage.md',

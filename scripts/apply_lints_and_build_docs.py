@@ -27,7 +27,7 @@ sys.path.append('./')
 
 from apysc._console import loggers
 from apysc._file import module_util
-from apysc._lint import lint_hash_util
+from apysc._lint_and_doc import lint_hash_util
 
 logger: Logger = loggers.get_info_logger()
 

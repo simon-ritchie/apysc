@@ -5,9 +5,9 @@ from typing import List
 from retrying import retry
 
 from apysc._file import file_util
-from apysc._lint import lint_hash_util
-from apysc._lint.lint_hash_util import LintType
-from apysc._lint.lint_hash_util import _IsModuleUpdatedArgs
+from apysc._lint_and_doc import lint_hash_util
+from apysc._lint_and_doc.lint_hash_util import LintType
+from apysc._lint_and_doc.lint_hash_util import _IsModuleUpdatedArgs
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

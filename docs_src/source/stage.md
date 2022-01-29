@@ -4,7 +4,7 @@ This page explains the `Stage` class.
 
 ## What is the Stage?
 
-The `Stage` is the apysc overall drawing area (like a viewport or canvas, or something else) and a container of all elements.
+The `Stage` is the apysc overall drawing area (like a viewport, canvas, or something else) and contains all elements.
 
 You must create the `Stage` at the first of the apysc project (this runs cleaning up internal data and files).
 
@@ -74,3 +74,182 @@ stage: ap.Stage = ap.Stage(
 ```
 
 This option is useful when using the apysc project multiple times (for an easily identifiable ID) or version control.
+
+## Stage class constructor API
+
+<!-- Docstring: apysc._display.stage.Stage.__init__ -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `__init__(self, *, stage_width:int=300, stage_height:int=185, background_color:str='#ffffff', add_to:str='body', stage_elem_id:Union[str, NoneType]=None) -> None`
+
+**[Interface summary]** Create Stage (overall viewport) instance.
+
+**[Parameters]**
+
+- `stage_width`: int, default 300
+  - Stage width.
+- `stage_height`: int, default 185
+  - Stage height
+- `background_color`: str, default '#ffffff'
+  - Hexadecimal background color string.
+- `add_to`: str, default 'body'
+  - Specification of element to add stage. Unique tag (e.g., 'body') or ID selector (e.g., '#any-unique-elem') is acceptable.
+- `stage_elem_id`: str or None, optional
+  - ID attribute set to stage html element (e.g., 'line-graph'). If None is set, random integer will be applied.
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage(
+...     stage_width=500, stage_height=300,
+...     background_color='#333', stage_elem_id='sales_chart')
+```
+
+## add_child API
+
+<!-- Docstring: apysc._display.child_interface.ChildInterface.add_child -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `add_child(self, child:apysc._display.display_object.DisplayObject) -> None`
+
+**[Interface summary]** Add display object child to this instance.
+
+**[Parameters]**
+
+- `child`: DisplayObject
+  - Child instance to add.
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite_1: ap.Sprite = ap.Sprite()
+>>> sprite_1.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> sprite_2: ap.Sprite = ap.Sprite()
+>>> sprite_2.add_child(rectangle)
+```
+
+**[References]**
+
+- [Sprite class add_child and remove_child interfaces document](https://bit.ly/2Ugk47G)
+
+## remove_child API
+
+<!-- Docstring: apysc._display.child_interface.ChildInterface.remove_child -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `remove_child(self, child:apysc._display.display_object.DisplayObject) -> None`
+
+**[Interface summary]** Remove display object child from this instance.
+
+**[Parameters]**
+
+- `child`: DisplayObject
+  - Child instance to remove.
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> sprite.graphics.remove_child(rectangle)
+>>> print(rectangle.parent)
+None
+```
+
+**[References]**
+
+- [Sprite class add_child and remove_child interfaces document](https://bit.ly/2Ugk47G)
+
+## contains API
+
+<!-- Docstring: apysc._display.child_interface.ChildInterface.contains -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `contains(self, child:apysc._display.display_object.DisplayObject) -> apysc._type.boolean.Boolean`
+
+**[Interface summary]** Get a boolean whether this instance contains a specified child.
+
+**[Parameters]**
+
+- `child`: DisplayObject
+  - Child instance to check.
+
+**[Returns]**
+
+- `result`: Boolean
+  - If this instance contains a specified child, this method returns True.
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> sprite.graphics.contains(rectangle)
+Boolean(True)
+
+>>> rectangle.remove_from_parent()
+>>> sprite.graphics.contains(rectangle)
+Boolean(False)
+```
+
+**[References]**
+
+- [Sprite class contains interface document](https://simon-ritchie.github.io/apysc/sprite_contains.html)
+
+## get_child_at API
+
+<!-- Docstring: apysc._display.child_interface.ChildInterface.get_child_at -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `get_child_at(self, index:Union[int, apysc._type.int.Int]) -> apysc._display.display_object.DisplayObject`
+
+**[Interface summary]** Get child at a specified index.
+
+**[Parameters]**
+
+- `index`: int or Int
+  - Child's index (start from 0).
+
+**[Returns]**
+
+- `child`: DisplayObject
+  - Target index child instance.
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+>>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=150, y=50, width=50, height=50)
+>>> child_at_index_1: ap.DisplayObject = (
+...     sprite.graphics.get_child_at(1))
+>>> child_at_index_1 == rectangle_2
+True
+```
+
+**[References]**
+
+- [Sprite class get_child_at interface document](https://bit.ly/3rggoi6)

@@ -110,7 +110,7 @@ class ChildInterface(RevertInterface):
 
     def contains(self, child: DisplayObject) -> Boolean:
         """
-        Get a boolean whether this instance contains specified child.
+        Get a boolean whether this instance contains a specified child.
 
         Parameters
         ----------
@@ -120,8 +120,8 @@ class ChildInterface(RevertInterface):
         Returns
         -------
         result : Boolean
-            If this instance contains specified child, True will
-            be set.
+            If this instance contains a specified child, this
+            method returns True.
 
         References
         ----------
@@ -231,7 +231,7 @@ class ChildInterface(RevertInterface):
 
     def get_child_at(self, index: Union[int, Int]) -> DisplayObject:
         """
-        Get child at specified index.
+        Get child at a specified index.
 
         Parameters
         ----------

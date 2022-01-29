@@ -1,5 +1,4 @@
 import hashlib
-import importlib
 import os
 import shutil
 from random import randint
@@ -630,7 +629,6 @@ def test__get_doc_hash_file_path() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__remove_document_hash_files_if_docstring_src_modified() -> None:
-    importlib.reload(lint_and_doc_hash_util)
     tmp_md_file_path: str = './docs_src/source/tmp_test_doc.md'
     with open(tmp_md_file_path, 'w') as f:
         f.write('Lorem ipsum.')
@@ -659,6 +657,8 @@ def test__remove_document_hash_files_if_docstring_src_modified() -> None:
     def mock__read_file_and_hash_it_1(*, file_path: str) -> str:
         return 'abc'
 
+    original_read_saved_hash_func = lint_and_doc_hash_util.read_saved_hash
+    original__read_file_and_hash_it_func = build_docs._read_file_and_hash_it
     lint_and_doc_hash_util.read_saved_hash = mock_read_saved_hash
     build_docs._read_file_and_hash_it = mock__read_file_and_hash_it_1
     module_paths = \
@@ -677,7 +677,8 @@ def test__remove_document_hash_files_if_docstring_src_modified() -> None:
 
     file_util.remove_file_if_exists(file_path=tmp_md_file_path)
     file_util.remove_file_if_exists(file_path=hash_file_path)
-    importlib.reload(lint_and_doc_hash_util)
+    lint_and_doc_hash_util.read_saved_hash = original_read_saved_hash_func
+    build_docs._read_file_and_hash_it = original__read_file_and_hash_it_func
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

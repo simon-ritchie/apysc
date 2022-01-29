@@ -678,3 +678,18 @@ def test__remove_document_hash_files_if_docstring_src_modified() -> None:
     file_util.remove_file_if_exists(file_path=tmp_md_file_path)
     file_util.remove_file_if_exists(file_path=hash_file_path)
     importlib.reload(lint_and_doc_hash_util)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__flatten_2dim_module_paths_and_make_it_unique() -> None:
+    flattened_module_paths: List[str] = build_docs.\
+        _flatten_2dim_module_paths_and_make_it_unique(
+            docstring_module_paths=[[
+                './apysc/_display/sprite.py',
+                './apysc/_display/display_object.py',
+            ], [
+                './apysc/_display/sprite.py',
+            ]])
+    assert sorted(flattened_module_paths) == sorted(
+        ['./apysc/_display/sprite.py',
+        './apysc/_display/display_object.py'])

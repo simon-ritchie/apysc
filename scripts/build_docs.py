@@ -120,15 +120,20 @@ def _exec_document_lint_and_script(
         file_util.get_specified_ext_file_paths_recursively(
             extension='.md', dir_path='./docs_src/')
     workers: int = mp.cpu_count()
-    docstring_module_paths: List[List[str]] = []
 
     with mp.Pool(workers) as p:
         logger.info(
             msg='Removing document hash files if a docstring source '
-                'file has been modified.')
-        docstring_module_paths = p.map(
+                'file has been modified...')
+        docstring_module_paths: List[List[str]] = p.map(
             func=_remove_document_hash_files_if_docstring_src_modified,
             iterable=md_file_paths)
+        docstring_module_paths_: List[str] = \
+            _flatten_2dim_module_paths_and_make_it_unique(
+                docstring_module_paths=docstring_module_paths)
+
+        logger.info(msg='Saving docstring modules hash files...')
+        # p.map(func=_save_docstring_modules_hash, )
 
         logger.info(msg='Slicing not updated markdown files...')
         markdown_data_list_: List[Op[_MarkdownData]] = p.map(
@@ -166,6 +171,29 @@ def _exec_document_lint_and_script(
     executed_scripts: List[str] = [
         script_data['runnable_script'] for script_data in script_data_list]
     return executed_scripts
+
+
+def _flatten_2dim_module_paths_and_make_it_unique(
+        docstring_module_paths: List[List[str]]) -> List[str]:
+    """
+    Flatten a specified 2-dimensional docstring module paths
+    list and make it unique.
+
+    Parameters
+    ----------
+    docstring_module_paths : list of list
+        Target 2-dim module paths list.
+
+    Returns
+    -------
+    flattened_module_paths : list of str
+        Flattened module paths list.
+    """
+    flattened_module_paths: List[str] = []
+    for docstring_module_paths_ in docstring_module_paths:
+        flattened_module_paths.extend(docstring_module_paths_)
+    flattened_module_paths = list(set(flattened_module_paths))
+    return flattened_module_paths
 
 
 def _remove_document_hash_files_if_docstring_src_modified(

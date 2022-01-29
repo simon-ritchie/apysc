@@ -123,8 +123,8 @@ def _exec_document_lint_and_script(
 
     with mp.Pool(workers) as p:
         logger.info(
-            msg='Removing document hash files if a docstring source '
-                'file has been modified...')
+            msg='Removing document hash files if docstring source '
+                'files have been modified...')
         docstring_module_paths: List[List[str]] = p.map(
             func=_remove_document_hash_files_if_docstring_src_modified,
             iterable=md_file_paths)

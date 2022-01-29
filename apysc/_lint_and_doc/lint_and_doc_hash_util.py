@@ -41,7 +41,7 @@ class HashType(Enum):
     DOCSTRING_SRC = 'docstring_src'
 
 
-_LINT_PACKAGE_ROOT_PATH: str = './.lint_and_doc_hash'
+_HASH_PACKAGE_ROOT_PATH: str = './.lint_and_doc_hash'
 
 
 def get_hash_dir_path(*, hash_type: HashType) -> str:
@@ -64,7 +64,7 @@ def get_hash_dir_path(*, hash_type: HashType) -> str:
     not exist.
     """
     dir_path: str = os.path.join(
-        _LINT_PACKAGE_ROOT_PATH,
+        _HASH_PACKAGE_ROOT_PATH,
         f'.{hash_type.value}/'
     )
     os.makedirs(dir_path, exist_ok=True)

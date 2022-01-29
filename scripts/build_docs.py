@@ -122,7 +122,14 @@ def _exec_document_lint_and_script(
     workers: int = mp.cpu_count()
 
     with mp.Pool(workers) as p:
-        logger.info(msg="Slicing not updated markdown files...")
+        logger.info(
+            msg='Removing document hash files if a docstring source '
+                'file has been modified.')
+        p.map(
+            func=_remove_document_hash_files_if_docstring_src_modified,
+            iterable=md_file_paths)
+
+        logger.info(msg='Slicing not updated markdown files...')
         markdown_data_list_: List[Op[_MarkdownData]] = p.map(
             func=_convert_path_to_markdown_data_with_hashed_val,
             iterable=md_file_paths)
@@ -158,6 +165,25 @@ def _exec_document_lint_and_script(
     executed_scripts: List[str] = [
         script_data['runnable_script'] for script_data in script_data_list]
     return executed_scripts
+
+
+def _remove_document_hash_files_if_docstring_src_modified(
+        md_file_path: str) -> None:
+    """
+    Remove docstring hash files if docstring sources have
+    been modified.
+
+    Parameters
+    ----------
+    md_file_path : str
+        Target markdown file path.
+    """
+    from apysc._string import docstring_util
+    module_paths: List[str] = docstring_util.get_docstring_src_module_paths(
+        md_file_path=md_file_path)
+    if not module_paths:
+        return
+    pass
 
 
 class _MarkdownData(TypedDict):
@@ -541,8 +567,8 @@ def _convert_path_to_markdown_data_with_hashed_val(
     os.makedirs(hash_file_dir_path, exist_ok=True)
     saved_hashed_val: str = _read_md_file_hashed_val_from_file(
         hash_file_path=hash_file_path)
-    md_hashed_val: str = _read_md_file_and_hash_txt(
-        md_file_path=md_file_path)
+    md_hashed_val: str = _read_file_and_hash_it(
+        file_path=md_file_path)
     if saved_hashed_val == md_hashed_val:
         return None
     return {
@@ -570,14 +596,14 @@ def _get_md_under_source_file_path(md_file_path: str) -> str:
     return under_source_file_path
 
 
-def _read_md_file_and_hash_txt(md_file_path: str) -> str:
+def _read_file_and_hash_it(*, file_path: str) -> str:
     """
-    Read markdown file and hash that text.
+    Read a text file and hash its text.
 
     Parameters
     ----------
-    md_file_path : str
-        Target markdown file path.
+    file_path : str
+        Target file path.
 
     Returns
     -------
@@ -585,8 +611,8 @@ def _read_md_file_and_hash_txt(md_file_path: str) -> str:
         Hashed string value.
     """
     from apysc._file import file_util
-    md_txt: str = file_util.read_txt(file_path=md_file_path)
-    hashed_val: str = hashlib.sha1(md_txt.encode()).hexdigest()
+    txt: str = file_util.read_txt(file_path=file_path)
+    hashed_val: str = hashlib.sha1(txt.encode()).hexdigest()
     return hashed_val
 
 

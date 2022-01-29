@@ -243,12 +243,12 @@ def test__read_md_file_hashed_val_from_file() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__read_md_file_and_hash_txt() -> None:
+def test__read_file_and_hash_it() -> None:
     tmp_file_path: str = '../test_build_docs_2.md'
     file_util.save_plain_txt(
         txt='1234567890', file_path=tmp_file_path)
-    hashed_val: str = build_docs._read_md_file_and_hash_txt(
-        md_file_path=tmp_file_path)
+    hashed_val: str = build_docs._read_file_and_hash_it(
+        file_path=tmp_file_path)
     assert hashed_val == hashlib.sha1('1234567890'.encode()).hexdigest()
 
 
@@ -556,8 +556,8 @@ def test__convert_path_to_markdown_data_with_hashed_val() -> None:
         HASHED_VALS_DIR_PATH,
         under_source_file_path,
     )
-    expected_md_hashed_val: str = build_docs._read_md_file_and_hash_txt(
-        md_file_path=test_md_file_path)
+    expected_md_hashed_val: str = build_docs._read_file_and_hash_it(
+        file_path=test_md_file_path)
     file_util.remove_file_if_exists(file_path=hash_file_path)
     markdown_data = build_docs._convert_path_to_markdown_data_with_hashed_val(
         md_file_path=test_md_file_path)

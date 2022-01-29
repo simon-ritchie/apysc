@@ -35,7 +35,7 @@ class ChildInterface(RevertInterface):
         References
         ----------
         - add_child and remove_child interfaces document
-            - https://bit.ly/3g7TMf0
+            - https://simon-ritchie.github.io/apysc/add_child_and_remove_child.html  # noqa
 
         Examples
         --------
@@ -81,7 +81,7 @@ class ChildInterface(RevertInterface):
         References
         ----------
         - add_child and remove_child interfaces document
-            - https://bit.ly/3g7TMf0
+            - https://simon-ritchie.github.io/apysc/add_child_and_remove_child.html  # noqa
 
         Examples
         --------

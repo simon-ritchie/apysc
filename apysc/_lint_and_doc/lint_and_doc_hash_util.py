@@ -3,8 +3,8 @@
 
 Mainly following interfaces are defined:
 
-- get_lint_hash_dir_path
-    - Get a specified lint type's hash directory path.
+- get_hash_dir_path
+    - Get a specified type's hash directory path.
 - get_target_module_hash_file_path
     - Get a specified module's hash file path.
 - read_target_module_hash
@@ -44,9 +44,9 @@ class HashType(Enum):
 _LINT_PACKAGE_ROOT_PATH: str = './.lint_and_doc_hash'
 
 
-def get_lint_hash_dir_path(*, hash_type: HashType) -> str:
+def get_hash_dir_path(*, hash_type: HashType) -> str:
     """
-    Get a specified lint type's hash directory path.
+    Get a specified type's hash directory path.
 
     Parameters
     ----------
@@ -56,7 +56,7 @@ def get_lint_hash_dir_path(*, hash_type: HashType) -> str:
     Returns
     -------
     dir_path : str
-        Target lint type's hash directory path.
+        Target type's hash directory path.
 
     Notes
     -----
@@ -95,7 +95,7 @@ def get_target_module_hash_file_path(
     """
     if module_path.startswith('./'):
         module_path = module_path.replace('./', '', 1)
-    dir_path: str = get_lint_hash_dir_path(hash_type=hash_type)
+    dir_path: str = get_hash_dir_path(hash_type=hash_type)
     file_path: str = os.path.join(dir_path, module_path)
     file_path = file_path.replace('.py', '', 1)
     os.makedirs(os.path.dirname(file_path), exist_ok=True)

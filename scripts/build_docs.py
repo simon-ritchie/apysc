@@ -195,7 +195,7 @@ def _remove_document_hash_files_if_docstring_src_modified(
         hash_file_path: str = _get_doc_hash_file_path(
             md_file_path=md_file_path)
         file_util.remove_file_if_exists(file_path=hash_file_path)
-    pass
+        break
 
 
 class _MarkdownData(TypedDict):

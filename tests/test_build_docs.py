@@ -4,6 +4,7 @@ import shutil
 from random import randint
 from typing import List
 from typing import Optional
+import importlib
 
 from retrying import retry
 
@@ -623,5 +624,53 @@ def test__replace_docstring_specification() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__get_doc_hash_file_path() -> None:
     hash_file_path: str = build_docs._get_doc_hash_file_path(
-        md_file_path='./doc_src/source/any/path.md')
+        md_file_path='./docs_src/source/any/path.md')
     assert hash_file_path == './docs_src/hashed_vals/any/path.md'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__remove_document_hash_files_if_docstring_src_modified() -> None:
+    importlib.reload(lint_and_doc_hash_util)
+    tmp_md_file_path: str = './docs_src/source/tmp_test_doc.md'
+    with open(tmp_md_file_path, 'w') as f:
+        f.write('Lorem ipsum.')
+
+    hash_file_path: str = build_docs._get_doc_hash_file_path(
+        md_file_path=tmp_md_file_path)
+    with open(hash_file_path, 'w') as f:
+        f.write('')
+
+    build_docs._remove_document_hash_files_if_docstring_src_modified(
+        md_file_path=tmp_md_file_path)
+    assert os.path.exists(hash_file_path)
+
+    with open(tmp_md_file_path, 'w') as f:
+        f.write(
+            'Lorem ipsum.'
+            '\n\n<!-- Docstring:apysc._display.sprite.Sprite.__init__ -->')
+
+    def mock_read_saved_hash(
+            *, module_path: str,
+            hash_type: lint_and_doc_hash_util.HashType) -> str:
+        return 'abc'
+
+    def mock__read_file_and_hash_it_1(*, file_path: str) -> str:
+        return 'abc'
+
+    lint_and_doc_hash_util.read_saved_hash = mock_read_saved_hash
+    build_docs._read_file_and_hash_it = mock__read_file_and_hash_it_1
+    build_docs._remove_document_hash_files_if_docstring_src_modified(
+        md_file_path=tmp_md_file_path)
+    assert os.path.exists(hash_file_path)
+
+    def mock__read_file_and_hash_it_2(*, file_path: str) -> str:
+        return 'def'
+
+    build_docs._read_file_and_hash_it = mock__read_file_and_hash_it_2
+    build_docs._remove_document_hash_files_if_docstring_src_modified(
+        md_file_path=tmp_md_file_path)
+    assert not os.path.exists(hash_file_path)
+
+    file_util.remove_file_if_exists(file_path=tmp_md_file_path)
+    file_util.remove_file_if_exists(file_path=hash_file_path)
+    importlib.reload(lint_and_doc_hash_util)

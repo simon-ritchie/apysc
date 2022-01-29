@@ -1034,8 +1034,6 @@ def test__convert_docstring_to_markdown() -> None:
         '(https://en.wikipedia.org/test_page_1.html)',
         '- [Test interface2 document]'
         '(https://en.wikipedia.org/test_page_2.html)',
-        '',
-        '<hr>',
     ]
     for i, expected_line in enumerate(expected_lines):
         assert markdown_lines[i] == expected_line
@@ -1326,3 +1324,10 @@ def test_get_docstring_src_module_paths() -> None:
         md_file_path='./docs_src/source/int_and_number.md')
     assert './apysc/_type/int.py' in module_paths
     assert './apysc/_type/number.py' in module_paths
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__remove_trailing_hr_tag() -> None:
+    markdown: str = docstring_util._remove_trailing_hr_tag(
+        markdown='Lorem ipsum dolor sit.\n\n<hr>\n')
+    assert markdown == 'Lorem ipsum dolor sit.'

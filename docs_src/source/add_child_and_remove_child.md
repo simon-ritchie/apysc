@@ -134,3 +134,76 @@ ap.save_overall_html(
 
 - [DisplayObject class parent interfaces](display_object_parent.md)
 - [Contains interface](contains.md)
+
+## add_child API
+
+<!-- Docstring: apysc._display.child_interface.ChildInterface.add_child -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `add_child(self, child:apysc._display.display_object.DisplayObject) -> None`<hr>
+
+**[Interface summary]** Add display object child to this instance.<hr>
+
+**[Parameters]**
+
+- `child`: DisplayObject
+  - Child instance to add.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite_1: ap.Sprite = ap.Sprite()
+>>> sprite_1.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> sprite_2: ap.Sprite = ap.Sprite()
+>>> sprite_2.add_child(rectangle)
+```
+
+<hr>
+
+**[References]**
+
+- [add_child and remove_child interfaces document](https://bit.ly/3g7TMf0)
+
+## remove_child API
+
+<!-- Docstring: apysc._display.child_interface.ChildInterface.remove_child -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `remove_child(self, child:apysc._display.display_object.DisplayObject) -> None`<hr>
+
+**[Interface summary]** Remove display object child from this instance.<hr>
+
+**[Parameters]**
+
+- `child`: DisplayObject
+  - Child instance to remove.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> sprite.graphics.remove_child(rectangle)
+>>> print(rectangle.parent)
+None
+```
+
+<hr>
+
+**[References]**
+
+- [add_child and remove_child interfaces document](https://bit.ly/3g7TMf0)

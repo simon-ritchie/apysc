@@ -229,8 +229,8 @@ def _remove_document_hash_files_if_docstring_src_modified(
     module_paths : list of str
         Target docstring module paths in a specified markdown.
     """
-    from apysc._lint_and_doc import lint_and_doc_hash_util
     from apysc._file import file_util
+    from apysc._lint_and_doc import lint_and_doc_hash_util
     module_paths: List[str] = docstring_util.get_docstring_src_module_paths(
         md_file_path=md_file_path)
     if not module_paths:

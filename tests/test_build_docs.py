@@ -1,15 +1,16 @@
 import hashlib
+import importlib
 import os
 import shutil
 from random import randint
 from typing import List
 from typing import Optional
-import importlib
 
 from retrying import retry
 
 import scripts.build_docs as build_docs
 from apysc._file import file_util
+from apysc._lint_and_doc import lint_and_doc_hash_util
 from apysc._string.docstring_util import _DOCSTRING_PATH_COMMENT_KEYWORD
 from scripts.build_docs import HASHED_VALS_DIR_PATH
 from scripts.build_docs import _CodeBlock
@@ -21,7 +22,6 @@ from scripts.build_docs import _RunReturnData
 from scripts.build_docs import _ScriptData
 from tests.testing_helper import assert_attrs
 from tests.testing_helper import assert_raises
-from apysc._lint_and_doc import lint_and_doc_hash_util
 
 _CHECKOUT_FILE_PATHS: List[str] = [
     'docs_src/hashed_vals/stage.md',
@@ -692,7 +692,7 @@ def test__flatten_2dim_module_paths_and_make_it_unique() -> None:
             ]])
     assert sorted(flattened_module_paths) == sorted(
         ['./apysc/_display/sprite.py',
-        './apysc/_display/display_object.py'])
+         './apysc/_display/display_object.py'])
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

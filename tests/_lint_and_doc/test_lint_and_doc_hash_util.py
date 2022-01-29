@@ -128,13 +128,13 @@ def test__is_module_updated_func_for_multiprocessing() -> None:
         'module_path': module_path,
         'hash_type': HashType.AUTOPEP8,
     }
-    result: bool = lint_and_doc_hash_util._is_module_updated_func_for_multiprocessing(
-        args=args)
+    result: bool = lint_and_doc_hash_util.\
+        _is_module_updated_func_for_multiprocessing(args=args)
     assert not result
 
     file_util.save_plain_txt(txt='abc', file_path=module_path)
-    result = lint_and_doc_hash_util._is_module_updated_func_for_multiprocessing(
-        args=args)
+    result = lint_and_doc_hash_util.\
+        _is_module_updated_func_for_multiprocessing(args=args)
     assert result
 
     file_util.remove_file_if_exists(file_path=module_path)

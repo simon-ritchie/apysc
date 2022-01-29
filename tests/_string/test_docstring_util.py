@@ -1,14 +1,18 @@
-import os
-from random import randint
-from typing import Callable, List
 import inspect
+import os
 from inspect import Signature
+from random import randint
+from typing import Callable
+from typing import List
 
 from retrying import retry
 
 from apysc._file import file_util
 from apysc._string import docstring_util
-from apysc._string.docstring_util import _Parameter, _DocstringPathNotFoundError, _DocstringCallableNotExistsError, _Example
+from apysc._string.docstring_util import _DocstringCallableNotExistsError
+from apysc._string.docstring_util import _DocstringPathNotFoundError
+from apysc._string.docstring_util import _Example
+from apysc._string.docstring_util import _Parameter
 from apysc._string.docstring_util import _ParamOrRtnBase
 from apysc._string.docstring_util import _Raise
 from apysc._string.docstring_util import _Reference
@@ -937,7 +941,6 @@ def test__append_summary_to_markdown() -> None:
         '\n\n**[Interface summary]** '
         'Lorem ipsum dolor sit.'
     )
-
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))

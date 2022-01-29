@@ -41,7 +41,7 @@ class LintType(Enum):
     DOCSTRING_SRC = 'docstring_src'
 
 
-_LINT_PACKAGE_ROOT_PATH: str = './.lint_hash/'
+_LINT_PACKAGE_ROOT_PATH: str = './.lint_and_doc_hash'
 
 
 def get_lint_hash_dir_path(*, lint_type: LintType) -> str:

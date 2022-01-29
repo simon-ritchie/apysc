@@ -640,9 +640,11 @@ def test__remove_document_hash_files_if_docstring_src_modified() -> None:
     with open(hash_file_path, 'w') as f:
         f.write('')
 
-    build_docs._remove_document_hash_files_if_docstring_src_modified(
-        md_file_path=tmp_md_file_path)
+    module_paths: List[str] = build_docs.\
+        _remove_document_hash_files_if_docstring_src_modified(
+            md_file_path=tmp_md_file_path)
     assert os.path.exists(hash_file_path)
+    assert module_paths == []
 
     with open(tmp_md_file_path, 'w') as f:
         f.write(
@@ -659,15 +661,17 @@ def test__remove_document_hash_files_if_docstring_src_modified() -> None:
 
     lint_and_doc_hash_util.read_saved_hash = mock_read_saved_hash
     build_docs._read_file_and_hash_it = mock__read_file_and_hash_it_1
-    build_docs._remove_document_hash_files_if_docstring_src_modified(
-        md_file_path=tmp_md_file_path)
+    module_paths = \
+        build_docs._remove_document_hash_files_if_docstring_src_modified(
+            md_file_path=tmp_md_file_path)
     assert os.path.exists(hash_file_path)
+    assert module_paths == ['./apysc/_display/sprite.py']
 
     def mock__read_file_and_hash_it_2(*, file_path: str) -> str:
         return 'def'
 
     build_docs._read_file_and_hash_it = mock__read_file_and_hash_it_2
-    build_docs._remove_document_hash_files_if_docstring_src_modified(
+    _ = build_docs._remove_document_hash_files_if_docstring_src_modified(
         md_file_path=tmp_md_file_path)
     assert not os.path.exists(hash_file_path)
 

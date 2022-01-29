@@ -120,12 +120,13 @@ def _exec_document_lint_and_script(
         file_util.get_specified_ext_file_paths_recursively(
             extension='.md', dir_path='./docs_src/')
     workers: int = mp.cpu_count()
+    docstring_module_paths: List[List[str]] = []
 
     with mp.Pool(workers) as p:
         logger.info(
             msg='Removing document hash files if a docstring source '
                 'file has been modified.')
-        p.map(
+        docstring_module_paths = p.map(
             func=_remove_document_hash_files_if_docstring_src_modified,
             iterable=md_file_paths)
 
@@ -168,7 +169,7 @@ def _exec_document_lint_and_script(
 
 
 def _remove_document_hash_files_if_docstring_src_modified(
-        md_file_path: str) -> None:
+        md_file_path: str) -> List[str]:
     """
     Remove docstring hash files if docstring sources have
     been modified.
@@ -177,13 +178,18 @@ def _remove_document_hash_files_if_docstring_src_modified(
     ----------
     md_file_path : str
         Target markdown file path.
+
+    Returns
+    -------
+    module_paths : list of str
+        Target docstring module paths in a specified markdown.
     """
     from apysc._lint_and_doc import lint_and_doc_hash_util
     from apysc._file import file_util
     module_paths: List[str] = docstring_util.get_docstring_src_module_paths(
         md_file_path=md_file_path)
     if not module_paths:
-        return
+        return []
     for module_path in module_paths:
         saved_hash: str = lint_and_doc_hash_util.read_saved_hash(
             module_path=module_path,
@@ -196,6 +202,7 @@ def _remove_document_hash_files_if_docstring_src_modified(
             md_file_path=md_file_path)
         file_util.remove_file_if_exists(file_path=hash_file_path)
         break
+    return module_paths
 
 
 class _MarkdownData(TypedDict):

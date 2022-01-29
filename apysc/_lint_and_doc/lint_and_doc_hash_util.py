@@ -16,8 +16,7 @@ Mainly following interfaces are defined:
 - save_target_modules_hash
     - Save target modules' current hash.
 - is_module_updated
-    - Get a boolean value whether a specified module has been updated
-        after the last lint execution.
+    - Get a boolean value whether a specified module has been updated.
 - remove_not_updated_module_paths
     - Remove not updated modules from specified module paths.
 """
@@ -198,8 +197,7 @@ def save_target_modules_hash(
 
 def is_module_updated(*, module_path: str, hash_type: HashType) -> bool:
     """
-    Get a boolean value whether a specified module has been updated
-    after the last lint execution.
+    Get a boolean value whether a specified module has been updated.
 
     Parameters
     ----------

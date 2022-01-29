@@ -132,8 +132,6 @@ Int(10)
 - [Int and Number common arithmetic operations document](https://bit.ly/3evzcVj)
 - [Int and Number common comparison operations document](https://bit.ly/3zolw6T)
 
-<hr>
-
 ## Number class constructor API
 
 <!-- Docstring: apysc._type.number.Number.__init__ -->
@@ -183,5 +181,3 @@ Number(20.8)
 
 - [Int and Number common arithmetic operations document](https://bit.ly/3evzcVj)
 - [Int and Number common comparison operations document](https://bit.ly/3zolw6T)
-
-<hr>

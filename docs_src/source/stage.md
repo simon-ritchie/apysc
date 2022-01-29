@@ -109,8 +109,6 @@ This option is useful when using the apysc project multiple times (for an easily
 ...     background_color='#333', stage_elem_id='sales_chart')
 ```
 
-<hr>
-
 ## stage_elem_id property API
 
 <!-- Docstring: apysc._display.stage.Stage.stage_elem_id -->
@@ -136,8 +134,6 @@ This option is useful when using the apysc project multiple times (for an easily
 >>> stage.stage_elem_id
 'sales_chart'
 ```
-
-<hr>
 
 ## add_child API
 
@@ -175,8 +171,6 @@ This option is useful when using the apysc project multiple times (for an easily
 
 - [add_child and remove_child interfaces document](https://bit.ly/3g7TMf0)
 
-<hr>
-
 ## remove_child API
 
 <!-- Docstring: apysc._display.child_interface.ChildInterface.remove_child -->
@@ -213,8 +207,6 @@ None
 **[References]**
 
 - [add_child and remove_child interfaces document](https://bit.ly/3g7TMf0)
-
-<hr>
 
 ## contains API
 
@@ -263,8 +255,6 @@ Boolean(False)
 
 - [contains interface document](https://simon-ritchie.github.io/apysc/contains.html)
 
-<hr>
-
 ## num_children property API
 
 <!-- Docstring: apysc._display.child_interface.ChildInterface.num_children -->
@@ -300,8 +290,6 @@ Int(2)
 **[References]**
 
 - [num_children interface document](https://simon-ritchie.github.io/apysc/num_children.html)
-
-<hr>
 
 ## get_child_at API
 
@@ -349,5 +337,3 @@ True
 **[References]**
 
 - [get_child_at interface document](https://simon-ritchie.github.io/apysc/get_child_at.html)
-
-<hr>

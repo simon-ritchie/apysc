@@ -222,8 +222,8 @@ class Array(
 
         References
         ----------
-        - apysc basic data classes common value interface
-            - https://bit.ly/3Be1aij
+        - apysc fundamental data classes value interface
+            - https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html  # noqa
 
         Examples
         --------
@@ -247,8 +247,8 @@ class Array(
 
         References
         ----------
-        apysc basic data classes common value interface
-            https://bit.ly/3Be1aij
+        apysc fundamental data classes value interface
+            https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html  # noqa
         """
         import apysc as ap
         with ap.DebugInfo(

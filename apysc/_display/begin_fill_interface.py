@@ -39,7 +39,7 @@ class BeginFillInterface(RevertInterface):
         References
         ----------
         - Graphics begin_fill interface document
-            - https://bit.ly/3ikhNAh
+            - https://simon-ritchie.github.io/apysc/graphics_begin_fill.html  # noqa
 
         Examples
         --------

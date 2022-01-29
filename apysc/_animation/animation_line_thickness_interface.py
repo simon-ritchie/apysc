@@ -45,13 +45,13 @@ class AnimationLineThicknessInterface(AnimationInterfaceBase):
         References
         ----------
         - animation_line_thickness interface document
-            - https://bit.ly/2YUc7XN
+            - https://simon-ritchie.github.io/apysc/animation_line_thickness.html  # noqa
         - Animation interfaces duration setting document
             - https://simon-ritchie.github.io/apysc/animation_duration.html
         - Animation interfaces delay setting document
             - https://simon-ritchie.github.io/apysc/animation_delay.html
         - Each animation interface return value document
-            - https://bit.ly/2XOoa8w
+            - https://simon-ritchie.github.io/apysc/animation_return_value.html  # noqa
         - Sequential animation setting document
             - https://simon-ritchie.github.io/apysc/sequential_animation.html
         - animation_parallel interface document

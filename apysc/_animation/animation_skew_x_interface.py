@@ -51,7 +51,7 @@ class AnimationSkewXInterface(AnimationInterfaceBase):
         - Animation interfaces delay setting document
             - https://simon-ritchie.github.io/apysc/animation_delay.html
         - Each animation interface return value document
-            - https://bit.ly/2XOoa8w
+            - https://simon-ritchie.github.io/apysc/animation_return_value.html  # noqa
         - Sequential animation setting document
             - https://simon-ritchie.github.io/apysc/sequential_animation.html
         - animation_parallel interface document

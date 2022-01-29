@@ -503,7 +503,7 @@ class Graphics(
         References
         ----------
         - Graphics draw_line interface document
-            - https://bit.ly/3ey4pYe
+            - https://simon-ritchie.github.io/apysc/graphics_draw_line.html  # noqa
 
         Examples
         --------
@@ -570,7 +570,7 @@ class Graphics(
         References
         ----------
         - Graphics draw_dotted_line interface document
-            - https://bit.ly/3ig7Tzy
+            - https://simon-ritchie.github.io/apysc/graphics_draw_dotted_line.html  # noqa
 
         Examples
         --------
@@ -644,7 +644,7 @@ class Graphics(
         References
         ----------
         - Graphics draw_dashed_line interface document
-            - https://bit.ly/3ewoMF8
+            - https://simon-ritchie.github.io/apysc/graphics_draw_dashed_line.html  # noqa
 
         Examples
         --------
@@ -720,7 +720,7 @@ class Graphics(
         References
         ----------
         - Graphics draw_round_dotted_line interface document
-            - https://bit.ly/3ri985m
+            - https://simon-ritchie.github.io/apysc/graphics_draw_round_dotted_line.html  # noqa
 
         Examples
         --------
@@ -794,7 +794,7 @@ class Graphics(
         References
         ----------
         - Graphics draw_dash_dotted_line interface document
-            - https://bit.ly/3wKRtUZ
+            - https://simon-ritchie.github.io/apysc/graphics_draw_dash_dotted_line.html # noqa
 
         Examples
         --------

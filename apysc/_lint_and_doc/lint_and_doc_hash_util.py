@@ -1,5 +1,5 @@
-"""The utilities module for each lint's hash file (used to check whether
-the files are updated or not).
+"""The utilities module for each lint and doc's hash file
+(used to check whether the files are updated or not).
 
 Mainly following interfaces are defined:
 
@@ -33,7 +33,7 @@ from typing import List
 from typing_extensions import TypedDict
 
 
-class LintType(Enum):
+class HashType(Enum):
 
     AUTOFLAKE = 'autoflake'
     ISORT = 'isort'
@@ -44,14 +44,14 @@ class LintType(Enum):
 _LINT_PACKAGE_ROOT_PATH: str = './.lint_and_doc_hash'
 
 
-def get_lint_hash_dir_path(*, lint_type: LintType) -> str:
+def get_lint_hash_dir_path(*, lint_type: HashType) -> str:
     """
     Get a specified lint type's hash directory path.
 
     Parameters
     ----------
-    lint_type : LintType
-        Target lint type.
+    lint_type : lint_type
+        Target hash type.
 
     Returns
     -------
@@ -72,7 +72,7 @@ def get_lint_hash_dir_path(*, lint_type: LintType) -> str:
 
 
 def get_target_module_hash_file_path(
-        *, module_path: str, lint_type: LintType) -> str:
+        *, module_path: str, lint_type: HashType) -> str:
     """
     Get a specified module's hash file path.
 
@@ -80,8 +80,8 @@ def get_target_module_hash_file_path(
     ----------
     module_path : str
         Target module path.
-    lint_type : LintType
-        Target lint type.
+    lint_type : HashType
+        Target hash type.
 
     Returns
     -------
@@ -125,7 +125,7 @@ def read_target_module_hash(*, module_path: str) -> str:
     return hashed_string
 
 
-def read_saved_hash(*, module_path: str, lint_type: LintType) -> str:
+def read_saved_hash(*, module_path: str, lint_type: HashType) -> str:
     """
     Read an already-saved module's hashed string.
 
@@ -133,8 +133,8 @@ def read_saved_hash(*, module_path: str, lint_type: LintType) -> str:
     ----------
     module_path : str
         Target module path.
-    lint_type : LintType
-        Target lint type.
+    lint_type : HashType
+        Target hash type.
 
     Returns
     -------
@@ -152,7 +152,7 @@ def read_saved_hash(*, module_path: str, lint_type: LintType) -> str:
     return saved_hash
 
 
-def save_target_module_hash(*, module_path: str, lint_type: LintType) -> None:
+def save_target_module_hash(*, module_path: str, lint_type: HashType) -> None:
     """
     Save a target module's current hash.
 
@@ -160,8 +160,8 @@ def save_target_module_hash(*, module_path: str, lint_type: LintType) -> None:
     ----------
     module_path : str
         Target module path.
-    lint_type : LintType
-        Target lint type.
+    lint_type : HashType
+        Target hash type.
     """
     from apysc._file import file_util
     hash: str = read_target_module_hash(module_path=module_path)
@@ -173,7 +173,7 @@ def save_target_module_hash(*, module_path: str, lint_type: LintType) -> None:
 
 
 def save_target_modules_hash(
-        *, module_paths: List[str], lint_type: LintType) -> None:
+        *, module_paths: List[str], lint_type: HashType) -> None:
     """
     Save target modules' current hash.
 
@@ -181,8 +181,8 @@ def save_target_modules_hash(
     ----------
     module_paths : list of str
         Target module paths.
-    lint_type : LintType
-        Target lint type.
+    lint_type : HashType
+        Target hash type.
     """
     workers: int = max(cpu_count() - 1, 1)
     with futures.ProcessPoolExecutor(max_workers=workers) as executor:
@@ -196,7 +196,7 @@ def save_target_modules_hash(
         _ = futures.as_completed(fs=future_list)
 
 
-def is_module_updated(*, module_path: str, lint_type: LintType) -> bool:
+def is_module_updated(*, module_path: str, lint_type: HashType) -> bool:
     """
     Get a boolean value whether a specified module has been updated
     after the last lint execution.
@@ -205,8 +205,8 @@ def is_module_updated(*, module_path: str, lint_type: LintType) -> bool:
     ----------
     module_path : str
         Target module path.
-    lint_type : LintType
-        Target lint type.
+    lint_type : HashType
+        Target hash type.
 
     Returns
     -------
@@ -224,7 +224,7 @@ def is_module_updated(*, module_path: str, lint_type: LintType) -> bool:
 
 class _IsModuleUpdatedArgs(TypedDict):
     module_path: str
-    lint_type: LintType
+    lint_type: HashType
 
 
 def _is_module_updated_func_for_multiprocessing(
@@ -253,7 +253,7 @@ def _is_module_updated_func_for_multiprocessing(
 
 def _create_args_list_for_multiprocessing(
         *, module_paths: List[str],
-        lint_type: LintType) -> List[_IsModuleUpdatedArgs]:
+        lint_type: HashType) -> List[_IsModuleUpdatedArgs]:
     """
     Create an arguments list for the multiprocessing.
 
@@ -261,8 +261,8 @@ def _create_args_list_for_multiprocessing(
     ----------
     module_paths : list of str
         Target Python module paths.
-    lint_type : LintType
-        Target lint type.
+    lint_type : HashType
+        Target hash type.
 
     Returns
     -------
@@ -280,7 +280,7 @@ def _create_args_list_for_multiprocessing(
 
 def remove_not_updated_module_paths(
         *, module_paths: List[str],
-        lint_type: LintType) -> List[str]:
+        lint_type: HashType) -> List[str]:
     """
     Remove not updated modules from specified module paths.
 
@@ -288,8 +288,8 @@ def remove_not_updated_module_paths(
     ----------
     module_paths : list of str
         Target Python module paths.
-    lint_type : LintType
-        Target lint type.
+    lint_type : HashType
+        Target hash type.
 
     Returns
     -------

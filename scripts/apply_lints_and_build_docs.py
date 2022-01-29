@@ -144,10 +144,10 @@ def _main() -> None:
     flake8_process: sp.Popen = _start_subprocess(
         command_strs=_FLAKE8_COMMAND['command'].split(' '))
 
-    hash_lint_types: List[lint_and_doc_hash_util.LintType] = [
-        lint_and_doc_hash_util.LintType.AUTOFLAKE,
-        lint_and_doc_hash_util.LintType.ISORT,
-        lint_and_doc_hash_util.LintType.AUTOPEP8,
+    hash_lint_types: List[lint_and_doc_hash_util.HashType] = [
+        lint_and_doc_hash_util.HashType.AUTOFLAKE,
+        lint_and_doc_hash_util.HashType.ISORT,
+        lint_and_doc_hash_util.HashType.AUTOPEP8,
     ]
     for hash_lint_type in hash_lint_types:
         logger.info(
@@ -483,7 +483,7 @@ def _append_isort_lint_command_if_module_updated(
     isort_updated_module_paths: List[str] = lint_and_doc_hash_util.\
         remove_not_updated_module_paths(
             module_paths=module_paths,
-            lint_type=lint_and_doc_hash_util.LintType.ISORT)
+            lint_type=lint_and_doc_hash_util.HashType.ISORT)
     if isort_updated_module_paths:
         isort_module_paths_str: str = _get_joined_paths_str(
             module_paths=isort_updated_module_paths)
@@ -518,7 +518,7 @@ def _append_autopep8_lint_command_if_module_updated(
     autopep8_updated_module_paths: List[str] = lint_and_doc_hash_util.\
         remove_not_updated_module_paths(
             module_paths=module_paths,
-            lint_type=lint_and_doc_hash_util.LintType.AUTOPEP8)
+            lint_type=lint_and_doc_hash_util.HashType.AUTOPEP8)
     if autopep8_updated_module_paths:
         autopep8_module_paths_str: str = _get_joined_paths_str(
             module_paths=autopep8_updated_module_paths)
@@ -554,7 +554,7 @@ def _append_autoflake_lint_command_if_module_updated(
     autoflake_updated_module_paths: List[str] = lint_and_doc_hash_util.\
         remove_not_updated_module_paths(
             module_paths=module_paths,
-            lint_type=lint_and_doc_hash_util.LintType.AUTOFLAKE)
+            lint_type=lint_and_doc_hash_util.HashType.AUTOFLAKE)
     if autoflake_updated_module_paths:
         autoflake_module_paths_str: str = _get_joined_paths_str(
             module_paths=autoflake_updated_module_paths)

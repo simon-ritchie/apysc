@@ -222,10 +222,10 @@ def _get_docstring_src_hash_file_path(*, module_path: str) -> str:
     hash_file_path : str
         Target hash file path.
     """
-    from apysc._lint_and_doc import lint_hash_util
-    hash_file_path: str = lint_hash_util.get_target_module_hash_file_path(
+    from apysc._lint_and_doc import lint_and_doc_hash_util
+    hash_file_path: str = lint_and_doc_hash_util.get_target_module_hash_file_path(
         module_path=module_path,
-        lint_type=lint_hash_util.LintType.DOCSTRING_SRC)
+        lint_type=lint_and_doc_hash_util.LintType.DOCSTRING_SRC)
     return hash_file_path
 
 

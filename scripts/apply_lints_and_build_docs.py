@@ -27,7 +27,7 @@ sys.path.append('./')
 
 from apysc._console import loggers
 from apysc._file import module_util
-from apysc._lint_and_doc import lint_hash_util
+from apysc._lint_and_doc import lint_and_doc_hash_util
 
 logger: Logger = loggers.get_info_logger()
 
@@ -144,15 +144,15 @@ def _main() -> None:
     flake8_process: sp.Popen = _start_subprocess(
         command_strs=_FLAKE8_COMMAND['command'].split(' '))
 
-    hash_lint_types: List[lint_hash_util.LintType] = [
-        lint_hash_util.LintType.AUTOFLAKE,
-        lint_hash_util.LintType.ISORT,
-        lint_hash_util.LintType.AUTOPEP8,
+    hash_lint_types: List[lint_and_doc_hash_util.LintType] = [
+        lint_and_doc_hash_util.LintType.AUTOFLAKE,
+        lint_and_doc_hash_util.LintType.ISORT,
+        lint_and_doc_hash_util.LintType.AUTOPEP8,
     ]
     for hash_lint_type in hash_lint_types:
         logger.info(
             msg=f'Saving {hash_lint_type.value} hash files...')
-        lint_hash_util.save_target_modules_hash(
+        lint_and_doc_hash_util.save_target_modules_hash(
             module_paths=updated_module_paths,
             lint_type=hash_lint_type)
 
@@ -480,10 +480,10 @@ def _append_isort_lint_command_if_module_updated(
         Updated module paths.
     """
     logger.info(msg='Creating the isort command...')
-    isort_updated_module_paths: List[str] = lint_hash_util.\
+    isort_updated_module_paths: List[str] = lint_and_doc_hash_util.\
         remove_not_updated_module_paths(
             module_paths=module_paths,
-            lint_type=lint_hash_util.LintType.ISORT)
+            lint_type=lint_and_doc_hash_util.LintType.ISORT)
     if isort_updated_module_paths:
         isort_module_paths_str: str = _get_joined_paths_str(
             module_paths=isort_updated_module_paths)
@@ -515,10 +515,10 @@ def _append_autopep8_lint_command_if_module_updated(
         Updated module paths.
     """
     logger.info(msg='Creating the autopep8 command...')
-    autopep8_updated_module_paths: List[str] = lint_hash_util.\
+    autopep8_updated_module_paths: List[str] = lint_and_doc_hash_util.\
         remove_not_updated_module_paths(
             module_paths=module_paths,
-            lint_type=lint_hash_util.LintType.AUTOPEP8)
+            lint_type=lint_and_doc_hash_util.LintType.AUTOPEP8)
     if autopep8_updated_module_paths:
         autopep8_module_paths_str: str = _get_joined_paths_str(
             module_paths=autopep8_updated_module_paths)
@@ -551,10 +551,10 @@ def _append_autoflake_lint_command_if_module_updated(
         Updated module paths.
     """
     logger.info(msg='Creating the autoflake command...')
-    autoflake_updated_module_paths: List[str] = lint_hash_util.\
+    autoflake_updated_module_paths: List[str] = lint_and_doc_hash_util.\
         remove_not_updated_module_paths(
             module_paths=module_paths,
-            lint_type=lint_hash_util.LintType.AUTOFLAKE)
+            lint_type=lint_and_doc_hash_util.LintType.AUTOFLAKE)
     if autoflake_updated_module_paths:
         autoflake_module_paths_str: str = _get_joined_paths_str(
             module_paths=autoflake_updated_module_paths)

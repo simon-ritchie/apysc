@@ -9,7 +9,7 @@ from retrying import retry
 
 import scripts.apply_lints_and_build_docs as apply_lints_and_build_docs
 from apysc._file import file_util
-from apysc._lint_and_doc.lint_hash_util import LintType
+from apysc._lint_and_doc.lint_and_doc_hash_util import LintType
 from scripts.apply_lints_and_build_docs import LintCommand
 from tests.testing_helper import assert_raises
 
@@ -56,7 +56,7 @@ def test__get_module_paths() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__make_inplace_lint_commands() -> None:
     original_remove_not_updated_module_paths_func = \
-        apply_lints_and_build_docs.lint_hash_util.\
+        apply_lints_and_build_docs.lint_and_doc_hash_util.\
         remove_not_updated_module_paths
 
     def mock_remove_not_updated_module_paths_1(
@@ -64,7 +64,7 @@ def test__make_inplace_lint_commands() -> None:
             lint_type: LintType) -> List[str]:
         return ['./apysc/_display/sprite.py']
 
-    apply_lints_and_build_docs.lint_hash_util.\
+    apply_lints_and_build_docs.lint_and_doc_hash_util.\
         remove_not_updated_module_paths = \
         mock_remove_not_updated_module_paths_1
 
@@ -86,7 +86,7 @@ def test__make_inplace_lint_commands() -> None:
             lint_type: LintType) -> List[str]:
         return []
 
-    apply_lints_and_build_docs.lint_hash_util.\
+    apply_lints_and_build_docs.lint_and_doc_hash_util.\
         remove_not_updated_module_paths = \
         mock_remove_not_updated_module_paths_2
     lint_commands, updated_module_paths = \
@@ -96,7 +96,7 @@ def test__make_inplace_lint_commands() -> None:
     assert lint_names == []
     assert updated_module_paths == []
 
-    apply_lints_and_build_docs.lint_hash_util.\
+    apply_lints_and_build_docs.lint_and_doc_hash_util.\
         remove_not_updated_module_paths = \
         original_remove_not_updated_module_paths_func
 
@@ -113,7 +113,7 @@ def test__get_joined_paths_str() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_autoflake_lint_command_if_module_updated() -> None:
     original_remove_not_updated_module_paths_func = \
-        apply_lints_and_build_docs.lint_hash_util.\
+        apply_lints_and_build_docs.lint_and_doc_hash_util.\
         remove_not_updated_module_paths
 
     def mock_remove_not_updated_module_paths_1(
@@ -121,7 +121,7 @@ def test__append_autoflake_lint_command_if_module_updated() -> None:
             lint_type: LintType) -> List[str]:
         return []
 
-    apply_lints_and_build_docs.lint_hash_util.\
+    apply_lints_and_build_docs.lint_and_doc_hash_util.\
         remove_not_updated_module_paths = \
         mock_remove_not_updated_module_paths_1
     lint_commands: List[LintCommand] = []
@@ -137,7 +137,7 @@ def test__append_autoflake_lint_command_if_module_updated() -> None:
             lint_type: LintType) -> List[str]:
         return ['./apysc/_display/sprite.py']
 
-    apply_lints_and_build_docs.lint_hash_util.\
+    apply_lints_and_build_docs.lint_and_doc_hash_util.\
         remove_not_updated_module_paths = \
         mock_remove_not_updated_module_paths_2
     autoflake_updated_module_paths = apply_lints_and_build_docs.\
@@ -147,7 +147,7 @@ def test__append_autoflake_lint_command_if_module_updated() -> None:
     assert lint_commands[0]['lint_name'] == 'autoflake'
     assert autoflake_updated_module_paths == ['./apysc/_display/sprite.py']
 
-    apply_lints_and_build_docs.lint_hash_util.\
+    apply_lints_and_build_docs.lint_and_doc_hash_util.\
         remove_not_updated_module_paths = \
         original_remove_not_updated_module_paths_func
 
@@ -155,7 +155,7 @@ def test__append_autoflake_lint_command_if_module_updated() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_autopep8_lint_command_if_module_updated() -> None:
     original_remove_not_updated_module_paths_func = \
-        apply_lints_and_build_docs.lint_hash_util.\
+        apply_lints_and_build_docs.lint_and_doc_hash_util.\
         remove_not_updated_module_paths
 
     def mock_remove_not_updated_module_paths_1(
@@ -163,7 +163,7 @@ def test__append_autopep8_lint_command_if_module_updated() -> None:
             lint_type: LintType) -> List[str]:
         return []
 
-    apply_lints_and_build_docs.lint_hash_util.\
+    apply_lints_and_build_docs.lint_and_doc_hash_util.\
         remove_not_updated_module_paths = \
         mock_remove_not_updated_module_paths_1
     lint_commands: List[LintCommand] = []
@@ -179,7 +179,7 @@ def test__append_autopep8_lint_command_if_module_updated() -> None:
             lint_type: LintType) -> List[str]:
         return ['./apysc/_display/sprite.py']
 
-    apply_lints_and_build_docs.lint_hash_util.\
+    apply_lints_and_build_docs.lint_and_doc_hash_util.\
         remove_not_updated_module_paths = \
         mock_remove_not_updated_module_paths_2
     autopep8_updated_module_paths = apply_lints_and_build_docs.\
@@ -189,7 +189,7 @@ def test__append_autopep8_lint_command_if_module_updated() -> None:
     assert lint_commands[0]['lint_name'] == 'autopep8'
     assert autopep8_updated_module_paths == ['./apysc/_display/sprite.py']
 
-    apply_lints_and_build_docs.lint_hash_util.\
+    apply_lints_and_build_docs.lint_and_doc_hash_util.\
         remove_not_updated_module_paths = \
         original_remove_not_updated_module_paths_func
 
@@ -197,7 +197,7 @@ def test__append_autopep8_lint_command_if_module_updated() -> None:
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_isort_lint_command_if_module_updated() -> None:
     original_remove_not_updated_module_paths_func = \
-        apply_lints_and_build_docs.lint_hash_util.\
+        apply_lints_and_build_docs.lint_and_doc_hash_util.\
         remove_not_updated_module_paths
 
     def mock_remove_not_updated_module_paths_1(
@@ -205,7 +205,7 @@ def test__append_isort_lint_command_if_module_updated() -> None:
             lint_type: LintType) -> List[str]:
         return []
 
-    apply_lints_and_build_docs.lint_hash_util.\
+    apply_lints_and_build_docs.lint_and_doc_hash_util.\
         remove_not_updated_module_paths = \
         mock_remove_not_updated_module_paths_1
     lint_commands: List[LintCommand] = []
@@ -221,7 +221,7 @@ def test__append_isort_lint_command_if_module_updated() -> None:
             lint_type: LintType) -> List[str]:
         return ['./apysc/_display/sprite.py']
 
-    apply_lints_and_build_docs.lint_hash_util.\
+    apply_lints_and_build_docs.lint_and_doc_hash_util.\
         remove_not_updated_module_paths = \
         mock_remove_not_updated_module_paths_2
     isort_updated_module_paths = apply_lints_and_build_docs.\
@@ -231,7 +231,7 @@ def test__append_isort_lint_command_if_module_updated() -> None:
     assert lint_commands[0]['lint_name'] == 'isort'
     assert isort_updated_module_paths == ['./apysc/_display/sprite.py']
 
-    apply_lints_and_build_docs.lint_hash_util.\
+    apply_lints_and_build_docs.lint_and_doc_hash_util.\
         remove_not_updated_module_paths = \
         original_remove_not_updated_module_paths_func
 

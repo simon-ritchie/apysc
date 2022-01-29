@@ -20,7 +20,7 @@ from scripts.build_docs import _RunReturnData
 from scripts.build_docs import _ScriptData
 from tests.testing_helper import assert_attrs
 from tests.testing_helper import assert_raises
-from apysc._lint_and_doc import lint_hash_util
+from apysc._lint_and_doc import lint_and_doc_hash_util
 
 _CHECKOUT_FILE_PATHS: List[str] = [
     'docs_src/hashed_vals/stage.md',
@@ -625,6 +625,6 @@ def test__get_docstring_src_hash_file_path() -> None:
     hash_file_path: str = build_docs._get_docstring_src_hash_file_path(
         module_path='./apysc/_display/sprite.py')
     assert hash_file_path.startswith(
-        lint_hash_util._LINT_PACKAGE_ROOT_PATH
+        lint_and_doc_hash_util._LINT_PACKAGE_ROOT_PATH
     )
     assert '/apysc/_display/sprite' in hash_file_path

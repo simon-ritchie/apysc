@@ -1,6 +1,6 @@
-# Sprite class get_child_at interface
+# get_child_at interface
 
-This page explains the `Sprite` class (or the other container class, like the `Graphics`) `get_child_at` method interface.
+This page explains the container class, like the `Graphics`\, `Sprite`\, `Stage`) `get_child_at` method interface.
 
 ## What interface is this?
 

@@ -20,11 +20,12 @@ Welcome to apysc documentation! apysc is the Python front-end library (currently
 
 ---
 
-**Stage class**
+**Container classes**
 
-The `Stage` is the apysc overall drawing area.
+The `Stage` is the apysc overall drawing area container, and the `Sprite` is the container class.
 
 - [Stage class](stage.md)
+- [Sprite class](sprite.md)
 
 ---
 
@@ -36,6 +37,17 @@ The HTML and JavaScript exporting interfaces.
 - [Display on the jupyter interface](display_on_jupyter.md)
 - [Display on the Google Colaboratory interface](display_on_colaboratory.md)
 - [Append js expression interface](append_js_expression.md)
+
+---
+
+**Child-related interfaces**
+
+The parent class, such as the `Sprite` or `Stage` have the following interfaces:
+
+- [Add child and remove child interfaces](add_child_and_remove_child.md)
+- [Contains interface](contains.md)
+- [Num children interface](num_children.md)
+- [Get child at interface](get_child_at.md)
 
 ---
 
@@ -88,18 +100,6 @@ The `DisplayObject` class is the base class for each display object. The `Graphi
 - [GraphicsBase class scale from point interfaces](graphics_base_scale_from_point.md)
 - [GraphicsBase class flip x and flip y interfaces](graphics_base_flip_interfaces.md)
 - [GraphicsBase class skew x and skew y interfaces](graphics_base_skew.md)
-
----
-
-**Sprite class**
-
-The `Sprite` is the container of each display object instance.
-
-- [Sprite class](sprite.md)
-- [Sprite class add child and remove child interfaces](sprite_add_child_and_remove_child.md)
-- [Sprite class contains interface](sprite_contains.md)
-- [Sprite class num children interface](sprite_num_children.md)
-- [Sprite class get child at interface](sprite_get_child_at.md)
 
 ---
 

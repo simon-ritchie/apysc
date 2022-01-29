@@ -1,6 +1,6 @@
-# Sprite class num_children interface
+# num_children interface
 
-This page explains the `Sprite` class (or the other container class, like the `Graphics`) `num_children` property interface.
+This page explains the container class, like the `Graphics`\, `Sprite`\, `Stage`) `num_children` property interface.
 
 ## What interface is this?
 
@@ -14,7 +14,7 @@ The `Sprite` instance's initial children number is 1, not 0 since a sprite insta
 
 The `num_children` property returns the number of children (`Int` value). You can use it for the calculation, for instance, coordinates calculation.
 
-The following example appends a new rectangle when you click the sprite (rectangle) instance. The `num_children` property determines a new rectangle x-coordinate. This code also displays the current `num_children` property value to the browser console when clicking a rectangle (please press the F12 key).
+The following example appends a new rectangle when you click the sprite (rectangle) instance. The `num_children` property determines a new rectangle x-coordinate. When clicking a rectangle, this code also displays the current `num_children` property value to the browser console (please press the F12 key).
 
 ```py
 # runnable

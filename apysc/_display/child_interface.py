@@ -34,8 +34,8 @@ class ChildInterface(RevertInterface):
 
         References
         ----------
-        - Sprite class add_child and remove_child interfaces document
-            - https://bit.ly/2Ugk47G
+        - add_child and remove_child interfaces document
+            - https://bit.ly/3g7TMf0
 
         Examples
         --------
@@ -80,8 +80,8 @@ class ChildInterface(RevertInterface):
 
         References
         ----------
-        - Sprite class add_child and remove_child interfaces document
-            - https://bit.ly/2Ugk47G
+        - add_child and remove_child interfaces document
+            - https://bit.ly/3g7TMf0
 
         Examples
         --------
@@ -125,8 +125,8 @@ class ChildInterface(RevertInterface):
 
         References
         ----------
-        - Sprite class contains interface document
-            - https://simon-ritchie.github.io/apysc/sprite_contains.html
+        - contains interface document
+            - https://simon-ritchie.github.io/apysc/contains.html
 
         Examples
         --------
@@ -187,8 +187,8 @@ class ChildInterface(RevertInterface):
 
         References
         ----------
-        - Sprite class num_children interface document
-            - https://simon-ritchie.github.io/apysc/sprite_num_children.html
+        - num_children interface document
+            - https://simon-ritchie.github.io/apysc/num_children.html
 
         Examples
         --------
@@ -245,8 +245,8 @@ class ChildInterface(RevertInterface):
 
         References
         ----------
-        - Sprite class get_child_at interface document
-            - https://bit.ly/3rggoi6
+        - get_child_at interface document
+            - https://simon-ritchie.github.io/apysc/get_child_at.html
 
         Examples
         --------

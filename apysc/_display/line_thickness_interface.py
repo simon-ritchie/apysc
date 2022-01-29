@@ -56,7 +56,7 @@ class LineThicknessInterface(
         References
         ----------
         - Graphics line_thickness interface document
-            - https://bit.ly/3HlbCYh
+            - https://simon-ritchie.github.io/apysc/graphics_line_thickness.html  # noqa
 
         Examples
         --------
@@ -90,7 +90,7 @@ class LineThicknessInterface(
         References
         ----------
         - Graphics line_thickness interface document
-            - https://bit.ly/3HlbCYh
+            - https://simon-ritchie.github.io/apysc/graphics_line_thickness.html  # noqa
         """
         import apysc as ap
         with ap.DebugInfo(

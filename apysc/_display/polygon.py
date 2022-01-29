@@ -16,7 +16,7 @@ class Polygon(LineBase, AppendLinePointInterface):
     References
     ----------
     - Graphics draw_polygon interface document
-        - https://bit.ly/3wHVZUk
+        - https://simon-ritchie.github.io/apysc/graphics_draw_polygon.html  # noqa
 
     Examples
     --------
@@ -52,7 +52,7 @@ class Polygon(LineBase, AppendLinePointInterface):
         References
         ----------
         - Graphics draw_polygon interface document
-            - https://bit.ly/3wHVZUk
+            - https://simon-ritchie.github.io/apysc/graphics_draw_polygon.html  # noqa
 
         Examples
         --------

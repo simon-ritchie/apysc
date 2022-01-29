@@ -35,7 +35,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         References
         ----------
         - Graphics line_dash_setting interface document
-            - https://bit.ly/3oygpwK
+            - https://simon-ritchie.github.io/apysc/graphics_line_dash_setting.html  # noqa
 
         Examples
         --------
@@ -73,7 +73,7 @@ class LineDashSettingInterface(VariableNameInterface, RevertInterface):
         References
         ----------
         - Graphics line_dash_setting interface document
-            - https://bit.ly/3oygpwK
+            - https://simon-ritchie.github.io/apysc/graphics_line_dash_setting.html  # noqa
         """
         import apysc as ap
         with ap.DebugInfo(

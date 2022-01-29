@@ -44,7 +44,7 @@ class RotationAroundPointInterface(
         References
         ----------
         - GraphicsBase rotate_around_point interfaces document
-            - https://bit.ly/37TDwKs
+            - https://simon-ritchie.github.io/apysc/graphics_base_rotation_around_point.html  # noqa
 
         Examples
         --------

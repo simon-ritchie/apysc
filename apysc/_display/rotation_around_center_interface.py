@@ -58,7 +58,7 @@ class RotationAroundCenterInterface(
         References
         ----------
         - GraphicsBase rotation_around_center interface document
-            - https://bit.ly/3AjeSPr
+            - https://simon-ritchie.github.io/apysc/graphics_base_rotation_around_center.html  # noqa
 
         Examples
         --------
@@ -93,7 +93,7 @@ class RotationAroundCenterInterface(
         References
         ----------
         - GraphicsBase rotation_around_center interface
-            - https://bit.ly/3AjeSPr
+            - https://simon-ritchie.github.io/apysc/graphics_base_rotation_around_center.html  # noqa
         """
         import apysc as ap
         with ap.DebugInfo(

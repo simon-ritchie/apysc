@@ -14,7 +14,7 @@ class LineDashDotSetting(Dictionary[str, Int]):
     References
     ----------
     - Graphics line_style interface document
-        - https://bit.ly/3zauILT
+        - https://simon-ritchie.github.io/apysc/graphics_line_style.html  # noqa
 
     Examples
     --------
@@ -55,7 +55,7 @@ class LineDashDotSetting(Dictionary[str, Int]):
         References
         ----------
         - Graphics line_style interface document
-            - https://bit.ly/3zauILT
+            - https://simon-ritchie.github.io/apysc/graphics_line_style.html  # noqa
 
         Examples
         --------

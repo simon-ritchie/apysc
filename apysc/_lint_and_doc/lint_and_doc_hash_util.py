@@ -44,13 +44,13 @@ class HashType(Enum):
 _LINT_PACKAGE_ROOT_PATH: str = './.lint_and_doc_hash'
 
 
-def get_lint_hash_dir_path(*, lint_type: HashType) -> str:
+def get_lint_hash_dir_path(*, hash_type: HashType) -> str:
     """
     Get a specified lint type's hash directory path.
 
     Parameters
     ----------
-    lint_type : lint_type
+    hash_type : HashType
         Target hash type.
 
     Returns
@@ -65,14 +65,14 @@ def get_lint_hash_dir_path(*, lint_type: HashType) -> str:
     """
     dir_path: str = os.path.join(
         _LINT_PACKAGE_ROOT_PATH,
-        f'.{lint_type.value}/'
+        f'.{hash_type.value}/'
     )
     os.makedirs(dir_path, exist_ok=True)
     return dir_path
 
 
 def get_target_module_hash_file_path(
-        *, module_path: str, lint_type: HashType) -> str:
+        *, module_path: str, hash_type: HashType) -> str:
     """
     Get a specified module's hash file path.
 
@@ -80,7 +80,7 @@ def get_target_module_hash_file_path(
     ----------
     module_path : str
         Target module path.
-    lint_type : HashType
+    hash_type : HashType
         Target hash type.
 
     Returns
@@ -95,7 +95,7 @@ def get_target_module_hash_file_path(
     """
     if module_path.startswith('./'):
         module_path = module_path.replace('./', '', 1)
-    dir_path: str = get_lint_hash_dir_path(lint_type=lint_type)
+    dir_path: str = get_lint_hash_dir_path(hash_type=hash_type)
     file_path: str = os.path.join(dir_path, module_path)
     file_path = file_path.replace('.py', '', 1)
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
@@ -125,7 +125,7 @@ def read_target_module_hash(*, module_path: str) -> str:
     return hashed_string
 
 
-def read_saved_hash(*, module_path: str, lint_type: HashType) -> str:
+def read_saved_hash(*, module_path: str, hash_type: HashType) -> str:
     """
     Read an already-saved module's hashed string.
 
@@ -133,7 +133,7 @@ def read_saved_hash(*, module_path: str, lint_type: HashType) -> str:
     ----------
     module_path : str
         Target module path.
-    lint_type : HashType
+    hash_type : HashType
         Target hash type.
 
     Returns
@@ -144,7 +144,7 @@ def read_saved_hash(*, module_path: str, lint_type: HashType) -> str:
     """
     from apysc._file import file_util
     file_path: str = get_target_module_hash_file_path(
-        module_path=module_path, lint_type=lint_type)
+        module_path=module_path, hash_type=hash_type)
     if not os.path.isfile(file_path):
         return ''
     saved_hash: str = file_util.read_txt(file_path=file_path)
@@ -152,7 +152,7 @@ def read_saved_hash(*, module_path: str, lint_type: HashType) -> str:
     return saved_hash
 
 
-def save_target_module_hash(*, module_path: str, lint_type: HashType) -> None:
+def save_target_module_hash(*, module_path: str, hash_type: HashType) -> None:
     """
     Save a target module's current hash.
 
@@ -160,7 +160,7 @@ def save_target_module_hash(*, module_path: str, lint_type: HashType) -> None:
     ----------
     module_path : str
         Target module path.
-    lint_type : HashType
+    hash_type : HashType
         Target hash type.
     """
     from apysc._file import file_util
@@ -168,12 +168,12 @@ def save_target_module_hash(*, module_path: str, lint_type: HashType) -> None:
     if hash == '':
         return
     file_path: str = get_target_module_hash_file_path(
-        module_path=module_path, lint_type=lint_type)
+        module_path=module_path, hash_type=hash_type)
     file_util.save_plain_txt(txt=hash, file_path=file_path)
 
 
 def save_target_modules_hash(
-        *, module_paths: List[str], lint_type: HashType) -> None:
+        *, module_paths: List[str], hash_type: HashType) -> None:
     """
     Save target modules' current hash.
 
@@ -181,7 +181,7 @@ def save_target_modules_hash(
     ----------
     module_paths : list of str
         Target module paths.
-    lint_type : HashType
+    hash_type : HashType
         Target hash type.
     """
     workers: int = max(cpu_count() - 1, 1)
@@ -191,12 +191,12 @@ def save_target_modules_hash(
             future = executor.submit(
                 save_target_module_hash,
                 module_path=module_path,
-                lint_type=lint_type)
+                hash_type=hash_type)
             future_list.append(future)
         _ = futures.as_completed(fs=future_list)
 
 
-def is_module_updated(*, module_path: str, lint_type: HashType) -> bool:
+def is_module_updated(*, module_path: str, hash_type: HashType) -> bool:
     """
     Get a boolean value whether a specified module has been updated
     after the last lint execution.
@@ -205,7 +205,7 @@ def is_module_updated(*, module_path: str, lint_type: HashType) -> bool:
     ----------
     module_path : str
         Target module path.
-    lint_type : HashType
+    hash_type : HashType
         Target hash type.
 
     Returns
@@ -215,7 +215,7 @@ def is_module_updated(*, module_path: str, lint_type: HashType) -> bool:
         be returned.
     """
     saved_hash: str = read_saved_hash(
-        module_path=module_path, lint_type=lint_type)
+        module_path=module_path, hash_type=hash_type)
     current_hash: str = read_target_module_hash(module_path=module_path)
     if saved_hash == current_hash:
         return False
@@ -224,7 +224,7 @@ def is_module_updated(*, module_path: str, lint_type: HashType) -> bool:
 
 class _IsModuleUpdatedArgs(TypedDict):
     module_path: str
-    lint_type: HashType
+    hash_type: HashType
 
 
 def _is_module_updated_func_for_multiprocessing(
@@ -247,13 +247,13 @@ def _is_module_updated_func_for_multiprocessing(
     """
     result: bool = is_module_updated(
         module_path=args['module_path'],
-        lint_type=args['lint_type'])
+        hash_type=args['hash_type'])
     return result
 
 
 def _create_args_list_for_multiprocessing(
         *, module_paths: List[str],
-        lint_type: HashType) -> List[_IsModuleUpdatedArgs]:
+        hash_type: HashType) -> List[_IsModuleUpdatedArgs]:
     """
     Create an arguments list for the multiprocessing.
 
@@ -261,7 +261,7 @@ def _create_args_list_for_multiprocessing(
     ----------
     module_paths : list of str
         Target Python module paths.
-    lint_type : HashType
+    hash_type : HashType
         Target hash type.
 
     Returns
@@ -273,14 +273,14 @@ def _create_args_list_for_multiprocessing(
     for module_path in module_paths:
         args_list.append({
             'module_path': module_path,
-            'lint_type': lint_type,
+            'hash_type': hash_type,
         })
     return args_list
 
 
 def remove_not_updated_module_paths(
         *, module_paths: List[str],
-        lint_type: HashType) -> List[str]:
+        hash_type: HashType) -> List[str]:
     """
     Remove not updated modules from specified module paths.
 
@@ -288,7 +288,7 @@ def remove_not_updated_module_paths(
     ----------
     module_paths : list of str
         Target Python module paths.
-    lint_type : HashType
+    hash_type : HashType
         Target hash type.
 
     Returns
@@ -299,7 +299,7 @@ def remove_not_updated_module_paths(
     workers: int = max(cpu_count() - 1, 1)
     args_list: List[_IsModuleUpdatedArgs] = \
         _create_args_list_for_multiprocessing(
-            module_paths=module_paths, lint_type=lint_type)
+            module_paths=module_paths, hash_type=hash_type)
     sliced_module_paths: List[str] = []
     with Pool(processes=workers) as p:
         module_updated_bool_list: List[bool] = p.map(

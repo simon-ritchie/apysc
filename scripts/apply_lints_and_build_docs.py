@@ -154,7 +154,7 @@ def _main() -> None:
             msg=f'Saving {hash_lint_type.value} hash files...')
         lint_and_doc_hash_util.save_target_modules_hash(
             module_paths=updated_module_paths,
-            lint_type=hash_lint_type)
+            hash_type=hash_lint_type)
 
     _check_build_doc_process(build_doc_process=build_doc_process)
     _check_flake8_process(flake8_process=flake8_process)
@@ -483,7 +483,7 @@ def _append_isort_lint_command_if_module_updated(
     isort_updated_module_paths: List[str] = lint_and_doc_hash_util.\
         remove_not_updated_module_paths(
             module_paths=module_paths,
-            lint_type=lint_and_doc_hash_util.HashType.ISORT)
+            hash_type=lint_and_doc_hash_util.HashType.ISORT)
     if isort_updated_module_paths:
         isort_module_paths_str: str = _get_joined_paths_str(
             module_paths=isort_updated_module_paths)
@@ -518,7 +518,7 @@ def _append_autopep8_lint_command_if_module_updated(
     autopep8_updated_module_paths: List[str] = lint_and_doc_hash_util.\
         remove_not_updated_module_paths(
             module_paths=module_paths,
-            lint_type=lint_and_doc_hash_util.HashType.AUTOPEP8)
+            hash_type=lint_and_doc_hash_util.HashType.AUTOPEP8)
     if autopep8_updated_module_paths:
         autopep8_module_paths_str: str = _get_joined_paths_str(
             module_paths=autopep8_updated_module_paths)
@@ -554,7 +554,7 @@ def _append_autoflake_lint_command_if_module_updated(
     autoflake_updated_module_paths: List[str] = lint_and_doc_hash_util.\
         remove_not_updated_module_paths(
             module_paths=module_paths,
-            lint_type=lint_and_doc_hash_util.HashType.AUTOFLAKE)
+            hash_type=lint_and_doc_hash_util.HashType.AUTOFLAKE)
     if autoflake_updated_module_paths:
         autoflake_module_paths_str: str = _get_joined_paths_str(
             module_paths=autoflake_updated_module_paths)

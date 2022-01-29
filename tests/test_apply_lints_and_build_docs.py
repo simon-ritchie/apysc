@@ -61,7 +61,7 @@ def test__make_inplace_lint_commands() -> None:
 
     def mock_remove_not_updated_module_paths_1(
             module_paths: List[str],
-            lint_type: HashType) -> List[str]:
+            hash_type: HashType) -> List[str]:
         return ['./apysc/_display/sprite.py']
 
     apply_lints_and_build_docs.lint_and_doc_hash_util.\
@@ -83,7 +83,7 @@ def test__make_inplace_lint_commands() -> None:
 
     def mock_remove_not_updated_module_paths_2(
             module_paths: List[str],
-            lint_type: HashType) -> List[str]:
+            hash_type: HashType) -> List[str]:
         return []
 
     apply_lints_and_build_docs.lint_and_doc_hash_util.\
@@ -118,7 +118,7 @@ def test__append_autoflake_lint_command_if_module_updated() -> None:
 
     def mock_remove_not_updated_module_paths_1(
             module_paths: List[str],
-            lint_type: HashType) -> List[str]:
+            hash_type: HashType) -> List[str]:
         return []
 
     apply_lints_and_build_docs.lint_and_doc_hash_util.\
@@ -134,7 +134,7 @@ def test__append_autoflake_lint_command_if_module_updated() -> None:
 
     def mock_remove_not_updated_module_paths_2(
             module_paths: List[str],
-            lint_type: HashType) -> List[str]:
+            hash_type: HashType) -> List[str]:
         return ['./apysc/_display/sprite.py']
 
     apply_lints_and_build_docs.lint_and_doc_hash_util.\
@@ -160,7 +160,7 @@ def test__append_autopep8_lint_command_if_module_updated() -> None:
 
     def mock_remove_not_updated_module_paths_1(
             module_paths: List[str],
-            lint_type: HashType) -> List[str]:
+            hash_type: HashType) -> List[str]:
         return []
 
     apply_lints_and_build_docs.lint_and_doc_hash_util.\
@@ -176,7 +176,7 @@ def test__append_autopep8_lint_command_if_module_updated() -> None:
 
     def mock_remove_not_updated_module_paths_2(
             module_paths: List[str],
-            lint_type: HashType) -> List[str]:
+            hash_type: HashType) -> List[str]:
         return ['./apysc/_display/sprite.py']
 
     apply_lints_and_build_docs.lint_and_doc_hash_util.\
@@ -202,7 +202,7 @@ def test__append_isort_lint_command_if_module_updated() -> None:
 
     def mock_remove_not_updated_module_paths_1(
             module_paths: List[str],
-            lint_type: HashType) -> List[str]:
+            hash_type: HashType) -> List[str]:
         return []
 
     apply_lints_and_build_docs.lint_and_doc_hash_util.\
@@ -218,7 +218,7 @@ def test__append_isort_lint_command_if_module_updated() -> None:
 
     def mock_remove_not_updated_module_paths_2(
             module_paths: List[str],
-            lint_type: HashType) -> List[str]:
+            hash_type: HashType) -> List[str]:
         return ['./apysc/_display/sprite.py']
 
     apply_lints_and_build_docs.lint_and_doc_hash_util.\

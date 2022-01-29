@@ -165,12 +165,6 @@ ap.save_overall_html(
 >>> sprite_2.add_child(rectangle)
 ```
 
-<hr>
-
-**[References]**
-
-- [add_child and remove_child interfaces document](https://bit.ly/3g7TMf0)
-
 ## remove_child API
 
 <!-- Docstring: apysc._display.child_interface.ChildInterface.remove_child -->
@@ -201,9 +195,3 @@ ap.save_overall_html(
 >>> print(rectangle.parent)
 None
 ```
-
-<hr>
-
-**[References]**
-
-- [add_child and remove_child interfaces document](https://bit.ly/3g7TMf0)

@@ -169,7 +169,7 @@ This option is useful when using the apysc project multiple times (for an easily
 
 **[References]**
 
-- [add_child and remove_child interfaces document](https://bit.ly/3g7TMf0)
+- [add_child and remove_child interfaces document](https://simon-ritchie.github.io/apysc/add_child_and_remove_child.html)
 
 ## remove_child API
 
@@ -206,7 +206,7 @@ None
 
 **[References]**
 
-- [add_child and remove_child interfaces document](https://bit.ly/3g7TMf0)
+- [add_child and remove_child interfaces document](https://simon-ritchie.github.io/apysc/add_child_and_remove_child.html)
 
 ## contains API
 

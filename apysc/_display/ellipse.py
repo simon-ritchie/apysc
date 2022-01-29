@@ -21,7 +21,7 @@ class Ellipse(  # type: ignore
     References
     ----------
     - Graphics draw_ellipse interface
-        - https://bit.ly/3xPVicP
+        - https://simon-ritchie.github.io/apysc/graphics_draw_ellipse.html  # noqa
 
     Examples
     --------
@@ -74,7 +74,7 @@ class Ellipse(  # type: ignore
         References
         ----------
         - Graphics draw_ellipse interface
-            - https://bit.ly/3xPVicP
+            - https://simon-ritchie.github.io/apysc/graphics_draw_ellipse.html  # noqa
 
         Examples
         --------

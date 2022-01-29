@@ -51,7 +51,7 @@ class AnimationScaleYFromPointInterface(AnimationInterfaceBase):
         References
         ----------
         - animation_scale_from_point interfaces document
-            - https://bit.ly/3j3It9o
+            - https://simon-ritchie.github.io/apysc/animation_scale_x_and_y_from_point.html  # noqa
         - Animation interfaces duration setting document
             - https://simon-ritchie.github.io/apysc/animation_duration.html
         - Animation interfaces delay setting document

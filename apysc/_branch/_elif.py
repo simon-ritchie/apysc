@@ -18,7 +18,7 @@ class Elif(IfBase):
     - Elif document
         - https://simon-ritchie.github.io/apysc/elif.html
     - Each branch instruction class scope variables reverting setting
-        - https://bit.ly/3rkAuaT
+        - https://simon-ritchie.github.io/apysc/branch_instruction_variables_reverting_setting.html  # noqa
 
     Notes
     -----
@@ -100,7 +100,7 @@ class Elif(IfBase):
         - Elif document
             - https://simon-ritchie.github.io/apysc/elif.html
         - Each branch instruction class scope variables reverting setting
-            - https://bit.ly/3rkAuaT
+            - https://simon-ritchie.github.io/apysc/branch_instruction_variables_reverting_setting.html  # noqa
         """
         import apysc as ap
         with ap.DebugInfo(

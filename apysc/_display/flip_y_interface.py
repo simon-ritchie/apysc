@@ -52,7 +52,7 @@ class FlipYInterface(
         References
         ----------
         - GraphicsBase flip_x and flip_y interfaces document
-            - https://bit.ly/31F9lHv
+            - https://simon-ritchie.github.io/apysc/graphics_base_flip_interfaces.html  # noqa
 
         Examples
         --------
@@ -92,7 +92,7 @@ class FlipYInterface(
         References
         ----------
         - GraphicsBase flip_x and flip_y interfaces document
-            - https://bit.ly/31F9lHv
+            - https://simon-ritchie.github.io/apysc/graphics_base_flip_interfaces.html  # noqa
         """
         import apysc as ap
         with ap.DebugInfo(

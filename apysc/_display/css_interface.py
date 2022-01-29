@@ -37,8 +37,8 @@ class CssInterface(VariableNameInterface, RevertInterface):
 
         References
         ----------
-        Display object get_css and set_css interfaces document
-            https://bit.ly/3wNgIWI
+        - Display object get_css and set_css interfaces document
+            - https://simon-ritchie.github.io/apysc/display_object_get_and_set_css.html  # noqa
 
         Examples
         --------
@@ -107,8 +107,8 @@ class CssInterface(VariableNameInterface, RevertInterface):
 
         References
         ----------
-        Display object get_css and set_css interfaces document
-            https://bit.ly/3wNgIWI
+        - Display object get_css and set_css interfaces document
+            - https://simon-ritchie.github.io/apysc/display_object_get_and_set_css.html  # noqa
 
         Examples
         --------

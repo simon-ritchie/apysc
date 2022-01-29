@@ -13,7 +13,7 @@ class AnimationPlayInterface(VariableNameInterface):
         References
         ----------
         - animation_pause and animation_play interfaces document
-            - https://bit.ly/3m2Xh8Y
+            - https://simon-ritchie.github.io/apysc/animation_pause_and_play.html  # noqa
 
         Examples
         --------

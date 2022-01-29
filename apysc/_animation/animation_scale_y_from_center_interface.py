@@ -48,7 +48,7 @@ class AnimationScaleYFromCenterInterface(AnimationInterfaceBase):
         References
         ----------
         - animation_scale_y_from_center interface document
-            - https://bit.ly/30qsD2m
+            - https://simon-ritchie.github.io/apysc/animation_scale_x_and_y_from_center.html  # noqa
         - Animation interfaces duration setting document
             - https://simon-ritchie.github.io/apysc/animation_duration.html
         - Animation interfaces delay setting document

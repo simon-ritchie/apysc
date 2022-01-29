@@ -141,7 +141,7 @@ class Graphics(
         References
         ----------
         - Graphics draw_rect interface document
-            - https://bit.ly/3zbSG9o
+            - https://simon-ritchie.github.io/apysc/graphics_draw_rect.html  # noqa
 
         Examples
         --------
@@ -202,7 +202,7 @@ class Graphics(
         References
         ----------
         - Graphics draw_round_rect interface document
-            - https://bit.ly/2ThGcxJ
+            - https://simon-ritchie.github.io/apysc/graphics_draw_round_rect.html  # noqa
 
         Examples
         --------
@@ -259,7 +259,7 @@ class Graphics(
         References
         ----------
         - Graphics draw_circle interface document
-            - https://bit.ly/3it1q4y
+            - https://simon-ritchie.github.io/apysc/graphics_draw_circle.html  # noqa
 
         Examples
         --------

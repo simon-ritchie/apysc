@@ -621,10 +621,7 @@ def test__replace_docstring_specification() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__get_docstring_src_hash_file_path() -> None:
-    hash_file_path: str = build_docs._get_docstring_src_hash_file_path(
-        module_path='./apysc/_display/sprite.py')
-    assert hash_file_path.startswith(
-        lint_and_doc_hash_util._HASH_PACKAGE_ROOT_PATH
-    )
-    assert '/apysc/_display/sprite' in hash_file_path
+def test__get_doc_hash_file_path() -> None:
+    hash_file_path: str = build_docs._get_doc_hash_file_path(
+        md_file_path='./doc_src/source/any/path.md')
+    assert hash_file_path == './docs_src/hashed_vals/any/path.md'

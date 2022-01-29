@@ -65,3 +65,44 @@ ap.save_overall_html(
 ## See also
 
 - [Add child and remove child interfaces](add_child_and_remove_child.md)
+
+## contains API
+
+<!-- Docstring: apysc._display.child_interface.ChildInterface.contains -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `contains(self, child:apysc._display.display_object.DisplayObject) -> apysc._type.boolean.Boolean`<hr>
+
+**[Interface summary]** Get a boolean whether this instance contains a specified child.<hr>
+
+**[Parameters]**
+
+- `child`: DisplayObject
+  - Child instance to check.
+
+<hr>
+
+**[Returns]**
+
+- `result`: Boolean
+  - If this instance contains a specified child, this method returns True.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> sprite.graphics.contains(rectangle)
+Boolean(True)
+
+>>> rectangle.remove_from_parent()
+>>> sprite.graphics.contains(rectangle)
+Boolean(False)
+```

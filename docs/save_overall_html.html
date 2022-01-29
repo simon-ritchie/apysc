@@ -158,6 +158,59 @@
 </pre></div>
 </div>
 </section>
+<section id="save-overall-html-api">
+<h2>save_overall_html API<a class="headerlink" href="#save-overall-html-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._html.exporter.save_overall_html --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">save_overall_html(dest_dir_path:str,</span> <span class="pre">*,</span> <span class="pre">html_file_name:str='index.html',</span> <span class="pre">minify:bool=True,</span> <span class="pre">js_lib_dir_path:str='./',</span> <span class="pre">skip_js_lib_exporting:bool=False,</span> <span class="pre">embed_js_libs:bool=False,</span> <span class="pre">verbose:int=1)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Save the overall HTML and js files under the specified directory path.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dest_dir_path</span></code>: str</p>
+<ul>
+<li><p>Destination directory path to save each HTML and js file.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">html_file_name</span></code>: str, default ‘index.html’</p>
+<ul>
+<li><p>The output HTML file name.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minify</span></code>: bool, default True</p>
+<ul>
+<li><p>Boolean value indicates whether minify HTML and js or not. The False setting is helpful when debugging.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">js_lib_dir_path</span></code>: str, default ‘./’</p>
+<ul>
+<li><p>JavaScript libraries directory path. This setting applies to a JavaScript source path in HTML. If not specified, then set the same directory with HTML. This setting is maybe helpful to set js lib directory, such as Django’s static (static_collected) directory. This interface recommends setting True value to the <code class="docutils literal notranslate"><span class="pre">skip_js_lib_exporting</span></code> argument if this argument sets.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip_js_lib_exporting</span></code>: bool, default False</p>
+<ul>
+<li><p>If True, this interface does not export JavaScript libraries.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">embed_js_libs</span></code>: bool, default False</p>
+<ul>
+<li><p>Option to embed the JavaScript libraries script to the output HTML or not. If True, the output HTML becomes enormous, and be only one HTML file. Occasionally, this option is useful when sharing the exported file or using the output file with an iframe tag to avoid the CORS error.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code>: int, default 1</p>
+<ul>
+<li><p>The Logging setting. If 0 is specified, this interface does not display a logging message. If 1 or the other value is specified, this interface displays a message usually.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Notes]</strong></p>
+<p>This interface empties a specified directory before saving.<hr></p>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Do something here...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">save_overall_html</span><span class="p">(</span><span class="n">dest_dir_path</span><span class="o">=</span><span class="s1">&#39;tmp/output/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -180,6 +233,7 @@
 <li><a class="reference internal" href="#change-the-html-file-name-by-the-html-file-name-option">Change the HTML file name by the html_file_name option</a></li>
 <li><a class="reference internal" href="#bundle-each-javascript-library-to-the-signle-html-file-by-the-embed-js-libs-option">Bundle each JavaScript library to the signle HTML file by the embed_js_libs option</a></li>
 <li><a class="reference internal" href="#change-the-stdout-setting-by-the-verbose-option">Change the stdout setting by the verbose option</a></li>
+<li><a class="reference internal" href="#save-overall-html-api">save_overall_html API</a></li>
 </ul>
 </li>
 </ul>

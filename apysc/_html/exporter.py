@@ -31,38 +31,37 @@ def save_overall_html(
 
     Notes
     -----
-    Specified directory will be emptied before saving.
+    This interface empties a specified directory before saving.
 
     Parameters
     ----------
     dest_dir_path : str
-        Destination directory path to save each HTML and js files.
+        Destination directory path to save each HTML and js file.
     html_file_name : str, default 'index.html'
         The output HTML file name.
     minify : bool, default True
-        Boolean value whether minify HTML and js or not.
-        False setting is useful when debugging.
+        Boolean value indicates whether minify HTML and js or not.
+        The False setting is helpful when debugging.
     js_lib_dir_path : str, default './'
-        JavaScript libraries directory path. This setting will be
-        applied to JavaScript source path in HTML.
-        If not specified, then the same directory with HTML will be set.
-        This setting is maybe useful to set common js lib directory,
+        JavaScript libraries directory path. This setting
+        applies to a JavaScript source path in HTML.
+        If not specified, then set the same directory with HTML.
+        This setting is maybe helpful to set js lib directory,
         such as Django's static (static_collected) directory.
-        It is recommended to set True value to `skip_js_lib_exporting`
-        argument if this argument is set.
+        This interface recommends setting True value to the
+        `skip_js_lib_exporting` argument if this argument sets.
     skip_js_lib_exporting : bool, default False
-        If True is set, then JavaScript libraries will not be exported.
+        If True, this interface does not export JavaScript libraries.
     embed_js_libs: bool, default False
         Option to embed the JavaScript libraries script to the
-        output HTML or not.
-        If True, the output HTML will be bigger but only one HTML
-        file will be exported. This option will occasionally be useful
-        when you share the exported file, or use the output file with
-        iframe tag and avoid the CORS error.
+        output HTML or not. If True, the output HTML becomes enormous,
+        and be only one HTML file. Occasionally, this option is
+        useful when sharing the exported file or using the output
+        file with an iframe tag to avoid the CORS error.
     verbose : int, default 1
-        The Logging setting. If 0 is specified, then logging message
-        will not be displayed. If 1 or the other value is specified,
-        message will be displayed normally.
+        The Logging setting. If 0 is specified, this interface
+        does not display a logging message. If 1 or the other
+        value is specified, this interface displays a message usually.
 
     References
     ----------

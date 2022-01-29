@@ -126,3 +126,45 @@ ap.save_overall_html(
     dest_dir_path='dest_dir/',
     verbose=0)
 ```
+
+## save_overall_html API
+
+<!-- Docstring: apysc._html.exporter.save_overall_html -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `save_overall_html(dest_dir_path:str, *, html_file_name:str='index.html', minify:bool=True, js_lib_dir_path:str='./', skip_js_lib_exporting:bool=False, embed_js_libs:bool=False, verbose:int=1) -> None`<hr>
+
+**[Interface summary]** Save the overall HTML and js files under the specified directory path.<hr>
+
+**[Parameters]**
+
+- `dest_dir_path`: str
+  - Destination directory path to save each HTML and js file.
+- `html_file_name`: str, default 'index.html'
+  - The output HTML file name.
+- `minify`: bool, default True
+  - Boolean value indicates whether minify HTML and js or not. The False setting is helpful when debugging.
+- `js_lib_dir_path`: str, default './'
+  - JavaScript libraries directory path. This setting applies to a JavaScript source path in HTML. If not specified, then set the same directory with HTML. This setting is maybe helpful to set js lib directory, such as Django's static (static_collected) directory. This interface recommends setting True value to the `skip_js_lib_exporting` argument if this argument sets.
+- `skip_js_lib_exporting`: bool, default False
+  - If True, this interface does not export JavaScript libraries.
+- `embed_js_libs`: bool, default False
+  - Option to embed the JavaScript libraries script to the output HTML or not. If True, the output HTML becomes enormous, and be only one HTML file. Occasionally, this option is useful when sharing the exported file or using the output file with an iframe tag to avoid the CORS error.
+- `verbose`: int, default 1
+  - The Logging setting. If 0 is specified, this interface does not display a logging message. If 1 or the other value is specified, this interface displays a message usually.
+
+<hr>
+
+**[Notes]**
+
+This interface empties a specified directory before saving.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> # Do something here...
+>>> ap.save_overall_html(dest_dir_path='tmp/output/')
+```

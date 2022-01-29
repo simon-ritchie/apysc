@@ -89,7 +89,7 @@ The subsequent pages explain the other interfaces, such as the `add_child` inter
 
 ## See also
 
-- [Sprite class add child and remove child interfaces](sprite_add_child_and_remove_child.md)
-- [Sprite class contains interface](sprite_contains.md)
-- [Sprite class num children interface](sprite_num_children.md)
-- [Sprite class get child at interface](sprite_get_child_at.md)
+- [Add child and remove child interfaces](add_child_and_remove_child.md)
+- [Contains interface](contains.md)
+- [Num children interface](num_children.md)
+- [Get child at interface](get_child_at.md)

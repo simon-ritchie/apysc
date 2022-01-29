@@ -58,7 +58,7 @@ sprite.add_child(rectangle_1)
 sprite.click(on_sprite_click)
 
 ap.save_overall_html(
-    dest_dir_path='sprite_num_children_basic_usage/')
+    dest_dir_path='num_children_basic_usage/')
 ```
 
-<iframe src="static/sprite_num_children_basic_usage/index.html" width="450" height="150"></iframe>
+<iframe src="static/num_children_basic_usage/index.html" width="450" height="150"></iframe>

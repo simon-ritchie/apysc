@@ -59,4 +59,4 @@ ap.save_overall_html(
 
 ## See also
 
-- [Sprite class add child and remove child interfaces](sprite_add_child_and_remove_child.md)
+- [Add child and remove child interfaces](add_child_and_remove_child.md)

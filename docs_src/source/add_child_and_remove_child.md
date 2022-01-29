@@ -133,4 +133,4 @@ ap.save_overall_html(
 ## See also
 
 - [DisplayObject class parent interfaces](display_object_parent.md)
-- [Sprite class contains interface](sprite_contains.md)
+- [Contains interface](contains.md)

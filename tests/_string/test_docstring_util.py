@@ -826,6 +826,7 @@ def test__append_params_or_rtns_to_markdown() -> None:
         '\n  - Lorem ipsum dolor sit.'
         '\n- `test_param_2`: str, optional'
         '\n  - Amet, consectetur adipiscing elit.'
+        '\n\n<hr>'
     )
     assert markdown == expected
 
@@ -844,9 +845,11 @@ def test__append_params_or_rtns_to_markdown() -> None:
         '\n  - Lorem ipsum dolor sit.'
         '\n- `test_param_2`: str, optional'
         '\n  - Amet, consectetur adipiscing elit.'
+        '\n\n<hr>'
         '\n\n**[Returns]**'
         '\n\n- `test_return_value`: int'
         '\n  - Lorem  ipsum dolor sit.'
+        '\n\n<hr>'
     )
     assert markdown == expected
 
@@ -874,6 +877,7 @@ def test__append_raises_to_markdown() -> None:
         '\n\n**[Raises]**'
         '\n\n- ValueError: Lorem ipsum dolor sit.'
         '\n- ImportError: Amet, consectetur adipiscing elit.'
+        '\n\n<hr>'
     )
     assert markdown == expected
 
@@ -892,7 +896,7 @@ def test__append_notes_to_markdown() -> None:
     assert markdown == (
         '## add_child interface api document'
         '\n\n**[Notes]**'
-        '\n\nLorem ipsum dolor sit.'
+        '\n\nLorem ipsum dolor sit.<hr>'
     )
 
 
@@ -922,6 +926,7 @@ def test__append_references_to_markdown() -> None:
         '(https://simon-ritchie.github.io/apysc/sprite.html)'
         '\n- [DisplayObject document]'
         '(https://simon-ritchie.github.io/apysc/display_object.html)'
+        '\n\n<hr>'
     )
     assert markdown == expected
 
@@ -939,7 +944,7 @@ def test__append_summary_to_markdown() -> None:
     assert markdown == (
         '## add_child interface api document'
         '\n\n**[Interface summary]** '
-        'Lorem ipsum dolor sit.'
+        'Lorem ipsum dolor sit.<hr>'
     )
 
 
@@ -960,12 +965,12 @@ def test__convert_docstring_to_markdown() -> None:
         'is duplicated compared with previous sections.</span>',
         '',
         '**[Interface signature]** '
-        '`test_func() -> None`',
+        '`test_func() -> None`<hr>',
         '',
         '**[Interface summary]** '
         'Lorem ipsum dolor sit amet, consectetur '
         'adipiscing elit, sed do eiusmod tempor incididunt '
-        'ut labore et dolore magna aliqua.',
+        'ut labore et dolore magna aliqua.<hr>',
         '',
         '**[Parameters]**',
         '',
@@ -978,6 +983,8 @@ def test__convert_docstring_to_markdown() -> None:
         'voluptate velit esse cillum dolore. '
         'Omnis dolor repellendus. Temporibus autem quibusdam.',
         '',
+        '<hr>',
+        '',
         '**[Returns]**',
         '',
         '- `test_return_val_1`: bool or int',
@@ -988,17 +995,21 @@ def test__convert_docstring_to_markdown() -> None:
         '- `test_return_val_2`: Sprite',
         '  - Officiis debitis aut rerum necessitatibus saepe eveniet.',
         '',
+        '<hr>',
+        '',
         '**[Raises]**',
         '',
         '- ValueError: Quos dolores et quas molestias excepturi sint, '
         'obcaecati.',
         '- ImportError: Cupiditate non provident, similique sunt in culpa.',
         '',
+        '<hr>',
+        '',
         '**[Notes]**',
         '',
         'At vero eos et accusamus et iusto odio dignissimos '
         'ducimus, qui blanditiis praesentium voluptatum '
-        'deleniti atque corrupt.',
+        'deleniti atque corrupt.<hr>',
         '',
         '**[Examples]**',
         '',
@@ -1015,12 +1026,16 @@ def test__convert_docstring_to_markdown() -> None:
         '>>> test_value_3: int = x + 10',
         '```',
         '',
+        '<hr>',
+        '',
         '**[References]**',
         '',
         '- [Test interface1 document]'
         '(https://en.wikipedia.org/test_page_1.html)',
         '- [Test interface2 document]'
         '(https://en.wikipedia.org/test_page_2.html)',
+        '',
+        '<hr>',
     ]
     for i, expected_line in enumerate(expected_lines):
         assert markdown_lines[i] == expected_line
@@ -1275,6 +1290,8 @@ def test__append_examples_to_markdown() -> None:
         '',
         '>>> y = x + 10',
         '```',
+        '',
+        '<hr>'
     ]
     lines: List[str] = markdown.splitlines()
     for i, line in enumerate(lines):

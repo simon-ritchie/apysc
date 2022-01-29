@@ -377,7 +377,8 @@ def _convert_docstring_to_markdown(
         'is duplicated compared with previous sections.</span>')
     if signature is not None:
         markdown += (
-            f'\n\n**[Interface signature]** `{callable_name}{signature}`')
+            f'\n\n**[Interface signature]** `{callable_name}{signature}`<hr>'
+        )
     markdown = _append_summary_to_markdown(
         markdown=markdown, summary=summary)
     markdown = _append_params_or_rtns_to_markdown(
@@ -413,7 +414,7 @@ def _append_summary_to_markdown(*, markdown: str, summary: str) -> str:
         return markdown
     if markdown != '':
         markdown += '\n\n'
-    markdown += f'**[Interface summary]** {summary}'
+    markdown += f'**[Interface summary]** {summary}<hr>'
     return markdown
 
 
@@ -439,7 +440,7 @@ def _append_notes_to_markdown(*, markdown: str, notes: str) -> str:
         markdown += '\n\n'
     markdown += (
         '**[Notes]**'
-        f'\n\n{notes}'
+        f'\n\n{notes}<hr>'
     )
     return markdown
 
@@ -849,6 +850,7 @@ def _append_examples_to_markdown(
         if example.expected_output != '':
             markdown += f'\n{example.expected_output}'
     markdown += '\n```'
+    markdown += '\n\n<hr>'
     return markdown
 
 
@@ -979,6 +981,7 @@ def _append_references_to_markdown(
         markdown += (
             f'\n- [{reference.page_label}]({reference.url})'
         )
+    markdown += '\n\n<hr>'
     return markdown
 
 
@@ -1008,6 +1011,7 @@ def _append_raises_to_markdown(
         markdown += (
             f'\n- {raise_.err_class_name}: {raise_.description}'
         )
+    markdown += '\n\n<hr>'
     return markdown
 
 
@@ -1046,6 +1050,7 @@ def _append_params_or_rtns_to_markdown(
             f'\n- `{parameter.name}`: {parameter.type_str}'
             f'\n  - {parameter.description}'
         )
+    markdown += '\n\n<hr>'
     return markdown
 
 

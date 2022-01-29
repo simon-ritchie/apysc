@@ -4,7 +4,7 @@
 import os
 import re
 from enum import Enum
-from typing import Any
+from typing import Any, Pattern
 from typing import Callable
 from typing import List
 from typing import Match
@@ -17,7 +17,7 @@ from inspect import Signature
 
 _DOCSTRING_PATH_COMMENT_KEYWORD: str = 'Docstring:'
 _DOCSTRING_PATH_COMMENT_PATTERN: str = (
-    rf'\<\!\-\-.*?{_DOCSTRING_PATH_COMMENT_KEYWORD}'
+    rf'^\<\!\-\-.*?{_DOCSTRING_PATH_COMMENT_KEYWORD}'
     r'(?P<path>.*?)\-\-\>'
 )
 
@@ -60,10 +60,12 @@ def get_docstring_src_module_paths(md_file_path: str) -> List[str]:
     md_txt: str = file_util.read_txt(file_path=md_file_path)
     lines: List[str] = md_txt.splitlines()
     module_paths: List[str] = []
+    pattern: Pattern = re.compile(
+        pattern=_DOCSTRING_PATH_COMMENT_PATTERN)
     for line in lines:
-        match: Optional[Match] = re.search(
-            pattern=_DOCSTRING_PATH_COMMENT_PATTERN,
-            string=line)
+        if not line.startswith('<!--'):
+            continue
+        match: Optional[Match] = pattern.search(string=line)
         if match is None:
             continue
         package_path: str = match.group(1).rsplit('.', maxsplit=1)[0]

@@ -46,7 +46,9 @@ class Number(NumberValueInterface[float, 'Number']):
     Number(20.8)
     """
 
-    def __init__(self, value: Union[int, float, Any]) -> None:
+    def __init__(
+            self,
+            value: Union[int, float, NumberValueInterface]) -> None:
         """
         Floating point number class for apysc library.
 

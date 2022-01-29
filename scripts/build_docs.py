@@ -133,7 +133,9 @@ def _exec_document_lint_and_script(
                 docstring_module_paths=docstring_module_paths)
 
         logger.info(msg='Saving docstring modules hash files...')
-        # p.map(func=_save_docstring_modules_hash, )
+        p.map(
+            func=_save_docstring_module_hash,
+            iterable=docstring_module_paths_)
 
         logger.info(msg='Slicing not updated markdown files...')
         markdown_data_list_: List[Op[_MarkdownData]] = p.map(
@@ -173,8 +175,23 @@ def _exec_document_lint_and_script(
     return executed_scripts
 
 
+def _save_docstring_module_hash(module_path: str) -> None:
+    """
+    Save a docstring module hash file.
+
+    Parameters
+    ----------
+    module_path : str
+        Target module path.
+    """
+    from apysc._lint_and_doc import lint_and_doc_hash_util
+    lint_and_doc_hash_util.save_target_module_hash(
+        module_path=module_path,
+        hash_type=lint_and_doc_hash_util.HashType.DOCSTRING_SRC)
+
+
 def _flatten_2dim_module_paths_and_make_it_unique(
-        docstring_module_paths: List[List[str]]) -> List[str]:
+        *, docstring_module_paths: List[List[str]]) -> List[str]:
     """
     Flatten a specified 2-dimensional docstring module paths
     list and make it unique.

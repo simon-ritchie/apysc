@@ -378,7 +378,7 @@ def empty_expression() -> None:
     connection.commit()
 
 
-def append_js_expression(*, expression: str) -> None:
+def append_js_expression(expression: str) -> None:
     """
     Append js expression.
 

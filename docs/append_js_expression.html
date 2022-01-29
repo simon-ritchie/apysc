@@ -89,6 +89,25 @@
 </div>
 <p>If you click the following rectangle, the handler displays the <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">rectangle</span> <span class="pre">is</span> <span class="pre">clicked!</span></code> message on the browser console (please press the F12 key).</p>
 <iframe src="static/append_js_expression_basic_usage/index.html" width="150" height="150"></iframe></section>
+<section id="append-js-expression-api">
+<h2>append_js_expression API<a class="headerlink" href="#append-js-expression-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._expression.expression_data_util.append_js_expression --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">append_js_expression(expression:str)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Append js expression.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">expression</span></code>: str</p>
+<ul>
+<li><p>JavaScript Expression string.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">append_js_expression</span><span class="p">(</span><span class="n">expression</span><span class="o">=</span><span class="s1">&#39;console.log(&quot;Hello!&quot;)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -106,6 +125,7 @@
 <li><a class="reference internal" href="#">append_js_expression interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#append-js-expression-api">append_js_expression API</a></li>
 </ul>
 </li>
 </ul>

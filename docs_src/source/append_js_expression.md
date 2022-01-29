@@ -49,3 +49,27 @@ ap.save_overall_html(
 If you click the following rectangle, the handler displays the `The rectangle is clicked!` message on the browser console (please press the F12 key).
 
 <iframe src="static/append_js_expression_basic_usage/index.html" width="150" height="150"></iframe>
+
+## append_js_expression API
+
+<!-- Docstring: apysc._expression.expression_data_util.append_js_expression -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `append_js_expression(expression:str) -> None`<hr>
+
+**[Interface summary]** Append js expression.<hr>
+
+**[Parameters]**
+
+- `expression`: str
+  - JavaScript Expression string.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> ap.append_js_expression(expression='console.log("Hello!")')
+```

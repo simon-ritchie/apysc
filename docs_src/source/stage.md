@@ -107,6 +107,30 @@ This option is useful when using the apysc project multiple times (for an easily
 ...     background_color='#333', stage_elem_id='sales_chart')
 ```
 
+## stage_elem_id property API
+
+<!-- Docstring: apysc._display.stage.Stage.stage_elem_id -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get stage's html element id.
+
+**[Returns]**
+
+- `stage_elem_id`: str
+  - Stage's html element id (not including class or id symbol). e.g., 'line-graph'
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage(
+...     stage_width=500, stage_height=300,
+...     background_color='#333', stage_elem_id='sales_chart')
+>>> stage.stage_elem_id
+'sales_chart'
+```
+
 ## add_child API
 
 <!-- Docstring: apysc._display.child_interface.ChildInterface.add_child -->
@@ -212,6 +236,38 @@ Boolean(False)
 **[References]**
 
 - [Sprite class contains interface document](https://simon-ritchie.github.io/apysc/sprite_contains.html)
+
+## num_children property API
+
+<!-- Docstring: apysc._display.child_interface.ChildInterface.num_children -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get a current children's number.
+
+**[Returns]**
+
+- `num_children`: int
+  - Current children number.
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+>>> rectangle_1: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> rectangle_2: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=150, y=50, width=50, height=50)
+>>> sprite.graphics.num_children
+Int(2)
+```
+
+**[References]**
+
+- [Sprite class num_children interface document](https://simon-ritchie.github.io/apysc/sprite_num_children.html)
 
 ## get_child_at API
 

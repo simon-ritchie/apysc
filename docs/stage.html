@@ -148,6 +148,28 @@
 </pre></div>
 </div>
 </section>
+<section id="stage-elem-id-property-api">
+<h2>stage_elem_id property API<a class="headerlink" href="#stage-elem-id-property-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._display.stage.Stage.stage_elem_id --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface summary]</strong> Get stage’s html element id.</p>
+<p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">stage_elem_id</span></code>: str</p>
+<ul>
+<li><p>Stage’s html element id (not including class or id symbol). e.g., ‘line-graph’</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">stage_width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">stage_height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;#333&#39;</span><span class="p">,</span> <span class="n">stage_elem_id</span><span class="o">=</span><span class="s1">&#39;sales_chart&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="o">.</span><span class="n">stage_elem_id</span>
+<span class="go">&#39;sales_chart&#39;</span>
+</pre></div>
+</div>
+</section>
 <section id="add-child-api">
 <h2>add_child API<a class="headerlink" href="#add-child-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._display.child_interface.ChildInterface.add_child --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
@@ -248,6 +270,36 @@
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/sprite_contains.html">Sprite class contains interface document</a></p></li>
 </ul>
 </section>
+<section id="num-children-property-api">
+<h2>num_children property API<a class="headerlink" href="#num-children-property-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._display.child_interface.ChildInterface.num_children --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface summary]</strong> Get a current children’s number.</p>
+<p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">num_children</span></code>: int</p>
+<ul>
+<li><p>Current children number.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">num_children</span>
+<span class="go">Int(2)</span>
+</pre></div>
+</div>
+<p><strong>[References]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/sprite_num_children.html">Sprite class num_children interface document</a></p></li>
+</ul>
+</section>
 <section id="get-child-at-api">
 <h2>get_child_at API<a class="headerlink" href="#get-child-at-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._display.child_interface.ChildInterface.get_child_at --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
@@ -310,9 +362,11 @@
 <li><a class="reference internal" href="#stage-size-setting">Stage size setting</a></li>
 <li><a class="reference internal" href="#stage-element-id-setting">Stage element id setting</a></li>
 <li><a class="reference internal" href="#stage-class-constructor-api">Stage class constructor API</a></li>
+<li><a class="reference internal" href="#stage-elem-id-property-api">stage_elem_id property API</a></li>
 <li><a class="reference internal" href="#add-child-api">add_child API</a></li>
 <li><a class="reference internal" href="#remove-child-api">remove_child API</a></li>
 <li><a class="reference internal" href="#contains-api">contains API</a></li>
+<li><a class="reference internal" href="#num-children-property-api">num_children property API</a></li>
 <li><a class="reference internal" href="#get-child-at-api">get_child_at API</a></li>
 </ul>
 </li>

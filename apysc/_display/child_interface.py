@@ -178,7 +178,7 @@ class ChildInterface(RevertInterface):
     @property
     def num_children(self) -> Int:
         """
-        Get a current children number.
+        Get a current children's number.
 
         Returns
         -------

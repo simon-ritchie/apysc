@@ -269,7 +269,7 @@ def _convert_docstring_path_comment_to_markdown_format(
         return ''
     if callable(callable_):
         signature: Optional[Signature] = inspect.signature(callable_)
-        callable_name: str = callable_.__name__
+        callable_name = callable_.__name__
     else:
         signature = None
         callable_name = ''

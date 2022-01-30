@@ -70,6 +70,50 @@
 </pre></div>
 </div>
 </section>
+<section id="get-api">
+<h2>get API<a class="headerlink" href="#get-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._type.dictionary.Dictionary.get --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">get(self,</span> <span class="pre">key:Union[~_K,</span> <span class="pre">apysc._type.expression_string.ExpressionString],</span> <span class="pre">*,</span> <span class="pre">default:~DefaultType=None)</span> <span class="pre">-&gt;</span> <span class="pre">~DefaultType</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Get a specified key dictionary value. If this dictionary hasn’t a specified key, this interface returns a default value.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">key</span></code>: _K</p>
+<ul>
+<li><p>Target key.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">default</span></code>: DefaultType or None, optional</p>
+<ul>
+<li><p>Any default value.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">result_value</span></code>: Any</p>
+<ul>
+<li><p>Extracted value or a default value.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dictionary</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">value_1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">value_1</span>
+<span class="go">10</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">value_2</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">value_2</span><span class="p">)</span>
+<span class="go">None</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">value_3</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">value_3</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -87,6 +131,7 @@
 <li><a class="reference internal" href="#">Dictionary get interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#get-api">get API</a></li>
 </ul>
 </li>
 </ul>

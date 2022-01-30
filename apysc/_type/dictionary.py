@@ -644,8 +644,9 @@ class Dictionary(
             *,
             default: DefaultType = None) -> DefaultType:
         """
-        Get a specified key dictionary value. If this dictionary
-        hasn't a specified key, then a default value will be returned.
+        Get a specified key dictionary value. If this
+        dictionary hasn't a specified key, this interface
+        returns a default value.
 
         Parameters
         ----------

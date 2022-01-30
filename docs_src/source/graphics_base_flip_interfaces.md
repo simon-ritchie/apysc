@@ -66,3 +66,70 @@ ap.save_overall_html(
 <iframe src="static/graphics_base_flip_x_basic_usage/index.html" width="150" height="150"></iframe>
 
 The `flip_y` interface behaves the same as the `flip_x` interface, except the axis direction.
+
+
+## flip_x property API
+
+<!-- Docstring: apysc._display.flip_x_interface.FlipXInterface.flip_x -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get a boolean value whether the x-axis is flipping or not.<hr>
+
+**[Returns]**
+
+- `flip_x`: Boolean
+  - A boolean value whether the x-axis is flipping or not.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
+...     points=[
+...         ap.Point2D(x=0, y=0),
+...         ap.Point2D(x=0, y=50),
+...         ap.Point2D(x=50, y=25),
+...     ])
+>>> polygon.flip_x = ap.Boolean(True)
+>>> polygon.flip_x
+Boolean(True)
+```
+
+## flip_y property API
+
+<!-- Docstring: apysc._display.flip_y_interface.FlipYInterface.flip_y -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get a boolean value whether the y-axis is flipping or not.<hr>
+
+**[Returns]**
+
+- `flip_y`: Boolean
+  - A boolean value whether the y-axis is flipping or not.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
+...     points=[
+...         ap.Point2D(x=0, y=0),
+...         ap.Point2D(x=50, y=0),
+...         ap.Point2D(x=25, y=50),
+...     ])
+>>> polygon.flip_y = ap.Boolean(True)
+>>> polygon.flip_y
+Boolean(True)
+```

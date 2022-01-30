@@ -42,12 +42,12 @@ class FlipYInterface(
     @property
     def flip_y(self) -> Boolean:
         """
-        Get a boolean value whether the y-axis is flipped or not.
+        Get a boolean value whether the y-axis is flipping or not.
 
         Returns
         -------
         flip_y : Boolean
-            A boolean value whether the y-axis is flipped or not.
+            A boolean value whether the y-axis is flipping or not.
 
         References
         ----------

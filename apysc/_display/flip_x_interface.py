@@ -42,12 +42,12 @@ class FlipXInterface(
     @property
     def flip_x(self) -> Boolean:
         """
-        Get a boolean value whether the x-axis is flipped or not.
+        Get a boolean value whether the x-axis is flipping or not.
 
         Returns
         -------
         flip_x : Boolean
-            A boolean value whether the x-axis is flipped or not.
+            A boolean value whether the x-axis is flipping or not.
 
         References
         ----------

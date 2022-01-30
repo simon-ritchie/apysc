@@ -36,14 +36,14 @@ class LintCommand(TypedDict):
     command: str
     lint_name: str
 
+_PY_FILE_DIRS_STR: str = './apysc/ ./tests/ ./test_projects/ ./scripts/'
 
 FLAKE8_NO_PATH_COMMAND: Final[str] = (
     'flake8 --ignore E402,W503'
 )
 
 FLAKE8_COMMAND: Final[str] = (
-    f'{FLAKE8_NO_PATH_COMMAND} ./apysc/ ./tests/ ./test_projects/ '
-    f'./scripts/'
+    f'{FLAKE8_NO_PATH_COMMAND} {_PY_FILE_DIRS_STR}'
 )
 
 NUMDOCLINT_NO_PATH_COMMAND: Final[str] = (
@@ -61,11 +61,10 @@ MYPY_NO_PATH_COMMAND: Final[str] = (
 )
 
 MYPY_COMMAND: Final[str] = (
-    f'{MYPY_NO_PATH_COMMAND} ./apysc/ ./scripts/ '
-    f'./tests/ ./test_projects/'
+    f'{MYPY_NO_PATH_COMMAND} {_PY_FILE_DIRS_STR}'
 )
 
-PYRIGHT_COMMAND: Final[str] = 'pyright'
+PYRIGHT_COMMAND: Final[str] = f'pyright {_PY_FILE_DIRS_STR}'
 
 CHECK_APYSC_TOP_LEVEL_IMPORT_COMMAND: Final[str] = (
     'python ./scripts/check_apysc_top_level_import.py'

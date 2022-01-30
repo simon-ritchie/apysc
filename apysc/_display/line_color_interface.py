@@ -25,7 +25,7 @@ class LineColorInterface(
         -------
         line_color : String
             Current line color (hexadecimal string, e.g., '#00aaff').
-            If not be set, blank string will be returned.
+            If not be set, this interface returns a blank string.
 
         References
         ----------

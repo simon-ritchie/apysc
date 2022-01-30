@@ -213,3 +213,26 @@ class PathBezier2D(
                 and self.dest_x == other.dest_x
                 and self.dest_y == other.dest_y
                 and self.relative == other.relative)
+
+
+    def __ne__(self, other: Any) -> Any:
+        """
+        Not equal comparison method.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to compare.
+
+        Returns
+        -------
+        result : Boolean
+            Comparison result.
+        """
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__ne__', locals_=locals(),
+                module_name=__name__, class_=PathBezier2D):
+            result: ap.Boolean = self == other
+            result = result.not_
+            return result

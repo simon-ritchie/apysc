@@ -73,3 +73,54 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/graphics_draw_circle_return_value/index.html" width="400" height="400"></iframe>
+
+
+## draw_circle API
+
+<!-- Docstring: apysc._display.graphics.Graphics.draw_circle -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `draw_circle(self, x:Union[int, apysc._type.int.Int], y:Union[int, apysc._type.int.Int], radius:Union[int, apysc._type.int.Int]) -> '_circle.Circle'`<hr>
+
+**[Interface summary]** Draw a circle vector graphics.<hr>
+
+**[Parameters]**
+
+- `x`: Int or int
+  - X-coordinate of the circle center.
+- `y`: Int or int
+  - Y-coordinate of the circle center.
+- `radius`: Int or int
+  - Circle radius.
+
+<hr>
+
+**[Returns]**
+
+- `circle`: Circle
+  - Created circle graphics instance.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> circle: ap.Circle = sprite.graphics.draw_circle(
+...     x=100, y=100, radius=50)
+>>> circle.x
+Int(100)
+
+>>> circle.y
+Int(100)
+
+>>> circle.radius
+Int(50)
+
+>>> circle.fill_color
+String('#00aaff')
+```

@@ -58,7 +58,7 @@ Array([1, 2, 3, 4])
 
 **[Interface signature]** `push(self, value:~T) -> None`<hr>
 
-**[Interface summary]** Add any value to the end of this array. This method behaves the same `append` method.<hr>
+**[Interface summary]** Add any value to the end of this array. This behaves same as append method.<hr>
 
 **[Parameters]**
 

@@ -367,16 +367,16 @@ class Array(
 
     def extend(self, other_arr: Union[List[T], tuple, 'Array']) -> None:
         """
-        Concatenate argument array to this one. Argument array's
-        values will positioned after this array's values.
-        This method is similar to concat method, but there is a
-        difference in whether the same variable will be
-        updated (extend) or returned as a different variable (concat).
+        Concatenate argument array to this one. This interface
+        positions the argument array's values after this array
+        values. This method is similar to the concat method.
+        Still, there is a difference in whether updating the same
+        variable (extend) or returned as a different variable (concat).
 
         Parameters
         ----------
         other_arr : list or tuple or Array
-            Other array-like value to concatenate.
+            Other array-like values to concatenate.
 
         References
         ----------
@@ -427,16 +427,17 @@ class Array(
     def concat(
             self, other_arr: Union[List[T], tuple, 'Array']) -> 'Array':
         """
-        Concatenate arugment array to this one. Argument array's
-        values will positioned after this array's values.
-        This method is similar to extend method, but there is a
-        difference in whether the same variable will be
-        updated (extend) or returned as a different variable (concat).
+        Concatenate argument array to this one. This interface
+        positions the argument array's values after this array
+        values. This method is similar to extend method,
+        but there is a difference in whether updating
+        the same variable (extend) or returned as a different
+        variable (concat).
 
         Parameters
         ----------
         other_arr : list or tuple or Array
-            Other array-like value to concatenate.
+            Other array-like values to concatenate.
 
         Returns
         -------

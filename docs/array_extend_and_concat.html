@@ -67,6 +67,58 @@
 </pre></div>
 </div>
 </section>
+<section id="extend-api">
+<h2>extend API<a class="headerlink" href="#extend-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._type.array.Array.extend --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">extend(self,</span> <span class="pre">other_arr:Union[List[~T],</span> <span class="pre">tuple,</span> <span class="pre">_ForwardRef('Array')])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Concatenate argument array to this one. This interface positions the argument array’s values after this array values. This method is similar to the concat method. Still, there is a difference in whether updating the same variable (extend) or returned as a different variable (concat).<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">other_arr</span></code>: list or tuple or Array</p>
+<ul>
+<li><p>Other array-like values to concatenate.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span>
+<span class="go">Array([1, 2, 3, 4, 5, 6])</span>
+</pre></div>
+</div>
+</section>
+<section id="concat-api">
+<h2>concat API<a class="headerlink" href="#concat-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._type.array.Array.concat --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">concat(self,</span> <span class="pre">other_arr:Union[List[~T],</span> <span class="pre">tuple,</span> <span class="pre">_ForwardRef('Array')])</span> <span class="pre">-&gt;</span> <span class="pre">'Array'</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Concatenate argument array to this one. This interface positions the argument array’s values after this array values. This method is similar to extend method, but there is a difference in whether updating the same variable (extend) or returned as a different variable (concat).<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">other_arr</span></code>: list or tuple or Array</p>
+<ul>
+<li><p>Other array-like values to concatenate.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">concatenated</span></code>: Array</p>
+<ul>
+<li><p>Concatenated array value.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span>
+<span class="go">Array([1, 2, 3, 4, 5, 6])</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -84,6 +136,8 @@
 <li><a class="reference internal" href="#">Array class extend and concat interfaces</a><ul>
 <li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#extend-api">extend API</a></li>
+<li><a class="reference internal" href="#concat-api">concat API</a></li>
 </ul>
 </li>
 </ul>

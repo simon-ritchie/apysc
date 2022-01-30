@@ -86,3 +86,59 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/graphics_draw_ellipse_return_value/index.html" width="250" height="200"></iframe>
+
+
+## draw_ellipse API
+
+<!-- Docstring: apysc._display.graphics.Graphics.draw_ellipse -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `draw_ellipse(self, x:Union[int, apysc._type.int.Int], y:Union[int, apysc._type.int.Int], width:Union[int, apysc._type.int.Int], height:Union[int, apysc._type.int.Int]) -> '_ellipse.Ellipse'`<hr>
+
+**[Interface summary]** Draw a ellipse vector graphics.<hr>
+
+**[Parameters]**
+
+- `x`: Int or int
+  - X-coordinate of the ellipse center.
+- `y`: Int or int
+  - Y-coordinate of the ellipse center.
+- `width`: Int or int
+  - Ellipse width.
+- `height`: Int or int
+  - Ellipse height.
+
+<hr>
+
+**[Returns]**
+
+- `ellipse`: Ellipse
+  - Created ellipse graphics instance.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> ellipse: ap.Ellipse = sprite.graphics.draw_ellipse(
+...     x=100, y=100, width=100, height=50)
+>>> ellipse.x
+Int(100)
+
+>>> ellipse.y
+Int(100)
+
+>>> ellipse.width
+Int(100)
+
+>>> ellipse.height
+Int(50)
+
+>>> ellipse.fill_color
+String('#00aaff')
+```

@@ -33,3 +33,28 @@ len(dict_1)
 ```
 Exception: Dictionary instance can't apply len function. Please use length property instead.
 ```
+
+
+## length property API
+
+<!-- Docstring: apysc._type.dictionary.Dictionary.length -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get length of this dictionary values.<hr>
+
+**[Returns]**
+
+- `length`: Int
+  - This dictionary value's length.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> dictionary: ap.Dictionary = ap.Dictionary({'a': 1, 'b': 2})
+>>> dictionary.length
+Int(2)
+```

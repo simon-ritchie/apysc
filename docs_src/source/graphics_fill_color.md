@@ -50,3 +50,33 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/graphics_fill_color_basic_usage/index.html" width="150" height="150"></iframe>
+
+
+## fill_color property API
+
+<!-- Docstring: apysc._display.fill_color_interface.FillColorInterface.fill_color -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get this instance's fill color.<hr>
+
+**[Returns]**
+
+- `fill_color`: String
+  - Current fill color (hexadecimal string, e.g., '#00aaff'). If not be set, this interface returns a blank string.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> rectangle.fill_color = ap.String('#f0a')
+>>> rectangle.fill_color
+String('#ff00aa')
+```

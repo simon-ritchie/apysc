@@ -33,3 +33,28 @@ len(arr)
 ```
 Exception: Array instance can't apply len function. Please use length property instead.
 ```
+
+
+## length property API
+
+<!-- Docstring: apysc._type.array.Array.length -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get length of this array.<hr>
+
+**[Returns]**
+
+- `length`: Int
+  - This array's length.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> arr: ap.Array = ap.Array([1, 2, 3])
+>>> arr.length
+Int(3)
+```

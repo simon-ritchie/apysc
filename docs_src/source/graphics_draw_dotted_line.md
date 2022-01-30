@@ -74,7 +74,7 @@ ap.save_overall_html(
 
 **[Notes]**
 
-- This interface will ignore line settings, line a LineDashSetting, except LineDotSetting.<hr>
+- This interface ignores line settings, like the `LineDashSetting`, except `LineDotSetting`.<hr>
 
 **[Examples]**
 

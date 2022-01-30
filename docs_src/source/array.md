@@ -57,3 +57,81 @@ assert isinstance(int_val, int)
 - [Array class join interface](array_join.md)
 - [Array class index of interface](array_index_of.md)
 - [Array class comparison interfaces](array_comparison.md)
+
+
+## Array class constructor API
+
+<!-- Docstring: apysc._type.array.Array.__init__ -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `__init__(self, value:Union[List[~T], tuple, range, _ForwardRef('Array')]) -> None`<hr>
+
+**[Interface summary]** Array class for the apysc library.<hr>
+
+**[Parameters]**
+
+- `value`: list or tuple or range or Array
+  - Initial array value.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> arr: ap.Array = ap.Array([1, 2, 3])
+>>> arr
+Array([1, 2, 3])
+
+>>> arr[0]
+1
+
+>>> arr[1]
+2
+
+>>> arr = ap.Array((4, 5, 6))
+>>> arr
+Array([4, 5, 6])
+
+>>> arr = ap.Array(range(3))
+>>> arr
+Array([0, 1, 2])
+```
+
+<hr>
+
+**[References]**
+
+- [Array class comparison interfaces document](https://simon-ritchie.github.io/apysc/array_comparison.html)
+
+## value property API
+
+<!-- Docstring: apysc._type.array.Array.value -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get a current array value.<hr>
+
+**[Returns]**
+
+- `value`: list
+  - Current array value.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> arr: ap.Array = ap.Array([1, 2, 3])
+>>> arr.value = [4, 5, 6]
+>>> arr.value
+[4, 5, 6]
+```
+
+<hr>
+
+**[References]**
+
+- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html)

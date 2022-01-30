@@ -102,6 +102,70 @@
 <li><p><a class="reference internal" href="array_comparison.html"><span class="doc">Array class comparison interfaces</span></a></p></li>
 </ul>
 </section>
+<section id="array-class-constructor-api">
+<h2>Array class constructor API<a class="headerlink" href="#array-class-constructor-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._type.array.Array.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:Union[List[~T],</span> <span class="pre">tuple,</span> <span class="pre">range,</span> <span class="pre">_ForwardRef('Array')])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Array class for the apysc library.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: list or tuple or range or Array</p>
+<ul>
+<li><p>Initial array value.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span>
+<span class="go">Array([1, 2, 3])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">1</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">2</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span>
+<span class="go">Array([4, 5, 6])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span>
+<span class="go">Array([0, 1, 2])</span>
+</pre></div>
+</div>
+<hr><p><strong>[References]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/array_comparison.html">Array class comparison interfaces document</a></p></li>
+</ul>
+</section>
+<section id="value-property-api">
+<h2>value property API<a class="headerlink" href="#value-property-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._type.array.Array.value --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface summary]</strong> Get a current array value.<hr></p>
+<p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: list</p>
+<ul>
+<li><p>Current array value.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="o">.</span><span class="n">value</span>
+<span class="go">[4, 5, 6]</span>
+</pre></div>
+</div>
+<hr><p><strong>[References]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html">apysc fundamental data classes value interface</a></p></li>
+</ul>
+</section>
 </section>
 
 
@@ -121,6 +185,8 @@
 <li><a class="reference internal" href="#constructor-method">Constructor method</a></li>
 <li><a class="reference internal" href="#generic-type">Generic type</a></li>
 <li><a class="reference internal" href="#see-also">See also</a></li>
+<li><a class="reference internal" href="#array-class-constructor-api">Array class constructor API</a></li>
+<li><a class="reference internal" href="#value-property-api">value property API</a></li>
 </ul>
 </li>
 </ul>

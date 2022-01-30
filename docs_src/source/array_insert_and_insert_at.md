@@ -36,7 +36,7 @@ assert arr == [1, 2, 3, 4]
 
 **[Parameters]**
 
-- `index`: int or Int
+- `index`: Int or int
   - Index to append value.
 - `value`: *
   - Any value to append.
@@ -65,7 +65,7 @@ Array([1, 2, 3])
 
 **[Parameters]**
 
-- `index`: int or Int
+- `index`: Int or int
   - Index to append value.
 - `value`: *
   - Any value to append.

@@ -501,7 +501,7 @@ class Array(
 
         Parameters
         ----------
-        index : int or Int
+        index : Int or int
             Index to append value.
         value : *
             Any value to append.
@@ -544,7 +544,7 @@ class Array(
 
         Parameters
         ----------
-        index : int or Int
+        index : Int or int
             Index to append value.
         value : *
             Any value to append.
@@ -575,7 +575,7 @@ class Array(
 
         Parameters
         ----------
-        index : int or Int
+        index : Int or int
             Index to append value to.
         value : *
             Any value to append.
@@ -706,7 +706,7 @@ class Array(
 
         Parameters
         ----------
-        index : int or Int
+        index : Int or int
             Index to remove value.
 
         References
@@ -742,7 +742,7 @@ class Array(
 
         Parameters
         ----------
-        index : int or Int
+        index : Int or int
             Index to remove value.
         """
         import apysc as ap
@@ -854,9 +854,9 @@ class Array(
 
         Parameters
         ----------
-        start : int or Int or None, default None
+        start : Int or int or None, default None
             Slicing start index.
-        end : int or Int or None, default None
+        end : Int or int or None, default None
             Slicing end index (this index will not be including).
 
         Returns
@@ -913,9 +913,9 @@ class Array(
         ----------
         sliced_arr : Array
             Sliced array.
-        start : int or Int or None
+        start : Int or int or None
             Slicing start index.
-        end : int or Int or None
+        end : Int or int or None
             Slicing end index.
         """
         import apysc as ap
@@ -940,7 +940,7 @@ class Array(
 
         Parameters
         ----------
-        index : int or Int
+        index : Int or int
             Array's index to get value. Currently not supported tuple
             value (e.g., slicing).
 
@@ -975,7 +975,7 @@ class Array(
 
         Parameters
         ----------
-        index : int or Int
+        index : Int or int
             Specified array's index.
 
         Returns
@@ -995,7 +995,7 @@ class Array(
 
         Parameters
         ----------
-        index : int or Int
+        index : Int or int
             Index value to check.
 
         Raises
@@ -1017,7 +1017,7 @@ class Array(
 
         Parameters
         ----------
-        index : int or Int
+        index : Int or int
             Array's index to get value.
         value : *
             Specified index's value.
@@ -1046,7 +1046,7 @@ class Array(
 
         Parameters
         ----------
-        index : int or Int
+        index : Int or int
             Array's index to set value. Currently not supported tuple
             value (e.g., slicing).
         value : *
@@ -1073,7 +1073,7 @@ class Array(
 
         Parameters
         ----------
-        index : int or Int
+        index : Int or int
             Array's index to set value. Currently not supported tuple
             value (e.g., slicing).
         value : *
@@ -1100,7 +1100,7 @@ class Array(
 
         Parameters
         ----------
-        index : int or Int
+        index : Int or int
             Array's index to delete. Currently not supported tuple
             value (e.g., slicing).
 

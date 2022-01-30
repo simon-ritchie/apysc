@@ -129,8 +129,8 @@ Int(10)
 
 **[References]**
 
-- [Int and Number common arithmetic operations document](https://bit.ly/3evzcVj)
-- [Int and Number common comparison operations document](https://bit.ly/3zolw6T)
+- [Int and Number common arithmetic operations document](https://simon-ritchie.github.io/apysc/int_and_number_arithmetic_operations.html)
+- [Int and Number common comparison operations document](https://simon-ritchie.github.io/apysc/int_and_number_comparison_operations.html)
 
 ## Number class constructor API
 
@@ -179,5 +179,5 @@ Number(20.8)
 
 **[References]**
 
-- [Int and Number common arithmetic operations document](https://bit.ly/3evzcVj)
-- [Int and Number common comparison operations document](https://bit.ly/3zolw6T)
+- [Int and Number common arithmetic operations document](https://simon-ritchie.github.io/apysc/int_and_number_arithmetic_operations.html)
+- [Int and Number common comparison operations document](https://simon-ritchie.github.io/apysc/int_and_number_comparison_operations.html)

@@ -857,7 +857,8 @@ class Array(
         start : Int or int or None, default None
             Slicing start index.
         end : Int or int or None, default None
-            Slicing end index (this index will not be including).
+            Slicing end index (a result array does not contain
+            this index).
 
         Returns
         -------

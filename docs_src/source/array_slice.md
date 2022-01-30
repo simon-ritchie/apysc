@@ -23,3 +23,45 @@ sliced_arr: ap.Array[int] = arr.slice(start=1, end=3)
 assert sliced_arr == [2, 3]
 assert arr == [1, 2, 3, 4]
 ```
+
+
+## slice API
+
+<!-- Docstring: apysc._type.array.Array.slice -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `slice(self, *, start:Union[int, apysc._type.int.Int, NoneType]=None, end:Union[int, apysc._type.int.Int, NoneType]=None) -> 'Array'`<hr>
+
+**[Interface summary]** Slice this array by specified start and end indexes.<hr>
+
+**[Parameters]**
+
+- `start`: Int or int or None, default None
+  - Slicing start index.
+- `end`: Int or int or None, default None
+  - Slicing end index (a result array does not contain this index).
+
+<hr>
+
+**[Returns]**
+
+- `sliced_arr`: Array
+  - Sliced array.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> arr: ap.Array = ap.Array([1, 2, 3, 4])
+>>> arr.slice(start=1, end=3)
+Array([2, 3])
+
+>>> arr.slice(start=1)
+Array([2, 3, 4])
+
+>>> arr.slice(end=2)
+Array([1, 2])
+```

@@ -80,3 +80,74 @@ dict_1: ap.Dictionary = ap.Dictionary({'a': int_1})
 del dict_1['a']
 assert dict_1 == {}
 ```
+
+
+## Dictionary class constructor API
+
+<!-- Docstring: apysc._type.dictionary.Dictionary.__init__ -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `__init__(self, value:Union[Dict[~_K, ~_V], _ForwardRef('Dictionary')]) -> None`<hr>
+
+**[Interface summary]** Dictionary class for the apysc library.<hr>
+
+**[Parameters]**
+
+- `value`: dict or Dictionary
+  - Initial dictionary value.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> dictionary: ap.Dictionary = ap.Dictionary({'a': 10})
+>>> dictionary
+Dictionary({'a': 10})
+
+>>> dictionary['a']
+10
+
+>>> dictionary['b'] = 20
+>>> dictionary['b']
+20
+```
+
+<hr>
+
+**[References]**
+
+- [Dictionary class generic type settings document](https://simon-ritchie.github.io/apysc/dictionary_generic.html)
+
+## value attribute API
+
+<!-- Docstring: apysc._type.dictionary.Dictionary.value -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get a current dict value.<hr>
+
+**[Returns]**
+
+- `value`: dict
+  - Current dict value.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> dictionary: ap.Dictionary = ap.Dictionary({})
+>>> dictionary.value = {'a': 10}
+>>> dictionary.value
+{'a': 10}
+```
+
+<hr>
+
+**[References]**
+
+- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html)

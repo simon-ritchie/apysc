@@ -120,6 +120,63 @@
 </pre></div>
 </div>
 </section>
+<section id="dictionary-class-constructor-api">
+<h2>Dictionary class constructor API<a class="headerlink" href="#dictionary-class-constructor-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._type.dictionary.Dictionary.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:Union[Dict[~_K,</span> <span class="pre">~_V],</span> <span class="pre">_ForwardRef('Dictionary')])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Dictionary class for the apysc library.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: dict or Dictionary</p>
+<ul>
+<li><p>Initial dictionary value.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dictionary</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dictionary</span>
+<span class="go">Dictionary({&#39;a&#39;: 10})</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dictionary</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
+<span class="go">10</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dictionary</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dictionary</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span>
+<span class="go">20</span>
+</pre></div>
+</div>
+<hr><p><strong>[References]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/dictionary_generic.html">Dictionary class generic type settings document</a></p></li>
+</ul>
+</section>
+<section id="value-attribute-api">
+<h2>value attribute API<a class="headerlink" href="#value-attribute-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._type.dictionary.Dictionary.value --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface summary]</strong> Get a current dict value.<hr></p>
+<p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: dict</p>
+<ul>
+<li><p>Current dict value.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dictionary</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dictionary</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dictionary</span><span class="o">.</span><span class="n">value</span>
+<span class="go">{&#39;a&#39;: 10}</span>
+</pre></div>
+</div>
+<hr><p><strong>[References]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html">apysc fundamental data classes value interface</a></p></li>
+</ul>
+</section>
 </section>
 
 
@@ -141,6 +198,8 @@
 <li><a class="reference internal" href="#value-getter-interface">Value getter interface</a></li>
 <li><a class="reference internal" href="#notes-of-the-getter-interface">Notes of the getter interface</a></li>
 <li><a class="reference internal" href="#value-deletion-interface">Value deletion interface</a></li>
+<li><a class="reference internal" href="#dictionary-class-constructor-api">Dictionary class constructor API</a></li>
+<li><a class="reference internal" href="#value-attribute-api">value attribute API</a></li>
 </ul>
 </li>
 </ul>

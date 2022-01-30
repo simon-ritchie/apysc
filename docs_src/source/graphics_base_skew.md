@@ -1,6 +1,6 @@
 # GraphicsBase skew_x and skew_y interfaces
 
-This page explains the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `skew_x` and `skew_y` property interfaces.
+This page explains the `GraphicsBase` class (base class of each graphic, such as the `Rectangle`) `skew_x` and `skew_y` property interfaces.
 
 Each interface value type is the `Int` value.
 
@@ -78,3 +78,62 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/graphics_base_skew_y_incremental_basic_usage/index.html" width="150" height="150"></iframe>
+
+
+## skew_x property API
+
+<!-- Docstring: apysc._display.skew_x_interface.SkewXInterface.skew_x -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get a current skew x value of the instance.<hr>
+
+**[Returns]**
+
+- `skew_x`: Int
+  - Current skew x value of this instance.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> rectangle.skew_x = ap.Int(50)
+>>> rectangle.skew_x
+Int(50)
+```
+
+## skew_y property API
+
+<!-- Docstring: apysc._display.skew_y_interface.SkewYInterface.skew_y -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get a current skew y value of the instance.<hr>
+
+**[Returns]**
+
+- `skew_y`: Int
+  - Current skew y value of the instance.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> rectangle.skew_y = ap.Int(50)
+>>> rectangle.skew_y
+Int(50)
+```

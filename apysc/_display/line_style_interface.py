@@ -52,39 +52,39 @@ class LineStyleInterface(RevertInterface):
 
         Parameters
         ----------
-        color : str or String
+        color : String or str
             Hexadecimal color string. e.g., '#00aaff'
-        thickness : int or Int, default 1
+        thickness : Int or int, default 1
             Line thickness (minimum value is 1).
         alpha : float or Number, default 1.0
             Line color opacity (0.0 to 1.0).
         cap : LineCaps or None, default None
-            Line cap (edge style) setting. This will be ignored by not
-            line-related graphics (e.g., Rectangle will ignore this,
-            conversely used by Polyline).
+            Line cap (edge style) setting. The not line-related
+            graphics (e.g., Rectangle ignores this, conversely
+            used by Polyline) ignore this setting.
         joints : LineJoints or None, default None
-            Line vertices (joints) style setting. This will be ignored
-            by not polyline-related graphics (e.g., Rectangle will ignore
-            this, conversely used by Polyline).
+            Line vertices (joints) style setting. The not
+            polyline-related graphics (e.g., Rectangle ignores
+            this, conversely used by Polyline) ignore this setting.
         dot_setting : LineDotSetting or None, default None
-            Dot setting. If this is specified, line will be dotted.
+            Dash setting. If this is specified, it makes a line dashed.
         dash_setting : LineDashSetting or None, default None
-            Dash setting. If this is specified, line will be dashed.
+            Dash setting. If this is specified, it makes a line dashed.
         round_dot_setting : LineRoundDotSetting or None, default None
-            Round dot setting. If this is specified, line will be
-            round dotted.
-            Notes: since this style is using cap setting, so cap setting
-            and line thickness setting will be overridden, and line size
-            will be increased by the amount of cap.
-            If you want to adjust to the same width of normal line when using
-            move_to and line_to interfaces, then add half-round size to
-            start x-coordinate and subtract from end e-coordinate.
+            Round dot setting. If this is specified, it makes a line
+            round dotted. Notes: since this style uses a cap setting,
+            it overrides cap and line thickness settings. And it
+            increases the amount of line size.
+            If you want to adjust to the same width of a normal line
+            when using move_to and line_to interfaces,
+            add half-round size to start x-coordinate and subtract
+            from end e-coordinate.
             e.g.,
             `this.move_to(x + round_size / 2, y)`
             `this.line_to(x - round_size / 2, y)`
         dash_dot_setting : LineDashDotSetting or None, default None
-            Dash dot (1-dot chain) setting. If this is specified, line
-            will be 1-dot chained.
+            Dash dot (1-dot chain) setting. If this is specified,
+            it makes a line 1-dot chained.
 
         References
         ----------
@@ -277,7 +277,7 @@ class LineStyleInterface(RevertInterface):
         -------
         line_color : String
             Current line color (hexadecimal string, e.g., '#00aaff').
-            If not be set, blank string will be returned.
+            If not be set, this interface returns a blank string.
 
         Examples
         --------
@@ -335,7 +335,6 @@ class LineStyleInterface(RevertInterface):
         -------
         line_alpha : Number
             Current line opacity (0.0 to 1.0).
-            If not be set, None will be returned.
 
         Examples
         --------

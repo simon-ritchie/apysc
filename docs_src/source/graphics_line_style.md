@@ -8,7 +8,7 @@ The `line_style` interface sets each line style, such as the line color, line al
 
 ## Basic usage
 
-Draw vector graphics interfaces (e.g., the `draw_rect` or `line_to`) use these line settings when creating, so the `line_style` method needs to be called before calling each drawing interface.
+Draw vector graphics interfaces (e.g., the `draw_rect` or `line_to`) use these line settings when creating. Therefore, calling the `line_style` method is necessary before calling each drawing interface.
 
 ```py
 # runnable
@@ -465,3 +465,327 @@ ap.save_overall_html(
 <iframe src="static/graphics_line_style_line_dash_dot_setting/index.html" width="300" height="130"></iframe>
 
 Notes: This setting will be ignored by `draw_line`, `draw_dotted_line`, `draw_dashed_line`, `draw_round_dotted_line`, and `draw_dash_dotted_line` interfaces.
+
+
+## line_style API
+
+<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_style -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `line_style(self, color:~StrOrString, *, thickness:Union[int, apysc._type.int.Int]=1, alpha:Union[float, apysc._type.number.Number]=1.0, cap:Union[apysc._display.line_caps.LineCaps, NoneType]=None, joints:Union[apysc._display.line_joints.LineJoints, NoneType]=None, dot_setting:Union[apysc._display.line_dot_setting.LineDotSetting, NoneType]=None, dash_setting:Union[apysc._display.line_dash_setting.LineDashSetting, NoneType]=None, round_dot_setting:Union[apysc._display.line_round_dot_setting.LineRoundDotSetting, NoneType]=None, dash_dot_setting:Union[apysc._display.line_dash_dot_setting.LineDashDotSetting, NoneType]=None) -> None`<hr>
+
+**[Interface summary]** Set line style values.<hr>
+
+**[Parameters]**
+
+- `color`: String or str
+  - Hexadecimal color string. e.g., '#00aaff'
+- `thickness`: Int or int, default 1
+  - Line thickness (minimum value is 1).
+- `alpha`: float or Number, default 1.0
+  - Line color opacity (0.0 to 1.0).
+- `cap`: LineCaps or None, default None
+  - Line cap (edge style) setting. The not line-related graphics (e.g., Rectangle ignores this, conversely used by Polyline) ignore this setting.
+- `joints`: LineJoints or None, default None
+  - Line vertices (joints) style setting. The not polyline-related graphics (e.g., Rectangle ignores this, conversely used by Polyline) ignore this setting.
+- `dot_setting`: LineDotSetting or None, default None
+  - Dash setting. If this is specified, it makes a line dashed.
+- `dash_setting`: LineDashSetting or None, default None
+  - Dash setting. If this is specified, it makes a line dashed.
+- `round_dot_setting`: LineRoundDotSetting or None, default None
+  - Round dot setting. If this is specified, it makes a line round dotted. Notes: since this style uses a cap setting, it overrides cap and line thickness settings. And it increases the amount of line size. If you want to adjust to the same width of a normal line when using move_to and line_to interfaces, add half-round size to start x-coordinate and subtract from end e-coordinate. e.g., `this.move_to(x + round_size / 2, y)` `this.line_to(x - round_size / 2, y)`
+- `dash_dot_setting`: LineDashDotSetting or None, default None
+  - Dash dot (1-dot chain) setting. If this is specified, it makes a line 1-dot chained.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.line_style(
+...     color='#fff', thickness=5, alpha=0.5,
+...     cap=ap.LineCaps.ROUND)
+>>> line: ap.Line = sprite.graphics.draw_line(
+...     x_start=50, y_start=50, x_end=150, y_end=50)
+>>> line.line_color
+String('#ffffff')
+
+>>> line.line_thickness
+Int(5)
+
+>>> line.line_alpha
+Number(0.5)
+
+>>> line.line_cap
+String('round')
+```
+
+## line_color property API
+
+<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_color -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get current line color.<hr>
+
+**[Returns]**
+
+- `line_color`: String
+  - Current line color (hexadecimal string, e.g., '#00aaff'). If not be set, this interface returns a blank string.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.line_style(
+...     color='#fff', thickness=5, alpha=0.5,
+...     cap=ap.LineCaps.ROUND)
+>>> sprite.graphics.line_color
+String('#ffffff')
+```
+
+## line_thickness property API
+
+<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_thickness -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get current line thickness.<hr>
+
+**[Returns]**
+
+- `line_thickness`: Int
+  - Current line thickness.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.line_style(
+...     color='#fff', thickness=5, alpha=0.5)
+>>> sprite.graphics.line_thickness
+Int(5)
+```
+
+## line_alpha property API
+
+<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_alpha -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get current line color opacity.<hr>
+
+**[Returns]**
+
+- `line_alpha`: Number
+  - Current line opacity (0.0 to 1.0).
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.line_style(
+...     color='#fff', thickness=5, alpha=0.5,
+...     cap=ap.LineCaps.ROUND)
+>>> sprite.graphics.line_alpha
+Number(0.5)
+```
+
+## line_cap property API
+
+<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_cap -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get current line cap (edge) style setting.<hr>
+
+**[Returns]**
+
+- `line_cap`: String
+  - Current line cap (edge) style setting.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.line_style(
+...     color='#fff', thickness=5, alpha=0.5,
+...     cap=ap.LineCaps.ROUND)
+>>> sprite.graphics.line_cap
+String('round')
+```
+
+## line_joints property API
+
+<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_joints -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get current line joints (vertices) style setting.<hr>
+
+**[Returns]**
+
+- `line_joints`: String
+  - Current line joints (vertices) style setting.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.line_style(
+...     color='#fff', thickness=5,
+...     joints=ap.LineJoints.ROUND)
+>>> sprite.graphics.line_joints
+String('round')
+```
+
+## line_dot_setting property API
+
+<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_dot_setting -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get current line dot setting.<hr>
+
+**[Returns]**
+
+- `line_dot_setting`: LineDotSetting or None
+  - Current line dot setting.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.line_style(
+...     color='#fff', thickness=5,
+...     dot_setting=ap.LineDotSetting(dot_size=5))
+>>> sprite.graphics.line_dot_setting.dot_size
+Int(5)
+```
+
+## line_dash_setting property API
+
+<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_dash_setting -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get current line dash setting.<hr>
+
+**[Returns]**
+
+- `line_dash_setting`: LineDashSetting or None
+  - Current line dash setting.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.line_style(
+...     color='#fff', thickness=5,
+...     dash_setting=ap.LineDashSetting(
+...         dash_size=10, space_size=5))
+>>> sprite.graphics.line_dash_setting.dash_size
+Int(10)
+
+>>> sprite.graphics.line_dash_setting.space_size
+Int(5)
+```
+
+## line_round_dot_setting property API
+
+<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_round_dot_setting -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get current line round dot setting.<hr>
+
+**[Returns]**
+
+- `line_round_dot_setting`: LineRoundDotSetting or None
+  - Current line round dot setting.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.line_style(
+...     color='#fff', thickness=5,
+...     round_dot_setting=ap.LineRoundDotSetting(
+...         round_size=6, space_size=3))
+>>> sprite.graphics.line_round_dot_setting.round_size
+Int(6)
+
+>>> sprite.graphics.line_round_dot_setting.space_size
+Int(3)
+```
+
+## line_dash_dot_setting property API
+
+<!-- Docstring: apysc._display.line_style_interface.LineStyleInterface.line_dash_dot_setting -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get current line dash dot setting.<hr>
+
+**[Returns]**
+
+- `line_dash_dot_setting`: LineDashDotSetting or None
+  - Current line dash dot setting.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.line_style(
+...     color='#fff', thickness=5,
+...     dash_dot_setting=ap.LineDashDotSetting(
+...         dot_size=2, dash_size=5, space_size=3))
+>>> sprite.graphics.line_dash_dot_setting.dot_size
+Int(2)
+
+>>> sprite.graphics.line_dash_dot_setting.dash_size
+Int(5)
+
+>>> sprite.graphics.line_dash_dot_setting.space_size
+Int(3)
+```

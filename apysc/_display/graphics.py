@@ -362,9 +362,9 @@ class Graphics(
         Parameters
         ----------
         x : Int or int
-            X destination point to draw line.
+            X destination point to draw a line.
         y : Int or int
-            Y destination point to draw line.
+            Y destination point to draw a line.
 
         Returns
         -------
@@ -412,14 +412,14 @@ class Graphics(
             x: Union[int, Int],
             y: Union[int, Int]) -> '_polyline.Polyline':
         """
-        Move a line position to specified point.
+        Move a line position to a specified point.
 
         Parameters
         ----------
         x : Int or int
-            X destination point to move to.
+            X destination point to move.
         y : Int or int
-            Y destination point to move to.
+            Y destination point to move.
 
         Returns
         -------

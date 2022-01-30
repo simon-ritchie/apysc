@@ -160,3 +160,95 @@ ap.save_overall_html(
 If you click the following line, line style will be updated:
 
 <iframe src="static/graphics_move_to_and_line_to_polyline/index.html" width="200" height="100"></iframe>
+
+
+## move_to API
+
+<!-- Docstring: apysc._display.graphics.Graphics.move_to -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `move_to(self, x:Union[int, apysc._type.int.Int], y:Union[int, apysc._type.int.Int]) -> '_polyline.Polyline'`<hr>
+
+**[Interface summary]** Move a line position to a specified point.<hr>
+
+**[Parameters]**
+
+- `x`: Int or int
+  - X destination point to move.
+- `y`: Int or int
+  - Y destination point to move.
+
+<hr>
+
+**[Returns]**
+
+- `line`: Polyline
+  - Line graphics instance.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.line_style(color='#fff', thickness=5)
+>>> line_1: ap.Polyline = sprite.graphics.move_to(x=50, y=50)
+>>> line_2: ap.Polyline = sprite.graphics.line_to(x=150, y=50)
+>>> line_1 == line_2
+True
+
+>>> line_1.line_color
+String('#ffffff')
+
+>>> line_1.line_thickness
+Int(5)
+```
+
+## line_to API
+
+<!-- Docstring: apysc._display.graphics.Graphics.line_to -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `line_to(self, x:Union[int, apysc._type.int.Int], y:Union[int, apysc._type.int.Int]) -> '_polyline.Polyline'`<hr>
+
+**[Interface summary]** Draw a line from previous point to specified point (initial point is x = 0, y = 0).<hr>
+
+**[Parameters]**
+
+- `x`: Int or int
+  - X destination point to draw a line.
+- `y`: Int or int
+  - Y destination point to draw a line.
+
+<hr>
+
+**[Returns]**
+
+- `line`: Polyline
+  - Line graphics instance.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.line_style(color='#fff', thickness=5)
+>>> line_1: ap.Polyline = sprite.graphics.move_to(x=50, y=50)
+>>> line_2: ap.Polyline = sprite.graphics.line_to(x=150, y=50)
+>>> line_3: ap.Polyline = sprite.graphics.line_to(x=50, y=150)
+>>> line_1 == line_2 == line_3
+True
+
+>>> line_1.line_color
+String('#ffffff')
+
+>>> line_1.line_thickness
+Int(5)
+```

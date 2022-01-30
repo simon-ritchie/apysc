@@ -190,6 +190,95 @@
 </div>
 <p>If you click the following line, line style will be updated:</p>
 <iframe src="static/graphics_move_to_and_line_to_polyline/index.html" width="200" height="100"></iframe></section>
+<section id="move-to-api">
+<h2>move_to API<a class="headerlink" href="#move-to-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._display.graphics.Graphics.move_to --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">move_to(self,</span> <span class="pre">x:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y:Union[int,</span> <span class="pre">apysc._type.int.Int])</span> <span class="pre">-&gt;</span> <span class="pre">'_polyline.Polyline'</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Move a line position to a specified point.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int or int</p>
+<ul>
+<li><p>X destination point to move.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int or int</p>
+<ul>
+<li><p>Y destination point to move.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">line</span></code>: Polyline</p>
+<ul>
+<li><p>Line graphics instance.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#fff&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Polyline</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Polyline</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line_1</span> <span class="o">==</span> <span class="n">line_2</span>
+<span class="go">True</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line_1</span><span class="o">.</span><span class="n">line_color</span>
+<span class="go">String(&#39;#ffffff&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line_1</span><span class="o">.</span><span class="n">line_thickness</span>
+<span class="go">Int(5)</span>
+</pre></div>
+</div>
+</section>
+<section id="line-to-api">
+<h2>line_to API<a class="headerlink" href="#line-to-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._display.graphics.Graphics.line_to --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">line_to(self,</span> <span class="pre">x:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y:Union[int,</span> <span class="pre">apysc._type.int.Int])</span> <span class="pre">-&gt;</span> <span class="pre">'_polyline.Polyline'</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Draw a line from previous point to specified point (initial point is x = 0, y = 0).<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int or int</p>
+<ul>
+<li><p>X destination point to draw a line.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int or int</p>
+<ul>
+<li><p>Y destination point to draw a line.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">line</span></code>: Polyline</p>
+<ul>
+<li><p>Line graphics instance.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#fff&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Polyline</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Polyline</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line_3</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Polyline</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line_1</span> <span class="o">==</span> <span class="n">line_2</span> <span class="o">==</span> <span class="n">line_3</span>
+<span class="go">True</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line_1</span><span class="o">.</span><span class="n">line_color</span>
+<span class="go">String(&#39;#ffffff&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line_1</span><span class="o">.</span><span class="n">line_thickness</span>
+<span class="go">Int(5)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -210,6 +299,8 @@
 <li><a class="reference internal" href="#sequential-calling-of-the-line-to-interface">Sequential calling of the line_to interface</a></li>
 <li><a class="reference internal" href="#move-to-interface-calling-after-line-to-interface-calling">move_to interface calling after line_to interface calling</a></li>
 <li><a class="reference internal" href="#polyline-instance">Polyline instance</a></li>
+<li><a class="reference internal" href="#move-to-api">move_to API</a></li>
+<li><a class="reference internal" href="#line-to-api">line_to API</a></li>
 </ul>
 </li>
 </ul>

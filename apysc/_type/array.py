@@ -497,12 +497,12 @@ class Array(
             self, index: Union[int, Int], value: T) -> None:
         """
         Insert value to this array at a specified index.
-        This behaves same as insert_at method.
+        This interface behaves the same `insert_at` method.
 
         Parameters
         ----------
         index : int or Int
-            Index to append value to.
+            Index to append value.
         value : *
             Any value to append.
 
@@ -540,12 +540,12 @@ class Array(
     def insert_at(self, index: Union[int, Int], value: T) -> None:
         """
         Insert value to this array at a specified index.
-        This behaves same as insert method.
+        This interface behaves the same `insert` method.
 
         Parameters
         ----------
         index : int or Int
-            Index to append value to.
+            Index to append value.
         value : *
             Any value to append.
 

@@ -84,7 +84,7 @@ class BeginFillInterface(RevertInterface):
         -------
         fill_color : String
             Current fill color (hexadecimal string, e.g., '#00aaff').
-            If not be set, blank string will be returned.
+            If not be set, this interface returns a blank string.
 
         Examples
         --------

@@ -173,3 +173,92 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/graphics_begin_fill_alpha_setting/index.html" width="200" height="200"></iframe>
+
+
+## begin_fill API
+
+<!-- Docstring: apysc._display.begin_fill_interface.BeginFillInterface.begin_fill -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `begin_fill(self, color:~StrOrString, *, alpha:Union[float, apysc._type.number.Number]=1.0) -> None`<hr>
+
+**[Interface summary]** Set single color value for fill.<hr>
+
+**[Parameters]**
+
+- `color`: str or String
+  - Hexadecimal color string. e.g., '#00aaff'
+- `alpha`: float or Number, default 1.0
+  - Color opacity (0.0 to 1.0).
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> rectangle.fill_color
+String('#00aaff')
+```
+
+## fill_color property API
+
+<!-- Docstring: apysc._display.begin_fill_interface.BeginFillInterface.fill_color -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get current fill color.<hr>
+
+**[Returns]**
+
+- `fill_color`: String
+  - Current fill color (hexadecimal string, e.g., '#00aaff'). If not be set, this interface returns a blank string.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> rectangle.fill_color
+String('#00aaff')
+```
+
+## fill_alpha property API
+
+<!-- Docstring: apysc._display.begin_fill_interface.BeginFillInterface.fill_alpha -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get current fill color opacity.<hr>
+
+**[Returns]**
+
+- `fill_alpha`: Number
+  - Current fill color opacity (0.0 to 1.0). If not be set, 1.0 will be returned.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> rectangle.fill_alpha
+Number(0.5)
+```

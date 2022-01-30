@@ -71,3 +71,62 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/graphics_draw_round_dotted_line_notes/index.html" width="270" height="130"></iframe>
+
+
+## draw_round_dotted_line API
+
+<!-- Docstring: apysc._display.graphics.Graphics.draw_round_dotted_line -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `draw_round_dotted_line(self, x_start:Union[int, apysc._type.int.Int], y_start:Union[int, apysc._type.int.Int], x_end:Union[int, apysc._type.int.Int], y_end:Union[int, apysc._type.int.Int], round_size:Union[int, apysc._type.int.Int], space_size:Union[int, apysc._type.int.Int]) -> '_line.Line'`<hr>
+
+**[Interface summary]** Draw a round dotted line vector graphics.<hr>
+
+**[Parameters]**
+
+- `x_start`: Int or int
+  - Line start x-coordinate.
+- `y_start`: Int or int
+  - Line start y-coordinate.
+- `x_end`: Int or int
+  - Line end x-coordinate.
+- `y_end`: Int or int
+  - Line end y-coordinate.
+- `round_size`: Int or int
+  - Dot round size.
+- `space_size`: Int or int
+  - Blank space size between dots.
+
+<hr>
+
+**[Returns]**
+
+- `line`: Line
+  - Created line graphics instance.
+
+<hr>
+
+**[Notes]**
+
+This interface ignores line settings, like the `LineDotSetting`, except `LineRoundDotSetting`.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.line_style(color='#fff', thickness=5)
+>>> line: ap.Line = sprite.graphics.draw_round_dotted_line(
+...    x_start=50, y_start=50, x_end=150, y_end=50,
+...    round_size=6, space_size=3)
+>>> line.line_color
+String('#ffffff')
+
+>>> line.line_round_dot_setting.round_size
+Int(6)
+
+>>> line.line_round_dot_setting.space_size
+Int(3)
+```

@@ -694,8 +694,8 @@ class Graphics(
 
         Notes
         -----
-        - This interface will ignore line settings, like a
-            LineDotSetting, except LineRoundDotSetting.
+        This interface ignores line settings, like the
+        `LineDotSetting`, except `LineRoundDotSetting`.
 
         Parameters
         ----------

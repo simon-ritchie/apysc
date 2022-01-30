@@ -1275,8 +1275,8 @@ class Array(
         Returns
         -------
         index : Int
-            Found position of index. If value is not contains,
-            -1 will be returned.
+            Found position of index. If this array does not
+            contain a value, this interface returns -1.
 
         References
         ----------

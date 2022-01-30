@@ -71,6 +71,35 @@
 </pre></div>
 </div>
 </section>
+<section id="index-of-api">
+<h2>index_of API<a class="headerlink" href="#index-of-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._type.array.Array.index_of --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">index_of(self,</span> <span class="pre">value:~T)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.int.Int</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Search specified value’s index and return it.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: *</p>
+<ul>
+<li><p>Any value to search.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code>: Int</p>
+<ul>
+<li><p>Found position of index. If value is not contains, -1 will be returned.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="o">.</span><span class="n">index_of</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">Int(1)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -88,6 +117,7 @@
 <li><a class="reference internal" href="#">Array class index_of interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#index-of-api">index_of API</a></li>
 </ul>
 </li>
 </ul>

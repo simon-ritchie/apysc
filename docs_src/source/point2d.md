@@ -75,3 +75,88 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/point2d_basic_usage/index.html" width="150" height="150"></iframe>
+
+
+## Point2D class constructor API
+
+<!-- Docstring: apysc._geom.point2d.Point2D.__init__ -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `__init__(self, x:Union[int, apysc._type.int.Int], y:Union[int, apysc._type.int.Int]) -> None`<hr>
+
+**[Interface summary]** 2-dimensional geometry point.<hr>
+
+**[Parameters]**
+
+- `x`: int or Int
+  - X-coordinate.
+- `y`: int or Int
+  - Y-coordinate.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
+...     points=[
+...         ap.Point2D(x=0, y=0),
+...         ap.Point2D(x=0, y=50),
+...         ap.Point2D(x=50, y=25),
+...     ])
+```
+
+## x property API
+
+<!-- Docstring: apysc._geom.point2d.Point2D.x -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** X-coordinate property.<hr>
+
+**[Returns]**
+
+- `x`: Int
+  - X-coordinate.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> point: ap.Point2D = ap.Point2D(x=50, y=100)
+>>> point.x = ap.Int(150)
+>>> point.x
+Int(150)
+```
+
+## y property API
+
+<!-- Docstring: apysc._geom.point2d.Point2D.y -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Y-coordinate property.<hr>
+
+**[Returns]**
+
+- `y`: Int
+  - Y-coordinate.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> point: ap.Point2D = ap.Point2D(x=50, y=100)
+>>> point.y = ap.Int(150)
+>>> point.y
+Int(150)
+```

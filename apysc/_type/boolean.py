@@ -56,8 +56,8 @@ class Boolean(CopyInterface, RevertInterface, CustomEventInterface):
         Parameters
         ----------
         value : bool or int or Boolean or Int
-            Initial boolean value. 0 or 1 are acceptable for integer
-            value.
+            Initial boolean value. 0 or 1 are acceptable for
+            an integer value.
 
         References
         ----------

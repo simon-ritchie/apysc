@@ -78,3 +78,62 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/display_object_x_and_y_augmented_assignment/index.html" width="150" height="150"></iframe>
+
+
+## x property API
+
+<!-- Docstring: apysc._display.x_interface.XInterface.x -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get a x-coordinate.<hr>
+
+**[Returns]**
+
+- `x`: Int
+  - X-coordinate.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> rectangle.x = ap.Int(100)
+>>> rectangle.x
+Int(100)
+```
+
+## y property API
+
+<!-- Docstring: apysc._display.y_interface.YInterface.y -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get a y-coordinate.<hr>
+
+**[Returns]**
+
+- `y`: Int
+  - Y-coordinate.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> rectangle.y = ap.Int(100)
+>>> rectangle.y
+Int(100)
+```

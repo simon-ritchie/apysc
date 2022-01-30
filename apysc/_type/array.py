@@ -286,7 +286,7 @@ class Array(
     def append(self, value: T) -> None:
         """
         Add any value to the end of this array.
-        This behaves same as push method.
+        This method behaves the same `push` method.
 
         Parameters
         ----------

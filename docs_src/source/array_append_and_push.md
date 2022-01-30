@@ -21,3 +21,58 @@ assert arr == [1, 2, 3]
 arr.push(value=4)
 assert arr == [1, 2, 3, 4]
 ```
+
+
+## append API
+
+<!-- Docstring: apysc._type.array.Array.append -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `append(self, value:~T) -> None`<hr>
+
+**[Interface summary]** Add any value to the end of this array. This method behaves the same `push` method.<hr>
+
+**[Parameters]**
+
+- `value`: *
+  - Any value to append.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> arr: ap.Array = ap.Array([1, 2, 3])
+>>> arr.append(4)
+>>> arr
+Array([1, 2, 3, 4])
+```
+
+## push API
+
+<!-- Docstring: apysc._type.array.Array.push -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `push(self, value:~T) -> None`<hr>
+
+**[Interface summary]** Add any value to the end of this array. This method behaves the same `append` method.<hr>
+
+**[Parameters]**
+
+- `value`: *
+  - Any value to append.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> arr: ap.Array = ap.Array([1, 2, 3])
+>>> arr.push(4)
+>>> arr
+Array([1, 2, 3, 4])
+```

@@ -47,7 +47,7 @@ sprite: ap.Sprite = ap.Sprite()
 rectangle: ap.Rectangle = sprite.graphics.draw_rect(
     x=50, y=50, width=50, height=50)
 
-# Remove the rectangle from the parent and nothing displays
+# Remove the rectangle from the parent, and nothing displays
 # on the stage.
 rectangle.remove_from_parent()
 
@@ -60,3 +60,34 @@ ap.save_overall_html(
 ## See also
 
 - [Add child and remove child interfaces](add_child_and_remove_child.md)
+
+
+## parent API
+
+<!-- Docstring: apysc._display.parent_interface.ParentInterface.parent -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get parent instance that has a add_child and remove_child interfaces.<hr>
+
+**[Returns]**
+
+- `parent`: any parent instance or None
+  - Parent instance with `add_child` and `remove_child` interfaces. If this instance does not have a parent instance (not added child), this interface returns None.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite_1: ap.Sprite = ap.Sprite()
+>>> sprite_1.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite_1.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> sprite_2: ap.Sprite = ap.Sprite()
+>>> sprite_2.add_child(rectangle)
+>>> rectangle.parent == sprite_2
+True
+```

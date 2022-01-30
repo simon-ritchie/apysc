@@ -21,9 +21,9 @@ class ParentInterface(RevertInterface):
         Returns
         -------
         parent : any parent instance or None
-            Parent instance that has a add_child and remove_child
-            interfaces. If this instance not have parent instance (not
-            added child), None will be returned.
+            Parent instance with `add_child` and `remove_child`
+            interfaces. If this instance does not have a parent
+            instance (not added child), this interface returns None.
 
         References
         ----------

@@ -272,7 +272,7 @@ class CustomEventInterface(BlankObjectInterface):
         custom_event_type : CustomEventType or str
             Target custom event type.
         handler : _Handler
-            A handler will be called when the custom event is triggered.
+            A handler for when the custom event is triggered.
 
         Returns
         -------

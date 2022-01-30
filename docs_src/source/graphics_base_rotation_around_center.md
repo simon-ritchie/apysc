@@ -1,6 +1,6 @@
 # GraphicsBase rotation_around_center interface
 
-This page explains the `GraphicsBase` class (base class of each graphics, such as the `Rectangle`) `rotation_around_center` property interface.
+This page explains the `GraphicsBase` class (base class of each graphic, such as the `Rectangle`) `rotation_around_center` property interface.
 
 ## What interface is this?
 
@@ -45,3 +45,33 @@ ap.save_overall_html(
 ## Notes
 
 This interface supports only the graphics instances currently. The container instances, such as the `Sprite` instance, are not supported (due to the HTML (SVG) specification).
+
+
+## rotation_around_center property API
+
+<!-- Docstring: apysc._display.rotation_around_center_interface.RotationAroundCenterInterface.rotation_around_center -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get a rotation value around the center of this instance.<hr>
+
+**[Returns]**
+
+- `rotation_around_center`: Int
+  - Rotation value around the center of this instance.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> rectangle.rotation_around_center = ap.Int(45)
+>>> rectangle.rotation_around_center
+Int(45)
+```

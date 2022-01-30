@@ -36,6 +36,7 @@ class LintCommand(TypedDict):
     command: str
     lint_name: str
 
+
 _PY_FILE_DIRS_STR: str = './apysc/ ./tests/ ./test_projects/ ./scripts/'
 
 FLAKE8_NO_PATH_COMMAND: Final[str] = (

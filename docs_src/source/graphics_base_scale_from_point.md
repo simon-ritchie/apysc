@@ -159,3 +159,150 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/graphics_base_scale_from_point_basic_usage_y/index.html" width="150" height="150"></iframe>
+
+
+## get_scale_x_from_point API
+
+<!-- Docstring: apysc._display.scale_x_from_point_interface.ScaleXFromPointInterface.get_scale_x_from_point -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `get_scale_x_from_point(self, x:apysc._type.int.Int) -> apysc._type.number.Number`<hr>
+
+**[Interface summary]** Get a scale-x value from the given x-coordinate.<hr>
+
+**[Parameters]**
+
+- `x`: Int
+  - X-coordinate.
+
+<hr>
+
+**[Returns]**
+
+- `scale_x`: Number
+  - Scale-x value from the given x-coordinate.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> x: ap.Int = ap.Int(100)
+>>> rectangle.set_scale_x_from_point(scale_x=ap.Number(1.5), x=x)
+>>> rectangle.get_scale_x_from_point(x=x)
+Number(1.5)
+```
+
+## set_scale_x_from_point API
+
+<!-- Docstring: apysc._display.scale_x_from_point_interface.ScaleXFromPointInterface.set_scale_x_from_point -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `set_scale_x_from_point(self, scale_x:apysc._type.number.Number, x:apysc._type.int.Int) -> None`<hr>
+
+**[Interface summary]** Update a scale-x value from the given x-coordinate.<hr>
+
+**[Parameters]**
+
+- `scale_x`: Number
+  - Scale-x value to set.
+- `x`: Int
+  - X-coordinate.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> x: ap.Int = ap.Int(100)
+>>> rectangle.set_scale_x_from_point(scale_x=ap.Number(1.5), x=x)
+>>> rectangle.get_scale_x_from_point(x=x)
+Number(1.5)
+```
+
+## get_scale_y_from_point API
+
+<!-- Docstring: apysc._display.scale_y_from_point_interface.ScaleYFromPointInterface.get_scale_y_from_point -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `get_scale_y_from_point(self, y:apysc._type.int.Int) -> apysc._type.number.Number`<hr>
+
+**[Interface summary]** Get a scale-y value from the given y-coordinate.<hr>
+
+**[Parameters]**
+
+- `y`: Int
+  - Y-coordinate.
+
+<hr>
+
+**[Returns]**
+
+- `scale_y`: ap.Number
+  - Scale-y value from the given y-coordinate.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> y: ap.Int = ap.Int(100)
+>>> rectangle.set_scale_y_from_point(scale_y=ap.Number(1.5), y=y)
+>>> rectangle.get_scale_y_from_point(y=y)
+Number(1.5)
+```
+
+## set_scale_y_from_point API
+
+<!-- Docstring: apysc._display.scale_y_from_point_interface.ScaleYFromPointInterface.set_scale_y_from_point -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `set_scale_y_from_point(self, scale_y:apysc._type.number.Number, y:apysc._type.int.Int) -> None`<hr>
+
+**[Interface summary]** Update a scale-y value from the given y-coordinate.<hr>
+
+**[Parameters]**
+
+- `scale_y`: Number
+  - Scale-y value to set.
+- `y`: Int
+  - Y-coordinate.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> y: ap.Int = ap.Int(100)
+>>> rectangle.set_scale_y_from_point(scale_y=ap.Number(1.5), y=y)
+>>> rectangle.get_scale_y_from_point(y=y)
+Number(1.5)
+```

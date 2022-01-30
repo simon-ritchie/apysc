@@ -102,4 +102,4 @@ from apysc._animation.animation_scale_x_from_point import AnimationScaleXFromPoi
 from apysc._animation.animation_scale_y_from_point import AnimationScaleYFromPoint  # isort:skip # noqa
 from apysc._animation.animation_parallel import AnimationParallel  # isort:skip # noqa
 
-__version__: str = '0.63.23'
+__version__: str = '0.63.24'

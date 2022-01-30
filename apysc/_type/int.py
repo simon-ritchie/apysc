@@ -15,9 +15,9 @@ class Int(NumberValueInterface[int, 'Int']):
     - Int and Number document
         - https://simon-ritchie.github.io/apysc/int_and_number.html
     - Int and Number common arithmetic operations document
-        - https://bit.ly/3evzcVj
+        - https://simon-ritchie.github.io/apysc/int_and_number_arithmetic_operations.html  # noqa
     - Int and Number common comparison operations document
-        - https://bit.ly/3zolw6T
+        - https://simon-ritchie.github.io/apysc/int_and_number_comparison_operations.html  # noqa
 
     Examples
     --------
@@ -60,9 +60,9 @@ class Int(NumberValueInterface[int, 'Int']):
         - Int and Number document
             - https://simon-ritchie.github.io/apysc/int_and_number.html
         - Int and Number common arithmetic operations document
-            - https://bit.ly/3evzcVj
+            - https://simon-ritchie.github.io/apysc/int_and_number_arithmetic_operations.html  # noqa
         - Int and Number common comparison operations document
-            - https://bit.ly/3zolw6T
+            - https://simon-ritchie.github.io/apysc/int_and_number_comparison_operations.html  # noqa
 
         Examples
         --------

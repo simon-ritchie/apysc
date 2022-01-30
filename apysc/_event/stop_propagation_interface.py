@@ -13,7 +13,7 @@ class StopPropagationInterface(VariableNameInterface):
         Refenreces
         ----------
         - Event class prevent_default and stop_propagation interfaces document
-            - https://bit.ly/3qqd4lH
+            - https://simon-ritchie.github.io/apysc/event_prevent_default_and_stop_propagation.html  # noqa
 
         Examples
         --------

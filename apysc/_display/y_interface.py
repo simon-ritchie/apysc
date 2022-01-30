@@ -53,7 +53,7 @@ class YInterface(
         References
         ----------
         - Display object x and y interfaces document
-            - https://bit.ly/2ToA5ba
+            - https://simon-ritchie.github.io/apysc/display_object_x_and_y.html  # noqa
 
         Examples
         --------
@@ -89,7 +89,7 @@ class YInterface(
         References
         ----------
         - Display object x and y interfaces document
-            - https://bit.ly/2ToA5ba
+            - https://simon-ritchie.github.io/apysc/display_object_x_and_y.html  # noqa
         """
         import apysc as ap
         with ap.DebugInfo(

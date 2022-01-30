@@ -111,7 +111,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         - Timer class repeat_count setting
             - https://simon-ritchie.github.io/apysc/timer_repeat_count.html
         - About the handler options' type document
-            - https://bit.ly/39tnYxC
+            - https://simon-ritchie.github.io/apysc/about_handler_options_type.html  # noqa
 
         Examples
         --------
@@ -569,7 +569,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         - Timer class timer_complete interface document
             - https://simon-ritchie.github.io/apysc/timer_complete.html
         - About the handler options’ type document
-            - https://bit.ly/39tnYxC
+            - https://simon-ritchie.github.io/apysc/about_handler_options_type.html  # noqa
 
         Examples
         --------

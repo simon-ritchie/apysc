@@ -39,9 +39,9 @@ class MouseUpInterface(MouseEventInterfaceBase):
         References
         ----------
         - Mousedown and mouseup interfaces document
-            - https://bit.ly/3zgjOnF
+            - https://simon-ritchie.github.io/apysc/mousedown_and_mouseup.html  # noqa
         - About the handler options’ type document
-            - https://bit.ly/39tnYxC
+            - https://simon-ritchie.github.io/apysc/about_handler_options_type.html  # noqa
 
         Examples
         --------
@@ -106,7 +106,7 @@ class MouseUpInterface(MouseEventInterfaceBase):
         References
         ----------
         - Mousedown and mouseup interfaces document
-            - https://bit.ly/3zgjOnF
+            - https://simon-ritchie.github.io/apysc/mousedown_and_mouseup.html  # noqa
 
         Examples
         --------
@@ -139,7 +139,7 @@ class MouseUpInterface(MouseEventInterfaceBase):
         References
         ----------
         - Mousedown and mouseup interfaces document
-            - https://bit.ly/3zgjOnF
+            - https://simon-ritchie.github.io/apysc/mousedown_and_mouseup.html  # noqa
 
         Examples
         --------

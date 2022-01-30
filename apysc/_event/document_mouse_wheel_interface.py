@@ -38,7 +38,7 @@ def bind_wheel_event_to_document(
     References
     ----------
     - About the handler options’ type document
-        - https://bit.ly/39tnYxC
+        - https://simon-ritchie.github.io/apysc/about_handler_options_type.html  # noqa
     """
     import apysc as ap
     with ap.DebugInfo(

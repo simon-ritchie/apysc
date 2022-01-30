@@ -21,8 +21,8 @@ class MouseEvent(
 
     References
     ----------
-    - Common mouse event interfaces
-        - https://bit.ly/3eDWY1v
+    - Basic mouse event interfaces
+        - https://simon-ritchie.github.io/apysc/mouse_event_basic.html
 
     Examples
     --------
@@ -51,8 +51,8 @@ class MouseEvent(
 
         References
         ----------
-        - Common mouse event interfaces
-            - https://bit.ly/3eDWY1v
+        - Basic mouse event interfaces
+            - https://simon-ritchie.github.io/apysc/mouse_event_basic.html
 
         Examples
         --------

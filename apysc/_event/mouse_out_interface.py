@@ -39,9 +39,9 @@ class MouseOutInterface(MouseEventInterfaceBase):
         References
         ----------
         - Mouseover and mouseout interfaces
-            - https://bit.ly/3hOtaBl
+            - https://simon-ritchie.github.io/apysc/mouseover_and_mouseout.html  # noqa
         - About the handler options’ type document
-            - https://bit.ly/39tnYxC
+            - https://simon-ritchie.github.io/apysc/about_handler_options_type.html  # noqa
 
         Examples
         --------
@@ -106,7 +106,7 @@ class MouseOutInterface(MouseEventInterfaceBase):
         References
         ----------
         - Mouseover and mouseout interfaces
-            - https://bit.ly/3hOtaBl
+            - https://simon-ritchie.github.io/apysc/mouseover_and_mouseout.html  # noqa
 
         Examples
         --------
@@ -139,7 +139,7 @@ class MouseOutInterface(MouseEventInterfaceBase):
         References
         ----------
         - Mouseover and mouseout interfaces
-            - https://bit.ly/3hOtaBl
+            - https://simon-ritchie.github.io/apysc/mouseover_and_mouseout.html  # noqa
 
         Examples
         --------

@@ -20,9 +20,9 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
     - String document
         - https://simon-ritchie.github.io/apysc/string.html
     - String class comparison operations document
-        - https://bit.ly/3ewROEr
+        - https://simon-ritchie.github.io/apysc/string_comparison_operations.html  # noqa
     - String class addition and multiplication operations document
-        - https://bit.ly/2URRhWL
+        - https://simon-ritchie.github.io/apysc/string_addition_and_multiplication.html  # noqa
 
     Examples
     --------
@@ -62,9 +62,9 @@ class String(CopyInterface, RevertInterface, CustomEventInterface):
         - String document
             - https://simon-ritchie.github.io/apysc/string.html
         - String class comparison operations document
-            - https://bit.ly/3ewROEr
+            - https://simon-ritchie.github.io/apysc/string_comparison_operations.html  # noqa
         - String class addition and multiplication operations document
-            - https://bit.ly/2URRhWL
+            - https://simon-ritchie.github.io/apysc/string_addition_and_multiplication.html  # noqa
 
         Examples
         --------

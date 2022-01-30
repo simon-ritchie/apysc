@@ -381,7 +381,7 @@ class Array(
         References
         ----------
         - Array class extend and concat interfaces document
-            - https://bit.ly/3r1TdIu
+            - https://simon-ritchie.github.io/apysc/array_extend_and_concat.html  # noqa
 
         Examples
         --------
@@ -446,7 +446,7 @@ class Array(
         References
         ----------
         - Array class extend and concat interfaces document
-            - https://bit.ly/3r1TdIu
+            - https://simon-ritchie.github.io/apysc/array_extend_and_concat.html  # noqa
 
         Examples
         --------
@@ -508,7 +508,7 @@ class Array(
         References
         ----------
         - Array class insert and insert_at interfaces document
-            - https://bit.ly/3G9LBtQ
+            - https://simon-ritchie.github.io/apysc/array_insert_and_insert_at.html  # noqa
 
         Examples
         --------
@@ -551,7 +551,7 @@ class Array(
         References
         ----------
         - Array class insert and insert_at interfaces document
-            - https://bit.ly/3G9LBtQ
+            - https://simon-ritchie.github.io/apysc/array_insert_and_insert_at.html  # noqa
 
         Examples
         --------
@@ -656,7 +656,7 @@ class Array(
         References
         ----------
         - Array class remove and remove_at interfaces document
-            - https://bit.ly/3zDO6Cl
+            - https://simon-ritchie.github.io/apysc/array_remove_and_remove_at.html  # noqa
 
         Examples
         --------
@@ -711,7 +711,7 @@ class Array(
         References
         ----------
         - Array class remove and remove_at interfaces document
-            - https://bit.ly/3zDO6Cl
+            - https://simon-ritchie.github.io/apysc/array_remove_and_remove_at.html  # noqa
 
         Examples
         --------

@@ -75,3 +75,55 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/graphics_draw_round_rect_return_value/index.html" width="150" height="150"></iframe>
+
+
+## draw_round_rect API
+
+<!-- Docstring: apysc._display.graphics.Graphics.draw_round_rect -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `draw_round_rect(self, x:Union[int, apysc._type.int.Int], y:Union[int, apysc._type.int.Int], width:Union[int, apysc._type.int.Int], height:Union[int, apysc._type.int.Int], ellipse_width:Union[int, apysc._type.int.Int], ellipse_height:Union[int, apysc._type.int.Int]) -> apysc._display.rectangle.Rectangle`<hr>
+
+**[Interface summary]** Draw a rounded rectangle vector graphics.<hr>
+
+**[Parameters]**
+
+- `x`: Int or int
+  - X-coordinate to start drawing.
+- `y`: Int or int
+  - Y-coordinate to start drawing.
+- `width`: Int or int
+  - Rectangle width.
+- `height`: Int or int
+  - Rectangle height.
+- `ellipse_width`: Int or int
+  - Ellipse width of the rectangle corner.
+- `ellipse_height`: Int or int
+  - Ellipse height of the rectangle corner.
+
+<hr>
+
+**[Returns]**
+
+- `rectangle`: Rectangle
+  - Created rectangle.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> round_rect: ap.Rectangle = sprite.graphics.draw_round_rect(
+...     x=50, y=50, width=50, height=50,
+...     ellipse_width=10, ellipse_height=15)
+>>> round_rect.ellipse_width
+Int(10)
+
+>>> round_rect.ellipse_height
+Int(15)
+```

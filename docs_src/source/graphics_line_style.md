@@ -494,7 +494,7 @@ Notes: This setting will be ignored by `draw_line`, `draw_dotted_line`, `draw_da
 - `dash_setting`: LineDashSetting or None, default None
   - Dash setting. If this is specified, it makes a line dashed.
 - `round_dot_setting`: LineRoundDotSetting or None, default None
-  - Round dot setting. If this is specified, it makes a line round dotted. Notes: since this style uses a cap setting, it overrides cap and line thickness settings. And it increases the amount of line size. If you want to adjust to the same width of a normal line when using move_to and line_to interfaces, add half-round size to start x-coordinate and subtract from end e-coordinate. e.g., `this.move_to(x + round_size / 2, y)` `this.line_to(x - round_size / 2, y)`
+  - Round dot setting. If this is specified, it makes a line round dotted. Notes: since this style uses a cap setting, it overrides cap and line thickness settings. And it increases the amount of line size. If you want to adjust to the same width of a normal line when using move_to and line_to interfaces, add half-round size to start x-coordinate and subtract from end e-coordinate. e.g., `this.move_to(x + round_size / 2, y)`, `this.line_to(x - round_size / 2, y)`
 - `dash_dot_setting`: LineDashDotSetting or None, default None
   - Dash dot (1-dot chain) setting. If this is specified, it makes a line 1-dot chained.
 

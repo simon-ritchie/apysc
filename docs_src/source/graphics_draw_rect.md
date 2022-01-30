@@ -110,13 +110,13 @@ If you click rectangle, the handler changes the x position to 100.
 
 **[Parameters]**
 
-- `x`: int or Int
+- `x`: Int or int
   - X position to start drawing.
-- `y`: int or Int
+- `y`: Int or int
   - Y position to start drawing.
-- `width`: int or Int
+- `width`: Int or int
   - Rectangle width.
-- `height`: int or Int
+- `height`: Int or int
   - Rectangle height.
 
 <hr>

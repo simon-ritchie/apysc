@@ -124,13 +124,13 @@ class Graphics(
 
         Parameters
         ----------
-        x : int or Int
+        x : Int or int
             X position to start drawing.
-        y : int or Int
+        y : Int or int
             Y position to start drawing.
-        width : int or Int
+        width : Int or int
             Rectangle width.
-        height : int or Int
+        height : Int or int
             Rectangle height.
 
         Returns
@@ -181,17 +181,17 @@ class Graphics(
 
         Parameters
         ----------
-        x : int or Int
+        x : Int or int
             X-coordinate to start drawing.
-        y : int or Int
+        y : Int or int
             Y-coordinate to start drawing.
-        width : int or Int
+        width : Int or int
             Rectangle width.
-        height : int or Int
+        height : Int or int
             Rectangle height.
-        ellipse_width : int or Int
+        ellipse_width : Int or int
             Ellipse width of the rectangle corner.
-        ellipse_height : int or Int
+        ellipse_height : Int or int
             Ellipse height of the rectangle corner.
 
         Returns
@@ -244,11 +244,11 @@ class Graphics(
 
         Parameters
         ----------
-        x : int or Int
+        x : Int or int
             X-coordinate of the circle center.
-        y : int or Int
+        y : Int or int
             Y-coordinate of the circle center.
-        radius : int or Int
+        radius : Int or int
             Circle radius.
 
         Returns
@@ -301,13 +301,13 @@ class Graphics(
 
         Parameters
         ----------
-        x : int or Int
+        x : Int or int
             X-coordinate of the ellipse center.
-        y : int or Int
+        y : Int or int
             Y-coordinate of the ellipse center.
-        width : int or Int
+        width : Int or int
             Ellipse width.
-        height : int or Int
+        height : Int or int
             Ellipse height.
 
         Returns
@@ -361,9 +361,9 @@ class Graphics(
 
         Parameters
         ----------
-        x : int or Int
+        x : Int or int
             X destination point to draw line.
-        y : int or Int
+        y : Int or int
             Y destination point to draw line.
 
         Returns
@@ -416,9 +416,9 @@ class Graphics(
 
         Parameters
         ----------
-        x : int or Int
+        x : Int or int
             X destination point to move to.
-        y : int or Int
+        y : Int or int
             Y destination point to move to.
 
         Returns
@@ -486,13 +486,13 @@ class Graphics(
 
         Parameters
         ----------
-        x_start : int or Int
+        x_start : Int or int
             Line start x-coordinate.
-        y_start : int or Int
+        y_start : Int or int
             Line start y-coordinate.
-        x_end : int or Int
+        x_end : Int or int
             Line end x-coordinate.
-        y_end : int or Int
+        y_end : Int or int
             Line end y-coordinate.
 
         Returns
@@ -551,15 +551,15 @@ class Graphics(
 
         Parameters
         ----------
-        x_start : int or Int
+        x_start : Int or int
             Line start x-coordinate.
-        y_start : int or Int
+        y_start : Int or int
             Line start y-coordinate.
-        x_end : int or Int
+        x_end : Int or int
             Line end x-coordinate.
-        y_end : int or Int
+        y_end : Int or int
             Line end y-coordinate.
-        dot_size : int or Int
+        dot_size : Int or int
             Dot size.
 
         Returns
@@ -623,17 +623,17 @@ class Graphics(
 
         Parameters
         ----------
-        x_start : int or Int
+        x_start : Int or int
             Line start x-coordinate.
-        y_start : int or Int
+        y_start : Int or int
             Line start y-coordinate.
-        x_end : int or Int
+        x_end : Int or int
             Line end x-coordinate.
-        y_end : int or Int
+        y_end : Int or int
             Line end y-coordinate.
-        dash_size : int or Int
+        dash_size : Int or int
             Dash size.
-        space_size : int or Int
+        space_size : Int or int
             Blank space size between dashes.
 
         Returns
@@ -699,17 +699,17 @@ class Graphics(
 
         Parameters
         ----------
-        x_start : int or Int
+        x_start : Int or int
             Line start x-coordinate.
-        y_start : int or Int
+        y_start : Int or int
             Line start y-coordinate.
-        x_end : int or Int
+        x_end : Int or int
             Line end x-coordinate.
-        y_end : int or Int
+        y_end : Int or int
             Line end y-coordinate.
-        round_size : int or Int
+        round_size : Int or int
             Dot round size.
-        space_size : int or Int
+        space_size : Int or int
             Blank space size between dots.
 
         Returns
@@ -771,19 +771,19 @@ class Graphics(
 
         Parameters
         ----------
-        x_start : int or Int
+        x_start : Int or int
             Line start x-coordinate.
-        y_start : int or Int
+        y_start : Int or int
             Line start y-coordinate.
-        x_end : int or Int
+        x_end : Int or int
             Line end x-coordinate.
-        y_end : int or Int
+        y_end : Int or int
             Line end y-coordinate.
-        dot_size : int or Int
+        dot_size : Int or int
             Dot size.
-        dash_size : int or Int
+        dash_size : Int or int
             Dash size.
-        space_size : int or Int
+        space_size : Int or int
             Blank space size between dots and dashes.
 
         Returns

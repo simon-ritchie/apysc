@@ -112,6 +112,68 @@
 </pre></div>
 </div>
 <iframe src="static/graphics_draw_round_rect_return_value/index.html" width="150" height="150"></iframe></section>
+<section id="draw-round-rect-api">
+<h2>draw_round_rect API<a class="headerlink" href="#draw-round-rect-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._display.graphics.Graphics.draw_round_rect --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">draw_round_rect(self,</span> <span class="pre">x:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">width:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">height:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">ellipse_width:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">ellipse_height:Union[int,</span> <span class="pre">apysc._type.int.Int])</span> <span class="pre">-&gt;</span> <span class="pre">apysc._display.rectangle.Rectangle</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Draw a rounded rectangle vector graphics.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int or int</p>
+<ul>
+<li><p>X-coordinate to start drawing.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int or int</p>
+<ul>
+<li><p>Y-coordinate to start drawing.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>: Int or int</p>
+<ul>
+<li><p>Rectangle width.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: Int or int</p>
+<ul>
+<li><p>Rectangle height.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ellipse_width</span></code>: Int or int</p>
+<ul>
+<li><p>Ellipse width of the rectangle corner.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ellipse_height</span></code>: Int or int</p>
+<ul>
+<li><p>Ellipse height of the rectangle corner.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rectangle</span></code>: Rectangle</p>
+<ul>
+<li><p>Created rectangle.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">round_rect</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_round_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">ellipse_width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">ellipse_height</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">round_rect</span><span class="o">.</span><span class="n">ellipse_width</span>
+<span class="go">Int(10)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">round_rect</span><span class="o">.</span><span class="n">ellipse_height</span>
+<span class="go">Int(15)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -130,6 +192,7 @@
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li><a class="reference internal" href="#return-value">Return value</a></li>
+<li><a class="reference internal" href="#draw-round-rect-api">draw_round_rect API</a></li>
 </ul>
 </li>
 </ul>

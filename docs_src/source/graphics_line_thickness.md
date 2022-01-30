@@ -35,3 +35,33 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/graphics_line_thickness_basic_usage/index.html" width="250" height="150"></iframe>
+
+
+## line_thickness property API
+
+<!-- Docstring: apysc._display.line_thickness_interface.LineThicknessInterface.line_thickness -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get this instance's line thickness.<hr>
+
+**[Returns]**
+
+- `line_thickness`: Int
+  - Current line thickness.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.line_style(
+...     color='#fff', thickness=5)
+>>> line: ap.Line = sprite.graphics.draw_line(
+...     x_start=50, y_start=50, x_end=150, y_end=50)
+>>> line.line_thickness
+Int(5)
+```

@@ -76,6 +76,31 @@
 </pre></div>
 </div>
 <iframe src="static/graphics_line_thickness_basic_usage/index.html" width="250" height="150"></iframe></section>
+<section id="line-thickness-property-api">
+<h2>line_thickness property API<a class="headerlink" href="#line-thickness-property-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._display.line_thickness_interface.LineThicknessInterface.line_thickness --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface summary]</strong> Get this instance’s line thickness.<hr></p>
+<p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">line_thickness</span></code>: Int</p>
+<ul>
+<li><p>Current line thickness.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#fff&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="o">.</span><span class="n">line_thickness</span>
+<span class="go">Int(5)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -93,6 +118,7 @@
 <li><a class="reference internal" href="#">Graphics line_thickness interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#line-thickness-property-api">line_thickness property API</a></li>
 </ul>
 </li>
 </ul>

@@ -170,3 +170,25 @@ class PathBezier2DContinual(PathDataBase, PathXInterface, PathYInterface):
                 return result
             result: ap.Boolean = ap.Boolean(False)
             return result
+
+    def __ne__(self, other: Any) -> Any:
+        """
+        Not equal comparison method.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to compare.
+
+        Returns
+        -------
+        result : Boolean
+            Comparison result.
+        """
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__ne__', locals_=locals(),
+                module_name=__name__, class_=PathBezier2DContinual):
+            result: ap.Boolean = self == other
+            result = result.not_
+            return result

@@ -38,3 +38,33 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/graphics_line_alpha_basic_usage/index.html" width="350" height="150"></iframe>
+
+
+## line_alpha property API
+
+<!-- Docstring: apysc._display.line_alpha_interface.LineAlphaInterface.line_alpha -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get this instance's line alpha (opacity).<hr>
+
+**[Returns]**
+
+- `line_alpha`: Number
+  - Current line alpha (opacity. 0.0 to 1.0).
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.line_style(color='#fff', thickness=5, alpha=1.0)
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> rectangle.line_alpha = ap.Number(0.5)
+>>> rectangle.line_alpha
+Number(0.5)
+```

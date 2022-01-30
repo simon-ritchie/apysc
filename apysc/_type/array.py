@@ -1174,11 +1174,11 @@ class Array(
 
     def join(self, sep: Union[str, String]) -> String:
         """
-        Join this array values with specified separator string.
+        Join this array value with a specified separator string.
 
         Parameters
         ----------
-        sep : str or String
+        sep : String or str
             Separator string.
 
         Returns
@@ -1220,7 +1220,7 @@ class Array(
         ----------
         joined : String
             Joined string.
-        sep : str or String
+        sep : String or str
             Separator string.
         """
         import apysc as ap

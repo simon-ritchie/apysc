@@ -186,6 +186,43 @@
 </pre></div>
 </div>
 <iframe src="static/graphics_draw_polygon_append_line_point/index.html" width="150" height="150"></iframe></section>
+<section id="draw-polygon-api">
+<h2>draw_polygon API<a class="headerlink" href="#draw-polygon-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._display.graphics.Graphics.draw_polygon --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">draw_polygon(self,</span> <span class="pre">points:Union[List[apysc._geom.point2d.Point2D],</span> <span class="pre">apysc._type.array.Array[apysc._geom.point2d.Point2D]])</span> <span class="pre">-&gt;</span> <span class="pre">'_polyg.Polygon'</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Draw a polygon vector graphic. This interface is similar to the Polyline class (created by <code class="docutils literal notranslate"><span class="pre">move_to</span></code> or <code class="docutils literal notranslate"><span class="pre">line_to</span></code>). But unlike that, this interface connects the last point and the start point.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">points</span></code>: list of Point2D or Array.</p>
+<ul>
+<li><p>Polygon vertex points.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">polygon</span></code>: Polygon</p>
+<ul>
+<li><p>Created polygon graphics instance.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">polygon</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Polygon</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_polygon</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">points</span><span class="o">=</span><span class="p">[</span>
+<span class="gp">... </span>        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="n">ap</span><span class="o">.</span><span class="n">Point2D</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">polygon</span><span class="o">.</span><span class="n">fill_color</span>
+<span class="go">String(&#39;#00aaff&#39;)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -205,6 +242,7 @@
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li><a class="reference internal" href="#difference-between-the-line-to-and-draw-polygon-interfaces">Difference between the line_to and draw_polygon interfaces</a></li>
 <li><a class="reference internal" href="#return-value">Return value</a></li>
+<li><a class="reference internal" href="#draw-polygon-api">draw_polygon API</a></li>
 </ul>
 </li>
 </ul>

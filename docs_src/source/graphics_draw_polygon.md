@@ -156,3 +156,45 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/graphics_draw_polygon_append_line_point/index.html" width="150" height="150"></iframe>
+
+
+## draw_polygon API
+
+<!-- Docstring: apysc._display.graphics.Graphics.draw_polygon -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `draw_polygon(self, points:Union[List[apysc._geom.point2d.Point2D], apysc._type.array.Array[apysc._geom.point2d.Point2D]]) -> '_polyg.Polygon'`<hr>
+
+**[Interface summary]** Draw a polygon vector graphic. This interface is similar to the Polyline class (created by `move_to` or `line_to`). But unlike that, this interface connects the last point and the start point.<hr>
+
+**[Parameters]**
+
+- `points`: list of Point2D or Array.
+  - Polygon vertex points.
+
+<hr>
+
+**[Returns]**
+
+- `polygon`: Polygon
+  - Created polygon graphics instance.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> polygon: ap.Polygon = sprite.graphics.draw_polygon(
+...     points=[
+...         ap.Point2D(x=25, y=0),
+...         ap.Point2D(x=0, y=50),
+...         ap.Point2D(x=50, y=50),
+...     ])
+>>> polygon.fill_color
+String('#00aaff')
+```

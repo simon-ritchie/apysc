@@ -840,9 +840,10 @@ class Graphics(
             self,
             points: Union[List[Point2D], Array[Point2D]]) -> '_polyg.Polygon':
         """
-        Draw a polygon vector graphics. This is similar to Polyline
-        class (created by move_to or line_to, or other interface),
-        but unlike that, end point and start one will be connected.
+        Draw a polygon vector graphic. This interface is similar
+        to the Polyline class (created by `move_to` or `line_to`).
+        But unlike that, this interface connects the last point
+        and the start point.
 
         Parameters
         ----------

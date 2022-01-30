@@ -60,3 +60,71 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/display_object_get_and_set_css_basic_usage/index.html" width="150" height="150"></iframe>
+
+
+## get_css API
+
+<!-- Docstring: apysc._display.css_interface.CssInterface.get_css -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `get_css(self, name:Union[str, apysc._type.string.String]) -> apysc._type.string.String`<hr>
+
+**[Interface summary]** Get a CSS value string.<hr>
+
+**[Parameters]**
+
+- `name`: str or String
+  - CSS name (e.g., 'display').
+
+<hr>
+
+**[Returns]**
+
+- `css`: ap.String
+  - CSS value.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+>>> sprite.set_css(name='display', value='none')
+>>> sprite.get_css(name='display')
+String('none')
+```
+
+## set_css API
+
+<!-- Docstring: apysc._display.css_interface.CssInterface.set_css -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `set_css(self, name:Union[str, apysc._type.string.String], value:Union[str, apysc._type.string.String]) -> None`<hr>
+
+**[Interface summary]** Set a specified value string to the CSS.<hr>
+
+**[Parameters]**
+
+- `name`: str or String
+  - CSS name (e.g., 'display').
+- `value`: str or String
+  - A CSS value string (e.g., 'none').
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af', alpha=0.5)
+>>> sprite.set_css(name='display', value='none')
+>>> sprite.get_css(name='display')
+String('none')
+```

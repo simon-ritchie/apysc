@@ -101,6 +101,67 @@
 </pre></div>
 </div>
 <iframe src="static/display_object_get_and_set_css_basic_usage/index.html" width="150" height="150"></iframe></section>
+<section id="get-css-api">
+<h2>get_css API<a class="headerlink" href="#get-css-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._display.css_interface.CssInterface.get_css --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">get_css(self,</span> <span class="pre">name:Union[str,</span> <span class="pre">apysc._type.string.String])</span> <span class="pre">-&gt;</span> <span class="pre">apysc._type.string.String</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Get a CSS value string.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: str or String</p>
+<ul>
+<li><p>CSS name (e.g., ‘display’).</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">css</span></code>: ap.String</p>
+<ul>
+<li><p>CSS value.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">set_css</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;display&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">get_css</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;display&#39;</span><span class="p">)</span>
+<span class="go">String(&#39;none&#39;)</span>
+</pre></div>
+</div>
+</section>
+<section id="set-css-api">
+<h2>set_css API<a class="headerlink" href="#set-css-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._display.css_interface.CssInterface.set_css --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">set_css(self,</span> <span class="pre">name:Union[str,</span> <span class="pre">apysc._type.string.String],</span> <span class="pre">value:Union[str,</span> <span class="pre">apysc._type.string.String])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Set a specified value string to the CSS.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: str or String</p>
+<ul>
+<li><p>CSS name (e.g., ‘display’).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: str or String</p>
+<ul>
+<li><p>A CSS value string (e.g., ‘none’).</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">set_css</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;display&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">get_css</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;display&#39;</span><span class="p">)</span>
+<span class="go">String(&#39;none&#39;)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -118,6 +179,8 @@
 <li><a class="reference internal" href="#">Display object get_css and set_css interfaces</a><ul>
 <li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#get-css-api">get_css API</a></li>
+<li><a class="reference internal" href="#set-css-api">set_css API</a></li>
 </ul>
 </li>
 </ul>

@@ -618,8 +618,8 @@ class Graphics(
 
         Notes
         -----
-        - This interface will ignore line settings, like a
-            LineDotSetting, except LineDashSetting.
+        - This interface ignores line settings, like
+        the `LineDotSetting`, except `LineDashSetting`.
 
         Parameters
         ----------

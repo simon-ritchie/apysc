@@ -80,6 +80,75 @@
 </pre></div>
 </div>
 <iframe src="static/graphics_draw_dashed_line_basic_usage/index.html" width="250" height=130></iframe></section>
+<section id="draw-dashed-line-api">
+<h2>draw_dashed_line API<a class="headerlink" href="#draw-dashed-line-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._display.graphics.Graphics.draw_dashed_line --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">draw_dashed_line(self,</span> <span class="pre">x_start:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y_start:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">x_end:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y_end:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">dash_size:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">space_size:Union[int,</span> <span class="pre">apysc._type.int.Int])</span> <span class="pre">-&gt;</span> <span class="pre">'_line.Line'</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Draw a dashed line vector graphics.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x_start</span></code>: Int or int</p>
+<ul>
+<li><p>Line start x-coordinate.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y_start</span></code>: Int or int</p>
+<ul>
+<li><p>Line start y-coordinate.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x_end</span></code>: Int or int</p>
+<ul>
+<li><p>Line end x-coordinate.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y_end</span></code>: Int or int</p>
+<ul>
+<li><p>Line end y-coordinate.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dash_size</span></code>: Int or int</p>
+<ul>
+<li><p>Dash size.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">space_size</span></code>: Int or int</p>
+<ul>
+<li><p>Blank space size between dashes.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">line</span></code>: Line</p>
+<ul>
+<li><p>Created line graphics instance.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Notes]</strong></p>
+<ul class="simple">
+<li><p>This interface ignores line settings, like the <code class="docutils literal notranslate"><span class="pre">LineDotSetting</span></code>, except <code class="docutils literal notranslate"><span class="pre">LineDashSetting</span></code>.<hr></p></li>
+</ul>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#fff&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_dashed_line</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">dash_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">space_size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="o">.</span><span class="n">line_color</span>
+<span class="go">String(&#39;#ffffff&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="o">.</span><span class="n">line_dash_setting</span><span class="o">.</span><span class="n">dash_size</span>
+<span class="go">Int(5)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="o">.</span><span class="n">line_dash_setting</span><span class="o">.</span><span class="n">space_size</span>
+<span class="go">Int(2)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -97,6 +166,7 @@
 <li><a class="reference internal" href="#">Graphics draw_dashed_line interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#draw-dashed-line-api">draw_dashed_line API</a></li>
 </ul>
 </li>
 </ul>

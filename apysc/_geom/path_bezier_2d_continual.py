@@ -2,7 +2,7 @@
 `continual 2D bezier curve` (T).
 """
 
-from typing import Union
+from typing import Any, Union
 
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.path_x_interface import PathXInterface
@@ -141,3 +141,32 @@ class PathBezier2DContinual(PathDataBase, PathXInterface, PathYInterface):
             self.y = get_copied_int_from_builtin_val(integer=y)
             self.relative = get_copied_boolean_from_builtin_val(
                 bool_val=relative)
+
+    def __eq__(self, other: Any) -> Any:
+        """
+        Equal comparison method.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to compare.
+
+        Returns
+        -------
+        result : Boolean
+            Comparison result.
+        """
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__eq__', locals_=locals(),
+                module_name=__name__, class_=PathBezier2DContinual):
+            if not isinstance(other, PathBezier2DContinual):
+                result: ap.Boolean = ap.Boolean(False)
+                return result
+            if (self.x == other.x
+                    and self.y == other.y
+                    and self.relative == other.relative):
+                result: ap.Boolean = ap.Boolean(True)
+                return result
+            result: ap.Boolean = ap.Boolean(False)
+            return result

@@ -55,3 +55,33 @@ class TestPathBezier2DContinual:
                 '_relative': True,
             },
             any_obj=path_bezier_2d_continual)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___eq__(self) -> None:
+        path_bezier_2d_continual: ap.PathBezier2DContinual = \
+            ap.PathBezier2DContinual(x=10, y=20, relative=False)
+        result: ap.Boolean = path_bezier_2d_continual == 10
+        assert isinstance(result, ap.Boolean)
+        assert not result
+
+        other: ap.PathBezier2DContinual = ap.PathBezier2DContinual(
+            x=20, y=20, relative=False)
+        result = path_bezier_2d_continual == other
+        assert isinstance(result, ap.Boolean)
+        assert not result
+
+        other = ap.PathBezier2DContinual(
+            x=10, y=10, relative=False)
+        result = path_bezier_2d_continual == other
+        assert not result
+
+        other = ap.PathBezier2DContinual(
+            x=10, y=20, relative=True)
+        result = path_bezier_2d_continual == other
+        assert not result
+
+        other = ap.PathBezier2DContinual(
+            x=10, y=20, relative=False)
+        result = path_bezier_2d_continual == other
+        assert isinstance(result, ap.Boolean)
+        assert result

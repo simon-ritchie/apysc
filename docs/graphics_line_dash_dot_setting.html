@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="About the handler options’ type" href="about_handler_options_type.html" />
-    <link rel="prev" title="Graphics line_round_dot interface" href="graphics_line_round_dot_setting.html" /> 
+    <link rel="prev" title="Graphics line_round_dot_setting interface" href="graphics_line_round_dot_setting.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,7 +31,7 @@
           <a href="about_handler_options_type.html" title="About the handler options’ type"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="graphics_line_round_dot_setting.html" title="Graphics line_round_dot interface"
+          <a href="graphics_line_round_dot_setting.html" title="Graphics line_round_dot_setting interface"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Graphics line_dash_dot_setting interface</a></li> 
@@ -73,6 +73,38 @@
 </pre></div>
 </div>
 <iframe src="static/graphics_line_dash_dot_setting_basic_usage/index.html" width="250" height=100></iframe></section>
+<section id="line-dash-dot-setting-api">
+<h2>line_dash_dot_setting API<a class="headerlink" href="#line-dash-dot-setting-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._display.line_dash_dot_setting_interface.LineDashDotSettingInterface.line_dash_dot_setting --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface summary]</strong> Get current dash dot (1-dot chain) setting.<hr></p>
+<p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">line_dash_dot_setting</span></code>: LineDashDotSetting or None</p>
+<ul>
+<li><p>Dash dot (1-dot chain) setting.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">line_style</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#fff&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Line</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y_start</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">y_end</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="o">.</span><span class="n">line_dash_dot_setting</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">LineDashDotSetting</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">dot_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dash_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">space_size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="o">.</span><span class="n">line_dash_dot_setting</span><span class="o">.</span><span class="n">dot_size</span>
+<span class="go">Int(2)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="o">.</span><span class="n">line_dash_dot_setting</span><span class="o">.</span><span class="n">dash_size</span>
+<span class="go">Int(5)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="o">.</span><span class="n">line_dash_dot_setting</span><span class="o">.</span><span class="n">space_size</span>
+<span class="go">Int(3)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -90,13 +122,14 @@
 <li><a class="reference internal" href="#">Graphics line_dash_dot_setting interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#line-dash-dot-setting-api">line_dash_dot_setting API</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="graphics_line_round_dot_setting.html"
-                        title="previous chapter">Graphics line_round_dot interface</a></p>
+                        title="previous chapter">Graphics line_round_dot_setting interface</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="about_handler_options_type.html"
                         title="next chapter">About the handler options’ type</a></p>
@@ -124,7 +157,7 @@
           <a href="about_handler_options_type.html" title="About the handler options’ type"
              >next</a> |</li>
         <li class="right" >
-          <a href="graphics_line_round_dot_setting.html" title="Graphics line_round_dot interface"
+          <a href="graphics_line_round_dot_setting.html" title="Graphics line_round_dot_setting interface"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">apysc  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Graphics line_dash_dot_setting interface</a></li> 

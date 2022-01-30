@@ -27,3 +27,72 @@ For more details about the `String` class each interface, please see the followi
 
 - [String class comparison operations](string_comparison_operations.md)
 - [String class addition and multiplication operations](string_addition_and_multiplication.md)
+
+
+## String class constructor API
+
+<!-- Docstring: apysc._type.string.String.__init__ -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `__init__(self, value:Union[str, _ForwardRef('String')]) -> None`<hr>
+
+**[Interface summary]** String class for apysc library.<hr>
+
+**[Parameters]**
+
+- `value`: str or String
+  - Initial string value.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> string: ap.String = ap.String('Hello')
+>>> string
+String('Hello')
+
+>>> string += ' World!'
+>>> string
+String('Hello World!')
+```
+
+<hr>
+
+**[References]**
+
+- [String class comparison operations document](https://simon-ritchie.github.io/apysc/string_comparison_operations.html)
+- [String class addition and multiplication operations document](https://simon-ritchie.github.io/apysc/string_addition_and_multiplication.html)
+
+## value property API
+
+<!-- Docstring: apysc._type.string.String.value -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get a current string value.<hr>
+
+**[Returns]**
+
+- `value`: str
+  - Current string value.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> string: ap.String = ap.String('Hello')
+>>> string.value = 'World!'
+>>> string.value
+'World!'
+```
+
+<hr>
+
+**[References]**
+
+- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html)

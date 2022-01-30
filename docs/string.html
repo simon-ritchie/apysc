@@ -72,6 +72,61 @@
 <li><p><a class="reference internal" href="string_addition_and_multiplication.html"><span class="doc">String class addition and multiplication operations</span></a></p></li>
 </ul>
 </section>
+<section id="string-class-constructor-api">
+<h2>String class constructor API<a class="headerlink" href="#string-class-constructor-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._type.string.String.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">value:Union[str,</span> <span class="pre">_ForwardRef('String')])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> String class for apysc library.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: str or String</p>
+<ul>
+<li><p>Initial string value.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span>
+<span class="go">String(&#39;Hello&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">+=</span> <span class="s1">&#39; World!&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span>
+<span class="go">String(&#39;Hello World!&#39;)</span>
+</pre></div>
+</div>
+<hr><p><strong>[References]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/string_comparison_operations.html">String class comparison operations document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/string_addition_and_multiplication.html">String class addition and multiplication operations document</a></p></li>
+</ul>
+</section>
+<section id="value-property-api">
+<h2>value property API<a class="headerlink" href="#value-property-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._type.string.String.value --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface summary]</strong> Get a current string value.<hr></p>
+<p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: str</p>
+<ul>
+<li><p>Current string value.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;World!&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span><span class="o">.</span><span class="n">value</span>
+<span class="go">&#39;World!&#39;</span>
+</pre></div>
+</div>
+<hr><p><strong>[References]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html">apysc fundamental data classes value interface</a></p></li>
+</ul>
+</section>
 </section>
 
 
@@ -89,6 +144,8 @@
 <li><a class="reference internal" href="#">String</a><ul>
 <li><a class="reference internal" href="#what-is-the-string-class">What is the String class?</a></li>
 <li><a class="reference internal" href="#string-class-interfaces">String class interfaces</a></li>
+<li><a class="reference internal" href="#string-class-constructor-api">String class constructor API</a></li>
+<li><a class="reference internal" href="#value-property-api">value property API</a></li>
 </ul>
 </li>
 </ul>

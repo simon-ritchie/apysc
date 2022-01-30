@@ -41,12 +41,12 @@ class VisibleInterface(
     @property
     def visible(self) -> Boolean:
         """
-        Get a visibility of this instance.
+        Get a visibility value of this instance.
 
         Returns
         -------
         result : Boolean
-            If this instance is visible, True will be returned.
+            If this instance is visible, this interface returns True.
 
         Examples
         --------
@@ -71,7 +71,7 @@ class VisibleInterface(
     @visible.setter
     def visible(self, value: Boolean) -> None:
         """
-        Update visibility of this instance.
+        Update a visibility value of this instance.
 
         Parameters
         ----------

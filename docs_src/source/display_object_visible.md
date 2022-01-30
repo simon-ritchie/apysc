@@ -88,3 +88,33 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/display_object_visible_basic_usage/index.html" width="250" height="150"></iframe>
+
+
+## visible property API
+
+<!-- Docstring: apysc._display.visible_interface.VisibleInterface.visible -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get a visibility value of this instance.<hr>
+
+**[Returns]**
+
+- `result`: Boolean
+  - If this instance is visible, this interface returns True.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> rectangle.visible = ap.Boolean(False)
+>>> rectangle.visible
+Boolean(False)
+```

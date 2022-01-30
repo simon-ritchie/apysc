@@ -128,6 +128,60 @@
 </div>
 <p>If you click rectangle, the handler changes the x position to 100.</p>
 <iframe src="static/graphics_draw_rect_rectangle/index.html" width="200" height="150"></iframe></section>
+<section id="draw-rect-api">
+<h2>draw_rect API<a class="headerlink" href="#draw-rect-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._display.graphics.Graphics.draw_rect --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">draw_rect(self,</span> <span class="pre">x:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">y:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">width:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">height:Union[int,</span> <span class="pre">apysc._type.int.Int])</span> <span class="pre">-&gt;</span> <span class="pre">apysc._display.rectangle.Rectangle</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Draw a rectangle vector graphics.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: int or Int</p>
+<ul>
+<li><p>X position to start drawing.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: int or Int</p>
+<ul>
+<li><p>Y position to start drawing.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>: int or Int</p>
+<ul>
+<li><p>Rectangle width.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: int or Int</p>
+<ul>
+<li><p>Rectangle height.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rectangle</span></code>: Rectangle</p>
+<ul>
+<li><p>Created rectangle.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">x</span>
+<span class="go">Int(50)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">width</span>
+<span class="go">Int(50)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="o">.</span><span class="n">fill_color</span>
+<span class="go">String(&#39;#00aaff&#39;)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -146,6 +200,7 @@
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li><a class="reference internal" href="#rectangle-instance">Rectangle instance</a></li>
+<li><a class="reference internal" href="#draw-rect-api">draw_rect API</a></li>
 </ul>
 </li>
 </ul>

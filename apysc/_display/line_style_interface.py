@@ -80,7 +80,7 @@ class LineStyleInterface(RevertInterface):
             add half-round size to start x-coordinate and subtract
             from end e-coordinate.
             e.g.,
-            `this.move_to(x + round_size / 2, y)`
+            `this.move_to(x + round_size / 2, y)`,
             `this.line_to(x - round_size / 2, y)`
         dash_dot_setting : LineDashDotSetting or None, default None
             Dash dot (1-dot chain) setting. If this is specified,

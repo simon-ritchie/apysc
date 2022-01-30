@@ -96,3 +96,53 @@ ap.save_overall_html(
 If you click rectangle, the handler changes the x position to 100.
 
 <iframe src="static/graphics_draw_rect_rectangle/index.html" width="200" height="150"></iframe>
+
+
+## draw_rect API
+
+<!-- Docstring: apysc._display.graphics.Graphics.draw_rect -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `draw_rect(self, x:Union[int, apysc._type.int.Int], y:Union[int, apysc._type.int.Int], width:Union[int, apysc._type.int.Int], height:Union[int, apysc._type.int.Int]) -> apysc._display.rectangle.Rectangle`<hr>
+
+**[Interface summary]** Draw a rectangle vector graphics.<hr>
+
+**[Parameters]**
+
+- `x`: int or Int
+  - X position to start drawing.
+- `y`: int or Int
+  - Y position to start drawing.
+- `width`: int or Int
+  - Rectangle width.
+- `height`: int or Int
+  - Rectangle height.
+
+<hr>
+
+**[Returns]**
+
+- `rectangle`: Rectangle
+  - Created rectangle.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> rectangle.x
+Int(50)
+
+>>> rectangle.width
+Int(50)
+
+>>> rectangle.fill_color
+String('#00aaff')
+```

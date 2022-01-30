@@ -74,3 +74,66 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/graphics_base_rotation_around_point_basic_usage/index.html" width="150" height="150"></iframe>
+
+
+## get_rotation_around_point API
+
+<!-- Docstring: apysc._display.rotation_around_point_interface.RotationAroundPointInterface.get_rotation_around_point -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `get_rotation_around_point(self, x:apysc._type.int.Int, y:apysc._type.int.Int) -> apysc._type.int.Int`<hr>
+
+**[Interface summary]** Get a rotation value around the given coordinates.<hr>
+
+**[Parameters]**
+
+- `x`: Int
+  - X-coordinate.
+- `y`: Int
+  - Y-coordinate.
+
+<hr>
+
+**[Returns]**
+
+- `rotation`: Int
+  - Rotation value around the given coordinates.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> x: ap.Int = ap.Int(100)
+>>> y: ap.Int = ap.Int(100)
+>>> rectangle.set_rotation_around_point(
+...     rotation=ap.Int(45), x=x, y=y)
+>>> rectangle.get_rotation_around_point(x=x, y=y)
+Int(45)
+```
+
+## set_rotation_around_point API
+
+<!-- Docstring: apysc._display.rotation_around_point_interface.RotationAroundPointInterface.set_rotation_around_point -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `set_rotation_around_point(self, rotation:apysc._type.int.Int, x:apysc._type.int.Int, y:apysc._type.int.Int) -> None`<hr>
+
+**[Interface summary]** Update a rotation value around the given coordinates.<hr>
+
+**[Parameters]**
+
+- `rotation`: Int
+  - Rotation value to set.
+- `x`: Int
+  - X-coordinate.
+- `y`: Int
+  - Y-coordinate.

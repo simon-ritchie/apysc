@@ -181,3 +181,41 @@ Number(20.8)
 
 - [Int and Number common arithmetic operations document](https://simon-ritchie.github.io/apysc/int_and_number_arithmetic_operations.html)
 - [Int and Number common comparison operations document](https://simon-ritchie.github.io/apysc/int_and_number_comparison_operations.html)
+
+## value property API
+
+<!-- Docstring: apysc._type.number_value_interface.NumberValueInterface.value -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get a current number value.<hr>
+
+**[Returns]**
+
+- `value`: int or float
+  - Current number value.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> int_val: ap.Int = ap.Int(10)
+>>> int_val.value
+10
+
+>>> int_val.value = 20
+>>> int_val.value
+20
+
+>>> int_val.value = ap.Int(30)
+>>> int_val.value
+30
+```
+
+<hr>
+
+**[References]**
+
+- [apysc fundamental data classes value interface](https://simon-ritchie.github.io/apysc/fundamental_data_classes_value_interface.html)

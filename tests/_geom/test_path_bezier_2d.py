@@ -69,3 +69,55 @@ class TestPathBezier2D:
                 '_relative': True,
             },
             any_obj=path_bezier_2d)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___eq__(self) -> None:
+        path_bezier_2d: ap.PathBezier2D = ap.PathBezier2D(
+            control_x=10, control_y=20, dest_x=30, dest_y=40,
+            relative=False)
+        result: ap.Boolean = path_bezier_2d == 10
+        assert isinstance(result, ap.Boolean)
+        assert not result
+
+        other: ap.PathBezier2D = ap.PathBezier2D(
+            control_x=20, control_y=20, dest_x=30, dest_y=40,
+            relative=False)
+        result = path_bezier_2d == other
+        assert isinstance(result, ap.Boolean)
+        assert not result
+
+        other = ap.PathBezier2D(
+            control_x=10, control_y=10, dest_x=30, dest_y=40,
+            relative=False)
+        result = path_bezier_2d == other
+        assert not result
+
+        other = ap.PathBezier2D(
+            control_x=10, control_y=10, dest_x=30, dest_y=40,
+            relative=False)
+        result = path_bezier_2d == other
+        assert not result
+
+        other = ap.PathBezier2D(
+            control_x=10, control_y=20, dest_x=10, dest_y=40,
+            relative=False)
+        result = path_bezier_2d == other
+        assert not result
+
+        other = ap.PathBezier2D(
+            control_x=10, control_y=20, dest_x=30, dest_y=10,
+            relative=False)
+        result = path_bezier_2d == other
+        assert not result
+
+        other = ap.PathBezier2D(
+            control_x=10, control_y=20, dest_x=30, dest_y=40,
+            relative=True)
+        result = path_bezier_2d == other
+        assert not result
+
+        other = ap.PathBezier2D(
+            control_x=10, control_y=20, dest_x=30, dest_y=40,
+            relative=False)
+        result = path_bezier_2d == other
+        assert result

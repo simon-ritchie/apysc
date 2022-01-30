@@ -163,13 +163,10 @@ class PathBezier2DContinual(PathDataBase, PathXInterface, PathYInterface):
             if not isinstance(other, PathBezier2DContinual):
                 result: ap.Boolean = ap.Boolean(False)
                 return result
-            if (self.x == other.x
-                    and self.y == other.y
-                    and self.relative == other.relative):
-                result: ap.Boolean = ap.Boolean(True)
-                return result
-            result: ap.Boolean = ap.Boolean(False)
-            return result
+            return (
+                self.x == other.x
+                and self.y == other.y
+                and self.relative == other.relative)
 
     def __ne__(self, other: Any) -> Any:
         """

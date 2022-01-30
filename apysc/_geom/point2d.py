@@ -296,11 +296,7 @@ class Point2D(
             if not isinstance(other, Point2D):
                 result = ap.Boolean(False)
                 return result
-            if other.x == self.x and other.y == self.y:
-                result = ap.Boolean(True)
-                return result
-            result = ap.Boolean(False)
-            return result
+            return other.x == self.x and other.y == self.y
 
     def __ne__(self, other: Any) -> Any:
         """

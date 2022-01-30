@@ -81,6 +81,32 @@
 <li><p><a class="reference internal" href="array_reverse.html"><span class="doc">Array class reverse interface</span></a></p></li>
 </ul>
 </section>
+<section id="sort-api">
+<h2>sort API<a class="headerlink" href="#sort-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._type.array.Array.sort --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">sort(self,</span> <span class="pre">*,</span> <span class="pre">ascending:bool=True)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Sort this array in place.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ascending</span></code>: bool, default True</p>
+<ul>
+<li><p>Sort by ascending or not. If False is specified, values will be descending.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span>
+<span class="go">Array([1, 2, 3, 4, 5])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span>
+<span class="go">Array([5, 4, 3, 2, 1])</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -100,6 +126,7 @@
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li><a class="reference internal" href="#sort-values-by-descending-order">Sort values by descending order</a></li>
 <li><a class="reference internal" href="#see-also">See also</a></li>
+<li><a class="reference internal" href="#sort-api">sort API</a></li>
 </ul>
 </li>
 </ul>

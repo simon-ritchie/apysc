@@ -803,7 +803,7 @@ class Array(
         ----------
         ascending : bool, default True
             Sort by ascending or not. If False is specified,
-            values will be descending.
+            this interface sorts values descending.
 
         References
         ----------

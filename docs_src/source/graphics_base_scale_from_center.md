@@ -138,3 +138,62 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/graphics_base_scale_from_center_basic_usage_3/index.html" width="150" height="150"></iframe>
+
+
+## scale_x_from_center property API
+
+<!-- Docstring: apysc._display.scale_x_from_center_interface.ScaleXFromCenterInterface.scale_x_from_center -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get a scale-x value from the center of this instance.<hr>
+
+**[Returns]**
+
+- `scale_x_from_center`: ap.Number
+  - Scale-x value from the center of this instance.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> rectangle.scale_x_from_center = ap.Number(1.5)
+>>> rectangle.scale_x_from_center
+Number(1.5)
+```
+
+## scale_y_from_center property API
+
+<!-- Docstring: apysc._display.scale_y_from_center_interface.ScaleYFromCenterInterface.scale_y_from_center -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get a scale-y value from the center of this instance.<hr>
+
+**[Returns]**
+
+- `scale_y_from_center`: ap.Number
+  - Scale-y value from the center of this instance.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> rectangle.scale_y_from_center = ap.Number(1.5)
+>>> rectangle.scale_y_from_center
+Number(1.5)
+```

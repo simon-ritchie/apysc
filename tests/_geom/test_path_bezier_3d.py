@@ -79,3 +79,61 @@ class TestPathBezier3D:
                 '_relative': True,
             },
             any_obj=path_bezier_3d)
+
+    # @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___eq__(self) -> None:
+        path_bezier_3d: ap.PathBezier3D = ap.PathBezier3D(
+            control_x1=10, control_y1=20, control_x2=30, control_y2=40,
+            dest_x=50, dest_y=60, relative=False)
+        result: ap.Boolean = path_bezier_3d == 10
+        assert isinstance(result, ap.Boolean)
+        assert not result
+
+        other: ap.PathBezier3D = ap.PathBezier3D(
+            control_x1=20, control_y1=20, control_x2=30, control_y2=40,
+            dest_x=50, dest_y=60, relative=False)
+        result = path_bezier_3d == other
+        assert isinstance(result, ap.Boolean)
+        assert not result
+
+        other = ap.PathBezier3D(
+            control_x1=10, control_y1=10, control_x2=30, control_y2=40,
+            dest_x=50, dest_y=60, relative=False)
+        result = path_bezier_3d == other
+        assert not result
+
+        other = ap.PathBezier3D(
+            control_x1=10, control_y1=20, control_x2=20, control_y2=40,
+            dest_x=50, dest_y=60, relative=False)
+        result = path_bezier_3d == other
+        assert not result
+
+        other = ap.PathBezier3D(
+            control_x1=10, control_y1=20, control_x2=30, control_y2=30,
+            dest_x=50, dest_y=60, relative=False)
+        result = path_bezier_3d == other
+        assert not result
+
+        other = ap.PathBezier3D(
+            control_x1=10, control_y1=20, control_x2=30, control_y2=40,
+            dest_x=40, dest_y=60, relative=False)
+        result = path_bezier_3d == other
+        assert not result
+
+        other = ap.PathBezier3D(
+            control_x1=10, control_y1=20, control_x2=30, control_y2=40,
+            dest_x=50, dest_y=50, relative=False)
+        result = path_bezier_3d == other
+        assert not result
+
+        other = ap.PathBezier3D(
+            control_x1=10, control_y1=20, control_x2=30, control_y2=40,
+            dest_x=50, dest_y=60, relative=True)
+        result = path_bezier_3d == other
+        assert not result
+
+        other = ap.PathBezier3D(
+            control_x1=10, control_y1=20, control_x2=30, control_y2=40,
+            dest_x=50, dest_y=60, relative=False)
+        result = path_bezier_3d == other
+        assert result

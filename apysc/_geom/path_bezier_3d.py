@@ -1,7 +1,7 @@
 """Path data class implementation for the svg's `3D besier curve` (C).
 """
 
-from typing import Union
+from typing import Any, Union
 
 from apysc._geom.path_control_x1_interface import PathControlX1Interface
 from apysc._geom.path_control_x2_interface import PathControlX2Interface
@@ -228,3 +228,33 @@ class PathBezier3D(
             self.dest_y = get_copied_int_from_builtin_val(integer=dest_y)
             self.relative = get_copied_boolean_from_builtin_val(
                 bool_val=relative)
+
+    def __eq__(self, other: Any) -> Any:
+        """
+        Equal comparison method.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to compare.
+
+        Returns
+        -------
+        result : Boolean
+            Comparison result.
+        """
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__eq__', locals_=locals(),
+                module_name=__name__, class_=PathBezier3D):
+            if not isinstance(other, PathBezier3D):
+                result: ap.Boolean = ap.Boolean(False)
+                return result
+            return (
+                self.control_x1 == other.control_x1
+                and self.control_y1 == other.control_y1
+                and self.control_x2 == other.control_x2
+                and self.control_y2 == other.control_y2
+                and self.dest_x == other.dest_x
+                and self.dest_y == other.dest_y
+                and self.relative == other.relative)

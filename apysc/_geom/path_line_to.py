@@ -160,3 +160,25 @@ class PathLineTo(PathDataBase, PathXInterface, PathYInterface):
                 self.x == other.x
                 and self.y == other.y
                 and self.relative == other.relative)
+
+    def __ne__(self, other: Any) -> Any:
+        """
+        Not equal comparison method.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to compare.
+
+        Returns
+        -------
+        result : Boolean
+            Comparison result.
+        """
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__ne__', locals_=locals(),
+                module_name=__name__, class_=PathLineTo):
+            result: ap.Boolean = self == other
+            result = result.not_
+            return result

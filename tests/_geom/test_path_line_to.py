@@ -82,3 +82,13 @@ class TestPathLineTo:
             x=50, y=100, relative=False)
         result = path_line_to == other
         assert result
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___ne__(self) -> None:
+        path_line_to: ap.PathLineTo = ap.PathLineTo(
+            x=50, y=100, relative=False)
+        other: ap.PathLineTo = ap.PathLineTo(
+            x=100, y=100, relative=False)
+        result: ap.Boolean = path_line_to != other
+        assert isinstance(result, ap.Boolean)
+        assert result

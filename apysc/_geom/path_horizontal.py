@@ -1,7 +1,7 @@
 """Path data class implementation for the svg's `horizontal line` (H).
 """
 
-from typing import Union
+from typing import Any, Union
 
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.path_x_interface import PathXInterface
@@ -121,3 +121,26 @@ class PathHorizontal(PathDataBase, PathXInterface):
             self.x = get_copied_int_from_builtin_val(integer=x)
             self.relative = get_copied_boolean_from_builtin_val(
                 bool_val=relative)
+
+    def __eq__(self, other: Any) -> Any:
+        """
+        Equal comparison method.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to compare.
+
+        Returns
+        -------
+        result : Boolean
+            Comparison result.
+        """
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__eq__', locals_=locals(),
+                module_name=__name__, class_=PathHorizontal):
+            if not isinstance(other, PathHorizontal):
+                result: ap.Boolean = ap.Boolean(False)
+                return result
+            return self.x == other.x and self.relative == other.relative

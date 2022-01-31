@@ -48,3 +48,27 @@ class TestPathHorizontal:
                 '_relative': True,
             },
             any_obj=path_horizontal)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___eq__(self) -> None:
+        path_horizontal: ap.PathHorizontal = ap.PathHorizontal(
+            x=50, relative=False)
+        result: ap.Boolean = path_horizontal == 10
+        assert isinstance(result, ap.Boolean)
+        assert not result
+
+        other: ap.PathHorizontal = ap.PathHorizontal(
+            x=100, relative=False)
+        result = path_horizontal == other
+        assert isinstance(result, ap.Boolean)
+        assert not result
+
+        other = ap.PathHorizontal(
+            x=50, relative=True)
+        result = path_horizontal == other
+        assert not result
+
+        other = ap.PathHorizontal(
+            x=50, relative=False)
+        result = path_horizontal == other
+        assert result

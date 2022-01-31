@@ -68,3 +68,58 @@ class TestPathBezier3DContinual:
                 '_relative': True,
             },
             any_obj=continual)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___eq__(self) -> None:
+        continual: ap.PathBezier3DContinual = \
+            ap.PathBezier3DContinual(
+                control_x=10, control_y=20, dest_x=30, dest_y=40,
+                relative=False)
+        result: ap.Boolean = continual == 10
+        assert isinstance(result, ap.Boolean)
+        assert not result
+
+        other: ap.PathBezier3DContinual = \
+            ap.PathBezier3DContinual(
+                control_x=20, control_y=20, dest_x=30, dest_y=40,
+                relative=False)
+        result = continual == other
+        assert isinstance(result, ap.Boolean)
+        assert not result
+
+        other = ap.PathBezier3DContinual(
+            control_x=20, control_y=20, dest_x=30, dest_y=40,
+            relative=False)
+        result = continual == other
+        assert isinstance(result, ap.Boolean)
+        assert not result
+
+        other = ap.PathBezier3DContinual(
+            control_x=10, control_y=10, dest_x=30, dest_y=40,
+            relative=False)
+        result = continual == other
+        assert not result
+
+        other = ap.PathBezier3DContinual(
+            control_x=10, control_y=20, dest_x=20, dest_y=40,
+            relative=False)
+        result = continual == other
+        assert not result
+
+        other = ap.PathBezier3DContinual(
+            control_x=10, control_y=20, dest_x=30, dest_y=30,
+            relative=False)
+        result = continual == other
+        assert not result
+
+        other = ap.PathBezier3DContinual(
+            control_x=10, control_y=20, dest_x=30, dest_y=40,
+            relative=True)
+        result = continual == other
+        assert not result
+
+        other = ap.PathBezier3DContinual(
+            control_x=10, control_y=20, dest_x=30, dest_y=40,
+            relative=False)
+        result = continual == other
+        assert result

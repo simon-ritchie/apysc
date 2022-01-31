@@ -2,7 +2,7 @@
 `continual 3D bezier curve` (S).
 """
 
-from typing import Union
+from typing import Any, Union
 
 from apysc._geom.path_control_x_interface import PathControlXInterface
 from apysc._geom.path_control_y_interface import PathControlYInterface
@@ -192,3 +192,31 @@ class PathBezier3DContinual(
             self.dest_y = get_copied_int_from_builtin_val(integer=dest_y)
             self.relative = get_copied_boolean_from_builtin_val(
                 bool_val=relative)
+
+    def __eq__(self, other: Any) -> Any:
+        """
+        Equal comparison method.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to compare.
+
+        Returns
+        -------
+        result : Boolean
+            Comparison result.
+        """
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__eq__', locals_=locals(),
+                module_name=__name__, class_=PathBezier3DContinual):
+            if not isinstance(other, PathBezier3DContinual):
+                result: ap.Boolean = ap.Boolean(False)
+                return result
+            return (
+                self.control_x == other.control_x
+                and self.control_y == other.control_y
+                and self.dest_x == other.dest_x
+                and self.dest_y == other.dest_y
+                and self.relative == other.relative)

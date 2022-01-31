@@ -78,3 +78,13 @@ class TestPathMoveTo:
         other = ap.PathMoveTo(x=50, y=100, relative=False)
         result = path_move_to == other
         assert result
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___ne__(self) -> None:
+        path_move_to: ap.PathMoveTo = ap.PathMoveTo(
+            x=50, y=100, relative=False)
+        other: ap.PathMoveTo = ap.PathMoveTo(
+            x=100, y=100, relative=False)
+        result: ap.Boolean = path_move_to != other
+        assert isinstance(result, ap.Boolean)
+        assert result

@@ -1,7 +1,7 @@
 """Path data class implementation for the svg's `vertical line` (V).
 """
 
-from typing import Union
+from typing import Any, Union
 
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.path_y_interface import PathYInterface
@@ -121,3 +121,26 @@ class PathVertical(PathDataBase, PathYInterface):
             self.y = get_copied_int_from_builtin_val(integer=y)
             self.relative = get_copied_boolean_from_builtin_val(
                 bool_val=relative)
+
+    def __eq__(self, other: Any) -> Any:
+        """
+        Equal comparison method.
+
+        Parameters
+        ----------
+        other : Any
+            Other value to compare.
+
+        Returns
+        -------
+        result : Boolean
+            Comparison result.
+        """
+        import apysc as ap
+        with ap.DebugInfo(
+                callable_='__eq__', locals_=locals(),
+                module_name=__name__, class_=PathVertical):
+            if not isinstance(other, PathVertical):
+                result: ap.Boolean = ap.Boolean(False)
+                return result
+            return self.y == other.y and self.relative == other.relative

@@ -49,3 +49,27 @@ class TestPathVertical:
                 '_relative': True,
             },
             any_obj=path_vertical)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___eq__(self) -> None:
+        path_vertical: ap.PathVertical = ap.PathVertical(
+            y=50, relative=False)
+        result: ap.Boolean = path_vertical == 10
+        assert isinstance(result, ap.Boolean)
+        assert not result
+
+        other: ap.PathVertical = ap.PathVertical(
+            y=100, relative=False)
+        result = path_vertical == other
+        assert isinstance(result, ap.Boolean)
+        assert not result
+
+        other = ap.PathVertical(
+            y=50, relative=True)
+        result = path_vertical == other
+        assert not result
+
+        other = ap.PathVertical(
+            y=50, relative=False)
+        result = path_vertical == other
+        assert result

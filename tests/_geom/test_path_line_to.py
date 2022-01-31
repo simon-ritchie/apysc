@@ -53,3 +53,32 @@ class TestPathLineTo:
                 '_relative': True,
             },
             any_obj=path_line_to)
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___eq__(self) -> None:
+        path_line_to: ap.PathLineTo = ap.PathLineTo(
+            x=50, y=100, relative=False)
+        result: ap.Boolean = path_line_to == 10
+        assert isinstance(result, ap.Boolean)
+        assert not result
+
+        other: ap.PathLineTo = ap.PathLineTo(
+            x=100, y=100, relative=False)
+        result = path_line_to == other
+        assert isinstance(result, ap.Boolean)
+        assert not result
+
+        other = ap.PathLineTo(
+            x=50, y=50, relative=False)
+        result = path_line_to == other
+        assert not result
+
+        other = ap.PathLineTo(
+            x=50, y=100, relative=True)
+        result = path_line_to == other
+        assert not result
+
+        other = ap.PathLineTo(
+            x=50, y=100, relative=False)
+        result = path_line_to == other
+        assert result

@@ -80,7 +80,7 @@ class TestPathBezier3D:
             },
             any_obj=path_bezier_3d)
 
-    # @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:
         path_bezier_3d: ap.PathBezier3D = ap.PathBezier3D(
             control_x1=10, control_y1=20, control_x2=30, control_y2=40,
@@ -136,4 +136,16 @@ class TestPathBezier3D:
             control_x1=10, control_y1=20, control_x2=30, control_y2=40,
             dest_x=50, dest_y=60, relative=False)
         result = path_bezier_3d == other
+        assert result
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___ne__(self) -> None:
+        path_bezier_3d: ap.PathBezier3D = ap.PathBezier3D(
+            control_x1=10, control_y1=20, control_x2=30, control_y2=40,
+            dest_x=50, dest_y=60, relative=False)
+        other: ap.PathBezier3D = ap.PathBezier3D(
+            control_x1=20, control_y1=20, control_x2=30, control_y2=40,
+            dest_x=50, dest_y=60, relative=False)
+        result: ap.Boolean = path_bezier_3d != other
+        assert isinstance(result, ap.Boolean)
         assert result

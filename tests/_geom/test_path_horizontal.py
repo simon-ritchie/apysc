@@ -72,3 +72,13 @@ class TestPathHorizontal:
             x=50, relative=False)
         result = path_horizontal == other
         assert result
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___ne__(self) -> None:
+        path_horizontal: ap.PathHorizontal = ap.PathHorizontal(
+            x=50, relative=False)
+        other: ap.PathHorizontal = ap.PathHorizontal(
+            x=100, relative=False)
+        result: ap.Boolean = path_horizontal != other
+        assert isinstance(result, ap.Boolean)
+        assert result

@@ -123,3 +123,17 @@ class TestPathBezier3DContinual:
             relative=False)
         result = continual == other
         assert result
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___ne__(self) -> None:
+        continual: ap.PathBezier3DContinual = \
+            ap.PathBezier3DContinual(
+                control_x=10, control_y=20, dest_x=30, dest_y=40,
+                relative=False)
+        other: ap.PathBezier3DContinual = \
+            ap.PathBezier3DContinual(
+                control_x=20, control_y=20, dest_x=30, dest_y=40,
+                relative=False)
+        result: ap.Boolean = continual != other
+        assert isinstance(result, ap.Boolean)
+        assert result

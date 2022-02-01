@@ -72,7 +72,43 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="elif.html"><span class="doc">Elif class</span></a></p></li>
 <li><p><a class="reference internal" href="else.html"><span class="doc">Else class</span></a></p></li>
-<li><p><a class="reference internal" href="branch_instruction_variables_reverting_setting.html"><span class="doc">Each branch instruction class scope variables reverting setting</span></a></p></li>
+<li><p><a class="reference internal" href="branch_instruction_variables_reverting_setting.html"><span class="doc">Each branch instruction class’s scope variables reverting setting</span></a></p></li>
+</ul>
+</section>
+<section id="if-api">
+<h2>If API<a class="headerlink" href="#if-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._branch._if.If.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">condition:Union[apysc._type.boolean.Boolean,</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">locals_:Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]=None,</span> <span class="pre">globals_:Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> A class to append if branch instruction expression.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">condition</span></code>: Boolean or None</p>
+<ul>
+<li><p>Boolean value to be used for judgment.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">locals_</span></code>: dict or None, default None</p>
+<ul>
+<li><p>Current scope’s local variables. Set locals() value to this argument. If specified, all local scope VariableNameInterface variables (like Int, Sprite) will be reverted ad the end of If scope. This setting is useful when you don’t want to update each variable by the implementation of the If scope.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">globals_</span></code>: dict or None, default None</p>
+<ul>
+<li><p>Current scope’s global variables. Set golobals() value to this argument. This works the same way as the locals_ argument.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">condition</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_val</span> <span class="o">&gt;=</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">condition</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">ap</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s1">&#39;Int value is greater than equal 10!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr><p><strong>[References]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/branch_instruction_variables_reverting_setting.html">Each branch instruction class’s scope variables reverting setting</a></p></li>
 </ul>
 </section>
 </section>
@@ -93,6 +129,7 @@
 <li><a class="reference internal" href="#what-is-the-if-class">What is the If class?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li><a class="reference internal" href="#see-also">See also</a></li>
+<li><a class="reference internal" href="#if-api">If API</a></li>
 </ul>
 </li>
 </ul>

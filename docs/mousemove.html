@@ -165,12 +165,12 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">handler</span></code>: _Handler</p>
 <ul>
-<li><p>Callable that called when mouse is moved on this instance.</p></li>
+<li><p>Callable that would be called when mousemove on this instance.</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">options</span></code>: dict or None, default None</p>
 <ul>
-<li><p>Optional arguments dictionary to be passed to handler.</p></li>
+<li><p>Optional arguments dictionary to be passed to a handler.</p></li>
 </ul>
 </li>
 </ul>
@@ -205,12 +205,12 @@
 <h2>unbind_mousemove API<a class="headerlink" href="#unbind-mousemove-api" title="Permalink to this headline">¶</a></h2>
 <!-- Docstring: apysc._event.mouse_move_interface.MouseMoveInterface.unbind_mousemove --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
 <p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_mousemove(self,</span> <span class="pre">handler:Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
-<p><strong>[Interface summary]</strong> Unbind specified handler’s mouse move event.<hr></p>
+<p><strong>[Interface summary]</strong> Unbind a specified handler’s mouse move event.<hr></p>
 <p><strong>[Parameters]</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">handler</span></code>: _Handler</p>
 <ul>
-<li><p>Callable to be unbinded.</p></li>
+<li><p>Unbinding target Callable.</p></li>
 </ul>
 </li>
 </ul>

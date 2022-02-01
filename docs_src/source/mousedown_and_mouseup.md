@@ -252,3 +252,112 @@ There are also existing the `unbind_mousedown_all` and `unbind_mouseup_all` inte
 ...     x=50, y=50, width=50, height=50)
 >>> _ = rectangle.mousedown(on_mousedown)
 ```
+
+## mouseup API
+
+<!-- Docstring: apysc._event.mouse_up_interface.MouseUpInterface.mouseup -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `mouseup(self, handler:Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options:Union[~_O, NoneType]=None) -> str`<hr>
+
+**[Interface summary]** Add mouse up event listener setting.<hr>
+
+**[Parameters]**
+
+- `handler`: _Handler
+  - Callable that would be called when mouse-up on this instance.
+- `options`: dict or None, default None
+  - Optional arguments dictionary to be passed to a handler.
+
+<hr>
+
+**[Returns]**
+
+- `name`: str
+  - Handler's name.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_mouseup(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     rectangle: ap.Rectangle = e.this
+...     rectangle.fill_color = ap.String('#f0a')
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.mouseup(on_mouseup)
+```
+
+<hr>
+
+**[References]**
+
+- [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
+
+## unbind_mouseup API
+
+<!-- Docstring: apysc._event.mouse_up_interface.MouseUpInterface.unbind_mouseup -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `unbind_mouseup(self, handler:Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
+
+**[Interface summary]** Unbind a specified handler's mouse-up event.<hr>
+
+**[Parameters]**
+
+- `handler`: _Handler
+  - Unbinding target Callable.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_mouseup(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     rectangle: ap.Rectangle = e.this
+...     rectangle.fill_color = ap.String('#f0a')
+...     rectangle.unbind_mouseup(on_mouseup)
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.mouseup(on_mouseup)
+```
+
+## unbind_mouseup_all API
+
+<!-- Docstring: apysc._event.mouse_up_interface.MouseUpInterface.unbind_mouseup_all -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `unbind_mouseup_all(self) -> None`<hr>
+
+**[Interface summary]** Unbind all mouse up events.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_mouseup(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     rectangle: ap.Rectangle = e.this
+...     rectangle.fill_color = ap.String('#f0a')
+...     rectangle.unbind_mouseup_all()
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.mouseup(on_mouseup)
+```

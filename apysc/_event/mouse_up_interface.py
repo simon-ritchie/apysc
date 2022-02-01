@@ -27,9 +27,9 @@ class MouseUpInterface(MouseEventInterfaceBase):
         Parameters
         ----------
         handler : _Handler
-            Callable that called when mouse is upped on this instance.
+            Callable that would be called when mouse-up on this instance.
         options : dict or None, default None
-            Optional arguments dictionary to be passed to handler.
+            Optional arguments dictionary to be passed to a handler
 
         Returns
         -------
@@ -96,12 +96,12 @@ class MouseUpInterface(MouseEventInterfaceBase):
 
     def unbind_mouseup(self, handler: _Handler[_O]) -> None:
         """
-        Unbind specified handler's mouse up event.
+        Unbind a specified handler's mouse-up event.
 
         Parameters
         ----------
         handler : _Handler
-            Callable to be unbinded.
+            Unbinding target Callable.
 
         References
         ----------

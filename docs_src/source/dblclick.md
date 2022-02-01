@@ -94,3 +94,113 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/unbind_dblclick_basic_usage/index.html" width="150" height="150"></iframe>
+
+
+## dblclick API
+
+<!-- Docstring: apysc._event.double_click_interface.DoubleClickInterface.dblclick -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `dblclick(self, handler:Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options:Union[~_O, NoneType]=None) -> str`<hr>
+
+**[Interface summary]** Add double click event listener setting.<hr>
+
+**[Parameters]**
+
+- `handler`: _Handler
+  - Callable that would be called when double-clicking this instance.
+- `options`: dict or None, default None
+  - Optional arguments dictionary to be passed to a handler.
+
+<hr>
+
+**[Returns]**
+
+- `name`: str
+  - Handler's name.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_double_click(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     rectangle: ap.Rectangle = e.this
+...     rectangle.fill_color = ap.String('#f0a')
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.dblclick(on_double_click)
+```
+
+<hr>
+
+**[References]**
+
+- [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
+
+## unbind_dblclick API
+
+<!-- Docstring: apysc._event.double_click_interface.DoubleClickInterface.unbind_dblclick -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `unbind_dblclick(self, handler:Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
+
+**[Interface summary]** Unbind a specified handler's double click event.<hr>
+
+**[Parameters]**
+
+- `handler`: _Handler
+  - Unbinding target Callable.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_double_click(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     rectangle: ap.Rectangle = e.this
+...     rectangle.fill_color = ap.String('#f0a')
+...     rectangle.unbind_dblclick(on_double_click)
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.dblclick(on_double_click)
+```
+
+## unbind_dblclick_all API
+
+<!-- Docstring: apysc._event.double_click_interface.DoubleClickInterface.unbind_dblclick_all -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `unbind_dblclick_all(self) -> None`<hr>
+
+**[Interface summary]** Unbind all double click events.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_double_click(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     rectangle: ap.Rectangle = e.this
+...     rectangle.fill_color = ap.String('#f0a')
+...     rectangle.unbind_dblclick_all()
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.dblclick(on_double_click)
+```

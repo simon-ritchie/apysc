@@ -28,9 +28,10 @@ class DoubleClickInterface(MouseEventInterfaceBase):
         Parameters
         ----------
         handler : _Handler
-            Callable that called when this instance is double clicked.
+            Callable that would be called when double-clicking
+            this instance.
         options : dict or None, default None
-            Optional arguments dictionary to be passed to handler.
+            Optional arguments dictionary to be passed to a handler.
 
         Returns
         -------
@@ -97,12 +98,12 @@ class DoubleClickInterface(MouseEventInterfaceBase):
 
     def unbind_dblclick(self, handler: _Handler[_O]) -> None:
         """
-        Unbind specified handler's double click event.
+        Unbind a specified handler's double click event.
 
         Parameters
         ----------
         handler : _Handler
-            Callable to be unbinded.
+            Unbinding target Callable.
 
         Examples
         --------

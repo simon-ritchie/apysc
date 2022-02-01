@@ -132,6 +132,101 @@
 </pre></div>
 </div>
 <iframe src="static/unbind_dblclick_basic_usage/index.html" width="150" height="150"></iframe></section>
+<section id="dblclick-api">
+<h2>dblclick API<a class="headerlink" href="#dblclick-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._event.double_click_interface.DoubleClickInterface.dblclick --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">dblclick(self,</span> <span class="pre">handler:Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">options:Union[~_O,</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">str</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Add double click event listener setting.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">handler</span></code>: _Handler</p>
+<ul>
+<li><p>Callable that would be called when double-clicking this instance.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">options</span></code>: dict or None, default None</p>
+<ul>
+<li><p>Optional arguments dictionary to be passed to a handler.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: str</p>
+<ul>
+<li><p>Handler’s name.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_double_click</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="o">.</span><span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;#f0a&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">dblclick</span><span class="p">(</span><span class="n">on_double_click</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr><p><strong>[References]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/about_handler_options_type.html">About the handler options’ type document</a></p></li>
+</ul>
+</section>
+<section id="unbind-dblclick-api">
+<h2>unbind_dblclick API<a class="headerlink" href="#unbind-dblclick-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._event.double_click_interface.DoubleClickInterface.unbind_dblclick --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_dblclick(self,</span> <span class="pre">handler:Callable[[apysc._event.mouse_event.MouseEvent,</span> <span class="pre">~_O],</span> <span class="pre">NoneType])</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Unbind a specified handler’s double click event.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">handler</span></code>: _Handler</p>
+<ul>
+<li><p>Unbinding target Callable.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_double_click</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="o">.</span><span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;#f0a&#39;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="o">.</span><span class="n">unbind_dblclick</span><span class="p">(</span><span class="n">on_double_click</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">dblclick</span><span class="p">(</span><span class="n">on_double_click</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="unbind-dblclick-all-api">
+<h2>unbind_dblclick_all API<a class="headerlink" href="#unbind-dblclick-all-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._event.double_click_interface.DoubleClickInterface.unbind_dblclick_all --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">unbind_dblclick_all(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Unbind all double click events.<hr></p>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_double_click</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="o">.</span><span class="n">fill_color</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;#f0a&#39;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="o">.</span><span class="n">unbind_dblclick_all</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">dblclick</span><span class="p">(</span><span class="n">on_double_click</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -151,6 +246,9 @@
 <li><a class="reference internal" href="#see-also">See also</a></li>
 <li><a class="reference internal" href="#basic-usage-of-the-dblclick-interface">Basic usage of the dblclick interface</a></li>
 <li><a class="reference internal" href="#basic-usage-of-the-unbind-dblclick-interfaces">Basic usage of the unbind_dblclick interfaces</a></li>
+<li><a class="reference internal" href="#dblclick-api">dblclick API</a></li>
+<li><a class="reference internal" href="#unbind-dblclick-api">unbind_dblclick API</a></li>
+<li><a class="reference internal" href="#unbind-dblclick-all-api">unbind_dblclick_all API</a></li>
 </ul>
 </li>
 </ul>

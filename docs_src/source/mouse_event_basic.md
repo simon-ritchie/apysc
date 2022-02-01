@@ -349,3 +349,128 @@ Please check on Chrome DevTools (press F12) and move the mouse cursor on the fol
 - [Mousedown and mouseup interfaces](mousedown_and_mouseup.md)
 - [Mouseover and mouseout interfaces](mouseover_and_mouseout.md)
 - [Mousemove interface](mousemove.md)
+
+
+## stage_x property API
+
+<!-- Docstring: apysc._event.mouse_event.MouseEvent.stage_x -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get the x-coordinate of the stage reference.<hr>
+
+**[Returns]**
+
+- `x`: Int
+  - x-coordinate.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_mousedown(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     stage_x: ap.Int = e.stage_x
+...     # Do something here with the coordinate.
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.mousedown(on_mousedown)
+```
+
+## stage_y property API
+
+<!-- Docstring: apysc._event.mouse_event.MouseEvent.stage_y -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get the y-coordinate of the stage reference.<hr>
+
+**[Returns]**
+
+- `y`: Int
+  - y-coordinate.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_mousedown(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     stage_y: ap.Int = e.stage_y
+...     # Do something here with the coordinate.
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.mousedown(on_mousedown)
+```
+
+## local_x property API
+
+<!-- Docstring: apysc._event.mouse_event.MouseEvent.local_x -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get a local x-coordinate event listening instance. For example, this value becomes x-coordinate from Sprite's left end position by clicking a Sprite instance.<hr>
+
+**[Returns]**
+
+- `x`: Int
+  - x-coordinate.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_mousedown(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     local_x: ap.Int = e.local_x
+...     # Do something here with the coordinate.
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.mousedown(on_mousedown)
+```
+
+## local_y property API
+
+<!-- Docstring: apysc._event.mouse_event.MouseEvent.local_y -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get the local y-coordinate of the event listening instance. For example, this value becomes y-coordinate from Sprite's top-end position by clicking a Sprite instance.<hr>
+
+**[Returns]**
+
+- `y`: Int
+  - y-coordinate.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_mousedown(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     local_y: ap.Int = e.local_y
+...     # Do something here with the coordinate.
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.mousedown(on_mousedown)
+```

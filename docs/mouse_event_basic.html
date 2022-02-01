@@ -366,6 +366,114 @@
 <li><p><a class="reference internal" href="mousemove.html"><span class="doc">Mousemove interface</span></a></p></li>
 </ul>
 </section>
+<section id="stage-x-property-api">
+<h2>stage_x property API<a class="headerlink" href="#stage-x-property-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._event.mouse_event.MouseEvent.stage_x --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface summary]</strong> Get the x-coordinate of the stage reference.<hr></p>
+<p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int</p>
+<ul>
+<li><p>x-coordinate.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mousedown</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">stage_x</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">stage_x</span>
+<span class="gp">... </span>    <span class="c1"># Do something here with the coordinate.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">mousedown</span><span class="p">(</span><span class="n">on_mousedown</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="stage-y-property-api">
+<h2>stage_y property API<a class="headerlink" href="#stage-y-property-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._event.mouse_event.MouseEvent.stage_y --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface summary]</strong> Get the y-coordinate of the stage reference.<hr></p>
+<p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int</p>
+<ul>
+<li><p>y-coordinate.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mousedown</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">stage_y</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">stage_y</span>
+<span class="gp">... </span>    <span class="c1"># Do something here with the coordinate.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">mousedown</span><span class="p">(</span><span class="n">on_mousedown</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="local-x-property-api">
+<h2>local_x property API<a class="headerlink" href="#local-x-property-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._event.mouse_event.MouseEvent.local_x --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface summary]</strong> Get the local x-coordinate of the event listening instance. For example, if a Sprite instance is clicked, this value will be x-coordinate from Sprite’s left end position.<hr></p>
+<p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Int</p>
+<ul>
+<li><p>x-coordinate.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mousedown</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">local_x</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">local_x</span>
+<span class="gp">... </span>    <span class="c1"># Do something here with the coordinate.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">mousedown</span><span class="p">(</span><span class="n">on_mousedown</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="local-y-property-api">
+<h2>local_y property API<a class="headerlink" href="#local-y-property-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._event.mouse_event.MouseEvent.local_y --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface summary]</strong> Get the local y-coordinate of the event listening instance. For example, if a Sprite instance is clicked, this value will be y-coordinate from Sprite’s top end position.<hr></p>
+<p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Int</p>
+<ul>
+<li><p>y-coordinate.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_mousedown</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">MouseEvent</span><span class="p">[</span><span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">],</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">local_y</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">local_y</span>
+<span class="gp">... </span>    <span class="c1"># Do something here with the coordinate.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">mousedown</span><span class="p">(</span><span class="n">on_mousedown</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -390,6 +498,10 @@
 <li><a class="reference internal" href="#mouseevent-stage-x-and-stage-y-attributes">MouseEvent stage_x and stage_y attributes</a></li>
 <li><a class="reference internal" href="#mouseevent-local-x-and-local-y-attributes">MouseEvent local_x and local_y attributes</a></li>
 <li><a class="reference internal" href="#see-also">See also</a></li>
+<li><a class="reference internal" href="#stage-x-property-api">stage_x property API</a></li>
+<li><a class="reference internal" href="#stage-y-property-api">stage_y property API</a></li>
+<li><a class="reference internal" href="#local-x-property-api">local_x property API</a></li>
+<li><a class="reference internal" href="#local-y-property-api">local_y property API</a></li>
 </ul>
 </li>
 </ul>

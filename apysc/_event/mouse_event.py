@@ -191,9 +191,9 @@ class MouseEvent(
     @property
     def local_x(self) -> Int:
         """
-        Get the local x-coordinate of the event listening instance.
-        For example, if a Sprite instance is clicked, this value will be
-        x-coordinate from Sprite's left end position.
+        Get a local x-coordinate event listening instance.
+        For example, this value becomes x-coordinate from
+        Sprite's left-end position by clicking a Sprite instance.
 
         Returns
         -------
@@ -253,8 +253,8 @@ class MouseEvent(
     def local_y(self) -> Int:
         """
         Get the local y-coordinate of the event listening instance.
-        For example, if a Sprite instance is clicked, this value will be
-        y-coordinate from Sprite's top end position.
+        For example, this value becomes y-coordinate from Sprite's
+        top-end position by clicking a Sprite instance.
 
         Returns
         -------

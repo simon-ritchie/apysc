@@ -70,5 +70,5 @@ ap.save_overall_html(
 
 ## See also
 
-- [Each branch instruction class scope variables reverting setting](branch_instruction_variables_reverting_setting.md)
+- [Each branch instruction class's scope variables reverting setting](branch_instruction_variables_reverting_setting.md)
   - Notes: the `For` class also has the same arguments and behaves in the same way.

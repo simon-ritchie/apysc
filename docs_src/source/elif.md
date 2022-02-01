@@ -80,4 +80,4 @@ with Elif(condition, ....):
 
 - [If class](if.md)
 - [Else class](else.md)
-- [Each branch instruction class scope variables reverting setting](branch_instruction_variables_reverting_setting.md)
+- [Each branch instruction class's scope variables reverting setting](branch_instruction_variables_reverting_setting.md)

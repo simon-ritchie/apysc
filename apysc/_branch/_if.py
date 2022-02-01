@@ -17,7 +17,7 @@ class If(IfBase):
     ----------
     - If document
         - https://simon-ritchie.github.io/apysc/if.html
-    - Each branch instruction class scope variables reverting setting
+    - Each branch instruction class's scope variables reverting setting
         - https://simon-ritchie.github.io/apysc/branch_instruction_variables_reverting_setting.html  # noqa
 
     Examples
@@ -58,7 +58,7 @@ class If(IfBase):
         ----------
         - If document
             - https://simon-ritchie.github.io/apysc/if.html
-        - Each branch instruction class scope variables reverting setting
+        - Each branch instruction class's scope variables reverting setting
             - https://simon-ritchie.github.io/apysc/branch_instruction_variables_reverting_setting.html  # noqa
 
         Examples

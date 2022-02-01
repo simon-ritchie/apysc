@@ -268,7 +268,7 @@ There are also existing the `unbind_mousedown_all` and `unbind_mouseup_all` inte
 - `handler`: _Handler
   - Callable that would be called when mouse-up on this instance.
 - `options`: dict or None, default None
-  - Optional arguments dictionary to be passed to a handler.
+  - Optional arguments dictionary to be passed to a handler
 
 <hr>
 

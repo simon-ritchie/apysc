@@ -27,9 +27,9 @@ class MouseOverInterface(MouseEventInterfaceBase):
         Parameters
         ----------
         handler : _Handler
-            Callable that called when mouse is overed on this instance.
+            Callable that would be called when mouse over on this instance.
         options : dict or None, default None
-            Optional arguments dictionary to be passed to handler.
+            Optional arguments dictionary to be passed to a handler.
 
         Returns
         -------
@@ -96,12 +96,12 @@ class MouseOverInterface(MouseEventInterfaceBase):
 
     def unbind_mouseover(self, handler: _Handler[_O]) -> None:
         """
-        Unbind specified handler's mouse over event.
+        Unbind a specified handler's mouseover event.
 
         Parameters
         ----------
         handler : _Handler
-            Callable to be unbinded.
+            Unbinding target Callable.
 
         References
         ----------

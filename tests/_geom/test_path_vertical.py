@@ -73,3 +73,13 @@ class TestPathVertical:
             y=50, relative=False)
         result = path_vertical == other
         assert result
+
+    @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+    def test___ne__(self) -> None:
+        path_vertical: ap.PathVertical = ap.PathVertical(
+            y=50, relative=False)
+        other: ap.PathVertical = ap.PathVertical(
+            y=100, relative=False)
+        result: ap.Boolean = path_vertical != other
+        assert isinstance(result, ap.Boolean)
+        assert result

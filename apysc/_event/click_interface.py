@@ -27,7 +27,7 @@ class ClickInterface(MouseEventInterfaceBase):
         Parameters
         ----------
         handler : _Handler
-            A callable would be called when this instance is clicked.
+            A callable would be called when clicking this instance.
         options : dict or None, default None
             Optional arguments dictionary to be passed to a handler.
 
@@ -101,7 +101,7 @@ class ClickInterface(MouseEventInterfaceBase):
         Parameters
         ----------
         handler : _Handler
-            Callable to be unbinded.
+            Unbinding target Callable.
 
         References
         ----------

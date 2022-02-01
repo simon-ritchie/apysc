@@ -1,7 +1,8 @@
 """Path data class implementation for the svg's `2D bezier curve` (Q).
 """
 
-from typing import Any, Union
+from typing import Any
+from typing import Union
 
 from apysc._geom.path_control_x_interface import PathControlXInterface
 from apysc._geom.path_control_y_interface import PathControlYInterface
@@ -213,7 +214,6 @@ class PathBezier2D(
                 and self.dest_x == other.dest_x
                 and self.dest_y == other.dest_y
                 and self.relative == other.relative)
-
 
     def __ne__(self, other: Any) -> Any:
         """

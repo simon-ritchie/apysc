@@ -2,7 +2,8 @@
 `continual 3D bezier curve` (S).
 """
 
-from typing import Any, Union
+from typing import Any
+from typing import Union
 
 from apysc._geom.path_control_x_interface import PathControlXInterface
 from apysc._geom.path_control_y_interface import PathControlYInterface

@@ -1,7 +1,8 @@
 """Path data class implementation for the svg's `3D besier curve` (C).
 """
 
-from typing import Any, Union
+from typing import Any
+from typing import Union
 
 from apysc._geom.path_control_x1_interface import PathControlX1Interface
 from apysc._geom.path_control_x2_interface import PathControlX2Interface

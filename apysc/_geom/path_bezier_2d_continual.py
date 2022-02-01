@@ -2,7 +2,8 @@
 `continual 2D bezier curve` (T).
 """
 
-from typing import Any, Union
+from typing import Any
+from typing import Union
 
 from apysc._geom.path_data_base import PathDataBase
 from apysc._geom.path_x_interface import PathXInterface

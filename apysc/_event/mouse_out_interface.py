@@ -27,9 +27,9 @@ class MouseOutInterface(MouseEventInterfaceBase):
         Parameters
         ----------
         handler : _Handler
-            Callable that called when mouse is outed on this instance.
+            Callable that would be called when mouse out on this instance.
         options : dict or None, default None
-            Optional arguments dictionary to be passed to handler.
+            Optional arguments dictionary to be passed to a handler.
 
         Returns
         -------
@@ -96,12 +96,12 @@ class MouseOutInterface(MouseEventInterfaceBase):
 
     def unbind_mouseout(self, handler: _Handler[_O]) -> None:
         """
-        Unbind specified handler's mouse out event.
+        Unbind a specified handler's mouse out event.
 
         Parameters
         ----------
         handler : _Handler
-            Callable to be unbinded.
+            Unbinding target Callable.
 
         References
         ----------

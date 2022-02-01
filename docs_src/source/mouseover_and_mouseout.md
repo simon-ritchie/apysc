@@ -261,3 +261,112 @@ There are also existing the `unbind_mouseover_all` and `unbind_mouseover_all` in
 ...     x=50, y=50, width=50, height=50)
 >>> _ = rectangle.mouseout(on_mouseover)
 ```
+
+## mouseout API
+
+<!-- Docstring: apysc._event.mouse_out_interface.MouseOutInterface.mouseout -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `mouseout(self, handler:Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options:Union[~_O, NoneType]=None) -> str`<hr>
+
+**[Interface summary]** Add mouse out event listener setting.<hr>
+
+**[Parameters]**
+
+- `handler`: _Handler
+  - Callable that would be called when mouse out on this instance.
+- `options`: dict or None, default None
+  - Optional arguments dictionary to be passed to a handler.
+
+<hr>
+
+**[Returns]**
+
+- `name`: str
+  - Handler's name.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_mouseout(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     rectangle: ap.Rectangle = e.this
+...     rectangle.fill_color = ap.String('#f0a')
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.mouseout(on_mouseout)
+```
+
+<hr>
+
+**[References]**
+
+- [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
+
+## unbind_mouseout API
+
+<!-- Docstring: apysc._event.mouse_out_interface.MouseOutInterface.unbind_mouseout -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `unbind_mouseout(self, handler:Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
+
+**[Interface summary]** Unbind a specified handler's mouse out event.<hr>
+
+**[Parameters]**
+
+- `handler`: _Handler
+  - Unbinding target Callable.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_mouseout(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     rectangle: ap.Rectangle = e.this
+...     rectangle.fill_color = ap.String('#f0a')
+...     rectangle.unbind_mouseout(on_mouseout)
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.mouseout(on_mouseout)
+```
+
+## unbind_mouseout_all API
+
+<!-- Docstring: apysc._event.mouse_out_interface.MouseOutInterface.unbind_mouseout_all -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `unbind_mouseout_all(self) -> None`<hr>
+
+**[Interface summary]** Unbind all mouse out events.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_mouseout(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     rectangle: ap.Rectangle = e.this
+...     rectangle.fill_color = ap.String('#f0a')
+...     rectangle.unbind_mouseout_all()
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.mouseout(on_mouseout)
+```

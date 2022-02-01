@@ -119,3 +119,121 @@ ap.save_overall_html(
 <iframe src="static/mousemove_unbind_interface/index.html" width="200" height="200"></iframe>
 
 There are also existing the `unbind_mousemove_all` interface. This interface unbinds all the handlers from the target `DisplayObject` instance.
+
+
+## mousemove API
+
+<!-- Docstring: apysc._event.mouse_move_interface.MouseMoveInterface.mousemove -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `mousemove(self, handler:Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options:Union[~_O, NoneType]=None) -> str`<hr>
+
+**[Interface summary]** Add mouse move event listener setting.<hr>
+
+**[Parameters]**
+
+- `handler`: _Handler
+  - Callable that would be called when mousemove on this instance.
+- `options`: dict or None, default None
+  - Optional arguments dictionary to be passed to a handler.
+
+<hr>
+
+**[Returns]**
+
+- `name`: str
+  - Handler's name.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_mousemove(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     stage_x: ap.Int = e.stage_x
+...     ap.trace('stage_x:', stage_x)
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.mousemove(on_mousemove)
+```
+
+<hr>
+
+**[References]**
+
+- [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
+
+## unbind_mousemove API
+
+<!-- Docstring: apysc._event.mouse_move_interface.MouseMoveInterface.unbind_mousemove -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `unbind_mousemove(self, handler:Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
+
+**[Interface summary]** Unbind a specified handler's mouse move event.<hr>
+
+**[Parameters]**
+
+- `handler`: _Handler
+  - Unbinding target Callable.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_mousemove(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     stage_x: ap.Int = e.stage_x
+...     ap.trace('stage_x:', stage_x)
+>>> def on_click(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     rectangle: ap.Rectangle = e.this
+...     rectangle.unbind_mousemove(on_mousemove)
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.mousemove(on_mousemove)
+>>> _ = rectangle.click(on_click)
+```
+
+## unbind_mousemove_all API
+
+<!-- Docstring: apysc._event.mouse_move_interface.MouseMoveInterface.unbind_mousemove_all -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `unbind_mousemove_all(self) -> None`<hr>
+
+**[Interface summary]** Unbind all mouse move events.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_mousemove(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     stage_x: ap.Int = e.stage_x
+...     ap.trace('stage_x:', stage_x)
+>>> def on_click(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     rectangle: ap.Rectangle = e.this
+...     rectangle.unbind_mousemove_all()
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.mousemove(on_mousemove)
+>>> _ = rectangle.click(on_click)
+```

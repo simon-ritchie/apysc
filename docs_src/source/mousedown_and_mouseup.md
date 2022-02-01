@@ -142,3 +142,113 @@ ap.save_overall_html(
 <iframe src="static/mousedown_and_mouseup_unbind_interfaces/index.html" width="150" height="150"></iframe>
 
 There are also existing the `unbind_mousedown_all` and `unbind_mouseup_all` interfaces. These interfaces unbind all the handlers from the target `DisplayObject` instance.
+
+
+## mousedown API
+
+<!-- Docstring: apysc._event.mouse_down_interface.MouseDownInterface.mousedown -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `mousedown(self, handler:Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType], *, options:Union[~_O, NoneType]=None) -> str`<hr>
+
+**[Interface summary]** Add mouse down event listener setting.<hr>
+
+**[Parameters]**
+
+- `handler`: _Handler
+  - Callable that would be called when mouse down on this instance.
+- `options`: dict or None, default None
+  - Optional arguments dictionary to be passed to a handler.
+
+<hr>
+
+**[Returns]**
+
+- `name`: str
+  - Handler's name.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_mousedown(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     rectangle: ap.Rectangle = e.this
+...     rectangle.fill_color = ap.String('#f0a')
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.mousedown(on_mousedown)
+```
+
+<hr>
+
+**[References]**
+
+- [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
+
+## unbind_mousedown API
+
+<!-- Docstring: apysc._event.mouse_down_interface.MouseDownInterface.unbind_mousedown -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `unbind_mousedown(self, handler:Callable[[apysc._event.mouse_event.MouseEvent, ~_O], NoneType]) -> None`<hr>
+
+**[Interface summary]** Unbind a specified handler's mouse down event.<hr>
+
+**[Parameters]**
+
+- `handler`: _Handler
+  - Unbinding target Callable.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_mousedown(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     rectangle: ap.Rectangle = e.this
+...     rectangle.fill_color = ap.String('#f0a')
+...     rectangle.unbind_mousedown(on_mousedown)
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.mousedown(on_mousedown)
+```
+
+## unbind_mousedown_all API
+
+<!-- Docstring: apysc._event.mouse_down_interface.MouseDownInterface.unbind_mousedown_all -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `unbind_mousedown_all(self) -> None`<hr>
+
+**[Interface summary]** Unbind all mouse down events.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_mousedown(
+...         e: ap.MouseEvent[ap.Rectangle], options: dict) -> None:
+...     rectangle: ap.Rectangle = e.this
+...     rectangle.fill_color = ap.String('#f0a')
+...     rectangle.unbind_mousedown_all()
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.mousedown(on_mousedown)
+```

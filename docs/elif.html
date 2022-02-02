@@ -122,6 +122,38 @@ with Elif(condition, ....):
 <li><p><a class="reference internal" href="branch_instruction_variables_reverting_setting.html"><span class="doc">Each branch instruction class’s scope variables reverting setting</span></a></p></li>
 </ul>
 </section>
+<section id="elif-api">
+<h2>Elif API<a class="headerlink" href="#elif-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._branch._elif.Elif.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">condition:Union[apysc._type.boolean.Boolean,</span> <span class="pre">NoneType],</span> <span class="pre">*,</span> <span class="pre">locals_:Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]=None,</span> <span class="pre">globals_:Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> A class to append elif branch instruction expression.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">condition</span></code>: Boolean or None</p>
+<ul>
+<li><p>Boolean value to be used for judgment.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">locals_</span></code>: dict or None, default None</p>
+<ul>
+<li><p>Current scope’s local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameInterface variables (like Int, Sprite) at the end of an <code class="docutils literal notranslate"><span class="pre">If</span></code> scope. This setting is useful when you don’t want to update each variable by implementing the <code class="docutils literal notranslate"><span class="pre">If</span></code> scope.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">globals_</span></code>: dict or None, default None</p>
+<ul>
+<li><p>Current scope’s global variables. Set globals() value to this argument. This setting works the same way as the locals_ argument.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Notes]</strong></p>
+<ul class="simple">
+<li><p>Currently the apysc can not initialize condition value in the constructor. For example, the following raises exception: - You can only use this class immediately after the <code class="docutils literal notranslate"><span class="pre">If</span></code> or <code class="docutils literal notranslate"><span class="pre">Elif</span></code> statement. <code class="docutils literal notranslate"><span class="pre">py</span> <span class="pre">import</span> <span class="pre">apysc</span> <span class="pre">as</span> <span class="pre">ap</span> <span class="pre">with</span> <span class="pre">ap.Elif(any_value</span> <span class="pre">&gt;=</span> <span class="pre">10):</span> <span class="pre">...</span> </code> You can avoid this exception by predefining condition value, as follows: &gt;&gt;&gt; import apysc as ap &gt;&gt;&gt; any_value: ap.Int = ap.Int(10) &gt;&gt;&gt; condition_1: ap.Boolean = any_value &gt;= 10 &gt;&gt;&gt; condition_2: ap.Boolean = any_value &gt;= 5 &gt;&gt;&gt; with ap.If(condition_1): … # Do something here … pass &gt;&gt;&gt; with ap.Elif(condition_2): … # Do something else here … pass<hr></p></li>
+</ul>
+<p><strong>[References]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/branch_instruction_variables_reverting_setting.html">Each branch instruction class’s scope variables reverting setting</a></p></li>
+</ul>
+</section>
 </section>
 
 
@@ -141,6 +173,7 @@ with Elif(condition, ....):
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li><a class="reference internal" href="#notes">Notes</a></li>
 <li><a class="reference internal" href="#see-also">See also</a></li>
+<li><a class="reference internal" href="#elif-api">Elif API</a></li>
 </ul>
 </li>
 </ul>

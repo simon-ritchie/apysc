@@ -81,3 +81,33 @@ with Elif(condition, ....):
 - [If class](if.md)
 - [Else class](else.md)
 - [Each branch instruction class's scope variables reverting setting](branch_instruction_variables_reverting_setting.md)
+
+
+## Elif API
+
+<!-- Docstring: apysc._branch._elif.Elif.__init__ -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `__init__(self, condition:Union[apysc._type.boolean.Boolean, NoneType], *, locals_:Union[Dict[str, Any], NoneType]=None, globals_:Union[Dict[str, Any], NoneType]=None) -> None`<hr>
+
+**[Interface summary]** A class to append elif branch instruction expression.<hr>
+
+**[Parameters]**
+
+- `condition`: Boolean or None
+  - Boolean value to be used for judgment.
+- `locals_`: dict or None, default None
+  - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameInterface variables (like Int, Sprite) at the end of an `If` scope. This setting is useful when you don't want to update each variable by implementing the `If` scope.
+- `globals_`: dict or None, default None
+  - Current scope's global variables. Set globals() value to this argument. This setting works the same way as the locals_ argument.
+
+<hr>
+
+**[Notes]**
+
+- Currently the apysc can not initialize condition value in the constructor. For example, the following raises exception: - You can only use this class immediately after the `If` or `Elif` statement. ```py import apysc as ap with ap.Elif(any_value >= 10): ... ``` You can avoid this exception by predefining condition value, as follows: >>> import apysc as ap >>> any_value: ap.Int = ap.Int(10) >>> condition_1: ap.Boolean = any_value >= 10 >>> condition_2: ap.Boolean = any_value >= 5 >>> with ap.If(condition_1): ... # Do something here ... pass >>> with ap.Elif(condition_2): ... # Do something else here ... pass<hr>
+
+**[References]**
+
+- [Each branch instruction class's scope variables reverting setting](https://simon-ritchie.github.io/apysc/branch_instruction_variables_reverting_setting.html)

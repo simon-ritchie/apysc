@@ -60,3 +60,28 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/return_basic_usage/index.html" width="150" height="150"></iframe>
+
+
+## Return API
+
+<!-- Docstring: apysc._type._return.Return.__init__ -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `__init__(self) -> None`<hr>
+
+**[Interface summary]** Class for the return expression.<hr>
+
+**[Notes]**
+
+This class can be instantiated only in an event handler scope.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
+...     """
+...     The handler that the timer calls.
+...
+```

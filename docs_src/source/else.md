@@ -55,3 +55,44 @@ ValueError: Else interface can only use right after If or Elif interfaces.
 - [If class](if.md)
 - [Elif class](elif.md)
 - [Each branch instruction class's scope variables reverting setting](branch_instruction_variables_reverting_setting.md)
+
+
+## Else API
+
+<!-- Docstring: apysc._branch._else.Else.__init__ -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `__init__(self, *, locals_:Union[Dict[str, Any], NoneType]=None, globals_:Union[Dict[str, Any], NoneType]=None) -> None`<hr>
+
+**[Interface summary]** A class to append else branch instruction expression.<hr>
+
+**[Parameters]**
+
+- `locals_`: dict or None, default None
+  - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameInterface variables (like Int, Sprite) at the end of an `If` scope. This setting is useful when you don't want to update each variable by implementing the `If` scope.
+- `globals_`: dict or None, default None
+  - Current scope's global variables. Set globals() value to this argument. This setting works the same way as the locals_ argument.
+
+<hr>
+
+**[Notes]**
+
+- You can only use this class immediately after the `If` or `Elif` statement.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> int_val: ap.Int = ap.Int(10)
+>>> with ap.If(int_val >= 11):
+...     ap.trace('Value is greater than equal 11.')
+>>> with ap.Else():
+...     ap.trace('Value is less than 11.')
+```
+
+<hr>
+
+**[References]**
+
+- [Each branch instruction class's scope variables reverting setting](https://simon-ritchie.github.io/apysc/branch_instruction_variables_reverting_setting.html)

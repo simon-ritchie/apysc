@@ -84,19 +84,18 @@ class Timer(VariableNameInterface, CustomEventInterface):
         ----------
         handler : _Handler
             A handler would be called at regular intervals.
-        delay : int or float or Int or Number or FPS
-            A delay between each handler's calling in milisecond
-            or FPS value.
-            If `FPS` value is specified, then this value will be
-            a milisecond calculated with that FPS value (e.g., if
-            the `FPS_60` value is specified, then `delay` will be
-            16.6666667).
-        repeat_count : int or Int
-            Max count of a handler's calling. If the handler's calling
-            count has reached this value, then a timer will stop.
-            If 0 is specified, then a timer will loop forever.
+        delay : Int or int or Number or float or FPS
+            A delay between each Handler calling in a millisecond
+            or FPS value. If an `FPS` value is specified, this
+            value becomes a millisecond calculated with that
+            FPS value (e.g., if the `FPS_60` value is specified,
+            then `delay` becomes 16.6666667).
+        repeat_count : Int or int
+            Max count of a handler's calling. A timer stops
+            if the Handler's calling count has reached this value.
+            If 0 is specified, then a timer loops forever.
         options : dict or None, default None
-            Optional arguments dictionary to pass the the handler.
+            Optional arguments dictionary to pass a Handler.
 
         References
         ----------

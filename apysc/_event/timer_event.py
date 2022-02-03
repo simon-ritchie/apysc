@@ -83,7 +83,7 @@ class TimerEvent(Event):
     @property
     def this(self) -> 'timer.Timer':
         """
-        Get a timer instance that listening this event.
+        Get a timer instance of listening to this event.
 
         Returns
         -------

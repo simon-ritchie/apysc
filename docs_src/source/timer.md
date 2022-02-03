@@ -26,7 +26,7 @@ class _RectOptions(TypedDict):
 def on_sprite_click(
         e: ap.MouseEvent[ap.Sprite], options: _RectOptions) -> None:
     """
-    The handler that the rectangle calls when clicked.
+    The Handler that the rectangle calls when clicked.
 
     Parameters
     ----------
@@ -42,7 +42,7 @@ def on_sprite_click(
 
 def on_timer(e: ap.TimerEvent, options: _RectOptions) -> None:
     """
-    The handler would be called from a timer.
+    The Handler a timer calls.
 
     Parameters
     ----------
@@ -69,7 +69,7 @@ ap.save_overall_html(
     dest_dir_path='timer_basic_usage/')
 ```
 
-If you click the rectangle, the timer starts, and the handler increases the rectangle x value.
+If you click the rectangle, the timer starts, and the Handler increases the rectangle x value.
 
 <iframe src="static/timer_basic_usage/index.html" width="350" height="150"></iframe>
 
@@ -82,3 +82,57 @@ If you click the rectangle, the timer starts, and the handler increases the rect
 - [Timer class start and stop interfaces](timer_start_and_stop.md)
 - [Timer class timer complete interface](timer_complete.md)
 - [Timer class reset interface](timer_reset.md)
+
+
+## Timer constructor API
+
+<!-- Docstring: apysc._time.timer.Timer.__init__ -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `__init__(self, handler:Callable[[_ForwardRef('timer_event.TimerEvent'), ~_O1], NoneType], delay:Union[int, float, apysc._type.number_value_interface.NumberValueInterface, apysc._time.fps.FPS], *, repeat_count:Union[int, apysc._type.int.Int]=0, options:Union[~_O1, NoneType]=None) -> None`<hr>
+
+**[Interface summary]** Timer class to handle function calling at regular intervals.<hr>
+
+**[Parameters]**
+
+- `handler`: _Handler
+  - A handler would be called at regular intervals.
+- `delay`: Int or int or Number or float or FPS
+  - A delay between each Handler calling in a millisecond or FPS value. If an `FPS` value is specified, this value becomes a millisecond calculated with that FPS value (e.g., if the `FPS_60` value is specified, then `delay` becomes 16.6666667).
+- `repeat_count`: Int or int
+  - Max count of a handler's calling. A timer stops if the Handler's calling count has reached this value. If 0 is specified, then a timer loops forever.
+- `options`: dict or None, default None
+  - Optional arguments dictionary to pass a Handler.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> from typing_extensions import TypedDict
+>>> import apysc as ap
+>>> class RectOptions(TypedDict):
+...     rectangle: ap.Rectangle
+>>> def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
+...     rectangle: ap.Rectangle = options['rectangle']
+...     rectangle.x += 1
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> options: RectOptions = {'rectangle': rectangle}
+>>> _ = ap.Timer(
+...     on_timer, delay=ap.FPS.FPS_60, options=options).start()
+```
+
+<hr>
+
+**[References]**
+
+- [TimerEvent class document](https://simon-ritchie.github.io/apysc/timer_event.html)
+- [Timer class delay setting document](https://simon-ritchie.github.io/apysc/timer_delay.html)
+- [FPS enum document](https://simon-ritchie.github.io/apysc/fps.html)
+- [Timer class repeat_count setting](https://simon-ritchie.github.io/apysc/timer_repeat_count.html)
+- [About the handler options' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)

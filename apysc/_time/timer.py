@@ -238,8 +238,8 @@ class Timer(VariableNameInterface, CustomEventInterface):
         Returns
         -------
         repeat_count : Int
-            Max count of a handler's calling. If 0 is set, then a
-            timer will loop forever.
+            Max count of a handler's calling.
+            If this value is 0, then a timer loop forever.
 
         References
         ----------

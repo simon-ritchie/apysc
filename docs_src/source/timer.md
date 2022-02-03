@@ -99,11 +99,11 @@ If you click the rectangle, the timer starts, and the Handler increases the rect
 - `handler`: _Handler
   - A handler would be called at regular intervals.
 - `delay`: Int or int or Number or float or FPS
-  - A delay between each Handler calling in a millisecond or FPS value. If an `FPS` value is specified, this value becomes a millisecond calculated with that FPS value (e.g., if the `FPS_60` value is specified, then `delay` becomes 16.6666667).
+  - A delay between each `Handler` calling in a millisecond or FPS value. If an `FPS` value is specified, this value becomes a millisecond calculated with that FPS value (e.g., if the `FPS_60` value is specified, then `delay` becomes 16.6666667).
 - `repeat_count`: Int or int
-  - Max count of a handler's calling. A timer stops if the Handler's calling count has reached this value. If 0 is specified, then a timer loops forever.
+  - Max count of a `Handler`'s calling. A timer stops if the `Handler`'s calling count has reached this value. If 0 is specified, then a timer loops forever.
 - `options`: dict or None, default None
-  - Optional arguments dictionary to pass a Handler.
+  - Optional arguments dictionary to pass a `Handler` callable.
 
 <hr>
 

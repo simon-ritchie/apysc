@@ -158,6 +158,74 @@
 </pre></div>
 </div>
 <iframe src="static/timer_event_this_attribute/index.html" width="150" height="150"></iframe></section>
+<section id="timerevent-constructor-api">
+<h2>TimerEvent constructor API<a class="headerlink" href="#timerevent-constructor-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._event.timer_event.TimerEvent.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">this:'timer.Timer')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Timer event class.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">this</span></code>: Timer</p>
+<ul>
+<li><p>Target timer instance.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">RectOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;rectangle&#39;</span><span class="p">]</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">options</span><span class="p">:</span> <span class="n">RectOptions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;rectangle&#39;</span><span class="p">:</span> <span class="n">rectangle</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="this-attribute-api">
+<h2>this attribute API<a class="headerlink" href="#this-attribute-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._event.timer_event.TimerEvent.this --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface summary]</strong> Get a timer instance of listening to this event.<hr></p>
+<p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">this</span></code>: TImer</p>
+<ul>
+<li><p>Instance that listening this event.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">RectOptions</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">RectOptions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;rectangle&#39;</span><span class="p">]</span>
+<span class="gp">... </span>    <span class="n">rectangle</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="gp">... </span>    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">rectangle</span><span class="o">.</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="n">timer</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">this</span>
+<span class="gp">... </span>        <span class="n">timer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">options</span><span class="p">:</span> <span class="n">RectOptions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;rectangle&#39;</span><span class="p">:</span> <span class="n">rectangle</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">FPS</span><span class="o">.</span><span class="n">FPS_60</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -176,6 +244,8 @@
 <li><a class="reference internal" href="#what-class-is-this">What class is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li><a class="reference internal" href="#this-attribute">This attribute</a></li>
+<li><a class="reference internal" href="#timerevent-constructor-api">TimerEvent constructor API</a></li>
+<li><a class="reference internal" href="#this-attribute-api">this attribute API</a></li>
 </ul>
 </li>
 </ul>

@@ -88,7 +88,7 @@ class TimerEvent(Event):
         Returns
         -------
         this : TImer
-            Instance that listening this event.
+            Instance of listening to this event.
 
         References
         ----------

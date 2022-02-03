@@ -150,7 +150,7 @@ def on_rectangle_3_clicked(
     options : dict
         Optional arguments dictionary.
     """
-    ap.trace('Rectangle 3 is clicked and event is unbinded!')
+    ap.trace('Rectangle 3 is clicked and event is unbound!')
     e.this.unbind_click(handler=on_rectangle_3_clicked)
     e.stop_propagation()
     e.prevent_default()
@@ -183,7 +183,7 @@ def on_rectangle_4_2_clicked(
     options : dict
         Optional arguments dictionary.
     """
-    ap.trace('Rectangle 4 is clicked and all click events are unbinded!')
+    ap.trace('Rectangle 4 is clicked and all click events are unbound!')
     e.this.unbind_click_all()
 
 

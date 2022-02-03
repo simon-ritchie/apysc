@@ -54,7 +54,7 @@ class MouseEventInterfaceBase:
         Parameters
         ----------
         handler : _Handler
-            Callable to be unbinded.
+            Unbinding target Callable.
         mouse_event_type : MouseEventType
             Event type to unbind.
         handlers_dict : dict

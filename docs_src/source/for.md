@@ -72,3 +72,34 @@ ap.save_overall_html(
 
 - [Each branch instruction class's scope variables reverting setting](branch_instruction_variables_reverting_setting.md)
   - Notes: the `For` class also has the same arguments and behaves in the same way.
+
+
+## For API
+
+<!-- Docstring: apysc._loop._for.For.__init__ -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `__init__(self, arr_or_dict:Union[apysc._type.array.Array, apysc._type.dictionary.Dictionary], *, locals_:Union[Dict[str, Any], NoneType]=None, globals_:Union[Dict[str, Any], NoneType]=None) -> None`<hr>
+
+**[Interface summary]** A class to append for the (loop) expression.<hr>
+
+**[Parameters]**
+
+- `arr_or_dict`: Array or Dictionary
+  - Array or Dictionary instance to iterate.
+- `locals_`: dict or None, default None
+  - Current scope's local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameInterface variables (like Int, Sprite) at the end of a `For` scope. This setting is useful when you don't want to update each variable by implementing the `For` scope.
+- `globals_`: dict or None, default None
+  - Current scope's global variables. Set globals() value to this argument. This setting works the same way as the locals_ argument.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> arr: ap.Array = ap.Array(range(3))
+>>> with ap.For(arr) as i:
+...     ap.trace('Loop index is:', i)
+```

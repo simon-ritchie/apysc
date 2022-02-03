@@ -87,9 +87,9 @@ class Elif(IfBase):
             Current scope's local variables. Set locals()
             value to this argument. If specified, this interface
             reverts all local scope VariableNameInterface
-            variables (like Int, Sprite) at the end of an `If`
+            variables (like Int, Sprite) at the end of an `Elif`
             scope. This setting is useful when you don't want to
-            update each variable by implementing the `If` scope.
+            update each variable by implementing the `Elif` scope.
         globals_ : dict or None, default None
             Current scope's global variables. Set globals()
             value to this argument. This setting works

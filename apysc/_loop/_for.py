@@ -54,19 +54,16 @@ class For(Generic[T]):
         arr_or_dict : Array or Dictionary
             Array or Dictionary instance to iterate.
         locals_ : dict or None, default None
-            Current scope's local variables. Set locals() value to
-            this argument. If specified, all local scope
-            VariableNameInterface variables (like Int, Sprite) will be
-            reverted ad the end of For scope. This setting is useful
-            when you don't want to update each variable by the
-            implementation of the For scope.
+            Current scope's local variables. Set locals()
+            value to this argument. If specified, this interface
+            reverts all local scope VariableNameInterface
+            variables (like Int, Sprite) at the end of a `For`
+            scope. This setting is useful when you don't want to
+            update each variable by implementing the `For` scope.
         globals_ : dict or None, default None
-            Current scope's golobal variables. Set golobals() value
-            to this argument. If specified, all local scope
-            VariableNameInterface variables (like Int, Sprite) will be
-            reverted ad the end of For scope. This setting is useful
-            when you don't want to update each variable by the
-            implementation of the For scope.
+            Current scope's global variables. Set globals()
+            value to this argument. This setting works
+            the same way as the locals_ argument.
 
         References
         ----------

@@ -114,6 +114,37 @@
 </li>
 </ul>
 </section>
+<section id="for-api">
+<h2>For API<a class="headerlink" href="#for-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._loop._for.For.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">arr_or_dict:Union[apysc._type.array.Array,</span> <span class="pre">apysc._type.dictionary.Dictionary],</span> <span class="pre">*,</span> <span class="pre">locals_:Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]=None,</span> <span class="pre">globals_:Union[Dict[str,</span> <span class="pre">Any],</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> A class to append for the (loop) expression.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">arr_or_dict</span></code>: Array or Dictionary</p>
+<ul>
+<li><p>Array or Dictionary instance to iterate.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">locals_</span></code>: dict or None, default None</p>
+<ul>
+<li><p>Current scope’s local variables. Set locals() value to this argument. If specified, this interface reverts all local scope VariableNameInterface variables (like Int, Sprite) at the end of a <code class="docutils literal notranslate"><span class="pre">For</span></code> scope. This setting is useful when you don’t want to update each variable by implementing the <code class="docutils literal notranslate"><span class="pre">For</span></code> scope.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">globals_</span></code>: dict or None, default None</p>
+<ul>
+<li><p>Current scope’s global variables. Set globals() value to this argument. This setting works the same way as the locals_ argument.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">For</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="k">as</span> <span class="n">i</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">ap</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s1">&#39;Loop index is:&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -132,6 +163,7 @@
 <li><a class="reference internal" href="#what-is-the-for-class">What is the For class?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li><a class="reference internal" href="#see-also">See also</a></li>
+<li><a class="reference internal" href="#for-api">For API</a></li>
 </ul>
 </li>
 </ul>

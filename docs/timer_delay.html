@@ -221,6 +221,29 @@
 <li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/about_handler_options_type.html">About the handler options’ type document</a></p></li>
 </ul>
 </section>
+<section id="delay-property-api">
+<h2>delay property API<a class="headerlink" href="#delay-property-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._time.timer.Timer.delay --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface summary]</strong> Get a delay value.<hr></p>
+<p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">delay</span></code>: Number</p>
+<ul>
+<li><p>A delay value of each <code class="docutils literal notranslate"><span class="pre">Handler</span></code> calling in milliseconds.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_timer</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">TimerEvent</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">pass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">timer</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">on_timer</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mf">33.3</span><span class="p">,</span> <span class="n">repeat_count</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">timer</span><span class="o">.</span><span class="n">delay</span>
+<span class="go">Number(33.3)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -241,6 +264,7 @@
 <li><a class="reference internal" href="#set-the-fps-enum-value-to-the-delay-argument">Set the FPS enum value to the delay argument</a></li>
 <li><a class="reference internal" href="#see-also">See also</a></li>
 <li><a class="reference internal" href="#timer-constructor-api">Timer constructor API</a></li>
+<li><a class="reference internal" href="#delay-property-api">delay property API</a></li>
 </ul>
 </li>
 </ul>

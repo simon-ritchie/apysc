@@ -206,7 +206,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         Returns
         -------
         delay : Number
-            A delay value of each handler's calling in milisecond.
+            A delay value of each `Handler` calling in milliseconds.
 
         References
         ----------

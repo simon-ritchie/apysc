@@ -181,3 +181,30 @@ ap.save_overall_html(
 - [FPS enum document](https://simon-ritchie.github.io/apysc/fps.html)
 - [Timer class repeat_count setting](https://simon-ritchie.github.io/apysc/timer_repeat_count.html)
 - [About the handler options' type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)
+
+## delay property API
+
+<!-- Docstring: apysc._time.timer.Timer.delay -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get a delay value.<hr>
+
+**[Returns]**
+
+- `delay`: Number
+  - A delay value of each `Handler` calling in milliseconds.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
+...     pass
+>>> timer: ap.Timer = ap.Timer(
+...     on_timer, delay=33.3, repeat_count=50)
+>>> timer.delay
+Number(33.3)
+```

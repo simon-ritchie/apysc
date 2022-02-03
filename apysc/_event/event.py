@@ -117,7 +117,7 @@ class Event(Generic[T], VariableNameInterface):
     @property
     def this(self) -> T:
         """
-        Get an instance that listening this event.
+        Get an instance of listening to this event.
 
         Returns
         -------

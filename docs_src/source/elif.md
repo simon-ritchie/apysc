@@ -83,7 +83,7 @@ with Elif(condition, ....):
 - [Each branch instruction class's scope variables reverting setting](branch_instruction_variables_reverting_setting.md)
 
 
-## Elif API
+## Elif constructor API
 
 <!-- Docstring: apysc._branch._elif.Elif.__init__ -->
 

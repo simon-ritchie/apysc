@@ -57,7 +57,7 @@ ValueError: Else interface can only use right after If or Elif interfaces.
 - [Each branch instruction class's scope variables reverting setting](branch_instruction_variables_reverting_setting.md)
 
 
-## Else API
+## Else constructor API
 
 <!-- Docstring: apysc._branch._else.Else.__init__ -->
 

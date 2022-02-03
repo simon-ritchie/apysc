@@ -32,7 +32,7 @@ The `If` class requires passing the `Boolean` value as the condition.
 - [Each branch instruction class's scope variables reverting setting](branch_instruction_variables_reverting_setting.md)
 
 
-## If API
+## If constructor API
 
 <!-- Docstring: apysc._branch._if.If.__init__ -->
 

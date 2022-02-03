@@ -71,12 +71,12 @@ class AnimationEvent(Event, Generic[_T]):
     @property
     def this(self) -> 'animation_base.AnimationBase[_T]':
         """
-        Get a animation setting instance that linstening this event.
+        Get an animation setting instance of listening to this event.
 
         Returns
         -------
         this : AnimationBase
-            Instance that linstening this event.
+            Instance of listening to this event.
 
         Examples
         --------

@@ -116,3 +116,70 @@ animation_x: ap.AnimationX = rectangle.animation_x(x=100)
 animation_x.animation_complete(on_animation_complete)
 animation_x.start()
 ```
+
+
+## AnimationEvent constructor API
+
+<!-- Docstring: apysc._event.animation_event.AnimationEvent.__init__ -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `__init__(self, *, this:'animation_base.AnimationBase[_T]') -> None`<hr>
+
+**[Interface summary]** Animation event class.<hr>
+
+**[Parameters]**
+
+- `this`: AnimationBase
+  - Animation setting instance.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_animation_complete(
+...         e: ap.AnimationEvent[ap.Rectangle],
+...         options: dict) -> None:
+...     rectangle: ap.Rectangle = e.this.target
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.animation_x(
+...     x=100).animation_complete(on_animation_complete)
+```
+
+## this property API
+
+<!-- Docstring: apysc._event.animation_event.AnimationEvent.this -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface summary]** Get an animation setting instance of listening to this event.<hr>
+
+**[Returns]**
+
+- `this`: AnimationBase
+  - Instance of listening to this event.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_animation_complete(
+...         e: ap.AnimationEvent[ap.Rectangle],
+...         options: dict) -> None:
+...     rectangle: ap.Rectangle = e.this.target
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.animation_x(
+...     x=100).animation_complete(on_animation_complete)
+```

@@ -10,7 +10,7 @@ Each animation method interface (such as the `animation_move`\, `animation_x`\, 
 
 ## Basic usage
 
-The following example sets 3 seconds to the `duration` option and animate x-coordinate.
+The following example sets 3 seconds to the `duration` option and animates x-coordinate.
 
 ```py
 # runnable

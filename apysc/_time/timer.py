@@ -554,7 +554,7 @@ class Timer(VariableNameInterface, CustomEventInterface):
         Parameters
         ----------
         handler : _Handler
-            A callable will be called when a timer is complete.
+            A callable that a timer calls when complete.
         options : dict or None, default None
             Optional arguments dictionary to be passed to a handler.
 

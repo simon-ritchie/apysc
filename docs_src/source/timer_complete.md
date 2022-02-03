@@ -105,3 +105,61 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/timer_complete_basic_usage/index.html" width="250" height="150"></iframe>
+
+
+## timer_complete API
+
+<!-- Docstring: apysc._time.timer.Timer.timer_complete -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `timer_complete(self, handler:Callable[[_ForwardRef('timer_event.TimerEvent'), ~_O2], NoneType], *, options:Union[~_O2, NoneType]=None) -> str`<hr>
+
+**[Interface summary]** Add a timer complete event listener setting.<hr>
+
+**[Parameters]**
+
+- `handler`: _Handler
+  - A callable that a timer calls when complete.
+- `options`: dict or None, default None
+  - Optional arguments dictionary to be passed to a handler.
+
+<hr>
+
+**[Returns]**
+
+- `name`: str
+  - Handler's name.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> from typing_extensions import TypedDict
+>>> import apysc as ap
+>>> class RectOptions(TypedDict):
+...     rectangle: ap.Rectangle
+>>> def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
+...     rectangle: ap.Rectangle = options['rectangle']
+...     rectangle.x += 1
+>>> def on_timer_complete(
+...         e: ap.TimerEvent, options: RectOptions) -> None:
+...     ap.trace('Timer completed!')
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> options: RectOptions = {'rectangle': rectangle}
+>>> timer: ap.Timer = ap.Timer(
+...     on_timer, delay=33.3, options=options)
+>>> _ = timer.timer_complete(on_timer_complete)
+>>> timer.start()
+```
+
+<hr>
+
+**[References]**
+
+- [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)

@@ -52,3 +52,28 @@ ap.Continue()
 ```
 Exception: The `Continue` class can be instantiated in the with loop statement, for example, after the `with ap.For(...):` statement.
 ```
+
+
+## Continue API
+
+<!-- Docstring: apysc._loop._continue.Continue.__init__ -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `__init__(self) -> None`<hr>
+
+**[Interface summary]** The loop continue expression class.<hr>
+
+**[Notes]**
+
+This class can be instantiated in the with loop statement, for example, after the `with ap.For(...):` statement.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> arr: ap.Array = ap.Array(range(3))
+>>> with ap.For(arr) as i:
+...     with ap.If(i == 1):
+...         _ = ap.Continue()
+```

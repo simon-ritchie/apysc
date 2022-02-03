@@ -91,6 +91,22 @@
 </pre></div>
 </div>
 </section>
+<section id="continue-api">
+<h2>Continue API<a class="headerlink" href="#continue-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._loop._continue.Continue.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> The loop continue expression class.<hr></p>
+<p><strong>[Notes]</strong></p>
+<p>This class can be instantiated in the with loop statement, for example, after the <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">ap.For(...):</span></code> statement.<hr></p>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">For</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="k">as</span> <span class="n">i</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="n">_</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Continue</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -108,6 +124,7 @@
 <li><a class="reference internal" href="#">Continue</a><ul>
 <li><a class="reference internal" href="#what-is-the-continue-class">What is the Continue class?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#continue-api">Continue API</a></li>
 </ul>
 </li>
 </ul>

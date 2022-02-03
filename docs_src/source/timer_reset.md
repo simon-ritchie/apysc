@@ -102,3 +102,37 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/timer_reset_basic_usage/index.html" width="150" height="150"></iframe>
+
+
+## reset API
+
+<!-- Docstring: apysc._time.timer.Timer.reset -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `reset(self) -> None`<hr>
+
+**[Interface summary]** Reset the timer count and stop this timer.<hr>
+
+**[Examples]**
+
+```py
+>>> from typing_extensions import TypedDict
+>>> import apysc as ap
+>>> class RectOptions(TypedDict):
+...     rectangle: ap.Rectangle
+>>> def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
+...     rectangle: ap.Rectangle = options['rectangle']
+...     rectangle.x += 1
+...     with ap.If(rectangle.x > 100):
+...         timer: ap.Timer = e.this
+...         timer.reset()
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> options: RectOptions = {'rectangle': rectangle}
+>>> _ = ap.Timer(
+...     on_timer, delay=33.3, options=options).start()
+```

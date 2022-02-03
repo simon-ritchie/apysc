@@ -74,3 +74,57 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/timer_start_and_stop_basic_usage/index.html" width="250" height="150"></iframe>
+
+
+## start API
+
+<!-- Docstring: apysc._time.timer.Timer.start -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `start(self) -> None`<hr>
+
+**[Interface summary]** Start this timer.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_timer(e: ap.TimerEvent, options: dict) -> None:
+...     pass
+>>> _ = ap.Timer(
+...     on_timer, delay=33.3, repeat_count=50).start()
+```
+
+## stop API
+
+<!-- Docstring: apysc._time.timer.Timer.stop -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `stop(self) -> None`<hr>
+
+**[Interface summary]** Stop this timer.<hr>
+
+**[Examples]**
+
+```py
+>>> from typing_extensions import TypedDict
+>>> import apysc as ap
+>>> class RectOptions(TypedDict):
+...     rectangle: ap.Rectangle
+>>> def on_timer(e: ap.TimerEvent, options: RectOptions) -> None:
+...     rectangle: ap.Rectangle = options['rectangle']
+...     rectangle.x += 1
+...     with ap.If(rectangle.x > 100):
+...         timer: ap.Timer = e.this
+...         timer.stop()
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> options: RectOptions = {'rectangle': rectangle}
+>>> _ = ap.Timer(
+...     on_timer, delay=33.3, options=options).start()
+```

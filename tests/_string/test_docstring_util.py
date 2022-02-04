@@ -899,6 +899,17 @@ def test__append_notes_to_markdown() -> None:
         '\n\nLorem ipsum dolor sit.<hr>'
     )
 
+    markdown = '## add_child interface api document'
+    markdown = docstring_util._append_notes_to_markdown(
+        markdown=markdown,
+        notes='<br>・Lorem ipsum.<br>・dolor sit.')
+    assert markdown == (
+        '## add_child interface api document'
+        '\n\n**[Notes]**'
+        '\n\n・Lorem ipsum.'
+        '<br>・dolor sit.<hr>'
+    )
+
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_references_to_markdown() -> None:

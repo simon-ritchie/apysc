@@ -461,6 +461,8 @@ def _append_notes_to_markdown(*, markdown: str, notes: str) -> str:
         return markdown
     if markdown != '':
         markdown += '\n\n'
+    if notes.strip().startswith('<br>'):
+        notes = notes.replace('<br>', '', 1)
     markdown += (
         '**[Notes]**'
         f'\n\n{notes}<hr>'

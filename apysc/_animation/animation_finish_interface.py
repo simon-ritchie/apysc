@@ -8,8 +8,8 @@ class AnimationFinishInterface(VariableNameInterface):
 
     def animation_finish(self) -> None:
         """
-        Finish the all animations (set the animation last value to each
-        attribute).
+        Finish all animations (set the animation last value to
+        each attribute).
 
         References
         ----------

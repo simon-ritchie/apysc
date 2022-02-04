@@ -75,3 +75,40 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/animation_finish_basic_usage/index.html" width="400" height="150"></iframe>
+
+
+## animation_finish API
+
+<!-- Docstring: apysc._animation.animation_finish_interface.AnimationFinishInterface.animation_finish -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `animation_finish(self) -> None`<hr>
+
+**[Interface summary]** Finish all animations (set the animation last value to each attribute).<hr>
+
+**[Examples]**
+
+```py
+>>> from typing_extensions import TypedDict
+>>> import apysc as ap
+>>> class RectOptions(TypedDict):
+...     rectangle: ap.Rectangle
+>>> def on_timer(
+...         e: ap.TimerEvent,
+...         options: RectOptions) -> None:
+...     rectangle: ap.Rectangle = options['rectangle']
+...     rectangle.animation_finish()
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.animation_x(
+...     x=100,
+...     duration=1500,
+...     easing=ap.Easing.EASE_OUT_QUINT,
+... ).start()
+>>> options: RectOptions = {'rectangle': rectangle}
+>>> ap.Timer(on_timer, delay=750, options=options).start()
+```

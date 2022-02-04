@@ -1338,3 +1338,11 @@ def test__remove_noqa() -> None:
     string: str = docstring_util._remove_noqa(
         string='Lorem ipsum dolor sit.  # noqa')
     assert string == 'Lorem ipsum dolor sit.'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__append_br_tag_and_replace_symbol_if_first_char_is_hyphen() -> None:
+    line: str = docstring_util.\
+        _append_br_tag_and_replace_symbol_if_first_char_is_hyphen(
+            line='    - Lorem ipsum dolor sit.')
+    assert line == '<br>    ・Lorem ipsum dolor sit.'

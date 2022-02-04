@@ -501,6 +501,9 @@ def _extract_notes_from_docstring(*, docstring: str) -> str:
             continue
         if _is_section_line(line=line):
             break
+
+        line = _append_br_tag_and_replace_symbol_if_first_char_is_hyphen(
+            line=line)
         notes_lines.append(line)
     notes: str = '\n'.join(notes_lines)
     notes = _remove_line_breaks_and_unnecessary_spaces(text=notes)
@@ -1236,6 +1239,9 @@ def _extract_raise_values_from_docstring(*, docstring: str) -> List[_Raise]:
             )
             err_class_name = line.strip()
             continue
+
+        line = _append_br_tag_and_replace_symbol_if_first_char_is_hyphen(
+            line=line)
         description_lines.append(line)
     _make_raise_description_and_append_to_list(
         raise_values=raise_values,
@@ -1243,6 +1249,34 @@ def _extract_raise_values_from_docstring(*, docstring: str) -> List[_Raise]:
         description_lines=description_lines,
     )
     return raise_values
+
+
+def _append_br_tag_and_replace_symbol_if_first_char_is_hyphen(
+        line: str) -> str:
+    """
+    Append a break tag and replace the hypen symbol if the first
+    character is the hypen symbol.
+
+    Parameters
+    ----------
+    line : str
+        Target docstring line.
+
+    Returns
+    -------
+    line : str
+        Replaced docstring line.
+    """
+    first_char: str = ''
+    for char in line:
+        if char == ' ':
+            continue
+        first_char = char
+        break
+    if first_char == '-' and line.strip().startswith('- '):
+        line = line.replace('- ', '・', 1)
+        line = f'<br>{line}'
+    return line
 
 
 def _remove_blank_lines_from_list(*, lines: List[str]) -> List[str]:

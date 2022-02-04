@@ -73,3 +73,82 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/animation_pause_basic_usage/index.html" width="600" height="150"></iframe>
+
+
+## animation_pause API
+
+<!-- Docstring: apysc._animation.animation_pause_interface.AnimationPauseInterface.animation_pause -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `animation_pause(self) -> None`<hr>
+
+**[Interface summary]** Stop the all animations.<hr>
+
+**[Examples]**
+
+```py
+>>> from typing_extensions import TypedDict
+>>> import apysc as ap
+>>> class RectOptions(TypedDict):
+...     rectangle: ap.Rectangle
+>>> def on_timer(
+...         e: ap.TimerEvent,
+...         options: RectOptions) -> None:
+...     rectangle: ap.Rectangle = options['rectangle']
+...     rectangle.animation_pause()
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.animation_x(
+...     x=100,
+...     duration=1500,
+...     easing=ap.Easing.EASE_OUT_QUINT,
+... ).start()
+>>> options: RectOptions = {'rectangle': rectangle}
+>>> ap.Timer(on_timer, delay=750, options=options).start()
+```
+
+## animation_play API
+
+<!-- Docstring: apysc._animation.animation_play_interface.AnimationPlayInterface.animation_play -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `animation_play(self) -> None`<hr>
+
+**[Interface summary]** Restart the all paused animations.<hr>
+
+**[Examples]**
+
+```py
+>>> from typing_extensions import TypedDict
+>>> import apysc as ap
+>>> class RectOptions(TypedDict):
+...     rectangle: ap.Rectangle
+>>> def on_timer_1(
+...         e: ap.TimerEvent,
+...         options: RectOptions) -> None:
+...     rectangle: ap.Rectangle = options['rectangle']
+...     rectangle.animation_pause()
+>>> def on_timer_2(
+...         e: ap.TimerEvent,
+...         options: RectOptions) -> None:
+...     rectangle: ap.Rectangle = options['rectangle']
+...     rectangle.animation_play()
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.animation_x(
+...     x=100,
+...     duration=1500,
+...     easing=ap.Easing.EASE_OUT_QUINT,
+... ).start()
+>>> options: RectOptions = {'rectangle': rectangle}
+>>> ap.Timer(on_timer_1, delay=500, options=options).start()
+>>> ap.Timer(on_timer_2, delay=1000, options=options).start()
+```

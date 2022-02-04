@@ -12,12 +12,12 @@ class AnimationReverseInterface(VariableNameInterface):
 
         Notes
         -----
-        If you call this interface multiple times and animations
-        have been reached at the beginning or end of the animation,
-        then the reverse instruction will be ignored.
-        This means that the same interval's timer tick reverse
-        setting will not work correctly (since the same interval
-        setting will reach the animation start).
+        Suppose you call this interface multiple times and
+        animations reach the beginning or end of the animation.
+        In that case, this interface ignores the reverse instruction.
+        This behavior means that the same interval's timer tick
+        reverse setting does not work correctly (since the same
+        interval setting reaches the animation start).
 
         References
         ----------

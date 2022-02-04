@@ -175,12 +175,13 @@ class AnimationBase(
 
         Notes
         -----
-        This interface can only be used before an animation start.
+        This interface can only use before an animation starts
 
         Parameters
         ----------
         handler : _Handler
-            A callable will be called when an animation is complete.
+            A callable that an instance calls when an animation
+            is complete.
         options : dict or None, default None
             Optional arguments dictionary to be passed to a handler.
 
@@ -192,7 +193,7 @@ class AnimationBase(
         Raises
         ------
         Exception
-            If this interface is called after an animation start.
+            If calling this interface after an animation starts
 
         References
         ----------

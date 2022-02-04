@@ -157,3 +157,64 @@ animation_move: ap.AnimationMove = rectangle.animation_move(
 animation_move.animation_complete(on_animation_complete)
 animation_move.start()
 ```
+
+
+## animation_complete API
+
+<!-- Docstring: apysc._animation.animation_base.AnimationBase.animation_complete -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `animation_complete(self, handler:Callable[[_ForwardRef('animation_event.AnimationEvent'), ~_O], NoneType], *, options:Union[~_O, NoneType]=None) -> 'AnimationBase'`<hr>
+
+**[Interface summary]** Add a animation complete event listener setting.<hr>
+
+**[Parameters]**
+
+- `handler`: _Handler
+  - A callable that an instance calls when an animation is complete.
+- `options`: dict or None, default None
+  - Optional arguments dictionary to be passed to a handler.
+
+<hr>
+
+**[Returns]**
+
+- `self`: AnimatonBase
+  - This instance.
+
+<hr>
+
+**[Raises]**
+
+- Exception: If calling this interface after an animation starts
+
+<hr>
+
+**[Notes]**
+
+This interface can only use before an animation starts<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> def on_animation_complete(
+...         e: ap.AnimationEvent[ap.Rectangle],
+...         options: dict) -> None:
+...     ap.trace('Animation completed!')
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.animation_x(
+...     x=100,
+... ).animation_complete(on_animation_complete).start()
+```
+
+<hr>
+
+**[References]**
+
+- [About the handler options’ type document](https://simon-ritchie.github.io/apysc/about_handler_options_type.html)

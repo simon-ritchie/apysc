@@ -78,7 +78,7 @@ ValueError: Else interface can only use right after If or Elif interfaces.
 
 **[Notes]**
 
-- You can only use this class immediately after the `If` or `Elif` statement.<hr>
+ ・You can only use this class immediately after the `If` or `Elif` statement.<hr>
 
 **[Examples]**
 

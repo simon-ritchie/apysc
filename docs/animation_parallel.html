@@ -49,7 +49,7 @@
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code> method interface creates an <code class="docutils literal notranslate"><span class="pre">AnimationParallel</span></code> instance. You can set multiple simultaneous animations to the same instance with it.</p>
-<p>This interface exists on a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> subclass instance, such as the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> or <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>.</p>
+<p>This interface exists on a <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> subclass instance, such as the <code class="docutils literal notranslate"><span class="pre">Sprite</span></code> or <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> class.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
@@ -101,6 +101,75 @@ Target animation type: &lt;class &#39;apysc._animation.animation_x.AnimationX&#3
 </pre></div>
 </div>
 </section>
+<section id="animation-parallel-api">
+<h2>animation_parallel API<a class="headerlink" href="#animation-parallel-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._animation.animation_parallel_interface.AnimationParallelInterface.animation_parallel --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">animation_parallel(self,</span> <span class="pre">animations:List[apysc._animation.animation_base.AnimationBase],</span> <span class="pre">*,</span> <span class="pre">duration:Union[int,</span> <span class="pre">apysc._type.int.Int]=3000,</span> <span class="pre">delay:Union[int,</span> <span class="pre">apysc._type.int.Int]=0,</span> <span class="pre">easing:apysc._animation.easing.Easing=&lt;Easing.LINEAR:</span> <span class="pre">'function(x)</span> <span class="pre">{return</span> <span class="pre">x;}'&gt;)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._animation.animation_parallel.AnimationParallel</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Set the parallel animation setting.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">animations</span></code>: list of AnimationBase</p>
+<ul>
+<li><p>Target animation settings.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">duration</span></code>: Int or int, default 3000</p>
+<ul>
+<li><p>Milliseconds before an animation ends.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delay</span></code>: Int or int, default 0</p>
+<ul>
+<li><p>Milliseconds before an animation starts.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">easing</span></code>: Easing, default Easing.LINEAR</p>
+<ul>
+<li><p>Easing setting.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">animation_parallel</span></code>: AnimationParallel</p>
+<ul>
+<li><p>Created animation setting instance.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Raises]</strong></p>
+<ul class="simple">
+<li><p>ValueError: <br> ・If the animations’ target is not this instance. <br> ・If there are changed duration, delay, or easing animation settings in the <code class="docutils literal notranslate"><span class="pre">animations</span></code> list.</p></li>
+</ul>
+<hr><p><strong>[Notes]</strong></p>
+<p>・To start this animation, you need to call the <code class="docutils literal notranslate"><span class="pre">start</span></code> method of the returned instance. <br> ・The <code class="docutils literal notranslate"><span class="pre">animations</span></code> argument can’t contains the <code class="docutils literal notranslate"><span class="pre">AnimationParallel</span></code> instance. <br> ・This interface ignores the duration, delay, and easing arguments in the <code class="docutils literal notranslate"><span class="pre">animations</span></code> argument (this interface uses self-arguments instead).<hr></p>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_parallel</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">animations</span><span class="o">=</span><span class="p">[</span>
+<span class="gp">... </span>        <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_x</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_fill_color</span><span class="p">(</span><span class="n">fill_color</span><span class="o">=</span><span class="s1">&#39;#f0a&#39;</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_fill_alpha</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="p">],</span>
+<span class="gp">... </span>    <span class="n">duration</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">easing</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Easing</span><span class="o">.</span><span class="n">EASE_OUT_QUINT</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<hr><p><strong>[References]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/animation_duration.html">Animation interfaces duration setting document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/animation_delay.html">Animation interfaces delay setting document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/animation_return_value.html">Each animation interface return value document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/sequential_animation.html">Sequential animation setting document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/easing_enum.html">Easing enum document</a></p></li>
+</ul>
+</section>
 </section>
 
 
@@ -119,6 +188,7 @@ Target animation type: &lt;class &#39;apysc._animation.animation_x.AnimationX&#3
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li><a class="reference internal" href="#note-for-each-animation-s-duration-delay-and-easing-setting">Note for each animation’s duration, delay, and easing setting</a></li>
+<li><a class="reference internal" href="#animation-parallel-api">animation_parallel API</a></li>
 </ul>
 </li>
 </ul>

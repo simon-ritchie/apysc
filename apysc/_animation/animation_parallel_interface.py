@@ -29,25 +29,24 @@ class AnimationParallelInterface(AnimationInterfaceBase):
             the returned instance.
         - The `animations` argument can't contains the `AnimationParallel`
             instance.
-        - The `duration`, `delay`, and `easing` arguments in the
-            `animations` argument will be ignored (this interface's
-            arguments will be refered instead).
+        - This interface ignores the duration, delay, and easing
+            arguments in the `animations` argument
+            (this interface uses self-arguments instead).
 
         Raises
         ------
         ValueError
-            - If the animations's target is not this instance.
-            - If there are changed `duration`, `delay`, or
-                `easing` animation settings in the `animations`
-                list.
+            - If the animations' target is not this instance.
+            - If there are changed duration, delay, or easing
+                animation settings in the `animations` list.
 
         Parameters
         ----------
         animations : list of AnimationBase
             Target animation settings.
-        duration : int or Int, default 3000
+        duration : Int or int, default 3000
             Milliseconds before an animation ends.
-        delay : int or Int, default 0
+        delay : Int or int, default 0
             Milliseconds before an animation starts.
         easing : Easing, default Easing.LINEAR
             Easing setting.

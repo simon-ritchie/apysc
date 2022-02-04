@@ -6,7 +6,7 @@ This page explains the `animation_parallel` interface.
 
 The `animation_parallel` method interface creates an `AnimationParallel` instance. You can set multiple simultaneous animations to the same instance with it.
 
-This interface exists on a `DisplayObject` subclass instance, such as the `Sprite` or `Rectangle`.
+This interface exists on a `DisplayObject` subclass instance, such as the `Sprite` or `Rectangle` class.
 
 ## Basic usage
 
@@ -63,3 +63,73 @@ ValueError: There is an animation target that is changed duration setting: 1000
 The duration setting of animation in the `animations` argument can not be changed.
 Target animation type: <class 'apysc._animation.animation_x.AnimationX'>
 ```
+
+## animation_parallel API
+
+<!-- Docstring: apysc._animation.animation_parallel_interface.AnimationParallelInterface.animation_parallel -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `animation_parallel(self, animations:List[apysc._animation.animation_base.AnimationBase], *, duration:Union[int, apysc._type.int.Int]=3000, delay:Union[int, apysc._type.int.Int]=0, easing:apysc._animation.easing.Easing=<Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_parallel.AnimationParallel`<hr>
+
+**[Interface summary]** Set the parallel animation setting.<hr>
+
+**[Parameters]**
+
+- `animations`: list of AnimationBase
+  - Target animation settings.
+- `duration`: Int or int, default 3000
+  - Milliseconds before an animation ends.
+- `delay`: Int or int, default 0
+  - Milliseconds before an animation starts.
+- `easing`: Easing, default Easing.LINEAR
+  - Easing setting.
+
+<hr>
+
+**[Returns]**
+
+- `animation_parallel`: AnimationParallel
+  - Created animation setting instance.
+
+<hr>
+
+**[Raises]**
+
+- ValueError: <br> ・If the animations' target is not this instance. <br> ・If there are changed duration, delay, or easing animation settings in the `animations` list.
+
+<hr>
+
+**[Notes]**
+
+ ・To start this animation, you need to call the `start` method of the returned instance. <br> ・The `animations` argument can't contains the `AnimationParallel` instance. <br> ・This interface ignores the duration, delay, and easing arguments in the `animations` argument (this interface uses self-arguments instead).<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.animation_parallel(
+...     animations=[
+...         rectangle.animation_x(x=100),
+...         rectangle.animation_fill_color(fill_color='#f0a'),
+...         rectangle.animation_fill_alpha(alpha=0.5),
+...     ],
+...     duration=1500,
+...     easing=ap.Easing.EASE_OUT_QUINT,
+... ).start()
+```
+
+<hr>
+
+**[References]**
+
+- [Animation interfaces duration setting document](https://simon-ritchie.github.io/apysc/animation_duration.html)
+- [Animation interfaces delay setting document](https://simon-ritchie.github.io/apysc/animation_delay.html)
+- [Each animation interface return value document](https://simon-ritchie.github.io/apysc/animation_return_value.html)
+- [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
+- [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)

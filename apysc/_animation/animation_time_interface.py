@@ -14,7 +14,7 @@ class AnimationTimeInterface(VariableNameInterface):
         Returns
         -------
         elapsed_time : Number
-            An animation elapsed milisecond.
+            An animation elapsed millisecond.
 
         References
         ----------

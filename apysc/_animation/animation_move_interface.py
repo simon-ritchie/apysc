@@ -29,13 +29,13 @@ class AnimationMoveInterface(AnimationInterfaceBase):
 
         Parameters
         ----------
-        x : int or Int
+        x : Int or int
             Destination of the x-coordinate.
-        y : int or Int
+        y : Int or int
             Destination of the y-coordinate.
-        duration : int or Int, default 3000
+        duration : Int or int, default 3000
             Milliseconds before an animation ends.
-        delay : int or Int, default 0
+        delay : Int or int, default 0
             Milliseconds before an animation starts.
         easing : Easing, default Easing.LINEAR
             Easing setting.

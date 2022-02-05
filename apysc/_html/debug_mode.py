@@ -270,27 +270,28 @@ class DebugInfo:
             *,
             class_: Optional[Type] = None) -> None:
         """
-        Save a debug information (append callable interface name
-        comment and arguments information) to the JavaScript
-        expression file. This class is used at the `with` statement.
+        Save debug information (append callable interface
+        name comment and arguments information) to the
+        JavaScript expression file. This class needs
+        to use the `with` statement when instantiating.
 
         Notes
         -----
-        If the debug mode setting is not enabled, saving will
-        be skipped.
+        If the debug mode setting is not enabled,
+        this interface skips the saving.
 
         Parameters
         ----------
         callable_ : Callable or str
             Target function or method or property or dunder method name.
         locals_ : dict
-            Local variables. This value will be set by the `locals()`
-            function.
+            Local variables. This value requires a `locals()`
+            function's value.
         module_name : str
-            Module name. This value will be set the `__name__` value.
+            Module name. This value requires the `__name__` value.
         class_ : Type or None, optional
-            Target class type. If the target callable_ variable is not
-            a method, this argument will be ignored.
+            Target class type. If the target callable_ variable
+            is not a method, this interface ignores this argument.
 
         References
         ----------

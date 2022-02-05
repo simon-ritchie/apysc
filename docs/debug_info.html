@@ -322,6 +322,47 @@
 <li><p><a class="reference internal" href="unset_debug_mode.html"><span class="doc">Unset debug mode interface</span></a></p></li>
 </ul>
 </section>
+<section id="debuginfo-constructor-api">
+<h2>DebugInfo constructor API<a class="headerlink" href="#debuginfo-constructor-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._html.debug_mode.DebugInfo.__init__ --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">callable_:Union[Callable,</span> <span class="pre">str],</span> <span class="pre">locals_:Dict[str,</span> <span class="pre">Any],</span> <span class="pre">module_name:str,</span> <span class="pre">*,</span> <span class="pre">class_:Union[Type,</span> <span class="pre">NoneType]=None)</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Save debug information (append callable interface name comment and arguments information) to the JavaScript expression file. This class needs to use the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement when instantiating.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callable_</span></code>: Callable or str</p>
+<ul>
+<li><p>Target function or method or property or dunder method name.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">locals_</span></code>: dict</p>
+<ul>
+<li><p>Local variables. This value requires a <code class="docutils literal notranslate"><span class="pre">locals()</span></code> function’s value.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module_name</span></code>: str</p>
+<ul>
+<li><p>Module name. This value requires the <code class="docutils literal notranslate"><span class="pre">__name__</span></code> value.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">class_</span></code>: Type or None, optional</p>
+<ul>
+<li><p>Target class type. If the target callable_ variable is not a method, this interface ignores this argument.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Notes]</strong></p>
+<p>If the debug mode setting is not enabled, this interface skips the saving.<hr></p>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">any_func</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">with</span> <span class="n">ap</span><span class="o">.</span><span class="n">DebugInfo</span><span class="p">(</span>
+<span class="gp">... </span>            <span class="n">callable_</span><span class="o">=</span><span class="n">any_func</span><span class="p">,</span> <span class="n">locals_</span><span class="o">=</span><span class="nb">locals</span><span class="p">(),</span>
+<span class="gp">... </span>            <span class="n">module_name</span><span class="o">=</span><span class="vm">__name__</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -343,6 +384,7 @@
 <li><a class="reference internal" href="#basic-usage-for-a-method-call">Basic usage for a method call</a></li>
 <li><a class="reference internal" href="#notes-for-the-property-and-dunder-method">Notes for the property and dunder method</a></li>
 <li><a class="reference internal" href="#see-also">See also</a></li>
+<li><a class="reference internal" href="#debuginfo-constructor-api">DebugInfo constructor API</a></li>
 </ul>
 </li>
 </ul>

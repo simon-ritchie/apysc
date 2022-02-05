@@ -285,3 +285,43 @@ ap.save_overall_html(
 
 - [Set debug mode interface](set_debug_mode.md)
 - [Unset debug mode interface](unset_debug_mode.md)
+
+
+## DebugInfo constructor API
+
+<!-- Docstring: apysc._html.debug_mode.DebugInfo.__init__ -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `__init__(self, callable_:Union[Callable, str], locals_:Dict[str, Any], module_name:str, *, class_:Union[Type, NoneType]=None) -> None`<hr>
+
+**[Interface summary]** Save debug information (append callable interface name comment and arguments information) to the JavaScript expression file. This class needs to use the `with` statement when instantiating.<hr>
+
+**[Parameters]**
+
+- `callable_`: Callable or str
+  - Target function or method or property or dunder method name.
+- `locals_`: dict
+  - Local variables. This value requires a `locals()` function's value.
+- `module_name`: str
+  - Module name. This value requires the `__name__` value.
+- `class_`: Type or None, optional
+  - Target class type. If the target callable_ variable is not a method, this interface ignores this argument.
+
+<hr>
+
+**[Notes]**
+
+If the debug mode setting is not enabled, this interface skips the saving.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> def any_func(a: int, b: str) -> None:
+...     with ap.DebugInfo(
+...             callable_=any_func, locals_=locals(),
+...             module_name=__name__):
+...         int_val: ap.Int = ap.Int(10)
+```

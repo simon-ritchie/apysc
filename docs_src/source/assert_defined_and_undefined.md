@@ -97,3 +97,60 @@ Left value: undefined right value: undefined
 ```
 
 <iframe src="static/assert_undefined_basic_usage_1/index.html" width="0" height="0"></iframe>
+
+
+## assert_defined API
+
+<!-- Docstring: apysc._console.assertion.assert_defined -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `assert_defined(value:Any, *, msg:str='') -> None`<hr>
+
+**[Interface summary]** JavaScript assertion interface for defined (not undefined) value condition.<hr>
+
+**[Parameters]**
+
+- `value`: *
+  - Target value to check.
+- `msg`: str, optional
+  - Message to display when assertion failed.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> int_val: ap.Int = ap.Int(10)
+>>> ap.assert_defined(int_val)
+```
+
+## assert_undefined API
+
+<!-- Docstring: apysc._console.assertion.assert_undefined -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `assert_undefined(value:Any, *, msg:str='') -> None`<hr>
+
+**[Interface summary]** JavaScript assertion interface for undefined value condition.<hr>
+
+**[Parameters]**
+
+- `value`: *
+  - Target value to check.
+- `msg`: str, optional
+  - Message to display when assertion failed.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> int_val: ap.Int = ap.Int(10)
+>>> ap.append_js_expression(
+...     expression=f'{int_val.variable_name} = undefined;')
+>>> ap.assert_undefined(int_val)
+```

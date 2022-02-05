@@ -125,6 +125,58 @@ Assertion failed: Value is not defined!
 </pre></div>
 </div>
 <iframe src="static/assert_undefined_basic_usage_1/index.html" width="0" height="0"></iframe></section>
+<section id="assert-defined-api">
+<h2>assert_defined API<a class="headerlink" href="#assert-defined-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._console.assertion.assert_defined --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">assert_defined(value:Any,</span> <span class="pre">*,</span> <span class="pre">msg:str='')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> JavaScript assertion interface for defined (not undefined) value condition.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: *</p>
+<ul>
+<li><p>Target value to check.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">msg</span></code>: str, optional</p>
+<ul>
+<li><p>Message to display when assertion failed.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">assert_defined</span><span class="p">(</span><span class="n">int_val</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="assert-undefined-api">
+<h2>assert_undefined API<a class="headerlink" href="#assert-undefined-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._console.assertion.assert_undefined --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">assert_undefined(value:Any,</span> <span class="pre">*,</span> <span class="pre">msg:str='')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> JavaScript assertion interface for undefined value condition.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: *</p>
+<ul>
+<li><p>Target value to check.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">msg</span></code>: str, optional</p>
+<ul>
+<li><p>Message to display when assertion failed.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">append_js_expression</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">expression</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">int_val</span><span class="o">.</span><span class="n">variable_name</span><span class="si">}</span><span class="s1"> = undefined;&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">assert_undefined</span><span class="p">(</span><span class="n">int_val</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -143,6 +195,8 @@ Assertion failed: Value is not defined!
 <li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#see-also">See also</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#assert-defined-api">assert_defined API</a></li>
+<li><a class="reference internal" href="#assert-undefined-api">assert_undefined API</a></li>
 </ul>
 </li>
 </ul>

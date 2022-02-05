@@ -50,7 +50,7 @@
 <h2>What interfaces are these?<a class="headerlink" href="#what-interfaces-are-these" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">animation_width</span></code> method interface creates an <code class="docutils literal notranslate"><span class="pre">AnimationWidth</span></code> instance. You can animate object width with it.</p>
 <p>Similarly, the <code class="docutils literal notranslate"><span class="pre">animation_height</span></code> method interface creates an <code class="docutils literal notranslate"><span class="pre">AnimationHeight</span></code> instance. You can animate object height with it.</p>
-<p>These interfaces exist on some <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instances, such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>.</p>
+<p>These interfaces exist on some <code class="docutils literal notranslate"><span class="pre">DisplayObject</span></code> instances, such as the <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code> class.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
@@ -198,6 +198,130 @@
 </pre></div>
 </div>
 </section>
+<section id="animation-width-api">
+<h2>animation_width API<a class="headerlink" href="#animation-width-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._animation.animation_width_interface.AnimationWidthInterface.animation_width --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">animation_width(self,</span> <span class="pre">width:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">*,</span> <span class="pre">duration:Union[int,</span> <span class="pre">apysc._type.int.Int]=3000,</span> <span class="pre">delay:Union[int,</span> <span class="pre">apysc._type.int.Int]=0,</span> <span class="pre">easing:apysc._animation.easing.Easing=&lt;Easing.LINEAR:</span> <span class="pre">'function(x)</span> <span class="pre">{return</span> <span class="pre">x;}'&gt;)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._animation.animation_width.AnimationWidth</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Set the width animation setting.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>: Int or int</p>
+<ul>
+<li><p>The final width of the animation.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">duration</span></code>: Int or int, default 3000</p>
+<ul>
+<li><p>Milliseconds before an animation ends.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delay</span></code>: Int or int, default 0</p>
+<ul>
+<li><p>Milliseconds before an animation starts.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">easing</span></code>: Easing, default Easing.LINEAR</p>
+<ul>
+<li><p>Easing setting.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">animation_width</span></code>: AnimationWidth</p>
+<ul>
+<li><p>Created animation setting instance.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Notes]</strong></p>
+<p>To start this animation, you need to call the <code class="docutils literal notranslate"><span class="pre">start</span></code> method of the returned instance.<hr></p>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_width</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">duration</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">easing</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Easing</span><span class="o">.</span><span class="n">EASE_OUT_QUINT</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<hr><p><strong>[References]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/animation_duration.html">Animation interfaces duration setting document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/animation_delay.html">Animation interfaces delay setting document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/animation_return_value.html">Each animation interface return value document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/sequential_animation.html">Sequential animation setting document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/animation_parallel.html">animation_parallel interface document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/easing_enum.html">Easing enum document</a></p></li>
+</ul>
+</section>
+<section id="animation-height-api">
+<h2>animation_height API<a class="headerlink" href="#animation-height-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._animation.animation_height_interface.AnimationHeightInterface.animation_height --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">animation_height(self,</span> <span class="pre">height:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">*,</span> <span class="pre">duration:Union[int,</span> <span class="pre">apysc._type.int.Int]=3000,</span> <span class="pre">delay:Union[int,</span> <span class="pre">apysc._type.int.Int]=0,</span> <span class="pre">easing:apysc._animation.easing.Easing=&lt;Easing.LINEAR:</span> <span class="pre">'function(x)</span> <span class="pre">{return</span> <span class="pre">x;}'&gt;)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._animation.animation_height.AnimationHeight</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Set the height animation setting.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: Int or int</p>
+<ul>
+<li><p>The final height of the animation.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">duration</span></code>: Int or int, default 3000</p>
+<ul>
+<li><p>Milliseconds before an animation ends.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delay</span></code>: Int or int, default 0</p>
+<ul>
+<li><p>Milliseconds before an animation starts.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">easing</span></code>: Easing, default Easing.LINEAR</p>
+<ul>
+<li><p>Easing setting.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">animation_height</span></code>: AnimationHeight</p>
+<ul>
+<li><p>Created animation setting instance.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Notes]</strong></p>
+<p>To start this animation, you need to call the <code class="docutils literal notranslate"><span class="pre">start</span></code> method of the returned instance.<hr></p>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rectangle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Rectangle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">rectangle</span><span class="o">.</span><span class="n">animation_height</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">duration</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">easing</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Easing</span><span class="o">.</span><span class="n">EASE_OUT_QUINT</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<hr><p><strong>[References]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/animation_duration.html">Animation interfaces duration setting document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/animation_delay.html">Animation interfaces delay setting document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/animation_return_value.html">Each animation interface return value document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/sequential_animation.html">Sequential animation setting document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/animation_parallel.html">animation_parallel interface document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/easing_enum.html">Easing enum document</a></p></li>
+</ul>
+</section>
 </section>
 
 
@@ -216,6 +340,8 @@
 <li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li><a class="reference internal" href="#notes-for-the-ellipse-instance">Notes for the Ellipse instance</a></li>
+<li><a class="reference internal" href="#animation-width-api">animation_width API</a></li>
+<li><a class="reference internal" href="#animation-height-api">animation_height API</a></li>
 </ul>
 </li>
 </ul>

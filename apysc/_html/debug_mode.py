@@ -17,9 +17,9 @@ from apysc._expression.indent_num import Indent
 def set_debug_mode() -> None:
     """
     Set the debug mode for the HTML and JavaScript debugging.
-    If this functions is called, the following setting will be applied:
-    - HTML minify setting will be disabled.
-    - Per each interface JavaScript divider string will be appended.
+    This interface applies the following setting if calling this function:
+    - Disabling HTML minify setting.
+    - Changing to append per each interface JavaScript divider string.
 
     References
     ----------

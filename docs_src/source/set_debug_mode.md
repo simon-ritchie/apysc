@@ -93,3 +93,23 @@ This setting appends the information (Python's function and method callings, its
 
 - [Unset debug mode interface](unset_debug_mode.md)
 - [DebugInfo class](debug_info.md)
+
+
+## set_debug_mode API
+
+<!-- Docstring: apysc._html.debug_mode.set_debug_mode -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `set_debug_mode() -> None`<hr>
+
+**[Interface summary]** Set the debug mode for the HTML and JavaScript debugging. This interface applies the following setting if calling this function: <br> ・Disabling HTML minify setting. <br> ・Changing to append per each interface JavaScript divider string.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> ap.set_debug_mode()
+>>> int_val: ap.Int = ap.Int(10)
+```

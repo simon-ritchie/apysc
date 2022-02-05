@@ -437,6 +437,8 @@ def _append_summary_to_markdown(*, markdown: str, summary: str) -> str:
         return markdown
     if markdown != '':
         markdown += '\n\n'
+    if summary.strip().startswith('<br>'):
+        summary = summary.replace('<br>', '', 1)
     markdown += f'**[Interface summary]** {summary}<hr>'
     return markdown
 
@@ -1645,6 +1647,8 @@ def _extract_summary_from_docstring(*, docstring: str) -> str:
     for line in lines:
         if _is_section_line(line=line):
             break
+        line = _append_br_tag_and_replace_symbol_if_first_char_is_hyphen(
+            line=line)
         result_lines.append(line)
     summary: str = '\n'.join(result_lines)
     summary = _remove_line_breaks_and_unnecessary_spaces(text=summary)

@@ -148,6 +148,72 @@ Assertion failed: Values are not equal!
 </pre></div>
 </div>
 <iframe src="static/assert_dicts_equal_notes_for_assert_equal/index.html" width="0" height="0"></iframe></section>
+<section id="assert-dicts-equal-api">
+<h2>assert_dicts_equal API<a class="headerlink" href="#assert-dicts-equal-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._console.assertion.assert_dicts_equal --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">assert_dicts_equal(left:Any,</span> <span class="pre">right:Any,</span> <span class="pre">*,</span> <span class="pre">msg:str='')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> JavaScript assertion interface for Dictionary values equal condition.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">left</span></code>: *</p>
+<ul>
+<li><p>Left-side value to compare.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right</span></code>: *</p>
+<ul>
+<li><p>Right-side value to compare.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">msg</span></code>: str, optional</p>
+<ul>
+<li><p>Message to display when assertion failed.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Notes]</strong></p>
+<p>This interface is used instead of assert_equal for Dictionary class comparison (JavaScript can not compare dictionary (Object) directly, like a Python, for example, <code class="docutils literal notranslate"><span class="pre">{&quot;a&quot;:</span> <span class="pre">10}</span> <span class="pre">===</span> <span class="pre">{&quot;a&quot;:</span> <span class="pre">10}</span></code> becomes false).<hr></p>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dict_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dict_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">assert_dicts_equal</span><span class="p">(</span><span class="n">dict_1</span><span class="p">,</span> <span class="n">dict_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="assert-dicts-not-equal-api">
+<h2>assert_dicts_not_equal API<a class="headerlink" href="#assert-dicts-not-equal-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._console.assertion.assert_dicts_not_equal --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">assert_dicts_not_equal(left:Any,</span> <span class="pre">right:Any,</span> <span class="pre">*,</span> <span class="pre">msg:str='')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> JavaScript assertion interface for Dictionary values not equal condition.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">left</span></code>: *</p>
+<ul>
+<li><p>Left-side value to compare.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right</span></code>: *</p>
+<ul>
+<li><p>Right-side value to compare.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">msg</span></code>: str, optional</p>
+<ul>
+<li><p>Message to display when assertion failed.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Notes]</strong></p>
+<p>This interface is used instead of assert_not_equal for Dictionary class comparison (JavaScript can not compare dictionary (Object) directly, like a Python, for example, <code class="docutils literal notranslate"><span class="pre">{&quot;a&quot;:</span> <span class="pre">10}</span> <span class="pre">!==</span> <span class="pre">{&quot;a&quot;:</span> <span class="pre">10}</span></code> becomes true).<hr></p>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dict_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dict_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">assert_dicts_not_equal</span><span class="p">(</span><span class="n">dict_1</span><span class="p">,</span> <span class="n">dict_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -167,6 +233,8 @@ Assertion failed: Values are not equal!
 <li><a class="reference internal" href="#see-also">See also</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li><a class="reference internal" href="#notes-for-the-assert-equal-and-assert-not-equal-interfaces">Notes for the assert_equal and assert_not_equal interfaces</a></li>
+<li><a class="reference internal" href="#assert-dicts-equal-api">assert_dicts_equal API</a></li>
+<li><a class="reference internal" href="#assert-dicts-not-equal-api">assert_dicts_not_equal API</a></li>
 </ul>
 </li>
 </ul>

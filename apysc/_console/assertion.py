@@ -351,10 +351,10 @@ def assert_dicts_equal(left: Any, right: Any, *, msg: str = '') -> None:
 
     Notes
     -----
-    This is used instead of assert_equal for Dictionary class
-    comparison (JavaScript can not compare dictionary (Object)
-    directly, like a Python, for example, `{"a": 10} === {"a": 10}`
-    will be false).
+    This interface is used instead of assert_equal for
+    Dictionary class comparison (JavaScript can not compare
+    dictionary (Object) directly, like a Python, for example,
+    `{"a": 10} === {"a": 10}` becomes false).
 
     Parameters
     ----------
@@ -398,10 +398,10 @@ def assert_dicts_not_equal(
 
     Notes
     -----
-    This is used instead of assert_not_equal for Dictionary class
-    comparison (JavaScript can not compare dictionary (Object)
-    directly, like a Python, for example, `{"a": 10} !== {"a": 10}`
-    will be true).
+    This interface is used instead of assert_not_equal for
+    Dictionary class comparison (JavaScript can not
+    compare dictionary (Object) directly, like a Python,
+    for example, `{"a": 10} !== {"a": 10}` becomes true).
 
     Parameters
     ----------

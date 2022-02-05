@@ -30,11 +30,11 @@ class AnimationRotationAroundCenterInterface(AnimationInterfaceBase):
 
         Parameters
         ----------
-        rotation_around_center : int or Int
+        rotation_around_center : Int or int
             The final rotation of the animation.
-        duration : int or Int, default 3000
+        duration : Int or int, default 3000
             Milliseconds before an animation ends.
-        delay : int or Int, default 0
+        delay : Int or int, default 0
             Milliseconds before an animation starts.
         easing : Easing, default Easing.LINEAR
             Easing setting.

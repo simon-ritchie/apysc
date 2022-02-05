@@ -49,7 +49,7 @@
 <section id="what-interface-is-this">
 <h2>What interface is this?<a class="headerlink" href="#what-interface-is-this" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">animation_radius</span></code> method interface creates an <code class="docutils literal notranslate"><span class="pre">ap.AnimationRadius</span></code> instance. You can animate radius with it.</p>
-<p>This interface exists on a <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> subclass, such as the <code class="docutils literal notranslate"><span class="pre">Circle</span></code>.</p>
+<p>This interface exists on a <code class="docutils literal notranslate"><span class="pre">GraphicsBase</span></code> subclass, such as the <code class="docutils literal notranslate"><span class="pre">Circle</span></code> class.</p>
 </section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
@@ -112,6 +112,68 @@
 </pre></div>
 </div>
 <iframe src="static/animation_radius_basic_usage/index.html" width="200" height="200"></iframe></section>
+<section id="animation-radius-api">
+<h2>animation_radius API<a class="headerlink" href="#animation-radius-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._animation.animation_radius_interface.AnimationRadiusInterface.animation_radius --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">animation_radius(self,</span> <span class="pre">radius:Union[int,</span> <span class="pre">apysc._type.int.Int],</span> <span class="pre">*,</span> <span class="pre">duration:Union[int,</span> <span class="pre">apysc._type.int.Int]=3000,</span> <span class="pre">delay:Union[int,</span> <span class="pre">apysc._type.int.Int]=0,</span> <span class="pre">easing:apysc._animation.easing.Easing=&lt;Easing.LINEAR:</span> <span class="pre">'function(x)</span> <span class="pre">{return</span> <span class="pre">x;}'&gt;)</span> <span class="pre">-&gt;</span> <span class="pre">apysc._animation.animation_radius.AnimationRadius</span></code><hr></p>
+<p><strong>[Interface summary]</strong> Set the radius animation setting.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">radius</span></code>: Int or int</p>
+<ul>
+<li><p>The final radius of the animation.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">duration</span></code>: Int or int, default 3000</p>
+<ul>
+<li><p>Milliseconds before an animation ends.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delay</span></code>: Int or int, default 0</p>
+<ul>
+<li><p>Milliseconds before an animation starts.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">easing</span></code>: Easing, default Easing.LINEAR</p>
+<ul>
+<li><p>Easing setting.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Returns]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">animation_radius</span></code>: AnimationRadius</p>
+<ul>
+<li><p>Created animation setting instance.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Notes]</strong></p>
+<p>To start this animation, you need to call the <code class="docutils literal notranslate"><span class="pre">start</span></code> method of the returned instance.<hr></p>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stage</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Stage</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Sprite</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;#0af&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circle</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Circle</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">draw_circle</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">circle</span><span class="o">.</span><span class="n">animation_radius</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">radius</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">duration</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">easing</span><span class="o">=</span><span class="n">ap</span><span class="o">.</span><span class="n">Easing</span><span class="o">.</span><span class="n">EASE_OUT_QUINT</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<hr><p><strong>[References]</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/animation_duration.html">Animation interfaces duration setting document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/animation_delay.html">Animation interfaces delay setting document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/animation_return_value.html">Each animation interface return value document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/sequential_animation.html">Sequential animation setting document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/animation_parallel.html">animation_parallel interface document</a></p></li>
+<li><p><a class="reference external" href="https://simon-ritchie.github.io/apysc/easing_enum.html">Easing enum document</a></p></li>
+</ul>
+</section>
 </section>
 
 
@@ -129,6 +191,7 @@
 <li><a class="reference internal" href="#">animation_radius interface</a><ul>
 <li><a class="reference internal" href="#what-interface-is-this">What interface is this?</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#animation-radius-api">animation_radius API</a></li>
 </ul>
 </li>
 </ul>

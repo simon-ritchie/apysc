@@ -114,3 +114,72 @@ Left value: [1, 2, 3, 4, 5] right value: arr_2
 ```
 
 <iframe src="static/assert_arrays_equal_notes_for_the_assert_equal/index.html" width="0" height="0"></iframe>
+
+
+## assert_arrays_equal API
+
+<!-- Docstring: apysc._console.assertion.assert_arrays_equal -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `assert_arrays_equal(left:Any, right:Any, *, msg:str='') -> None`<hr>
+
+**[Interface summary]** JavaScript assertion interface for Array values equal condition.<hr>
+
+**[Parameters]**
+
+- `left`: *
+  - Left-side value to compare.
+- `right`: *
+  - Right-side value to compare.
+- `msg`: str, optional
+  - Message to display when assertion failed.
+
+<hr>
+
+**[Notes]**
+
+This interface is used instead of assert_equal for Array class comparison (JavaScript can not compare arrays directly, like a Python, for example, `[1, 2] === [1, 2]` becomes false).<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> arr_1: ap.Array = ap.Array([1, 2, 3])
+>>> arr_2: ap.Array = ap.Array([1, 2, 3])
+>>> ap.assert_arrays_equal(arr_1, arr_2)
+```
+
+## assert_arrays_not_equal API
+
+<!-- Docstring: apysc._console.assertion.assert_arrays_not_equal -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `assert_arrays_not_equal(left:Any, right:Any, *, msg:str='') -> None`<hr>
+
+**[Interface summary]** JavaScript assertion interface for Array values not equal condition.<hr>
+
+**[Parameters]**
+
+- `left`: *
+  - Left-side value to compare.
+- `right`: *
+  - Right-side value to compare.
+- `msg`: str, optional
+  - Message to display when assertion failed.
+
+<hr>
+
+**[Notes]**
+
+This interface is used instead of assert_not_equal for Array class comparison (JavaScript can not compare arrays directly, like a Python, for example, `[1, 2] === [1, 2]` becomes false).<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> arr_1: ap.Array = ap.Array([1, 2, 3])
+>>> arr_2: ap.Array = ap.Array([4, 5, 6])
+>>> ap.assert_arrays_not_equal(arr_1, arr_2)
+```

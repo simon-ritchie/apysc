@@ -142,6 +142,72 @@ Assertion failed: Values are not equal!
 </pre></div>
 </div>
 <iframe src="static/assert_arrays_equal_notes_for_the_assert_equal/index.html" width="0" height="0"></iframe></section>
+<section id="assert-arrays-equal-api">
+<h2>assert_arrays_equal API<a class="headerlink" href="#assert-arrays-equal-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._console.assertion.assert_arrays_equal --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">assert_arrays_equal(left:Any,</span> <span class="pre">right:Any,</span> <span class="pre">*,</span> <span class="pre">msg:str='')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> JavaScript assertion interface for Array values equal condition.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">left</span></code>: *</p>
+<ul>
+<li><p>Left-side value to compare.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right</span></code>: *</p>
+<ul>
+<li><p>Right-side value to compare.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">msg</span></code>: str, optional</p>
+<ul>
+<li><p>Message to display when assertion failed.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Notes]</strong></p>
+<p>This is used instead of assert_equal for Array class comparison (JavaScript can not compare arrays directly, like a Python, for example, <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2]</span> <span class="pre">===</span> <span class="pre">[1,</span> <span class="pre">2]</span></code> will be false).<hr></p>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">assert_arrays_equal</span><span class="p">(</span><span class="n">arr_1</span><span class="p">,</span> <span class="n">arr_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="assert-arrays-not-equal-api">
+<h2>assert_arrays_not_equal API<a class="headerlink" href="#assert-arrays-not-equal-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._console.assertion.assert_arrays_not_equal --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">assert_arrays_not_equal(left:Any,</span> <span class="pre">right:Any,</span> <span class="pre">*,</span> <span class="pre">msg:str='')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> JavaScript assertion interface for Array values not equal condition.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">left</span></code>: *</p>
+<ul>
+<li><p>Left-side value to compare.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right</span></code>: *</p>
+<ul>
+<li><p>Right-side value to compare.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">msg</span></code>: str, optional</p>
+<ul>
+<li><p>Message to display when assertion failed.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Notes]</strong></p>
+<p>This is used instead of assert_not_equal for Array class comparison (JavaScript can not compare arrays directly, like a Python, for example, <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2]</span> <span class="pre">===</span> <span class="pre">[1,</span> <span class="pre">2]</span></code> will be false).<hr></p>
+<p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arr_2</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">assert_arrays_not_equal</span><span class="p">(</span><span class="n">arr_1</span><span class="p">,</span> <span class="n">arr_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -161,6 +227,8 @@ Assertion failed: Values are not equal!
 <li><a class="reference internal" href="#see-also">See also</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li><a class="reference internal" href="#notes-for-the-assert-equal-and-assert-not-equal-interfaces">Notes for the assert_equal and assert_not_equal interfaces</a></li>
+<li><a class="reference internal" href="#assert-arrays-equal-api">assert_arrays_equal API</a></li>
+<li><a class="reference internal" href="#assert-arrays-not-equal-api">assert_arrays_not_equal API</a></li>
 </ul>
 </li>
 </ul>

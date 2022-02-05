@@ -259,9 +259,10 @@ def assert_arrays_equal(
 
     Notes
     -----
-    This is used instead of assert_equal for Array class
-    comparison (JavaScript can not compare arrays directly, like
-    a Python, for example, `[1, 2] === [1, 2]` will be false).
+    This interface is used instead of assert_equal for
+    Array class comparison (JavaScript can not compare
+    arrays directly, like a Python, for example,
+    `[1, 2] === [1, 2]` becomes false).
 
     Parameters
     ----------
@@ -304,9 +305,10 @@ def assert_arrays_not_equal(
 
     Notes
     -----
-    This is used instead of assert_not_equal for Array class
-    comparison (JavaScript can not compare arrays directly, like
-    a Python, for example, `[1, 2] === [1, 2]` will be false).
+    This interface is used instead of assert_not_equal for
+    Array class comparison (JavaScript can not compare arrays
+    directly, like a Python, for example,
+    `[1, 2] === [1, 2]` becomes false).
 
     Parameters
     ----------

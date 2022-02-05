@@ -128,7 +128,7 @@ Assertion failed: Values are equal!
 </li>
 </ul>
 <hr><p><strong>[Notes]</strong></p>
-<p>・If specified values are type of Array (or list, etc), then assert_arrays_equal function will be called instead of this function. <br> ・If specified value are type of Dictionary (or dict, etc), then assert_dicts_equal function will be called instead of this function.<hr></p>
+<p>・If specified values are types of Array (or list), then this interface calls the assert_arrays_equal function instead. <br> ・If specified values are types of Dictionary (or dict), then this interface calls the assert_dicts_equal instead.<hr></p>
 <p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -161,7 +161,7 @@ Assertion failed: Values are equal!
 </li>
 </ul>
 <hr><p><strong>[Notes]</strong></p>
-<p>・If specified values are type of Array (or list, etc), then assert_arrays_not_equal function will be called instead of this function. <br> ・If specified value are type of Dictionary (or dict, etc), then assert_dicts_not_equal function will be called instead of this function.<hr></p>
+<p>・If specified values are types of Array (or list), then this interface calls the assert_arrays_not_equal function instead. <br> ・If specified values are types of Dictionary (or dict), this interface calls the assert_dicts_not_equal function instead.<hr></p>
 <p><strong>[Examples]</strong></p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">int_1</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>

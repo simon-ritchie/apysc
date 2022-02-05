@@ -166,6 +166,68 @@ Assertion failed: Value is not Boolean(True)!
 </pre></div>
 </div>
 <iframe src="static/assert_false_basic_usage_1/index.html" width="0" height="0"></iframe></section>
+<section id="assert-true-api">
+<h2>assert_true API<a class="headerlink" href="#assert-true-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._console.assertion.assert_true --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">assert_true(value:Any,</span> <span class="pre">*,</span> <span class="pre">type_strict:bool=True,</span> <span class="pre">msg:str='')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> JavaScript assertion interface for true condition.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: *</p>
+<ul>
+<li><p>Target value to check.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type_strict</span></code>: bool, default True</p>
+<ul>
+<li><p>Whether strictly check actual value or not. For example, if type_strict is True, an integer of 1 fails tests. On the contrary (if type_strict is False), an integer of 1 passes tests.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">msg</span></code>: str, optional</p>
+<ul>
+<li><p>Message to display when assertion failed.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">boolean</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_val</span> <span class="o">==</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">assert_true</span><span class="p">(</span><span class="n">boolean</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="assert-false-api">
+<h2>assert_false API<a class="headerlink" href="#assert-false-api" title="Permalink to this headline">¶</a></h2>
+<!-- Docstring: apysc._console.assertion.assert_false --><p><span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span></p>
+<p><strong>[Interface signature]</strong> <code class="docutils literal notranslate"><span class="pre">assert_false(value:Any,</span> <span class="pre">*,</span> <span class="pre">type_strict:bool=True,</span> <span class="pre">msg:str='')</span> <span class="pre">-&gt;</span> <span class="pre">None</span></code><hr></p>
+<p><strong>[Interface summary]</strong> JavaScript assertion interface for false condition.<hr></p>
+<p><strong>[Parameters]</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: *</p>
+<ul>
+<li><p>Target value to check.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type_strict</span></code>: bool, default True</p>
+<ul>
+<li><p>Whether strictly check actual value or not. For example, if type_strict is True, an integer of 0 fails tests. On the contrary (if type_strict is False), an integer of 0 passes tests.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">msg</span></code>: str, optional</p>
+<ul>
+<li><p>Message to display when assertion failed.</p></li>
+</ul>
+</li>
+</ul>
+<hr><p><strong>[Examples]</strong></p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">apysc</span> <span class="k">as</span> <span class="nn">ap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_val</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">boolean</span><span class="p">:</span> <span class="n">ap</span><span class="o">.</span><span class="n">Boolean</span> <span class="o">=</span> <span class="n">int_val</span> <span class="o">==</span> <span class="mi">11</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span><span class="o">.</span><span class="n">assert_false</span><span class="p">(</span><span class="n">boolean</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -184,6 +246,8 @@ Assertion failed: Value is not Boolean(True)!
 <li><a class="reference internal" href="#what-interfaces-are-these">What interfaces are these?</a></li>
 <li><a class="reference internal" href="#see-also">See also</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li><a class="reference internal" href="#assert-true-api">assert_true API</a></li>
+<li><a class="reference internal" href="#assert-false-api">assert_false API</a></li>
 </ul>
 </li>
 </ul>

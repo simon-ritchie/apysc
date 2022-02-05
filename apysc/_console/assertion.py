@@ -165,9 +165,9 @@ def assert_true(
         Target value to check.
     type_strict : bool, default True
         Whether strictly check actual value or not.
-        For example, if type_strict is True, interger 1 will
-        fail, on the contrary (if type_strict is False), integer 1
-        will pass test.
+        For example, if type_strict is True,
+        an integer of 1 fails tests. On the contrary
+        (if type_strict is False), an integer of 1 passes tests.
     msg : str, optional
         Message to display when assertion failed.
 
@@ -214,9 +214,9 @@ def assert_false(
         Target value to check.
     type_strict : bool, default True
         Whether strictly check actual value or not.
-        For example, if type_strict is True, interger 0 will
-        fail, on the contrary (if type_strict is False), integer 0
-        will pass test.
+        For example, if type_strict is True, an integer
+        of 0 fails tests. On the contrary (if type_strict
+        is False), an integer of 0 passes tests.
     msg : str, optional
         Message to display when assertion failed.
 

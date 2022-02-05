@@ -146,3 +146,64 @@ Left value: false right value: false
 ```
 
 <iframe src="static/assert_false_basic_usage_1/index.html" width="0" height="0"></iframe>
+
+
+## assert_true API
+
+<!-- Docstring: apysc._console.assertion.assert_true -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `assert_true(value:Any, *, type_strict:bool=True, msg:str='') -> None`<hr>
+
+**[Interface summary]** JavaScript assertion interface for true condition.<hr>
+
+**[Parameters]**
+
+- `value`: *
+  - Target value to check.
+- `type_strict`: bool, default True
+  - Whether strictly check actual value or not. For example, if type_strict is True, an integer of 1 fails tests. On the contrary (if type_strict is False), an integer of 1 passes tests.
+- `msg`: str, optional
+  - Message to display when assertion failed.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> int_val: ap.Int = ap.Int(10)
+>>> boolean: ap.Boolean = int_val == 10
+>>> ap.assert_true(boolean)
+```
+
+## assert_false API
+
+<!-- Docstring: apysc._console.assertion.assert_false -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `assert_false(value:Any, *, type_strict:bool=True, msg:str='') -> None`<hr>
+
+**[Interface summary]** JavaScript assertion interface for false condition.<hr>
+
+**[Parameters]**
+
+- `value`: *
+  - Target value to check.
+- `type_strict`: bool, default True
+  - Whether strictly check actual value or not. For example, if type_strict is True, an integer of 0 fails tests. On the contrary (if type_strict is False), an integer of 0 passes tests.
+- `msg`: str, optional
+  - Message to display when assertion failed.
+
+<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> int_val: ap.Int = ap.Int(10)
+>>> boolean: ap.Boolean = int_val == 11
+>>> ap.assert_false(boolean)
+```

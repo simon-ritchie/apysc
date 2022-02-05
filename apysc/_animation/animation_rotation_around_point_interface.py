@@ -32,15 +32,15 @@ class AnimationRotationAroundPointInterface(AnimationInterfaceBase):
 
         Parameters
         ----------
-        rotation_around_point : int or Int
+        rotation_around_point : Int or int
             The final rotation of the animation.
-        x : int or int
+        x : Int or int
             X-coordinate.
-        y : int or Int
+        y : Int or int
             Y-coordinate.
-        duration : int or Int, default 3000
+        duration : Int or int, default 3000
             Milliseconds before an animation ends.
-        delay : int or Int, default 0
+        delay : Int or int, default 0
             Milliseconds before an animation starts.
         easing : Easing, default Easing.LINEAR
             Easing setting.

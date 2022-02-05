@@ -99,3 +99,24 @@ The exported HTML includes the debug information at the first integer position. 
 
 - [Set debug mode interface](set_debug_mode.md)
 - [DebugInfo class](debug_info.md)
+
+
+## unset_debug_mode API
+
+<!-- Docstring: apysc._html.debug_mode.unset_debug_mode -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `unset_debug_mode() -> None`<hr>
+
+**[Interface summary]** Unset the debug mode for the HTML and JavaScript debugging.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> ap.set_debug_mode()
+>>> int_val: ap.Int = ap.Int(10)
+>>> ap.unset_debug_mode()
+```

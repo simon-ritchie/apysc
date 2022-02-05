@@ -31,11 +31,11 @@ class AnimationScaleYFromCenterInterface(AnimationInterfaceBase):
 
         Parameters
         ----------
-        scale_y_from_center : float or number
+        scale_y_from_center : Number or float
             The final scale-y of the animation.
-        duration : int or Int, default 3000
+        duration : Int or int, default 3000
             Milliseconds before an animation ends.
-        delay : int or Int, default 0
+        delay : Int or int, default 0
             Milliseconds before an animation starts.
         easing : Easing, default Easing.LINEAR
             Easing setting.

@@ -1,4 +1,4 @@
-# animation_scale_x_from_center and animation_scale_x_from_center interfaces
+# animation_scale_x_from_center and animation_scale_y_from_center interfaces
 
 This page explains the `animation_scale_x_from_center` and `animation_scale_y_from_center` method interfaces.
 
@@ -138,3 +138,126 @@ ap.save_overall_html(
 ```
 
 <iframe src="static/animation_scale_x_and_y_from_center_basic_usage/index.html" width="250" height="150"></iframe>
+
+
+## animation_scale_x_from_center API
+
+<!-- Docstring: apysc._animation.animation_scale_x_from_center_interface.AnimationScaleXFromCenterInterface.animation_scale_x_from_center -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `animation_scale_x_from_center(self, scale_x_from_center:Union[float, apysc._type.number.Number], *, duration:Union[int, apysc._type.int.Int]=3000, delay:Union[int, apysc._type.int.Int]=0, easing:apysc._animation.easing.Easing=<Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_scale_x_from_center.AnimationScaleXFromCenter`<hr>
+
+**[Interface summary]** Set the scale-x from the center point animation setting.<hr>
+
+**[Parameters]**
+
+- `scale_x_from_center`: Number or float
+  - The final scale-x of the animation.
+- `duration`: Int or int, default 3000
+  - Milliseconds before an animation ends.
+- `delay`: Int or int, default 0
+  - Milliseconds before an animation starts.
+- `easing`: Easing, default Easing.LINEAR
+  - Easing setting.
+
+<hr>
+
+**[Returns]**
+
+- `animation_scale_x_from_center`: AnimationScaleXFromCenter
+  - Created animation setting instance.
+
+<hr>
+
+**[Notes]**
+
+To start this animation, you need to call the `start` method of the returned instance.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.animation_scale_x_from_center(
+...     scale_x_from_center=0.5,
+...     duration=1500,
+...     easing=ap.Easing.EASE_OUT_QUINT,
+... ).start()
+```
+
+<hr>
+
+**[References]**
+
+- [Animation interfaces duration setting document](https://simon-ritchie.github.io/apysc/animation_duration.html)
+- [Animation interfaces delay setting document](https://simon-ritchie.github.io/apysc/animation_delay.html)
+- [Each animation interface return value document](https://simon-ritchie.github.io/apysc/animation_return_value.html)
+- [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
+- [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
+- [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)
+
+## animation_scale_y_from_center API
+
+<!-- Docstring: apysc._animation.animation_scale_y_from_center_interface.AnimationScaleYFromCenterInterface.animation_scale_y_from_center -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `animation_scale_y_from_center(self, scale_y_from_center:Union[float, apysc._type.number.Number], *, duration:Union[int, apysc._type.int.Int]=3000, delay:Union[int, apysc._type.int.Int]=0, easing:apysc._animation.easing.Easing=<Easing.LINEAR: 'function(x) {return x;}'>) -> apysc._animation.animation_scale_y_from_center.AnimationScaleYFromCenter`<hr>
+
+**[Interface summary]** Set the scale-y from the center point animation setting.<hr>
+
+**[Parameters]**
+
+- `scale_y_from_center`: Number or float
+  - The final scale-y of the animation.
+- `duration`: Int or int, default 3000
+  - Milliseconds before an animation ends.
+- `delay`: Int or int, default 0
+  - Milliseconds before an animation starts.
+- `easing`: Easing, default Easing.LINEAR
+  - Easing setting.
+
+<hr>
+
+**[Returns]**
+
+- `animation_scale_y_from_center`: AnimationScaleYFromCenter
+  - Created animation setting instance.
+
+<hr>
+
+**[Notes]**
+
+To start this animation, you need to call the `start` method of the returned instance.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> stage: ap.Stage = ap.Stage()
+>>> sprite: ap.Sprite = ap.Sprite()
+>>> sprite.graphics.begin_fill(color='#0af')
+>>> rectangle: ap.Rectangle = sprite.graphics.draw_rect(
+...     x=50, y=50, width=50, height=50)
+>>> _ = rectangle.animation_scale_y_from_center(
+...     scale_y_from_center=0.5,
+...     duration=1500,
+...     easing=ap.Easing.EASE_OUT_QUINT,
+... ).start()
+```
+
+<hr>
+
+**[References]**
+
+- [Animation interfaces duration setting document](https://simon-ritchie.github.io/apysc/animation_duration.html)
+- [Animation interfaces delay setting document](https://simon-ritchie.github.io/apysc/animation_delay.html)
+- [Each animation interface return value document](https://simon-ritchie.github.io/apysc/animation_return_value.html)
+- [Sequential animation setting document](https://simon-ritchie.github.io/apysc/sequential_animation.html)
+- [animation_parallel interface document](https://simon-ritchie.github.io/apysc/animation_parallel.html)
+- [Easing enum document](https://simon-ritchie.github.io/apysc/easing_enum.html)

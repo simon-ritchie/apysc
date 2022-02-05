@@ -37,12 +37,11 @@ def assert_equal(
 
     Notes
     -----
-    - If specified values are type of Array (or list, etc),
-        then assert_arrays_equal function will be called instead of
-        this function.
-    - If specified value are type of Dictionary (or dict, etc),
-        then assert_dicts_equal function will be called instead of
-        this function.
+    - If specified values are types of Array (or list),
+        then this interface calls the assert_arrays_equal
+        function instead.
+    - If specified values are types of Dictionary (or dict),
+        then this interface calls the assert_dicts_equal instead.
 
     Parameters
     ----------
@@ -99,12 +98,12 @@ def assert_not_equal(
 
     Notes
     -----
-    - If specified values are type of Array (or list, etc),
-        then assert_arrays_not_equal function will be called instead of
-        this function.
-    - If specified value are type of Dictionary (or dict, etc),
-        then assert_dicts_not_equal function will be called instead of
-        this function.
+    - If specified values are types of Array (or list),
+        then this interface calls the assert_arrays_not_equal
+        function instead.
+    - If specified values are types of Dictionary (or dict),
+        this interface calls the assert_dicts_not_equal
+        function instead.
 
     Parameters
     ----------

@@ -67,3 +67,72 @@ Assertion failed: Values are equal!
 ```
 
 <iframe src="static/assert_not_equal_basic_usage/index.html" width="0" height="0"></iframe>
+
+
+## assert_equal API
+
+<!-- Docstring: apysc._console.assertion.assert_equal -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `assert_equal(left:Any, right:Any, *, msg:str='') -> None`<hr>
+
+**[Interface summary]** JavaScript assertion interface for equal condition.<hr>
+
+**[Parameters]**
+
+- `left`: *
+  - Left-side value to compare.
+- `right`: *
+  - Right-side value to compare.
+- `msg`: str, optional
+  - Message to display when assertion failed.
+
+<hr>
+
+**[Notes]**
+
+ ・If specified values are types of Array (or list), then this interface calls the assert_arrays_equal function instead. <br> ・If specified values are types of Dictionary (or dict), then this interface calls the assert_dicts_equal instead.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> int_1: ap.Int = ap.Int(10)
+>>> int_2: ap.Int = ap.Int(10)
+>>> ap.assert_equal(int_1, int_2)
+```
+
+## assert_not_equal API
+
+<!-- Docstring: apysc._console.assertion.assert_not_equal -->
+
+<span class="inconspicuous-txt">Note: the document build script generates and updates this API document section automatically. Maybe this section is duplicated compared with previous sections.</span>
+
+**[Interface signature]** `assert_not_equal(left:Any, right:Any, *, msg:str='') -> None`<hr>
+
+**[Interface summary]** JavaScript assertion interface for not equal condition.<hr>
+
+**[Parameters]**
+
+- `left`: *
+  - Left-side value to compare.
+- `right`: *
+  - Right-side value to compare.
+- `msg`: str, optional
+  - Message to display when assertion failed.
+
+<hr>
+
+**[Notes]**
+
+ ・If specified values are types of Array (or list), then this interface calls the assert_arrays_not_equal function instead. <br> ・If specified values are types of Dictionary (or dict), this interface calls the assert_dicts_not_equal function instead.<hr>
+
+**[Examples]**
+
+```py
+>>> import apysc as ap
+>>> int_1: ap.Int = ap.Int(10)
+>>> int_2: ap.Int = ap.Int(11)
+>>> ap.assert_not_equal(int_1, int_2)
+```

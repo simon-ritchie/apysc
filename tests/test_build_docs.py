@@ -10,7 +10,7 @@ from retrying import retry
 import scripts.build_docs as build_docs
 from apysc._file import file_util
 from apysc._lint_and_doc import lint_and_doc_hash_util
-from apysc._string.docstring_util import _DOCSTRING_PATH_COMMENT_KEYWORD
+from apysc._lint_and_doc.docstring_util import _DOCSTRING_PATH_COMMENT_KEYWORD
 from scripts.build_docs import HASHED_VALS_DIR_PATH
 from scripts.build_docs import _CodeBlock
 from scripts.build_docs import _CodeBlockFlake8Error

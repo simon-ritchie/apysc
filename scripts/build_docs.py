@@ -26,7 +26,7 @@ sys.path.append('./')
 
 from apysc._console import loggers
 from apysc._jslib import jslib_util
-from apysc._string import docstring_util
+from apysc._lint_and_doc import docstring_util
 
 logger: Logger = loggers.get_info_logger()
 

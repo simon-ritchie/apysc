@@ -8,16 +8,17 @@ from typing import List
 from retrying import retry
 
 from apysc._file import file_util
-from apysc._string import docstring_util
-from apysc._string.docstring_util import _DocstringCallableNotExistsError
-from apysc._string.docstring_util import _DocstringPathNotFoundError
-from apysc._string.docstring_util import _Example
-from apysc._string.docstring_util import _Parameter
-from apysc._string.docstring_util import _ParamOrRtnBase
-from apysc._string.docstring_util import _Raise
-from apysc._string.docstring_util import _Reference
-from apysc._string.docstring_util import _Return
-from apysc._string.docstring_util import _SectionPattern
+from apysc._lint_and_doc import docstring_util
+from apysc._lint_and_doc.docstring_util import \
+    _DocstringCallableNotExistsError
+from apysc._lint_and_doc.docstring_util import _DocstringPathNotFoundError
+from apysc._lint_and_doc.docstring_util import _Example
+from apysc._lint_and_doc.docstring_util import _Parameter
+from apysc._lint_and_doc.docstring_util import _ParamOrRtnBase
+from apysc._lint_and_doc.docstring_util import _Raise
+from apysc._lint_and_doc.docstring_util import _Reference
+from apysc._lint_and_doc.docstring_util import _Return
+from apysc._lint_and_doc.docstring_util import _SectionPattern
 from tests.testing_helper import assert_attrs
 from tests.testing_helper import assert_raises
 

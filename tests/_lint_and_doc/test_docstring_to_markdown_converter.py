@@ -197,6 +197,25 @@ def test__append_toplevel_function_docstring_to_markdown() -> None:
         '# Test docstring\n\nLorem ipsum dolor.\n\n',
         f'## {toplevel_functions[0].__name__} function docstring',
         '**[Parameters]**',
+    ]
+    for expected_str in expected_strs:
+        assert expected_str in markdown
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__append_each_section_to_markdown() -> None:
+    module: ModuleType = module_util.read_target_path_module(
+        module_path=_TEST_MODULE_PATH)
+    toplevel_functions: List[Callable] = docstring_to_markdown_converter.\
+        _get_module_toplevel_functions(module=module)
+    docstring: str = toplevel_functions[0].__doc__ or ''
+    markdown = docstring_to_markdown_converter.\
+        _append_each_section_to_markdown(
+            markdown='## Test docstring\n\nLorem ipsum dolor.',
+            docstring=docstring)
+    expected_strs: List[str] = [
+        '## Test docstring\n\nLorem ipsum dolor.\n\n',
+        '**[Parameters]**',
         '**[Returns]**',
         '**[Raises]**',
         '**[Notes]**',

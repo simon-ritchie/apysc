@@ -84,32 +84,55 @@ def _append_toplevel_function_docstring_to_markdown(
     markdown : str
         Result markdown string.
     """
-    from apysc._lint_and_doc import docstring_util
-    from apysc._lint_and_doc.docstring_util import Parameter, Return, Raise, Example, Reference
     if toplevel_function.__doc__ is None:
         return markdown
     if markdown != '':
         markdown += '\n\n'
     markdown += f'## {toplevel_function.__name__} function docstring'
+    markdown = _append_each_section_to_markdown(
+        markdown=markdown,
+        docstring=toplevel_function.__doc__,
+    )
+    return markdown
 
+
+def _append_each_section_to_markdown(
+        markdown: str, docstring: str) -> str:
+    """
+    Append each docstring section to a specified markdown string.
+
+    Parameters
+    ----------
+    markdown : str
+        Target markdown string.
+    docstring : str
+        Target docstring.
+
+    Returns
+    -------
+    markdown : str
+        Result markdown string.
+    """
+    from apysc._lint_and_doc import docstring_util
+    from apysc._lint_and_doc.docstring_util import Parameter, Return, Raise, Example, Reference
     summary: str = docstring_util.extract_summary_from_docstring(
-        docstring=toplevel_function.__doc__)
+        docstring=docstring)
     parameters: List[Parameter] = \
         docstring_util.extract_param_or_rtn_values_from_docstring(
-            target_type=Parameter, docstring=toplevel_function.__doc__)
+            target_type=Parameter, docstring=docstring)
     returns: List[Return] = \
         docstring_util.extract_param_or_rtn_values_from_docstring(
-            target_type=Return, docstring=toplevel_function.__doc__)
+            target_type=Return, docstring=docstring)
     raises: List[Raise] = docstring_util.extract_raise_values_from_docstring(
-        docstring=toplevel_function.__doc__)
+        docstring=docstring)
     notes: str = docstring_util.extract_notes_from_docstring(
-        docstring=toplevel_function.__doc__)
+        docstring=docstring)
     examples: List[Example] = \
         docstring_util.extract_example_values_from_docstring(
-            docstring=toplevel_function.__doc__)
+            docstring=docstring)
     references: List[Reference] = \
         docstring_util.extract_reference_values_from_docstring(
-            docstring=toplevel_function.__doc__)
+            docstring=docstring)
 
     markdown = docstring_util.append_summary_to_markdown(
         markdown=markdown, summary=summary,

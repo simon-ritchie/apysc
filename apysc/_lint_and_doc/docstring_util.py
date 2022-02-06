@@ -380,7 +380,8 @@ def _convert_docstring_to_markdown(
             f'\n\n**[Interface signature]** `{callable_name}{signature}`<hr>'
         )
     markdown = _append_summary_to_markdown(
-        markdown=markdown, summary=summary)
+        markdown=markdown, summary=summary,
+        heading_label='**[Interface summary]** ')
     markdown = _append_params_or_rtns_to_markdown(
         markdown=markdown, params_or_rtns=parameters)
     markdown = _append_params_or_rtns_to_markdown(
@@ -417,7 +418,9 @@ def _remove_trailing_hr_tag(*, markdown: str) -> str:
     return markdown
 
 
-def _append_summary_to_markdown(*, markdown: str, summary: str) -> str:
+def _append_summary_to_markdown(
+        *, markdown: str, summary: str,
+        heading_label: str) -> str:
     """
     Append a interface summary string to a specified markdown string.
 
@@ -427,6 +430,8 @@ def _append_summary_to_markdown(*, markdown: str, summary: str) -> str:
         Target markdown string.
     summary : str
         Target summary string.
+    heading_label : str
+        A label to append at the beginning.
 
     Returns
     -------
@@ -439,7 +444,7 @@ def _append_summary_to_markdown(*, markdown: str, summary: str) -> str:
         markdown += '\n\n'
     if summary.strip().startswith('<br>'):
         summary = summary.replace('<br>', '', 1)
-    markdown += f'**[Interface summary]** {summary}<hr>'
+    markdown += f'{heading_label}{summary}<hr>'
     return markdown
 
 

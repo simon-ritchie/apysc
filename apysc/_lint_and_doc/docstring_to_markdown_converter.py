@@ -93,15 +93,24 @@ def _append_toplevel_class_docstring_to_markdown(
     from apysc._lint_and_doc import docstring_util
     if markdown != '':
         markdown += '\n\n'
-    markdown += f'## {toplevel_class.__name__} class docstring'
+    markdown += f'## {toplevel_class.__name__} class docstring\n\n'
     if toplevel_class.__doc__ is not None:
         markdown += docstring_util.extract_summary_from_docstring(
             docstring=toplevel_class.__doc__)
         markdown = _append_each_section_to_markdown(
             markdown=markdown, docstring=toplevel_class.__doc__)
 
-    methods: List[Callable] = _get_methods_from_class(class_=toplevel_class)
-    pass
+    methods: List[Callable] = _get_methods_from_class(
+        class_=toplevel_class)
+    print('methods', methods)
+    for method in methods:
+        if method.__doc__ is None:
+            continue
+        markdown += f'\n\n### {method.__name__} method docstring'
+        markdown = _append_each_section_to_markdown(
+            markdown=markdown, docstring=method.__doc__)
+
+    return markdown
 
 
 def _get_methods_from_class(*, class_: Type) -> List[Callable]:
@@ -119,7 +128,7 @@ def _get_methods_from_class(*, class_: Type) -> List[Callable]:
         Extracted methods.
     """
     members: List[Tuple[str, Callable]] = inspect.getmembers(
-        class_, predicate=inspect.ismethod)
+        class_, predicate=callable)
     methods: List[Callable] = [method for _, method in members]
     return methods
 

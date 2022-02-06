@@ -246,9 +246,34 @@ def test__get_methods_from_class() -> None:
         _get_toplevel_classes(module=module)
     methods: List[Callable] = docstring_to_markdown_converter.\
         _get_methods_from_class(class_=toplevel_classes[0])
-    expected_method_names: List[str] = [
-        '__init__', 'sample_method_1',
-    ]
+    assert len(methods) >= 2
     for method in methods:
         assert callable(method)
-        assert method.__name__ in expected_method_names
+    actual_method_names: List[str] = [
+        method.__name__ for method in methods
+    ]
+    assert '__init__' in actual_method_names
+    assert 'sample_method_1' in actual_method_names
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__append_toplevel_class_docstring_to_markdown() -> None:
+    _save_test_module()
+    module: ModuleType = module_util.read_target_path_module(
+        module_path=_TEST_MODULE_PATH)
+    toplevel_classes: List[Type] = docstring_to_markdown_converter.\
+        _get_toplevel_classes(module=module)
+    markdown: str = docstring_to_markdown_converter.\
+        _append_toplevel_class_docstring_to_markdown(
+            markdown='# Test docstring\n\nLorem ipsum dolor.',
+            toplevel_class=toplevel_classes[0])
+    expected_strs: List[str] = [
+        '# Test docstring\n\nLorem ipsum dolor.\n\n',
+        '## _SampleClass class docstring\n\n'
+        'Cupidatat non proident',
+        '## __init__ method docstring\n\n',
+        '## sample_method_1 method docstring\n\n',
+        '**[Parameters]**',
+    ]
+    for expected_str in expected_strs:
+        assert expected_str in markdown

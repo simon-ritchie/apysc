@@ -141,18 +141,16 @@ def teardown() -> None:
 def test__append_module_docstring_to_markdown() -> None:
     _save_test_module()
     markdown: str = docstring_to_markdown_converter.\
-        _append_mod_or_class_summary_docstring_to_markdown(
-            markdown='', docstring=None,
-            summary_heading='## Module summary')
+        _append_module_docstring_to_markdown(
+            markdown='', docstring=None)
     assert markdown == ''
 
     module: ModuleType = module_util.read_target_path_module(
         module_path=_TEST_MODULE_PATH)
     markdown = docstring_to_markdown_converter.\
-        _append_mod_or_class_summary_docstring_to_markdown(
+        _append_module_docstring_to_markdown(
             markdown='# Test module docstring',
-            docstring=module.__doc__,
-            summary_heading='## Module summary')
+            docstring=module.__doc__)
     expected_strs: List[str] = [
         '# Test module docstring\n\n',
         '## Module summary\n\n'

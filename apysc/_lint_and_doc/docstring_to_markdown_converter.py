@@ -54,10 +54,9 @@ def _convert_module_docstring_to_markdown(
         Converted markdown string.
     """
     markdown: str = f'# {module.__name__} docstrings'
-    markdown = _append_mod_or_class_summary_docstring_to_markdown(
+    markdown = _append_module_docstring_to_markdown(
         markdown=markdown,
-        docstring=module.__doc__,
-        summary_heading='## Module summary')
+        docstring=module.__doc__)
 
     toplevel_functions: List[Callable] = _get_module_toplevel_functions(
         module=module)
@@ -74,7 +73,7 @@ def _convert_module_docstring_to_markdown(
 
 
 def _append_toplevel_class_docstring_to_markdown(
-        markdown: str, toplevel_class: Type) -> str:
+        *, markdown: str, toplevel_class: Type) -> str:
     """
     Append a top-level class docstring to a specified
     markdown string.
@@ -226,12 +225,11 @@ def _get_module_toplevel_functions(*, module: ModuleType) -> List[Callable]:
     return toplevel_functions
 
 
-def _append_mod_or_class_summary_docstring_to_markdown(
+def _append_module_docstring_to_markdown(
         *, markdown: str,
-        docstring: Optional[str],
-        summary_heading: str) -> str:
+        docstring: Optional[str]) -> str:
     """
-    Append a module or class description docstring to a
+    Append a module description docstring to a
     specified markdown string.
 
     Parameters
@@ -239,7 +237,7 @@ def _append_mod_or_class_summary_docstring_to_markdown(
     markdown : str
         Target markdown string.
     docstring : str or None
-        Target module or class description docstring.
+        Target module description docstring.
     summary_heading : str
         Summary heading string.
 
@@ -261,7 +259,7 @@ def _append_mod_or_class_summary_docstring_to_markdown(
 
     if markdown != '':
         markdown += '\n\n'
-    markdown += summary_heading
+    markdown += '## Module summary'
     markdown = docstring_util.append_summary_to_markdown(
         markdown=markdown, summary=summary,
         heading_label='')

@@ -1279,9 +1279,9 @@ def test_extract_example_values_from_docstring() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__append_examples_to_markdown() -> None:
+def test_append_examples_to_markdown() -> None:
     markdown: str = '## add_child interface api document'
-    markdown = docstring_util._append_examples_to_markdown(
+    markdown = docstring_util.append_examples_to_markdown(
         markdown=markdown,
         examples=[])
     assert markdown == '## add_child interface api document'
@@ -1299,7 +1299,7 @@ def test__append_examples_to_markdown() -> None:
             ),
             expected_output='')
     ]
-    markdown = docstring_util._append_examples_to_markdown(
+    markdown = docstring_util.append_examples_to_markdown(
         markdown=markdown, examples=examples)
     expected_lines: List[str] = [
         '## add_child interface api document',

@@ -388,7 +388,7 @@ def _convert_docstring_to_markdown(
         markdown=markdown, params_or_rtns=returns)
     markdown = append_raises_to_markdown(markdown=markdown, raises=raises)
     markdown = append_notes_to_markdown(markdown=markdown, notes=notes)
-    markdown = _append_examples_to_markdown(
+    markdown = append_examples_to_markdown(
         markdown=markdown, examples=examples)
     markdown = append_references_to_markdown(
         markdown=markdown, references=references)
@@ -851,7 +851,7 @@ def _slice_references_by_md_file_path(
     return sliced_references
 
 
-def _append_examples_to_markdown(
+def append_examples_to_markdown(
         *, markdown: str, examples: List[_Example]) -> str:
     """
     Append examples to a specified markdown string.

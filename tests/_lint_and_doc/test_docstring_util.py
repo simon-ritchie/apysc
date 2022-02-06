@@ -202,8 +202,8 @@ def test__is_section_line() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__extract_summary_from_docstring() -> None:
-    summary: str = docstring_util._extract_summary_from_docstring(
+def test_extract_summary_from_docstring() -> None:
+    summary: str = docstring_util.extract_summary_from_docstring(
         docstring=_TEST_DOCSTRING)
     assert summary == (
         'Lorem ipsum dolor sit amet, consectetur '
@@ -218,7 +218,7 @@ def test__extract_summary_from_docstring() -> None:
         '\n    ----------'
         '\n    a : int'
     )
-    summary = docstring_util._extract_summary_from_docstring(
+    summary = docstring_util.extract_summary_from_docstring(
         docstring=docstring)
     assert summary == (
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, '

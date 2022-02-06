@@ -355,7 +355,7 @@ def _convert_docstring_to_markdown(
     markdown : str
         Converted markdown text.
     """
-    summary: str = _extract_summary_from_docstring(docstring=docstring)
+    summary: str = extract_summary_from_docstring(docstring=docstring)
     parameters: List[_Parameter] = \
         _extract_param_or_rtn_values_from_docstring(
             target_type=_Parameter, docstring=docstring)
@@ -1629,7 +1629,7 @@ def _is_target_section_pattern_line(
     return True
 
 
-def _extract_summary_from_docstring(*, docstring: str) -> str:
+def extract_summary_from_docstring(*, docstring: str) -> str:
     """
     Extract a summary text from a docstring.
 

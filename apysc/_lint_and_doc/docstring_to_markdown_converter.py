@@ -4,7 +4,8 @@ markdown files.
 
 import os
 from types import ModuleType
-from typing import List, Optional
+from typing import Callable, List, Optional, Tuple
+import inspect
 
 
 def convert_recursively(*, dir_path: str) -> None:
@@ -56,7 +57,30 @@ def _convert_module_docstring_to_markdown(
     markdown = _append_module_docstring_to_markdown(
         markdown=markdown,
         module_docstring=module.__doc__)
+    toplevel_functions: List[Callable] = _get_module_toplevel_functions(
+        module=module)
     pass
+
+
+def _get_module_toplevel_functions(module: ModuleType) -> List[Callable]:
+    """
+    Get top-level functions from a specified module.
+
+    Parameters
+    ----------
+    module : ModuleType
+        Target module.
+
+    Returns
+    -------
+    toplevel_functions : list of Callable
+        Top-level functions.
+    """
+    members: List[Tuple[str, Callable]] = inspect.getmembers(
+        module, predicate=inspect.isfunction)
+    toplevel_functions: List[Callable] = [
+        function for _, function in members]
+    return toplevel_functions
 
 
 def _append_module_docstring_to_markdown(

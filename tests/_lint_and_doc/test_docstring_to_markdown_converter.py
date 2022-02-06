@@ -2,7 +2,7 @@ from random import randint
 import os
 import shutil
 from types import ModuleType
-from typing import List
+from typing import Callable, List
 
 from retrying import retry
 
@@ -132,7 +132,7 @@ def teardown() -> None:
     _remove_test_module_dir()
 
 
-# @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_module_docstring_to_markdown() -> None:
     _save_test_module()
     markdown: str = docstring_to_markdown_converter.\
@@ -157,4 +157,14 @@ def test__append_module_docstring_to_markdown() -> None:
     ]
     for expected_str in expected_strs:
         assert expected_str in markdown
-    _remove_test_module_dir()
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_module_toplevel_functions() -> None:
+    _save_test_module()
+    module: ModuleType = module_util.read_target_path_module(
+        module_path=_TEST_MODULE_PATH)
+    toplevel_functions: List[Callable] = docstring_to_markdown_converter.\
+        _get_module_toplevel_functions(module=module)
+    assert len(toplevel_functions) == 1
+    assert toplevel_functions[0].__name__ == 'sample_func_1'

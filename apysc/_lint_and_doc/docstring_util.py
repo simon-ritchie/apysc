@@ -364,7 +364,7 @@ def _convert_docstring_to_markdown(
     raises: List[Raise] = extract_raise_values_from_docstring(
         docstring=docstring)
     notes: str = extract_notes_from_docstring(docstring=docstring)
-    examples: List[_Example] = extract_example_values_from_docstring(
+    examples: List[Example] = extract_example_values_from_docstring(
         docstring=docstring)
     references: List[Reference] = extract_reference_values_from_docstring(
         docstring=docstring)
@@ -748,7 +748,7 @@ class Reference:
         return True
 
 
-class _Example:
+class Example:
     """Example value type.
     """
 
@@ -810,7 +810,7 @@ class _Example:
             If each attribute is equal to the other, this
             method returns True.
         """
-        if not isinstance(other, _Example):
+        if not isinstance(other, Example):
             return False
         if self.input_code_block != other.input_code_block:
             return False
@@ -852,7 +852,7 @@ def _slice_references_by_md_file_path(
 
 
 def append_examples_to_markdown(
-        *, markdown: str, examples: List[_Example]) -> str:
+        *, markdown: str, examples: List[Example]) -> str:
     """
     Append examples to a specified markdown string.
 
@@ -860,7 +860,7 @@ def append_examples_to_markdown(
     ----------
     markdown : str
         Target markdown string.
-    examples : list of _Example
+    examples : list of Example
         Examples list value to append to.
 
     Returns
@@ -887,7 +887,7 @@ def append_examples_to_markdown(
 
 
 def extract_example_values_from_docstring(
-        *, docstring: str) -> List[_Example]:
+        *, docstring: str) -> List[Example]:
     """
     Extract example values from a docstring.
 
@@ -898,14 +898,14 @@ def extract_example_values_from_docstring(
 
     Returns
     -------
-    example_values : list of _Example
+    example_values : list of Example
         Extracted example values.
     """
     lines: List[str] = docstring.splitlines()
     lines = _remove_blank_lines_from_list(lines=lines)
     is_example_section_range: bool = False
     input_code_block_lines: List[str] = []
-    example_values: List[_Example] = []
+    example_values: List[Example] = []
     for line in lines:
         if _is_target_section_pattern_line(
                 line=line,
@@ -934,7 +934,7 @@ def extract_example_values_from_docstring(
 
 def _make_example_and_append_to_list(
         *,
-        example_values: List[_Example],
+        example_values: List[Example],
         input_code_block_lines: List[str],
         expected_output: str) -> None:
     """
@@ -946,7 +946,7 @@ def _make_example_and_append_to_list(
 
     Parameters
     ----------
-    example_values : list of _Example
+    example_values : list of Example
         A list to append an example value.
     input_code_block_lines : list of str
         A list of input code block lines.
@@ -958,7 +958,7 @@ def _make_example_and_append_to_list(
     input_code_block_lines_: List[str] = [
         line.strip() for line in input_code_block_lines]
     input_code_block: str = '\n'.join(input_code_block_lines_)
-    example: _Example = _Example(
+    example: Example = Example(
         input_code_block=input_code_block,
         expected_output=expected_output.strip())
     example_values.append(example)

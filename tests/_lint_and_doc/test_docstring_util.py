@@ -12,7 +12,7 @@ from apysc._lint_and_doc import docstring_util
 from apysc._lint_and_doc.docstring_util import \
     _DocstringCallableNotExistsError
 from apysc._lint_and_doc.docstring_util import _DocstringPathNotFoundError
-from apysc._lint_and_doc.docstring_util import _Example
+from apysc._lint_and_doc.docstring_util import Example
 from apysc._lint_and_doc.docstring_util import Parameter
 from apysc._lint_and_doc.docstring_util import _ParamOrRtnBase
 from apysc._lint_and_doc.docstring_util import Raise
@@ -1162,7 +1162,7 @@ class Test_Example:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        example: _Example = _Example(
+        example: Example = Example(
             input_code_block='x = 10\nx',
             expected_output='10')
         assert_attrs(
@@ -1174,38 +1174,38 @@ class Test_Example:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_input_code_block(self) -> None:
-        example: _Example = _Example(
+        example: Example = Example(
             input_code_block='x = 10\nx',
             expected_output='10')
         assert example.input_code_block == 'x = 10\nx'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_expected_output(self) -> None:
-        example: _Example = _Example(
+        example: Example = Example(
             input_code_block='x = 10\nx',
             expected_output='10')
         assert example.expected_output == '10'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:
-        example: _Example = _Example(
+        example: Example = Example(
             input_code_block='x = 10\nx',
             expected_output='10')
 
         result: bool = example == 10
         assert not result
 
-        other: _Example = _Example(
+        other: Example = Example(
             input_code_block='x = 10', expected_output='10')
         result = example == other
         assert not result
 
-        other = _Example(
+        other = Example(
             input_code_block='x = 10\nx', expected_output='20')
         result = example == other
         assert not result
 
-        other = _Example(
+        other = Example(
             input_code_block='x = 10\nx', expected_output='10')
         result = example == other
         assert result
@@ -1228,7 +1228,7 @@ def test__is_example_output_line() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__make_example_and_append_to_list() -> None:
-    example_values: List[_Example] = []
+    example_values: List[Example] = []
     docstring_util._make_example_and_append_to_list(
         example_values=example_values,
         input_code_block_lines=[],
@@ -1245,7 +1245,7 @@ def test__make_example_and_append_to_list() -> None:
         expected_output='    10')
     assert input_code_block_lines == []
     assert example_values == [
-        _Example(
+        Example(
             input_code_block='>>> x = 10\n>>> x',
             expected_output='10')
     ]
@@ -1253,17 +1253,17 @@ def test__make_example_and_append_to_list() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_extract_example_values_from_docstring() -> None:
-    example_values: List[_Example] = docstring_util.\
+    example_values: List[Example] = docstring_util.\
         extract_example_values_from_docstring(docstring=_TEST_DOCSTRING)
     assert len(example_values) == 3
-    assert example_values[0] == _Example(
+    assert example_values[0] == Example(
         input_code_block=(
             '>>> test_value_1: int = 10'
             '\n>>> test_value_1'
         ),
         expected_output='10')
 
-    assert example_values[1] == _Example(
+    assert example_values[1] == Example(
         input_code_block=(
             '>>> test_value_2: int = test_function('
             '\n...    any_arg=10)'
@@ -1271,7 +1271,7 @@ def test_extract_example_values_from_docstring() -> None:
         ),
         expected_output='30')
 
-    assert example_values[2] == _Example(
+    assert example_values[2] == Example(
         input_code_block=(
             '>>> test_value_3: int = x + 10'
         ),
@@ -1286,14 +1286,14 @@ def test_append_examples_to_markdown() -> None:
         examples=[])
     assert markdown == '## add_child interface api document'
 
-    examples: List[_Example] = [
-        _Example(
+    examples: List[Example] = [
+        Example(
             input_code_block=(
                 '>>> x = 10'
                 '\n>>> x'
             ),
             expected_output='10'),
-        _Example(
+        Example(
             input_code_block=(
                 '>>> y = x + 10'
             ),

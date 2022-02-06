@@ -626,9 +626,9 @@ def test__make_raise_description_and_append_to_list() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__extract_raise_values_from_docstring() -> None:
+def test_extract_raise_values_from_docstring() -> None:
     raise_values: List[_Raise] = docstring_util.\
-        _extract_raise_values_from_docstring(docstring=_TEST_DOCSTRING)
+        extract_raise_values_from_docstring(docstring=_TEST_DOCSTRING)
     assert len(raise_values) == 2
     expected_raise: _Raise = _Raise(
         err_class_name='ValueError',

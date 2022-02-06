@@ -361,7 +361,7 @@ def _convert_docstring_to_markdown(
             target_type=_Parameter, docstring=docstring)
     returns: List[_Return] = extract_param_or_rtn_values_from_docstring(
         target_type=_Return, docstring=docstring)
-    raises: List[_Raise] = _extract_raise_values_from_docstring(
+    raises: List[_Raise] = extract_raise_values_from_docstring(
         docstring=docstring)
     notes: str = extract_notes_from_docstring(docstring=docstring)
     examples: List[_Example] = _extract_example_values_from_docstring(
@@ -1201,7 +1201,7 @@ def _remove_unnecessary_markdown_list_from_line(
     return line
 
 
-def _extract_raise_values_from_docstring(*, docstring: str) -> List[_Raise]:
+def extract_raise_values_from_docstring(*, docstring: str) -> List[_Raise]:
     """
     Extract raise values from a docstring.
 

@@ -382,9 +382,9 @@ def _convert_docstring_to_markdown(
     markdown = append_summary_to_markdown(
         markdown=markdown, summary=summary,
         heading_label='**[Interface summary]** ')
-    markdown = _append_params_or_rtns_to_markdown(
+    markdown = append_params_or_rtns_to_markdown(
         markdown=markdown, params_or_rtns=parameters)
-    markdown = _append_params_or_rtns_to_markdown(
+    markdown = append_params_or_rtns_to_markdown(
         markdown=markdown, params_or_rtns=returns)
     markdown = _append_raises_to_markdown(markdown=markdown, raises=raises)
     markdown = append_notes_to_markdown(markdown=markdown, notes=notes)
@@ -1050,7 +1050,7 @@ def _append_raises_to_markdown(
 _ParamOrRtn = TypeVar('_ParamOrRtn', _Parameter, _Return)
 
 
-def _append_params_or_rtns_to_markdown(
+def append_params_or_rtns_to_markdown(
         *, markdown: str,
         params_or_rtns: List[_ParamOrRtn]) -> str:
     """

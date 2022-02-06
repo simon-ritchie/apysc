@@ -804,9 +804,9 @@ def test_extract_reference_values_from_docstring() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__append_params_or_rtns_to_markdown() -> None:
+def test_append_params_or_rtns_to_markdown() -> None:
     markdown: str = '## add_child interface api document'
-    markdown = docstring_util._append_params_or_rtns_to_markdown(
+    markdown = docstring_util.append_params_or_rtns_to_markdown(
         markdown=markdown, params_or_rtns=[])
     assert markdown == '## add_child interface api document'
 
@@ -818,7 +818,7 @@ def test__append_params_or_rtns_to_markdown() -> None:
             name='test_param_2', type_str='str, optional',
             description='Amet, consectetur adipiscing elit.'),
     ]
-    markdown = docstring_util._append_params_or_rtns_to_markdown(
+    markdown = docstring_util.append_params_or_rtns_to_markdown(
         markdown=markdown, params_or_rtns=parameters)
     expected: str = (
         '## add_child interface api document'
@@ -837,7 +837,7 @@ def test__append_params_or_rtns_to_markdown() -> None:
             type_str='int',
             description='Lorem  ipsum dolor sit.'),
     ]
-    markdown = docstring_util._append_params_or_rtns_to_markdown(
+    markdown = docstring_util.append_params_or_rtns_to_markdown(
         markdown=markdown, params_or_rtns=returns)
     expected = (
         '## add_child interface api document'

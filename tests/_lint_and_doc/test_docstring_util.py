@@ -1352,8 +1352,8 @@ def test_get_docstring_src_module_paths() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__remove_trailing_hr_tag() -> None:
-    markdown: str = docstring_util._remove_trailing_hr_tag(
+def test_remove_trailing_hr_tag() -> None:
+    markdown: str = docstring_util.remove_trailing_hr_tag(
         markdown='Lorem ipsum dolor sit.\n\n<hr>\n')
     assert markdown == 'Lorem ipsum dolor sit.'
 

@@ -392,11 +392,11 @@ def _convert_docstring_to_markdown(
         markdown=markdown, examples=examples)
     markdown = append_references_to_markdown(
         markdown=markdown, references=references)
-    markdown = _remove_trailing_hr_tag(markdown=markdown)
+    markdown = remove_trailing_hr_tag(markdown=markdown)
     return markdown
 
 
-def _remove_trailing_hr_tag(*, markdown: str) -> str:
+def remove_trailing_hr_tag(*, markdown: str) -> str:
     """
     Remove a trailing `<hr>` tag from a specified markdown string.
 

@@ -54,9 +54,10 @@ def _convert_module_docstring_to_markdown(
         Converted markdown string.
     """
     markdown: str = f'# {module.__name__} docstrings'
-    markdown = _append_module_docstring_to_markdown(
+    markdown = _append_mod_or_class_summary_docstring_to_markdown(
         markdown=markdown,
-        module_docstring=module.__doc__)
+        docstring=module.__doc__,
+        summary_heading='## Module summary')
 
     toplevel_functions: List[Callable] = _get_module_toplevel_functions(
         module=module)
@@ -66,6 +67,33 @@ def _convert_module_docstring_to_markdown(
 
     toplevel_classes: List[Type] = _get_toplevel_classes(
         module=module)
+    for toplevel_class in toplevel_classes:
+        markdown = _append_toplevel_class_docstring_to_markdown(
+            markdown=markdown, toplevel_class=toplevel_class)
+    pass
+
+
+def _append_toplevel_class_docstring_to_markdown(
+        markdown: str, toplevel_class: Type) -> str:
+    """
+    Append a top-level class docstring to a specified
+    markdown string.
+
+    Parameters
+    ----------
+    markdown : str
+        Target markdown string.
+    toplevel_class : Type
+        Target top-level class.
+
+    Returns
+    -------
+    markdown : str
+        Result markdown string.
+    """
+    if markdown != '':
+        markdown += '\n\n'
+    markdown += f'## {toplevel_class.__name__} class docstring'
     pass
 
 
@@ -93,7 +121,8 @@ def _append_toplevel_function_docstring_to_markdown(
         *, markdown: str,
         toplevel_function: Callable) -> str:
     """
-    Append a top-level function docstring to a markdown string.
+    Append a top-level function docstring to a specified
+    markdown string.
 
     Parameters
     ----------
@@ -197,19 +226,22 @@ def _get_module_toplevel_functions(*, module: ModuleType) -> List[Callable]:
     return toplevel_functions
 
 
-def _append_module_docstring_to_markdown(
+def _append_mod_or_class_summary_docstring_to_markdown(
         *, markdown: str,
-        module_docstring: Optional[str]) -> str:
+        docstring: Optional[str],
+        summary_heading: str) -> str:
     """
-    Append a module description docstring to a specified
-    markdown string.
+    Append a module or class description docstring to a
+    specified markdown string.
 
     Parameters
     ----------
     markdown : str
         Target markdown string.
-    module_docstring : str or None
-        Target module description docstring.
+    docstring : str or None
+        Target module or class description docstring.
+    summary_heading : str
+        Summary heading string.
 
     Returns
     -------
@@ -218,18 +250,18 @@ def _append_module_docstring_to_markdown(
     """
     from apysc._lint_and_doc import docstring_util
     from apysc._lint_and_doc.docstring_util import Reference
-    if module_docstring is None:
+    if docstring is None:
         return markdown
     summary: str = docstring_util.extract_summary_from_docstring(
-        docstring=module_docstring)
+        docstring=docstring)
     notes: str = docstring_util.extract_notes_from_docstring(
-        docstring=module_docstring)
+        docstring=docstring)
     references: List[Reference] = docstring_util.\
-        extract_reference_values_from_docstring(docstring=module_docstring)
+        extract_reference_values_from_docstring(docstring=docstring)
 
     if markdown != '':
         markdown += '\n\n'
-    markdown += '## Module summary'
+    markdown += summary_heading
     markdown = docstring_util.append_summary_to_markdown(
         markdown=markdown, summary=summary,
         heading_label='')

@@ -787,9 +787,9 @@ def test__make_reference_and_append_to_list() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__extract_reference_values_from_docstring() -> None:
+def test_extract_reference_values_from_docstring() -> None:
     reference_values: List[_Reference] = docstring_util.\
-        _extract_reference_values_from_docstring(
+        extract_reference_values_from_docstring(
             docstring=_TEST_DOCSTRING)
     assert len(reference_values) == 2
     expected_reference: _Reference = _Reference(

@@ -366,7 +366,7 @@ def _convert_docstring_to_markdown(
     notes: str = extract_notes_from_docstring(docstring=docstring)
     examples: List[_Example] = _extract_example_values_from_docstring(
         docstring=docstring)
-    references: List[_Reference] = _extract_reference_values_from_docstring(
+    references: List[_Reference] = extract_reference_values_from_docstring(
         docstring=docstring)
     references = _slice_references_by_md_file_path(
         references=references, md_file_path=md_file_path)
@@ -1086,7 +1086,7 @@ def _append_params_or_rtns_to_markdown(
     return markdown
 
 
-def _extract_reference_values_from_docstring(
+def extract_reference_values_from_docstring(
         *, docstring: str) -> List[_Reference]:
     """
     Extract reference values from a docstring.

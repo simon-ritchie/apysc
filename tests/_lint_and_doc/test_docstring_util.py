@@ -913,9 +913,9 @@ def test_append_notes_to_markdown() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__append_references_to_markdown() -> None:
+def test_append_references_to_markdown() -> None:
     markdown: str = '## add_child interface api document'
-    markdown = docstring_util._append_references_to_markdown(
+    markdown = docstring_util.append_references_to_markdown(
         markdown=markdown, references=[])
     assert markdown == '## add_child interface api document'
 
@@ -927,9 +927,9 @@ def test__append_references_to_markdown() -> None:
             page_label='DisplayObject document',
             url='https://simon-ritchie.github.io/apysc/display_object.html')
     ]
-    markdown = docstring_util._append_references_to_markdown(
+    markdown = docstring_util.append_references_to_markdown(
         markdown=markdown, references=references)
-    markdown = docstring_util._append_references_to_markdown(
+    markdown = docstring_util.append_references_to_markdown(
         markdown=markdown, references=[])
     expected: str = (
         '## add_child interface api document'

@@ -390,7 +390,7 @@ def _convert_docstring_to_markdown(
     markdown = append_notes_to_markdown(markdown=markdown, notes=notes)
     markdown = _append_examples_to_markdown(
         markdown=markdown, examples=examples)
-    markdown = _append_references_to_markdown(
+    markdown = append_references_to_markdown(
         markdown=markdown, references=references)
     markdown = _remove_trailing_hr_tag(markdown=markdown)
     return markdown
@@ -987,7 +987,7 @@ def _is_example_output_line(*, line: str) -> bool:
     return True
 
 
-def _append_references_to_markdown(
+def append_references_to_markdown(
         markdown: str, references: List[_Reference]) -> str:
     """
     Append references to a specified markdown string.

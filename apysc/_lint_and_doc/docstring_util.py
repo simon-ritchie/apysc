@@ -364,7 +364,7 @@ def _convert_docstring_to_markdown(
     raises: List[_Raise] = extract_raise_values_from_docstring(
         docstring=docstring)
     notes: str = extract_notes_from_docstring(docstring=docstring)
-    examples: List[_Example] = _extract_example_values_from_docstring(
+    examples: List[_Example] = extract_example_values_from_docstring(
         docstring=docstring)
     references: List[_Reference] = extract_reference_values_from_docstring(
         docstring=docstring)
@@ -886,7 +886,7 @@ def _append_examples_to_markdown(
     return markdown
 
 
-def _extract_example_values_from_docstring(
+def extract_example_values_from_docstring(
         *, docstring: str) -> List[_Example]:
     """
     Extract example values from a docstring.

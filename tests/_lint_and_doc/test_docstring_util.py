@@ -1252,9 +1252,9 @@ def test__make_example_and_append_to_list() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__extract_example_values_from_docstring() -> None:
+def test_extract_example_values_from_docstring() -> None:
     example_values: List[_Example] = docstring_util.\
-        _extract_example_values_from_docstring(docstring=_TEST_DOCSTRING)
+        extract_example_values_from_docstring(docstring=_TEST_DOCSTRING)
     assert len(example_values) == 3
     assert example_values[0] == _Example(
         input_code_block=(

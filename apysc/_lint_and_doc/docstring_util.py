@@ -366,7 +366,7 @@ def _convert_docstring_to_markdown(
     notes: str = extract_notes_from_docstring(docstring=docstring)
     examples: List[_Example] = extract_example_values_from_docstring(
         docstring=docstring)
-    references: List[_Reference] = extract_reference_values_from_docstring(
+    references: List[Reference] = extract_reference_values_from_docstring(
         docstring=docstring)
     references = _slice_references_by_md_file_path(
         references=references, md_file_path=md_file_path)
@@ -679,7 +679,7 @@ class Raise:
         return True
 
 
-class _Reference:
+class Reference:
     """Reference value type.
     """
 
@@ -739,7 +739,7 @@ class _Reference:
             If each attribute is equal to the other, this
             method returns True.
         """
-        if not isinstance(other, _Reference):
+        if not isinstance(other, Reference):
             return False
         if self.page_label != other.page_label:
             return False
@@ -820,27 +820,27 @@ class _Example:
 
 
 def _slice_references_by_md_file_path(
-        references: List[_Reference],
-        md_file_path: str) -> List[_Reference]:
+        references: List[Reference],
+        md_file_path: str) -> List[Reference]:
     """
     Slice a specified references list to exclude a same
     URL's document file.
 
     Parameters
     ----------
-    references : list of _Reference
+    references : list of Reference
         Target references list to slice.
     md_file_path : str
         Target markdown file path.
 
     Returns
     -------
-    sliced_references : list of _Reference
+    sliced_references : list of Reference
         Sliced list.
     """
     md_file_name: str = os.path.basename(md_file_path)
     md_file_name = md_file_name.rsplit('.', maxsplit=1)[0]
-    sliced_references: List[_Reference] = []
+    sliced_references: List[Reference] = []
     for reference in references:
         reference_file_name: str = reference.url.rsplit('/', 1)[-1]
         reference_file_name = reference_file_name.rsplit(
@@ -988,7 +988,7 @@ def _is_example_output_line(*, line: str) -> bool:
 
 
 def append_references_to_markdown(
-        markdown: str, references: List[_Reference]) -> str:
+        markdown: str, references: List[Reference]) -> str:
     """
     Append references to a specified markdown string.
 
@@ -996,7 +996,7 @@ def append_references_to_markdown(
     ----------
     markdown : str
         Target markdown string.
-    references : list of _Reference
+    references : list of Reference
         References list value to append to.
 
     Returns
@@ -1087,7 +1087,7 @@ def append_params_or_rtns_to_markdown(
 
 
 def extract_reference_values_from_docstring(
-        *, docstring: str) -> List[_Reference]:
+        *, docstring: str) -> List[Reference]:
     """
     Extract reference values from a docstring.
 
@@ -1098,7 +1098,7 @@ def extract_reference_values_from_docstring(
 
     Returns
     -------
-    reference_values : list of _Reference
+    reference_values : list of Reference
         Extracted reference values.
     """
     lines: List[str] = docstring.splitlines()
@@ -1107,7 +1107,7 @@ def extract_reference_values_from_docstring(
     page_label: str = ''
     url: str = ''
     base_indent_num: int = 0
-    reference_values: List[_Reference] = []
+    reference_values: List[Reference] = []
     for line in lines:
         current_indent_num: int = _get_indent_num_from_line(line=line)
         base_indent_num = _get_base_indent_num_if_not_set(
@@ -1159,7 +1159,7 @@ def _remove_noqa(string: str) -> str:
 
 def _make_reference_and_append_to_list(
         *,
-        reference_values: List[_Reference],
+        reference_values: List[Reference],
         page_label: str,
         url: str) -> None:
     """
@@ -1167,7 +1167,7 @@ def _make_reference_and_append_to_list(
 
     Parameters
     ----------
-    reference_values : list of _Reference
+    reference_values : list of Reference
         A list to append a reference value.
     page_label : str
         Target reference page label.
@@ -1176,7 +1176,7 @@ def _make_reference_and_append_to_list(
     """
     if url == '':
         return
-    reference: _Reference = _Reference(
+    reference: Reference = Reference(
         page_label=page_label, url=url)
     reference_values.append(reference)
 

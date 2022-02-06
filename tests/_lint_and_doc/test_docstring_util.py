@@ -16,7 +16,7 @@ from apysc._lint_and_doc.docstring_util import _Example
 from apysc._lint_and_doc.docstring_util import Parameter
 from apysc._lint_and_doc.docstring_util import _ParamOrRtnBase
 from apysc._lint_and_doc.docstring_util import Raise
-from apysc._lint_and_doc.docstring_util import _Reference
+from apysc._lint_and_doc.docstring_util import Reference
 from apysc._lint_and_doc.docstring_util import Return
 from apysc._lint_and_doc.docstring_util import _SectionPattern
 from tests.testing_helper import assert_attrs
@@ -707,7 +707,7 @@ class Test_Reference:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        reference: _Reference = _Reference(
+        reference: Reference = Reference(
             page_label='Sprite document',
             url='https://simon-ritchie.github.io/apysc/sprite.html')
         assert_attrs(
@@ -719,14 +719,14 @@ class Test_Reference:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_page_label(self) -> None:
-        reference: _Reference = _Reference(
+        reference: Reference = Reference(
             page_label='Sprite document',
             url='https://simon-ritchie.github.io/apysc/sprite.html')
         assert reference.page_label == 'Sprite document'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_url(self) -> None:
-        reference: _Reference = _Reference(
+        reference: Reference = Reference(
             page_label='Sprite document',
             url='https://simon-ritchie.github.io/apysc/sprite.html')
         assert reference.url == \
@@ -734,25 +734,25 @@ class Test_Reference:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:
-        reference: _Reference = _Reference(
+        reference: Reference = Reference(
             page_label='Sprite document',
             url='https://simon-ritchie.github.io/apysc/sprite.html')
         result: bool = reference == 10
         assert not result
 
-        other: _Reference = _Reference(
+        other: Reference = Reference(
             page_label='DisplayObject document',
             url='https://simon-ritchie.github.io/apysc/sprite.html')
         result = reference == other
         assert not result
 
-        other = _Reference(
+        other = Reference(
             page_label='Sprite document',
             url='https://simon-ritchie.github.io/apysc/display_object.html')
         result = reference == other
         assert not result
 
-        other = _Reference(
+        other = Reference(
             page_label='Sprite document',
             url='https://simon-ritchie.github.io/apysc/sprite.html')
         result = reference == other
@@ -768,7 +768,7 @@ def test__remove_unnecessary_markdown_list_from_line() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__make_reference_and_append_to_list() -> None:
-    reference_values: List[_Reference] = []
+    reference_values: List[Reference] = []
 
     docstring_util._make_reference_and_append_to_list(
         reference_values=reference_values,
@@ -780,7 +780,7 @@ def test__make_reference_and_append_to_list() -> None:
         reference_values=reference_values,
         page_label='Sprite document',
         url='https://simon-ritchie.github.io/apysc/sprite.html')
-    expected_reference: _Reference = _Reference(
+    expected_reference: Reference = Reference(
         page_label='Sprite document',
         url='https://simon-ritchie.github.io/apysc/sprite.html')
     assert reference_values == [expected_reference]
@@ -788,16 +788,16 @@ def test__make_reference_and_append_to_list() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_extract_reference_values_from_docstring() -> None:
-    reference_values: List[_Reference] = docstring_util.\
+    reference_values: List[Reference] = docstring_util.\
         extract_reference_values_from_docstring(
             docstring=_TEST_DOCSTRING)
     assert len(reference_values) == 2
-    expected_reference: _Reference = _Reference(
+    expected_reference: Reference = Reference(
         page_label='Test interface1 document',
         url='https://en.wikipedia.org/test_page_1.html')
     assert reference_values[0] == expected_reference
 
-    expected_reference = _Reference(
+    expected_reference = Reference(
         page_label='Test interface2 document',
         url='https://en.wikipedia.org/test_page_2.html')
     assert reference_values[1] == expected_reference
@@ -919,11 +919,11 @@ def test_append_references_to_markdown() -> None:
         markdown=markdown, references=[])
     assert markdown == '## add_child interface api document'
 
-    references: List[_Reference] = [
-        _Reference(
+    references: List[Reference] = [
+        Reference(
             page_label='Sprite document',
             url='https://simon-ritchie.github.io/apysc/sprite.html'),
-        _Reference(
+        Reference(
             page_label='DisplayObject document',
             url='https://simon-ritchie.github.io/apysc/display_object.html')
     ]
@@ -1324,20 +1324,20 @@ def test_append_examples_to_markdown() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__slice_references_by_md_file_path() -> None:
-    references: List[_Reference] = [
-        _Reference(
+    references: List[Reference] = [
+        Reference(
             page_label='test document 1',
             url='https://simon-ritchie.github.io/apysc/sprite.html'),
-        _Reference(
+        Reference(
             page_label='test document 1',
             url='https://simon-ritchie.github.io/apysc/display_object.html'),
     ]
-    sliced_references: List[_Reference] = docstring_util.\
+    sliced_references: List[Reference] = docstring_util.\
         _slice_references_by_md_file_path(
             references=references,
             md_file_path='./docs_src/source/sprite.md')
     assert sliced_references == [
-        _Reference(
+        Reference(
             page_label='test document 1',
             url='https://simon-ritchie.github.io/apysc/display_object.html')
     ]

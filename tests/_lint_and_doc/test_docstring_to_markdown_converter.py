@@ -235,3 +235,20 @@ def test__get_toplevel_classes() -> None:
         _get_toplevel_classes(module=module)
     assert len(toplevel_classes) == 1
     assert toplevel_classes[0].__name__ == '_SampleClass'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_methods_from_class() -> None:
+    _save_test_module()
+    module: ModuleType = module_util.read_target_path_module(
+        module_path=_TEST_MODULE_PATH)
+    toplevel_classes: List[Type] = docstring_to_markdown_converter.\
+        _get_toplevel_classes(module=module)
+    methods: List[Callable] = docstring_to_markdown_converter.\
+        _get_methods_from_class(class_=toplevel_classes[0])
+    expected_method_names: List[str] = [
+        '__init__', 'sample_method_1',
+    ]
+    for method in methods:
+        assert callable(method)
+        assert method.__name__ in expected_method_names

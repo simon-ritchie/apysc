@@ -53,16 +53,84 @@ def _convert_module_docstring_to_markdown(
     markdown : str
         Converted markdown string.
     """
-    markdown: str = ''
+    markdown: str = f'# {module.__name__} docstrings'
     markdown = _append_module_docstring_to_markdown(
         markdown=markdown,
         module_docstring=module.__doc__)
+
     toplevel_functions: List[Callable] = _get_module_toplevel_functions(
         module=module)
+    for toplevel_function in toplevel_functions:
+        markdown = _append_toplevel_function_docstring_to_markdown(
+            markdown=markdown, toplevel_function=toplevel_function)
     pass
 
 
-def _get_module_toplevel_functions(module: ModuleType) -> List[Callable]:
+def _append_toplevel_function_docstring_to_markdown(
+        *, markdown: str,
+        toplevel_function: Callable) -> str:
+    """
+    Append a top-level function docstring to a markdown string.
+
+    Parameters
+    ----------
+    markdown : str
+        Target markdown string.
+    toplevel_function : Callable
+        Target top-level functions.
+
+    Returns
+    -------
+    markdown : str
+        Result markdown string.
+    """
+    from apysc._lint_and_doc import docstring_util
+    from apysc._lint_and_doc.docstring_util import Parameter, Return, Raise, Example, Reference
+    if toplevel_function.__doc__ is None:
+        return markdown
+    if markdown != '':
+        markdown += '\n\n'
+    markdown += f'## {toplevel_function.__name__} function docstring'
+
+    summary: str = docstring_util.extract_summary_from_docstring(
+        docstring=toplevel_function.__doc__)
+    parameters: List[Parameter] = \
+        docstring_util.extract_param_or_rtn_values_from_docstring(
+            target_type=Parameter, docstring=toplevel_function.__doc__)
+    returns: List[Return] = \
+        docstring_util.extract_param_or_rtn_values_from_docstring(
+            target_type=Return, docstring=toplevel_function.__doc__)
+    raises: List[Raise] = docstring_util.extract_raise_values_from_docstring(
+        docstring=toplevel_function.__doc__)
+    notes: str = docstring_util.extract_notes_from_docstring(
+        docstring=toplevel_function.__doc__)
+    examples: List[Example] = \
+        docstring_util.extract_example_values_from_docstring(
+            docstring=toplevel_function.__doc__)
+    references: List[Reference] = \
+        docstring_util.extract_reference_values_from_docstring(
+            docstring=toplevel_function.__doc__)
+
+    markdown = docstring_util.append_summary_to_markdown(
+        markdown=markdown, summary=summary,
+        heading_label='')
+    markdown = docstring_util.append_params_or_rtns_to_markdown(
+        markdown=markdown, params_or_rtns=parameters)
+    markdown = docstring_util.append_params_or_rtns_to_markdown(
+        markdown=markdown, params_or_rtns=returns)
+    markdown = docstring_util.append_raises_to_markdown(
+        markdown=markdown, raises=raises)
+    markdown = docstring_util.append_notes_to_markdown(
+        markdown=markdown, notes=notes)
+    markdown = docstring_util.append_examples_to_markdown(
+        markdown=markdown, examples=examples)
+    markdown = docstring_util.append_references_to_markdown(
+        markdown=markdown, references=references)
+    markdown = docstring_util.remove_trailing_hr_tag(markdown=markdown)
+    return markdown
+
+
+def _get_module_toplevel_functions(*, module: ModuleType) -> List[Callable]:
     """
     Get top-level functions from a specified module.
 

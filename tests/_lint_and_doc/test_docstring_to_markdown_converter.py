@@ -73,6 +73,11 @@ def sample_func_1(a: int, b: bool) -> str:
         - https://simon-ritchie.github.io/apysc/test_doc_3.html
     - Velit esse cillum dolore eu fugiat nulla pariatur
         - https://simon-ritchie.github.io/apysc/test_doc_4.html
+
+    Raises
+    ------
+    ValueError
+        Lorem ipsum dolor sit amet, consectetur adipiscing.
     """
     ...
 
@@ -168,3 +173,35 @@ def test__get_module_toplevel_functions() -> None:
         _get_module_toplevel_functions(module=module)
     assert len(toplevel_functions) == 1
     assert toplevel_functions[0].__name__ == 'sample_func_1'
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__append_toplevel_function_docstring_to_markdown() -> None:
+    _save_test_module()
+    markdown: str = docstring_to_markdown_converter.\
+        _append_toplevel_function_docstring_to_markdown(
+            markdown='',
+            toplevel_function=(
+                test__append_toplevel_function_docstring_to_markdown))
+    assert markdown == ''
+
+    module: ModuleType = module_util.read_target_path_module(
+        module_path=_TEST_MODULE_PATH)
+    toplevel_functions: List[Callable] = docstring_to_markdown_converter.\
+        _get_module_toplevel_functions(module=module)
+    markdown = docstring_to_markdown_converter.\
+        _append_toplevel_function_docstring_to_markdown(
+            markdown='# Test docstring\n\nLorem ipsum dolor.',
+            toplevel_function=toplevel_functions[0])
+    expected_strs: List[str] = [
+        '# Test docstring\n\nLorem ipsum dolor.\n\n',
+        f'## {toplevel_functions[0].__name__} function docstring',
+        '**[Parameters]**',
+        '**[Returns]**',
+        '**[Raises]**',
+        '**[Notes]**',
+        '**[Examples]**',
+        '**[References]**',
+    ]
+    for expected_str in expected_strs:
+        assert expected_str in markdown

@@ -13,7 +13,7 @@ from apysc._lint_and_doc.docstring_util import \
     _DocstringCallableNotExistsError
 from apysc._lint_and_doc.docstring_util import _DocstringPathNotFoundError
 from apysc._lint_and_doc.docstring_util import _Example
-from apysc._lint_and_doc.docstring_util import _Parameter
+from apysc._lint_and_doc.docstring_util import Parameter
 from apysc._lint_and_doc.docstring_util import _ParamOrRtnBase
 from apysc._lint_and_doc.docstring_util import _Raise
 from apysc._lint_and_doc.docstring_util import _Reference
@@ -367,14 +367,14 @@ _TEST_DOCSTRING: str = (
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_extract_param_or_rtn_values_from_docstring() -> None:
-    param_values: List[_Parameter] = docstring_util.\
+    param_values: List[Parameter] = docstring_util.\
         extract_param_or_rtn_values_from_docstring(
-            target_type=_Parameter,
+            target_type=Parameter,
             docstring=_TEST_DOCSTRING)
     assert len(param_values) == 2
     for parameter_ in param_values:
-        assert isinstance(parameter_, _Parameter)
-    parameter: _Parameter = _Parameter(
+        assert isinstance(parameter_, Parameter)
+    parameter: Parameter = Parameter(
         name='test_param_1',
         type_str='int',
         description=(
@@ -382,7 +382,7 @@ def test_extract_param_or_rtn_values_from_docstring() -> None:
             'ullamco laboris nisi.'
         ))
     assert param_values[0] == parameter
-    parameter = _Parameter(
+    parameter = Parameter(
         name='test_param_2',
         type_str='str, optional',
         description=(
@@ -420,10 +420,10 @@ def test_extract_param_or_rtn_values_from_docstring() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__make_prm_or_rtn_description_and_append_to_list() -> None:
-    parameters: List[_Parameter] = []
+    parameters: List[Parameter] = []
 
     docstring_util._make_prm_or_rtn_description_and_append_to_list(
-        target_type=_Parameter,
+        target_type=Parameter,
         param_or_rtn_values=parameters,
         value_name='test_value',
         value_type_str='int',
@@ -435,12 +435,12 @@ def test__make_prm_or_rtn_description_and_append_to_list() -> None:
         '    ducimus, qui blanditiis praesentium voluptatum.'
     ]
     docstring_util._make_prm_or_rtn_description_and_append_to_list(
-        target_type=_Parameter,
+        target_type=Parameter,
         param_or_rtn_values=parameters,
         value_name='test_value',
         value_type_str='int',
         description_lines=description_lines)
-    parameter: _Parameter = _Parameter(
+    parameter: Parameter = Parameter(
         name='test_value',
         type_str='int',
         description=(
@@ -448,7 +448,7 @@ def test__make_prm_or_rtn_description_and_append_to_list() -> None:
             'ducimus, qui blanditiis praesentium voluptatum.'
         ))
     assert parameters == [parameter]
-    assert isinstance(parameters[0], _Parameter)
+    assert isinstance(parameters[0], Parameter)
     assert description_lines == []
 
 
@@ -525,7 +525,7 @@ class Test_ParamOrRtnBase:
 def test__get_params_or_rtns_section_pattern_by_type() -> None:
     pattern: _SectionPattern = docstring_util.\
         _get_params_or_rtns_section_pattern_by_type(
-            target_type=_Parameter)
+            target_type=Parameter)
     assert pattern == _SectionPattern.PARAMETERS
 
     pattern = docstring_util._get_params_or_rtns_section_pattern_by_type(
@@ -810,11 +810,11 @@ def test_append_params_or_rtns_to_markdown() -> None:
         markdown=markdown, params_or_rtns=[])
     assert markdown == '## add_child interface api document'
 
-    parameters: List[_Parameter] = [
-        _Parameter(
+    parameters: List[Parameter] = [
+        Parameter(
             name='test_param_1', type_str='int',
             description='Lorem ipsum dolor sit.'),
-        _Parameter(
+        Parameter(
             name='test_param_2', type_str='str, optional',
             description='Amet, consectetur adipiscing elit.'),
     ]

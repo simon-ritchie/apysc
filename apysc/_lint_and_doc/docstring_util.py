@@ -356,9 +356,9 @@ def _convert_docstring_to_markdown(
         Converted markdown text.
     """
     summary: str = extract_summary_from_docstring(docstring=docstring)
-    parameters: List[_Parameter] = \
+    parameters: List[Parameter] = \
         extract_param_or_rtn_values_from_docstring(
-            target_type=_Parameter, docstring=docstring)
+            target_type=Parameter, docstring=docstring)
     returns: List[_Return] = extract_param_or_rtn_values_from_docstring(
         target_type=_Return, docstring=docstring)
     raises: List[_Raise] = extract_raise_values_from_docstring(
@@ -601,7 +601,7 @@ class _ParamOrRtnBase:
         return self._description
 
 
-class _Parameter(_ParamOrRtnBase):
+class Parameter(_ParamOrRtnBase):
     """Parameter value type.
     """
 
@@ -1047,7 +1047,7 @@ def append_raises_to_markdown(
     return markdown
 
 
-_ParamOrRtn = TypeVar('_ParamOrRtn', _Parameter, _Return)
+_ParamOrRtn = TypeVar('_ParamOrRtn', Parameter, _Return)
 
 
 def append_params_or_rtns_to_markdown(
@@ -1070,7 +1070,7 @@ def append_params_or_rtns_to_markdown(
     """
     if not params_or_rtns:
         return markdown
-    if isinstance(params_or_rtns[0], _Parameter):
+    if isinstance(params_or_rtns[0], Parameter):
         section_label: str = 'Parameters'
     else:
         section_label = 'Returns'
@@ -1374,13 +1374,13 @@ def extract_param_or_rtn_values_from_docstring(
     Parameters
     ----------
     target_type : Type
-        Target type of the _Parameter or _Return.
+        Target type of the Parameter or _Return.
     docstring : str
         Target docstring.
 
     Returns
     -------
-    param_or_rtn_values : list of _Parameter or _Return
+    param_or_rtn_values : list of Parameter or _Return
         Extracted parameter or return values.
     """
     lines: List[str] = docstring.splitlines()
@@ -1466,7 +1466,7 @@ def _get_params_or_rtns_section_pattern_by_type(
 
     Parameters
     ----------
-    target_type : _Parameter or _Return
+    target_type : Parameter or _Return
         Target type.
 
     Returns
@@ -1479,7 +1479,7 @@ def _get_params_or_rtns_section_pattern_by_type(
     ValueError
         If an invalid target type is provided.
     """
-    if target_type == _Parameter:
+    if target_type == Parameter:
         return _SectionPattern.PARAMETERS
     if target_type == _Return:
         return _SectionPattern.RETURNS
@@ -1505,7 +1505,7 @@ def _make_prm_or_rtn_description_and_append_to_list(
     Parameters
     ----------
     target_type : Type
-        Target type of the _Parameter or _Return.
+        Target type of the Parameter or _Return.
     param_or_rtn_values : lisf of _ParamOrRtnBase
         A list to append a parameter or return value.
     value_name : str

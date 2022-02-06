@@ -15,7 +15,7 @@ from apysc._lint_and_doc.docstring_util import _DocstringPathNotFoundError
 from apysc._lint_and_doc.docstring_util import _Example
 from apysc._lint_and_doc.docstring_util import Parameter
 from apysc._lint_and_doc.docstring_util import _ParamOrRtnBase
-from apysc._lint_and_doc.docstring_util import _Raise
+from apysc._lint_and_doc.docstring_util import Raise
 from apysc._lint_and_doc.docstring_util import _Reference
 from apysc._lint_and_doc.docstring_util import Return
 from apysc._lint_and_doc.docstring_util import _SectionPattern
@@ -545,7 +545,7 @@ class Test_Raise:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___init__(self) -> None:
-        raise_: _Raise = _Raise(
+        raise_: Raise = Raise(
             err_class_name='ValueError',
             description='Lorem ipsum dolor sit.')
         assert_attrs(
@@ -557,40 +557,40 @@ class Test_Raise:
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_err_class_name(self) -> None:
-        raise_: _Raise = _Raise(
+        raise_: Raise = Raise(
             err_class_name='ValueError',
             description='Lorem ipsum dolor sit.')
         assert raise_.err_class_name == 'ValueError'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test_description(self) -> None:
-        raise_: _Raise = _Raise(
+        raise_: Raise = Raise(
             err_class_name='ValueError',
             description='Lorem ipsum dolor sit.')
         assert raise_.description == 'Lorem ipsum dolor sit.'
 
     @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
     def test___eq__(self) -> None:
-        raise_: _Raise = _Raise(
+        raise_: Raise = Raise(
             err_class_name='ValueError',
             description='Lorem ipsum dolor sit.')
 
         result: bool = raise_ == 10
         assert not result
 
-        other: _Raise = _Raise(
+        other: Raise = Raise(
             err_class_name='ImportError',
             description='Lorem ipsum dolor sit.')
         result = raise_ == other
         assert not result
 
-        other = _Raise(
+        other = Raise(
             err_class_name='ValueError',
             description='Lorem ipsum dolor.')
         result = raise_ == other
         assert not result
 
-        other = _Raise(
+        other = Raise(
             err_class_name='ValueError',
             description='Lorem ipsum dolor sit.')
         result = raise_ == other
@@ -599,7 +599,7 @@ class Test_Raise:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__make_raise_description_and_append_to_list() -> None:
-    raise_values: List[_Raise] = []
+    raise_values: List[Raise] = []
 
     docstring_util._make_raise_description_and_append_to_list(
         raise_values=raise_values,
@@ -615,7 +615,7 @@ def test__make_raise_description_and_append_to_list() -> None:
             '    elit, sed do eiusmod tempor incididunt ut labore ',
             '    et dolore magna aliqua. '
         ])
-    expected_raise: _Raise = _Raise(
+    expected_raise: Raise = Raise(
         err_class_name='ValueError',
         description=(
             'Lorem ipsum dolor sit amet, consectetur adipiscing '
@@ -627,10 +627,10 @@ def test__make_raise_description_and_append_to_list() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test_extract_raise_values_from_docstring() -> None:
-    raise_values: List[_Raise] = docstring_util.\
+    raise_values: List[Raise] = docstring_util.\
         extract_raise_values_from_docstring(docstring=_TEST_DOCSTRING)
     assert len(raise_values) == 2
-    expected_raise: _Raise = _Raise(
+    expected_raise: Raise = Raise(
         err_class_name='ValueError',
         description=(
             'Quos dolores et quas molestias excepturi sint, '
@@ -638,7 +638,7 @@ def test_extract_raise_values_from_docstring() -> None:
         ))
     assert raise_values[0] == expected_raise
 
-    expected_raise = _Raise(
+    expected_raise = Raise(
         err_class_name='ImportError',
         description=(
             'Cupiditate non provident, similique sunt in culpa.'
@@ -863,11 +863,11 @@ def test_append_raises_to_markdown() -> None:
         raises=[])
     assert markdown == '## add_child interface api document'
 
-    raises: List[_Raise] = [
-        _Raise(
+    raises: List[Raise] = [
+        Raise(
             err_class_name='ValueError',
             description='Lorem ipsum dolor sit.'),
-        _Raise(
+        Raise(
             err_class_name='ImportError',
             description='Amet, consectetur adipiscing elit.'),
     ]

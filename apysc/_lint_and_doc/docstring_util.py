@@ -361,7 +361,7 @@ def _convert_docstring_to_markdown(
             target_type=Parameter, docstring=docstring)
     returns: List[Return] = extract_param_or_rtn_values_from_docstring(
         target_type=Return, docstring=docstring)
-    raises: List[_Raise] = extract_raise_values_from_docstring(
+    raises: List[Raise] = extract_raise_values_from_docstring(
         docstring=docstring)
     notes: str = extract_notes_from_docstring(docstring=docstring)
     examples: List[_Example] = extract_example_values_from_docstring(
@@ -611,7 +611,7 @@ class Return(_ParamOrRtnBase):
     """
 
 
-class _Raise:
+class Raise:
     """Raise value type.
     """
     _err_class_name: str
@@ -670,7 +670,7 @@ class _Raise:
             If each attribute is equal to the other, this
             method returns True.
         """
-        if not isinstance(other, _Raise):
+        if not isinstance(other, Raise):
             return False
         if self.err_class_name != other.err_class_name:
             return False
@@ -1018,7 +1018,7 @@ def append_references_to_markdown(
 
 
 def append_raises_to_markdown(
-        *, markdown: str, raises: List[_Raise]) -> str:
+        *, markdown: str, raises: List[Raise]) -> str:
     """
     Append raises to a specified markdown string.
 
@@ -1026,7 +1026,7 @@ def append_raises_to_markdown(
     ----------
     markdown : str
         Target markdown string.
-    raises : list of _Raise
+    raises : list of Raise
         Raises list value to append to.
 
     Returns
@@ -1201,7 +1201,7 @@ def _remove_unnecessary_markdown_list_from_line(
     return line
 
 
-def extract_raise_values_from_docstring(*, docstring: str) -> List[_Raise]:
+def extract_raise_values_from_docstring(*, docstring: str) -> List[Raise]:
     """
     Extract raise values from a docstring.
 
@@ -1212,7 +1212,7 @@ def extract_raise_values_from_docstring(*, docstring: str) -> List[_Raise]:
 
     Returns
     -------
-    raise_values : list of _Raise
+    raise_values : list of Raise
         Extracted raise values.
     """
     lines: List[str] = docstring.splitlines()
@@ -1221,7 +1221,7 @@ def extract_raise_values_from_docstring(*, docstring: str) -> List[_Raise]:
     err_class_name: str = ''
     base_indent_num: int = 0
     description_lines: List[str] = []
-    raise_values: List[_Raise] = []
+    raise_values: List[Raise] = []
     for line in lines:
         current_indent_num: int = _get_indent_num_from_line(line=line)
         base_indent_num = _get_base_indent_num_if_not_set(
@@ -1334,7 +1334,7 @@ def _get_base_indent_num_if_not_set(
 
 def _make_raise_description_and_append_to_list(
         *,
-        raise_values: List[_Raise],
+        raise_values: List[Raise],
         err_class_name: str,
         description_lines: List[str]) -> None:
     """
@@ -1347,7 +1347,7 @@ def _make_raise_description_and_append_to_list(
 
     Parameters
     ----------
-    raise_values : list of _Raise
+    raise_values : list of Raise
         A list to append a raise value.
     err_class_name : str
         Target error class name.
@@ -1359,7 +1359,7 @@ def _make_raise_description_and_append_to_list(
     description: str = '\n'.join(description_lines)
     description = _remove_line_breaks_and_unnecessary_spaces(
         text=description)
-    raise_: _Raise = _Raise(
+    raise_: Raise = Raise(
         err_class_name=err_class_name, description=description)
     raise_values.append(raise_)
     description_lines.clear()

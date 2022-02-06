@@ -944,14 +944,14 @@ def test__append_references_to_markdown() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__append_summary_to_markdown() -> None:
+def test_append_summary_to_markdown() -> None:
     markdown: str = '## add_child interface api document'
-    markdown = docstring_util._append_summary_to_markdown(
+    markdown = docstring_util.append_summary_to_markdown(
         markdown=markdown, summary='',
         heading_label='**[Interface summary]** ')
     assert markdown == '## add_child interface api document'
 
-    markdown = docstring_util._append_summary_to_markdown(
+    markdown = docstring_util.append_summary_to_markdown(
         markdown=markdown,
         summary='Lorem ipsum dolor sit.',
         heading_label='**[Interface summary]** ')
@@ -962,7 +962,7 @@ def test__append_summary_to_markdown() -> None:
     )
 
     markdown = '## add_child interface api document'
-    markdown = docstring_util._append_summary_to_markdown(
+    markdown = docstring_util.append_summary_to_markdown(
         markdown=markdown,
         summary='<br>・Lorem ipsum.<br>・dolor sit.',
         heading_label='**[Interface summary]** ')

@@ -379,7 +379,7 @@ def _convert_docstring_to_markdown(
         markdown += (
             f'\n\n**[Interface signature]** `{callable_name}{signature}`<hr>'
         )
-    markdown = _append_summary_to_markdown(
+    markdown = append_summary_to_markdown(
         markdown=markdown, summary=summary,
         heading_label='**[Interface summary]** ')
     markdown = _append_params_or_rtns_to_markdown(
@@ -418,7 +418,7 @@ def _remove_trailing_hr_tag(*, markdown: str) -> str:
     return markdown
 
 
-def _append_summary_to_markdown(
+def append_summary_to_markdown(
         *, markdown: str, summary: str,
         heading_label: str) -> str:
     """

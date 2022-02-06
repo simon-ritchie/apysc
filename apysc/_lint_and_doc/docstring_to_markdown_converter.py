@@ -4,7 +4,7 @@ markdown files.
 
 import os
 from types import ModuleType
-from typing import Callable, List, Optional, Tuple
+from typing import Callable, List, Optional, Tuple, Type
 import inspect
 
 
@@ -63,7 +63,30 @@ def _convert_module_docstring_to_markdown(
     for toplevel_function in toplevel_functions:
         markdown = _append_toplevel_function_docstring_to_markdown(
             markdown=markdown, toplevel_function=toplevel_function)
+
+    toplevel_classes: List[Type] = _get_toplevel_classes(
+        module=module)
     pass
+
+
+def _get_toplevel_classes(*, module: ModuleType) -> List[Type]:
+    """
+    Get top-level classes from a specified module.
+
+    Parameters
+    ----------
+    module : ModuleType
+        Target module.
+
+    Returns
+    -------
+    toplevel_classes : list of Type
+        Top-level classes.
+    """
+    members: List[Tuple[str, Type]] = inspect.getmembers(
+        module, predicate=inspect.isclass)
+    toplevel_classes: List[Type] = [class_ for _, class_ in members]
+    return toplevel_classes
 
 
 def _append_toplevel_function_docstring_to_markdown(

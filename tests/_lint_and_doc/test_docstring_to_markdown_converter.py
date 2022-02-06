@@ -2,7 +2,7 @@ from random import randint
 import os
 import shutil
 from types import ModuleType
-from typing import Callable, List
+from typing import Callable, List, Type
 
 from retrying import retry
 
@@ -224,3 +224,14 @@ def test__append_each_section_to_markdown() -> None:
     ]
     for expected_str in expected_strs:
         assert expected_str in markdown
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_toplevel_classes() -> None:
+    _save_test_module()
+    module: ModuleType = module_util.read_target_path_module(
+        module_path=_TEST_MODULE_PATH)
+    toplevel_classes: List[Type] = docstring_to_markdown_converter.\
+        _get_toplevel_classes(module=module)
+    assert len(toplevel_classes) == 1
+    assert toplevel_classes[0].__name__ == '_SampleClass'

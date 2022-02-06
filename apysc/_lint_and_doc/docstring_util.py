@@ -357,9 +357,9 @@ def _convert_docstring_to_markdown(
     """
     summary: str = extract_summary_from_docstring(docstring=docstring)
     parameters: List[_Parameter] = \
-        _extract_param_or_rtn_values_from_docstring(
+        extract_param_or_rtn_values_from_docstring(
             target_type=_Parameter, docstring=docstring)
-    returns: List[_Return] = _extract_param_or_rtn_values_from_docstring(
+    returns: List[_Return] = extract_param_or_rtn_values_from_docstring(
         target_type=_Return, docstring=docstring)
     raises: List[_Raise] = _extract_raise_values_from_docstring(
         docstring=docstring)
@@ -1365,7 +1365,7 @@ def _make_raise_description_and_append_to_list(
     description_lines.clear()
 
 
-def _extract_param_or_rtn_values_from_docstring(
+def extract_param_or_rtn_values_from_docstring(
         *, target_type: Type[_ParamOrRtn],
         docstring: str) -> List[_ParamOrRtn]:
     """

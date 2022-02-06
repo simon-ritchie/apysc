@@ -366,9 +366,9 @@ _TEST_DOCSTRING: str = (
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__extract_param_or_rtn_values_from_docstring() -> None:
+def test_extract_param_or_rtn_values_from_docstring() -> None:
     param_values: List[_Parameter] = docstring_util.\
-        _extract_param_or_rtn_values_from_docstring(
+        extract_param_or_rtn_values_from_docstring(
             target_type=_Parameter,
             docstring=_TEST_DOCSTRING)
     assert len(param_values) == 2
@@ -394,7 +394,7 @@ def test__extract_param_or_rtn_values_from_docstring() -> None:
     assert param_values[1] == parameter
 
     return_values: List[_Return] = docstring_util.\
-        _extract_param_or_rtn_values_from_docstring(
+        extract_param_or_rtn_values_from_docstring(
             target_type=_Return,
             docstring=_TEST_DOCSTRING)
     assert len(return_values) == 2

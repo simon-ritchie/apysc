@@ -22,23 +22,23 @@ _DOCSTRING_PATH_COMMENT_PATTERN: str = (
     r'(?P<path>.*?)\-\-\>'
 )
 
-_HYPHENS_LINE_PATTERN: str = r'\s{4}-----'
+_HYPHENS_LINE_PATTERN: str = r'(\s{4}|^)-----'
 
 
 class _SectionPattern(Enum):
-    PARAMETERS = r'\s{4}Parameters$'
-    RETURNS = r'\s{4}Returns$'
-    YIELDS = r'\s{4}Yields$'
-    RECEIVES = r'\s{4}Receives$'
-    RAISES = r'\s{4}Raises$'
-    WARNS = r'\s{4}Warns$'
-    WARNINGS = r'\s{4}Warnings$'
-    SEE_ALSO = r'\s{4}See Also$'
-    NOTES = r'\s{4}Notes$'
-    REFERENCES = r'\s{4}References$'
-    EXAMPLES = r'\s{4}Examples$'
-    ATTRIBUTES = r'\s{4}Attributes$'
-    METHODS = r'\s{4}Methods$'
+    PARAMETERS = r'(\s{4}|^)Parameters$'
+    RETURNS = r'(\s{4}|^)Returns$'
+    YIELDS = r'(\s{4}|^)Yields$'
+    RECEIVES = r'(\s{4}|^)Receives$'
+    RAISES = r'(\s{4}|^)Raises$'
+    WARNS = r'(\s{4}|^)Warns$'
+    WARNINGS = r'(\s{4}|^)Warnings$'
+    SEE_ALSO = r'(\s{4}|^)See Also$'
+    NOTES = r'(\s{4}|^)Notes$'
+    REFERENCES = r'(\s{4}|^)References$'
+    EXAMPLES = r'(\s{4}|^)Examples$'
+    ATTRIBUTES = r'(\s{4}|^)Attributes$'
+    METHODS = r'(\s{4}|^)Methods$'
 
 
 def get_docstring_src_module_paths(md_file_path: str) -> List[str]:

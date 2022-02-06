@@ -48,7 +48,7 @@ FLAKE8_COMMAND: Final[str] = (
 )
 
 NUMDOCLINT_NO_PATH_COMMAND: Final[str] = (
-    'numdoclint -r -f test,sample,_test,_sample,mock_'
+    'numdoclint -r -f test,sample,_test,_sample,mock_,teardown,setup'
 )
 
 NUMDOCLINT_COMMAND: Final[str] = (

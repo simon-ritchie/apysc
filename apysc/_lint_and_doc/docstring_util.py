@@ -494,11 +494,8 @@ def _extract_notes_from_docstring(*, docstring: str) -> str:
     lines: List[str] = docstring.splitlines()
     lines = _remove_blank_lines_from_list(lines=lines)
     is_notes_section_range: bool = False
-    base_indent_num: int = 0
     notes_lines: List[str] = []
     for line in lines:
-        base_indent_num = _get_base_indent_num_if_not_set(
-            line=line, base_indent_num=base_indent_num)
         if _is_target_section_pattern_line(
                 line=line,
                 section_pattern=_SectionPattern.NOTES):

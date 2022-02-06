@@ -363,7 +363,7 @@ def _convert_docstring_to_markdown(
         target_type=_Return, docstring=docstring)
     raises: List[_Raise] = _extract_raise_values_from_docstring(
         docstring=docstring)
-    notes: str = _extract_notes_from_docstring(docstring=docstring)
+    notes: str = extract_notes_from_docstring(docstring=docstring)
     examples: List[_Example] = _extract_example_values_from_docstring(
         docstring=docstring)
     references: List[_Reference] = _extract_reference_values_from_docstring(
@@ -387,7 +387,7 @@ def _convert_docstring_to_markdown(
     markdown = _append_params_or_rtns_to_markdown(
         markdown=markdown, params_or_rtns=returns)
     markdown = _append_raises_to_markdown(markdown=markdown, raises=raises)
-    markdown = _append_notes_to_markdown(markdown=markdown, notes=notes)
+    markdown = append_notes_to_markdown(markdown=markdown, notes=notes)
     markdown = _append_examples_to_markdown(
         markdown=markdown, examples=examples)
     markdown = _append_references_to_markdown(
@@ -448,7 +448,7 @@ def append_summary_to_markdown(
     return markdown
 
 
-def _append_notes_to_markdown(*, markdown: str, notes: str) -> str:
+def append_notes_to_markdown(*, markdown: str, notes: str) -> str:
     """
     Append a notes string to a specified markdown string.
 
@@ -477,7 +477,7 @@ def _append_notes_to_markdown(*, markdown: str, notes: str) -> str:
     return markdown
 
 
-def _extract_notes_from_docstring(*, docstring: str) -> str:
+def extract_notes_from_docstring(*, docstring: str) -> str:
     """
     Extract a notes value from a docstring.
 

@@ -693,8 +693,8 @@ def test__is_skip_target_line() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__extract_notes_from_docstring() -> None:
-    notes: str = docstring_util._extract_notes_from_docstring(
+def test_extract_notes_from_docstring() -> None:
+    notes: str = docstring_util.extract_notes_from_docstring(
         docstring=_TEST_DOCSTRING)
     assert notes == (
         'At vero eos et accusamus et iusto odio dignissimos '
@@ -884,14 +884,14 @@ def test__append_raises_to_markdown() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__append_notes_to_markdown() -> None:
+def test_append_notes_to_markdown() -> None:
     markdown: str = '## add_child interface api document'
-    markdown = docstring_util._append_notes_to_markdown(
+    markdown = docstring_util.append_notes_to_markdown(
         markdown=markdown,
         notes='')
     assert markdown == '## add_child interface api document'
 
-    markdown = docstring_util._append_notes_to_markdown(
+    markdown = docstring_util.append_notes_to_markdown(
         markdown=markdown,
         notes='Lorem ipsum dolor sit.')
     assert markdown == (
@@ -901,7 +901,7 @@ def test__append_notes_to_markdown() -> None:
     )
 
     markdown = '## add_child interface api document'
-    markdown = docstring_util._append_notes_to_markdown(
+    markdown = docstring_util.append_notes_to_markdown(
         markdown=markdown,
         notes='<br>・Lorem ipsum.<br>・dolor sit.')
     assert markdown == (

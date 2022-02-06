@@ -17,7 +17,7 @@ from apysc._lint_and_doc.docstring_util import Parameter
 from apysc._lint_and_doc.docstring_util import _ParamOrRtnBase
 from apysc._lint_and_doc.docstring_util import _Raise
 from apysc._lint_and_doc.docstring_util import _Reference
-from apysc._lint_and_doc.docstring_util import _Return
+from apysc._lint_and_doc.docstring_util import Return
 from apysc._lint_and_doc.docstring_util import _SectionPattern
 from tests.testing_helper import assert_attrs
 from tests.testing_helper import assert_raises
@@ -393,14 +393,14 @@ def test_extract_param_or_rtn_values_from_docstring() -> None:
         ))
     assert param_values[1] == parameter
 
-    return_values: List[_Return] = docstring_util.\
+    return_values: List[Return] = docstring_util.\
         extract_param_or_rtn_values_from_docstring(
-            target_type=_Return,
+            target_type=Return,
             docstring=_TEST_DOCSTRING)
     assert len(return_values) == 2
     for return__ in return_values:
-        assert isinstance(return__, _Return)
-    return_: _Return = _Return(
+        assert isinstance(return__, Return)
+    return_: Return = Return(
         name='test_return_val_1',
         type_str='bool or int',
         description=(
@@ -410,7 +410,7 @@ def test_extract_param_or_rtn_values_from_docstring() -> None:
             'Omnis dolor repellendus. Temporibus autem quibusdam.'
         ))
     assert return_values[0] == return_
-    return_ = _Return(
+    return_ = Return(
         name='test_return_val_2',
         type_str='Sprite',
         description=(
@@ -529,7 +529,7 @@ def test__get_params_or_rtns_section_pattern_by_type() -> None:
     assert pattern == _SectionPattern.PARAMETERS
 
     pattern = docstring_util._get_params_or_rtns_section_pattern_by_type(
-        target_type=_Return)
+        target_type=Return)
     assert pattern == _SectionPattern.RETURNS
 
     assert_raises(
@@ -831,8 +831,8 @@ def test_append_params_or_rtns_to_markdown() -> None:
     )
     assert markdown == expected
 
-    returns: List[_Return] = [
-        _Return(
+    returns: List[Return] = [
+        Return(
             name='test_return_value',
             type_str='int',
             description='Lorem  ipsum dolor sit.'),

@@ -359,8 +359,8 @@ def _convert_docstring_to_markdown(
     parameters: List[Parameter] = \
         extract_param_or_rtn_values_from_docstring(
             target_type=Parameter, docstring=docstring)
-    returns: List[_Return] = extract_param_or_rtn_values_from_docstring(
-        target_type=_Return, docstring=docstring)
+    returns: List[Return] = extract_param_or_rtn_values_from_docstring(
+        target_type=Return, docstring=docstring)
     raises: List[_Raise] = extract_raise_values_from_docstring(
         docstring=docstring)
     notes: str = extract_notes_from_docstring(docstring=docstring)
@@ -606,7 +606,7 @@ class Parameter(_ParamOrRtnBase):
     """
 
 
-class _Return(_ParamOrRtnBase):
+class Return(_ParamOrRtnBase):
     """Return value type.
     """
 
@@ -1047,7 +1047,7 @@ def append_raises_to_markdown(
     return markdown
 
 
-_ParamOrRtn = TypeVar('_ParamOrRtn', Parameter, _Return)
+_ParamOrRtn = TypeVar('_ParamOrRtn', Parameter, Return)
 
 
 def append_params_or_rtns_to_markdown(
@@ -1374,13 +1374,13 @@ def extract_param_or_rtn_values_from_docstring(
     Parameters
     ----------
     target_type : Type
-        Target type of the Parameter or _Return.
+        Target type of the Parameter or Return.
     docstring : str
         Target docstring.
 
     Returns
     -------
-    param_or_rtn_values : list of Parameter or _Return
+    param_or_rtn_values : list of Parameter or Return
         Extracted parameter or return values.
     """
     lines: List[str] = docstring.splitlines()
@@ -1466,7 +1466,7 @@ def _get_params_or_rtns_section_pattern_by_type(
 
     Parameters
     ----------
-    target_type : Parameter or _Return
+    target_type : Parameter or Return
         Target type.
 
     Returns
@@ -1481,7 +1481,7 @@ def _get_params_or_rtns_section_pattern_by_type(
     """
     if target_type == Parameter:
         return _SectionPattern.PARAMETERS
-    if target_type == _Return:
+    if target_type == Return:
         return _SectionPattern.RETURNS
     raise ValueError(
         f'Invalid type argument is provided: {target_type}')
@@ -1505,7 +1505,7 @@ def _make_prm_or_rtn_description_and_append_to_list(
     Parameters
     ----------
     target_type : Type
-        Target type of the Parameter or _Return.
+        Target type of the Parameter or Return.
     param_or_rtn_values : lisf of _ParamOrRtnBase
         A list to append a parameter or return value.
     value_name : str

@@ -1075,7 +1075,7 @@ def test__convert_docstring_path_comment_to_markdown_format() -> None:
         _convert_docstring_path_comment_to_markdown_format(
             docstring_path_comment=(
                 f'<!-- {_PATH_COMMENT_KEYWORD}'
-                ' tests._string.test_docstring_util.'
+                ' tests._lint_and_doc.test_docstring_util.'
                 'test__convert_docstring_path_comment_to_markdown_format'
                 ' -->'
             ),

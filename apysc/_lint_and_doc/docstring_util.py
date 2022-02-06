@@ -386,7 +386,7 @@ def _convert_docstring_to_markdown(
         markdown=markdown, params_or_rtns=parameters)
     markdown = append_params_or_rtns_to_markdown(
         markdown=markdown, params_or_rtns=returns)
-    markdown = _append_raises_to_markdown(markdown=markdown, raises=raises)
+    markdown = append_raises_to_markdown(markdown=markdown, raises=raises)
     markdown = append_notes_to_markdown(markdown=markdown, notes=notes)
     markdown = _append_examples_to_markdown(
         markdown=markdown, examples=examples)
@@ -1017,7 +1017,7 @@ def append_references_to_markdown(
     return markdown
 
 
-def _append_raises_to_markdown(
+def append_raises_to_markdown(
         *, markdown: str, raises: List[_Raise]) -> str:
     """
     Append raises to a specified markdown string.

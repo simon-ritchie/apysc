@@ -856,9 +856,9 @@ def test_append_params_or_rtns_to_markdown() -> None:
 
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
-def test__append_raises_to_markdown() -> None:
+def test_append_raises_to_markdown() -> None:
     markdown: str = '## add_child interface api document'
-    markdown = docstring_util._append_raises_to_markdown(
+    markdown = docstring_util.append_raises_to_markdown(
         markdown=markdown,
         raises=[])
     assert markdown == '## add_child interface api document'
@@ -871,7 +871,7 @@ def test__append_raises_to_markdown() -> None:
             err_class_name='ImportError',
             description='Amet, consectetur adipiscing elit.'),
     ]
-    markdown = docstring_util._append_raises_to_markdown(
+    markdown = docstring_util.append_raises_to_markdown(
         markdown=markdown, raises=raises)
     expected: str = (
         '## add_child interface api document'

@@ -8,6 +8,7 @@ from retrying import retry
 
 from apysc._lint_and_doc import docstring_to_markdown_converter
 from apysc._file import file_util, module_util
+from apysc._lint_and_doc import lint_and_doc_hash_util
 
 
 _MODULE_STR: str = \
@@ -315,3 +316,49 @@ def test__save_markdown() -> None:
     assert expected in markdown
 
     shutil.rmtree('./docstring_markdowns/tmp/', ignore_errors=True)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test_convert_recursively() -> None:
+    _save_test_module()
+    shutil.rmtree('./docstring_markdowns/tmp/', ignore_errors=True)
+    subdir_path: str = os.path.join(
+        _TEST_MODULE_DIR_PATH,
+        'subdir/',
+    )
+    os.makedirs(subdir_path, exist_ok=True)
+    txt_path: str = os.path.join(
+        _TEST_MODULE_DIR_PATH,
+        'test.txt',
+    )
+    file_util.save_plain_txt(txt='test', file_path=txt_path)
+    init_path: str = os.path.join(_TEST_MODULE_DIR_PATH, '__init__.py')
+
+    saved_markdown_file_paths: List[str] = docstring_to_markdown_converter.\
+        convert_recursively(dir_path='./not/existing/dir/')
+    assert saved_markdown_file_paths == []
+
+    hash_file_path_1: str = \
+        lint_and_doc_hash_util.get_target_module_hash_file_path(
+            module_path=_TEST_MODULE_PATH,
+            hash_type=lint_and_doc_hash_util.HashType.DOCSTRING_TO_MARKDOWN)
+    hash_file_path_2: str = \
+        lint_and_doc_hash_util.get_target_module_hash_file_path(
+            module_path=init_path,
+            hash_type=lint_and_doc_hash_util.HashType.DOCSTRING_TO_MARKDOWN)
+    for hash_file_path in (hash_file_path_1, hash_file_path_2):
+        file_util.remove_file_if_exists(file_path=hash_file_path)
+    saved_markdown_file_paths = docstring_to_markdown_converter.\
+        convert_recursively(dir_path=_TEST_MODULE_DIR_PATH)
+    assert len(saved_markdown_file_paths) == 2
+    assert (
+        'test_module_1.md' in saved_markdown_file_paths[0]
+        or 'test_module_1.md' in saved_markdown_file_paths[1])
+
+    saved_markdown_file_paths = docstring_to_markdown_converter.\
+        convert_recursively(dir_path=_TEST_MODULE_DIR_PATH)
+    assert saved_markdown_file_paths == []
+
+    shutil.rmtree('./docstring_markdowns/tmp/', ignore_errors=True)
+    for hash_file_path in (hash_file_path_1, hash_file_path_2):
+        file_util.remove_file_if_exists(file_path=hash_file_path)

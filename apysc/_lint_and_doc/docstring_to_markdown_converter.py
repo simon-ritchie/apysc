@@ -9,7 +9,7 @@ from typing import Callable, List, Optional, Tuple, Type
 import inspect
 
 
-def convert_recursively(*, dir_path: str) -> None:
+def convert_recursively(*, dir_path: str) -> List[str]:
     """
     Convert each docstring in the specified directory
     to markdown files recursively.
@@ -18,15 +18,21 @@ def convert_recursively(*, dir_path: str) -> None:
     ----------
     dir_path : str
         Target directory path.
+
+    Returns
+    -------
+    saved_markdown_file_paths : list of str
+        list of saved markdown file paths.
     """
     from apysc._lint_and_doc import lint_and_doc_hash_util
     if not os.path.isdir(dir_path):
-        return
+        return []
+    saved_markdown_file_paths: List[str] = []
     file_or_dir_names: List[str] = os.listdir(dir_path)
     for file_or_dir_name in file_or_dir_names:
         file_or_dir_path: str = os.path.join(
             dir_path, file_or_dir_name)
-        if os.path.isfile(file_or_dir_path):
+        if os.path.isdir(file_or_dir_path):
             convert_recursively(dir_path=file_or_dir_path)
             continue
         if not file_or_dir_path.endswith('.py'):
@@ -36,10 +42,13 @@ def convert_recursively(*, dir_path: str) -> None:
             hash_type=lint_and_doc_hash_util.HashType.DOCSTRING_TO_MARKDOWN)
         if not is_module_updated:
             continue
-        _save_markdown(module_path=file_or_dir_path)
+        saved_markdown_file_path: str = _save_markdown(
+            module_path=file_or_dir_path)
+        saved_markdown_file_paths.append(saved_markdown_file_path)
         lint_and_doc_hash_util.save_target_module_hash(
             module_path=file_or_dir_path,
             hash_type=lint_and_doc_hash_util.HashType.DOCSTRING_TO_MARKDOWN)
+    return saved_markdown_file_paths
 
 
 def _save_markdown(*, module_path: str) -> str:

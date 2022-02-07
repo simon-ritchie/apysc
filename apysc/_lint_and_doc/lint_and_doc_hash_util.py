@@ -38,6 +38,7 @@ class HashType(Enum):
     ISORT = 'isort'
     AUTOPEP8 = 'autopep8'
     DOCSTRING_SRC = 'docstring_src'
+    DOCSTRING_TO_MARKDOWN = 'docstring_to_markdown'
 
 
 _HASH_PACKAGE_ROOT_PATH: str = './.lint_and_doc_hash'

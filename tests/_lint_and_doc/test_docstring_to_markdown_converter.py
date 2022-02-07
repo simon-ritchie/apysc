@@ -296,3 +296,22 @@ def test__convert_module_docstring_to_markdown() -> None:
     ]
     for expected_str in expected_strs:
         assert expected_str in markdown
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__save_markdown() -> None:
+    _save_test_module()
+    markdown_file_path: str = docstring_to_markdown_converter._save_markdown(
+        module_path=_TEST_MODULE_PATH,
+    )
+    assert markdown_file_path == (
+        './docstring_markdowns/tmp/test_docstring_to_markdown_converter'
+        '/test_module_1.md')
+    assert os.path.isfile(markdown_file_path)
+    markdown: str = file_util.read_txt(file_path=markdown_file_path)
+    expected: str = (
+        '# tmp.test_docstring_to_markdown_converter.test_module_1 docstrings'
+    )
+    assert expected in markdown
+
+    shutil.rmtree('./docstring_markdowns/tmp/', ignore_errors=True)

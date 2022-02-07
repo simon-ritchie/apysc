@@ -19,7 +19,7 @@ def convert_recursively(*, dir_path: str) -> None:
     dir_path : str
         Target directory path.
     """
-    from apysc._file import module_util
+    from apysc._lint_and_doc import lint_and_doc_hash_util
     if not os.path.isdir(dir_path):
         return
     file_or_dir_names: List[str] = os.listdir(dir_path)
@@ -31,12 +31,44 @@ def convert_recursively(*, dir_path: str) -> None:
             continue
         if not file_or_dir_path.endswith('.py'):
             continue
-        module: ModuleType = module_util.read_target_path_module(
-            module_path=file_or_dir_path)
-        markdown: str = _convert_module_docstring_to_markdown(
-            module=module)
-        pass
-    pass
+        is_module_updated: bool = lint_and_doc_hash_util.is_module_updated(
+            module_path=file_or_dir_path,
+            hash_type=lint_and_doc_hash_util.HashType.DOCSTRING_TO_MARKDOWN)
+        if not is_module_updated:
+            continue
+        _save_markdown(module_path=file_or_dir_path)
+        lint_and_doc_hash_util.save_target_module_hash(
+            module_path=file_or_dir_path,
+            hash_type=lint_and_doc_hash_util.HashType.DOCSTRING_TO_MARKDOWN)
+
+
+def _save_markdown(*, module_path: str) -> str:
+    """
+    Save a specified module's markdown file.
+
+    Parameters
+    ----------
+    module_path : str
+        Target Python module path.
+
+    Returns
+    -------
+    markdown_file_path : str
+        Saved markdown file path.
+    """
+    from apysc._file import module_util, file_util
+    module: ModuleType = module_util.read_target_path_module(
+        module_path=module_path)
+    markdown: str = _convert_module_docstring_to_markdown(
+        module=module)
+    markdown_file_path: str = module_path.replace('.py', '.md', 1)
+    if markdown_file_path.startswith('./'):
+        markdown_file_path = markdown_file_path.replace('./', '', 1)
+    markdown_file_path = os.path.join(
+        './docstring_markdowns/', markdown_file_path)
+    file_util.save_plain_txt(
+        txt=markdown, file_path=markdown_file_path)
+    return markdown_file_path
 
 
 def _convert_module_docstring_to_markdown(

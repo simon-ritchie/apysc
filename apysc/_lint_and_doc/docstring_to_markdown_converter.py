@@ -2,6 +2,7 @@
 markdown files.
 """
 
+from typing import Dict
 import os
 from types import ModuleType
 from typing import Callable, List, Optional, Tuple, Type
@@ -102,7 +103,6 @@ def _append_toplevel_class_docstring_to_markdown(
 
     methods: List[Callable] = _get_methods_from_class(
         class_=toplevel_class)
-    print('methods', methods)
     for method in methods:
         if method.__doc__ is None:
             continue
@@ -111,6 +111,68 @@ def _append_toplevel_class_docstring_to_markdown(
             markdown=markdown, docstring=method.__doc__)
 
     return markdown
+
+
+_EXCLUDING_TARGET_BUILTIN_METHODS: Dict[str, str] = {
+    'type':
+    "type(object_or_name, bases, dict)"
+    "\ntype(object) -> the object's type"
+    "\ntype(name, bases, dict) -> a new type",
+
+    '__delattr__': 'Implement delattr(self, name).',
+
+    '__dir__':
+    '__dir__() -> list'
+    '\ndefault dir() implementation',
+
+    '__eq__': 'Return self==value.',
+
+    '__format__': 'default object formatter',
+
+    '__ge__': 'Return self>=value.',
+
+    '__getattribute__': 'Return getattr(self, name).',
+
+    '__gt__': 'Return self>value.',
+
+    '__hash__': 'Return hash(self).',
+
+    '__init_subclass__':
+    'This method is called when a class is subclassed.'
+    '\n\nThe default implementation does nothing. It may be'
+    '\noverridden to extend subclasses.\n',
+
+    '__le__': 'Return self<=value.',
+
+    '__lt__': 'Return self<value.',
+
+    '__ne__': 'Return self!=value.',
+
+    '__new__':
+    'Create and return a new object.  '
+    'See help(type) for accurate signature.',
+
+    '__reduce__': 'helper for pickle',
+
+    '__reduce_ex__': 'helper for pickle',
+
+    '__repr__': 'Return repr(self).',
+
+    '__setattr__': 'Implement setattr(self, name, value).',
+
+    '__sizeof__':
+    '__sizeof__() -> int'
+    '\nsize of object in memory, in bytes',
+
+    '__str__': 'Return str(self).',
+
+    '__subclasshook__':
+    'Abstract classes can override this to customize issubclass().'
+    '\n\nThis is invoked early on by abc.ABCMeta.__subclasscheck__().'
+    '\nIt should return True, False or NotImplemented.  If it returns'
+    '\nNotImplemented, the normal algorithm is used.  Otherwise, it'
+    '\noverrides the normal algorithm (and the outcome is cached).\n',
+}
 
 
 def _get_methods_from_class(*, class_: Type) -> List[Callable]:
@@ -129,7 +191,15 @@ def _get_methods_from_class(*, class_: Type) -> List[Callable]:
     """
     members: List[Tuple[str, Callable]] = inspect.getmembers(
         class_, predicate=callable)
-    methods: List[Callable] = [method for _, method in members]
+    methods: List[Callable] = []
+    for _, method in members:
+        if method.__doc__ is None:
+            continue
+        builtin_docstring: str = _EXCLUDING_TARGET_BUILTIN_METHODS.get(
+            method.__name__, '')
+        if method.__doc__ == builtin_docstring:
+            continue
+        methods.append(method)
     return methods
 
 

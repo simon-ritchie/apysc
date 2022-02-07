@@ -70,7 +70,8 @@ def _convert_module_docstring_to_markdown(
     for toplevel_class in toplevel_classes:
         markdown = _append_toplevel_class_docstring_to_markdown(
             markdown=markdown, toplevel_class=toplevel_class)
-    pass
+
+    return markdown
 
 
 def _append_toplevel_class_docstring_to_markdown(

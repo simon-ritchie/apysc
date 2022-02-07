@@ -277,3 +277,22 @@ def test__append_toplevel_class_docstring_to_markdown() -> None:
     ]
     for expected_str in expected_strs:
         assert expected_str in markdown
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__convert_module_docstring_to_markdown() -> None:
+    _save_test_module()
+    module: ModuleType = module_util.read_target_path_module(
+        module_path=_TEST_MODULE_PATH)
+    markdown: str = docstring_to_markdown_converter.\
+        _convert_module_docstring_to_markdown(module=module)
+    expected_strs: List[str] = [
+        '# tmp.test_docstring_to_markdown_converter.test_module_1 docstrings',
+        '## Module summary',
+        '## sample_func_1 function docstring',
+        '## _SampleClass class docstring',
+        '### __init__ method docstring',
+        '### sample_method_1 method docstring',
+    ]
+    for expected_str in expected_strs:
+        assert expected_str in markdown

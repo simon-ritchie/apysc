@@ -107,6 +107,7 @@ def _main() -> None:
     """Entry point of this command.
     """
     from scripts.build_docs import HASHED_VALS_DIR_PATH
+    from apysc._lint_and_doc import docstring_to_markdown_converter
     options: _CommandOptions = _get_command_options()
     shutil.rmtree('./build/', ignore_errors=True)
     if not options['skip_overall_docs_build']:
@@ -129,6 +130,11 @@ def _main() -> None:
     pyright_process: sp.Popen = sp.Popen(
         _PYRIGHT_COMMAND['command'].split(' '),
         stdout=sp.PIPE, stderr=sp.PIPE)
+
+    logger.info(msg='Docstring to markdown conversion started.')
+    docstring_to_markdown_process: mp.Process = mp.Process(
+        target=docstring_to_markdown_converter.convert_recursively,
+        kwargs={'dir_path': './apysc/'})
 
     logger.info(msg='Checking apysc top-level importing command started.')
     checking_apysc_top_level_import_process: sp.Popen = sp.Popen(
@@ -163,8 +169,26 @@ def _main() -> None:
     _check_pyright_process(pyright_process=pyright_process)
     _check_apysc_top_level_importing_process(
         process=checking_apysc_top_level_import_process)
+    _check_docstring_to_markdown_process(
+        process=docstring_to_markdown_process)
 
     logger.info(msg='Ended.')
+
+
+def _check_docstring_to_markdown_process(
+        *, process: mp.Process) -> None:
+    """
+    Check the docstring to markdown conversion process result.
+
+    Parameters
+    ----------
+    process : Process
+        Target process.
+    """
+    print('-' * 20)
+    logger.info(
+        msg='Waiting docstring to markdown conversion completion...')
+    process.join()
 
 
 _SRC_DOCS_DIR_PATH: str = './docs_src/source/'

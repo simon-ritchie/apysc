@@ -1,0 +1,1 @@
+# apysc._string.__init__ docstrings

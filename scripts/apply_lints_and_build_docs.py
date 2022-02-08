@@ -135,6 +135,7 @@ def _main() -> None:
     docstring_to_markdown_process: mp.Process = mp.Process(
         target=docstring_to_markdown_converter.convert_recursively,
         kwargs={'dir_path': './apysc/'})
+    docstring_to_markdown_process.start()
 
     logger.info(msg='Checking apysc top-level importing command started.')
     checking_apysc_top_level_import_process: sp.Popen = sp.Popen(

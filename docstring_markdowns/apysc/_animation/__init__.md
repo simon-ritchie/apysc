@@ -1,0 +1,1 @@
+# apysc._animation.__init__ docstrings

@@ -1,0 +1,1 @@
+# apysc._event.__init__ docstrings

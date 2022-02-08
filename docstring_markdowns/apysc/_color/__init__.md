@@ -1,0 +1,1 @@
+# apysc._color.__init__ docstrings

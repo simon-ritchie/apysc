@@ -34,7 +34,8 @@ setup(
     packages=find_packages(
         exclude=(
             'tests', 'tests.*', 'test_projects', 'test_projects.*',
-            'scripts', 'scripts.*')),
+            'scripts', 'scripts.*', 'docstring_markdowns',
+            'docstring_markdowns.*')),
     install_requires=[
         'typing-extensions',
         'html-minifier',

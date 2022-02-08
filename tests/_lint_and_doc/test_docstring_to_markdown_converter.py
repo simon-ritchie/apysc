@@ -2,7 +2,7 @@ import os
 import shutil
 from random import randint
 from types import ModuleType
-from typing import Callable
+from typing import Callable, Dict
 from typing import List
 from typing import Type
 
@@ -364,3 +364,13 @@ def test_convert_recursively() -> None:
     shutil.rmtree('./docstring_markdowns/tmp/', ignore_errors=True)
     for hash_file_path in (hash_file_path_1, hash_file_path_2):
         file_util.remove_file_if_exists(file_path=hash_file_path)
+
+
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
+def test__get_excluding_target_builtin_methods() -> None:
+    excluding_target_builtin_methods_dict: Dict[str, str] = \
+        docstring_to_markdown_converter.\
+        _get_excluding_target_builtin_methods()
+    assert excluding_target_builtin_methods_dict['__hash__'] == (
+        'Return hash(self).'
+    )

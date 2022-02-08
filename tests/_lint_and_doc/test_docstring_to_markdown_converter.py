@@ -1,18 +1,20 @@
-from random import randint
 import os
 import shutil
+from random import randint
 from types import ModuleType
-from typing import Callable, List, Type
+from typing import Callable
+from typing import List
+from typing import Type
 
 from retrying import retry
 
+from apysc._file import file_util
+from apysc._file import module_util
 from apysc._lint_and_doc import docstring_to_markdown_converter
-from apysc._file import file_util, module_util
 from apysc._lint_and_doc import lint_and_doc_hash_util
 
-
 _MODULE_STR: str = \
-'''"""Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    '''"""Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
 Notes

@@ -2,11 +2,15 @@
 markdown files.
 """
 
-from typing import Dict
+import inspect
 import os
 from types import ModuleType
-from typing import Callable, List, Optional, Tuple, Type
-import inspect
+from typing import Callable
+from typing import Dict
+from typing import List
+from typing import Optional
+from typing import Tuple
+from typing import Type
 
 
 def convert_recursively(*, dir_path: str) -> List[str]:
@@ -65,7 +69,8 @@ def _save_markdown(*, module_path: str) -> str:
     markdown_file_path : str
         Saved markdown file path.
     """
-    from apysc._file import module_util, file_util
+    from apysc._file import file_util
+    from apysc._file import module_util
     module: ModuleType = module_util.read_target_path_module(
         module_path=module_path)
     markdown: str = _convert_module_docstring_to_markdown(
@@ -314,7 +319,11 @@ def _append_each_section_to_markdown(
         Result markdown string.
     """
     from apysc._lint_and_doc import docstring_util
-    from apysc._lint_and_doc.docstring_util import Parameter, Return, Raise, Example, Reference
+    from apysc._lint_and_doc.docstring_util import Example
+    from apysc._lint_and_doc.docstring_util import Parameter
+    from apysc._lint_and_doc.docstring_util import Raise
+    from apysc._lint_and_doc.docstring_util import Reference
+    from apysc._lint_and_doc.docstring_util import Return
     summary: str = docstring_util.extract_summary_from_docstring(
         docstring=docstring)
     parameters: List[Parameter] = \
@@ -387,8 +396,6 @@ def _append_module_docstring_to_markdown(
         Target markdown string.
     docstring : str or None
         Target module description docstring.
-    summary_heading : str
-        Summary heading string.
 
     Returns
     -------

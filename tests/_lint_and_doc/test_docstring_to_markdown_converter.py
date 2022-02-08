@@ -131,6 +131,7 @@ def _save_test_module() -> None:
         txt=_MODULE_STR, file_path=_TEST_MODULE_PATH)
 
 
+@retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def _remove_test_module_dir() -> None:
     """Remove the test modules directory.
     """
@@ -208,6 +209,7 @@ def test__append_toplevel_function_docstring_to_markdown() -> None:
 
 @retry(stop_max_attempt_number=15, wait_fixed=randint(10, 3000))
 def test__append_each_section_to_markdown() -> None:
+    _save_test_module()
     module: ModuleType = module_util.read_target_path_module(
         module_path=_TEST_MODULE_PATH)
     toplevel_functions: List[Callable] = docstring_to_markdown_converter.\
